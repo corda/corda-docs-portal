@@ -37,14 +37,15 @@ and extract `corda-cli-downloader-5.0.0.0-Gecko1.0.zip` from `net\corda\cli\depl
    ```shell
    cd corda-cli-downloader-5.0.0.0-Gecko1.0
    ```
-5. Run the install script:
-   ```shell
-   ./install.sh
-   ```
-   The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. For example, on macOS, this is typically something like `/Users/charlie.smith` or on Linux, something like `/home/charlie.smith`.
+   5. Run the install script:
+      ```shell
+      ./install.sh
+      ```
+      The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. For example, on macOS, this is typically something like `/Users/charlie.smith` or on Linux, something like `/home/charlie.smith`. You should add the Corda CLI directory to your PATH variable.
 
-6. Run the following command to verify your installation:
+6. Run the following commands to verify your installation:
    ```shell
+   cd $HOME/.corda/cli
    ./corda-cli.sh -h
    ```
    If successful, this outputs details of the Corda CLI commands.
@@ -66,14 +67,17 @@ and extract `corda-cli-downloader-5.0.0.0-Gecko1.0.zip` from `net\corda\cli\depl
    ```shell
    .\install.ps1
    ```
-   The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. On Windows, this is typically something like `C:\Users\Charlie.Smith`.
+   The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. On Windows, this is typically something like `C:\Users\Charlie.Smith`. You should add the Corda CLI directory to your PATH variable.
 
    {{< note >}}
    If your PowerShell execution policy does not allow you to run this script, copy the contents to your own PowerShell script and execute that instead.
    {{< /note >}}
 
-6. Run the following command to verify your installation:
+6. Run the following commands to verify your installation:
      ```shell
+     cd %USERPROFILE%/.corda/cli
      corda-cli.cmd -h
      ```
+
+
     If successful, this outputs details of the Corda CLI commands.
