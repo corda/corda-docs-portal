@@ -1,0 +1,349 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Builder</title>
+<link href="../../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../../../index.html">
+<span>corda-api</span>            </a>    </div>
+    <div>5.0.0.755-Hawk1.0
+    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":data:avro-schema:dokkaHtmlPartial/main">jvm</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="avro-schema::net.corda.data.ledger.utxo.token.selection.key/TokenPoolCacheKey.Builder///PointingToDeclaration//380713788">
+  <div class="breadcrumbs"><a href="../../../index.html">avro-schema</a><span class="delimiter">/</span><a href="../../index.html">net.corda.data.ledger.utxo.token.selection.key</a><span class="delimiter">/</span><a href="../index.html">TokenPoolCacheKey</a><span class="delimiter">/</span><span class="current">Builder</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Builder</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">Builder</a> : <span data-unresolved-link="org.apache.avro.specific/SpecificRecordBuilderBase///PointingToDeclaration/">SpecificRecordBuilderBase</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.avro.specific/SpecificRecordBuilderBase///PointingToGenericParameters(0)/">T</span><span class="token operator">&gt; </span>, <span data-unresolved-link="org.apache.avro.data/RecordBuilder///PointingToDeclaration/">RecordBuilder</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.avro.data/RecordBuilder///PointingToGenericParameters(0)/">T</span><span class="token operator">&gt; </span></div><p class="paragraph">RecordBuilder for TokenPoolCacheKey instances.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,FUNCTION,PROPERTY">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-174004895%2FFunctions%2F380713788" anchor-label="build" id="-174004895%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="build.html"><span><span>build</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-174004895%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="build.html"><span class="token function">build</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../index.html">TokenPoolCacheKey</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1082774917%2FFunctions%2F380713788" anchor-label="clearIssuerHash" id="-1082774917%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-issuer-hash.html"><span>clear</span><wbr><span>Issuer</span><wbr><span><span>Hash</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1082774917%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-issuer-hash.html"><span class="token function">clearIssuerHash</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">TokenPoolCacheKey.Builder</a></div><div class="brief ">Clears the value of the 'issuerHash' field.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1154919589%2FFunctions%2F380713788" anchor-label="clearNotaryX500Name" id="1154919589%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-notary-x500-name.html"><span>clear</span><wbr><span>Notary</span><wbr><span><span>X500Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1154919589%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-notary-x500-name.html"><span class="token function">clearNotaryX500Name</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">TokenPoolCacheKey.Builder</a></div><div class="brief ">Clears the value of the 'notaryX500Name' field.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1091725877%2FFunctions%2F380713788" anchor-label="clearShortHolderId" id="1091725877%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-short-holder-id.html"><span>clear</span><wbr><span>Short</span><wbr><span>Holder</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1091725877%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-short-holder-id.html"><span class="token function">clearShortHolderId</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">TokenPoolCacheKey.Builder</a></div><div class="brief ">Clears the value of the 'shortHolderId' field.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="31353834%2FFunctions%2F380713788" anchor-label="clearSymbol" id="31353834%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-symbol.html"><span>clear</span><wbr><span><span>Symbol</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="31353834%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-symbol.html"><span class="token function">clearSymbol</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">TokenPoolCacheKey.Builder</a></div><div class="brief ">Clears the value of the 'symbol' field.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="418650469%2FFunctions%2F380713788" anchor-label="clearTokenType" id="418650469%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-token-type.html"><span>clear</span><wbr><span>Token</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="418650469%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-token-type.html"><span class="token function">clearTokenType</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">TokenPoolCacheKey.Builder</a></div><div class="brief ">Clears the value of the 'tokenType' field.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1611854712%2FFunctions%2F380713788" anchor-label="equals" id="1611854712%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../../net.corda.ledger.utxo.verification/-transaction-verification-response/-builder/index.html#1611854712%2FFunctions%2F380713788"><span><span>equals</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1611854712%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../../net.corda.ledger.utxo.verification/-transaction-verification-response/-builder/index.html#1611854712%2FFunctions%2F380713788"><span class="token function">equals</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">obj<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2075362737%2FFunctions%2F380713788" anchor-label="hashCode" id="-2075362737%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../../net.corda.ledger.utxo.verification/-transaction-verification-response/-builder/index.html#-2075362737%2FFunctions%2F380713788"><span>hash</span><wbr><span><span>Code</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2075362737%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../../net.corda.ledger.utxo.verification/-transaction-verification-response/-builder/index.html#-2075362737%2FFunctions%2F380713788"><span class="token function">hashCode</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-146862194%2FFunctions%2F380713788" anchor-label="hasIssuerHash" id="-146862194%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-issuer-hash.html"><span>has</span><wbr><span>Issuer</span><wbr><span><span>Hash</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-146862194%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-issuer-hash.html"><span class="token function">hasIssuerHash</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'issuerHash' field has been set.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-189738952%2FFunctions%2F380713788" anchor-label="hasNotaryX500Name" id="-189738952%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-notary-x500-name.html"><span>has</span><wbr><span>Notary</span><wbr><span><span>X500Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-189738952%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-notary-x500-name.html"><span class="token function">hasNotaryX500Name</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'notaryX500Name' field has been set.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-60028862%2FFunctions%2F380713788" anchor-label="hasShortHolderId" id="-60028862%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-short-holder-id.html"><span>has</span><wbr><span>Short</span><wbr><span>Holder</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-60028862%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-short-holder-id.html"><span class="token function">hasShortHolderId</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'shortHolderId' field has been set.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-567094659%2FFunctions%2F380713788" anchor-label="hasSymbol" id="-567094659%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-symbol.html"><span>has</span><wbr><span><span>Symbol</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-567094659%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-symbol.html"><span class="token function">hasSymbol</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'symbol' field has been set.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="448841202%2FFunctions%2F380713788" anchor-label="hasTokenType" id="448841202%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-token-type.html"><span>has</span><wbr><span>Token</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="448841202%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-token-type.html"><span class="token function">hasTokenType</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'tokenType' field has been set.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-1887132380%2FProperties%2F380713788" anchor-label="issuerHash" id="-1887132380%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="issuer-hash.html"><span>issuer</span><wbr><span><span>Hash</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1887132380%2FProperties%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="issuer-hash.html">issuerHash</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></div><div class="brief ">Issuer of the tokens within the pool</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="509979342%2FProperties%2F380713788" anchor-label="notaryX500Name" id="509979342%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="notary-x500-name.html"><span>notary</span><wbr><span><span>X500Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="509979342%2FProperties%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="notary-x500-name.html">notaryX500Name</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></div><div class="brief ">Notary for the tokens in the pool</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="101090028%2FProperties%2F380713788" anchor-label="shortHolderId" id="101090028%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="short-holder-id.html"><span>short</span><wbr><span>Holder</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="101090028%2FProperties%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="short-holder-id.html">shortHolderId</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></div><div class="brief ">Holding identity of the pool</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="681485075%2FProperties%2F380713788" anchor-label="symbol" id="681485075%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="symbol.html"><span><span>symbol</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="681485075%2FProperties%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="symbol.html">symbol</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></div><div class="brief ">Symbol of the tokens in the pool</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1824053860%2FProperties%2F380713788" anchor-label="tokenType" id="-1824053860%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="token-type.html"><span>token</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1824053860%2FProperties%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="token-type.html">tokenType</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></div><div class="brief ">Type of tokens in the pool</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
+

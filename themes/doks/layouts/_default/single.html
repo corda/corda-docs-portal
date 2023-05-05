@@ -9,15 +9,15 @@
       </div>
 		</div>
     {{ end -}}
-		{{ if ne .Params.toc false -}}
-		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
-			{{ partial "sidebar/docs-toc.html" . }}
-		</nav>
+		{{ if ne .Parent.Page.Params.version "Corda 5.0 Beta 3" }}
+			<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+				{{ partial "sidebar/docs-toc.html" . }}
+			</nav>
 		{{ end -}}
-		{{ if .Params.toc -}}
-		<main class="docs-content col-lg-11 col-xl-9">
+		{{ if ne .Parent.Page.Params.version "Corda 5.0 Beta 3"}}
+			<main class="docs-content col-lg-11 col-xl-9 mx-lg-auto">
 		{{ else -}}
-		<main class="docs-content col-lg-11 col-xl-9 mx-lg-auto">
+			<main class="docs-content col-lg-11 col-xl-12 mx-lg-auto">
 		{{ end -}}
 			{{ if .Site.Params.options.breadCrumb -}}
 				<!-- https://discourse.gohugo.io/t/breadcrumb-navigation-for-highly-nested-content/27359/6 -->
@@ -29,7 +29,6 @@
 				</nav>
 			{{ end }}
       <h1>{{ .Title }}</h1>
-
       {{ if .Site.Params.editPage -}}
         {{ partial "main/edit-page.html" . }}
       {{ end -}}
