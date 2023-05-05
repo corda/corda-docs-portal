@@ -68,6 +68,8 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 * The default SSL handshake timeout for the embedded Artemis messaging server has been increased to 60 seconds. If during SSL handshake, certificate revocation lists (CRLs) take a long time to download, or are unreachable, then the 60 seconds gives the node enough time to establish the connection if `crlCheckSoftFail` is enabled.
 
+* A `StackOverflowException` was thrown when an attempt was made to store a deleted party in the vault. This issue has been resolved.
+
 ## Corda Enterprise Edition 4.9.6 release notes
 
 Corda Enterprise Edition 4.9.6 is a patch release of Corda Enterprise focused on resolving issues.
