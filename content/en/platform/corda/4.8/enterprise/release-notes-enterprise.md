@@ -32,6 +32,11 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 * Flow draining mode no longer acknowledges P2P in-flight messages that have not yet been committed to the database. Previously, flow draining mode acknowledged all in-flight messages as duplicate.
 
+* Corda provides the NodeDriver to help developers write integration tests. Using the NodeDriver, developers can bring up nodes locally to run flows and inspect state updates. Previously, there was an issue with build pipelines with tests failing, as on some occasions, notaries took more than one minute (the default timeout value) to start.
+
+  To resolve this, the NodeDriver now has a new parameter, notaryHandleTimeout. This parameter specifies how long to wait (in minutes) for a notary handle to come back after the notary has been started.
+
+
 ## Corda Enterprise Edition 4.8.10 release notes
 
 Corda Enterprise Edition 4.8.10 is a patch release of Corda Enterprise focused on resolving issues.
