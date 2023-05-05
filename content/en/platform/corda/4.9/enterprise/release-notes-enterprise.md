@@ -43,6 +43,10 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
   There is no need to upgrade the HSM firmware version for this update, but it is recommended to keep the firmware up to date as a matter of course. Currently, the latest firmware version is 2.8.50.
 
+* Corda provides the NodeDriver to help developers write integration tests. Using the NodeDriver, developers can bring up nodes locally to run flows and inspect state updates. Previously, there was an issue with build pipelines with tests failing, as on some occasions, notaries took more than one minute (the default timeout value) to start.
+
+  To resolve this, the NodeDriver now has a new parameter, notaryHandleTimeout. This parameter specifies how long to wait (in minutes) for a notary handle to come back after the notary has been started.
+
 ## Corda Enterprise Edition 4.9.6 release notes
 
 Corda Enterprise Edition 4.9.6 is a patch release of Corda Enterprise focused on resolving issues.
