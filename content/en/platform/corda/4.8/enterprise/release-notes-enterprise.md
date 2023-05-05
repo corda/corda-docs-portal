@@ -30,8 +30,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 * Previously, a memory leak in the transaction cache occurred due to the weight of in-flight entries being undervalued. Improvements have been made to prevent in-flight entry weights from being undervalued and because they are now estimated more correctly, this results in a large decrease in the total size of cached entities.
 
-
-
+* Flow draining mode no longer acknowledges P2P in-flight messages that have not yet been committed to the database. Previously, flow draining mode acknowledged all in-flight messages as duplicate.
 
 ## Corda Enterprise Edition 4.8.10 release notes
 
