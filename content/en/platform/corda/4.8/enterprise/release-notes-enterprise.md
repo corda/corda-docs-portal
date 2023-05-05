@@ -56,6 +56,8 @@ As a developer or node operator, you should upgrade to the [latest released vers
   [INFO ] 2023-02-03T17:00:46,650Z [main] statemachine.MultiThreadedStateMachineManager. - Number of finished flows : 27485 {}
   ```
 
+* The default SSL handshake timeout for the embedded Artemis messaging server has been increased to 60 seconds. If during SSL handshake, certificate revocation lists (CRLs) take a long time to download, or are unreachable, then the 60 seconds gives the node enough time to establish the connection if crlCheckSoftFail is enabled.
+
 ## Corda Enterprise Edition 4.8.10 release notes
 
 Corda Enterprise Edition 4.8.10 is a patch release of Corda Enterprise focused on resolving issues.
