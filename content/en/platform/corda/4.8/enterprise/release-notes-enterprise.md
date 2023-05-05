@@ -1,6 +1,6 @@
 ---
 title: Corda Enterprise Edition 4.8 release notes
-date: '2023-02-08'
+date: '2023-05-05'
 menu:
   corda-enterprise-4-8:
     identifier: corda-enterprise-4-8-release-notes
@@ -15,6 +15,19 @@ weight: 10
 
 
 # Corda Enterprise Edition 4.8 release notes
+
+## Corda Enterprise Edition 4.8.11 release notes
+
+Corda Enterprise Edition 4.8.11 is a patch release of Corda Enterprise focused on resolving issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](upgrading-index.md).
+
+# Fixed issues
+
+A rare condition was fixed relating to rollback of database transactions under heavy load, which caused flow state machine threads to stop processing flows, leading to eventual node lock up in certain circumstances.
+
 
 ## Corda Enterprise Edition 4.8.10 release notes
 
