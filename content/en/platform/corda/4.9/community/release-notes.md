@@ -29,6 +29,8 @@ Corda Community Edition 4.9.7 is a patch release of Corda Community Edition whic
 
 * A fix for cache eviction has been applied where an issue resulted in an incorrect contract verification status while a database transaction was in progress during contract verification.
 
+* The SSL handshake timeout has been increased to 60 seconds. If during SSL handshake, certificate revocation lists (CRLs) take a long time to download, or are unreachable, then the 60 seconds gives the node enough time to establish the connection if `crlCheckSoftFail` is enabled.
+
 ## Corda Community Edition 4.9.6 release notes
 
 Corda Community Edition 4.9.6 is a patch release of Corda Community Edition to keep it synchronised with the release of Corda Enterprise Edition 4.9.6.
