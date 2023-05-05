@@ -19,7 +19,7 @@ This section describes how to configure key pairs and certificates. It contains 
 
 To assign a soft hardware security module (HSM) and generate a session initiation key pair:
 {{< tabs >}}
-{{% tab name="Curl"%}}
+{{% tab name="Bash"%}}
 ```Bash
 curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $API_URL/hsm/soft/$HOLDING_ID/SESSION_INIT
 curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $API_URL'/keys/'$HOLDING_ID'/alias/'$HOLDING_ID'-session/category/SESSION_INIT/scheme/CORDA.ECDSA.SECP256R1'
@@ -43,7 +43,7 @@ export SESSION_KEY_ID=<session-key-ID>
 
 To assign a soft hardware security module (HSM) and generate a ledger key pair:
 {{< tabs >}}
-{{% tab name="Curl"%}}
+{{% tab name="Bash"%}}
 ```shell
 curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $API_URL/hsm/soft/$HOLDING_ID/LEDGER
 curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $API_URL/keys/$HOLDING_ID/alias/$HOLDING_ID-ledger/category/LEDGER/scheme/CORDA.ECDSA.SECP256R1
@@ -78,7 +78,7 @@ If using mutual TLS, you must must add the certificate subject to the allowed li
 1. Create a TLS key pair at the cluster-level by running this command:
 
    {{< tabs >}}
-   {{% tab name="Curl"%}}
+   {{% tab name="Bash"%}}
    ```shell
    curl -k -u $REST_API_USER:$REST_API_PASSWORD -X POST -H "Content-Type: application/json" $API_URL/keys/p2p/alias/p2p-TLS/category/TLS/scheme/CORDA.RSA
    ```
@@ -98,7 +98,7 @@ If using mutual TLS, you must must add the certificate subject to the allowed li
 
 2. Create a certificate for the TLS key pair by running the following command to generate a certificate signing request (CSR):
    {{< tabs >}}
-   {{% tab name="Curl"%}}
+   {{% tab name="Bash"%}}
    ```shell
    curl -k -u $REST_API_USER:$REST_API_PASSWORD  -X POST -H "Content-Type: application/json" -d '{"x500Name": "CN=CordaOperator, C=GB, L=London, O=Org", "subjectAlternativeNames": ["'$P2P_GATEWAY_HOST'"]}' $API_URL/certificates/p2p/$TLS_KEY_ID > "$WORK_DIR"/request2.csr
    ```
@@ -148,7 +148,7 @@ If using mutual TLS, you must must add the certificate subject to the allowed li
 
 4. To upload the certificate chain to the Corda cluster, run this command, where `<certificate-folder>` is the path to the folder in which you saved the certificate received from the CA:
    {{< tabs >}}
-   {{% tab name="Curl"%}}
+   {{% tab name="Bash"%}}
    ```shell
    curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT  -F certificate=<certificate-folder>/certificate.pem -F alias=p2p-tls-cert $API_URL/certificates/cluster/p2p-tls
    ```

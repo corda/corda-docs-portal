@@ -54,7 +54,7 @@ $REGISTRATION_CONTEXT = @{
 
 To register a member, run the following command:
 {{< tabs >}}
-{{% tab name="Curl"%}}
+{{% tab name="Bash"%}}
 ```shell
 curl -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": { "action": "requestJoin", "context": '$REGISTRATION_CONTEXT' } }' $API_URL/membership/$HOLDING_ID
 ```
@@ -88,7 +88,7 @@ If you are using the Swagger UI, use the following:
 
 You can confirm if the member was onboarded successfully by checking the status of the registration request:
 {{< tabs >}}
-{{% tab name="Curl"%}}
+{{% tab name="Bash"%}}
 ```
 export REGISTRATION_ID=<registration-ID>
 curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/membership/$HOLDING_ID/$REGISTRATION_ID
@@ -105,7 +105,7 @@ If successful, you should see the `APPROVED` registration status.
 
 After registration, you can use the look-up functions provided by the `MemberLookupRpcOps` to confirm that your member can see other members and has `ACTIVE` membership status:
 {{< tabs >}}
-{{% tab name="Curl"%}}
+{{% tab name="Bash"%}}
 ```bash
 curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/members/$HOLDING_ID
 ```

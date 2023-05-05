@@ -11,7 +11,7 @@ draft: "true"
 ---
 Once the MGM is onboarded, you can export a group policy file with the MGM connection details. To output the full contents of the `GroupPolicy.json` file to package within the {{< tooltip >}}CPI{{< definition term="CPI" >}}{{< /tooltip >}} for members, run the following:
 {{< tabs >}}
-{{% tab name="Curl"%}}
+{{% tab name="Bash"%}}
 ```shell
 mkdir -p "~/Desktop/register-member"
 curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/mgm/$MGM_HOLDING_ID/info > "~/Desktop/register-member/GroupPolicy.json"

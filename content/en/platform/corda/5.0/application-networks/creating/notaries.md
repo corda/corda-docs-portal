@@ -89,7 +89,7 @@ This step is only necessary if you are onboarding a member as a notary.
 Generate notary keys in a similar way as done for other key types. First, create a HSM, then generate the key and store the ID:
 
 {{< tabs >}}
-{{% tab name="Curl"%}}
+{{% tab name="Bash"%}}
 ```bash
 curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/hsm/soft/$HOLDING_ID/NOTARY
 curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/keys/$HOLDING_ID/alias/$HOLDING_ID-notary/category/NOTARY/scheme/CORDA.ECDSA.SECP256R1
@@ -167,7 +167,7 @@ It is currently only possible to have a single notary virtual node associated wi
 
 To register a member, run the following command:
 {{< tabs >}}
-{{% tab name="Curl"%}}
+{{% tab name="Bash"%}}
 ```shell
 curl -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": { "action": "requestJoin", "context": '$REGISTRATION_CONTEXT' } }' $REST_API_URL/membership/$HOLDING_ID
 ```
@@ -191,7 +191,7 @@ This sends a join request to the MGM. The response should be `SUBMITTED`.
 
 You can confirm if the notary was onboarded successfully by checking the status of the registration request:
 {{< tabs >}}
-{{% tab name="Curl"%}}
+{{% tab name="Bash"%}}
 ```
 export REGISTRATION_ID=<registration-ID>
 curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/membership/$HOLDING_ID/$REGISTRATION_ID
@@ -208,7 +208,7 @@ If successful, you should see the `APPROVED` registration status.
 
 After registration, you can use the look-up functions provided by the `MemberLookupRpcOps` to confirm that your member can see other members and has `ACTIVE` membership status:
 {{< tabs >}}
-{{% tab name="Curl"%}}
+{{% tab name="Bash"%}}
 ```bash
 curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/members/$HOLDING_ID
 ```

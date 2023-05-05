@@ -17,7 +17,7 @@ To configure the MGM virtual node as a Network Participant with the properties r
 * `useClusterLevelTlsCertificateAndKey` - `true` if the TLS certificate and key are cluster-level certificates and keys.
 
 {{< tabs >}}
-{{% tab name="Curl"%}}
+{{% tab name="Bash"%}}
 ```shell
 curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "useClusterLevelTlsCertificateAndKey": true, "sessionKeyId": "'$SESSION_KEY_ID'"}' $REST_API_URL/network/setup/$MGM_HOLDING_ID
 ```

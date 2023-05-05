@@ -199,7 +199,7 @@ Use an alias that will remain unique over time, taking into account that certifi
 
 To upload the CPI to your network, run the following:
 {{< tabs >}}
-{{% tab name="Curl"%}}
+{{% tab name="Bash"%}}
 ```bash
 export CPI_PATH=<CPI-directory/CPI-filename.cpi>
 curl -u $REST_API_USER:$REST_API_PASSWORD -F upload=@$CPI_PATH $REST_API_URL/cpi/
@@ -218,7 +218,7 @@ $CPI_UPLOAD_RESPONSE = Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -
 The returned identifier (for example `f0a0f381-e0d6-49d2-abba-6094992cef02`) is the `CPI ID`.
 Use this identifier to get the checksum of the CPI:
 {{< tabs >}}
-{{% tab name="Curl"%}}
+{{% tab name="Bash"%}}
 ```
 export CPI_ID=<CPI-ID>
 curl -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/cpi/status/$CPI_ID

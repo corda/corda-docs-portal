@@ -12,7 +12,7 @@ section_menu: corda5
 To create a virtual node for a member, run the following commands, changing the X.500 name and using the checksum retrieved when you [uploaded the member CPI]({{< relref"./cpi.md#upload-the-cpi" >}}):
 
 {{< tabs >}}
-{{% tab name="Curl"%}}
+{{% tab name="Bash"%}}
 ```shell
 export CPI_CHECKSUM=<CPI-checksum>
 export X500_NAME="C=GB, L=London, O=Alice"

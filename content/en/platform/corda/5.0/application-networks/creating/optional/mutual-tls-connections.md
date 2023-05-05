@@ -123,7 +123,7 @@ export REGISTRATION_CONTEXT='{
 To add a member TLS certificate subject to the MGM allowed list, run the following, where `CN=CordaOperator,C=GB,L=London,O=Org` is the subject of the TLS certificate created as part of [member onboarding]("./onboarding/dynamic-onboarding.md#tls-key-pair-and-certificate" ):
 
 {{< tabs >}}
-{{% tab name="Curl"%}}
+{{% tab name="Bash"%}}
 ```shell
 curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT  "$MGM_API_URL/mgm/$MGM_HOLDING_ID/mutual-tls/allowed-client-certificate-subjects/CN=CordaOperator,C=GB,L=London,O=Org"
 ```
