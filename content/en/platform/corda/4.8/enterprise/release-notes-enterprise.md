@@ -44,6 +44,8 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
   * Finished flows: Log messages now show the number of finished flows.
 
+* A fix for cache eviction has been applied where an issue resulted in an incorrect contract verification status while a database transaction was in progress during contract verification.
+
   For example:
   ```
   [INFO ] 2023-02-03T17:00:12,767Z [main] statemachine.MultiThreadedStateMachineManager. - Loading checkPoints flows {}
