@@ -26,7 +26,11 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 # Fixed issues
 
-A rare condition was fixed relating to rollback of database transactions under heavy load, which caused flow state machine threads to stop processing flows, leading to eventual node lock up in certain circumstances.
+* A rare condition was fixed relating to rollback of database transactions under heavy load, which caused flow state machine threads to stop processing flows, leading to eventual node lock up in certain circumstances.
+
+* Previously, a memory leak in the transaction cache occurred due to the weight of in-flight entries being undervalued. Improvements have been made to prevent in-flight entry weights from being undervalued and because they are now estimated more correctly, this results in a large decrease in the total size of cached entities.
+
+
 
 
 ## Corda Enterprise Edition 4.8.10 release notes
