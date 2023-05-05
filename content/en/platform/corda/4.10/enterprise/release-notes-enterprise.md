@@ -66,8 +66,11 @@ Now, *cryptoServiceFlowRetryCount* can be used to override the above default act
 The *absolute value* of *cryptoServiceFlowRetryCount* determines the number of times a flow is retried. The *sign* of the value determines what happens when all retries are exhausted:
 
 * If a *negative* value is specified, then a CryptoServiceException is propagated back to the calling code and the flow fails; this was the default behaviour in versions of Corda before 4.10.
-* If a *positive* value is specified, then the flow is held in the flow hospital for overnight observation so that a node operator can review it.
-
+* If a *positive* value is specified, then the flow is held in the flow hospital paused, until either:
+  * the node is restarted
+  * a node operator manually restarts the flow
+  * a node operator manually kills the flow off
+  
 ### Node status published via JMX
 
 A node now publishes a status via JMX - net.corda.Node.Status - that indicates what it is currently doing. The status is only available if the node is configured to publish information/metrics via JMX.
