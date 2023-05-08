@@ -65,6 +65,8 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 * A new or restarted peer node coming online and connecting to a node for the first time can significantly slow message processing from other peers on the node it connects to.  Now new peers coming online get a dedicated thread on the node they connect to and do not delay message processing for existing peer-to-peer connections on the receiving node.
 
+* Previously, a new node configuration option, `cryptoServiceFlowRetryCount`, was introduced. The absolute value of `cryptoServiceFlowRetryCount` determines the number of times (N) a flow is retried. This fix resolves an issue where, instead, N+1 retries were being performed.
+
 ## Corda Enterprise Edition 4.10.1 release notes
 
 Corda Enterprise Edition 4.10.1 is a patch release of Corda Enterprise Edition focused on resolving issues.
