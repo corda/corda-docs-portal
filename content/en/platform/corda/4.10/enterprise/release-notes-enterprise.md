@@ -1,6 +1,6 @@
 ---
 title: Corda Enterprise Edition 4.10 release notes
-date: '2021-07-01'
+date: '2023-05-08'
 
 menu:
   corda-enterprise-4-10:
@@ -17,9 +17,21 @@ weight: 10
 
 # Corda Enterprise Edition 4.10 release notes
 
+## Corda Enterprise Edition 4.10.2 release notes
+
+Corda Enterprise Edition 4.10.2 is a patch release of Corda Enterprise Edition focused on resolving issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node](upgrading-index.md).
+
+### Fixed issues
+
+* Updated documentation for both .startNodes() and .stopNodes() of MockNetwork to indicate that restarting nodes is not supported.
+
 ## Corda Enterprise Edition 4.10.1 release notes
 
-Corda Enterprise Edition 4.10.1 is a patch release of Corda Enterprise focused on resolving issues.
+Corda Enterprise Edition 4.10.1 is a patch release of Corda Enterprise Edition focused on resolving issues.
 
 ### Upgrade recommendation
 

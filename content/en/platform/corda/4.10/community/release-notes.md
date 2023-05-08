@@ -4,7 +4,7 @@ aliases:
 - /head/release-notes.html
 - /HEAD/release-notes.html
 - /release-notes.html
-date: '2023-02-01'
+date: '2023-05-08'
 menu:
   corda-community-4-10:
     identifier: corda-community-4-10-release-notes
@@ -19,6 +19,16 @@ tags:
 ---
 
 # Corda Community Edition 4.10 release notes
+
+## Corda Community Edition 4.10.2 release notes
+
+Corda Community Edition 4.10.2 is a patch release of Corda Community Edition focused on resolving issues.
+
+### Fixed issues
+
+* Updated documentation for both .startNodes() and .stopNodes() of MockNetwork to indicate that restarting nodes is not supported.
+
+## Corda Community Edition 4.10 release notes
 
 Corda Community Edition 4.10 includes several new features, enhancements, and fixes.
 
