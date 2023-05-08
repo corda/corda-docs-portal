@@ -48,7 +48,9 @@ Corda Community Edition 4.10.2 is a patch release of Corda Community Edition foc
 
   There is no need to upgrade the HSM firmware version for this update but it is recommended to keep the firmware up to date as a matter of course. Currently the latest firmware version if 2.8.50.
   
-* Fix for cache eviction which results in incorrect contract verification status while a DB transaction is in progress, during contract verification
+* A fix for cache eviction has been applied where an issue resulted in an incorrect contract verification status while a database transaction was in progress during contract verification.
+
+* Corda provides the NodeDriver to help developers write integration tests. Using the NodeDriver, developers can bring up nodes locally to run flows and inspect state updates. Previously, there was an issue with build pipelines with tests failing, as on some occasions, notaries took more than one minute (the default timeout value) to start. 
 
 ## Corda Community Edition 4.10 release notes
 
