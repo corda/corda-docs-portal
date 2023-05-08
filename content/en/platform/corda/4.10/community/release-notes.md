@@ -66,6 +66,25 @@ Corda Community Edition 4.10.2 is a patch release of Corda Community Edition foc
 
 * The SSL handshake timeout has been increased to 60 seconds. If during SSL handshake, certificate revocation lists (CRLs) take a long time to download, or are unreachable, then the 60 seconds gives the node enough time to establish the connection if `crlCheckSoftFail` is enabled.
 
+* Previously, when loading checkpoints, the only log messages recorded were at the end of the process, recording the total number of checkpoints loaded. 
+
+  Now, the following additional logging has been added:
+
+  * Checkpoints: Logging has been added for the two types of checkpoints—runnable and paused flows—being loaded; log messages show the number of checkpoints loaded every 30 seconds until all checkpoints have been loaded.
+
+  * Finished flows: Log messages now show the number of finished flows.
+
+  For example:
+
+  ```
+  [INFO ] 2023-02-03T17:00:12,767Z [main] statemachine.MultiThreadedStateMachineManager. - Loading checkPoints flows {}
+  [INFO ] 2023-02-03T17:00:12,903Z [main] statemachine.MultiThreadedStateMachineManager. - Number of runnable flows: 0. Number of paused flows: 0 {}
+  [INFO ] 2023-02-03T17:00:12,911Z [main] statemachine.MultiThreadedStateMachineManager. - Started loading finished flows {}
+  [INFO ] 2023-02-03T17:00:28,437Z [main] statemachine.MultiThreadedStateMachineManager. - Loaded 9001 finished flows {}
+  [INFO ] 2023-02-03T17:00:43,606Z [main] statemachine.MultiThreadedStateMachineManager. - Loaded 24001 finished flows {}
+  [INFO ] 2023-02-03T17:00:46,650Z [main] statemachine.MultiThreadedStateMachineManager. - Number of finished flows : 27485 {}
+  ```
+
 ## Corda Community Edition 4.10 release notes
 
 Corda Community Edition 4.10 includes several new features, enhancements, and fixes.
