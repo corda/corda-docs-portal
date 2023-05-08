@@ -32,6 +32,8 @@ Corda Community Edition 4.10.2 is a patch release of Corda Community Edition foc
 
 * Flow draining mode no longer acknowledges P2P in-flight messages that have not yet been committed to the database. Previously, flow draining mode acknowledged all in-flight messages as duplicate.
 
+* Previously, a memory leak in the transaction cache occurred due to the weight of in-flight entries being undervalued. Improvements have been made to prevent in-flight entry weights from being undervalued and because they are now estimated more correctly, this results in a large decrease in the total size of cached entities.
+
 ## Corda Community Edition 4.10 release notes
 
 Corda Community Edition 4.10 includes several new features, enhancements, and fixes.
