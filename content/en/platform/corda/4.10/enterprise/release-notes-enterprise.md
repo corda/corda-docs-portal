@@ -31,6 +31,8 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 * Previously, the attachment class loader was being closed too early if it is evicted from the cache. Now, closing of attachment class loaders is delayed until all SerializationContext that refer to them (from BasicVerifier) have gone out of scope.
 
+* Flow draining mode no longer acknowledges P2P in-flight messages that have not yet been committed to the database. Previously, flow draining mode acknowledged all in-flight messages as duplicate.
+
 ## Corda Enterprise Edition 4.10.1 release notes
 
 Corda Enterprise Edition 4.10.1 is a patch release of Corda Enterprise Edition focused on resolving issues.

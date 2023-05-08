@@ -30,6 +30,8 @@ Corda Community Edition 4.10.2 is a patch release of Corda Community Edition foc
 
 * Previously, the attachment class loader was being closed too early if it is evicted from the cache. Now, closing of attachment class loaders is delayed until all SerializationContext that refer to them (from BasicVerifier) have gone out of scope.
 
+* Flow draining mode no longer acknowledges P2P in-flight messages that have not yet been committed to the database. Previously, flow draining mode acknowledged all in-flight messages as duplicate.
+
 ## Corda Community Edition 4.10 release notes
 
 Corda Community Edition 4.10 includes several new features, enhancements, and fixes.
