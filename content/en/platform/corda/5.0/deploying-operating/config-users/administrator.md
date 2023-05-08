@@ -6,7 +6,7 @@ menu:
     parent: corda-5-cluster-users
     identifier: corda-5-cluster-administrator
     weight: 1000
-section_menu: corda-5
+section_menu: corda5
 ---
 
 By default, when a cluster starts, a "super admin" REST user is created, which has unrestricted access permissions.

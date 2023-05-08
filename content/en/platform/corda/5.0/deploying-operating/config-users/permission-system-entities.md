@@ -6,7 +6,7 @@ menu:
     parent: corda-5-cluster-users
     identifier: corda-5-cluster-permission-system-entities
     weight: 3000
-section_menu: corda-5
+section_menu: corda5
 ---
 
 The role-based access control (RBAC) permissions system in Corda 5  is made up of multiple entities.
