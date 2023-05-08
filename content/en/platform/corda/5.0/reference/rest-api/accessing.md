@@ -40,4 +40,4 @@ To access and invoke the REST API:
 
 You can access the Swagger documentation for the REST API at the path `/api/v1/swagger`. For example, when using port forwarding the documentation is available at `<REST_API_URL>/api/v1/swagger`.
 
-You can also view the REST API documentation [here](../../rest-api/C5_OpenAPI.html).
+You can also view the REST API documentation [here](./C5_OpenAPI.html).
