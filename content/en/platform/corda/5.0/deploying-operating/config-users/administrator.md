@@ -3,7 +3,7 @@ date: '2023-04-24'
 title: "Administrator"
 menu:
   corda-5:
-    parent: corda-5-cluster-config-users
+    parent: corda-5-cluster-users
     identifier: corda-5-cluster-administrator
     weight: 1000
 section_menu: corda-5
