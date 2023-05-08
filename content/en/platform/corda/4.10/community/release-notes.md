@@ -28,6 +28,8 @@ Corda Community Edition 4.10.2 is a patch release of Corda Community Edition foc
 
 * Updated documentation for both .startNodes() and .stopNodes() of MockNetwork to indicate that restarting nodes is not supported.
 
+* Previously, the attachment class loader was being closed too early if it is evicted from the cache. Now, closing of attachment class loaders is delayed until all SerializationContext that refer to them (from BasicVerifier) have gone out of scope.
+
 ## Corda Community Edition 4.10 release notes
 
 Corda Community Edition 4.10 includes several new features, enhancements, and fixes.
