@@ -214,7 +214,16 @@ To create the schema manually, do the following:
        enabled: false
    ```
 
+{{< note >}}
+If you are applying SQL to a schema using the `psql` command you can specify which schema to apply it to using the `--dbname` parameter like so: `--dbname "dbname=cordacluster options=--search_path=<SCHEMA-NAME>"`
+{{</ note >}}
+
+{{< note >}}
+If you are targeting schemas, database and crypto generated SQL should be applied to the CONFIG schema, and create-user-config generated SQL should be applied to the RBAC schema. If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
+{{< /note >}}
+
 2. Use the Corda CLI to generate DML files for creating the database tables to use for each of the `crypto`, `config`, and `rbac` components.
+
 The following command specifies that the `CONFIG`, `RBAC` and `CRYPTO` schema should be used for the corresponding components and generates the files in the directory `/tmp/db`:
 
    {{< tabs name="DML">}}
@@ -235,13 +244,9 @@ The following command specifies that the `CONFIG`, `RBAC` and `CRYPTO` schema sh
    {{% /tab %}}
    {{< /tabs >}}
 
-{{< note >}}
-If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
-{{< /note >}}
-
 3. Review the DML files generated and then execute against the database.
 
-4. Execute the following Corda CLI command to generate DDL for populating the RBAC database connection configuration:
+4. Execute the following Corda CLI command to generate DDL for populating the RBAC database connection configuration, in this case use CONFIG:
 
    {{< tabs name="RBAC">}}
    {{% tab name="Linux" %}}
@@ -308,7 +313,7 @@ If the schemas are not specified, then the tables will be created in the default
 
 5. Review the DDL files generated and then execute against the database.
 
-6. Execute the following Corda CLI command to generate DDL for populating the Crypto database connection configuration:
+6. Execute the following Corda CLI command to generate DDL for populating the Crypto database connection configuration,in this case use CONFIG:
 
    {{< tabs name="DDL-crypto">}}
    {{% tab name="Linux" %}}
@@ -368,7 +373,35 @@ If the schemas are not specified, then the tables will be created in the default
 
 7. Review the DDL files generated and then execute against the database.
 
-8. Execute the following Corda CLI command to generate DDL for populating the initial admin user for Corda:
+8. Execute the following Corda CLI command to configure vNodes, in this case use CONFIG:
+
+
+   {{< tabs name="vNode-example">}}
+   {{% tab name="Linux" %}}
+   ```sh
+  corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
+    --name orda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin
+   ```
+   {{% /tab %}}
+   {{% tab name="macOS" %}}
+   ```sh
+  corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
+    --name orda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin'
+   ```
+   {{% /tab %}}
+   {{% tab name="Windows" %}}
+   ```shell
+   corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
+    --name orda-virtual-nodes --jdbc-url `jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin`
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+{{< note >}}
+There is no schema in `--jdbc-url` as vNodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
+{{< /note >}}
+
+9. Execute the following Corda CLI command to generate DDL for populating the initial admin user for Corda, in this case use RBAC:
 
    {{< tabs name="DDL-user">}}
    {{% tab name="Linux" %}}
@@ -388,9 +421,9 @@ If the schemas are not specified, then the tables will be created in the default
    {{% /tab %}}
    {{< /tabs >}}
 
-9. Review the DDL files generated and then execute against the database.
+10. Review the DDL files generated and then execute against the database.
 
-10. Create the RBAC and Crypto users and grant access as follows:
+11. Create the RBAC and Crypto users and grant access as follows:
 
     ```sql
     CREATE USER <RBAC-USERNAME> WITH ENCRYPTED PASSWORD '<RBAC-PASSWORD>';
@@ -401,7 +434,7 @@ If the schemas are not specified, then the tables will be created in the default
     GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CRYPTO to <CRYPTO-USERNAME>;
     ```
 
-11. Execute the following Corda CLI command to generate DDL for populating the initial crypto configuration:
+12. Execute the following Corda CLI command to generate DDL for populating the initial crypto configuration, in this case use CONFIG:
 
    {{< tabs name="DDL-crypto-config">}}
    {{% tab name="Linux" %}}
@@ -422,7 +455,7 @@ If the schemas are not specified, then the tables will be created in the default
    {{< /tabs >}}
     The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
 
-12. Review the DDL files generated and then execute against the database.
+13. Review the DDL files generated and then execute against the database.
 
 ## RBAC Roles
 
