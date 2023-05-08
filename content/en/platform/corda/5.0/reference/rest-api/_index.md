@@ -13,4 +13,4 @@ section_menu: corda5
 
 This section describes the Corda REST API, which enables operators to interact with a running version of Corda. It contains the following:
 * [Accessing the REST API]({{< relref "./accessing.md" >}})
-* [REST API](./rest-api/C5_OpenAPI.html)
+* [REST API Reference](./rest-api/C5_OpenAPI.html)
