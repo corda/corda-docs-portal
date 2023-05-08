@@ -88,6 +88,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
   [INFO ] 2023-02-03T17:00:46,650Z [main] statemachine.MultiThreadedStateMachineManager. - Number of finished flows : 27485 {}
   ```
 
+* The certificate revocation checking has been improved with the introduction of a read timeout on the download of the certificate revocation lists (CRLs). The default CRL connect timeout has also been adjusted to better suit Corda nodes. The caching of CRLs has been increased from 30 seconds to 5 minutes.
 
 ## Corda Enterprise Edition 4.10.1 release notes
 
