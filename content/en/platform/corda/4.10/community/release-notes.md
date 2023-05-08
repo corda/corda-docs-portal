@@ -47,6 +47,8 @@ Corda Community Edition 4.10.2 is a patch release of Corda Community Edition foc
   On applying this update the PrimusX JCE should be upgraded to version 2.3.4 or later.
 
   There is no need to upgrade the HSM firmware version for this update but it is recommended to keep the firmware up to date as a matter of course. Currently the latest firmware version if 2.8.50.
+  
+* Fix for cache eviction which results in incorrect contract verification status while a DB transaction is in progress, during contract verification
 
 ## Corda Community Edition 4.10 release notes
 
