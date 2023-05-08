@@ -2,9 +2,9 @@
 date: '2023-04-24'
 title: "Managing Roles and Permissions"
 menu:
-  corda-5:
-    parent: corda-5-cluster-users
-    identifier: corda-5-cluster-managing-roles
+  corda5:
+    parent: corda5-cluster-users
+    identifier: corda5-cluster-managing-roles
     weight: 2000
 section_menu: corda5
 ---

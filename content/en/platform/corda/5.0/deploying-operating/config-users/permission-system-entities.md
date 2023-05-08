@@ -2,9 +2,9 @@
 date: '2023-04-24'
 title: "Permission System Entities"
 menu:
-  corda-5:
-    parent: corda-5-cluster-users
-    identifier: corda-5-cluster-permission-system-entities
+  corda5:
+    parent: corda5-cluster-users
+    identifier: corda5-cluster-permission-system-entities
     weight: 3000
 section_menu: corda5
 ---
