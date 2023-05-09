@@ -11,6 +11,13 @@ section_menu: corda-5-beta
 
 This page describes how to deploy Corda 5 Beta. It assumes all necessary [prerequisites](../prerequisites.html) have been installed.
 
+{{< note >}}
+PostgreSQL and Kafka must be running before a Corda cluster is deployed but the mechanism to achieve that is up to you. You can:
+* run PostgreSQL and Kafka in containers.
+* use a managed service such as RDS.
+* run both on bare-metal hardware.
+{{< /note >}}
+
 ## Download and Push Container Images to a Registry
 
 The Corda container images must be in a registry that is accessible from the Kubernetes cluster in which Corda will run.
@@ -224,7 +231,7 @@ kafka
     secretRef:
       name: <TRUST-STORE-SECRET-NAME>
       key: "ca.crt"
-    type: PEM   
+    type: PEM
 ```
 
 Corda supports SASL for Kafka authentication. If your Kafka instance requires SASL authentication, enable the option in the overrides along with the required mechanism:
@@ -458,7 +465,7 @@ To define `annotation-key-2` for only the crypto worker:
 workers:
   crypto:
     annotations:
-      annotation-key-2/is-safe: "true" 
+      annotation-key-2/is-safe: "true"
 ```
 
 ### Example Configuration
