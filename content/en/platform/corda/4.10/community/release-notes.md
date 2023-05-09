@@ -64,7 +64,7 @@ Corda Community Edition 4.10.2 is a patch release of Corda Community Edition foc
 
 * A new or restarted peer node coming online and connecting to a node for the first time can significantly slow message processing from other peers on the node it connects to.  Now new peers coming online get a dedicated thread on the node they connect to and do not delay message processing for existing peer-to-peer connections on the receiving node.
 
-* The SSL handshake timeout has been increased to 60 seconds. If during SSL handshake, certificate revocation lists (CRLs) take a long time to download, or are unreachable, then the 60 seconds gives the node enough time to establish the connection if `crlCheckSoftFail` is enabled.
+* The default SSL handshake timeout for inbound connections has been increased to 60 seconds. If during SSL handshake, certificate revocation lists (CRLs) take a long time to download, or are unreachable, then this 60 seconds gives the node enough time to establish the connection if crlCheckSoftFail is enabled.
 
 * Previously, when loading checkpoints, the only log messages recorded were at the end of the process, recording the total number of checkpoints loaded. 
 

@@ -67,7 +67,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 * Previously, a new node configuration option, `cryptoServiceFlowRetryCount`, was introduced. The absolute value of `cryptoServiceFlowRetryCount` determines the number of times (N) a flow is retried. This fix resolves an issue where, instead, N+1 retries were being performed.
 
-* The default SSL handshake timeout for the embedded Artemis messaging server has been increased to 60 seconds. If during SSL handshake, certificate revocation lists (CRLs) take a long time to download, or are unreachable, then the 60 seconds gives the node enough time to establish the connection if `crlCheckSoftFail` is enabled.
+* The default SSL handshake timeout for inbound connections has been increased to 60 seconds. If during SSL handshake, certificate revocation lists (CRLs) take a long time to download, or are unreachable, then this 60 seconds gives the node enough time to establish the connection if `crlCheckSoftFail` is enabled.
 
 * Previously, when loading checkpoints, the only log messages recorded were at the end of the process, recording the total number of checkpoints loaded. 
 
