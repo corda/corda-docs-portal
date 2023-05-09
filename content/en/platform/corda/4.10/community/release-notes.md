@@ -33,20 +33,6 @@ Corda Community Edition 4.10.2 is a patch release of Corda Community Edition foc
 * Flow draining mode no longer acknowledges P2P in-flight messages that have not yet been committed to the database. Previously, flow draining mode acknowledged all in-flight messages as duplicate.
 
 * Previously, a memory leak in the transaction cache occurred due to the weight of in-flight entries being undervalued. Improvements have been made to prevent in-flight entry weights from being undervalued and because they are now estimated more correctly, this results in a large decrease in the total size of cached entities.
-
-* Previously, when configured to use confidential identities and the Securosys PrimusX HSM, it was possible for Corda to fail to generate a wrapped key-pair for a new confidential identity. This would cause a temporary key-pair to be leaked, consuming resource in the HSM. This issue occurred when:
-
-  * the Securosys HSM was configured in a master-clone cluster
-
-  * the master HSM had failed and Corda had failed-over to use the clone HSM
-
-  * there was an attempt to create a transaction using confidential identities
-
-  The issue is now resolved. When generating a wrapped key-pair the temporary key-pair is not persisted in the HSM and thus cannot be leaked.
-
-  On applying this update the PrimusX JCE should be upgraded to version 2.3.4 or later.
-
-  There is no need to upgrade the HSM firmware version for this update but it is recommended to keep the firmware up to date as a matter of course. Currently the latest firmware version if 2.8.50.
   
 * A fix for cache eviction has been applied where an issue resulted in an incorrect contract verification status while a database transaction was in progress during contract verification.
 
