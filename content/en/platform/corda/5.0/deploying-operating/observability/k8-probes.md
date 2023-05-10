@@ -16,7 +16,7 @@ If any of the components report that it is in an error state, the liveness probe
 During normal operation, pods should not cause failures of the liveness probe and the Cluster Operator should monitor for failures
 in the Kubernetes events stream.
 
-The readiness probe will fail if any of the Corda components report that they are down.
+The readiness probe will fail if any Corda components report that they are down.
 During worker startup, this is expected behaviour and all the components should eventually report
 that they are up resulting in the pod being marked as ready. Failures in the readiness probe after a worker
 has started successfully are typically the result of issues with downstream services (for example, Kafka or Postgres).
