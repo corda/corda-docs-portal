@@ -26,7 +26,7 @@ prometheus.io/path: "/metrics"
 prometheus.io/port: "7000"
 ```
 
-These annotations can be disabled by providing the following overrides on the Corda Helm chart:
+You can disable these annotations by providing the following overrides on the Corda Helm chart:
 
 ```yaml
 metrics:
