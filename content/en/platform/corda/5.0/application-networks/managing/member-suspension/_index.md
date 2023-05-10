@@ -50,4 +50,6 @@ The GET method of the `/api/v1/members/{holdingidentityshorthash}` endpoint retu
 
 ## Suspending a Member
 
+You can use GET method of the [MGM REST endpoint](../../reference/rest-api/C5_OpenAPI.html#tag/Member-Lookup-API) to 
+
 ## Activating a Member
