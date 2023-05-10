@@ -54,7 +54,7 @@ The following Corda-specific metrics are exported:
 
 | Metric | Type | Description |
 | :----------- | :----------- | :----------- |
-| `corda_flow_run_time_seconds` | Timer | Time it took for a flow to complete successfully or to error. |
+| `corda_flow_run_time_seconds` | Timer | The time it took for a flow to complete successfully or to produce an error. |
 
 </table>
 
