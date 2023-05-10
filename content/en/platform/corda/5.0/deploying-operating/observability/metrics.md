@@ -15,7 +15,7 @@ Metrics provide greater insight into the inner workings of Corda and can be used
 
 All the Corda worker pods expose metrics in Prometheus text format at `/metrics` on port 7000.
 By default, this port is not exposed outside the Kubernetes cluster but most observability platforms support
-running an agent within the cluster that will dynamically detect Kubernetes pods exposing Prometheus endpoints and then poll for metrics.
+running an agent within the cluster that dynamically detects Kubernetes pods exposing Prometheus endpoints and then polls for metrics.
 
 By default, the pods have the following Kubernetes annotations which may be sufficient for some monitoring agents
 to automatically scrape the endpoints:
