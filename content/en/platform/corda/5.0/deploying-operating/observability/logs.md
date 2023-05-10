@@ -34,7 +34,7 @@ Most observability platforms are capable of receiving logs from containers runni
 
 By default, the logs are JSON formatted using the [JsonLayout](https://logging.apache.org/log4j/2.x/manual/json-template-layout.html#event-templates)
 template for Log4J’s `JsonTemplateLayout`.
-When working without the benefit of an observability platform to parse the JSON logs, it may be desirable
+If you are working without the benefit of an observability platform to parse the JSON logs, you can
 to install Corda with a text log format instead. Use the following overrides when installing the Corda Helm chart:
 
 ```yaml
