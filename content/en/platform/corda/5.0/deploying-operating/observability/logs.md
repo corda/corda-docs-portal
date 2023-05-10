@@ -61,4 +61,4 @@ level: "trace"
 ```
 
 The supported values for the log level are `all`, `trace`, `debug`, `info`, `warn`, `error`, `fatal`, and `off`.
-Pods will be restarted for the new log level to take effect.
+Pods restart automatically to apply the new log level.
