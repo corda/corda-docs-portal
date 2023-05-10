@@ -50,17 +50,13 @@ release: [RELEASE_NAME]
 
 The following Corda-specific metrics are exported:
 
-<table>
-
 | Metric | Type | Description |
 | :----------- | :----------- | :----------- |
 | `corda_flow_run_time_seconds` | Timer | The time it took for a flow to complete successfully or to produce an error. |
-
-</table>
 
 Metrics of type Timer have further metrics with the suffixes `_count`, `_max`, and `_sum` that represent the number of events,
 the maximum value, and the cumulative sum of values, respectively.
 
 In addition, the Corda metrics endpoint also includes Caffeine cache metrics (`corda_cache_*`),
-Kafka producer and consumer client metrics (`corda_kafka_*`), JVM metrics (`jvm_`), process metrics (`process_*`),
+Kafka producer and consumer client metrics (`corda_kafka_*`), JVM metrics (`jvm_*`), process metrics (`process_*`),
 and system metrics (`system_*`) provided by the corresponding Micrometer bindings.
