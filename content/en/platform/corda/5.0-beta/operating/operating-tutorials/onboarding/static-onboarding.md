@@ -22,7 +22,7 @@ To run a static network, you must complete the following high-level steps:
 5. [Create a virtual node in your cluster for each member defined in the group policy file](#create-virtual-nodes-for-each-member).
 6. [Register each member in the group](#register-members).
 
-## Create the Group Policy File
+## Create the Group Policy File {{< enterprise-h2-icon >}}
 
 Use the [Corda CLI](../../../developing/getting-started/installing-corda-cli.html) to generate a [GroupPolicy.json file](../../../deploying/group-policy.html#static-network-member-group-policy), where `group-policy-folder` is the path to the folder in which you want to generate the file:
 ```shell
@@ -81,7 +81,9 @@ curl --insecure -u admin:admin -X GET https://localhost:8888/api/v1/members/<ID-
 Only members with `ACTIVE` membership status should be visible.
 {{< /note >}}
 
-If you are registering a member as a notary service representative, you must add the following as the context when registering:
+{{< enterprise-generic-icon >}} If you are registering a member as a notary service representative, you must add the following as the context when registering:
 ```shell
 "context": { "corda.key.scheme": "CORDA.ECDSA.SECP256R1", "corda.roles.0" : "notary", "corda.notary.service.name" : <notary-service-X500-name>, "corda.notary.service.plugin" : "net.corda.notary.NonValidatingNotary" }
 ```
+
+### Test {{< enterprise-h3-icon >}}
