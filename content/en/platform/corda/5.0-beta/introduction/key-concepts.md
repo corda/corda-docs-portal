@@ -8,16 +8,16 @@ menu:
     weight: 2000
 section_menu: corda-5-beta
 ---
-## Layered Architecture
+## Layered Architecture {{<enterprise-h2-icon>}}
 
-The Corda platform is a layered toolbox that you can approach from the bottom up, pulling in more advanced concepts only when needed. There are currently three distinct layers:
+The Corda platform {{<enterprise-generic-icon>}} is a layered toolbox that you can approach from the bottom up, pulling in more advanced concepts only when needed. There are currently three distinct layers:
 1.	[P2P layer](#p2p-layer)
 2.	[Flow layer](#flow-layer)
 3.	[Ledger layer](#ledger-layer)
 
 {{< figure src="images/layered-architecture.png" figcaption="Corda 5 architecture" alt="Layered architecture of Corda 5" >}}
 
-### P2P Layer
+### P2P Layer {{<enterprise-h3-icon>}}
 
 The P2P Layer allows an identity to establish a communication session with another identity on an [application network](#application-networks) at their published address, regardless of whether they reside in the same or different [clusters](#clusters).
 It manages the lifecycle, link establishment, connection recovery, back pressure, caching, heart beating, transmission, message chunking, etc., for communications intended to flow between identities. It has two primary components; the Gateway and Link Manager.
