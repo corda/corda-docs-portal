@@ -50,13 +50,13 @@ release: [RELEASE_NAME]
 
 The following Corda-specific metrics are exported:
 
-{{</* table */>}}
+<table>
 
 | Metric | Type | Description |
 | :----------- | :----------- | :----------- |
 | `corda_flow_run_time_seconds` | Timer | Time it took for a flow to complete successfully or to error. |
 
-{{</* /table */>}}
+</table>
 
 Metrics of type Timer have further metrics with the suffixes `_count`, `_max`, and `_sum` that represent the number of events,
 the maximum value, and the cumulative sum of values, respectively.
