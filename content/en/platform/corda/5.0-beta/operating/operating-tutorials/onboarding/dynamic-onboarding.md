@@ -534,7 +534,7 @@ To register a member, run the following command:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl --insecure -u admin:admin -d '{ "memberRegistrationRequest": { "action": "requestJoin", "context": '$REGISTRATION_CONTEXT' } }' $API_URL/membership/$HOLDING_ID
+curl --insecure -u admin:admin -d '{ "memberRegistrationRequest": { "context": '$REGISTRATION_CONTEXT' } }' $API_URL/membership/$HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -557,7 +557,6 @@ If you are using the Swagger UI, use this example:
 ```shell
 {
   "memberRegistrationRequest":{
-    "action":"requestJoin",
     "context": <registration context>
   }
 }
