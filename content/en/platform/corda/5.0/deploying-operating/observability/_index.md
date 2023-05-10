@@ -11,5 +11,5 @@ menu:
 section_menu: corda5
 ---
 Corda exposes a number of mechanisms for a Cluster Operator to determine the health of the system and to facilitate the diagnosis of problems.
-This section describes how you can monitor Corda's health using the Kubernetes liveness and readiness probes, metrics, and logs. It contains the following:
+This section describes how you can monitor Corda's health using the following:
 {{<childpages>}}
