@@ -8,7 +8,7 @@ menu:
     weight: 2000
 section_menu: corda-5-beta
 ---
-## Layered Architecture {{<enterprise-heading-icon>}}
+## Layered Architecture
 
 The Corda platform is a layered toolbox that you can approach from the bottom up, pulling in more advanced concepts only when needed. There are currently three distinct layers:
 1.	[P2P layer](#p2p-layer)
