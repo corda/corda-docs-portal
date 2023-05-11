@@ -50,7 +50,7 @@ As mentioned in the description of the configuration file ([Node configuration](
 * `cryptoServiceConf`
 * Optional: `cryptoServiceTimeout`
 
-If you do not add the `cryptoServiceTimeout` parameter, it defaults to 10 seconds. You can increase it to mitigate the time-out error.
+If you do not add the `cryptoServiceTimeout` parameter, it defaults to 10000 milliseconds. You can increase it to mitigate the time-out error.
 
 {{< warning >}}
 The file containing the configuration for the HSM (referenced by the `cryptoServiceConf` field) contains sensitive information. For this reason, we strongly advise you to use the [Configuration Obfuscator]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/tools-config-obfuscator.md" >}}) tool.
@@ -338,7 +338,7 @@ Corda Enterprise nodes can be configured to generate keys in [nCipher nShield Co
 
 Security World Software has to be installed and configured for use with nCipherKM JCA/JCE Cryptographic Service Provider (CSP), as described in the documentation for nShield.
 
-In the `node.conf`, the `cryptoServiceName` needs to be set to “N_SHIELD”, and `cryptoServiceConf` should contain the path to a configuration file, the content of which is explained further down. The `cryptoServiceTimeout` needs to be increased to 10 seconds to allow file-based keystore creation during initial node registration.
+In the `node.conf`, the `cryptoServiceName` needs to be set to “N_SHIELD”, and `cryptoServiceConf` should contain the path to a configuration file, the content of which is explained further down. The `cryptoServiceTimeout` needs to be increased to 10000 milliseconds to allow file-based keystore creation during initial node registration.
 
 ```kotlin
 cryptoServiceName: "N_SHIELD"
