@@ -15,7 +15,7 @@ There are three prerequisites to the Corda deployment process:
 * Kafka for messaging
 * PostgreSQL for persistence
 
-See the [Infrastructure Topology](../topology.md) subsection for example topologies on the Amazon Web Services
+See the [Infrastructure Topology]({{< relref "../topology.md" >}}) subsection for example topologies on the Amazon Web Services
 and Microsoft Azure cloud platforms, including initial sizing guidance.
 
 ## Container Orchestration
