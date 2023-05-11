@@ -330,7 +330,7 @@ weight = 500
 
 [[corda5]]
 identifier = "corda-rest-ref"
-parent = "corda5-references"
+parent = "corda5-rest-api-reference"
 name = "REST API Reference"
 weight = 3000
 url = 'https://docs.r3.com/en/platform/corda/5.0/reference/rest-api/C5_OpenAPI.html'

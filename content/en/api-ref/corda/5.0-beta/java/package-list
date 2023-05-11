@@ -1,39 +1,7 @@
-$dokka.format:javadoc-v1
+$dokka.format:html-v1
 $dokka.linkExtension:html
-$dokka.location:net.corda.schema.configuration/MembershipConfig.TtlsConfig///PointingToDeclaration/net/corda/schema/configuration/MembershipConfig.TtlsConfig.html
-$dokka.location:net.corda.schema.configuration/MessagingConfig.Bus///PointingToDeclaration/net/corda/schema/configuration/MessagingConfig.Bus.html
-$dokka.location:net.corda.schema.configuration/MessagingConfig.Publisher///PointingToDeclaration/net/corda/schema/configuration/MessagingConfig.Publisher.html
-$dokka.location:net.corda.schema.configuration/MessagingConfig.Subscription///PointingToDeclaration/net/corda/schema/configuration/MessagingConfig.Subscription.html
-$dokka.location:net.corda.schema.membership/MembershipSchema.GroupPolicySchema///PointingToDeclaration/net/corda/schema/membership/MembershipSchema.GroupPolicySchema.html
-$dokka.location:net.corda.schema.membership/MembershipSchema.RegistrationContextSchema///PointingToDeclaration/net/corda/schema/membership/MembershipSchema.RegistrationContextSchema.html
-$dokka.location:net.corda.schema/Schemas.Certificates///PointingToDeclaration/net/corda/schema/Schemas.Certificates.html
-$dokka.location:net.corda.schema/Schemas.Config///PointingToDeclaration/net/corda/schema/Schemas.Config.html
-$dokka.location:net.corda.schema/Schemas.Crypto///PointingToDeclaration/net/corda/schema/Schemas.Crypto.html
-$dokka.location:net.corda.schema/Schemas.Flow///PointingToDeclaration/net/corda/schema/Schemas.Flow.html
-$dokka.location:net.corda.schema/Schemas.Membership///PointingToDeclaration/net/corda/schema/Schemas.Membership.html
-$dokka.location:net.corda.schema/Schemas.P2P///PointingToDeclaration/net/corda/schema/Schemas.P2P.html
-$dokka.location:net.corda.schema/Schemas.Permissions///PointingToDeclaration/net/corda/schema/Schemas.Permissions.html
-$dokka.location:net.corda.schema/Schemas.Persistence///PointingToDeclaration/net/corda/schema/Schemas.Persistence.html
-$dokka.location:net.corda.schema/Schemas.Rest///PointingToDeclaration/net/corda/schema/Schemas.Rest.html
-$dokka.location:net.corda.schema/Schemas.Services///PointingToDeclaration/net/corda/schema/Schemas.Services.html
-$dokka.location:net.corda.schema/Schemas.UniquenessChecker///PointingToDeclaration/net/corda/schema/Schemas.UniquenessChecker.html
-$dokka.location:net.corda.schema/Schemas.Verification///PointingToDeclaration/net/corda/schema/Schemas.Verification.html
-$dokka.location:net.corda.schema/Schemas.VirtualNode///PointingToDeclaration/net/corda/schema/Schemas.VirtualNode.html
-$dokka.location:net.corda.v5.crypto/DigitalSignature.WithKey///PointingToDeclaration/net/corda/v5/crypto/DigitalSignature.WithKey.html
-$dokka.location:net.corda.v5.ledger.utxo.transaction.filtered/UtxoFilteredData.Audit///PointingToDeclaration/net/corda/v5/ledger/utxo/transaction/filtered/UtxoFilteredData.Audit.html
-$dokka.location:net.corda.v5.ledger.utxo.transaction.filtered/UtxoFilteredData.Removed///PointingToDeclaration/net/corda/v5/ledger/utxo/transaction/filtered/UtxoFilteredData.Removed.html
-$dokka.location:net.corda.v5.ledger.utxo.transaction.filtered/UtxoFilteredData.SizeOnly///PointingToDeclaration/net/corda/v5/ledger/utxo/transaction/filtered/UtxoFilteredData.SizeOnly.html
-net.corda.data
-net.corda.data.chunking
-net.corda.db.schema
-net.corda.rbac.schema
-net.corda.schema
-net.corda.schema.configuration
-net.corda.schema.configuration.provider
-net.corda.schema.configuration.provider.impl
-net.corda.schema.membership
-net.corda.schema.membership.provider
-net.corda.schema.membership.provider.impl
+
+module:application
 net.corda.v5.application.crypto
 net.corda.v5.application.flows
 net.corda.v5.application.marshalling
@@ -43,29 +11,146 @@ net.corda.v5.application.messaging
 net.corda.v5.application.persistence
 net.corda.v5.application.serialization
 net.corda.v5.application.uniqueness.model
+module:base
 net.corda.v5.base.annotations
 net.corda.v5.base.exceptions
 net.corda.v5.base.types
 net.corda.v5.base.util
 net.corda.v5.base.versioning
+module:crypto
 net.corda.v5.crypto
 net.corda.v5.crypto.exceptions
+net.corda.v5.crypto.merkle
+module:crypto-extensions
 net.corda.v5.crypto.extensions
 net.corda.v5.crypto.extensions.merkle
-net.corda.v5.crypto.merkle
+module:membership
+net.corda.v5.membership
+module:serialization
+net.corda.v5.serialization
+net.corda.v5.serialization.annotations
+module:avro-schema
+net.corda.data
+net.corda.data.certificates
+net.corda.data.certificates.rpc.request
+net.corda.data.certificates.rpc.response
+net.corda.data.chunking
+net.corda.data.config
+net.corda.data.crypto
+net.corda.data.crypto.wire
+net.corda.data.crypto.wire.hsm
+net.corda.data.crypto.wire.hsm.registration
+net.corda.data.crypto.wire.hsm.registration.commands
+net.corda.data.crypto.wire.hsm.registration.queries
+net.corda.data.crypto.wire.ops.flow
+net.corda.data.crypto.wire.ops.flow.commands
+net.corda.data.crypto.wire.ops.flow.queries
+net.corda.data.crypto.wire.ops.rpc
+net.corda.data.crypto.wire.ops.rpc.commands
+net.corda.data.crypto.wire.ops.rpc.queries
+net.corda.data.deadletter
+net.corda.data.demo
+net.corda.data.flow
+net.corda.data.flow.event
+net.corda.data.flow.event.external
+net.corda.data.flow.event.mapper
+net.corda.data.flow.event.session
+net.corda.data.flow.output
+net.corda.data.flow.state.checkpoint
+net.corda.data.flow.state.external
+net.corda.data.flow.state.mapper
+net.corda.data.flow.state.session
+net.corda.data.flow.state.waiting
+net.corda.data.flow.state.waiting.external
+net.corda.data.identity
+net.corda.data.ledger.persistence
+net.corda.data.ledger.utxo
+net.corda.data.ledger.utxo.token.selection.data
+net.corda.data.ledger.utxo.token.selection.event
+net.corda.data.ledger.utxo.token.selection.key
+net.corda.data.ledger.utxo.token.selection.state
+net.corda.data.membership
+net.corda.data.membership.actions.request
+net.corda.data.membership.async.request
+net.corda.data.membership.command.registration
+net.corda.data.membership.command.registration.member
+net.corda.data.membership.command.registration.mgm
+net.corda.data.membership.command.synchronisation
+net.corda.data.membership.command.synchronisation.member
+net.corda.data.membership.command.synchronisation.mgm
+net.corda.data.membership.common
+net.corda.data.membership.db.request
+net.corda.data.membership.db.request.async
+net.corda.data.membership.db.request.command
+net.corda.data.membership.db.request.query
+net.corda.data.membership.db.response
+net.corda.data.membership.db.response.command
+net.corda.data.membership.db.response.query
+net.corda.data.membership.event
+net.corda.data.membership.event.registration
+net.corda.data.membership.p2p
+net.corda.data.membership.preauth
+net.corda.data.membership.rpc.request
+net.corda.data.membership.rpc.response
+net.corda.data.membership.state
+net.corda.data.messaging
+net.corda.data.p2p
+net.corda.data.p2p.app
+net.corda.data.p2p.crypto
+net.corda.data.p2p.crypto.internal
+net.corda.data.p2p.gateway
+net.corda.data.p2p.gateway.certificates
+net.corda.data.p2p.markers
+net.corda.data.p2p.mtls
+net.corda.data.p2p.mtls.gateway
+net.corda.data.packaging
+net.corda.data.permissions
+net.corda.data.permissions.management
+net.corda.data.permissions.management.permission
+net.corda.data.permissions.management.role
+net.corda.data.permissions.management.user
+net.corda.data.permissions.summary
+net.corda.data.persistence
+net.corda.data.sync
+net.corda.data.test
+net.corda.data.uniqueness
+net.corda.data.virtualnode
+net.corda.ledger.utxo.verification
+module:config-schema
+net.corda.schema.common.provider
+net.corda.schema.common.provider.impl
+net.corda.schema.configuration
+net.corda.schema.configuration.provider
+net.corda.schema.configuration.provider.impl
+net.corda.schema.cordapp.configuration
+net.corda.schema.cordapp.configuration.provider
+net.corda.schema.cordapp.configuration.provider.impl
+module:db-schema
+net.corda.db.schema
+module:membership-schema
+net.corda.schema.membership
+net.corda.schema.membership.provider
+net.corda.schema.membership.provider.impl
+module:rbac-schema
+net.corda.rbac.schema
+module:topic-schema
+net.corda.schema
+module:ledger-common
 net.corda.v5.ledger.common
 net.corda.v5.ledger.common.transaction
+module:ledger-consensual
 net.corda.v5.ledger.consensual
 net.corda.v5.ledger.consensual.transaction
-net.corda.v5.ledger.notary.plugin.api
-net.corda.v5.ledger.notary.plugin.core
+module:ledger-utxo
 net.corda.v5.ledger.utxo
 net.corda.v5.ledger.utxo.observer
+net.corda.v5.ledger.utxo.query
+net.corda.v5.ledger.utxo.query.json
+net.corda.v5.ledger.utxo.query.registration
 net.corda.v5.ledger.utxo.token.selection
 net.corda.v5.ledger.utxo.transaction
 net.corda.v5.ledger.utxo.transaction.filtered
 net.corda.v5.ledger.utxo.uniqueness.client
-net.corda.v5.membership
-net.corda.v5.serialization
-net.corda.v5.serialization.annotations
-
+module:notary-plugin
+net.corda.v5.ledger.notary.plugin.api
+net.corda.v5.ledger.notary.plugin.core
