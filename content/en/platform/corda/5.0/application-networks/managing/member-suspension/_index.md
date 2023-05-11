@@ -67,7 +67,7 @@ Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)}`
 {{% /tab %}}
 {{< /tabs >}}
 
-`<serial-number>` is the current serial number of the member, as retrived by the [Member Lookup endpoint]({{< relref "#query-for-members">}}). The `<serial-number>` is optional. If it is not specified, the latest serial number is used. However, we recommend always specifying the serial number in the request to avoid suspending a member based on outdated information. If the serial number does not match, the method returns a `409 CONFLICT`. This can happen if another process has updated the member information, before the suspension operation. If this occurs, you can query the Member Lookup endpoint again and decide whether to proceed with the operation.
+`<serial-number>` is the current serial number of the member, as retrieved by the [Member Lookup endpoint]({{< relref "#query-for-members">}}). The `<serial-number>` is optional. If it is not specified, the latest serial number is used. However, we recommend always specifying the serial number in the request to avoid suspending a member based on outdated information. If the serial number does not match, the method returns a `409 CONFLICT`. This can happen if another process has updated the member information, before the suspension operation. If this occurs, you can query the Member Lookup endpoint again and decide whether to proceed with the operation.
 
 ## Activate a Member
 
