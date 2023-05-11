@@ -89,6 +89,6 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 {{% /tab %}}
 {{< /tabs >}}
 
-`<serial-number>` is the current serial number of the member, as retrived by the [Member REST endpoint]({{< relref "#query-for-members">}}). The `<serial-number>` is optional. If it is not specified, the latest serial number is used. However, we recommend always specifying the serial number in the request to avoid suspending a member based on outdated information. If the serial number does not match, the method returns a `409 CONFLICT`.
+`<serial-number>` is the current serial number of the member, as retrieved by the [Member REST endpoint]({{< relref "#query-for-members">}}). The `<serial-number>` is optional. If it is not specified, the latest serial number is used. However, we recommend always specifying the serial number in the request to avoid suspending a member based on outdated information. If the serial number does not match, the method returns a `409 CONFLICT`.
 
  Once a member has been re-activated, flow communication between it and other members can resume.
