@@ -134,7 +134,7 @@ For example, if `cryptoServiceFlowRetryCount` is set to `-2`, then the flow is r
 
 Optional time-out value of actions sent to the CryptoService (HSM). If the HSM takes longer than this duration to respond, then a `TimedCryptoServiceException` will be thrown and handled by the Flow Hospital. You can increase it to mitigate the time-out error.
 
-*Default:* 10 seconds
+*Default:* 10000 milliseconds
 
 ## `custom`
 
