@@ -22,7 +22,7 @@ The commands shown in this section, use the following variables:
 * `REST_API_URL` — the URL of the REST worker. This may vary depending on where you have deployed your cluster and how you have forwarded the ports. For example, `https://localhost:8888/api/v1`.
 * `REST_API_USER` — your username for invoking the REST API. 
 * `REST_API_PASSWORD` — your password for invoking the REST API.
-* `AUTH_INFO` — the authetication information if using PowerShell. You can set this as follows:
+* `AUTH_INFO` — the authentication information if using PowerShell. You can set this as follows:
    ```
    $AUTH_INFO = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("admin:admin" -f $username,$password)))
    ```
