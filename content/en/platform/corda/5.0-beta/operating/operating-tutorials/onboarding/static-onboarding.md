@@ -22,7 +22,7 @@ To run a static network, you must complete the following high-level steps:
 5. [Create a virtual node in your cluster for each member defined in the group policy file](#create-virtual-nodes-for-each-member).
 6. [Register each member in the group](#register-members).
 
-## Create the Group Policy File
+## Create the Group Policy File {{<enterprise-icon>}}
 
 Use the [Corda CLI](../../../developing/getting-started/installing-corda-cli.html) to generate a [GroupPolicy.json file](../../../deploying/group-policy.html#static-network-member-group-policy), where `group-policy-folder` is the path to the folder in which you want to generate the file:
 ```shell
