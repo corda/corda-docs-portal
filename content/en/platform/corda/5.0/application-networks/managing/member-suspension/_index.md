@@ -17,7 +17,7 @@ It is possible to temporarily suspend a member of a group. Once a member has bee
 * [Activate a Member]({{< relref "#activate-a-member">}})
 
 The commands shown in this section, use the following variables:
-* `MGM_HOLDING_ID` — the short hash of the MGM's Holding Identity.
+* `MGM_HOLDING_ID` — the short hash of the MGM's holding identity.
 * `X500_NAME` — the X.500 name of the member being suspended or re-activated.
 * `REST_API_URL` — the URL of the REST worker. This may vary depending on where you have deployed your cluster and how you have forwarded the ports. For example, `https://localhost:8888/api/v1`.
 * `REST_API_USER` — your username for invoking the REST API. 
