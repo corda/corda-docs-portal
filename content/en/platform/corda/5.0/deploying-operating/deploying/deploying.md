@@ -661,4 +661,4 @@ helm install -n corda corda oci://registry-1.docker.io/corda/corda --version 5.0
 
 Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how
 to access the [Corda REST API](../../reference/rest-api/_index.md).
-If the Helm install fails, see the troubleshooting section on [obervability](../observability/_index.md).
+If the Helm install fails, see the troubleshooting section on [observability](../observability/_index.md).
