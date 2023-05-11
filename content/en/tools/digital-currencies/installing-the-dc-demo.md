@@ -101,7 +101,15 @@ For digital-currencies-ie, switch to the POC-DEMO branch.
 {{</ note >}}
 --> 
 
-3. If necessary, initialise the git repos and change the remotes so you do not inadvertently push your work back.
+3. If necessary, for each repository, initialise the git repository and change the remote URL so you do not inadvertently push your work back:
+
+   ```sh
+   git init
+   git remote add origin <remote-url>
+   ```
+   
+   where `<remote-url>` is the URL of the remote repository that you have created.
+
 
 4. Run IntelliJ.
 
