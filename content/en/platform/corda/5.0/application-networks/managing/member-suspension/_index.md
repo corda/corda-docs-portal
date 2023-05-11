@@ -12,7 +12,7 @@ section_menu: corda5
 ---
 
 It is possible to temporarily suspend a member of a group. Once a member has been suspended, Corda blocks flow communication between it and other members of the group. A suspended member performing a member lookup can only see see updates from the MGM and not from other members. It is not possible to suspend the MGM. This section describes how to perform the following:
-* [Query for Members]({{< relref "#query-for-members">}})
+* [Search for Members]({{< relref "#search-for-members">}})
 * [Suspend a Member]({{< relref "#suspend-a-member">}})
 * [Activate a Member]({{< relref "#activate-a-member">}})
 
@@ -27,7 +27,7 @@ The commands shown in this section, use the following variables:
    $AUTH_INFO = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("admin:admin" -f $username,$password)))
    ```
 
-## Query for Members
+## Search for Members
 
 You can use the [Member Lookup REST endpoint](../../reference/rest-api/C5_OpenAPI.html#tag/Member-Lookup-API) to query for all members with a particular status by specifying the MGM and the status. By default, the endpoint returns only ACTIVE members. You can also query for multiple statuses together. For example, to query for all members with the status SUSPENDED:
 
