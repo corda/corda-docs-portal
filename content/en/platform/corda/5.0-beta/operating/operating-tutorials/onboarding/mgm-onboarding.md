@@ -421,7 +421,7 @@ You can also optionally set the session certificate trustroot using the property
 
 {{< note >}}
 * If using session certificates for the P2P layer, see [Configuring Optional Session Certificates](session-certificates.html#build-registration-context-for-mgm-registration) for information about the additional JSON fields required.
-* If using mutual TLS, you must set the `corda.group.tls.type` field to `Mutual`. For more information, see [Configuring Mutual TLS]({{< relref "../mutual-tls.md#set-the-tls-type-in-the-mgm-context" >}}). 
+* If using mutual TLS, you must set the `corda.group.tls.type` field to `Mutual`. For more information, see [Configuring Mutual TLS]({{< relref "../mutual-tls.md#set-the-tls-type-in-the-mgm-context" >}}).
 {{< /note >}}
 
 ### Build Registration Context Using Bash
@@ -477,12 +477,12 @@ You can now use the registration context to register the MGM on the network:
 
 To register the MGM using Bash, run this command:
 ```shell
-REGISTRATION_REQUEST='{"memberRegistrationRequest":{"action": "requestJoin", "context": '$REGISTRATION_CONTEXT'}}'
+REGISTRATION_REQUEST='{"memberRegistrationRequest":{ "context": '$REGISTRATION_CONTEXT'}}'
 curl --insecure -u admin:admin -d "$REGISTRATION_REQUEST" $API_URL/membership/$MGM_HOLDING_ID
 ```
 For example:
 ``` shell
-curl --insecure -u admin:admin -d '{ "memberRegistrationRequest": { "action": "requestJoin", "context": {
+curl --insecure -u admin:admin -d '{ "memberRegistrationRequest": { "context": {
   "corda.session.key.id": "D2FAF709052F",
   "corda.ecdh.key.id": "E2FCF719062B",
   "corda.group.protocol.registration": "net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService",
