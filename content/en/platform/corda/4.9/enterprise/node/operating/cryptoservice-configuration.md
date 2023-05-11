@@ -50,7 +50,7 @@ As mentioned in the description of the configuration file ([Node configuration](
 * `cryptoServiceConf`
 * Optional: `cryptoServiceTimeout`
 
-If you do not add the `cryptoServiceTimeout` parameter, it defaults to 10000 milliseconds. You can increase it to mitigate the time-out error.
+If you do not add the `cryptoServiceTimeout` parameter, it defaults to 10 seconds. You can increase it to mitigate the time-out error.
 
 {{< warning >}}
 The file containing the configuration for the HSM (referenced by the `cryptoServiceConf` field) contains sensitive information. For this reason, we strongly advise you to use the [Configuration Obfuscator]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/tools-config-obfuscator.md" >}}) tool.
