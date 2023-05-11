@@ -9,7 +9,7 @@ menu:
 section_menu: corda5
 ---
 
-As described in [Registration Approval]({{< relref "../registration-approval.md#pre-authentication" >}}), you can specify that certain changes to the member’s context must be manually approved (or declined), even if a pre-auth token was submitted. This section describes how to manage pre-auth registration rules using the Corda REST API.
+As described in [Registration Approval]({{< relref "../_index.md#pre-authentication" >}}), you can specify that certain changes to the member’s context must be manually approved (or declined), even if a pre-auth token was submitted. This section describes how to manage pre-auth registration rules using the Corda REST API.
 
 ## Adding a Pre-Auth Approval Rule
 
