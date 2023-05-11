@@ -7,7 +7,7 @@ menu:
   corda5:
     identifier: corda5-networks-member-suspension
     parent: corda5-networks-manage
-    weight: 1000
+    weight: 2000
 section_menu: corda5
 ---
 
