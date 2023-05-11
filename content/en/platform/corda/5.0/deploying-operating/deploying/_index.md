@@ -10,6 +10,6 @@ menu:
     weight: 3000
 section_menu: corda5
 ---
-The following section describes the prerequisites and the process for deploying Corda.
+This section describes the prerequisites and the process for deploying Corda.
 It contains the following:
 {{<childpages>}}
