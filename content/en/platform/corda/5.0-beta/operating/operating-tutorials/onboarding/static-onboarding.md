@@ -24,7 +24,7 @@ To run a static network, you must complete the following high-level steps:
 
 ## Create the Group Policy File {{<enterprise-icon>}}
 
-Use the [Corda CLI](../../../developing/getting-started/installing-corda-cli.html) to generate a [GroupPolicy.json file](../../../deploying/group-policy.html#static-network-member-group-policy), where `group-policy-folder` is the path to the folder in which you want to generate the file:
+{{<enterprise-icon>}} Use the [Corda CLI](../../../developing/getting-started/installing-corda-cli.html) to generate a [GroupPolicy.json file](../../../deploying/group-policy.html#static-network-member-group-policy), where `group-policy-folder` is the path to the folder in which you want to generate the file:
 ```shell
 corda-cli.sh mgm groupPolicy --name="C=GB, L=London, O=Alice" --name="C=GB, L=London, O=Bob" --name="C=GB, L=London, O=Charlie" --endpoint-protocol=1 --endpoint="http://localhost:1080" > <group-policy-folder/GroupPolicy.json>
 ```
