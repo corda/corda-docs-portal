@@ -9,17 +9,30 @@ menu:
 section_menu: corda5
 ---
 
-To create a virtual node for a member, run the following commands, changing the X.500 name and using the checksum retrieved when you [uploaded the member CPI]({{< relref"./cpi.md#upload-the-cpi" >}}):
+You can create a virtual node using the POST method of the [/api/v1/virtualnode endpoint](../../../reference/rest-api/C5_OpenAPI.html#tag/Virtual-Node-API/operation/post_virtualnode). The following sections describe how to use this method:
+* [Create a Virtual Node on Linux or macOS](#create-a-virtual-node-on-linux-or-macos)
+* [Create a Virtual Node on Windows](#create-a-virtual-node-on-linux-or-windows)
 
-{{< tabs >}}
-{{% tab name="Bash"%}}
+## Create a Virtual Node on Linux or macOS
+
+To create a virtual node for a member on Linux or macOS, run the following commands in Bash to send the request using Curl, changing the X.500 name and using the checksum retrieved when you [uploaded the member CPI]({{< relref"./cpi.md#upload-the-cpi" >}}):
+
 ```shell
 export CPI_CHECKSUM=<CPI-checksum>
 export X500_NAME="C=GB, L=London, O=Alice"
 curl -u $REST_API_USER:$REST_API_PASSWORD -d '{"request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "'$X500_NAME'"}}' $API_URL/virtualnode
 ```
-{{% /tab %}}
-{{% tab name="PowerShell" %}}
+
+If successful, this request returns the details of the new virtual node as JSON. To save the ID of the virtual node for future use, run the following command, replacing `<holding-identity-ID>` with the ID returned in `holdingIdentity.shortHash` in the received response. For example, `58B6030FABDD`.
+
+```shell
+export MGM_HOLDING_ID=<holding-identity-ID>
+```
+
+## Create a Virtual Node on Windows
+
+To create a virtual node for a member on Windows, run the following commands in PowerShell, changing the X.500 name. The command uses the checksum of the CPI from the repsonse saved when you [uploaded the member CPI]({{< relref"./cpi.md#upload-the-cpi" >}}):
+
 ```shell
 $X500_NAME = "C=GB, L=London, O=Alice"
 $VIRTUAL_NODE_RESPONSE = Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/virtualnode" -Method Post -Body (ConvertTo-Json @{
@@ -30,11 +43,4 @@ $VIRTUAL_NODE_RESPONSE = Invoke-RestMethod -Headers @{Authorization=("Basic {0}"
 })
 
 $HOLDING_ID = $VIRTUAL_NODE_RESPONSE.holdingIdentity.shortHash
-```
-{{% /tab %}}
-{{< /tabs >}}
-
-If using Bash, run the following, replacing `<holding identity ID>` with the ID returned in `holdingIdentity.shortHash` (for example, `58B6030FABDD`).
-```bash
-export HOLDING_ID=<holding-identity-ID>
 ```
