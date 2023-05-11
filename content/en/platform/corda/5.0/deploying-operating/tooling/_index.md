@@ -22,7 +22,7 @@ of the Kubernetes cluster that you are using, for example, if your cluster is v1
 ## Helm CLI
 
 Corda 5 is deployed as a Helm chart. To perform the installation, the Cluster Operator requires the Helm CLI.
-The [Helm documentation](https://helm.sh/docs/intro/install/) contains details on how to install helm. The Helm version should be v3.9.4 or newer.
+The [Helm documentation](https://helm.sh/docs/intro/install/) contains details on how to install Helm. The Helm version should be v3.9.4 or newer.
 
 ## Corda CLI
 
