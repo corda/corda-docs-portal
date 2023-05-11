@@ -226,7 +226,7 @@ If you are targeting schemas, database and crypto generated SQL should be applie
 
 2. Use the Corda CLI to generate DML files for creating the database tables to use for each of the `crypto`, `config`, and `rbac` components.
 
-The following command specifies that the `CONFIG`, `RBAC` and `CRYPTO` schema should be used for the corresponding components and generates the files in the directory `/tmp/db`:
+The following command specifies that the `CONFIG`, `RBAC`, and `CRYPTO` schema should be used for the corresponding components and generates the files in the directory `/tmp/db`:
 
 {{< tabs name="DML">}}
 {{% tab name="Linux" %}}
