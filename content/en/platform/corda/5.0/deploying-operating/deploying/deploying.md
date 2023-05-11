@@ -11,7 +11,7 @@ section_menu: corda5
 
 This page describes how to deploy Corda 5.
 
-All the necessary [prerequisites](prerequisites.md) must have been satisfied before Corda is deployed.
+All the necessary [prerequisites]({{< relref "prerequisites.md" >}}) must have been satisfied before Corda is deployed.
 In particular, PostgreSQL and Kafka must be running. The mechanism to achieve that is up to you. For example, you can:
 
 * run PostgreSQL and Kafka on Kubernetes.
