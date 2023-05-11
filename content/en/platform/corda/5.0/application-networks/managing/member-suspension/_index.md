@@ -29,7 +29,7 @@ The commands shown in this section, use the following variables:
 
 ## Query for Members
 
-You can use the [Member Lookup REST endpoint](../../reference/rest-api/C5_OpenAPI.html#tag/Member-Lookup-API) to query for all members with a particular status by specifying the MGM and the status. By default, the endpoint returns only ACTIVE members. You can also query for multiple statuses together. For example, to query for all members with the status SUSPENDED:
+You can use the [Member Lookup REST endpoint](../../reference/rest-api/C5_OpenAPI.html#tag/Member-Lookup-API) to query for all members with a particular status by specifying the MGM and the status. By default, the endpoint only returns members with the status ACTIVE. You can also query for multiple statuses together. For example, to query for all members with the status SUSPENDED:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
