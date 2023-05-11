@@ -9,7 +9,7 @@ menu:
 section_menu: corda5
 ---
 
-There are three prerequisites to Corda deployment process:
+There are three prerequisites to the Corda deployment process:
 
 * Kubernetes for container orchestration
 * Kafka for messaging
