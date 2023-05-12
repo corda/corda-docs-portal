@@ -18,7 +18,7 @@ title: Release notes
 
 CENM 1.5.8 introduces fixes to known issues in CENM 1.5.
 
-## Fixed Issues
+### Fixed Issues
 
 * The duplicate response header `Transfer-Encoding` while accessing the endpoint `/api/v1/authentication/config` has been removed.
 

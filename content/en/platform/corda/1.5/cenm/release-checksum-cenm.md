@@ -1,5 +1,5 @@
 ---
-title: Release packs and checksums
+title: Release files and checksums
 date: '2023-01-27'
 menu:
   cenm-1-5:
@@ -8,7 +8,7 @@ menu:
     weight: 85
 ---
 
-# Corda Enterprise Network Manager release packs and checksums
+# Corda Enterprise Network Manager release files and checksums
 
 Customers who have access to the Corda repositories can download the release files from the repositories.
 
