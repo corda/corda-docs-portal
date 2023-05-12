@@ -1,11 +1,13 @@
 ---
 date: '2023-04-07'
 title: "Member Registration"
+project: corda
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-networks-reg-requests
     parent: corda5-networks-manage
-    weight: 4000
+    weight: 1000
 section_menu: corda5
 ---
 

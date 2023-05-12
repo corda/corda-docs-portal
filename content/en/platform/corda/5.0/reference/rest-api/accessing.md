@@ -28,16 +28,16 @@ To access and invoke the REST API:
 4. The REST API is at the path `/api/v1`. The following is an example invocation using `curl` when the API endpoint is exposed via port forwarding:
 
    ```sh
-   REST_API_URL=https://localhost:8888
+   REST_API_URL=https://localhost:8888/api/v1
    REST_API_USER=admin
    REST_API_PASSWORD=$(kubectl get secret -n <NAMESPACE> corda-initial-admin-user -o go-template="{{ .data.password | base64decode }}")
-   curl -u $REST_API_USER:$REST_API_PASSWORD -k $REST_API_URL/api/v1/hello
+   curl -u $REST_API_USER:$REST_API_PASSWORD -k $REST_API_URL/hello
    ```
 
    {{< note >}}
    The REST API is protected by a self-signed certificate.
    {{< /note >}}
 
-You can access the Swagger documentation for the REST API at the path `/api/v1/swagger`. For example, when using port forwarding, the documentation is available at `<REST_API_URL>/api/v1/swagger`.
+You can access the Swagger documentation for the REST API at the path `/api/v1/swagger`. For example, when using port forwarding, the documentation is available at `<REST_API_URL>/swagger`.
 
 You can also view the REST API documentation [here](./C5_OpenAPI.html).
