@@ -12,12 +12,6 @@ section_menu: corda-5-beta
 
 Corda 5 is designed to enable anyone to start small and scale as needed. An entire application network can run on a single laptop, with many self-sovereign identities sharing the compute resources. When required, Corda supports scaling out to the data center, enabling true decentralization of execution as identities progressively move to their own clusters. The network grows without losing control over what is important, that is, the rules allowing people into the network and the rules governing the exchange of information. Corda 5 can handle running ten identities or many thousands of them.
 
-## Building Corda 5
-
-To build, clone each repository in the same parent directory:
-
-*
-
 ## Highly Available
 
 The worker architecture means that Corda 5 can be deployed in a Hot-Hot/Active-Active configuration, which ensures continuity of execution under fault scenarios. If a worker crashes, another can pick up the checkpointed flow and continue execution.
