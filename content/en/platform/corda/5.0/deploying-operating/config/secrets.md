@@ -56,7 +56,7 @@ You can also use the default `SecretsLookupService` with start-up configuration.
 Any configuration items can be configured as sensitive or not. It is up to you to decide if a particular configuration item should be treated as sensitive.
 {{< /note >}}
 
-## External Secrets Service < enterprise-icon >
+## External Secrets Service {{< enterprise-icon >}}
 
 In some instances, the default implementation of `SecretsLookupService` may not be sufficient. For example, in the case of [Database Connection Configuration]({{< relref "./database-connection.md" >}}), the salt and passphrase used for the encryption is present in the same set of start-up parameters as the configuration that may be sensitive. This may be adequate if you can ensure that these start-up parameters are sufficiently protected. However, in other cases it may be preferable to manage these credentials outside Corda.
 
