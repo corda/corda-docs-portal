@@ -14,6 +14,14 @@ title: Release notes
 
 # Corda Enterprise Network Manager release notes
 
+## Corda Enterprise Network Manager 1.5.8
+
+CENM 1.5.8 introduces fixes to known issues in CENM 1.5.
+
+## Fixed Issues
+
+* The duplicate response header `Transfer-Encoding` while accessing the endpoint `/api/v1/authentication/config` has been removed.
+
 ## Corda Enterprise Network Manager 1.5.7
 
 CENM 1.5.7 introduces enhancements and fixes to known issues in CENM 1.5.
