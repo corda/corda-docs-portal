@@ -10,7 +10,7 @@ menu:
 
 # Corda Enterprise Network Manager release packs and checksums 
 
-The Corda Enterprise Network Manager release consists of multiple release packs. You can download the Corda Enterprise release packs and their respective checksum files from the Customer Hub.
+You can download the Corda Enterprise Network Manager release packs and their respective checksum files from the Customer Hub.
 
 Before you install the downloaded packs, verify the integrity of each pack using the respective checksum file to ensure it has not been tampered with or corrupted during the download. You can do this by calculating the checksum of your downloaded file, then comparing its value to the checksum value provided below.
 
