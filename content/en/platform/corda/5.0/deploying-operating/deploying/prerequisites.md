@@ -68,4 +68,4 @@ Corda is tested with PostgreSQL 14.4 including Amazon RDS for PostgreSQL, Amazon
 The Corda deployment process requires the PostgreSQL hostname and port. If automatic bootstrapping is used,
 a user name and password are required for a user that has the ability to create the schemas for configuration, crypto,
 and RBAC, and can create crypto and RBAC users and grant them access to their respective schemas.
-If [bootstrapping manually](bootstrapping.md), an additional virtual node user will still need the ability to create schemas dynamically at runtime.
+If [bootstrapping manually]({{< relref "bootstrapping.md" >}}), an additional virtual node user will still need the ability to create schemas dynamically at runtime.

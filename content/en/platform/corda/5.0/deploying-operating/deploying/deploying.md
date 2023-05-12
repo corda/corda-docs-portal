@@ -152,7 +152,7 @@ As with the number of replicas, you may need to adjust these values based on tes
 
 ### Exposing the REST API
 
-By default, the [REST API](../../reference/rest-api/_index.md) is exposed on an internal Kubernetes service.
+By default, the [REST API]({{< relref "../../reference/rest-api/_index.md" >}}) is exposed on an internal Kubernetes service.
 To enable access from outside the Kubernetes cluster, use one of the following:
 
 * [Kubernetes Ingress](#kubernetes-ingress)
@@ -313,7 +313,7 @@ username:
 ### Bootstrapping
 
 By default, the Helm chart automatically configures Kafka, PostgreSQL, and a default set of Corda RBAC roles as part of the deployment process.
-If desired, each of these steps can be disabled and the necessary [configuration performed manually](bootstrapping.md).
+If desired, each of these steps can be disabled and the necessary [configuration performed manually]({{< relref "bootstrapping.md" >}}).
 
 #### Kafka
 The Kafka bootstrapping creates the topics required by Corda.
@@ -660,5 +660,5 @@ helm install -n corda corda oci://registry-1.docker.io/corda/corda --version 5.0
 ```
 
 Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how
-to access the [Corda REST API](../../reference/rest-api/_index.md).
-If the Helm install fails, see the troubleshooting section on [observability](../observability/_index.md).
+to access the [Corda REST API]({{< relref "../../reference/rest-api/_index.md" >}}).
+If the Helm install fails, see the troubleshooting section on [observability]({{< relref "../observability/_index.md" >}}).

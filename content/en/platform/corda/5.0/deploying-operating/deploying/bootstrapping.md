@@ -11,7 +11,7 @@ section_menu: corda5
 
 By default, the Corda installation process automatically performs various setup actions in Kafka and the database, and for Corda RBAC.
 If you require additional control, you can disable these automatic setup processes and an administrator can manually perform the actions
-with the assistance of the [Corda CLI](.{{< relref "./tooling/installing-corda-cli.md" >}}).
+with the assistance of the [Corda CLI]({{< relref "../tooling/installing-corda-cli.md" >}}).
 
 ## Kafka
 
