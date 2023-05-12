@@ -17,7 +17,7 @@ The Corda platform is a layered toolbox that you can approach from the bottom up
 
 {{< figure src="images/layered-architecture.png" figcaption="Corda 5 architecture" alt="Layered architecture of Corda 5" >}}
 
-### P2P Layer
+### P2P Layer {{<enterprise-icon>}}
 
 The P2P Layer allows an identity to establish a communication session with another identity on an [application network](#application-networks) at their published address, regardless of whether they reside in the same or different [clusters](#clusters).
 It manages the lifecycle, link establishment, connection recovery, back pressure, caching, heart beating, transmission, message chunking, etc., for communications intended to flow between identities. It has two primary components; the Gateway and Link Manager.

@@ -1,0 +1,24 @@
+<style>
+  .chain-icon {
+    filter: grayscale(100%) opacity(20%);
+    display: none !important;
+    width: 16px !important;
+    border-style: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+  .link-heading:hover > a > .chain-icon {
+    display: inline !important;
+  }
+</style>
+
+{{ if ne .Level 1 }}
+  <h{{ .Level }} id="{{ .Anchor | safeURL }}"  class="link-heading">
+    <a style="text-decoration: none !important;" href="#{{ .Anchor | safeURL }}">
+      {{ .Text | safeHTML }} 
+    </a>
+    <a style="text-decoration: none !important;" href="#{{ .Anchor | safeURL }}">
+      <img src="/icons/chain-icon.png" class="chain-icon" alt="heading-link-icon" />
+    </a>
+  </h{{ .Level }}>
+{{ end }}
