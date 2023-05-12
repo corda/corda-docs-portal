@@ -1,30 +1,24 @@
 ---
-title: "Configuration Fields"
+title: "Database Connection Configuration"
 project: corda
 version: 'Corda 5.0'
-date: 2023-04-24
+date: '2023-05-12'
 menu:
-  corda5:
-    parent: corda5-references
-    identifier: corda5-config-fields
-    weight: 1000
+    identifier: corda5-cluster-dynamic
+    parent: corda5-cluster-config
+    weight: 2000
 section_menu: corda5
 ---
 
-Corda 5 uses a dynamic configuration system, enabling you to configure Corda centrally through the REST API. This configuration is then distributed to all relevant worker processes through the Kafka Message bus. 
-
-{{< note >}}
-The `corda.db` configuration section is passed when starting Corda and cannot be updated dynamically through the REST endpoint.
-{{< /note >}}
 
 Set the fields in a section by sending the configuration fields as JSON to the <a href="../reference/rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/put_config">`config` endpoint</a> of the REST API. The PUT method of `/api/v1/config` requires the following parameters:
 * `section` — the configuration section that the JSON updates. 
 * `version` — the version of the configuration. Corda versions configurations to avoid two concurrent updates clashing with each other. You can retrieve the current version, along with the current configuration structure, using the GET method of the <a href ="../reference/rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/get_config__section_">`/api/v1/config` endpoint</a>.
-* `config` — the configuration fields and values specified as JSON.
-* `schemaVersion` — 
+* `config` — the configuration fields and values specified as JSON. For more information about these fields, see [Configuration Fields]({{<"./fields/_index.md">}}).
+* `schemaVersion` — the configuration schema version. Set this to `{"major": 1, "minor": 0}` for this version of Corda.
 
-The following sections describe the fields of each Corda configuration section:
-{{< childpages >}}
+
+
 
 For example, if the REST API is exposed on `localhost`, to set fields in the [messaging]({{< relref "./messaging.md" >}}) section using Bash with Curl or PowerShell:
 
