@@ -332,7 +332,7 @@ weight = 500
 identifier = "corda-rest-ref"
 parent = "corda5-rest-api-reference"
 name = "REST API Reference"
-weight = 3000
+weight = 2000
 url = 'https://docs.r3.com/en/platform/corda/5.0/reference/rest-api/C5_OpenAPI.html'
 
 #keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
