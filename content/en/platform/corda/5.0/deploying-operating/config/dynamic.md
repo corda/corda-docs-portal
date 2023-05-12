@@ -18,7 +18,7 @@ Set the fields in a section by sending the configuration fields as JSON to the <
 
 
 
-For example, if the REST API is exposed on `localhost`, to set fields in the [messaging]({{< relref "./messaging.md" >}}) section using Bash with Curl or PowerShell:
+For example, if the REST API is exposed on `localhost`, to set fields in the [messaging]({{< relref "./fields/messaging.md" >}}) section using Bash with Curl or PowerShell:
 
    {{< tabs >}}
    {{% tab name="Bash"%}}
