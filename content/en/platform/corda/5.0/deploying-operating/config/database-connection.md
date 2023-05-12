@@ -1,61 +1,33 @@
 ---
 title: "Database Connection Configuration"
-project: corda
-version: 'Corda 5.0'
 date: '2023-05-12'
 menu:
-    identifier: corda5-cluster-dynamic
+  corda5:
+    identifier: corda5-cluster-database
     parent: corda5-cluster-config
     weight: 2000
 section_menu: corda5
 ---
 
+Database connection details must be handled differently than the standard dynamic configuration process. This is necessary not only because they are sensitive but also to maintain operation separation between the different types of workers. For example, the flow worker process should not have access to the database connection details.
 
-Set the fields in a section by sending the configuration fields as JSON to the <a href="../reference/rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/put_config">`config` endpoint</a> of the REST API. The PUT method of `/api/v1/config` requires the following parameters:
-* `section` — the configuration section that the JSON updates. 
-* `version` — the version of the configuration. Corda versions configurations to avoid two concurrent updates clashing with each other. You can retrieve the current version, along with the current configuration structure, using the GET method of the <a href ="../reference/rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/get_config__section_">`/api/v1/config` endpoint</a>.
-* `config` — the configuration fields and values specified as JSON. For more information about these fields, see [Configuration Fields]({{<"./fields/_index.md">}}).
-* `schemaVersion` — the configuration schema version. Set this to `{"major": 1, "minor": 0}` for this version of Corda.
+There are two levels of connection details:
+* [Configuration Database]({{< relref "#configuration-database" >}})
+* [All Other Databases]({{< relref "#all-other-databases" >}})
 
+## Configuration Database
 
+The configuration database contains all configuration for the Corda cluster and so the database worker process must be able to connect to this database when it starts. As a result, the connection details for this database must be passed to the database worker process as start-up parameters. For example:
 
+```
+-ddatabase.user=db-user
+-ddatabase.pass=a-db-password
+-ddatabase.jdbc.url=jdbc:postgresql://db-address:5432/cordacluster
+-ddatabase.jdbc.directory=/opt/corda/drivers
+Note that the credentials do not have to be passed into this configuration in plain text. See the next section for more details.
+```
 
-For example, if the REST API is exposed on `localhost`, to set fields in the [messaging]({{< relref "./messaging.md" >}}) section using Bash with Curl or PowerShell:
+## All Other Databases
 
-   {{< tabs >}}
-   {{% tab name="Bash"%}}
-   ```shell
-   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.messaging", "version":"1", "config":"{"maxAllowedMessageSize":972800,"publisher":{"closeTimeout":600,"transactional":true},"subscription":{"commitRetries":3,"pollTimeout":500,"processorRetries":3,"processorTimeout":15000,"subscribeRetries":3,"threadStopTimeout":10000}}", "schemaVersion": {"major": 1, "minor": 0}}' "https://localhost:8888/api/v1/config"
-   ```
-   {{% /tab %}}
-   {{% tab name="PowerShell" %}}
-   ```shell
-   Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $REST_API_USER:$REST_API_PASSWORD)} -Method Put -Uri "https://localhost:8888/api/v1/config" -Body (ConvertTo-Json -Depth 4 @{
-    section = "corda.messaging"
-    version = 1
-    {
-     "config": "{
-        "maxAllowedMessageSize":972800,
-        "publisher":{
-           "closeTimeout":600,
-           "transactional":true
-        },
-        "subscription":{
-           "commitRetries":3,
-           "pollTimeout":500,
-           "processorRetries":3,
-           "processorTimeout":15000,
-           "subscribeRetries":3,
-           "threadStopTimeout":10000
-        }
-     }",
-     "schemaVersion": {
-        "major": 1,
-        "minor": 0
-     },
-     "section": "corda.messaging",
-     "version": 1
-   })
-   ```
-   {{% /tab %}}
-   {{< /tabs >}}
+Other databases used by Corda include RBAC (Role Based Access Control), Crypto (contains virtual node wrapping keys, for example) and also all the virtual node databases.
+Connection details for these databases are stored in the `db_connection` table of the configuration database and never published to the Kafka message bus.
