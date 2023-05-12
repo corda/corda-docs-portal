@@ -27,6 +27,8 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
+* The default value for the node configuration value cryptoServiceTimeout has been increased from 1 second to 10 seconds.
+
 * Previously, where nodes had invoked a very large number of flows, the cache of client IDs that had not been removed were taking up significant heap space. A solution has been implemented where the space taken up has been reduced by 170 bytes per entry. For example, 1 million un-removed client IDs now take up 170,000,000 bytes less heap space than before.
 
 * Previously, when configured to use confidential identities and the Securosys PrimusX HSM, it was possible for Corda to fail to generate a wrapped key-pair for a new confidential identity. This would cause a temporary key-pair to be leaked, consuming resource in the HSM. This issue occurred when:
