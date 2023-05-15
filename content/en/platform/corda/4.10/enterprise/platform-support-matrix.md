@@ -145,8 +145,8 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 |-------------------------------|--------------------------|--------------------------|----------------------------|-----------------------------|
 | Utimaco SecurityServer Se Gen2| Firmware version 4.21.1  | Firmware version 4.21.1  | Firmware version 4.21.1    | Firmware version 4.21.1     |
 |                               | Driver version 4.21.1    | Driver version 4.21.1    | Driver version 4.21.1      | Driver version 4.21.1       |
-| Gemalto Luna                  | Firmware version 7.0.3   | Firmware version 7.0.3   | Firmware version 7.0.3     | Firmware version 7.0.3      |
-|                               | Driver version 7.3       | Driver version 7.3       | Driver version 7.3         | Driver version 7.3          |
+| Gemalto Luna (firmware)       | Firmware version 7.0.3   | Firmware version 7.0.3   | Firmware version 7.0.3     | Firmware version 7.0.3      |
+| Gemalt Lunda (driver) | Driver version 7.3 (Corda 4.9.6 and previous)</br>Driver version 10.4.0 (Corda 4.9.7 and greater) | Driver version 7.3 (Corda 4.9.6 and previous)</br>Driver version 10.4.0 (Corda 4.9.7 and greater) | Driver version 7.3 (Corda 4.9.6 and previous)</br>Driver version 10.4.0 (Corda 4.9.7 and greater) | Driver version 7.3 (Corda 4.9.6 and previous)</br>Driver version 10.4.0 (Corda 4.9.7 and greater) |
 | FutureX Vectera Plus          | Firmware version 6.1.5.8 | Firmware version 6.1.5.8 | Firmware version 6.1.5.8   | Firmware version 6.1.5.8    |
 |                               | PKCS#11 version 3.1      | PKCS#11 version 3.1      | PKCS#11 version 3.1        | PKCS#11 version 3.1         |
 |                               | FXJCA version 1.17       | FXJCA version 1.17       | FXJCA version 1.17         | FXJCA version 1.17          |
