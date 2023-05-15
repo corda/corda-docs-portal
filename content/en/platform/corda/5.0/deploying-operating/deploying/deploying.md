@@ -340,7 +340,7 @@ config:
 
 #### External Secrets Service {{< enterprise-icon >}}
 
-To configure Corda Enterprise to connect to a running [HashiCorp Vault instance]({{< relref "../config/secrets.md#external-secrets-service--enterprise-icon" >}}), add the following:
+To configure Corda Enterprise to connect to a running [HashiCorp Vault instance]({{< relref "../config/secrets.md#external-secrets-service" >}}), add the following:
 
 ```yaml
 config:
@@ -350,8 +350,8 @@ config:
     createdSecretPath: "<path-to-corda-created-secrets>"
 ```
 
-* <vault-URL> is the full URL including port at which HashiCorp Vault is reachable, not including any path.
-* <vault-token> must allow sufficient permissions to read from HashiCorp Vault at the Corda configured paths and write to the <path-to-corda-created-secrets>, where Corda writes secrets it creates.
+* <vault-URL> is the full URL including port at which the Vault instance is reachable, not including any path.
+* <vault-token> must allow sufficient permissions to read from Vault at the Corda configured paths and write to the <path-to-corda-created-secrets>, where Corda writes secrets it creates.
 
 ### Bootstrapping
 

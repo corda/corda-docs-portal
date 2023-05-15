@@ -60,7 +60,7 @@ For more information about manually specifying the database deployment configura
 
 In some instances, the default secrets lookup service may not be sufficient. For example, in the case of [Database Connection Configuration]({{< relref "./database-connection.md#configuration-database" >}}), the salt and passphrase used for the encryption would be present in the same set of start-up parameters as the configuration that may be sensitive. This may be adequate if you can ensure that these start-up parameters are sufficiently protected. However, in other cases, it may be preferable to manage these credentials outside Corda.
 
-Corda Enterprise supports integration with [HashiCorp Vault](https://www.vaultproject.io/) as an external secret management system. The URL at which HashiCorp Vault is reachable, the vault token, and the path to corda created secrets must be specified in the [deployment configuration]({{< relref "../deploying/bootstrapping.md#external-secrets-service" >}}).
+Corda Enterprise supports integration with [HashiCorp Vault](https://www.vaultproject.io/) as an external secret management system. The URL at which the Vault instance is reachable, the Vault token, and the path to corda created secrets must be specified in the [deployment configuration]({{< relref "../deploying/bootstrapping.md#external-secrets-service" >}}).
 
 For example, the following is a standard configuration:
 
