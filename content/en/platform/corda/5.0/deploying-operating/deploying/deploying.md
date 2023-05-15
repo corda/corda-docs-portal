@@ -350,8 +350,8 @@ config:
     createdSecretPath: "<path-to-corda-created-secrets>"
 ```
 
-* <vault-URL> is the full URL including port at which the Vault instance is reachable, not including any path.
-* <vault-token> must allow sufficient permissions to read from Vault at the Corda configured paths and write to the <path-to-corda-created-secrets>, where Corda writes secrets it creates.
+* `<vault-URL>` is the full URL including port at which the Vault instance is reachable, not including any path.
+* `<vault-token>` must allow sufficient permissions to read from Vault at the Corda configured paths and write to the `<path-to-corda-created-secrets>`, where Corda writes secrets it creates.
 
 ### Bootstrapping
 

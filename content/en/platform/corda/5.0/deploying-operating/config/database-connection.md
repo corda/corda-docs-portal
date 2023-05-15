@@ -15,7 +15,7 @@ Database connection details must be configured differently than the standard dyn
 
 ## Configuration Database
 
-The configuration database contains all configuration for the Corda cluster and so the database worker process must be able to connect to this database when it starts. As a result, the connection details for this database must be passed to the database worker process in the deployment configuration. For example:
+The configuration database contains all configuration for the Corda cluster and so the database worker process must be able to connect to this database when it starts. As a result, the connection details for this database must be passed to the database worker process in the [deployment configuration]({{< relref "../deploying/bootstrapping.md#database" >}}). For example:
 
 ```
 -ddatabase.user=db-user
