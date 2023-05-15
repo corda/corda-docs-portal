@@ -17,8 +17,8 @@ This section describes how to configure the following in a YAML file:
 * [Database]({{< relref "#database" >}})
 * [RBAC Roles]({{< relref "#rbac-roles" >}})
 
-When you have configured all required values in the YAML file, you can [Deploy Corda]().
-## Kafka
+When you have configured all required values in the YAML file, you can [Deploy Corda]({{< relref "./deploying.md#deployment" >}}).
+## Kafka 
 
 By default, a Corda installation automatically creates the Kafka topics it requires.
 To create the topics manually, do the following:
