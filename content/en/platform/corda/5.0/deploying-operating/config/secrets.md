@@ -9,37 +9,41 @@ menu:
 section_menu: corda5
 ---
 
-The Corda configuration system allows for any string configuration value to be marked as “secret”. When this configuration value is used, Corda delegates the resolution of this value to the configured secrets lookup service.
+The Corda configuration system allows for any string configuration value to be marked as “secret”. When this configuration value is used, Corda delegates the resolution of this value to one of the following configured secrets lookup service:
+* [Default Secrets Service]({{< relref "#default-secrets-service">}})
+* [External Secrets Service]({{< relref "#external-secrets-service-enterprise-icon">}}) {{< enterprise-icon >}}
 
 ## Default Secrets Service
 
-Corda 5 provides a default secrets lookup service. Implementation of this service is in the form of a service that uses symmetric encryption so that the value can be stored encrypted at rest and decrypted with a key derived from a configured salt and passphrase when needed. The salt and passphrase must be passed in as start-up parameters. For more information about ***
+Corda 5 provides a default secrets lookup service. Implementation of this service is in the form of a service that uses symmetric encryption so that the value can be stored encrypted at rest and decrypted with a key derived from a configured salt and passphrase when needed. You can use the Corda CLI <a href = "../../reference/corda-cli/secret-config.md">`secret-config` command</a> to generate the encrypted value based on a salt and passphrase. The salt and passphrase must be specified in the [deployment configuration]({{< relref "../deploying/bootstrapping.md#encryption" >}}).
+
+{{< note >}}
+Any configuration items can be configured as sensitive or not. It is up to you to decide if a particular configuration item should be treated as sensitive.
+{{< /note >}}
 
 For example, the following is a standard configuration:
 
 ```
 {
-  "foo": "bar",
-  "fred": 123
+  "user": "name",
+  "pass": "123password"
 }
 ```
 
-You can specify `foo` as a secret, as follows:
+You can specify `pass` as a secret, as follows:
 
 ```
 {
-  "foo": "bar",
-  "fred": {
+  "user": "name",
+  "pass": {
     "configSecret": {
-      "encryptedSecret": "<encrypted-value>"
+      "encryptedSecret": "<encrypted-password>"
     } 
   }
 }
 ```
 
-You can use the Corda CLI [secret-config command]({{< relref "../../reference/corda-cli/secret-config.md" >}}) to to generate the encrypted value based on a salt and passphrase.
-
-You can also use the default default secrets lookup service with start-up configuration. For example:
+You can also use the default secrets lookup service with deployment configurations. For example:
 
 ```
 -ddatabase.user=db-user
@@ -48,9 +52,7 @@ You can also use the default default secrets lookup service with start-up config
 -ddatabase.jdbc.directory=/opt/corda/drivers
 ```
 
-{{< note >}}
-Any configuration items can be configured as sensitive or not. It is up to you to decide if a particular configuration item should be treated as sensitive.
-{{< /note >}}
+For more information about manually specifying the database deployment configuration, see [Manual Bootstrapping]({{< relref "../deploying/bootstrapping.md#database" >}}).
 
 ## External Secrets Service {{< enterprise-icon >}}
 

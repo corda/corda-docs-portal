@@ -8,14 +8,18 @@ menu:
     weight: 4000
 section_menu: corda5
 ---
-
-This page describes how to deploy Corda 5.
-
-All the necessary [prerequisites]({{< relref "prerequisites.md" >}}) must have been satisfied before Corda is deployed.
+ 
+This section describes how to deploy Corda 5. All the necessary [prerequisites]({{< relref "prerequisites.md" >}}) must have been satisfied before Corda is deployed.
 In particular, PostgreSQL and Kafka must be running. The mechanism to achieve that is up to you. For example, you can:
 
 * run PostgreSQL and Kafka on Kubernetes.
 * use a managed service such as Amazon RDS for PostgreSQL, Amazon Managed Streaming for Apache Kafka, or Confluent Cloud.
+
+This section contains the following:
+* [Download and Push Container Images to a Registry]({{< relref "#download-and-push-container-images-to-a-registry ">}})
+* [Download the Corda Helm Chart]({{< relref "#download-the-corda-helm-chart ">}})
+* [Configure the Deployment]({{< relref "#configure-the-deployment ">}})
+* [Deployment]({{< relref "#deployment ">}})
 
 ## Download and Push Container Images to a Registry
 
@@ -72,7 +76,16 @@ If you do not have access to Docker Hub, you can download the `corda-5.0.0-Hawk1
 ## Configure the Deployment
 
 For each deployment, you should create a YAML file to define a set of Helm overrides to be used for that environment.
-The following sections describe the minimal set of configuration options required for a deployment.
+The following sections describe the minimal set of configuration options required for a deployment:
+* [Image Registry]({{< relref "#image-registry" >}})
+* [Replica Counts]({{< relref "#replica-counts" >}})
+* [Resource Requests and Limits]({{< relref "#resource-requests-and-limits" >}})
+* [Exposing the REST API]({{< relref "#exposing-the-rest-api" >}})
+* [PostgreSQL]({{< relref "#postgresql" >}})
+* [Encryption]({{< relref "#encryption" >}})
+* [Bootstrapping]({{< relref "#bootstrapping" >}})
+* [Custom Annotations for Worker Pods]({{< relref "#custom-annotations-for-worker-pods" >}})
+
 You can extract a README containing the full set of options from the Helm chart using the following command:
 ```shell
 helm show readme corda-5.0.0-Hawk1.0.1.tgz
@@ -310,6 +323,25 @@ username:
   value: <USERNAME>
 ```
 
+### Encryption
+
+The Corda configuration system allows for any string configuration value to be marked as “secret”. This includes values passed dynamically using the REST API and also those defined in a manual deployment configuration. For more information see, [Configuration Secrets]({{< relref "../config/secrets.md" >}}).
+
+#### Default Secrets Service
+
+The Corda default secrets lookup service uses a salt and passphrase specified in the deployment configuration. Specify these as follows:
+
+   ```yaml
+   config:
+      encryption:
+         salt: <SALT>
+         passphrase: <PASSPHRASE>
+   ```
+
+#### External Secrets Service {{< enterprise-icon >}}
+
+...
+
 ### Bootstrapping
 
 By default, the Helm chart automatically configures Kafka, PostgreSQL, and a default set of Corda RBAC roles as part of the deployment process.
@@ -388,18 +420,18 @@ when the deployment completes contain instructions for how to retrieve this. Thi
 * By default, there is a single database user used for both the bootstrap process and, subsequently at runtime, by the crypto and DB workers.
 R3 recommends configuring separate bootstrap and runtime users, by specifying a bootstrap user as follows:
 
-```yaml
-bootstrap:
-  db:
-    cluster:
-      username:
-        value: <POSTGRESQL_BOOTSTRAP_USER>
-      password:
-        valueFrom:
-          secretKeyRef:
-            name: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_NAME>
-            key: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_KEY>
-```
+   ```yaml
+   bootstrap:
+     db:
+       cluster:
+         username:
+           value: <POSTGRESQL_BOOTSTRAP_USER>
+         password:
+           valueFrom:
+             secretKeyRef:
+               name: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_NAME>
+               key: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_KEY>
+   ```
 
 #### RBAC
 
