@@ -9,9 +9,7 @@ menu:
 section_menu: corda5
 ---
 
-Database connection details must be handled differently than the standard dynamic configuration process. This is necessary not only because they are sensitive but also to maintain operation separation between the different types of workers. For example, the flow worker process should not have access to the database connection details.
-
-There are two levels of connection details:
+Database connection details must be configured differently than the standard dynamic configuration process. This is necessary not only because the details are sensitive but also to maintain operation separation between the different types of workers. For example, the flow worker process should not have access to the database connection details. This section describes how the connection details of the following are mantained:
 * [Configuration Database]({{< relref "#configuration-database" >}})
 * [All Other Databases]({{< relref "#all-other-databases" >}})
 
@@ -24,10 +22,13 @@ The configuration database contains all configuration for the Corda cluster and 
 -ddatabase.pass=a-db-password
 -ddatabase.jdbc.url=jdbc:postgresql://db-address:5432/cordacluster
 -ddatabase.jdbc.directory=/opt/corda/drivers
-Note that the credentials do not have to be passed into this configuration in plain text. See the next section for more details.
 ```
+
+{{< note >}}
+Credentials can be encrypted. See [Configuration Secrets]({{< relref "./secrets.md">}}), for more information.
+{{< /note >}}
+
 
 ## All Other Databases
 
-Other databases used by Corda include RBAC (Role Based Access Control), Crypto (contains virtual node wrapping keys, for example) and also all the virtual node databases.
-Connection details for these databases are stored in the `db_connection` table of the configuration database and never published to the Kafka message bus.
+Connection details for the RBAC, Crypto, and virtual node databases are stored in the `db_connection` table of the configuration database and never published to the Kafka message bus.

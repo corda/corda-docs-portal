@@ -5,7 +5,7 @@ version: 'Corda 5.0'
 date: '2023-05-12'
 menu:
   corda5:
-    identifier: corda5-cluster-config-fields
+    identifier: corda5-config-fields
     parent: corda5-cluster-config
     weight: 4000
 section_menu: corda5

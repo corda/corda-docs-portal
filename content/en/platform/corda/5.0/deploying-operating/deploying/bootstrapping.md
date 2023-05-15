@@ -274,10 +274,6 @@ The following command specifies that the `CONFIG`, `RBAC`, and `CRYPTO` schema s
    {{% /tab %}}
    {{< /tabs >}}
 
-{{< note >}}
-If you get an error after copying these commands from the documentation, try passing the exact parameters in the Corda CLI manually.
-{{</ note >}}
-
 The `<SALT>` and `<PASSPHRASE>` are used to encrypt the credentials in the database. These must match the values specified in the Corda deployment configuration:
 
    ```yaml

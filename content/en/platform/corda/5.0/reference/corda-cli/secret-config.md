@@ -9,11 +9,11 @@ section_menu: corda5
 title: "secret-config"
 ---
 
-This section lists the Corda CLI `secret-config` arguments. You can use these commands to ***.
+This section lists the Corda CLI `secret-config` arguments. You can use these commands to encrypt or decrypt configuration values for use with the default [secrets]({{< relref "../../deploying-operating/config/secrets.md" >}}) lookup service.
 
 | <div style="width:160px">Argument</div> | Description                          |
 | --------------------------------------- | ------------------------------------ |
-| \-\-create                              | ****. See [create](#create). |
+| \-\-create                              | Creates a secret configuration value for the default secrets lookup service. See [create](#create). |
 | \-\-decrypt                             | ****. See [decrypt](#decrypt). |
 
 ## create
