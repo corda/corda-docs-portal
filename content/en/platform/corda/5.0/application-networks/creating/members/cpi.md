@@ -84,7 +84,7 @@ Set the values of variables for use in later commands:
    {{% tab name="PowerShell" %}}
    ```shell
    $WORK_DIR = "<your-working-directory>"
-   md $WORK_DIR -Force
+   md $WORK_DIR
    ```
    {{% /tab %}}
    {{< /tabs >}}
