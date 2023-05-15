@@ -329,18 +329,29 @@ The Corda configuration system allows for any string configuration value to be m
 
 #### Default Secrets Service
 
-The Corda default secrets lookup service uses a salt and passphrase specified in the deployment configuration. Specify these as follows:
+The [Corda default secrets lookup service]({{< relref "../config/secrets.md#default-secrets-service" >}}) uses a salt and passphrase specified in the deployment configuration. Specify these as follows:
 
-   ```yaml
-   config:
-      encryption:
-         salt: <SALT>
-         passphrase: <PASSPHRASE>
-   ```
+```yaml
+config:
+   encryption:
+      salt: <SALT>
+      passphrase: <PASSPHRASE>
+```
 
 #### External Secrets Service {{< enterprise-icon >}}
 
-...
+To configure Corda Enterprise to connect to a running [HashiCorp Vault instance]({{< relref "../config/secrets.md#external-secrets-service--enterprise-icon" >}}), add the following:
+
+```yaml
+config:
+  vault:
+    url: "<vault-URL>"
+    token: "<vault-token>"
+    createdSecretPath: "<path-to-corda-created-secrets>"
+```
+
+* <vault-URL> is the full URL including port at which HashiCorp Vault is reachable, not including any path.
+* <vault-token> must allow sufficient permissions to read from HashiCorp Vault at the Corda configured paths and write to the <path-to-corda-created-secrets>, where Corda writes secrets it creates.
 
 ### Bootstrapping
 
