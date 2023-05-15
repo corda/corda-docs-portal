@@ -27,7 +27,13 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
-* Updated documentation for both .startNodes() and .stopNodes() of MockNetwork to indicate that restarting nodes is not supported.
+* Previously, if a node was configured to use two different slots on the Luna HSM (for example using one slot for node identities and a separate slot for the confidential identities), this failed. This issue has now been resolved. 
+
+  {{< warning >}}
+  However as a result of this fix you need to make sure the Luna client your are using is version 10.4.0 or later.
+  {{</ warning >}}
+
+* Updated documentation for both `.startNodes()` and `.stopNodes()` of MockNetwork to indicate that restarting nodes is not supported.
 
 * Previously, the attachment class loader was being closed too early if it is evicted from the cache. Now, closing of attachment class loaders is delayed until all SerializationContext that refer to them (from BasicVerifier) have gone out of scope.
 
