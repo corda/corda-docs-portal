@@ -14,7 +14,7 @@ You can download the Corda Enterprise Network Manager release packs and their re
 
 Before you install the downloaded packs, verify the integrity of each pack using the respective checksum file to ensure it has not been tampered with or corrupted during the download. You can do this by calculating the checksum of your downloaded file, then comparing its value to the checksum value provided below.
 
-## Release packs and checksums for Corda Enterprise Network Manager 1.5.8
+## Release pack and checksums for Corda Enterprise Network Manager 1.5.8
 
 The release pack and checksum file for CENM 1.5.8 can be downloaded from the following link:
 
