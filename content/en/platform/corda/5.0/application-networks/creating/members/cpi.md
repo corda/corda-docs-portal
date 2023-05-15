@@ -35,7 +35,6 @@ Set the values of variables for use in later commands:
    $REST_API_PORT = 8888
    $P2P_GATEWAY_HOST = "localhost"
    $P2P_GATEWAY_PORT = 8080
-   $AUTH_INFO = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("$REST_API_USER:$REST_API_PASSWORD" -f $username,$password)))
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -51,22 +50,40 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $REST_API_URL = "https://$REST_API_HOST:$REST_API_PORT/api/v1"
+   $REST_API_URL = "https://${REST_API_HOST}:${REST_API_PORT}/api/v1"
    ```
    {{% /tab %}}
    {{< /tabs >}}
+
+2. Set the authentication information for the REST API:
+   {{< tabs >}}
+   {{% tab name="Bash"%}}
+   ```shell
+   export REST_API_USER = <username>
+   export REST_API_PASSWORD = <password>
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   $REST_API_USER = <username>
+   $REST_API_PASSWORD = <password>
+   $AUTH_INFO = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{$REST_API_USER}:${REST_API_PASSWORD}" -f $username,$password)))
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
 3. Set the working directory for storing temporary files.
 
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export WORK_DIR=~/Desktop/register-member
+   export WORK_DIR=<your-working-directory>
    mkdir -p "$WORK_DIR"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $WORK_DIR = "$HOME/register-member"
+   $WORK_DIR = "<your-working-directory>"
    md $WORK_DIR -Force
    ```
    {{% /tab %}}
