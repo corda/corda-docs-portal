@@ -1,0 +1,32 @@
+<style>
+  .link-heading > a {
+    text-decoration: none !important;
+  }
+  .chain-icon {
+    filter: grayscale(100%) opacity(20%);
+    display: none !important;
+    width: 15px !important;
+    border-style: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+  .link-heading:hover > .chain-icon-link > .chain-icon {
+    display: inline !important;
+  }
+</style>
+<script> 
+  function copyLink(element) {
+    navigator.clipboard.writeText(element.href);
+  }
+</script>
+
+{{ if ne .Level 1 }}
+  <h{{ .Level }} id="{{ .Anchor | safeURL }}"  class="link-heading">
+    <a href="#{{ .Anchor | safeURL }}">
+      {{ .Text | safeHTML }} 
+    </a>
+    <a href="#{{ .Anchor | safeURL }}" class="chain-icon-link" onclick="copyLink(this)">
+      <img src="/icons/chain-icon.png" class="chain-icon" alt="heading-link-icon" title="Click to copy the section link." />
+    </a>
+  </h{{ .Level }}>
+{{ end }}
