@@ -18,11 +18,17 @@ weight: 10
 
 ## Corda Enterprise Edition 4.8.11 release notes
 
-Corda Enterprise Edition 4.8.11 is a patch release of Corda Enterprise focused on resolving issues.
+Corda Enterprise Edition 4.8.11 is a patch release of Corda Enterprise focused on new functionality and resolving issues.
 
 ### Upgrade recommendation
 
 As a developer or node operator, you should upgrade to the [latest released version of Corda](../enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](upgrading-index.md).
+
+# New features and enhancements
+
+* Flow checkpoint dumps now include a `status` field which shows the status of the flow; in particular, whether it is hospitalized or not.
+
+* Debug logging of the Artemis server has been added.
 
 # Fixed issues
 
@@ -59,8 +65,6 @@ As a developer or node operator, you should upgrade to the [latest released vers
 * A fix for cache eviction has been applied where an issue resulted in an incorrect contract verification status while a database transaction was in progress during contract verification.
 
 * The default SSL handshake timeout for inbound connections has been increased to 60 seconds. If during SSL handshake, certificate revocation lists (CRLs) take a long time to download, or are unreachable, then this 60 seconds gives the node enough time to establish the connection if `crlCheckSoftFail` is enabled.
-
-* Debug logging of the Artemis server has been added.
 
 ## Corda Enterprise Edition 4.8.10 release notes
 
