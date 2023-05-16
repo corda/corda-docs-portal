@@ -45,7 +45,7 @@ The non-validating notary server CPB only contains CPKs that are produced by R3.
 
 The notary server CPB is available from our [GitHub release page](https://github.com/corda/corda-runtime-os/releases/).
 
-### Trust the Signing Key
+<!-- ### Trust the Signing Key
 
 For this beta release, the notary server CPB is signed with a test signing key. To use it, import the certificate as follows:
 1. Save the following text into a file named `beta-ca-root.pem`:
@@ -89,7 +89,7 @@ For this beta release, the notary server CPB is signed with a test signing key. 
 2. Import the `beta-ca-root.pem` file into the keystore:
    ```
    keytool -importcert -keystore signingkeys.pfx -storepass "keystore password" -noprompt -alias beta-ca-root -file beta-ca-root.pem
-   ```
+   ``` -->
 
 ## Application CPB
 

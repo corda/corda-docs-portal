@@ -10,3 +10,14 @@ menu:
     weight: 4500
 section_menu: corda5
 ---
+
+This section outlines what you need to know to get a notary up and running on a Corda 5 application network.
+
+* Network Member Roles
+* Notary Plugin CorDapps
+* CSDE Environment
+
+
+## Points to Note
+
+* Notary virtual nodes use an additional “uniqueness” database for capturing state data for double-spend prevention. This is similar to the existing “crypto” and “vault” databases. Currently, when auto-provisioning virtual node databases, a uniqueness database is always provisioned, regardless of whether it is a notary virtual node or not. This will be addressed in a future release.
