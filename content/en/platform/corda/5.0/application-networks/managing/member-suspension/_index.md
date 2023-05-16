@@ -34,12 +34,12 @@ You can use the [Member Lookup REST endpoint](../../reference/rest-api/C5_OpenAP
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -u $REST_API_USER:$REST_API_PASSWORD "$REST_API_URL/members/$MGM_HOLDING_ID?statuses=SUSPENDED"
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD "$REST_API_URL/members/$MGM_HOLDING_ID?statuses=SUSPENDED"
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)}`
+Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)}`
    -Method Get -Uri $REST_API_URL/members/$MGM_HOLDING_ID`?statuses=SUSPENDED
 ```
 {{% /tab %}}
@@ -54,13 +54,13 @@ You can use the <a href="../../reference/rest-api/C5_OpenAPI.html#tag/MGM-API/op
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -u $REST_API_USER:$REST_API_PASSWORD -X 'POST' "$REST_API_URL/mgm/$MGM_HOLDING_ID/suspend" -H 'Content-Type: application/json' \
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X 'POST' "$REST_API_URL/mgm/$MGM_HOLDING_ID/suspend" -H 'Content-Type: application/json' \
  -d '{"x500Name": '\"$MEMBER_X500_NAME\"', "serialNumber": "<serial-number>"}'
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)}`
+Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)}`
   -Method Post -Uri $REST_API_URL/mgm/$MGM_HOLDING_ID/suspend -Body (ConvertTo-Json -Depth 1 @{
   x500Name = $MEMBER_X500_NAME; serialNumber = <serial-number>})
 ```
@@ -76,7 +76,7 @@ You can use the <a href="../../reference/rest-api/C5_OpenAPI.html#tag/MGM-API/op
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -u $REST_API_USER:$REST_API_PASSWORD -X 'POST' "$REST_API_URL/mgm/$MGM_HOLDING_ID/activate" -H 'Content-Type: application/json' \
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X 'POST' "$REST_API_URL/mgm/$MGM_HOLDING_ID/activate" -H 'Content-Type: application/json' \
  -d '{"x500Name": '\"$MEMBER_X500_NAME\"', "serialNumber": "<serial-number>"}'
 ```
 {{% /tab %}}

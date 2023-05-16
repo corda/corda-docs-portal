@@ -19,7 +19,7 @@ To create a virtual node for the MGM on Linux or macOS, run the following comman
 
 ```shell
 export CPI_CHECKSUM=<CPI-checksum>
-curl -u $REST_API_USER:$REST_API_PASSWORD -d '{ "request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "C=GB, L=London, O=MGM"}}' $REST_API_URL/virtualnode
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d '{ "request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "C=GB, L=London, O=MGM"}}' $REST_API_URL/virtualnode
 ```
 
 If successful, this request returns the details of the new virtual node as JSON. To save the ID of the virtual node for future use, run the following command, replacing `<holding-identity-ID>` with the ID returned in `holdingIdentity.shortHash` in the received response. For example, `58B6030FABDD`.
