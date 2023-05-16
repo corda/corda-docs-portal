@@ -353,6 +353,12 @@ config:
 * `<vault-URL>` is the full URL including port at which the Vault instance is reachable, not including any path.
 * `<vault-token>` must allow sufficient permissions to read from Vault at the Corda configured paths and write to the `<path-to-corda-created-secrets>`, where Corda writes secrets it creates.
 
+The passwords for the RBAC and CRYPTO schemas and VNODES database must be available in Vault before Corda is deployed. These must be available in the Vault `dbsecrets` path, under the keys `rbac`, `crypto`, and `vnodes` respectively. 
+{{< note >}}
+These keys are not tied to the schema names. If the schema names change, the key names remain `rbac`, `crypto`, and `vnodes`.
+{{< /note >}}
+Additionally, a passphrase and salt for the Corda wrapping keys must be added to the Vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
+
 ### Bootstrapping
 
 By default, the Helm chart automatically configures Kafka, PostgreSQL, and a default set of Corda RBAC roles as part of the deployment process.
