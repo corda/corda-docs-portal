@@ -5,7 +5,7 @@ menu:
   corda5:
     identifier: corda5-use-cases
     parent: corda5-intro
-    weight: 2000
+    weight: 3000
 section_menu: corda5
 ---
 "Who is Corda for?"
