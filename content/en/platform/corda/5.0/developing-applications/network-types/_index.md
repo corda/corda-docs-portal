@@ -28,4 +28,4 @@ Dynamic networks are used for the following:
 * Testing across multiple clusters
 * Testing when the number of members are not predetermined in your test network
 
-One of the main difference to static networks is that there is a running MGM that all members must register with before they can transact among the group. The MGM is also responsible for distributing member data across clusters.
+One of the main differences to static networks is that there is a running MGM that all members must register with before they can transact among the group. The MGM is also responsible for distributing member data across clusters.
