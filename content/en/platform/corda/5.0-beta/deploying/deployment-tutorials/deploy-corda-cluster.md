@@ -157,7 +157,7 @@ workers:
 ```
 As with the number of replicas, you may need to adjust these values based on testing with your actual application workload.
 
-### AWS Topology
+#### Recommended Infrastructure
 
 When it comes to AWS topology, we recommend the following initial configuration:
 
