@@ -83,7 +83,7 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $WORK_DIR = "<your-working-directory>"
+   $WORK_DIR = "creating-mgm-cpi"
    md $WORK_DIR
    ```
    {{% /tab %}}
