@@ -57,6 +57,7 @@ For example, to generate the configuration to use to specify a value stored in a
    ```
    {{% /tab %}}
    {{< /tabs >}}
+
 ## decrypt
 
 The `decrypt` argument decrypts a value encrypted by the Corda default secrets lookup service.
