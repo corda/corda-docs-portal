@@ -21,7 +21,7 @@ Additionally, Corda’s smart contracts make it easy to automate complex financi
 Corda’s capabilities are also applicable across a broader set of markets and industries where there is a need for multi-party workflows managing transactions, data, and processes to establish a shared view of a distributed set of data, i.e. I see what you see. These include industries such as:
 
 * **Insurance** - Insurance companies use Corda to automate the settlement of claims and other transactions. Corda's smart contracts make it easy to enforce the terms of insurance policies and automate the claims process.
-* **Supply chain management** Corda can be used in supply chain management to track goods and ensure that they are authentic and have not been tampered with. Corda's privacy features make it well-suited for managing confidential information in supply chain transactions.
+* **Supply chain management** - Corda can be used in supply chain management to track goods and ensure that they are authentic and have not been tampered with. Corda's privacy features make it well-suited for managing confidential information in supply chain transactions.
 * **Healthcare** Due to Corda being strong on privacy and confidentiality, it can be used in the healthcare industry to manage and provide access to patient data securely and ensure that patient privacy is protected.
 
 This list is by no means exhaustive since the qualities and attributes of Corda have wide-ranging benefits for multiple applications. Ultimately, wherever there is a challenge reconciling facts between parties who have no reason to trust one another, and where not everyone needs to see everything, but must trust an overall system of record, Corda can help.
