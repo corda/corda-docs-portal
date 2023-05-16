@@ -65,9 +65,9 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $REST_API_USER = <username>
-   $REST_API_PASSWORD = <password>
-   $AUTH_INFO = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{$REST_API_USER}:${REST_API_PASSWORD}" -f $username,$password)))
+    $REST_API_USER = "<username>"
+    $REST_API_PASSWORD = "<password>"
+    $AUTH_INFO = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("${REST_API_USER}:${REST_API_PASSWORD}" -f $username,$password)))
    ```
    {{% /tab %}}
    {{< /tabs >}}
