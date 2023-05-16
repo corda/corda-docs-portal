@@ -32,4 +32,4 @@ Credentials can be encrypted. See [Configuration Secrets]({{< relref "./secrets.
 
 By default, connection details for the RBAC, Crypto, and virtual node databases are stored in the `db_connection` table of the configuration database and never published to the Kafka message bus.
 
-{{< enterprise-icon >}} If you are using HashiCorp Vault as an external secret management system, you must ensure the passwords for the RBAC, Crypto, and virtual node databases are stored correctly in Vault. For more information, see [Encryption]({{< relref "../deploying/deploying.md#encryption">}}) in the _Deploying_ section. 
+{{< enterprise-icon noMargin="true" >}} If you are using HashiCorp Vault as an external secret management system, you must ensure the passwords for the RBAC, Crypto, and virtual node databases are stored correctly in Vault. For more information, see [Encryption]({{< relref "../deploying/deploying.md#encryption">}}) in the _Deploying_ section. 
