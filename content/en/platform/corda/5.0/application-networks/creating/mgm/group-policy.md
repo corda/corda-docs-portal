@@ -20,7 +20,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/mgm/$MGM_HOLDING_
 {{% tab name="PowerShell" %}}
 ```shell
 md ~/register-member -Force
-Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/mgm/$MGM_HOLDING_ID/info" | ConvertTo-Json -Depth 4 > ~/register-member/GroupPolicy.json
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/mgm/$MGM_HOLDING_ID/info" | ConvertTo-Json -Depth 4 > ~/register-member/GroupPolicy.json
 ```
 {{% /tab %}}
 {{< /tabs >}}

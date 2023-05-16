@@ -97,8 +97,8 @@ curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/keys/$HOLDING_ID
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/hsm/soft/$HOLDING_ID/NOTARY"
-$LEDGER_KEY_RESPONSE = Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/keys/$HOLDING_ID/alias/$HOLDING_ID-notary/category/NOTARY/scheme/CORDA.ECDSA.SECP256R1"
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/hsm/soft/$HOLDING_ID/NOTARY"
+$LEDGER_KEY_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/keys/$HOLDING_ID/alias/$HOLDING_ID-notary/category/NOTARY/scheme/CORDA.ECDSA.SECP256R1"
 $NOTARY_KEY_ID = $NOTARY_KEY_RESPONSE.id
 ```
 {{% /tab %}}
@@ -174,7 +174,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": { "
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-$REGISTER_RESPONSE = Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/membership/$HOLDING_ID" -Body (ConvertTo-Json -Depth 4 @{
+$REGISTER_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/membership/$HOLDING_ID" -Body (ConvertTo-Json -Depth 4 @{
     memberRegistrationRequest = @{
         context = $REGISTRATION_CONTEXT
     }
@@ -198,7 +198,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/membership/$HOLDI
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/membership/$HOLDING_ID/${REGISTER_RESPONSE.registrationId}"
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/membership/$HOLDING_ID/${REGISTER_RESPONSE.registrationId}"
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -214,7 +214,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/members/$HOLDING_
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
- Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/membership/$HOLDING_ID" | ConvertTo-Json -Depth 4
+ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/membership/$HOLDING_ID" | ConvertTo-Json -Depth 4
 ```
 {{% /tab %}}
 {{< /tabs >}}

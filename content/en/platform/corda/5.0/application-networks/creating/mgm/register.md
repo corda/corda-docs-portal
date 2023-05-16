@@ -124,7 +124,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD -d $(
 
 To register the MGM using PowerShell, run this command:
 ```shell
-$REGISTER_RESPONSE = Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/membership/$MGM_HOLDING_ID" -Body (ConvertTo-Json -Depth 4 @{
+$REGISTER_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/membership/$MGM_HOLDING_ID" -Body (ConvertTo-Json -Depth 4 @{
     memberRegistrationRequest = @{
         context = $REGISTRATION_CONTEXT
     }
@@ -145,7 +145,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/membership/$MGM_H
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/membership/$MGM_HOLDING_ID/${RESGISTER_RESPONSE.registrationId}"
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/membership/$MGM_HOLDING_ID/${RESGISTER_RESPONSE.registrationId}"
 ```
 {{% /tab %}}
 {{< /tabs >}}

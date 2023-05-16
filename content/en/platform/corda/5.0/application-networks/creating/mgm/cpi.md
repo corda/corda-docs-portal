@@ -199,7 +199,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD -F upload=@$CPI_PATH $REST_API_URL/cpi
 {{% tab name="PowerShell" %}}
 ```shell
 $CPI_PATH = <CPI_DIRECTORY/CPI-FILENAME.cpi>
-$CPI_UPLOAD_RESPONSE = Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/cpi/" -Method Post -Form @{
+$CPI_UPLOAD_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/cpi/" -Method Post -Form @{
     upload = Get-Item -Path $CPI_PATH
 }
 ```
@@ -218,7 +218,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/cpi/status/$CPI_ID
 {{% tab name="PowerShell" %}}
 ```shell
 $CPI_ID = $CPI_UPLOAD_RESPONSE.id
-$CPI_STATUS_RESPONSE = Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/cpi/status/$CPI_ID"
+$CPI_STATUS_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/cpi/status/$CPI_ID"
 ```
 {{% /tab %}}
 {{< /tabs >}}
