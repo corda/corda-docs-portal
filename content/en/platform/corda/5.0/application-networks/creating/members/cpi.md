@@ -108,7 +108,7 @@ To join a group, members must use a {{< tooltip >}}group policy{{< definition te
    $MGM_REST_PORT = "8888"
    $MGM_REST_URL = "https://$MGM_REST_HOST:$MGM_REST_PORT/api/v1"
    $MGM_HOLDING_ID = <MGM-holding-ID>
-   Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$MGM_REST_URL/mgm/$MGM_HOLDING_ID/info" | ConvertTo-Json -Depth 4 > $WORK_DIR/GroupPolicy.json
+   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$MGM_REST_URL/mgm/$MGM_HOLDING_ID/info" | ConvertTo-Json -Depth 4 > $WORK_DIR/GroupPolicy.json
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -184,7 +184,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD -F upload=@$CPI_PATH $REST_API_URL/cpi
 {{% tab name="PowerShell" %}}
 ```shell
 $CPI_PATH = "$WORK_DIR\mgm-5.0.0.0-SNAPSHOT-package.cpi"
-$CPI_UPLOAD_RESPONSE = Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/cpi/" -Method Post -Form @{
+$CPI_UPLOAD_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/cpi/" -Method Post -Form @{
     upload = Get-Item -Path $CPI_PATH
 }
 ```
@@ -203,7 +203,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD $API_URL/cpi/status/$CPI_ID
 {{% tab name="PowerShell" %}}
 ```shell
 $CPI_ID = $CPI_UPLOAD_RESPONSE.id
-$CPI_STATUS_RESPONSE = Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/cpi/status/$CPI_ID"
+$CPI_STATUS_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/cpi/status/$CPI_ID"
 ```
 {{% /tab %}}
 {{< /tabs >}}
