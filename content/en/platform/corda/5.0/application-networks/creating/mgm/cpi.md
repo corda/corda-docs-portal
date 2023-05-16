@@ -60,8 +60,8 @@ Set the values of variables for use in later commands:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export REST_API_USER = <username>
-   export REST_API_PASSWORD = <password>
+   export REST_API_USER="<username>"
+   export REST_API_PASSWORD="<password>"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
