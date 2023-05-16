@@ -32,7 +32,7 @@ export MGM_HOLDING_ID=<holding-identity-ID>
 To create a virtual node for the MGM on Windows, run the following commands in PowerShell, changing the X.500 name. The command uses the checksum of the CPI from the response saved when you [uploaded the MGM CPI]({{< relref"./cpi.md#upload-the-cpi" >}}).
 
 ```shell
-$VIRTUAL_NODE_RESPONSE = Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/virtualnode" -Method Post -Body (ConvertTo-Json @{
+$VIRTUAL_NODE_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/virtualnode" -Method Post -Body (ConvertTo-Json @{
     request = @{
        cpiFileChecksum = $CPI_STATUS_RESPONSE.cpiFileChecksum
        x500Name = "C=GB, L=London, O=MGM"
