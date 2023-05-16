@@ -334,8 +334,16 @@ The [Corda default secrets lookup service]({{< relref "../config/secrets.md#defa
 ```yaml
 config:
    encryption:
-      salt: <SALT>
-      passphrase: <PASSPHRASE>
+      salt:
+        valueFrom:
+          secretKeyRef:
+            name: <SALT_SECRET_NAME>
+            key: <SALT_SECRET_KEY>
+      passphrase: 
+        valueFrom:
+          secretKeyRef:
+            name: <PASSPHRASE_SECRET_NAME>
+            key: <PASSPHRASE_SECRET_KEY>
 ```
 
 #### External Secrets Service {{< enterprise-icon >}}
