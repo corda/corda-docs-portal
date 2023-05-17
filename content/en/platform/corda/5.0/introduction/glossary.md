@@ -5,7 +5,7 @@ menu:
   corda5:
     identifier: corda5-glossary
     parent: corda5-intro
-    weight: 4000
+    weight: 5000
 section_menu: corda5
 ---
 {{< glossary >}}
