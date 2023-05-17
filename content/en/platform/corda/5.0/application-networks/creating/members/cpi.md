@@ -172,7 +172,7 @@ Corda validates that uploaded CPIs are signed with a trusted key. To trust your 
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$API_URL/certificates/cluster/code-signer"  -Form @{
+   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$REST_API_URL/certificates/cluster/code-signer"  -Form @{
    certificate=@<signingkey1.pem>
    alias="<unique-key-alias>"
    }
@@ -210,7 +210,7 @@ Use this identifier to get the checksum of the CPI:
 {{% tab name="Bash"%}}
 ```
 export CPI_ID=<CPI-ID>
-curl --insecure -u $REST_API_USER:$REST_API_PASSWORD $API_URL/cpi/status/$CPI_ID
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/cpi/status/$CPI_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
