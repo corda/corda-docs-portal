@@ -13,10 +13,10 @@ section_menu: corda5
 
 This section outlines what you need to know to get a notary up and running on a Corda 5 application network.
 
-* Network Member Roles
-* Notary Plugin CorDapps
-* CSDE Environment
+* [Network Member Roles](network-member-roles.md)
+* [Notary Plugin CorDapps](notary-plugin-cordapps.md)
 
+For information on how to onboard a new member as a notary service representative, see the [Onboarding Notaries]({{< relref "../../application-networks/creating/notaries.md" >}}) section.
 
 ## Points to Note
 

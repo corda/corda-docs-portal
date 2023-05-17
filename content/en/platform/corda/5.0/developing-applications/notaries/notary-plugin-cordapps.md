@@ -20,7 +20,7 @@ In Corda 5, notary functionality is provided in the form of plugin CorDapps. In 
 For Corda 5.0, only a single notary protocol will be provided, the **non-validating notary protocol**.
 
 ## Plugin Packaging
-The details of this architecture and the steps you need to take in order to successfully build your CorDapp will be outlined in the following sections. For information on how to deploy a functioning network, see the deployment section.
+The details of this architecture and the steps you need to take in order to successfully build your CorDapp will be outlined in the following sections. For information on how to onboard a new member as a notary service representative, see the [Onboarding Notaries]({{< relref "../../application-networks/creating/notaries.md" >}}) section.
 
 {{< figure src="c5-non-validating-notary.png" figcaption="The CPKs, CPBs and CPIs involved in getting a functioning network that can run a notary (and by extension, UTXO ledger functionality)" alt="Corda 5 non-validating notary" >}}
 
@@ -39,57 +39,9 @@ The source code for all of these modules can be found under the [notary-plugins 
 
 ## Notary Server CPB
 
-The non-validating notary server CPB only contains CPKs that are produced by R3. Therefore, to improve the user experience, R3 also produces a standard non-validating notary server CPB. 
+The non-validating notary server CPB only contains CPKs that are produced by R3. Therefore, to improve the user experience, R3 also produces a standard non-validating notary server CPB. The notary server CPB is available from our [GitHub release page](https://github.com/corda/corda-runtime-os/releases/).
 
-### Downloading the CPB
-
-The notary server CPB is available from our [GitHub release page](https://github.com/corda/corda-runtime-os/releases/).
-
-<!-- ### Trust the Signing Key
-
-For this beta release, the notary server CPB is signed with a test signing key. To use it, import the certificate as follows:
-1. Save the following text into a file named `beta-ca-root.pem`:
-   ```shell
-   -----BEGIN CERTIFICATE-----
-   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
-   0OXjjmtQ
-   -----END CERTIFICATE-----
-   ```
-   
-2. Import the `beta-ca-root.pem` file into the keystore:
-   ```
-   keytool -importcert -keystore signingkeys.pfx -storepass "keystore password" -noprompt -alias beta-ca-root -file beta-ca-root.pem
-   ``` -->
+For information on how to onboard a notary member, see the [Onboarding Notaries]({{< relref "../../application-networks/creating/notaries.md" >}}) section.
 
 ## Application CPB
 
@@ -105,7 +57,6 @@ cordapp "com.r3.corda.notary.plugin.nonvalidating:notary-plugin-non-validating-c
 
 ```
 
-
 {{< note >}}
 It is only necessary to specify a dependency on the client CPK; this itself depends on the API and notary common CPKs, so these transitive dependencies will also be pulled in when constructing your application CPB.
 {{< /note >}}
@@ -114,6 +65,6 @@ The other way to form your application CPB is to use the `corda-cli` tool. Howev
 
 ## CPI Creation
 
-Having two CPBs for the application and notary virtual node roles on the network also extends to needing two different CPIs. This process is unchanged but ensure the following:
+Having two CPBs for the application and notary virtual node roles on the network also extends to needing two different CPIs. This process is unchanged, but ensure the following:
 * the notary server CPB signing key is used to create the CPI and and then imported to Corda
-* the same group policy file is used when creating both the application and notary CPIs
+* the same group policy file is used when creating both the application and notary CPIs.
