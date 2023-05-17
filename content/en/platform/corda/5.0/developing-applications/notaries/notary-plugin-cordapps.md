@@ -20,7 +20,7 @@ In Corda 5, notary functionality is provided in the form of plugin CorDapps. In 
 For Corda 5.0, only a single notary protocol will be provided, the **non-validating notary protocol**.
 
 ## Plugin Packaging
-The details of this architecture and the steps you need to take in order to successfully build your CorDapp will be outlined in the following sections. For information on how to onboard a new member as a notary service representative, see the [Onboarding Notaries]({{< relref "../../application-networks/creating/notaries.md" >}}) section.
+The details of this architecture and the steps you need to take in order to successfully build your CorDapp will be outlined in the following sections. For information on how to onboard a notary member, see the [Onboarding Notaries]({{< relref "../../application-networks/creating/notaries.md" >}}) section.
 
 {{< figure src="c5-non-validating-notary.png" figcaption="The CPKs, CPBs and CPIs involved in getting a functioning network that can run a notary (and by extension, UTXO ledger functionality)" alt="Corda 5 non-validating notary" >}}
 
@@ -39,9 +39,15 @@ The source code for all of these modules can be found under the [notary-plugins 
 
 ## Notary Server CPB
 
-The non-validating notary server CPB only contains CPKs that are produced by R3. Therefore, to improve the user experience, R3 also produces a standard non-validating notary server CPB. The notary server CPB is available from our [GitHub release page](https://github.com/corda/corda-runtime-os/releases/).
+The non-validating notary server CPB only contains CPKs that are produced by R3. Therefore, to improve the user experience, R3 also produces a standard non-validating notary server CPB.
 
-For information on how to onboard a notary member, see the [Onboarding Notaries]({{< relref "../../application-networks/creating/notaries.md" >}}) section.
+### Downloading the CPB
+
+The notary server CPB is available from our [GitHub release page](https://github.com/corda/corda-runtime-os/releases/).
+
+### Trust the Signing Key
+
+For information on importing the notary CPB code signing certificate, see the [Onboarding Notaries]({{< relref "../../application-networks/creating/notaries.md#import-notary-cpb-code-signing-certificate" >}}) section.
 
 ## Application CPB
 
