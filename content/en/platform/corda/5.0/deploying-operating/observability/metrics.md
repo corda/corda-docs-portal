@@ -61,6 +61,21 @@ The following Corda-specific metrics are exported and they have been added at th
 
 #### HTTP Requests
 
+<style>
+table th:first-of-type {
+    width: 20%;
+}
+table th:nth-of-type(2) {
+    width: 20%;
+}
+table th:nth-of-type(2) {
+    width: 20%;
+}
+table th:nth-of-type(2) {
+    width: 40%;
+}
+</style>
+
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
 | `corda_http_server_request` | Counter |  | The number of HTTP requests. |
