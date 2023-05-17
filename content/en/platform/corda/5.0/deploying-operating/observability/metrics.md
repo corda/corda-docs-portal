@@ -68,10 +68,10 @@ table th:first-of-type {
 table th:nth-of-type(2) {
     width: 20%;
 }
-table th:nth-of-type(2) {
+table th:nth-of-type(3) {
     width: 20%;
 }
-table th:nth-of-type(2) {
+table th:nth-of-type(4) {
     width: 40%;
 }
 </style>
