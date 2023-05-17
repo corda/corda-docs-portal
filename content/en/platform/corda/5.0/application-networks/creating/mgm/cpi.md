@@ -205,13 +205,13 @@ To upload the CPI to your network, run the following:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```bash
-export CPI_PATH=<CPI-directory/CPI-filename.cpi>
+export CPI_PATH="$WORK_DIR/MGM-1.0.0.0-SNAPSHOT.cpi"
 curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -F upload=@$CPI_PATH $REST_API_URL/cpi/
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-$CPI_PATH = <CPI_DIRECTORY/CPI-FILENAME.cpi>
+$CPI_PATH = "$WORK_DIR/MGM-1.0.0.0-SNAPSHOT.cpi"
 $CPI_UPLOAD_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/cpi/" -Method Post -Form @{
     upload = Get-Item -Path $CPI_PATH
 }

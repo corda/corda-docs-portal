@@ -190,7 +190,7 @@ To upload the CPI to the network, run the following:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```
-export CPI_PATH=<CPI-directory/CPI-filename.cpi>
+export CPI_PATH="$WORK_DIR\mgm-5.0.0.0-SNAPSHOT-package.cpi"
 curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -F upload=@$CPI_PATH $REST_API_URL/cpi/
 ```
 {{% /tab %}}
