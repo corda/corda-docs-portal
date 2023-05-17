@@ -77,7 +77,7 @@ Set the values of variables for use in later commands:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export WORK_DIR=<your-working-directory>
+   export WORK_DIR=creating-mgm-cpi
    mkdir -p "$WORK_DIR"
    ```
    {{% /tab %}}
