@@ -177,8 +177,8 @@ Corda validates that uploaded CPIs are signed with a trusted key. To trust your 
        alias="<unique-key-alias>"
    }
     ```
-   {{% /tab %}}
-   {{< /tabs >}}
+    {{% /tab %}}
+    {{< /tabs >}}
 
 {{< note >}}
 Use an alias that will remain unique over time, taking into account that certificate expiry will require new certificates with the same X.500 name as existing certificates.
