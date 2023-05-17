@@ -23,10 +23,16 @@ export X500_NAME="C=GB, L=London, O=Alice"
 curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d '{"request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "'$X500_NAME'"}}' $API_URL/virtualnode
 ```
 
-If successful, this request returns the details of the new virtual node as JSON. To save the ID of the virtual node for future use, run the following command, replacing `<holding-identity-ID>` with the ID returned in `holdingIdentity.shortHash` in the received response. For example, `58B6030FABDD`.
+Check that the virtual node was created successfully by running the following, replacing `<request-ID>` with the ID returned in the received response:
 
 ```shell
-export MGM_HOLDING_ID=<holding-identity-ID>
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/virtualnode/status/<request-ID>
+```
+
+This request returns a JSON object with `status` set to `SUCCEEDED` once the operation is complete. You may have to call the `/virtualnode/status` endpoint multiple times until you receive the `SUCCEEDED` status. Once complete, to save the ID of the virtual node for future use, run the following command, replacing `<resource-ID>` with the ID returned in the received response:
+
+```shell
+export MGM_HOLDING_ID = <resource-ID>
 ```
 
 ## Create a Virtual Node on Windows
@@ -41,6 +47,15 @@ $VIRTUAL_NODE_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Aut
        x500Name = $X500_NAME
     }
 })
+```
+Check that the virtual node was created successfully by running the following:
 
-$HOLDING_ID = $VIRTUAL_NODE_RESPONSE.holdingIdentity.shortHash
+```shell
+$VIRTUAL_NODE_RESPONSE_STATUS = Invoke-RestMethod -SkipCertificateCheck  -Headers [@{Authorization=("Basic](https://github.com/{Authorization=("Basic) {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/virtualnode/status/$($VIRTUAL_NODE_RESPONSE.requestId)" -Method Get
+```
+
+This request returns a JSON object with `status` set to `SUCCEEDED` once the operation is complete. You may have to call the `/virtualnode/status` endpoint multiple times until you receive the `SUCCEEDED` status. Once complete, to save the ID of the virtual node for future use, run the following command:
+
+```shell
+$HOLDING_ID = $VIRTUAL_NODE_RESPONSE_STATUS.resourceId
 ```
