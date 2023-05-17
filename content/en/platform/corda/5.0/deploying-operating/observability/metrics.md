@@ -63,16 +63,16 @@ The following Corda-specific metrics are exported and they have been added at th
 
 <style>
 table th:first-of-type {
-    width: 20%;
+    width: 25%;
 }
 table th:nth-of-type(2) {
-    width: 20%;
+    width: 15%;
 }
 table th:nth-of-type(3) {
-    width: 20%;
+    width: 15%;
 }
 table th:nth-of-type(4) {
-    width: 40%;
+    width: 45%;
 }
 </style>
 
@@ -120,7 +120,7 @@ The ledger uniqueness checker client service metrics are from the perspective of
 
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
-| `corda_ledger_uniqueness_client_run_time_seconds` | Timer | `result.type` | The time taken from requesting a uniqueness check to a response being received. The `result.type` tag is set to the specific type of uniqueness check result that was returned. |
+| `corda_ledger_uniqueness_client_run_time_seconds` | Timer | <ul><li>`result.type`</li></ul> | The time taken from requesting a uniqueness check to a response being received. The `result.type` tag is set to the specific type of uniqueness check result that was returned. |
 
 #### Uniqueness Checker
 
@@ -143,9 +143,9 @@ such as the result of a request. Like the sub-batch metrics, these are also asso
 | :----------- | :----------- | :----------- | :----------- |
 | `corda_uniqueness_checker_batch_execution_time_seconds` | Timer | None | The overall time for the uniqueness checker to process a batch, inclusive of all sub-batches. |
 | `corda_uniqueness_checker_batch_size` | DistributionSummary | None | The number of requests in a batch processed by the uniqueness checker. |
-| `corda_uniqueness_checker_subbatch_execution_time_seconds` | Timer | `virtualnode.source` | The time for the uniqueness checker to process a sub-batch, that is, a partition of a batch segregated by notary virtual node holding identity. |
-| `corda_uniqueness_checker_subbatch_size` | DistributionSummary | `virtualnode.source` | The number of requests in a sub-batch processed by the uniqueness checker. |
-| `corda_uniqueness_checker_request_count` | Counter | `virtualnode.source`, `result.type`, `duplicate` | A count of the number of requests processed. On its own this simply duplicates information that is already captured at the batch and sub-batch levels, but the tags can be used to provide additional context not available in the other metrics. The `result.type` tag can be used to understand the number of successful vs failed requests, and the type of failures. The `duplicate` tag is set to `true` if the uniqueness checker has seen a request for this transaction before, and is therefore simply returning the original result. Otherwise, it is `false`. |
+| `corda_uniqueness_checker_subbatch_execution_time_seconds` | Timer | <ul><li>`virtualnode.source`</li></ul> | The time for the uniqueness checker to process a sub-batch, that is, a partition of a batch segregated by notary virtual node holding identity. |
+| `corda_uniqueness_checker_subbatch_size` | DistributionSummary | <ul><li>`virtualnode.source`</li></ul> | The number of requests in a sub-batch processed by the uniqueness checker. |
+| `corda_uniqueness_checker_request_count` | Counter | <ul><li>`virtualnode.source`</li><li>`result.type`</li><li>`duplicate`</li></ul> | A count of the number of requests processed. On its own this simply duplicates information that is already captured at the batch and sub-batch levels, but the tags can be used to provide additional context not available in the other metrics. The `result.type` tag can be used to understand the number of successful vs failed requests, and the type of failures. The `duplicate` tag is set to `true` if the uniqueness checker has seen a request for this transaction before, and is therefore simply returning the original result. Otherwise, it is `false`. |
 
 #### Backing Store
 
@@ -155,12 +155,12 @@ associated with the holding IDs of specific notary virtual nodes.
 
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
-| `corda_uniqueness_backingstore_session_execution_time_seconds` | Timer | `virtualnode.source` | The overall execution time for a (uniqueness checker) backing store session, which includes retrieving uniqueness database connection details, getting a database connection, as well as all database operations (both read and write) carried out within a session context. |
-| `corda_uniqueness_backingstore_transaction_execution_time_seconds` | Timer | `virtualnode.source`  | The execution time for a transaction within the context of a backing store session, which excludes retrieving uniqueness database connection details and getting a database connection. If a transaction needs to be retried due to database exceptions, then the execution time covers the cumulative duration of all retry attempts. |
-| `corda_uniqueness_backingstore_transaction_error_count` | Counter | `virtualnode.source`, `error.type` | The cumulative number of errors raised by the backing store when executing a transaction. This is incremented regardless of whether an expected or unexpected error is raised, and is incremented on each retry. For example, a transaction that fails up to the maximum of 10 retries with the same error will increment by 10 in total. The tags provide the context as to the affected holding identity and the specific error class name (captured by `error.type`). |
-| `corda_uniqueness_backingstore_transaction_attempts` | DistributionSummary | `virtualnode.source` | 	The number of attempts that were made before a transaction ultimately succeeded. Generally, this should return 1. In the event that a transaction was unsuccessful due to reaching the maximum number of attempts, this metric is not updated and the failure would be reflected in the `uniqueness.backingstore.transaction.error.count` metric. |
-| `corda_uniqueness_backingstore_db_commit_time_seconds` | Timer | `virtualnode.source` | The time taken by the backing store to commit a transaction (that is, write) to the database. Only updated if data is written to the database, so it is not cumulative across retry attempts for a given transaction. |
-| `corda_uniqueness_backingstore_db_read_time_seconds` | Timer | `virtualnode.source`, `operation.name` | The time taken to perform a single read operation from the database. The existing `operation.name` tag is re-purposed to reflect the specific type of read operation being performed, currently one of `getStateDetails`, `getTransactionDetails`, or `getTransactionError`. If a transaction is retried, each retry contributes independently to this metric, meaning the number is not cumulative across retries. |
+| `corda_uniqueness_backingstore_session_execution_time_seconds` | Timer | <ul><li>`virtualnode.source`</li></ul> | The overall execution time for a (uniqueness checker) backing store session, which includes retrieving uniqueness database connection details, getting a database connection, as well as all database operations (both read and write) carried out within a session context. |
+| `corda_uniqueness_backingstore_transaction_execution_time_seconds` | Timer | <ul><li>`virtualnode.source`</li></ul>  | The execution time for a transaction within the context of a backing store session, which excludes retrieving uniqueness database connection details and getting a database connection. If a transaction needs to be retried due to database exceptions, then the execution time covers the cumulative duration of all retry attempts. |
+| `corda_uniqueness_backingstore_transaction_error_count` | Counter | <ul><li>`virtualnode.source`</li><li>`error.type`</li></ul> | The cumulative number of errors raised by the backing store when executing a transaction. This is incremented regardless of whether an expected or unexpected error is raised, and is incremented on each retry. For example, a transaction that fails up to the maximum of 10 retries with the same error will increment by 10 in total. The tags provide the context as to the affected holding identity and the specific error class name (captured by `error.type`). |
+| `corda_uniqueness_backingstore_transaction_attempts` | DistributionSummary | <ul><li>`virtualnode.source`</li></ul> | 	The number of attempts that were made before a transaction ultimately succeeded. Generally, this should return 1. In the event that a transaction was unsuccessful due to reaching the maximum number of attempts, this metric is not updated and the failure would be reflected in the `uniqueness.backingstore.transaction.error.count` metric. |
+| `corda_uniqueness_backingstore_db_commit_time_seconds` | Timer | <ul><li>`virtualnode.source`</li></ul> | The time taken by the backing store to commit a transaction (that is, write) to the database. Only updated if data is written to the database, so it is not cumulative across retry attempts for a given transaction. |
+| `corda_uniqueness_backingstore_db_read_time_seconds` | Timer | <ul><li>`virtualnode.source`</li><li>`operation.name`</li></ul> | The time taken to perform a single read operation from the database. The existing `operation.name` tag is re-purposed to reflect the specific type of read operation being performed, currently one of `getStateDetails`, `getTransactionDetails`, or `getTransactionError`. If a transaction is retried, each retry contributes independently to this metric, meaning the number is not cumulative across retries. |
 
 Metrics of type Timer have further metrics with the suffixes `_count`, `_max`, and `_sum` that represent the number of events,
 the maximum value, and the cumulative sum of values, respectively.
