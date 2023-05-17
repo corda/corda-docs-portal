@@ -138,10 +138,10 @@ Build a CPI using the Corda CLI, passing in your generated `GroupPolicy.json` fi
    {{% tab name="Bash" %}}
    ```shell 
    ./corda-cli.sh package create-cpi \
-    --group-policy <GROUP_POLICY_FILE_> \
-    --cpi-name "<CPI_Name>" \
+    --group-policy "$WORK_DIR/GroupPolicy.json" \
+    --cpi-name "MGM" \
     --cpi-version "1.0.0.0-SNAPSHOT" \
-    --file <CPI_FILE_NAME> \
+    --file "$WORK_DIR/MGM-1.0.0.0-SNAPSHOT.cpi"\
     --keystore <SIGNING_KEY> \
     --storepass "<SIGNING_KEY_PASSWORD>" \
     --key "<SIGNING_KEY_NAME>"
@@ -150,10 +150,10 @@ Build a CPI using the Corda CLI, passing in your generated `GroupPolicy.json` fi
    {{% tab name="PowerShell" %}}
    ```shell 
    corda-cli.cmd package create-cpi `
-    --group-policy <GROUP_POLICY_FILE_> `
-    --cpi-name "<CPI_Name>" `
+    --group-policy "$WORK_DIR/GroupPolicy.json" `
+    --cpi-name "MGM" `
     --cpi-version "1.0.0.0-SNAPSHOT" `
-    --file <CPI_FILE_NAME>`
+    --file "$WORK_DIR/MGM-1.0.0.0-SNAPSHOT.cpi" `
     --keystore <SIGNING_KEY> `
     --storepass "<SIGNING_KEY_PASSWORD>" `
     --key "<SIGNING_KEY_NAME>"
