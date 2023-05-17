@@ -80,11 +80,11 @@ You can now use the registration context to register the MGM on the network:
 To register the MGM using Bash, run this command:
 ```shell
 REGISTRATION_REQUEST='{"memberRegistrationRequest":{"context": '$REGISTRATION_CONTEXT'}}'
-curl -u $REST_API_USER:$REST_API_PASSWORD -d "$REGISTRATION_REQUEST" $REST_API_URL/membership/$MGM_HOLDING_ID
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d "$REGISTRATION_REQUEST" $REST_API_URL/membership/$MGM_HOLDING_ID
 ```
 For example:
 ``` shell
-curl -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": { "context": {
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": { "context": {
   "corda.session.key.id": "D2FAF709052F",
   "corda.ecdh.key.id": "E2FCF719062B",
   "corda.group.protocol.registration": "net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService",
@@ -103,7 +103,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": { "
 
 Alternatively, using jq:
 ```shell
-curl -u $REST_API_USER:$REST_API_PASSWORD -d $(
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d $(
   jq --arg session_key_id $SESSION_KEY_ID '.memberRegistrationRequest.context."corda.session.key.id"=$session_key_id' | \
   jq --arg ecdh_key_id $ECDH_KEY_ID '.memberRegistrationRequest.context."corda.ecdh.key.id"=$ecdh_key_id' | \
   jq '.memberRegistrationRequest.context."corda.group.protocol.registration"="net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService"' | \
@@ -140,7 +140,7 @@ You can confirm that the MGM was onboarded successfully by checking the status o
 {{% tab name="Bash"%}}
 ```shell
 export REGISTRATION_ID=<registration-ID>
-curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/membership/$MGM_HOLDING_ID/$REGISTRATION_ID
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/membership/$MGM_HOLDING_ID/$REGISTRATION_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}

@@ -5,7 +5,7 @@ menu:
   corda5:
     identifier: corda5-use-cases
     parent: corda5-intro
-    weight: 2000
+    weight: 3000
 section_menu: corda5
 ---
 "_Who is Corda for?_" Corda was originally designed as a distributed ledger and system of record for the financial services industry. 
