@@ -20,7 +20,18 @@
   }
 </script>
 
-{{ if ne .Level 1 }}
+{{ if and (ne .Page.Params.version "Corda 5.0") (ne .Page.Params.Parent.version "Corda 5.0") }}
+  {{ if ne .Level 1 }}
+  <h{{ .Level }} id="{{ .Anchor | safeURL }}"  class="link-heading">
+    <a href="#{{ .Anchor | safeURL }}">
+      {{ .Text | safeHTML }} 
+    </a>
+    <a href="#{{ .Anchor | safeURL }}" class="chain-icon-link" onclick="copyLink(this)">
+      <img src="/icons/chain-icon.png" class="chain-icon" alt="heading-link-icon" title="Click to copy the section link." />
+    </a>
+  </h{{ .Level }}>
+  {{ end }}
+{{ else }}
   <h{{ .Level }} id="{{ .Anchor | safeURL }}"  class="link-heading">
     <a href="#{{ .Anchor | safeURL }}">
       {{ .Text | safeHTML }} 
