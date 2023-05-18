@@ -12,7 +12,7 @@ section_menu: corda5
 
 The Corda configuration system allows for any string configuration value to be marked as “secret”. When this configuration value is used, Corda delegates the resolution of this value to one of the following configured secrets lookup service:
 * [Default Secrets Service]({{< relref "#default-secrets-service">}})
-* [External Secrets Service]({{< relref "#external-secrets-service-hahahugoshortcode-s6-hbhb">}}) {{< enterprise-icon >}}
+* [External Secrets Service]({{< relref "#external-secrets-service">}}) {{< enterprise-icon >}}
 
 {{< note >}}
 Any configuration items can be configured as sensitive or not. It is up to you to decide if a particular configuration item should be treated as sensitive.
