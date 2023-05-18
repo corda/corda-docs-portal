@@ -159,7 +159,7 @@ As with the number of replicas, you may need to adjust these values based on tes
 
 #### Recommended Infrastructure
 
-When it comes to AWS topology, we recommend the following initial configuration:
+Regarding AWS topology, we recommend the following initial configuration:
 
 * Kubernetes: For a cluster with a single replica of each worker, a Kubernetes cluster with two `t3.2xlarge` nodes is
 a reasonable starting point. For a cluster with three replicas of each worker, extend that to four nodes.
