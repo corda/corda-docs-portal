@@ -21,7 +21,7 @@ Chainable states represent strictly linear state chains, where every state in th
 
 ## Fungible States
 
-Fungible states represent states that have a scalar numeric quantity, and can be split, merged and mutually exchanged with other fungible states of the same class. Fungible states represent the building blocks for states like tokens.
+Fungible states represent states that have a scalar numeric quantity, and can be split, merged, and mutually exchanged with other fungible states of the same class. Fungible states represent the building blocks for states like tokens.
 
 ## Identifiable States
 
@@ -35,13 +35,11 @@ Issuable states represent states that have an issuer. Typically an issuer is res
 
 Ownable states represent states that have an owner. Typically an owner is responsible for signing transactions where ownable states are transferred from one owner to another.
 
-## Contract Design
+## Basic Contract Design
 
 In order to fully understand the design motivations, first we must understand some of the challenges commonly faced by CorDapp developers.
 
-## Basic Contract Design
-
-We'll start by taking a look at a trivial contract implementation, below. The following contract defines three commands; Create, Update and Delete. The verify function delegates these command types to `verifyCreate`, `verifyUpdate` and `verifyDelete` functions respectively; for example:
+We'll start by taking a look at a trivial contract implementation, below. The following contract defines three commands; Create, Update and Delete. The `verify` function delegates these command types to `verifyCreate`, `verifyUpdate` and `verifyDelete` functions respectively; for example:
 
 ```kotlin
     public final class ExampleContract implements Contract {
