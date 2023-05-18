@@ -167,7 +167,7 @@ a reasonable starting point. For a cluster with three replicas of each worker, e
 * RDS PostgreSQL: `db.r5.large` instance size is sufficient for both a Corda cluster with a single replica of each worker
 and three replicas of each worker, subject to the persistence requirements of any CorDapp running in the cluster.
 
-* MSK: For a cluster with a single replica of each worker, and a topic replica count of three, a Kafka cluster of three
+* MSK: For a cluster with a single replica of each worker and a topic replica count of three, a Kafka cluster of three
 `kafka.t3.small` instances may suffice. In a HA topology with three replicas of each worker and a topic replica count
 of three, we recommend five brokers using at least `kafka.m5.large` instances.
 
