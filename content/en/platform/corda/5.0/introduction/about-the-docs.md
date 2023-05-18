@@ -15,7 +15,7 @@ The following topics are explained on this page:
 * [Reporting an Error in the Docs](#reporting-an-error-in-the-docs)
 
 ## Documenting Product Editions
-The documentation relating to Corda 5 is structured differently than in previous versions of Corda. Previously, Corda Enterprise and Corda Community content was published in separate documentation sets. 
+The Corda 5 documentation is structured differently than in previous versions of Corda. Previously, Corda Enterprise and Corda Community content was published in separate documentation sets. 
 From Corda 5.0 onwards, there is one documentation set, but the features that relate to Corda Enterprise are marked to avoid confusion. 
 
 {{< 
