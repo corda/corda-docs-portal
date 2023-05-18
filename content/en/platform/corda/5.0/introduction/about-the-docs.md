@@ -39,7 +39,7 @@ Definitions:
 * **End of security**: This release will no longer be eligible for security patches after the date shown.
 * **End of support**: Support (including documentation) provided by R3 is no longer available after this date.
 
-| **Corda 5.X** | **Date of release** | **End of Maintenance** | **End of security**   | **End of support**    |
+| **Version** | **Date of Release** | **End of Maintenance** | **End of Security**   | **End of Support**    |
 |:-------------:|:-------------------:|:----------------------:|:---------------------:|:---------------------:|
 | **Corda 5.0** | Jun-23              | Upon release of 5.2    | Upon release of 5.2   | Upon release of 5.2   |
 | **Corda 5.1** | TBC                 | Upon release of 5.2    | Upon release of 5.2   | Upon release of 5.2   |
