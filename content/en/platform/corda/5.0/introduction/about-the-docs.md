@@ -20,14 +20,14 @@ From Corda 5.0 onwards, there is one documentation set, but the features that re
 
 {{< 
   figure
-	 src="enterprise-icon.png"
+	 src="docs-enterprise-icon-use-case.png"
    width=55%
 	 figcaption="Documentation heading with Enterprise icon"
 	 alt="Enterprise icon"
 >}}
 
 * **(A)** The heading without the ‘Enterprise only' icon is the most common and it is used where the content relates to both Corda Community and Corda Enterprise editions of the product.
-* **(B)** The ‘Enterprise only' icon is used mostly in headings, indicating that the entire content under that heading relates only to Corda Enterprise. On occasions, the icon may be used inline to identify sentences, paragraphs, admonitions, or tables, that are for Corda Enterprise only. 
+* **(B)** The ‘Enterprise only' icon is used mostly in headings, indicating that the entire content under that heading relates only to Corda Enterprise. On occasions, the icon may be used inline to identify sentences, paragraphs, or tables that are for Corda Enterprise only. 
 
 ## End of Life Strategy
 Use the following table to track the end of life schedule for each version of Corda 5. Each version of Corda has R3 support available for a fixed period. 
@@ -49,14 +49,14 @@ Definitions:
 ## Reporting an Error in the Docs
 In 2023, the R3 Technical Writing team will be making big changes to our documentation and our overall content strategy. As we make improvements, we’d love to get your feedback on what we’re doing well, and what we could be doing better. 
 
-Click [HERE](mailto:docs@r3.com) to email the R3 Technical Writing team. To help us deal with your feedback effectively, please include all of the following:
+Click [here](mailto:docs@r3.com) to email the R3 Technical Writing team. To help us deal with your feedback effectively, please include all of the following:
 
 * Your name
 * Your company name
 * Your email address (if different from the one being used to report)
 * The URL of the documentation page (if it is an issue being reported)
 
-Please include as much detail as you can in your feedback, as it is valuable to us and it will be read and shared with the rest of the team. JIRA tickets are created for any issues received, which will be quickly triaged and if necessary, assigned to a Technical Writer to effect changes.
+Please include as much detail as you can in your feedback, as it is valuable to us and it will be read and shared with the rest of the team. A ticket is then created for any issues received, which will be quickly triaged and if necessary, assigned to a Technical Writer to effect changes.
 
 {{< note >}}
 We are working on refining our documentation feedback process. In the near future, you will be able to submit feedback more interactively and directly from the documentation.
