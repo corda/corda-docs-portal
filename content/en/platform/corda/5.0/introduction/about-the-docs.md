@@ -43,7 +43,7 @@ Definitions:
 |:-------------:|:-------------------:|:----------------------:|:---------------------:|:---------------------:|
 | **Corda 5.0** | Jun-23              | Upon release of 5.2    | Upon release of 5.2   | Upon release of 5.2   |
 | **Corda 5.1** | TBC                 | Upon release of 5.2    | Upon release of 5.2   | Upon release of 5.2   |
-| **Corda 5.2** | TBC                 | 2 years after release  | 3 years after release | 3 years after release |
+| **Corda 5.2** | TBC                 | 2 years after release  | 2 years after release | 2 years after release |
 
 
 ## Reporting an Error in the Docs
