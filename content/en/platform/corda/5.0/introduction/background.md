@@ -5,7 +5,7 @@ menu:
   corda5:
     identifier: corda5-background
     parent: corda5-intro
-    weight: 1000
+    weight: 2000
 section_menu: corda5
 ---
 
