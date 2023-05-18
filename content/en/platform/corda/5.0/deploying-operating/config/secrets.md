@@ -1,5 +1,6 @@
 ---
 title: "Configuration Secrets"
+version: 'Corda 5.0'
 date: '2023-05-16'
 menu:
   corda5:
