@@ -25,8 +25,9 @@ For example, the following is a standard configuration:
 
 ```
 {
-  "user": "name",
-  "pass": "mypassword"
+  "database": {
+     "pass": "mypassword"
+  }
 }
 ```
 
@@ -34,11 +35,12 @@ You can specify the `pass` value as a secret using the `configSecret` value, as 
 
 ```
 {
-  "user": "name",
-  "pass": {
-    "configSecret": {
-      "encryptedSecret": "<encrypted-password>"
-    } 
+  "database": {
+     "pass": {
+         "configSecret": {
+           "encryptedSecret": "<encryped-db-password>"
+         }
+     }
   }
 }
 ```
@@ -66,8 +68,9 @@ For example, the following is a standard configuration:
 
 ```
 {
-  "user": "name",
-  "pass": "123password"
+  "database": {
+     "pass": "mypassword"
+  }
 }
 ```
 
@@ -75,12 +78,13 @@ You can specify `pass` as a secret, as follows:
 
 ```
 {
-  "user": "name",
-  "pass": {
-    "configSecret": {
-      "vaultPath": "<secret-path>",
-      "vaultKey": "<secret-key>"
-    } 
+  "database": {
+     "pass": {
+         "configSecret": {
+           "vaultPath": "<secret-path>",
+           "vaultKey": "<secret-key>"
+         }
+     }
   }
 }
 ```
