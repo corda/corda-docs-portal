@@ -125,30 +125,52 @@ Depending on your application workload, you may require additional replicas.
 
 ### Resource Requests and Limits
 
-Specify a default set of resource requests and limits for the Corda containers:
+Specify a default set of resource requests and limits for the Corda containers. The following are recommended as a starting point:
 ```yaml
 resources:
   requests:
     memory: 512Mi
-    cpu: 125m
+    cpu: 250m
   limits:
-    memory: 2048Mi
-    cpu: 1000m
+    memory: 512Mi
+    cpu: 2000m
 ```
 {{< note >}}
-It is particularly important to specify resource requests when using a Kubernetes cluster with auto-scaling,
-to ensure that it scales appropriately when the Corda cluster is deployed.
+It is particularly important to specify resource requests when using a Kubernetes cluster with auto-scaling, to ensure that it scales appropriately when the Corda cluster is deployed.
 {{< /note >}}
 
-You can also override the default resource requests and limits separately for each type of Corda worker. For example, to increase the memory limit for flow workers:
+You can also override the default resource requests and limits separately for each type of Corda worker.
+For example, we recommend starting with higher memory limits for the database and flow workers:
 ```yaml
 workers:
+  db:
+    resources:
+      requests:
+        memory: 2048Mi
+      limits:
+        memory: 2048Mi
   flow:
-    resource:
-      limit:
-        memory: 4096Mi
+    resources:
+      requests:
+        memory: 2048Mi
+      limits:
+        memory: 2048Mi
 ```
 As with the number of replicas, you may need to adjust these values based on testing with your actual application workload.
+
+#### Recommended Infrastructure
+
+Regarding AWS topology, we recommend the following initial configuration:
+
+* Kubernetes: For a cluster with a single replica of each worker, a Kubernetes cluster with two `t3.2xlarge` nodes is
+  a reasonable starting point. For a cluster with three replicas of each worker, extend that to four nodes.
+
+* RDS PostgreSQL: `db.r5.large` instance size is sufficient for both a Corda cluster with a single replica of each worker
+  and three replicas of each worker, subject to the persistence requirements of any CorDapp running in the cluster.
+
+* MSK: For a cluster with a single replica of each worker and a topic replica count of three, a Kafka cluster of three
+  `kafka.t3.small` instances may suffice. In a HA topology with three replicas of each worker and a topic replica count
+  of three, we recommend five brokers using at least `kafka.m5.large` instances.
 
 ### Exposing the REST API
 
@@ -503,11 +525,11 @@ imagePullSecrets:
 
 resources:
   requests:
-    memory: "512Mi"
-    cpu: "125m"
+    memory: 512Mi
+    cpu: 250m
   limits:
-    memory: "2048Mi"
-    cpu: "1000m"
+    memory: 512Mi
+    cpu: 2000m
 
 serviceAccount: "corda-privileged"
 
@@ -576,6 +598,11 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "db"
+    resources:
+      requests:
+        memory: 2048Mi
+      limits:
+        memory: 2048Mi
     replicaCount: 3
   flow:
     kafka:
@@ -587,6 +614,11 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "flow"
+    resources:
+      requests:
+        memory: 2048Mi
+      limits:
+        memory: 2048Mi
     replicaCount: 3
   membership:
     kafka:
