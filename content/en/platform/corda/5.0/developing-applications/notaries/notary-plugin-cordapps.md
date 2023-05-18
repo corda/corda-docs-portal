@@ -41,14 +41,6 @@ The source code for all of these modules can be found under the [notary-plugins 
 
 The non-validating notary server CPB only contains CPKs that are produced by R3. Therefore, to improve the user experience, R3 also produces a standard non-validating notary server CPB.
 
-### Downloading the CPB
-
-The notary server CPB is available from our [GitHub release page](https://github.com/corda/corda-runtime-os/releases/).
-
-### Trust the Signing Key
-
-For information on importing the notary CPB code signing certificate, see the [Onboarding Notaries]({{< relref "../../application-networks/creating/notaries.md#import-notary-cpb-code-signing-certificate" >}}) section.
-
 ## Application CPB
 
 It is not possible to provide a standard application CPB, because the contents of this depend on the writer of a CorDapp. The writer of a CorDapp must decide which CPKs they will bundle together to provide their application CPB. This will be comprised of one or more CPKs which provide the application functionality. However, the CorDapp developer must also bundle the appropriate CPKs for the notary protocols their CorDapp will support.
