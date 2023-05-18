@@ -1,5 +1,6 @@
 ---
 date: '2023-01-30'
+version: 'Corda 5.0'
 title: "net.corda.v5.ledger.utxo.token.selection"
 menu:
   corda5:

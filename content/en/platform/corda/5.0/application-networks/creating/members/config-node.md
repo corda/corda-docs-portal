@@ -1,5 +1,6 @@
 ---
 date: '2023-04-13'
+version: 'Corda 5.0'
 title: "Configure Communication Properties"
 menu:
   corda5:

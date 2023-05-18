@@ -1,5 +1,6 @@
 ---
 date: '2023-03-08'
+version: 'Corda 5.0'
 title: "corda.p2p.linkmanager"
 menu:
   corda5:

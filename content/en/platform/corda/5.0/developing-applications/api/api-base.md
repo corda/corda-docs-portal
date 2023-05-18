@@ -1,5 +1,6 @@
 ---
 date: '2021-04-24T00:00:00Z'
+version: 'Corda 5.0'
 title: "net.corda.v5.base"
 menu:
   corda5:

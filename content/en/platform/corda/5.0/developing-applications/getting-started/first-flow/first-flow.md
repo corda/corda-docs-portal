@@ -1,5 +1,6 @@
 ---
 date: '2022-09-20'
+version: 'Corda 5.0'
 title: "Your First Flow"
 menu:
   corda5:

@@ -1,5 +1,6 @@
 ---
 date: '2023-05-10'
+version: 'Corda 5.0'
 title: "Logs"
 menu:
   corda5:

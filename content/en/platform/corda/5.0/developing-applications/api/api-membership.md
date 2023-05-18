@@ -1,5 +1,6 @@
 ---
 date: '2022-09-06'
+version: 'Corda 5.0'
 title: "net.corda.v5.membership"
 menu:
   corda5:

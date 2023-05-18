@@ -1,5 +1,6 @@
 ---
 date: '2023-04-13'
+version: 'Corda 5.0'
 title: "Configure Key Pairs and Certificates"
 menu:
   corda5:

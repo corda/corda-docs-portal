@@ -1,5 +1,6 @@
 ---
 date: '2023-02-23'
+version: 'Corda 5.0'
 title: "Smart Contracts"
 menu:
   corda5:

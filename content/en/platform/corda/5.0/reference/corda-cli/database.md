@@ -1,5 +1,6 @@
 ---
 date: '2022-12-20'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-cordacli-database

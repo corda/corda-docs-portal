@@ -1,5 +1,6 @@
 ---
 date: '2023-04-12'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-networks-cli

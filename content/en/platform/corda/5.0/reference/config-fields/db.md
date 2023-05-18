@@ -1,6 +1,7 @@
 ---
 date: '2023-03-08'
 title: "corda.db"
+version: 'Corda 5.0'
 menu:
   corda5:
     parent: corda5-config-fields

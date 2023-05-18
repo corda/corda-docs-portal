@@ -1,5 +1,6 @@
 ---
 date: '2023-04-24'
+version: 'Corda 5.0'
 title: "Permission System Entities"
 menu:
   corda5:
