@@ -1,5 +1,6 @@
 ---
 date: '2023-01-23'
+version: 'Corda 5.0'
 title: "Chat CorDapp Design"
 menu:
   corda5:
