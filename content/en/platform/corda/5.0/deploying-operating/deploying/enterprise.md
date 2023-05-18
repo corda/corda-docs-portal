@@ -10,12 +10,41 @@ section_menu: corda5
 ---
 # Migrating to Corda Enterprise {{< enterprise-icon >}} 
 
-To migrate an existing Corda Community deployment to Corda Enterprise, you must replace the existing Corda Community Helm chart with the Enterprise Helm chart. This replaces the standard container images with the Enterprise container images.
-
+This section describes how to migrate an existing Corda Community deployment to Corda Enterprise by replacing the existing Corda Community Helm chart with the Enterprise Helm chart. 
 {{< note >}}
-The migration process results in downtime for the Corda cluster. 
+The configuration used for the Corda Enterprise installation should be the same as that for the original Corda Community installation. In particular, the configuration must grant access to the same database instance and Kafka cluster so that it can pick up the state from the previous cluster. It also must use the same salt and passphrase so that Corda can decrypt the configuration stored in the database.
 {{< /note >}}
+The following steps migrate an existing Corda Community deployment to Corda Enterprise, where the existing deployment has a Helm release name of `HELM_RELEASE_NAME` in the namespace `KUBERNETES_NAMESPACE`, installed with the overrides in the file `values.yaml`:
 
-The configuration used for the Corda Enterprise installation should be the same as that for the original Corda Community installation. In particular, it should be given access to the same database instance and Kafka cluster so that it can pick up the state from the previous cluster. It also must be provided with the same salt and passphrase so that it can decrypt the configuration stored in the database.
+{{< warning >}}
+The migration process results in downtime for the Corda cluster. 
+{{< /warning >}}
 
-Assuming an existing Corda OS installation with a Helm release name of HELM_RELEASE_NAME in the namespace KUBERNETES_NAMESPACE installed with the overrides in the file values.yaml, the process is as follows:
+1. Run the following to uninstall the Corda Community Helm release:
+
+   ```
+   helm uninstall $HELM_RELEASE_NAME --namespace $KUBERNETES_NAMESPACE
+   ```
+
+2. Install the Corda Enterprise Helm release using the same values as the previous Corda Community installation but disabling automatic bootstrapping:
+
+   ```
+   helm install corda-enterprise corda-enterprise-5.0.0.tgz \
+     --values values.yaml --namespace $KUBERNETES_NAMESPACE \
+     --set bootstrap.db.enabled=false \
+     --set bootstrap.kafka.enabled=false \
+     --set bootstrap.rbac.enabled=false
+   ```  
+
+If the original Corda Community installation used automatic bootstrapping to generate the salt and passphrase, the installation of Corda Enterprise must also be configured with the location of the generated values in the Kubernetes secret `$HELM_RELEASE_NAME}-config`. For example:
+```
+helm install corda-enterprise corda-enterprise-5.0.0.tgz \
+  --values values.yaml --namespace $KUBERNETES_NAMESPACE \
+  --set bootstrap.db.enabled=false \
+  --set bootstrap.kafka.enabled=false \
+  --set bootstrap.rbac.enabled=false \
+  --set config.encyption.salt.valueFrom.secretKeyRef.name="${HELM_RELEASE_NAME}-config" \
+  --set config.encyption.salt.valueFrom.secretKeyRef.key="salt" \
+  --set config.encyption.passphrase.valueFrom.secretKeyRef.name="${HELM_RELEASE_NAME}-config" \
+  --set config.encyption.passphrase.valueFrom.secretKeyRef.key="passphrase"
+  ```
