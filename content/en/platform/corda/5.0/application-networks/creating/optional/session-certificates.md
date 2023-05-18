@@ -9,6 +9,9 @@ menu:
     weight: 2000
 section_menu: corda5
 ---
+
+# Session Certificates
+
 You can configure a dynamic network to use session certificates when sending messages. This requires additional steps when onboarding an MGM or member into the dynamic network.
 
 ## Generate a Certificate Signing Request (CSR)

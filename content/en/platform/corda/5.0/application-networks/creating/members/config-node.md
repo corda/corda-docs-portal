@@ -10,6 +10,8 @@ menu:
 section_menu: corda5
 ---
 
+# Configure Communication Properties
+
 You must configure the virtual node as a network participant with the properties required for peer-to-peer messaging. The order is slightly different to MGM onboarding because you must perform this step before registering a member.
 
 To configure the member virtual node, run the following command, setting these properties: 

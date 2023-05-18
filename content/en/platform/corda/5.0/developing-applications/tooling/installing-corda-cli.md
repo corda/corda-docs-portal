@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 title: Installing the Corda CLI
 ---
-
+# Installing the Corda CLI
 Corda CLI (command line interface) is a command line tool that supports various Corda-related tasks. For information about the commands available, see the [Corda CLI reference content]({{< relref "../../reference/corda-cli/_index.md">}}).
 
 ## Third-Party Prerequisites

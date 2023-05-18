@@ -8,7 +8,7 @@ menu:
     weight: 7000
 section_menu: corda5
 ---
-
+# UTXO Ledger Example CorDapp
 The CSDE template includes example CorDapp code for a simple UTXO (Unspent Transaction Output) chat application. The chat CorDapp enables pairs of participants on a Corda application network to do the following:
 
 * Create and name a unique bilateral chat between the two virtual nodes.

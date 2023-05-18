@@ -9,4 +9,5 @@ menu:
     weight: 5000
 section_menu: corda5
 ---
+# Glossary
 {{< glossary >}}

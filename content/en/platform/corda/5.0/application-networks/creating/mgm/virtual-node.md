@@ -9,6 +9,9 @@ menu:
     weight: 2000
 section_menu: corda5
 ---
+
+# Create a Virtual Node
+
 To create a virtual node for the MGM, run the following, using the checksum retrieved when you [uploaded the MGM CPI]({{< relref"./cpi.md#upload-the-cpi" >}}):
 
 {{< tabs >}}

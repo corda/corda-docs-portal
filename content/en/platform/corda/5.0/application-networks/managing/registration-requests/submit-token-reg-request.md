@@ -9,7 +9,7 @@ menu:
     weight: 3000
 section_menu: corda5
 ---
-
+# Submitting a Token in a Registration Request
 After you have [generated a pre-auth token]({{< relref "pre-auth/preauthenticating-tokens.md#creating-a-token" >}}), you can distribute this to a registering member through offline channels, outside of Corda. 
 The registering member must then include this pre-auth token in the registration request they submit when registering. To do this, an additional key must be set in the registration context. This key is `corda.auth.token`, and the value of this key must be the pre-auth token that the MGM provided.
 

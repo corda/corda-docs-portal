@@ -9,7 +9,7 @@ menu:
     weight: 1000
 section_menu: corda5
 ---
-
+# About the Docs
 The following topics are explained on this page:
 * [Documenting Product Editions](#documenting-product-editions)
 * [End of Life Strategy](#end-of-life-strategy)

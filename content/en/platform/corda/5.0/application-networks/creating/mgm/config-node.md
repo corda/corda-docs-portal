@@ -10,6 +10,8 @@ menu:
 section_menu: corda5
 ---
 
+# Configure Communication Properties
+
 To configure the MGM virtual node as a Network Participant with the properties required for peer-to-peer messaging, run the following command, setting these properties: 
 
 * `p2pTlsCertificateChainAlias` — the alias used when importing the TLS certificate.

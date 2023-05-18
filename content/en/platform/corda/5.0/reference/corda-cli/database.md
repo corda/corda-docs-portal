@@ -9,7 +9,7 @@ menu:
 section_menu: corda5
 title: "database"
 ---
-
+# database
 This section lists the Corda CLI `database` arguments. You can use these commands to manually perform setup actions in the database, as described in the [Manual Bootstrapping]({{< relref "../../deploying-operating/deploying/bootstrapping.md" >}}) section.
 
 | <div style="width:160px">Argument</div> | Description                                                                        |

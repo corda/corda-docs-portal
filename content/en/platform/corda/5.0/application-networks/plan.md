@@ -9,7 +9,7 @@ menu:
     weight: 1000
 section_menu: corda5
 ---
-
+# Planning Application Networks
 Planning an application network (business network) requires some thought and consideration with regard to cluster deployment and topology, onboarding processes, security policy, and data sovereignty.
 
 ## Network Onboarding

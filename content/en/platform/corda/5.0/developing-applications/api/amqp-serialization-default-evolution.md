@@ -9,6 +9,7 @@ menu:
     weight: 8000
 section_menu: corda5
 ---
+# Default Class Evolution
 Whilst more complex evolutionary modifications to classes require annotating, Corda’s serialization
 framework supports several minor modifications to classes without any external modification except
 the actual code changes. These are:

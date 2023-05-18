@@ -9,7 +9,7 @@ menu:
     weight: 3000
 section_menu: corda5
 ---
-
+# Reviewing Registration Requests
 This section describes how to review and manually approve or decline registration requests. This process applies to registration requests that meet the criteria for manual approval specified by a [standard rule for the group]({{< relref "./configuring-manual-approval-rules.md" >}}) or by a [pre-auth rule]({{< relref "pre-auth/configuring-pre-auth-rules.md" >}}). 
 
 ## Viewing Requests Pending Manual Approval

@@ -8,7 +8,7 @@ menu:
     weight: 2000
 section_menu: corda5
 ---
-
+# Running the Chat CorDapp
 
 ## Configuring the Application Network (Virtual Nodes)
 

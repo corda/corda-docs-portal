@@ -10,6 +10,8 @@ menu:
 section_menu: corda5
 ---
 
+# Create a Virtual Node
+
 To create a virtual node for a member, run the following commands, changing the X.500 name:
 
 {{< tabs >}}

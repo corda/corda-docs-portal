@@ -10,6 +10,8 @@ menu:
 section_menu: corda5
 ---
 
+# Build the MGM CPI
+
 This section describes how to build a member CPI and upload it to the network. It contains the following:
 1. [Set Variables]({{< relref "#set-variables" >}})
 2. [Select a Certificate Authority]({{< relref "#select-a-certificate-authority" >}})

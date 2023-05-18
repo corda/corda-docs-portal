@@ -9,7 +9,7 @@ menu:
     weight: 1000
 section_menu: corda5
 ---
-
+# Kubernetes Liveness and Readiness Probes
 All the Corda worker pods are configured with Kubernetes liveness and readiness probes.
 These poll the status of the worker’s internal component’s registry.
 

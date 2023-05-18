@@ -9,7 +9,7 @@ menu:
     weight: 8000
 section_menu: corda5
 ---
-
+# et.corda.v5.serialization
 Object serialization is the process of converting objects into a stream of bytes while deserialization is the reverse
 process of creating objects from a stream of bytes.  It takes place every time we store transactions in the database.
 

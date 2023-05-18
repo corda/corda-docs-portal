@@ -9,7 +9,7 @@ menu:
     weight: 6000
 section_menu: corda5
 ---
-
+# net.corda.v5.membership
 The `corda-membership` module defines interfaces that provide information about a member (a [virtual node](../../introduction/key-concepts.html#virtual-nodes) in a group), and a membership group. The interfaces in this module should not be implemented by CorDapp developers. Instead, instances can be retrieved through lookup services.
 
 This module consists primarily of the following two root classes:

@@ -9,7 +9,7 @@ menu:
     weight: 4000
 section_menu: corda5
 ---
-
+# Deploying
 This page describes how to deploy Corda 5.
 
 All the necessary [prerequisites]({{< relref "prerequisites.md" >}}) must have been satisfied before Corda is deployed.

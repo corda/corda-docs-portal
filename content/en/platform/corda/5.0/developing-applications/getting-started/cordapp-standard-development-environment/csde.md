@@ -9,7 +9,7 @@ menu:
     weight: 2000
 section_menu: corda5
 ---
-
+# Installing the CSDE
 {{< note >}}
 The images in this section show the `CSDE-cordapp-template-kotlin` repository in IntelliJ. If you are working with the `CSDE-cordapp-template-java` repository, it looks very similar but the flow code is in a `java` folder and the flow code is saved in more source files. For more information, see [Java Flow Code]({{< relref "../first-flow/code-java.md" >}}).
 {{< /note >}}

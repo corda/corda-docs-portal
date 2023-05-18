@@ -10,6 +10,8 @@ menu:
 section_menu: corda5
 ---
 
+# Configure Key Pairs and Certificates
+
 This section describes how to configure key pairs and certificates. It contains the following:
 1. [Generate a Session Initiation Key Pair]({{< relref "#generate-a-session-initiation-key-pair">}})
 2. [Generate a Ledger Key Pair]({{< relref "#generate-a-ledger-key-pair">}})
