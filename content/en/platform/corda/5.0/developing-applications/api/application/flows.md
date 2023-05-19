@@ -9,7 +9,7 @@ menu:
     weight: 2000
 section_menu: corda5
 ---
-
+# net.corda.v5.application.flows
 The `flows` package contains interfaces and annotations for defining flows. The main interfaces are:
 
 * The <a href="../../../../../../api-ref/corda/5.0-beta/java/net/corda/v5/application/flows/ClientStartableFlow.html" target="_blank">`ClientStartableFlow`</a> is for flows expected to be started via the REST API.

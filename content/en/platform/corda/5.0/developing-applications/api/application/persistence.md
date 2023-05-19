@@ -9,7 +9,7 @@ menu:
     weight: 6000
 section_menu: corda5
 ---
-
+# net.corda.v5.application.persistence
 The `persistence` package provides services for performing persistence operations; mainly reading and writing data to and from the database. The `PersistenceService` is the main service for providing this functionality.
 
 Corda 5 supports CRUD (Create, Read, Update, Delete) operations for user-defined types. This is achieved using JPA-annotated entities and, to manage database migrations, Liquibase.
