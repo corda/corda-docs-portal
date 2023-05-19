@@ -510,7 +510,7 @@ body.dark {
     @extend .table-dark;
 
     > :not(caption) > * > * {
-      background-color: unset;
+      background-color: $body-bg-dark;
       border-bottom: 1px solid $gray-600;
     }
 
@@ -578,5 +578,23 @@ body.dark {
   #cookies-eu-banner {
     background-color: $body-overlay-dark;
     border: solid 2px $gray-500;
+  }
+
+  main > nav[aria-label="breadcrumb"] {
+    position: relative;
+  
+    @include media-breakpoint-up(md) {
+      position: sticky;
+      top: 150.5px;
+      background-color: $body-bg-dark;
+      width: 100%;
+      padding: 2px;
+      z-index: 900;
+      border-bottom: solid 1px $gray-200;
+     }
+  }
+
+  .chain-icon {
+    filter: opacity(60%) invert(1);
   }
 }
