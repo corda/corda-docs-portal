@@ -37,9 +37,10 @@ See [Two Phase Finality](two-phase-finality.md)
 ### Improved Double Spend exception handling
 Two Phase Finality will automatically delete an un-notarised transaction from the DBTransaction table when a Double Spend
 is detected upon attempting notarisation by the Initiator of `FinalityFlow`.
-Furthermore, if the new optional `FinalityFlow` `propagateDoubleSpendErrorToPeers` constructor parameter is set to `true` (default: `false`),
-then the Double Spend error (NotaryError.Conflict) will propagate to 2PF peers allowing them to automatically remove the
-associated un-notarised transaction from their DBTransaction table.
+
+Furthermore, if the new optional `ReceiveFinalityFlow` `handlePropagatedNotaryError` constructor parameter is set to `true` (default: `false`),
+then the Double Spend error (NotaryError.Conflict) will propagate back to the 2PF initiator allowing it to automatically remove the
+associated un-notarised transaction from its DBTransaction table.
 If a CorDapp is compiled against 4.11 (e.g. its TPV = 13) then Double Spend handling is enabled by default.
 
 ### Finality Recovery Tooling

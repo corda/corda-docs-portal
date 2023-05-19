@@ -15,7 +15,7 @@ weight: 45
 
 # Finality Flow Recovery
 
-[Two Phase Finality](two-phase-finality.md) introduces recovery metadata and a new transaction status of `MISSING_NOTARY_SIG`
+[Two Phase Finality](two-phase-finality.md) introduces recovery metadata and a new transaction status of `IN_FLIGHT`
 to denote that a transaction has not yet been fully finalised. The protocol stores the additional flow transaction recovery metadata
 upon initially recording an un-notarised transaction. This metadata is used to enable **initiator** and **receiver** recovery
 should a flow fail at some point within the finality protocol.
@@ -36,7 +36,7 @@ The initiator of a `FinalityFlow` transaction will store all the above recovery 
 is not shared across the network and is private only to the initiator.
 The receiver of a shared `FinalityFlow` transaction will only receive and record who the initiator is and the `StatesToRecord` status.
 
-A Finality flow transaction is recoverable when its transaction status is `MISSING_NOTARY_SIG`.
+A Finality flow transaction is recoverable when its transaction status is `IN_FLIGHT`.
 This could be at either or both of the Initiator and Receiver(s) sides, depending on how far the finality protocol progressed
 before failure at a given participant:
 
@@ -69,16 +69,23 @@ checkpoint flow status.
 manual intervention.
 {{< /note >}}
 
+### Issuance transactions with observers
+Transactions that do not require notarisation (e.g. issuance) also store recovery metadata such that any observers to
+an issuance transaction may also be recovered. That is, should an issuance transaction fail to broadcast the transaction
+to an observer peer, it will be possible to invoke the recovery flow at the initiator to ensure the transaction is correctly
+re-distributed to that observer peer.
+Note: for the purpose of performance optimisation, issuance transactions are not intermediately stored with an `IN_FLIGHT` status.
+All recovery metadata is directly stored as part of initiator finalisation with a status of 'VERIFIED`.
+
 ## How to recover finality flows
 
 You can recover a finality flow by using any of the following methods:
 - the extensions `FlowRPCOps` RPC API.
 - node shell commands
-- directly invoking the recovery flows (either from the Node Shell or programmatically within a CorDapp):
+- directly invoking the recovery flow (either from the Node Shell or programmatically within a CorDapp):
 
 ```kotlin
 net.corda.node.internal.recovery.FinalityRecoveryFlow
-net.corda.node.internal.recovery.FinalityPeerRecoveryFlow
 ```
 
 All recovery operations return the following:
@@ -115,7 +122,7 @@ The `FlowRPCOps` API exposes the following recovery operations:
      * Recover all failed finality flows as determined by associated status.
      * Specifically,
      *  FlowState.FAILED
-     *  TransactionStatus.MISSING_NOTARY_SIG
+     *  TransactionStatus.IN_FLIGHT
      * [forceRecover] will also attempt to recover flows which are in a RUNNABLE, PAUSED or HOSPITALIZED state.
      *
      * @return map of identified failed flows and whether they were successfully recovered.
@@ -213,12 +220,12 @@ To check the status of a flow as a `FinalityFlow` initiator:
 ```bash
 flowStatus queryFinalityById e0d781be-b4ab-43e0-b694-e97cc4eaa6ee
 
-FlowTransactionInfo(stateMachineRunId=[e0d781be-b4ab-43e0-b694-e97cc4eaa6ee], txId=19BE64484D3CBF532A8FB2ACA1AEACA38B1FBA3C38B0518B7F5316AC9E79432F, status=MISSING_NOTARY_SIG, timestamp=2023-03-29T11:16:29.477Z, initiator=O=Alice Corp, L=Madrid, C=ES, peers=[O=Bob Plc, L=Rome, C=IT])
+FlowTransactionInfo(stateMachineRunId=[e0d781be-b4ab-43e0-b694-e97cc4eaa6ee], txId=19BE64484D3CBF532A8FB2ACA1AEACA38B1FBA3C38B0518B7F5316AC9E79432F, status=IN_FLIGHT, timestamp=2023-03-29T11:16:29.477Z, initiator=O=Alice Corp, L=Madrid, C=ES, peers=[O=Bob Plc, L=Rome, C=IT])
 ---
 - stateMachineRunId:
     uuid: "e0d781be-b4ab-43e0-b694-e97cc4eaa6ee"
   txId: "19BE64484D3CBF532A8FB2ACA1AEACA38B1FBA3C38B0518B7F5316AC9E79432F"
-  status: "MISSING_NOTARY_SIG"
+  status: "IN_FLIGHT"
   initiator:
     x500Principal:
       name: "O=Alice Corp,L=Madrid,C=ES"
@@ -243,12 +250,12 @@ To check the status of a flow transaction as a `ReceiveFinalityFlow` receiver:
 ```bash
 flowStatus queryFinalityByTxnId 7E7EE31CA6371D73CDDB1A7992E239CE222606EA845F1ABC87995898017904A4
 
-FlowTransactionInfo(stateMachineRunId=[8cc13ed6-ea14-43e6-a7b0-85a61fb3bbb1], txId=7E7EE31CA6371D73CDDB1A7992E239CE222606EA845F1ABC87995898017904A4, status=MISSING_NOTARY_SIG, timestamp=2023-03-29T12:40:23.628Z, initiator=O=Alice Corp, L=Madrid, C=ES, peers=null)
+FlowTransactionInfo(stateMachineRunId=[8cc13ed6-ea14-43e6-a7b0-85a61fb3bbb1], txId=7E7EE31CA6371D73CDDB1A7992E239CE222606EA845F1ABC87995898017904A4, status=IN_FLIGHT, timestamp=2023-03-29T12:40:23.628Z, initiator=O=Alice Corp, L=Madrid, C=ES, peers=null)
 ---
 - stateMachineRunId:
     uuid: "8cc13ed6-ea14-43e6-a7b0-85a61fb3bbb1"
   txId: "7E7EE31CA6371D73CDDB1A7992E239CE222606EA845F1ABC87995898017904A4"
-  status: "MISSING_NOTARY_SIG"
+  status: "IN_FLIGHT"
   initiator:
     x500Principal:
       name: "O=Alice Corp,L=Madrid,C=ES"
@@ -440,11 +447,18 @@ Both these methods will return a **FlowTransactionInfo** object if the flow tran
 
 #### Implementation ####
 
+`FinalityRecoveryFlow` is the primary flow that orchestrates recovery by identifying whether Initiator or Peer recovery
+is required according to the flow transaction recovery metadata.
+
+Where this flow is called from a node that is:
+ - initiator to a transaction, then the subflow `FinalityInitiatorRecoveryFlow` is called.
+ - a peer to a transaction, then the subflow `FinalityPeerRecoveryFlow` is called.
+
 Finality flow recovery uses a suite of internal flows which implement similar functionality to the actual `FinalityFlow`
 and `ReceiveFinalityFlow`. These internal flows are:
 
 ```kotlin
-net.corda.node.internal.recovery.FinalityRecoveryFlow
+net.corda.node.internal.recovery.FinalityInitiatorRecoveryFlow
 net.corda.node.internal.recovery.FinalityPeerRecoveryFlow
 net.corda.node.internal.recovery.TransactionNotarisationCheckFlow
 ```
