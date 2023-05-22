@@ -17,7 +17,7 @@ The signatures are then verified when a CPI is installed. They are verified agai
 uploaded to the [Corda REST API Docs](https://docs.r3.com/en/platform/corda/5.0-beta/rest-api/C5_OpenAPI.html#tag/Certificates-API) API.
 
 CPK signatures are also verified during [backchain verification](https://docs.r3.com/en/platform/corda/5.0-beta/developing/ledger/transactions.html#transaction-backchains),
-which is why you must carefully consider which certificates to sign and which certificates to upload to the cluster to establish trust.
+which is why you must carefully consider which certificates to sign with and which certificates to upload to the cluster to establish trust.
 
 CPK and CPB packages can be signed using the Corda Gradle plugin or the Corda CLI, and CPI packages can be signed with the Corda CLI only.
 You can also “re-sign” a package, that is, replace the old signature with a new one.
