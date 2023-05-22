@@ -16,8 +16,6 @@ This section outlines what you need to know to get a notary up and running on a 
 * [Network Member Roles](network-member-roles.md)
 * [Notary Plugin CorDapps](notary-plugin-cordapps.md)
 
-For information on how to onboard a new member as a notary service representative, see the [Onboarding Notaries]({{< relref "../../application-networks/creating/notaries.md" >}}) section.
-
 ## Points to Note
 
 * Notary virtual nodes use an additional “uniqueness” database for capturing state data for double-spend prevention. This is similar to the existing “crypto” and “vault” databases. Currently, when auto-provisioning virtual node databases, a uniqueness database is always provisioned, regardless of whether it is a notary virtual node or not. This will be addressed in a future release.
