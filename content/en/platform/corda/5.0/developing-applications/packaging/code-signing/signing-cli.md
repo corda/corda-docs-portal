@@ -1,5 +1,6 @@
 ---
 date: '2023-05-18'
+version: 'Corda 5.0'
 title: "Signing CPKs and CPBs Using Corda CLI"
 menu:
   corda5:
@@ -9,9 +10,13 @@ menu:
 section_menu: corda5
 ---
 
-You can sign the CPK, CPB, and CPI packages using Corda CLI. To do that, perform the following steps:
+# Signing Packages Using Corda CLI
 
-1. Remove existing signatures and apply new ones:
+You can sign the CPK, CPB, and CPI packages using Corda CLI. Corda CLI is particularly useful for CorDapp developers
+who need to sign their files after the QA process, when they are ready to release.
+The following steps will guide you through the process of removing existing (development) signatures and applying new ones.
+
+1. Remove the existing signatures and apply new ones:
 ```shell
 ./corda-cli.sh package sign \
 mycpb.cpb \
@@ -21,7 +26,7 @@ mycpb.cpb \
 --key "signing key 1"
 ```
 
-2. Build a CPI v2:
+2. Build a CPI version 2:
 ```shell
 ./corda-cli.sh package create-cpi \
 --cpb mycpb.cpb \
@@ -34,7 +39,7 @@ mycpb.cpb \
 --key "signing key 1"
 ```
 
-3. Pipe group policy into CPI v2:
+3. Pipe group policy into CPI version 2:
 ```shell
 ./corda-cli.sh mgm groupPolicy | ./corda-cli.sh package create-cpi \
 --cpb mycpb.cpb \
