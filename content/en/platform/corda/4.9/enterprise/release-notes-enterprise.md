@@ -74,6 +74,8 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 * The certificate revocation checking has been improved with the introduction of a read timeout on the download of the certificate revocation lists (CRLs). The default CRL connect timeout has also been adjusted to better suit Corda nodes. The caching of CRLs has been increased from 30 seconds to 5 minutes.
 
+* Improved compatibility when using the performance test suite from Apple silicon Macs.
+
 ## Corda Enterprise Edition 4.9.6 release notes
 
 Corda Enterprise Edition 4.9.6 is a patch release of Corda Enterprise focused on resolving issues.
