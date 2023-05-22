@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Signing Packages with a Custom Certificate
 
-As described in [Build a CPB](../cpb.md) and [Build a CPK](../cpk.md), the Gradle plugin uses, by default,
+As described in [Build a CPB]({{< relref "../cpb.md" >}}) and [Build a CPK]({{< relref "../cpk.md" >}}), the Gradle plugin uses, by default,
 a development certificate to sign a CPB or CPK package.
 
 However, you can configure the plugin to use a custom certificate using the `cordapp` `signing` section of the Gradle plugin:
