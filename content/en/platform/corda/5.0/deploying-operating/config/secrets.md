@@ -48,17 +48,6 @@ You can specify the `pass` value as a secret using the `configSecret` value, as 
 
 You can use the Corda CLI <a href = "../../reference/corda-cli/secret-config.md">`secret-config` command</a> to generate the configuration for an encrypted value.
 
-You can also use the default secrets lookup service with deployment configurations by using the `configSecret.encryptedSecret` prefix. For example:
-
-```
--ddatabase.user=db-user
--ddatabase.pass.configSecret.encryptedSecret=<encryped-db-password>
--ddatabase.jdbc.url=jdbc:postgresql://db-address:5432/cordacluster
--ddatabase.jdbc.directory=/opt/corda/drivers
-```
-
-For more information about manually specifying the database deployment configuration, see [Manual Bootstrapping]({{< relref "../deploying/bootstrapping.md#database" >}}).
-
 ## External Secrets Service {{< enterprise-icon >}}
 
 In some instances, the default secrets lookup service may not be sufficient. For example, in the case of [Database Connection Configuration]({{< relref "./database-connection.md#configuration-database" >}}), the salt and passphrase used for the encryption would be present in the same set of start-up parameters as the configuration that may be sensitive. This may be adequate if you can ensure that these start-up parameters are sufficiently protected. However, in other cases, it may be preferable to manage these credentials outside Corda.
