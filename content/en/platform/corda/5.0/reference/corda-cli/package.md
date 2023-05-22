@@ -1,5 +1,6 @@
 ---
 date: '2023-01-06'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-cordacli-develop-commands
@@ -8,7 +9,7 @@ menu:
 section_menu: corda5
 title: "package"
 ---
-
+# package
 This section lists the Corda CLI `package` arguments. You can use these commands to execute operations for working with CPB and CPI files, as described in the [Packaging section for CorDapp Developers]({{< relref "../../developing-applications/packaging/_index.md">}}).
 
 | <div style="width:160px">Argument</div> | Description                                        |
