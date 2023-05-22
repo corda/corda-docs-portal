@@ -1,5 +1,6 @@
 ---
 date: '2023-04-07'
+version: 'Corda 5.0'
 title: "Configure Communication Properties"
 menu:
   corda5:
@@ -8,6 +9,8 @@ menu:
     weight: 5000
 section_menu: corda5
 ---
+
+# Configure Communication Properties
 
 To configure the MGM virtual node as a Network Participant with the properties required for peer-to-peer messaging, run the following command, setting these properties: 
 

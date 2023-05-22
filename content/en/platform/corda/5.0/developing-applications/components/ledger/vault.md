@@ -1,5 +1,6 @@
 ---
 date: '2023-02-23'
+version: 'Corda 5.0'
 title: "Vault"
 menu:
   corda5:
@@ -8,3 +9,4 @@ menu:
     weight: 7000
 section_menu: corda5
 ---
+# Vault

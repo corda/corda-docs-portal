@@ -1,5 +1,6 @@
 ---
 date: '2023-05-10'
+version: 'Corda 5.0'
 title: "Logs"
 menu:
   corda5:
@@ -8,7 +9,7 @@ menu:
     weight: 3000
 section_menu: corda5
 ---
-
+# Logs
 Corda workers write their logs to standard out/standard error from where they are collected by Kubernetes.
 You can retrieve the logs for a single pod using `kubectl`:
 

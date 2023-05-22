@@ -1,5 +1,6 @@
 ---
 date: '2023-04-07'
+version: 'Corda 5.0'
 title: "Register the MGM"
 menu:
   corda5:
@@ -8,6 +9,8 @@ menu:
     weight: 4000
 section_menu: corda5
 ---
+
+# Register the MGM
 
 This section describes how to register the MGM on a network. It contains the following:
 1. [Build Registration Context]({{< relref "#build-registration-context" >}})
