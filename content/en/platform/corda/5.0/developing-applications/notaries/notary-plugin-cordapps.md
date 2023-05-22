@@ -10,6 +10,7 @@ menu:
     weight: 4700
 section_menu: corda5
 ---
+# Notary Plugin CorDapps 
 
 In Corda 5, notary functionality is provided in the form of plugin CorDapps. In theory, anyone can write a new notary protocol by implementing their own CorDapps. However, initially, it is expected to only have protocols provided by R3. For a given notary protocol, two CPBs (Corda Package Bundles) are expected to be required:
 

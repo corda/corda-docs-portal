@@ -10,7 +10,6 @@ menu:
     weight: 4500
 section_menu: corda5
 ---
-
 # Notaries
 
 This section outlines what you need to know to get a notary up and running on a Corda 5 application network.

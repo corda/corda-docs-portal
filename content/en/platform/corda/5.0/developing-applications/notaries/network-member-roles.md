@@ -10,6 +10,7 @@ menu:
     weight: 4600
 section_menu: corda5
 ---
+# Network Member Roles
 
 With the introduction of the UTXO ledger and notaries, network operators must be aware of the different roles that exist on a network. Network participants can take one of three roles:
 
