@@ -1,11 +1,12 @@
 ---
 date: '2023-05-18'
 title: "Upgrading CorDapps"
+project: corda
 version: 'Corda 5.0'
 menu:
   corda5:
-    parent: corda5-develop-get-started
-    identifier: corda5-reset
+    identifier: corda5-upgrading
+    parent: corda5-develop
     weight: 9000
 section_menu: corda5
 
