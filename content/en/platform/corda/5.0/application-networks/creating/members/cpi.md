@@ -1,5 +1,6 @@
 ---
 date: '2023-04-13'
+version: 'Corda 5.0'
 title: "Build and Upload the Member CPI"
 menu:
   corda5:
@@ -8,6 +9,8 @@ menu:
     weight: 1000
 section_menu: corda5
 ---
+
+# Build and Upload the Member CPI
 
 This section describes how to build a member CPI and upload it to the network. It contains the following:
 1. [Set Variables]({{< relref "#set-variables" >}})
