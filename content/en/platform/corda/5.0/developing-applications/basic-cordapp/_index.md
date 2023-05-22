@@ -10,6 +10,7 @@ menu:
     weight: 6000
 section_menu: corda5
 ---
+# Building a Basic CorDapp
 _direct lift of existing section?_:
 
 {{< figure src="basic-cordapp-structure.png" width=30% >}}

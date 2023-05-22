@@ -10,6 +10,7 @@ menu:
     weight: 1000
 section_menu: corda5
 ---
+# Member Registration
 
 A network operator can configure a membership group so that the operator must manually approve (or decline) member registration requests. 
 The configuration specifies that requests satisfying specific criteria require [manual approval]({{< relref "#manual-approval" >}}), while others are approved automatically. 

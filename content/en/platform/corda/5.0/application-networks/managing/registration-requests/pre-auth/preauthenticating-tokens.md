@@ -1,5 +1,6 @@
 ---
 date: '2023-04-07'
+version: 'Corda 5.0'
 title: "Managing Pre-Authentication Tokens"
 menu:
   corda5:
@@ -8,7 +9,7 @@ menu:
     weight: 1000
 section_menu: corda5
 ---
-
+# Managing Pre-Authentication Tokens
 ## Creating a Token
 
 To create a pre-auth token for a member, use the [mgm/{holdingidentityshorthash}/preauthtoken POST method](../../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__preauthtoken) of the REST API.
@@ -16,7 +17,7 @@ To create a pre-auth token for a member, use the [mgm/{holdingidentityshorthash}
 For example, for the member `O=Alice, L=London, C=GB`:
 
 ```bash
-curl -u $REST_API_USER:$REST_API_PASSWORD -X POST -d '{"ownerX500Name": "O=Alice, L=London, C=GB"}' $REST_API_URL/mgm/$MGM_HOLDING_ID/preauthtoken
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X POST -d '{"ownerX500Name": "O=Alice, L=London, C=GB"}' $REST_API_URL/mgm/$MGM_HOLDING_ID/preauthtoken
 ```
 
 This token is tied to the specified X.500 name and only a registering member with the same X.500 name can consume that token.
@@ -34,7 +35,7 @@ If no time-to-live value is submitted, the token only expires after it is consum
 To retrieve all valid pre-auth tokens, use the [mgm/{holdingidentityshorthash}/preauthtoken GET method](../../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__preauthtoken). A valid token is one that has not been consumed, revoked, or expired.
 
 ```bash
-curl -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/mgm/$MGM_HOLDING_ID/preauthtoken
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/mgm/$MGM_HOLDING_ID/preauthtoken
 ```
 
 This method returns the rules in the following format:
@@ -60,7 +61,7 @@ These optional parameters can be used in any combination. The following is an ex
 ```bash
 TOKEN_ID=<token-ID>
 OWNER_X500=<URL-encoded-X.500-name>
-curl -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/mgm/$MGM_HOLDING_ID/reauthtoken?viewInactive=true&preAuthTokenId='$TOKEN_ID'&ownerX500Name='$OWNER_X500
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/mgm/$MGM_HOLDING_ID/reauthtoken?viewInactive=true&preAuthTokenId='$TOKEN_ID'&ownerX500Name='$OWNER_X500
 ```
 
 ## Revoking Tokens
@@ -68,12 +69,12 @@ curl -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/mgm/$MGM_HOLDING_ID/reau
 To revoke a pre-auth token, pass the ID of the token to the [mgm/{holdingidentityshorthash}/preauthtoken/revoke/{preauthtokenid} PUT method](../../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/put_mgm__holdingidentityshorthash__preauthtoken_revoke__preauthtokenid_). You can retrieve the ID of a token from the response of creating the token, or from the response of the GET method described in [Viewing Tokens]({{< relref "#viewing-tokens" >}}). This prevents the token from being used. Any registrations submitted with a revoked token are automatically declined.
 
 ```bash
-curl -u $REST_API_USER:$REST_API_PASSWORD -X PUT $REST_API_URL/mgm/$MGM_HOLDING_ID/preauthtoken/revoke/<TOKEN-ID>
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X PUT $REST_API_URL/mgm/$MGM_HOLDING_ID/preauthtoken/revoke/<TOKEN-ID>
 ```
 
 Optionally, you can submit a remark with the action to revoke the token. This will be stored with the token and visible when viewing tokens for future reference. To include a remark, include a body in the request. For example:
 
 ```bash
 TOKEN_ID=<token-ID>
-curl -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"remarks":"Additional authentication required."}' $REST_API_URL/mgm/$MGM_HOLDING_ID/preauthtoken/revoke/$TOKEN_ID
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"remarks":"Additional authentication required."}' $REST_API_URL/mgm/$MGM_HOLDING_ID/preauthtoken/revoke/$TOKEN_ID
 ```

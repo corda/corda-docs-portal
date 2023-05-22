@@ -1,5 +1,6 @@
 ---
 date: '2023-04-07'
+version: 'Corda 5.0'
 title: "Configuring Pre-Authentication Rules"
 menu:
   corda5:
@@ -8,6 +9,7 @@ menu:
     weight: 2000
 section_menu: corda5
 ---
+# Configuring Pre-Authentication Rules
 
 As described in [Registration Approval]({{< relref "../_index.md#pre-authentication" >}}), you can specify that certain changes to the member’s context must be manually approved (or declined), even if a pre-auth token was submitted. This section describes how to manage pre-auth registration rules using the Corda REST API.
 
@@ -19,7 +21,7 @@ For example, to specify that all requests that contain a valid pre-auth token, w
 
 ```bash
 RULE_PARAMS='{"ruleParams":{"ruleRegex": "^corda.endpoints.*$", "ruleLabel": "Any change to P2P endpoints requires manual review."}}'
-curl -u $REST_API_USER:$REST_API_PASSWORD -d $RULE_PARAMS $REST_API_URL/mgm/$MGM_HOLDING_ID/approval/rules/preauth
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d $RULE_PARAMS $REST_API_URL/mgm/$MGM_HOLDING_ID/approval/rules/preauth
 ```
 
 ## Viewing Current Pre-Auth Approval Rules
@@ -27,7 +29,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD -d $RULE_PARAMS $REST_API_URL/mgm/$MGM
 To retrieve all created pre-auth approval rules, use the [mgm/{holdingidentityshorthash}/approval/rules/preauth GET method](../../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__approval_rules_preauth).
 
 ```bash
-curl -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/mgm/$MGM_HOLDING_ID/approval/rules/preauth
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/mgm/$MGM_HOLDING_ID/approval/rules/preauth
 ```
 
 This method returns the rules in the following format:
@@ -44,5 +46,5 @@ This method returns the rules in the following format:
 To delete a pre-auth approval rule, pass the ID of the rule to the [mgm/{holdingidentityshorthash}/approval/rules/preauth/{ruleid} DELETE method](../../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/delete_mgm__holdingidentityshorthash__approval_rules_preauth__ruleid_). You can retrieve the ID of a rule from the response of creating the rule, or from the response of the GET method described in [Viewing Current Pre-Auth Approval Rules]({{< relref "#viewing-current-pre-auth-approval-rules" >}}).
 
 ```bash
-curl -u $REST_API_USER:$REST_API_PASSWORD -X DELETE $REST_API_URL/mgm/$MGM_HOLDING_ID/approval/rules/<RULE_ID>
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X DELETE $REST_API_URL/mgm/$MGM_HOLDING_ID/approval/rules/<RULE_ID>
 ```

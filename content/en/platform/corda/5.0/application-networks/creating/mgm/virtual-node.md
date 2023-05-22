@@ -1,5 +1,6 @@
 ---
 date: '2023-04-07'
+version: 'Corda 5.0'
 title: "Create a Virtual Node"
 menu:
   corda5:
@@ -8,13 +9,16 @@ menu:
     weight: 2000
 section_menu: corda5
 ---
+
+# Create a Virtual Node
+
 To create a virtual node for the MGM, run the following, using the checksum retrieved when you [uploaded the MGM CPI]({{< relref"./cpi.md#upload-the-cpi" >}}):
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
 export CPI_CHECKSUM=<CPI-checksum>
-curl -u $REST_API_USER:$REST_API_PASSWORD -d '{ "request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "C=GB, L=London, O=MGM"}}' $REST_API_URL/virtualnode
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d '{ "request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "C=GB, L=London, O=MGM"}}' $REST_API_URL/virtualnode
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
