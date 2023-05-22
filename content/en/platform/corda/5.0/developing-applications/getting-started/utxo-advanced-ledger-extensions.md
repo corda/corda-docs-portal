@@ -28,8 +28,6 @@ The following definitions provide an overview of each major feature or component
 
 ## Basic Contract Design
 
-In order to understand the design motivations, first we must understand some of the challenges commonly faced by CorDapp developers.
-
 The following contract defines three commands; Create, Update and Delete. The `verify` function delegates these command types to `verifyCreate`, `verifyUpdate` and `verifyDelete` functions respectively, for example:
 
 ```kotlin
@@ -64,7 +62,7 @@ The following contract defines three commands; Create, Update and Delete. The `v
 }
   ```
 
-Designing a contract like this will suffice in many cases.
+Designing a contract like this will suffice in many cases. Assuming that the constraints have been implemented correctly then the contract functionality and design is perfectly acceptable
 
 {{< note >}}
 There are cases where this design approach no longer fits the design goals of the system being implemented; specifically, in regard to contract extensibility, it's currently not possible to extend this contract to support additional constraints.
