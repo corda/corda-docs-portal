@@ -51,7 +51,7 @@ release: [RELEASE_NAME]
 The following Corda-specific metrics are exported and they have been added at the following levels:
 
 * HTTP requests
-* Sandobox
+* Sandbox
 * Messaging
 * Flow
 * Peer-to-peer messages and sessions
