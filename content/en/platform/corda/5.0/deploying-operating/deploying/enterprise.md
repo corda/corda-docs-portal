@@ -1,5 +1,6 @@
 ---
 date: '2023-05-11'
+version: 'Corda 5.0'
 title: "Migrating to Corda Enterprise"
 menu:
   corda5:
