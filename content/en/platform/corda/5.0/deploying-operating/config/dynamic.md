@@ -1,5 +1,6 @@
 ---
 date: '2023-05-16'
+version: 'Corda 5.0'
 title: "Dynamic Configuration"
 menu:
   corda5:
@@ -8,6 +9,8 @@ menu:
     weight: 1000
 section_menu: corda5
 ---
+
+# Dynamic Configuration
 
 You can set the fields in a section by sending the configuration fields as JSON to the <a href="../../reference/rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/put_config">`config` endpoint</a> of the REST API. The PUT method of `/api/v1/config` requires the following parameters:
 * `section` — the configuration section that the JSON updates. See the [Configuration Fields]({{< relref "./fields/_index.md" >}}) sections for the fields in each configuration section.
