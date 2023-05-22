@@ -9,5 +9,6 @@ menu:
     weight: 3000
 section_menu: corda5
 ---
+# Developing Applications
 This section describes the tasks performed by CorDapp Developers. It contains the following:
 {{< childpages >}}

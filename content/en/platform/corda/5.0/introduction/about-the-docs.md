@@ -1,6 +1,7 @@
 ---
 title: "About the Docs"
 date: 2023-04-21
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-about-the-docs
@@ -8,7 +9,7 @@ menu:
     weight: 1000
 section_menu: corda5
 ---
-
+# About the Docs
 The following topics are explained on this page:
 * [Documenting Product Editions](#documenting-product-editions)
 * [End of Life Strategy](#end-of-life-strategy)

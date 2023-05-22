@@ -1,5 +1,6 @@
 ---
 date: '2022-10-19'
+version: 'Corda 5.0'
 title: "Java Flow Code Walkthrough"
 menu:
   corda5:
@@ -8,7 +9,7 @@ menu:
     weight: 2000
 section_menu: corda5
 ---
-
+# Java Flow Code Walkthrough
 The Java code for the flows and supporting classes can be found in the CSDE repo in the `src/main/java/com/r3/developers/csdetemplate/flowexample/workflows` folder.
 
 ## Java Flow Files

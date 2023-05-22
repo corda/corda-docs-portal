@@ -10,6 +10,9 @@ menu:
     weight: 1000
 section_menu: corda5
 ---
+
+# Onboarding the MGM
+
 This section describes how to configure the MGM, through which a membership group is created for a dynamic network. The sections must be completed in the order in which they are presented:
 {{< childpages >}}
 

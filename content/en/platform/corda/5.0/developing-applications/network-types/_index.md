@@ -10,7 +10,7 @@ menu:
     weight: 2000
 section_menu: corda5
 ---
-
+# Network Types
 Corda supports the following types of networks:
 * [Static](#static-networks)
 * [Dynamic](#dynamic-networks)

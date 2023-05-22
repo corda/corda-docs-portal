@@ -10,7 +10,7 @@ menu:
     weight: 1000
 section_menu: corda5
 ---
-
+# Configuration Fields
 This section lists the fields of each Corda configuration section:
 {{< childpages >}}
 Set the fields in a section by sending the configuration fields as JSON to the [config endpoint](../../rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/put_config) of the REST API.
