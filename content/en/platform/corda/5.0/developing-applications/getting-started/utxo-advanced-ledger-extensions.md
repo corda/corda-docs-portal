@@ -28,9 +28,9 @@ The following definitions provide an overview of each major feature or component
 
 ## Basic Contract Design
 
-In order to fully understand the design motivations, first we must understand some of the challenges commonly faced by CorDapp developers.
+In order to understand the design motivations, first we must understand some of the challenges commonly faced by CorDapp developers.
 
-We'll start by taking a look at a trivial contract implementation, below. The following contract defines three commands; Create, Update and Delete. The `verify` function delegates these command types to `verifyCreate`, `verifyUpdate` and `verifyDelete` functions respectively; for example:
+The following contract defines three commands; Create, Update and Delete. The `verify` function delegates these command types to `verifyCreate`, `verifyUpdate` and `verifyDelete` functions respectively, for example:
 
 ```kotlin
     public final class ExampleContract implements Contract {
@@ -64,7 +64,8 @@ We'll start by taking a look at a trivial contract implementation, below. The fo
 }
   ```
 
-Designing a contract like this will suffice in many cases. Assuming that the constraints have been implemented correctly then the contract functionality and design is perfectly acceptable.
+Designing a contract like this will suffice in many cases.
+
 {{< note >}}
 There are cases where this design approach no longer fits the design goals of the system being implemented; specifically, in regard to contract extensibility, it's currently not possible to extend this contract to support additional constraints.
 {{< /note >}}
@@ -73,8 +74,9 @@ There are cases where this design approach no longer fits the design goals of th
 
 The following contract refactors the above to support the ability to derive contracts, and provide additional constraints in a secure and controlled way.
 The contract still provides the same three commands; `Create`, `Update` and `Delete`. The verify function delegates these command types to `verifyCreate`, `verifyUpdate` and `verifyDelete` functions respectively, which in turn call `onVerifyCreate`, `onVerifyUpdate` and `onVerifyDelete` respectively.
+
 {{< note >}}
-that the verify function has been marked final. This change is necessary as it prevents derived contract implementations from circumventing the base contract rules.
+The verify function has been marked final. This change is necessary as it prevents derived contract implementations from circumventing the base contract rules.
 {{< /note >}}
 
   ```kotlin
@@ -116,11 +118,13 @@ that the verify function has been marked final. This change is necessary as it p
 }
 ```
 
-As demonstrated, refactoring a contract like this allows CorDapp implementors to derive from the contract, allowing additional constraints which will be verified in additional to the constraints specified by the base contract.
+Refactoring a contract like this allows CorDapp implementors to derive from the contract, allowing additional constraints which will be verified in additional to the constraints specified by the base contract.
+
 {{< note >}}
 There are still some outstanding issues with this design, where this design approach no longer fits the design goals of the system being implemented.
 {{</ note >}}
-The problem really lies in the verify function; for example:
+
+The problem really lies in the `verify` function; for example:
 
 ```kotlin
   public final void verify(UtxoLedgerTransaction transaction) {
@@ -135,14 +139,16 @@ The problem really lies in the verify function; for example:
 }
 ```
 
-The `verify` function is marked final for security reasons, and therefore additional commands cannot be added to the contract; for example, the contract may wish to describe multiple ways to `Update` a state, or set of states. Since the contract only defines a single `Update` command, there can only be one mechanism to perform updates.
-The second problem lies in the commands themselves, and their names. `Create`, `Update` and `Delete` are very ambiguous names, which almost certainly won't make sense depending on the context of the contract being implemented.
+The `verify` function is marked final for security reasons, and therefore additional commands cannot be added to the contract, for example, the contract may wish to describe multiple ways to `Update` a state, or set of states. The contract only defines a single `Update` command, there can only be one mechanism to perform updates.
+
+The second problem lies in the commands themselves and their names. `Create`, `Update` and `Delete` are very ambiguous names, which won't make sense depending on the context of the contract being implemented.
 
 ## Delegated Command Design
 
-In the contracts above, the commands are nothing more than marker classes; effectively they are cases in a switch statement, which allow the contract's verify function to delegate responsibility of specific contract constraints to other functions, such as `verifyCreate`, `verifyUpdate` and `verifyDelete`.
-Instead, we could implement the verify function on the command itself. Instead of being an empty marker class, this gives the command responsibility, as it becomes responsible for implementing its associated contract verification constraints.
-In this case, we define a `VerifiableCommand` interface with a verify function; for example:
+In the contracts above, the commands are nothing more than marker classes; effectively they are cases in a switch statement, which allows the contract's `verify` function to delegate responsibility of specific contract constraints to other functions, such as `verifyCreate`, `verifyUpdate` and `verifyDelete`.
+
+We can implement the verify function on the command itself. Instead of being an empty marker class, this gives the command responsibility, as it becomes responsible for implementing its associated contract verification constraints.
+In this case, we define a `VerifiableCommand` interface with a `verify` function, for example:
 
 ```kotlin
 public interface VerifiableCommand extends Command {
@@ -159,7 +165,7 @@ public class ExampleContractCommand implements VerifiableCommand {
 }
 ```
 
-Next, we can implement this interface as `Create`, `Update` and `Delete` commands; for example:
+Next, we can implement this interface as `Create`, `Update` and `Delete` commands, for example:
 
 ```kotlin
 public class Create extends ExampleContractCommand {
@@ -192,12 +198,12 @@ public class Delete extends ExampleContractCommand {
 ```
 
 {{< note >}}
-Note that the Create, Update and Delete commands are not marked final, therefore we can extend the contract verification constraints from these points, but we can't extend from ExampleContractCommand.
+The `Create`, `Update` and `Delete` commands are not marked final, therefore we can extend the contract verification constraints from these points, but we can't extend from `ExampleContractCommand`.
 {{< /note >}}
 
 ## Delegated Contract Design
 
-As we have now delegated contract verification constraint logic to the commands themselves, we must also refctor the contract to support this delegation. The contract implementation in this case becomes incredibly simple, since it's no longer responsible for defining contract verification constraints; for example:
+As we have now delegated contract verification constraint logic to the commands themselves, we must also refactor the contract to support this delegation. The contract implementation in this case becomes incredibly simple, since it's no longer responsible for defining contract verification constraints, for example:
 
 ```kotlin
   public final class ExampleContract implements Contract {
@@ -229,7 +235,7 @@ This design addresses the outstanding issues in regard to being able to extend a
 
 ## Advanced Contract Design
 
-All the contract design issues that have been highlighted above are implemented by the Corda 5 Advanced UTXO Extensions library, and into all the specific implementations; for example chainable, fungible and identifiable contracts.
+All the contract design issues that have been highlighted above are implemented by the Corda 5 Advanced UTXO Extensions library, and into all the specific implementations, for example, chainable, fungible and identifiable contracts.
 
 ## Base API
 
@@ -245,7 +251,7 @@ The chainable API provides the component model for designing chainable states an
 
 ## Designing a Chainable State
 
-A chainable state can be implemented by implementing the ChainableState<T> interface; for example:
+A chainable state can be implemented by implementing the `ChainableState<T>` interface, for example:
 
 ```kotlin
 @BelongsToContract(ExampleChainableContract.class)
@@ -272,8 +278,8 @@ public final class ExampleChainableState extends ChainableState<ExampleChainable
 
 ## Designing Chainable Commands
 
-Chainable commands support creating, updating and deleting chainable states.
-The `ChainableContractCreateCommand` supports creating new chainable states and will verify the following constraints:
+Chainable commands allows users to create, update, and delete chainable states.
+The `ChainableContractCreateCommand` creates new chainable states and will verify the following constraints:
 
 * On chainable state(s) creating, at least one chainable state must be created.
 * On chainable state(s) creating, the previous state pointer of every created chainable state must be null.
@@ -386,8 +392,8 @@ public final class ExampleFungibleState extends FungibleState<NumericDecimal> {
 
 ## Designing Fungible Commands
 
-Fungible commands support creating, updating and deleting fungible states.
-The `FungibleContractCreateCommand` supports creating new fungible states and will verify the following constraints:
+Fungible commands allows users to create, update and delete fungible states.
+The `FungibleContractCreateCommand` creates new fungible states and will verify the following constraints:
 
 * On fungible state(s) creating, at least one fungible state must be created.
 * On fungible state(s) creating, the quantity of every created fungible state must be greater than zero.
@@ -453,7 +459,7 @@ public final class Delete extends FungibleContractDeleteCommand<ExampleFungibleS
 
 ## Designing a Fungible Contract
 
-A fungible contract can be implemented by extending the `FungibleContract` class; for example:
+A fungible contract can be implemented by extending the `FungibleContract` class, for example:
 
 ```kotlin
 public final class ExampleFungibleContract extends FungibleContract {
@@ -468,12 +474,14 @@ public final class ExampleFungibleContract extends FungibleContract {
 ## Identifiable API
 
 Module: identifiable
+
 Package: com.r3.corda.ledger.utxo.identifiable
+
 The identifiable API provides the component model for designing identifiable states and contracts. Identifiable states represent states that have a unique identifier that is guaranteed unique at the network level. Identifiable states are designed to evolve over time, where unique identifiers can be used to resolve the history of the identifiable state.
 
 ## Designing an Identifiable State
 
-An identifiable state can be implemented by implementing the `IdentifiableState` interface; for example:
+An identifiable state can be implemented by implementing the `IdentifiableState` interface, for example:
 
 ```kotlin
 public final class ExampleIdentifiableState extends IdentifiableState {
@@ -500,7 +508,7 @@ public final class ExampleIdentifiableState extends IdentifiableState {
 ## Designing Identifiable Commands
 
 Identifiable commands support creating, updating and deleting identifiable states.
-The `IdentifiableContractCreateCommand` supports creating new identifiable states and will verify on identifiable state(s) creating, at least one identifiable state must be created.
+The `IdentifiableContractCreateCommand` supports creating new identifiable states and verifies the identifiable state(s) creation, at least one identifiable state must be created.
 
 ```kotlin
 public final class Create extends IdentifiableContractCreateCommand<ExampleIdentifiableState> {
@@ -517,7 +525,7 @@ public final class Create extends IdentifiableContractCreateCommand<ExampleIdent
 }
 ```
 
-The `IdentifiableContractUpdateCommand` supports updating existing identifiable states and will verify the following constraints:
+The `IdentifiableContractUpdateCommand` updates existing identifiable states and will verify the following constraints:
 
 * On identifiable state(s) updating, at least one identifiable state must be consumed.
 * On identifiable state(s) updating, at least one identifiable state must be created.
@@ -538,7 +546,7 @@ public final class Update extends IdentifiableContractUpdateCommand<ExampleIdent
 }
 ```
 
-The `IdentifiableContractDeleteCommand` supports deleting existing identifiable states and will verify the contstraint On identifiable state(s) deleting, at least one identifiable state must be consumed.
+The `IdentifiableContractDeleteCommand` deletes existing identifiable states and verifies the identifiable state(s) deletion, at least one identifiable state must be consumed.
 
 ```kotlin
 public final class Delete extends IdentifiableContractDeleteCommand<ExampleIdentifiableState> {
@@ -557,7 +565,7 @@ public final class Delete extends IdentifiableContractDeleteCommand<ExampleIdent
 
 ## Designing an Identifiable Contract
 
-An identifiable contract can be implemented by extending the `IdentifiableContract` class; for example:
+An identifiable contract can be implemented by extending the `IdentifiableContract` class, for example:
 
 ```kotlin
 public final class ExampleIdentifiableContract extends IdentifiableContract {
