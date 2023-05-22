@@ -11,6 +11,8 @@ menu:
 section_menu: corda5
 ---
 
+# Configuring Corda
+
 Corda 5 uses a [dynamic configuration system]({{< relref "./dynamic.md" >}}), enabling you to configure Corda centrally through the REST API. This configuration is then distributed to all relevant worker processes through the Kafka message bus.
 This standard dynamic configuration system is not suitable in the following instances:
 * Boot configuration — the necessary configurations required to start a worker process, such as sufficient messaging configuration for the worker to connect to the `config.topic` Kafka topic. For more information, see the [Manual Bootstrappping section]({{< relref "../deploying/bootstrapping.md" >}}). Typically, this type of configuration can later be overridden by dynamic configuration.

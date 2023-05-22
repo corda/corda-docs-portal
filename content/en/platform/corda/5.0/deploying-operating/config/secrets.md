@@ -10,6 +10,8 @@ menu:
 section_menu: corda5
 ---
 
+# Configuration Secrets
+
 The Corda configuration system allows for any string configuration value to be marked as “secret”. When this configuration value is used, Corda delegates the resolution of this value to one of the following configured secrets lookup service:
 * [Default Secrets Service]({{< relref "#default-secrets-service">}})
 * [External Secrets Service]({{< relref "#external-secrets-service">}}) {{< enterprise-icon >}}
