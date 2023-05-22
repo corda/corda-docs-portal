@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Code Signing
 
-CorDapps are packaged as CPKs, CPBs, and CPIs. Each of these packages must be signed with a Code Sign certificate.
+CorDapps are packaged as CPKs, CPBs, and CPIs. Each of these packages must be signed with a Code Signing certificate.
 The signatures are then verified when a CPI is installed. They are verified against the certificates
 uploaded to the [Corda REST API Docs](https://docs.r3.com/en/platform/corda/5.0-beta/rest-api/C5_OpenAPI.html#tag/Certificates-API) API.
 
