@@ -1,6 +1,6 @@
 ---
 date: '2023-05-10'
-version: 'Corda 5.0'git add
+version: 'Corda 5.0'
 title: "Metrics"
 menu:
   corda5:
@@ -156,6 +156,7 @@ The backing store is responsible for abstracting database access from the unique
 operations against the uniqueness database. These metrics also have the `virtualnode.source` tag which allows metrics to be
 associated with the holding IDs of specific notary virtual nodes.
 
+
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
 | `corda_uniqueness_backingstore_session_execution_time_seconds` | Timer | <ul><li>`virtualnode.source`</li></ul> | The overall execution time for a (uniqueness checker) backing store session, which includes retrieving uniqueness database connection details, getting a database connection, as well as all database operations (both read and write) carried out within a session context. |
@@ -164,6 +165,7 @@ associated with the holding IDs of specific notary virtual nodes.
 | `corda_uniqueness_backingstore_transaction_attempts` | DistributionSummary | <ul><li>`virtualnode.source`</li></ul> | 	The number of attempts that were made before a transaction ultimately succeeded. Generally, this should return 1. In the event that a transaction was unsuccessful due to reaching the maximum number of attempts, this metric is not updated and the failure would be reflected in the `uniqueness.backingstore.transaction.error.count` metric. |
 | `corda_uniqueness_backingstore_db_commit_time_seconds` | Timer | <ul><li>`virtualnode.source`</li></ul> | The time taken by the backing store to commit a transaction (that is, write) to the database. Only updated if data is written to the database, so it is not cumulative across retry attempts for a given transaction. |
 | `corda_uniqueness_backingstore_db_read_time_seconds` | Timer | <ul><li>`virtualnode.source`</li><li>`operation.name`</li></ul> | The time taken to perform a single read operation from the database. The existing `operation.name` tag is re-purposed to reflect the specific type of read operation being performed, currently one of `getStateDetails`, `getTransactionDetails`, or `getTransactionError`. If a transaction is retried, each retry contributes independently to this metric, meaning the number is not cumulative across retries. |
+
 
 Metrics of type Timer have further metrics with the suffixes `_count`, `_max`, and `_sum` that represent the number of events,
 the maximum value, and the cumulative sum of values, respectively.

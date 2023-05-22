@@ -1,5 +1,6 @@
 ---
 date: '2023-04-13'
+version: 'Corda 5.0'
 title: "Register the Member"
 menu:
   corda5:
@@ -8,6 +9,8 @@ menu:
     weight: 5000
 section_menu: corda5
 ---
+
+# Register the Member
 
 This section describes how to register a member on a network. You can learn more about configuring the registration process in the [Managing Members section]({{< relref "../../managing/registration-requests/_index.md" >}}).
 This section contains the following:
@@ -55,7 +58,7 @@ To register a member, run the following command:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": { "context": '$REGISTRATION_CONTEXT' } }' $API_URL/membership/$HOLDING_ID
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": { "context": '$REGISTRATION_CONTEXT' } }' $API_URL/membership/$HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -88,7 +91,7 @@ You can confirm if the member was onboarded successfully by checking the status 
 {{% tab name="Bash"%}}
 ```
 export REGISTRATION_ID=<registration-ID>
-curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/membership/$HOLDING_ID/$REGISTRATION_ID
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/membership/$HOLDING_ID/$REGISTRATION_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -104,7 +107,7 @@ After registration, you can use the look-up functions provided by the `MemberLoo
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```bash
-curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/members/$HOLDING_ID
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/members/$HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}

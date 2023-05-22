@@ -1,0 +1,420 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>UtxoLedgerTransaction</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../../index.html">
+<span>corda-api</span>            </a>    </div>
+    <div>5.0.0.755-Hawk1.0
+    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":ledger:ledger-utxo:dokkaHtmlPartial/main">jvm</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="ledger-utxo::net.corda.v5.ledger.utxo.transaction/UtxoLedgerTransaction///PointingToDeclaration//-692495681">
+  <div class="breadcrumbs"><a href="../../index.html">ledger-utxo</a><span class="delimiter">/</span><a href="../index.html">net.corda.v5.ledger.utxo.transaction</a><span class="delimiter">/</span><span class="current">UtxoLedgerTransaction</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Utxo</span><wbr><span>Ledger</span><wbr><span><span>Transaction</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="../../../../base/net.corda.v5.base.annotations/-do-not-implement/index.html"><span class="token annotation builtin">DoNotImplement</span></a></div></div><span class="token keyword">interface </span><a href="index.html">UtxoLedgerTransaction</a></div><p class="paragraph">Represents a UTXO ledger transaction.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,FUNCTION,PROPERTY">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-331907668%2FFunctions%2F-692495681" anchor-label="getAttachment" id="-331907668%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-attachment.html"><span>get</span><wbr><span><span>Attachment</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-331907668%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-attachment.html"><span class="token function">getAttachment</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span>id<span class="token operator">: </span><a href="../../../../crypto/net.corda.v5.crypto/-secure-hash/index.html">SecureHash</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.v5.ledger.utxo/-attachment/index.html">Attachment</a></div><div class="brief ">Obtains an attachment associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1529931708%2FFunctions%2F-692495681" anchor-label="getAttachments" id="1529931708%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-attachments.html"><span>get</span><wbr><span><span>Attachments</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1529931708%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-attachments.html"><span class="token function">getAttachments</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../../net.corda.v5.ledger.utxo/-attachment/index.html">Attachment</a><span class="token operator">&gt;</span></div><div class="brief ">Gets the attachments associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1649034570%2FFunctions%2F-692495681" anchor-label="getCommands" id="1649034570%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-commands.html"><span>get</span><wbr><span><span>Commands</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1649034570%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-commands.html"><span class="token function">getCommands</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../../net.corda.v5.ledger.utxo/-command/index.html">Command</a><span class="token operator">&gt;</span></div><div class="brief ">Gets the commands associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-commands.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-command/index.html">Command</a><span class="token operator">?</span><span class="token operator">&gt; </span><a href="get-commands.html"><span class="token function">getCommands</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span>type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="get-commands.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="get-commands.html">T</a><span class="token operator">&gt;</span></div><div class="brief ">Obtains all commands that match the specified type.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1759707251%2FFunctions%2F-692495681" anchor-label="getId" id="1759707251%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-id.html"><span>get</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1759707251%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-id.html"><span class="token function">getId</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../../crypto/net.corda.v5.crypto/-secure-hash/index.html">SecureHash</a></div><div class="brief ">Gets the transaction ID associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1631658994%2FFunctions%2F-692495681" anchor-label="getInputContractStates" id="-1631658994%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-input-contract-states.html"><span>get</span><wbr><span>Input</span><wbr><span>Contract</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1631658994%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-input-contract-states.html"><span class="token function">getInputContractStates</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">&gt;</span></div><div class="brief ">Gets the input contract states associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="186694570%2FFunctions%2F-692495681" anchor-label="getInputStateAndRefs" id="186694570%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-input-state-and-refs.html"><span>get</span><wbr><span>Input</span><wbr><span>State</span><wbr><span>And</span><wbr><span><span>Refs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="186694570%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-input-state-and-refs.html"><span class="token function">getInputStateAndRefs</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief ">Gets the input states and state refs associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-input-state-and-refs.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">?</span><span class="token operator">&gt; </span><a href="get-input-state-and-refs.html"><span class="token function">getInputStateAndRefs</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span>type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="get-input-state-and-refs.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a><span class="token operator">&lt;</span><a href="get-input-state-and-refs.html">T</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief ">Obtains all input states and state refs that match the specified type.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="294549447%2FFunctions%2F-692495681" anchor-label="getInputStateRefs" id="294549447%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-input-state-refs.html"><span>get</span><wbr><span>Input</span><wbr><span>State</span><wbr><span><span>Refs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="294549447%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-input-state-refs.html"><span class="token function">getInputStateRefs</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../../net.corda.v5.ledger.utxo/-state-ref/index.html">StateRef</a><span class="token operator">&gt;</span></div><div class="brief ">Gets the input state refs associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-185000962%2FFunctions%2F-692495681" anchor-label="getInputStates" id="-185000962%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-input-states.html"><span>get</span><wbr><span>Input</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-185000962%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-input-states.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">?</span><span class="token operator">&gt; </span><a href="get-input-states.html"><span class="token function">getInputStates</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span>type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="get-input-states.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="get-input-states.html">T</a><span class="token operator">&gt;</span></div><div class="brief ">Obtains all input contract states that match the specified type.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-632045672%2FFunctions%2F-692495681" anchor-label="getInputTransactionStates" id="-632045672%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-input-transaction-states.html"><span>get</span><wbr><span>Input</span><wbr><span>Transaction</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-632045672%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-input-transaction-states.html"><span class="token function">getInputTransactionStates</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../../net.corda.v5.ledger.utxo/-transaction-state/index.html">TransactionState</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief ">Gets the input transaction states associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1452292127%2FFunctions%2F-692495681" anchor-label="getMetadata" id="1452292127%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-metadata.html"><span>get</span><wbr><span><span>Metadata</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1452292127%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-metadata.html"><span class="token function">getMetadata</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../../ledger/ledger-common/net.corda.v5.ledger.common.transaction/-transaction-metadata/index.html">TransactionMetadata</a></div><div class="brief ">Gets the transaction metadata associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1211098370%2FFunctions%2F-692495681" anchor-label="getNotaryKey" id="1211098370%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-notary-key.html"><span>get</span><wbr><span>Notary</span><wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1211098370%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-notary-key.html"><span class="token function">getNotaryKey</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a></div><div class="brief ">Gets the notary service key associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="170138958%2FFunctions%2F-692495681" anchor-label="getNotaryName" id="170138958%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-notary-name.html"><span>get</span><wbr><span>Notary</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="170138958%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-notary-name.html"><span class="token function">getNotaryName</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../../base/net.corda.v5.base.types/-member-x500-name/index.html">MemberX500Name</a></div><div class="brief ">Gets the notary service name associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1284324217%2FFunctions%2F-692495681" anchor-label="getOutputContractStates" id="1284324217%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-output-contract-states.html"><span>get</span><wbr><span>Output</span><wbr><span>Contract</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1284324217%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-output-contract-states.html"><span class="token function">getOutputContractStates</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">&gt;</span></div><div class="brief ">Gets the output contract states associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-672902358%2FFunctions%2F-692495681" anchor-label="getOutputStateAndRefs" id="-672902358%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-output-state-and-refs.html"><span>get</span><wbr><span>Output</span><wbr><span>State</span><wbr><span>And</span><wbr><span><span>Refs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-672902358%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-output-state-and-refs.html"><span class="token function">getOutputStateAndRefs</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief ">Gets the output states and state refs associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-output-state-and-refs.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">?</span><span class="token operator">&gt; </span><a href="get-output-state-and-refs.html"><span class="token function">getOutputStateAndRefs</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span>type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="get-output-state-and-refs.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a><span class="token operator">&lt;</span><a href="get-output-state-and-refs.html">T</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief ">Obtains all output states and state refs that match the specified type.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1395880361%2FFunctions%2F-692495681" anchor-label="getOutputStates" id="1395880361%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-output-states.html"><span>get</span><wbr><span>Output</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1395880361%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-output-states.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">?</span><span class="token operator">&gt; </span><a href="get-output-states.html"><span class="token function">getOutputStates</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span>type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="get-output-states.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="get-output-states.html">T</a><span class="token operator">&gt;</span></div><div class="brief ">Obtains all output contract states that match the specified type.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-584735667%2FFunctions%2F-692495681" anchor-label="getOutputTransactionStates" id="-584735667%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-output-transaction-states.html"><span>get</span><wbr><span>Output</span><wbr><span>Transaction</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-584735667%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-output-transaction-states.html"><span class="token function">getOutputTransactionStates</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../../net.corda.v5.ledger.utxo/-transaction-state/index.html">TransactionState</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief ">Gets the output transaction states associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1798535699%2FFunctions%2F-692495681" anchor-label="getReferenceContractStates" id="-1798535699%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-reference-contract-states.html"><span>get</span><wbr><span>Reference</span><wbr><span>Contract</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1798535699%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-reference-contract-states.html"><span class="token function">getReferenceContractStates</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">&gt;</span></div><div class="brief ">Gets the reference input contract states associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1564116264%2FFunctions%2F-692495681" anchor-label="getReferenceStateAndRefs" id="1564116264%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-reference-state-and-refs.html"><span>get</span><wbr><span>Reference</span><wbr><span>State</span><wbr><span>And</span><wbr><span><span>Refs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1564116264%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-reference-state-and-refs.html"><span class="token function">getReferenceStateAndRefs</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief ">Gets the reference input states and state refs associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-reference-state-and-refs.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">?</span><span class="token operator">&gt; </span><a href="get-reference-state-and-refs.html"><span class="token function">getReferenceStateAndRefs</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span>type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="get-reference-state-and-refs.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a><span class="token operator">&lt;</span><a href="get-reference-state-and-refs.html">T</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief ">Obtains all reference input states and state refs that match the specified type.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-825762168%2FFunctions%2F-692495681" anchor-label="getReferenceStateRefs" id="-825762168%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-reference-state-refs.html"><span>get</span><wbr><span>Reference</span><wbr><span>State</span><wbr><span><span>Refs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-825762168%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-reference-state-refs.html"><span class="token function">getReferenceStateRefs</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../../net.corda.v5.ledger.utxo/-state-ref/index.html">StateRef</a><span class="token operator">&gt;</span></div><div class="brief ">Gets the reference input state refs associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="738147101%2FFunctions%2F-692495681" anchor-label="getReferenceStates" id="738147101%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-reference-states.html"><span>get</span><wbr><span>Reference</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="738147101%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-reference-states.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">?</span><span class="token operator">&gt; </span><a href="get-reference-states.html"><span class="token function">getReferenceStates</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span>type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="get-reference-states.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="get-reference-states.html">T</a><span class="token operator">&gt;</span></div><div class="brief ">Obtains all reference input contract states that match the specified type.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1516164441%2FFunctions%2F-692495681" anchor-label="getReferenceTransactionStates" id="1516164441%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-reference-transaction-states.html"><span>get</span><wbr><span>Reference</span><wbr><span>Transaction</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1516164441%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-reference-transaction-states.html"><span class="token function">getReferenceTransactionStates</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../../net.corda.v5.ledger.utxo/-transaction-state/index.html">TransactionState</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief ">Gets the reference input transaction states associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1522920584%2FFunctions%2F-692495681" anchor-label="getSignatories" id="1522920584%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-signatories.html"><span>get</span><wbr><span><span>Signatories</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1522920584%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-signatories.html"><span class="token function">getSignatories</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a><span class="token operator">&gt;</span></div><div class="brief ">Gets the signatories associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="89564593%2FFunctions%2F-692495681" anchor-label="getTimeWindow" id="89564593%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-time-window.html"><span>get</span><wbr><span>Time</span><wbr><span><span>Window</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="89564593%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-time-window.html"><span class="token function">getTimeWindow</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.v5.ledger.utxo/-time-window/index.html">TimeWindow</a></div><div class="brief ">Gets the time window associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
+

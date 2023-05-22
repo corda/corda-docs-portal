@@ -1,5 +1,6 @@
 ---
 date: '2023-01-30'
+version: 'Corda 5.0'
 title: "net.corda.v5.ledger.utxo.token.selection"
 menu:
   corda5:
@@ -8,7 +9,7 @@ menu:
     weight: 4000
 section_menu: corda5
 ---
-
+# net.corda.v5.ledger.utxo.token.selection
 The Token Selection API enables a flow to exclusively select a set of states to potentially use as input states in a UTXO transaction. Although this can be achieved with simple vault queries, the selection API offers the following key features that improve the performance and reliability of the flows:
 
 * **Exclusivity:** In an environment where multiple instances of a flow are running in parallel, it is important that each flow can exclusively claim states to spend. Without this, there is a high chance that multiple flows could attempt to spend the same states at the same time, causing transactions to fail during notarization, due to an attempt to spend a state that has already been spent.

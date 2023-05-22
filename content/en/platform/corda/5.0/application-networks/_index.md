@@ -9,5 +9,7 @@ menu:
     weight: 5000
 section_menu: corda5
 ---
+# Managing Application Networks
+
 This section describes the tasks performed by Corda network operators. It contains the following:
 {{< childpages >}}
