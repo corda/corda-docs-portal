@@ -21,5 +21,5 @@ which is why you must carefully consider which certificates to sign with and whi
 
 CPK and CPB packages can be signed using the Corda Gradle plugin or the Corda CLI, and CPI packages can be signed with the Corda CLI only.
 You can also “re-sign” a package, that is, replace the old signature with a new one.
-This is useful in case, for example, when you need to replace a pre-production signature that was used for testing,
+This is useful in case you need to replace a pre-production signature that was used for testing,
 with a signature based on a production certificate.
