@@ -1,5 +1,6 @@
 ---
 date: '2023-04-07'
+version: 'Corda 5.0'
 title: "Managing Pre-Authentication Tokens"
 menu:
   corda5:
@@ -8,7 +9,7 @@ menu:
     weight: 1000
 section_menu: corda5
 ---
-
+# Managing Pre-Authentication Tokens
 ## Creating a Token
 
 To create a pre-auth token for a member, use the [mgm/{holdingidentityshorthash}/preauthtoken POST method](../../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__preauthtoken) of the REST API.

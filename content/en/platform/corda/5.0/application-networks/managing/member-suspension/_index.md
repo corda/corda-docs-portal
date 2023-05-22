@@ -10,7 +10,7 @@ menu:
     weight: 2000
 section_menu: corda5
 ---
-
+# Member Suspension
 It is possible to temporarily suspend a member of a group. Once a member has been suspended, Corda blocks flow communication between it and other members of the group. A suspended member performing a member lookup can only see updates from the MGM and not from other members. It is not possible to suspend the MGM. This section describes how to perform the following:
 * [Search for Members]({{< relref "#search-for-members">}})
 * [Suspend a Member]({{< relref "#suspend-a-member">}})
