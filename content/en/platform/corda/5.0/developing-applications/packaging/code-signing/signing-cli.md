@@ -1,7 +1,7 @@
 ---
 date: '2023-05-18'
 version: 'Corda 5.0'
-title: "Signing CPKs and CPBs Using Corda CLI"
+title: "Signing Packages Using Corda CLI"
 menu:
   corda5:
     parent: corda5-develop-packaging-code-signing
