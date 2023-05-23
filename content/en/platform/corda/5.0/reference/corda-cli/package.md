@@ -10,7 +10,7 @@ section_menu: corda5
 title: "package"
 ---
 # package
-This section lists the Corda CLI `package` arguments. You can use these commands to execute operations for working with CPB and CPI files<!--, as described in the [CorDapp Packaging]() tutorial-->.
+This section lists the Corda CLI `package` arguments. You can use these commands to execute operations for working with CPB and CPI files, as described in the [Packaging section for CorDapp Developers]({{< relref "../../developing-applications/packaging/_index.md">}}).
 
 | <div style="width:160px">Argument</div> | Description                                        |
 | --------------------------------------- | -------------------------------------------------- |
