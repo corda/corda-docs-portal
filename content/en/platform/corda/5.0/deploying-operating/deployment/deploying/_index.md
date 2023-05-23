@@ -12,7 +12,7 @@ section_menu: corda5
 # Deploying
 This page describes how to deploy Corda 5.
 
-All the necessary [prerequisites]({{< relref "prerequisites.md" >}}) must have been satisfied before Corda is deployed.
+All the necessary [prerequisites]({{< relref "../prerequisites.md" >}}) must have been satisfied before Corda is deployed.
 In particular, PostgreSQL and Kafka must be running. The mechanism to achieve that is up to you. For example, you can:
 
 * run PostgreSQL and Kafka on Kubernetes.
@@ -190,7 +190,7 @@ Regarding AWS topology, we recommend the following initial configuration:
 
 ### Exposing the REST API
 
-By default, the [REST API]({{< relref "../../reference/rest-api/_index.md" >}}) is exposed on an internal Kubernetes service.
+By default, the [REST API]({{< relref "../../../reference/rest-api/_index.md" >}}) is exposed on an internal Kubernetes service.
 To enable access from outside the Kubernetes cluster, use one of the following:
 
 * [Kubernetes Ingress](#kubernetes-ingress)
@@ -350,11 +350,11 @@ username:
 
 ### Encryption
 
-The Corda configuration system allows for any string configuration value to be marked as “secret”. This includes values passed dynamically using the REST API and also those defined in a manual deployment configuration. For more information see, [Configuration Secrets]({{< relref "../config/secrets.md" >}}).
+The Corda configuration system allows for any string configuration value to be marked as “secret”. This includes values passed dynamically using the REST API and also those defined in a manual deployment configuration. For more information see, [Configuration Secrets]({{< relref "../../config/secrets.md" >}}).
 
 #### Default Secrets Service
 
-The [Corda default secrets lookup service]({{< relref "../config/secrets.md#default-secrets-service" >}}) uses a salt and passphrase specified in the deployment configuration. Specify these as follows:
+The [Corda default secrets lookup service]({{< relref "../../config/secrets.md#default-secrets-service" >}}) uses a salt and passphrase specified in the deployment configuration. Specify these as follows:
 
 ```yaml
 config:
@@ -373,7 +373,7 @@ config:
 
 #### External Secrets Service {{< enterprise-icon >}}
 
-To configure Corda Enterprise to connect to a running [HashiCorp Vault instance]({{< relref "../config/secrets.md#external-secrets-service" >}}), add the following:
+To configure Corda Enterprise to connect to a running [HashiCorp Vault instance]({{< relref "../../config/secrets.md#external-secrets-service" >}}), add the following:
 
 ```yaml
 config:
@@ -752,5 +752,5 @@ helm install -n corda corda oci://registry-1.docker.io/corda/corda --version 5.0
 ```
 
 Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how
-to access the [Corda REST API]({{< relref "../../reference/rest-api/_index.md" >}}).
-If the Helm install fails, see the troubleshooting section on [observability]({{< relref "../observability/_index.md" >}}).
+to access the [Corda REST API]({{< relref "../../../reference/rest-api/_index.md" >}}).
+If the Helm install fails, see the troubleshooting section on [observability]({{< relref "../../observability/_index.md" >}}).

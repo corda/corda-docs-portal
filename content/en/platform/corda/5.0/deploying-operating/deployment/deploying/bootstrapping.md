@@ -12,14 +12,14 @@ section_menu: corda5
 ---
 # Manual Bootstrapping
 By default, the Corda installation process automatically performs various setup actions in Kafka and the database, and for Corda RBAC.
-If you require additional control, you can disable these automatic setup processes and an administrator can manually perform the actions with the assistance of the [Corda CLI]({{< relref "../tooling/installing-corda-cli.md" >}}).
+If you require additional control, you can disable these automatic setup processes and an administrator can manually perform the actions with the assistance of the [Corda CLI]({{< relref "../../tooling/installing-corda-cli.md" >}}).
 
 This section describes how to configure the following:
 * [Kafka]({{< relref "#kafka" >}})
 * [Database]({{< relref "#database" >}})
 * [RBAC Roles]({{< relref "#rbac-roles" >}})
 
-When you have completed the manual configuration of the above, you can [Deploy Corda]({{< relref "./deploying.md#deployment" >}}).
+When you have completed the manual configuration of the above, you can [Deploy Corda]({{< relref "./_index.md#deployment" >}}).
 ## Kafka 
 
 By default, a Corda installation automatically creates the Kafka topics it requires.
