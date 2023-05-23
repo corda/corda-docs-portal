@@ -23,12 +23,6 @@ Corda Community Edition 4.9.7 is a patch release of Corda Community Edition whic
 
 ### Fixed issues
 
-* Previously, if a node was configured to use two different slots on the Luna HSM (for example using one slot for node identities and a separate slot for the confidential identities), this failed. This issue has now been resolved. 
-
-  {{< warning >}}
-  However as a result of this fix you need to make sure the Luna client your are using is version 10.4.0 or later.
-  {{</ warning >}}
-
 * Corda provides the NodeDriver to help developers write integration tests. Using the NodeDriver, developers can bring up nodes locally to run flows and inspect state updates. Previously, there was an issue with build pipelines with tests failing, as on some occasions, notaries took more than one minute (the default timeout value) to start.
 
   To resolve this, the NodeDriver now has a new parameter, notaryHandleTimeout. This parameter specifies how long to wait (in minutes) for a notary handle to come back after the notary has been started.

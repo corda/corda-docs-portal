@@ -27,6 +27,12 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
+* Previously, if a node was configured to use two different slots on the Luna HSM (for example using one slot for node identities and a separate slot for the confidential identities), this failed. This issue has now been resolved. 
+
+  {{< warning >}}
+  However as a result of this fix you need to make sure the Luna client your are using is version 10.4.0 or later.
+  {{</ warning >}}
+
 * The default value for the node configuration value cryptoServiceTimeout has been increased from 1 second to 10 seconds.
 
 * Previously, where nodes had invoked a very large number of flows, the cache of client IDs that had not been removed were taking up significant heap space. A solution has been implemented where the space taken up has been reduced by 170 bytes per entry. For example, 1 million un-removed client IDs now take up 170,000,000 bytes less heap space than before.
