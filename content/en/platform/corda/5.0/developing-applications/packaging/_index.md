@@ -10,6 +10,7 @@ menu:
     weight: 4000
 section_menu: corda5
 ---
+# Packaging
 Just like a regular application, your CorDapp must be packaged for distribution and installation. Corda takes a three-layered model to its packaging design to allow maximum reusability and portability:
 
 1. **Corda Package (CPK):** Represents a single code-entity authored by a CorDapp developer. CPKs are the Corda equivalent of a software library. They represent testable, reusable, sub-components of a final application. See [Build a CPK]({{< relref "./cpk.md">}}).

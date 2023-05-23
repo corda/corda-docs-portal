@@ -1,5 +1,6 @@
 ---
 date: '2023-04-24'
+version: 'Corda 5.0'
 title: "Permission System Entities"
 menu:
   corda5:
@@ -8,7 +9,7 @@ menu:
     weight: 3000
 section_menu: corda5
 ---
-
+# Permission System Entities
 The role-based access control (RBAC) permissions system in Corda 5  is made up of multiple entities.
 The following section describes those entities and relationships between them.
 

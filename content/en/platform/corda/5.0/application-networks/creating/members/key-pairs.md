@@ -1,5 +1,6 @@
 ---
 date: '2023-04-13'
+version: 'Corda 5.0'
 title: "Configure Key Pairs and Certificates"
 menu:
   corda5:
@@ -8,6 +9,8 @@ menu:
     weight: 3000
 section_menu: corda5
 ---
+
+# Configure Key Pairs and Certificates
 
 This section describes how to configure key pairs and certificates. It contains the following:
 1. [Generate a Session Initiation Key Pair]({{< relref "#generate-a-session-initiation-key-pair">}})
@@ -21,8 +24,8 @@ To assign a soft hardware security module (HSM) and generate a session initiatio
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```Bash
-curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $API_URL/hsm/soft/$HOLDING_ID/SESSION_INIT
-curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $API_URL'/keys/'$HOLDING_ID'/alias/'$HOLDING_ID'-session/category/SESSION_INIT/scheme/CORDA.ECDSA.SECP256R1'
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X POST $API_URL/hsm/soft/$HOLDING_ID/SESSION_INIT
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X POST $API_URL'/keys/'$HOLDING_ID'/alias/'$HOLDING_ID'-session/category/SESSION_INIT/scheme/CORDA.ECDSA.SECP256R1'
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -45,8 +48,8 @@ To assign a soft hardware security module (HSM) and generate a ledger key pair:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $API_URL/hsm/soft/$HOLDING_ID/LEDGER
-curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $API_URL/keys/$HOLDING_ID/alias/$HOLDING_ID-ledger/category/LEDGER/scheme/CORDA.ECDSA.SECP256R1
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X POST $API_URL/hsm/soft/$HOLDING_ID/LEDGER
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X POST $API_URL/keys/$HOLDING_ID/alias/$HOLDING_ID-ledger/category/LEDGER/scheme/CORDA.ECDSA.SECP256R1
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -182,7 +185,7 @@ You only need to disable revocation checks once per cluster.
 If using Bash, to disable revocation checks, do the following:
 1. Retrieve the current gateway configuration version:
    ```bash
-   curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/config/corda.p2p.gateway
+   curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/config/corda.p2p.gateway
    ```
 2. Save the displayed version number from the response as a variable:
    ```bash

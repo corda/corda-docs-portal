@@ -10,7 +10,7 @@ menu:
     weight: 2000
 section_menu: corda5
 ---
-
+# Member Suspension
 It is possible to temporarily suspend a member of a group. Once a member has been suspended, Corda blocks flow communication between it and other members of the group. A suspended member performing a member lookup can only see updates from the MGM and not from other members. It is not possible to suspend the MGM. This section describes how to perform the following:
 * [Search for Members]({{< relref "#search-for-members">}})
 * [Suspend a Member]({{< relref "#suspend-a-member">}})
@@ -39,7 +39,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD "$REST_API_URL/members/$MGM_HOLDING_ID
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)}`
+Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)}`
    -Method Get -Uri $REST_API_URL/members/$MGM_HOLDING_ID`?statuses=SUSPENDED
 ```
 {{% /tab %}}
@@ -60,7 +60,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD -X 'POST' "$REST_API_URL/mgm/$MGM_HOLD
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)}`
+Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)}`
   -Method Post -Uri $REST_API_URL/mgm/$MGM_HOLDING_ID/suspend -Body (ConvertTo-Json -Depth 1 @{
   x500Name = $MEMBER_X500_NAME; serialNumber = <serial-number>})
 ```

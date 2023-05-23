@@ -1,5 +1,6 @@
 ---
 date: '2023-02-23'
+version: 'Corda 5.0'
 title: "Onboarding Notaries"
 menu:
   corda5:
@@ -8,6 +9,7 @@ menu:
     weight: 3000
 section_menu: corda5
 ---
+# Onboarding Notaries
 This section describes how to onboard a new member as a notary service representative. It assumes that you have configured the [MGM for the network]({{< relref "./mgm/_index.md" >}}). Onboarding a notary member is similar to any other member, but with the exceptions outlined on this page. The sections must be completed in the following order:
 
 1. [Build the member CPI]({{< relref "./members/cpi.md">}}) using the Notary CPB. For information about the notary CPB, see the [Notary section of Developing Applications]({{< relref "../../developing-applications/notaries/_index.md" >}}).
@@ -78,7 +80,7 @@ The R3 notary server CPB is signed with a DigiCert signing key. To use it, impor
 
 4. Import the signing key into Corda:
    ```
-   curl -u $REST_API_USER:$REST_API_PASSWORD -X PUT -F alias=notary-ca-root -F certificate=@notary-ca-root.pem $REST_API_URL/certificates/cluster/code-signer
+   curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X PUT -F alias=notary-ca-root -F certificate=@notary-ca-root.pem $REST_API_URL/certificates/cluster/code-signer
    ```
 ## Generate a Notary Key Pair
 
@@ -91,8 +93,8 @@ Generate notary keys in a similar way as done for other key types. First, create
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```bash
-curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/hsm/soft/$HOLDING_ID/NOTARY
-curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/keys/$HOLDING_ID/alias/$HOLDING_ID-notary/category/NOTARY/scheme/CORDA.ECDSA.SECP256R1
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/hsm/soft/$HOLDING_ID/NOTARY
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/keys/$HOLDING_ID/alias/$HOLDING_ID-notary/category/NOTARY/scheme/CORDA.ECDSA.SECP256R1
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -169,7 +171,7 @@ To register a member, run the following command:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": { "context": '$REGISTRATION_CONTEXT' } }' $REST_API_URL/membership/$HOLDING_ID
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": { "context": '$REGISTRATION_CONTEXT' } }' $REST_API_URL/membership/$HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -193,7 +195,7 @@ You can confirm if the notary was onboarded successfully by checking the status 
 {{% tab name="Bash"%}}
 ```
 export REGISTRATION_ID=<registration-ID>
-curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/membership/$HOLDING_ID/$REGISTRATION_ID
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/membership/$HOLDING_ID/$REGISTRATION_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -209,7 +211,7 @@ After registration, you can use the look-up functions provided by the `MemberLoo
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```bash
-curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/members/$HOLDING_ID
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/members/$HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
