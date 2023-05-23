@@ -19,7 +19,7 @@ This section **. It contains the following:
 Each virtual node within an application network is uniquely identified by its X.500 distinguished name. The rules for a valid X.500 name in Corda are the following:
 
 * The string specified must use the grammar defined in RFC 1779 or RFC 2253.
-* The only supported attributes are CN, OU, O, L, ST, C.
+* The only supported attributes are CN, OU, O, L, ST, and C.
 * Attributes cannot be duplicated and must have a single value.
 * The attributes O, L, C are mandatory.
 * The Organization attribute (O) cannot be blank and must be less than 128 characters.
