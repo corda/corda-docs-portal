@@ -18,7 +18,7 @@ Database connection details must be configured differently than the standard dyn
 
 ## Configuration Database
 
-The configuration database contains all configuration for the Corda cluster and so the database worker process must be able to connect to this database when it starts. As a result, the connection details for this database must be passed to the database worker process in the [deployment configuration]({{< relref "../deploying/deploying.md#postgresql" >}}). 
+The configuration database contains all configuration for the Corda cluster and so the database worker process must be able to connect to this database when it starts. As a result, the connection details for this database must be passed to the database worker process in the [deployment configuration]({{< relref "../deployment/deploying/_index.md#postgresql" >}}). 
 
 {{< note >}}
 Credentials can be encrypted. See [Configuration Secrets]({{< relref "./secrets.md">}}), for more information.
@@ -26,6 +26,6 @@ Credentials can be encrypted. See [Configuration Secrets]({{< relref "./secrets.
 
 ## All Other Databases
 
-By default, connection details for the RBAC, Crypto, and virtual node databases are stored in the `db_connection` table of the configuration database and never published to the Kafka message bus. For more information about populating these values, see the [Manual Bootstrapping section]({{< relref "../deploying/bootstrapping.md#database" >}}).
+By default, connection details for the RBAC, Crypto, and virtual node databases are stored in the `db_connection` table of the configuration database and never published to the Kafka message bus. For more information about populating these values, see the [Manual Bootstrapping section]({{< relref "../deployment/deploying/bootstrapping.md#database" >}}).
 
-{{< enterprise-icon noMargin="true" >}} If you are using HashiCorp Vault as an external secret management system, you must ensure the passwords for the RBAC, Crypto, and virtual node databases are stored correctly in Vault. For more information, see [Encryption]({{< relref "../deploying/deploying.html#external-secrets-service">}}) in the _Deploying_ section. 
+{{< enterprise-icon noMargin="true" >}} If you are using HashiCorp Vault as an external secret management system, you must ensure the passwords for the RBAC, Crypto, and virtual node databases are stored correctly in Vault. For more information, see [Encryption]({{< relref "../deployment/deploying/_index.md#external-secrets-service">}}) in the _Deploying_ section. 
