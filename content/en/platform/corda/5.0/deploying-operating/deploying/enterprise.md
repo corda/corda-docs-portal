@@ -21,7 +21,7 @@ The following steps migrate an existing Corda Community deployment to Corda Ente
 The migration process results in downtime for the Corda cluster. 
 {{< /warning >}}
 
-1. Run the following to uninstall the Corda Community Helm release:
+1. Uninstall the Corda Community Helm release:
 
    ```
    helm uninstall $HELM_RELEASE_NAME --namespace $KUBERNETES_NAMESPACE
