@@ -238,13 +238,17 @@ All the contract design issues that have been highlighted above are implemented 
 ## Base API
 
 Module: base
+
 Package: com.r3.corda.ledger.utxo.base
+
 The base API provides the underlying component model for designing extensible contracts with delegated contract verification constraint logic, as well as some other components which allow CorDapp developers to be more expressive and better express intent throughout their applications.
 
 ## Chainable API
 
 Module: chainable
+
 Package: com.r3.corda.ledger.utxo.chainable
+
 The chainable API provides the component model for designing chainable states and contracts. Chainable states represent strictly linear state chains, where every state in the chain points to the previous state in the chain. This could be thought of as a similar concept to a blockchain, where each new block points to the previous block.
 
 ## Designing a Chainable State
@@ -353,7 +357,9 @@ public final class ExampleChainableContract extends ChainableContract {
 ## Fungible API
 
 Module: fungible
+
 Package: com.r3.corda.ledger.utxo.fungible
+
 The fungible API provides the component model for designing fungible states and contracts. Fungible states represent states that have a scalar numeric quantity, and can be split, merged and mutually exchanged with other fungible states of the same class. Fungible states represent the building blocks for states like tokens.
 
 ## Designing a Fungible State
