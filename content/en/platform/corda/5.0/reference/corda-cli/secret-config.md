@@ -1,5 +1,6 @@
 ---
 date: '2023-05-12'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-cordacli-secret-config
@@ -8,6 +9,8 @@ menu:
 section_menu: corda5
 title: "secret-config"
 ---
+
+# secret-config
 
 This section lists the Corda CLI `secret-config` arguments. You can use these commands to generate the configuration for use with the [configured secrets lookup service]({{< relref "../../deploying-operating/deploying/deploying.md#encryption" >}}).
 
