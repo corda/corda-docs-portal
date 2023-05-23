@@ -2,19 +2,25 @@
 date: '2023-05-11'
 version: 'Corda 5.0'
 title: "Manual Bootstrapping"
+version: 'Corda 5.0'
 menu:
   corda5:
-    parent: corda5-cluster-deploy
+    parent: corda5-cluster-deploying
     identifier: corda5-cluster-bootstrapping
     weight: 2000
 section_menu: corda5
 ---
 # Manual Bootstrapping
 By default, the Corda installation process automatically performs various setup actions in Kafka and the database, and for Corda RBAC.
-If you require additional control, you can disable these automatic setup processes and an administrator can manually perform the actions
-with the assistance of the [Corda CLI]({{< relref "../tooling/installing-corda-cli.md" >}}).
+If you require additional control, you can disable these automatic setup processes and an administrator can manually perform the actions with the assistance of the [Corda CLI]({{< relref "../tooling/installing-corda-cli.md" >}}).
 
-## Kafka
+This section describes how to configure the following:
+* [Kafka]({{< relref "#kafka" >}})
+* [Database]({{< relref "#database" >}})
+* [RBAC Roles]({{< relref "#rbac-roles" >}})
+
+When you have completed the manual configuration of the above, you can [Deploy Corda]({{< relref "./deploying.md#deployment" >}}).
+## Kafka 
 
 By default, a Corda installation automatically creates the Kafka topics it requires.
 To create the topics manually, do the following:
@@ -275,18 +281,7 @@ The following command specifies that the `CONFIG`, `RBAC`, and `CRYPTO` schema s
    {{% /tab %}}
    {{< /tabs >}}
 
-{{< note >}}
-If you get an error after copying these commands from the documentation, try passing the exact parameters in the Corda CLI manually.
-{{</ note >}}
-
-The `<SALT>` and `<PASSPHRASE>` are used to encrypt the credentials in the database. These must match the values specified in the Corda deployment configuration:
-
-   ```yaml
-   config:
-      encryption:
-         salt: <SALT>
-         passphrase: <PASSPHRASE>
-   ```
+   The `<SALT>` and `<PASSPHRASE>` are used to encrypt the credentials in the database. These must match the values specified in the [Corda deployment configuration]({{< relref "#encryption" >}}).
 
 For example:
 
@@ -342,11 +337,7 @@ For example:
    {{% /tab %}}
    {{< /tabs >}}
 
-{{< note >}}
-If you get an error after copying these commands from the documentation, try passing the exact parameters in the Corda CLI manually.
-{{</ note >}}
-
-The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
+   The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the [Corda deployment configuration]({{< relref "#encryption" >}}).
 
 For example:
 
