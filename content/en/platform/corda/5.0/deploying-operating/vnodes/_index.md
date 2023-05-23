@@ -26,5 +26,5 @@ Each virtual node within an application network is uniquely identified by its X.
 * The Locality attribute (L) cannot be blank and must be less than 64 characters.
 * The Country attribute (C) cannot be blank and must be an ISO 3166-1 2-letter country code or "ZZ" to indicate unspecified country.
 * If specified, the State attribute (ST) cannot be blank and must be less than 64 characters.
-* If specified, the Organization unit attribute (OU) cannot be blank and must be less than 64 characters.
+* If specified, the Organization Unit attribute (OU) cannot be blank and must be less than 64 characters.
 * If specified, the Common Name attribute (CN) cannot be blank and must be less than 64 characters.
