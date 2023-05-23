@@ -23,12 +23,12 @@ For example, if the REST API is exposed on `localhost`, to set fields in the [me
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.messaging", "version":"1", "config":"{"maxAllowedMessageSize":972800,"publisher":{"closeTimeout":600,"transactional":true},"subscription":{"commitRetries":3,"pollTimeout":500,"processorRetries":3,"processorTimeout":15000,"subscribeRetries":3,"threadStopTimeout":10000}}", "schemaVersion": {"major": 1, "minor": 0}}' "https://localhost:8888/api/v1/config"
+   curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.messaging", "version":"1", "config":"{"maxAllowedMessageSize":972800,"publisher":{"closeTimeout":600,"transactional":true},"subscription":{"commitRetries":3,"pollTimeout":500,"processorRetries":3,"processorTimeout":15000,"subscribeRetries":3,"threadStopTimeout":10000}}", "schemaVersion": {"major": 1, "minor": 0}}' "$REST_API_URL/config"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $REST_API_USER:$REST_API_PASSWORD)} -Method Put -Uri "https://localhost:8888/api/v1/config" -Body (ConvertTo-Json -Depth 4 @{
+   Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method Put -Uri "$REST_API_URL/config" -Body (ConvertTo-Json -Depth 4 @{
     section = "corda.messaging"
     version = 1
     {
