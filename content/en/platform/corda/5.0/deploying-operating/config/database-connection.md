@@ -18,7 +18,7 @@ Database connection details must be configured differently than the standard dyn
 
 ## Configuration Database
 
-The configuration database contains all configuration for the Corda cluster and so the database worker process must be able to connect to this database when it starts. As a result, the connection details for this database must be passed to the database worker process in the [deployment configuration]({{< relref "../deploying/deploying.md#postgresql" >}}). 
+The configuration database contains all configuration for the Corda cluster and so the database worker process must be able to connect to this database when it starts. As a result, the connection details for this database must be passed to the database worker process in the [deployment configuration]({{< relref "../deployment/deploying/_index.md#postgresql" >}}). 
 
 {{< note >}}
 Credentials can be encrypted. See [Configuration Secrets]({{< relref "./secrets.md">}}), for more information.
