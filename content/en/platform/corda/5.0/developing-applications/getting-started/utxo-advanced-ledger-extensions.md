@@ -37,6 +37,7 @@ The following contract defines three commands; Create, Update and Delete. The `v
     public static class Create implements ExampleContractCommand { }
     public static class Update implements ExampleContractCommand { }
     public static class Delete implements ExampleContractCommand { }
+    
     @Override
     public void verify(UtxoLedgerTransaction transaction) {
         
