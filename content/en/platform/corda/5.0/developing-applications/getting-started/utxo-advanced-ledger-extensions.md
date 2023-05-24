@@ -51,6 +51,7 @@ The following contract defines three commands; Create, Update and Delete. The `v
             else throw new IllegalStateException("Unrecognised command type.");
         }
     }
+    
     private void verifyCreate(UtxoLedgerTransaction transaction) {
         // Verify Create constraints
     }
