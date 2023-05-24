@@ -12,11 +12,17 @@ section_menu: corda5
 # Deploying
 This page describes how to deploy Corda 5.
 
-All the necessary [prerequisites]({{< relref "prerequisites.md" >}}) must have been satisfied before Corda is deployed.
+All the necessary [prerequisites]({{< relref "../prerequisites.md" >}}) must have been satisfied before Corda is deployed.
 In particular, PostgreSQL and Kafka must be running. The mechanism to achieve that is up to you. For example, you can:
 
 * run PostgreSQL and Kafka on Kubernetes.
 * use a managed service such as Amazon RDS for PostgreSQL, Amazon Managed Streaming for Apache Kafka, or Confluent Cloud.
+
+This section contains the following:
+* [Download and Push Container Images to a Registry]({{< relref "#download-and-push-container-images-to-a-registry ">}})
+* [Download the Corda Helm Chart]({{< relref "#download-the-corda-helm-chart ">}})
+* [Configure the Deployment]({{< relref "#configure-the-deployment ">}})
+* [Deployment]({{< relref "#deployment ">}})
 
 ## Download and Push Container Images to a Registry
 
@@ -73,7 +79,16 @@ If you do not have access to Docker Hub, you can download the `corda-5.0.0-Hawk1
 ## Configure the Deployment
 
 For each deployment, you should create a YAML file to define a set of Helm overrides to be used for that environment.
-The following sections describe the minimal set of configuration options required for a deployment.
+The following sections describe the minimal set of configuration options required for a deployment:
+* [Image Registry]({{< relref "#image-registry" >}})
+* [Replica Counts]({{< relref "#replica-counts" >}})
+* [Resource Requests and Limits]({{< relref "#resource-requests-and-limits" >}})
+* [Exposing the REST API]({{< relref "#exposing-the-rest-api" >}})
+* [PostgreSQL]({{< relref "#postgresql" >}})
+* [Encryption]({{< relref "#encryption" >}})
+* [Bootstrapping]({{< relref "#bootstrapping" >}})
+* [Custom Annotations for Worker Pods]({{< relref "#custom-annotations-for-worker-pods" >}})
+
 You can extract a README containing the full set of options from the Helm chart using the following command:
 ```shell
 helm show readme corda-5.0.0-Hawk1.0.1.tgz
@@ -175,7 +190,7 @@ Regarding AWS topology, we recommend the following initial configuration:
 
 ### Exposing the REST API
 
-By default, the [REST API]({{< relref "../../reference/rest-api/_index.md" >}}) is exposed on an internal Kubernetes service.
+By default, the [REST API]({{< relref "../../../reference/rest-api/_index.md" >}}) is exposed on an internal Kubernetes service.
 To enable access from outside the Kubernetes cluster, use one of the following:
 
 * [Kubernetes Ingress](#kubernetes-ingress)
@@ -333,10 +348,58 @@ username:
   value: <USERNAME>
 ```
 
+### Encryption
+
+The Corda configuration system allows for any string configuration value to be marked as “secret”. This includes values passed dynamically using the REST API and also those defined in a manual deployment configuration. For more information see, [Configuration Secrets]({{< relref "../../config/secrets.md" >}}).
+
+#### Default Secrets Service
+
+The [Corda default secrets lookup service]({{< relref "../../config/secrets.md#default-secrets-service" >}}) uses a salt and passphrase specified in the deployment configuration. Specify these as follows:
+
+```yaml
+config:
+   encryption:
+      salt:
+        valueFrom:
+          secretKeyRef:
+            name: <SALT_SECRET_NAME>
+            key: <SALT_SECRET_KEY>
+      passphrase: 
+        valueFrom:
+          secretKeyRef:
+            name: <PASSPHRASE_SECRET_NAME>
+            key: <PASSPHRASE_SECRET_KEY>
+```
+
+#### External Secrets Service {{< enterprise-icon >}}
+
+To configure Corda Enterprise to connect to a running [HashiCorp Vault instance]({{< relref "../../config/secrets.md#external-secrets-service" >}}), add the following:
+
+```yaml
+config:
+  vault:
+    url: "<vault-URL>"
+    token: "<vault-token>"
+    createdSecretPath: "<path-to-corda-created-secrets>"
+```
+
+* `<vault-URL>` is the full URL including port at which the Vault instance is reachable, not including any path.
+* `<vault-token>` must allow sufficient permissions to read from Vault at the Corda configured paths and write to the `<path-to-corda-created-secrets>`, where Corda writes secrets it creates.
+
+The passwords for the RBAC and CRYPTO schemas and VNODES database must be available in Vault before Corda is deployed. These must be available in the Vault `dbsecrets` path, under the keys `rbac`, `crypto`, and `vnodes` respectively. 
+{{< note >}}
+These keys are not tied to the schema names. If the schema names change, the key names remain `rbac`, `crypto`, and `vnodes`.
+{{< /note >}}
+Additionally, a passphrase and salt for the Corda wrapping keys must be added to the Vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
+
 ### Bootstrapping
 
 By default, the Helm chart automatically configures Kafka, PostgreSQL, and a default set of Corda RBAC roles as part of the deployment process.
 If desired, each of these steps can be disabled and the necessary [configuration performed manually]({{< relref "bootstrapping.md" >}}).
+
+{{< note >}}
+Bootstrap secrets are cleaned up automatically post-install with the exception of the `-rest-api-admin` secret. This secret should be manually deleted by the Administrator after retrieving the generated credentials. 
+{{< /note >}}
 
 #### Kafka
 The Kafka bootstrapping creates the topics required by Corda.
@@ -411,18 +474,18 @@ when the deployment completes contain instructions for how to retrieve this. Thi
 * By default, there is a single database user used for both the bootstrap process and, subsequently at runtime, by the crypto and DB workers.
 R3 recommends configuring separate bootstrap and runtime users, by specifying a bootstrap user as follows:
 
-```yaml
-bootstrap:
-  db:
-    cluster:
-      username:
-        value: <POSTGRESQL_BOOTSTRAP_USER>
-      password:
-        valueFrom:
-          secretKeyRef:
-            name: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_NAME>
-            key: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_KEY>
-```
+   ```yaml
+   bootstrap:
+     db:
+       cluster:
+         username:
+           value: <POSTGRESQL_BOOTSTRAP_USER>
+         password:
+           valueFrom:
+             secretKeyRef:
+               name: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_NAME>
+               key: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_KEY>
+   ```
 
 #### RBAC
 
@@ -693,5 +756,5 @@ helm install -n corda corda oci://registry-1.docker.io/corda/corda --version 5.0
 ```
 
 Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how
-to access the [Corda REST API]({{< relref "../../reference/rest-api/_index.md" >}}).
-If the Helm install fails, see the troubleshooting section on [observability]({{< relref "../observability/_index.md" >}}).
+to access the [Corda REST API]({{< relref "../../../reference/rest-api/_index.md" >}}).
+If the Helm install fails, see the troubleshooting section on [observability]({{< relref "../../observability/_index.md" >}}).
