@@ -1,13 +1,15 @@
 ---
 title: "Use Case Examples"
 date: 2023-04-21
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-use-cases
     parent: corda5-intro
-    weight: 3000
+    weight: 4000
 section_menu: corda5
 ---
+# Use Case Examples
 "_Who is Corda for?_" Corda was originally designed as a distributed ledger and system of record for the financial services industry. 
 Within financial markets, Corda can be used to automate trading and settlement processes and reduce the need for reconciliation. 
 Additionally, Corda’s smart contracts make it easy to automate complex financial agreements between parties. Corda is used in financial markets for use cases such as:

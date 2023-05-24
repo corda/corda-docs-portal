@@ -28,7 +28,9 @@
 					</ol>
 				</nav>
 			{{ end }}
-      <h1>{{ .Title }}</h1>
+			{{ if ne .Parent.Page.Params.version "Corda 5.0"}}			
+    			<h1>{{ .Title }}</h1>
+			{{ end }}
       {{ if .Site.Params.editPage -}}
         {{ partial "main/edit-page.html" . }}
       {{ end -}}

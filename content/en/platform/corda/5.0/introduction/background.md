@@ -1,14 +1,15 @@
 ---
 title: "Background"
 date: 2023-04-21
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-background
     parent: corda5-intro
-    weight: 1000
+    weight: 2000
 section_menu: corda5
 ---
-
+# Background
 ## What is DLT?
 DLT stands for Distributed Ledger Technology. It is a digital system for recording, storing, and processing digital data in a decentralized way across a network of computers, perhaps in different locations and involving multiple organisations. 
 The technology uses cryptographic techniques to secure data and validate modifications. Every participant in the network has a view of the shared global state of data (the extent of that view depends on its visibility restrictions), which is updated in real-time as changes occur. 

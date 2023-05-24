@@ -1,0 +1,750 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>DbSchema</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../../index.html">
+<span>corda-api</span>            </a>    </div>
+    <div>5.0.0.755-Hawk1.0
+    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":data:db-schema:dokkaHtmlPartial/main">jvm</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="db-schema::net.corda.db.schema/DbSchema///PointingToDeclaration//-1158521784">
+  <div class="breadcrumbs"><a href="../../index.html">db-schema</a><span class="delimiter">/</span><a href="../index.html">net.corda.db.schema</a><span class="delimiter">/</span><span class="current">DbSchema</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Db</span><wbr><span><span>Schema</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">DbSchema</a></div><p class="paragraph">Explicitly lists database schema names to be used for applying Liquibase scripts since Liquibase does not allow specifying schema as part of the changeset definition. For more information, see <a href="https://docs.liquibase.com/concepts/advanced/liquibase-schema-name-parameter.html">Liquibase documentation</a>.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,FUNCTION,PROPERTY">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1330809165%2FProperties%2F-1158521784" anchor-label="CLUSTER_CERTIFICATE_DB_TABLE" id="1330809165%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-l-u-s-t-e-r_-c-e-r-t-i-f-i-c-a-t-e_-d-b_-t-a-b-l-e.html"><span><span>CLUSTER_CERTIFICATE_DB_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1330809165%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-c-l-u-s-t-e-r_-c-e-r-t-i-f-i-c-a-t-e_-d-b_-t-a-b-l-e.html">CLUSTER_CERTIFICATE_DB_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"cluster_certificate"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-218655687%2FProperties%2F-1158521784" anchor-label="CLUSTER_STATIC_NETWORK_INFO_TABLE" id="-218655687%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-l-u-s-t-e-r_-s-t-a-t-i-c_-n-e-t-w-o-r-k_-i-n-f-o_-t-a-b-l-e.html"><span><span>CLUSTER_STATIC_NETWORK_INFO_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-218655687%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-c-l-u-s-t-e-r_-s-t-a-t-i-c_-n-e-t-w-o-r-k_-i-n-f-o_-t-a-b-l-e.html">CLUSTER_STATIC_NETWORK_INFO_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"static_network_info"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1524551099%2FProperties%2F-1158521784" anchor-label="CONFIG" id="-1524551099%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-o-n-f-i-g.html"><span><span>CONFIG</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1524551099%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-c-o-n-f-i-g.html">CONFIG</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"CONFIG"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1606076707%2FProperties%2F-1158521784" anchor-label="CONFIG_AUDIT_ID_SEQUENCE" id="1606076707%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-o-n-f-i-g_-a-u-d-i-t_-i-d_-s-e-q-u-e-n-c-e.html"><span><span>CONFIG_AUDIT_ID_SEQUENCE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1606076707%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-c-o-n-f-i-g_-a-u-d-i-t_-i-d_-s-e-q-u-e-n-c-e.html">CONFIG_AUDIT_ID_SEQUENCE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"config_audit_id_seq"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-566939315%2FProperties%2F-1158521784" anchor-label="CONFIG_AUDIT_ID_SEQUENCE_ALLOC_SIZE" id="-566939315%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-o-n-f-i-g_-a-u-d-i-t_-i-d_-s-e-q-u-e-n-c-e_-a-l-l-o-c_-s-i-z-e.html"><span><span>CONFIG_AUDIT_ID_SEQUENCE_ALLOC_SIZE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-566939315%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-c-o-n-f-i-g_-a-u-d-i-t_-i-d_-s-e-q-u-e-n-c-e_-a-l-l-o-c_-s-i-z-e.html">CONFIG_AUDIT_ID_SEQUENCE_ALLOC_SIZE</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">1</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="952742970%2FProperties%2F-1158521784" anchor-label="CONFIG_AUDIT_TABLE" id="952742970%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-o-n-f-i-g_-a-u-d-i-t_-t-a-b-l-e.html"><span><span>CONFIG_AUDIT_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="952742970%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-c-o-n-f-i-g_-a-u-d-i-t_-t-a-b-l-e.html">CONFIG_AUDIT_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"config_audit"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="728373366%2FProperties%2F-1158521784" anchor-label="CONFIG_TABLE" id="728373366%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-o-n-f-i-g_-t-a-b-l-e.html"><span><span>CONFIG_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="728373366%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-c-o-n-f-i-g_-t-a-b-l-e.html">CONFIG_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"config"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1527161254%2FProperties%2F-1158521784" anchor-label="CRYPTO" id="1527161254%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-r-y-p-t-o.html"><span><span>CRYPTO</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1527161254%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-c-r-y-p-t-o.html">CRYPTO</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"CRYPTO"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="839904882%2FProperties%2F-1158521784" anchor-label="CRYPTO_HSM_ASSOCIATION_TABLE" id="839904882%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-r-y-p-t-o_-h-s-m_-a-s-s-o-c-i-a-t-i-o-n_-t-a-b-l-e.html"><span><span>CRYPTO_HSM_ASSOCIATION_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="839904882%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-c-r-y-p-t-o_-h-s-m_-a-s-s-o-c-i-a-t-i-o-n_-t-a-b-l-e.html">CRYPTO_HSM_ASSOCIATION_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"crypto_hsm_association"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-46348311%2FProperties%2F-1158521784" anchor-label="CRYPTO_HSM_CATEGORY_ASSOCIATION_TABLE" id="-46348311%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-r-y-p-t-o_-h-s-m_-c-a-t-e-g-o-r-y_-a-s-s-o-c-i-a-t-i-o-n_-t-a-b-l-e.html"><span><span>CRYPTO_HSM_CATEGORY_ASSOCIATION_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-46348311%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-c-r-y-p-t-o_-h-s-m_-c-a-t-e-g-o-r-y_-a-s-s-o-c-i-a-t-i-o-n_-t-a-b-l-e.html">CRYPTO_HSM_CATEGORY_ASSOCIATION_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"crypto_hsm_category_association"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1922166702%2FProperties%2F-1158521784" anchor-label="CRYPTO_HSM_CATEGORY_MAP_TABLE" id="1922166702%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-r-y-p-t-o_-h-s-m_-c-a-t-e-g-o-r-y_-m-a-p_-t-a-b-l-e.html"><span><span>CRYPTO_HSM_CATEGORY_MAP_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1922166702%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-c-r-y-p-t-o_-h-s-m_-c-a-t-e-g-o-r-y_-m-a-p_-t-a-b-l-e.html">CRYPTO_HSM_CATEGORY_MAP_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"crypto_hsm_category_map"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="668370503%2FProperties%2F-1158521784" anchor-label="CRYPTO_HSM_CONFIG_TABLE" id="668370503%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-r-y-p-t-o_-h-s-m_-c-o-n-f-i-g_-t-a-b-l-e.html"><span><span>CRYPTO_HSM_CONFIG_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="668370503%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-c-r-y-p-t-o_-h-s-m_-c-o-n-f-i-g_-t-a-b-l-e.html">CRYPTO_HSM_CONFIG_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"crypto_hsm_config"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1915193019%2FProperties%2F-1158521784" anchor-label="CRYPTO_SIGNING_KEY_MATERIAL_TABLE" id="-1915193019%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-r-y-p-t-o_-s-i-g-n-i-n-g_-k-e-y_-m-a-t-e-r-i-a-l_-t-a-b-l-e.html"><span><span>CRYPTO_SIGNING_KEY_MATERIAL_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1915193019%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-c-r-y-p-t-o_-s-i-g-n-i-n-g_-k-e-y_-m-a-t-e-r-i-a-l_-t-a-b-l-e.html">CRYPTO_SIGNING_KEY_MATERIAL_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"crypto_signing_key_material"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1672398159%2FProperties%2F-1158521784" anchor-label="CRYPTO_SIGNING_KEY_TABLE" id="-1672398159%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-r-y-p-t-o_-s-i-g-n-i-n-g_-k-e-y_-t-a-b-l-e.html"><span><span>CRYPTO_SIGNING_KEY_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1672398159%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-c-r-y-p-t-o_-s-i-g-n-i-n-g_-k-e-y_-t-a-b-l-e.html">CRYPTO_SIGNING_KEY_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"crypto_signing_key"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-796458518%2FProperties%2F-1158521784" anchor-label="CRYPTO_WRAPPING_KEY_TABLE" id="-796458518%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-r-y-p-t-o_-w-r-a-p-p-i-n-g_-k-e-y_-t-a-b-l-e.html"><span><span>CRYPTO_WRAPPING_KEY_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-796458518%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-c-r-y-p-t-o_-w-r-a-p-p-i-n-g_-k-e-y_-t-a-b-l-e.html">CRYPTO_WRAPPING_KEY_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"crypto_wrapping_key"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1527941710%2FProperties%2F-1158521784" anchor-label="DB_CONNECTION_AUDIT_ID_SEQUENCE" id="-1527941710%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-d-b_-c-o-n-n-e-c-t-i-o-n_-a-u-d-i-t_-i-d_-s-e-q-u-e-n-c-e.html"><span><span>DB_CONNECTION_AUDIT_ID_SEQUENCE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1527941710%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-d-b_-c-o-n-n-e-c-t-i-o-n_-a-u-d-i-t_-i-d_-s-e-q-u-e-n-c-e.html">DB_CONNECTION_AUDIT_ID_SEQUENCE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"db_connection_audit_id_seq"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1830446430%2FProperties%2F-1158521784" anchor-label="DB_CONNECTION_AUDIT_ID_SEQUENCE_ALLOC_SIZE" id="1830446430%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-d-b_-c-o-n-n-e-c-t-i-o-n_-a-u-d-i-t_-i-d_-s-e-q-u-e-n-c-e_-a-l-l-o-c_-s-i-z-e.html"><span><span>DB_CONNECTION_AUDIT_ID_SEQUENCE_ALLOC_SIZE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1830446430%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-d-b_-c-o-n-n-e-c-t-i-o-n_-a-u-d-i-t_-i-d_-s-e-q-u-e-n-c-e_-a-l-l-o-c_-s-i-z-e.html">DB_CONNECTION_AUDIT_ID_SEQUENCE_ALLOC_SIZE</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">1</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-765413367%2FProperties%2F-1158521784" anchor-label="DB_CONNECTION_AUDIT_TABLE" id="-765413367%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-d-b_-c-o-n-n-e-c-t-i-o-n_-a-u-d-i-t_-t-a-b-l-e.html"><span><span>DB_CONNECTION_AUDIT_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-765413367%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-d-b_-c-o-n-n-e-c-t-i-o-n_-a-u-d-i-t_-t-a-b-l-e.html">DB_CONNECTION_AUDIT_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"db_connection_audit"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-196615291%2FProperties%2F-1158521784" anchor-label="DB_CONNECTION_TABLE" id="-196615291%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-d-b_-c-o-n-n-e-c-t-i-o-n_-t-a-b-l-e.html"><span><span>DB_CONNECTION_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-196615291%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-d-b_-c-o-n-n-e-c-t-i-o-n_-t-a-b-l-e.html">DB_CONNECTION_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"db_connection"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="67969888%2FProperties%2F-1158521784" anchor-label="DB_MESSAGE_BUS" id="67969888%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-d-b_-m-e-s-s-a-g-e_-b-u-s.html"><span><span>DB_MESSAGE_BUS</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="67969888%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-d-b_-m-e-s-s-a-g-e_-b-u-s.html">DB_MESSAGE_BUS</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"DB_MESSAGE_BUS"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-737191999%2FProperties%2F-1158521784" anchor-label="HOLDING_IDENTITY_DB_TABLE" id="-737191999%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-h-o-l-d-i-n-g_-i-d-e-n-t-i-t-y_-d-b_-t-a-b-l-e.html"><span><span>HOLDING_IDENTITY_DB_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-737191999%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-h-o-l-d-i-n-g_-i-d-e-n-t-i-t-y_-d-b_-t-a-b-l-e.html">HOLDING_IDENTITY_DB_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"holding_identity"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="497213352%2FProperties%2F-1158521784" anchor-label="LEDGER_CONSENSUAL_CPK_TABLE" id="497213352%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-e-d-g-e-r_-c-o-n-s-e-n-s-u-a-l_-c-p-k_-t-a-b-l-e.html"><span><span>LEDGER_CONSENSUAL_CPK_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="497213352%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-l-e-d-g-e-r_-c-o-n-s-e-n-s-u-a-l_-c-p-k_-t-a-b-l-e.html">LEDGER_CONSENSUAL_CPK_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"consensual_cpk"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1319568694%2FProperties%2F-1158521784" anchor-label="LEDGER_CONSENSUAL_TRANSACTION_COMPONENT_TABLE" id="-1319568694%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-e-d-g-e-r_-c-o-n-s-e-n-s-u-a-l_-t-r-a-n-s-a-c-t-i-o-n_-c-o-m-p-o-n-e-n-t_-t-a-b-l-e.html"><span><span>LEDGER_CONSENSUAL_TRANSACTION_COMPONENT_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1319568694%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-l-e-d-g-e-r_-c-o-n-s-e-n-s-u-a-l_-t-r-a-n-s-a-c-t-i-o-n_-c-o-m-p-o-n-e-n-t_-t-a-b-l-e.html">LEDGER_CONSENSUAL_TRANSACTION_COMPONENT_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"consensual_transaction_component"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1480063799%2FProperties%2F-1158521784" anchor-label="LEDGER_CONSENSUAL_TRANSACTION_CPK_TABLE" id="-1480063799%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-e-d-g-e-r_-c-o-n-s-e-n-s-u-a-l_-t-r-a-n-s-a-c-t-i-o-n_-c-p-k_-t-a-b-l-e.html"><span><span>LEDGER_CONSENSUAL_TRANSACTION_CPK_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1480063799%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-l-e-d-g-e-r_-c-o-n-s-e-n-s-u-a-l_-t-r-a-n-s-a-c-t-i-o-n_-c-p-k_-t-a-b-l-e.html">LEDGER_CONSENSUAL_TRANSACTION_CPK_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"consensual_transaction_cpk"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-635844689%2FProperties%2F-1158521784" anchor-label="LEDGER_CONSENSUAL_TRANSACTION_SIGNATURE_TABLE" id="-635844689%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-e-d-g-e-r_-c-o-n-s-e-n-s-u-a-l_-t-r-a-n-s-a-c-t-i-o-n_-s-i-g-n-a-t-u-r-e_-t-a-b-l-e.html"><span><span>LEDGER_CONSENSUAL_TRANSACTION_SIGNATURE_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-635844689%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-l-e-d-g-e-r_-c-o-n-s-e-n-s-u-a-l_-t-r-a-n-s-a-c-t-i-o-n_-s-i-g-n-a-t-u-r-e_-t-a-b-l-e.html">LEDGER_CONSENSUAL_TRANSACTION_SIGNATURE_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"consensual_transaction_signature"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="301154563%2FProperties%2F-1158521784" anchor-label="LEDGER_CONSENSUAL_TRANSACTION_STATUS_TABLE" id="301154563%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-e-d-g-e-r_-c-o-n-s-e-n-s-u-a-l_-t-r-a-n-s-a-c-t-i-o-n_-s-t-a-t-u-s_-t-a-b-l-e.html"><span><span>LEDGER_CONSENSUAL_TRANSACTION_STATUS_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="301154563%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-l-e-d-g-e-r_-c-o-n-s-e-n-s-u-a-l_-t-r-a-n-s-a-c-t-i-o-n_-s-t-a-t-u-s_-t-a-b-l-e.html">LEDGER_CONSENSUAL_TRANSACTION_STATUS_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"consensual_transaction_status"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2115690088%2FProperties%2F-1158521784" anchor-label="LEDGER_CONSENSUAL_TRANSACTION_TABLE" id="2115690088%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-e-d-g-e-r_-c-o-n-s-e-n-s-u-a-l_-t-r-a-n-s-a-c-t-i-o-n_-t-a-b-l-e.html"><span><span>LEDGER_CONSENSUAL_TRANSACTION_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2115690088%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-l-e-d-g-e-r_-c-o-n-s-e-n-s-u-a-l_-t-r-a-n-s-a-c-t-i-o-n_-t-a-b-l-e.html">LEDGER_CONSENSUAL_TRANSACTION_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"consensual_transaction"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1644834891%2FProperties%2F-1158521784" anchor-label="RBAC" id="-1644834891%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-b-a-c.html"><span><span>RBAC</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1644834891%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-r-b-a-c.html">RBAC</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"RBAC"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1155694177%2FProperties%2F-1158521784" anchor-label="UNIQUENESS" id="-1155694177%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-u-n-i-q-u-e-n-e-s-s.html"><span><span>UNIQUENESS</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1155694177%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-u-n-i-q-u-e-n-e-s-s.html">UNIQUENESS</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"UNIQUENESS"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1647942550%2FProperties%2F-1158521784" anchor-label="UNIQUENESS_REJECTED_TX_TABLE" id="-1647942550%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-u-n-i-q-u-e-n-e-s-s_-r-e-j-e-c-t-e-d_-t-x_-t-a-b-l-e.html"><span><span>UNIQUENESS_REJECTED_TX_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1647942550%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-u-n-i-q-u-e-n-e-s-s_-r-e-j-e-c-t-e-d_-t-x_-t-a-b-l-e.html">UNIQUENESS_REJECTED_TX_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"uniqueness_rejected_txs"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-493167653%2FProperties%2F-1158521784" anchor-label="UNIQUENESS_STATE_DETAILS_TABLE" id="-493167653%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-u-n-i-q-u-e-n-e-s-s_-s-t-a-t-e_-d-e-t-a-i-l-s_-t-a-b-l-e.html"><span><span>UNIQUENESS_STATE_DETAILS_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-493167653%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-u-n-i-q-u-e-n-e-s-s_-s-t-a-t-e_-d-e-t-a-i-l-s_-t-a-b-l-e.html">UNIQUENESS_STATE_DETAILS_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"uniqueness_state_details"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1820627078%2FProperties%2F-1158521784" anchor-label="UNIQUENESS_TX_DETAILS_TABLE" id="1820627078%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-u-n-i-q-u-e-n-e-s-s_-t-x_-d-e-t-a-i-l-s_-t-a-b-l-e.html"><span><span>UNIQUENESS_TX_DETAILS_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1820627078%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-u-n-i-q-u-e-n-e-s-s_-t-x_-d-e-t-a-i-l-s_-t-a-b-l-e.html">UNIQUENESS_TX_DETAILS_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"uniqueness_tx_details"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1741923395%2FProperties%2F-1158521784" anchor-label="VIRTUAL_NODE_DB_TABLE" id="-1741923395%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-v-i-r-t-u-a-l_-n-o-d-e_-d-b_-t-a-b-l-e.html"><span><span>VIRTUAL_NODE_DB_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1741923395%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-v-i-r-t-u-a-l_-n-o-d-e_-d-b_-t-a-b-l-e.html">VIRTUAL_NODE_DB_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"virtual_node"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2143077733%2FProperties%2F-1158521784" anchor-label="VNODE" id="-2143077733%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-v-n-o-d-e.html"><span><span>VNODE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2143077733%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-v-n-o-d-e.html">VNODE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"VNODE"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1992040276%2FProperties%2F-1158521784" anchor-label="VNODE_ALLOWED_CERTIFICATE_DB_TABLE" id="1992040276%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-v-n-o-d-e_-a-l-l-o-w-e-d_-c-e-r-t-i-f-i-c-a-t-e_-d-b_-t-a-b-l-e.html"><span><span>VNODE_ALLOWED_CERTIFICATE_DB_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1992040276%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-v-n-o-d-e_-a-l-l-o-w-e-d_-c-e-r-t-i-f-i-c-a-t-e_-d-b_-t-a-b-l-e.html">VNODE_ALLOWED_CERTIFICATE_DB_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"vnode_mtls_allowed_certificate"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1814166325%2FProperties%2F-1158521784" anchor-label="VNODE_CERTIFICATE_DB_TABLE" id="-1814166325%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-v-n-o-d-e_-c-e-r-t-i-f-i-c-a-t-e_-d-b_-t-a-b-l-e.html"><span><span>VNODE_CERTIFICATE_DB_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1814166325%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-v-n-o-d-e_-c-e-r-t-i-f-i-c-a-t-e_-d-b_-t-a-b-l-e.html">VNODE_CERTIFICATE_DB_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"vnode_certificate"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1581316165%2FProperties%2F-1158521784" anchor-label="VNODE_GROUP_APPROVAL_RULES" id="1581316165%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-v-n-o-d-e_-g-r-o-u-p_-a-p-p-r-o-v-a-l_-r-u-l-e-s.html"><span><span>VNODE_GROUP_APPROVAL_RULES</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1581316165%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-v-n-o-d-e_-g-r-o-u-p_-a-p-p-r-o-v-a-l_-r-u-l-e-s.html">VNODE_GROUP_APPROVAL_RULES</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"vnode_group_approval_rules"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="783412886%2FProperties%2F-1158521784" anchor-label="VNODE_GROUP_PARAMETERS" id="783412886%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-v-n-o-d-e_-g-r-o-u-p_-p-a-r-a-m-e-t-e-r-s.html"><span><span>VNODE_GROUP_PARAMETERS</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="783412886%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-v-n-o-d-e_-g-r-o-u-p_-p-a-r-a-m-e-t-e-r-s.html">VNODE_GROUP_PARAMETERS</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"vnode_group_parameters"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="555351502%2FProperties%2F-1158521784" anchor-label="VNODE_GROUP_POLICY" id="555351502%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-v-n-o-d-e_-g-r-o-u-p_-p-o-l-i-c-y.html"><span><span>VNODE_GROUP_POLICY</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="555351502%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-v-n-o-d-e_-g-r-o-u-p_-p-o-l-i-c-y.html">VNODE_GROUP_POLICY</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"vnode_group_policy"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="51778200%2FProperties%2F-1158521784" anchor-label="VNODE_GROUP_REGISTRATION_TABLE" id="51778200%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-v-n-o-d-e_-g-r-o-u-p_-r-e-g-i-s-t-r-a-t-i-o-n_-t-a-b-l-e.html"><span><span>VNODE_GROUP_REGISTRATION_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="51778200%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-v-n-o-d-e_-g-r-o-u-p_-r-e-g-i-s-t-r-a-t-i-o-n_-t-a-b-l-e.html">VNODE_GROUP_REGISTRATION_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"vnode_registration_request"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1549841043%2FProperties%2F-1158521784" anchor-label="VNODE_KEY_DB_TABLE" id="1549841043%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-v-n-o-d-e_-k-e-y_-d-b_-t-a-b-l-e.html"><span><span>VNODE_KEY_DB_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1549841043%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-v-n-o-d-e_-k-e-y_-d-b_-t-a-b-l-e.html">VNODE_KEY_DB_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"vnode_key"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1351736665%2FProperties%2F-1158521784" anchor-label="VNODE_MEMBER_INFO" id="-1351736665%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-v-n-o-d-e_-m-e-m-b-e-r_-i-n-f-o.html"><span><span>VNODE_MEMBER_INFO</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1351736665%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-v-n-o-d-e_-m-e-m-b-e-r_-i-n-f-o.html">VNODE_MEMBER_INFO</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"vnode_member_info"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1606606515%2FProperties%2F-1158521784" anchor-label="VNODE_MEMBER_SIGNATURE" id="-1606606515%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-v-n-o-d-e_-m-e-m-b-e-r_-s-i-g-n-a-t-u-r-e.html"><span><span>VNODE_MEMBER_SIGNATURE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1606606515%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-v-n-o-d-e_-m-e-m-b-e-r_-s-i-g-n-a-t-u-r-e.html">VNODE_MEMBER_SIGNATURE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"vnode_member_signature"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-488345275%2FProperties%2F-1158521784" anchor-label="VNODE_PRE_AUTH_TOKENS" id="-488345275%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-v-n-o-d-e_-p-r-e_-a-u-t-h_-t-o-k-e-n-s.html"><span><span>VNODE_PRE_AUTH_TOKENS</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-488345275%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-v-n-o-d-e_-p-r-e_-a-u-t-h_-t-o-k-e-n-s.html">VNODE_PRE_AUTH_TOKENS</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"vnode_pre_auth_tokens"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-134879002%2FProperties%2F-1158521784" anchor-label="VNODE_VAULT_DB_TABLE" id="-134879002%2FProperties%2F-1158521784" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:db-schema:dokkaHtmlPartial/main" data-filterable-set=":data:db-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-v-n-o-d-e_-v-a-u-l-t_-d-b_-t-a-b-l-e.html"><span><span>VNODE_VAULT_DB_TABLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-134879002%2FProperties%2F-1158521784"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:db-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-v-n-o-d-e_-v-a-u-l-t_-d-b_-t-a-b-l-e.html">VNODE_VAULT_DB_TABLE</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator"> = </span><span class="token string">"vnode_vault"</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
+
