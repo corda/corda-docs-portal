@@ -89,7 +89,7 @@ You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
 
 To run your first flow:
 1. Find the `holdingidentityshorthash` for the virtual node you want to trigger the flow on. You can do this by running the `listVnodes` Gradle task to display a list of the configured virtual nodes:
-   {{< figure src="list-vnodes.png" width="80%" figcaption="Running the listVnodes gradle task" >}}
+   {{< figure src="list-vnodes.png" width="100%" figcaption="Running the listVnodes gradle task" >}}
    The 12 digit hash is the `holdingidentityshorthash` that acts as the unique identifier for a virtual node.
 
 2. Expand the `POST /flow/{holdingidentityshorthash}` endpoint in the Flow Management API section in Swagger and click **Try it out**.
