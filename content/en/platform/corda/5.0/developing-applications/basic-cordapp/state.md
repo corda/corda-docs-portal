@@ -8,7 +8,8 @@ menu:
     weight: 2000
 ---
 
-This tutorial guides you through writing the two states you need in your CorDapp: `AppleStamp` and `BasketofApples`. You will create these states in the `ledger-utxo-example-apples-contract/src/main/kotlin/net/cordapp/utxo/apples/states` directory in this tutorial.
+This tutorial guides you through writing the two states you need in your CorDapp: `AppleStamp` and `BasketofApples`.
+You will create these states in the `contracts/src/main/kotlin/com/r3/developers/apples/states` directory.
 
 ## Learning Objectives
 
@@ -23,14 +24,16 @@ Before you start building states, read more about [states]({{< relref "../compon
 
 First, create the `AppleStamp` state. This state is the voucher issued to customers.
 
-1. Right-click the **states** folder, select **New > Kotlin Class** and create a file called `AppleStamp`.
-2. Open the file.
+1. Go to the `contracts/src/main/kotlin/com/r3/developers/apples` folder.
+2. Right-click the **states** folder, select **New > Kotlin Class** and create a file called `AppleStamp`.
+3. Open the file.
 
 ### Add Annotations
 
-The first thing you should do when writing a state is add the `@BelongsToContract` annotation. This annotation establishes the relationship between a state and a contract. Without this, your state does not know which contract is used to verify it.
+The first thing you should do when writing a state is add the `@BelongsToContract` annotation. This annotation
+establishes the relationship between a state and a contract. Without this, your state does not know which contract is used to verify it.
 
-Add the annotation `@BelongsToContract(ApplesStampContract::class)` to your state. The contract will be defined later.
+Add the annotation `@BelongsToContract(AppleStampContract::class)` to your state. The contract will be defined later.
 
 This what your code should look like so far:
 
@@ -65,23 +68,34 @@ class AppleStamp : ContractState
    * The issuer of the stamp (`issuer`)
    * The current owner of the stamp (`holder`)
 
-2. All `ContractStates` must include a parameter to indicate the participants that store the states. Add this property to the `AppleStamp`:
+2. All `ContractStates` must include a parameter to indicate the participants that store the states. As `ContractState`
+is a Java API, you must store the participants as private members.
+Add this property to the `AppleStamp`:
 
    ```kotlin
-   override val participants: List<PublicKey>
+   private val participants: List<PublicKey>
    ```
 
-After adding these properties, your code should look as follows:
+3. To expose the `participants` value, override the `getParticipants()` method in the `AppleStamp`:
+
+   ```kotlin
+   override fun getParticipants(): List<PublicKey> = participants
+   ```
+
+After following these steps, your code should look as follows:
 
 ```kotlin
 @BelongsToContract(AppleStampContract::class)
 class AppleStamp(
     val id: UUID,
     val stampDesc: String,
-    val issuer: Party,
-    val holder: Party,
-    override val participants: List<PublicKey>
-) : ContractState
+    val issuer: PublicKey,
+    val holder: PublicKey,
+    private val participants: List<PublicKey>
+) : ContractState {
+
+    override fun getParticipants(): List<PublicKey> = participants
+}
 ```
 
 {{< note >}}
@@ -95,63 +109,82 @@ If you are using IntelliJ or another IDE, the IDE automatically adds the imports
 Once you have added all imports, your code should look like this:
 
 ```kotlin
-package net.cordapp.utxo.apples.states
+package com.r3.developers.apples.states
 
-import net.corda.v5.ledger.common.Party
+import com.r3.developers.apples.contracts.AppleStampContract
 import net.corda.v5.ledger.utxo.BelongsToContract
 import net.corda.v5.ledger.utxo.ContractState
-import net.cordapp.utxo.apples.contracts.AppleStampContract
 import java.security.PublicKey
-import java.util.UUID
+import java.util.*
 
 @BelongsToContract(AppleStampContract::class)
 class AppleStamp(
     val id: UUID,
     val stampDesc: String,
-    val issuer: Party,
-    val holder: Party,
-    override val participants: List<PublicKey>
-) : ContractState
+    val issuer: PublicKey,
+    val holder: PublicKey,
+    private val participants: List<PublicKey>
+) : ContractState {
+
+    override fun getParticipants(): List<PublicKey> = participants
+}
+
 ```
 
 ### Create the `BasketOfApples` State
 
-The `BasketOfApples` state is the basket of apples that Farmer Bob self-issues to prepare the apples for Peter. Now that you have written your first state, try writing the `BasketOfApples` state using the following properties:
+The `BasketOfApples` state is the basket of apples that Farmer Bob self-issues to prepare the apples for Dave. Now that you have written your first state, try writing the `BasketOfApples` state using the following properties:
 
 * `description` - The brand or type of apple. Use type `String`.
-* `farm` - The origin of the apples. Use type `Party`.
-* `owner` - The person exchanging the basket of apples for the voucher (Farmer Bob). Use type `Party`.
+* `farm` - The origin of the apples. Use type `PublicKey`.
+* `owner` - The current owner of the basket. Use type `PublicKey`.
 * `weight` - The weight of the basket of apples. Use type `int`.
 
-The `BasketOfApples` state is involved in two transactions. In the first transaction, Farmer Bob self-issues the `BasketOfApples`. The `Farm` party then fills both the `owner` and `farm` fields of the transaction.
+You will also need to define a `participants` property and override the getter method, as you did when creating the `AppleStamp` contract.
+
+The `BasketOfApples` state is involved in two transactions. In the first transaction, Farmer Bob self-issues the `BasketOfApples`.
+At this point, Farmer Bob is both the `owner` and `farm` of the transaction. The second transaction occurs when Dave
+wishes to redeem his `AppleStamp` for the `BasketOfApples`. At this point, the owner changes from Bob to Dave.
+
+To enable this, implement a `changeOwner` function within the state. It allows an updated state to be returned with a new owner.
+Add the following code to your `BasketOfApples` state class:
+
+```kotlin
+fun changeOwner(buyer: PublicKey): BasketOfApples {
+    val participants = listOf(farm, buyer)
+    return BasketOfApples(description, farm, buyer, weight, participants)
+}
+```
 
 #### Check Your Work
 
 Once you’ve written the `BasketOfApples` state, check your code against the sample below. Your code should look something like this:
 
 ```kotlin
-package net.cordapp.utxo.apples.states
+package com.r3.developers.apples.states
 
-import net.corda.v5.ledger.common.Party
+import com.r3.developers.apples.contracts.BasketOfApplesContract
 import net.corda.v5.ledger.utxo.BelongsToContract
 import net.corda.v5.ledger.utxo.ContractState
-import net.cordapp.utxo.apples.contracts.BasketOfApplesContract
 import java.security.PublicKey
 
 @BelongsToContract(BasketOfApplesContract::class)
 class BasketOfApples(
     val description: String,
-    val farm: Party,
-    val owner: Party,
+    val farm: PublicKey,
+    val owner: PublicKey,
     val weight: Int,
-    override val participants: List<PublicKey>
+    private val participants: List<PublicKey>
 ) : ContractState {
 
-    fun changeOwner(buyer: Party): BasketOfApples {
-        val participants = listOf(farm.owningKey, buyer.owningKey)
+    override fun getParticipants(): List<PublicKey> = participants
+
+    fun changeOwner(buyer: PublicKey): BasketOfApples {
+        val participants = listOf(farm, buyer)
         return BasketOfApples(description, farm, buyer, weight, participants)
     }
 }
+
 ```
 
 ## Next Steps

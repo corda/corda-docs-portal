@@ -20,7 +20,7 @@ Follow this learning path to build your first CorDapp with a step-by-step guide.
 Before you start building your first CorDapp:
 - Read about [Corda key concepts]({{< relref "../../key-concepts/_index.md" >}}).
 - Install the required [prerequisites]({{< relref "../tooling/_index.md" >}}).
-- Run the sample CorDapp.
+- Read the CorDapp Standard Development Environment (CSDE) [installation instructions]({{< relref "../getting-started/cordapp-standard-development-environment/csde.md" >}}).
 
 ## The Story
 
@@ -29,23 +29,23 @@ This example showcases a delivery versus payment (DvP) scenario. You are buildin
 There are two parties involved in this transaction:
 
 - The owner of the orchard - Farmer Bob.
-- A customer named Peter.
+- A customer named Dave.
 
 Your CorDapp must follow this process:
 
-1. Farmer Bob creates and issues a voucher to Peter for the apples he wishes to buy.
-2. Farmer Bob prepares the amount of apples Peter requested.
-3. Peter goes to the orchard to pick up his apples and redeems his voucher.
-4. The voucher is marked as spent and Farmer Bob gives Peter his apples.
+1. Farmer Bob creates and issues a voucher to Dave for the apples he wishes to buy.
+2. Farmer Bob prepares the amount of apples Dave requested.
+3. Dave goes to the orchard to pick up his apples and redeems his voucher.
+4. The voucher is marked as spent and Farmer Bob gives Dave his apples.
 
 An important feature of this CorDapp is that the voucher cannot be used more than once. It must be considered invalid after it is redeemed.
 
 ## Corda Implementation
 
-1. Farmer Bob issues a voucher to Peter via a ledger transaction. In your CorDapp this voucher is called `AppleStamp` and is a [state]({{< relref "../components/ledger/states.md" >}}) on the [ledger]({{< relref "../components/ledger/_index.md" >}}). One transaction has been performed so far.
-2. When Farmer Bob prepares the apples Peter requested, he self-issues a bushel of apples via a self-issue transaction. This is another state on the ledger - `BasketofApples`. Two transactions have been performed so far.
-3. Next, Peter goes to the orchard to pick up his apples and redeems his voucher, triggering a transaction on the ledger that consumes the `AppleStamp` state. Three transactions have been performed so far.
-4. The `BasketofApples` state is transferred to Peter when the `AppleStamp` state is consumed and Farmer Bob gives Peter his apples.
+1. Farmer Bob issues a voucher to Dave via a ledger transaction. In your CorDapp this voucher is called `AppleStamp` and is a [state]({{< relref "../components/ledger/states.md" >}}) on the [ledger]({{< relref "../components/ledger/_index.md" >}}). One transaction has been performed so far.
+2. When Farmer Bob prepares the apples Dave requested, he self-issues a bushel of apples via a self-issue transaction. This is another state on the ledger - `BasketofApples`. Two transactions have been performed so far.
+3. Next, Dave goes to the orchard to pick up his apples and redeems his voucher, triggering a transaction on the ledger that consumes the `AppleStamp` state. Three transactions have been performed so far.
+4. The `BasketofApples` state is transferred to Dave when the `AppleStamp` state is consumed and Farmer Bob gives Dave his apples.
 
 All of these transactions are initiated by [flows]({{< relref "../components/ledger/flows.md" >}}).
 

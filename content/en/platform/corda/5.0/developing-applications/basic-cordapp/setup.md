@@ -8,10 +8,8 @@ menu:
     weight: 1000
 ---
 
-After you have completed this tutorial, you will know how to create two modules containing the required setup to build your CorDapp. You will create the following modules:
-
-* `ledger-utxo-example-apples-app` - This is where you will write your application logic.
-* `ledger-utxo-example-apples-contract` - This is where your object definitions will be placed.
+After you have completed this tutorial, you will have modified the CSDE environment to make it ready for building your CorDapp.
+You will have also created three packages within the existing CSDE project structure.
 
 {{< note >}}
 The packages are not required but they define a suggested structure for you to follow.
@@ -19,61 +17,42 @@ The packages are not required but they define a suggested structure for you to f
 
 ## Initial Setup of Your CorDapp
 
-Create two modules in the project's root directory.
+In this tutorial, you will use the CSDE repository as a template and build on top of it.
+This project already contains some example flows, contracts, and states.
 
-1. Create the `ledger-utxo-example-apples-app` module by performing the following steps:
+1. Clone or fork the [CSDE repository](https://github.com/corda/CSDE-cordapp-template-kotlin).
 
-   a. Include the following `build.gradle`:
+2. Update the `workflows` module by performing the following steps:
+
+   a. Update the CorDapp's configuration in the `workflows` module `build.gradle` file to reflect the purpose of your CorDapp:
 
    ```kotlin
-   plugins {
-        id 'net.corda.plugins.cordapp-cpb2' version '7.0.1-Hawk'
-   }
-
-   cordapp {
-        targetPlatformVersion 999
-        minimumPlatformVersion 999
-        workflow {
-            name "Apples utxo example app"
-            versionId 1
-            vendor "R3"
-        }
-    }
-
-   dependencies {
-       cordaProvided 'net.corda:corda-ledger-utxo:5.0.0.523-Hawk1.0.1'
-       cordapp project(':testing:cpbs:ledger-apples-example:ledger-utxo-apples-example-contract')
-
-       // Common and API packages pulled in as transitive dependencies through client
-       cordapp 'com.r3.corda.notary.plugin.nonvalidating:notary-plugin-non-validating-client:5.0.0.0-Hawk1.0.1'
+    workflow {
+    name "Apples utxo example workflow"
+    versionId 1
+    vendor "VendorNameHere"
     }
     ```
 
-   b. Create the `net.cordapp.utxo.apples.flows` package.
+   b. Create the `com.r3.developers.apples.workflows` package. If using IntelliJ, you can do this by right-clicking
+the **kotlin** folder within the **workflows** folder and then selecting **New > Package**.
 
-2. Create the `ledger-utxo-example-apples-contract` module by performing the following steps:
+3. Update the `contracts` module by performing the following steps:
 
-   a. Include the following `build.gradle`:
+   a. Update the CorDapp's configuration in the `contracts` module `build.gradle` file to reflect the purpose of your CorDapp:
    ```kotlin
-   plugins {
-        id 'net.corda.plugins.cordapp-cpb2' version '7.0.1-Hawk'
-   }
-
-   cordapp {
-        targetPlatformVersion 999
-        minimumPlatformVersion 999
-        contract {
-            name "Apples utxo example contract"
-            versionId 1
-            vendor "R3"
-        }
-    }
-    dependencies {
-        cordaProvided 'net.corda:corda-ledger-utxo:5.0.0.523-Hawk1.0.1'
+    contract {
+    name "Apples utxo example contract"
+    versionId 1
+    vendor "VendorNameHere"
     }
     ```
 
-   b. Create two packages: `net.cordapp.utxo.apples.contracts` and `net.cordapp.utxo.apples.states`.
+   b. Create two packages:
+
+   * com.r3.developers.apples.contracts
+   * com.r3.developers.apples.states
+
 
 ## Next steps
 
