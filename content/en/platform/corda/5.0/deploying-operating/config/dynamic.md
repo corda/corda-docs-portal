@@ -63,7 +63,7 @@ For example, to set fields in the [messaging]({{< relref "./fields/messaging.md"
 
 ## Retrieving Current Configuration Values
 
-You can retrieve the current values of the fields in a particular configuration section, using the GET method of the <a href ="../../reference/rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/get_config__section_">`/api/v1/config` endpoint</a>.
+You can retrieve the current values of the fields in a particular configuration section by using the GET method of the <a href ="../../reference/rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/get_config__section_">`/api/v1/config` endpoint</a>.
 
 For example, to retrieve the fields in the [messaging]({{< relref "./fields/messaging.md" >}}) section using Bash with Curl or PowerShell:
 
