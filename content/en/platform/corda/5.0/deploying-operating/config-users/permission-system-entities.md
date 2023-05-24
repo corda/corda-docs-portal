@@ -1,14 +1,15 @@
 ---
 date: '2023-04-24'
+version: 'Corda 5.0'
 title: "Permission System Entities"
 menu:
-  corda-5:
-    parent: corda-5-cluster-config-users
-    identifier: corda-5-cluster-permission-system-entities
+  corda5:
+    parent: corda5-cluster-users
+    identifier: corda5-cluster-permission-system-entities
     weight: 3000
-section_menu: corda-5
+section_menu: corda5
 ---
-
+# Permission System Entities
 The role-based access control (RBAC) permissions system in Corda 5  is made up of multiple entities.
 The following section describes those entities and relationships between them.
 
@@ -16,7 +17,7 @@ The following section describes those entities and relationships between them.
 
 This entity represents a human user or system user.
 
-### Attributes
+#### Attributes
 
 * `Full Name` is a human-readable name. This is a property which cannot be used to code any permissions against it.
   It also has a UUID identifier for a concrete reference to the instance of an entity.
@@ -35,7 +36,7 @@ This entity represents a human user or system user.
   case, the user is assumed to belong to the "root" group. In the current model, the user can belong to just a
   single group. However, groups can be nested.
 
-### Relationships
+#### Relationships
 
 * `User` can be associated one-to-one with a `Group`.
 * `User` can have multiple roles associated with it.
@@ -46,12 +47,12 @@ This entity represents a human user or system user.
 
 This entity represents a set of `Permissions`.
 
-### Properties
+#### Properties
 
 * `Name` is a human-readable value for a role. It also has a UUID identifier for a concrete reference to
   the instance of an entity.
 
-### Relationships
+#### Relationships
 
 Each role can be associated with multiple `Permissions`. A given `Permission` can belong to multiple roles. Hence,
 there is a many-to-many relationship between `Role` and `Permission`.
@@ -60,7 +61,7 @@ there is a many-to-many relationship between `Role` and `Permission`.
 
 This entity represents an individual fine-grained permission.
 
-### Properties
+#### Properties
 
 * `Virtual Node ID` is an optional identifier of the virtual node within physical node the permission applies to.
 * `Permission type` defines whether this is an "allow" or "deny" type of permission. "Deny" permissions will always
@@ -77,7 +78,7 @@ assignment of a `User` to a `Group`, creation of a `Role`, and so on.
 Writing to this entity's database table is performed atomically in the same transaction as the permission data change.
 Once written, the rows of this table are never modified or deleted, so it is an append-only entity.
 
-### Properties
+#### Properties
 
 * `Actor User` is the identifier of the user performing an action.
 * `Change Type` means an enumerated set of actions defining the nature of the change done to the permission data. For example,

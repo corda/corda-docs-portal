@@ -1,14 +1,15 @@
 ---
 date: '2023-04-24'
+version: 'Corda 5.0'
 title: "Administrator"
 menu:
-  corda-5:
-    parent: corda-5-cluster-config-users
-    identifier: corda-5-cluster-administrator
+  corda5:
+    parent: corda5-cluster-users
+    identifier: corda5-cluster-administrator
     weight: 1000
-section_menu: corda-5
+section_menu: corda5
 ---
-
+# Administrator
 By default, when a cluster starts, a "super admin" REST user is created, which has unrestricted access permissions.
 This user is created using a special utility that performs a one-time write to the RBAC permissions database.
 

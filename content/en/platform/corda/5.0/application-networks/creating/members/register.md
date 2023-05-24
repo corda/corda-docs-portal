@@ -1,5 +1,6 @@
 ---
 date: '2023-04-13'
+version: 'Corda 5.0'
 title: "Register the Member"
 menu:
   corda5:
@@ -7,10 +8,11 @@ menu:
     parent: corda5-networks-members
     weight: 5000
 section_menu: corda5
-
 ---
 
-This section describes how to register a member on a network. You can learn more about configuring the registration process in the [Managing Members section]({{< relref "../../managing/registration-requests/registration-approval.md" >}}).
+# Register the Member
+
+This section describes how to register a member on a network. You can learn more about configuring the registration process in the [Managing Members section]({{< relref "../../managing/registration-requests/_index.md" >}}).
 This section contains the following:
 1. [Build Registration Context]({{< relref "#build-registration-context" >}})
 2. [Register the Member]({{< relref "#register-the-member" >}})
@@ -56,15 +58,14 @@ To register a member, run the following command:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": { "action": "requestJoin", "context": '$REGISTRATION_CONTEXT' } }' $API_URL/membership/$HOLDING_ID
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": { "context": '$REGISTRATION_CONTEXT' } }' $API_URL/membership/$HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
 $REGISTER_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/membership/$HOLDING_ID" -Body (ConvertTo-Json -Depth 4 @{
     memberRegistrationRequest = @{
-        action = "requestJoin"
-        context = $REGISTRATION_CONTEXT
+       context = $REGISTRATION_CONTEXT
     }
 })
 $REGISTER_RESPONSE.registrationStatus
@@ -78,7 +79,6 @@ If you are using the Swagger UI, use the following:
 ```shell
 {
   "memberRegistrationRequest":{
-    "action":"requestJoin",
     "context": <registration-context>
   }
 }
@@ -91,7 +91,7 @@ You can confirm if the member was onboarded successfully by checking the status 
 {{% tab name="Bash"%}}
 ```
 export REGISTRATION_ID=<registration-ID>
-curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/membership/$HOLDING_ID/$REGISTRATION_ID
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/membership/$HOLDING_ID/$REGISTRATION_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -107,7 +107,7 @@ After registration, you can use the look-up functions provided by the `MemberLoo
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```bash
-curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/members/$HOLDING_ID
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/members/$HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}

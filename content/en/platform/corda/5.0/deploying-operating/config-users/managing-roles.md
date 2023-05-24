@@ -1,14 +1,15 @@
 ---
 date: '2023-04-24'
+version: 'Corda 5.0'
 title: "Managing Roles and Permissions"
 menu:
-  corda-5:
-    parent: corda-5-cluster-config-users
-    identifier: corda-5-cluster-managing-roles
+  corda5:
+    parent: corda5-cluster-users
+    identifier: corda5-cluster-managing-roles
     weight: 2000
-section_menu: corda-5
+section_menu: corda5
 ---
-
+# Managing Roles and Permissions
 By default, when a cluster starts, the "super admin" REST user is created, which has unrestricted access permissions.
 While this account can be used to perform any action, there is room for error if not used carefully.
 Role-based access control (RBAC) permission templates enable you to create fine-grained roles for specific actions such as:

@@ -1,5 +1,6 @@
 ---
 date: '2022-12-20'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-cordacli-database
@@ -8,8 +9,8 @@ menu:
 section_menu: corda5
 title: "database"
 ---
-
-This section lists the Corda CLI `database` arguments. You can use these commands to manually perform setup actions in the database, as described in the [Manual Bootstrapping]({{< relref "../../deploying-operating/deploying/bootstrapping.md" >}}) section.
+# database
+This section lists the Corda CLI `database` arguments. You can use these commands to manually perform setup actions in the database, as described in the [Manual Bootstrapping]({{< relref "../../deploying-operating/deployment/deploying/bootstrapping.md" >}}) section.
 
 | <div style="width:160px">Argument</div> | Description                                                                        |
 | --------------------------------------- | ---------------------------------------------------------------------------------- |

@@ -1,5 +1,6 @@
 ---
 date: '2023-04-07'
+version: 'Corda 5.0'
 title: "Build the MGM CPI"
 menu:
   corda5:
@@ -9,10 +10,11 @@ menu:
 section_menu: corda5
 ---
 
+# Build the MGM CPI
+
 This section describes how to build a member CPI and upload it to the network. It contains the following:
 1. [Set Variables]({{< relref "#set-variables" >}})
 2. [Select a Certificate Authority]({{< relref "#select-a-certificate-authority" >}})
-3. [Create the CPB]({{< relref "#create-the-cpb" >}})
 3. [Create the Group Policy File]({{< relref "#create-the-group-policy-file" >}})
 3. [Create the CPI File]({{< relref "#create-the-cpi-file" >}})
 4. [Import Code Signing Certificates]({{< relref "#import-code-signing-certificates" >}})
@@ -97,15 +99,6 @@ Corda uses an external Certificate Authority (CA) for the keys it generates.
 This is mandatory for P2P TLS certificates, and optionally, they may also be used for [session certificates]({{< relref "../optional/session-certificates.md">}}), depending on the network configuration defined by the MGM operator.
 This root CA certificate in PEM format must be included later when onboarding the MGM.
 
-## Create the CPB
-
-As with all {{< tooltip >}}CPI{{< definition term="CPI" >}}{{< /tooltip >}} files, the MGM CPI requires a group policy file and a {{< tooltip >}}CPB{{< definition term="CPB" >}}{{< /tooltip >}} file. However, the The MGM CPI does not contain any application code and so you can either build an empty CPB yourself or you can run the following to build an empty CPB using the `corda-runtime-os` GitHub repository:
-``` shell
-cd "$RUNTIME_OS"
-./gradlew testing:cpbs:mgm:build
-cp testing/cpbs/mgm/build/libs/mgm-5.0.0.0-SNAPSHOT-package.cpb "$WORK_DIR"
-```
-
 ## Create the Group Policy File
 
 As most of the information in a group policy file is exported by the MGM, the initial MGM group policy is a much smaller file than that needed to create a member.
@@ -114,7 +107,7 @@ The MGM group policy file only requires a flag to indicate that a group ID must 
 Registration for an MGM is essentially finalising setup of the the group, but currently the registration terminology is kept in-line with the member setup.
 
 This is a simple file that you can construct manually. 
-For example, to manually create the `GroupPolicy.json` file in the same directory as the CPB created in the previous example:
+For example, to manually create the `GroupPolicy.json` file in your working directory:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -143,13 +136,12 @@ Add-Content $WORK_DIR/GroupPolicy.json @"
 
 ## Create the CPI File
 
-Build a CPI using the Corda CLI, passing in your generated MGM CPB and `GroupPolicy.json` files:
+Build a CPI using the Corda CLI, passing in your generated `GroupPolicy.json` file:
 
    {{< tabs name="build-cpi">}}
    {{% tab name="Bash" %}}
    ```shell 
    ./corda-cli.sh package create-cpi \
-    --cpb <CPB_FILE> \
     --group-policy <GROUP_POLICY_FILE_> \
     --cpi-name "<CPI_Name>" \
     --cpi-version "1.0.0.0-SNAPSHOT" \
@@ -162,7 +154,6 @@ Build a CPI using the Corda CLI, passing in your generated MGM CPB and `GroupPol
    {{% tab name="PowerShell" %}}
    ```shell 
    corda-cli.cmd package create-cpi `
-    --cpb <CPB_FILE> `
     --group-policy <GROUP_POLICY_FILE_> `
     --cpi-name "<CPI_Name>" `
     --cpi-version "1.0.0.0-SNAPSHOT" `
@@ -173,6 +164,10 @@ Build a CPI using the Corda CLI, passing in your generated MGM CPB and `GroupPol
    ```
    {{% /tab %}}
    {{< /tabs >}}
+
+{{< note >}}
+Unlike other CPIs, an MGM CPI does not require a CPB file.
+{{< /note >}}
 
 ## Import Code Signing Certificates
 
