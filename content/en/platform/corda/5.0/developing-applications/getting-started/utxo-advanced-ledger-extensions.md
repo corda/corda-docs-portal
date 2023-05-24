@@ -55,6 +55,7 @@ The following contract defines three commands; Create, Update and Delete. The `v
     private void verifyCreate(UtxoLedgerTransaction transaction) {
         // Verify Create constraints
     }
+    
     private void verifyUpdate(UtxoLedgerTransaction transaction) {
         // Verify Update constraints
     }
