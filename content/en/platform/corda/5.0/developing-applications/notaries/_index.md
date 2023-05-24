@@ -14,8 +14,8 @@ section_menu: corda5
 
 This section outlines what you need to know to get a notary up and running on a Corda 5 application network.
 
-* [Network Member Roles](network-member-roles.md)
-* [Notary Plugin CorDapps](notary-plugin-cordapps.md)
+* [Network Member Roles]({{< relref "../notaries/network-member-roles.md" >}})
+* [Notary Plugin CorDapps]({{< relref "../notaries/notary-plugin-cordapps.md" >}})
 
 ## Points to Note
 
