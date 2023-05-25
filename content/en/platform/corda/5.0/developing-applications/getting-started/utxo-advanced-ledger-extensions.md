@@ -82,15 +82,21 @@ The verify function has been marked final. This change is necessary as it preven
 {{< /note >}}
 
   ```kotlin
+  
   public class ExampleContract implements Contract {
+  
     private interface ExampleContractCommand extends Command { }
     public static class Create implements ExampleContractCommand { }
     public static class Update implements ExampleContractCommand { }
     public static class Delete implements ExampleContractCommand { }
+    
     @Override
+    
     public final void verify(UtxoLedgerTransaction transaction) {
+    
         List<? extends ExampleContractCommand> commands = transaction
                 .getCommands(ExampleContractCommand.class);
+                
         for (ExampleContractCommand command : commands) {
             if (command instanceof Create) verifyCreate(transaction);
             else if (command instanceof Update) verifyUpdate(transaction);
@@ -103,15 +109,18 @@ The verify function has been marked final. This change is necessary as it preven
     protected void onVerifyUpdate(UtxoLedgerTransaction transaction) { }
     protected void onVerifyDelete(UtxoLedgerTransaction transaction) { }    
     private void verifyCreate(UtxoLedgerTransaction transaction) {
+    
         // Verify base Create constraints
         // Then verify additional Create constraints implemented by derived contracts
         onVerifyCreate(transaction);
+        
     }
     private void verifyUpdate(UtxoLedgerTransaction transaction) {
         // Verify base Update constraints
         // Then verify additional Update constraints implemented by derived contracts
         onVerifyUpdate(transaction);
     }
+    
     private void verifyDelete(UtxoLedgerTransaction transaction) {
         // Verify base Delete constraints
         // Then verify additional Delete constraints implemented by derived contracts
@@ -129,9 +138,12 @@ There are still some outstanding issues with this design, where this design appr
 The problem really lies in the `verify` function; for example:
 
 ```kotlin
+
   public final void verify(UtxoLedgerTransaction transaction) {
+  
     List<? extends ExampleContractCommand> commands = transaction
             .getCommands(ExampleContractCommand.class);
+            
     for (ExampleContractCommand command : commands) {
         if (command instanceof Create) verifyCreate(transaction);
         else if (command instanceof Update) verifyUpdate(transaction);
@@ -153,7 +165,8 @@ We can implement the verify function on the command itself. Instead of being an 
 In this case, we define a `VerifiableCommand` interface with a `verify` function, for example:
 
 ```kotlin
-public interface VerifiableCommand extends Command {
+
+    public interface VerifiableCommand extends Command {
     void verify(UtxoLedgerTransaction transaction);
 }
 ```
@@ -162,7 +175,8 @@ Now that we have a command which itself can implement contract verification cons
 We achieve this by making the default constructor package-private, so that only commands within the same package can extend it; for example:
 
 ```kotlin
-public class ExampleContractCommand implements VerifiableCommand {
+
+  public class ExampleContractCommand implements VerifiableCommand {
   ExampleContractCommand() { }
 }
 ```
@@ -170,26 +184,37 @@ public class ExampleContractCommand implements VerifiableCommand {
 Next, we can implement this interface as `Create`, `Update` and `Delete` commands, for example:
 
 ```kotlin
-public class Create extends ExampleContractCommand {
+
+    public class Create extends ExampleContractCommand {
+    
     @Override
+    
     public final void verify(UtxoLedgerTransaction transaction) {
+    
         // Verify base Create constraints
         // Then verify additional Create constraints implemented in derived commands
         onVerify(transaction);
+        
     }
     protected void onVerify(UtxoLedgerTransaction transaction) { }
 }
 public class Update extends ExampleContractCommand {
+
     @Override
+    
     public final void verify(UtxoLedgerTransaction transaction) {
+    
         // Verify base Update constraints
         // Then verify additional Update constraints implemented in derived commands
         onVerify(transaction);
+        
     }
     protected void onVerify(UtxoLedgerTransaction transaction) { }
 }
 public class Delete extends ExampleContractCommand {
+
     @Override
+    
     public final void verify(UtxoLedgerTransaction transaction) {
         // Verify base Delete constraints
         // Then verify additional Delete constraints implemented in derived commands
@@ -208,11 +233,15 @@ The `Create`, `Update` and `Delete` commands are not marked final, therefore we 
 As we have now delegated contract verification constraint logic to the commands themselves, we must also refactor the contract to support this delegation. The contract implementation in this case becomes incredibly simple, since it's no longer responsible for defining contract verification constraints, for example:
 
 ```kotlin
-  public final class ExampleContract implements Contract {
+
+    public final class ExampleContract implements Contract {
+    
       @Override
+      
       public void verify(UtxoLedgerTransaction transaction) {
          List<? extends ExampleContractCommand> commands = transaction
                   .getCommands(ExampleContractCommand.class);
+                  
           for (ExampleContractCommand command : commands) {
               command.verify(transaction);
           }
@@ -223,12 +252,13 @@ As we have now delegated contract verification constraint logic to the commands 
 This design addresses the outstanding issues in regard to being able to extend a contract with multiple commands, and being able to give command's names that make sense in the context that they're used; for example:
 
 ```kotlin
-  class Mint extends Create { ... }
-  class Issue extends Update { ... }
-  class Transfer extends Update { ... }
-  class Exchange extends Update { ... }
-  class Redeem extends Update { ... }
-  class Burn extends Delete { ... }
+
+    class Mint extends Create { ... }
+    class Issue extends Update { ... }
+    class Transfer extends Update { ... }
+    class Exchange extends Update { ... }
+    class Redeem extends Update { ... }
+    class Burn extends Delete { ... }
 ```
 
 {{< note >}}
@@ -260,10 +290,12 @@ The chainable API provides the component model for designing chainable states an
 A chainable state can be implemented by implementing the `ChainableState<T>` interface, for example:
 
 ```kotlin
-@BelongsToContract(ExampleChainableContract.class)
-public final class ExampleChainableState extends ChainableState<ExampleChainableState> {
+
+  @BelongsToContract(ExampleChainableContract.class)
+  public final class ExampleChainableState extends ChainableState<ExampleChainableState> {
   
   @Nullable
+  
   private final StaticPointer<ExampleChainableState> pointer;
   
   public ExampleChainableState(@NotNull final StaticPointer<ExampleChainableState> pointer) {
@@ -271,13 +303,15 @@ public final class ExampleChainableState extends ChainableState<ExampleChainable
   }
   
   @Nullable
-  public StaticPointer<ExampleChainableState> getPreviousStatePointer() {
-    return pointer;
+  
+   public StaticPointer<ExampleChainableState> getPreviousStatePointer() {
+      return pointer;
   }
   
   @NotNull
-  public List<PublicKey> getParticipants() {
-    return List.of(...);
+  
+   public List<PublicKey> getParticipants() {
+      return List.of(...);
   }
 }
 ```
@@ -291,15 +325,18 @@ The `ChainableContractCreateCommand` creates new chainable states and will verif
 * On chainable state(s) creating, the previous state pointer of every created chainable state must be null.
 
 ```kotlin
-public final class Create extends ChainableContractCreateCommand<ExampleChainableState> {
+
+  public final class Create extends ChainableContractCreateCommand<ExampleChainableState> {
   
   @NotNull
+  
   public Class<ExampleChainableState> getContractStateType() {
     return ExampleChainableState.class;
   }
   
   @Override
-  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+  
+   protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
     // Verify additional Create constraints
   }
 }
@@ -313,15 +350,19 @@ The `ChainableContractUpdateCommand` supports updating existing chainable states
 * On chainable state(s) updating, the previous state pointer of every created chainable state must be pointing to exactly one consumed chainable state, exclusively.
 
 ```kotlin
-public final class Update extends ChainableContractUpdateCommand<ExampleChainableState> {
+
+   public final class Update extends ChainableContractUpdateCommand<ExampleChainableState> {
   
-  @NotNull
-  public Class<ExampleChainableState> getContractStateType() {
-    return ExampleChainableState.class;
+   @NotNull
+   
+    public Class<ExampleChainableState> getContractStateType() {
+     return ExampleChainableState.class;
   }
   
-  @Override
-  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+   @Override
+  
+    protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+    
     // Verify additional Update constraints
   }
 }
@@ -330,16 +371,21 @@ public final class Update extends ChainableContractUpdateCommand<ExampleChainabl
 The `ChainableContractDeleteCommand` supports deleting existing chainable states and will verify the constraint chainable state(s) deleting, at least one chainable state must be consumed.
 
 ```kotlin
-public final class Delete extends ChainableContractDeleteCommand<ExampleChainableState> {
+
+    public final class Delete extends ChainableContractDeleteCommand<ExampleChainableState> {
   
-  @NotNull
-  public Class<ExampleChainableState> getContractStateType() {
-    return ExampleChainableState.class;
+    @NotNull
+    
+     public Class<ExampleChainableState> getContractStateType() {
+      return ExampleChainableState.class;
   }
   
-  @Override
-  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+   @Override
+  
+    protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+    
     // Verify additional Delete constraints
+    
   }
 }
 ```
@@ -349,11 +395,14 @@ public final class Delete extends ChainableContractDeleteCommand<ExampleChainabl
 A chainable contract can be implemented by extending the `ChainableContract` class; for example:
 
 ```kotlin
-public final class ExampleChainableContract extends ChainableContract {
+
+   public final class ExampleChainableContract extends ChainableContract {
   
-  @Override
-  public List<Class<? extends ChainableContractCommand<?>>> getPermittedCommandTypes() {
-    return List.of(Create.class, Update.class, Delete.class);
+   @Override
+  
+   public List<Class<? extends ChainableContractCommand<?>>> getPermittedCommandTypes() {
+      return List.of(Create.class, Update.class, Delete.class);
+      
   }
 }
 ```
@@ -371,9 +420,11 @@ The fungible API provides the component model for designing fungible states and 
 A fungible state can be implemented by implementing the `FungibleState<T>` interface; for example:
 
 ```kotlin
-public final class ExampleFungibleState extends FungibleState<NumericDecimal> {
+
+   public final class ExampleFungibleState extends FungibleState<NumericDecimal> {
   
   @NotNull
+  
   private final NumericDecimal quantity;
   
   public ExampleFungibleState(@NotNull final NumericDecimal quantity) {
@@ -381,19 +432,24 @@ public final class ExampleFungibleState extends FungibleState<NumericDecimal> {
   }
   
   @NotNull
+  
   public NumericDecimal getQuantity() {
     return quantity;
   }
   
   @NotNull
+  
   public List<PublicKey> getParticipants() {
     return List.of(...);
+  
   }
   
   
   @Override
-  public boolean isFungibleWith(@NotNull final FungibleState<NumericDecimal> other) {
-    return this == other || other instanceof ExampleFungibleState // && other fungibility rules.
+  
+   public boolean isFungibleWith(@NotNull final FungibleState<NumericDecimal> other) {
+   return this == other || other instanceof ExampleFungibleState // && other fungibility rules.
+   
   }
 }
 ```
@@ -407,16 +463,21 @@ The `FungibleContractCreateCommand` creates new fungible states and will verify 
 * On fungible state(s) creating, the quantity of every created fungible state must be greater than zero.
 
 ```kotlin
-public final class Create extends FungibleContractCreateCommand<ExampleFungibleState> {
+
+   public final class Create extends FungibleContractCreateCommand<ExampleFungibleState> {
   
-  @NotNull
-  public Class<ExampleFungibleState> getContractStateType() {
-    return ExampleFungibleState.class;
+   @NotNull
+   
+   public Class<ExampleFungibleState> getContractStateType() {
+   return ExampleFungibleState.class;
   }
   
-  @Override
-  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+   @Override
+  
+   protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+    
     // Verify additional Create constraints
+    
   }
 }
 ```
@@ -430,16 +491,21 @@ The `FungibleContractUpdateCommand` supports updating existing fungible states a
 * On fungible state(s) updating, the sum of the consumed states that are fungible with each other must be equal to the sum of the created states that are fungible with each other.
 
 ```kotlin
-public final class Update extends FungibleContractUpdateCommand<ExampleFungibleState> {
+
+   public final class Update extends FungibleContractUpdateCommand<ExampleFungibleState> {
   
-  @NotNull
-  public Class<ExampleFungibleState> getContractStateType() {
+   @NotNull
+   
+    public Class<ExampleFungibleState> getContractStateType() {
     return ExampleFungibleState.class;
   }
   
-  @Override
-  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+   @Override
+  
+    protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+    
     // Verify additional Update constraints
+    
   }
 }
 ```
@@ -451,16 +517,21 @@ The `FungibleContractDeleteCommand` supports deleting existing fungible states a
 * On fungible state(s) deleting, the sum of consumed states that are fungible with each other must be greater than the sum of the created states that are fungible with each other.
 
 ```kotlin
-public final class Delete extends FungibleContractDeleteCommand<ExampleFungibleState> {
+
+   public final class Delete extends FungibleContractDeleteCommand<ExampleFungibleState> {
   
-  @NotNull
-  public Class<ExampleFungibleState> getContractStateType() {
+   @NotNull
+   
+    public Class<ExampleFungibleState> getContractStateType() {
     return ExampleFungibleState.class;
   }
   
-  @Override
-  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+   @Override
+  
+    protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+    
     // Verify additional Delete constraints
+    
   }
 }
 ```
@@ -470,11 +541,14 @@ public final class Delete extends FungibleContractDeleteCommand<ExampleFungibleS
 A fungible contract can be implemented by extending the `FungibleContract` class, for example:
 
 ```kotlin
-public final class ExampleFungibleContract extends FungibleContract {
+
+   public final class ExampleFungibleContract extends FungibleContract {
   
-  @Override
-  public List<Class<? extends FungibleContractCommand<?>>> getPermittedCommandTypes() {
-    return List.of(Create.class, Update.class, Delete.class);
+   @Override
+   
+   public List<Class<? extends FungibleContractCommand<?>>> getPermittedCommandTypes() {
+   return List.of(Create.class, Update.class, Delete.class);
+   
   }
 }
 ```
@@ -492,22 +566,26 @@ The identifiable API provides the component model for designing identifiable sta
 An identifiable state can be implemented by implementing the `IdentifiableState` interface, for example:
 
 ```kotlin
-public final class ExampleIdentifiableState extends IdentifiableState {
+
+   public final class ExampleIdentifiableState extends IdentifiableState {
   
-  @Nullable
-  private final StateRef id;
+   @Nullable
+   
+   private final StateRef id;
   
-  public ExampleIdentifiableState(@Nullable final StateRef id) {
+   public ExampleIdentifiableState(@Nullable final StateRef id) {
     this.id = id;
   }
   
-  @Nullable
-  public StateRef getId() {
+   @Nullable
+  
+   public StateRef getId() {
     return id;
   }
   
-  @NotNull
-  public List<PublicKey> getParticipants() {
+   @NotNull
+   
+    public List<PublicKey> getParticipants() {
     return List.of(...);
   }
 }
@@ -519,16 +597,21 @@ Identifiable commands support creating, updating and deleting identifiable state
 The `IdentifiableContractCreateCommand` supports creating new identifiable states and verifies the identifiable state(s) creation, at least one identifiable state must be created.
 
 ```kotlin
-public final class Create extends IdentifiableContractCreateCommand<ExampleIdentifiableState> {
+
+   public final class Create extends IdentifiableContractCreateCommand<ExampleIdentifiableState> {
   
-  @NotNull
-  public Class<ExampleIdentifiableState> getContractStateType() {
-    return ExampleIdentifiableState.class;
+   @NotNull
+   
+   public Class<ExampleIdentifiableState> getContractStateType() {
+   return ExampleIdentifiableState.class;
   }
   
   @Override
+  
   protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+  
     // Verify additional Create constraints
+    
   }
 }
 ```
@@ -540,16 +623,21 @@ The `IdentifiableContractUpdateCommand` updates existing identifiable states and
 * On identifiable state(s) updating, each created identifiable state's identifier must match one consumed identifiable state's state ref or identifier, exclusively.
 
 ```kotlin
-public final class Update extends IdentifiableContractUpdateCommand<ExampleIdentifiableState> {
+
+   public final class Update extends IdentifiableContractUpdateCommand<ExampleIdentifiableState> {
   
   @NotNull
-  public Class<ExampleIdentifiableState> getContractStateType() {
-    return ExampleIdentifiableState.class;
+  
+   public Class<ExampleIdentifiableState> getContractStateType() {
+   return ExampleIdentifiableState.class;
   }
   
   @Override
+  
   protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-    // Verify additional Update constraints
+  
+  // Verify additional Update constraints
+  
   }
 }
 ```
@@ -557,16 +645,21 @@ public final class Update extends IdentifiableContractUpdateCommand<ExampleIdent
 The `IdentifiableContractDeleteCommand` deletes existing identifiable states and verifies the identifiable state(s) deletion, at least one identifiable state must be consumed.
 
 ```kotlin
-public final class Delete extends IdentifiableContractDeleteCommand<ExampleIdentifiableState> {
+
+   public final class Delete extends IdentifiableContractDeleteCommand<ExampleIdentifiableState> {
   
-  @NotNull
-  public Class<ExampleIdentifiableState> getContractStateType() {
+   @NotNull
+   
+   public Class<ExampleIdentifiableState> getContractStateType() {
     return ExampleIdentifiableState.class;
   }
   
-  @Override
-  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+   @Override
+   
+    protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+    
     // Verify additional Delete constraints
+    
   }
 }
 ```
@@ -576,11 +669,14 @@ public final class Delete extends IdentifiableContractDeleteCommand<ExampleIdent
 An identifiable contract can be implemented by extending the `IdentifiableContract` class, for example:
 
 ```kotlin
-public final class ExampleIdentifiableContract extends IdentifiableContract {
+
+   public final class ExampleIdentifiableContract extends IdentifiableContract {
   
-  @Override
-  public List<Class<? extends IdentifiableContractCommand<?>>> getPermittedCommandTypes() {
-    return List.of(Create.class, Update.class, Delete.class);
+   @Override
+   
+   public List<Class<? extends IdentifiableContractCommand<?>>> getPermittedCommandTypes() {
+   return List.of(Create.class, Update.class, Delete.class);
+   
   }
 }
 ```
