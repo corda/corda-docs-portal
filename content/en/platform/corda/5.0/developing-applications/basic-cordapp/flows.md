@@ -16,7 +16,7 @@ This tutorial guides you through writing the three flows you need in your CorDap
 * `PackageApplesFlow`
 * `RedeemApplesFlow`
 
-You will be creating these flows in the `ledger-utxo-example-apples-app/src/main/kotlin/net/cordapp/utxo/apples/flows` directory in this tutorial.
+You will be creating these flows in the `workflows/src/main/kotlin/com/r3/developers/apples/workflows` directory in this tutorial.
 
 ## Learning Objectives
 
@@ -37,11 +37,15 @@ The `CreateAndIssueAppleStampFlow` action requires interaction between the issue
 
 #### Implement the `CreateAndIssueAppleStampFlow` class
 
-Add the `CreateAndIssueAppleStampFlow` class to `net/cordapp/utxo/apples/flowsnet/cordapp/utxo/apples/flows/issue`. 
+1.	Go to `workflows/src/main/kotlin/com/r3/developers/apples` and right-click the `workflows` folder.
+2.	Select **New > Kotlin Class**.
+3.	Create a file called `CreateAndIssueAppleStampFlow`.
+
 
 #### Make the `CreateAndIssueAppleStampFlow` Startable by REST
 
-Add the `ClientStartableFlow` to the `CreateAndIssueAppleStampFlow`. This allows the flow to be started by REST. You must implement this interface if you want to trigger the flow with REST via Corda’s HTTP endpoints. So far your code should look like this:
+Add the `ClientStartableFlow` to the `CreateAndIssueAppleStampFlow`. This allows the flow to be started by REST.
+You must implement this interface if you want to trigger the flow with REST via Corda’s HTTP endpoints. So far your code should look like this:
 
 ```kotlin
 class CreateAndIssueAppleStampFlow : ClientStartableFlow
@@ -52,9 +56,10 @@ class CreateAndIssueAppleStampFlow : ClientStartableFlow
 1. Add the `@InitiatingFlow` annotation to `CreateAndIssueAppleStampFlow`.
 
    This indicates that this flow is the initiating flow in an initiating and initiated flow pair.
-2. Define a `protocol` in both the initiating and initiated flow.
+2. 2.	Define a protocol for the initiating flow as a parameter to the annotation.
+This will also be added to the initiated (responder) flow later. The protocol is a string name of your choice.
 
-So far your code should look like this:
+So far your code should look similar to this:
 
 ```kotlin
 @InitiatingFlow(protocol = "create-and-issue-apple-stamp")
@@ -64,7 +69,7 @@ class CreateAndIssueAppleStampFlow : ClientStartableFlow
 
 #### Add the `call` Method
 
-1. Add the `call` method with an `ClientRequestBody` argument and `String` return type (that `ClientStartableFlow` requires implemented).
+1. Add the `call` method with an `ClientRequestBody` argument and `String` return type (that `ClientStartableFlow` requires to be implemented).
 2. Add the `@Suspendable` annotation.
 
 {{< note >}}
@@ -122,7 +127,7 @@ class CreateAndIssueAppleStampFlow : ClientStartableFlow {
 
 `ClientRequestBody` contains the flow’s request parameters passed in via HTTP. To extract the data from the ClientRequestBody, you should create a class that represents the data.
 
-1. Create `CreateAndIssueAppleStampRequest` with the following properties:
+1. Create `CreateAndIssueAppleStampRequest` as a private data class within your flow class, with the following properties:
 
    * `stampDescription` - A `String` description for the `AppleStamp`.
    * `holder` - A `MemberX500Name` for the participant who is issued an `AppleStamp`.
@@ -160,9 +165,16 @@ class CreateAndIssueAppleStampFlow : ClientStartableFlow {
     @CordaInject
     lateinit var utxoLedgerService: UtxoLedgerService
 
+    private data class CreateAndIssueAppleStampRequest(
+        val stampDescription: String,
+        val holder: MemberX500Name
+    )
+
     @Suspendable
     override fun call(requestBody: ClientRequestBody): String {
-        val request = requestBody.getRequestBodyAs<CreateAndIssueAppleStampRequest>(jsonMarshallingService)
+        val request = requestBody.getRequestBodyAs(
+            jsonMarshallingService,
+            CreateAndIssueAppleStampRequest::class.java)
         val stampDescription = request.stampDescription
         val holderName = request.holder
     }
@@ -171,18 +183,22 @@ class CreateAndIssueAppleStampFlow : ClientStartableFlow {
 
 #### Obtain a Reference for the Notary
 
-In transactions with multiple parties, you need a notary service to reach consensus between the parties. Since this flow is communicating with Farmer Bob and Peter, you need the notary.
+Any flows using the UTXO ledger require a notary service to track the states created and consumed by transactions.
 
 Add the following code to retrieve a notary:
 
 ```kotlin
 // Retrieve the notaries public key (this will change)
 val notaryInfo = notaryLookup.notaryServices.single()
-val notaryKey = memberLookup.lookup().single {
-    it.memberProvidedContext["corda.notary.service.name"] == notaryInfo.name.toString()
-}.ledgerKeys.first()
-val notary = Party(notaryInfo.name, notaryKey)
 ```
+
+{{< note >}}
+This code assumes there is only one notary service on the network. If this assumption is false, an exception will be thrown.
+For a network with multiple notary services, the CorDapp needs to implement logic to choose the appropriate notary service
+for a transaction. Do not use `first()` instead of `single()` because it will result in non-deterministic selection of
+a notary service when there are multiple notary services on the network.
+{{</ note >}}
+
 
 #### Lookup the Issuer and Holder of the New `AppleStamp` State
 
@@ -194,9 +210,9 @@ val notary = Party(notaryInfo.name, notaryKey)
 Your code should now contain the following lines:
 
 ```kotlin
-val issuer = memberLookup.myInfo().let { Party(it.name, it.ledgerKeys.first()) }
+val issuer = memberLookup.myInfo().ledgerKeys.first()
 val holder = memberLookup.lookup(holderName)
-    ?.let { Party(it.name, it.ledgerKeys.first()) }
+    ?.let { it.ledgerKeys.first() }
     ?: throw IllegalArgumentException("The holder $holderName does not exist within the network")
 ```
 
@@ -218,23 +234,33 @@ Build the output `newStamp` using the parameters from the `AppleStamp` state:
 Use an `UtxoTransactionBuilder` to encapsulate everything into a transaction.
 
 1. Use `UtxoLedgerService.createTransactionBuilder` to create a `UtxoTransactionBuilder`.
-2. Use `setNotary` to set the transaction’s notary.
-3. Use `addOutputState` to add the `newStamp`(the created `AppleStamp`).
+2. Use `setNotary` to set the name of the transaction’s notary.
+3. Use `addOutputState` to add the `newStamp` (the created `AppleStamp`).
 4. Use `addCommand` to add the `Issue` command of the `AppleStampContract`.
-5. Use `addSignatories` to add the list of required signatories of the transaction. This should include the `issuer`'s and `holder`'s `owningKey`.
+5. Use `addSignatories` to add the list of required signatories of the transaction. This should include the `issuer` and the `holder`.
 6. Use `setTimeWindowUntil` to set a time window for the transaction in which the transaction is valid.
-7. Use `toSignedTransaction` to sign the transaction. You must pass in the issuer's (the participant creating the transaction) `owningKey`.
+In Corda 5, all transactions using the UTXO ledger must specify an upper bound time window in this way.
+7. Use `toSignedTransaction` to sign the transaction.
 
 This is what your transaction creation code should look like now:
 
 ```kotlin
+val newStamp = AppleStamp(
+    id = UUID.randomUUID(),
+    stampDesc = stampDescription,
+    issuer = issuer,
+    holder = holder,
+    participants = listOf(issuer, holder)
+)
+
 val transaction = utxoLedgerService.createTransactionBuilder()
-      .setNotary(notary)
-      .addOutputState(newStamp)
-      .addCommand(AppleStampContract.Commands.Issue())
-      .setTimeWindowUntil(Instant.now().plus(1, ChronoUnit.DAYS))
-      .addSignatories(listOf(issuer.owningKey, holder.owningKey))
-      .toSignedTransaction(issuer.owningKey)
+    .setNotary(notaryInfo.name)
+    .addOutputState(newStamp)
+    .addCommand(AppleCommands.Issue())
+    .setTimeWindowUntil(Instant.now().plus(1, ChronoUnit.DAYS))
+    .addSignatories(listOf(issuer, holder))
+    .toSignedTransaction()
+
 ```
 
 #### Finalize the Transaction
@@ -262,10 +288,9 @@ To finalize a transaction:
     // Send the transaction and state to the counterparty and let them sign it
     // Then notarise and record the transaction in both parties' vaults.
     utxoLedgerService.finalize(transaction, listOf(session))
-    } catch (e: Exception) {      
+    } catch (e: Exception) {
     }
    ```
-
 
 #### Return a Result from the Flow
 
@@ -294,12 +319,18 @@ As noted previously, the initiator flow needs a corresponding responder flow. Th
 
 #### Implement the `CreateAndIssueAppleStampResponderFlow` Class
 
-1. Add the `CreateAndIssueAppleStampResponderFlow` class to `net/cordapp/utxo/apples/flowsnet/cordapp/utxo/apples/flows/issue`.
-2. Make `CreateAndIssueAppleStampResponderFlow` implement `ResponderFlow`.
-   This allows the flow to be initiated when an initiating flow starts a session. You must implement this interface if you want a flow to respond to initiation requests with an initiating flow.
-3. Add the `@InitiatiedBy` annotation to `CreateAndIssueAppleStampResponderFlow`.
+1. Go to `workflows/src/main/kotlin/com/r3/developers/apples` and right-click the `workflows` folder.
+2. Select **New > Kotlin Class**.
+3. Create a file called `CreateAndIssueAppleStampResponderFlow`.
+4. Make `CreateAndIssueAppleStampResponderFlow` implement `ResponderFlow`.
+This allows the flow to be initiated when an initiating flow starts a session. You must implement this interface if
+you want a flow to respond to initiation requests with an initiating flow.
+5. Add the `@InitiatiedBy` annotation to `CreateAndIssueAppleStampResponderFlow`.
 
-This indicates that this flow is the initiated flow in an initiating and initiated flow pair. A `protocol` must be defined that both the initiating and initiated flow reference.
+
+This indicates that this flow is the initiated flow in an initiating and initiated flow pair. A `protocol` must be
+defined that both the initiating and initiated flow reference. You should use the same protocol name that you used
+when creating the initiator flow earlier.
 
 So far, your code should look like this:
 
@@ -358,42 +389,30 @@ Call `UtxoLedgerService.receiveFinality` and pass in the `FlowSession` from `cal
 
 You have now written both `CreateAndIssueAppleStampFlow` and `CreateAndIssueAppleStampResponderFlow`. You code should look like this:
 
-##### `CreateAndIssueAppleStampRequest`
-
-```kotlin
-package net.cordapp.utxo.apples.flows.issue
-
-import net.corda.v5.base.types.MemberX500Name
-
-data class CreateAndIssueAppleStampRequest(val stampDescription: String, val holder: MemberX500Name)
-```
-
 ##### `CreateAndIssueAppleStampFlow`
 
 ```kotlin
-package net.cordapp.utxo.apples.flows.issue
+package com.r3.developers.apples.workflows
 
-import net.corda.v5.application.flows.CordaInject
-import net.corda.v5.application.flows.InitiatingFlow
+import com.r3.developers.apples.contracts.AppleCommands
+import com.r3.developers.apples.states.AppleStamp
 import net.corda.v5.application.flows.ClientRequestBody
 import net.corda.v5.application.flows.ClientStartableFlow
-import net.corda.v5.application.flows.getRequestBodyAs
+import net.corda.v5.application.flows.CordaInject
+import net.corda.v5.application.flows.InitiatingFlow
 import net.corda.v5.application.marshalling.JsonMarshallingService
 import net.corda.v5.application.membership.MemberLookup
 import net.corda.v5.application.messaging.FlowMessaging
 import net.corda.v5.base.annotations.Suspendable
+import net.corda.v5.base.types.MemberX500Name
 import net.corda.v5.ledger.common.NotaryLookup
-import net.corda.v5.ledger.common.Party
 import net.corda.v5.ledger.utxo.UtxoLedgerService
-import net.cordapp.utxo.apples.states.AppleStamp
-import net.cordapp.utxo.apples.contracts.AppleStampContract
 import java.time.Instant
 import java.time.temporal.ChronoUnit
-import java.util.UUID
+import java.util.*
 
 @InitiatingFlow(protocol = "create-and-issue-apple-stamp")
 class CreateAndIssueAppleStampFlow : ClientStartableFlow {
-
     @CordaInject
     lateinit var flowMessaging: FlowMessaging
 
@@ -409,22 +428,24 @@ class CreateAndIssueAppleStampFlow : ClientStartableFlow {
     @CordaInject
     lateinit var utxoLedgerService: UtxoLedgerService
 
+    private data class CreateAndIssueAppleStampRequest(
+        val stampDescription: String,
+        val holder: MemberX500Name
+    )
+
     @Suspendable
     override fun call(requestBody: ClientRequestBody): String {
-        val request = requestBody.getRequestBodyAs<CreateAndIssueAppleStampRequest>(jsonMarshallingService)
+        val request = requestBody.getRequestBodyAs(
+            jsonMarshallingService,
+            CreateAndIssueAppleStampRequest::class.java)
         val stampDescription = request.stampDescription
         val holderName = request.holder
 
-        // Retrieve the notaries public key (this will change)
         val notaryInfo = notaryLookup.notaryServices.single()
-        val notaryKey = memberLookup.lookup().single {
-            it.memberProvidedContext["corda.notary.service.name"] == notaryInfo.name.toString()
-        }.ledgerKeys.first()
-        val notary = Party(notaryInfo.name, notaryKey)
 
-        val issuer = memberLookup.myInfo().let { Party(it.name, it.ledgerKeys.first()) }
+        val issuer = memberLookup.myInfo().ledgerKeys.first()
         val holder = memberLookup.lookup(holderName)
-            ?.let { Party(it.name, it.ledgerKeys.first()) }
+            ?.let { it.ledgerKeys.first() }
             ?: throw IllegalArgumentException("The holder $holderName does not exist within the network")
 
         // Building the output AppleStamp state
@@ -433,18 +454,16 @@ class CreateAndIssueAppleStampFlow : ClientStartableFlow {
             stampDesc = stampDescription,
             issuer = issuer,
             holder = holder,
-            participants = listOf(issuer.owningKey, holder.owningKey)
+            participants = listOf(issuer, holder)
         )
 
-        // Create the transaction
-        @Suppress("DEPRECATION")
         val transaction = utxoLedgerService.createTransactionBuilder()
-            .setNotary(notary)
+            .setNotary(notaryInfo.name)
             .addOutputState(newStamp)
-            .addCommand(AppleStampContract.Commands.Issue())
+            .addCommand(AppleCommands.Issue())
             .setTimeWindowUntil(Instant.now().plus(1, ChronoUnit.DAYS))
-            .addSignatories(listOf(issuer.owningKey, holder.owningKey))
-            .toSignedTransaction(issuer.owningKey)
+            .addSignatories(listOf(issuer, holder))
+            .toSignedTransaction()
 
         val session = flowMessaging.initiateFlow(holderName)
 
@@ -458,13 +477,12 @@ class CreateAndIssueAppleStampFlow : ClientStartableFlow {
         }
     }
 }
-
 ```
 
 ##### `CreateAndIssueAppleStampResponderFlow`
 
 ```kotlin
-package net.cordapp.utxo.apples.flows.issue
+package com.r3.developers.apples.workflows
 
 import net.corda.v5.application.flows.CordaInject
 import net.corda.v5.application.flows.InitiatedBy
@@ -503,7 +521,8 @@ Now that you have written the `CreateAndIssueAppleStampFlow`, try writing the `P
 
 ### Write the `PackageApplesFlow`
 
-The `PackageApples` flow is simpler than the `CreateAndIssueAppleStamp` flow in that it only involves one party. This flow represents Farmer Bob preparing the apples for Peter to collect.
+The `PackageApples` flow is simpler than the `CreateAndIssueAppleStamp` flow in that it only involves one party.
+This flow represents Farmer Bob preparing the apples for Dave to collect.
 
 Since the flow only involves one party (Farmer Bob), there is no need to initiate any sessions and therefore neither `@InitiatingFlow` or `@InitiatedBy` are required.
 
@@ -517,35 +536,27 @@ Include these variables in the flow:
 
 After you've written the `PackageApplesFlow`, your code should look like this:
 
-##### `PackageApplesRequest`
-
-```kotlin
-package net.cordapp.utxo.apples.flows.pack
-
-data class PackApplesRequest(val appleDescription: String, val weight: Int)
-```
-
 ##### `PackageApplesFlow`
 
 ```kotlin
-package net.cordapp.utxo.apples.flows.pack
+package com.r3.developers.apples.workflows
 
+import com.r3.developers.apples.contracts.AppleCommands
+import com.r3.developers.apples.states.BasketOfApples
 import net.corda.v5.application.flows.CordaInject
 import net.corda.v5.application.flows.ClientRequestBody
 import net.corda.v5.application.flows.ClientStartableFlow
-import net.corda.v5.application.flows.getRequestBodyAs
 import net.corda.v5.application.marshalling.JsonMarshallingService
 import net.corda.v5.application.membership.MemberLookup
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.ledger.common.NotaryLookup
-import net.corda.v5.ledger.common.Party
 import net.corda.v5.ledger.utxo.UtxoLedgerService
-import net.cordapp.utxo.apples.states.BasketOfApples
-import net.cordapp.utxo.apples.contracts.BasketOfApplesContract
 import java.time.Instant
 import java.time.temporal.ChronoUnit
 
-class PackApplesFlow : ClientStartableFlow {
+class PackageApplesFlow : ClientStartableFlow {
+
+    private data class PackApplesRequest(val appleDescription: String, val weight: Int)
 
     @CordaInject
     lateinit var jsonMarshallingService: JsonMarshallingService
@@ -561,36 +572,29 @@ class PackApplesFlow : ClientStartableFlow {
 
     @Suspendable
     override fun call(requestBody: ClientRequestBody): String {
-        val request = requestBody.getRequestBodyAs<PackApplesRequest>(jsonMarshallingService)
+        val request = requestBody.getRequestBodyAs(jsonMarshallingService, PackApplesRequest::class.java)
         val appleDescription = request.appleDescription
         val weight = request.weight
-
-        // Retrieve the notaries public key (this will change)
         val notary = notaryLookup.notaryServices.single()
-        val notaryKey = memberLookup.lookup().single {
-            it.memberProvidedContext["corda.notary.service.name"] == notary.name.toString()
-        }.ledgerKeys.first()
-
-        val myInfo = memberLookup.myInfo()
-        val ourIdentity = Party(myInfo.name, myInfo.ledgerKeys.first())
+        val myKey = memberLookup.myInfo().ledgerKeys.first()
 
         // Building the output BasketOfApples state
         val basket = BasketOfApples(
             description = appleDescription,
-            farm = ourIdentity,
-            owner = ourIdentity,
+            farm = myKey,
+            owner = myKey,
             weight = weight,
-            participants = listOf(ourIdentity.owningKey)
+            participants = listOf(myKey)
         )
 
         // Create the transaction
         val transaction = utxoLedgerService.createTransactionBuilder()
-            .setNotary(Party(notary.name, notaryKey))
+            .setNotary(notary.name)
             .addOutputState(basket)
-            .addCommand(BasketOfApplesContract.Commands.PackBasket())
+            .addCommand(AppleCommands.PackBasket())
             .setTimeWindowUntil(Instant.now().plus(1, ChronoUnit.DAYS))
-            .addSignatories(listOf(ourIdentity.owningKey))
-            .toSignedTransaction(ourIdentity.owningKey)
+            .addSignatories(listOf(myKey))
+            .toSignedTransaction()
 
         return try {
             // Record the transaction, no sessions are passed in as the transaction is only being
@@ -605,55 +609,54 @@ class PackApplesFlow : ClientStartableFlow {
 
 ### Write the `RedeemApplesFlow`
 
-The `RedeemApples` flow involves two parties: Farmer Bob and Peter. When this flow is called, Peter redeems his `AppleStamp` for the `BasketOfApples` that Farmer Bob gives him. You will need an initiator and responder flow pair for this flow.
+The `RedeemApples` flow involves two parties: Farmer Bob and Dave. When this flow is called, Dave redeems his
+`AppleStamp` for the `BasketOfApples` that Farmer Bob gives him. You will need an initiator and responder flow pair for this flow.
 
 Include these variables in the flow:
 
-* `buyer` - the customer buying the apples, in this case Peter.
+* `buyer` - the customer buying the apples, in this case Dave.
 * `stampId` - the unique identifier of the `AppleStamp`.
 
-The `RedeemApples` flow has an additional step that you did not see in the previous two flows. It must query the output states from the previous two transactions. These output states are the inputs for the `RedeemApples` flow. Use the `UtxoLedgerService` to find these states.
+The `RedeemApplesFlow` has an additional step that you did not see in the previous two flows. It must query the output
+states from the previous two transactions. These output states are the inputs for the `RedeemApplesFlow`. Use the
+`UtxoLedgerService` to find these states.
+
+You should check for the following in the flow:
+* The specified `AppleStamp` is unconsumed.
+* There is an unconsumed `BasketOfApples` where the current owner is the issuer of the `AppleStamp`.
 
 #### Check Your Work
 
 After you’ve written the `RedeemApplesFlow`, your code should look like this:
 
-##### `RedeemApplesRequest`
-
-```kotlin
-package net.cordapp.utxo.apples.flows.redeem
-
-import net.corda.v5.base.types.MemberX500Name
-import java.util.UUID
-
-data class RedeemApplesRequest(val buyer: MemberX500Name, val stampId: UUID)
-```
-
 ##### `RedeemApplesFlow`
 
 ```kotlin
-package net.cordapp.utxo.apples.flows.redeem
+package com.r3.developers.apples.workflows
+
+import com.r3.developers.apples.contracts.AppleCommands
+import com.r3.developers.apples.states.AppleStamp
+import com.r3.developers.apples.states.BasketOfApples
+import net.corda.v5.base.types.MemberX500Name
+import java.util.*
 
 import net.corda.v5.application.flows.CordaInject
 import net.corda.v5.application.flows.InitiatingFlow
 import net.corda.v5.application.flows.ClientRequestBody
 import net.corda.v5.application.flows.ClientStartableFlow
-import net.corda.v5.application.flows.getRequestBodyAs
 import net.corda.v5.application.marshalling.JsonMarshallingService
 import net.corda.v5.application.membership.MemberLookup
 import net.corda.v5.application.messaging.FlowMessaging
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.ledger.common.NotaryLookup
-import net.corda.v5.ledger.common.Party
 import net.corda.v5.ledger.utxo.UtxoLedgerService
-import net.cordapp.utxo.apples.states.AppleStamp
-import net.cordapp.utxo.apples.states.BasketOfApples
-import net.cordapp.utxo.apples.contracts.BasketOfApplesContract
 import java.time.Instant
 import java.time.temporal.ChronoUnit
 
 @InitiatingFlow(protocol = "redeem-apples")
 class RedeemApplesFlow : ClientStartableFlow {
+
+    private data class RedeemApplesRequest(val buyer: MemberX500Name, val stampId: UUID)
 
     @CordaInject
     lateinit var flowMessaging: FlowMessaging
@@ -672,21 +675,17 @@ class RedeemApplesFlow : ClientStartableFlow {
 
     @Suspendable
     override fun call(requestBody: ClientRequestBody): String {
-        val request = requestBody.getRequestBodyAs<RedeemApplesRequest>(jsonMarshallingService)
+        val request = requestBody.getRequestBodyAs(jsonMarshallingService, RedeemApplesRequest::class.java)
         val buyerName = request.buyer
         val stampId = request.stampId
 
         // Retrieve the notaries public key (this will change)
         val notaryInfo = notaryLookup.notaryServices.single()
-        val notaryKey = memberLookup.lookup().single {
-            it.memberProvidedContext["corda.notary.service.name"] == notaryInfo.name.toString()
-        }.ledgerKeys.first()
-        val notary = Party(notaryInfo.name, notaryKey)
 
-        val ourIdentity = memberLookup.myInfo().let { Party(it.name, it.ledgerKeys.first()) }
+        val myKey = memberLookup.myInfo().let { it.ledgerKeys.first() }
 
         val buyer = memberLookup.lookup(buyerName)
-            ?.let { Party(it.name, it.ledgerKeys.first()) }
+            ?.let { it.ledgerKeys.first() }
             ?: throw IllegalArgumentException("The buyer does not exist within the network")
 
         val appleStampStateAndRef = utxoLedgerService.findUnconsumedStatesByType(AppleStamp::class.java)
@@ -694,23 +693,24 @@ class RedeemApplesFlow : ClientStartableFlow {
             ?: throw IllegalArgumentException("No apple stamp matching the stamp id $stampId")
 
         val basketOfApplesStampStateAndRef = utxoLedgerService.findUnconsumedStatesByType(BasketOfApples::class.java)
-            .firstOrNull()
-            ?: throw IllegalArgumentException("There are no baskets of apples")
+            .firstOrNull { basketStateAndRef -> basketStateAndRef.state.contractState.owner ==
+        appleStampStateAndRef.state.contractState.issuer }
+?: throw IllegalArgumentException("There are no eligible baskets of apples")
+
 
         val originalBasketOfApples = basketOfApplesStampStateAndRef.state.contractState
 
         val updatedBasket = originalBasketOfApples.changeOwner(buyer)
 
         // Create the transaction
-        @Suppress("DEPRECATION")
         val transaction = utxoLedgerService.createTransactionBuilder()
-            .setNotary(notary)
+            .setNotary(notaryInfo.name)
             .addInputStates(appleStampStateAndRef.ref, basketOfApplesStampStateAndRef.ref)
             .addOutputState(updatedBasket)
-            .addCommand(BasketOfApplesContract.Commands.Redeem())
+            .addCommand(AppleCommands.Redeem())
             .setTimeWindowUntil(Instant.now().plus(1, ChronoUnit.DAYS))
-            .addSignatories(listOf(ourIdentity.owningKey, buyer.owningKey))
-            .toSignedTransaction(ourIdentity.owningKey)
+            .addSignatories(listOf(myKey, buyer))
+            .toSignedTransaction()
 
         val session = flowMessaging.initiateFlow(buyerName)
 
@@ -728,7 +728,7 @@ class RedeemApplesFlow : ClientStartableFlow {
 ##### `RedeemApplesResponderFlow`
 
 ```kotlin
-package net.cordapp.utxo.apples.flows.redeem
+package com.r3.developers.apples.workflows
 
 import net.corda.v5.application.flows.CordaInject
 import net.corda.v5.application.flows.InitiatedBy
