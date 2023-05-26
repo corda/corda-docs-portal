@@ -249,7 +249,7 @@ As we have now delegated contract verification constraint logic to the commands 
     }
 ```
 
-This design addresses the outstanding issues in regard to being able to extend a contract with multiple commands, and being able to give command's names that make sense in the context that they're used; for example:
+This design addresses the outstanding issues in regard to being able to extend a contract with multiple commands, and being able to assign names to commands that make sense in the context that they're used. For example:
 
 ```kotlin
 
