@@ -212,6 +212,7 @@ public class Update extends ExampleContractCommand {
     }
     protected void onVerify(UtxoLedgerTransaction transaction) { }
 }
+
 public class Delete extends ExampleContractCommand {
 
     @Override
