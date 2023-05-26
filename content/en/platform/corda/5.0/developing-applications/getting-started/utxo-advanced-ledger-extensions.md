@@ -231,7 +231,7 @@ The `Create`, `Update` and `Delete` commands are not marked final. Therefore, we
 
 ## Delegated Contract Design
 
-As we have now delegated contract verification constraint logic to the commands themselves, we must also refactor the contract to support this delegation. The contract implementation in this case becomes incredibly simple, since it's no longer responsible for defining contract verification constraints, for example:
+As we have now delegated contract verification constraint logic to the commands themselves, we must also refactor the contract to support this delegation. The contract implementation in this case becomes simpler, since it is no longer responsible for defining contract verification constraints. For example:
 
 ```kotlin
 
