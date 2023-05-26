@@ -287,7 +287,7 @@ The chainable API provides the component model for designing chainable states an
 
 ## Designing a Chainable State
 
-A chainable state can be implemented by implementing the `ChainableState<T>` interface, for example:
+A chainable state can be implemented by implementing the `ChainableState<T>` interface; for example:
 
 ```kotlin
 
