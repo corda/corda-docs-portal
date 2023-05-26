@@ -31,11 +31,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 * Debug logging of the Artemis server has been added.
 
-### Fixed issues
-
 * The thread dump on heartbeat feature was causing excess log output. This has now been improved: we now only log thread stack traces that appear to be stuck and no longer repeatedly log them.
-
-* When a notary worker is shut down, message ID cleanup is now performed as the last shutdown activity, rather than the first; this prevents a situation where the notary worker might still appear to be part of the notary cluster and receiving client traffic while shutting down.
 
 * Previously, when configured to use confidential identities and the Securosys PrimusX HSM, it was possible for Corda to fail to generate a wrapped key-pair for a new confidential identity. This would cause a temporary key-pair to be leaked, consuming resource in the HSM. This issue occurred when:
 
@@ -51,21 +47,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 * Flow checkpoint dumps now include a `status` field which shows the status of the flow; in particular, whether it is hospitalized or not.
 
-* During recovery from a transport layer connection break in peer-to-peer connectivity, a workaround to a bug in the Artemis message broker would only be taken during the first break in connectivity. This lead to a rare failure to re-establish connectivity between two peers until the node was restarted.  The workaround is now taken on every loss of connectivity, and thus peer-to-peer connectivity should now always be re-established without operator intervention.
-
-* Previously, if a node was configured to use two different slots on the Luna HSM (for example using one slot for node identities and a separate slot for the confidential identities), this failed. This issue has now been resolved.
-
-  {{< warning >}}
-  However as a result of this fix you need to make sure the Luna client your are using is version 10.4.0 or later.
-  {{</ warning >}}
-
-* The default value for the node configuration value cryptoServiceTimeout has been increased from 1 second to 10 seconds.
-
-* Previously, where nodes had invoked a very large number of flows, the cache of client IDs that had not been removed were taking up significant heap space. A solution has been implemented where the space taken up has been reduced by 170 bytes per entry. For example, 1 million un-removed client IDs now take up 170,000,000 bytes less heap space than before.
-
-* Corda provides the NodeDriver to help developers write integration tests. Using the NodeDriver, developers can bring up nodes locally to run flows and inspect state updates. Previously, there was an issue with build pipelines with tests failing, as on some occasions, notaries took more than one minute (the default timeout value) to start.
-
-  To resolve this, the NodeDriver now has a new parameter, `notaryHandleTimeout`. This parameter specifies how long to wait for a notary handle to come back after the notary has been started.
+* The default SSL handshake timeout for inbound connections has been increased to 60 seconds. If during SSL handshake, certificate revocation lists (CRLs) take a long time to download or are unreachable, then this 60 seconds gives the node enough time to establish the connection if `crlCheckSoftFail` is enabled.
 
 * Previously, when loading checkpoints, the only log messages recorded were at the end of the process, recording the total number of checkpoints loaded.
 
@@ -85,10 +67,27 @@ As a developer or node operator, you should upgrade to the [latest released vers
   [INFO ] 2023-02-03T17:00:43,606Z [main] statemachine.MultiThreadedStateMachineManager. - Loaded 24001 finished flows {}
   [INFO ] 2023-02-03T17:00:46,650Z [main] statemachine.MultiThreadedStateMachineManager. - Number of finished flows : 27485 {}
   ```
+* Previously, where nodes had invoked a very large number of flows, the cache of client IDs that had not been removed were taking up significant heap space. A solution has been implemented where the space taken up has been reduced by 170 bytes per entry. For example, 1 million un-removed client IDs now take up 170,000,000 bytes less heap space than before.
+
+### Fixed issues
+
+* When a notary worker is shut down, message ID cleanup is now performed as the last shutdown activity, rather than the first; this prevents a situation where the notary worker might still appear to be part of the notary cluster and receiving client traffic while shutting down.
+
+* During recovery from a transport layer connection break in peer-to-peer connectivity, a workaround to a bug in the Artemis message broker would only be taken during the first break in connectivity. This lead to a rare failure to re-establish connectivity between two peers until the node was restarted.  The workaround is now taken on every loss of connectivity, and thus peer-to-peer connectivity should now always be re-established without operator intervention.
+
+* Previously, if a node was configured to use two different slots on the Luna HSM (for example using one slot for node identities and a separate slot for the confidential identities), this failed. This issue has now been resolved.
+
+  {{< warning >}}
+  However as a result of this fix you need to make sure the Luna client your are using is version 10.4.0 or later.
+  {{</ warning >}}
+
+* The default value for the node configuration value cryptoServiceTimeout has been increased from 1 second to 10 seconds.
+
+* Corda provides the NodeDriver to help developers write integration tests. Using the NodeDriver, developers can bring up nodes locally to run flows and inspect state updates. Previously, there was an issue with build pipelines with tests failing, as on some occasions, notaries took more than one minute (the default timeout value) to start.
+
+  To resolve this, the NodeDriver now has a new parameter, `notaryHandleTimeout`. This parameter specifies how long to wait for a notary handle to come back after the notary has been started.
 
 * A fix for cache eviction has been applied where an issue resulted in an incorrect contract verification status while a database transaction was in progress during contract verification.
-
-* The default SSL handshake timeout for inbound connections has been increased to 60 seconds. If during SSL handshake, certificate revocation lists (CRLs) take a long time to download or are unreachable, then this 60 seconds gives the node enough time to establish the connection if `crlCheckSoftFail` is enabled.
 
 * A `StackOverflowException` was thrown when an attempt was made to store a deleted party in the vault. This issue has been resolved.
 
