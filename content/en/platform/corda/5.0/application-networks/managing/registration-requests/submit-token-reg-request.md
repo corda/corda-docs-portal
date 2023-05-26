@@ -18,7 +18,7 @@ For example, taking this sample registration request context as a base:
 ```bash
  {
  "corda.session.keys.0.id": "CD432EA37B69",
- "corda.session.key.signature.spec": "SHA256withECDSA",
+ "corda.session.keys.0.signature.spec": "SHA256withECDSA",
  "corda.ledger.keys.0.id": "4A37E41B63A7",
  "corda.ledger.keys.0.signature.spec": "SHA256withECDSA",
  "corda.endpoints.0.connectionURL": "https://alice.corda.com:8080",
@@ -31,7 +31,7 @@ If the MGM operator generated and distributed the token `8d738966-07f0-456b-bc0e
 ```bash
  {
  "corda.session.keys.0.id": "CD432EA37B69",
- "corda.session.key.signature.spec": "SHA256withECDSA",
+ "corda.session.keys.0.signature.spec": "SHA256withECDSA",
  "corda.ledger.keys.0.id": "4A37E41B63A7",
  "corda.ledger.keys.0.signature.spec": "SHA256withECDSA",
  "corda.endpoints.0.connectionURL": "https://alice.corda.com:8080",

@@ -30,7 +30,7 @@ For example, `https://corda-p2p-gateway-worker.corda-cluster-a:8080`, where `cor
 ```shell
 export REGISTRATION_CONTEXT='{
   "corda.session.keys.0.id": "'$SESSION_KEY_ID'",
-  "corda.session.key.signature.spec": "SHA256withECDSA",
+  "corda.session.keys.0.signature.spec": "SHA256withECDSA",
   "corda.ledger.keys.0.id": "'$LEDGER_KEY_ID'",
   "corda.ledger.keys.0.signature.spec": "SHA256withECDSA",
   "corda.endpoints.0.connectionURL": "https://'$P2P_GATEWAY_HOST':'$P2P_GATEWAY_PORT'",
@@ -42,7 +42,7 @@ export REGISTRATION_CONTEXT='{
 ```shell
 $REGISTRATION_CONTEXT = @{
   'corda.session.keys.0.id' =  $SESSION_KEY_ID
-  'corda.session.key.signature.spec' = "SHA256withECDSA"
+  'corda.session.keys.0.signature.spec' = "SHA256withECDSA"
   'corda.ledger.keys.0.id' = $LEDGER_KEY_ID
   'corda.ledger.keys.0.signature.spec' = "SHA256withECDSA"
   'corda.endpoints.0.connectionURL' = "https://$P2P_GATEWAY_HOST:$P2P_GATEWAY_PORT"
