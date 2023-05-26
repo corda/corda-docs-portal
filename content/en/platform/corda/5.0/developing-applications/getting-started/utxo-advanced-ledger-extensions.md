@@ -161,7 +161,7 @@ The second problem lies in the commands themselves and their names. `Create`, `U
 
 In the contracts above, the commands are nothing more than marker classes; effectively they are cases in a switch statement, which allows the contract's `verify` function to delegate responsibility of specific contract constraints to other functions, such as `verifyCreate`, `verifyUpdate` and `verifyDelete`.
 
-We can implement the verify function on the command itself. Instead of being an empty marker class, this gives the command responsibility, as it becomes responsible for implementing its associated contract verification constraints.
+We can implement the `verify` function on the command itself. Instead of being an empty marker class, this gives the command responsibility, as it becomes responsible for implementing its associated contract verification constraints.
 In this case, we define a `VerifiableCommand` interface with a `verify` function, for example:
 
 ```kotlin
