@@ -69,7 +69,7 @@ The following contract defines three commands; Create, Update and Delete. The `v
 Designing a contract as shown in the above example will suffice in many cases. Assuming that the constraints have been implemented correctly then, the contract functionality and design is perfectly acceptable.
 
 {{< note >}}
-There are cases where this design approach no longer fits the design goals of the system being implemented; specifically, in regard to contract extensibility, it's currently not possible to extend this contract to support additional constraints.
+There are cases where this design approach no longer fits the design goals of the system being implemented. Specifically, in regard to contract extensibility, it is currently not possible to extend a contract to support additional constraints.
 {{< /note >}}
 
 ## Derivable Contract Design
