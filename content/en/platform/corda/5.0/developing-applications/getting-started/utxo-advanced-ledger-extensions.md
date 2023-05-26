@@ -226,7 +226,7 @@ public class Delete extends ExampleContractCommand {
 ```
 
 {{< note >}}
-The `Create`, `Update` and `Delete` commands are not marked final, therefore we can extend the contract verification constraints from these points, but we can't extend from `ExampleContractCommand`.
+The `Create`, `Update` and `Delete` commands are not marked final. Therefore, we can extend the contract verification constraints from these points, but we cannot extend from `ExampleContractCommand`.
 {{< /note >}}
 
 ## Delegated Contract Design
