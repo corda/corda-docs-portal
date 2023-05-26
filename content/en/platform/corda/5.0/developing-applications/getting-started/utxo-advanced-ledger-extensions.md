@@ -275,7 +275,7 @@ Module: base
 
 Package: com.r3.corda.ledger.utxo.base
 
-The base API provides the underlying component model for designing extensible contracts with delegated contract verification constraint logic, as well as some other components which allow CorDapp developers to be more expressive and better express intent throughout their applications.
+The base API provides the underlying component model for designing extensible contracts with delegated contract verification constraint logic, as well as other components which allow CorDapp developers to better express intent throughout their applications.
 
 ## Chainable API
 
