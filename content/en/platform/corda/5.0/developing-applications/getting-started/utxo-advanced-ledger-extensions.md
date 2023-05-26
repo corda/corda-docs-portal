@@ -181,7 +181,7 @@ We achieve this by making the default constructor package private, so that only 
 }
 ```
 
-Next, we can implement this interface as `Create`, `Update` and `Delete` commands, for example:
+Next, we can implement this interface as `Create`, `Update` and `Delete` commands; for example:
 
 ```kotlin
 
