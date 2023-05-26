@@ -27,7 +27,9 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Improvements
 
-A new or restarted peer node coming online and connecting to a node for the first time can significantly slow message processing from other peers on the node to which it connects.  With this improvement, new peers coming online get a dedicated thread on the node they connect to and do not delay message processing for existing peer-to-peer connections on the receiving node.
+* A new or restarted peer node coming online and connecting to a node for the first time can significantly slow message processing from other peers on the node to which it connects.  With this improvement, new peers coming online get a dedicated thread on the node they connect to and do not delay message processing for existing peer-to-peer connections on the receiving node.
+
+* Debug logging of the Artemis server has been added.
 
 ### Fixed issues
 

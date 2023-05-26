@@ -21,6 +21,10 @@ tags:
 
 Corda Community Edition 4.9.7 is a patch release of Corda Community Edition which includes resolved issues.
 
+### Improvements
+
+* Debug logging of the Artemis server has been added.
+
 ### Fixed issues
 
 * Flow checkpoint dumps now include a `status` field which shows the status of the flow; in particular, whether it is hospitalized or not.
