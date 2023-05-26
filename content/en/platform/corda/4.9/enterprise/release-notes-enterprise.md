@@ -25,6 +25,10 @@ Corda Enterprise Edition 4.9.7 is a patch release of Corda Enterprise focused on
 
 As a developer or node operator, you should upgrade to the [latest released version of Corda](../enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node](upgrading-index.md).
 
+### Improvements
+
+A new or restarted peer node coming online and connecting to a node for the first time can significantly slow message processing from other peers on the node to which it connects.  With this improvement, new peers coming online get a dedicated thread on the node they connect to and do not delay message processing for existing peer-to-peer connections on the receiving node.
+
 ### Fixed issues
 
 * The thread dump on heartbeat feature was causing excess log output. This has now been improved: we now only log thread stack traces that appear to be stuck and no longer repeatedly log them.
