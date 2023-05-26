@@ -368,7 +368,9 @@ The `ChainableContractUpdateCommand` supports updating existing chainable states
 }
 ```
 
-The `ChainableContractDeleteCommand` supports deleting existing chainable states and will verify the constraint chainable state(s) deleting, at least one chainable state must be consumed.
+The `ChainableContractDeleteCommand` supports deleting existing chainable states and will verify the following constraint:
+
+* On chainable state(s) deleting, at least one chainable state must be consumed.
 
 ```kotlin
 
