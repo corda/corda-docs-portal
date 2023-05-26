@@ -129,7 +129,7 @@ The verify function has been marked final. This change is necessary as it preven
 }
 ```
 
-Refactoring a contract like this allows CorDapp implementors to derive from the contract, allowing additional constraints which will be verified in additional to the constraints specified by the base contract.
+Refactoring a contract as shown in the above example allows CorDapp implementors to derive from the contract, allowing additional constraints which will be verified in additional to the constraints specified by the base contract.
 
 {{< note >}}
 There are still some outstanding issues with this design, where this design approach no longer fits the design goals of the system being implemented.
