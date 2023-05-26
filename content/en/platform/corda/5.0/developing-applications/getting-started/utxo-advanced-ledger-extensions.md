@@ -153,7 +153,7 @@ The problem really lies in the `verify` function; for example:
 }
 ```
 
-The `verify` function is marked final for security reasons, and therefore additional commands cannot be added to the contract, for example, the contract may wish to describe multiple ways to `Update` a state, or set of states. The contract only defines a single `Update` command, there can only be one mechanism to perform updates.
+The `verify` function is marked final for security reasons, and therefore additional commands cannot be added to the contract. For example, the contract may wish to describe multiple ways to `Update` a state, or set of states. The contract only defines a single `Update` command: there can only be one mechanism to perform updates.
 
 The second problem lies in the commands themselves and their names. `Create`, `Update` and `Delete` are very ambiguous names, which won't make sense depending on the context of the contract being implemented.
 
