@@ -198,6 +198,7 @@ Next, we can implement this interface as `Create`, `Update` and `Delete` command
     }
     protected void onVerify(UtxoLedgerTransaction transaction) { }
 }
+
 public class Update extends ExampleContractCommand {
 
     @Override
