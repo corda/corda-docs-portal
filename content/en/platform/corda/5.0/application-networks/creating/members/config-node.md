@@ -17,7 +17,7 @@ You must configure the virtual node as a network participant with the properties
 To configure the member virtual node, run the following command, setting these properties: 
 
 * `p2pTlsCertificateChainAlias` — the alias used when importing the TLS certificate.
-* `sessionKeysAndCertificates` — contains a list of objects; each object contains the fields `[sessionKeyId]({{< relref "./key-pairs.md#generate-a-session-initiation-key-pair" >}})`, 'sessionCertificateChainAlias' and 'preferred'. One object in the list must have the `preferred` Boolean field set to `true`. The list can not be empty. 
+* `sessionKeysAndCertificates` — contains a list of objects as you can specify multiple session initiation keys & certificates. Each object contains the fields `[sessionKeyId]({{< relref "./key-pairs.md#generate-a-session-initiation-key-pair" >}})`, 'sessionCertificateChainAlias' and 'preferred'. One object in the list must have the `preferred` Boolean field set to `true`. The list can not be empty. 
 * `useClusterLevelTlsCertificateAndKey` — `true` if the TLS certificate and key are cluster-level certificates and keys.
 
 {{< tabs >}}
