@@ -178,7 +178,7 @@ To use the Persistence API from a flow:
    val newDogName = input.getValue("name")
    persistenceService.merge(Dog(dogId, newDogName, Instant.now(), "none"))
    ```
-   All of the operations available are defined in the public interface: <a href="../../../../../../api-ref/corda/5.0-beta/java/net/corda/v5/application/persistence/PersistenceService.html" target="_blank">`PersistenceService`</a>.
+   All of the operations available are defined in the public interface: <a href="../../../../../../api-ref/corda/5.0/net/corda/v5/application/persistence/PersistenceService.html" target="_blank">`PersistenceService`</a>.
 
 
 {{< note >}}

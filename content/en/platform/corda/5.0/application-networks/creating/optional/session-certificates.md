@@ -55,7 +55,7 @@ To disable revocation checks, do the following:
 
 If using session certificates, make the following changes to the [MGM registration context]({{< relref "../mgm/register.md#build-registration-context" >}}):
 
-1. Add an extra JSON field `corda.group.truststore.session.0` with the truststore of the CA to the registration context (similar to `corda.group.truststore.tls.0`).
+1. Add an extra JSON field `corda.group.trustroot.session.0` with the truststore of the CA to the registration context (similar to `corda.group.trustroot.tls.0`).
 2. Set the JSON field `corda.group.pki.session` to `"Standard"` instead of `"NoPKI"`.
 
 ## Configure Virtual Node as Network Participant
