@@ -172,7 +172,7 @@ In this case, we define a `VerifiableCommand` interface with a `verify` function
 ```
 
 Now that we have a command which itself can implement contract verification constraints, we can use this as the basis for the `ExampleContractCommand` class. This needs to be a class rather than an interface, because we need to be in complete control of its implementations for security.
-We achieve this by making the default constructor package-private, so that only commands within the same package can extend it; for example:
+We achieve this by making the default constructor package private, so that only commands within the same package can extend it; for example:
 
 ```kotlin
 
