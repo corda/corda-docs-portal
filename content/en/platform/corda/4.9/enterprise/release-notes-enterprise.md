@@ -27,6 +27,8 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
+* When a notary worker is shut down, message ID cleanup is now performed as the last shutdown activity, rather than the first; this prevents a situation where the notary worker might still appear to be part of the notary cluster and receiving client traffic while shutting down.
+
 * Previously, when configured to use confidential identities and the Securosys PrimusX HSM, it was possible for Corda to fail to generate a wrapped key-pair for a new confidential identity. This would cause a temporary key-pair to be leaked, consuming resource in the HSM. This issue occurred when:
 
   * the Securosys HSM was configured in a master-clone cluster
