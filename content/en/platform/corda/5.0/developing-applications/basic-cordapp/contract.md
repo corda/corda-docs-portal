@@ -231,7 +231,7 @@ interface AppleCommands : Command {
 }
 ```
 
-Your BasketOfApplesContract file should look like this:
+Your `BasketOfApplesContract` file should look like this:
 
 ```kotlin
 package com.r3.developers.apples.contracts
