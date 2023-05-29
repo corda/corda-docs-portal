@@ -30,7 +30,7 @@ The creation of users and associating such users to these roles should be done m
 | `CordaDeveloperRole`                | Enables the use of virtual node reset and virtual node status update. This role should be provisioned at cluster boostrap time and should re-use previously created permissions for other roles.                                                                         |
 | `FlowExecutorRole`                  | Permits the creation of a role for a given virtual node to start flows and enquire the status of the running flows once the virtual node is created.                                                                                                                     |
 
-For information about creating these roles maually, see the [Manual Bootstrapping section]({{< relref "../deployment/deploying/maunual-bootstrapping.md">}}).
+For information about creating these roles maually, see the [Manual Bootstrapping section]({{< relref "../deployment/deploying/manual-bootstrapping.md">}}).
 
 ## Querying Permissions via REST
 
