@@ -6,7 +6,7 @@ menu:
   corda5:
     identifier: corda5-tls-certification-installation
     parent: corda5-cluster-config
-    weight: 4000
+    weight: 3075
 section_menu: corda5
 ---
 
