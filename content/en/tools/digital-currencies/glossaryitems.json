@@ -38,9 +38,9 @@
     },
     "token issuing entity": {
         "definition": "They are responsible for receiving attestation from custodians with regards to the backing of the collateral and issuing (creating then transfering) tokens to recipients.",
-        "more": "For more information, see the topic <a href=\"./roles-overview.html\">Roles Overview</a>."
-    },       
-    "transacting entity": {
+        "more": "For more information, see the topic <a href=\"./roles-overview.html\">Roles Overview</a>." 
+    },
+   "transacting entity": {
         "definition": "Entities on the network that can request tokens and have tokens issued to them, which they can use to actively settle assets on the network in real time between each other.",
         "more": "For more information, see the topic <a href=\"./roles-overview.html\">Roles Overview</a>." 
     },
