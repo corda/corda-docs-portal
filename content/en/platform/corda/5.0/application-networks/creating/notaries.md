@@ -9,6 +9,8 @@ menu:
     weight: 3000
 section_menu: corda5
 ---
+# Onboarding Notaries 
+
 This section describes how to onboard a new member as a notary service representative. It assumes that you have configured the [MGM for the network]({{< relref "./mgm/_index.md" >}}). Onboarding a notary member is similar to any other member, but with the exceptions outlined on this page. 
 
 {{< note >}}
