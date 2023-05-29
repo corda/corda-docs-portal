@@ -95,12 +95,6 @@ You need a local copy of both the following repositories:
 	 alt="Cloned Repositories"
    >}}
 
-<!--
-{{< note >}}
-For digital-currencies-ie, switch to the POC-DEMO branch.
-{{</ note >}}
---> 
-
 3. If necessary, initialise the git repos and change the remotes so you do not inadvertently push your work back.
 
 4. Run IntelliJ.
@@ -117,15 +111,7 @@ For digital-currencies-ie, switch to the POC-DEMO branch.
 	 alt="Digital Currencies Project in IntelliJ"
    >}}
 
-The project includes Gradle tasks to manage a local deployment of Corda and DC:
-
-   {{<
-     figure
-	 src="images/gradle-tasks.png"
-   width=40%
-	 figcaption="Digital Currencies Project Gradle Tasks"
-	 alt="Digital Currencies Project Gradle Tasks"
-   >}}
+The project includes Gradle tasks to manage a local deployment of Corda and DC.
 
 Configure Gradle to use the correct version of Java:
 
@@ -156,9 +142,20 @@ First, ensure that any current version of Corda running is stopped and cleaned:
     The log panel at the bottom of the screen should show output ending with *BUILD SUCCESSFUL*:
 
     ```
-    BUILD SUCCESSFUL in 10s
-    12 actionable tasks: 2 executed, 10 up-to-date
-    17:31:26: Execution finished 'startCorda'.
+        ______               __      
+       / ____/     _________/ /___ _ 
+     / /     __  / ___/ __  / __ `/ 
+    / /___  /_/ / /  / /_/ / /_/ /  
+    \____/     /_/   \__,_/\__,_/ 
+    --- Combined Worker (5.0.0.0-Hawk101) ---
+    Running Changeset: net/corda/db/schema/config/migration/cpx-creation-v1.0.xml::cpx-creation-v1.0::R3.Corda
+    Running Changeset: net/corda/db/schema/config/migration/config-creation-v1.0.xml::config-creation-v1.0::R3.Corda
+    Running Changeset: net/corda/db/schema/config/migration/chunking-creation-v1.0.xml::chunks-creation-v1.0::R3.Corda
+    Running Changeset: net/corda/db/schema/config/migration/static-network-creation-v1.0.xml::static-network-creation-v1.0::R3.Corda
+    Running Changeset: net/corda/db/schema/messagebus/migration/db-message-bus-tables-v1.0.xml::db-message-bus-tables::R3.Corda
+    Running Changeset: net/corda/db/schema/rbac/migration/rbac-creation-v1.0.xml::rbac-creation-v1.0::R3.Corda
+    Running Changeset: net/corda/db/schema/crypto/migration/crypto-creation-v1.0.xml::crypto-creation-v1.0::R3.Corda
+
     ```
 
 3. Wait up to one minute for Corda to finish its start-up routine.
@@ -257,44 +254,59 @@ For the purposes of testing Corda, we will use the CPI endpoint.
    The task will run tasks 1 to 5 in turn:
    
    ```
+   15:34:12: Executing '5-vNodesSetup'...
+
    Starting Gradle Daemon...
-   Gradle Daemon started in 1 s 205 ms
-   ...
+   Gradle Daemon started in 1 s 342 ms
+   > Task :projInit
    
    > Task :1-createGroupPolicy
    createGroupPolicy: Creating a GroupPolicy
 
    > Task :2-createKeystore
-   createKeystore: Create a keystore
+   Creating a keystore and signing certificate.
+   Certificate was added to keystore
+   Certificate was added to keystore
+   Certificate stored in file <workspace/signingkey1.pem>
+   
    ...
    
-   > Task :3-buildCPIs
-   appCpbs:
-   C:\Repos\digital-currencies\workflows\build\libs\workflows-0.1-SNAPSHOT-package.cpb
-   ...
-   
+   > Task :3-buildCpis
+   Creating digital-currencies Cpi.
+   Creating Digital Currencies Notary Server Cpi.
 
-   > Task :4-deployCPIs
+   ...
+ 
+   > Task :4-deployCpis
+   Certificate 'gradle-plugin-default-key' uploaded.
+   Certificate 'my-signing-key' uploaded.
+   Certificate 'beta-ca-root' uploaded.
    
    ....
    
-   > Task :5-vNodeSetup
-   Creating virtual node for CN=Alice, OU=Test Dept, O=R3, L=London, C=GB
-   Vnode 4175C44E4916 registered. 
-
+   > Task :5-vNodesSetup
+   Creating virtual node for: CN=Alice, OU=Test Dept, O=R3, L=London, C=GB
+   Creating virtual node for: CN=Bob, OU=Test Dept, O=R3, L=London, C=GB
+   Creating virtual node for: CN=Charlie, OU=Test Dept, O=R3, L=London, C=GB
+   Creating virtual node for: CN=Dave, OU=Test Dept, O=R3, L=London, C=GB
+   Creating virtual node for: CN=NotaryRep1, OU=Test Dept, O=R3, L=London, C=GB
+   Creating virtual node for: CN=Goku, OU=Test Dept, O=R3, L=London, C=GB
    ```
-   
-   
    
    The log panel at the bottom of the screen should show output ending with *BUILD SUCCESSFUL*:
 
    ```
-   BUILD SUCCESSFUL in 1m 30s
-   38 actionable tasks: 14 executed, 24 up-to-date
-   12:32:24: Execution finished '5-vNodeSetup'.
+   BUILD SUCCESSFUL in 2m 19s
+   24 actionable tasks: 24 executed
+   15:36:32: Execution finished '5-vNodesSetup'.
    ```
  
 ## Specify Virtual Nodes for Digital Currencies UI
+
+{{< note >}}
+This section can normally be skipped as appConfig.json is automatically configured with the correct nodes; you can skip to [Run the Digital Currencies UI](#run-the-digital-currencies-ui) It remains included if you understand how appConfig.json can be configured manually. 
+{{</ note >}}
+
 
 1. Open the Swagger UI:
 
@@ -334,7 +346,7 @@ For the purposes of testing Corda, we will use the CPI endpoint.
 	  alt="Virtual Node API Get Method Response"
    >}}
 
-5. Take a note of the *shortHash* value and *x500Name* for two nodes.
+5. Take a note of the *x500Name* for four nodes.
 
 6. Navigate to the *digital-currencies-ui/public/appConfig* directory.
 
