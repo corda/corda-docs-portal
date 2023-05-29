@@ -37,7 +37,7 @@ The certificate must all be on one line in the curl command. Replace new lines w
 ```shell
 export TLS_CA_CERT=$(cat /tmp/ca/ca/root-certificate.pem | awk '{printf "%s\\n", $0}')
 export REGISTRATION_CONTEXT='{
-  "corda.session.key.id": "'$SESSION_KEY_ID'",
+  "corda.session.keys.0.id": "'$SESSION_KEY_ID'",
   "corda.ecdh.key.id": "'$ECDH_KEY_ID'",
   "corda.group.protocol.registration": "net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService",
   "corda.group.protocol.synchronisation": "net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl",
@@ -58,7 +58,7 @@ To build the registration context using PowerShell, run the following command, s
 ```shell
 $TLS_CA_CERT_PATH = "$env:TEMP\tmp\ca\ca\root-certificate.pem"
 $REGISTRATION_CONTEXT = @{
-  'corda.session.key.id' =  $SESSION_KEY_ID
+  'corda.session.keys.0.id' =  $SESSION_KEY_ID
   'corda.ecdh.key.id' = $ECDH_KEY_ID
   'corda.group.protocol.registration' = "net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService"
   'corda.group.protocol.synchronisation' = "net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl"
@@ -88,7 +88,7 @@ curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d "$REGISTRATION_REQUEST" 
 For example:
 ``` shell
 curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": { "context": {
-  "corda.session.key.id": "D2FAF709052F",
+  "corda.session.keys.0.id": "D2FAF709052F",
   "corda.ecdh.key.id": "E2FCF719062B",
   "corda.group.protocol.registration": "net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService",
   "corda.group.protocol.synchronisation": "net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl",
@@ -107,7 +107,7 @@ curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRe
 Alternatively, using jq:
 ```shell
 curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d $(
-  jq --arg session_key_id $SESSION_KEY_ID '.memberRegistrationRequest.context."corda.session.key.id"=$session_key_id' | \
+  jq --arg session_key_id $SESSION_KEY_ID '.memberRegistrationRequest.context."corda.session.keys.0.id"=$session_key_id' | \
   jq --arg ecdh_key_id $ECDH_KEY_ID '.memberRegistrationRequest.context."corda.ecdh.key.id"=$ecdh_key_id' | \
   jq '.memberRegistrationRequest.context."corda.group.protocol.registration"="net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService"' | \
   jq '.memberRegistrationRequest.context."corda.group.protocol.synchronisation"="net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl"' | \

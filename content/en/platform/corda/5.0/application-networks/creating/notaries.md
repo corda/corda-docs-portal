@@ -111,8 +111,8 @@ Run the following command to build the registration context for a notary member:
 {{% tab name="Bash"%}}
 ```shell
 export REGISTRATION_CONTEXT='{
-  "corda.session.key.id": "'$SESSION_KEY_ID'",
-  "corda.session.key.signature.spec": "SHA256withECDSA",
+  "corda.session.keys.0.id": "'$SESSION_KEY_ID'",
+  "corda.session.keys.0.signature.spec": "SHA256withECDSA",
   "corda.ledger.keys.0.id": "'$LEDGER_KEY_ID'",
   "corda.ledger.keys.0.signature.spec": "SHA256withECDSA",
   "corda.notary.keys.0.id": "$NOTARY_KEY_ID",
@@ -129,8 +129,8 @@ export REGISTRATION_CONTEXT='{
 {{% tab name="PowerShell" %}}
 ```shell
 $REGISTRATION_CONTEXT = @{
-  'corda.session.key.id' =  $SESSION_KEY_ID
-  'corda.session.key.signature.spec' = "SHA256withECDSA"
+  'corda.session.keys.0.id' =  $SESSION_KEY_ID
+  'corda.session.keys.0.signature.spec' = "SHA256withECDSA"
   'corda.ledger.keys.0.id' = $LEDGER_KEY_ID
   'corda.ledger.keys.0.signature.spec' = "SHA256withECDSA"
   'corda.notary.keys.0.id' = "$NOTARY_KEY_ID",
