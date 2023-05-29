@@ -28,7 +28,7 @@ The Corda container images must be in a registry that is accessible from the Kub
 By default, the images are made available via Docker Hub.
 If your Kubernetes cluster can pull images from Docker Hub, you can skip this section.
 If not, the following sections describe how to push the images from the provided `tar` file into a container registry that is accessible from the cluster:
-* Container Images for [Corda Community]({{< relref "#container-images-for-corda-community" >}})
+* [Container Images for Corda Community]({{< relref "#container-images-for-corda-community" >}})
 * [Container Images for Corda Enterprise]({{< relref "#container-images-for-corda-enterprise" >}})
 
 ### Container Images for Corda Community
@@ -55,7 +55,7 @@ To push the Corda Community images:
     "corda-os-member-worker" "corda-os-p2p-gateway-worker"
     "corda-os-p2p-link-manager-worker" "corda-os-db-worker"
     "corda-os-crypto-worker" "corda-os-plugins" )
-   tag=5.0.0.0-Hawk1.0.1
+   tag=5.0.0.0-Iguana1.0
    target_registry=$1
 
    for image in "${images[@]}"; do
@@ -72,13 +72,13 @@ To push the Corda Community images:
 
 ### Container Images for Corda Enterprise {{< enterprise-icon >}}
 
-To push the Corda Community images: 
+To push the Corda Enterprise images: 
 
-1. Download `corda-os-worker-images-Iguana1.0.tar` from the [R3 Customer Hub](https://r3.force.com/).
+1. Download `corda-ent-worker-images-Iguana1.0.tar` from the [R3 Customer Hub](https://r3.force.com/).
 
-2. Inflate and load the `corda-os-worker-images-Iguana1.0.tar` file into the local Docker engine with the following command:
+2. Inflate and load the `corda-ent-worker-images-Iguana1.0.tar` file into the local Docker engine with the following command:
    ```shell
-   docker load -i corda-os-worker-images-Iguana1.0.tar
+   docker load -i corda-ent-worker-images-Iguana1.0.tar
    ```
 
 3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target container registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
@@ -90,11 +90,11 @@ To push the Corda Community images:
    fi
 
    declare -a images=(
-    "corda-os-rest-worker" "corda-os-flow-worker"
-    "corda-os-member-worker" "corda-os-p2p-gateway-worker"
-    "corda-os-p2p-link-manager-worker" "corda-os-db-worker"
-    "corda-os-crypto-worker" "corda-os-plugins" )
-   tag=5.0.0.0-Hawk1.0.1
+    "corda-ent-rest-worker" "corda-ent-flow-worker"
+    "corda-ent-member-worker" "corda-ent-p2p-gateway-worker"
+    "corda-ent-p2p-link-manager-worker" "corda-ent-db-worker"
+    "corda-ent-crypto-worker" "corda-ent-plugins" )
+   tag=5.0.0.0-Iguana1.0
    target_registry=$1
 
    for image in "${images[@]}"; do
@@ -112,13 +112,18 @@ To push the Corda Community images:
 
 ## Download the Corda Helm Chart
 
-If you have access to Docker Hub, you can download the Corda Helm chart using the following command:
+If you have access to Docker Hub, you can download the Corda Helm chart using the following command for Corda Communnity:
 
 ```shell
-helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.0-Hawk1.0.1
+helm fetch oci://corda-os-docker.software.r3.com/helm-charts/release-5.0.0.0-iguana1.0/corda --version 5.0.0-Iguana1.0
 ```
 
-If you do not have access to Docker Hub, you can download the `corda-5.0.0-Hawk1.0.1.tgz` file from the [R3 Customer Hub](https://r3.force.com/).
+{{< enterprise-icon noMargin="true" >}}Alternatively, use the following command for Corda Enterprise:
+```shell
+helm fetch oci://corda-ent-docker.software.r3.com/helm-charts/release-5.0.0.0-iguana1.0/corda-enterprise --version 5.0.0-Iguana1.0
+```
+
+If you do not have access to Docker Hub, you can download the `corda-5.0.0-Iguana1.0.tgz` or `corda-enterprise-5.0.0-Iguana1.0.tgz` file from the [R3 Customer Hub](https://r3.force.com/).
 
 ## Configure the Deployment
 
@@ -135,12 +140,12 @@ The following sections describe the minimal set of configuration options require
 
 You can extract a README containing the full set of options from the Helm chart using the following command:
 ```shell
-helm show readme corda-5.0.0-Hawk1.0.1.tgz
+helm show readme <HELM-CHART-TGZ-FILE>
 ```
 
 You can extract a YAML file containing all of the default values using the following command:
 ```shell
-helm show values corda-5.0.0-Hawk1.0.1.tgz
+helm show values <HELM-CHART-TGZ-FILE>
 ```
 
 ### Image Registry
@@ -785,18 +790,23 @@ workers:
 
 Once the configuration for the environment has been defined in a YAML file, you can install the Helm chart:
 ```shell
-helm install -n <NAMESPACE> <HELM-RELEASE-NAME> corda-5.0.0-Hawk1.0.1.tgz -f <PATH-TO-YAML-FILE>
+helm install -n <NAMESPACE> <HELM-RELEASE-NAME> <HELM-CHART-TGZ-FILE> -f <PATH-TO-YAML-FILE>
 ```
 For example, to create a Helm release called `corda` in the `corda` namespace using the overrides specified in a file called `values.yaml`, run the following:
 
 ```shell
-helm install -n corda corda corda-5.0.0-Hawk1.0.1.tgz -f values.yaml
+helm install -n corda corda <HELM-CHART-TGZ-FILE> -f values.yaml
 ```
 
 If you are using the Helm chart from Docker Hub, you can install directly from there rather than using `helm fetch` first. For example:
 
 ```shell
-helm install -n corda corda oci://registry-1.docker.io/corda/corda --version 5.0.0-Hawk1.0.1 -f values.yaml
+helm install -n corda corda oci://corda-os-docker.software.r3.com/helm-charts/release-5.0.0.0-iguana1.0/corda --version 5.0.0-Iguana1.0 -f values.yaml
+```
+
+{{< enterprise-icon noMargin="true" >}}Alternatively, use the following command for Corda Enterprise:
+```shell
+helm install -n corda corda oci://corda-ent-docker.software.r3.com/helm-charts/release-5.0.0.0-iguana1.0/corda-enterprise --version 5.0.0-Iguana1.0 -f values.yaml
 ```
 
 Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how
