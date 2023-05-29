@@ -1,5 +1,6 @@
 ---
 date: '2022-09-21T14:27:00+01:00'
+version: 'Corda 5.0'
 title: "Enum Evolution"
 menu:
   corda5:
@@ -8,6 +9,7 @@ menu:
     weight: 8000
 section_menu: corda5
 ---
+# Enum Evolution
 In the continued development of a CorDapp an enumerated type that was fit for purpose at one time may
 require changing. Normally, this would be problematic as anything serialised (and kept in a vault) would
 run the risk of being unable to be deserialized in the future or older versions of the app still alive

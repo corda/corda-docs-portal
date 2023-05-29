@@ -1,5 +1,6 @@
 ---
 date: '2023-04-07'
+version: 'Corda 5.0'
 title: "Build the MGM CPI"
 menu:
   corda5:
@@ -8,6 +9,8 @@ menu:
     weight: 1000
 section_menu: corda5
 ---
+
+# Build the MGM CPI
 
 This section describes how to build a member CPI and upload it to the network. It contains the following:
 1. [Set Variables]({{< relref "#set-variables" >}})

@@ -10,7 +10,7 @@ menu:
     weight: 1000
 section_menu: corda5
 ---
-
+# Build a CPK
 This section describes how to create CPKs. It contains the following:
 * [Configure your Project]({{< relref "#configure-your-project" >}})
 * [Sign Your Code]({{< relref "#sign-your-code" >}})
