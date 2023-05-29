@@ -1,6 +1,6 @@
 ---
 date: '2023-05-03'
-title: "Testing Your CorDapp"
+title: "Test Your CorDapp"
 menu:
   corda5:
     identifier: corda5-develop-first-cordapp-testing
@@ -8,7 +8,7 @@ menu:
     weight: 5000
 ---
 
-# Testing Your CorDapp
+# Test Your CorDapp
 
 This tutorial guides you through the steps required to execute the flows you have previously created,
 to confirm the CorDapp works as expected.

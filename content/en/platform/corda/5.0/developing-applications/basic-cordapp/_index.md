@@ -57,3 +57,4 @@ Follow these tutorials in sequential order to build your CorDapp:
 2. [Write States]({{< relref "./state.md">}})
 3. [Write Contracts]({{< relref "./contract.md">}})
 4. [Write Flows]({{< relref "./flows.md">}})
+5. [Test Your CorDapp]({{< relref "./testing.md">}})

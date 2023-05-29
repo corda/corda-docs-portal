@@ -759,3 +759,7 @@ class RedeemApplesResponderFlow : ResponderFlow {
     }
 }
 ```
+
+## Next Steps
+
+Follow the [Test Your CorDapp]({{< relref "./testing.md">}}) tutorial to continue on this learning path.
