@@ -395,7 +395,7 @@ Additionally, a passphrase and salt for the Corda wrapping keys must be added to
 ### Bootstrapping
 
 By default, the Helm chart automatically configures Kafka, PostgreSQL, and a default set of Corda RBAC roles as part of the deployment process.
-If desired, each of these steps can be disabled and the necessary [configuration performed manually]({{< relref "bootstrapping.md" >}}).
+If desired, each of these steps can be disabled and the necessary [configuration performed manually]({{< relref "manual-bootstrapping.md" >}}).
 
 {{< note >}}
 Bootstrap secrets are cleaned up automatically post-install with the exception of the `-rest-api-admin` secret. This secret should be manually deleted by the Administrator after retrieving the generated credentials. 
