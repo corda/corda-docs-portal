@@ -12,13 +12,16 @@ section_menu: corda5
 
 # Dynamic Configuration
 
-You can set the fields in a section by sending the configuration fields as JSON to the <a href="../../reference/rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/put_config">`config` endpoint</a> of the REST API. The PUT method of `/api/v1/config` requires the following parameters:
-* `section` — the configuration section that the JSON updates. See the [Configuration Fields]({{< relref "./fields/_index.md" >}}) sections for the fields in each configuration section.
-* `version` — the version of the configuration. Corda versions configurations to avoid two concurrent updates clashing with each other. You can retrieve the current version, along with the current configuration structure, using the GET method of the <a href ="../../reference/rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/get_config__section_">`/api/v1/config` endpoint</a>.
+
+## Setting Configuration Fields Dynamically
+
+You can set the fields in a configuration section by sending the values as JSON to the <a href="../../reference/rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/put_config">`config` endpoint</a> of the REST API. The PUT method of `/api/v1/config` requires the following parameters:
+* `section` — the configuration section that the JSON updates. See the [Configuration Fields page]({{< relref "./fields/_index.md" >}}) for a list of the configuration sections.
+* `version` — the version of the configuration. Corda versions configurations to avoid two concurrent updates clashing with each other. You can [retrieve]({{< relref "#retrieving-current-configuration-values">}}) the current version, with the current configuration structure, using the GET method of the `/api/v1/config` endpoint.
 * `config` — the configuration fields and values specified as JSON. For more information about these fields, see [Configuration Fields]({{< relref "./fields/_index.md">}}).
 * `schemaVersion` — the configuration schema version. Set this to `{"major": 1, "minor": 0}` for this version of Corda.
 
-For example, if the REST API is exposed on `localhost`, to set fields in the [messaging]({{< relref "./fields/messaging.md" >}}) section using Bash with Curl or PowerShell:
+For example, to set fields in the [messaging]({{< relref "./fields/messaging.md" >}}) section using Bash with Curl or PowerShell:
 
    {{< tabs >}}
    {{% tab name="Bash"%}}
@@ -57,3 +60,24 @@ For example, if the REST API is exposed on `localhost`, to set fields in the [me
    ```
    {{% /tab %}}
    {{< /tabs >}}
+
+## Retrieving Current Configuration Values
+
+You can retrieve the current values of the fields in a particular configuration section by using the GET method of the <a href ="../../reference/rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/get_config__section_">`/api/v1/config` endpoint</a>.
+
+For example, to retrieve the fields in the [messaging]({{< relref "./fields/messaging.md" >}}) section using Bash with Curl or PowerShell:
+
+   {{< tabs >}}
+   {{% tab name="Bash"%}}
+   ```shell
+   curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/config/corda.messaging
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Uri "$REST_API_URL/config/corda.messaging"
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+The GET method of the `/api/v1/config` endpoint returns the current values of the specified configuration section in JSON.

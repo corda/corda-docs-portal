@@ -37,7 +37,7 @@ The certificate must all be on one line in the curl command. Replace new lines w
 ```shell
 export TLS_CA_CERT=$(cat /tmp/ca/ca/root-certificate.pem | awk '{printf "%s\\n", $0}')
 export REGISTRATION_CONTEXT='{
-  "corda.session.key.id": "'$SESSION_KEY_ID'",
+  "corda.session.keys.0.id": "'$SESSION_KEY_ID'",
   "corda.ecdh.key.id": "'$ECDH_KEY_ID'",
   "corda.group.protocol.registration": "net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService",
   "corda.group.protocol.synchronisation": "net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl",
@@ -49,7 +49,7 @@ export REGISTRATION_CONTEXT='{
   "corda.group.tls.version": "1.3",
   "corda.endpoints.0.connectionURL": "https://'$P2P_GATEWAY_HOST':'$P2P_GATEWAY_PORT'",
   "corda.endpoints.0.protocolVersion": "1",
-  "corda.group.truststore.tls.0" : "'$TLS_CA_CERT'"
+  "corda.group.trustroot.tls.0" : "'$TLS_CA_CERT'"
 }'
 ```
 ### Build Registration Context Using PowerShell
@@ -58,7 +58,7 @@ To build the registration context using PowerShell, run the following command, s
 ```shell
 $TLS_CA_CERT_PATH = "$env:TEMP\tmp\ca\ca\root-certificate.pem"
 $REGISTRATION_CONTEXT = @{
-  'corda.session.key.id' =  $SESSION_KEY_ID
+  'corda.session.keys.0.id' =  $SESSION_KEY_ID
   'corda.ecdh.key.id' = $ECDH_KEY_ID
   'corda.group.protocol.registration' = "net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService"
   'corda.group.protocol.synchronisation' = "net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl"
@@ -69,7 +69,7 @@ $REGISTRATION_CONTEXT = @{
   'corda.group.tls.version' = "1.3"
   'corda.endpoints.0.connectionURL' = "https://$P2P_GATEWAY_HOST:$P2P_GATEWAY_PORT"
   'corda.endpoints.0.protocolVersion' = "1"
-  'corda.group.truststore.tls.0'  =  [IO.File]::ReadAllText($TLS_CA_CERT_PATH)
+  'corda.group.trustroot.tls.0'  =  [IO.File]::ReadAllText($TLS_CA_CERT_PATH)
 }
 ```
 ## Register the MGM
@@ -88,7 +88,7 @@ curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d "$REGISTRATION_REQUEST" 
 For example:
 ``` shell
 curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": { "context": {
-  "corda.session.key.id": "D2FAF709052F",
+  "corda.session.keys.0.id": "D2FAF709052F",
   "corda.ecdh.key.id": "E2FCF719062B",
   "corda.group.protocol.registration": "net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService",
   "corda.group.protocol.synchronisation": "net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl",
@@ -100,14 +100,14 @@ curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRe
   "corda.group.tls.version": "1.3",
   "corda.endpoints.0.connectionURL": "https://localhost:8080",
   "corda.endpoints.0.protocolVersion": "1",
-  "corda.group.truststore.tls.0" : "-----BEGIN CERTIFICATE-----\nMIIBLjCB1aADAgECAgECMAoGCCqGSM49BAMCMBAxDjAMBgNVBAYTBVVLIENOMB4X\nDTIyMDgyMzA4MDUzN1oXDTIyMDkyMjA4MDUzN1owEDEOMAwGA1UEBhMFVUsgQ04w\nWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASG6ijAvbmaIaIwKpZZqTeKmMKfoOPb\ncCK/BqdtKXVTt5AjJtiP/Uoq+481UEQyaUZYXGf5rC1owjT40U2B71qdoyAwHjAP\nBgNVHRMBAf8EBTADAQH/MAsGA1UdDwQEAwIBrjAKBggqhkjOPQQDAgNIADBFAiEA\n1h6WEfdWUXSjBcenf5ycXPkYQQzI92I54q2WaVVjQHwCIEBk1ov/hYp9RCCDPnJx\nk8WgCZIyhFe0pEmow7MuI/Zk\n-----END CERTIFICATE-----"
+  "corda.group.trustroot.tls.0" : "-----BEGIN CERTIFICATE-----\nMIIBLjCB1aADAgECAgECMAoGCCqGSM49BAMCMBAxDjAMBgNVBAYTBVVLIENOMB4X\nDTIyMDgyMzA4MDUzN1oXDTIyMDkyMjA4MDUzN1owEDEOMAwGA1UEBhMFVUsgQ04w\nWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASG6ijAvbmaIaIwKpZZqTeKmMKfoOPb\ncCK/BqdtKXVTt5AjJtiP/Uoq+481UEQyaUZYXGf5rC1owjT40U2B71qdoyAwHjAP\nBgNVHRMBAf8EBTADAQH/MAsGA1UdDwQEAwIBrjAKBggqhkjOPQQDAgNIADBFAiEA\n1h6WEfdWUXSjBcenf5ycXPkYQQzI92I54q2WaVVjQHwCIEBk1ov/hYp9RCCDPnJx\nk8WgCZIyhFe0pEmow7MuI/Zk\n-----END CERTIFICATE-----"
 } } }' https://localhost:8888/api/v1/membership/EF19BF67E77C
 ```
 
 Alternatively, using jq:
 ```shell
 curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d $(
-  jq --arg session_key_id $SESSION_KEY_ID '.memberRegistrationRequest.context."corda.session.key.id"=$session_key_id' | \
+  jq --arg session_key_id $SESSION_KEY_ID '.memberRegistrationRequest.context."corda.session.keys.0.id"=$session_key_id' | \
   jq --arg ecdh_key_id $ECDH_KEY_ID '.memberRegistrationRequest.context."corda.ecdh.key.id"=$ecdh_key_id' | \
   jq '.memberRegistrationRequest.context."corda.group.protocol.registration"="net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService"' | \
   jq '.memberRegistrationRequest.context."corda.group.protocol.synchronisation"="net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl"' | \
@@ -119,7 +119,7 @@ curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d $(
   jq '.memberRegistrationRequest.context."corda.group.key.session.policy"="Distinct"' | \
   jq --arg p2p_url "https://$P2P_GATEWAY_HOST:$P2P_GATEWAY_PORT" '.memberRegistrationRequest.context."corda.endpoints.0.connectionURL"=$p2p_url' | \
   jq '.memberRegistrationRequest.context."corda.endpoints.0.protocolVersion"="1"' | \
-  jq --rawfile root_certicicate /tmp/ca/ca/root-certificate.pem '.memberRegistrationRequest.context."corda.group.truststore.tls.0"=$root_certicicate' \
+  jq --rawfile root_certicicate /tmp/ca/ca/root-certificate.pem '.memberRegistrationRequest.context."corda.group.trustroot.tls.0"=$root_certicicate' \
 ) $REST_API_URL/membership/$MGM_HOLDING_ID
 ```
 

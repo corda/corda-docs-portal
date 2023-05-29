@@ -17,13 +17,13 @@ You must configure the virtual node as a network participant with the properties
 To configure the member virtual node, run the following command, setting these properties: 
 
 * `p2pTlsCertificateChainAlias` — the alias used when importing the TLS certificate.
-* `sessionKeyId` — the [session key ID previously generated]({{< relref "./key-pairs.md#generate-a-session-initiation-key-pair" >}}).
+* `sessionKeysAndCertificates` — contains a list of objects as you can specify multiple session initiation keys and certificates. Each object contains the fields `[sessionKeyId]({{< relref "./key-pairs.md#generate-a-session-initiation-key-pair" >}})`, 'sessionCertificateChainAlias' and 'preferred'. One object in the list must have the `preferred` Boolean field set to `true`. The list can not be empty. 
 * `useClusterLevelTlsCertificateAndKey` — `true` if the TLS certificate and key are cluster-level certificates and keys.
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```bash
-curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "useClusterLevelTlsCertificateAndKey": true, "sessionKeyId": "'$SESSION_KEY_ID'"}' $API_URL/network/setup/$HOLDING_ID
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "useClusterLevelTlsCertificateAndKey": true, "sessionKeysAndCertificates": [{"sessionKeyId": "'$SESSION_KEY_ID'", "preferred": true}]}' $API_URL/network/setup/$HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -31,7 +31,7 @@ curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"p2pTlsCertificateChain
 Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/network/setup/$HOLDING_ID" -Method Put -Body (ConvertTo-Json @{
     p2pTlsCertificateChainAlias = "p2p-tls-cert"
     useClusterLevelTlsCertificateAndKey = $true
-    sessionKeyId = $SESSION_KEY_ID
+    sessionKeysAndCertificates = [{"sessionKeyId": "'$SESSION_KEY_ID'", "preferred": true}]
 })
 ```
 {{% /tab %}}
