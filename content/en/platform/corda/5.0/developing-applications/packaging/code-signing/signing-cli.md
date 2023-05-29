@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Signing Packages Using Corda CLI
 
-You can sign the CPK, CPB, and CPI packages using Corda CLI. Corda CLI is particularly useful for CorDapp developers
+You can sign the CPK, CPB, and CPI packages using Corda CLI. Corda CLI is particularly useful for CorDapp developers or CorDapp distributors
 who need to sign their files after the QA process, when they are ready to release.
 The following steps will guide you through the process of removing existing (development) signatures and applying new ones.
 
