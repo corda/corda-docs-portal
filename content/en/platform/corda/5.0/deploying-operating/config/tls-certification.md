@@ -12,9 +12,9 @@ section_menu: corda5
 
 # TLS Certification Installation on REST Worker
 
-For the Corda 5 GA release the TLS certificate on REST Worker is presented to a client any time HTTPS connection is made.
+The Corda 5 GA release the TLS certificate on REST Worker is presented to a client any time HTTPS connection is made.
 Before, a self-signed certificate shipped with the REST Worker. If no specific parameters are provided, the self-signed certificate will be used as a default option such that the connection to the REST Worker is always HTTPS. However, a warning will be emitted into the REST log explaining how to provide parameters for custom TLS certificates.
-There are a few ways that a TLS certificate can be made available to the REST Worker. For eithr method there are three pieces of information required to install a valid TLS certificate.
+There are a few ways that a TLS certificate can be made available to the REST Worker. For either method there are three pieces of information required to install a valid TLS certificate.
 
 1. The TLS certificate itself is signed by a Certification Authority (CA) or an intermediary;
 2. A private key corresponding to the public key is included into the TLS certificate;
@@ -24,12 +24,9 @@ There are a few ways that a TLS certificate can be made available to the REST Wo
 
 REST Worker now accepts optional command line arguments: 
 
-1. `-rtls.crt.path=<path to tls.crt>`
-PEM representation of a TLS certificate to be used.
+1. PEM representation of a TLS certificate to be used: `-rtls.crt.path=<path to tls.crt>`
 
-2. `-rtls.key.path=<path to tls.key>`
-PEM representation of the private key.
-PEM representation of the CA certificate. This could also be a certification path where CA certificate is listed as the last one on the file.
+2. PEM representation of the private key and of the CA certificate. This could also be a certification path where CA certificate is listed as the last one on the file: `-rtls.key.path=<path to tls.key>`
 
 ## Use with Helm Chart
 
