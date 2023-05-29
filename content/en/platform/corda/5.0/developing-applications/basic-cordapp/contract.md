@@ -1,12 +1,15 @@
 ---
 date: '2023-05-03'
 title: "Write Contracts"
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-develop-first-cordapp-contract
     parent: corda5-develop-first-cordapp
     weight: 3000
 ---
+
+# Write Contracts
 
 This tutorial guides you through writing the two contracts you need in your CorDapp: `AppleStampContract` and `BasketOfApplesContract`. You will link these contracts to the states that you created in the [Write States]({{< relref"./state.md" >}}) tutorial.
 

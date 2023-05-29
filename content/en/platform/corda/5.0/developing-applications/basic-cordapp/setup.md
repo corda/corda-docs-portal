@@ -1,12 +1,15 @@
 ---
 date: '2023-05-03'
 title: "Initial Setup"
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-develop-first-cordapp-setup
     parent: corda5-develop-first-cordapp
     weight: 1000
 ---
+
+# Initial Setup
 
 After you have completed this tutorial, you will have modified the CSDE environment to make it ready for building your CorDapp.
 You will have also created three packages within the existing CSDE project structure.

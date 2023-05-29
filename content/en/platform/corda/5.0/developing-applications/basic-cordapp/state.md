@@ -1,12 +1,15 @@
 ---
 date: '2023-05-03'
 title: "Write States"
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-develop-first-cordapp-state
     parent: corda5-develop-first-cordapp
     weight: 2000
 ---
+
+# Write States
 
 This tutorial guides you through writing the two states you need in your CorDapp: `AppleStamp` and `BasketofApples`.
 You will create these states in the `contracts/src/main/kotlin/com/r3/developers/apples/states` directory.

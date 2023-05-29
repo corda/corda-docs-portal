@@ -1,6 +1,7 @@
 ---
 date: '2023-05-03'
 title: "Test Your CorDapp"
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-develop-first-cordapp-testing
