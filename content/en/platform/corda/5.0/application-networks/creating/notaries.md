@@ -8,7 +8,13 @@ menu:
     weight: 3000
 section_menu: corda5
 ---
-This section describes how to onboard a new member as a notary service representative. It assumes that you have configured the [MGM for the network]({{< relref "./mgm/_index.md" >}}). Onboarding a notary member is similar to any other member, but with the exceptions outlined on this page. The sections must be completed in the following order:
+This section describes how to onboard a new member as a notary service representative. It assumes that you have configured the [MGM for the network]({{< relref "./mgm/_index.md" >}}). Onboarding a notary member is similar to any other member, but with the exceptions outlined on this page. 
+
+{{< note >}}
+When onboarding a notary, you need to use the notary CPK to build a notary CPI.
+{{< /note >}}
+
+The sections must be completed in the following order:
 
 1. Download the notary server CPB, which is available from our [GitHub release page](https://github.com/corda/corda-runtime-os/releases/).
 2. [Build the member CPI]({{< relref "./members/cpi.md">}}) using the Notary CPB. For information about the notary CPB, see the [Notary section of Developing Applications]({{< relref "../../developing-applications/notaries/_index.md" >}}).
@@ -84,7 +90,7 @@ The R3 notary server CPB is signed with a DigiCert signing key. To use it, impor
 ## Generate a Notary Key Pair
 
 {{< note >}}
-This step is only necessary if you are onboarding a member as a notary. When onboarding a notary, you need to use the notary CPK to build a notary CPI.
+This step is only necessary if you are onboarding a member as a notary.
 {{< /note >}}
 
 Generate notary keys in a similar way as done for other key types. First, create a HSM, then generate the key and store the ID:
