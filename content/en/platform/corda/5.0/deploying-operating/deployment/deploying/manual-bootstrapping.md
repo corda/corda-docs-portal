@@ -407,7 +407,7 @@ To create the roles manually, perform the steps described in this section.
 
 {{< note >}}
 
-You can create RBAC roles manually only after the Corda cluster setup has been completed as an RBAC role requires the REST API URL a parameter. That value should be a URL where the API is [accessible]({{< relref "../../../reference/rest-api/accessing.md" >}}), either via a load balancer or by forwarding port 8888 from one of the REST worker pods.
+You can create RBAC roles manually only after the Corda cluster setup has been completed as an RBAC role requires the REST API URL as a parameter. That value should be a URL where the API is [accessible]({{< relref "../../../reference/rest-api/accessing.md" >}}), either via a load balancer or by forwarding port 8888 from one of the REST worker pods.
 
 {{</ note >}}
 
