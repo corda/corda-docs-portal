@@ -35,7 +35,7 @@ The `CreateAndIssueAppleStampFlow` creates the `AppleStamp` and issues it to the
 The `CreateAndIssueAppleStampFlow` action requires interaction between the issuer and the customer. For this reason, you must create an initiator flow and a responder flow.
 
 
-#### Implement the `CreateAndIssueAppleStampFlow` class
+#### Implement the `CreateAndIssueAppleStampFlow` Class
 
 1.	Go to `workflows/src/main/kotlin/com/r3/developers/apples` and right-click the `workflows` folder.
 2.	Select **New > Kotlin Class**.
