@@ -23,12 +23,14 @@ These roles and permissions enable certain common operations.
 The creation of users and associating such users to these roles should be done manually by an admin user.
 {{< /note >}}
 
-| <div style="width:160px">Role</div>   | Description |
-| ----------- | ----------- |
-| `UserAdminRole` | Creates roles and permissions and controls all associations between the user roles, and permissions. This role is created at cluster bootstrap by the admin user. This role is created via a REST call enabling to have complete audit trail of the operation performed.       |
-| `VNodeCreatorRole` | Sets all the necessary permissions to create a virtual node, including CPI upload and CPI update. Create this role at cluster bootstrapping time.|
-| `CordaDeveloperRole` | Enables the use of virtual node reset and virtual node status update. This role should be provisioned at cluster boostrap time and should re-use previously created permissions for other roles.|
-| `FlowExecutorRole`|  Permits the creation of a role for a given virtual node to start flows and enquire the status of the running flows once the virtual node is created.|
+| <div style="width:160px">Role</div> | Description                                                                                                                                                                                                                                                              |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `UserAdminRole`                     | Creates roles and permissions and controls all associations between the user roles, and permissions. This role is created at cluster bootstrap by the admin user. This role is created via a REST call enabling to have complete audit trail of the operation performed. |
+| `VNodeCreatorRole`                  | Sets all the necessary permissions to create a virtual node, including CPI upload and CPI update. Create this role at cluster bootstrapping time.                                                                                                                        |
+| `CordaDeveloperRole`                | Enables the use of virtual node reset and virtual node status update. This role should be provisioned at cluster boostrap time and should re-use previously created permissions for other roles.                                                                         |
+| `FlowExecutorRole`                  | Permits the creation of a role for a given virtual node to start flows and enquire the status of the running flows once the virtual node is created.                                                                                                                     |
+
+For information about creating these roles maually, see the [Manual Bootstrapping section]({{< relref "../deployment/deploying/maunual-bootstrapping.md">}}).
 
 ## Querying Permissions via REST
 
@@ -36,6 +38,4 @@ To retrieve permissions matching certain query criteria, use the [get_permission
 
 ## Checking Permissions When Starting Flows
 
-Currently, Corda checks if a user can execute `startFlow` REST operations. No checks are made to whether the user can start a particular flow.
-
-These checks should be performed against the RBAC sub-system before passing the start request to a FlowWorker.
+Currently, Corda checks if a user can execute `startFlow` REST operations. No checks are made to whether the user can start a particular flow. These checks should be performed against the RBAC sub-system before passing the start request to a FlowWorker.
