@@ -10,9 +10,7 @@ menu:
 section_menu: corda5
 ---
 # Deploying
-This page describes how to deploy Corda 5.
-
-All the necessary [prerequisites]({{< relref "../prerequisites.md" >}}) must have been satisfied before Corda is deployed.
+This page describes how to deploy Corda 5. All the necessary [prerequisites]({{< relref "../prerequisites.md" >}}) must have been satisfied before Corda is deployed.
 In particular, PostgreSQL and Kafka must be running. The mechanism to achieve that is up to you. For example, you can:
 
 * run PostgreSQL and Kafka on Kubernetes.
@@ -29,13 +27,19 @@ This section contains the following:
 The Corda container images must be in a registry that is accessible from the Kubernetes cluster in which Corda will run.
 By default, the images are made available via Docker Hub.
 If your Kubernetes cluster can pull images from Docker Hub, you can skip this section.
-If not, then the following instructions describe how to push the images from the provided `tar` file into a container registry that is accessible from the cluster.
+If not, the following sections describe how to push the images from the provided `tar` file into a container registry that is accessible from the cluster:
+* Container Images for [Corda Community]({{< relref "#container-images-for-corda-community" >}})
+* [Container Images for Corda Enterprise]({{< relref "#container-images-for-corda-enterprise" >}})
 
-1. Download `corda-worker-images-Hawk1.0.1.tar` from the [R3 Customer Hub](https://r3.force.com/).
+### Container Images for Corda Community
 
-2. Inflate and load the `corda-worker-images-Hawk1.0.1.tar` file into the local Docker engine with the following command:
+To push the Corda Community images: 
+
+1. Download `corda-os-worker-images-Iguana1.0.tar` from the [R3 Customer Hub](https://r3.force.com/).
+
+2. Inflate and load the `corda-os-worker-images-Iguana1.0.tar` file into the local Docker engine with the following command:
    ```shell
-   docker load -i corda-worker-images-Hawk1.0.1.tar
+   docker load -i corda-os-worker-images-Iguana1.0.tar
    ```
 
 3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target container registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
@@ -65,6 +69,46 @@ If not, then the following instructions describe how to push the images from the
    docker tag postgres:14.4 $target_registry/postgres:14.4
    docker push $target_registry/postgres:14.4
    ```
+
+### Container Images for Corda Enterprise {{< enterprise-icon >}}
+
+To push the Corda Community images: 
+
+1. Download `corda-os-worker-images-Iguana1.0.tar` from the [R3 Customer Hub](https://r3.force.com/).
+
+2. Inflate and load the `corda-os-worker-images-Iguana1.0.tar` file into the local Docker engine with the following command:
+   ```shell
+   docker load -i corda-os-worker-images-Iguana1.0.tar
+   ```
+
+3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target container registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
+   ```shell
+   #!/bin/bash
+   if [ -z "$1" ]; then
+    echo "Specify target registry"
+    exit 1
+   fi
+
+   declare -a images=(
+    "corda-os-rest-worker" "corda-os-flow-worker"
+    "corda-os-member-worker" "corda-os-p2p-gateway-worker"
+    "corda-os-p2p-link-manager-worker" "corda-os-db-worker"
+    "corda-os-crypto-worker" "corda-os-plugins" )
+   tag=5.0.0.0-Hawk1.0.1
+   target_registry=$1
+
+   for image in "${images[@]}"; do
+    source=corda/$image:$tag
+    target=$target_registry/$image:$tag
+    echo "Publishing image $source to $target"
+    docker tag $source $target
+    docker push $target
+   done
+
+   docker tag postgres:14.4 $target_registry/postgres:14.4
+   docker push $target_registry/postgres:14.4
+   ```
+
 
 ## Download the Corda Helm Chart
 
