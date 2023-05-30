@@ -17,7 +17,7 @@ If no specific parameters are provided, the self-signed certificate is used and 
 There are a few ways that a TLS certificate can be made available to the REST Worker. For either method there are three pieces of information required to install a valid TLS certificate.
 
 1. The TLS certificate itself is signed by a Certification Authority (CA) or an intermediary.
-2. A private key corresponding to the public key is included into the TLS certificate;
+2. A private key corresponding to the public key is included into the TLS certificate.
 3. The Certification Chain leads up to CA
 
 ## Certificate Information Provided in PEM Format
