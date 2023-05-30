@@ -30,7 +30,7 @@ REST Worker now accepts optional command line arguments:
 
 ## Use with Helm Chart
 
-When deploying the C5 cluster to Kubernetes (K8s) using Helm, certificate information can be provided as a K8s secret. 
+When deploying the C5 cluster to Kubernetes using Helm, certificate information can be provided as a Kubernetes secret. 
 The C5 Cluster operator can either create K8s secret which hold certificate information themselves or allow Helm to generate a new secret.
 
 Our Helm values file now has a parameter to specifysecret name under `Values.workers.rest.tls.secretName`. If this optional value is not provided, Helm will generate certificate data at installation time and will automatically create K8s secret for REST Worker to use.
