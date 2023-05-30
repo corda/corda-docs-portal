@@ -98,7 +98,7 @@ It verifies that the transaction components are following the restrictions imple
 
 {{< note >}}
    When the intention of the transaction is not recognized by the `verify` method, use an `else` branch within your `if`/`when` block.
-{{< /note >}}
+   {{< /note >}}
 
    ```kotlin
     val inputs = transaction.getInputStates(AppleStamp::class.java)
