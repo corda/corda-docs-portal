@@ -39,7 +39,7 @@ You can specify the secret name in the Helm values file under the parameter  `Va
 If the TLS certificate has been installed as a Kubernetes secret and subsequently secret data modified, REST Worker Pod will not currently detect a change in the TLS certificate data until Pod is restarted.
 {{</ note >}}
 
-## Certificate information provided as PKCS12 key store
+## Certificate Information Provided as PKCS12 Key Store
 
 Alternatively, it is possible to supply such information as password protected PKCS12 key store.
 
