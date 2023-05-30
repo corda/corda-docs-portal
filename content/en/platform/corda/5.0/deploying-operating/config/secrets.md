@@ -52,7 +52,7 @@ You can use the Corda CLI <a href = "../../reference/corda-cli/secret-config.md"
 
 ## External Secrets Service {{< enterprise-icon >}}
 
-Corda Enterprise supports integration with [HashiCorp Vault](https://www.vaultproject.io/) as an external secret management system. This is the recommended deployment configuration. The URL at which the Vault instance is reachable, the Vault token, and the path to Corda created secrets must be specified in the [deployment configuration]({{< relref "../deployment/deploying/bootstrapping.md#external-secrets-service" >}}).
+Corda Enterprise supports integration with [HashiCorp Vault](https://www.vaultproject.io/) as an external secret management system. This is the recommended deployment configuration. The URL at which the Vault instance is reachable, the Vault token, and the path to Corda created secrets must be specified in the [deployment configuration]({{< relref "../deployment/deploying/manual-bootstrapping.md#external-secrets-service" >}}).
 
 For example, the following is a standard configuration:
 
