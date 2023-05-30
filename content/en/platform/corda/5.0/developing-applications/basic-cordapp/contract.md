@@ -96,7 +96,7 @@ It verifies that the transaction components are following the restrictions imple
    ```
 6. Similarly, add verification rules for redeeming:
 
-{{< note >}}
+   {{< note >}}
    When the intention of the transaction is not recognized by the `verify` method, use an `else` branch within your `if`/`when` block.
    {{< /note >}}
 
