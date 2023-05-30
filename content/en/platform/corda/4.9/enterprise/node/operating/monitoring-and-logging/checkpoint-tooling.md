@@ -67,7 +67,6 @@ Below is an example of the `.json` output:
       "progressStep" : "Awaiting counterparty's anonymous identity"
     }
   ],
-  "status" : "RUNNABLE",
   "suspendedOn" : {
     "sendAndReceive" : [
       {
