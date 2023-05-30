@@ -36,7 +36,7 @@ The Cluster administrator can either create a Kubernetes secret manually to hold
 Our Helm values file now has a parameter to specifysecret name under `Values.workers.rest.tls.secretName`. If this optional value is not provided, Helm will generate certificate data at installation time and will automatically create K8s secret for REST Worker to use.
 
 {{< note >}}
-If the TLS certificate has been installed as a K8s secret and subsequently secret data modified, REST Worker Pod will not currently detect a change in the TLS certificate data until Pod is restarted.
+If the TLS certificate has been installed as a Kubernetes secret and subsequently secret data modified, REST Worker Pod will not currently detect a change in the TLS certificate data until Pod is restarted.
 {{</ note >}}
 
 ## Certificate information provided as PKCS12 key store
