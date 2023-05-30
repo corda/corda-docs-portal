@@ -1,9 +1,10 @@
 ---
-date: '2023-05-17'
+date: '2023-05-30'
+version: 'Corda 5.0'
 title: "UTXO Advanced Ledger Extensions Library"
 menu:
   corda5:
-    parent: "corda5-develop-get-started"
+    parent: corda5-develop-get-started
     identifier: corda5-utxo-ledger-extensions
     weight: 8000
 section_menu: corda5

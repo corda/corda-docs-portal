@@ -1,7 +1,10 @@
 ---
+date: '2023-05-30'
+version: 'Corda 5.0'
+title: "Advanced Contract Design"
 menu:
   corda5:
-    parent: "utxo-advanced-ledger-extensions"
+    parent: utxo-advanced-ledger-extensions
     identifier: corda5-utxo-ledger-extensions-advanced-design
     weight: 9000
 section_menu: corda5
