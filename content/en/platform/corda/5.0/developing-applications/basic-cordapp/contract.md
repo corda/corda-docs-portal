@@ -208,6 +208,7 @@ The rules inside the `verify` method in the `require` Corda DSL helper method ar
   * The transaction should consume exactly two states: one `AppleStamp` and one `BasketOfApples`.
   * The issuer of the `AppleStamp` should be the producing farm of this basket of apples.
   * The weight of the basket of apples must be greater than zero.
+* The `Issue` command does not need to be handled by this contract, because this is only relevant when dealing with an `AppleStamp`, not a `BasketOfApples`
 
 Using what you learned when writing `AppleStampContract`, implement the above in a new class. You will also need to
 update the `AppleCommands` interface defined earlier to account for the new `PackBasket` command.
