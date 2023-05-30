@@ -25,9 +25,8 @@ This section contains the following:
 ## Download and Push Container Images to a Registry
 
 The Corda container images must be in a registry that is accessible from the Kubernetes cluster in which Corda will run.
-By default, the images are made available via Docker Hub.
-If your Kubernetes cluster can pull images from Docker Hub, you can skip this section.
-If not, the following sections describe how to push the images from the provided `tar` file into a container registry that is accessible from the cluster:
+By default, the Community images are made available via Docker Hub.
+If your Kubernetes cluster can not pull images from Docker Hub, or if you are deploying Corda Enterprise, the following sections describe how to push the images from the provided `tar` file into a container registry that is accessible from the cluster:
 * [Container Images for Corda Community]({{< relref "#container-images-for-corda-community" >}})
 * [Container Images for Corda Enterprise]({{< relref "#container-images-for-corda-enterprise" >}})
 
@@ -115,15 +114,10 @@ To push the Corda Enterprise images:
 If you have access to Docker Hub, you can download the Corda Helm chart using the following command for Corda Community:
 
 ```shell
-helm fetch oci://corda-os-docker.software.r3.com/helm-charts/release-5.0.0.0-iguana1.0/corda --version 5.0.0-Iguana1.0
+helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.0-Iguana1.0
 ```
 
-{{< enterprise-icon noMargin="true" >}}Alternatively, use the following command for Corda Enterprise:
-```shell
-helm fetch oci://corda-ent-docker.software.r3.com/helm-charts/release-5.0.0.0-iguana1.0/corda-enterprise --version 5.0.0-Iguana1.0
-```
-
-If you do not have access to Docker Hub, you can download the `corda-5.0.0-Iguana1.0.tgz` or `corda-enterprise-5.0.0-Iguana1.0.tgz` file from the [R3 Customer Hub](https://r3.force.com/).
+If you do not have access to Docker Hub, or you are deploying Corda Enterprise, you can download the `corda-5.0.0-Iguana1.0.tgz` or `corda-enterprise-5.0.0-Iguana1.0.tgz` file from the [R3 Customer Hub](https://r3.force.com/).
 
 ## Configure the Deployment
 
