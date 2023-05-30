@@ -33,7 +33,7 @@ REST Worker now accepts optional command line arguments:
 When deploying the C5 cluster to Kubernetes using Helm, certificate information can be provided as a Kubernetes secret. 
 The Cluster administrator can either create a Kubernetes secret manually to hold the certificate information or allow Helm to generate a new secret.
 
-Our Helm values file now has a parameter to specifysecret name under `Values.workers.rest.tls.secretName`. If this optional value is not provided, Helm will generate certificate data at installation time and will automatically create K8s secret for REST Worker to use.
+You can specify the secret name in the Helm values file under the parameter  `Values.workers.rest.tls.secretName`. If this optional value is not provided, Helm generates the certificate data at installation time and automatically creates a Kubernetes secret for the REST Worker to use.
 
 {{< note >}}
 If the TLS certificate has been installed as a Kubernetes secret and subsequently secret data modified, REST Worker Pod will not currently detect a change in the TLS certificate data until Pod is restarted.
