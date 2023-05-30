@@ -122,7 +122,6 @@ Finally, Dave can redeem his `AppleStamp`.
 ```
 
 The `flowStatus` in the response should also be completed. Following this step, the `AppleStamp` has been spent,
-and Dave is now the owner of a basket of apples.
 
 ## Error Scenarios
 
