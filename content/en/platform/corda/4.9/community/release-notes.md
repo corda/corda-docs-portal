@@ -21,13 +21,11 @@ tags:
 
 Corda Community Edition 4.9.7 is a patch release of Corda Community Edition which includes resolved issues.
 
-### Improvements
+### Fixed issues
 
 * Debug logging of the Artemis server has been added.
 
 * The SSL handshake timeout for inbound connections has been increased to 60 seconds. If during SSL handshake, certificate revocation lists (CRLs) take a long time to download, or are unreachable, then this 60 seconds gives the node enough time to establish the connection if crlCheckSoftFail is enabled.
-
-### Fixed issues
 
 * Corda provides the NodeDriver to help developers write integration tests. Using the NodeDriver, developers can bring up nodes locally to run flows and inspect state updates. Previously, there was an issue with build pipelines with tests failing, as on some occasions, notaries took more than one minute (the default timeout value) to start.
 
