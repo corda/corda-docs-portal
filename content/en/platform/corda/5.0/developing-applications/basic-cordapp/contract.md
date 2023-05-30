@@ -85,7 +85,7 @@ It verifies that the transaction components are following the restrictions imple
    The `verify` method preceded by the `override` keyword appears.
 3. Extract the command from the transaction.
 4. Verify the intention of the transaction (Issue or Redeem) using an `if/else` or `when` block.
-5. Use Kotlin’s `requires` method to include the contract’s verification rules for issuing:
+5. Use Kotlin’s `require` method to include the contract’s verification rules for issuing:
    ```kotlin
    val output = transaction.getOutputStates(AppleStamp::class.java).first()
    require(transaction.outputContractStates.size == 1) {
