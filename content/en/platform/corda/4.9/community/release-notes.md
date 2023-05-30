@@ -4,7 +4,7 @@ aliases:
 - /head/release-notes.html
 - /HEAD/release-notes.html
 - /release-notes.html
-date: '2023-02-10'
+date: '2023-05-05'
 menu:
   corda-community-4-9:
     identifier: corda-community-4-9-release-notes
@@ -17,6 +17,24 @@ tags:
 
 # Corda Community Edition 4.9 release notes
 
+## Corda Community Edition 4.9.7 release notes
+
+Corda Community Edition 4.9.7 is a patch release of Corda Community Edition which includes resolved issues.
+
+### Fixed issues
+
+* Debug logging of the Artemis server has been added.
+
+* The SSL handshake timeout for inbound connections has been increased to 60 seconds. If during SSL handshake, certificate revocation lists (CRLs) take a long time to download, or are unreachable, then this 60 seconds gives the node enough time to establish the connection if crlCheckSoftFail is enabled.
+
+* Corda provides the NodeDriver to help developers write integration tests. Using the NodeDriver, developers can bring up nodes locally to run flows and inspect state updates. Previously, there was an issue with build pipelines with tests failing, as on some occasions, notaries took more than one minute (the default timeout value) to start.
+
+  To resolve this, the NodeDriver now has a new parameter, notaryHandleTimeout. This parameter specifies how long to wait (in minutes) for a notary handle to come back after the notary has been started.
+
+* A fix for cache eviction has been applied where an issue resulted in an incorrect contract verification status while a database transaction was in progress during contract verification.
+
+* The certificate revocation checking has been improved with the introduction of a read timeout on the download of the certificate revocation lists (CRLs). The default CRL connect timeout has also been adjusted to better suit Corda nodes. The caching of CRLs has been increased from 30 seconds to 5 minutes.
+
 ## Corda Community Edition 4.9.6 release notes
 
 Corda Community Edition 4.9.6 is a patch release of Corda Community Edition to keep it synchronised with the release of Corda Enterprise Edition 4.9.6.
@@ -27,7 +45,7 @@ Corda Community Edition 4.9.5 is a patch release of Corda Community Edition whic
 
 ### Fixed issues
 
-* Previously, a memory leak in the transaction cache occurred due to the weight of in-flight entries being undervalued. Improvements have been made to prevent in-flight entry weights from being undervalued and because they are now estimated more correctly, this results in a large decrease in the total size of cached entities. 
+* Previously, a memory leak in the transaction cache occurred due to the weight of in-flight entries being undervalued. Improvements have been made to prevent in-flight entry weights from being undervalued and because they are now estimated more correctly, this results in a large decrease in the total size of cached entities.
 
 * A rare condition was fixed relating to roll back of database transactions under heavy load, which caused flow state machine threads to stop processing flows, leading to eventual node lock up in certain circumstances.
 
@@ -117,5 +135,5 @@ Issues fixed in Corda Community 4.9:
 ### Database Schema Changes
 
 * The `node_named_identities` table has been re-introduced. It was removed in Corda Enterprise Edition 4.7 following updates to certificate rotation functionality.
-  
+
   The reintroduction of this table ensures that the behavior of `rpcOps.wellKnownPartyFromX500Name` is identical for both revoked and non-revoked identities.
