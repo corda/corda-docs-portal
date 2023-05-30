@@ -242,7 +242,7 @@ import net.corda.v5.ledger.utxo.Contract
 import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction
 
 
-class BasketOfApplesContract : Contract{
+class BasketOfApplesContract : Contract {
 
     override fun verify(transaction: UtxoLedgerTransaction) {
         // Extract the command from the transaction
