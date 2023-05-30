@@ -20,7 +20,6 @@ You will create these contracts in the `contracts/src/main/kotlin/com/r3/develop
 
 Once you have completed this tutorial, you will know how to create and implement contracts in a CorDapp to restrict how your transaction flows are performed.
 
-
 ## Create the `AppleStampContract` Contract
 
 First, create the `AppleStampContract`. This contract verifies actions performed by the `AppleStamp` state.
