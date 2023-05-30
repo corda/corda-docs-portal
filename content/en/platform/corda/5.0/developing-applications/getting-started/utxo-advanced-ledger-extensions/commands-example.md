@@ -6,7 +6,7 @@ menu:
   corda5:
     parent: utxo-advanced-ledger-extensions
     identifier: corda5-utxo-ledger-extensions-examples
-    weight: 8050
+    weight: 4050
 section_menu: corda5
 ---
 
