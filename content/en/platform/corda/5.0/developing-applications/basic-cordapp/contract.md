@@ -198,7 +198,7 @@ The `BasketOfApplesContract` has two intentions:
 * Farmer Bob creates the basket of apples. This intention is expressed by the `PackBasket` command.
 * Dave redeems the `BasketOfApples` state. This intention is expressed by the `Redeem` command, which you defined when creating `AppleStampContract`.
 
-The rules inside the `verify` method in the `requireThat` Corda DSL helper method are:
+The rules inside the `verify` method in the `require` Corda DSL helper method are:
 
 * For the `PackBasket` command:
   * This transaction should only output one `BasketOfApples` state.
