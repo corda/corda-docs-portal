@@ -112,7 +112,7 @@ To push the Corda Enterprise images:
 
 ## Download the Corda Helm Chart
 
-If you have access to Docker Hub, you can download the Corda Helm chart using the following command for Corda Communnity:
+If you have access to Docker Hub, you can download the Corda Helm chart using the following command for Corda Community:
 
 ```shell
 helm fetch oci://corda-os-docker.software.r3.com/helm-charts/release-5.0.0.0-iguana1.0/corda --version 5.0.0-Iguana1.0
