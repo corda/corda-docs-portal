@@ -49,5 +49,5 @@ To pass a PKCS12 key store to the REST Worker, the following start-up arguments 
 2. Password is used for opening the key store: `-rtls.keystore.password=<password>`
 
 {{< note >}}
-It is best practice to pass the password through an environment variable.
+R3 recommend passing the password through an environment variable.
 {{< /note >}}
