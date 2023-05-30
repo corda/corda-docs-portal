@@ -11,7 +11,7 @@ menu:
 section_menu: corda5
 ---
 # Manual Bootstrapping
-By default, the Corda installation process automatically performs various setup actions in Kafka and the database, and for Corda RBAC.
+By default, the Corda installation process automatically performs various setup actions in Kafka, the database, and for [Corda RBAC]({{< relref "../../config-users/_index.md">}}).
 If you require additional control, you can disable these automatic setup processes and an administrator can manually perform the actions with the assistance of the [Corda CLI]({{< relref "../../tooling/installing-corda-cli.md" >}}).
 
 This section describes how to configure the following:
@@ -53,19 +53,13 @@ In the first option, the Corda CLI connects directly to the Kafka broker to crea
 The Corda CLI command to create the topics looks as follows:
 
 {{< tabs name="create-topics">}}
-{{% tab name="Linux" %}}
-```sh
-corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
-  create -r <REPLICAS> -p <PARTITIONS> connect
-```
-{{% /tab %}}
-{{% tab name="macOS" %}}
+{{% tab name="Bash" %}}
 ```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   create -r <REPLICAS> -p <PARTITIONS> connect
    ```
 {{% /tab %}}
-{{% tab name="Windows" %}}
+{{% tab name="PowerShell" %}}
 ```shell
 corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties create -r <REPLICAS> -p <PARTITIONS> connect
 ```
@@ -75,17 +69,12 @@ corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties create -r <REPLI
 For example:
 
 {{< tabs name="create-topics-example">}}
-{{% tab name="Linux" %}}
+{{% tab name="Bash" %}}
 ```sh
 corda-cli.sh topic -b kafka-1.example.com -k config.properties create -r 3 -p 10 connect
 ```
 {{% /tab %}}
-{{% tab name="macOS" %}}
-```sh
-corda-cli.sh topic -b kafka-1.example.com -k config.properties create -r 3 -p 10 connect
-```
-{{% /tab %}}
-{{% tab name="Windows" %}}
+{{% tab name="PowerShell" %}}
 ```shell
 corda-cli.cmd topic -b kafka-1.example.com -k config.properties create -r 3 -p 10 connect
 ```
@@ -105,7 +94,7 @@ corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   connect
 ```
 {{% /tab %}}
-{{% tab name="macOS" %}}
+{{% tab name="Bash" %}}
 ```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   create -r <REPLICAS> -p <PARTITIONS> \
@@ -114,7 +103,7 @@ corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   connect
 ```
 {{% /tab %}}
-{{% tab name="Windows" %}}
+{{% tab name="PowerShell" %}}
 ```shell
 corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
   create -r <REPLICAS> -p <PARTITIONS> `
@@ -133,19 +122,13 @@ The script makes use of the `kafka-topic.sh` script provided with a Kafka instal
 Run the following Corda CLI command to generate the script:
 
 {{< tabs name="cli-script">}}
-{{% tab name="Linux" %}}
+{{% tab name="Bash" %}}
 ```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   create -r <REPLICAS> -p <PARTITIONS> script -f <FILE> -c <CONCURRENCY>
 ```
 {{% /tab %}}
-{{% tab name="macOS" %}}
-```sh
-corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
-  create -r <REPLICAS> -p <PARTITIONS> script -f <FILE> -c <CONCURRENCY>
-```
-{{% /tab %}}
-{{% tab name="Windows" %}}
+{{% tab name="PowerShell" %}}
 ```shell
 corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties create -r <REPLICAS> -p <PARTITIONS> script -f <FILE> -c <CONCURRENCY>
 ```
@@ -163,13 +146,13 @@ corda-cli.sh topic -b kafka-1.example.com -k config.properties \
   create -r 3 -p 10 script -f create.sh -c 6
 ```
 {{% /tab %}}
-{{% tab name="macOS" %}}
+{{% tab name="Bash" %}}
 ```sh
 corda-cli.sh topic -b kafka-1.example.com -k config.properties \
   create -r 3 -p 10 script -f create.sh -c 6
 ```
 {{% /tab %}}
-{{% tab name="Windows" %}}
+{{% tab name="PowerShell" %}}
 ```shell
 corda-cli.cmd topic -b kafka-1.example.com -k config.properties create -r 3 -p 10 script -f create.sh -c 6
 ```
@@ -180,7 +163,7 @@ If you are authenticating Kafka users, the Corda CLI can also create Access Cont
 Specify a set of name-value pairs giving the Kafka username that will be used for each Corda worker:
 
 {{< tabs name="acl2">}}
-{{% tab name="Linux" %}}
+{{% tab name="Bash" %}}
 ```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   create -r <REPLICAS> -p <PARTITIONS> \
@@ -189,16 +172,7 @@ corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   connect
 ```
 {{% /tab %}}
-{{% tab name="macOS" %}}
-```sh
-corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
-  create -r <REPLICAS> -p <PARTITIONS> \
-  -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
-  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> \
-  connect
-```
-{{% /tab %}}
-{{% tab name="Windows" %}}
+{{% tab name="PowerShell" %}}
 ```shell
 corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
   create -r <REPLICAS> -p <PARTITIONS> `
@@ -241,12 +215,12 @@ The following command specifies that the `CONFIG`, `RBAC`, and `CRYPTO` schema s
    corda-cli.sh database spec -g config:CONFIG,rbac:RBAC,crypto:CRYPTO -c -l /tmp/db
    ```
 {{% /tab %}}
-{{% tab name="macOS" %}}
+{{% tab name="Bash" %}}
    ```sh
    corda-cli.sh database spec -g config:CONFIG,rbac:RBAC,crypto:CRYPTO -c -l /tmp/db
    ```
 {{% /tab %}}
-{{% tab name="Windows" %}}
+{{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd database spec -g config:CONFIG,rbac:RBAC,crypto:CRYPTO -c -l /tmp/db
    ```
@@ -258,21 +232,14 @@ The following command specifies that the `CONFIG`, `RBAC`, and `CRYPTO` schema s
 4. Execute the following Corda CLI command to generate DDL for populating the RBAC database connection configuration, in this case use CONFIG:
 
    {{< tabs name="RBAC">}}
-   {{% tab name="Linux" %}}
-   ```sh
-   corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
-     --name corda-rbac --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC \
-     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
-   ```
-   {{% /tab %}}
-   {{% tab name="macOS" %}}
+   {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
      --name corda-rbac --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC' \
      --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
    {{% /tab %}}
-   {{% tab name="Windows" %}}
+   {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> `
      --name corda-rbac --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC `
@@ -293,14 +260,14 @@ For example:
      --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
 {{% /tab %}}
-{{% tab name="macOS" %}}
+{{% tab name="Bash" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u rbacuser -p rc9VLHU3 \
      --name corda-rbac --jdbc-url 'jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC' \
      --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
 {{% /tab %}}
-{{% tab name="Windows" %}}
+{{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u rbacuser -p rc9VLHU3 `
      --name corda-rbac --jdbc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC `
@@ -314,21 +281,14 @@ For example:
 6. Execute the following Corda CLI command to generate DDL for populating the Crypto database connection configuration,in this case use CONFIG:
 
    {{< tabs name="DDL-crypto">}}
-   {{% tab name="Linux" %}}
-   ```sh
-   corda-cli.sh initial-config create-db-config -u <CRYPTO-USERNAME> -p <CRYPTO-PASSWORD> \
-     --name corda-crypto --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO \
-     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
-   ```
-   {{% /tab %}}
-   {{% tab name="macOS" %}}
+   {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <CRYPTO-USERNAME> -p <CRYPTO-PASSWORD> \
      --name corda-crypto --jdbc-url `jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO` \
      --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
    {{% /tab %}}
-   {{% tab name="Windows" %}}
+   {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <CRYPTO-USERNAME> -p <CRYPTO-PASSWORD> `
      --name corda-crypto --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO `
@@ -349,14 +309,14 @@ For example:
      --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
 {{% /tab %}}
-{{% tab name="macOS" %}}
+{{% tab name="Bash" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u cryptouser -p TqoCp4v2 \
      --name corda-crypto --jdbc-url 'jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO' \
      --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
 {{% /tab %}}
-{{% tab name="Windows" %}}
+{{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u cryptouser -p TqoCp4v2 `
      --name corda-crypto --jdbc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO `
@@ -371,19 +331,13 @@ For example:
 
 
 {{< tabs name="vNode-example">}}
-{{% tab name="Linux" %}}
-   ```sh
-  corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
-    --name orda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin
-   ```
-{{% /tab %}}
-{{% tab name="macOS" %}}
+{{% tab name="Bash" %}}
    ```sh
   corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
     --name orda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin'
    ```
 {{% /tab %}}
-{{% tab name="Windows" %}}
+{{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
     --name orda-virtual-nodes --jdbc-url `jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin`
@@ -403,12 +357,12 @@ There is no schema in `--jdbc-url` as vNodes create their own schemas. However, 
    corda-cli.sh initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
    ```
    {{% /tab %}}
-   {{% tab name="macOS" %}}
+   {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
    ```
    {{% /tab %}}
-   {{% tab name="Windows" %}}
+   {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
    ```
@@ -431,17 +385,12 @@ There is no schema in `--jdbc-url` as vNodes create their own schemas. However, 
 12. Execute the following Corda CLI command to generate DDL for populating the initial crypto configuration, in this case use CONFIG:
 
 {{< tabs name="DDL-crypto-config">}}
-{{% tab name="Linux" %}}
+{{% tab name="Bash" %}}
 ```sh
  corda-cli.sh initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
 ```
 {{% /tab %}}
-{{% tab name="macOS" %}}
-```sh
- corda-cli.sh initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
-```
-{{% /tab %}}
-{{% tab name="Windows" %}}
+{{% tab name="PowerShell" %}}
 ```shell
  corda-cli.cmd initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
 ```
@@ -453,13 +402,12 @@ The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the
 
 ## RBAC Roles
 
-By default, a post-install job normally creates three default RBAC roles for the Corda API.
+By default, a post-install job normally creates three default [RBAC roles]({{< relref "../../config-users/_index.md">}}) for the Corda API.
 To create the roles manually, perform the steps described in this section.
 
 {{< note >}}
 
-You can create RBAC roles manually only after the Corda cluster setup has been completed as an RBAC role takes
-<API-ENDPOINT> as a parameter. That value should be a URL where the Corda API is accessible, either via a load balancer or by forwarding port 8888 from one of the REST worker pods.
+You can create RBAC roles manually only after the Corda cluster setup has been completed as an RBAC role requires the REST API URL as a parameter. That value should be a URL where the API is [accessible]({{< relref "../../../reference/rest-api/accessing.md" >}}), either via a load balancer or by forwarding port 8888 from one of the REST worker pods.
 
 {{</ note >}}
 
@@ -474,7 +422,7 @@ You can create RBAC roles manually only after the Corda cluster setup has been c
 2. Execute the following three commands:
 
    {{< tabs name="rbac">}}
-   {{% tab name="Linux" %}}
+   {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh initial-rbac user-admin --yield 300 --user <INITIAL-ADMIN-USERNAME> \
      --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
@@ -484,17 +432,7 @@ You can create RBAC roles manually only after the Corda cluster setup has been c
      --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
    ```
    {{% /tab %}}
-   {{% tab name="macOS" %}}
-   ```sh
-   corda-cli.sh initial-rbac user-admin --yield 300 --user <INITIAL-ADMIN-USERNAME> \
-     --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
-   corda-cli.sh initial-rbac vnode-creator --yield 300 --user <INITIAL-ADMIN-USERNAME> \
-     --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
-   corda-cli.sh initial-rbac corda-developer --yield 300 --user <INITIAL-ADMIN-USERNAME> \
-     --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
-   ```
-   {{% /tab %}}
-   {{% tab name="Windows" %}}
+   {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-rbac user-admin --yield 300 --user <INITIAL-ADMIN-USERNAME> `
      --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
