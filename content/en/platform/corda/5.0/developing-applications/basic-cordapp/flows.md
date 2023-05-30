@@ -77,6 +77,7 @@ class CreateAndIssueAppleStampFlow : ClientStartableFlow
 
 {{< note >}}
 The `String` returned from the `call` method is the result of the flow which can be requested using one of Corda’s HTTP endpoints.
+For more information, see [Corda REST API documentation]({{< relref "../../reference/rest-api/_index.md" >}}).
 {{< /note >}}
 
 Your code should now look like this:
