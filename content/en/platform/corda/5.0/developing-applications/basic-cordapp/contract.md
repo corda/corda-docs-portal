@@ -49,7 +49,7 @@ class AppleStampContract : Contract
 
 Commands indicate the transaction's intent — what type of actions performed by the state the contract can verify.
 In this step, you will define a command for issuing the bushel of apples.
-You will do this in a separate file as commands can be used by different contracts within the CorDapp.
+Do this in a separate file as commands can be used by different contracts within the CorDapp.
 
 1.	Go to `contracts/src/main/kotlin/com/r3/developers/apples` and right-click the `contracts` folder.
 2.	Select **New > Kotlin Class**.
