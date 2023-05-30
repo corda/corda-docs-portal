@@ -25,7 +25,7 @@ This section contains the following:
 ## Download and Push Container Images to a Registry
 
 The Corda container images must be in a registry that is accessible from the Kubernetes cluster in which Corda will run.
-By default, the Community images are made available via Docker Hub.
+By default, the Corda Community images are made available via Docker Hub.
 If your Kubernetes cluster can not pull images from Docker Hub, or if you are deploying Corda Enterprise, the following sections describe how to push the images from the provided `tar` file into a container registry that is accessible from the cluster:
 * [Container Images for Corda Community]({{< relref "#container-images-for-corda-community" >}})
 * [Container Images for Corda Enterprise]({{< relref "#container-images-for-corda-enterprise" >}})
