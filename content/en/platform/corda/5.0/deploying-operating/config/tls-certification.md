@@ -46,7 +46,6 @@ Alternatively, it is possible to supply such information as password protected P
 To pass a PKCS12 key store to the REST Worker, the following start-up arguments can be used:
 
 1. The full path to a key store file: `-rtls.keystore.path=<path to a keystore>`
-
 2. Password is used for opening the key store: `-rtls.keystore.password=<password>`
 
 {{< note >}}
