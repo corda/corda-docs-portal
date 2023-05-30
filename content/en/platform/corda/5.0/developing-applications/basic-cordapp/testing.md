@@ -125,7 +125,7 @@ The `flowStatus` in the response should also be completed. Following this step, 
 
 ## Error Scenarios
 
-The above steps show the “happy path”. However, you may wish to execute some further flows to ensure that your contract
+The above steps show the “happy path”. However, you may wish to execute some further flows to ensure that your contract validation works as expected. Some additional scenarios to try are:
 
 * Try redeeming the original `AppleStamp` again. You can do this by entering a new flow as you did when following the steps
 for redeeming the `AppleStamp`, but with a new client request ID. The transaction should fail with an error indicating
