@@ -25,7 +25,6 @@ There are two ways that a TLS certificate can be made available to the REST Work
 The REST Worker accepts the following optional command line arguments: 
 
 * PEM representation of a TLS certificate to be used: `-rtls.crt.path=<path to tls.crt>`
-
 * PEM representation of the private key and of the CA certificate. This could also be a certification path where CA certificate is listed as the last one on the file: `-rtls.key.path=<path to tls.key>`
 
 ## Use with Helm Chart
