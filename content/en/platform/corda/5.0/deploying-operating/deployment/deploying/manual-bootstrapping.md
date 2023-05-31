@@ -289,7 +289,6 @@ For example:
 For example:
 
 {{< tabs name="DDL-crypto-example">}}
-{{% /tab %}}
 {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u cryptouser -p TqoCp4v2 \
