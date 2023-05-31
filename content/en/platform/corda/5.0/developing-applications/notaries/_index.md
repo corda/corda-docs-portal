@@ -18,7 +18,7 @@ This section outlines how to get a notary up and running on a Corda application 
 Notary virtual nodes use an additional “uniqueness” database for capturing state data for double-spend prevention. This is similar to the existing “crypto” and “vault” databases. Currently, when auto-provisioning virtual node databases, a uniqueness database is always provisioned, regardless of whether it is a notary virtual node or not. This will be addressed in a future release.
 {{< /note >}} 
 
-# Network Member Roles
+## Network Member Roles
 
 With the introduction of the UTXO ledger and notaries, network operators must be aware of the different roles that exist on a network. Network participants can take one of three roles:
 
