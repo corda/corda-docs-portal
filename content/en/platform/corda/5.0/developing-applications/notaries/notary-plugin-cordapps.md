@@ -40,7 +40,7 @@ The source code for all of these modules can be found under the [notary-plugins 
 
 ## Notary Server CPB
 
-The non-validating notary server CPB only contains CPKs that are produced by R3. Therefore, to improve the user experience, R3 also produces a standard non-validating notary server CPB.
+R3 produces a standard non-validating notary server CPB, as this only contains CPKs that are produced by R3 and therefore does not require a developer to build their own CPB using a mixture of R3 and third-party CPKs.
 
 ## Application CPB
 
