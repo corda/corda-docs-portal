@@ -14,7 +14,7 @@ section_menu: corda5
 The Corda documentation is written from the perspectives of a collection of people; each with their own problems to solve. Relevant sections of the documentation should resonate with you, depending on the persona whose goals you share. The documentation currently addresses the following personas:
 * [Architect]({{< relref "#architect">}})
 * [CorDapp Developer]({{< relref "#cordapp-developer">}})
-* [Corda Administrator]({{< relref "#corda-administrator">}})
+* [Cluster Administrator]({{< relref "#cluster-administrator">}})
 * [Network Operator]({{< relref "#network-operator">}})
 
 ## Architect
@@ -44,9 +44,9 @@ A CorDapp Developer uses Corda to:
 
 To get started developing CorDapps, see the [Developing Applications]({{< relref "../developing-applications/_index.md">}}) section.
 
-## Corda Administrator
+## Cluster Administrator
 
-A Corda Administrator is responsible for:
+A Cluster Administrator is responsible for:
 * making informed decisions to deliver the prerequisites for Corda.
 * installing and operating the Corda software.
 * integrating Corda into Continuous Integration and Delivery CI/CD pipelines.
