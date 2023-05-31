@@ -28,7 +28,6 @@ The details of this architecture and the steps you need to take in order to succ
 There are four modules/CPKs of relevance to the non-validating notary protocol, which are then packaged into two different CPBs. These are:
 
 * **`notary-common`** —  contains useful library functionality that is not specific to a particular notary protocol. For example, it defines the structure of an error that may be returned by a notary protocol. This is an example of something that must be standard cross-protocol, because the UTXO ledger depends on this format to perform processing, and the ledger has no visibility of the specific notary protocol that performs notarisation.
-
 * **`non-validating-notary-api`**: This contains the payload definition that is used to communicate between the non-validating notary client and server CPKs. Extreme caution must be taken when making changes to this module, as backwards compatibility concerns must be taken into account.
 
 * **`non-validating-notary-client`**: This is intended to run on application virtual nodes, and provides a sub-flow that initiates a notarization request to a notary virtual node when requested by the ledger finality flow.
