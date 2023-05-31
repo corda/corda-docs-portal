@@ -12,6 +12,10 @@ section_menu: corda5
 # Personas
 
 The Corda documentation is written from the perspectives of a collection of people; each with their own problems to solve. Relevant sections of the documentation should resonate with you, depending on the persona whose goals you share. The documentation currently addresses the following personas:
+* [Architect]({{< relref "#architect">}})
+* [CorDapp Developer]({{< relref "#cordapp-developer">}})
+* [Corda Administrator]({{< relref "#corda-administrator">}})
+* [Network Operator]({{< relref "#network-operator">}})
 
 ## Architect
 
