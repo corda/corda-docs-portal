@@ -20,7 +20,7 @@ In Corda 5, notary functionality is provided in the form of plugin CorDapps. In 
 For Corda 5.0, only a single notary protocol is provided, the **non-validating notary protocol**.
 
 ## Plugin Packaging
-The details of this architecture and the steps you need to take in order to successfully build your CorDapp will be outlined in the following sections. For information on how to deploy a functioning network, see the see the [Onboarding Notaries]({{< relref "../../application-networks/creating/notaries.md" >}}) section.
+The following sections describe the details of this architecture and the steps you need to take to successfully build your CorDapp. For information on how to deploy a functioning network, see the [Onboarding Notaries]({{< relref "../../application-networks/creating/notaries.md" >}}) section.
 
 {{< figure src="c5-non-validating-notary.png" figcaption="The CPKs, CPBs and CPIs involved in getting a functioning network that can run a notary (and by extension, UTXO ledger functionality)" alt="Corda 5 non-validating notary" >}}
 
