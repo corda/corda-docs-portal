@@ -14,7 +14,6 @@ For information about the prerequisites for multi-worker cluster deployments, se
 
 {{< note >}}
 You cannot start Corda via the CSDE `startCorda` task if any existing local programs are using ports 5432, 5005
-, or 8888. Reserve these ports.
 {{< /note >}}
 
 ## Software Prerequisites
