@@ -55,7 +55,7 @@ cordapp "com.r3.corda.notary.plugin.nonvalidating:notary-plugin-non-validating-c
 It is only necessary to specify a dependency on the client CPK; this itself depends on the API and notary common CPKs, so these transitive dependencies will also be pulled in when constructing your application CPB.
 {{< /note >}}
 
-The other way to form your application CPB is to use the `corda-cli` tool. However, if you choose to use this, you will need to explicitly specify all three of the required CPKs (`notary-common`, `non-validating-notary-api` and `non-validating-notary-client`).
+Alternatively, you can form your application CPB using the Corda CLI. However, if you choose to use this, you need to explicitly specify all three of the required CPKs (`notary-common`, `non-validating-notary-api` and `non-validating-notary-client`).
 
 ## CPI Creation
 
