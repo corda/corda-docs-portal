@@ -244,13 +244,6 @@ If you are applying SQL to a schema using the `psql` command you can specify whi
 The following command specifies that the `CONFIG`, `RBAC`, and `CRYPTO` schema should be used for the corresponding components and generates the files in the directory `/tmp/db`:
 
 {{< tabs name="DML">}}
-{{% tab name="Linux" %}}
-
-   ```sh
-   corda-cli.sh database spec -g config:CONFIG,rbac:RBAC,crypto:CRYPTO -c -l /tmp/db
-   ```
-
-{{% /tab %}}
 {{% tab name="Bash" %}}
 
    ```sh
@@ -297,15 +290,6 @@ The following command specifies that the `CONFIG`, `RBAC`, and `CRYPTO` schema s
 For example:
 
 {{< tabs name="RBAC-example">}}
-{{% tab name="Linux" %}}
-
-   ```sh
-   corda-cli.sh initial-config create-db-config -u rbacuser -p rc9VLHU3 \
-     --name corda-rbac --jdbc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC \
-     --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
-   ```
-
-{{% /tab %}}
 {{% tab name="Bash" %}}
 
    ```sh
@@ -356,15 +340,6 @@ For example:
 For example:
 
 {{< tabs name="DDL-crypto-example">}}
-{{% tab name="Linux" %}}
-
-   ```sh
-   corda-cli.sh initial-config create-db-config -u cryptouser -p TqoCp4v2 \
-     --name corda-crypto --jdbc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO \
-     --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
-   ```
-
-{{% /tab %}}
 {{% tab name="Bash" %}}
 
    ```sh
@@ -415,13 +390,6 @@ There is no schema in `--jdbc-url` as vNodes create their own schemas. However, 
 9. Execute the following Corda CLI command to generate DDL for populating the initial admin user for Corda, in this case use RBAC:
 
    {{< tabs name="DDL-user">}}
-   {{% tab name="Linux" %}}
-
-   ```sh
-   corda-cli.sh initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
-   ```
-
-   {{% /tab %}}
    {{% tab name="Bash" %}}
 
    ```sh
