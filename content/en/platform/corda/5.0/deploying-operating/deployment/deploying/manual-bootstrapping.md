@@ -16,9 +16,9 @@ By default, the Corda installation process automatically performs various setup 
 If you require additional control, you can disable these automatic setup processes and an administrator can manually perform the actions with the assistance of the [Corda CLI]({{< relref "../../tooling/installing-corda-cli.md" >}}).
 
 This section describes how to configure the following:
-  * [Kafka]({{< relref "#kafka" >}})
-  * [Database]({{< relref "#database" >}})
-  * [RBAC Roles]({{< relref "#rbac-roles" >}})
+* [Kafka]({{< relref "#kafka" >}})
+* [Database]({{< relref "#database" >}})
+* [RBAC Roles]({{< relref "#rbac-roles" >}})
 
 When you have completed the manual configuration of the above, you can [Deploy Corda]({{< relref "./_index.md#deployment" >}}).
 
