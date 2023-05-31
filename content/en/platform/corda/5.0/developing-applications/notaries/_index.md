@@ -12,7 +12,7 @@ section_menu: corda5
 ---
 # Notaries
 
-This section outlines what you need to know to get a notary up and running on a Corda 5 application network.
+This section outlines how to get a notary up and running on a Corda application network.
 
 * [Network Member Roles]({{< relref "../notaries/network-member-roles.md" >}})
 * [Notary Plugin CorDapps]({{< relref "../notaries/notary-plugin-cordapps.md" >}})
