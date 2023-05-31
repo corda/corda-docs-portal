@@ -1,5 +1,6 @@
 ---
 date: '2022-11-15'
+version: 'Corda 5.0'
 title: "Session Certificates"
 menu:
   corda5:
@@ -8,6 +9,9 @@ menu:
     weight: 2000
 section_menu: corda5
 ---
+
+# Session Certificates
+
 You can configure a dynamic network to use session certificates when sending messages. This requires additional steps when onboarding an MGM or member into the dynamic network.
 
 ## Generate a Certificate Signing Request (CSR)
@@ -51,12 +55,12 @@ To disable revocation checks, do the following:
 
 If using session certificates, make the following changes to the [MGM registration context]({{< relref "../mgm/register.md#build-registration-context" >}}):
 
-1. Add an extra JSON field `corda.group.truststore.session.0` with the truststore of the CA to the registration context (similar to `corda.group.truststore.tls.0`).
+1. Add an extra JSON field `corda.group.trustroot.session.0` with the truststore of the CA to the registration context (similar to `corda.group.trustroot.tls.0`).
 2. Set the JSON field `corda.group.pki.session` to `"Standard"` instead of `"NoPKI"`.
 
 ## Configure Virtual Node as Network Participant
 
 If using session certificates, you must also add the `sessionCertificateChainAlias` and `useClusterLevelSessionCertificateAndKey` JSON fields to the network setup REST request. For example:
 ```shell
-curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "useClusterLevelTlsCertificateAndKey": true, "sessionKeyId": "'$SESSION_KEY_ID'", "sessionCertificateChainAlias": "session-certificate", "useClusterLevelSessionCertificateAndKey": false}' $API_URL/network/setup/$HOLDING_ID
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "useClusterLevelTlsCertificateAndKey": true, "sessionKeysAndCertificates": [{"sessionKeyId": "'$SESSION_KEY_ID'", "sessionCertificateChainAlias": "session-certificate", "preferred": true}]}', "useClusterLevelSessionCertificateAndKey": false}' $API_URL/network/setup/$HOLDING_ID
 ```

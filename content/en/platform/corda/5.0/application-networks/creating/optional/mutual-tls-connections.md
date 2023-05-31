@@ -1,5 +1,6 @@
 ---
 date: '2023-02-23'
+version: 'Corda 5.0'
 title: "Mutual TLS Connections"
 menu:
   corda5:
@@ -8,6 +9,9 @@ menu:
     weight: 1000
 section_menu: corda5
 ---
+
+# Mutual TLS Connections
+
 Corda 5 uses TLS to secure a connection between two clusters. While establishing a TLS connection between the gateways of two clusters, the server gateway sends its certificate to the client gateway. The client gateway verifies the server certificate using its trust root certificate. In mutual TLS, in addition to the client verifying the server certificate, the server gateway also requests the client gateway send a client certificate and verifies that it is using its trust root certificate.
 
 As the gateway manages the TLS connections for an entire cluster, the TLS mode (mutual or one-way) is defined in the gateway configuration and applies to the entire cluster. As a result, any group hosted in a mutual TLS cluster must be a mutual TLS group, and all its members must be hosted on a mutual TLS cluster.
@@ -102,7 +106,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 To register an MGM in a mutual TLS cluster, you must explicitly set the TLS type in the registration context. That is, the `corda.group.tls.type` field must be `Mutual`. If the field is not set, it defaults to one-way TLS. For example:
 ```shell
 export REGISTRATION_CONTEXT='{
-  "corda.session.key.id": "'$SESSION_KEY_ID'",
+  "corda.session.keys.0.id": "'$SESSION_KEY_ID'",
   "corda.ecdh.key.id": "'$ECDH_KEY_ID'",
   "corda.group.protocol.registration": "net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService",
   "corda.group.protocol.synchronisation": "net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl",
@@ -114,7 +118,7 @@ export REGISTRATION_CONTEXT='{
   "corda.group.tls.version": "1.3",
   "corda.endpoints.0.connectionURL": "https://'$P2P_GATEWAY_HOST':'$P2P_GATEWAY_PORT'",
   "corda.endpoints.0.protocolVersion": "1",
-  "corda.group.truststore.tls.0" : "'$TLS_CA_CERT'"
+  "corda.group.trustroot.tls.0" : "'$TLS_CA_CERT'"
 }'
 ```
 

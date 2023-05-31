@@ -10,6 +10,7 @@ menu:
     weight: 2000
 section_menu: corda5
 ---
+# Cluster Operator Tooling
 This section outlines the tools needed by a Cluster Operator to deploy and operate Corda.
 There are additional tools which may be required depending on the installation approach taken.
 
@@ -26,7 +27,7 @@ The [Helm documentation](https://helm.sh/docs/intro/install/) contains details o
 
 ## Corda CLI
 
-The Cluster Operator will require the Corda CLI if they intend to [manually bootstrap](../deploying/bootstrapping.md) Kafka and PostgreSQL.
+The Cluster Operator will require the Corda CLI if they intend to [manually bootstrap](../deployment/deploying/manual-bootstrapping.md) Kafka and PostgreSQL.
 See the documentation on [installing the Corda CLI](installing-corda-cli.md).
 
 ## curl
@@ -41,12 +42,12 @@ See the [jq documentation](https://stedolan.github.io/jq/download/) for details 
 Alternatives may be used if desired. On Windows, PowerShell contains native support for parsing JSON.
 
 ## PostgreSQL Client
-The Cluster Operator, or their database administrator, will require a PostgreSQL client if they intend to [manually bootstrap](../deploying/bootstrapping.md) PostgreSQL.
+The Cluster Operator, or their database administrator, will require a PostgreSQL client if they intend to [manually bootstrap](../deployment/deploying/manual-bootstrapping.md) PostgreSQL.
 Examples in this documentation use the psql CLI. See the [Postgres documentation](https://www.postgresql.org/download/) for details on how to download Postgres.
 Alternatives may be used if desired.
 
 ## Kafka Client
 
-The Cluster Operator, or their Kafka administrator, may require a Kafka client if they intend to [manually bootstrap](../deploying/bootstrapping.md) Kafka.
+The Cluster Operator, or their Kafka administrator, may require a Kafka client if they intend to [manually bootstrap](../deployment/deploying/manual-bootstrapping.md) Kafka.
 Examples in this documentation use the scripts packaged with Kafka.
 See the [Kafka documentation](https://kafka.apache.org/downloads) for details on how to download Kafka. Alternatives may be used if desired.

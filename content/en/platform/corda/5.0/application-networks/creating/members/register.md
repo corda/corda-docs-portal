@@ -1,5 +1,6 @@
 ---
 date: '2023-04-13'
+version: 'Corda 5.0'
 title: "Register the Member"
 menu:
   corda5:
@@ -8,6 +9,8 @@ menu:
     weight: 5000
 section_menu: corda5
 ---
+
+# Register the Member
 
 This section describes how to register a member on a network. You can learn more about configuring the registration process in the [Managing Members section]({{< relref "../../managing/registration-requests/_index.md" >}}).
 This section contains the following:
@@ -26,8 +29,8 @@ For example, `https://corda-p2p-gateway-worker.corda-cluster-a:8080`, where `cor
 {{% tab name="Bash"%}}
 ```shell
 export REGISTRATION_CONTEXT='{
-  "corda.session.key.id": "'$SESSION_KEY_ID'",
-  "corda.session.key.signature.spec": "SHA256withECDSA",
+  "corda.session.keys.0.id": "'$SESSION_KEY_ID'",
+  "corda.session.keys.0.signature.spec": "SHA256withECDSA",
   "corda.ledger.keys.0.id": "'$LEDGER_KEY_ID'",
   "corda.ledger.keys.0.signature.spec": "SHA256withECDSA",
   "corda.endpoints.0.connectionURL": "https://'$P2P_GATEWAY_HOST':'$P2P_GATEWAY_PORT'",
@@ -38,8 +41,8 @@ export REGISTRATION_CONTEXT='{
 {{% tab name="PowerShell" %}}
 ```shell
 $REGISTRATION_CONTEXT = @{
-  'corda.session.key.id' =  $SESSION_KEY_ID
-  'corda.session.key.signature.spec' = "SHA256withECDSA"
+  'corda.session.keys.0.id' =  $SESSION_KEY_ID
+  'corda.session.keys.0.signature.spec' = "SHA256withECDSA"
   'corda.ledger.keys.0.id' = $LEDGER_KEY_ID
   'corda.ledger.keys.0.signature.spec' = "SHA256withECDSA"
   'corda.endpoints.0.connectionURL' = "https://$P2P_GATEWAY_HOST:$P2P_GATEWAY_PORT"

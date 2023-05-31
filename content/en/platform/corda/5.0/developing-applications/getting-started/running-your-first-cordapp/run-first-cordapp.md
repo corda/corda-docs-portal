@@ -1,5 +1,6 @@
 ---
 date: '2022-09-19'
+version: 'Corda 5.0'
 title: "Running Your First CorDapp"
 menu:
   corda5:
@@ -8,6 +9,7 @@ menu:
     weight: 3000
 section_menu: corda5
 ---
+# Running Your First CorDapp
 The CSDE includes flows and tests for a very simple CorDapp, which you can run out of the box.
 
 The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlow.kt` file. This is also the code described in the [first flow section]({{< relref "../first-flow/first-flow.md" >}}).
@@ -87,7 +89,7 @@ You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
 
 To run your first flow:
 1. Find the `holdingidentityshorthash` for the virtual node you want to trigger the flow on. You can do this by running the `listVnodes` Gradle task to display a list of the configured virtual nodes:
-   {{< figure src="list-vnodes.png" figcaption="Running the listVnodes gradle task" >}}
+   {{< figure src="list-vnodes.png" width="100%" figcaption="Running the listVnodes gradle task" >}}
    The 12 digit hash is the `holdingidentityshorthash` that acts as the unique identifier for a virtual node.
 
 2. Expand the `POST /flow/{holdingidentityshorthash}` endpoint in the Flow Management API section in Swagger and click **Try it out**.
