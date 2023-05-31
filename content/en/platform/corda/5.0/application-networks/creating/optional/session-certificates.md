@@ -62,5 +62,5 @@ If using session certificates, make the following changes to the [MGM registrati
 
 If using session certificates, you must also add the `sessionCertificateChainAlias` and `useClusterLevelSessionCertificateAndKey` JSON fields to the network setup REST request. For example:
 ```shell
-curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "useClusterLevelTlsCertificateAndKey": true, "sessionKeyId": "'$SESSION_KEY_ID'", "sessionCertificateChainAlias": "session-certificate", "useClusterLevelSessionCertificateAndKey": false}' $API_URL/network/setup/$HOLDING_ID
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "useClusterLevelTlsCertificateAndKey": true, "sessionKeysAndCertificates": [{"sessionKeyId": "'$SESSION_KEY_ID'", "sessionCertificateChainAlias": "session-certificate", "preferred": true}]}', "useClusterLevelSessionCertificateAndKey": false}' $API_URL/network/setup/$HOLDING_ID
 ```
