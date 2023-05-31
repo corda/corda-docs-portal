@@ -47,7 +47,6 @@ The decision on which protocols to support is trivial at present, given there is
 The easiest way to ensure your CorDapp includes the necessary CPKs is to use the CorDapp dependency functionality of the CPK Gradle plugin. You need to add the following to your Gradle dependency configuration, where `cordaNotaryPluginsVersion` is an appropriate version of `corda-runtime-os`, as the notary plugin currently lives as part of this repository.
 
 ```kotlin
-
 cordapp "com.r3.corda.notary.plugin.nonvalidating:notary-plugin-non-validating-client:$cordaNotaryPluginsVersion"
 
 ```
