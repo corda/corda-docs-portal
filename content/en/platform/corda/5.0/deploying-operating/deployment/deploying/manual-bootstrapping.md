@@ -184,12 +184,12 @@ To create the schema manually, do the following:
        enabled: false
    ```
 
-{{< note >}}
+    {{< note >}}
 
-* If you are applying SQL to a schema using the `psql` command you can specify which schema to apply it to using the `--dbname` parameter like so: `--dbname "dbname=cordacluster options=--search_path=<SCHEMA-NAME>"`
+    * If you are applying SQL to a schema using the `psql` command you can specify which schema to apply it to using the `--dbname` parameter like so: `--dbname "dbname=cordacluster options=--search_path=<SCHEMA-NAME>"`
 
-* If you are targeting schemas, database and crypto generated SQL should be applied to the CONFIG schema, and create-user-config generated SQL should be applied to the RBAC schema. If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
-{{< /note >}}
+    * If you are targeting schemas, database and crypto generated SQL should be applied to the CONFIG schema, and create-user-config generated SQL should be applied to the RBAC schema. If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
+    {{< /note >}}
 
 2. Use the Corda CLI to generate DML files for creating the database tables to use for each of the `crypto`, `config`, and `rbac` components.
   
