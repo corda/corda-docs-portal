@@ -14,7 +14,7 @@ This section lists the third-party software prerequisites for local deployment w
 For information about the prerequisites for multi-worker cluster deployments, see [Prerequisites for Cluster Deployments](../../../deploying-operating/deploying/prerequisites.html).
 
 {{< note >}}
-You cannot start Corda via the CSDE `startCorda` task if any existing local programs are using ports 5432, 7000, or 8888. Reserve these ports.
+You cannot start Corda via the CSDE `startCorda` task if any existing local programs are using ports 5432, 5005, or 8888. Reserve these ports.
 {{< /note >}}
 
 ## Software Prerequisites
@@ -46,11 +46,11 @@ This what is known to work with the code as of Developer Preview 2.-->
 
 ## Required CSDE Ports
 
-The current version of the [Corda combined worker](../cordapp-standard-development-environment/csde.html#gradle-helpers-for-the-combined-worker) runs on ports 7000, 5432, and 8888. Reserve these ports to avoid errors. For example, some Mac operating systems use port 7000 for the system Control Center. The following section describes how to make the port available.
+The current version of the [Corda combined worker](../cordapp-standard-development-environment/csde.html#gradle-helpers-for-the-combined-worker) runs on ports 5005, 5432, and 8888. Reserve these ports to avoid errors. For example, some Mac operating systems use port 5005 for the system Control Center. The following section describes how to make the port available.
 
 ### Disabling Airplay Receiver on Mac
 
-You can check if your Mac is using port 7000 for Control Center by running `lsof -i :7000` from your terminal. If you see the following results, you must disable Airplay Receiver:
+You can check if your Mac is using port 5005 for Control Center by running `lsof -i :5005` from your terminal. If you see the following results, you must disable Airplay Receiver:
 
 ```shell
 COMMAND     PID             USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
@@ -60,6 +60,6 @@ ControlCe 18519 <your user name>  33u  IPv6 0x775d6960b58a6055      0t0  TCP *:a
 To disable Airplay Receiver:
 1. Select **Sharing** in **Preferences**.
 2. Clear the **AirPlay Receiver** check box.
-   {{< figure src="switch-off-airplay.png" width="50%" figcaption="AirPlay Receiver in Preferences" alt="Disabling AirPlay Receiver to unblock port 7000" >}}
+   {{< figure src="switch-off-airplay.png" width="50%" figcaption="AirPlay Receiver in Preferences" alt="Disabling AirPlay Receiver to unblock port 5005" >}}
 
 We hope to fix this clash in a future release.
