@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 
-# TLS Certification Installation on REST Worker
+# TLS Certificate Installation on REST Worker
 
 The REST Worker TLS certificate is presented to a client any time a HTTPS connection is made.
 If no specific parameters are provided, the self-signed certificate is used and the connection to the REST Worker is always HTTPS. However, a warning will be emitted into the REST log explaining how to provide parameters for custom TLS certificates.
