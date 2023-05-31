@@ -48,7 +48,6 @@ The easiest way to ensure your CorDapp includes the necessary CPKs is to use the
 
 ```kotlin
 cordapp "com.r3.corda.notary.plugin.nonvalidating:notary-plugin-non-validating-client:$cordaNotaryPluginsVersion"
-
 ```
 
 {{< note >}}
