@@ -20,8 +20,8 @@ This section describes how to configure the following:
   * [RBAC Roles]({{< relref "#rbac-roles" >}})
 
 When you have completed the manual configuration of the above, you can [Deploy Corda]({{< relref "./_index.md#deployment" >}}).
-## Kafka 
 
+## Kafka 
 By default, a Corda installation automatically creates the Kafka topics it requires.
 To create the topics manually, do the following:
 1. Set the following override in the deployment configuration to disable the automatic creation:
@@ -48,7 +48,6 @@ The following is an example properties file for a Kafka cluster using TLS and SA
     * [Topic Creation by Scripting](#topic-creation-by-scripting)
 
 ### Topic Creation by Direct Connection
-
 In the first option, the Corda CLI connects directly to the Kafka broker to create the topics.
 The Corda CLI command to create the topics looks as follows:
 
@@ -106,7 +105,6 @@ corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
 {{< /tabs >}}
 
 ### Topic Creation by Scripting
-
 Alternatively, the Corda CLI can generate a script which you should review before executing against the broker.
 The script makes use of the `kafka-topic.sh` script provided with a Kafka installation.
 
@@ -177,7 +175,6 @@ corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
 You can then execute the `create` script to create the topics.
 
 ## Database
-
 By default, a Corda installation automatically creates and populates the database schema it requires.
 To create the schema manually, do the following:
 1. Set the following override in the deployment configuration to disable the automatic creation:
