@@ -129,12 +129,6 @@ Where `<FILE>` is the name of the file in which to save the script and `<CONCURR
 For example:
 
 {{< tabs name="cli-script-example">}}
-{{% tab name="Linux" %}}
-```sh
-corda-cli.sh topic -b kafka-1.example.com -k config.properties \
-  create -r 3 -p 10 script -f create.sh -c 6
-```
-{{% /tab %}}
 {{% tab name="Bash" %}}
 ```sh
 corda-cli.sh topic -b kafka-1.example.com -k config.properties \
