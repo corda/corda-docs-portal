@@ -64,7 +64,7 @@ The Network Operator is concerned with:
 * defining permissions for actions on the business network.
 * “know your customer” (KYC) regulations.
 
-The network operator:
+The Network Operator:
 * onboards participants of a business network.
 * manages the lifecycle of participants on the network.
 * defines and applies network membership rules for participation in the business network.
