@@ -14,9 +14,9 @@ section_menu: corda5
 
 In Corda 5, notary functionality is provided in the form of plugin CorDapps. In theory, anyone can write a new notary protocol by implementing their own CorDapps. However, initially, it is expected to only have protocols provided by R3. For a given notary protocol, two CPBs (Corda Package Bundles) are expected to be required:
 
-* A **client**, or **application** CPB, which should be used to generate a CPI (Corda Package Installer) associated with application virtual nodes. At a minimum, this would contain a CPK (Corda Package) that has an initiating flow that is automatically invoked by the Corda 5 flow framework to initiate a notarization request.
+* A **client**, or **application** CPB, which is used to generate a CPI (Corda Package Installer) associated with application virtual nodes. At a minimum, this contains a CPK (Corda Package) that has an initiating flow that is automatically invoked by the Corda 5 flow framework to initiate a notarization request.
 
-* A **notary server** CPB (Corda Package Bundle), which should be used to generate a CPI associated with notary virtual nodes. At a minimum, this would contain a CPK that has a responder flow to what is packaged in the client CPB.
+* A **notary server** CPB (Corda Package Bundle), which is used to generate a CPI associated with notary virtual nodes. At a minimum, this contains a CPK that has a responder flow to what is packaged in the client CPB.
 
 For Corda 5.0, only a single notary protocol is provided, the **non-validating notary protocol**.
 
@@ -40,13 +40,13 @@ The source code for all of these modules can be found under the [notary-plugins 
 
 ## Notary Server CPB
 
-R3 produces a standard non-validating notary server CPB, as this only contains CPKs that are produced by R3 and therefore does not require a developer to build their own CPB using a mixture of R3 and third-party CPKs.
+R3 produces a standard non-validating notary server CPB, as this only contains CPKs that are produced by R3 and therefore does not require you to build your own CPB using a mixture of R3 and third-party CPKs.
 
 ## Application CPB
 
-It is not possible to provide a standard application CPB, because the contents of this depend on the writer of a CorDapp. The writer of a CorDapp must decide which CPKs they will bundle together to provide their application CPB. This will be comprised of one or more CPKs which provide the application functionality. However, the CorDapp developer must also bundle the appropriate CPKs for the notary protocols their CorDapp will support.
+It is not possible to provide a standard application CPB, because the contents of this depend on the how you write a CorDapp. You must decide which CPKs you will bundle together to provide your application CPB. This is comprised of one or more CPKs which provide the application functionality. However, you must also bundle the appropriate CPKs for the notary protocols your CorDapp will support.
 
-The decision on which protocols to support is trivial at present, given there is only a single notary protocol to choose; the decision is purely based on whether the CorDapp is using the UTXO ledger model or not. If it is, then the CorDapp developer must bundle the `notary-common`, `non-validating-notary-api` and `non-validating-notary-client` CPKs when creating their CPB. Otherwise, there is no requirement to bundle any additional CPKs (as the notary is not involved in flow only or consensual ledger based CorDapps).
+The decision on which protocols to support is trivial at present, given there is only a single notary protocol to choose; the decision is purely based on whether the CorDapp is using the UTXO ledger model or not. If it is, then you must bundle the `notary-common`, `non-validating-notary-api` and `non-validating-notary-client` CPKs when creating your CPB. Otherwise, there is no requirement to bundle any additional CPKs (as the notary is not involved in flow only or consensual ledger based CorDapps).
 
 The easiest way to ensure your CorDapp includes the necessary CPKs is to use the CorDapp dependency functionality of the CPK Gradle plugin. You need to add the following to your Gradle dependency configuration, where `cordaNotaryPluginsVersion` is an appropriate version of `corda-runtime-os`, as the notary plugin currently lives as part of this repository.
 
