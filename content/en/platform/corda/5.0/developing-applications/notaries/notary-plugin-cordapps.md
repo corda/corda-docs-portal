@@ -18,7 +18,7 @@ In Corda 5, notary functionality is provided in the form of plugin CorDapps. In 
 
 * A **notary server** CPB (Corda Package Bundle), which should be used to generate a CPI associated with notary virtual nodes. At a minimum, this would contain a CPK that has a responder flow to what is packaged in the client CPB.
 
-For Corda 5.0, only a single notary protocol will be provided, the **non-validating notary protocol**.
+For Corda 5.0, only a single notary protocol is provided, the **non-validating notary protocol**.
 
 ## Plugin Packaging
 The details of this architecture and the steps you need to take in order to successfully build your CorDapp will be outlined in the following sections. For information on how to deploy a functioning network, see the see the [Onboarding Notaries]({{< relref "../../application-networks/creating/notaries.md" >}}) section.
