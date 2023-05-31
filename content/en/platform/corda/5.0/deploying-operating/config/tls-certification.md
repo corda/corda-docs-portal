@@ -22,7 +22,7 @@ There are two ways that a TLS certificate can be made available to the REST Work
 
 ## Certificate Information Provided in PEM Format
 
-REST Worker now accepts optional command line arguments: 
+The REST Worker accepts the following optional command line arguments: 
 
 * PEM representation of a TLS certificate to be used: `-rtls.crt.path=<path to tls.crt>`
 
