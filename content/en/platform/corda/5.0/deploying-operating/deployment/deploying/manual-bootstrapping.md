@@ -15,9 +15,9 @@ By default, the Corda installation process automatically performs various setup 
 If you require additional control, you can disable these automatic setup processes and an administrator can manually perform the actions with the assistance of the [Corda CLI]({{< relref "../../tooling/installing-corda-cli.md" >}}).
 
 This section describes how to configure the following:
-* [Kafka]({{< relref "#kafka" >}})
-* [Database]({{< relref "#database" >}})
-* [RBAC Roles]({{< relref "#rbac-roles" >}})
+  * [Kafka]({{< relref "#kafka" >}})
+  * [Database]({{< relref "#database" >}})
+  * [RBAC Roles]({{< relref "#rbac-roles" >}})
 
 When you have completed the manual configuration of the above, you can [Deploy Corda]({{< relref "./_index.md#deployment" >}}).
 ## Kafka 
@@ -44,8 +44,8 @@ The following is an example properties file for a Kafka cluster using TLS and SA
    The examples that follow assume that this file is called `config.properties`.
 
 3. Use the Corda CLI to assist in the creation of the topics prior to Corda installation in one of two ways:
-  * [Topic Creation by Direct Connection](#topic-creation-by-direct-connection)
-  * [Topic Creation by Scripting](#topic-creation-by-scripting)
+    * [Topic Creation by Direct Connection](#topic-creation-by-direct-connection)
+    * [Topic Creation by Scripting](#topic-creation-by-scripting)
 
 ### Topic Creation by Direct Connection
 
@@ -85,15 +85,6 @@ If you are authenticating Kafka users, the Corda CLI can also create Access Cont
 Specify a set of name-value pairs giving the Kafka username that will be used for each Corda worker:
 
 {{< tabs name="acl">}}
-{{% tab name="Linux" %}}
-```sh
-corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
-  create -r <REPLICAS> -p <PARTITIONS> \
-  -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
-  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> \
-  connect
-```
-{{% /tab %}}
 {{% tab name="Bash" %}}
 ```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
