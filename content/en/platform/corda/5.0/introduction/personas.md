@@ -46,7 +46,7 @@ To get started developing CorDapps, see the [Developing Applications]({{< relref
 
 ## Corda Administrator
 
-A Corda administrator is responsible for:
+A Corda Administrator is responsible for:
 * making informed decisions to deliver the prerequisites for Corda.
 * installing and operating the Corda software.
 * integrating Corda into Continuous Integration and Delivery CI/CD pipelines.
