@@ -58,7 +58,7 @@ To learn more, see the [Operating Corda Clusters]({{< relref "../deploying-opera
 
 ## Network Operator
 
-The network operator is concerned with: 
+The Network Operator is concerned with: 
 * how Corda delivers on the _permissioned_ aspect of a private permissioned DLT platform.
 * service levels for participants on the business network.
 * defining permissions for actions on the business network.
