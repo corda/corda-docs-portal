@@ -29,8 +29,8 @@ The API defines a generic token that is used to represent a state. The purpose o
 | ---------------- | ---------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | StateRef         | StateRef         | Platform    | The reference to the state linked to this token.                                                                                                                                        |
 | Notary X500 Name | MemberX500Name | Platform    | The notary of the state linked to this token.                                                                                                                                           |
-| Token Type       | String           | Both        | By default, the platform sets this to the FQN name of the Java Type of the state class this token is linked to. As a CorDapp developer, you can override this with your own definition. |
-| Issuer Hash      | SecureHash       | User        | The hash of the issuer of the state, as defined by the CorDapp developer.                                                                                                               |
+| Token Type       | String           | Both        | By default, the platform sets this to the FQN name of the Java Type of the state class this token is linked to. As a CorDapp Developer, you can override this with your own definition. |
+| Issuer Hash      | SecureHash       | User        | The hash of the issuer of the state, as defined by the CorDapp Developer.                                                                                                               |
 | Symbol           | String           | User        | The user-defined symbol for the token.                                                                                                                                                  |
 | Amount           | BigDecimal       | User        | The amount/value of the state linked to this token.                                                                                                                                     |
 | Tag              | String           | User        | An optional string that can be searched using a regular expression when selecting tokens.                                                                                               |
@@ -46,7 +46,7 @@ Tokens are grouped into pools using the following fields as the key:
 The API allows a flow to claim tokens from a single pool of tokens for a given query. It is not possible to select tokens from multiple pools in a single query.
 
 ### Token Observers
-A token observer converts a custom state into a token when a transaction is finalized and persisted in the vault. The CorDapp developer implements the `UtxoLedgerTokenStateObserver` interface for a state type that is required for selection. The platform uses these observers to generate a token for each produced state when persisting a finalized transaction to the vault.
+A token observer converts a custom state into a token when a transaction is finalized and persisted in the vault. The CorDapp Developer implements the `UtxoLedgerTokenStateObserver` interface for a state type that is required for selection. The platform uses these observers to generate a token for each produced state when persisting a finalized transaction to the vault.
 
 ### Claim Query
 When a flow needs to select fungible states to spend, it can execute a claim query using the `TokenSelection` API. The API supports a single method `tryClaim` that takes a `TokenClaimCriteria` describing the target amount required and the type of tokens required. 
