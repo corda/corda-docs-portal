@@ -296,24 +296,24 @@ To create the schema manually, do the following:
 
 8. Execute the following Corda CLI command to configure vNodes, in this case use CONFIG:
 
-  {{< tabs name="vNode-example">}}
-  {{% tab name="Bash" %}}
-    ```sh
-    corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
-      --name orda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin'
-    ```
-  {{% /tab %}}
-  {{% tab name="PowerShell" %}}
-    ```shell
-    corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
-      --name orda-virtual-nodes --jdbc-url `jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin`
-    ```
-  {{% /tab %}}
-  {{< /tabs >}}
+    {{< tabs name="vNode-example">}}
+    {{% tab name="Bash" %}}
+      ```sh
+      corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
+        --name orda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin'
+      ```
+    {{% /tab %}}
+    {{% tab name="PowerShell" %}}
+      ```shell
+      corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
+        --name orda-virtual-nodes --jdbc-url `jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin`
+      ```
+    {{% /tab %}}
+    {{< /tabs >}}
 
-    {{< note >}}
-    There is no schema in `--jdbc-url` as vNodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
-    {{< /note >}}
+      {{< note >}}
+      There is no schema in `--jdbc-url` as vNodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
+      {{< /note >}}
 
 9. Execute the following Corda CLI command to generate DDL for populating the initial admin user for Corda, in this case use RBAC:
 
