@@ -11,11 +11,10 @@ section_menu: corda5
 ---
 # Kubernetes Liveness and Readiness Probes
 All the Corda worker pods are configured with Kubernetes liveness and readiness probes.
-These poll the status of the worker’s internal component’s registry.
+These poll the status of the worker’s internal component registry.
 
-If any of the components report that it is in an error state, the liveness probe fails and Kubernetes eventually restarts the pod.
-During normal operation, pods should not cause failures of the liveness probe and the Cluster Administrator should monitor for failures
-in the Kubernetes events stream.
+If any component reports that it is in an error state, the liveness probe fails and Kubernetes eventually restarts the pod.
+During normal operation, pods should not cause failures of the liveness probe and the Cluster Administrator should monitor for failures in the Kubernetes events stream.
 
 The readiness probe fails if any Corda components report that they are down.
 During worker startup, this is expected behaviour and all the components should eventually report
