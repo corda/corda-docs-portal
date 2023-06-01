@@ -34,7 +34,7 @@ To start using Corda Community Edition if you have never used Corda before:
 
 ## Downloading Corda Community Edition
 
-To download Corda Community Edition, or to upgrade from an open source verson of Corda (Corda 4.1-Corda 4.9), you need to:
+To download Corda Community Edition, or to upgrade from an open source version of Corda (Corda 4.1-Corda 4.9), you need to:
 
 * Download the `.tar` [file](https://download.corda.net/corda-community-edition/4.10/community-4.10.tar).
 * Download the `.zip` [file](https://download.corda.net/corda-community-edition/4.10/community-4.10.zip)
