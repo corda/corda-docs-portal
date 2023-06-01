@@ -30,11 +30,11 @@ To start using Corda Community Edition if you have never used Corda before:
   * Java: `git clone http://github.com/corda/samples-java`
   * Kotlin: `git clone http://github.com/corda/samples-kotlin`
 
-3. Follow the [tutorials]({{< relref "../tutorial-cordapp.md" >}}) to set up a Corda network and start coding your CorDapps.
+3. Follow the [tutorial]({{< relref "../tutorial-cordapp.md" >}}) to set up a Corda network and start coding your CorDapps.
 
 ## Downloading Corda Community Edition
 
-To download Corda Community Edition, or to upgrade from an open source version of Corda (Corda 4.1-Corda 4.9), you need to:
+To download Corda Community Edition, or to upgrade from an open source version of Corda (Corda 4.1-Corda 4.9):
 
 * Download the `.tar` [file](https://download.corda.net/corda-community-edition/4.10/community-4.10.tar).
 * Download the `.zip` [file](https://download.corda.net/corda-community-edition/4.10/community-4.10.zip)
