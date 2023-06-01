@@ -30,17 +30,17 @@ To start using Corda Community Edition if you have never used Corda before:
   * Java: `git clone http://github.com/corda/samples-java`
   * Kotlin: `git clone http://github.com/corda/samples-kotlin`
 
-3. Follow the [tutorials](community/tutorial-cordapp.md) to set up a Corda network and start coding your CorDapps.
+3. Follow the [tutorials]({{< relref "../tutorial-cordapp.md" >}}) to set up a Corda network and start coding your CorDapps.
 
-## Upgrading to Corda Community Edition from Corda Open Source
+## Downloading Corda Community Edition
 
-If you are already using an open source version of Corda (Corda 4.1–Corda 4.9) and want to upgrade to Corda Community Edition, you can choose to:
+To download Corda Community Edition, or to upgrade to Corda Community Edition from an open source verson of Corda (Corda 4.1-Corda4.9), you need to:
 
 * Download the `.tar` [file](https://download.corda.net/corda-community-edition/4.10/community-4.10.tar).
 * Download the `.zip` [file](https://download.corda.net/corda-community-edition/4.10/community-4.10.zip)
 * Use the Docker image available on [Docker Hub](https://hub.docker.com/repository/docker/corda/community).
 
-Follow the upgrade guides to make sure your [node]({{< relref "../../community/node-upgrade-notes.md" >}}) and [CorDapps]({{< relref "../../community/upgrading-cordapps.md" >}}) are upgraded correctly.
+If you are upgrading from an open source version of Corda, follow the upgrade guides to make sure your [node]({{< relref "../../community/node-upgrade-notes.md" >}}) and [CorDapps]({{< relref "../../community/upgrading-cordapps.md" >}}) are upgraded correctly.
 
 ## Next steps
 
