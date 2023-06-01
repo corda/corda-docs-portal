@@ -31,28 +31,28 @@ cordapp {
     signing {
         enabled = (true | false)
         options {
-            alias = 'name or identifier of the key within the keystore'
-            storePassword = 'keystore password'
-            keyStore = file('/path/to/keystore')
-            storeType= ('PKCS12' | 'JKS')
-            keyPassword = '$storePassword'
+            alias = 'The alias to sign under'
+            storePassword = 'Keystore password'
+            keyStore = 'Keystore location'
+            storeType= 'Keystore type (PKCS12 | JKS)'
+            keyPassword = 'Password for private key (if different)'
             signatureFileName = '$alias'
-            verbose = (true | false)
-            strict = (true | false)
-            internalSF = (true | false)
-            sectionsOnly = (true | false)
-            lazy = (true | false)
-            maxMemory = 'memory limit'
-            preserveLastModified = (true | false)
-            tsaUrl = 'timestamp server URL'
-            tsaCert = '??'
+            verbose = 'Verbose output when signing (true | false)'
+            strict = 'Strict checking when signing (true | false)'
+            internalSF = 'Include the .SF file inside the signature block (true | false)'
+            sectionsOnly = 'Don't compute hash of entire manifest (true | false)'
+            lazy = 'Flag to control whether the presence of a signature file means a JAR is signed (true | false)'
+            maxMemory = 'Specifies the maximum memory the jarsigner JVM will use'
+            preserveLastModified = 'Give the signed files the same last modified time as the original jar files (true | false)'
+            tsaUrl = 'Timestamp server URL'
+            tsaCert = 'Alias in the keystore for a timestamp authority for timestamped JAR files in Java 5+'
             tsaProxyHost = 'TSA proxy server'
             tsaProxyPort = 'TSA proxy server port'
-            executable = file('/path/to/alternate/jarsigner')
-            force = (true | false)
-            signatureAlgorithm = '??'
-            digestAlgorithm = '??'
-            tsaDigestAlgorithm = '??'
+            executable = 'Path to alternate jarsigner'
+            force = 'Force signing of the JAR file even if it doesn't seem to be out of date or already signed (true | false)'
+            signatureAlgorithm = 'Name of the signature algorithm'
+            digestAlgorithm = 'Name of the digest algorithm	'
+            tsaDigestAlgorithm = 'Name of the TSA digest algorithm'
         }
     }
 }
