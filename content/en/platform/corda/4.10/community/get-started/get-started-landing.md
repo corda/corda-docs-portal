@@ -34,7 +34,7 @@ To start using Corda Community Edition if you have never used Corda before:
 
 ## Downloading Corda Community Edition
 
-To download Corda Community Edition, or to upgrade from an open source version of Corda (Corda 4.1-Corda 4.9):
+To download Corda Community Edition, or to upgrade from an open source version of Corda:
 
 * Download the `.tar` [file](https://download.corda.net/corda-community-edition/4.10/community-4.10.tar).
 * Download the `.zip` [file](https://download.corda.net/corda-community-edition/4.10/community-4.10.zip)
@@ -48,7 +48,7 @@ If you are upgrading from an open source version of Corda, follow the upgrade gu
 2. Run a [sample CorDapp]({{< relref "../../community/tutorial-cordapp.md" >}}) to see Corda in action.
 4. [Build your own CorDapp]({{< relref "../../community/building-a-cordapp-index.md" >}}) from scratch.
 
-You can then take your Corda integration to the next level by deep-diving into specific topics in our [Corda Community Edition](../../community.html) documentation. You can also view the [API reference material](../../../../../../en/api-ref.html), browse [featured apps]({{< relref "../apps/apps-index.md" >}}), or browse [tools and add-ons](../../../../../../en/tools.html).
+You can then take your Corda integration to the next level by deep-diving into specific topics in our [Corda Community Edition](../../community.html) documentation. You can also view the [API reference material]({{< relref "../../../../../../en/api-ref/api-ref-corda-4.md" >}}), browse [featured apps]({{< relref "../apps/apps-index.md" >}}), or browse [tools and add-ons](../../../../../../en/tools.html).
 
 {{< note >}}
 <b>Read Corda white papers</b>
