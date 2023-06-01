@@ -48,7 +48,7 @@ If you are upgrading from an open source version of Corda, follow the upgrade gu
 2. Run a [sample CorDapp]({{< relref "../../community/tutorial-cordapp.md" >}}) to see Corda in action.
 4. [Build your own CorDapp]({{< relref "../../community/building-a-cordapp-index.md" >}}) from scratch.
 
-You can then take your Corda integration to the next level by deep-diving into specific topics in our [Corda Community Edition](../../community.html) documentation. You can also view the [API reference material]({{< relref "../../../../../../en/api-ref/api-ref-corda-4.md#corda-community--open-source-4x" >}}), browse [featured apps]({{< relref "../apps/apps-index.md" >}}), or browse [tools and add-ons](../../../../../../en/tools.html).
+You can then take your Corda integration to the next level by deep-diving into specific topics in our [Corda Community Edition]({{< relref "../index.md" >}}) documentation. You can also view the [API reference material]({{< relref "../../../../../../en/api-ref/api-ref-corda-4.md#corda-community--open-source-4x" >}}), browse [featured apps]({{< relref "../apps/apps-index.md" >}}), or browse [tools and add-ons]({{< relref "../../../../../tools/_index.md" >}}).
 
 {{< note >}}
 <b>Read Corda white papers</b>
