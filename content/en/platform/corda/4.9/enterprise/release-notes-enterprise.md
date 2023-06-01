@@ -1,6 +1,6 @@
 ---
 title: Corda Enterprise Edition 4.9 release notes
-date: '2023-02-03'
+date: '2023-05-05'
 
 menu:
   corda-enterprise-4-9:
@@ -17,6 +17,80 @@ weight: 10
 
 # Corda Enterprise Edition 4.9 release notes
 
+## Corda Enterprise Edition 4.9.7 release notes
+
+Corda Enterprise Edition 4.9.7 is a patch release of Corda Enterprise focused on resolving issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node](upgrading-index.md).
+
+### Fixed issues
+
+* A new or restarted peer node coming online and connecting to a node for the first time can significantly slow message processing from other peers on the node to which it connects.  With this improvement, new peers coming online get a dedicated thread on the node they connect to and do not delay message processing for existing peer-to-peer connections on the receiving node.
+
+* Debug logging of the Artemis server has been added.
+
+* The thread dump on heartbeat feature was causing excess log output. This has now been improved: we now only log thread stack traces that appear to be stuck and no longer repeatedly log them.
+
+* Previously, when configured to use confidential identities and the Securosys PrimusX HSM, it was possible for Corda to fail to generate a wrapped key-pair for a new confidential identity. This would cause a temporary key-pair to be leaked, consuming resource in the HSM. This issue occurred when:
+
+  * the Securosys HSM was configured in a master-clone cluster
+  * the master HSM had failed and Corda had failed-over to use the clone HSM
+  * there was an attempt to create a transaction using confidential identities
+
+  The issue is now resolved. When generating a wrapped key-pair the temporary key-pair is not persisted in the HSM and thus cannot be leaked.
+
+  On applying this update the PrimusX JCE should be upgraded to version 2.3.4 or later.
+
+  There is no need to upgrade the HSM firmware version for this update but it is recommended to keep the firmware up to date as a matter of course. Currently the latest firmware version if 2.8.50.
+
+* The default SSL handshake timeout for inbound connections has been increased to 60 seconds. If during SSL handshake, certificate revocation lists (CRLs) take a long time to download or are unreachable, then this 60 seconds gives the node enough time to establish the connection if `crlCheckSoftFail` is enabled.
+
+* Previously, when loading checkpoints, the only log messages recorded were at the end of the process, recording the total number of checkpoints loaded.
+
+  Now, the following additional logging has been added:
+
+  * Checkpoints: Logging has been added for the two types of checkpoints - runnable and paused flows - being loaded; log messages show the number of checkpoints loaded every 30 seconds until all checkpoints have been loaded.
+
+  * Finished flows: Log messages now show the number of finished flows.
+
+  For example:
+
+  ```
+  [INFO ] 2023-02-03T17:00:12,767Z [main] statemachine.MultiThreadedStateMachineManager. - Loading checkPoints flows {}
+  [INFO ] 2023-02-03T17:00:12,903Z [main] statemachine.MultiThreadedStateMachineManager. - Number of runnable flows: 0. Number of paused flows: 0 {}
+  [INFO ] 2023-02-03T17:00:12,911Z [main] statemachine.MultiThreadedStateMachineManager. - Started loading finished flows {}
+  [INFO ] 2023-02-03T17:00:28,437Z [main] statemachine.MultiThreadedStateMachineManager. - Loaded 9001 finished flows {}
+  [INFO ] 2023-02-03T17:00:43,606Z [main] statemachine.MultiThreadedStateMachineManager. - Loaded 24001 finished flows {}
+  [INFO ] 2023-02-03T17:00:46,650Z [main] statemachine.MultiThreadedStateMachineManager. - Number of finished flows : 27485 {}
+  ```
+* Previously, where nodes had invoked a very large number of flows, the cache of client IDs that had not been removed were taking up significant heap space. A solution has been implemented where the space taken up has been reduced by 170 bytes per entry. For example, 1 million un-removed client IDs now take up 170,000,000 bytes less heap space than before.
+
+* When a notary worker is shut down, message ID cleanup is now performed as the last shutdown activity, rather than the first; this prevents a situation where the notary worker might still appear to be part of the notary cluster and receiving client traffic while shutting down.
+
+* During recovery from a transport layer connection break in peer-to-peer connectivity, a workaround to a bug in the Artemis message broker would only be taken during the first break in connectivity. This lead to a rare failure to re-establish connectivity between two peers until the node was restarted. The workaround is now taken on every loss of connectivity, and thus peer-to-peer connectivity should now always be re-established without operator intervention.
+
+* Previously, if a node was configured to use two different slots on the Luna HSM (for example using one slot for node identities and a separate slot for the confidential identities), this failed. This issue has now been resolved.
+
+  {{< warning >}}
+  However as a result of this fix you need to make sure the Luna client your are using is version 10.4.0 or later.
+  {{</ warning >}}
+
+* The default value for the node configuration value cryptoServiceTimeout has been increased from 1 second to 10 seconds.
+
+* Corda provides the NodeDriver to help developers write integration tests. Using the NodeDriver, developers can bring up nodes locally to run flows and inspect state updates. Previously, there was an issue with build pipelines with tests failing, as on some occasions, notaries took more than one minute (the default timeout value) to start.
+
+  To resolve this, the NodeDriver now has a new parameter, `notaryHandleTimeout`. This parameter specifies how long to wait for a notary handle to come back after the notary has been started.
+
+* A fix for cache eviction has been applied where an issue resulted in an incorrect contract verification status while a database transaction was in progress during contract verification.
+
+* A `StackOverflowException` was thrown when an attempt was made to store a deleted party in the vault. This issue has been resolved.
+
+* The certificate revocation checking has been improved with the introduction of a read timeout on the download of the certificate revocation lists (CRLs). The default CRL connect timeout has also been adjusted to better suit Corda nodes. The caching of CRLs has been increased from 30 seconds to 5 minutes.
+
+* Improved compatibility when using the performance test suite from Apple silicon Macs.
+
 ## Corda Enterprise Edition 4.9.6 release notes
 
 Corda Enterprise Edition 4.9.6 is a patch release of Corda Enterprise focused on resolving issues.
@@ -27,8 +101,8 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
-* When FIPS mode is activated in the Luna HSM, version 7.7.1 of the firmware does not allow the mechanism AES/CBC/PKCS5Padding to use wrap functionality. This has resulted in flow errors with confidential identities when using "wrapped" mode. 
-  
+* When FIPS mode is activated in the Luna HSM, version 7.7.1 of the firmware does not allow the mechanism AES/CBC/PKCS5Padding to use wrap functionality. This has resulted in flow errors with confidential identities when using "wrapped" mode.
+
   A new mechanism (AES/KWP/NoPadding) has been enabled that allows wrapping when in FIPS mode. To switch to this new mechanism, a new Boolean configuration parameter, `usekwp`, has been added to the Luna HSM configuration file. If this parameter is set to true, then the new mechanism is used. If false or the parameter does not exist in the configuration file, then the existing mechanism is used.
 
 ## Corda Enterprise Edition 4.9.5 release notes
@@ -149,7 +223,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 In this release:
 
 * Corda shell has been removed to its own repository for improved security. You can now use a standalone shell outside of the node, or from within the node's drivers. For more information about using the standalone shell, see [The standalone shell](./node/operating/shell.html#the-standalone-shell). For information on adding the shell to the node's drivers, see [Upgrading a node to Corda Enterprise Edition 4.9](node-upgrade-notes.html).
-{{< note >}} 
+{{< note >}}
 The Corda shell has a dependency on Groovy that the Corda API does not. As a result, for any flows dependent on Groovy, you must now add the dependency to the CorDapp or the drivers' directory.
 {{< /note >}}
 * Security updates to prevent possibility of Denial of Service attacks.
