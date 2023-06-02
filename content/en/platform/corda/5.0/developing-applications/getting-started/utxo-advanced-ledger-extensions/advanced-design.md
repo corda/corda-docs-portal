@@ -140,10 +140,8 @@ The fungible API provides the component model for designing fungible states and 
 A fungible state can be implemented by implementing the `FungibleState<T>` interface; for example:
 
 ```kotlin
-public final class ExampleFungibleState extends FungibleState<NumericDecimal> {
-  
+public final class ExampleFungibleState extends FungibleState<NumericDecimal> {  
   @NotNull
-  
   private final NumericDecimal quantity;
   
   public ExampleFungibleState(@NotNull final NumericDecimal quantity) {
@@ -151,27 +149,20 @@ public final class ExampleFungibleState extends FungibleState<NumericDecimal> {
   }
   
   @NotNull
-  
   public NumericDecimal getQuantity() {
     return quantity;
   }
   
   @NotNull
-  
   public List<PublicKey> getParticipants() {
     return List.of(...);
-  
   }
-  
   
   @Override
-  
-   public boolean isFungibleWith(@NotNull final FungibleState<NumericDecimal> other) {
-   return this == other || other instanceof ExampleFungibleState // && other fungibility rules.
-   
+  public boolean isFungibleWith(@NotNull final FungibleState<NumericDecimal> other) {
+    return this == other || other instanceof ExampleFungibleState // && other fungibility rules.
   }
 }
-```
 
 ## Designing Fungible Commands
 
