@@ -65,18 +65,17 @@ The contract still provides the same three commands; `Create`, `Update` and `Del
 The verify function has been marked final. This change is necessary as it prevents derived contract implementations from circumventing the base contract rules.
 {{< /note >}}
 
-  ```kotlin
-  public class ExampleContract implements Contract {
-  
+```kotlin
+public class ExampleContract implements Contract {
+ 
     private interface ExampleContractCommand extends Command { }
+
     public static class Create implements ExampleContractCommand { }
     public static class Update implements ExampleContractCommand { }
     public static class Delete implements ExampleContractCommand { }
     
     @Override
-    
     public final void verify(UtxoLedgerTransaction transaction) {
-    
         List<? extends ExampleContractCommand> commands = transaction
                 .getCommands(ExampleContractCommand.class);
                 
@@ -91,13 +90,13 @@ The verify function has been marked final. This change is necessary as it preven
     protected void onVerifyCreate(UtxoLedgerTransaction transaction) { }
     protected void onVerifyUpdate(UtxoLedgerTransaction transaction) { }
     protected void onVerifyDelete(UtxoLedgerTransaction transaction) { }    
+
     private void verifyCreate(UtxoLedgerTransaction transaction) {
-    
         // Verify base Create constraints
         // Then verify additional Create constraints implemented by derived contracts
         onVerifyCreate(transaction);
-        
     }
+    
     private void verifyUpdate(UtxoLedgerTransaction transaction) {
         // Verify base Update constraints
         // Then verify additional Update constraints implemented by derived contracts
@@ -110,7 +109,6 @@ The verify function has been marked final. This change is necessary as it preven
         onVerifyDelete(transaction);
     }
 }
-```
 
 Refactoring a contract as shown in the above example allows CorDapp implementors to derive from the contract, allowing additional constraints which will be verified in additional to the constraints specified by the base contract.
 
