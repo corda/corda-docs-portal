@@ -10,4 +10,4 @@ menu:
 section_menu: corda5
 ---
 # net.corda.v5.application.marshalling
-The `marshalling` package provides services for working with parameters input over the REST API and generating suitable output to return via the REST API. The main service is the <a href="../../../../../../api-ref/corda/5.0-beta/java/net/corda/v5/application/marshalling/JsonMarshallingService.html" target="_blank">`JSONMarshallingService`</a>, which allows you to work with JSON input and output data.
+The `marshalling` package provides services for working with parameters input over the REST API and generating suitable output to return via the REST API. The main service is the <a href="../../../../../../api-ref/corda/5.0/net/corda/v5/application/marshalling/JsonMarshallingService.html" target="_blank">`JSONMarshallingService`</a>, which allows you to work with JSON input and output data.
