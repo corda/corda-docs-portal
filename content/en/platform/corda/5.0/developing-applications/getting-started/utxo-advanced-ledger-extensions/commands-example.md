@@ -176,31 +176,26 @@ public class Create extends ExampleContractCommand {
 }
 
 public class Update extends ExampleContractCommand {
-
     @Override
-    
     public final void verify(UtxoLedgerTransaction transaction) {
-    
         // Verify base Update constraints
         // Then verify additional Update constraints implemented in derived commands
         onVerify(transaction);
-        
     }
+    
     protected void onVerify(UtxoLedgerTransaction transaction) { }
 }
 
 public class Delete extends ExampleContractCommand {
-
     @Override
-    
     public final void verify(UtxoLedgerTransaction transaction) {
         // Verify base Delete constraints
         // Then verify additional Delete constraints implemented in derived commands
         onVerify(transaction);
     }
+    
     protected void onVerify(UtxoLedgerTransaction transaction) { }
 }
-```
 
 {{< note >}}
 The `Create`, `Update` and `Delete` commands are not marked final. Therefore, we can extend the contract verification constraints from these points, but we cannot extend from `ExampleContractCommand`.
