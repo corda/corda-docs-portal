@@ -276,22 +276,16 @@ The `IdentifiableContractCreateCommand` supports creating new identifiable state
 
 ```kotlin
 public final class Create extends IdentifiableContractCreateCommand<ExampleIdentifiableState> {
-  
-   @NotNull
-   
-   public Class<ExampleIdentifiableState> getContractStateType() {
-   return ExampleIdentifiableState.class;
+  @NotNull
+  public Class<ExampleIdentifiableState> getContractStateType() {
+    return ExampleIdentifiableState.class;
   }
   
   @Override
-  
   protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-  
     // Verify additional Create constraints
-    
   }
 }
-```
 
 The `IdentifiableContractUpdateCommand` updates existing identifiable states and will verify the following constraints:
 
