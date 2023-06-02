@@ -214,22 +214,16 @@ The `FungibleContractDeleteCommand` supports deleting existing fungible states a
 
 ```kotlin
 public final class Delete extends FungibleContractDeleteCommand<ExampleFungibleState> {
-  
-   @NotNull
-   
-    public Class<ExampleFungibleState> getContractStateType() {
+  @NotNull
+  public Class<ExampleFungibleState> getContractStateType() {
     return ExampleFungibleState.class;
   }
   
-   @Override
-  
-    protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-    
+  @Override
+  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
     // Verify additional Delete constraints
-    
   }
 }
-```
 
 ## Designing a Fungible Contract
 
