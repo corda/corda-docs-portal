@@ -157,10 +157,9 @@ Now that we have a command which itself can implement contract verification cons
 We achieve this by making the default constructor package private, so that only commands within the same package can extend it; for example:
 
 ```kotlin
- public class ExampleContractCommand implements VerifiableCommand {
-  ExampleContractCommand() { }
+public class ExampleContractCommand implements VerifiableCommand {
+    ExampleContractCommand() { }
 }
-```
 
 Next, we can implement this interface as `Create`, `Update` and `Delete` commands; for example:
 
