@@ -16,7 +16,8 @@ section_menu: corda5
 The following contract defines three commands; Create, Update and Delete. The `verify` function delegates these command types to `verifyCreate`, `verifyUpdate` and `verifyDelete` functions respectively, for example:
 
 ```kotlin
-    public final class ExampleContract implements Contract {
+public final class ExampleContract implements Contract {
+    
     private interface ExampleContractCommand extends Command { }
   
     public static class Create implements ExampleContractCommand { }
@@ -25,7 +26,6 @@ The following contract defines three commands; Create, Update and Delete. The `v
     
     @Override
     public void verify(UtxoLedgerTransaction transaction) {
-        
         List<? extends ExampleContractCommand> commands = transaction
                 .getCommands(ExampleContractCommand.class);
         
@@ -49,7 +49,6 @@ The following contract defines three commands; Create, Update and Delete. The `v
         // Verify Delete constraints
     }
 }
-  ```
 
 Designing a contract as shown in the above example will suffice in many cases. Assuming that the constraints have been implemented correctly then, the contract functionality and design is perfectly acceptable.
 
