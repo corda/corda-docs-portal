@@ -295,22 +295,16 @@ The `IdentifiableContractUpdateCommand` updates existing identifiable states and
 
 ```kotlin
 public final class Update extends IdentifiableContractUpdateCommand<ExampleIdentifiableState> {
-  
   @NotNull
-  
-   public Class<ExampleIdentifiableState> getContractStateType() {
-   return ExampleIdentifiableState.class;
+  public Class<ExampleIdentifiableState> getContractStateType() {
+    return ExampleIdentifiableState.class;
   }
   
   @Override
-  
   protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-  
-  // Verify additional Update constraints
-  
+    // Verify additional Update constraints
   }
 }
-```
 
 The `IdentifiableContractDeleteCommand` deletes existing identifiable states and verifies the identifiable state(s) deletion, at least one identifiable state must be consumed.
 
