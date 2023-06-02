@@ -67,20 +67,16 @@ The `ChainableContractCreateCommand` creates new chainable states and will verif
 
 ```kotlin
 public final class Create extends ChainableContractCreateCommand<ExampleChainableState> {
-  
   @NotNull
-  
   public Class<ExampleChainableState> getContractStateType() {
     return ExampleChainableState.class;
   }
   
   @Override
-  
-   protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
     // Verify additional Create constraints
   }
 }
-```
 
 The `ChainableContractUpdateCommand` supports updating existing chainable states and will verify the following constraints:
 
