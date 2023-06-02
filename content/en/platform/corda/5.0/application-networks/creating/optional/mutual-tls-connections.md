@@ -106,7 +106,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 To register an MGM in a mutual TLS cluster, you must explicitly set the TLS type in the registration context. That is, the `corda.group.tls.type` field must be `Mutual`. If the field is not set, it defaults to one-way TLS. For example:
 ```shell
 export REGISTRATION_CONTEXT='{
-  "corda.session.key.id": "'$SESSION_KEY_ID'",
+  "corda.session.keys.0.id": "'$SESSION_KEY_ID'",
   "corda.ecdh.key.id": "'$ECDH_KEY_ID'",
   "corda.group.protocol.registration": "net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService",
   "corda.group.protocol.synchronisation": "net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl",
