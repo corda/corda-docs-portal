@@ -1,15 +1,15 @@
 ---
 date: '2023-05-30'
-version: 'Corda 5.0'
 title: "UTXO Advanced Ledger Extensions Library"
+project: corda
+version: 'Corda 5.0'
 menu:
   corda5:
-    parent: corda5-develop-get-started
     identifier: corda5-utxo-ledger-extensions
+    parent: corda5-develop-get-started
     weight: 4000
 section_menu: corda5
 ---
-
 # UTXO Advanced Ledger Extensions Library
 
 The Corda 5 Advanced UTXO Ledger Extensions library provides several powerful features to Corda 5's UTXO ledger.
