@@ -195,22 +195,16 @@ The `FungibleContractUpdateCommand` supports updating existing fungible states a
 
 ```kotlin
 public final class Update extends FungibleContractUpdateCommand<ExampleFungibleState> {
-  
-   @NotNull
-   
-    public Class<ExampleFungibleState> getContractStateType() {
+  @NotNull
+  public Class<ExampleFungibleState> getContractStateType() {
     return ExampleFungibleState.class;
   }
   
-   @Override
-  
-    protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-    
+  @Override
+  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
     // Verify additional Update constraints
-    
   }
 }
-```
 
 The `FungibleContractDeleteCommand` supports deleting existing fungible states and will verify the following constraints:
 
