@@ -221,14 +221,12 @@ public final class ExampleContract implements Contract {
 This design addresses the outstanding issues in regard to being able to extend a contract with multiple commands, and being able to assign names to commands that make sense in the context that they're used. For example:
 
 ```kotlin
-
     class Mint extends Create { ... }
     class Issue extends Update { ... }
     class Transfer extends Update { ... }
     class Exchange extends Update { ... }
     class Redeem extends Update { ... }
     class Burn extends Delete { ... }
-```
 
 {{< note >}}
  The contract now supports five different command types, each of which implements different constraints and derives from `Create`, `Update`, or `Delete`.
