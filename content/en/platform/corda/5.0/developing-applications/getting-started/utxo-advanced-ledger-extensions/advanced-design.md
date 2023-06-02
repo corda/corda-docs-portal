@@ -103,24 +103,17 @@ The `ChainableContractDeleteCommand` supports deleting existing chainable states
 * On chainable state(s) deleting, at least one chainable state must be consumed.
 
 ```kotlin
-
-    public final class Delete extends ChainableContractDeleteCommand<ExampleChainableState> {
-  
-    @NotNull
-    
-     public Class<ExampleChainableState> getContractStateType() {
-      return ExampleChainableState.class;
+public final class Delete extends ChainableContractDeleteCommand<ExampleChainableState> {
+  @NotNull
+  public Class<ExampleChainableState> getContractStateType() {
+    return ExampleChainableState.class;
   }
   
-   @Override
-  
-    protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-    
+  @Override
+  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
     // Verify additional Delete constraints
-    
   }
 }
-```
 
 ## Designing a Chainable Contract
 
