@@ -164,17 +164,14 @@ public class ExampleContractCommand implements VerifiableCommand {
 Next, we can implement this interface as `Create`, `Update` and `Delete` commands; for example:
 
 ```kotlin
- public class Create extends ExampleContractCommand {
-    
+public class Create extends ExampleContractCommand {
     @Override
-    
     public final void verify(UtxoLedgerTransaction transaction) {
-    
         // Verify base Create constraints
         // Then verify additional Create constraints implemented in derived commands
         onVerify(transaction);
-        
     }
+    
     protected void onVerify(UtxoLedgerTransaction transaction) { }
 }
 
