@@ -37,26 +37,22 @@ A chainable state can be implemented by implementing the `ChainableState<T>` int
 
 ```kotlin
 @BelongsToContract(ExampleChainableContract.class)
-  public final class ExampleChainableState extends ChainableState<ExampleChainableState> {
-  
+public final class ExampleChainableState extends ChainableState<ExampleChainableState> {
   @Nullable
-  
   private final StaticPointer<ExampleChainableState> pointer;
   
   public ExampleChainableState(@NotNull final StaticPointer<ExampleChainableState> pointer) {
     this.pointer = pointer;
   }
   
-  @Nullable
-  
-   public StaticPointer<ExampleChainableState> getPreviousStatePointer() {
-      return pointer;
+  @Nullable 
+  public StaticPointer<ExampleChainableState> getPreviousStatePointer() {
+    return pointer;
   }
   
   @NotNull
-  
-   public List<PublicKey> getParticipants() {
-      return List.of(...);
+  public List<PublicKey> getParticipants() {
+    return List.of(...);
   }
 }
 ```
