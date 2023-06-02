@@ -1,5 +1,5 @@
 ---
-date: '2023-02-23'
+date: '2023-06-01'
 title: "Building Basic Contract Design"
 project: corda
 version: 'Corda 5.0'
