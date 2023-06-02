@@ -87,21 +87,16 @@ The `ChainableContractUpdateCommand` supports updating existing chainable states
 
 ```kotlin
 public final class Update extends ChainableContractUpdateCommand<ExampleChainableState> {
-  
-   @NotNull
-   
-    public Class<ExampleChainableState> getContractStateType() {
-     return ExampleChainableState.class;
+  @NotNull
+  public Class<ExampleChainableState> getContractStateType() {
+    return ExampleChainableState.class;
   }
   
-   @Override
-  
-    protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-    
+  @Override
+  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {    
     // Verify additional Update constraints
   }
 }
-```
 
 The `ChainableContractDeleteCommand` supports deleting existing chainable states and will verify the following constraint:
 
