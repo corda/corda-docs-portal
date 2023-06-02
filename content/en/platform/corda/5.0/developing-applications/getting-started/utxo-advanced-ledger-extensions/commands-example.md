@@ -207,19 +207,16 @@ As we have now delegated contract verification constraint logic to the commands 
 
 ```kotlin
 public final class ExampleContract implements Contract {
-    
-      @Override
-      
-      public void verify(UtxoLedgerTransaction transaction) {
-         List<? extends ExampleContractCommand> commands = transaction
-                  .getCommands(ExampleContractCommand.class);
+    @Override
+    public void verify(UtxoLedgerTransaction transaction) {
+        List<? extends ExampleContractCommand> commands = transaction
+            .getCommands(ExampleContractCommand.class);
                   
-          for (ExampleContractCommand command : commands) {
-              command.verify(transaction);
-          }
-      }
+        for (ExampleContractCommand command : commands) {
+            command.verify(transaction);
+        }
     }
-```
+}
 
 This design addresses the outstanding issues in regard to being able to extend a contract with multiple commands, and being able to assign names to commands that make sense in the context that they're used. For example:
 
