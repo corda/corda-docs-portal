@@ -310,22 +310,16 @@ The `IdentifiableContractDeleteCommand` deletes existing identifiable states and
 
 ```kotlin
 public final class Delete extends IdentifiableContractDeleteCommand<ExampleIdentifiableState> {
-  
-   @NotNull
-   
-   public Class<ExampleIdentifiableState> getContractStateType() {
+  @NotNull
+  public Class<ExampleIdentifiableState> getContractStateType() {
     return ExampleIdentifiableState.class;
   }
   
-   @Override
-   
-    protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-    
+  @Override
+  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
     // Verify additional Delete constraints
-    
   }
 }
-```
 
 ## Designing an Identifiable Contract
 
