@@ -251,28 +251,23 @@ An identifiable state can be implemented by implementing the `IdentifiableState`
 
 ```kotlin
 public final class ExampleIdentifiableState extends IdentifiableState {
+  @Nullable
+  private final StateRef id;
   
-   @Nullable
-   
-   private final StateRef id;
-  
-   public ExampleIdentifiableState(@Nullable final StateRef id) {
+  public ExampleIdentifiableState(@Nullable final StateRef id) {
     this.id = id;
   }
   
-   @Nullable
-  
-   public StateRef getId() {
+  @Nullable
+  public StateRef getId() {
     return id;
   }
   
-   @NotNull
-   
-    public List<PublicKey> getParticipants() {
+  @NotNull
+  public List<PublicKey> getParticipants() {
     return List.of(...);
   }
 }
-```
 
 ## Designing Identifiable Commands
 
