@@ -123,7 +123,6 @@ The problem really lies in the `verify` function; for example:
 
 ```kotlin
 public final void verify(UtxoLedgerTransaction transaction) {
-  
     List<? extends ExampleContractCommand> commands = transaction
             .getCommands(ExampleContractCommand.class);
             
@@ -134,7 +133,6 @@ public final void verify(UtxoLedgerTransaction transaction) {
         else throw new IllegalStateException("Unrecognised command type.");
     }
 }
-```
 
 The `verify` function is marked final for security reasons, and therefore additional commands cannot be added to the contract. For example, the contract may wish to describe multiple ways to `Update` a state, or set of states. The contract only defines a single `Update` command: there can only be one mechanism to perform updates.
 
