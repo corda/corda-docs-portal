@@ -121,15 +121,11 @@ A chainable contract can be implemented by extending the `ChainableContract` cla
 
 ```kotlin
 public final class ExampleChainableContract extends ChainableContract {
-  
-   @Override
-  
-   public List<Class<? extends ChainableContractCommand<?>>> getPermittedCommandTypes() {
-      return List.of(Create.class, Update.class, Delete.class);
-      
+  @Override
+  public List<Class<? extends ChainableContractCommand<?>>> getPermittedCommandTypes() {
+    return List.of(Create.class, Update.class, Delete.class);  
   }
 }
-```
 
 ## Fungible API
 
