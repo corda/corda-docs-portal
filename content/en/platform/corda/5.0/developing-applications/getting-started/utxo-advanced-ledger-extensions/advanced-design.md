@@ -174,22 +174,16 @@ The `FungibleContractCreateCommand` creates new fungible states and will verify 
 
 ```kotlin
 public final class Create extends FungibleContractCreateCommand<ExampleFungibleState> {
-  
-   @NotNull
-   
-   public Class<ExampleFungibleState> getContractStateType() {
-   return ExampleFungibleState.class;
+  @NotNull
+  public Class<ExampleFungibleState> getContractStateType() {
+    return ExampleFungibleState.class;
   }
   
-   @Override
-  
-   protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-    
+  @Override
+  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
     // Verify additional Create constraints
-    
   }
 }
-```
 
 The `FungibleContractUpdateCommand` supports updating existing fungible states and will verify the following constraints:
 
