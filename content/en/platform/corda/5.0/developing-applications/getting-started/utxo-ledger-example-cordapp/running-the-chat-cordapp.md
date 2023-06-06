@@ -13,7 +13,7 @@ section_menu: corda5
 
 ## Configuring the Application Network (Virtual Nodes)
 
-The CSDE is configured to create a five party application network required to run the Chat CorDapp, including virtual nodes for Alice, Bob, Charlie, Dave, and a notary. To change the network configuration, see [Configuring the Network Participants]({{< relref "../configure-the-network-participants/network-participants.md" >}}).
+The CSDE is configured to create a five party application network required to run the Chat CorDapp, including virtual nodes for Alice, Bob, Charlie, Dave, and a notary. To change the network configuration, see [Configuring the Network Participants]({{< relref "../configure-the-network-participants/_index.md" >}}).
 
 {{< note >}}
 You must keep the notary node to enable the CorDapp to finalise transactions.
@@ -31,7 +31,7 @@ Remember to start your docker engine before you attempt to start Corda and make 
 ## Using Swagger
 
 For this walkthrough, we assume you are using the `Swagger GUI` to trigger flows. For each flow we use the Flow Management section of the API.
-You must know the `holdingidentityshorthash` for both Alice and Bob’s nodes. You can retrieve this by running the `listVNodes` Gradle helper in the `csde-queries` section of the [gradle helper]({{< relref "../cordapp-standard-development-environment/csde.md" >}}) tasks.
+You must know the `holdingidentityshorthash` for both Alice and Bob’s nodes. You can retrieve this by running the `listVNodes` Gradle helper in the `csde-queries` section of the [gradle helper]({{< relref "../cordapp-standard-development-environment/_index.md" >}}) tasks.
 
 {{< figure src="listvnodes.png" figcaption="listVnodes Gradler helper" alt="listVnodes Gradler helper" width=30% length=30% >}}
 
