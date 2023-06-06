@@ -83,7 +83,6 @@ In these private networks, only the parties involved can see the details of that
 This is important in financial services, where confidentiality is required.
 Unlike more public DLT offerings, where the entire ledger state is shared between all members, Corda enables the restriction of sharing to those who “need to know” and have visibility of updates.
 This removes the ability for information to leak out through the observation of anonymous state changes in more public systems where, despite the potential anonymity of participants, the entire state is visible.
-
 * **Compliance** - Corda, being designed with the financial services industry in mind, works seamlessly with existing financial systems, allowing banks and other financial institutions to integrate it into their existing processes.
 
 * **Scalability** - Corda is designed to be highly scalable, allowing it to handle large volumes of operations without sacrificing performance or security. This is especially suitable for the financial services industry, which processes huge volumes of financial transactions in short periods of time.
