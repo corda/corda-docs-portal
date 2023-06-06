@@ -41,10 +41,10 @@ Helm chart, this is the name of the Helm release for the Prometheus stack. For e
 
 ```yaml
 metrics:
-podMonitor:
-enabled: true
-labels:
-release: [RELEASE_NAME]
+  podMonitor:
+    enabled: true
+    labels:
+      release: [RELEASE_NAME]
 ```
 
 ### Exported Metrics

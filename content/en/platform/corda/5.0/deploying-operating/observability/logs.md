@@ -40,7 +40,7 @@ to install Corda with a text log format instead. Use the following overrides whe
 
 ```yaml
 logging:
-format: "text"
+  format: "text"
 ```
 
 ## Log Level
@@ -49,16 +49,16 @@ The default log level is `info`. To get additional diagnostic information, you m
 
 ```yaml
 logging:
-level: "debug"
+  level: "debug"
 ```
 
 You can also modify the log level for just a single type of worker. For example:
 
 ```yaml
 workers:
-db:
-logging:
-level: "trace"
+  db:
+    logging:
+      level: "trace"
 ```
 
 The supported values for the log level are `all`, `trace`, `debug`, `info`, `warn`, `error`, `fatal`, and `off`.

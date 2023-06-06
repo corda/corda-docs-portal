@@ -11,9 +11,9 @@ section_menu: corda5
 ---
 # About the Docs
 The following topics are explained on this page:
-* [Documenting Product Editions](#documenting-product-editions)
-* [End of Life Strategy](#end-of-life-strategy)
-* [Reporting an Error in the Docs](#reporting-an-error-in-the-docs)
+* [Documenting Product Editions]({{< relref "#documenting-product-editions">}})
+* [End of Life Strategy]({{< relref "#end-of-life-strategy">}})
+* [Reporting an Error in the Docs]({{< relref "#reporting-an-error-in-the-docs">}})
 
 ## Documenting Product Editions
 The Corda 5 documentation is structured differently than in previous versions of Corda. Previously, Corda Enterprise and Corda Community content was published in separate documentation sets. 

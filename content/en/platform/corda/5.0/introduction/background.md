@@ -42,7 +42,7 @@ There are some approaches that differentiate Corda from other DLTs. The followin
 
 * **Identity** - Knowing who you are transacting with and knowing that their identity was attested to a given level of assurance is important for establishing trust. This identity validation is handled when onboarding a participant identity to a business network.
 
-* **Privacy** - People who want to communicate with each other on Corda can install the same set of CorDapps, which lets them define the parameters of their interactions and exchange information and assets, within the bounds of what the network operator has permitted around rules for visibility of states. In these private networks, only the parties involved can see the details of that state. This is important in financial services, where confidentiality is required.
+* **Privacy** - People who want to communicate with each other on Corda can install the same set of CorDapps, which lets them define the parameters of their interactions and exchange information and assets, within the bounds of what the Network Operator has permitted around rules for visibility of states. In these private networks, only the parties involved can see the details of that state. This is important in financial services, where confidentiality is required.
 
 * **Compliance** - Corda, being designed with the financial services industry in mind, works seamlessly with existing financial systems, allowing banks and other financial institutions to integrate it into their existing processes.
 
