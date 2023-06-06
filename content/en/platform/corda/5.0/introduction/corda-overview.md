@@ -76,7 +76,6 @@ Many other DLT and blockchain systems offer anonymity as a feature, especially f
 However, for use cases where trust is absolutely critical, Corda layers its platform with the concept of granting permissions to identities.
 These permissions can be granted during onboarding of identities and it is simply a case of attesting that supplied credentials prove that an entity is who they claim to be.
 Corda does not mandate certain levels of attestation, but rather each network is able to set their own rules. Without permissions, access to the state of a network and other members of that network is impossible.
-
 * **Privacy** - People who want to communicate with each other on Corda can install the same set of distributed applications or CorDapps.
 These define the parameters of their interactions and exchange information and assets; all within the bounds of what the network operator has permitted around rules for visibility of states.
 In these private networks, only the parties involved can see the details of that state.
