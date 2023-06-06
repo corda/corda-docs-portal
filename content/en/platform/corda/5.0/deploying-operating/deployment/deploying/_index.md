@@ -285,7 +285,7 @@ The REST worker TLS certificate is presented to a client any time a HTTPS connec
 If no specific parameters are provided, a self-signed certificate is used and the connection to the REST Worker is always HTTPS. However, a warning will be emitted into the REST worker log explaining how to provide parameters for custom TLS certificates.
 The following is required to install a valid TLS certificate:
 * The TLS certificate itself must be signed by a Certification Authority (CA) or an intermediary.
-* A private key corresponding to the public key must be included in the TLS certificate.
+* A private key corresponding to the public key included in the TLS certificate.
 * The Certification Chain must lead up to the CA.
 
 Custom certificate information can be provided in PEM format as a Kubernetes secret. 
