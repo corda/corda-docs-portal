@@ -10,7 +10,7 @@ section_menu: corda5
 title: "initial-config"
 ---
 # initial-config
-This section lists the Corda CLI `initial-config` arguments. You can use these commands to manually perform various setup actions, as described in the [Manual Bootstrapping]({{< relref "../../deploying-operating/deploying/bootstrapping.md" >}}) section.
+This section lists the Corda CLI `initial-config` arguments. You can use these commands to manually perform various setup actions, as described in the [Manual Bootstrapping]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md" >}}) section.
 
 ## create-user-config 
 

@@ -22,7 +22,7 @@ Any configuration items can be configured as sensitive or not. It is up to you t
 
 ## Default Secrets Service
 
-Corda 5 provides a default secrets lookup service. Implementation of this service is in the form of a service that uses symmetric encryption so that the value can be stored encrypted at rest and decrypted with a key derived from a configured salt and passphrase when needed. The salt and passphrase must be specified in the [deployment configuration]({{< relref "../deploying/deploying.md#default-secrets-service" >}}).
+Corda 5 provides a default secrets lookup service. Implementation of this service is in the form of a service that uses symmetric encryption so that the value can be stored encrypted at rest and decrypted with a key derived from a configured salt and passphrase when needed. The salt and passphrase must be specified in the [deployment configuration]({{< relref "../deployment/deploying/_index.md#default-secrets-service" >}}).
 
 For example, the following is a standard configuration:
 
@@ -52,7 +52,7 @@ You can use the Corda CLI <a href = "../../reference/corda-cli/secret-config.md"
 
 ## External Secrets Service {{< enterprise-icon >}}
 
-Corda Enterprise supports integration with [HashiCorp Vault](https://www.vaultproject.io/) as an external secret management system. This is the recommended deployment configuration. The URL at which the Vault instance is reachable, the Vault token, and the path to Corda created secrets must be specified in the [deployment configuration]({{< relref "../deploying/bootstrapping.md#external-secrets-service" >}}).
+Corda Enterprise supports integration with [HashiCorp Vault](https://www.vaultproject.io/) as an external secret management system. This is the recommended deployment configuration. The URL at which the Vault instance is reachable, the Vault token, and the path to Corda created secrets must be specified in the [deployment configuration]({{< relref "../deployment/deploying/manual-bootstrapping.md#external-secrets-service" >}}).
 
 For example, the following is a standard configuration:
 

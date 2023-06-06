@@ -19,6 +19,10 @@ This section describes how to build a member CPI and upload it to the network. I
 4. [Import Code Signing Certificates]({{< relref "#import-code-signing-certificates" >}})
 5. [Upload the CPI]({{< relref "#upload-the-cpi" >}})
 
+{{< note >}}
+If you want to use mutual TLS, see [Configuring Mutual TLS]({{< relref "../optional/mutual-tls-connections.md#modify-the-cluster-configurations" >}}) for additonal configuration steps before you upload the CPI.
+{{< /note >}}
+
 ## Set Variables
 Set the values of variables for use in later commands:
 

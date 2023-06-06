@@ -11,6 +11,6 @@ menu:
 section_menu: corda5
 ---
 # Configuring Users
-Corda 5 implements role-based access control (RBAC) permission system, also known as role-based security, as a mechanism to restrict system access.
-It entails configuring permissions and privileges to grant authorized users access. This section describes different entities that the RBAC system is made of
-as well as ways to create fine-grained roles with different permissions assigned to them.
+Corda 5 implements a role-based access control (RBAC) permission system, also known as role-based security, as a mechanism to restrict system access.
+It entails configuring permissions and privileges to grant authorized users access. This section describes different entities that the RBAC system is made of as well as ways to create fine-grained roles with different permissions assigned to them. It contains the following:
+{{< childpages >}}
