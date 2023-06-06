@@ -108,7 +108,6 @@ To push the Corda Enterprise images:
    docker push $target_registry/postgres:14.4
    ```
 
-
 ## Download the Corda Helm Chart
 
 If you have access to Docker Hub, you can download the Corda Helm chart using the following command for Corda Community:
@@ -126,7 +125,7 @@ The following sections describe the minimal set of configuration options require
 * [Image Registry]({{< relref "#image-registry" >}})
 * [Replica Counts]({{< relref "#replica-counts" >}})
 * [Resource Requests and Limits]({{< relref "#resource-requests-and-limits" >}})
-* [Exposing the REST API]({{< relref "#exposing-the-rest-api" >}})
+* [REST API]({{< relref "#rest-api" >}})
 * [PostgreSQL]({{< relref "#postgresql" >}})
 * [Encryption]({{< relref "#encryption" >}})
 * [Bootstrapping]({{< relref "#bootstrapping" >}})
@@ -231,15 +230,20 @@ Regarding AWS topology, we recommend the following initial configuration:
   `kafka.t3.small` instances may suffice. In a HA topology with three replicas of each worker and a topic replica count
   of three, we recommend five brokers using at least `kafka.m5.large` instances.
 
-### Exposing the REST API
+### REST API
 
-By default, the [REST API]({{< relref "../../../reference/rest-api/_index.md" >}}) is exposed on an internal Kubernetes service.
+The following configuration options are available for the [REST API]({{< relref "../../../reference/rest-api/_index.md" >}}):
+* [Expose the REST API]({{< relref "#expose-the-rest-api" >}})
+* [Install the REST Worker Certificate]({{< relref "#installing-the-rest-worker-certificate" >}})
+#### Expose the REST API
+
+By default, the REST API is exposed on an internal Kubernetes service.
 To enable access from outside the Kubernetes cluster, use one of the following:
 
 * [Kubernetes Ingress](#kubernetes-ingress)
 * [AWS Load Balancer Controller]("#aws-load-balancer-controller)
 
-#### Kubernetes Ingress
+##### Kubernetes Ingress
 
 We recommend configuring Kubernetes Ingress to provide the REST worker with HTTP load balancing.
 This also enables optional annotations for additional integration, such as External DNS or Cert Manager. For example:
@@ -256,7 +260,7 @@ workers:
       - <your-rest-worker.development.example.com>
 ```
 
-#### AWS Load Balancer Controller
+##### AWS Load Balancer Controller
 
 Alternatively, the API can be fronted directly by a load balancer. The Helm chart allows annotations to be specified to
 facilitate the creation of a load balancer by a cloud-platform specific controller.
@@ -274,6 +278,30 @@ workers:
         service.beta.kubernetes.io/aws-load-balancer-type: nlb
         external-dns.beta.kubernetes.io/hostname: corda.example.com
 ```
+
+#### Install the REST Worker Certificate
+
+The REST worker TLS certificate is presented to a client any time a HTTPS connection is made.
+If no specific parameters are provided, a self-signed certificate is used and the connection to the REST Worker is always HTTPS. However, a warning will be emitted into the REST worker log explaining how to provide parameters for custom TLS certificates.
+The following is required to install a valid TLS certificate:
+* The TLS certificate itself must be signed by a Certification Authority (CA) or an intermediary.
+* A private key corresponding to the public key included in the TLS certificate.
+* The Certification Chain must lead up to the CA.
+
+Custom certificate information can be provided in PEM format as a Kubernetes secret. 
+You can either create a Kubernetes secret manually to hold the certificate information or allow Helm to generate a new secret.
+You can specify the secret name manually as follows:
+```yaml
+workers:
+  rest:
+     tls:
+      secretName: <PEM_TLS_CERT_SECRET_NAME>
+```
+If this optional value is not provided, Helm generates the certificate data at installation time and automatically creates a Kubernetes secret for the REST worker to use.
+
+{{< note >}}
+If the secret data is modified, the REST worker pod will not currently detect the change until the pod is restarted.
+{{</ note >}}
 
 ### PostgreSQL
 
