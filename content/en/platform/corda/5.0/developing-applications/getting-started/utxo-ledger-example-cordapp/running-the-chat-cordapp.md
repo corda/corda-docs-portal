@@ -21,7 +21,7 @@ You must keep the notary node to enable the CorDapp to finalise transactions.
 
 ## Deploying the CorDapp
 
-To deploy and run the CorDapp, follow the same steps as outlined in the [Running Your First CorDapp]({{< relref "../running-your-first-cordapp/run-first-cordapp.md" >}}) section of this [Getting Started guide]({{< relref "../_index.md" >}}).
+To deploy and run the CorDapp, follow the same steps as outlined in the [Running Your First CorDapp]({{< relref "../running-your-first-cordapp/_index.md" >}}) section of this [Getting Started guide]({{< relref "../_index.md" >}}).
 However, when you come to trigger the flows, you must trigger the appropriate `ChatFlow` rather than `MyFirstFlow`.
 
 {{< note >}}
