@@ -282,7 +282,7 @@ workers:
 #### Install the REST Worker Certificate
 
 The REST worker TLS certificate is presented to a client any time a HTTPS connection is made.
-If no specific parameters are provided, a self-signed certificate is used and the connection to the REST Worker is always HTTPS. However, a warning will be emitted into the REST log explaining how to provide parameters for custom TLS certificates.
+If no specific parameters are provided, a self-signed certificate is used and the connection to the REST Worker is always HTTPS. However, a warning will be emitted into the REST worker log explaining how to provide parameters for custom TLS certificates.
 The following is required to install a valid TLS certificate:
 * The TLS certificate itself must be signed by a Certification Authority (CA) or an intermediary.
 * A private key corresponding to the public key must be included in the TLS certificate.
