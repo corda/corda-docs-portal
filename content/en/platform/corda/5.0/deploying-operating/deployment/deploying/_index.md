@@ -609,7 +609,7 @@ To define `annotation-key-2` for only the crypto worker:
 workers:
   crypto:
     annotations:
-      annotation-key-2/is-safe: "true"
+      annotation-key-2: "some-value"
 ```
 
 ### Example Configuration
