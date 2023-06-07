@@ -58,7 +58,7 @@ To register a member, run the following command:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": { "context": '$REGISTRATION_CONTEXT' } }' $API_URL/membership/$HOLDING_ID
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": { "context": '$REGISTRATION_CONTEXT' } }' $API_URL/membership/$HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -91,7 +91,7 @@ You can confirm if the member was onboarded successfully by checking the status 
 {{% tab name="Bash"%}}
 ```
 export REGISTRATION_ID=<registration-ID>
-curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/membership/$HOLDING_ID/$REGISTRATION_ID
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/membership/$HOLDING_ID/$REGISTRATION_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -107,7 +107,7 @@ After registration, you can use the look-up functions provided by the `MemberLoo
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```bash
-curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/members/$HOLDING_ID
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/members/$HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}

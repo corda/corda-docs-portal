@@ -18,7 +18,7 @@ To create a virtual node for the MGM, run the following, using the checksum retr
 {{% tab name="Bash"%}}
 ```shell
 export CPI_CHECKSUM=<CPI-checksum>
-curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d '{ "request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "C=GB, L=London, O=MGM"}}' $REST_API_URL/virtualnode
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{ "request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "C=GB, L=London, O=MGM"}}' $REST_API_URL/virtualnode
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}

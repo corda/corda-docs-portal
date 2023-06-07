@@ -40,7 +40,7 @@ If the CA has not been configured with revocation, you can disable revocation ch
 To disable revocation checks, do the following:
 1. Retrieve the current link manager configuration version:
    ```shell
-   curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/config/corda.p2p.linkManager
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/config/corda.p2p.linkManager
    ```
 2. Save the displayed version number from the response as a variable:
    ```shell

@@ -26,7 +26,7 @@ For example, to set fields in the [messaging]({{< relref "./fields/messaging.md"
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.messaging", "version":"1", "config":"{"maxAllowedMessageSize":972800,"publisher":{"closeTimeout":600,"transactional":true},"subscription":{"commitRetries":3,"pollTimeout":500,"processorRetries":3,"processorTimeout":15000,"subscribeRetries":3,"threadStopTimeout":10000}}", "schemaVersion": {"major": 1, "minor": 0}}' "$REST_API_URL/config"
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.messaging", "version":"1", "config":"{"maxAllowedMessageSize":972800,"publisher":{"closeTimeout":600,"transactional":true},"subscription":{"commitRetries":3,"pollTimeout":500,"processorRetries":3,"processorTimeout":15000,"subscribeRetries":3,"threadStopTimeout":10000}}", "schemaVersion": {"major": 1, "minor": 0}}' "$REST_API_URL/config"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
@@ -70,7 +70,7 @@ For example, to retrieve the fields in the [messaging]({{< relref "./fields/mess
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/config/corda.messaging
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/config/corda.messaging
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}

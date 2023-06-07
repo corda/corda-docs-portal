@@ -15,7 +15,7 @@ Once the MGM is onboarded, you can export a group policy file with the MGM conne
 {{% tab name="Bash"%}}
 ```shell
 mkdir -p "~/Desktop/register-member"
-curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/mgm/$MGM_HOLDING_ID/info > "~/Desktop/register-member/GroupPolicy.json"
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/mgm/$MGM_HOLDING_ID/info > "~/Desktop/register-member/GroupPolicy.json"
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
