@@ -25,26 +25,32 @@
 {{ $image := .Page.Resources.GetMatch (printf "*%s*" (.Get "src")) -}}
 <figure>
   {{if $zoom}}<a href="{{$zoom}}" target="_blank">{{end}}
-  <img
-            {{if $image }}
-                src="{{ $image.RelPermalink }}"
-            {{ else }}
-                src="{{$src}}" 
-            {{ end }}
-            alt="{{$alt}}"
-            {{if $title }} 
-                title="{{$title}}"
-            {{end}}
-            {{if $width}}
-                width="{{$width}}"
-            {{end}}
-            {{if $height }}
-                height="{{$height}}"
-            {{end}}
-            {{if $align}}
-                align="{{$align}}"
-            {{end}}
-        />
+    <img
+      {{if $image }}
+        src="{{ $image.RelPermalink }}"
+      {{ else }}
+        {{ if eq (.Page.Resources.GetMatch $src) true }} 
+          src="{{$src}}" 
+        {{ else }}
+          {{ if eq .Page.Params.version "Corda 5.0"}}	
+             {{ errorf "Image not found: %q" $src "in" $.Page}}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+          alt="{{$alt}}"
+          {{if $title}} 
+            title="{{$title}}"
+          {{end}}
+          {{if $width}}
+            width="{{$width}}"
+          {{end}}
+          {{if $height}}
+            height="{{$height}}"
+          {{end}}
+          {{if $align}}
+            align="{{$align}}"
+          {{end}}
+    />
   {{if $figcaption }}<figcaption>{{$figcaption}}</figcaption>{{end}}
   {{if $zoom}}</a>{{end}}
 </figure>
