@@ -165,3 +165,7 @@ An instance of a CorDapp must always have an associated identity in Corda. A flo
 >}}
 
 As identities communicate with one another, the global state is changed through the acceptance of proposals made via flows. These changes are stored on behalf of each identity where relevant.
+
+{{< note >}}
+To begin developing CorDapps, see the [Developingg Appations]({{< relref "../../../developing-applications/_index.md">}}) section.
+{{< /note >}}
