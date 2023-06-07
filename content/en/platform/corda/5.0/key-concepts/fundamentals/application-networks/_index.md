@@ -57,6 +57,6 @@ If the recipient is offline, the message waits in an outbound queue until they a
 	 figcaption="Peer-to-Peer Communication"
 >}}
 
-Identities not regsitered as members of the application network cannot communicate with those that are, even if they obtain a copy of the CorDapp code:
+Identities not registered as members of the application network cannot communicate with those that are, even if they obtain a copy of the CorDapp code:
 * The identities may not be externally visible outside of the application network.
 * The reverse connection attestation undertaken by the Corda networking layer ensures that only attested identities can communicate. 
