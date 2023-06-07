@@ -14,9 +14,9 @@ section_menu: corda5
 
 This section describes how to build a member CPI and upload it to the network. It contains the following:
 1. [Set Variables]({{< relref "#set-variables" >}})
-2. [Generate the Group Policy File]({{< relref "#generate-the-group-policy-file" >}})
-3. [Create the CPI File]({{< relref "#create-the-cpi-file" >}})
-4. [Import Code Signing Certificates]({{< relref "#import-code-signing-certificates" >}})
+2. [Create the CPI File]({{< relref "#create-the-cpi-file" >}})
+3. [Import Code Signing Certificates]({{< relref "#import-code-signing-certificates" >}})
+4. [Generate the Group Policy File]({{< relref "#generate-the-group-policy-file" >}})
 5. [Upload the CPI]({{< relref "#upload-the-cpi" >}})
 
 {{< note >}}
@@ -79,34 +79,6 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{< /tabs >}}
 
-## Generate the Group Policy File
-
-To join a group, members must use a {{< tooltip >}}group policy{{< definition term="Group policy" >}}{{< /tooltip >}} file exported from the MGM of that group. To retrieve the `GroupPolicy.json` file from the MGM:
-
-   {{< tabs >}}
-   {{% tab name="Bash"%}}
-   ```shell
-   export MGM_REST_HOST=localhost
-   export MGM_REST_PORT=8888
-   export MGM_REST_URL="https://$MGM_REST_HOST:$MGM_REST_PORT/api/v1"
-   export MGM_HOLDING_ID=<MGM-holding-ID>
-   ```
-   {{% /tab %}}
-   {{% tab name="PowerShell" %}}
-   ```shell
-   $MGM_REST_HOST = "localhost"
-   $MGM_REST_PORT = "8888"
-   $MGM_REST_URL = "https://$MGM_REST_HOST:$MGM_REST_PORT/api/v1"
-   $MGM_HOLDING_ID = <MGM-holding-ID>
-   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$MGM_REST_URL/mgm/$MGM_HOLDING_ID/info" | ConvertTo-Json -Depth 4 > $WORK_DIR/GroupPolicy.json
-   ```
-   {{% /tab %}}
-   {{< /tabs >}}
-   If using Bash, create the `GroupPolicy.json` by exporting it using the MGM, by running this command:
-   ```shell
-   curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $MGM_REST_URL/mgm/$MGM_HOLDING_ID/info > "$WORK_DIR/GroupPolicy.json"
-   ```
-
 ## Create the CPI File
 
 Build a {{< tooltip >}}CPI{{< definition term="CPI" >}}{{< /tooltip >}} using the Corda CLI, passing in the member CPB, the `GroupPolicy.json` file exported from the MGM, and the details of the keystore certificate used to sign the CPB. 
@@ -143,7 +115,8 @@ Build a {{< tooltip >}}CPI{{< definition term="CPI" >}}{{< /tooltip >}} using th
 ## Import Code Signing Certificates
 
 {{< note >}}
-You do not have to repeat this step if a CPI previously uploaded to the network uses the same certificate.
+* You do not have to repeat this step if a CPI previously uploaded to the network uses the same certificate.
+* For information on how to import the notary CPB code signing certificate, see the [Onboarding Notaries]({{< relref "../notaries.md#import-notary-cpb-code-signing-certificate" >}}) section.
 {{< /note >}}
 
 Corda validates that uploaded CPIs are signed with a trusted key. To trust your signing keys:
@@ -160,6 +133,34 @@ Corda validates that uploaded CPIs are signed with a trusted key. To trust your 
 {{< note >}}
 Use an alias that will remain unique over time, taking into account that certificate expiry will require new certificates with the same X.500 name as existing certificates.
 {{< /note >}}
+
+## Generate the Group Policy File
+
+To join a group, members must use a {{< tooltip >}}group policy{{< definition term="Group policy" >}}{{< /tooltip >}} file exported from the MGM of that group. To retrieve the `GroupPolicy.json` file from the MGM:
+
+   {{< tabs >}}
+   {{% tab name="Bash"%}}
+   ```shell
+   export MGM_REST_HOST=localhost
+   export MGM_REST_PORT=8888
+   export MGM_REST_URL="https://$MGM_REST_HOST:$MGM_REST_PORT/api/v1"
+   export MGM_HOLDING_ID=<MGM-holding-ID>
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   $MGM_REST_HOST = "localhost"
+   $MGM_REST_PORT = "8888"
+   $MGM_REST_URL = "https://$MGM_REST_HOST:$MGM_REST_PORT/api/v1"
+   $MGM_HOLDING_ID = <MGM-holding-ID>
+   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$MGM_REST_URL/mgm/$MGM_HOLDING_ID/info" | ConvertTo-Json -Depth 4 > $WORK_DIR/GroupPolicy.json
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+   If using Bash, create the `GroupPolicy.json` by exporting it using the MGM, by running this command:
+   ```shell
+   curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $MGM_REST_URL/mgm/$MGM_HOLDING_ID/info > "$WORK_DIR/GroupPolicy.json"
+   ```
 
 ## Upload the CPI
 
