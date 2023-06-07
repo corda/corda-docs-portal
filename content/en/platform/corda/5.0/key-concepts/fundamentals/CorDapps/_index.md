@@ -82,7 +82,7 @@ Whilst the general case for flows within a CorDapp is the orchestration of a glo
 
 {{< 
   figure
-	 src="flows-restt.png"
+	 src="flows-rest.png"
    width="50%"
 	 figcaption="Flows invoked via the REST service"
 >}}
@@ -155,4 +155,13 @@ This documentation references multiple parties several times in explaining the f
 	 figcaption="Identity Integration"
 >}}
 
-An instance of a CorDapp must always have an associated identity in Corda. A flow is run on behalf of an identity and communicates with another identity selected from the pool of possible candidates which responds in kind.
+An instance of a CorDapp must always have an associated identity in Corda. A flow runs on behalf of an identity and communicates with another identity selected from the pool of possible candidates which responds in kind.
+
+{{< 
+  figure
+	 src="identities.png"
+   width="50%"
+	 figcaption="Communicating Identities"
+>}}
+
+As identities communicate with one another, the global state is changed through the acceptance of proposals made via flows. These changes are stored on behalf of each identity where relevant.
