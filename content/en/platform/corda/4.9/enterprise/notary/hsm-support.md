@@ -61,7 +61,7 @@ Add the following entries to your workers node.conf files, replacing the placeho
 ```sh
 cryptoServiceName: "AZURE_KEY_VAULT"
 cryptoServiceConf: "<path to the crypto service configuration file>"
-cryptoServiceTimeout: "<the desired timeout, default: 1s>"
+cryptoServiceTimeout: "<the desired timeout, default: 10000 milliseconds>"
 enterpriseConfiguration {
   identityKeyAlias: "<CUSTOM_WORKER_IDENTITY_KEY_ALIAS>"
   clientCaKeyAlias: "<CUSTOM_WORKER_CA_KEY_ALIAS>"
