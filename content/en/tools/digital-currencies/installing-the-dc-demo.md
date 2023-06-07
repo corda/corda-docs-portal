@@ -311,7 +311,7 @@ For the purposes of testing Corda, we will use the CPI endpoint.
 ## Specify Virtual Nodes for Digital Currencies UI
 
 {{< note >}}
-This section can normally be skipped as appConfig.json is automatically configured with the correct nodes; you can skip to [Run the Digital Currencies UI](#run-the-digital-currencies-ui) It remains included if you understand how appConfig.json can be configured manually. 
+This section can normally be skipped as appConfig.json is automatically configured with the correct nodes; you can proceed to [Run the Digital Currencies UI](#run-the-digital-currencies-ui). This section remains included in the topic to enable you to understand how appConfig.json can be configured manually. 
 {{</ note >}}
 
 
@@ -361,47 +361,72 @@ This section can normally be skipped as appConfig.json is automatically configur
 
    The file contains both configuration details for multiple nodes: 
    
-   * one of appType "CENTRAL_BANK",
-   * one of appType "COMMERCIAL_BANK",
+   * two of appType "CENTRAL_BANK",
+   * two of appType "COMMERCIAL_BANK",
 
    Each has a *holdingIdHash* parameter and a *x500* parameter:
 
    ```json 
-   {
-    "appType": "CENTRAL_BANK",
-    "apiUrl": "http://localhost:10055",
-    "holdingIdHash": "BA0AE88BD184",
-    "x500": "CN=Charlie, OU=Test Dept, O=R3, L=London, C=GB",
+   "appType": "CENTRAL_BANK",
+   "x500": "CN=Charlie, OU=Test Dept, O=R3, L=London, C=GB",
+   "appTitle": "Central Bank 2",
     
     ...
     
-    "appType": "COMMERCIAL_BANK",
-    "apiUrl": "https://localhost:8888",
-    "holdingIdHash": "11BD540F9730",
+    "appType": "CENTRAL_BANK",
     "x500": "CN=Bob, OU=Test Dept, O=R3, L=London, C=GB",
+    "appTitle": "Central Bank",
+
+    ...
+    
+    "appType": "COMMERCIAL_BANK",
+    "x500": "CN=Alice, OU=Test Dept, O=R3, L=London, C=GB",
+    "appTitle": "Commercial Bank",  
+
+    ... 
+
+    "appType": "COMMERCIAL_BANK",
+    "x500": "CN=Dave, OU=Test Dept, O=R3, L=London, C=GB",
+    "appTitle": "Commercial Bank 2",
     ```
 
 For each bank:
 
-8. Replace the value of *holdingIdHash* with the *shortHash* value noted in step 5.
+8. Replace the value of *x500* with the *x500Name* value noted in step 5.
 
-9. Replace the value of *x500* with the *x500Name* value noted in step 5.
-
-10. Save and close the file.
+9. Save and close the file.
 
 ## Run the Digital Currencies UI
 
+The Digital Currencies UI can be run in one of three ways:
+
+* Run locally in developer mode
+* Run locally in production optimized mode
+* Run locally with Docker Compose
+
+### Run the Digital Currencies UI in Developer Mode
+
 1. Open a command prompt and navigate to the *digital-currencies-ui* directory, where you cloned that repository.
 
-2. Run the command:
+2. Using a text editor, create a file named `.env.development`.
+
+3. Edit the file and add the following lines:
+
+   ```
+   VITE_API_URL=https://localhost:8888
+   VITE_USER=admin
+   VITE_PASS=admin
+   ```
+
+4. From the same directory, run the command:
 
    ```
    npm ci
    ```
 
-   This command downloads the dependencies required by the web server front-end.
+   This command installs the required dependencies.
 
-3. Run the command:
+5. Run the command:
 
    ```
    npm run dev
@@ -410,10 +435,93 @@ For each bank:
    The following output is displayed:
 
    ```
-   VITE v3.1.3  ready in 417 ms
+   VITE v3.1.3  ready in 633 ms
 
-   ➜  Local:   http://127.0.0.1:5173/
+   ➜  Local:   http://127.0.0.1:5174/
    ➜  Network: use --host to expose
    ```
+
+### Run the Digital Currencies UI in Production Mode
+
+1. Open a command prompt and navigate to the *digital-currencies-ui* directory, where you cloned that repository.
+
+2. Using a text editor, create a file named `.env.production`.
+
+3. Edit the file and add the following lines:
+
+   ```
+   VITE_API_URL=https://localhost:8888
+   VITE_USER=admin
+   VITE_PASS=admin
+   ```
+
+4. From the same directory, run the command:
+
+   ```
+   npm ci
+   ```
+
+   This command installs the required dependencies.
+   
+5. Run the command:
+
+   ```
+   npm run build
+   ```
+   
+   This command builds a production optimized version of the Digital Currencies GUI.
+
+5. Run the command:
+
+   ```
+   npm run preview
+   ```
+
+   The following output is displayed:
+
+   ```
+   > digital-currencies-ui@0.2.0 preview
+   > vite preview
+
+     ➜  Local:   http://127.0.0.1:4173/
+     ➜  Network: use --host to expose
+   ```
+
+### Run the Digital Currencies UI with Docker Compose
+
+1. Open a command prompt and navigate to the *digital-currencies-ui* directory, where you cloned that repository.
+
+2. Using a text editor edit the file named `docker-compose.yml`.
+
+3. Edit the file and specify the following values:
+
+   ```
+        environment:
+            - API_USER=admin
+            - API_PASS=admin
+   ```
+   
+4. Ensure that the file `build-and-start-app.sh` in the same directory uses the Unix standard LF rather than the Windows standard CRLF:
+
+   1. Using Notepad++, edit `build-and-start-app.sh`.
+   2. At the bottom-right corner, double-click **Windows (CR LF)**, and from the menu displayed, select **Unix (LF)**.
+   
+      {{< 
+         figure
+	     src="images/convert-crlf-to-lf.png"
+         width=30%
+	     figcaption="Convert CRLF to LF"
+	     alt="Convert CRLF to LF"
+      >}}
+
+   3. Save and close the file.
+
+5. From the same directory, run the command:
+
+   ```
+   docker-compose up -d
+   ```
+
+## Conclusion
 
 The Digital Currencies UI is now available. See [Launching the Digital Currencies GUI]({{< relref "launching-the-dc-demo.md" >}}).

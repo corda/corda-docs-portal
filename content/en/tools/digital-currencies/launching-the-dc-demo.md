@@ -11,7 +11,11 @@ menu:
 title: Launching the the Digital Currencies Demo
 ---
 
-In a browser access the URL [http://localhost:5173](http://localhost:5173) (rather than the above URL).
+In a browser access the relevant URL:
+
+* Development: [http://localhost:5174](http://localhost:5174)
+* Production: [http://localhost:5174](http://localhost:4173)
+* Docker: [http://localhost:80](http://localhost:80)
 
 The Digital Currencies GUI is displayed:
 
@@ -28,8 +32,13 @@ The GUI has the following elements:
 * A left-hand sidebar contains the following options:
   * **Define Token**: See [Creating Token Definitions]({{< relref "creating-token-definitions.md" >}})
   * **Token Definitions**: See [Viewing Token Definitions]({{< relref "viewing-token-definitions.md" >}})
-  * **Token Manager**: See [Creating Tokens]({{< relref "creating-tokens.md" >}})
-  * **Transfers**: See [Issuing Tokens]({{< relref "issuing-tokens.md" >}}) 
+  * **Token Manager**: See:
+    * [Creating Tokens]({{< relref "creating-tokens.md" >}})
+    * [Burning Tokens]({{< relref "burning-tokens.md" >}})
+    * [Viewing Vault Balances]({{< relref "viewing-vault-balances.md" >}})
+  * **Transfers**: See:
+    * [Transfering Tokens]({{< relref "transfering-tokens.md"  >}})
+  See [Issuing Tokens]({{< relref "issuing-tokens.md" >}}) 
 * The **Settings** button (![](images/setting-buttons.png)): See [Viewing the GUI Settings]({{< relref "viewing-the-gui-settings.md" >}}). 
 * The flow tracker button (![](images/flow-drawer-button.png)): When performing flows such as creating token definitions and creating tokens, click this button to display a pop-out flow tracker which displays the current status of flows. By default, the five most recent flows are displayed.
   
