@@ -14,7 +14,7 @@ section_menu: corda5
 
 ## Communication
 
-Through its attested identity model, Corda allows for direct [peer-to-peer messaging]({{< relref "../application-networks.html/#peer-to-peer-communication" >}}) between identities. 
+Through its attested identity model, Corda allows for direct [peer-to-peer messaging]({{< relref "../application-networks/_index.md/#peer-to-peer-communication" >}}) between identities. 
 A proposal to mutate the global state can be undertaken without the knowledge of those not a party to that mutation; there is no need to globally broadcast updates and thus avoid leaking sensitive information.
 At any single point in time, an identity can be involved in any number of distinct transactions.
 
