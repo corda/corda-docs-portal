@@ -12,7 +12,7 @@ section_menu: corda5
 # Chat CorDapp Design
 ## ChatState
 
-The foundation for the Chat app is the ChatState which is the data model for facts recorded to the ledger. It can be represented in the CDL [CorDapp Design Language]({{< relref "../../../../../../../en/tools/cdl/cdl-overview.md" >}}) as follows:
+The foundation for the Chat app is the ChatState which is the data model for facts recorded to the ledger. It can be represented in the CDL [CorDapp Design Language]({{< relref "../../../../../../../../en/tools/cdl/cdl-overview.md" >}}) as follows:
 
 {{< figure src="chat-state.png" figcaption="Data model for facts recorded to the ledger" alt="Data model for facts recorded to the ledger" >}}
 
