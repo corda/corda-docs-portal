@@ -6,7 +6,7 @@ version: 'Corda 5.0'
 menu:
   corda5:
     parent: corda5-develop-packaging
-    identifier: corda5-develop-packaging-cbk
+    identifier: corda5-develop-packaging-cpk
     weight: 1000
 section_menu: corda5
 ---
