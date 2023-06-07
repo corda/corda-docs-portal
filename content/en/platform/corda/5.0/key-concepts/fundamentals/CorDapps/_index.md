@@ -57,7 +57,7 @@ A flow is generally created as two companion functions — an initiator and a re
   figure
 	 src="flow-parties.png"
    width="50%"
-	 figcaption="A flow — an initiator and a responder"
+	 figcaption="A Flow — An Initiator and a Responder"
 >}}
 
 In Corda, several parties can be involved in the execution of a flow:
@@ -66,7 +66,7 @@ In Corda, several parties can be involved in the execution of a flow:
   figure
 	 src="flow-multiple-parties.png"
    width="50%"
-	 figcaption="Multiple parties to a flow"
+	 figcaption="Multiple Parties to a Flow"
 >}}
 
 The power of the Corda programming model is that it enables CorDapp Developers to write flows as seemingly synchronous singleton functions, whilst the hosting compute infrastructure actually breaks that user code up into many different chunks of work that can be distributed around the system as needed, much like a standard operating system grants access to physical compute resources.
@@ -75,7 +75,7 @@ The power of the Corda programming model is that it enables CorDapp Developers t
   figure
 	 src="flow-chunks.png"
    width="50%"
-	 figcaption="Chunks of work in a flow"
+	 figcaption="Chunks of Work in a Flow"
 >}}
 
 Whilst the general case for flows within a CorDapp is the orchestration of a global state change, they are also the primary mechanism by which behaviors can be invoked by users through external interaction via a REST service.
@@ -84,7 +84,7 @@ Whilst the general case for flows within a CorDapp is the orchestration of a glo
   figure
 	 src="flows-rest.png"
    width="50%"
-	 figcaption="Flows invoked via the REST service"
+	 figcaption="Flows Invoked via the REST Service"
 >}}
 
 Flows that only exist within a single identity’s context and do not need to communicate with another identity are equally permissible. 
@@ -105,7 +105,7 @@ In a decentralized system, there is no single point of access to the global stat
   figure
 	 src="centralized-decentralized.png"
    width="50%"
-	 figcaption="Centralized versus Decentralized Agreement"
+	 figcaption="Centralized Versus Decentralized Agreement"
 >}}
 
 In a centralized system, how can an entity trust the global state when it has no direct say in all of the mutations applied?
@@ -114,7 +114,7 @@ In a centralized system, how can an entity trust the global state when it has no
   figure
 	 src="trust.png"
    width="50%"
-	 figcaption="Issue of trust in Centralized Agreements"
+	 figcaption="Issue of Trust in Centralized Agreements"
 >}}
 
 Ultimately, each member of the network must be able to attest to the validity of all historic modifications so as to trust the current global state is, by inference, also valid.
