@@ -44,7 +44,7 @@ Corda does not allow duplicate names to join a single application network.
 However, the same name may exist in multiple different networks, especially if representing the same entity. 
 This is enforced at the platform level.
 
-## Point-to-Point Communication
+## Peer-to-Peer Communication
 
 Corda is different from other distributed ledger systems in that all communication between nodes is peer-to-peer, and only shared on a need-to-know basis. It is also encrypted using TLS (Transport Layer Security). 
 There are no global broadcasts to all nodes on a network, but all nodes in a network can send messages directly to each other. 
@@ -54,7 +54,7 @@ If the recipient is offline, the message waits in an outbound queue until they a
   figure
 	 src="point-to-point-communication.png"
    width=50%
-	 figcaption="Point-to-Point Communication"
+	 figcaption="Peer-to-Peer Communication"
 >}}
 
 Identities not regsitered as members of the application network cannot communicate with those that are, even if they obtain a copy of the CorDapp code:
