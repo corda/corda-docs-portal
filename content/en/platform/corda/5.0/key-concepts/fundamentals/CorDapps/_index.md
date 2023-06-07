@@ -147,3 +147,12 @@ For example, a simple IOU is issued from Alice to Bob, indicating that Alice owe
 ## Identity Integration
 
 This documentation references multiple parties several times in explaining the fundamental tenets of Corda and other decentralized platforms. This means Corda must internalize the concept that CorDapps are only ever operated as an aspect of an entity referred to as an identity.  
+
+{{< 
+  figure
+	 src="identity-integration.png"
+   width="50%"
+	 figcaption="Identity Integration"
+>}}
+
+An instance of a CorDapp must always have an associated identity in Corda. A flow is run on behalf of an identity and communicates with another identity selected from the pool of possible candidates which responds in kind.
