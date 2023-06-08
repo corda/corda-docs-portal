@@ -30,7 +30,7 @@ Validity consensus checks that, for the proposed transaction and for every trans
 * The transaction is accepted by the contracts of every input and output state.
 * The transaction has all the required signatures.
 
-This called *walking the chain*.
+This is called *walking the chain*.
 
 For example, if a participant proposes a transaction transferring a treasury bond, the bond transfer is only valid if:
 
