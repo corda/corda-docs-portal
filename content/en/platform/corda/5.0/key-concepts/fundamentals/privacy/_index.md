@@ -1,6 +1,6 @@
 ---
 title: "Privacy"
-date: 2023-04-21
+date: 2023-06-07
 version: 'Corda 5.0'
 menu:
   corda5:
