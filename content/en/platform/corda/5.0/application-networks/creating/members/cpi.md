@@ -187,7 +187,7 @@ Use this identifier to get the checksum of the CPI:
 {{% tab name="Bash"%}}
 ```
 export CPI_ID=<CPI-ID>
-curl -u $REST_API_USER:$REST_API_PASSWORD $API_URL/cpi/status/$CPI_ID
+curl -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/cpi/status/$CPI_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
