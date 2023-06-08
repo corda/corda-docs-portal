@@ -13,7 +13,7 @@ section_menu: corda5
 
 The following topic shows topology diagrams for both Corda in AWS and Corda in Azure.
 
-The size of the Kubernetes cluster required is dependent on the workload that the Corda cluster needs to handle. The Corda configuration section below gives some guidance on initial resource requests/limits to apply to the Corda workers which, when combined with the number of replicas for each worker type, can be used to estimate the total resources required in the Kubernetes cluster. The number of nodes in the cluster, and their distribution across availability zones, should take into account requirements for the availability of the solution.
+The size of the Kubernetes cluster required is dependent on the workload that the Corda cluster needs to handle. The [Deploying]({{< relref "../deployment/deploying/_index.md" >}}) topic gives some guidance on initial resource requests/limits to apply to the Corda workers which, when combined with the number of replicas for each worker type, can be used to estimate the total resources required in the Kubernetes cluster. The number of nodes in the cluster, and their distribution across availability zones, should take into account requirements for the availability of the solution.
 
 Performance testing of your CorDapps under expected loads is required to determine the values that you will require in a production deployment.
 
