@@ -70,7 +70,7 @@ default_tab = "java"
 ogimage = "/images/png/corda.png"
 
 algolia_appId = "UX2KMUWFAL"
-algolia_apiKey = "c71b0642a3e4b938a4c959443192d4bc"
+algolia_apiKey = "edd64b28f75a4dd8285fbf7656d764c9"
 algolia_index = "crawler_docs.r3.com_docsearch"
 
 # Google Tag Manager code setup
