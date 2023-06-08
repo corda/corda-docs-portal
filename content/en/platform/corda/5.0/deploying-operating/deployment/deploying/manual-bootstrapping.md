@@ -296,43 +296,43 @@ To create the schema manually, do the following:
 
 8. Execute the following Corda CLI command to configure virtual nodes, in this case, use `CONFIG`:
 
-    {{< tabs name="vNode-example">}}
+   {{< tabs name="vNode-example">}}
+   {{% tab name="Bash" %}}
+     ```sh
+    corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
+       --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin'
+     ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+     ```shell
+     corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
+       --name corda-virtual-nodes --jdbc-url `jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin`
+     ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+{{< note >}}
+There is no schema in `--jdbc-url` as vNodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
+{{< /note >}}
+
+10. Execute the following Corda CLI command to generate DDL for populating the initial admin user for Corda, in this case use RBAC:
+
+    {{< tabs name="DDL-user">}}
     {{% tab name="Bash" %}}
     ```sh
-    corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
-    --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin'
+    corda-cli.sh initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
     ```
     {{% /tab %}}
     {{% tab name="PowerShell" %}}
     ```shell
-    corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
-    --name corda-virtual-nodes --jdbc-url `jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin`
+    corda-cli.cmd initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
     ```
     {{% /tab %}}
     {{< /tabs >}}
 
-      {{< note >}}
-      There is no schema in `--jdbc-url` as vNodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
-      {{< /note >}}
+11. Review the DDL files generated and then execute against the database.
 
-9. Execute the following Corda CLI command to generate DDL for populating the initial admin user for Corda, in this case use RBAC:
-
-   {{< tabs name="DDL-user">}}
-   {{% tab name="Bash" %}}
-   ```sh
-   corda-cli.sh initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
-   ```
-   {{% /tab %}}
-   {{% tab name="PowerShell" %}}
-   ```shell
-   corda-cli.cmd initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
-   ```
-   {{% /tab %}}
-   {{< /tabs >}}
-
-10. Review the DDL files generated and then execute against the database.
-
-11. Create the RBAC and Crypto users and grant access as follows:
+12. Create the RBAC and Crypto users and grant access as follows:
 
     ```sql
     CREATE USER <RBAC-USERNAME> WITH ENCRYPTED PASSWORD '<RBAC-PASSWORD>';
@@ -343,7 +343,7 @@ To create the schema manually, do the following:
     GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CRYPTO to <CRYPTO-USERNAME>;
     ```
 
-12. Execute the following Corda CLI command to generate DDL for populating the initial crypto configuration, in this case use CONFIG:
+13. Execute the following Corda CLI command to generate DDL for populating the initial crypto configuration, in this case use CONFIG:
 
     {{< tabs name="DDL-crypto-config">}}
     {{% tab name="Bash" %}}
@@ -359,7 +359,7 @@ To create the schema manually, do the following:
     {{< /tabs >}}
     The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
 
-13. Review the DDL files generated and then execute against the database.
+14. Review the DDL files generated and then execute against the database.
 
 ## RBAC Roles
 
