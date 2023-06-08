@@ -134,7 +134,7 @@ Commands enable you to make adjustments to rules. Including a command in a trans
 
 ### Time Windows
 
-Each transaction requires a defined time window during which it can be approved and completed. The minimum requirement is an end date by which the transaction validation and notarisation must be complete. You may also want a proposed transaction to be approved during a certain period of time. For example:
+Each transaction requires a defined time window during which it can be approved and completed. The minimum requirement is an end date by which the transaction validation and notarization must be complete. You may also want a proposed transaction to be approved during a certain period of time. For example:
 
 * An option that can only be exercised after a certain date.
 * A bond that may only be redeemed before its expiry date.
