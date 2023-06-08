@@ -38,7 +38,7 @@ The non-validating notary protocol maintains a degree of privacy by only reveali
 | Signatures                        | Hidden                    |
 | Transaction metadata              | Fully visible             |
 
-The protocol also record the calling party’s identity in the form of its X.500 Distinguished Name.
+The protocol also records the calling party’s identity in the form of its X.500 Distinguished Name.
 
 [1] A state reference is composed of the issuing transaction’s ID and the state’s position in the outputs. It does not reveal what kind of state it is or its contents.
 
