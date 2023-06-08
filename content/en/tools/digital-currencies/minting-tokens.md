@@ -4,12 +4,12 @@ lastmod: '2023-03-21'
 section_menu: tools
 menu:
   tools:
-    name: "Creating Tokens"
+    name: "Minting Tokens"
     weight: 900
     parent: digital-currencies-tokens-overview
     identifier: digital-currencies-creating-token-types
     description: "Digital Currencies documentation describing how to create tokens via the GUI"
-title: "Creating Tokens"
+title: "Minting Tokens"
 ---
 
 Once a token definition has been created, new tokens of that type can be issued. Such tokens can then be used as for currency or utility purposes and allows the issuing party to maintain monetary policy and provide easily accessible digital currency tokens to specific entities.
@@ -49,8 +49,8 @@ Once a token definition has been created, new tokens of that type can be issued.
       figure
 	  src="images/running-flows-create-tokens.png"
       width=50%
-	  figcaption="Creating Tokens - Flow Running"
-	  alt="Creating Tokens - Flow Running"
+	  figcaption="Minting Tokens - Flow Running"
+	  alt="Minting Tokens - Flow Running"
    >}}  
    
    Once the token definition flow completes, the message *A new token definition has been successfully created* is displayed:

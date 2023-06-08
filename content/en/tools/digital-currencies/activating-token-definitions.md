@@ -19,7 +19,7 @@ title: "Activating Token Definitions"
 
    {{< 
       figure
-	  src="images/token-definitions-page.png"
+	  src="images/tokens-definitions-page-decommissioned.png"
       width=100%
 	  alt="Token Definitions Page"
 	  figcaption="Token Definitions Page"
@@ -71,8 +71,8 @@ title: "Activating Token Definitions"
    
    {{< 
       figure
-	  src="images/active-token-definitions.png"
-      width=60%
+	  src="images/token-definitions-page.png"
+      width=100%
 	  alt="'Active Tokens Definitions' Panel"
 	  figcaption="'Active Tokens Definitions' Panel"
    >}}

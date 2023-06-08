@@ -39,6 +39,18 @@ title: "Decommissioning Token Definitions"
 	  figcaption="Active Token Definitions - Decommission Button"
    >}}
    
+   The following dialog box is displayed:
+   
+   {{< 
+      figure
+	  src="images/decommission-token-confirm.png"
+      width=60%
+	  alt="Active Token Definitions - Confirm Decommission"
+	  figcaption="Active Token Definitions - Confirm Decommission"
+   >}}
+   
+3. Click **Confirm**.
+   
    The message *Token definition decommission submitted* is displayed:
 
    {{< 

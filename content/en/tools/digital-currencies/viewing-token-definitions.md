@@ -38,7 +38,7 @@ The page displays two panels:
     * **Issuer:** The name of the Token Issuing Entity that can mint and burn tokens of this type <!-- only one in initial release -->
     * **Custodian:** The name of the Custodian responsible for the exchange of off-ledger collateral when a non-issuing party requests tokens of this token definition state from the Token Issuer; this setting is optional and can be "None"
     * **ID:** The unique ID for the token definition; this setting is specified automatically when the token definition is defined
-    <!--* **Version:** An integer specifying the version of the token definition -->
+    * **Version:** An integer specifying the version of the token definition.
 * **Decommisioned Token Definitions:** This panel lists any decommissioned token definitions
    
 From this page, you can perform the following actions:

@@ -62,7 +62,7 @@ The following actions can be performed on token definitions:
 
 The following actions can be performed on token
 
-## Creating Tokens (CreateTokenFlow)
+## Minting Tokens (CreateTokenFlow)
 
 Input state: none
 

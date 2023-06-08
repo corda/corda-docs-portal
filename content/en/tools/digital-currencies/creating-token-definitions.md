@@ -13,7 +13,7 @@ title: "Creating Token Definitions"
 ---
 
 
-Before [tokens can be created]({{< relref "creating-tokens.md" >}}), a {{< tooltip >}}token definition{{< definitiondc term="token definition" >}}{{< /tooltip >}} must be created. 
+Before [tokens can be created]({{< relref "minting-tokens.md" >}}), a {{< tooltip >}}token definition{{< definitiondc term="token definition" >}}{{< /tooltip >}} must be created. 
 
 1. In the Digital Currencies GUI, select **Define Token**.
 
@@ -160,7 +160,7 @@ The token defining entity cannot publish the token definition to the TIE unless 
 Now that a token definition has been created, you can:
 
 * [View existing token definitions]({{< relref "viewing-token-definitions.md" >}})
-* [Create tokens based on that definition]({{< relref "creating-tokens.md" >}})
+* [Create tokens based on that definition]({{< relref "minting-tokens.md" >}})
    
    
  

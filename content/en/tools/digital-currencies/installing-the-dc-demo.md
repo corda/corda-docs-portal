@@ -113,7 +113,7 @@ You need a local copy of both the following repositories:
    {{<
      figure
 	 src="images/dc-open-in-intellij.png"
-   width=80%
+   width=40%
 	 figcaption="Digital Currencies Project in IntelliJ"
 	 alt="Digital Currencies Project in IntelliJ"
    >}}
