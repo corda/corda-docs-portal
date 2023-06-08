@@ -39,7 +39,7 @@ export MGM_HOLDING_ID = <resource-ID>
 
 ## Create a Virtual Node on Windows
 
-To create a virtual node for a member on Windows, run the following commands in PowerShell, changing the X.500 name. The command uses the checksum of the CPI from the repsonse saved when you [uploaded the member CPI]({{< relref"./cpi.md#upload-the-cpi" >}}):
+To create a virtual node for a member on Windows, run the following commands in PowerShell, changing the X.500 name. The command uses the checksum of the CPI from the response saved when you [uploaded the member CPI]({{< relref"./cpi.md#upload-the-cpi" >}}):
 
 ```shell
 $X500_NAME = "C=GB, L=London, O=Alice"
