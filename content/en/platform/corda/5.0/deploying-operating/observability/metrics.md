@@ -102,15 +102,47 @@ configuration, thus allowing a safe execution environment within a JVM process t
 
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
-| `corda_messaging_processor_time_seconds` | Timer |  | The time it took to execute a message pattern processor. |
+| `corda_messaging_processor_time_seconds` | Timer | <ul><li>`messagepattern.type`</li><li>`messagepattern.clientid`</li><li>`operation.name`</li></ul> | The time spent in the consumer’s `onNext` or `onSnapshot` functions. The following subscription processors have this metric wrapping the calls to `onNext` functions: <ul><li>`PubSubSubscriptionImpl`</li><li>`CordaRPCSenderImpl`</li><li>`CompactedSubscriptionImpl` (`onNext` and `onSnapshot`)</li><li>`EventLogSubscriptionImpl`</li><li>`PubSubSubscriptionImpl`</li><li>`RPCSubscriptionImpl`</li><li>`StateAndEventSubscriptionImpl`</li></ul> |
+| `corda_messaging_batch_size` |  | <ul><li>`messagepattern.type (StateAndEvent)`</li><li>`messagepattern.clientid`</li></ul> | The state and event subscription uses this metric to measure the size of batches polled from `kafka.(StateAndEventSubscriptionImpl)`. |
+| `corda_messaging_poll_time_seconds` | Timer | <ul><li>`messagepattern.type (StateAndEvent)`</li><li>`messagepattern.clientid`</li><li>`operation.name (statePoll)`</li></ul> | State and event consumer state poll time. |
+| `corda_messaging_poll_time_seconds` | Timer | <ul><li>`messagepattern.type (StateAndEvent)`</li><li>`messagepattern.clientid`</li><li>`operation.name (eventPoll)`</li></ul> | State and event consumer event poll time. |
+
 
 #### Flow
 
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
-| `corda_flow_run_time_seconds` | Timer |  | The time it took for a flow to complete successfully or to produce an error. |
-| `corda_flow_fiber_serialization_time_seconds` | Timer |  | Metric for flow fiber serialization. |
-| `corda_flow_fiber_deserialization_time_seconds` | Timer |  | Metric for flow fiber deserialization. |
+| `corda_flow_run_time_seconds` | Timer | <ul><li>`virtualnode`</li><li>`flow.class`</li><li>`status`</li></ul> | The time it took for a flow to complete successfully or to produce an error. |
+| `corda_flow_fiber_serialization_time_seconds` | Timer | <ul><li>`flow.class`</li></ul> | The time it took to serialize a flow fiber. |
+| `corda_flow_fiber_deserialization_time_seconds` | Timer | <ul><li>`flow.class`</li></ul> | The time it took to serialize a flow fiber. |
+| `corda_flow_start_lag` |  | <ul><li>`flow.class`</li></ul> | The lag between flow start event, the REST API, and the flow processor. |
+| `corda_flow_execution_time_seconds` | Timer | <ul><li>`flow.class`</li><li>`status`</li></ul> | The time it took to execute the flow (excluding any start lag). |
+| `corda_flow_event_lag` |  | <ul><li>`flow.class`</li><li>`flow.event`</li></ul> | The lag between flow event publication and processing. |
+| `corda_flow_event_pipeline_execution_time_seconds` | Timer | <ul><li>`flow.class`</li><li>`flow.event`</li></ul> | The time it took to execute the pipeline for given flows and flow event types. |
+| `corda_flow_event_fiber_execution_time_seconds` | Timer | <ul><li>`flow.class`</li></ul> | The time it took to execute the fiber for a single suspension point. |
+| `corda_flow_pipeline_execution_time_seconds` | Timer | <ul><li>`flow.class`</li></ul> | A total time that a flow spent processing in the pipeline, rather than queued (includes fiber execution time.) |
+| `corda_flow_fiber_execution_time_seconds` | Timer | <ul><li>`flow.class`</li></ul> | A total time a flow spent executing user code in the fiber. |
+| `corda_flow_suspension_wait_time_seconds` | Timer | <ul><li>`flow.class`</li></ul> | The time a flow spent waiting to awake from a suspension. |
+| `corda_flow_event_suspension_wait_time_seconds` | Timer | <ul><li>`flow.class`</li><li>`flow.suspension.action`</li></ul> | The time a flow spent waiting to awake from a single suspension, broken down by action. |
+| `corda_flow_scheduled_wakeup_count` |  | <ul><li>None</li></ul> | The number of times a scheduled wakeup is published for flows. |
+
+##### Flow Mapper
+
+| Metric | Type | Tags | Description |
+| :----------- | :----------- | :----------- | :----------- |
+| `corda_flow_mapper_event_processing_time_seconds` | Timer | <ul><li>`flow.event`</li></ul> | The time it took to process a single message in the flow mapper. |
+| `corda_flow_mapper_deduplication_count` |  | <ul><li>`flow.event`</li></ul> | The number of events dropped due to deduplication of start events by the mapper. |
+| `corda_flow_mapper_creation_count` |  | <ul><li>`flow.event`</li></ul> | The number of new states being created. |
+| `corda_flow_mapper_cleanup_count` |  | <ul><li>None</li></ul> | The number of states being cleaned up. |
+| `corda_flow_mapper_event_lag` |  | <ul><li>`flow.event`</li></ul> | The time between a mapper event being published and processed. |
+| `corda_flow_mapper_expired_session_event_count` |  | <ul><li>None</li></ul> | The number of expired session events dropped by the mapper. |
+
+##### Flow Session
+
+| Metric | Type | Tags | Description |
+| :----------- | :----------- | :----------- | :----------- |
+| `corda_flow_session_messages_incoming_count` |  | <ul><li>`virtualnode`</li><li>`flow.class`</li></ul> | The number of messages received by sessions. |
+| `corda_flow_session_messages_outgoing_count` |  | <ul><li>`virtualnode`</li><li>`flow.class`</li></ul> | The number of messages sent by sessions. |
 
 #### Peer-to-peer Messages and Sessions
 
