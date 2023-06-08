@@ -41,8 +41,6 @@ Corda Community Edition 4.10.2 is a patch release of Corda Community Edition foc
   To resolve this, the NodeDriver now has a new parameter, `notaryHandleTimeout`. This parameter specifies how long to wait (in minutes) for a notary handle to come back after the notary has been started
 
 * When a notary worker is shut down, message ID cleanup is now performed as the last shutdown activity, rather than the first; this prevents a situation where the notary worker might still appear to be part of the notary cluster and receiving client traffic while shutting down. 
-  
-* Previously, where nodes had invoked a very large number of flows, the cache of client IDs that had not been removed were taking up significant heap space. A solution has been implemented where the space taken up has been reduced by 170 bytes per entry. For example, 1 million unremoved client IDs now take up 170,000,000 bytes less heap space than before.
 
 * A new or restarted peer node coming online and connecting to a node for the first time can significantly slow message processing from other peers on the node it connects to.  Now new peers coming online get a dedicated thread on the node they connect to and do not delay message processing for existing peer-to-peer connections on the receiving node.
 
