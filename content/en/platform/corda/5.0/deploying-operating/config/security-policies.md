@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Security Policies
 
-Predefined security profiles are delivered with Corda. These can be used as provided or customized for specific needs. The strictest policy, `high_security.policy`, is applied by default. You can override this by specifying a different policy in the <a href = "./fields/security.md" >`corda.security` section</a> using the <a href="dynamic.md">`config` endpoint</a> of the REST API. 
+Predefined security profiles are delivered with Corda. These can be used as provided or customized for specific needs. The strictest policy, `high_security.policy`, is applied by default. You can override this by specifying a different policy in the <a href = "./fields/security.md" >`corda.security` section</a> using [dynamic configuration]({{< relref "./dynamic.md" >}}). 
 
 The following predefined security profiles are delivered:
 * `high_security.policy` — a high-security policy that prevents the most critical security risks and additionally prevents access to files, the network, and reflection. This is the default policy.
