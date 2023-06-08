@@ -184,12 +184,12 @@ To create the schema manually, do the following:
        enabled: false
    ```
 
-  {{< note >}}
+   {{< note >}}
 
-  * If you are applying SQL to a schema using the `psql` command you can specify which schema to apply it to using the `--dbname` parameter like so: `--dbname "dbname=cordacluster options=--search_path=<SCHEMA-NAME>"`
+   * If you are applying SQL to a schema using the `psql` command you can specify which schema to apply it to using the `--dbname` parameter like so: `--dbname "dbname=cordacluster options=--search_path=<SCHEMA-NAME>"`
 
-  * If you are targeting schemas, database and crypto generated SQL should be applied to the CONFIG schema, and create-user-config generated SQL should be applied to the RBAC schema. If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
-    {{< /note >}}
+   * If you are targeting schemas, database and crypto generated SQL should be applied to the CONFIG schema, and create-user-config generated SQL should be applied to the RBAC schema. If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
+   {{< /note >}}
 
 2. Use the Corda CLI to generate DML files for creating the database tables to use for each of the `crypto`, `config`, and `rbac` components.
 
@@ -212,153 +212,153 @@ To create the schema manually, do the following:
 
 4. Execute the following Corda CLI command to generate DDL for populating the RBAC database connection configuration, in this case use CONFIG:
 
-{{< tabs name="RBAC">}}
-{{% tab name="Bash" %}}
-```sh
-corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
-  --name corda-rbac --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC' \
-  --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
-```
-{{% /tab %}}
-{{% tab name="PowerShell" %}}
-```shell
-corda-cli.cmd initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> `
-  --name corda-rbac --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC `
-  --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
-```
-{{% /tab %}}
-{{< /tabs >}}
+   {{< tabs name="RBAC">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
+     --name corda-rbac --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC' \
+     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> `
+     --name corda-rbac --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC `
+     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
-The `<SALT>` and `<PASSPHRASE>` are used to encrypt the credentials in the database. These must match the values specified in the [Corda deployment configuration]({{< relref "#encryption" >}}).
+   The `<SALT>` and `<PASSPHRASE>` are used to encrypt the credentials in the database. These must match the values specified in the [Corda deployment configuration]({{< relref "#encryption" >}}).
 
-For example:
+   For example:
 
-{{< tabs name="RBAC-example">}}
-{{% tab name="Bash" %}}
-```sh
-corda-cli.sh initial-config create-db-config -u rbacuser -p rc9VLHU3 \
-  --name corda-rbac --jdbc-url 'jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC' \
-  --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
-```
-{{% /tab %}}
-{{% tab name="PowerShell" %}}
-```shell
-corda-cli.cmd initial-config create-db-config -u rbacuser -p rc9VLHU3 `
-  --name corda-rbac --jdbc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC `
-  --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
-```
-{{% /tab %}}
-{{< /tabs >}}
+   {{< tabs name="RBAC-example">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh initial-config create-db-config -u rbacuser -p rc9VLHU3 \
+     --name corda-rbac --jdbc-url 'jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC' \
+     --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd initial-config create-db-config -u rbacuser -p rc9VLHU3 `
+      --name corda-rbac --jdbc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC `
+      --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
 5. Review the DDL files generated and then execute against the database.
 
 6. Execute the following Corda CLI command to generate DDL for populating the Crypto database connection configuration,in this case use CONFIG:
 
-{{< tabs name="DDL-crypto">}}
-{{% tab name="Bash" %}}
-```sh
-corda-cli.sh initial-config create-db-config -u <CRYPTO-USERNAME> -p <CRYPTO-PASSWORD> \
-  --name corda-crypto --jdbc-url `jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO` \
-  --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
-```
-{{% /tab %}}
-{{% tab name="PowerShell" %}}
-```shell
-corda-cli.cmd initial-config create-db-config -u <CRYPTO-USERNAME> -p <CRYPTO-PASSWORD> `
-  --name corda-crypto --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO `
-  --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
-```
-{{% /tab %}}
-{{< /tabs >}}
+   {{< tabs name="DDL-crypto">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh initial-config create-db-config -u <CRYPTO-USERNAME> -p <CRYPTO-PASSWORD> \
+     --name corda-crypto --jdbc-url `jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO` \
+     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd initial-config create-db-config -u <CRYPTO-USERNAME> -p <CRYPTO-PASSWORD> `
+     --name corda-crypto --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO `
+     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
-The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the [Corda deployment configuration]({{< relref "#encryption" >}}).
+   The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the [Corda deployment configuration]({{< relref "#encryption" >}}).
 
-For example:
+   For example:
 
-{{< tabs name="DDL-crypto-example">}}
-{{% tab name="Bash" %}}
-```sh
-corda-cli.sh initial-config create-db-config -u cryptouser -p TqoCp4v2 \
-  --name corda-crypto --jdbc-url 'jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO' \
-  --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
-```
-{{% /tab %}}
-{{% tab name="PowerShell" %}}
-```shell
-corda-cli.cmd initial-config create-db-config -u cryptouser -p TqoCp4v2 `
-  --name corda-crypto --jdbc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO `
-  --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
-```
-{{% /tab %}}
-{{< /tabs >}}
+   {{< tabs name="DDL-crypto-example">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh initial-config create-db-config -u cryptouser -p TqoCp4v2 \
+     --name corda-crypto --jdbc-url 'jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO' \
+     --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd initial-config create-db-config -u cryptouser -p TqoCp4v2 `
+     --name corda-crypto --jdbc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO `
+     --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
 7. Review the DDL files generated and then execute against the database.
 
 8. Execute the following Corda CLI command to configure virtual nodes, in this case, use `CONFIG`:
 
-{{< tabs name="vNode-example">}}
-{{% tab name="Bash" %}}
-```sh
-corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
-  --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin'
-```
-{{% /tab %}}
-{{% tab name="PowerShell" %}}
-```shell
-corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
-  --name corda-virtual-nodes --jdbc-url `jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin`
-```
-{{% /tab %}}
-{{< /tabs >}}
+   {{< tabs name="vNode-example">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
+     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin'
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
+     --name corda-virtual-nodes --jdbc-url `jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin`
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
-{{< note >}}
-There is no schema in `--jdbc-url` as vNodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
-{{< /note >}}
+   {{< note >}}
+   There is no schema in `--jdbc-url` as vNodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
+   {{< /note >}}
 
 10. Execute the following Corda CLI command to generate DDL for populating the initial admin user for Corda, in this case use RBAC:
 
-{{< tabs name="DDL-user">}}
-{{% tab name="Bash" %}}
-```sh
-corda-cli.sh initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
-```
-{{% /tab %}}
-{{% tab name="PowerShell" %}}
-```shell
-corda-cli.cmd initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
-```
-{{% /tab %}}
-{{< /tabs >}}
+   {{< tabs name="DDL-user">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
 11. Review the DDL files generated and then execute against the database.
 
 12. Create the RBAC and Crypto users and grant access as follows:
 
-```sql
-CREATE USER <RBAC-USERNAME> WITH ENCRYPTED PASSWORD '<RBAC-PASSWORD>';
-GRANT USAGE ON SCHEMA RBAC to <RBAC-USERNAME>;
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA RBAC to <RBAC-USERNAME>;
-CREATE USER <CRYPTO-USERNAME> WITH ENCRYPTED PASSWORD '<CRYPTO-PASSWORD>';
-GRANT USAGE ON SCHEMA CRYPTO to <CRYPTO-USERNAME>;
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CRYPTO to <CRYPTO-USERNAME>;
-```
+   ```sql
+   CREATE USER <RBAC-USERNAME> WITH ENCRYPTED PASSWORD '<RBAC-PASSWORD>';
+   GRANT USAGE ON SCHEMA RBAC to <RBAC-USERNAME>;
+   GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA RBAC to <RBAC-USERNAME>;
+   CREATE USER <CRYPTO-USERNAME> WITH ENCRYPTED PASSWORD '<CRYPTO-PASSWORD>';
+   GRANT USAGE ON SCHEMA CRYPTO to <CRYPTO-USERNAME>;
+   GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CRYPTO to <CRYPTO-USERNAME>;
+   ```
 
 13. Execute the following Corda CLI command to generate DDL for populating the initial crypto configuration, in this case use CONFIG:
 
-{{< tabs name="DDL-crypto-config">}}
-{{% tab name="Bash" %}}
-```sh
-corda-cli.sh initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
-```
-{{% /tab %}}
-{{% tab name="PowerShell" %}}
-```shell
-corda-cli.cmd initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
-```
-{{% /tab %}}
-{{< /tabs >}}
+   {{< tabs name="DDL-crypto-config">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
-The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
+   The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
 
 14. Review the DDL files generated and then execute against the database.
 
