@@ -315,7 +315,7 @@ To create the schema manually, do the following:
    There is no schema in `--jdbc-url` as vNodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
    {{< /note >}}
 
-10. Execute the following Corda CLI command to generate DDL for populating the initial admin user for Corda, in this case use RBAC:
+9. Execute the following Corda CLI command to generate DDL for populating the initial admin user for Corda, in this case use RBAC:
 
    {{< tabs name="DDL-user">}}
    {{% tab name="Bash" %}}
@@ -330,9 +330,9 @@ To create the schema manually, do the following:
    {{% /tab %}}
    {{< /tabs >}}
 
-11. Review the DDL files generated and then execute against the database.
+10. Review the DDL files generated and then execute against the database.
 
-12. Create the RBAC and Crypto users and grant access as follows:
+11. Create the RBAC and Crypto users and grant access as follows:
 
    ```sql
    CREATE USER <RBAC-USERNAME> WITH ENCRYPTED PASSWORD '<RBAC-PASSWORD>';
@@ -343,7 +343,7 @@ To create the schema manually, do the following:
    GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CRYPTO to <CRYPTO-USERNAME>;
    ```
 
-13. Execute the following Corda CLI command to generate DDL for populating the initial crypto configuration, in this case use CONFIG:
+12. Execute the following Corda CLI command to generate DDL for populating the initial crypto configuration, in this case use CONFIG:
 
    {{< tabs name="DDL-crypto-config">}}
    {{% tab name="Bash" %}}
@@ -360,7 +360,7 @@ To create the schema manually, do the following:
 
    The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
 
-14. Review the DDL files generated and then execute against the database.
+13. Review the DDL files generated and then execute against the database.
 
 ## RBAC Roles
 
