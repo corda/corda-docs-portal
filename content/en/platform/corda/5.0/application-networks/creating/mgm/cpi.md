@@ -39,7 +39,6 @@ Set the values of variables for use in later commands:
    $REST_API_PORT = 8888
    $P2P_GATEWAY_HOST = "localhost"
    $P2P_GATEWAY_PORT = 8080
-   $AUTH_INFO = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("$REST_API_USER:$REST_API_PASSWORD" -f $username,$password)))
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -55,9 +54,25 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $REST_API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v1"
+   $REST_API_URL="https://${REST_API_HOST}:${REST_API_PORT}/api/v1"
    ```
-   }
+   {{% /tab %}}
+   {{< /tabs >}}
+
+2. Set the authentication information for the REST API:
+   {{< tabs >}}
+   {{% tab name="Bash"%}}
+   ```shell
+   export REST_API_USER="<username>"
+   export REST_API_PASSWORD="<password>"
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+    $REST_API_USER = "<username>"
+    $REST_API_PASSWORD = "<password>"
+    $AUTH_INFO = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("${REST_API_USER}:${REST_API_PASSWORD}" -f $username,$password)))
+   ```
    {{% /tab %}}
    {{< /tabs >}}
 
@@ -65,31 +80,15 @@ Set the values of variables for use in later commands:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export WORK_DIR=~/Desktop/register-mgm
+   export WORK_DIR=creating-mgm-cpi
    mkdir -p "$WORK_DIR"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $WORK_DIR = "$HOME/register-mgm"
-   md $WORK_DIR -Force
+   $WORK_DIR = "creating-mgm-cpi"
+   md $WORK_DIR
    ```
-   }
-   {{% /tab %}}
-   {{< /tabs >}}
-
-4. Set the path to your local clone of `corda-runtime-os`:
-   {{< tabs >}}
-   {{% tab name="Bash"%}}
-   ```shell
-   export RUNTIME_OS=~/dev/corda-runtime-os
-   ```
-   {{% /tab %}}
-   {{% tab name="PowerShell" %}}
-   ```shell
-   $RUNTIME_OS = "~/dev/corda-runtime-os"
-   ```
-   }
    {{% /tab %}}
    {{< /tabs >}}
 
@@ -142,10 +141,10 @@ Build a CPI using the Corda CLI, passing in your generated `GroupPolicy.json` fi
    {{% tab name="Bash" %}}
    ```shell 
    ./corda-cli.sh package create-cpi \
-    --group-policy <GROUP_POLICY_FILE_> \
-    --cpi-name "<CPI_Name>" \
+    --group-policy "$WORK_DIR/GroupPolicy.json" \
+    --cpi-name "MGM" \
     --cpi-version "1.0.0.0-SNAPSHOT" \
-    --file <CPI_FILE_NAME> \
+    --file "$WORK_DIR/MGM-1.0.0.0-SNAPSHOT.cpi"\
     --keystore <SIGNING_KEY> \
     --storepass "<SIGNING_KEY_PASSWORD>" \
     --key "<SIGNING_KEY_NAME>"
@@ -154,10 +153,10 @@ Build a CPI using the Corda CLI, passing in your generated `GroupPolicy.json` fi
    {{% tab name="PowerShell" %}}
    ```shell 
    corda-cli.cmd package create-cpi `
-    --group-policy <GROUP_POLICY_FILE_> `
-    --cpi-name "<CPI_Name>" `
+    --group-policy "$WORK_DIR/GroupPolicy.json" `
+    --cpi-name "MGM" `
     --cpi-version "1.0.0.0-SNAPSHOT" `
-    --file <CPI_FILE_NAME>`
+    --file "$WORK_DIR/MGM-1.0.0.0-SNAPSHOT.cpi" `
     --keystore <SIGNING_KEY> `
     --storepass "<SIGNING_KEY_PASSWORD>" `
     --key "<SIGNING_KEY_NAME>"
@@ -182,9 +181,22 @@ Corda validates that uploaded CPIs are signed with a trusted key. To trust your 
     keytool -exportcert -rfc -alias "<key-alias>" -keystore <signingkeys.pfx> -storepass "<keystore-password>" -file <signingkey1.pem>
     ```
 2. Import the signing key into Corda:
-    ```shell
-    curl -u $REST_API_USER:$REST_API_PASSWORD -X PUT -F alias="<unique-key-alias>" -F certificate=@<signingkey1.pem> $REST_API_URL/certificates/cluster/code-signer
-    ```
+
+   {{< tabs >}}
+   {{% tab name="Bash"%}}
+   ```shell
+   curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X PUT -F alias="<unique-key-alias>" -F certificate=@<signingkey1.pem> $REST_API_URL/certificates/cluster/code-signer
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$REST_API_URL/certificates/cluster/code-signer"  -Form @{
+   certificate=@<signingkey1.pem>
+   alias="<unique-key-alias>"
+   }
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
 {{< note >}}
 Use an alias that will remain unique over time, taking into account that certificate expiry will require new certificates with the same X.500 name as existing certificates.
@@ -196,13 +208,13 @@ To upload the CPI to your network, run the following:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```bash
-export CPI_PATH=<CPI-directory/CPI-filename.cpi>
-curl -u $REST_API_USER:$REST_API_PASSWORD -F upload=@$CPI_PATH $REST_API_URL/cpi/
+export CPI_PATH="$WORK_DIR/MGM-1.0.0.0-SNAPSHOT.cpi"
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -F upload=@$CPI_PATH $REST_API_URL/cpi/
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-$CPI_PATH = <CPI_DIRECTORY/CPI-FILENAME.cpi>
+$CPI_PATH = "$WORK_DIR/MGM-1.0.0.0-SNAPSHOT.cpi"
 $CPI_UPLOAD_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/cpi/" -Method Post -Form @{
     upload = Get-Item -Path $CPI_PATH
 }
@@ -216,7 +228,7 @@ Use this identifier to get the checksum of the CPI:
 {{% tab name="Bash"%}}
 ```
 export CPI_ID=<CPI-ID>
-curl -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/cpi/status/$CPI_ID
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/cpi/status/$CPI_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
