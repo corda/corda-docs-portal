@@ -25,7 +25,7 @@ This project already contains some example flows, contracts, and states.
 
 1. Clone or fork the [CSDE repository](https://github.com/corda/CSDE-cordapp-template-kotlin).
 
-2. Read the CSDE [installation instructions]({{< relref "../getting-started/cordapp-standard-development-environment/csde.md" >}})
+2. Read the CSDE [installation instructions]({{< relref "../getting-started/cordapp-standard-development-environment/_index.md" >}})
 and repeat the steps relevant to your CorDapp.
 
 3. Update the `workflows` module by performing the following steps:
