@@ -346,16 +346,16 @@ To create the schema manually, do the following:
 12. Execute the following Corda CLI command to generate DDL for populating the initial crypto configuration, in this case use CONFIG:
 
     {{< tabs name="DDL-crypto-config">}}
-    {{% tab name="Bash" %}}
-    ```sh
-    corda-cli.sh initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+    {{< tab name="Bash" codelang=sh >}}
     ```
-    {{% /tab %}}
-    {{% tab name="PowerShell" %}}
+corda-cli.sh initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+    ```
+    {{< /tab >}}
+    {{< tab name="Bash" codelang=shell >}}
     ```shell
-    corda-cli.cmd initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+corda-cli.cmd initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
     ```
-    {{% /tab %}}
+    {{< /tab >}}
     {{< /tabs >}}
 
     The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
