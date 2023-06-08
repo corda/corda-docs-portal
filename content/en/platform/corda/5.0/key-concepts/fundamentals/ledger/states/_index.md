@@ -29,7 +29,7 @@ In addition to information about the fact, the state contains a reference to the
 
 ## State Sequences
 
-States are immutable: you can not change them. Corda uses state sequences to track the evolution of facts. When a fact changes, one of the state’s participants creates a new state and marks the outdated state as consumed. To make a clear distinction, the latest, relevant state is called uncomsumed.
+States are immutable: you can not change them. Corda uses state sequences to track the evolution of facts. When a fact changes, one of the state’s participants creates a new state and marks the outdated state as consumed. To make a clear distinction, the latest, relevant state is called unconsumed.
 
 For example, if Alice pays Bob £5, the state sequence would be:
 
