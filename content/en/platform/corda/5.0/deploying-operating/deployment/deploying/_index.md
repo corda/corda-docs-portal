@@ -234,7 +234,7 @@ Regarding AWS topology, we recommend the following initial configuration:
 
 The following configuration options are available for the [REST API]({{< relref "../../../reference/rest-api/_index.md" >}}):
 * [Expose the REST API]({{< relref "#expose-the-rest-api" >}})
-* [Install the REST Worker Certificate]({{< relref "#installing-the-rest-worker-certificate" >}})
+* [Install the REST Worker Certificate]({{< relref "#install-the-rest-worker-certificate" >}})
 #### Expose the REST API
 
 By default, the REST API is exposed on an internal Kubernetes service.
