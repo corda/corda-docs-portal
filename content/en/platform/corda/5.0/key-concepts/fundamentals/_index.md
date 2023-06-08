@@ -10,3 +10,6 @@ menu:
 section_menu: corda5
 ---
 # Fundamentals
+
+This section describes the fundamental key concpets of Corda. It contains the following:
+{{< childpages >}}

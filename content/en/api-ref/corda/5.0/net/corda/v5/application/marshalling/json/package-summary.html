@@ -108,16 +108,20 @@ var pathtoroot = "../../../../../../";
     <div class="typeSummary">
 
 <table>
-<caption><span>Enum Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Interface Summary</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
-<th class="colFirst" scope="col">Enum</th>
+<th class="colFirst" scope="col">Interface</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tbody>
 
-    <tr class="altColor"><th class="colFirst" scope="row"><a href=JsonNodeReaderType.html>JsonNodeReaderType</a></th><td class="colLast">Possible types of nodes in Json.</td></tr>
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=JsonNodeReader.html>JsonNodeReader</a></th><td class="colLast">Every <a href=JsonNodeReader.html>JsonNodeReader</a> can be thought of as a node in the tree of Json objects being read.</td></tr>
 
-    <tr class="rowColor"><th class="colFirst" scope="row"><a href=JsonSerializedBase64Config.html>JsonSerializedBase64Config</a></th><td class="colLast">When objects are serialized to Json using custom serializers, and they require to be encoded into base64 encoded, this enum can be used to configure how that base64 is written into the Json.</td></tr>
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=JsonSerializer.html>JsonSerializer</a></th><td class="colLast">An interface to a custom serializer of objects of the specified type T into Json.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=JsonDeserializer.html>JsonDeserializer</a></th><td class="colLast">An interface to a custom deserializer of objects of the specified type T from Json.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=JsonWriter.html>JsonWriter</a></th><td class="colLast">An interface to a creator of Json.</td></tr>
 </tbody>
 </table>
 
@@ -134,20 +138,16 @@ var pathtoroot = "../../../../../../";
     <div class="typeSummary">
 
 <table>
-<caption><span>Interface Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Enum Summary</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
-<th class="colFirst" scope="col">Interface</th>
+<th class="colFirst" scope="col">Enum</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tbody>
 
-    <tr class="altColor"><th class="colFirst" scope="row"><a href=JsonWriter.html>JsonWriter</a></th><td class="colLast">An interface to a creator of Json.</td></tr>
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=JsonNodeReaderType.html>JsonNodeReaderType</a></th><td class="colLast">Possible types of nodes in Json.</td></tr>
 
-    <tr class="rowColor"><th class="colFirst" scope="row"><a href=JsonSerializer.html>JsonSerializer</a></th><td class="colLast">An interface to a custom serializer of objects of the specified type T into Json.</td></tr>
-
-    <tr class="altColor"><th class="colFirst" scope="row"><a href=JsonDeserializer.html>JsonDeserializer</a></th><td class="colLast">An interface to a custom deserializer of objects of the specified type T from Json.</td></tr>
-
-    <tr class="rowColor"><th class="colFirst" scope="row"><a href=JsonNodeReader.html>JsonNodeReader</a></th><td class="colLast">Every <a href=JsonNodeReader.html>JsonNodeReader</a> can be thought of as a node in the tree of Json objects being read.</td></tr>
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=JsonSerializedBase64Config.html>JsonSerializedBase64Config</a></th><td class="colLast">When objects are serialized to Json using custom serializers, and they require to be encoded into base64 encoded, this enum can be used to configure how that base64 is written into the Json.</td></tr>
 </tbody>
 </table>
 

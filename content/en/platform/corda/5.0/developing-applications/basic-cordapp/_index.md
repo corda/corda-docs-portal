@@ -20,7 +20,7 @@ Follow this learning path to build your first CorDapp with a step-by-step guide.
 Before you start building your first CorDapp:
 - Read about [Corda key concepts]({{< relref "../../key-concepts/_index.md" >}}).
 - Install the required [prerequisites]({{< relref "../tooling/_index.md" >}}).
-- Read the CorDapp Standard Development Environment (CSDE) [installation instructions]({{< relref "../getting-started/cordapp-standard-development-environment/csde.md" >}}).
+- Read the CorDapp Standard Development Environment (CSDE) [installation instructions]({{< relref "../getting-started/cordapp-standard-development-environment/_index.md" >}}).
 
 ## The Story
 

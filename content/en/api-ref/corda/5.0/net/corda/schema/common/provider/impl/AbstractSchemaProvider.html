@@ -251,7 +251,7 @@ public abstract class <span class="typeNameLabel"><a href=AbstractSchemaProvider
                                         <tr id="i1" class="rowColor">
                                             <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=../../../configuration/provider/impl/SchemaProviderConfigImpl.html#getSchema(java.lang.String,net.corda.v5.base.versioning.Version)>getSchema</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> key, @NotNull() <a href=../../../../v5/base/versioning/Version.html>Version</a> version) </code>
+                                            <th class="colSecond" scope="row"><code><a href=../../../cordapp/configuration/provider/impl/SchemaProviderCordappConfigImpl.html#getSchema(java.lang.String,net.corda.v5.base.versioning.Version)>getSchema</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> key, @NotNull() <a href=../../../../v5/base/versioning/Version.html>Version</a> version) </code>
                                             </th>
                                             <td class="colLast">Retrieve the schema file for a top-level configuration key.</td>
                                         </tr>
@@ -259,7 +259,7 @@ public abstract class <span class="typeNameLabel"><a href=AbstractSchemaProvider
                                         <tr id="i2" class="altColor">
                                             <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=../../../configuration/provider/impl/SchemaProviderConfigImpl.html#getSchemaFile(java.lang.String)>getSchemaFile</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> fileName) </code>
+                                            <th class="colSecond" scope="row"><code><a href=../../../cordapp/configuration/provider/impl/SchemaProviderCordappConfigImpl.html#getSchemaFile(java.lang.String)>getSchemaFile</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> fileName) </code>
                                             </th>
                                             <td class="colLast">Retrieve a schema file with the given path.</td>
                                         </tr>
@@ -331,7 +331,7 @@ public abstract class <span class="typeNameLabel"><a href=AbstractSchemaProvider
                                           >
                                     <li class="blockList">
                                         <h4>getSchema</h4>
-                                        <pre class="methodSignature">@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> <a href=../../../configuration/provider/impl/SchemaProviderConfigImpl.html#getSchema(java.lang.String,net.corda.v5.base.versioning.Version)>getSchema</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> key, @NotNull() <a href=../../../../v5/base/versioning/Version.html>Version</a> version)</pre>
+                                        <pre class="methodSignature">@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> <a href=../../../cordapp/configuration/provider/impl/SchemaProviderCordappConfigImpl.html#getSchema(java.lang.String,net.corda.v5.base.versioning.Version)>getSchema</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> key, @NotNull() <a href=../../../../v5/base/versioning/Version.html>Version</a> version)</pre>
                                         <div class="block"><p>Retrieve the schema file for a top-level configuration key. </p><p> Note that this does not resolve $ref fields in the schema file. However, these references should point to another file contained in this module, which can then be retrieved with <a href=../SchemaProvider.html#getSchemaFile(java.lang.String)>getSchemaFile</a>.</p></div>
                                         
                                         <dl>
@@ -357,7 +357,7 @@ public abstract class <span class="typeNameLabel"><a href=AbstractSchemaProvider
                                           >
                                     <li class="blockList">
                                         <h4>getSchemaFile</h4>
-                                        <pre class="methodSignature">@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> <a href=../../../configuration/provider/impl/SchemaProviderConfigImpl.html#getSchemaFile(java.lang.String)>getSchemaFile</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> fileName)</pre>
+                                        <pre class="methodSignature">@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> <a href=../../../cordapp/configuration/provider/impl/SchemaProviderCordappConfigImpl.html#getSchemaFile(java.lang.String)>getSchemaFile</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> fileName)</pre>
                                         <div class="block"><p>Retrieve a schema file with the given path. </p><p> This can be used to retrieve files required to resolve $ref fields in the schema.</p></div>
                                         
                                         <dl>
