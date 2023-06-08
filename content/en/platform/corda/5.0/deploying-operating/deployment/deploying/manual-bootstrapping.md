@@ -311,9 +311,9 @@ To create the schema manually, do the following:
     {{% /tab %}}
     {{< /tabs >}}
 
-      {{< note >}}
-      There is no schema in `--jdbc-url` as vNodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
-      {{< /note >}}
+    {{< note >}}
+    There is no schema in `--jdbc-url` as vNodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
+    {{< /note >}}
 
 9. Execute the following Corda CLI command to generate DDL for populating the initial admin user for Corda, in this case use RBAC:
 
