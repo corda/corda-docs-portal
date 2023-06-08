@@ -19,7 +19,7 @@ When onboarding a notary, you need to use the notary CPK to build a notary CPI.
 The sections must be completed in the following order:
 
 1. Download the notary server CPB, which is available from our [GitHub release page](https://github.com/corda/corda-runtime-os/releases/).
-2. [Build the notary member CPI]({{< relref "./members/cpi.md">}}) using the Notary CPB. For information about the notary CPB, see the [Notary section of Developing Applications]({{< relref "../../developing-applications/notaries/notary-plugin-cordapps.md#notary-server-cpb" >}}).
+2. [Build the notary member CPI]({{< relref "./members/cpi.md">}}) using the Notary CPB. For information about the notary CPB, see the [Notary section of Developing Applications]({{< relref "../../developing-applications/notaries/_index.md#notary-server-cpb" >}}).
 3. [Import Notary CPB Code Signing Certificate]({{< relref "#import-notary-cpb-code-signing-certificate">}}). This is in addition to importing certificates for application CPKs or CPBs.
 4. [Create a member virtual node]({{< relref "./members/virtual-node.md">}}), specifying the hash of the notary CPI.
 5. [Generate a notary key pair]({{< relref "#generate-a-notary-key-pair">}}).
