@@ -46,7 +46,7 @@ Each participant's vault stores the current and consumed states in which it is i
   figure
 	 src="vault-simple.png"
      width="50%"
-	 figcaption="Consumed and Unconcumed States in the Vault"
+	 figcaption="Consumed and Unconsumed States in the Vault"
 >}}
 
 ## Reference States
