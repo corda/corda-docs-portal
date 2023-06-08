@@ -31,7 +31,7 @@ To access and invoke the REST API:
    REST_API_URL=https://localhost:8888/api/v1
    REST_API_USER=admin
    REST_API_PASSWORD=$(kubectl get secret -n <NAMESPACE> corda-initial-admin-user -o go-template="{{ .data.password | base64decode }}")
-   curl -u $REST_API_USER:$REST_API_PASSWORD -k $REST_API_URL/hello
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -k $REST_API_URL/hello
    ```
 
    {{< note >}}

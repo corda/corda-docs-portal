@@ -19,7 +19,7 @@ To create a virtual node for a member, run the following commands, changing the 
 ```shell
 export CPI_CHECKSUM=<CPI-checksum>
 export X500_NAME="C=GB, L=London, O=Alice"
-curl -u $REST_API_USER:$REST_API_PASSWORD -d '{"request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "'$X500_NAME'"}}' $API_URL/virtualnode
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{"request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "'$X500_NAME'"}}' $API_URL/virtualnode
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
