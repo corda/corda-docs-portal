@@ -124,20 +124,20 @@ configuration, thus allowing a safe execution environment within a JVM process t
 | `corda_flow_fiber_execution_time_seconds` | Timer | <ul><li>`flow.class`</li></ul> | A total time a flow spent executing user code in the fiber. |
 | `corda_flow_suspension_wait_time_seconds` | Timer | <ul><li>`flow.class`</li></ul> | The time a flow spent waiting to awake from a suspension. |
 | `corda_flow_event_suspension_wait_time_seconds` | Timer | <ul><li>`flow.class`</li><li>`flow.suspension.action`</li></ul> | The time a flow spent waiting to awake from a single suspension, broken down by action. |
-| `corda_flow_scheduled_wakeup_count` |  | <ul><li>None</li></ul> | The number of times a scheduled wakeup is published for flows. |
+| `corda_flow_scheduled_wakeup_count` |  | None | The number of times a scheduled wakeup is published for flows. |
 
-##### Flow Mapper
+#### Flow Mapper
 
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
 | `corda_flow_mapper_event_processing_time_seconds` | Timer | <ul><li>`flow.event`</li></ul> | The time it took to process a single message in the flow mapper. |
 | `corda_flow_mapper_deduplication_count` |  | <ul><li>`flow.event`</li></ul> | The number of events dropped due to deduplication of start events by the mapper. |
 | `corda_flow_mapper_creation_count` |  | <ul><li>`flow.event`</li></ul> | The number of new states being created. |
-| `corda_flow_mapper_cleanup_count` |  | <ul><li>None</li></ul> | The number of states being cleaned up. |
+| `corda_flow_mapper_cleanup_count` |  | None | The number of states being cleaned up. |
 | `corda_flow_mapper_event_lag` |  | <ul><li>`flow.event`</li></ul> | The time between a mapper event being published and processed. |
-| `corda_flow_mapper_expired_session_event_count` |  | <ul><li>None</li></ul> | The number of expired session events dropped by the mapper. |
+| `corda_flow_mapper_expired_session_event_count` |  | None | The number of expired session events dropped by the mapper. |
 
-##### Flow Session
+#### Flow Session
 
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
