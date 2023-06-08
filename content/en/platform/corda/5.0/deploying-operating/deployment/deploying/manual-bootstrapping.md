@@ -294,7 +294,7 @@ To create the schema manually, do the following:
 
 7. Review the DDL files generated and then execute against the database.
 
-8. Execute the following Corda CLI command to configure vNodes, in this case use CONFIG:
+8. Execute the following Corda CLI command to configure virtual nodes, in this case, use `CONFIG`:
    {{< note >}}
    There is no schema in `--jdbc-url` as vNodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
    {{< /note >}}
