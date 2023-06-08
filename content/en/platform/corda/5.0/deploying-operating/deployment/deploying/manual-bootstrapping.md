@@ -193,20 +193,20 @@ To create the schema manually, do the following:
 
 2. Use the Corda CLI to generate DML files for creating the database tables to use for each of the `crypto`, `config`, and `rbac` components.
 
-    The following command specifies that the `CONFIG`, `RBAC`, and `CRYPTO` schema should be used for the corresponding components and generates the files in the directory `/tmp/db`:
+   The following command specifies that the `CONFIG`, `RBAC`, and `CRYPTO` schema should be used for the corresponding components and generates the files in the directory `/tmp/db`:
 
-{{< tabs name="DML">}}
-{{% tab name="Bash" %}}
-```sh
-corda-cli.sh database spec -g config:CONFIG,rbac:RBAC,crypto:CRYPTO -c -l /tmp/db
-```
-{{% /tab %}}
-{{% tab name="PowerShell" %}}
-```shell
-corda-cli.cmd database spec -g config:CONFIG,rbac:RBAC,crypto:CRYPTO -c -l /tmp/db
-```
-{{% /tab %}}
-{{< /tabs >}}
+   {{< tabs name="DML">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh database spec -g config:CONFIG,rbac:RBAC,crypto:CRYPTO -c -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd database spec -g config:CONFIG,rbac:RBAC,crypto:CRYPTO -c -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
 3. Review the DML files generated and then execute against the database.
 
