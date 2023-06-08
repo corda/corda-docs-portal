@@ -19,4 +19,4 @@ DLT has the following characteristics:
 * Participants are known as identities and represent a real-world entity within the context of an application network.
 * Each identity has a different view of the ledger, depending on the facts it shares.
 * Identities that share a fact must reach a consensus before it is committed to the ledger.
-* All Identities always see the exact same version of any on-ledger facts they share.
+* All identities always see the exact same version of any on-ledger facts they share.
