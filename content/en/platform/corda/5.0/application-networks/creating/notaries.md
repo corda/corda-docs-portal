@@ -82,7 +82,7 @@ The R3 notary server CPB is signed with a DigiCert KMS signing key. To use it, i
    keytool -importcert -keystore signingkeys.pfx -storepass <keystore-password> -noprompt -alias notary-ca-root -file notary-ca-root.pem
    ```
 
-Once you have created your notary CPI, follow the steps in the [Import Code Signing Certificates]({{< relref "members/cpi.md#import-code-signing-certificates">}}) section to trust your signing keys.
+   Once you have created your notary CPI, follow the steps in the [Import Code Signing Certificates]({{< relref "members/cpi.md#import-code-signing-certificates">}}) section to trust your signing keys.
 
 ## Generate a Notary Key Pair
 
@@ -137,14 +137,14 @@ export REGISTRATION_CONTEXT='{
 {{% tab name="PowerShell" %}}
 ```shell
 $REGISTRATION_CONTEXT = @{
-  'corda.session.keys.0.id' =  "$SESSION_KEY_ID"
-  'corda.session.keys.0.signature.spec' = "SHA256withECDSA"
-  'corda.ledger.keys.0.id' = "$LEDGER_KEY_ID"
-  'corda.ledger.keys.0.signature.spec' = "SHA256withECDSA"
+  'corda.session.keys.0.id' =  "$SESSION_KEY_ID",
+  'corda.session.keys.0.signature.spec' = "SHA256withECDSA",
+  'corda.ledger.keys.0.id' = "$LEDGER_KEY_ID",
+  'corda.ledger.keys.0.signature.spec' = "SHA256withECDSA",
   'corda.notary.keys.0.id' = "$NOTARY_KEY_ID",
-  'corda.notary.keys.0.signature.spec' = "SHA256withECDSA"
-  'corda.endpoints.0.connectionURL' = "https://$P2P_GATEWAY_HOST`:$P2P_GATEWAY_PORT"
-  'corda.endpoints.0.protocolVersion' = "1"
+  'corda.notary.keys.0.signature.spec' = "SHA256withECDSA",
+  'corda.endpoints.0.connectionURL' = "https://$P2P_GATEWAY_HOST:$P2P_GATEWAY_PORT",
+  'corda.endpoints.0.protocolVersion' = "1",
   'corda.roles.0' = "notary",
   'corda.notary.service.name' = <An X.500 name for the notary service>,
   'corda.notary.service.flow.protocol.name' = "com.r3.corda.notary.plugin.nonvalidating",
