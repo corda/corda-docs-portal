@@ -65,7 +65,7 @@ The following contract refactors the above to support the ability to derive cont
 The contract still provides the same three commands: `Create`, `Update`, and `Delete`. The `verify` function delegates these command types to `verifyCreate`, `verifyUpdate`, and `verifyDelete` functions respectively, which in turn call `onVerifyCreate`, `onVerifyUpdate`, and `onVerifyDelete` respectively.
 
 {{< note >}}
-The verify function has been marked final. This change is necessary as it prevents derived contract implementations from circumventing the base contract rules.
+The 'verify' function has been marked final. This change is necessary as it prevents derived contract implementations from circumventing the base contract rules.
 {{< /note >}}
 
 ```kotlin
