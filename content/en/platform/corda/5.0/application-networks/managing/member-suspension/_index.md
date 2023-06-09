@@ -24,7 +24,7 @@ The commands shown in this section, use the following variables:
 * `REST_API_PASSWORD` — your password for invoking the REST API.
 * `AUTH_INFO` — the authentication information if using PowerShell. You can set this as follows:
    ```
-   $AUTH_INFO = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("admin:admin" -f $username,$password)))
+   $AUTH_INFO = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("${REST_API_USER}:${REST_API_PASSWORD}" -f $username,$password)))
    ```
 
 ## Search for Members
@@ -34,7 +34,7 @@ You can use the [Member Lookup REST endpoint](../../reference/rest-api/C5_OpenAP
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -u $REST_API_USER:$REST_API_PASSWORD "$REST_API_URL/members/$MGM_HOLDING_ID?statuses=SUSPENDED"
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD "$REST_API_URL/members/$MGM_HOLDING_ID?statuses=SUSPENDED"
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -54,7 +54,7 @@ You can use the <a href="../../reference/rest-api/C5_OpenAPI.html#tag/MGM-API/op
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -u $REST_API_USER:$REST_API_PASSWORD -X 'POST' "$REST_API_URL/mgm/$MGM_HOLDING_ID/suspend" -H 'Content-Type: application/json' \
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X 'POST' "$REST_API_URL/mgm/$MGM_HOLDING_ID/suspend" -H 'Content-Type: application/json' \
  -d '{"x500Name": '\"$MEMBER_X500_NAME\"', "serialNumber": "<serial-number>"}'
 ```
 {{% /tab %}}
@@ -76,7 +76,7 @@ You can use the <a href="../../reference/rest-api/C5_OpenAPI.html#tag/MGM-API/op
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -u $REST_API_USER:$REST_API_PASSWORD -X 'POST' "$REST_API_URL/mgm/$MGM_HOLDING_ID/activate" -H 'Content-Type: application/json' \
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X 'POST' "$REST_API_URL/mgm/$MGM_HOLDING_ID/activate" -H 'Content-Type: application/json' \
  -d '{"x500Name": '\"$MEMBER_X500_NAME\"', "serialNumber": "<serial-number>"}'
 ```
 {{% /tab %}}
