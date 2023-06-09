@@ -13,7 +13,7 @@ section_menu: corda5
 
 # Advanced Contract Design
 
-All the contract design issues that have been highlighted above are implemented by the Corda 5 Advanced UTXO Extensions library, and are included in all the specific implementations; for example, chainable, fungible and identifiable contracts.
+All the contract design issues described in [Building Basic Contract Design]({{< relref "building-basic-contract-design.md" >}}) are implemented by the Corda 5 Advanced UTXO Extensions library, and are included in all the specific implementations; for example, chainable, fungible and identifiable contracts.
 
 ## Base API
 
