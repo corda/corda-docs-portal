@@ -27,7 +27,7 @@ Package: com.r3.corda.ledger.utxo.base
 
 The Base API provides the underlying component model for designing extensible contracts with delegated contract verification constraint logic, as well as other components which allow CorDapp developers to better express intent throughout their applications.
 
-## Chainable API
+### Chainable API
 
 Module: chainable
 
@@ -35,7 +35,7 @@ Package: com.r3.corda.ledger.utxo.chainable
 
 The Chainable API provides the component model for designing chainable states and contracts. Chainable states represent strictly linear state chains, where every state in the chain points to the previous state in the chain. This could be thought of as a similar concept to a blockchain, where each new block points to the previous block.
 
-### Designing Chainable States
+#### Designing Chainable States
 
 A chainable state can be implemented by implementing the `ChainableState<T>` interface; for example:
 
@@ -61,7 +61,7 @@ public final class ExampleChainableState extends ChainableState<ExampleChainable
 }
 ```
 
-### Designing Chainable Commands
+#### Designing Chainable Commands
 
 Chainable commands allow users to create, update, and delete chainable states.
 The `ChainableContractCreateCommand` creates new chainable states and verifies the following constraints:
@@ -122,7 +122,7 @@ public final class Delete extends ChainableContractDeleteCommand<ExampleChainabl
 }
 ```
 
-### Designing Chainable Contracts
+#### Designing Chainable Contracts
 
 A chainable contract can be implemented by extending the `ChainableContract` class; for example:
 
@@ -135,7 +135,7 @@ public final class ExampleChainableContract extends ChainableContract {
 }
 ```
 
-## Fungible API
+### Fungible API
 
 Module: fungible
 
@@ -143,7 +143,7 @@ Package: com.r3.corda.ledger.utxo.fungible
 
 The fungible API provides the component model for designing fungible states and contracts. Fungible states represent states that have a scalar numeric quantity, and can be split, merged and mutually exchanged with other fungible states of the same class. Fungible states represent the building blocks for states like tokens.
 
-### Designing Fungible States
+#### Designing Fungible States
 
 A fungible state can be implemented by implementing the `FungibleState<T>` interface; for example:
 
@@ -173,7 +173,7 @@ public final class ExampleFungibleState extends FungibleState<NumericDecimal> {
 }
 ```
 
-### Designing Fungible Commands
+#### Designing Fungible Commands
 
 Fungible commands allow users to create, update and delete fungible states.
 The `FungibleContractCreateCommand` creates new fungible states and verifies the following constraints:
@@ -237,7 +237,7 @@ public final class Delete extends FungibleContractDeleteCommand<ExampleFungibleS
 }
 ```
 
-### Designing Fungible Contracts
+#### Designing Fungible Contracts
 
 A fungible contract can be implemented by extending the `FungibleContract` class, for example:
 
@@ -251,7 +251,7 @@ public final class ExampleFungibleContract extends FungibleContract {
 ```
 
 
-## Identifiable API
+### Identifiable API
 
 Module: identifiable
 
@@ -259,7 +259,7 @@ Package: com.r3.corda.ledger.utxo.identifiable
 
 The Identifiable API provides the component model for designing identifiable states and contracts. Identifiable states represent states that have a unique identifier that is guaranteed unique at the network level. Identifiable states are designed to evolve over time, where unique identifiers can be used to resolve the history of the identifiable state.
 
-### Designing Identifiable States
+#### Designing Identifiable States
 
 An identifiable state can be implemented by implementing the `IdentifiableState` interface, for example:
 
@@ -284,7 +284,7 @@ public final class ExampleIdentifiableState extends IdentifiableState {
 }
 ```
 
-### Designing Identifiable Commands
+#### Designing Identifiable Commands
 
 Identifiable commands support creating, updating and deleting identifiable states.
 The `IdentifiableContractCreateCommand` supports creating new identifiable states and verifies the identifiable state(s) creation, at least one identifiable state must be created.
@@ -339,7 +339,7 @@ public final class Delete extends IdentifiableContractDeleteCommand<ExampleIdent
 }
 ```
 
-### Designing Identifiable Contracts
+#### Designing Identifiable Contracts
 
 An identifiable contract can be implemented by extending the `IdentifiableContract` class, for example:
 
@@ -352,7 +352,7 @@ public final class ExampleIdentifiableContract extends IdentifiableContract {
 }
 ```
 
-## Ownable API
+### Ownable API
 
 Module: ownable
 
@@ -360,7 +360,7 @@ Package: com.r3.corda.ledger.utxo.ownable
 
 The Ownable API provides the component to design ownable states and contracts; that is, states that have a defined owner and need the owner's signature to be consumed.
 
-### Designing Ownable States
+#### Designing Ownable States
 
 An ownable state can be designed by implementing the `OwnableState` interface:
 
@@ -376,7 +376,7 @@ class ExampleOwnableState(private val owner: PublicKey) : OwnableState {
     }
 }
 ```
-### Designing Ownable Contracts
+#### Designing Ownable Contracts
 
 The contract for an ownable state must check in the `verify` method that the owner of consumed ownable
 states have signed the transaction. To simplify writing such a contract, the library provides
@@ -405,7 +405,7 @@ class ExampleOwnableContract : DelegatedContract<ExampleOwnableContract.ExampleO
 }
 ```
 
-## Issuable API
+### Issuable API
 
 Module: issuable
 
@@ -415,7 +415,7 @@ The Issuable API allows you to design states that have an issuer as part of the 
 any issuance of the state has been signed by the issuer, thus restricting who can issue states
 of this particular type.
 
-### Designing Issuable States
+#### Designing Issuable States
 
 An issuable state can be designed by implementing the `IssuableState` interface:
 
@@ -433,7 +433,7 @@ class ExampleIssuableState(private val issuer: PublicKey) : IssuableState {
 }
 ```
 
-### Designing Issuable Contracts
+#### Designing Issuable Contracts
 
 The contract for issuable states needs to verify that the issuance rules are adhered to; that is, that
 the issuer signs for issuance and deletion of any issuable states. This can be achieved by invoking
