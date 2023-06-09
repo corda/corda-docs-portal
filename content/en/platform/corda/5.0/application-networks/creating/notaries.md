@@ -32,7 +32,9 @@ The PowerShell commands listed are for use with PowerShell 7.0 and will not exec
 
 ## Import Notary CPB Code Signing Certificate
 
-The R3 notary server CPB is signed with a DigiCert KMS signing key. To use it, save the following text into a file named `notary-ca-root.pem` and follow the steps outlined in the [Import Code Signing Certificates]({{< relref "members/cpi.md#import-code-signing-certificates" >}}) section.
+The R3 notary server CPB is signed with a DigiCert KMS signing key. To use it, import the certificate as follows:
+
+1. Save the following text into a file named `notary-ca-root.pem`:
 
    ```shell
    -----BEGIN CERTIFICATE-----
@@ -73,7 +75,21 @@ The R3 notary server CPB is signed with a DigiCert KMS signing key. To use it, s
    B0ug0wcCampAMEhLNKhRILutG4UI4lkNbcoFUCvqShyepf2gpx8GdOfy1lKQ/a+F
    SCH5Vzu0nAPthkX0tGFuv2jiJmCG6sivqf6UHedjGzqGVnhO
    -----END CERTIFICATE-----
+   ```
 
+2. Import the `notary-ca-root.pem` file into the keystore:
+   ```
+   keytool -importcert -keystore signingkeys.pfx -storepass <keystore-password> -noprompt -alias notary-ca-root -file notary-ca-root.pem
+   ```
+
+3. Export the signing key certificate from the keystore:
+   ```
+   keytool -exportcert -rfc -alias notary-ca-root -keystore signingkeys.pfx -storepass <keystore-password> -file notary-ca-root.pem
+   ```
+   
+4. Import the signing key into Corda:
+   ```
+   curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X PUT -F alias=notary-ca-root -F certificate=@notary-ca-root.pem $REST_API_URL/certificates/cluster/code-signer
    ```
 ## Generate a Notary Key Pair
 
