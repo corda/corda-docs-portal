@@ -40,7 +40,7 @@ A Corda state typically has a corresponding contract class to document the rules
 To declare the contract class, add the public class `AppleStampContract` that implements the `Contract` class. Your code should look as follows:
 
 ```kotlin
-package net.cordapp.utxo.apples.contracts
+package com.r3.developers.apples.contracts
 
 class AppleStampContract : Contract
 ```
