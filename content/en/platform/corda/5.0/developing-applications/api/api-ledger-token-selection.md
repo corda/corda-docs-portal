@@ -43,6 +43,7 @@ Tokens are grouped into pools using the following fields as the key:
 * Type
 * Symbol
 * Issuer
+
 The API allows a flow to claim tokens from a single pool of tokens for a given query. It is not possible to select tokens from multiple pools in a single query.
 
 ### Token Observers
