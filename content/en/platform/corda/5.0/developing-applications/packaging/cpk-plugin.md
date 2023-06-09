@@ -332,7 +332,7 @@ tasks.named('jar', Jar) {
 ### ServiceLoader
 
 Bundles that use `java.util.ServiceLoader` require special handling to support their `META-INF/services/` files.
-Bnd provides [`@ServiceProvider` and `@ServiceConsumer` annotations](https://bnd.bndtools.org/chapters/240-spi-annotations.html)
+Bnd provides <a href="https://bnd.bndtools.org/chapters/240-spi-annotations.html">`@ServiceProvider` and `@ServiceConsumer` annotations</a>
 to ensure that the bundle respects OSGi's [Service Loader Mediator Specification](https://docs.osgi.org/specification/osgi.cmpn/7.0.0/service.loader.html).
 
 
