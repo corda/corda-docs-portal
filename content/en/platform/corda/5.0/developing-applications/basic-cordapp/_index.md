@@ -42,12 +42,12 @@ An important feature of this CorDapp is that the voucher cannot be used more tha
 
 ## Corda Implementation
 
-1. Farmer Bob issues a voucher to Dave via a ledger transaction. In your CorDapp this voucher is called `AppleStamp` and is a [state]({{< relref "../components/ledger/states.md" >}}) on the [ledger]({{< relref "../components/ledger/_index.md" >}}). One transaction has been performed so far.
+1. Farmer Bob issues a voucher to Dave via a ledger transaction. In your CorDapp this voucher is called `AppleStamp` and is a [state]({{< relref "../../key-concepts/fundamentals/ledger/states/_index.md" >}}) on the [ledger]({{< relref "../../key-concepts/fundamentals/ledger/_index.md" >}}). One transaction has been performed so far.
 2. When Farmer Bob prepares the apples Dave requested, he self-issues a bushel of apples via a self-issue transaction. This is another state on the ledger - `BasketofApples`. Two transactions have been performed so far.
 3. Next, Dave goes to the orchard to pick up his apples and redeems his voucher, triggering a transaction on the ledger that consumes the `AppleStamp` state. Three transactions have been performed so far.
 4. The `BasketofApples` state is transferred to Dave when the `AppleStamp` state is consumed and Farmer Bob gives Dave his apples.
 
-All of these transactions are initiated by [flows]({{< relref "../components/ledger/flows.md" >}}).
+All of these transactions are initiated by [flows]({{< relref "../../key-concepts/fundamentals/ledger/flows/_index.md" >}}).
 
 ## Next Steps
 
