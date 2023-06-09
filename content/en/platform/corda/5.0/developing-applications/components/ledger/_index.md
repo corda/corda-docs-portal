@@ -9,6 +9,5 @@ menu:
     parent: corda5-develop-components
     weight: 2000
 section_menu: corda5
-draft: "true"
 ---
 # Ledger

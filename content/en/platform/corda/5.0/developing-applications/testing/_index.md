@@ -9,5 +9,4 @@ menu:
     parent: corda5-develop
     weight: 7000
 section_menu: corda5
-draft: "true"
 ---

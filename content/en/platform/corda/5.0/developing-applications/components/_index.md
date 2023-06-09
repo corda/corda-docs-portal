@@ -9,6 +9,5 @@ menu:
     parent: corda5-develop
     weight: 3000
 section_menu: corda5
-draft: "true"
 ---
 # CorDapp Components

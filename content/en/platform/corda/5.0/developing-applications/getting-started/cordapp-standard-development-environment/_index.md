@@ -32,10 +32,10 @@ The images in this section show the `CSDE-cordapp-template-kotlin` repository in
    {{% /tab %}}
    {{< /tabs >}}
 
-2. Change to the new folder and checkout the Beta 4 branch:
+2. Change to the new folder and checkout the Beta 3 branch:
 
    ```sh
-   git checkout release/corda-5-beta-4
+   git checkout release/corda-5-beta-3
    ```
 
 3. Initialise the git repo and change the remote so you do not inadvertently push your work back to our R3 repo:

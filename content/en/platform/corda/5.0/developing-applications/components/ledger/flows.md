@@ -4,9 +4,9 @@ version: 'Corda 5.0'
 title: "Flows"
 menu:
   corda5:
-    parent: corda5-develop-components
-    identifier: corda5-develop-flows
-    weight: 1000
+    identifier: corda5-develop-ledger-flows
+    parent: corda5-develop-ledger
+    weight: 4000
 section_menu: corda5
 ---
 # Flows

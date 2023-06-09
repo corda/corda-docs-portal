@@ -81,6 +81,6 @@ You can specify `pass` as a secret, as follows:
 
 You can use the Corda CLI <a href = "../../reference/corda-cli/secret-config.md">`secret-config` command</a> to generate the configuration for a value stored in Vault.
 
-You can update a configuration value maintained in Vault in one of the following ways:
+You can update a configuration value mantained in Vault in one of the following ways:
 * Change the value in Vault. Corda caches configuration values for a short period of time. For this reason, you must handle changes so that old values remain valid for a short period of time to avoid downtime. For example, when changing database credentials, create the new credential before revoking the old one to guarantee a smooth transition.
 * Add a new value in Vault, on a different path, and update the Corda configuration through the REST API. The relevant worker processes will pick up this new value asynchronously.
