@@ -21,30 +21,30 @@ Corda, such as Kotlin or Quasar. The JAR should also contain sufficient OSGi met
 
 1. Depending on the number of modules of your Gradle project, choose one of the following options:
 
-* If your Gradle project contains multiple modules, perform the following actions:
+   * If your Gradle project contains multiple modules, perform the following actions:
 
-  a. Include the following code at the top of the `build.gradle` file of your CorDapp Gradle project:
-```
-plugins {
-id 'net.corda.plugins.cordapp-cpk2'
-}
-```
-  b. To configure the `cordapp-cpk2` plugin for your version of Corda, apply the `net.corda.cordapp.cordapp-configuration`
+     a. Include the following code at the top of the `build.gradle` file of your CorDapp Gradle project:
+     ```
+     plugins {
+     id 'net.corda.plugins.cordapp-cpk2'
+     }
+     ```
+     b. To configure the `cordapp-cpk2` plugin for your version of Corda, apply the `net.corda.cordapp.cordapp-configuration`
 plugin to your root Gradle project:
-```
-plugins {
-    id 'net.corda.cordapp.cordapp-configuration'
-}
-```
+     ```
+     plugins {
+     id 'net.corda.cordapp.cordapp-configuration'
+     }
+     ```
 
-* If your Gradle project contains a single module, apply both plugins together:
+   * If your Gradle project contains a single module, apply both plugins together:
 
-```
-plugins {
-    id 'net.corda.cordapp.cordapp-configuration'
-    id 'net.corda.plugins.cordapp-cpk2'
-}
-```
+    ```
+    plugins {
+      id 'net.corda.cordapp.cordapp-configuration'
+      id 'net.corda.plugins.cordapp-cpk2'
+    }
+    ```
 
 2. Declare the versions of both plugins in `settings.gradle`:
 ```
