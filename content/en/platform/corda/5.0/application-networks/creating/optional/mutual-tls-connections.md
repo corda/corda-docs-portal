@@ -50,12 +50,12 @@ If using Bash, perform the following steps to enable mutual TLS by configuring t
 3. Using that version number, send the following request:
 
    ```shell
-   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.p2p.gateway", "version":"'$CONFIG_VERSION'", "config":"{ \"sslConfig\": { \"tlsType\": \"MUTUAL\"  }  }", "schemaVersion": {"major": 1, "minor": 0}}' $API_URL"/config"
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.p2p.gateway", "version":"'$CONFIG_VERSION'", "config":"{ \"sslConfig\": { \"tlsType\": \"MUTUAL\"  }  }", "schemaVersion": {"major": 1, "minor": 0}}' $REST_API_URL"/config"
    ```
    This command overwrites the revocation check setting. If you chose to disable revocation checks, use the following command instead:
 
    ```shell
-   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.p2p.gateway", "version":"'$CONFIG_VERSION'", "config":"{ \"sslConfig\": { \"tlsType\": \"MUTUAL\" , \"revocationCheck\": {\"mode\" : \"OFF\"} } }", "schemaVersion": {"major": 1, "minor": 0}}' $API_URL"/config"
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.p2p.gateway", "version":"'$CONFIG_VERSION'", "config":"{ \"sslConfig\": { \"tlsType\": \"MUTUAL\" , \"revocationCheck\": {\"mode\" : \"OFF\"} } }", "schemaVersion": {"major": 1, "minor": 0}}' $REST_API_URL"/config"
    ```
 
 ### Enable Mutual TLS Using PowerShell
@@ -63,8 +63,8 @@ If using Bash, perform the following steps to enable mutual TLS by configuring t
 If using PowerShell, perform the following steps to enable mutual TLS by configuring the gateway SSL:
 
    ```shell
-   $CONFIG_VERSION = (Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/config/corda.p2p.gateway").version
-   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$API_URL/config" -Body (ConvertTo-Json -Depth 4 @{
+   $CONFIG_VERSION = (Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/config/corda.p2p.gateway").version
+   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$REST_API_URL/config" -Body (ConvertTo-Json -Depth 4 @{
     section = "corda.p2p.gateway"
     version = $CONFIG_VERSION
     config = @{
@@ -82,8 +82,8 @@ If using PowerShell, perform the following steps to enable mutual TLS by configu
 
 This command overwrites the revocation check setting. If you chose to disable revocation checks, use the following command instead:
 ```shell
-$CONFIG_VERSION = (Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/config/corda.p2p.gateway").version
-Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$API_URL/config" -Body (ConvertTo-Json -Depth 4 @{
+$CONFIG_VERSION = (Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/config/corda.p2p.gateway").version
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$REST_API_URL/config" -Body (ConvertTo-Json -Depth 4 @{
     section = "corda.p2p.gateway"
     version = $CONFIG_VERSION
     config = @{
@@ -106,7 +106,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 To register an MGM in a mutual TLS cluster, you must explicitly set the TLS type in the registration context. That is, the `corda.group.tls.type` field must be `Mutual`. If the field is not set, it defaults to one-way TLS. For example:
 ```shell
 export REGISTRATION_CONTEXT='{
-  "corda.session.key.id": "'$SESSION_KEY_ID'",
+  "corda.session.keys.0.id": "'$SESSION_KEY_ID'",
   "corda.ecdh.key.id": "'$ECDH_KEY_ID'",
   "corda.group.protocol.registration": "net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService",
   "corda.group.protocol.synchronisation": "net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl",
@@ -118,7 +118,7 @@ export REGISTRATION_CONTEXT='{
   "corda.group.tls.version": "1.3",
   "corda.endpoints.0.connectionURL": "https://'$P2P_GATEWAY_HOST':'$P2P_GATEWAY_PORT'",
   "corda.endpoints.0.protocolVersion": "1",
-  "corda.group.truststore.tls.0" : "'$TLS_CA_CERT'"
+  "corda.group.trustroot.tls.0" : "'$TLS_CA_CERT'"
 }'
 ```
 

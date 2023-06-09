@@ -11,6 +11,6 @@ menu:
 section_menu: corda5
 ---
 # Observability
-Corda exposes a number of mechanisms for a Cluster Operator to determine the health of the system and to facilitate the diagnosis of problems.
+Corda exposes a number of mechanisms for a Cluster Administrator to determine the health of the system and to facilitate the diagnosis of problems.
 This section describes how you can monitor Corda's health using the following:
 {{<childpages>}}

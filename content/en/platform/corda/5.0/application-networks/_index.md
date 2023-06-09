@@ -11,5 +11,5 @@ section_menu: corda5
 ---
 # Managing Application Networks
 
-This section describes the tasks performed by Corda network operators. It contains the following:
+This section describes the tasks performed by Corda Network Operators. It contains the following:
 {{< childpages >}}
