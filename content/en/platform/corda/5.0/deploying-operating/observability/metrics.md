@@ -89,7 +89,7 @@ table th:nth-of-type(4) {
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
 | `corda_http_server_request_total` | Counter | <ul><li>`address`</li></ul> | The number of HTTP requests. The `address` tag is the address that the metric is applicable to. |
-| `corda_http_server_request_time_seconds` | Timer | `address` | HTTP requests processing time; the `address` tag is the address to which the metric is applicable. |
+| `corda_http_server_request_time_seconds` | Timer | <ul><li>`address`</li></ul> | HTTP requests processing time; the `address` tag is the address to which the metric is applicable. |
 
 #### Sandbox
 
