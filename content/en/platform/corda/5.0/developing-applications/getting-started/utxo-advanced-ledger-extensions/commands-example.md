@@ -11,6 +11,8 @@ menu:
 section_menu: corda5
 ---
 
+
+
 # Building Basic Contract Design
 
 The following contract defines three commands; Create, Update and Delete. The `verify` function delegates these command types to `verifyCreate`, `verifyUpdate` and `verifyDelete` functions respectively, for example:
@@ -49,6 +51,7 @@ public final class ExampleContract implements Contract {
         // Verify Delete constraints
     }
 }
+```
 
 Designing a contract as shown in the above example will suffice in many cases. Assuming that the constraints have been implemented correctly then, the contract functionality and design is perfectly acceptable.
 
@@ -109,6 +112,7 @@ public class ExampleContract implements Contract {
         onVerifyDelete(transaction);
     }
 }
+```
 
 Refactoring a contract as shown in the above example allows CorDapp implementors to derive from the contract, allowing additional constraints which will be verified in additional to the constraints specified by the base contract.
 
@@ -130,6 +134,7 @@ public final void verify(UtxoLedgerTransaction transaction) {
         else throw new IllegalStateException("Unrecognised command type.");
     }
 }
+```
 
 The `verify` function is marked final for security reasons, and therefore additional commands cannot be added to the contract. For example, the contract may wish to describe multiple ways to `Update` a state, or set of states. The contract only defines a single `Update` command: there can only be one mechanism to perform updates.
 
@@ -149,12 +154,14 @@ public interface VerifiableCommand extends Command {
 ```
 
 Now that we have a command which itself can implement contract verification constraints, we can use this as the basis for the `ExampleContractCommand` class. This needs to be a class rather than an interface, because we need to be in complete control of its implementations for security.
+
 We achieve this by making the default constructor package private, so that only commands within the same package can extend it; for example:
 
 ```kotlin
 public class ExampleContractCommand implements VerifiableCommand {
     ExampleContractCommand() { }
 }
+```
 
 Next, we can implement this interface as `Create`, `Update` and `Delete` commands; for example:
 
@@ -191,6 +198,7 @@ public class Delete extends ExampleContractCommand {
     
     protected void onVerify(UtxoLedgerTransaction transaction) { }
 }
+```
 
 {{< note >}}
 The `Create`, `Update` and `Delete` commands are not marked final. Therefore, we can extend the contract verification constraints from these points, but we cannot extend from `ExampleContractCommand`.
@@ -212,6 +220,7 @@ public final class ExampleContract implements Contract {
         }
     }
 }
+```
 
 This design addresses the outstanding issues in regard to being able to extend a contract with multiple commands, and being able to assign names to commands that make sense in the context that they're used. For example:
 
@@ -222,7 +231,7 @@ This design addresses the outstanding issues in regard to being able to extend a
     class Exchange extends Update { ... }
     class Redeem extends Update { ... }
     class Burn extends Delete { ... }
-
+```
 {{< note >}}
  The contract now supports five different command types, each of which implements different constraints and derives from `Create`, `Update`, or `Delete`.
 {{< /note >}}

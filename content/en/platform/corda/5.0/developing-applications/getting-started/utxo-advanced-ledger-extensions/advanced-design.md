@@ -1,11 +1,11 @@
 ---
 date: '2023-06-01'
-title: "Advanced Contract Design"
+title: "Ledger Extensions API Reference"
 project: corda
 version: 'Corda 5.0'
 menu:
   corda5:
-    identifier: corda5-utxo-ledger-extensions-advanced-design
+    identifier: corda5-utxo-ledger-extensions-api-reference
     parent: corda5-utxo-advanced-ledger-extensions
     weight: 4600
 section_menu: corda5
@@ -31,7 +31,7 @@ Package: com.r3.corda.ledger.utxo.chainable
 
 The chainable API provides the component model for designing chainable states and contracts. Chainable states represent strictly linear state chains, where every state in the chain points to the previous state in the chain. This could be thought of as a similar concept to a blockchain, where each new block points to the previous block.
 
-## Designing a Chainable State
+### Designing Chainable States
 
 A chainable state can be implemented by implementing the `ChainableState<T>` interface; for example:
 
@@ -57,7 +57,7 @@ public final class ExampleChainableState extends ChainableState<ExampleChainable
 }
 ```
 
-## Designing Chainable Commands
+### Designing Chainable Commands
 
 Chainable commands allows users to create, update, and delete chainable states.
 The `ChainableContractCreateCommand` creates new chainable states and will verify the following constraints:
@@ -77,6 +77,7 @@ public final class Create extends ChainableContractCreateCommand<ExampleChainabl
     // Verify additional Create constraints
   }
 }
+```
 
 The `ChainableContractUpdateCommand` supports updating existing chainable states and will verify the following constraints:
 
@@ -97,6 +98,7 @@ public final class Update extends ChainableContractUpdateCommand<ExampleChainabl
     // Verify additional Update constraints
   }
 }
+```
 
 The `ChainableContractDeleteCommand` supports deleting existing chainable states and will verify the following constraint:
 
@@ -114,8 +116,9 @@ public final class Delete extends ChainableContractDeleteCommand<ExampleChainabl
     // Verify additional Delete constraints
   }
 }
+```
 
-## Designing a Chainable Contract
+### Designing Chainable Contracts
 
 A chainable contract can be implemented by extending the `ChainableContract` class; for example:
 
@@ -126,6 +129,7 @@ public final class ExampleChainableContract extends ChainableContract {
     return List.of(Create.class, Update.class, Delete.class);  
   }
 }
+```
 
 ## Fungible API
 
@@ -135,7 +139,7 @@ Package: com.r3.corda.ledger.utxo.fungible
 
 The fungible API provides the component model for designing fungible states and contracts. Fungible states represent states that have a scalar numeric quantity, and can be split, merged and mutually exchanged with other fungible states of the same class. Fungible states represent the building blocks for states like tokens.
 
-## Designing a Fungible State
+### Designing Fungible States
 
 A fungible state can be implemented by implementing the `FungibleState<T>` interface; for example:
 
@@ -163,8 +167,9 @@ public final class ExampleFungibleState extends FungibleState<NumericDecimal> {
     return this == other || other instanceof ExampleFungibleState // && other fungibility rules.
   }
 }
+```
 
-## Designing Fungible Commands
+### Designing Fungible Commands
 
 Fungible commands allows users to create, update and delete fungible states.
 The `FungibleContractCreateCommand` creates new fungible states and will verify the following constraints:
@@ -184,6 +189,7 @@ public final class Create extends FungibleContractCreateCommand<ExampleFungibleS
     // Verify additional Create constraints
   }
 }
+```
 
 The `FungibleContractUpdateCommand` supports updating existing fungible states and will verify the following constraints:
 
@@ -205,6 +211,7 @@ public final class Update extends FungibleContractUpdateCommand<ExampleFungibleS
     // Verify additional Update constraints
   }
 }
+```
 
 The `FungibleContractDeleteCommand` supports deleting existing fungible states and will verify the following constraints:
 
@@ -224,8 +231,9 @@ public final class Delete extends FungibleContractDeleteCommand<ExampleFungibleS
     // Verify additional Delete constraints
   }
 }
+```
 
-## Designing a Fungible Contract
+### Designing Fungible Contracts
 
 A fungible contract can be implemented by extending the `FungibleContract` class, for example:
 
@@ -236,6 +244,8 @@ public final class ExampleFungibleContract extends FungibleContract {
     return List.of(Create.class, Update.class, Delete.class);
   }
 }
+```
+
 
 ## Identifiable API
 
@@ -245,7 +255,7 @@ Package: com.r3.corda.ledger.utxo.identifiable
 
 The identifiable API provides the component model for designing identifiable states and contracts. Identifiable states represent states that have a unique identifier that is guaranteed unique at the network level. Identifiable states are designed to evolve over time, where unique identifiers can be used to resolve the history of the identifiable state.
 
-## Designing an Identifiable State
+### Designing Identifiable States
 
 An identifiable state can be implemented by implementing the `IdentifiableState` interface, for example:
 
@@ -268,8 +278,9 @@ public final class ExampleIdentifiableState extends IdentifiableState {
     return List.of(...);
   }
 }
+```
 
-## Designing Identifiable Commands
+### Designing Identifiable Commands
 
 Identifiable commands support creating, updating and deleting identifiable states.
 The `IdentifiableContractCreateCommand` supports creating new identifiable states and verifies the identifiable state(s) creation, at least one identifiable state must be created.
@@ -286,6 +297,7 @@ public final class Create extends IdentifiableContractCreateCommand<ExampleIdent
     // Verify additional Create constraints
   }
 }
+```
 
 The `IdentifiableContractUpdateCommand` updates existing identifiable states and will verify the following constraints:
 
@@ -305,6 +317,7 @@ public final class Update extends IdentifiableContractUpdateCommand<ExampleIdent
     // Verify additional Update constraints
   }
 }
+```
 
 The `IdentifiableContractDeleteCommand` deletes existing identifiable states and verifies the identifiable state(s) deletion, at least one identifiable state must be consumed.
 
@@ -320,8 +333,9 @@ public final class Delete extends IdentifiableContractDeleteCommand<ExampleIdent
     // Verify additional Delete constraints
   }
 }
+```
 
-## Designing an Identifiable Contract
+### Designing Identifiable Contracts
 
 An identifiable contract can be implemented by extending the `IdentifiableContract` class, for example:
 
@@ -332,3 +346,4 @@ public final class ExampleIdentifiableContract extends IdentifiableContract {
     return List.of(Create.class, Update.class, Delete.class);
   }
 }
+```
