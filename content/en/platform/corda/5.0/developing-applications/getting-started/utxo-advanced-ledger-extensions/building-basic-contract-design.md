@@ -15,7 +15,7 @@ section_menu: corda5
 
 # Building Basic Contract Design
 
-The following contract defines three commands; Create, Update and Delete. The `verify` function delegates these command types to `verifyCreate`, `verifyUpdate` and `verifyDelete` functions respectively, for example:
+The following contract defines three commands; `Create`, `Update` and `Delete`. The `verify` function delegates these command types to `verifyCreate`, `verifyUpdate`, and `verifyDelete` functions respectively, for example:
 
 ```kotlin
 public final class ExampleContract implements Contract {
@@ -53,7 +53,7 @@ public final class ExampleContract implements Contract {
 }
 ```
 
-Designing a contract as shown in the above example will suffice in many cases. Assuming that the constraints have been implemented correctly then, the contract functionality and design is perfectly acceptable.
+Designing a contract as shown in the above example will suffice in many cases. Assuming that the constraints have been implemented correctly, the contract functionality and design is perfectly acceptable.
 
 {{< note >}}
 There are cases where this design approach no longer fits the design goals of the system being implemented. Specifically, in regard to contract extensibility, it is currently not possible to extend a contract to support additional constraints.
@@ -62,7 +62,7 @@ There are cases where this design approach no longer fits the design goals of th
 ## Derivable Contract Design
 
 The following contract refactors the above to support the ability to derive contracts, and provide additional constraints in a secure and controlled way.
-The contract still provides the same three commands; `Create`, `Update` and `Delete`. The verify function delegates these command types to `verifyCreate`, `verifyUpdate` and `verifyDelete` functions respectively, which in turn call `onVerifyCreate`, `onVerifyUpdate` and `onVerifyDelete` respectively.
+The contract still provides the same three commands: `Create`, `Update`, and `Delete`. The `verify` function delegates these command types to `verifyCreate`, `verifyUpdate`, and `verifyDelete` functions respectively, which in turn call `onVerifyCreate`, `onVerifyUpdate`, and `onVerifyDelete` respectively.
 
 {{< note >}}
 The verify function has been marked final. This change is necessary as it prevents derived contract implementations from circumventing the base contract rules.
@@ -114,7 +114,7 @@ public class ExampleContract implements Contract {
 }
 ```
 
-Refactoring a contract as shown in the above example allows CorDapp implementors to derive from the contract, allowing additional constraints which will be verified in additional to the constraints specified by the base contract.
+Refactoring a contract as shown in the above example allows CorDapp implementors to derive from the contract, allowing additional constraints which will be verified in addition to the constraints specified by the base contract.
 
 {{< note >}}
 There are still some outstanding issues with this design, where this design approach no longer fits the design goals of the system being implemented.
@@ -144,8 +144,8 @@ The second problem lies in the commands themselves and their names. `Create`, `U
 
 In the contracts above, the commands are nothing more than marker classes; effectively they are cases in a switch statement, which allows the contract's `verify` function to delegate responsibility of specific contract constraints to other functions, such as `verifyCreate`, `verifyUpdate` and `verifyDelete`.
 
-We can implement the `verify` function on the command itself. Instead of being an empty marker class, this gives the command responsibility, as it becomes responsible for implementing its associated contract verification constraints.
-In this case, we define a `VerifiableCommand` interface with a `verify` function; for example:
+You can implement the `verify` function on the command itself. Instead of being an empty marker class, this gives the command responsibility, as it becomes responsible for implementing its associated contract verification constraints.
+In this case, define a `VerifiableCommand` interface with a `verify` function; for example:
 
 ```kotlin
 public interface VerifiableCommand extends Command {
@@ -153,9 +153,9 @@ public interface VerifiableCommand extends Command {
 }
 ```
 
-Now that we have a command which itself can implement contract verification constraints, we can use this as the basis for the `ExampleContractCommand` class. This needs to be a class rather than an interface, because we need to be in complete control of its implementations for security.
+Now that you have a command which itself can implement contract verification constraints, you can use this as the basis for the `ExampleContractCommand` class. This needs to be a class rather than an interface, because you need to be in complete control of its implementations for security.
 
-We achieve this by making the default constructor package private, so that only commands within the same package can extend it; for example:
+You can achieve this by making the default constructor package private, so that only commands within the same package can extend it; for example:
 
 ```kotlin
 public class ExampleContractCommand implements VerifiableCommand {
@@ -163,7 +163,7 @@ public class ExampleContractCommand implements VerifiableCommand {
 }
 ```
 
-Next, we can implement this interface as `Create`, `Update` and `Delete` commands; for example:
+Next, implement this interface as `Create`, `Update` and `Delete` commands; for example:
 
 ```kotlin
 public class Create extends ExampleContractCommand {
@@ -201,12 +201,12 @@ public class Delete extends ExampleContractCommand {
 ```
 
 {{< note >}}
-The `Create`, `Update` and `Delete` commands are not marked final. Therefore, we can extend the contract verification constraints from these points, but we cannot extend from `ExampleContractCommand`.
+The `Create`, `Update` and `Delete` commands are not marked final. Therefore, you can extend the contract verification constraints from these points, but you cannot extend them from `ExampleContractCommand`.
 {{< /note >}}
 
 ## Delegated Contract Design
 
-As we have now delegated contract verification constraint logic to the commands themselves, we must also refactor the contract to support this delegation. The contract implementation in this case becomes simpler, since it is no longer responsible for defining contract verification constraints. For example:
+As you have now delegated contract verification constraint logic to the commands themselves, you must also refactor the contract to support this delegation. The contract implementation in this case becomes simpler, since it is no longer responsible for defining contract verification constraints. For example:
 
 ```kotlin
 public final class ExampleContract implements Contract {

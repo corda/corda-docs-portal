@@ -25,7 +25,7 @@ Module: base
 
 Package: com.r3.corda.ledger.utxo.base
 
-The base API provides the underlying component model for designing extensible contracts with delegated contract verification constraint logic, as well as other components which allow CorDapp developers to better express intent throughout their applications.
+The Base API provides the underlying component model for designing extensible contracts with delegated contract verification constraint logic, as well as other components which allow CorDapp developers to better express intent throughout their applications.
 
 ## Chainable API
 
@@ -33,7 +33,7 @@ Module: chainable
 
 Package: com.r3.corda.ledger.utxo.chainable
 
-The chainable API provides the component model for designing chainable states and contracts. Chainable states represent strictly linear state chains, where every state in the chain points to the previous state in the chain. This could be thought of as a similar concept to a blockchain, where each new block points to the previous block.
+The Chainable API provides the component model for designing chainable states and contracts. Chainable states represent strictly linear state chains, where every state in the chain points to the previous state in the chain. This could be thought of as a similar concept to a blockchain, where each new block points to the previous block.
 
 ### Designing Chainable States
 
@@ -63,8 +63,8 @@ public final class ExampleChainableState extends ChainableState<ExampleChainable
 
 ### Designing Chainable Commands
 
-Chainable commands allows users to create, update, and delete chainable states.
-The `ChainableContractCreateCommand` creates new chainable states and will verify the following constraints:
+Chainable commands allow users to create, update, and delete chainable states.
+The `ChainableContractCreateCommand` creates new chainable states and verifies the following constraints:
 
 * On chainable state(s) creating, at least one chainable state must be created.
 * On chainable state(s) creating, the previous state pointer of every created chainable state must be null.
@@ -83,7 +83,7 @@ public final class Create extends ChainableContractCreateCommand<ExampleChainabl
 }
 ```
 
-The `ChainableContractUpdateCommand` supports updating existing chainable states and will verify the following constraints:
+The `ChainableContractUpdateCommand` supports updating existing chainable states and verifies the following constraints:
 
 * On chainable state(s) updating, at least one chainable state must be consumed.
 * On chainable state(s) updating, at least one chainable state must be created.
@@ -104,7 +104,7 @@ public final class Update extends ChainableContractUpdateCommand<ExampleChainabl
 }
 ```
 
-The `ChainableContractDeleteCommand` supports deleting existing chainable states and will verify the following constraint:
+The `ChainableContractDeleteCommand` supports deleting existing chainable states and verifies the following constraint:
 
 * On chainable state(s) deleting, at least one chainable state must be consumed.
 
@@ -175,8 +175,8 @@ public final class ExampleFungibleState extends FungibleState<NumericDecimal> {
 
 ### Designing Fungible Commands
 
-Fungible commands allows users to create, update and delete fungible states.
-The `FungibleContractCreateCommand` creates new fungible states and will verify the following constraints:
+Fungible commands allow users to create, update and delete fungible states.
+The `FungibleContractCreateCommand` creates new fungible states and verifies the following constraints:
 
 * On fungible state(s) creating, at least one fungible state must be created.
 * On fungible state(s) creating, the quantity of every created fungible state must be greater than zero.
@@ -195,7 +195,7 @@ public final class Create extends FungibleContractCreateCommand<ExampleFungibleS
 }
 ```
 
-The `FungibleContractUpdateCommand` supports updating existing fungible states and will verify the following constraints:
+The `FungibleContractUpdateCommand` supports updating existing fungible states and verifies the following constraints:
 
 * On fungible state(s) updating, at least one fungible state must be consumed.
 * On fungible state(s) updating, at least one fungible state must be created.
@@ -217,7 +217,7 @@ public final class Update extends FungibleContractUpdateCommand<ExampleFungibleS
 }
 ```
 
-The `FungibleContractDeleteCommand` supports deleting existing fungible states and will verify the following constraints:
+The `FungibleContractDeleteCommand` supports deleting existing fungible states and verifies the following constraints:
 
 * On fungible state(s) deleting, at least one fungible state input must be consumed.
 * On fungible state(s) deleting, the sum of the unscaled values of the consumed states must be greater than the sum of the unscaled values of the created states.
@@ -257,7 +257,7 @@ Module: identifiable
 
 Package: com.r3.corda.ledger.utxo.identifiable
 
-The identifiable API provides the component model for designing identifiable states and contracts. Identifiable states represent states that have a unique identifier that is guaranteed unique at the network level. Identifiable states are designed to evolve over time, where unique identifiers can be used to resolve the history of the identifiable state.
+The Identifiable API provides the component model for designing identifiable states and contracts. Identifiable states represent states that have a unique identifier that is guaranteed unique at the network level. Identifiable states are designed to evolve over time, where unique identifiers can be used to resolve the history of the identifiable state.
 
 ### Designing Identifiable States
 
@@ -303,11 +303,11 @@ public final class Create extends IdentifiableContractCreateCommand<ExampleIdent
 }
 ```
 
-The `IdentifiableContractUpdateCommand` updates existing identifiable states and will verify the following constraints:
+The `IdentifiableContractUpdateCommand` updates existing identifiable states and verifies the following constraints:
 
 * On identifiable state(s) updating, at least one identifiable state must be consumed.
 * On identifiable state(s) updating, at least one identifiable state must be created.
-* On identifiable state(s) updating, each created identifiable state's identifier must match one consumed identifiable state's state ref or identifier, exclusively.
+* On identifiable state(s) updating, each created identifiable state's identifier must match one consumed identifiable state's state reference or identifier, exclusively.
 
 ```kotlin
 public final class Update extends IdentifiableContractUpdateCommand<ExampleIdentifiableState> {
