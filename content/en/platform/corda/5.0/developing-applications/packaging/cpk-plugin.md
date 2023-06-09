@@ -170,7 +170,7 @@ Cordapp dependencies are listed as lines in this JAR's `META-INF/CPKDependencies
 The `cordapp` dependencies are transitive, meaning that if CorDapp B declares a `cordapp` dependency on CorDapp A,
 and then CorDapp C declares a cordapp dependency on CorDapp B, CorDapp C will acquire compile-time dependencies on the
 JARs of both CorDapps A and B. Additionally, the `cordaProvided` dependencies of both A and B will be added to
-CorDapp C's `cordaProvided` configuration. This mechanism, is accomplished by
+CorDapp C's `cordaProvided` configuration. This mechanism is accomplished by
 publishing each CPK with a "companion" POM that contains the additional dependency information. The `cordapp-cpk2`
 plugin resolves these "companion" POMs transparently to the user, ensuring that CorDapps have the expected transitive relationships.
 
