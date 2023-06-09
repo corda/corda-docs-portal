@@ -82,15 +82,8 @@ The R3 notary server CPB is signed with a DigiCert KMS signing key. To use it, i
    keytool -importcert -keystore signingkeys.pfx -storepass <keystore-password> -noprompt -alias notary-ca-root -file notary-ca-root.pem
    ```
 
-3. Export the signing key certificate from the keystore:
-   ```
-   keytool -exportcert -rfc -alias notary-ca-root -keystore signingkeys.pfx -storepass <keystore-password> -file notary-ca-root.pem
-   ```
-   
-4. Import the signing key into Corda:
-   ```
-   curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X PUT -F alias=notary-ca-root -F certificate=@notary-ca-root.pem $REST_API_URL/certificates/cluster/code-signer
-   ```
+Once you have created your notary CPI, follow the steps in the [Import Code Signing Certificates]({{< relref "members/cpi.md#import-code-signing-certificates">}}) section to trust your signing keys.
+
 ## Generate a Notary Key Pair
 
 Generate notary keys in a similar way as done for other key types. First, create a HSM, then generate the key and store the ID:
@@ -144,9 +137,9 @@ export REGISTRATION_CONTEXT='{
 {{% tab name="PowerShell" %}}
 ```shell
 $REGISTRATION_CONTEXT = @{
-  'corda.session.keys.0.id' =  $SESSION_KEY_ID
+  'corda.session.keys.0.id' =  "$SESSION_KEY_ID"
   'corda.session.keys.0.signature.spec' = "SHA256withECDSA"
-  'corda.ledger.keys.0.id' = $LEDGER_KEY_ID
+  'corda.ledger.keys.0.id' = "$LEDGER_KEY_ID"
   'corda.ledger.keys.0.signature.spec' = "SHA256withECDSA"
   'corda.notary.keys.0.id' = "$NOTARY_KEY_ID",
   'corda.notary.keys.0.signature.spec' = "SHA256withECDSA"
