@@ -180,7 +180,7 @@ associated JAR artifact. For a JAR with Maven coordinates:
  ${group}:${artifact}:${version}
 ```
 
-The "companion's" Maven coordinates will be:
+...then the "companion's" Maven coordinates will be:
 ```
  ${group}.${artifact}:${artifact}.corda.cpk:${version}
 ```
