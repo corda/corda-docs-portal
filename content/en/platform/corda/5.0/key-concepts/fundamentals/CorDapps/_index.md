@@ -108,13 +108,13 @@ In a decentralized system, there is no single point of access to the global stat
 	 figcaption="Centralized Versus Decentralized Agreement"
 >}}
 
-In a centralized system, how can an entity trust the global state when it has no direct say in all of the mutations applied?
+In a decentralized system, how can an entity trust the global state when it has no direct say in all of the mutations applied?
 
 {{< 
   figure
 	 src="trust.png"
    width="50%"
-	 figcaption="Issue of Trust in Centralized Agreements"
+	 figcaption="Issue of Trust in Decentralized Agreements"
 >}}
 
 Ultimately, each member of the network must be able to attest to the validity of all historic modifications so as to trust the current global state is, by inference, also valid.
