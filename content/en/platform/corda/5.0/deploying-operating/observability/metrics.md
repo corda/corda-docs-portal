@@ -94,7 +94,7 @@ table th:nth-of-type(4) {
 #### Sandbox
 
 Corda 5 sandbox is used to support Corda's stability and security when operating in a highly-available and multi-tenant
-configuration, thus allowing a safe execution environment within a JVM process that provides isolation for CorDapps.
+configuration, allowing a safe execution environment within a JVM process that provides isolation for CorDapps.
 
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
