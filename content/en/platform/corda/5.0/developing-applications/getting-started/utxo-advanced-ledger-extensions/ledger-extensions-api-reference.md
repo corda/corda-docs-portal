@@ -11,11 +11,15 @@ menu:
 section_menu: corda5
 ---
 
-# Advanced Contract Design
+# Ledger Extensions API Reference
+
+## Advanced Contract Design
 
 All the contract design issues described in [Building Basic Contract Design]({{< relref "building-basic-contract-design.md" >}}) are implemented by the Corda 5 Advanced UTXO Extensions library, and are included in all the specific implementations; for example, chainable, fungible and identifiable contracts.
 
-## Base API
+## Advanced Ledger Types
+
+### Base API
 
 Module: base
 
@@ -345,5 +349,124 @@ public final class ExampleIdentifiableContract extends IdentifiableContract {
   public List<Class<? extends IdentifiableContractCommand<?>>> getPermittedCommandTypes() {
     return List.of(Create.class, Update.class, Delete.class);
   }
+}
+```
+
+## Ownable API
+
+Module: ownable
+
+Package: com.r3.corda.ledger.utxo.ownable
+
+The Ownable API provides the component to design ownable states and contracts; that is, states that have a defined owner and need the owner's signature to be consumed.
+
+### Designing Ownable States
+
+An ownable state can be designed by implementing the `OwnableState` interface:
+
+``` kotlin
+class ExampleOwnableState(private val owner: PublicKey) : OwnableState {
+
+    override fun getOwner(): PublicKey {
+        return owner
+    }
+
+    override fun getParticipants(): List<PublicKey> {
+        return listOf(getOwner())
+    }
+}
+```
+### Designing Ownable Contracts
+
+The contract for an ownable state must check in the `verify` method that the owner of consumed ownable
+states have signed the transaction. To simplify writing such a contract, the library provides
+`OwnableConstraints` helpers. You must include and invoke the appropriate helper in your contract
+to get this behaviour.
+
+``` kotlin
+class ExampleOwnableContract : DelegatedContract<ExampleOwnableContract.ExampleOwnableContractCommand>() {
+
+    override fun getPermittedCommandTypes(): List<Class<out ExampleOwnableContractCommand>> {
+        return listOf(Update::class.java)
+    }
+
+    sealed interface ExampleOwnableContractCommand : VerifiableCommand, ContractStateType<ExampleOwnableState>
+
+    object Update : ExampleOwnableContractCommand {
+
+        override fun getContractStateType(): Class<ExampleOwnableState> {
+            return ExampleOwnableState::class.java
+        }
+
+        override fun verify(transaction: UtxoLedgerTransaction) {
+            OwnableConstraints.verifyUpdate(transaction, contractStateType)
+        }
+    }
+}
+```
+
+## Issuable API
+
+Module: issuable
+
+Package: com.r3.corda.ledger.utxo.issuable
+
+The Issuable API allows you to design states that have an issuer as part of the state, verifying that 
+any issuance of the state has been signed by the issuer, thus restricting who can issue states
+of this particular type.
+
+### Designing Issuable States
+
+An issuable state can be designed by implementing the `IssuableState` interface:
+
+``` kotlin
+@BelongsToContract(ExampleIssuableContract::class)
+class ExampleIssuableState(private val issuer: PublicKey) : IssuableState {
+
+    override fun getIssuer(): PublicKey {
+        return issuer
+    }
+
+    override fun getParticipants(): List<PublicKey> {
+        return listOf(getIssuer())
+    }
+}
+```
+
+### Designing Issuable Contracts
+
+The contract for issuable states needs to verify that the issuance rules are adhered to; that is, that
+the issuer signs for issuance and deletion of any issuable states. This can be achieved by invoking
+the `IssuableConstraints` helpers provided in the library.
+
+``` kotlin
+class ExampleIssuableContract : DelegatedContract<ExampleIssuableContract.ExampleIssuableContractCommand>() {
+
+    override fun getPermittedCommandTypes(): List<Class<out ExampleIssuableContractCommand>> {
+        return listOf(Create::class.java, Delete::class.java)
+    }
+
+    sealed interface ExampleIssuableContractCommand : VerifiableCommand, ContractStateType<ExampleIssuableState>
+
+
+    object Create : ExampleIssuableContractCommand {
+        override fun getContractStateType(): Class<ExampleIssuableState> {
+            return ExampleIssuableState::class.java
+        }
+
+        override fun verify(transaction: UtxoLedgerTransaction) {
+            IssuableConstraints.verifyCreate(transaction, contractStateType)
+        }
+    }
+
+    object Delete : ExampleIssuableContractCommand {
+        override fun getContractStateType(): Class<ExampleIssuableState> {
+            return ExampleIssuableState::class.java
+        }
+
+        override fun verify(transaction: UtxoLedgerTransaction) {
+            IssuableConstraints.verifyDelete(transaction, contractStateType)
+        }
+    }
 }
 ```
