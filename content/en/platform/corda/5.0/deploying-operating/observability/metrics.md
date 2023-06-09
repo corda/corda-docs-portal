@@ -122,7 +122,7 @@ configuration, allowing a safe execution environment within a JVM process that p
 | `corda_flow_event_lag` |  | <ul><li>`flow.class`</li><li>`flow.event`</li></ul> | The lag between flow event publication and processing. |
 | `corda_flow_event_pipeline_execution_time_seconds` | Timer | <ul><li>`flow.class`</li><li>`flow.event`</li></ul> | The time it took to execute the pipeline for given flows and flow event types. |
 | `corda_flow_event_fiber_execution_time_seconds` | Timer | <ul><li>`flow.class`</li></ul> | The time it took to execute the fiber for a single suspension point. |
-| `corda_flow_pipeline_execution_time_seconds` | Timer | <ul><li>`flow.class`</li></ul> | A total time that a flow spent processing in the pipeline, rather than queued (includes fiber execution time.) |
+| `corda_flow_pipeline_execution_time_seconds` | Timer | <ul><li>`flow.class`</li></ul> | The total time that a flow spent processing in the pipeline, rather than queued (includes fiber execution time.) |
 | `corda_flow_fiber_execution_time_seconds` | Timer | <ul><li>`flow.class`</li></ul> | A total time a flow spent executing user code in the fiber. |
 | `corda_flow_suspension_wait_time_seconds` | Timer | <ul><li>`flow.class`</li></ul> | The time a flow spent waiting to awake from a suspension. |
 | `corda_flow_event_suspension_wait_time_seconds` | Timer | <ul><li>`flow.class`</li><li>`flow.suspension.action`</li></ul> | The time a flow spent waiting to awake from a single suspension, broken down by action. |
