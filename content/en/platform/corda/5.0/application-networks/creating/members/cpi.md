@@ -123,8 +123,11 @@ To join a group, members must use a {{< tooltip >}}group policy{{< definition te
    ```shell
    curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $MGM_REST_URL/mgm/$MGM_HOLDING_ID/info > "$WORK_DIR/GroupPolicy.json"
    ```
-
 ## Create the CPI File
+
+{{< note >}}
+If you are onboarding a notary, you need to import the [notary CPB code signing certificate]({{< relref "../notaries.md#import-notary-cpb-code-signing-certificate" >}}) before you create the notary CPI.
+{{< /note >}}
 
 Build a {{< tooltip >}}CPI{{< definition term="CPI" >}}{{< /tooltip >}} using the Corda CLI, passing in the member CPB, the `GroupPolicy.json` file exported from the MGM, and the details of the keystore certificate used to sign the CPB. 
 
@@ -190,7 +193,6 @@ Corda validates that uploaded CPIs are signed with a trusted key. To trust your 
 {{< note >}}
 Use an alias that will remain unique over time, taking into account that certificate expiry will require new certificates with the same X.500 name as existing certificates.
 {{< /note >}}
-
 ## Upload the CPI
 
 To upload the CPI to the network, run the following:
