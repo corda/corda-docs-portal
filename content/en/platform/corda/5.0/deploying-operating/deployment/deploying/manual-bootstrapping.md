@@ -252,7 +252,7 @@ To create the schema manually, do the following:
 
 5. Review the DDL files generated and then execute against the database.
 
-6. Execute the following Corda CLI command to generate DDL for populating the Crypto database connection configuration,in this case use CONFIG:
+6. Execute the following Corda CLI command to generate DDL for populating the Crypto database connection configuration, in this case use CONFIG:
 
    {{< tabs name="DDL-crypto">}}
    {{% tab name="Bash" %}}
