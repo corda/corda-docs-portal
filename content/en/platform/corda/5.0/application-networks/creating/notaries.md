@@ -19,8 +19,8 @@ When onboarding a notary, you need to use the notary CPK to build a notary CPI.
 The sections must be completed in the following order:
 
 1. Download the notary server CPB, which is available from our [GitHub release page](https://github.com/corda/corda-runtime-os/releases/).
-2. [Build the notary member CPI]({{< relref "./members/cpi.md">}}) using the Notary CPB. For information about the notary CPB, see the [Notary section of Developing Applications]({{< relref "../../developing-applications/notaries/_index.md#notary-server-cpb" >}}).
-3. [Import Notary CPB Code Signing Certificate]({{< relref "#import-notary-cpb-code-signing-certificate">}}). This is in addition to importing certificates for application CPKs or CPBs.
+2. [Import Notary CPB Code Signing Certificate]({{< relref "#import-notary-cpb-code-signing-certificate">}}). This is in addition to importing certificates for application CPKs or CPBs.
+3. [Build the notary member CPI]({{< relref "./members/cpi.md">}}) using the Notary CPB. For information about the notary CPB, see the [Notary section of Developing Applications]({{< relref "../../developing-applications/notaries/_index.md#notary-server-cpb" >}}).
 4. [Create a member virtual node]({{< relref "./members/virtual-node.md">}}), specifying the hash of the notary CPI.
 5. [Generate a notary key pair]({{< relref "#generate-a-notary-key-pair">}}).
 6. [Configure the member communication properties]({{< relref "./members/config-node.md">}}).
@@ -32,8 +32,8 @@ The PowerShell commands listed are for use with PowerShell 7.0 and will not exec
 
 ## Import Notary CPB Code Signing Certificate
 
-The R3 notary server CPB is signed with a DigiCert KMS signing key. To use it, import the certificate as follows:
-1. Save the following text into a file named `notary-ca-root.pem`:
+The R3 notary server CPB is signed with a DigiCert KMS signing key. To use it, import the certificate and follow the steps outlined in the [Import Code Signing Certificates]({{< relref "members/cpi.md#import-code-signing-certificates" >}}) section:
+*  Save the following text into a file named `notary-ca-root.pem`:
    ```shell
    -----BEGIN CERTIFICATE-----
    MIIFkDCCA3igAwIBAgIQBZsbV56OITLiOQe9p3d1XDANBgkqhkiG9w0BAQwFADBi
@@ -67,21 +67,6 @@ The R3 notary server CPB is signed with a DigiCert KMS signing key. To use it, i
    /YldvIViHTLSoCtU7ZpXwdv6EM8Zt4tKG48BtieVU+i2iW1bvGjUI+iLUaJW+fCm
    gKDWHrO8Dw9TdSmq6hN35N6MgSGtBxBHEa2HPQfRdbzP82Z+
    -----END CERTIFICATE-----
-   ```
-
-2. Import the `notary-ca-root.pem` file into the keystore:
-   ```
-   keytool -importcert -keystore signingkeys.pfx -storepass <keystore-password> -noprompt -alias notary-ca-root -file notary-ca-root.pem
-   ```
-
-3. Export the signing key certificate from the keystore:
-   ```
-   keytool -exportcert -rfc -alias notary-ca-root -keystore signingkeys.pfx -storepass <keystore-password> -file notary-ca-root.pem
-   ```
-
-4. Import the signing key into Corda:
-   ```
-   curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X PUT -F alias=notary-ca-root -F certificate=@notary-ca-root.pem $REST_API_URL/certificates/cluster/code-signer
    ```
 ## Generate a Notary Key Pair
 
@@ -122,8 +107,8 @@ export REGISTRATION_CONTEXT='{
   "corda.session.keys.0.signature.spec": "SHA256withECDSA",
   "corda.ledger.keys.0.id": "'$LEDGER_KEY_ID'",
   "corda.ledger.keys.0.signature.spec": "SHA256withECDSA",
-  "corda.notary.keys.0.id": "$NOTARY_KEY_ID",
-  "corda.notary.keys.0.signature.spec": "SHA256withECDSA"
+  "corda.notary.keys.0.id": "'$NOTARY_KEY_ID'",
+  "corda.notary.keys.0.signature.spec": "SHA256withECDSA",
   "corda.endpoints.0.connectionURL": "https://'$P2P_GATEWAY_HOST':'$P2P_GATEWAY_PORT'",
   "corda.endpoints.0.protocolVersion": "1",
   "corda.roles.0": "notary",

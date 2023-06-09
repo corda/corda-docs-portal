@@ -14,8 +14,8 @@ section_menu: corda5
 
 This section describes how to build a member CPI and upload it to the network. It contains the following:
 1. [Set Variables]({{< relref "#set-variables" >}})
-2. [Create the CPI File]({{< relref "#create-the-cpi-file" >}})
-3. [Import Code Signing Certificates]({{< relref "#import-code-signing-certificates" >}})
+2. [Import Code Signing Certificates]({{< relref "#import-code-signing-certificates" >}})
+3. [Create the CPI File]({{< relref "#create-the-cpi-file" >}})
 4. [Generate the Group Policy File]({{< relref "#generate-the-group-policy-file" >}})
 5. [Upload the CPI]({{< relref "#upload-the-cpi" >}})
 
@@ -96,35 +96,44 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{< /tabs >}}
 
-## Generate the Group Policy File
+## Import Code Signing Certificates
 
-To join a group, members must use a {{< tooltip >}}group policy{{< definition term="Group policy" >}}{{< /tooltip >}} file exported from the MGM of that group. To retrieve the `GroupPolicy.json` file from the MGM:
+{{< note >}}
+You do not have to repeat this step if a CPI previously uploaded to the network uses the same certificate.
+{{< /note >}}
+
+Corda validates that uploaded CPIs are signed with a trusted key. To trust your signing keys:
+
+1. Export the signing key certificate from the keystore:
+    ```shell
+    keytool -exportcert -rfc -alias "<key-alias>" -keystore <signingkeys.pfx> -storepass "<keystore-password>" -file <signingkey1.pem>
+    ```
+2. Import the signing key into Corda:
 
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export MGM_REST_HOST=localhost
-   export MGM_REST_PORT=8888
-   export MGM_REST_URL="https://$MGM_REST_HOST:$MGM_REST_PORT/api/v1"
-   export MGM_HOLDING_ID=<MGM-holding-ID>
+   curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X PUT -F alias="<unique-key-alias>" -F certificate=@<signingkey1.pem> $REST_API_URL/certificates/cluster/code-signer
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $MGM_REST_HOST = "localhost"
-   $MGM_REST_PORT = "8888"
-   $MGM_REST_URL = "https://$MGM_REST_HOST:$MGM_REST_PORT/api/v1"
-   $MGM_HOLDING_ID = <MGM-holding-ID>
-   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$MGM_REST_URL/mgm/$MGM_HOLDING_ID/info" | ConvertTo-Json -Depth 4 > $WORK_DIR/GroupPolicy.json
+   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$REST_API_URL/certificates/cluster/code-signer"  -Form @{
+   certificate=@<signingkey1.pem>
+   alias="<unique-key-alias>"
+   }
    ```
    {{% /tab %}}
    {{< /tabs >}}
-   If using Bash, create the `GroupPolicy.json` by exporting it using the MGM, by running this Curl command:
-   ```shell
-   curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $MGM_REST_URL/mgm/$MGM_HOLDING_ID/info > "$WORK_DIR/GroupPolicy.json"
-   ```
 
+{{< note >}}
+Use an alias that will remain unique over time, taking into account that certificate expiry will require new certificates with the same X.500 name as existing certificates.
+{{< /note >}}
 ## Create the CPI File
+
+{{< note >}}
+If you are onboarding a notary, you need to import the [notary CPB code signing certificate]({{< relref "../notaries.md#import-notary-cpb-code-signing-certificate" >}}) before you create the notary CPI.
+{{< /note >}}
 
 Build a {{< tooltip >}}CPI{{< definition term="CPI" >}}{{< /tooltip >}} using the Corda CLI, passing in the member CPB, the `GroupPolicy.json` file exported from the MGM, and the details of the keystore certificate used to sign the CPB. 
 
@@ -156,42 +165,6 @@ Build a {{< tooltip >}}CPI{{< definition term="CPI" >}}{{< /tooltip >}} using th
    ```
    {{% /tab %}}
    {{< /tabs >}}
-
-## Import Code Signing Certificates
-
-{{< note >}}
-* You do not have to repeat this step if a CPI previously uploaded to the network uses the same certificate.
-* For information on how to import the notary CPB code signing certificate, see the [Onboarding Notaries]({{< relref "../notaries.md#import-notary-cpb-code-signing-certificate" >}}) section.
-{{< /note >}}
-
-Corda validates that uploaded CPIs are signed with a trusted key. To trust your signing keys:
-
-1. Export the signing key certificate from the keystore:
-    ```shell
-    keytool -exportcert -rfc -alias "<key-alias>" -keystore <signingkeys.pfx> -storepass "<keystore-password>" -file <signingkey1.pem>
-    ```
-2. Import the signing key into Corda:
-
-   {{< tabs >}}
-   {{% tab name="Bash"%}}
-   ```shell
-   curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X PUT -F alias="<unique-key-alias>" -F certificate=@<signingkey1.pem> $REST_API_URL/certificates/cluster/code-signer
-   ```
-   {{% /tab %}}
-   {{% tab name="PowerShell" %}}
-   ```shell
-   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$REST_API_URL/certificates/cluster/code-signer"  -Form @{
-   certificate=@<signingkey1.pem>
-   alias="<unique-key-alias>"
-   }
-   ```
-   {{% /tab %}}
-   {{< /tabs >}}
-
-{{< note >}}
-Use an alias that will remain unique over time, taking into account that certificate expiry will require new certificates with the same X.500 name as existing certificates.
-{{< /note >}}
-
 ## Generate the Group Policy File
 
 To join a group, members must use a {{< tooltip >}}group policy{{< definition term="Group policy" >}}{{< /tooltip >}} file exported from the MGM of that group. To retrieve the `GroupPolicy.json` file from the MGM:
@@ -215,9 +188,9 @@ To join a group, members must use a {{< tooltip >}}group policy{{< definition te
    ```
    {{% /tab %}}
    {{< /tabs >}}
-   If using Bash, create the `GroupPolicy.json` by exporting it using the MGM, by running this command:
+   If using Bash, create the `GroupPolicy.json` by exporting it using the MGM, by running this Curl command:
    ```shell
-   curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $MGM_REST_URL/mgm/$MGM_HOLDING_ID/info > "$WORK_DIR/GroupPolicy.json"
+   curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $MGM_REST_URL/mgm/$MGM_HOLDING_ID/info > "$WORK_DIR/GroupPolicy.json"
    ```
 
 ## Upload the CPI
