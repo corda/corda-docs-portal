@@ -32,8 +32,8 @@ The PowerShell commands listed are for use with PowerShell 7.0 and will not exec
 
 ## Import Notary CPB Code Signing Certificate
 
-The R3 notary server CPB is signed with a DigiCert KMS signing key. To use it, import the certificate and follow the steps outlined in the [Import Code Signing Certificates]({{< relref "members/cpi.md#import-code-signing-certificates" >}}) section:
-*  Save the following text into a file named `notary-ca-root.pem`:
+The R3 notary server CPB is signed with a DigiCert KMS signing key. To use it, save the following text into a file named `notary-ca-root.pem` and follow the steps outlined in the [Import Code Signing Certificates]({{< relref "members/cpi.md#import-code-signing-certificates" >}}) section.
+
    ```shell
    -----BEGIN CERTIFICATE-----
    MIIFkDCCA3igAwIBAgIQBZsbV56OITLiOQe9p3d1XDANBgkqhkiG9w0BAQwFADBi
