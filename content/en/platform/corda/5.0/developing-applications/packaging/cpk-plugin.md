@@ -39,12 +39,12 @@ plugin to your root Gradle project:
 
    * If your Gradle project contains a single module, apply both plugins together:
 
-    ```
-    plugins {
-      id 'net.corda.cordapp.cordapp-configuration'
-      id 'net.corda.plugins.cordapp-cpk2'
-    }
-    ```
+     ```
+     plugins {
+       id 'net.corda.cordapp.cordapp-configuration'
+       id 'net.corda.plugins.cordapp-cpk2'
+     }
+     ```
 
 2. Declare the versions of both plugins in `settings.gradle`:
 ```
