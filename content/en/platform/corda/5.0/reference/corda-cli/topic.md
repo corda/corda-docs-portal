@@ -46,12 +46,12 @@ corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties create -r <REPLI
 {{< tabs name="delete-topics">}}
 {{% tab name="Bash" %}}
 ```sh
-corda-cli.sh topic -b <BOOTSTRAP-SERVERS> delete connect
+corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k client.properties delete connect
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> delete connect
+corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k client.properties delete connect
 ```
 {{% /tab %}}
 {{< /tabs >}}
