@@ -46,7 +46,7 @@ plugins {
 }
 ```
 
-2. Declare both plugins' versions in `settings.gradle`:
+2. Declare the versions of both plugins in `settings.gradle`:
 ```
 pluginManagement {
     plugins {
