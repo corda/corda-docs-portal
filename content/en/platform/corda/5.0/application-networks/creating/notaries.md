@@ -82,7 +82,7 @@ The R3 notary server CPB is signed with a DigiCert KMS signing key. To use it, i
    keytool -importcert -keystore signingkeys.pfx -storepass <keystore-password> -noprompt -alias notary-ca-root -file notary-ca-root.pem
    ```
 
-   Once you have created your notary CPI, follow the steps in the [Import Code Signing Certificates]({{< relref "members/cpi.md#import-code-signing-certificates">}}) section to trust your signing keys.
+Once you have created your notary CPI, follow the steps in the [Import Code Signing Certificates]({{< relref "members/cpi.md#import-code-signing-certificates">}}) section to trust your signing keys.
 
 ## Generate a Notary Key Pair
 
