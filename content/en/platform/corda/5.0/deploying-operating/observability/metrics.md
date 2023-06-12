@@ -249,7 +249,7 @@ such as the flow worker or the MGM worker. The flow persistence requests metrics
 by the database worker (Kafka lag).
 
 Additionally, there are background processes occurring within the database worker, namely the reconciliations. The
-reconciliations are responsible for ensuring the alignment of Kafka compacted topics with the database,
+reconciliations are responsible for ensuring the alignment of Kafka compacted topics with the database
 (the database being the primary source of truth). The reconciliations run at regular intervals, loading in-memory database
 and Kafka records, identifying the differences (delta), and synchronizing the Kafka state to match that of the database.
 The reconciliations metrics listed in this section measure:
