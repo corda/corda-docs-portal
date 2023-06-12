@@ -245,7 +245,7 @@ The database worker is responsible for handling and serving persistence requests
 such as the flow worker or the MGM worker. The flow persistence requests metrics presented in this section measure:
 
 * The time taken to handle the flow persistence requests.
-* The time the flow persistence requests remained on Kafka from the moment they were added by flows until they were received
+* The time the flow persistence requests remained on Kafka, from the moment they were added by flows until they were received
 by the database worker (Kafka lag).
 
 Additionally, there are background processes occurring within the database worker, namely the reconciliations. The
