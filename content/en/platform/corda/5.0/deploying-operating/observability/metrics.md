@@ -254,7 +254,7 @@ reconciliations are background processes responsible for ensuring the alignment 
 and Kafka records, identifying the differences (delta), and synchronizing the Kafka state to match that of the database.
 The reconciliations metrics listed in this section measure:
 
-* The time taken for a reconciliation to complete per run.
+* The time taken for a reconciliation run to complete.
 * The number of reconciled records per run. This could be useful to identify cases where you could be over-reconciling
 things, that is, up-to-date Kafka records could be re-published from the database where they shouldn't.
 
