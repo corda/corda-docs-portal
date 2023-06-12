@@ -244,19 +244,19 @@ own dedicated database). As a result, the activities carried out within the data
 The database worker is responsible for handling and serving persistence requests originating from various Corda worker types,
 such as the flow worker or the MGM worker. The flow persistence requests metrics presented in this section measure:
 
-* The time needed to handle the flow persistence requests.
-* The time the flow persistence requests remained on Kafka from the moment they were added by flows until they were received
+* The time taken to handle the flow persistence requests.
+* The time the flow persistence requests remained on Kafka, from the moment they were added by flows until they were received
 by the database worker (Kafka lag).
 
 Additionally, there are background processes occurring within the database worker, namely the reconciliations. The
-reconciliations are responsible for ensuring the alignment of Kafka compacted topics with the database,
+reconciliations are responsible for ensuring the alignment of Kafka compacted topics with the database
 (the database being the primary source of truth). The reconciliations run at regular intervals, loading in-memory database
 and Kafka records, identifying the differences (delta), and synchronizing the Kafka state to match that of the database.
 The reconciliations metrics listed in this section measure:
 
 * The time taken for a reconciliation run to complete.
-* The number of reconciled records per reconciliation. This could be useful to identify cases where you could be over-reconciling
-things, that is, up-to-date Kafka records could be re-published from the database when they shouldn't.
+* The number of reconciled records per reconciliation. This could be useful to identify cases where a reconciliation run could be over-reconciling
+things (e.g. up-to-date Kafka records could be re-published from the database when they shouldn't).
 
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
