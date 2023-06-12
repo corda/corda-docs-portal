@@ -266,16 +266,16 @@ things, that is, up-to-date Kafka records could be re-published from the databas
 | `corda_db_reconciliation_run_time_seconds` | Timer | <ul><li>`reconciliation.reconciler.type`</li><li>`reconciliation.outcome`</li></ul> | The time needed for a full reconciliation run. The `reconciliation.reconciler.type` tag is the type of reconciler that run, for example, CPI metadata, virtual node metadata. The `reconciliation.outcome` tag is the outcome of a reconciliation run (SUCCESS, FAILURE). |
 | `corda_db_reconciliation_records_count` | Counter | <ul><li>`reconciliation.reconciler.type`</li><li>`reconciliation.outcome`</li></ul></ul> | The number of reconciled records for a reconciliation run. |
 | `corda_membership_persistence_handler_time_seconds` | Timer | <ul><li>`operation.name`</li><li>`group`</li></ul> | The time it takes to execute membership persistence handlers. Includes time to get database connection and execute the transaction. The `operation.name` tag is the MGM persistence request name/type. The `group` tag is the membership group within which peer-to-peer communication happens. |
+| `corda_persistence_transaction_time_seconds` | Timer | <ul><li></li></ul> | The time it takes for a membership persistence transaction to complete. |
 
 #### Membership Worker
 
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
-| corda_persistence_transaction_time_seconds | Timer | <ul><li></li></ul> | The time it takes for a membership persistence transaction to complete. |
-| corda_registration_handler_time_seconds | Timer | <ul><li></li></ul> | The time taken by each stage of network registration. |
-| corda_actions_handler_time_seconds | Timer | <ul><li></li></ul> | The time taken by each membership actions handler, for example, distribute network data. |
-| corda_sync_handler_time_seconds | Timer | <ul><li></li></ul> | The time it takes to execute each stage of network synchronisation between members and the MGM. |
-| corda_memberlist_cache_size | Gauge | <ul><li></li></ul> | Metric to capture the changes in group size. |
+| `corda_registration_handler_time_seconds` | Timer | <ul><li></li></ul> | The time taken by each stage of network registration. |
+| `corda_actions_handler_time_seconds` | Timer | <ul><li></li></ul> | The time taken by each membership actions handler, for example, distribute network data. |
+| `corda_sync_handler_time_seconds` | Timer | <ul><li></li></ul> | The time it takes to execute each stage of network synchronisation between members and the MGM. |
+| `corda_memberlist_cache_size` | Gauge | <ul><li></li></ul> | Metric to capture the changes in group size. |
 
 #### Crypto Processor
 
