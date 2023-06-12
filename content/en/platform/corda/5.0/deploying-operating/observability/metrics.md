@@ -250,7 +250,7 @@ by the database worker (Kafka lag).
 
 Additionally, there are background processes occurring within the database worker, namely the reconciliations. The
 reconciliations are background processes responsible for ensuring the alignment of Kafka compacted topics with the database,
-which serves as the primary source of truth. The reconciliations run at regular intervals, loading in-memory database
+(the database being the primary source of truth). The reconciliations run at regular intervals, loading in-memory database
 and Kafka records, identifying the differences (delta), and synchronizing the Kafka state to match that of the database.
 The reconciliations metrics listed in this section measure:
 
