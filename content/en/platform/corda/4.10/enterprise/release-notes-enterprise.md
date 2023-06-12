@@ -27,6 +27,8 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
+* Debug logging of the Artemis server has been added.
+
 * The default value for the node configuration value cryptoServiceTimeout has been increased from 1 second to 10 seconds.
 
 * During recovery from a transport layer connection break in peer-to-peer connectivity, a workaround to a bug in the Artemis message broker would only be taken during the first break in connectivity. This lead to a rare failure to re-establish connectivity between two peers until the node was restarted.  The workaround is now taken on every loss of connectivity, and thus peer-to-peer connectivity should now always be re-established without operator intervention.
