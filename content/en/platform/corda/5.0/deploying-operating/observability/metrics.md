@@ -238,18 +238,18 @@ and system metrics (`system_*`) provided by the corresponding Micrometer binding
 
 #### Database Worker
 
-The database worker is the sole worker with access to the database, apart from the crypto worker, which has its
-own dedicated database. As a result, the activities carried out within the database worker pertain exclusively to the database.
+The database worker is the sole worker with access to the database (apart from the crypto worker, which has its
+own dedicated database). As a result, the activities carried out within the database worker pertain to the database.
 
 The database worker is responsible for handling and serving persistence requests originating from various Corda worker types,
 such as the flow worker or the MGM worker. The flow persistence requests metrics presented in this section measure:
 
 * The time needed to handle the flow persistence requests.
-* The time spent by the flow persistence requests on Kafka from the moment they were added by flows until they were received
+* The time the flow persistence requests remained on Kafka from the moment they were added by flows until they were received
 by the database worker (Kafka lag).
 
 Additionally, there are background processes occurring within the database worker, namely the reconciliations. The
-reconciliations are background processes responsible for ensuring the alignment of Kafka compacted topics with the database,
+reconciliations are responsible for ensuring the alignment of Kafka compacted topics with the database,
 (the database being the primary source of truth). The reconciliations run at regular intervals, loading in-memory database
 and Kafka records, identifying the differences (delta), and synchronizing the Kafka state to match that of the database.
 The reconciliations metrics listed in this section measure:
