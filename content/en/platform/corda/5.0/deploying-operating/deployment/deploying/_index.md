@@ -288,6 +288,10 @@ The following is required to install a valid TLS certificate:
 * A private key corresponding to the public key included in the TLS certificate.
 * The Certification Chain must lead up to the CA.
 
+{{< note >}}
+If you configure the REST worker to use a trusted certificate, `-k` should be removed from the example curl commands given throughout this documentation.
+{{< /note >}}
+
 Custom certificate information can be provided in PEM format as a Kubernetes secret. 
 You can either create a Kubernetes secret manually to hold the certificate information or allow Helm to generate a new secret.
 You can specify the secret name manually as follows:
