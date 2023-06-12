@@ -121,7 +121,7 @@ To join a group, members must use a {{< tooltip >}}group policy{{< definition te
    {{< /tabs >}}
    If using Bash, create the `GroupPolicy.json` by exporting it using the MGM, by running this Curl command:
    ```shell
-   curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $MGM_REST_URL/mgm/$MGM_HOLDING_ID/info > "$WORK_DIR/GroupPolicy.json"
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $MGM_REST_URL/mgm/$MGM_HOLDING_ID/info > "$WORK_DIR/GroupPolicy.json"
    ```
 ## Create the CPI File
 
@@ -177,7 +177,7 @@ Corda validates that uploaded CPIs are signed with a trusted key. To trust your 
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X PUT -F alias="<unique-key-alias>" -F certificate=@<signingkey1.pem> $REST_API_URL/certificates/cluster/code-signer
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -F alias="<unique-key-alias>" -F certificate=@<signingkey1.pem> $REST_API_URL/certificates/cluster/code-signer
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
@@ -200,7 +200,7 @@ To upload the CPI to the network, run the following:
 {{% tab name="Bash"%}}
 ```
 export CPI_PATH="$WORK_DIR\mgm-5.0.0.0-SNAPSHOT-package.cpi"
-curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -F upload=@$CPI_PATH $REST_API_URL/cpi/
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -F upload=@$CPI_PATH $REST_API_URL/cpi/
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -219,7 +219,7 @@ Use this identifier to get the checksum of the CPI:
 {{% tab name="Bash"%}}
 ```
 export CPI_ID=<CPI-ID>
-curl --insecure -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/cpi/status/$CPI_ID
+curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/cpi/status/$CPI_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}

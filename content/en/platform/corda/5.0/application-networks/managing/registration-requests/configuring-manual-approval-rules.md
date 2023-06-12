@@ -19,7 +19,7 @@ For example, to specify that all requests with changes to keys in the Corda name
 
 ```bash
 RULE_PARAMS='{"ruleParams":{"ruleRegex": "corda.*", "ruleLabel": "Review all changes to keys in the Corda namespace"}}'
-curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d "$RULE_PARAMS" $REST_API_URL/mgm/$MGM_HOLDING_ID/approval/rules
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -d "$RULE_PARAMS" $REST_API_URL/mgm/$MGM_HOLDING_ID/approval/rules
 ```
 
 ## Viewing Current Group Approval Rules
@@ -27,7 +27,7 @@ curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -d "$RULE_PARAMS" $REST_API
 To retrieve all applied group approval rules, use the [mgm/{holdingidentityshorthash}/approval/rules GET method](../../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__approval_rules).
 
 ```bash
-curl --insecure -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/mgm/$MGM_HOLDING_ID/approval/rules
+curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/mgm/$MGM_HOLDING_ID/approval/rules
 ```
 
 This method returns the rules in the following format:
@@ -44,5 +44,5 @@ This method returns the rules in the following format:
 To delete an applied group approval rule, pass the ID of the rule to the [mgm/{holdingidentityshorthash}/approval/rules/{ruleid} DELETE method](../../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/delete_mgm__holdingidentityshorthash__approval_rules__ruleid_). You can retrieve the ID of a rule from the response of creating the rule, or from the response of the GET method described in [Viewing Current Group Approval Rules]({{< relref "#viewing-current-group-approval-rules" >}}).
 
 ```bash
-curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X DELETE $REST_API_URL/mgm/$MGM_HOLDING_ID/approval/rules/<RULE_ID>
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X DELETE $REST_API_URL/mgm/$MGM_HOLDING_ID/approval/rules/<RULE_ID>
 ```
