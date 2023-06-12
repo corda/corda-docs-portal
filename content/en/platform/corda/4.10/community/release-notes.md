@@ -26,6 +26,8 @@ Corda Community Edition 4.10.2 is a patch release of Corda Community Edition foc
 
 ### Fixed issues
 
+* Flow checkpoint dumps now include a `status` field which shows the status of the flow; in particular, whether it is hospitalized or not.
+
 * Debug logging of the Artemis server has been added.
 
 * Previously, the attachment class loader was being closed too early if it is evicted from the cache. Now, closing of attachment class loaders is delayed until all SerializationContext that refer to them (from BasicVerifier) have gone out of scope.

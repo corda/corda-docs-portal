@@ -27,6 +27,8 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
+* Flow checkpoint dumps now include a `status` field which shows the status of the flow; in particular, whether it is hospitalized or not.
+
 * Debug logging of the Artemis server has been added.
 
 * The default value for the node configuration value cryptoServiceTimeout has been increased from 1 second to 10 seconds.
