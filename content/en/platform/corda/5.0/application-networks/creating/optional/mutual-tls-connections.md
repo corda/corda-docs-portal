@@ -38,7 +38,7 @@ If using Bash, perform the following steps to enable mutual TLS by configuring t
 1. Retrieve the current gateway configuration version:
 
    ```shell
-   curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/config/corda.p2p.gateway
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/config/corda.p2p.gateway
    ```
 
 2. Store the version number from the response:
