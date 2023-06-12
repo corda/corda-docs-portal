@@ -256,7 +256,7 @@ The reconciliations metrics listed in this section measure:
 
 * The time taken for a reconciliation run to complete.
 * The number of reconciled records per reconciliation. This could be useful to identify cases where you could be over-reconciling
-things, that is, up-to-date Kafka records could be re-published from the database where they shouldn't.
+things, that is, up-to-date Kafka records could be re-published from the database when they shouldn't.
 
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
