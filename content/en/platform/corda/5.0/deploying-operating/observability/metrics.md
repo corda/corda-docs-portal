@@ -298,7 +298,7 @@ The membership worker also includes a single gauge metric which shows the size o
 at any point. It is useful to compare any changes in the performance returned by the timer metrics to the size of the
 member list at the time to see if timings could be impacted by a growing network. The gauge metrics are also tagged by
 virtual node short hash and group ID so that it is possible to see the overall size of the member lists held in memory
-but also view it per network of virtual node.
+but also view it per application network.
 
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
