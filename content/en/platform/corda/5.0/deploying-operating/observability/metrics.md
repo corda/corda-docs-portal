@@ -279,7 +279,7 @@ things (for example, up-to-date Kafka records could be re-published from the dat
 
 The membership worker is responsible for the processing of application network functionality either on behalf of an MGM,
 a network member, or both. For an MGM, examples of this application functionality include:
-* handling incoming registration requests,
+* handling incoming registration requests
 * network management,
 * and ensuring the network participants are all in sync with the latest network data.
 
