@@ -19,7 +19,7 @@ For example:
 This section describes how to reset the CSDE to handle these situations or other occasions when the CSDE tasks are not working as expected.
 This process does the following:
 * Stops any processes related to the Corda cluster.
-* Removes the existing Corda cluster software (but not [Corda CLI](installing-corda-cli.html)).
+* Removes the existing Corda cluster software (but not [Corda CLI]({{< relref "../tooling/installing-corda-cli.md" >}})).
 * Deletes all of the temporary files that the CSDE creates and uses.
 * Runs the Gradle `clean` task to remove any CPI build artifacts.
 
