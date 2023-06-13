@@ -284,7 +284,7 @@ a network member, or both. For an MGM, examples of this application functionalit
 * ensuring the network participants are all in sync with the latest network data
 
 For a network member, examples include:
-* registering with an MGM to join a network,
+* registering with an MGM to join a network
 * managing network data sent from the MGM,
 * and periodically syncing network data with the MGM.
 
