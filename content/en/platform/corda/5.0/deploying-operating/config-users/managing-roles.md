@@ -34,7 +34,7 @@ For information about creating these roles maually, see the [Manual Bootstrappin
 
 ## Querying Permissions via REST
 
-To retrieve permissions matching certain query criteria, use the [get_permission](https://docs.r3.com/en/platform/corda/5.0/rest-api/C5_OpenAPI.html#tag/RBAC-Permission-API/operation/get_permission) API call.
+To retrieve permissions matching certain query criteria, use the [get_permission](../../reference/rest-api/C5_OpenAPI.html#tag/RBAC-Permission-API/operation/get_permission) API call.
 
 ## Checking Permissions When Starting Flows
 
