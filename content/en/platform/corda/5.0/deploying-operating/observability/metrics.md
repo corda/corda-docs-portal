@@ -265,20 +265,47 @@ things (for example, up-to-date Kafka records could be re-published from the dat
 | :----------- | :----------- | :----------- | :----------- |
 | `corda_db_entity_persistence_request_time_seconds` | Timer | <ul><li>`entityRequest_type`</li><li>`entityRequest_outcome`</li></ul> | The time it takes to process an entity persistence request, from the moment the request is received from Kafka. The `entityRequest.type` tag is the type of persistence request, The `entityRequest_outcome` tag is the outcome of processing a request (SUCCESS, FAILURE). |
 | `corda_db_entity_persistence_request_lag_seconds` | Timer | <ul><li>`entityRequest_type`</li></ul> | The lag between the flow putting the entity persistence request to Kafka and the EntityMessageProcessor. |
-| `corda_persistence_transaction_time_seconds` | Timer | <ul><li></li></ul> | The time it takes for a membership persistence transaction to complete. |
 | `corda_ledger_persistence_time_seconds` | Timer | <ul><li>`flowId`</li><li>`ledger_type`</li><li>`operation_name`</li></ul> | The time it takes to execute ledger transaction database request against the database. The `flowId` tag represents the flow ID to correlate with the flow. The `ledger_type` can be UTXO or CONSENSUAL. The `operation_name` tag is the persistence operation. |
-| `corda_membership_persistence_handler_time_seconds` | Timer | <ul><li>`operation_name`</li><li>`group`</li></ul> | The time it takes to execute membership persistence handlers. Includes time to get database connection and execute the transaction. The `operation_name` tag is the MGM persistence request name/type. The `group` tag is the membership group within which peer-to-peer communication happens. |
+| `corda_membership_persistence_transaction_time_seconds` | Timer | <ul><li>`operation_name`</li><li>`group`</li><li>`virtualnode`</li></ul> | The time it takes to execute membership persistence transactions. Excludes time spent acquiring a database connection. |
+| `corda_membership_persistence_handler_time_seconds` | Timer | <ul><li>`operation_name`</li><li>`group`</li><li>`virtualnode`</li></ul> | The time it takes to execute membership persistence handlers. Includes time taken to get database connection and execute the transaction. The `operation_name` tag is the MGM persistence request name/type. The `group` tag is the membership group within which peer-to-peer communication happens. |
+| `corda_membership_registration_handler_time_seconds` | Timer | <ul><li>`operation_name`</li><li>`group`</li><li>`virtualnode`</li></ul> | Registration is broken down into a series of stages, each with its own handler. This metric measures the time taken to execute each stage.  |
 | `corda_db_reconciliation_run_time_seconds` | Timer | <ul><li>`reconciliation_reconciler_type`</li><li>`reconciliation_outcome`</li></ul> | The time needed for a full reconciliation run. The `reconciliation_reconciler_type` tag is the type of reconciler that run, for example, CPI metadata, virtual node metadata. The `reconciliation_outcome` tag is the outcome of a reconciliation run (SUCCESS, FAILURE). |
 | `corda_db_reconciliation_records_count` | Counter | <ul><li>`reconciliation_reconciler_type`</li><li>`reconciliation_outcome`</li></ul></ul> | The number of reconciled records for a reconciliation run. |
 
 #### Membership Worker
 
+The membership worker is responsible for the processing of application network functionality either on behalf of an MGM,
+a network member, or both. For an MGM, examples of this application functionality include:
+* handling incoming registration requests,
+* network management,
+* and ensuring the network participants are all in sync with the latest network data.
+
+For a network member, examples include:
+* registering with an MGM to join a network,
+* managing network data sent from the MGM,
+* and periodically syncing network data with the MGM.
+
+The timer metrics of the membership worker focus on the areas mentioned above. Specifically, the timer metrics cover:
+* each stage of registration on both the MGM and membership side,
+* general membership actions (which at the moment only include the distribution of network data by the MGM),
+* and the synchronisation of network data handling on both the MGM and member sides.
+
+These metrics are tagged with the name of the handler so that you can observe at a low-level exactly where time is spent
+across different processes. These handler names are tagged as the operation name. They are also tagged with the short
+hash ID and the group ID of the virtual node the operation is performed on behalf of in order to determine if certain
+virtual nodes or groups are taking longer than others to process.
+
+The membership worker also includes a single gauge metric which shows the size of the network member list held in memory
+at any point. It is useful to compare any changes in the performance returned by the timer metrics to the size of the
+member list at the time to see if timings could be impacted by a growing network. The gauge metrics are also tagged by
+virtual node short hash and group ID so that it is possible to see the overall size of the member lists held in memory
+but also view it per network of virtual node.
+
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
-| `corda_registration_handler_time_seconds` | Timer | <ul><li></li></ul> | The time taken by each stage of network registration. |
-| `corda_actions_handler_time_seconds` | Timer | <ul><li></li></ul> | The time taken by each membership actions handler, for example, distribute network data. |
-| `corda_sync_handler_time_seconds` | Timer | <ul><li></li></ul> | The time it takes to execute each stage of network synchronisation between members and the MGM. |
-| `corda_memberlist_cache_size` | Gauge | <ul><li></li></ul> | Metric to capture the changes in group size. |
+| `corda_membership_actions_handler_time_seconds` | Timer | <ul><li>`operation_name`</li><li>`group`</li><li>`virtualnode`</li></ul> | The time spent on membership actions. The `operation_name` tag is the name of the operation that the metric is related to. For example, `DistributeMemberInfo`, `StartRegistration`, `QueryMemberInfo`, and so on. The `group` tag is the membership group ID of the virtual node performing an operation or being monitored. It can also appear as `not_applicable` when a membership group identifier is not accessible when the metric was collected. The `virtualnode` tag is the virtual node short hash of the virtual node performing an operation or being monitored. This can also appear as `not_applicable` when a virtual node identifier was not accessible when the metric was collected.  |
+| `corda_membership_sync_handler_time_seconds` | Timer | <ul><li>`operation_name`</li><li>`group`</li><li>`virtualnode`</li></ul> | Measures how long it takes for each stage of synchronisation to complete. Synchronisation is split between different handler stages. It is processed on the MGM side and the network data package in constructed, and on the member side it is validated and persisted.  |
+| `membership_memberlist_cache_size` | Gauge | <ul><li>`group`</li><li>`virtualnode`</li></ul> | Gauge of the member list cache size to monitor how the cache size grows or shrinks. |
 
 #### Crypto Processor
 
