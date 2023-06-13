@@ -46,7 +46,7 @@ This what is known to work with the code as of Developer Preview 2.-->
 
 ## Required CSDE Ports
 
-The current version of the [Corda combined worker](../cordapp-standard-development-environment/csde.html#gradle-helpers-for-the-combined-worker) runs on ports 5005, 5432, and 8888. Reserve these ports to avoid errors. For example, some Mac operating systems use port 5005 for the system Control Center. The following section describes how to make the port available.
+The current version of the [Corda combined worker]({{< relref "../cordapp-standard-development-environment/_index.md#gradle-helpers-for-the-combined-worker" >}}) runs on ports 5005, 5432, and 8888. Reserve these ports to avoid errors. For example, some Mac operating systems use port 5005 for the system Control Center. The following section describes how to make the port available.
 
 ### Disabling Airplay Receiver on Mac
 
