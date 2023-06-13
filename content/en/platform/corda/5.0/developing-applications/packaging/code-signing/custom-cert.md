@@ -21,7 +21,7 @@ However, you can configure the plugin to use a custom certificate using the `cor
 When a custom certificate is used, it will need to be uploaded to the cluster using the
 [/api/v1/certificates/cluster/code-signer API endpoint](https://docs.r3.com/en/platform/corda/5.0-beta/rest-api/C5_OpenAPI.html#tag/Certificates-API/operation/put_certificates_cluster__usage_).
 For example:
-`curl --insecure -u admin:admin -X PUT -F alias="your-key" -F certificate=@your-key.pem https://localhost:8888/api/v1/certificates/cluster/code-signer`
+`curl -k -u admin:admin -X PUT -F alias="your-key" -F certificate=@your-key.pem https://localhost:8888/api/v1/certificates/cluster/code-signer`
 {{< /note >}}
 
 ```
