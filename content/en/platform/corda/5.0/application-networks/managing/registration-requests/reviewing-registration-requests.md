@@ -58,7 +58,7 @@ You can only approve requests that are in the `PENDING_MANUAL_APPROVAL` status.
 ## Declining a Request
 
 To decline a request, pass the ID of the request and a reason to the [POST method of the
-mgm/{holdingidentityshorthash}/decline/{requestid} endpoint](https://docs.r3.com/en/platform/corda/5.0/reference/rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__decline__requestid_). You can retrieve the ID of a request from the response of the GET endpoint described in [Viewing Requests Pending Manual Approval]({{< relref "#viewing-requests-pending-manual-approval" >}}). 
+mgm/{holdingidentityshorthash}/decline/{requestid} endpoint](../../../reference/rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__decline__requestid_). You can retrieve the ID of a request from the response of the GET endpoint described in [Viewing Requests Pending Manual Approval]({{< relref "#viewing-requests-pending-manual-approval" >}}). 
 
 ```bash
 curl -k -u $REST_API_USER:$REST_API_PASSWORD -d <REASON> $REST_API_URL/mgm/$MGM_HOLDING_ID/decline/<REQUEST_-_ID>
