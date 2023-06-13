@@ -251,7 +251,7 @@ By default, the REST API is exposed on an internal Kubernetes service.
 To enable access from outside the Kubernetes cluster, use one of the following:
 
 * [Kubernetes Ingress](#kubernetes-ingress)
-* [AWS Load Balancer Controller]("#aws-load-balancer-controller)
+* [AWS Load Balancer Controller](#aws-load-balancer-controller)
 
 ##### Kubernetes Ingress
 
