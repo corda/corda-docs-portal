@@ -285,7 +285,7 @@ a network member, or both. For an MGM, examples of this application functionalit
 
 For a network member, examples include:
 * registering with an MGM to join a network
-* managing network data sent from the MGM,
+* managing network data sent from the MGM
 * and periodically syncing network data with the MGM.
 
 The timer metrics of the membership worker focus on the areas mentioned above. Specifically, the timer metrics cover:
