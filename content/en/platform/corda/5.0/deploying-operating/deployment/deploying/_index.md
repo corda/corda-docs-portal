@@ -34,7 +34,7 @@ If your Kubernetes cluster can not pull images from Docker Hub, or if you are de
 
 To push the Corda Community images: 
 
-1. Download `corda-os-worker-images-Iguana1.0.tar` from the [R3 Developer Portal](https://developer.r3.com/).
+1. Download `corda-os-worker-images-Iguana1.0.tar` from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
 
 2. Inflate and load the `corda-os-worker-images-Iguana1.0.tar` file into the local Docker engine with the following command:
    ```shell
@@ -122,7 +122,7 @@ If you have access to Docker Hub, you can download the Corda Community Helm char
 helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.0-Iguana1.0
 ```
 
-If you do not have access to Docker Hub, you can download the `corda-5.0.0-Iguana1.0.tgz` file from the [R3 Developer Portal](https://developer.r3.com/).
+If you do not have access to Docker Hub, you can download the `corda-5.0.0-Iguana1.0.tgz` file from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
 
 ### Corda Enterprise Helm chart {{< enterprise-icon >}}
 
