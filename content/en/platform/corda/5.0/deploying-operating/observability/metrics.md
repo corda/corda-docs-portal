@@ -249,7 +249,11 @@ such as the flow worker or the MGM worker. The flow persistence requests metrics
 by the database worker (Kafka lag).
 
 The ledger persistence requests metrics measure the time taken to handle the ledger persistence requests.
-The membership persistence requests metrics measure the time taken to handle the membership persistence requests.
+
+The membership persistence requests metrics presented in this section measure:
+* The time taken to handle the membership persistence requests, which included acquiring a connection and executing a transaction.
+* The time taken to execute a transaction, which allows you to compare against the previous metric to determine the
+percentage of time spent acquiring connections vs executing transactions.
 
 Additionally, there are background processes occurring within the database worker, namely the reconciliations. The
 reconciliations are responsible for ensuring the alignment of Kafka compacted topics with the database
@@ -308,6 +312,33 @@ but also view it per application network.
 | `membership_memberlist_cache_size` | Gauge | <ul><li>`group`</li><li>`virtualnode`</li></ul> | Gauge of the member list cache size to monitor how the cache size grows or shrinks. |
 
 #### Crypto Worker
+
+The crypto worker is responsible for handling crypto operations in Corda, such as signing. It is the only worker that
+hosts keys owned by the Corda cluster, as well as keys owned by the virtual nodes required for crypto operations.
+
+The keys of the virtual nodes are stored in dedicated databases per virtual node, while the keys of the Corda cluster
+are stored in a dedicated database for cluster keys. In addition to the database, there are caches universal to all
+virtual nodes that hold the keys in memory for faster lookup.
+
+The crypto requests could be categorized into flow requests and everything else. Flow requests are, seemingly,
+of more importance in terms of metrics as they are directly involved in flows lifecycle.
+With the crypto worker metrics, you can measure the below crypto requests within the crypto worker:
+
+* Flow-crypto requests, which consist of the operations:
+  * `SigningService.sign`: The `sign` operation is performed on the flow side and sends to the crypto worker the bytes
+    to be signed along with the public part of the signing key and the signature spec.
+    On the crypto worker side, the crypto worker attempts to find the key in the keys hosted for the virtual node that
+    sent the request and if found, it signs the bytes and returns the signature.
+    Regarding metrics for the `sign` operation, the following metrics pertain to the time taken to handle the entire
+    `sign` request. Additionally, there are more detailed metrics related to key caches and the 'sign' operation itself.
+  * `SigningService.findMySigningKeys`: The `findMySigningKeys` operation sends a set of keys to the crypto worker,
+    which then filters and returns the keys owned by the calling virtual node.
+    Regarding metrics for the `findMySigningKeys` operation, the following metrics are related to the time taken to
+    handle the entire `findMySigningKeys` request. Additionally, there are metrics related to key caches.
+
+* Admin or other requests, which involve operations such as creating a new key (pair) for a virtual node, or list
+information about the keys owned by a virtual node. Regarding metrics for these requests, the following metrics pertain
+to the time taken to handle the requests as a whole.
 
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
