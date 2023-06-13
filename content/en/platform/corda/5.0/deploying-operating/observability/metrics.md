@@ -65,7 +65,7 @@ The following Corda-specific metrics are exported and they have been added at th
 * Backing store
 * Database worker
 * Membership worker
-* Crypto processor
+* Crypto worker
 
 #### HTTP Requests
 
@@ -307,7 +307,7 @@ but also view it per network of virtual node.
 | `corda_membership_sync_handler_time_seconds` | Timer | <ul><li>`operation_name`</li><li>`group`</li><li>`virtualnode`</li></ul> | Measures how long it takes for each stage of synchronisation to complete. Synchronisation is split between different handler stages. It is processed on the MGM side and the network data package in constructed, and on the member side it is validated and persisted.  |
 | `membership_memberlist_cache_size` | Gauge | <ul><li>`group`</li><li>`virtualnode`</li></ul> | Gauge of the member list cache size to monitor how the cache size grows or shrinks. |
 
-#### Crypto Processor
+#### Crypto Worker
 
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
@@ -316,7 +316,7 @@ but also view it per network of virtual node.
 | `corda_crypto_wrapping_key_creation_time_seconds` | Timer | <ul><li>`tenant`</li></ul> | The time taken for wrapping key creation in crypto operations. The `tenant` tag is the identifier of a tenant: it's either a virtual node identifier or cluster level tenant ID. |
 | `corda_entity_manager_factory_creation_time_seconds` | Timer | <ul><li>`tenant`</li></ul> | The time taken to create entity manager factories. |
 | `corda_crypto_sign_time_seconds` | Timer | <ul><li>`signature_spec`</li></ul> | The time taken for crypto signing. The `signature_spec` identifies the signature signing scheme name to create signatures during crypto signing operations. |
-| `corda_crypto_sigining_key_lookup_time_seconds` | Timer | <ul><li>`lookup_method`</li></ul> | The time taken for crypto signing key lookup. The `lookup_method` tag indicates the method used to look up signing key hashes, either public key hashes or public key short hashes. |
+| `corda_crypto_sigining_key_lookup_time_seconds` | Timer | <ul><li>`lookup_method`</li></ul> | The time taken for crypto signing key lookup. The `lookup_method` tag indicates the method used to look up signing key IDs, either public key IDs or public key short IDs. |
 | `corda_crypto_signing_repository_get_instance_time_seconds` | Timer | <ul><li>`tenant`</li></ul> | The time taken to get crypto signing repository instances. |
 | `corda_crypto_get_owned_key_record_time_seconds` | Timer | <ul><li>`operation_name`</li><li>`publickey_type`</li></ul> | The time taken to look up tenant’s owned keys. The `publickey_type` is the type of public key used in sign operations. |
 | `corda_crypto_cipher_scheme_time_seconds` | Timer | <ul><li>`operation_name`</li></ul> | The time taken for crypto cipher scheme encoding and decoding operations. |
