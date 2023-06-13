@@ -281,7 +281,7 @@ The membership worker is responsible for the processing of application network f
 a network member, or both. For an MGM, examples of this application functionality include:
 * handling incoming registration requests
 * network management
-* and ensuring the network participants are all in sync with the latest network data.
+* ensuring the network participants are all in sync with the latest network data
 
 For a network member, examples include:
 * registering with an MGM to join a network,
