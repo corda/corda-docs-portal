@@ -248,6 +248,9 @@ such as the flow worker or the MGM worker. The flow persistence requests metrics
 * The time the flow persistence requests remained on Kafka, from the moment they were added by flows until they were received
 by the database worker (Kafka lag).
 
+The ledger persistence requests metrics measure the time taken to handle the ledger persistence requests.
+The membership persistence requests metrics measure the time taken to handle the membership persistence requests.
+
 Additionally, there are background processes occurring within the database worker, namely the reconciliations. The
 reconciliations are responsible for ensuring the alignment of Kafka compacted topics with the database
 (the database being the primary source of truth). The reconciliations run at regular intervals, loading in-memory database
@@ -260,13 +263,13 @@ things (for example, up-to-date Kafka records could be re-published from the dat
 
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
-| `corda_ledger_persistence_time_seconds` | Timer | <ul><li>`flowId`</li><li>`ledger_type`</li><li>`operation_name`</li></ul> | The time it takes to execute ledger transaction database request against the database. The `flowId` tag represents the flow ID to correlate with the flow. The `ledger_type` can be UTXO or CONSENSUAL. The `operation_name` tag is the persistence operation. |
 | `corda_db_entity_persistence_request_time_seconds` | Timer | <ul><li>`entityRequest_type`</li><li>`entityRequest_outcome`</li></ul> | The time it takes to process an entity persistence request, from the moment the request is received from Kafka. The `entityRequest.type` tag is the type of persistence request, The `entityRequest_outcome` tag is the outcome of processing a request (SUCCESS, FAILURE). |
 | `corda_db_entity_persistence_request_lag_seconds` | Timer | <ul><li>`entityRequest_type`</li></ul> | The lag between the flow putting the entity persistence request to Kafka and the EntityMessageProcessor. |
+| `corda_persistence_transaction_time_seconds` | Timer | <ul><li></li></ul> | The time it takes for a membership persistence transaction to complete. |
+| `corda_ledger_persistence_time_seconds` | Timer | <ul><li>`flowId`</li><li>`ledger_type`</li><li>`operation_name`</li></ul> | The time it takes to execute ledger transaction database request against the database. The `flowId` tag represents the flow ID to correlate with the flow. The `ledger_type` can be UTXO or CONSENSUAL. The `operation_name` tag is the persistence operation. |
+| `corda_membership_persistence_handler_time_seconds` | Timer | <ul><li>`operation_name`</li><li>`group`</li></ul> | The time it takes to execute membership persistence handlers. Includes time to get database connection and execute the transaction. The `operation_name` tag is the MGM persistence request name/type. The `group` tag is the membership group within which peer-to-peer communication happens. |
 | `corda_db_reconciliation_run_time_seconds` | Timer | <ul><li>`reconciliation_reconciler_type`</li><li>`reconciliation_outcome`</li></ul> | The time needed for a full reconciliation run. The `reconciliation_reconciler_type` tag is the type of reconciler that run, for example, CPI metadata, virtual node metadata. The `reconciliation_outcome` tag is the outcome of a reconciliation run (SUCCESS, FAILURE). |
 | `corda_db_reconciliation_records_count` | Counter | <ul><li>`reconciliation_reconciler_type`</li><li>`reconciliation_outcome`</li></ul></ul> | The number of reconciled records for a reconciliation run. |
-| `corda_membership_persistence_handler_time_seconds` | Timer | <ul><li>`operation_name`</li><li>`group`</li></ul> | The time it takes to execute membership persistence handlers. Includes time to get database connection and execute the transaction. The `operation_name` tag is the MGM persistence request name/type. The `group` tag is the membership group within which peer-to-peer communication happens. |
-| `corda_persistence_transaction_time_seconds` | Timer | <ul><li></li></ul> | The time it takes for a membership persistence transaction to complete. |
 
 #### Membership Worker
 
