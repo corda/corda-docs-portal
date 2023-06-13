@@ -28,7 +28,7 @@ The Corda 5 Beta CSDE has been tested with the following:
 | Intellij          | ~v2021.X.Y community edition                                                        |
 | git               | ~v2.24.1                                                                            |
 | Docker            | Docker Engine ~v20.X.Y or Docker Desktop ~v3.5.X                                    |
-| Corda CLI         | See [Installing the Corda CLI]({{< relref "../../tooling/installing-corda-cli.md>}})        |
+| Corda CLI         | See [Installing the Corda CLI]({{< relref "../../tooling/installing-corda-cli.md" >}})        |
 <!--| Gradle |  7.0+   |-->
 
 <!--## Hardware prerequisites
