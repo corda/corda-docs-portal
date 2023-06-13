@@ -13,7 +13,7 @@ section_menu: corda5
 As described in [Registration Approval]({{< relref "./_index.md#manual-approval" >}}), membership groups can require that member registration requests are manually approved (or declined). This section describes how to manage manual registration rules using the Corda REST API.
 ## Adding a Group Approval Rule
 
-To add a group approval rule, use the [mgm/{holdingidentityshorthash}/approval/rules POST method](https://docs.r3.com/en/platform/corda/5.0/reference/rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__approval_rules) of the REST API.
+To add a group approval rule, use the [mgm/{holdingidentityshorthash}/approval/rules POST method](../../../reference/rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__approval_rules) of the REST API.
 
 For example, to specify that all requests with changes to keys in the Corda namespace must be manually approved:
 
