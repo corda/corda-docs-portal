@@ -22,8 +22,8 @@ To run the flow, you must first start a local combined worker version of Corda. 
 The `startCorda` task runs in an Intellij 'Run' window. After about one minute, it shows the following output:
 {{< figure src="starting-corda-running.png" figcaption="CSDE startCorda task running" alt="CSDE task to start the combined worker in IntelliJ" >}}
 
-The `startCorda` will continue to run whilst the corda cluster is running. It will stop when the cluster is shut down.
-Currently, we do not have a liveness detector for Corda in the CSDE so we check liveness by manually hitting an endpoint. You can use the [listVNodes helper](../cordapp-standard-development-environment/csde.html#csde-queries) to do this.
+The `startCorda` will continue to run whilst the Corda cluster is running. It will stop when the cluster is shut down.
+Currently, we do not have a liveness detector for Corda in the CSDE so we check liveness by manually hitting an endpoint. You can use the [listVNodes helper]({{< relref "../cordapp-standard-development-environment/_index.md#csde-queries" >}}) to do this.
 
 ## Testing Liveness and Swagger
 
@@ -127,7 +127,7 @@ To check the flow status:
 {{< figure src="get-flow-arguments.png" figcaption="Arguments for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}
    If the flow is successful, you will see the following response:
 {{< figure src="get-flow-completed.png" figcaption="Successful response for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}
-   You will learn more about the flowResult of "Hello Alice best wishes from Bob" in [Your first flow](../first-flow/first-flow.html).
+   You will learn more about the flowResult of "Hello Alice best wishes from Bob" in [Your first flow]({{< relref "../first-flow/_index.md" >}}). 
 
 {{< note >}}
 If you receive a response with a status of "RUNNING”, wait a short time and retry the status check.
