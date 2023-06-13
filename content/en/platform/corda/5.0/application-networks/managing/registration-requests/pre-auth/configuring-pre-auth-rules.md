@@ -15,7 +15,7 @@ As described in [Registration Approval]({{< relref "../_index.md#pre-authenticat
 
 ## Adding a Pre-Auth Approval Rule
 
-To add an approval rule for registrations containing a valid pre-auth token, use the [mgm/{holdingidentityshorthash}/approval/rules/preauth POST method](https://docs.r3.com/en/platform/corda/5.0/reference/rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__approval_rules_preauth) of the REST API.
+To add an approval rule for registrations containing a valid pre-auth token, use the [mgm/{holdingidentityshorthash}/approval/rules/preauth POST method](../../../reference/rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__approval_rules_preauth) of the REST API.
 
 For example, to specify that all requests that contain a valid pre-auth token, with changes to the endpoint information in the member context must be manually approved:
 
