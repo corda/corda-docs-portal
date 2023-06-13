@@ -289,7 +289,7 @@ For a network member, examples include:
 * periodically syncing network data with the MGM
 
 The timer metrics of the membership worker focus on the areas mentioned above. Specifically, the timer metrics cover:
-* each stage of registration on both the MGM and membership side,
+* each stage of registration on both the MGM and membership side
 * general membership actions (which at the moment only include the distribution of network data by the MGM),
 * synchronisation of network data handling on both the MGM and member sides
 
