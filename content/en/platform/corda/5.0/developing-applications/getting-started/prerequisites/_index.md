@@ -11,7 +11,7 @@ section_menu: corda5
 ---
 # Prerequisites for the CSDE
 This section lists the third-party software prerequisites for local deployment with the [CorDapp Standard Development Environment (CSDE)]({{< relref "../cordapp-standard-development-environment/_index.md" >}})
-For information about the prerequisites for multi-worker cluster deployments, see [Prerequisites for Cluster Deployments](../../../deploying-operating/deploying/prerequisites.html).
+For information about the prerequisites for multi-worker cluster deployments, see [Prerequisites for Cluster Deployments]({{< relref "../../../deploying-operating/deployment/prerequisites.md" >}}).
 
 {{< note >}}
 You cannot start Corda via the CSDE `startCorda` task if any existing local programs are using ports 5432, 5005, or 8888. Reserve these ports.
@@ -28,7 +28,7 @@ The Corda 5 Beta CSDE has been tested with the following:
 | Intellij          | ~v2021.X.Y community edition                                                        |
 | git               | ~v2.24.1                                                                            |
 | Docker            | Docker Engine ~v20.X.Y or Docker Desktop ~v3.5.X                                    |
-| Corda CLI         | See [Installing the Corda CLI](/en/platform/corda/5.0/developing-applications/tooling/installing-corda-cli.md)         |
+| Corda CLI         | See [Installing the Corda CLI]({{< relref "../../tooling/installing-corda-cli.md>}})        |
 <!--| Gradle |  7.0+   |-->
 
 <!--## Hardware prerequisites

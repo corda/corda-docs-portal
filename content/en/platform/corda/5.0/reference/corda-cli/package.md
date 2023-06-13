@@ -66,7 +66,7 @@ The `create-cpi` argument creates a CPI file using the following arguments:
 | <div style="width:160px">Argument</div> | Description                                                                                 |
 | --------------------------------------- | ------------------------------------------------------------------------------------------- |
 | \-\-cpb                                 | Specifies the CPB file to include in the CPI. This can be omitted when creating an MGM CPI.                                              |
-| \-\-group-policy                        | Specifies the [group policy file](../../deploying/group-policy.html) to include in the CPI. |
+| \-\-group-policy                        | Specifies the group policy file to include in the CPI. |
 | \-\-cpi-name                            | Specifies a name for the CPI.                                                               |
 | \-\-cpi-version                         | Specifies the CPI version.                                                                  |
 | \-\-file                                | Specifies the name of the CPI file to create.                                               |
