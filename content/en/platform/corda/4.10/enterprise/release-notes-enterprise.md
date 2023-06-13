@@ -43,8 +43,6 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 * Updated documentation for both `.startNodes()` and `.stopNodes()` of MockNetwork to indicate that restarting nodes is not supported.
 
-* Flow draining mode no longer acknowledges P2P in-flight messages that have not yet been committed to the database. Previously, flow draining mode acknowledged all in-flight messages as duplicate.
-
 * Previously, when configured to use confidential identities and the Securosys PrimusX HSM, it was possible for Corda to fail to generate a wrapped key-pair for a new confidential identity. This would cause a temporary key-pair to be leaked, consuming resource in the HSM. This issue occurred when:
 
   * the Securosys HSM was configured in a master-clone cluster
