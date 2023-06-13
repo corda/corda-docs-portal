@@ -32,7 +32,7 @@
     </h{{ .Level }}>
   {{ end }}
 {{ else }}
-  {{ $anchor := strings.ReplaceRE `-hahahugoshortcode-s.*hbhb` "" .Anchor}}
+  {{ $anchor := strings.ReplaceRE `-hahahugoshortcode.*hbhb` "" .Anchor}}
   <h{{ .Level }} id="{{ $anchor | safeURL }}"  class="link-heading">
     <a href="#{{ $anchor | safeURL }}">
       {{ .Text | safeHTML }} 
