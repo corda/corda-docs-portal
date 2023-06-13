@@ -19,8 +19,8 @@ In particular, PostgreSQL and Kafka must be running. The mechanism to achieve th
 This section contains the following:
 * [Download and Push Container Images to a Registry]({{< relref "#download-and-push-container-images-to-a-registry ">}})
 * [Download the Corda Helm Chart]({{< relref "#download-the-corda-helm-chart ">}})
-* [Configure the Deployment]({{< relref "#configure-the-deployment ">}})
-* [Deployment]({{< relref "#deployment ">}})
+* [Configure the Deployment]({{< relref "#configure-the-deployment">}})
+* [Deployment]({{< relref "#deployment">}})
 
 ## Download and Push Container Images to a Registry
 

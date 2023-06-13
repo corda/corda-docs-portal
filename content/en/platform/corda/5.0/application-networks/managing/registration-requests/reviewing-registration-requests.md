@@ -15,7 +15,7 @@ This section describes how to review and manually approve or decline registratio
 ## Viewing Requests Pending Manual Approval
 
 To view all registration requests, use the [GET method of the
-mgm/{holdingidentityshorthash}/approval/registrations endpoint](../../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__registrations).
+mgm/{holdingidentityshorthash}/approval/registrations endpoint](https://docs.r3.com/en/platform/corda/5.0/rest-api/C5_OpenAPI.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__registrations).
 
 ```bash
 curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/mgm/$MGM_HOLDING_ID/approval/registrations
