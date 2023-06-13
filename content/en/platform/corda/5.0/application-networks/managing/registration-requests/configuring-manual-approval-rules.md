@@ -24,7 +24,7 @@ curl -k -u $REST_API_USER:$REST_API_PASSWORD -d "$RULE_PARAMS" $REST_API_URL/mgm
 
 ## Viewing Current Group Approval Rules
 
-To retrieve all applied group approval rules, use the [mgm/{holdingidentityshorthash}/approval/rules GET method](https://docs.r3.com/en/platform/corda/5.0/reference/rest-api/C5_OpenAPI.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__approval_rules).
+To retrieve all applied group approval rules, use the [mgm/{holdingidentityshorthash}/approval/rules GET method](../../../reference/rest-api/C5_OpenAPI.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__approval_rules).
 
 ```bash
 curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/mgm/$MGM_HOLDING_ID/approval/rules
