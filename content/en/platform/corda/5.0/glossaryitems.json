@@ -1,7 +1,7 @@
 {
     "CorDapp": {
         "definition": "A distributed application (Dapp) deployed on Corda.",
-        "more": "CorDapps encapsulate the logic that brings parties into agreement through flows.  For more information see the <a href=\"./key-concepts.html#cordapps\">Key Concepts</a> page. " 
+        "more": "CorDapps encapsulate the logic that brings parties into agreement through flows.  For more information see the <a href=\"../key-concepts/fundamentals/CorDapps/index.html\">Key Concepts</a> page. " 
     },
     "Virtual node": {
         "definition": "The combination of the context of an identity and the temporary compute instances created to execute flows on behalf of that identity." 
