@@ -23,7 +23,7 @@ such as the flow worker or the MGM worker. The flow persistence requests metrics
 * The time the flow persistence requests remained on Kafka, from the moment they were added by flows until they were received
   by the database worker (Kafka lag).
 
-The ledger persistence requests metrics measure the time taken to handle the ledger persistence requests.
+The ledger persistence requests metrics measure the time needed to execute the ledger transaction database requests against the database.
 
 The membership persistence requests metrics presented in this section measure:
 * The time taken to handle the membership persistence requests, which included acquiring a connection and executing a transaction.

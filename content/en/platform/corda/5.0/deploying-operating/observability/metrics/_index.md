@@ -52,17 +52,4 @@ metrics:
 ### Exported Metrics
 
 The following Corda-specific metrics are exported and they have been added at the following levels:
-
-* [HTTP requests]({{< relref "http.md" >}})
-* [Sandbox]({{< relref "sandbox.md" >}})
-* [Messaging]({{< relref "messaging.md" >}})
-* [Flow]({{< relref "flow.md" >}})
-* [Flow mapper]({{< relref "flow-mapper.md" >}})
-* [Flow session]({{< relref "flow-session.md" >}})
-* [Peer-to-peer messages and sessions]({{< relref "p2p.md" >}})
-* [Ledger uniqueness checker client service]({{< relref "ledger-uniqueness.md" >}})
-* [Uniqueness checker]({{< relref "uniqueness-checker.md" >}})
-* [Backing store]({{< relref "backing-store.md" >}})
-* [Database worker]({{< relref "db-worker.md" >}})
-* [Membership worker]({{< relref "membership-worker.md" >}})
-* [Crypto worker]({{< relref "crypto-worker.md" >}})
+{{< childpages >}}
