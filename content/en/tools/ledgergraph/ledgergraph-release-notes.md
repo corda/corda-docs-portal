@@ -12,7 +12,13 @@ weight: 801
 
 LedgerGraph is a standalone service that operates on a different release cadence to the Corda platform. 
 
-## Ledgergraph 1.2.4 release notes
+## LedgerGraph 1.2.5 release notes
+
+In this release:
+
+* It is now possible to enable `inboundReferencesOnly` when checking if a DAG object is related to any other DAG that is unconsumed using the `isRelatedToUnconsumedDAG` method. This ignores DAGs that have an outbound reference state to an unconsumed DAG.
+
+## LedgerGraph 1.2.4 release notes
 
 In this release:
 
