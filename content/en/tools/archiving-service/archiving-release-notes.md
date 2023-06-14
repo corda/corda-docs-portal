@@ -13,6 +13,10 @@ weight: 705
 
 The Archive Service is a standalone service that operates on a different release cadence to the Corda platform.
 
+## Archive Service 1.0.5
+
+* Fixed an issue where the Archive Service would misunderstand reference states when part of transactions. The Archive Service will now correctly allow a transaction to be archived even if it still has unconsumed outbound references; that is, it references a transaction that is still unconsumed. The behavior will still be the same for any unconsumed transaction that references the transaction (inbound): in this scenario, it will still be unarchivable.
+
 ## Archive Service 1.0.4
 
 In this release:
