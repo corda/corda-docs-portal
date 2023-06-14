@@ -25,14 +25,14 @@ This section contains the following:
 ## Download and Push Container Images to a Registry
 
 The Corda container images must be in a registry that is accessible from the Kubernetes cluster in which Corda will run.
-By default, the Corda Community images are made available via Docker Hub.
+By default, the Corda images are made available via Docker Hub.
 If your Kubernetes cluster can not pull images from Docker Hub, or if you are deploying Corda Enterprise, the following sections describe how to push the images from the provided `tar` file into a container registry that is accessible from the cluster:
-* [Container Images for Corda Community]({{< relref "#container-images-for-corda-community" >}})
+* [Container Images for Corda]({{< relref "#container-images-for-corda" >}})
 * [Container Images for Corda Enterprise]({{< relref "#container-images-for-corda-enterprise" >}})
 
-### Container Images for Corda Community
+### Container Images for Corda
 
-To push the Corda Community images: 
+To push the Corda images: 
 
 1. Download `corda-os-worker-images-Iguana1.0.tar` from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
 
@@ -111,12 +111,12 @@ To push the Corda Enterprise images:
 ## Download the Corda Helm Chart
 
 The following sections describe how to download the Corda Helm chart:
-* [Corda Community Helm chart]({{< relref "#corda-community-helm-chart" >}})
+* [Corda Helm chart]({{< relref "#corda-helm-chart" >}})
 * [Corda Enterprise Helm chart]({{< relref "#corda-enterprise-helm-chart" >}})
 
-### Corda Community Helm chart
+### Corda Helm chart
 
-If you have access to Docker Hub, you can download the Corda Community Helm chart using the following command:
+If you have access to Docker Hub, you can download the Corda Helm chart using the following command:
 
 ```shell
 helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.0-Iguana1.0
