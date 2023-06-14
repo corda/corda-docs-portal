@@ -33,7 +33,7 @@ With the crypto worker metrics, you can measure the below crypto requests within
     `sign` request. Additionally, there are more detailed metrics related to key caches and the 'sign' operation itself.
   * `SigningService.findMySigningKeys`: The `findMySigningKeys` operation sends a set of keys to the crypto worker,
     which then filters and returns the keys owned by the calling virtual node.
-    Regarding metrics for the `findMySigningKeys` operation, the following metrics are related to the time taken to
+    The metrics in the following table are related to the time taken to
     handle the entire `findMySigningKeys` request. Additionally, there are metrics related to key caches.
 
 * Admin or other requests, which involve operations such as creating a new key (pair) for a virtual node, or list
