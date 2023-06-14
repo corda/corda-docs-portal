@@ -33,7 +33,7 @@ The membership persistence requests metrics presented in this section measure:
 Additionally, there are background processes occurring within the database worker, namely the reconciliations. The
 reconciliations are responsible for ensuring the alignment of Kafka compacted topics with the database
 (the database being the primary source of truth). The reconciliations run at regular intervals, loading in-memory database
-and Kafka records, identifying the differences (delta), and synchronizing the Kafka state to match that of the database.
+and Kafka records, identifying the differences, and synchronizing the Kafka state to match that of the database.
 The reconciliations metrics listed in this section measure:
 
 * The time taken for a reconciliation run to complete.
