@@ -41,7 +41,7 @@ table th:nth-of-type(4) {
 
 Tags:
 * `partition`: The partition of the Kafka topic published to or consumed from.
-*  `messagepattern_type`: The message pattern type.
+* `messagepattern_type`: The message pattern type.
 * `messagepattern_clientid`: The message pattern client ID.
-* `operation_name`: The specific type of operation being performed.
+* `operation_name`: The name of the operation that the metric is related to.
 * `topic`: The name of the Kafka topic published to or consumed from.
