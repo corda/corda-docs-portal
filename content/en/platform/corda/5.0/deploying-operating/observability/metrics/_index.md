@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Metrics
 
-Metrics provide greater insight into the inner workings of Corda 5 and can be used as the basis for monitoring and alerting.
+Metrics provide greater insight into the inner workings of Corda and can be used as the basis for monitoring and alerting.
 
 ## Collecting Metrics
 
