@@ -36,7 +36,7 @@ With the crypto worker metrics, you can measure the below crypto requests within
     The metrics in the following table are related to the time taken to
     handle the entire `findMySigningKeys` request. Additionally, there are metrics related to key caches.
 
-* Admin or other requests, which involve operations such as creating a new key (pair) for a virtual node, or list
+* Admin or other requests, which involve operations such as creating a new key pair for a virtual node, or list
   information about the keys owned by a virtual node. Regarding metrics for these requests, the following metrics pertain
   to the time taken to handle the requests as a whole.
 
