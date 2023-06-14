@@ -27,8 +27,8 @@ From Corda 5.0 onwards, there is one documentation set, but the features that re
 	 alt="Enterprise icon"
 >}}
 
-* **A**: The heading without the 'Enterprise only' icon is the most common and it is used where the content relates to all Corda users.
-* **B**: The ‘Enterprise only' icon is used mostly in headings, indicating that the content under that heading relates to a Corda Enterprise feature. On occasions, the icon may be used inline to identify sentences, paragraphs, or tables that relate to a Corda Enterprise feature. 
+* **A**: The heading without the 'Enterprise only' icon is the most common and it is used where the content applies to all Corda users.
+* **B**: The ‘Enterprise only' icon is used mostly in headings, indicating that the content under that heading relates to a Corda Enterprise feature. On occasions, the icon may be used inline to identify sentences, paragraphs, or tables that apply to a Corda Enterprise feature. 
 
 <!--## End of Life Strategy
 Use the following table to track the end of life schedule for each version of Corda 5. Each version of Corda has R3 support available for a fixed period. 
