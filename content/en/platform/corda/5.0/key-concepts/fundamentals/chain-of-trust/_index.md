@@ -16,7 +16,7 @@ Corda's chain of trust is configured when a Network Operator installs a new CPI.
 These code-signing trust roots may be self-signed publisher certificates, or they may be well-known public CAs. 
 Either way, the trust roots establish the standard of proof that the CorDapp code (and any future upgrades) has come from the expected publisher. 
 The Network Operator must establish that they trust the code-signing trust roots and upload them to the cluster to proceed with CPI installation. 
-In choosing to install and trust the CPI, the network operator is crucially accepting the network details presented by the CPI and, in particular, the network credentials of the MGM, which subsequently act as authentication and a distribution root for the entire network.
+In choosing to install and trust the CPI, the Network Operator is crucially accepting the network details presented by the CPI and, in particular, the network credentials of the MGM, which subsequently act as authentication and a distribution root for the entire network.
 
 The MGM trust root information is defined statically in the `GroupPolicy.json` file of the CPI. 
 Corda updates this when virtual nodes are upgraded to a more recent CPI from the publisher. 
