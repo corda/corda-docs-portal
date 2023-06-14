@@ -15,7 +15,9 @@ The Archive Service is a standalone service that operates on a different release
 
 ## Archive Service 1.0.5
 
-* Fixed an issue where the Archive Service would misunderstand reference states when part of transactions. The Archive Service will now correctly allow a transaction to be archived even if it still has unconsumed outbound references; that is, it references a transaction that is still unconsumed. The behavior will still be the same for any unconsumed transaction that references the transaction (inbound): in this scenario, it will still be unarchivable.
+In this release:
+
+* An issue occurred where the Archive Service misunderstood reference states when part of transactions. As of this release, the Archive Service now correctly allows a transaction to be archived even if it still has unconsumed outbound references; that is, it references a transaction that is still unconsumed. The behavior is unchanged for any unconsumed transaction that references the transaction (inbound): in this scenario, it will still be unarchivable.
 
 ## Archive Service 1.0.4
 
@@ -30,8 +32,6 @@ In this release:
 * A new configuration option has been added which allows the Archive Service to ignore transactions that cause failures when exporting a JSON snapshot. For more information, see the [Archive Service]({{< relref "archiving-service-index.md#new-in-v103" >}}) documentation.
 
 ## Archive Service 1.0.2
-
-### Fixed issues
 
 In this release:
 
