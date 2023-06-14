@@ -17,10 +17,10 @@ In particular, PostgreSQL and Kafka must be running. The mechanism to achieve th
 * use a managed service such as Amazon RDS for PostgreSQL, Amazon Managed Streaming for Apache Kafka, or Confluent Cloud.
 
 This section contains the following:
-* [Download and Push Container Images to a Registry]({{< relref "#download-and-push-container-images-to-a-registry ">}})
-* [Download the Corda Helm Chart]({{< relref "#download-the-corda-helm-chart ">}})
-* [Configure the Deployment]({{< relref "#configure-the-deployment ">}})
-* [Deployment]({{< relref "#deployment ">}})
+* [Download and Push Container Images to a Registry]({{< relref "#download-and-push-container-images-to-a-registry">}})
+* [Download the Corda Helm Chart]({{< relref "#download-the-corda-helm-chart">}})
+* [Configure the Deployment]({{< relref "#configure-the-deployment">}})
+* [Deployment]({{< relref "#deployment">}})
 
 ## Download and Push Container Images to a Registry
 
@@ -34,7 +34,7 @@ If your Kubernetes cluster can not pull images from Docker Hub, or if you are de
 
 To push the Corda Community images: 
 
-1. Download `corda-os-worker-images-Iguana1.0.tar` from the [R3 Developer Portal](https://developer.r3.com/).
+1. Download `corda-os-worker-images-Iguana1.0.tar` from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
 
 2. Inflate and load the `corda-os-worker-images-Iguana1.0.tar` file into the local Docker engine with the following command:
    ```shell
@@ -122,7 +122,7 @@ If you have access to Docker Hub, you can download the Corda Community Helm char
 helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.0-Iguana1.0
 ```
 
-If you do not have access to Docker Hub, you can download the `corda-5.0.0-Iguana1.0.tgz` file from the [R3 Developer Portal](https://developer.r3.com/).
+If you do not have access to Docker Hub, you can download the `corda-5.0.0-Iguana1.0.tgz` file from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
 
 ### Corda Enterprise Helm chart {{< enterprise-icon >}}
 
@@ -251,7 +251,7 @@ By default, the REST API is exposed on an internal Kubernetes service.
 To enable access from outside the Kubernetes cluster, use one of the following:
 
 * [Kubernetes Ingress](#kubernetes-ingress)
-* [AWS Load Balancer Controller]("#aws-load-balancer-controller)
+* [AWS Load Balancer Controller](#aws-load-balancer-controller)
 
 ##### Kubernetes Ingress
 
