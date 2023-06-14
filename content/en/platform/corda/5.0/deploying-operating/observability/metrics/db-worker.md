@@ -73,4 +73,4 @@ Tags:
 * `group`: The membership group within which peer-to-peer communication happens.
 * `virtualnode`: The virtual node identity.
 * `reconciliation_reconciler_type`: The type of reconciler that run, for example, CPI metadata, virtual node metadata.
-* `reconciliation_outcome`: The outcome of a reconciliation run (SUCCESS, FAILURE).
+* `reconciliation_outcome`: The outcome of a reconciliation run (SUCCESS or FAILURE).
