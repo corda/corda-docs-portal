@@ -1,0 +1,7 @@
+{{- with .Page.Pages -}}
+<ul>
+{{- range sort . ".Params.menu.corda5.weight" -}}
+<li><a href='{{- .Permalink -}}'>{{ .Title }}</a></li>
+{{- end -}}
+</ul>
+{{- end -}}

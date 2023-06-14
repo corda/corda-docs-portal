@@ -424,7 +424,7 @@ exception on startup if it finds any of them:
 * `transactionIsolationLevel`: this is now hard-coded in the node.
 * `initialiseSchema`: as above - schema initialisation cannot be run as part of node startup.
 * `initialiseAppSchema`: as above.
-* `runMigration`: this is deprecated. Schema migration can only be run via the [Database Management Tool](#database-management-tool-improvements) or the new `run-migration-script` sub-command.
+* `runMigration`: this is deprecated. Schema migration can only be run via the [Database Management Tool](#database-management-tool-improvements) or the new `run-migration-scripts` sub-command.
 
 In addition, it is now possible to run a CorDapp without a schema migration resource in `devMode` - Corda Enterprise Edition 4.6 accepts the same `--allow-hibernate-to-manage-app-schemas` command-line flag as Corda open source 4.6, and has relaxed the check for the presence of app schemas when running in `devMode`.
 

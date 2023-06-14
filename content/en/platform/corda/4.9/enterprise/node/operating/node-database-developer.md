@@ -41,7 +41,7 @@ Setting up a Corda node to connect to a database requires:
 
 * [Creating a database user with schema permissions](#1-creating-a-database-user-with-schema-permissions)
 * [Corda node configuration changes](#2-corda-node-configuration)
-* [Run the node](#3-run-the-run-migration-script-sub-command-to-create-all-database-schema-objects) to auto-create schema objects
+* [Run the node](#3-run-the-run-migration-scripts-sub-command-to-create-all-database-schema-objects) to auto-create schema objects
 
 Corda ships out of the box with an [H2 database](http://www.h2database.com) which doesn’t require any configuration
 (see the documentation on [Database access when running H2]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node-database-access-h2.md" >}}), hence when using H2 database it’s sufficient to [start the node](../../../../../../../en/platform/corda/4.9/enterprise/node/operating/node-database-admin.html#3-corda-node-configuration) and the database will be created.
@@ -209,7 +209,7 @@ database = {
 
 
 See [Node configuration](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.html#database) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
-* Run the `run-migration-script` sub-command to allow a Corda node to create database tables upon startup.
+* Run the `run-migration-scripts` sub-command to allow a Corda node to create database tables upon startup.
 * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
 It is the responsibility of the node administrator or a developer to download the appropriate JDBC driver.
 Corda will search for valid JDBC drivers under the `./drivers` subdirectory of the node base directory.
@@ -270,11 +270,11 @@ database = {
 
 Replace the placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database).
 The `database.schema` is the database schema name assigned to the user.
-You need  *administrative* permissions in order to run the `run-migration-script` sub-command to initialise or migrate the database schema.
+You need  *administrative* permissions in order to run the `run-migration-scripts` sub-command to initialise or migrate the database schema.
 
 The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615),
 extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* as the archive comes with two JARs.
-[Common Configuration Steps paragraph](#3-run-the-run-migration-script-sub-command-to-create-all-database-schema-objects) explains the correct location for the driver JAR in the node installation structure.
+[Common Configuration Steps paragraph](#3-run-the-run-migration-scripts-sub-command-to-create-all-database-schema-objects) explains the correct location for the driver JAR in the node installation structure.
 
 
 
@@ -301,7 +301,7 @@ Replace the placeholders *<host>*, *<port>* with appropriate values, the default
 By default the connection to the database is not SSL, for securing JDBC connection refer to
 [Securing JDBC Driver Applications](https://docs.microsoft.com/en-us/sql/connect/jdbc/securing-jdbc-driver-applications?view=sql-server-2017).
 
-You can only run the  `run-migration-script` sub-command to initialise or migrate the database schema when using *administrative* permissions.
+You can only run the  `run-migration-scripts` sub-command to initialise or migrate the database schema when using *administrative* permissions.
 The `database.schema` is the database schema name assigned to the user.
 
 Microsoft JDBC 6.2 driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615),
@@ -335,7 +335,7 @@ database = {
 Replace the placeholders *<host>*, *<port>* and *<sid>* with appropriate values, for a basic Oracle installation the default *<sid>* value is *xe*.
 If the user was created with *administrative* permissions the schema name `database.schema` will be the same as the user name (*my_user*).
 
-When the database user has *administrative* permissions they can run the `run-migration-script` sub-command to initialise or migrate the database schema - this is not possible when using *restricted* permissions.
+When the database user has *administrative* permissions they can run the `run-migration-scripts` sub-command to initialise or migrate the database schema - this is not possible when using *restricted* permissions.
 
 Copy the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c to the node directory `drivers`.
 
@@ -366,15 +366,15 @@ The value of `database.schema` is automatically wrapped in double quotes to pres
 (e.g. *AliceCorp* becomes *AliceCorp*, without quotes PostgresSQL would treat the value as *alicecorp*),
 this behaviour differs from Corda Open Source where the value is not wrapped in double quotes.
 
-You can only run the `run-migration-script` sub-command when using *administrative* permissions.
+You can only run the `run-migration-scripts` sub-command when using *administrative* permissions.
 
 Copy the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* to the node directory `drivers`.
 
 
 
-### 3. Run the `run-migration-script` sub-command to create all database schema objects
+### 3. Run the `run-migration-scripts` sub-command to create all database schema objects
 
-For the node to create all database schema objects, you should run the `run-migration-script` sub-command.
+For the node to create all database schema objects, you should run the `run-migration-scripts` sub-command.
 
 Additionally, the node will create any tables for CorDapps containing Liquibase database migration scripts.
 
@@ -400,7 +400,7 @@ ensure that:
 
 
 * the node can connect to the  database with **administrative permissions** or runs with the default embedded H2 database.
-* you have administrative permissions and you run the `run-migration-script` sub-command with at least one of the following parameters: `--core-schemas` and `--app-schemas`.
+* you have administrative permissions and you run the `run-migration-scripts` sub-command with at least one of the following parameters: `--core-schemas` and `--app-schemas`.
 
 
 

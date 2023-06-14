@@ -18,7 +18,13 @@ This page documents the secrets that are managed and required by a Corda install
 
 The relationships between the secrets and Corda components is shown in the following diagram.
 
-{{% figure zoom="secrets/secrets.png" alt="Diagram showing the relationships between the secrets and components" %}}
+   {{< 
+     figure
+	    src="secrets/secrets.png"
+      width=100%
+	    figcaption="Diagram showing the relationships between the secrets and components"
+	    alt="Diagram showing the relationships between the secrets and components"
+   >}}
 
 ## Node
 

@@ -9,7 +9,7 @@ menu:
 title: LedgerGraph
 ---
 
-# LedgerGraph V1.2.2
+# LedgerGraph
 
 **LedgerGraph** is a CorDapp you can use to get in-memory access to transaction data. Transaction information is kept in a graph structure on any node where **LedgerGraph** is installed. As not all transactions are related to all other transactions, there can actually be multiple components in the graph: each a **directed acyclic graph** (DAG).
 
@@ -20,16 +20,22 @@ LedgerGraph is a dependency for the set of Collaborative Recovery CorDapps V1.1 
 {{< /warning >}}
 
 {{< note >}}
-The [Archive Service](../../../en/platform/corda/4.9/enterprise/node/archiving/archiving-setup.md) relies on the Ledger Graph functionality. For the Archiving Service to work correctly, the Ledger Graph must load your entire graph in memory to function. This can cause:
+The [Archive Service](../../../en/platform/corda/4.9/enterprise/node/archiving/archiving-setup.md) relies on the LedgerGraph functionality. For the Archiving Service to work correctly, the LedgerGraph must load your entire graph in memory to function. This can cause:
 * Increased time to run Archiving tasks.
 * Increased JVM heap memory usage while Archiving tasks are being performed.
 
-There is also a risk of Ledger Graph initialisation failure if transactions are in progress while the graph is being loaded (initialised) – if this happens it is deemed invalid and you must restart the node to re-initialise the ledger.
+There is also a risk of LedgerGraph initialisation failure if transactions are in progress while the graph is being loaded (initialised) – if this happens it is deemed invalid and you must restart the node to re-initialise the ledger.
 
 In order to improve speed and memory usage when using the Archiving Service, JVM heap memory of the node can be increased to handle larger ledgers. In addition, the `transactionReaderPoolSize` config parameter can be adjusted upwards to use more CPU threads to increase speed, and increase the number of CPUs or cores a node has access to.
 {{< /note >}}
 
-### New in V1.2.3
+### In V1.2.4
+
+A new configuration option has been added which allows LedgerGraph to initialize and include transactions that have legacy contract states associated with them, that would otherwise fail to deserialize. This configuration option is: `ignoreTransactionLoadingFailures = true`.
+
+By default, this value is false and the behaviour of LedgerGraph is unchanged. However, if you experience a `TransactionDeserializationException` when initializing LedgerGraph, this configuration option can be added. This allows these transactions to be skipped by substituting in their place an `UnknownContractState`. The transactions that cause failures will still be included in the graph, however, some of the data contained in these transactions will have unknown values. This may cause issues if filtering the graph by **Contract** or **Participant Data**.
+
+### In V1.2.3
 
 To see what's new in V1.2.3, see the [LedgerGraph release notes](../ledgergraph/ledgergraph-release-notes.md).
 
@@ -142,19 +148,46 @@ You should now see a list of flows printed to the console, including those liste
 
 ## Configuration Parameters
 
-You can tune **LedgerGraph**'s behaviour through a small set of configuration parameters, shown in this table:
+You can tune **LedgerGraph**'s behaviour through the following configuration parameters:
 
-{{< table >}}
-|Configuration Parameter|Default Value|Acceptable Value(s)|Description|
-|-|:-:|:-:|-|
-|`transactionReaderPageSize` &dagger; |`100`|`10` to `10,000,000`|The number of transactions to include in the result set when querying the database during graph initialization.|
-|`transactionReaderPoolSize` &Dagger;|`10`|`1` to `1000`|The number of threads to use when deserializing transaction data during graph initialization.|
-|`onDemand`|`true`| `true`, `false`|When set to `true`, your LedgerGraph becomes an on-demand service, active only when triggered by the [Archive Service](../../../en/platform/corda/4.9/enterprise/node/archiving/archiving-setup.md). This saves heap memory usage.
-{{< /table >}}
+ 
 
-**&dagger;** Because there can be an extremely large number of transactions in a node's vault, it is important to select an appropriate page size for your database to optimize retrieval performance. Some amount of experimentation may be required on your part to find/define the best value to be used here, so we don't recommend the default value for most production environments.
 
-**&Dagger;** When Corda stores transactions, their data is serialized before being added to a database table. In order for **LedgerGraph** to make use of this data, it must first _deserialize_ it. This can be a relatively slow process, so allowing multiple threads to perform the deserialization in parallel can greatly reduce overall initialization time. You may need to experiment in your set up to find and define the best value to be used here.
+### `transactionReaderPageSize`
+
+**Default value:** 100
+
+**Possible values:** 10 to 10000000
+
+**Description:** The number of transactions to include in the result set when querying the database during graph initialization.
+
+{{< note >}} Because there can be an extremely large number of transactions in a node's vault, it is important to select an appropriate page size for your database to optimize retrieval performance. Some amount of experimentation may be required on your part to find/define the best value to be used here, so we do not recommend the default value for most production environments. {{</ note >}}
+
+### `transactionReaderPoolSize`
+
+**Default value:** 10
+
+**Possible values:** 1 to 1000
+
+**Description:** The number of threads to use when deserializing transaction data during graph initialization.
+
+{{< note >}} When Corda stores transactions, their data is serialized before being added to a database table. In order for **LedgerGraph** to make use of this data, it must first _deserialize_ it. This can be a relatively slow process, so allowing multiple threads to perform the deserialization in parallel can greatly reduce overall initialization time. You may need to experiment in your set up to find and define the best value to be used here. {{</ note >}}
+
+### `onDemand` 
+
+**Default value:** true
+
+**Possible values:** true, false
+
+**Description:** When set to `true`, your LedgerGraph becomes an on-demand service, active only when triggered by the [Archive Service](../../../en/platform/corda/4.9/enterprise/node/archiving/archiving-setup.md). This saves heap memory usage.
+
+### `ignoreTransactionLoadingFailures`
+
+**Default value:** false
+
+**Possible values:** true, false
+
+**Description**:  Specifies if LedgerGraph can initialize even when transactions with associated legacy `ContractStates` fail to serialize. By default, `ignoreTransactionLoadingFailures` is false and the behavior of LedgerGraph is unchanged. However, if a `TransactionDeserializationException` is generated when initializing LedgerGraph, set this config parameter to `true` to allow transactions to be skipped by substituting an UnknownContractState. The transactions that cause failures will still be included in the graph; however, some of the data contained in these transactions will be altered to Unknown values. This might cause issues if filtering the graph by Contract or by Participant Data. The graph that is built will still be complete.
 
 ## Configure LedgerGraph parameters
 
@@ -172,7 +205,7 @@ transactionReaderPoolSize = 32
 
 ## Support for Confidential Identities
 
-If you are using Corda [Confidential Identities](../../../en/platform/corda/4.9/enterprise/cordapps/api-confidential-identity.md), you need to add further configuration to LedgerGraph  in order to properly support your environment. This is due to a limitation in the current implementation of the Confidential Identities CorDapp.
+If you are using Corda [Confidential Identities](../../../en/platform/corda/4.9/enterprise/cordapps/api-confidential-identity.md), you need to add further configuration to LedgerGraph in order to properly support your environment. This is due to a limitation in the current implementation of the Confidential Identities CorDapp.
 
 This additional configuration step helps to ensure that confidential identities on your node are properly mapped to known identities (where they have been shared with your node) when new transactions are processed and added to the graph.
 

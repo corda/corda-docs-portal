@@ -14,7 +14,7 @@ weight: 250
 
 # Platform support
 
-This topic lists the JDKs, operating systems and database types that support Corda Enterprise Edition 4.9, both for production and for development.
+This topic lists the JDKs, operating systems and database types that support Corda Enterprise Edition 4.9, both for production and for development. For the 'end of life schedule' for Corda verisons and the associated documentation, refer to the [End of Life Schedule]({{< relref "../../eol-schedule.md" >}}).
 
 ## JDK support
 
@@ -145,7 +145,8 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 | Utimaco SecurityServer Se Gen2| Firmware version 4.21.1  | Firmware version 4.21.1  | Firmware version 4.21.1 | Firmware version 4.21.1   |
 |                               | Driver version 4.21.1    | Driver version 4.21.1    | Driver version 4.21.1   | Driver version 4.21.1     |
 | Gemalto Luna                  | Firmware version 7.0.3   | Firmware version 7.0.3   | Firmware version 7.0.3  | Firmware version 7.0.3    |
-|                               | Driver version 7.3       | Driver version 7.3       | Driver version 7.3      | Driver version 7.3        |
+| Gemalto Luna driver with Corda 4.9.6 and earlier, 4.10, 4.10.1  | Driver version 7.3 | Driver version 7.3 | Driver version 7.3 | Driver version 7.3 |
+| Gemalto Luna driver with Corda 4.9.7 and later versions of 4.9.* or 4.10.2 and later  | Driver version 10.4.0 | Driver version 10.4.0 | Driver version 10.4.0 | Driver version 10.4.0 |
 | FutureX Vectera Plus          | Firmware version 6.1.5.8 | Firmware version 6.1.5.8 | Firmware version 6.1.5.8 | Firmware version 6.1.5.8  |
 |                               | PKCS#11 version 3.1      | PKCS#11 version 3.1      | PKCS#11 version 3.1      | PKCS#11 version 3.1       |
 |                               | FXJCA version 1.17       | FXJCA version 1.17       | FXJCA version 1.17       | FXJCA version 1.17        |

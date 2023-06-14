@@ -445,3 +445,19 @@ main > nav[aria-label="breadcrumb"] {
   width: 100%;
   z-index: 1000;
 }
+
+details>summary {
+ 
+  list-style: none;
+  margin-top: 1rem;
+}
+summary::-webkit-details-marker {
+  display: none
+}
+
+summary::after {
+  content: url("/icons/icon-arrow-down.svg");
+}
+details[open] summary:after {
+  content: url("/icons/icon-arrow-up.svg");
+}
