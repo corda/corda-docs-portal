@@ -64,7 +64,6 @@ table th:nth-of-type(4) {
 | `corda_membership_persistence_handler_time_seconds` | Timer | <ul><li>`operation_name`</li><li>`group`</li><li>`virtualnode`</li></ul> | The time it takes to execute membership persistence handlers. Includes time taken to get database connection and execute the transaction. |
 | `corda_db_reconciliation_run_time_seconds` | Timer | <ul><li>`reconciliation_reconciler_type`</li><li>`reconciliation_outcome`</li></ul> | The time needed for a full reconciliation run. |
 | `corda_db_reconciliation_records_count` | Counter | <ul><li>`reconciliation_reconciler_type`</li><li>`reconciliation_outcome`</li></ul></ul> | The number of reconciled records for a reconciliation run. |
-
 Tags:
 * `entityRequest.type`: The type of persistence request.
 * `entityRequest_outcome`: The outcome of processing a request (SUCCESS, FAILURE).
