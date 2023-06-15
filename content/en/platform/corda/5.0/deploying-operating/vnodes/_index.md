@@ -13,3 +13,7 @@ section_menu: corda5
 # Managing Virtual Nodes
 This section describes how to manage virtual nodes. It contains the following:
 {{< childpages >}}
+
+{{< note >}}
+Creating virtual nodes is described in the [Creating Application Networks](../../application-networks/creating/_index.md) section.
+{{< /note >}}
