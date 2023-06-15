@@ -30,7 +30,7 @@ Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f
 {{% /tab %}}
 {{< /tabs >}}
 
-This returns the list of all virtual nodes in the cluster as an array of `VirtualNodeInfo` objects in the following format:
+This command returns the list of all virtual nodes in the cluster as an array of `VirtualNodeInfo` objects in the following format:
 ```json
 {
   "virtualNodes": [
