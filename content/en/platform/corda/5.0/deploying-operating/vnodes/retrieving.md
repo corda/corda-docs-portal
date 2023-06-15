@@ -15,7 +15,7 @@ section_menu: corda5
 
 ## Retrieving All Virtual Nodes
 
-To retrieve a list of all virtual nodes in the cluster use the GET method of the <a href ="../../reference/rest-api/C5_OpenAPI.html#tag/Virtual-Node-API/operation/get_virtualnode">`/api/v1/virtualnode` endpoint </a>:
+To retrieve a list of all virtual nodes in the cluster, use the GET method of the <a href ="../../reference/rest-api/C5_OpenAPI.html#tag/Virtual-Node-API/operation/get_virtualnode">`/api/v1/virtualnode` endpoint </a>:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
