@@ -19,14 +19,14 @@ To retrieve a list of all virtual nodes in the cluster use the GET method of the
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
-```
+```shell
 curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/api/v1/virtualnode
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```
 Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $REST_API_USER:$REST_API_PASSWORD)} -Uri $REST_API_URL/api/v1/virtualnode
-```
+```shell
 {{% /tab %}}
 {{< /tabs >}}
 
@@ -69,12 +69,12 @@ To retrieve information about the virtual node of a specific member in the clust
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
-```
+```shell
 curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/api/v1/virtualnode/<holdingidentityshorthash>
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
-```
+```shell
 Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $REST_API_USER:$REST_API_PASSWORD)} -Uri $REST_API_URL/api/v1/virtulnode/<holdingidentityshorthash>
 ```
 {{% /tab %}}
