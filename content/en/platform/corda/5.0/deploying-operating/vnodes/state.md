@@ -13,7 +13,7 @@ section_menu: corda5
 
 # Setting the State of Virtual Nodes
 
-A virtual node can be in one of the following states: 
+A virtual node can have one of the following states: 
 
 * `ACTIVE` — normal operational mode.
 * `MAINTENANCE` — maintenance mode. This mode disables all operational statuses:
