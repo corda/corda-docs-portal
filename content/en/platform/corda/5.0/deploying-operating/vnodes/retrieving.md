@@ -80,7 +80,7 @@ Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f
 {{% /tab %}}
 {{< /tabs >}}
 
-This returns a `VirtualNodeInfo` object for the specified member in the following format:
+This endpoint returns a `VirtualNodeInfo` object for the specified member in the following format:
 ```json
 {
   "cpiIdentifier": {
