@@ -1,6 +1,6 @@
 ---
 date: '2023-04-07'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 title: "Configuring Pre-Authentication Rules"
 menu:
   corda5:

@@ -1,7 +1,7 @@
 ---
 date: '2022-09-19'
 title: "Installing the CSDE"
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 menu:
   corda5:
     parent: corda5-develop-get-started

@@ -1,8 +1,8 @@
 ---
 date: '2023-06-14'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 title: "Uniqueness Checker"
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 menu:
   corda5:
     parent: corda5-cluster-metrics

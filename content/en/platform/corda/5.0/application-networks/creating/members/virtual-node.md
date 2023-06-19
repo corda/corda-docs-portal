@@ -1,6 +1,6 @@
 ---
 date: '2023-04-13'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 title: "Create a Virtual Node"
 menu:
   corda5:

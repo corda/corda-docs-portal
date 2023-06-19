@@ -1,6 +1,6 @@
 ---
 date: '2023-02-10'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 title: "net.corda.v5.crypto"
 menu:
   corda5:
