@@ -1,6 +1,6 @@
 ---
 date: '2022-09-21T14:27:00+01:00'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 title: "Default Class Evolution"
 menu:
   corda5:
