@@ -1,8 +1,8 @@
 ---
 date: '2023-05-11'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 title: "Manual Bootstrapping"
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 menu:
   corda5:
     parent: corda5-cluster-deploying

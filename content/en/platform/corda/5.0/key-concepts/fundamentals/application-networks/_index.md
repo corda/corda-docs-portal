@@ -1,7 +1,7 @@
 ---
 title: "Application Networks"
 date: 2023-06-07
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 menu:
   corda5:
     identifier: corda5-fundamentals-app-networks

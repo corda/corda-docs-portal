@@ -2,7 +2,7 @@
 date: '2023-05-03'
 title: "Building Your First CorDapp"
 project: corda
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 menu:
   corda5:
     identifier: corda5-develop-first-cordapp

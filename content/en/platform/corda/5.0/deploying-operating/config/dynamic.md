@@ -1,6 +1,6 @@
 ---
 date: '2023-05-16'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 title: "Dynamic Configuration"
 menu:
   corda5:

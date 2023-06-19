@@ -1,6 +1,6 @@
 ---
 date: '2022-10-19'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 title: "Kotlin Flow Code Walkthrough"
 menu:
   corda5:

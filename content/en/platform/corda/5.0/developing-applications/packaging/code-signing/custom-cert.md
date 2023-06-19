@@ -1,6 +1,6 @@
 ---
 date: '2023-05-18'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 title: "Signing Packages with a Custom Certificate"
 menu:
   corda5:

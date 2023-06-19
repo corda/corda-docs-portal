@@ -1,6 +1,6 @@
 ---
 date: '2022-12-20'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 menu:
   corda5:
     identifier: corda5-cordacli-mgm
@@ -42,12 +42,12 @@ To generate GroupPolicy using file input:
    {{< tabs name="groupPolicy-file">}}
    {{% tab name="Bash" %}}
    ```sh
-   corda-cli.sh groupPolicy --file="app/build/resources/src.yaml"
+   corda-cli.sh mgm groupPolicy --file="app/build/resources/src.yaml"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   corda-cli.cmd groupPolicy --file="app/build/resources/src.yaml"
+   corda-cli.cmd mgm groupPolicy --file="app/build/resources/src.yaml"
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -111,12 +111,12 @@ To generate GroupPolicy using parameters:
    {{< tabs name="groupPolicy-params">}}
    {{% tab name="Bash" %}}
    ```sh
-   corda-cli.sh groupPolicy --name="C=GB, L=London, O=Member1" --name="C=GB, L=London, O=Member2" --endpoint-protocol=5 --endpoint="http://dummy-url"
+   corda-cli.sh mgm groupPolicy --name="C=GB, L=London, O=Member1" --name="C=GB, L=London, O=Member2" --endpoint-protocol=5 --endpoint="http://dummy-url"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   corda-cli.cmd groupPolicy --name="C=GB, L=London, O=Member1" --name="C=GB, L=London, O=Member2" --endpoint-protocol=5 --endpoint="http://dummy-url"
+   corda-cli.cmd mgm groupPolicy --name="C=GB, L=London, O=Member1" --name="C=GB, L=London, O=Member2" --endpoint-protocol=5 --endpoint="http://dummy-url"
    ```
    {{% /tab %}}
    {{< /tabs >}}
