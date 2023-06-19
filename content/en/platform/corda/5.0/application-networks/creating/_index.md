@@ -2,7 +2,7 @@
 date: '2023-04-18'
 title: "Creating Application Networks"
 project: corda
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 menu:
   corda5:
     identifier: corda5-networks-create

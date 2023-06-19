@@ -1,6 +1,6 @@
 ---
 date: '2022-12-20'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 menu:
   corda5:
     identifier: corda5-cordacli-mgm
