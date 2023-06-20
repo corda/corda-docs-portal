@@ -39,8 +39,13 @@
       </li>
     {{ else }}
       <li class="nav-item ms-0">
-        <a class="docs-link nav-link {{ if $page.IsMenuCurrent $sectionMenuForThisPage . }}active selected{{ end }}" href="{{ .URL }}">
-          {{ .Pre }} {{ .Name }}
+        {{ if hasPrefix .URL "https"}}
+          <a title="{{ .Name }}" class="docs-link nav-link {{ if $page.IsMenuCurrent $sectionMenuForThisPage . }}active selected{{ end }}" href="{{ .URL }}" target="_blank">
+            {{ .Pre }} {{ .Name }}
+        {{ else }}
+          <a title="{{ .Name }}" class="docs-link nav-link {{ if $page.IsMenuCurrent $sectionMenuForThisPage . }}active selected{{ end }}" href="{{ .URL }}">
+            {{ .Pre }} {{ .Name }}
+        {{ end }}
         </a>
       </li>
     {{ end }}
