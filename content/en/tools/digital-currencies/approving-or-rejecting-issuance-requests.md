@@ -8,8 +8,8 @@ menu:
     weight: 1370
     parent: digital-currencies-tokens-overview
     identifier: digital-currencies-approving-rejecting-issuance-requests-issuer
-    description: "Digital Currencies documentation describing how to approve or reject issuance requests, as an issue, via the GUI"
-title: "Approving or Rejecting Issuance Requests (as Issuer)"
+    description: "Digital Currencies documentation describing how to approve or reject issuance requests via the GUI"
+title: "Approving or Rejecting Issuance Requests"
 ---
 
 An inssuance request must be approved by both:
@@ -17,7 +17,7 @@ An inssuance request must be approved by both:
 * The issuer of the digital currency
 * The custodian of the digital currency
 
-To approve or reject an issuance request:
+To approve or reject an issuance request (as either an issuer or a custodian):
 
 1. In the left-hand menu, click on **Issuances**.
 
@@ -95,7 +95,7 @@ To approve or reject an issuance request:
 	  alt="'Your request update has been successful' Message"
    >}}
   
-   In the **Issuance Requests** panel, you can now see that the **Issuer Status** of the issuance request is **Approved**:  
+   If you are an issuer, in the **Issuance Requests** panel, you can now see that the **Issuer Status** of the issuance request is **Approved**:  
   
    {{< 
       figure
@@ -122,31 +122,3 @@ To approve or reject an issuance request:
    
    
    
-   
-   
-   {{< 
-      figure
-	  src="images/successfully-submitted-issuance-request-update-message.png"
-      width=40%
-	  figcaption="'Successfully submitted your issuance request' Message"
-	  alt="'Successfully submitted your issuance request' Message"
-   >}}
-   
-   
-   
-   
-   {{< 
-      figure
-	  src="images/update-approval-request-flow.png"
-      width=60%
-	  figcaption="Update Approval Request Flow"
-	  alt="Update Approval Request Flow"
-   >}}
-   
-   {{< 
-      figure
-	  src="images/request-update-successful-message.png"
-      width=40%
-	  figcaption="'Your request update has been successful' Message"
-	  alt="'Your request update has been successful' Message"
-   >}}
