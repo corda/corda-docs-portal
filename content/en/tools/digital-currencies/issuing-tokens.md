@@ -12,8 +12,84 @@ menu:
 title: "Issuing Tokens"
 ---
 
-Once a token type has been defined, tokens of that type can be issued. Issuing tokens involves both minting the tokens and then transfering them to the relevant entities.  
+Once [tokens have been minted]({{< relref "minting-tokens.md" >}}), tokens of that type can be issued. Issuing tokens involves transfering them to the relevant entities.  
 
 The general process of issuance, and the on-ledger actions involved will be very similar, if not identical, for both central bank  and SC. However, the permissions of these on-ledger actions may be divided differently based on implementation. For example, in {{< tooltip >}}CBDC{{< definitiondc term="CBDC" >}}{{< /tooltip >}} issuance, the custodian and the token issuing entity will both be a central bank, while these roles may be divided for a stablecoin.
 
+The following assumes you are logged in as a commerical bank.
 
+1. In the left-hand menu, click on **Issuances**.
+
+   The following page is displayed:
+   
+   {{< 
+      figure
+	  src="images/issuances-page-commercial-bank.png"
+      width=100%
+	  figcaption="Issuances Page"
+	  alt="Issuances Page"
+   >}}
+
+  The page shows the following panels related to issuances:
+
+  * **Vault Balance**: A Corda vault is a database containing all data from the ledger relevant to a participant. For more information, see [the Vault topic]({{< relref "/en/platform/corda/5.0-beta/developing/ledger/vault.md" >}}).
+  * **Request Issuance**: Allows you to perform a issuance request.
+  * **Issuance Requests:** Lists any existing issuances requests and their status; see [Viewing Issuance Requests](viewing-issuance-requests.md).
+
+2. In the **Request Issuance** panel, specify the following values:
+
+   {{< 
+      figure
+	  src="images/request-issuance-panel.png"
+      width=50%
+	  figcaption="Request Issuance Panel"
+	  alt="Request Issuance Panel"
+   >}}
+
+
+   * **Token Definition**: Select the [token definition](tokens-overview.md#token-definitions) for the token you want to transfer.
+   * **Amount**: Enter the number of tokens you want to request.
+   
+3. Click **Request**. 
+
+   The following message is displayed:
+   
+   {{< 
+      figure
+	  src="images/successfully-submitted-issuance-request-message.png"
+      width=50%
+	  figcaption="'Successfully submitted an issuance request' message"
+	  alt="'Successfully submitted an issuance request' message"
+   >}}
+   
+   The Request Tokens flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
+
+   {{< 
+      figure
+	  src="images/request-tokens-flow.png"
+      width=50%
+	  figcaption="'Successfully submitted an issuance request' message"
+	  alt="'Successfully submitted an issuance request' message"
+   >}}
+   
+   Once the Request Tokens flow finishes, the message *Your issuance request has been successfully created* is displayed:
+
+   {{< 
+      figure
+	  src="images/issuance-request-successfully-created-message.png"
+      width=50%
+	  figcaption="'Your issuance request has been successfully created' message"
+	  alt="'Your issuance request has been successfully created' message"
+   >}}
+
+The new request is now listed in the **Issuance Requests** panel:
+
+   {{< 
+      figure
+	  src="images/issuance-requests-panel.png"
+      width=50%
+	  figcaption="Issuance Requests Panel"
+	  alt="Issuance Requests Panel"
+   >}}
+
+The issuer now needs to approve this request.

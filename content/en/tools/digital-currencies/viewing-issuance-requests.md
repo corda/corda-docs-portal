@@ -4,12 +4,12 @@ lastmod: '2023-03-21'
 section_menu: tools
 menu:
   tools:
-    name: "Viewing Transfer Requests"
+    name: "Viewing Issuance Requests"
     weight: 1350
     parent: digital-currencies-tokens-overview
     identifier: digital-currencies-viewing-transfer-requests
     description: "Digital Currencies documentation describing how to view transfer requests via the GUI"
-title: "Viewing Transfer Requests"
+title: "Viewing Issuance Requests"
 ---
 
 To view the list of existing transfer requests:

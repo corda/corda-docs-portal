@@ -29,38 +29,38 @@ Once a token definition has been created, new tokens of that type can be issued.
    The page contains the following panes:
    
    * **Vault Balances:** Displays the number of tokens available for each token definition.
-   * **Create Tokens:** Enables you to create tokens of a certain token definition.
+   * **Mint Tokens:** Enables you to mint tokens of a certain token definition.
    * **Burn Tokens:** Enables you to burn tokens; see [Burning Tokens]({{< relref "burning-tokens.md" >}})).
    
-4. In the **Create Tokens** pane, specify the following values:
+4. In the **Mint Tokens** pane, specify the following values:
 
    * **Token Definition:** Select the relevant token definition (previously created as described in [Creating Token Definitions]({{< relref "creating-token-definitions.md" >}})).
    * **Amount:** Enter the number of token you want; for example *100*.
    
 5. Click **Create**.
   
-   The *Successfully submitted the creation of new tokens* message is displayed:
+   The *Successfully submitted the minting of new tokens* message is displayed:
    
-   {{< figure src="images/successfully-submitted-creation-tokens-message.png" width=40% figcaption="'Successfully submitted creation of new tokens' Message" alt="'Successfully submitted creation of new tokens' Message" >}}
+   {{< figure src="images/successfully-submitted-minting-new-tokens.png" width=40% figcaption="'Successfully submitted the minting of new tokens' Message" alt="'Successfully submitted the minting of new tokens' Message" >}}
 
    The token creation flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
     
    {{< 
       figure
-	  src="images/running-flows-create-tokens.png"
+	  src="images/running-flows-mint-tokens.png"
       width=50%
-	  figcaption="Minting Tokens - Flow Running"
-	  alt="Minting Tokens - Flow Running"
+	  figcaption="Mint Tokens - Flow Running"
+	  alt="Mint Tokens - Flow Running"
    >}}  
    
-   Once the token definition flow completes, the message *A new token definition has been successfully created* is displayed:
+   Once the token definition flow completes, the message *Tokens have been successfully created, check your vault balance for new balance* is displayed:
 
    {{< 
       figure
-	  src="images/a-new-token-definition-created-message.png"
+	  src="images/tokens-successfully-created-message.png"
       width=50%
-	  figcaption="'A new token definition has been successfully created' Message"
-	  alt="'A new token definition has been successfully created' Message"
+	  figcaption="'Tokens have been successfully created...' Message"
+	  alt="'Tokens have been successfully created...' Message"
    >}}  
    
    The vault balance for the token definition will now show the new amount:
@@ -68,7 +68,7 @@ Once a token definition has been created, new tokens of that type can be issued.
    {{< 
       figure
 	  src="images/updated-vault-balance.png"
-      width=80%
+      width=40%
 	  figcaption="Updated Vault Balance"
 	  alt="Updated Vault Balance"
    >}}

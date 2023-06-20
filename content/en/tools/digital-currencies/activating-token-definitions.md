@@ -1,6 +1,6 @@
 ---
 date: '2023-04-24'
-lastmod: '2023-04-24'
+lastmod: '2023-06-14'
 section_menu: tools
 menu:
   tools:
@@ -36,6 +36,18 @@ title: "Activating Token Definitions"
 	  alt="Decommissioned Token Definitions - Activate Button"
 	  figcaption="Decommissioned Token Definitions - Activate Button"
    >}}
+   
+   A dialog box is displayed asking you to confirm the activation:
+   
+   {{< 
+      figure
+	  src="images/activate-token-definition-confirmation.png"
+      width=40%
+	  alt="'Activate Token' Confirmation"
+	  figcaption="'Activate Token' Confirmation"
+   >}}
+   
+3. Click **Confirm**.
    
    The message *Token definition activation submitted* is displayed:
 

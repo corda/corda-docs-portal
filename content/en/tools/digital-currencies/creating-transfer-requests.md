@@ -33,7 +33,7 @@ A {{< tooltip >}}transfer{{< definitiondc term="transfer" >}}{{< /tooltip >}} is
 
   * **Vault Balance**: A Corda vault is a database containing all data from the ledger relevant to a participant. For more information, see [the Vault topic]({{< relref "/en/platform/corda/5.0-beta/developing/ledger/vault.md" >}}).
   * **Request Transfer**: Allows you to perform a transfer request.
-  * **Transfer Requests:** Lists any existing transfer requests and their status; see [Viewing Transfer Requests](viewing-transfer-requests.md).
+  * **Transfer Requests:** Lists any existing transfer requests and their status; see [Viewing Issuance Requests](viewing-issuance-requests.md).
 
 2. In the **Request Transfer** panel, specify the following values:
 

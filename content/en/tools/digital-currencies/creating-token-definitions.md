@@ -160,7 +160,7 @@ The token defining entity cannot publish the token definition to the TIE unless 
 Now that a token definition has been created, you can:
 
 * [View existing token definitions]({{< relref "viewing-token-definitions.md" >}})
-* [Create tokens based on that definition]({{< relref "minting-tokens.md" >}})
+* [Mint tokens based on that definition]({{< relref "minting-tokens.md" >}})
    
    
  

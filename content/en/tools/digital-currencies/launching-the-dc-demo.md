@@ -36,8 +36,7 @@ The GUI has the following elements:
     * [Minting Tokens]({{< relref "minting-tokens.md" >}})
     * [Burning Tokens]({{< relref "burning-tokens.md" >}})
     * [Viewing Vault Balances]({{< relref "viewing-vault-balances.md" >}})
-  * **Issuances**: See:
-    * [Transfering Tokens]({{< relref "transfering-tokens.md"  >}})
+  * **Issuances**: See [Issuing Tokens]({{< relref "issuing-tokens.md"  >}})
   * **Redemptions**: See:
     * 
   See [Issuing Tokens]({{< relref "issuing-tokens.md" >}}) 
