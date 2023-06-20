@@ -117,7 +117,7 @@ requestBody code:
 Note, if you forget to change the `ClientRequestId` on subsequent attempts to run the flow, the following error message is displayed:
 {{< figure src="post-flow-already-started-error.png" figcaption="Error response for POST /flow/{holdingidentityshorthash" >}}
 
-Because the API is asynchronous, at this stage you only receive the confirmation `START_REQESTED`. There is no indication if the flow has been successful. To find out the status of the flow, you must check the flow status.
+Because the API is asynchronous, at this stage you only receive the confirmation `START_REQUESTED`. There is no indication if the flow has been successful. To find out the status of the flow, you must check the flow status.
 
 ### Checking the Flow Status
 
