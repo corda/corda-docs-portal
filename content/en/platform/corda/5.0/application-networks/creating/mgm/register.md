@@ -27,7 +27,7 @@ The examples in this section set `corda.group.key.session.policy` to `Distinct`,
 
 {{< note >}}
 * If you want to use certificates for session initiation keys for peer-to-peer communication, see [Configuring Optional Session Certificates]({{< relref "../optional/session-certificates.html#build-registration-context-for-mgm-registration" >}}) for information about the additional JSON fields required in the registration context.
-* If you want to use mutual TLS, see [Configuring Mutual TLS]({{< relref "../optional/mutual-tls-connections.md#set-the-tls-type-in-the-mgm-context" >}}) for additonal configuration steps. 
+* If you want to use mutual TLS, see [Configuring Mutual TLS]({{< relref "../optional/mutual-tls-connections.md#set-the-tls-type-in-the-mgm-context" >}}) for additonal configuration steps.
 {{< /note >}}
 
 ### Build Registration Context Using Bash
@@ -137,7 +137,8 @@ $REGISTER_RESPONSE.registrationStatus
 ### Confirm Registration
 
 Registration should return a successful response with the status `SUBMITTED`.
-You can confirm that the MGM was onboarded successfully by checking the status of the registration request. The registration ID is returned from the member regsitration request:
+You can confirm that the MGM was onboarded successfully by checking the status of the registration request.
+The registration ID is returned from the member registration request:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -152,4 +153,20 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 ```
 {{% /tab %}}
 {{< /tabs >}}
-If successful, you should see the `APPROVED` registration status.
+
+The returned status of the registration request will be one of the following options:
+
+* `APPROVED`: The MGM was onboarded successfully.
+* `NEW`: The member’s Corda cluster has accepted and persisted the registration request submitted via the REST API but is yet to process it.
+* `INVALID`: The member’s Corda cluster processed the registration request submitted via the API and determined the
+input to be invalid and did not attempt to send the request to join the network to the MGM’s Corda cluster.
+* `SENT_TO_MGM`: The member’s Corda cluster processed the registration request submitted via the API and found the input
+to be valid so the request to join the network was forwarded to the MGM’s Corda cluster.
+* `DECLINED`: The MGM has received the registration request and rejected the request either automatically because of
+failed validation or manually by the Network Operator.
+* `PENDING_AUTO_APPROVAL`: The MGM has received the registration request and all automated validations were successful.
+The only remaining step is for the MGM to complete the approval which is an automated process rather than approval
+requiring manual involvement of the Network Operator before the member’s registration request takes effect.
+* `PENDING_AUTO_VERIFICATION`: The MGM has received the registration request and all automated validations were successful.
+The only remaining step is for the Network Operator to review and approve the registration via the MGM administration
+REST API before the member’s registration request takes effect.
