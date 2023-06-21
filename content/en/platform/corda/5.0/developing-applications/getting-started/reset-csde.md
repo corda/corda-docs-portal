@@ -96,12 +96,15 @@ To reset the CSDE:
    ```shell
    docker ps
    ```
-4. Run the Gradle clean task:
+4. Remove the container:
+   ```shell
+   docker rm CSDEpostgresql
+   ```
+5. Run the Gradle clean task:
    ```shell
    <project-root-dir>/gradlew clean
    ```
-5. Delete the `<user-home>/.corda/corda5` directory and its contents.
-
-6. Delete the `<project-root-dir>/workspace` directory and its contents.
+6. Delete the `<user-home>/.corda/corda5` directory and its contents.
+7. Delete the `<project-root-dir>/workspace` directory and its contents.
 
    You should now be able to run all CSDE Gradle tasks again. These tasks download the Corda cluster software and recreate all of the temporary files, as required.
