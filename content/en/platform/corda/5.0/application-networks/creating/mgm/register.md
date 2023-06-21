@@ -154,7 +154,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 {{% /tab %}}
 {{< /tabs >}}
 
-The returned status of the registration request will be one of the following options:
+The status returned for the registration request will be one of the following:
 
 * `APPROVED`: The registration request passed all validations and was approved by the MGM.
 * `NEW`: The member’s Corda cluster has accepted and persisted the registration request submitted via the REST API but is yet to process it.
