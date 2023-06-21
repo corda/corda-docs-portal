@@ -162,7 +162,7 @@ The status returned for the registration request will be one of the following:
 input to be invalid and did not attempt to send the request to join the network to the MGM’s Corda cluster.
 * `SENT_TO_MGM`: The member’s Corda cluster processed the registration request submitted via the REST API and found the input
 to be valid so the request to join the network was forwarded to the MGM’s Corda cluster.
-* `RECEIVED_BY_MGM`: The MGM has received a registration request that a member sent.
+* `RECEIVED_BY_MGM`: The MGM has received the registration request
 * `DECLINED`: The MGM has received the registration request and rejected the request either automatically because of
 failed validation or manually by the Network Operator.
 * `PENDING_AUTO_APPROVAL`: The MGM has received the registration request and all automated validations were successful.
