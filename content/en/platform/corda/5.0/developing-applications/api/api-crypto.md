@@ -1,5 +1,5 @@
 ---
-date: '2023-02-10'
+date: '2023-06-21'
 version: 'Corda 5.0 Beta 4'
 title: "net.corda.v5.crypto"
 menu:
@@ -10,9 +10,9 @@ menu:
 section_menu: corda5
 ---
 # net.corda.v5.crypto
-The `corda-crypto` module is one of several modules of the `Corda Crypto API`. The module defines low-level services that can be used to extend functionality of the Corda Crypto Library by implementing them in a CPK. 
+The `crypto` module defines low-level services that can be used to extend functionality of the Corda Crypto Library by implementing them in a CPK. 
 
-# Extending Supported Digest Algorithms
+## Extending Supported Digest Algorithms
 
 The Corda Crypto Library implements a wide variety of digest algorithms out of the box. However, you can use a digest algorithm that is not supported by the library by simply implementing some interfaces and adding the code into the CPK with the CorDapp code. Corda picks up any custom algorithms at runtime. We recommend adding custom digest code in a separate Java module.
 
@@ -53,8 +53,6 @@ class TripleSha256Digest : DigestAlgorithm {
 }
 ```
 
-
-
 ```kotlin
 package com.example.crypto
 
@@ -66,8 +64,6 @@ class TripleSha256 : DigestAlgorithmFactory {
     override fun getInstance(): DigestAlgorithm = TripleSha256Digest()
 }
 ```
-
-
 
 ```groovy
 plugins {
@@ -101,4 +97,25 @@ dependencies {
 You must reference `net.corda:corda-crypto-extensions`.
 {{< /note >}}
 
-<!--For information about packaging a CorDapp, see the [development tutorial]().-->
+## Implementing Signature Schemes
+
+Corda supports the following `SignatureSpecs` (signature schemes) for creating `java.security.Signature` objects:
+* SHA256withRSA
+* SHA384withRSA
+* SHA512withRSA
+* RSASSA-PSS with SHA256
+* RSASSA-PSS with SHA384
+* RSASSA-PSS with SHA512
+* RSASSA-PSS with SHA256 and MGF1
+* RSASSA-PSS with SHA384 and MGF1
+* RSASSA-PSS with SHA512 and MGF1
+* SHA256withECDSA
+* SHA384withECDSA
+* SHA512withECDSA
+* EdDSA
+* SHA512withSPHINCS256
+* SM3withSM2
+* SHA256withSM2
+* GOST3411withGOST3410
+
+Use `SignatureSpecService` to retrieve the `SignatureSpec` implemented.
