@@ -390,15 +390,12 @@ this, as discussed above there are many reasons why this isn’t a good idea.
 {{< /warning >}}
 
 
-Providing a public getter, as per the following example, is acceptable:
+Providing a public getter for property `C.b`, as per the following example, makes type `C` AMQP serializable:
 
 {{< tabs name="tabs-5" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
-class C(val a: Int, b: Int) {
-    var b: Int = b
-       private set
-}
+class C(val a: Int, val b: Int)
 ```
 {{% /tab %}}
 
