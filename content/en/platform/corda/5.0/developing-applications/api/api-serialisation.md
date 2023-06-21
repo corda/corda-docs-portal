@@ -402,12 +402,16 @@ class C(val a: Int, val b: Int)
 {{% tab name="java" %}}
 ```java
 class C {
-    public Integer a;
+    private Integer a;
     private Integer b;
 
     C(Integer a, Integer b) {
         this.a = a;
         this.b = b;
+    }
+
+    public Integer getA() {
+        return a;
     }
 
     public Integer getB() {
