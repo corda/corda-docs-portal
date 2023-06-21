@@ -315,7 +315,11 @@ For example:
 {{< tabs name="tabs-3" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
-class Example(var a: Int, var b: Int, var c: Int)
+class Example {
+  var a: Int = 0
+  var b: Int = 0
+  var c: Int = 0
+}
 ```
 {{% /tab %}}
 
