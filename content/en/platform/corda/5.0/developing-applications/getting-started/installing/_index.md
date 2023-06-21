@@ -38,7 +38,7 @@ The images in this section show the `CSDE-cordapp-template-kotlin` repository in
    git checkout release/corda-5-beta-4
    ```
 
-3. Initialise the git repo and change the remote so you do not inadvertently push your work back to our R3 repo:
+3. Initialise the Git repository and change the remote so you do not inadvertently push your work back to the R3 repository:
 
    ```sh
    git init
