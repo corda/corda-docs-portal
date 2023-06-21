@@ -168,7 +168,7 @@ failed validation or manually by the Network Operator.
 * `PENDING_AUTO_APPROVAL`: The MGM has received the registration request and all automated validations were successful.
 The only remaining step is for the MGM to complete an automated approval before the member’s registration request takes effect.
 * `PENDING_MANUAL_APPROVAL`: The MGM has received the registration request and all automated validations were successful.
-The only remaining step is for the Network Operator to review and approve the registration via the MGM administration
+The only remaining step is for the Network Operator to review and approve the registration via the 
 REST API before the member's registration request takes effect.
 * `PENDING_MEMBER_VERIFICATION`: The MGM has completed initial validation of the registration request and is now waiting
 for the registering member to respond to a P2P message in order to validate the provided session initiation key and P2P endpoint.
