@@ -18,18 +18,17 @@ The following example outlines the basic building blocks to consider when using 
 
 1. Define a custom state with enough detail to create a token from:
    ```java
-      class CoinState(
-      override val participants: List<PublicKey>,
-      val issuer: SecureHash,
-      val currency: String,
-      val value: BigDecimal,
-      val tag: String? = null,
-      val ownerHash: SecureHash? = null
-    ) : ContractState {
+   class CoinState(
+       override val participants: List<PublicKey>,
+       val issuer: SecureHash,
+       val currency: String,
+       val value: BigDecimal,
+       val tag: String? = null,
+       val ownerHash: SecureHash? = null
+   ) : ContractState {
       companion object {
-          val tokenType = CoinState::class.java.name.toString()
-     }
-   ```
+         val tokenType = CoinState::class.java.name.toString()
+      }
 2. Create an observer to convert the state to a token:
    ```java
    class CoinStateObserver : UtxoLedgerTokenStateObserver<CoinState> {
