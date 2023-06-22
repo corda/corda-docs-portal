@@ -32,22 +32,20 @@ The following example outlines the basic building blocks to consider when using 
 2. Create an observer to convert the state to a token:
    ```java
    class CoinStateObserver : UtxoLedgerTokenStateObserver<CoinState> {
+      override val stateType = CoinState::class.java
 
-    override val stateType = CoinState::class.java
-
-    override fun onCommit(state: CoinState): UtxoToken {
-        return UtxoToken(
+      override fun onCommit(state: CoinState): UtxoToken {
+         return UtxoToken(
             poolKey = UtxoTokenPoolKey(
-                tokenType = CoinState.tokenType,
-                issuerHash = state.issuer,
-                symbol = state.currency
+               tokenType = CoinState.tokenType,
+               issuerHash = state.issuer,
+               symbol = state.currency
             ),
             state.value,
             filterFields = UtxoTokenFilterFields(state.tag, state.ownerHash)
-        )
-    }
+         )
+      }
    }
-   ```
 
    Corda can now create pools of tokens for the unconsumed `CoinStates`.
 
