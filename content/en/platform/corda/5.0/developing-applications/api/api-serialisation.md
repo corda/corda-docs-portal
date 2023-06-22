@@ -184,8 +184,12 @@ java.lang.String
 java.lang.StringBuffer
 
 java.math.BigDecimal
+java.math.BigInteger
 
 java.security.PublicKey
+java.security.cert.CertPath
+java.security.cert.X509CRL
+java.security.cert.X509Certificate
 
 java.time.DayOfWeek
 java.time.Duration
@@ -206,7 +210,10 @@ java.time.ZoneOffset
 
 java.util.BitSet
 java.util.Currency
+java.util.Optional
 java.util.UUID
+
+javax.security.auth.x500.X500Principal
 ```
 ### Third-Party Types
 
