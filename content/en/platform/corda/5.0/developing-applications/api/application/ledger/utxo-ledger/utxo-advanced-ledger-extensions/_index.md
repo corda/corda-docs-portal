@@ -20,7 +20,7 @@ These features have been selected and designed to solve common problems that Cor
 
 The following definitions provide an overview of each major feature or component that has been implemented in the Corda 5 Advanced UTXO Ledger Extensions library. These features can be used together; for example, a state could be designed to be fungible, issuable and ownable.
 
-| State             | Description                                                                            |
+| State                       | Description                                                                            |
 | ----------------- | ----------------------------------------------------------------------------------- |
 | Chainable         | Represents strictly linear state chains, where every state in the chain points to the previous state in the chain. This could be thought of as a similar concept to a blockchain, where each new block points to the previous block.     |
 | Fungible          | Represents states that have a scalar numeric quantity, and can be split, merged, and mutually exchanged with other fungible states of the same class. Fungible states represent the building blocks for states like tokens.             |
