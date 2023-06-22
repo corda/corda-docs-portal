@@ -80,7 +80,7 @@ The following example outlines the basic building blocks to consider when using 
    val tokenClaim = tokenSelection.tryClaim(selectionCriteria)
  
    // A null result indicates the query could not be satisfied
-   if(tokenClaim == null) {
+   if (tokenClaim == null) {
     return "FAILED TO FIND ENOUGH TOKENS"
    }
  
