@@ -22,10 +22,10 @@ The following definitions provide an overview of each major feature or component
 
 <style>
 table th:first-of-type {
-    width: 20%;
+    width: 15%;
 }
 table th:nth-of-type(2) {
-    width: 60%;
+    width: 55%;
 }
 </style>
 
