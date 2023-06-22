@@ -6,7 +6,7 @@ version: 'Corda 5.0 Beta 4'
 menu:
   corda5:
     identifier: corda5-utxo-advanced-ledger-extensions
-    parent: corda5-develop-get-started
+    parent: corda5-api-ledger-utxo
     weight: 4000
 section_menu: corda5
 ---
