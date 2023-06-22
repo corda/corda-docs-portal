@@ -87,7 +87,7 @@ The following example outlines the basic building blocks to consider when using 
    // how many tokens were used
    var spentCoins = listOf<StateRef>()
  
-   try{
+   try {
       spentCoins = aSpendFunction(tokenClaim.claimedTokens)
    } finally {
      tokenClaim.useAndRelease(spentCoins)
