@@ -118,4 +118,4 @@ Corda supports the following `SignatureSpecs` (signature schemes) for creating `
 * SHA256withSM2
 * GOST3411withGOST3410
 
-Use `SignatureSpecService` to retrieve the `SignatureSpec` implemented.
+Use `SignatureSpecService` to retrieve the `SignatureSpec`.
