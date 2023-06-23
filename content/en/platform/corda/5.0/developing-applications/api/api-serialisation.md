@@ -353,7 +353,7 @@ rely heavily on mutable JavaBean style objects, you may sometimes find the API b
 ### Inaccessible Private Properties
 
 The Corda AMQP serialization framework does not support private properties without publicly
-accessible getter methods. The below example will fail at serialization.
+accessible getter methods. The below example fails at serialization.
 
 {{< tabs name="tabs-4" >}}
 {{% tab name="kotlin" %}}
