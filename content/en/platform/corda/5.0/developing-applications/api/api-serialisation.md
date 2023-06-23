@@ -9,7 +9,7 @@ menu:
     weight: 8000
 section_menu: corda5
 ---
-# et.corda.v5.serialization
+# net.corda.v5.serialization
 Object serialization is the process of converting objects into a stream of bytes while deserialization is the reverse
 process of creating objects from a stream of bytes.  It takes place every time we store transactions in the database.
 
@@ -73,6 +73,10 @@ class ExampleRESTValueSerializer : SerializationCustomSerializer<ExampleRESTValu
 {{< note >}}
 Several of the core interfaces at the heart of Corda are already annotated and so any classes that implement
 them will automatically be allowed.
+{{< /note >}}
+
+{{< note >}}
+Custom serializers targeting Corda platform types or JDK types are not allowed. They will not be registered with Corda.
 {{< /note >}}
 
 {{< warning >}}
@@ -348,10 +352,8 @@ rely heavily on mutable JavaBean style objects, you may sometimes find the API b
 
 ### Inaccessible Private Properties
 
-The Corda AMQP serialization framework does not support private object properties without publicly
-accessible getter methods, this development idiom is strongly discouraged.
-
-For example.
+The Corda AMQP serialization framework does not support private properties without publicly
+accessible getter methods. The below example fails at serialization.
 
 {{< tabs name="tabs-4" >}}
 {{% tab name="kotlin" %}}
@@ -363,12 +365,16 @@ class C(val a: Int, private val b: Int)
 {{% tab name="java" %}}
 ```java
 class C {
-    public Integer a;
+    private Integer a;
     private Integer b;
 
     public C(Integer a, Integer b) {
         this.a = a;
         this.b = b;
+    }
+
+    public Integer getA() {
+        return a;
     }
 }
 ```
@@ -388,27 +394,28 @@ this, as discussed above there are many reasons why this isn’t a good idea.
 {{< /warning >}}
 
 
-Providing a public getter, as per the following example, is acceptable:
+Providing a public getter for property `C.b`, as per the following example, makes type `C` AMQP serializable:
 
 {{< tabs name="tabs-5" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
-class C(val a: Int, b: Int) {
-    var b: Int = b
-       private set
-}
+class C(val a: Int, val b: Int)
 ```
 {{% /tab %}}
 
 {{% tab name="java" %}}
 ```java
 class C {
-    public Integer a;
+    private Integer a;
     private Integer b;
 
     C(Integer a, Integer b) {
         this.a = a;
         this.b = b;
+    }
+
+    public Integer getA() {
+        return a;
     }
 
     public Integer getB() {
