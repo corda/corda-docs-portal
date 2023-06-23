@@ -4,7 +4,7 @@ lastmod: '2023-04-25'
 section_menu: tools
 menu:
   tools:
-    name: "Approving or Rejecting Issuance Requests (as Issuer)"
+    name: "Approving or Rejecting Issuance Requests"
     weight: 1370
     parent: digital-currencies-tokens-overview
     identifier: digital-currencies-approving-rejecting-issuance-requests-issuer
@@ -12,10 +12,14 @@ menu:
 title: "Approving or Rejecting Issuance Requests"
 ---
 
-An inssuance request must be approved by both:
+An issuance request must be approved by both:
 
 * The issuer of the digital currency
 * The custodian of the digital currency
+
+The issuer must perform the first approval, followed by the custodian. 
+
+Once approved, the tokens are then transferred to the requesting entity.
 
 To approve or reject an issuance request (as either an issuer or a custodian):
 
@@ -36,12 +40,24 @@ To approve or reject an issuance request (as either an issuer or a custodian):
    * **Vault Balance**: A Corda vault is a database containing all data from the ledger relevant to a participant. For more information, see [the Vault topic]({{< relref "/en/platform/corda/5.0-beta/developing/ledger/vault.md" >}}).
    * **Issuance Requests:** Lists any existing issuance requests and their status.
   
+  If you are logged in as the issuer, the panel will look like this:
+  
    {{< 
       figure
-	  src="images/issuance-requests-panel.png"
+	  src="images/issuance-requests-panel-issuer.png"
       width=100%
-	  figcaption="Issuance Requests Panel"
-	  alt="Issuance Requests Panel"
+	  figcaption="Issuance Requests Panel (as Issuer)"
+	  alt="Issuance Requests Panel (as Issuer)"
+   >}}
+   
+   If you are logged in as the custodian, the panel may look like this if the issuer for their part has already approved the request:
+     
+   {{< 
+      figure
+	  src="images/issuance-requests-panel-custodian.png"
+      width=100%
+	  figcaption="Issuance Requests Panel (as Custodian)"
+	  alt="Issuance Requests Panel (as Custodian)"
    >}}
    
    For each issuance request, the following information is displayed:
@@ -51,16 +67,21 @@ To approve or reject an issuance request (as either an issuer or a custodian):
    * **Token name:** The name of the token definition; normally the full name of the currency; for example, Canadian Dollar
    * **Token symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, *CAD*
    * **Amount:** The number of tokens requested
-   * **Issuer:** The Transacting Entity who either (1) has to approve the receipt of tokens (if the other party made a Request to Send) or (2) has to approve the sending of tokens (if the other party made a Request to Receive)
+   * **Issuer:** This issuer of the tokens; this field is displayed for the issuer.
+   * **Requester:** The entity making the issuance request; this field is displayed for the custodian.
    * **Last Updated:** The date and time at which the request was last updated
+   
+2. Click the relevant request.
+
+   The following dialog box is displayed:
    
    {{< 
       figure
 	  src="images/approving-issuance-request.png"
-      width=60%
-	  figcaption="Issuance Requests Panel"
-	  alt="Issuance Requests Panel"
-   >}}
+      width=40%
+	  figcaption="Issuance Requests Confirmation Dialog"
+	  alt="Issuance Requests Panel (Issuer)"
+   >}}  
    
 7. Click **Approve**.
 
@@ -95,7 +116,7 @@ To approve or reject an issuance request (as either an issuer or a custodian):
 	  alt="'Your request update has been successful' Message"
    >}}
   
-   If you are an issuer, in the **Issuance Requests** panel, you can now see that the **Issuer Status** of the issuance request is **Approved**:  
+   If you are an issuer, in the **Issuance Requests** panel, you can see that the **Issuer Status** of the issuance request is now **Approved**:  
   
    {{< 
       figure
@@ -105,20 +126,19 @@ To approve or reject an issuance request (as either an issuer or a custodian):
 	  alt="Issuance Requests Panel - Approved by Issuer"
    >}}
    
+   If you are a custodian, in the **Issuance Requests** panel, you can see that the **Custodian Status** of the issuance request is now **Approved**:  
 
    {{< 
       figure
-	  src="images/issuance-requests-panel-custodian.png"
+	  src="images/issuance-requests-panel-custodian-approved.png"
       width=100%
 	  figcaption="Issuance Requests Panel - Approved by Issuer"
 	  alt="Issuance Requests Panel - Approved by Issuer"
    >}}
    
    
+Once both the issuer and the custodian have approved the issuance request, the participant that created the request will see their request has been approved. However, they will not see their vault balance updated until the issuer has actually issued the tokens.
    
-   
-   
-   approving-issuance-request-custodian.png
    
    
    

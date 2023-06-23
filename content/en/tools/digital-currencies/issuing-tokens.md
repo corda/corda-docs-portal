@@ -1,95 +1,84 @@
 ---
-date: '2023-03-21'
-lastmod: '2023-03-21'
+date: '2023-06-23'
+lastmod: '2023-06-23'
 section_menu: tools
 menu:
   tools:
-    name: "Creating Issuance Requests"
-    weight: 1100
+    name: "Issuing Tokens"
+    weight: 1380
     parent: digital-currencies-tokens-overview
     identifier: digital-currencies-issuing-tokens
-    description: "Digital Currencies documentation describing how to request an issuance of tokens via the GUI"
-title: "Creating Issuance Requests"
+    description: "Digital Currencies documentation describing how to issue tokens via the GUI"
+title: "Issuing Tokens"
 ---
 
-Once [tokens have been minted]({{< relref "minting-tokens.md" >}}), tokens of that type can be issued. Issuing tokens involves transfering them to the relevant entities.  
+Once a [issuance request has been created]({{< relref "creating-issuance-requests.md" >}}) and then subsequently [approved by both the issuer and the custodian]({{< relref "approving-or-rejecting-issuance-requests.md" >}}), new tokens of that type can be issued by the issuer to the participant who made the approved request.
 
-The general process of issuance, and the on-ledger actions involved will be very similar, if not identical, for both central bank  and SC. However, the permissions of these on-ledger actions may be divided differently based on implementation. For example, in {{< tooltip >}}CBDC{{< definitiondc term="CBDC" >}}{{< /tooltip >}} issuance, the custodian and the token issuing entity will both be a central bank, while these roles may be divided for a stablecoin.
+Such tokens can then be used as for currency or utility purposes and allows the issuing party to maintain monetary policy and provide easily accessible digital currency tokens to specific entities.
 
-The following assumes you are logged in as a entity capable to creating an issuance request, such as a commercial bank.
+As an issuer:
 
-1. In the left-hand menu, click on **Issuances**.
+1. Click **Issuances** in the left-hand sidebar.
 
-   The following page is displayed:
-   
-   {{< 
+   The **Issuances** page is displayed:
+
+   {{<
       figure
-	  src="images/issuances-page-commercial-bank.png"
+	  src="images/issuances-page-central-bank-approved.png"
       width=100%
 	  figcaption="Issuances Page"
 	  alt="Issuances Page"
    >}}
 
-  The page shows the following panels related to issuances:
+   The **Issuance Requests** panel lists any issuance requests for tokens to the currently-logged-in issuer.
 
-  * **Vault Balance**: A Corda vault is a database containing all data from the ledger relevant to a participant. For more information, see [the Vault topic]({{< relref "/en/platform/corda/5.0-beta/developing/ledger/vault.md" >}}).
-  * **Request Issuance**: Allows you to perform a issuance request.
-  * **Issuance Requests:** Lists any existing issuances requests and their status; see [Viewing Issuance Requests](viewing-issuance-requests.md).
+2. In the **Issuance Requests** pane, click on any request which has been approved by both the issuer and the custodian (that is, the values of **Issuer Status** and **Custodian Status** are both **Approved**).
 
-2. In the **Request Issuance** panel, specify the following values:
+   The **Issuance Request** dialog box is displayed:
 
-   {{< 
+   {{<
       figure
-	  src="images/request-issuance-panel.png"
-      width=50%
-	  figcaption="Request Issuance Panel"
-	  alt="Request Issuance Panel"
+	  src="images/issuance-request-dialog.png"
+      width=40%
+	  figcaption="Issuance Request Dialog Box"
+	  alt="Issuance Request Dialog Box"
    >}}
 
+5. Click **Issue**.
 
-   * **Token Definition**: Select the [token definition](tokens-overview.md#token-definitions) for the token you want to transfer.
-   * **Amount**: Enter the number of tokens you want to request.
+   The *Successfully submitted the issuance of tokens* message is displayed:
+
+   {{< figure src="images/successfully-submitted-issuance-tokens-message.png" width=50% figcaption="'Successfully submitted the issuance of tokens' Message" alt="'Successfully submitted the issuance of tokens' Message" >}}
+
+   The Issue Tokens flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
+
+   {{<
+      figure
+	  src="images/issue-tokens-flow.png"
+      width=50%
+	  figcaption="Issue Tokens - Flow Running"
+	  alt="Issue Tokens - Flow Running"
+   >}}
+
+   Once the Issue Tokens flow completes, the message *Issuance of tokens has been successful* is displayed:
+
+   {{<
+      figure
+	  src="images/issuance-tokens-successful-message.png"
+      width=50%
+	  figcaption="'Issuance of tokens has been successful' Message"
+	  alt="'Issuance of tokens has been successful' Message"
+   >}}
+
+   The issuance request disappears from the **Issuance Requests** panel.
    
-3. Click **Request**. 
-
-   The following message is displayed:
+   The vaults balance of the requesting participant is updated to show the issuance:
    
-   {{< 
+   {{<
       figure
-	  src="images/successfully-submitted-issuance-request-message.png"
-      width=50%
-	  figcaption="'Successfully submitted an issuance request' message"
-	  alt="'Successfully submitted an issuance request' message"
-   >}}
-   
-   The Request Tokens flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
-
-   {{< 
-      figure
-	  src="images/request-tokens-flow.png"
-      width=50%
-	  figcaption="'Successfully submitted an issuance request' message"
-	  alt="'Successfully submitted an issuance request' message"
-   >}}
-   
-   Once the Request Tokens flow finishes, the message *Your issuance request has been successfully created* is displayed:
-
-   {{< 
-      figure
-	  src="images/issuance-request-successfully-created-message.png"
-      width=50%
-	  figcaption="'Your issuance request has been successfully created' message"
-	  alt="'Your issuance request has been successfully created' message"
+	  src="images/vault-balances-panel-after-issue.png"
+      width=80%
+	  figcaption="Vault Balances Panel After Issue"
+	  alt="Vault Balances Panel After Issue"
    >}}
 
-The new request is now listed in the **Issuance Requests** panel:
-
-   {{< 
-      figure
-	  src="images/issuance-requests-panel.png"
-      width=50%
-	  figcaption="Issuance Requests Panel"
-	  alt="Issuance Requests Panel"
-   >}}
-
-The issuer now needs to approve this request.

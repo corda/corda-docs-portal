@@ -12,6 +12,7 @@ menu:
 title: "Decommissioning Token Definitions"
 ---
 
+This topic describes how to decommission a token definition. Only the definer of a token can decommission.
 
 
 
@@ -38,6 +39,8 @@ title: "Decommissioning Token Definitions"
 	  alt="Active Token Definitions - Decommission Button"
 	  figcaption="Active Token Definitions - Decommission Button"
    >}}
+   
+   If the **Decommission** button is not displayed, you do not have permission to decommission the token.
    
    The following dialog box is displayed:
    

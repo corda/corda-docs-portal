@@ -7,8 +7,8 @@ menu:
     name: "Minting Tokens"
     weight: 900
     parent: digital-currencies-tokens-overview
-    identifier: digital-currencies-creating-token-types
-    description: "Digital Currencies documentation describing how to create tokens via the GUI"
+    identifier: digital-currencies-mimting-tokens
+    description: "Digital Currencies documentation describing how to mint tokens via the GUI"
 title: "Minting Tokens"
 ---
 
@@ -28,7 +28,7 @@ Once a token definition has been created, new tokens of that type can be issued.
    
    The page contains the following panes:
    
-   * **Vault Balances:** Displays the number of tokens available for each token definition.
+   * **Vault Balances:** Displays the number of tokens available for each token definition for the current participant.
    * **Mint Tokens:** Enables you to mint tokens of a certain token definition.
    * **Burn Tokens:** Enables you to burn tokens; see [Burning Tokens]({{< relref "burning-tokens.md" >}})).
    
