@@ -76,7 +76,7 @@ them will automatically be allowed.
 {{< /note >}}
 
 {{< note >}}
-Custom serializers targeting Corda platform types or JDK types are not allowed. They will fail to be registered to Corda.
+Custom serializers targeting Corda platform types or JDK types are not allowed. They will not be registered with Corda.
 {{< /note >}}
 
 {{< warning >}}
