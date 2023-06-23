@@ -12,15 +12,15 @@ section_menu: corda5
 # net.corda.v5.application.persistence
 The `persistence` package provides services for performing persistence operations; mainly reading and writing data to and from the database. The `PersistenceService` is the main service for providing this functionality.
 
-Corda 5 supports CRUD (Create, Read, Update, Delete) operations for user-defined types. This is achieved using JPA-annotated entities and, to manage database migrations, Liquibase.
+Corda supports CRUD (Create, Read, Update, Delete) operations for user-defined types. This is achieved using JPA-annotated entities and, to manage database migrations, Liquibase.
 
 ## Defining Custom Tables Using Liquibase Migrations
 
 [CorDapps]({{< relref "../../../key-concepts/fundamentals/CorDapps/_index.md" >}}) store data in a relational database.
-When Corda creates a virtual node for a CorDapp (as part of a CPI), it requires associated tables, indexes, foreign-keys, and so on.
+When a Network Operator creates a virtual node for a CorDapp, it requires associated tables, indexes, foreign-keys, and so on.
 To create these, you must embed Liquibase files into the CorDapp CPK.
 
-Liquibase manages database changes in a “Change Log” which references one or more change sets.
+Liquibase manages database changes in a change log which references one or more change sets.
 You must specify the top-level `databaseChangeLog` in a resource file in the CPK called `migration/db.changelog-master.xml`.
 This file can reference one or more files including `changeSet`.
 
@@ -62,15 +62,11 @@ The referenced `include` file should also be a resource file in `src/resources/m
 The `include` file reference is resolved relative to the resources path in the CPK and not relative to the current directory.
 {{< /note >}}
 
-## Running the Migrations
+## Running the Liquibase Migrations
 
-To run the migrations:
-1. Upload the CPI.
-2. Create a virtual node using the REST API.
-
-  The migrations run when the virtual node is created and logging shows the migrations executing.
-  If you have direct database access, you should see the tables being created.
-  If you are using Postgres, make sure to look under the correct schema, since each virtual node creates a new schema, unless an external VNode database was provided during VNode creation.
+The migrations run when the Network Operator [creates the virtual node]({{< relref "../../../application-networks/creating/members/virtual-node.md" >}}) and logging shows the migrations executing.
+If you have direct database access, you should see the tables being created.
+If you are using Postgres, make sure to look under the correct schema, since each virtual node creates a new schema, unless an external virtual node database was provided during virtual node creation.
 
 ## Mapping Your New Tables to JPA Entities
 
@@ -155,7 +151,7 @@ To use the Persistence API from a flow:
     ```   
 
    {{< note >}}
-  All persistence operations are processed over the message bus.
+  All persistence operations are processed over Kafka.
    {{< /note >}}
 
 3. To load a row from the database by ID, use the following code:
