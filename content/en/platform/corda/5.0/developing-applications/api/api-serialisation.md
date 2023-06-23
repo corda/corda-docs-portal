@@ -76,7 +76,7 @@ them will automatically be allowed.
 {{< /note >}}
 
 {{< note >}}
-Please note that custom serializers which target Corda platform types or JDK types are not allowed, and will fail to be registered to Corda.
+Custom serializers targeting Corda platform types or JDK types are not allowed. They will fail to be registered to Corda.
 {{< /note >}}
 
 {{< warning >}}
@@ -353,7 +353,7 @@ rely heavily on mutable JavaBean style objects, you may sometimes find the API b
 ### Inaccessible Private Properties
 
 The Corda AMQP serialization framework does not support private properties without publicly
-accessible getters. The below example will fail at serialization.
+accessible getter methods. The below example will fail at serialization.
 
 {{< tabs name="tabs-4" >}}
 {{% tab name="kotlin" %}}
