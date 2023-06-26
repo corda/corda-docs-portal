@@ -261,8 +261,10 @@ GRANT USAGE, SELECT ON ALL sequences IN SCHEMA "my_schema" TO "my_user";
 ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences TO "my_user";
 ALTER ROLE "my_user" SET search_path = "my_schema";
 ```
+If you are creating a CENM service instance user in PostgreSQL using a custom schema name (different from the user name), you can either:
 
-If you provide a custom schema name (different from the user name), then the last statement in the script - setting the `search_path` - prevents querying the differing ([default schema search path](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH)).
+* Connect to the database as an administrator and run the script above. The last statement in the script - setting the `search_path` - prevents querying the differing [default schema search path](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH).
+* Use the JDBC URL.
 
 ## 2. Database schema creation
 
