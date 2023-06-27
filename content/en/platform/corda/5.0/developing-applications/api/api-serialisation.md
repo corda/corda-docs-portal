@@ -9,9 +9,7 @@ menu:
     weight: 8000
 section_menu: corda5
 ---
-
 # net.corda.v5.serialization
-
 Object serialization is the process of converting objects into a stream of bytes while deserialization is the reverse
 process of creating objects from a stream of bytes.  It takes place every time we store transactions in the database.
 
@@ -26,9 +24,7 @@ Corda uses a custom form of typesafe binary serialisation. The primary drivers f
   3rd party library upgrades, etc.
 * A desire to support open-ended polymorphism, where the number of subclasses of a superclass can expand over time
   and the subclasses do not need to be defined in the schema *upfront*. This is key to many Corda concepts, such as states.
-
 * Increased security when deserializing objects by constructing them through supported constructors, rather than having
-
   data inserted directly into their fields without an opportunity to validate consistency or intercept attempts to manipulate
   supposed invariants.
 * Binary formats work better with digital signatures than text based formats, as there’s much less scope for
@@ -192,7 +188,6 @@ java.lang.String
 java.lang.StringBuffer
 
 java.math.BigDecimal
-
 java.math.BigInteger
 
 java.security.PublicKey
