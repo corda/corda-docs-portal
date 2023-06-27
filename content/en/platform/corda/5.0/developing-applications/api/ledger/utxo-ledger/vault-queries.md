@@ -139,7 +139,7 @@ After the output state has been finalized it will be represented as the followin
 {{< /tabs >}}
 
 {{< note >}}
-The `net.corda.v5.ledger.utxo.ContractState` field is always a part of the JSON representation no matter which state type we are using.
+The `net.corda.v5.ledger.utxo.ContractState` field is a part of the JSON representation for all state types.
 {{< /note >}}
 
 Use this representation to create the vault named queries in the next section.
