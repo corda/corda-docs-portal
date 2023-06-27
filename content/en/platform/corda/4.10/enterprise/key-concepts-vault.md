@@ -18,19 +18,20 @@ title: Vault
 
 # Vault
 
-
 A Corda vault is a database containing all data from the ledger relevant to a node. The database tracks spent and unspent (consumed and unconsumed) states. From a business perspective, this means a record of all the transaction states that you can spend as the node owner, and a record of all spent states from transactions relevant to you. You can compare it to a cryptocurrency wallet—a record of what you have spent and how much you have available to spend. You can attach descriptive textual notes to any transaction stored in the vault.
 
 ### Spent and unspent states
 
-**Unspent** or unconsumed states represent:  
-    * Fungible states available for spending.
-    * States available to transfer to another party.
-    * Linear states available for evolution. For example, in response to a lifecycle event on a deal.
+**Unspent** or unconsumed states represent:
+
+* Fungible states available for spending
+* States available to transfer to another party
+* Linear states available for evolution; for example, in response to a lifecycle event on a deal
 
 **Spent** or consumed states represent a ledger immutable state. These are kept for the purpose of:
-    * Transaction reporting.
-    * Audit and archives, including the ability to perform joins with app-private data, like customer notes.
+
+* Transaction reporting
+* Audit and archives, including the ability to perform joins with app-private data, like customer notes
 
 You can use data in your vault to create transactions that send value to another party by combining [fungible states](key-concepts-states.md), and possibly adding a change output that makes the values balance. This process is referred to as ‘coin selection’.
 
