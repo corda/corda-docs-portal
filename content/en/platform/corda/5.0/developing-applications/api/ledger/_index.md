@@ -11,4 +11,8 @@ section_menu: corda5
 ---
 # net.corda.v5.ledger
 
+This section describe the `ledger` modules and contains the following:
+
 {{< childpages >}}
+
+You can learn more about the concepts behind the Corda ledger [here]({{< relref "../ledger/_index.md">}}).
