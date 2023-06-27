@@ -148,7 +148,7 @@ Use this representation to create the vault named queries in the next section.
 
 Registration means the query is stored on sandbox creation time and can be executed later on.
 
-Vault named queries need to be part of a contract CPK (Corda Package). The contract CPK needs to be uploaded in order for a vault named query to be installed.
+Vault named queries need to be part of a contract CPK. The contract CPK needs to be uploaded in order for a vault named query to be installed.
 
 To create and register a query the `net.corda.v5.ledger.utxo.query.VaultNamedQueryFactory` interface must be implemented.
 
