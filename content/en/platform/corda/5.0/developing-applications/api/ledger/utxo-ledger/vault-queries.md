@@ -88,7 +88,7 @@ public class TestState implements ContractState {
 {{% /tab %}}
 {{< /tabs >}}
 
-This contract has no verification logic and should only be used for testing purposes. The state itself has a `testField` property defined for JSON representation and when constructing query.
+This contract has no verification logic and should only be used for testing purposes. The state itself has a `testField` property defined for JSON representation and constructing queries.
 
 To represent a state as a JSON string, use `ContractStateVaultJsonFactory` and do the following:
 
