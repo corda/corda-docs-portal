@@ -537,7 +537,6 @@ while (resultSet.hasNext()) {
 
 {{% /tab %}}
 {{% tab name="java" %}}
-
 ```java
 ResultSet<Integer> resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // instantiate the query
                 .setOffset(0) // Start from the beginning
