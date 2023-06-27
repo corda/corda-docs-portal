@@ -5,7 +5,7 @@ title: "Vault Queries"
 menu:
   corda5:
     identifier: corda5-api-vault-queries
-    parent: corda5-api-ledger
+    parent: corda5-api-ledger-utxo
     weight: 3000
 section_menu: corda5
 ---
