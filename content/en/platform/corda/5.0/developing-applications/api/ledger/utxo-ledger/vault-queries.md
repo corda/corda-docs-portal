@@ -297,7 +297,6 @@ class DummyCustomQueryCollector : VaultNamedQueryCollector<String, Int> {
 
 ```java
 class DummyCustomQueryCollector implements VaultNamedQueryCollector<String, Integer> {
-
     @NotNull
     @Override
     public Result<Integer> collect(@NotNull List<String> resultSet, @NotNull Map<String, Object> parameters) {
