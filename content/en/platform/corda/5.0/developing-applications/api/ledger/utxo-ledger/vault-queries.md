@@ -111,7 +111,7 @@ class TestUtxoStateJsonFactory implements ContractStateVaultJsonFactory<TestUtxo
 
 After the output state has been finalized it will be represented as the following in the database (`custom_representation column`):
 
-```java
+```json
 {
   "net.corda.v5.ledger.utxo.ContractState" : {
     "stateRef": "<TransactionID>:<StateIndex>"
