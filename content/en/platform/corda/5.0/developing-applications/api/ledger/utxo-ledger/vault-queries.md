@@ -201,7 +201,7 @@ The interface called `VaultNamesQueryFactory` has one method:
 
 `void create(@NotNull VaultNamedQueryBuilderFactory vaultNamedQueryBuilderFactory);`
 
-This function is called upon startup and should define how a query will operate in it with the following steps:
+This function is called upon start-up and should define how a query will operate in it with the following steps:
 
 * To create a vault named query with a given name, in this case it is `DUMMY_CUSTOM_QUERY`, call `vaultNamedQueryBuilderFactory.create()`.
 * To define how a query's `WHERE` clause will work, call `whereJson()`.
