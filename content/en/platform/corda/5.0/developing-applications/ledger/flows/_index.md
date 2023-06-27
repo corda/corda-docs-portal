@@ -42,7 +42,7 @@ For example, the following shows the flow’s steps used between Alice and Bob t
 
 ## Running Flows
 
-Node operators use [REST]({{< relref "../../../../reference/rest-api/_index.md">}}) calls to instruct their node to start a specific flow. The flow abstracts all the networking, I/O, and concurrency issues away from the node operator.
+Node operators use [REST]({{< relref "../../../reference/rest-api/_index.md">}}) calls to instruct their node to start a specific flow. The flow abstracts all the networking, I/O, and concurrency issues away from the node operator.
 All activity on the node occurs in the context of these flows. Unlike contracts, flows execute in a flow sandbox, meaning that nodes can perform actions such as networking, I/O, and use sources of randomness within the execution of a flow.
 
 ### Inter-Node Communication
