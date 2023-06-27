@@ -90,7 +90,7 @@ public class TestState implements ContractState {
 
 This contract has no verification logic and should only be used for testing purposes. The state itself has a `testField` property defined for JSON representation and constructing queries.
 
-To represent a state as a JSON string, use `ContractStateVaultJsonFactory` and do the following:
+To represent a state as a JSON string, use `ContractStateVaultJsonFactory` as follows:
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
