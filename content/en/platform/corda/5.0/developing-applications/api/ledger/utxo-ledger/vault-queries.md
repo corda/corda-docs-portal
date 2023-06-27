@@ -323,7 +323,7 @@ This interface has only one method:
 Result<T> collect(@NotNull List<R> resultSet, @NotNull Map<String, Object> parameters);
 ```
 
-This will define how to collect the result set, the collector class should look like the following:
+This defines how to collect the result set. The collector class should look like the following:
 
 {{< tabs name="tabs-5" >}}
 {{% tab name="kotlin" %}}
