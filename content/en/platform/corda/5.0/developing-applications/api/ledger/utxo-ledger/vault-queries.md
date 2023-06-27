@@ -520,7 +520,6 @@ Or just calling the `hasNext()` and `next()` functionality:
 
 {{< tabs name="tabs-9" >}}
 {{% tab name="kotlin" %}}
-
 ```kotlin
 val resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // instantiate the query
                 .setOffset(0) // Start from the beginning
