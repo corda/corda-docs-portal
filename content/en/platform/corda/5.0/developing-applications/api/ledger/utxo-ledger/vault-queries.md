@@ -451,7 +451,6 @@ Before executing define the following:
     ```
     {{% /tab %}}
     {{% tab name="java" %}}
-
     ```java
     PagedQuery.ResultSet<Integer> resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // instantiate the query
                     .setOffset(0) // Start from the beginning
