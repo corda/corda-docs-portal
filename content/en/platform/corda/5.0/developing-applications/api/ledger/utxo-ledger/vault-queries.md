@@ -441,7 +441,6 @@ Before executing define the following:
 
     {{< tabs name="tabs-7" >}}
     {{% tab name="kotlin" %}}
-
     ```kotlin
     val resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Int::class.java) // instantiate the query
                 .setOffset(0) // Start from the beginning
