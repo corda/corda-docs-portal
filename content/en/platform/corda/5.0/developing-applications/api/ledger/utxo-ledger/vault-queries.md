@@ -29,7 +29,7 @@ Each state type can be represented as a pre-defined JSON string (`custom_represe
 
 Implement the `net.corda.v5.ledger.utxo.query.json.ContractStateVaultJsonFactory<T>` interface. The `<T>` parameter is the type of the state we want to represent.
 
-For example, a state type called `TestState` and a simple contract called `TestContract` it would look like the following:
+For example, a state type called `TestState` and a simple contract called `TestContract`, would look like the following:
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
