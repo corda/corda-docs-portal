@@ -246,7 +246,6 @@ This interface has one function:
 This defines how each record (“row”) will be transformed (mapped):
 
 ```kotlin
-
 class DummyCustomQueryTransformer : VaultNamedQueryStateAndRefTransformer<TestState, String> {
     override fun transform(data: StateAndRef<TestState>, parameters: MutableMap<String, Any>): String {
         return data.ref.transactionId.toString()
