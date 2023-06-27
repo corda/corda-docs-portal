@@ -544,6 +544,5 @@ while (resultSet.hasNext()) {
     results = resultSet.next();
 }
 ```
-
 {{% /tab %}}
 {{< /tabs >}}
