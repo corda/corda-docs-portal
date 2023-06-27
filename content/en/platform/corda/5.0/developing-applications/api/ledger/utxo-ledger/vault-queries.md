@@ -449,7 +449,6 @@ Before executing define the following:
                 .setCreatedTimestampLimit(Instant.now()) // Set the timestamp limit to the current time
                 .execute() // execute the query
     ```
-
     {{% /tab %}}
     {{% tab name="java" %}}
 
