@@ -235,7 +235,7 @@ To create a filtering logic implement the `net.corda.v5.ledger.utxo.query.VaultN
 
 `@NotNull Boolean filter(@NotNull StateAndRef<T> data, @NotNull Map<String, Object> parameters);`
 
-This will define whether or not to keep the given element (`row`) from the result set. Elements returning true will be kept and the rest will be discarded.
+This defines whether or not to keep the given element (`row`) from the result set. Elements returning true are kept and the rest are discarded.
 
 In this example, keep the elements that have “Alice” in their participant list. This filter would look like this:
 
