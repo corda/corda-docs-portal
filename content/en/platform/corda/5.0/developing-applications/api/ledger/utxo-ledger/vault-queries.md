@@ -475,7 +475,6 @@ Paging can be achieved by increasing the offset until the result set has element
 
 {{< tabs name="tabs-8" >}}
 {{% tab name="kotlin" %}}
-
 ```kotlin
 var currentOffset = 0;
 
