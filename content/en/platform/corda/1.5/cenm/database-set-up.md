@@ -261,10 +261,9 @@ GRANT USAGE, SELECT ON ALL sequences IN SCHEMA "my_schema" TO "my_user";
 ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences TO "my_user";
 ALTER ROLE "my_user" SET search_path = "my_schema";
 ```
-If you are creating a CENM service instance user in PostgreSQL using a custom schema name (different from the username), do one of the following:
+If you are creating a CENM service instance user in PostgreSQL using a custom schema name (different from the username), the preferred way to do this is by using the JDBC URL as described in the [CENM Service Configuation section](#postgresql-1). 
 
-* Connect to the database as an administrator and run the script above. The last statement in the script - setting the `search_path` - prevents querying the differing [default schema search path](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH).
-* Use the JDBC URL.
+You can also connect to the database as an administrator and run the script above. The last statement in the script - setting the `search_path` - prevents querying the differing [default schema search path](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH).
 
 ## 2. Database schema creation
 
@@ -564,14 +563,13 @@ See below an example CENM service configuration for PostgreSQL:
 database = {
     jdbcDriver = path/to/postgresql-xx.x.x.jar
     driverClassName = "org.postgresql.Driver"
-    url = "jdbc:postgresql://<host>:<port>/<database>"
+    url = "jdbc:postgresql://<host>:<port>/sample_db?currentSchema=my_schema"
     user = my_user
     password = "my_password"
-    schema = my_schema
 }
 ```
 
-Replace the placeholders *<host>*, *<port>*, and *<database>* with appropriate values.
+Replace the placeholders *<host>* and *<port>* with appropriate values.
 The `database.schema` is the database schema name assigned to you (the user).
 The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity (without quotes, PostgresSQL would treat *AliceCorp* as the value *alicecorp*).
 
