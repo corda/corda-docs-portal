@@ -181,7 +181,7 @@ class DummyCustomQueryFactory : VaultNamedQueryFactory {
 
 
 ```java
-public class JsonQueryFactory implements VaultNamedQueryFactory {
+public class DummyCustomQueryFactory implements VaultNamedQueryFactory {
     @Override
     public void create(@NotNull VaultNamedQueryBuilderFactory vaultNamedQueryBuilderFactory) {
         vaultNamedQueryBuilderFactory.create("DUMMY_CUSTOM_QUERY")
