@@ -24,7 +24,7 @@ Corda uses a custom form of typesafe binary serialisation. The primary drivers f
   3rd party library upgrades, etc.
 * A desire to support open-ended polymorphism, where the number of subclasses of a superclass can expand over time
   and the subclasses do not need to be defined in the schema *upfront*. This is key to many Corda concepts, such as states.
-* Increased security by constructing deserialized objects through supported constructors, rather than having
+* Increased security when deserializing objects by constructing them through supported constructors, rather than having
   data inserted directly into their fields without an opportunity to validate consistency or intercept attempts to manipulate
   supposed invariants.
 * Binary formats work better with digital signatures than text based formats, as there’s much less scope for
@@ -117,13 +117,13 @@ This section describes the classes and interfaces that the AMQP serialization fo
 
 ### Collection Types
 
-The following collection types are supported.  Any implementation of the following will be mapped to *an* implementation
+The following collection types are supported. Any implementation of the following will be mapped to *an* implementation
 of the interface or class on the other end. For example, if you use a Guava implementation of a collection, it will
 deserialize as the primitive collection type.
 
-The declared types of properties should only use these types, and not any concrete implementation types (e.g.
-Guava implementations). Collections must specify their generic type, the generic type parameters will be included in
-the schema, and the element’s type will be checked against the generic parameters when deserialized.
+The types of properties should only be of these types, and not any concrete implementation types (for example,
+Guava). Collections must specify their generic type(s), the generic type parameters will be included in
+the schema, and the collection's contained objects will be checked against the generic parameter(s) type(s) when deserialized.
 
 ```text
 java.util.Collection
@@ -137,8 +137,8 @@ java.util.SortedMap
 java.util.NavigableMap
 ```
 
-However, as a convenience, we explicitly support the concrete implementation types below, and they can be used as the
-declared types of properties.
+However, as a convenience, we explicitly support the concrete implementation types listed below that are AMQP serializable,
+and therefore they can be used as the declared types of properties.
 
 ```text
 java.util.LinkedHashMap
@@ -188,8 +188,12 @@ java.lang.String
 java.lang.StringBuffer
 
 java.math.BigDecimal
+java.math.BigInteger
 
 java.security.PublicKey
+java.security.cert.CertPath
+java.security.cert.X509CRL
+java.security.cert.X509Certificate
 
 java.time.DayOfWeek
 java.time.Duration
@@ -210,7 +214,10 @@ java.time.ZoneOffset
 
 java.util.BitSet
 java.util.Currency
+java.util.Optional
 java.util.UUID
+
+javax.security.auth.x500.X500Principal
 ```
 ### Third-Party Types
 
@@ -319,7 +326,11 @@ For example:
 {{< tabs name="tabs-3" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
-class Example(var a: Int, var b: Int, var c: Int)
+class Example {
+  var a: Int = 0
+  var b: Int = 0
+  var c: Int = 0
+}
 ```
 {{% /tab %}}
 
