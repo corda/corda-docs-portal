@@ -11,7 +11,7 @@ section_menu: corda5
 ---
 # net.corda.v5.ledger
 
-This section describe the `ledger` modules and contains the following:
+This section describes the `ledger` modules and contains the following:
 
 {{< childpages >}}
 
