@@ -495,7 +495,6 @@ while (resultSet.results.isNotEmpty()) {
 
 {{% /tab %}}
 {{% tab name="java" %}}
-
 ```java
 int currentOffset = 0;
 
