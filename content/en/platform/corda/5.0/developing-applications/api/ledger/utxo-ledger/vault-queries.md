@@ -31,6 +31,9 @@ Implement the `net.corda.v5.ledger.utxo.query.json.ContractStateVaultJsonFactory
 
 For example, a state type called `TestState` and a simple contract called `TestContract` it would look like the following:
 
+{{< tabs name="tabs-1" >}}
+{{% tab name="kotlin" %}}
+
 ```kotlin
 package com.r3.corda.demo.contract
 
@@ -46,6 +49,9 @@ class TestState(
     override fun getParticipants(): List<PublicKey> = participants
 }
 ```
+
+{{% /tab %}}
+{{% tab name="java" %}}
 
 ```java
 package com.r3.corda.demo.contract;
@@ -79,9 +85,15 @@ public class TestState implements ContractState {
 }
 ```
 
+{{% /tab %}}
+{{< /tabs >}}
+
 This contract has no verification logic and should only be used for testing purposes. The state itself has a `testField` property defined for JSON representation and when constructing query.
 
 To represent a state as a JSON string, use `ContractStateVaultJsonFactory` and do the following:
+
+{{< tabs name="tabs-2" >}}
+{{% tab name="kotlin" %}}
 
 ```kotlin
 class TestStateJsonFactory : ContractStateVaultJsonFactory<TestState> {
@@ -92,6 +104,8 @@ class TestStateJsonFactory : ContractStateVaultJsonFactory<TestState> {
     }
 }
 ```
+{{% /tab %}}
+{{% tab name="java" %}}
 
 ```java
 class TestUtxoStateJsonFactory implements ContractStateVaultJsonFactory<TestUtxoState> {
@@ -121,6 +135,8 @@ After the output state has been finalized it will be represented as the followin
   } 
 }
 ```
+{{% /tab %}}
+{{< /tabs >}}
 
 {{< note >}}
 The `net.corda.v5.ledger.utxo.ContractState` field is always a part of the JSON representation no matter which state type we are using.
@@ -144,6 +160,9 @@ A simple vault named query implementation for this `TestState` would look like t
 This example has no filtering, mapping, or collecting logic.
 {{< /note >}}
 
+{{< tabs name="tabs-3" >}}
+{{% tab name="kotlin" %}}
+
 ```kotlin
 class DummyCustomQueryFactory : VaultNamedQueryFactory {
     override fun create(vaultNamedQueryBuilderFactory: VaultNamedQueryBuilderFactory) {
@@ -156,6 +175,10 @@ class DummyCustomQueryFactory : VaultNamedQueryFactory {
     }
 }
 ```
+
+{{% /tab %}}
+{{% tab name="java" %}}
+
 
 ```java
 public class JsonQueryFactory implements VaultNamedQueryFactory {
@@ -170,6 +193,9 @@ public class JsonQueryFactory implements VaultNamedQueryFactory {
     }
 }
 ```
+
+{{% /tab %}}
+{{< /tabs >}}
 
 The interface called `VaultNamesQueryFactory` has one method:
 
@@ -213,6 +239,9 @@ This will define whether or not to keep the given element (`row`) from the resul
 
 In this example, keep the elements that have “Alice” in their participant list. This filter would look like this:
 
+{{< tabs name="tabs-4" >}}
+{{% tab name="kotlin" %}}
+
 ```kotlin
 class DummyCustomQueryFilter : VaultNamedQueryStateAndRefFilter<TestState> {
     override fun filter(data: StateAndRef<TestUtxoState>, parameters: MutableMap<String, Any>): Boolean {
@@ -220,6 +249,9 @@ class DummyCustomQueryFilter : VaultNamedQueryStateAndRefFilter<TestState> {
     }
 }
 ```
+
+{{% /tab %}}
+{{% tab name="java" %}}
 
 ```java
 class DummyCustomQueryFilter implements VaultNamedQueryStateAndRefFilter<TestUtxoState> {
@@ -231,6 +263,9 @@ class DummyCustomQueryFilter implements VaultNamedQueryStateAndRefFilter<TestUtx
     }
 }
 ```
+
+{{% /tab %}}
+{{< /tabs >}}
 
 #### Transforming
 
@@ -245,6 +280,9 @@ This interface has one function:
 
 This defines how each record (“row”) will be transformed (mapped):
 
+{{< tabs name="tabs-4" >}}
+{{% tab name="kotlin" %}}
+
 ```kotlin
 class DummyCustomQueryTransformer : VaultNamedQueryStateAndRefTransformer<TestState, String> {
     override fun transform(data: StateAndRef<TestState>, parameters: MutableMap<String, Any>): String {
@@ -252,6 +290,9 @@ class DummyCustomQueryTransformer : VaultNamedQueryStateAndRefTransformer<TestSt
     }
 }
 ```
+
+{{% /tab %}}
+{{% tab name="java" %}}
 
 ```java
 
@@ -263,6 +304,9 @@ class DummyCustomQueryMapper implements VaultNamedQueryStateAndRefTransformer<Te
     }
 }
 ```
+
+{{% /tab %}}
+{{< /tabs >}}
 
 This transforms each element to a `String` object which is the given state’s transaction ID.
 
@@ -281,6 +325,9 @@ Result<T> collect(@NotNull List<R> resultSet, @NotNull Map<String, Object> param
 
 This will define how to collect the result set, the collector class should look like the following:
 
+{{< tabs name="tabs-5" >}}
+{{% tab name="kotlin" %}}
+
 ```kotlin
 class DummyCustomQueryCollector : VaultNamedQueryCollector<String, Int> {
     override fun collect(
@@ -295,6 +342,9 @@ class DummyCustomQueryCollector : VaultNamedQueryCollector<String, Int> {
 }
 ```
 
+{{% /tab %}}
+{{% tab name="java" %}}
+
 ```java
 class DummyCustomQueryCollector implements VaultNamedQueryCollector<String, Integer> {
     @NotNull
@@ -308,6 +358,9 @@ class DummyCustomQueryCollector implements VaultNamedQueryCollector<String, Inte
 }
 ```
 
+{{% /tab %}}
+{{< /tabs >}}
+
 {{< note >}}
  The query `isDone` should only be set to true if the result set is complete.
 {{< /note >}}
@@ -315,6 +368,9 @@ class DummyCustomQueryCollector implements VaultNamedQueryCollector<String, Inte
 #### Registering our Complex Query
 
  Register a complex query with a filter, a transformer, and a collector with the following example:
+
+{{< tabs name="tabs-6" >}}
+{{% tab name="kotlin" %}}
 
 ```kotlin
 class DummyCustomQueryFactory : VaultNamedQueryFactory {
@@ -332,6 +388,9 @@ class DummyCustomQueryFactory : VaultNamedQueryFactory {
 }
 ```
 
+{{% /tab %}}
+{{% tab name="java" %}}
+
 ```java
 public class JsonQueryFactory implements VaultNamedQueryFactory {
     @Override
@@ -348,6 +407,9 @@ public class JsonQueryFactory implements VaultNamedQueryFactory {
     }
 }
 ```
+
+{{% /tab %}}
+{{< /tabs >}}
 
 {{< note >}}
 The collector always needs to be the last one in the chain as all previous filtering and mapping functionality will be applied before collecting.
@@ -377,6 +439,9 @@ Before executing define the following:
 
     In this case it would look like this:
 
+    {{< tabs name="tabs-7" >}}
+    {{% tab name="kotlin" %}}
+
     ```kotlin
     val resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Int::class.java) // instantiate the query
                 .setOffset(0) // Start from the beginning
@@ -385,6 +450,9 @@ Before executing define the following:
                 .setCreatedTimestampLimit(Instant.now()) // Set the timestamp limit to the current time
                 .execute() // execute the query
     ```
+
+    {{% /tab %}}
+    {{% tab name="java" %}}
 
     ```java
     PagedQuery.ResultSet<Integer> resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // instantiate the query
@@ -395,12 +463,18 @@ Before executing define the following:
                     .execute(); // execute the query
     ```
 
+    {{% /tab %}}
+    {{< /tabs >}}
+
 {{< note >}} 
 A dummy value is assigned for the `testField` parameter in this query but it can be replaced. There is only one parameter in this example query which is `:testField`.
 {{</ note >}} 
 
 Results can be acquired by calling `getResults()` on the `ResultSet`.
 Paging can be achieved by increasing the offset until the result set has elements:
+
+{{< tabs name="tabs-8" >}}
+{{% tab name="kotlin" %}}
 
 ```kotlin
 var currentOffset = 0;
@@ -419,6 +493,9 @@ while (resultSet.results.isNotEmpty()) {
 }
 ```
 
+{{% /tab %}}
+{{% tab name="java" %}}
+
 ```java
 int currentOffset = 0;
 
@@ -436,7 +513,13 @@ while (resultSet.results.isNotEmpty()) {
 }
 ```
 
+{{% /tab %}}
+{{< /tabs >}}
+
 Or just calling the `hasNext()` and `next()` functionality:
+
+{{< tabs name="tabs-9" >}}
+{{% tab name="kotlin" %}}
 
 ```kotlin
 val resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // instantiate the query
@@ -453,6 +536,9 @@ while (resultSet.hasNext()) {
 }
 ```
 
+{{% /tab %}}
+{{% tab name="java" %}}
+
 ```java
 ResultSet<Integer> resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // instantiate the query
                 .setOffset(0) // Start from the beginning
@@ -467,3 +553,6 @@ while (resultSet.hasNext()) {
     results = resultSet.next();
 }
 ```
+
+{{% /tab %}}
+{{< /tabs >}}
