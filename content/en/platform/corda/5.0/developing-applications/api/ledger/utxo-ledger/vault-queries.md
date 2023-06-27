@@ -492,7 +492,6 @@ while (resultSet.results.isNotEmpty()) {
     resultSet = query.execute()
 }
 ```
-
 {{% /tab %}}
 {{% tab name="java" %}}
 ```java
