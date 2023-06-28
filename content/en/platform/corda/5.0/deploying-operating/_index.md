@@ -1,5 +1,5 @@
 ---
-title: "Operating Corda Clusters"
+title: "Administering Corda Clusters"
 project: corda
 version: 'Corda 5.0 Beta 4'
 date: '2023-05-16'
@@ -9,6 +9,6 @@ menu:
     weight: 3000
 section_menu: corda5
 ---
-# Operating Corda Clusters
+# Administering Corda Clusters
 This section describes the tasks performed by Corda cluster administrators. It contains the following:
 {{< childpages >}}
