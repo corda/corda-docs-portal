@@ -147,7 +147,7 @@ The `net.corda.v5.ledger.utxo.ContractState` field is a part of the JSON represe
 
 Use this representation to create the vault-named queries in the next section.
 
-## How to Create and Register a Vault-Named Query
+## Creating and Registering a Vault-Named Query
 
 Registration means the query is stored on sandbox creation time and can be executed later on.
 
