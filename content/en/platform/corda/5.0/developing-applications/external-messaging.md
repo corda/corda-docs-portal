@@ -19,7 +19,7 @@ In 5.0, this is limited to sending messages, but a future version will support b
 External messaging is implemented in CorDapps by the following components:
 * **Channels** - abstract representations of routes from a flow to an external system. They allow Cluster Aministrators and Network Operators to control the Kafka implementation of a logical channel at the cluster and virtual node level. A CorDapp Developer is responsible for defining the channels as part of the CorDapp.
 * **Routes** - a per virtual node configuration of the channel and its behaviour for the specific virtual node. This includes the actual Kafka topic to be used, if the route is active or not, and how the flow API responds to an inactive route.
-* **Default Route Configuration** - the route configuration used, along with any channels defined in the CorDapp, to generate the virtual node’s routes. <!--The default route configuration is cluster level configuration and can be updated via the configuration API (Note: updates are not retrospective and will not change routes on existing virtual nodes).-->
+* **Default Route Configuration** - the route configuration used, along with any channels defined in the CorDapp, to generate the virtual node’s routes. The default route configuration is defined at the cluster level and can be updated via the <a href="../../reference/rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/put_config">`config` endpoint</a> of the REST API. For more information see [Configuring External Messaging]({{< relref "../deploying-operating/external-messaging/_index.md">}}).
 * **Flow API** - an injectable flow service allows the flow to send messages via a configured, named channel to external systems. 
 
 To create a CorDapp that can use external messaging, you must add a resource file to define the channel(s) to use and inject the external messaging API service into the flow: 
@@ -39,6 +39,11 @@ To create a CorDapp that can use external messaging, you must add a resource fil
    ```
 
 2. Add the API service using `@CordaInject`. The following example flow shows how the API is injected and how the API can be called, sending a simple string message to the defined channel `external_app`:  
+
+   {{< note >}}
+   Channel names are case sensitive.
+   {{< /note >}}
+
    ```java
    class ExternalMessageTestFlow : ClientStartableFlow {
    
@@ -64,6 +69,5 @@ To create a CorDapp that can use external messaging, you must add a resource fil
        }
    }
    ``` 
-{{< note >}}
-Channel names are case sensitive.
-{{< /note >}}
+
+   Once your CorDapp has been [packaged](), the Network Operator can [create a virtual node]() to run the CorDapp. The Cluster Administrator can configure t** 
