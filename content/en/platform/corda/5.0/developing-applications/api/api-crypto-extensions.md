@@ -1,16 +1,16 @@
 ---
 date: '2023-02-10'
 version: 'Corda 5.0 Beta 4'
-title: "net.corda.v5.crypto"
+title: "net.corda.v5.crypto.extensions"
 menu:
   corda5:
-    identifier: corda5-api-crypto
+    identifier: corda5-api-crypto-extensions
     parent: corda5-api
-    weight: 5000
+    weight: 5050
 section_menu: corda5
 ---
-# net.corda.v5.crypto
-The `corda-crypto` module is one of several modules of the `Corda Crypto API`. The module defines low-level services that can be used to extend functionality of the Corda Crypto Library by implementing them in a CPK. 
+# net.corda.v5.crypto.extensions
+The `corda-crypto-extensions` module is one of several modules of the `Corda Crypto API`. This module defines low-level crypto capabilities that can be used to extend functionality of the Corda Crypto Library by implementing them in a CPK. 
 
 # Extending Supported Digest Algorithms
 
@@ -21,14 +21,15 @@ The Corda Crypto Library implements a wide variety of digest algorithms out of t
 * Custom algorithms cannot be used as an implicit part of the digital signing. For example, you cannot specify a signature specification such as 'SHA-256-TRIPLEwithRSA'. You must calculate the digest first and then sign/verify the produced hash using built-in signature specs.
 {{< /note >}}
 
-Double SHA-256 is supported by the platform but let us assume that you want to support Triple SHA-256 where the first pass calculates the message digest and subsequent passes calculate the digest of the previous pass result. In Kotlin, the code may look as follows:
+Double SHA-256 is supported by the platform but let us assume that you want to support Triple SHA-256 where the first pass calculates the message digest and subsequent passes calculate the digest of the previous pass result. The following sections show how to acheive this.
+
+## TripleSha256Digest.kt
 
 ```kotlin
 package com.example.crypto
 
 import net.corda.v5.crypto.DigestAlgorithmName
 import net.corda.v5.crypto.extensions.DigestAlgorithm
-import net.corda.v5.crypto.sha256Bytes
 import java.io.InputStream
 import java.security.MessageDigest
 
@@ -37,8 +38,9 @@ class TripleSha256Digest : DigestAlgorithm {
         const val ALGORITHM = "SHA-256-TRIPLE"
         const val STREAM_BUFFER_SIZE = DEFAULT_BUFFER_SIZE
     }
-    override val algorithm = ALGORITHM
-    override val digestLength = 32
+
+    override fun getAlgorithm() = ALGORITHM
+    override fun getDigestLength() = 32
     override fun digest(bytes: ByteArray): ByteArray = bytes.sha256Bytes().sha256Bytes().sha256Bytes()
     override fun digest(inputStream: InputStream): ByteArray {
         val messageDigest = MessageDigest.getInstance(DigestAlgorithmName.SHA2_256.name)
@@ -51,9 +53,12 @@ class TripleSha256Digest : DigestAlgorithm {
         return messageDigest.digest().sha256Bytes().sha256Bytes()
     }
 }
+
+private fun ByteArray.sha256Bytes(): ByteArray =
+    MessageDigest.getInstance(DigestAlgorithmName.SHA2_256.name).digest(this)
 ```
 
-
+## TripleSha256.kt
 
 ```kotlin
 package com.example.crypto
@@ -61,18 +66,22 @@ package com.example.crypto
 import net.corda.v5.crypto.extensions.DigestAlgorithm
 import net.corda.v5.crypto.extensions.DigestAlgorithmFactory
 
+/**
+ * This class should show up in the jar manifest
+ */
 class TripleSha256 : DigestAlgorithmFactory {
-    override val algorithm: String = TripleSha256Digest.ALGORITHM
+    override fun getAlgorithm() = TripleSha256Digest.ALGORITHM
+
     override fun getInstance(): DigestAlgorithm = TripleSha256Digest()
 }
 ```
 
-
+## build.gradle
 
 ```groovy
 plugins {
     id 'org.jetbrains.kotlin.jvm'
-    id 'net.corda.plugins.cordapp-cpk'
+    id 'net.corda.plugins.cordapp-cpk2'
 }
 
 description 'Corda Crypto Custom Digest One'
@@ -90,8 +99,7 @@ cordapp {
 
 dependencies {
     cordaProvided platform("net.corda:corda-api:$cordaApiVersion")
-    cordaProvided "net.corda.kotlin:kotlin-stdlib-jdk8-osgi"
-    cordaProvided 'net.corda:corda-cipher-suite'
+    cordaProvided 'org.jetbrains.kotlin:kotlin-osgi-bundle'
     cordaProvided 'net.corda:corda-crypto'
     cordaProvided 'net.corda:corda-crypto-extensions'
     cordaProvided 'org.slf4j:slf4j-api'
@@ -100,5 +108,3 @@ dependencies {
 {{< note >}}
 You must reference `net.corda:corda-crypto-extensions`.
 {{< /note >}}
-
-<!--For information about packaging a CorDapp, see the [development tutorial]().-->
