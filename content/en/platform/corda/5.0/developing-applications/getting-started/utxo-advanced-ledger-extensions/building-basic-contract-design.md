@@ -5,8 +5,8 @@ project: corda
 version: 'Corda 5.0 Beta 4'
 menu:
   corda5:
-    identifier: corda5-utxo-ledger-building-basic-contract-design
-    parent: corda5-utxo-advanced-ledger-extensions
+    identifier: corda5-utxo-ledger-building-basic-contract-design-getting-started
+    parent: corda5-utxo-advanced-ledger-extensions-getting-started
     weight: 4500
 section_menu: corda5
 ---

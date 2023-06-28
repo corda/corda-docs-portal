@@ -4,8 +4,8 @@ date: 2023-06-08
 version: 'Corda 5.0 Beta 4'
 menu:
   corda5:
-    identifier: corda5-fundamentals-ledger-time-window
-    parent: corda5-fundamentals-ledger
+    identifier: corda5-fundamentals-ledger-time-window-key-concepts
+    parent: corda5-fundamentals-ledger-key-concepts
     weight: 7000
 section_menu: corda5
 ---
