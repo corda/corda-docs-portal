@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 # net.corda.v5.crypto.extensions
-The `corda-crypto-extensions` module is one of several modules of the `Corda Crypto API`. This module defines low-level crypto capabilities that can be used to extend functionality of the Corda Crypto Library by implementing them in a CPK. 
+The `corda-crypto-extensions` module of the `Corda Crypto API` defines low-level crypto capabilities that can be used to extend functionality of the Corda Crypto Library by implementing them in a CPK. 
 
 # Extending Supported Digest Algorithms
 
