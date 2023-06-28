@@ -150,7 +150,6 @@ Use this representation to create the vault-named queries in the next section.
 ## Creating and Registering a Vault-Named Query
 
 Registration means the query is stored on sandbox creation time and can be executed later on.
-
 Vault-named queries need to be part of a contract CPK. Corda installs the vault named query when the contract CPK is uploaded.
 
 To create and register a query the `net.corda.v5.ledger.utxo.query.VaultNamedQueryFactory` interface must be implemented.
