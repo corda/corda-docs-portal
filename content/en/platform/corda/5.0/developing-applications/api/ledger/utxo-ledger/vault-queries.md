@@ -415,7 +415,7 @@ public class JsonQueryFactory implements VaultNamedQueryFactory {
 The collector always needs to be the last one in the chain as all previous filtering and mapping functionality will be applied before collecting.
 {{< /note >}}
 
-### How to Execute a Vault-Named Query
+### Executing a Vault-Named Query
 
 To execute a query use `UtxoLedgerService`. This can be injected to a flow via `@CordaInject`.
 To instantiate a query call the following:
