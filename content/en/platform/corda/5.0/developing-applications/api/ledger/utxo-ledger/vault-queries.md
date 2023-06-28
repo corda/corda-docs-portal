@@ -450,34 +450,34 @@ Before executing define the following:
 * Define named parameters that are in the query and the actual value for them. {{< note >}} All parameters must be defined otherwise the execution will fail. (`setParameter` or `setParameters`) {{</ note >}}
 * Each state in the database has a timestamp value for when it was inserted. Set an * upper limit to only return states that were inserted before a given time. (`setTimestampLimit`)
 
-    In this case it would look like this:
+In this case it would look like this:
 
-    {{< tabs name="tabs-9" >}}
-    {{% tab name="kotlin" %}}
+{{< tabs name="tabs-9" >}}
+{{% tab name="kotlin" %}}
 
-    ```kotlin
+```kotlin
     val resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Int::class.java) // instantiate the query
                 .setOffset(0) // Start from the beginning
                 .setLimit(1000) // Only return 1000 records
                 .setParameter("testField", "dummy") // Set the parameter to a dummy value
                 .setCreatedTimestampLimit(Instant.now()) // Set the timestamp limit to the current time
                 .execute() // execute the query
-    ```
+```
 
-    {{% /tab %}}
-    {{% tab name="java" %}}
+{{% /tab %}}
+{{% tab name="java" %}}
 
-    ```java
+```java
     PagedQuery.ResultSet<Integer> resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // instantiate the query
                     .setOffset(0) // Start from the beginning
                     .setLimit(1000) // Only return 1000 records
                     .setParameter("testField", "dummy") // Set the parameter to a dummy value
                     .setCreatedTimestampLimit(Instant.now()) // Set the timestamp limit to the current time
                     .execute(); // execute the query
-    ```
+```
 
-    {{% /tab %}}
-    {{< /tabs >}}
+{{% /tab %}}
+{{< /tabs >}}
 
 {{< note >}}
 A dummy value is assigned for the `testField` parameter in this query but it can be replaced. There is only one parameter in this example query which is `:testField`.
