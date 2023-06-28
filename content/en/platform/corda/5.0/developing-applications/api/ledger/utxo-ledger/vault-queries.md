@@ -12,20 +12,23 @@ section_menu: corda5
 
 # Vault Queries
 
-## Vault Named Query
+This section describes how to create, register, and configure vault-named queries.
 
-A vault named query is a database query that can be defined by Corda users. The user can define the following:
+## Vault-Named Query
+
+A vault-named query is a database query that can be defined by Corda users. The user can define the following:
 
 * The name of the query
 * The query functionality (state type the query will work on and the `WHERE` clause)
 * Optional filtering logic of the result set
 * Optional transformation logic of the result set
 * Optional collection logic of the result set
-* The query creator needs to follow a few pre-defined steps in order for the query to be registered and to be usable.
+
+ The query creator needs to follow a few pre-defined steps in order for the query to be registered and to be usable.
 
 ## How a State is Represented in the Database
 
-Each state type can be represented as a pre-defined JSON string (`custom_representation` column in the database). Use that JSON representation to write the vault-named queries. 
+Each state type can be represented as a pre-defined JSON string (`custom_representation` column in the database). Use that JSON representation to write the vault-named queries.
 
 Implement the `net.corda.v5.ledger.utxo.query.json.ContractStateVaultJsonFactory<T>` interface. The `<T>` parameter is the type of the state we want to represent.
 
@@ -123,6 +126,9 @@ class TestUtxoStateJsonFactory implements ContractStateVaultJsonFactory<TestUtxo
 }
 ```
 
+{{% /tab %}}
+{{< /tabs >}}
+
 After the output state has been finalized it will be represented as the following in the database (`custom_representation column`):
 
 ```json
@@ -135,26 +141,24 @@ After the output state has been finalized it will be represented as the followin
   } 
 }
 ```
-{{% /tab %}}
-{{< /tabs >}}
 
 {{< note >}}
 The `net.corda.v5.ledger.utxo.ContractState` field is a part of the JSON representation for all state types.
 {{< /note >}}
 
-Use this representation to create the vault named queries in the next section.
+Use this representation to create the vault-named queries in the next section.
 
-## How to Create and Register a Vault Named Query
+## How to Create and Register a Vault-Named Query
 
 Registration means the query is stored on sandbox creation time and can be executed later on.
 
-Vault named queries need to be part of a contract CPK. The contract CPK needs to be uploaded in order for a vault named query to be installed.
+Vault-named queries need to be part of a contract CPK. Corda installs the vault named query when the contract CPK is uploaded.
 
 To create and register a query the `net.corda.v5.ledger.utxo.query.VaultNamedQueryFactory` interface must be implemented.
 
-### Basic Vault Named Query Registration Example
+### Basic Vault-Named Query Registration Example
 
-A simple vault named query implementation for this `TestState` would look like this:
+A simple vault-named query implementation for this `TestState` would look like this:
 
 {{< note >}}
 This example has no filtering, mapping, or collecting logic.
@@ -203,10 +207,10 @@ The interface called `VaultNamesQueryFactory` has one method:
 
 This function is called upon start-up and should define how a query will operate in it with the following steps:
 
-* To create a vault named query with a given name, in this case it is `DUMMY_CUSTOM_QUERY`, call `vaultNamedQueryBuilderFactory.create()`.
+* To create a vault-named query with a given name, in this case it is `DUMMY_CUSTOM_QUERY`, call `vaultNamedQueryBuilderFactory.create()`.
 * To define how a query's `WHERE` clause will work, call `whereJson()`.
   {{< note >}}
-  Always start with the actual `WHERE` statement and then write the rest of the clause. Fields need to be prefixed with the `visible_states. qualifier`. Since `visible_states.custom_representation` is a JSON column, we can use some JSON specific  operations, more info here.
+  Always start with the actual `WHERE` statement and then write the rest of the clause. Fields need to be prefixed with the `visible_states.` qualifier. Since `visible_states.custom_representation` is a JSON column, we can use some JSON specific  operations, more info here.
   * Parameters can be used in the query in a :parameter format. In this example, use a parameter called :testField which can be set when executing this query. This works similarly to popular Java SQL libraries such as Hibernate.
   {{< /note >}}
 * To finalize query creation and to store the created query in the registry to be executed later, call `register()`. This call needs to be the last step when defining a query.
@@ -280,7 +284,7 @@ This interface has one function:
 
 This defines how each record (“row”) will be transformed (mapped):
 
-{{< tabs name="tabs-4" >}}
+{{< tabs name="tabs-5" >}}
 {{% tab name="kotlin" %}}
 
 ```kotlin
@@ -325,7 +329,7 @@ Result<T> collect(@NotNull List<R> resultSet, @NotNull Map<String, Object> param
 
 This defines how to collect the result set. The collector class should look like the following:
 
-{{< tabs name="tabs-5" >}}
+{{< tabs name="tabs-6" >}}
 {{% tab name="kotlin" %}}
 
 ```kotlin
@@ -369,7 +373,7 @@ class DummyCustomQueryCollector implements VaultNamedQueryCollector<String, Inte
 
  Register a complex query with a filter, a transformer, and a collector with the following example:
 
-{{< tabs name="tabs-6" >}}
+{{< tabs name="tabs-7" >}}
 {{% tab name="kotlin" %}}
 
 ```kotlin
@@ -415,18 +419,27 @@ public class JsonQueryFactory implements VaultNamedQueryFactory {
 The collector always needs to be the last one in the chain as all previous filtering and mapping functionality will be applied before collecting.
 {{< /note >}}
 
-### How to Execute a Vault Named Query
+### How to Execute a Vault-Named Query
 
 To execute a query use `UtxoLedgerService`. This can be injected to a flow via `@CordaInject`.
 To instantiate a query call the following:
+
+{{< tabs name="tabs-8" >}}
+{{% tab name="kotlin" %}}
 
 ```kotlin
 utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Int::class.java)
 ```
 
+{{% /tab %}}
+{{% tab name="java" %}}
+
 ```java
 utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class)
 ```
+
+{{% /tab %}}
+{{< /tabs >}}
 
 Provide the name of the query (in this case `DUMMY_CUSTOM_QUERY`) and the return type. Since the result set is collected into an integer in the complex query example use `Int` (or `Integer` in Java).
 
@@ -439,8 +452,9 @@ Before executing define the following:
 
     In this case it would look like this:
 
-    {{< tabs name="tabs-7" >}}
+    {{< tabs name="tabs-9" >}}
     {{% tab name="kotlin" %}}
+
     ```kotlin
     val resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Int::class.java) // instantiate the query
                 .setOffset(0) // Start from the beginning
@@ -449,8 +463,10 @@ Before executing define the following:
                 .setCreatedTimestampLimit(Instant.now()) // Set the timestamp limit to the current time
                 .execute() // execute the query
     ```
+
     {{% /tab %}}
     {{% tab name="java" %}}
+
     ```java
     PagedQuery.ResultSet<Integer> resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // instantiate the query
                     .setOffset(0) // Start from the beginning
@@ -459,17 +475,18 @@ Before executing define the following:
                     .setCreatedTimestampLimit(Instant.now()) // Set the timestamp limit to the current time
                     .execute(); // execute the query
     ```
+
     {{% /tab %}}
     {{< /tabs >}}
 
-{{< note >}} 
+{{< note >}}
 A dummy value is assigned for the `testField` parameter in this query but it can be replaced. There is only one parameter in this example query which is `:testField`.
-{{</ note >}} 
+{{</ note >}}
 
 Results can be acquired by calling `getResults()` on the `ResultSet`.
 Paging can be achieved by increasing the offset until the result set has elements:
 
-{{< tabs name="tabs-8" >}}
+{{< tabs name="tabs-10" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
 var currentOffset = 0;
@@ -511,7 +528,7 @@ while (resultSet.results.isNotEmpty()) {
 
 Or just calling the `hasNext()` and `next()` functionality:
 
-{{< tabs name="tabs-9" >}}
+{{< tabs name="tabs-11" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
 val resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // instantiate the query
