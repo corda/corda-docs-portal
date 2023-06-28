@@ -26,4 +26,4 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 {{% /tab %}}
 {{< /tabs >}}
 
-You can now use the MGM to [set up members in your network]({{< relref"../members/overview.md" >}}).
+You can now use the MGM to [set up members in your network]({{< relref"../members/_index.md" >}}).

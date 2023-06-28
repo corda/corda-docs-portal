@@ -4,7 +4,7 @@ version: 'Corda 5.0 Beta 4'
 title: "net.corda.v5.crypto"
 menu:
   corda5:
-    identifier: corda5-api-crypto
+    identifier: corda5-api-crypto-extensions
     parent: corda5-api
     weight: 5000
 section_menu: corda5
