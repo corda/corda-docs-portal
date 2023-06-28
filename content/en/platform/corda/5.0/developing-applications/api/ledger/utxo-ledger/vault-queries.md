@@ -10,11 +10,7 @@ menu:
 section_menu: corda5
 ---
 
-# Vault Queries
-
-This section describes how to create, register, and configure vault-named queries.
-
-## Vault-Named Query
+# Vault-Named Query
 
 A vault-named query is a database query that can be defined by Corda users. The user can define the following:
 
@@ -34,7 +30,7 @@ Implement the `net.corda.v5.ledger.utxo.query.json.ContractStateVaultJsonFactory
 For example, a state type called `TestState` and a simple contract called `TestContract`, would look like the following:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 package com.r3.corda.demo.contract
@@ -53,7 +49,7 @@ class TestState(
 ```
 
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 package com.r3.corda.demo.contract;
@@ -95,7 +91,7 @@ This contract has no verification logic and should only be used for testing purp
 To represent a state as a JSON string, use `ContractStateVaultJsonFactory` as follows:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 class TestStateJsonFactory : ContractStateVaultJsonFactory<TestState> {
@@ -107,7 +103,7 @@ class TestStateJsonFactory : ContractStateVaultJsonFactory<TestState> {
 }
 ```
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 class TestUtxoStateJsonFactory implements ContractStateVaultJsonFactory<TestUtxoState> {
@@ -162,7 +158,7 @@ This example has no filtering, mapping, or collecting logic.
 {{< /note >}}
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 class DummyCustomQueryFactory : VaultNamedQueryFactory {
@@ -178,7 +174,7 @@ class DummyCustomQueryFactory : VaultNamedQueryFactory {
 ```
 
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 
 ```java
@@ -240,7 +236,7 @@ This defines whether or not to keep the given element (`row`) from the result se
 In this example, keep the elements that have “Alice” in their participant list. This filter would look like this:
 
 {{< tabs name="tabs-4" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 class DummyCustomQueryFilter : VaultNamedQueryStateAndRefFilter<TestState> {
@@ -251,7 +247,7 @@ class DummyCustomQueryFilter : VaultNamedQueryStateAndRefFilter<TestState> {
 ```
 
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 class DummyCustomQueryFilter implements VaultNamedQueryStateAndRefFilter<TestUtxoState> {
@@ -281,7 +277,7 @@ This interface has one function:
 This defines how each record (“row”) will be transformed (mapped):
 
 {{< tabs name="tabs-5" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 class DummyCustomQueryTransformer : VaultNamedQueryStateAndRefTransformer<TestState, String> {
@@ -292,7 +288,7 @@ class DummyCustomQueryTransformer : VaultNamedQueryStateAndRefTransformer<TestSt
 ```
 
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 
@@ -326,7 +322,7 @@ Result<T> collect(@NotNull List<R> resultSet, @NotNull Map<String, Object> param
 This defines how to collect the result set. The collector class should look like the following:
 
 {{< tabs name="tabs-6" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 class DummyCustomQueryCollector : VaultNamedQueryCollector<String, Int> {
@@ -343,7 +339,7 @@ class DummyCustomQueryCollector : VaultNamedQueryCollector<String, Int> {
 ```
 
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 class DummyCustomQueryCollector implements VaultNamedQueryCollector<String, Integer> {
@@ -370,7 +366,7 @@ class DummyCustomQueryCollector implements VaultNamedQueryCollector<String, Inte
  Register a complex query with a filter, a transformer, and a collector with the following example:
 
 {{< tabs name="tabs-7" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 class DummyCustomQueryFactory : VaultNamedQueryFactory {
@@ -389,7 +385,7 @@ class DummyCustomQueryFactory : VaultNamedQueryFactory {
 ```
 
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 public class JsonQueryFactory implements VaultNamedQueryFactory {
@@ -421,14 +417,14 @@ To execute a query use `UtxoLedgerService`. This can be injected to a flow via `
 To instantiate a query call the following:
 
 {{< tabs name="tabs-8" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Int::class.java)
 ```
 
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class)
@@ -449,7 +445,7 @@ Before executing define the following:
 In this case it would look like this:
 
 {{< tabs name="tabs-9" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
     val resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Int::class.java) // instantiate the query
@@ -461,7 +457,7 @@ In this case it would look like this:
 ```
 
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
     PagedQuery.ResultSet<Integer> resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // instantiate the query
@@ -483,7 +479,7 @@ Results can be acquired by calling `getResults()` on the `ResultSet`.
 Paging can be achieved by increasing the offset until the result set has elements:
 
 {{< tabs name="tabs-10" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 var currentOffset = 0;
 
@@ -501,7 +497,7 @@ while (resultSet.results.isNotEmpty()) {
 }
 ```
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 int currentOffset = 0;
 
@@ -525,7 +521,7 @@ while (resultSet.results.isNotEmpty()) {
 Or just calling the `hasNext()` and `next()` functionality:
 
 {{< tabs name="tabs-11" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // instantiate the query
                 .setOffset(0) // Start from the beginning
@@ -542,7 +538,7 @@ while (resultSet.hasNext()) {
 ```
 
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 ResultSet<Integer> resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // instantiate the query
                 .setOffset(0) // Start from the beginning
