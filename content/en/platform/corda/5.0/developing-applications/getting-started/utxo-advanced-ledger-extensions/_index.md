@@ -2,7 +2,7 @@
 date: '2023-06-01'
 title: "UTXO Advanced Ledger Extensions Library"
 project: corda
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 menu:
   corda5:
     identifier: corda5-utxo-advanced-ledger-extensions

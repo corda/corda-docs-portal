@@ -1,7 +1,7 @@
 ---
 date: '2023-05-03'
 title: "Write States"
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 menu:
   corda5:
     identifier: corda5-develop-first-cordapp-state
@@ -20,7 +20,7 @@ After you have completed this tutorial, you will know how to create and implemen
 
 ## Before You Start
 
-Before you start building states, read more about [states]({{< relref "../../key-concepts/fundamentals/ledger/states/_index.md" >}}).
+Before you start building states, read more about [states]({{< relref "../ledger/states/_index.md" >}}).
 
 
 ## Create the `AppleStamp` State

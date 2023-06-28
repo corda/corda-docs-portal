@@ -1,6 +1,6 @@
 ---
 date: '2023-04-13'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 title: "Create a Virtual Node"
 menu:
   corda5:
@@ -13,7 +13,7 @@ section_menu: corda5
 # Create a Virtual Node
 You can create a virtual node using the POST method of the [/api/v1/virtualnode endpoint](../../../reference/rest-api/C5_OpenAPI.html#tag/Virtual-Node-API/operation/post_virtualnode). The following sections describe how to use this method:
 * [Create a Virtual Node on Linux or macOS](#create-a-virtual-node-on-linux-or-macos)
-* [Create a Virtual Node on Windows](#create-a-virtual-node-on-linux-or-windows)
+* [Create a Virtual Node on Windows](#create-a-virtual-node-on-windows)
 
 ## Create a Virtual Node on Linux or macOS
 

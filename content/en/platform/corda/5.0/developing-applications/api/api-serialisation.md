@@ -1,6 +1,6 @@
 ---
 date: '2022-09-21T14:27:00+01:00'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 title: "net.corda.v5.serialization"
 menu:
   corda5:
@@ -9,7 +9,7 @@ menu:
     weight: 8000
 section_menu: corda5
 ---
-# et.corda.v5.serialization
+# net.corda.v5.serialization
 Object serialization is the process of converting objects into a stream of bytes while deserialization is the reverse
 process of creating objects from a stream of bytes.  It takes place every time we store transactions in the database.
 
@@ -24,7 +24,7 @@ Corda uses a custom form of typesafe binary serialisation. The primary drivers f
   3rd party library upgrades, etc.
 * A desire to support open-ended polymorphism, where the number of subclasses of a superclass can expand over time
   and the subclasses do not need to be defined in the schema *upfront*. This is key to many Corda concepts, such as states.
-* Increased security by constructing deserialized objects through supported constructors, rather than having
+* Increased security when deserializing objects by constructing them through supported constructors, rather than having
   data inserted directly into their fields without an opportunity to validate consistency or intercept attempts to manipulate
   supposed invariants.
 * Binary formats work better with digital signatures than text based formats, as there’s much less scope for
@@ -75,6 +75,10 @@ Several of the core interfaces at the heart of Corda are already annotated and s
 them will automatically be allowed.
 {{< /note >}}
 
+{{< note >}}
+Custom serializers targeting Corda platform types or JDK types are not allowed. They will not be registered with Corda.
+{{< /note >}}
+
 {{< warning >}}
 Java 8 Lambda expressions are not serializable except in flow checkpoints, and then not by default. The syntax to declare a serializable Lambda
 expression that will work with Corda is `Runnable r = (Runnable & Serializable) () -> System.out.println("Hello World");`, or
@@ -113,13 +117,13 @@ This section describes the classes and interfaces that the AMQP serialization fo
 
 ### Collection Types
 
-The following collection types are supported.  Any implementation of the following will be mapped to *an* implementation
+The following collection types are supported. Any implementation of the following will be mapped to *an* implementation
 of the interface or class on the other end. For example, if you use a Guava implementation of a collection, it will
 deserialize as the primitive collection type.
 
-The declared types of properties should only use these types, and not any concrete implementation types (e.g.
-Guava implementations). Collections must specify their generic type, the generic type parameters will be included in
-the schema, and the element’s type will be checked against the generic parameters when deserialized.
+The types of properties should only be of these types, and not any concrete implementation types (for example,
+Guava). Collections must specify their generic type(s), the generic type parameters will be included in
+the schema, and the collection's contained objects will be checked against the generic parameter(s) type(s) when deserialized.
 
 ```text
 java.util.Collection
@@ -133,8 +137,8 @@ java.util.SortedMap
 java.util.NavigableMap
 ```
 
-However, as a convenience, we explicitly support the concrete implementation types below, and they can be used as the
-declared types of properties.
+However, as a convenience, we explicitly support the concrete implementation types listed below that are AMQP serializable,
+and therefore they can be used as the declared types of properties.
 
 ```text
 java.util.LinkedHashMap
@@ -184,8 +188,12 @@ java.lang.String
 java.lang.StringBuffer
 
 java.math.BigDecimal
+java.math.BigInteger
 
 java.security.PublicKey
+java.security.cert.CertPath
+java.security.cert.X509CRL
+java.security.cert.X509Certificate
 
 java.time.DayOfWeek
 java.time.Duration
@@ -206,7 +214,10 @@ java.time.ZoneOffset
 
 java.util.BitSet
 java.util.Currency
+java.util.Optional
 java.util.UUID
+
+javax.security.auth.x500.X500Principal
 ```
 ### Third-Party Types
 
@@ -315,7 +326,11 @@ For example:
 {{< tabs name="tabs-3" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
-class Example(var a: Int, var b: Int, var c: Int)
+class Example {
+  var a: Int = 0
+  var b: Int = 0
+  var c: Int = 0
+}
 ```
 {{% /tab %}}
 
@@ -348,10 +363,8 @@ rely heavily on mutable JavaBean style objects, you may sometimes find the API b
 
 ### Inaccessible Private Properties
 
-The Corda AMQP serialization framework does not support private object properties without publicly
-accessible getter methods, this development idiom is strongly discouraged.
-
-For example.
+The Corda AMQP serialization framework does not support private properties without publicly
+accessible getter methods. The below example fails at serialization.
 
 {{< tabs name="tabs-4" >}}
 {{% tab name="kotlin" %}}
@@ -363,12 +376,16 @@ class C(val a: Int, private val b: Int)
 {{% tab name="java" %}}
 ```java
 class C {
-    public Integer a;
+    private Integer a;
     private Integer b;
 
     public C(Integer a, Integer b) {
         this.a = a;
         this.b = b;
+    }
+
+    public Integer getA() {
+        return a;
     }
 }
 ```
@@ -388,27 +405,28 @@ this, as discussed above there are many reasons why this isn’t a good idea.
 {{< /warning >}}
 
 
-Providing a public getter, as per the following example, is acceptable:
+Providing a public getter for property `C.b`, as per the following example, makes type `C` AMQP serializable:
 
 {{< tabs name="tabs-5" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
-class C(val a: Int, b: Int) {
-    var b: Int = b
-       private set
-}
+class C(val a: Int, val b: Int)
 ```
 {{% /tab %}}
 
 {{% tab name="java" %}}
 ```java
 class C {
-    public Integer a;
+    private Integer a;
     private Integer b;
 
     C(Integer a, Integer b) {
         this.a = a;
         this.b = b;
+    }
+
+    public Integer getA() {
+        return a;
     }
 
     public Integer getB() {

@@ -1,7 +1,7 @@
 ---
 title: "About the Docs"
 date: 2023-04-21
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 menu:
   corda5:
     identifier: corda5-about-the-docs
@@ -11,11 +11,11 @@ section_menu: corda5
 ---
 # About the Docs
 The following topics are explained on this page:
-* [Documenting Product Editions]({{< relref "#documenting-product-editions">}})
+* [Documenting Corda]({{< relref "#documenting-corda">}})
 <!--* [End of Life Strategy]({{< relref "#end-of-life-strategy">}})-->
 * [Reporting an Error in the Docs]({{< relref "#reporting-an-error-in-the-docs">}})
 
-## Documenting Product Editions
+## Documenting Corda
 The Corda 5 documentation is structured differently than in previous versions of Corda. Previously, Corda Enterprise and Corda Community content was published in separate documentation sets. 
 From Corda 5.0 onwards, there is one documentation set, but the features that relate to Corda Enterprise are marked to avoid confusion. 
 
@@ -27,8 +27,8 @@ From Corda 5.0 onwards, there is one documentation set, but the features that re
 	 alt="Enterprise icon"
 >}}
 
-* **A**: The heading without the ‘Enterprise only' icon is the most common and it is used where the content relates to both Corda Community and Corda Enterprise editions of the product.
-* **B**: The ‘Enterprise only' icon is used mostly in headings, indicating that the entire content under that heading relates only to Corda Enterprise. On occasions, the icon may be used inline to identify sentences, paragraphs, or tables that are for Corda Enterprise only. 
+* **A**: The heading without the 'Enterprise only' icon is the most common and it is used where the content applies to all Corda users.
+* **B**: The ‘Enterprise only' icon is used mostly in headings, indicating that the content under that heading relates to a Corda Enterprise feature. On occasions, the icon may be used inline to identify sentences, paragraphs, or tables that apply to a Corda Enterprise feature. 
 
 <!--## End of Life Strategy
 Use the following table to track the end of life schedule for each version of Corda 5. Each version of Corda has R3 support available for a fixed period. 

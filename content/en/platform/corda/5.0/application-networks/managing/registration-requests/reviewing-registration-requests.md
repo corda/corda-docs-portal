@@ -1,6 +1,6 @@
 ---
 date: '2023-03-15'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 title: "Reviewing Registration Requests"
 menu:
   corda5:

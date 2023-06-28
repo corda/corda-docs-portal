@@ -11,6 +11,7 @@ menu:
   corda5:
     weight: 1000
     name: Corda 5.0 Beta 4
+aliases: 5.0-beta.html   
 ---
 # Next-Gen Corda 5.0 - Beta 4
 
