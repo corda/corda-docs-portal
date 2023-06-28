@@ -29,7 +29,6 @@ A vault-named query is a database query that can be defined by Corda users. The 
 ## How a State is Represented in the Database
 
 Each state type can be represented as a pre-defined JSON string (`custom_representation` column in the database). Use that JSON representation to write the vault-named queries.
-
 Implement the `net.corda.v5.ledger.utxo.query.json.ContractStateVaultJsonFactory<T>` interface. The `<T>` parameter is the type of the state we want to represent.
 
 For example, a state type called `TestState` and a simple contract called `TestContract`, would look like the following:
