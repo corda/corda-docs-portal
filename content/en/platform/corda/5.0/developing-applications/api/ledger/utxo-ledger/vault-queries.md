@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 
-# Vault-Named Query
+# Vault-Named Queries
 
 A vault-named query is a database query that can be defined by Corda users. The user can define the following:
 
