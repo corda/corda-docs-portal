@@ -1,7 +1,7 @@
 ---
 date: '2023-06-20'
 version: 'Corda 5.0 Beta 4'
-title: "Vault Queries"
+title: "Vault-Named Queries"
 menu:
   corda5:
     identifier: corda5-api-vault-queries
