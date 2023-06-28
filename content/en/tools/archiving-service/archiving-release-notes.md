@@ -1,5 +1,5 @@
 ---
-date: '2020-12-10T12:00:00Z'
+date: '2023-06-14'
 menu:
   tools:
     identifier: release-notes-archiving
@@ -12,6 +12,12 @@ weight: 705
 # Archive Service release notes
 
 The Archive Service is a standalone service that operates on a different release cadence to the Corda platform.
+
+## Archive Service 1.0.4
+
+In this release:
+
+* Previously, when using a Microsoft SQL Server database, an error was generated when using the `vault-states` filter with a positive value specified for the `retentionDays` parameter; this issue has been resolved.
 
 ## Archive Service 1.0.3
 
