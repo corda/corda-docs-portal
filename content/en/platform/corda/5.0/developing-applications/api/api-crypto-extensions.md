@@ -60,6 +60,7 @@ private fun ByteArray.sha256Bytes(): ByteArray =
 ```
 {{% /tab %}}
 {{% tab name="Java" %}}
+```java
 package com.example.crypto;
 
 import net.corda.v5.crypto.DigestAlgorithmName;
@@ -117,6 +118,7 @@ public class TripleSha256Digest implements DigestAlgorithm {
         return MessageDigest.getInstance(DigestAlgorithmName.SHA2_256.getName()).digest(bytes);
     }
 }
+```
 {{% /tab %}}
 {{< /tabs >}}
 
@@ -140,7 +142,7 @@ class TripleSha256 : DigestAlgorithmFactory {
 ```
 {{% /tab %}}
 {{% tab name="Java" %}}
-
+```java
 package com.example.crypto;
 
 import net.corda.v5.crypto.extensions.DigestAlgorithm;
@@ -161,6 +163,7 @@ public class TripleSha256 implements DigestAlgorithmFactory {
         return new TripleSha256Digest();
     }
 }
+```
 {{% /tab %}}
 {{< /tabs >}}
 
@@ -195,6 +198,7 @@ dependencies {
 ```
 {{% /tab %}}
 {{% tab name="Java" %}}
+```groovy
 plugins {
     id 'org.jetbrains.kotlin.jvm'
     id 'net.corda.plugins.cordapp-cpk2'
@@ -218,6 +222,7 @@ dependencies {
     cordaProvided 'net.corda:corda-crypto'
     cordaProvided 'net.corda:corda-crypto-extensions'
 }
+```
 {{% /tab %}}
 {{< /tabs >}}
 {{< note >}}
