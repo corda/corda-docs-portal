@@ -14,7 +14,7 @@ title: CDL views
 
 CorDapp Design Language has three views, and a privacy overlay for the Ledger Evolution view.
 
-* [Smart contract view]({{< relref "../../../en/tools/cdl/smart-contract-view/cdl-smart-contract-view" >}})
-* [Ledger Evolution view]({{< relref "../../../en/tools/cdl/ledger-evolution-view/cdl-ledger-evolution-view" >}})
-* [Ledger Evolution - Privacy Overlay]({{< relref "../../../en/tools/cdl/privacy-overlay/cdl-privacy-overlay" >}})
-* [BPMN view]({{< relref "../../../en/tools/cdl/bpmn-view/cdl-bpmn-view" >}})
+* [Smart contract view]({{< relref "../../../en/tools/cdl/smart-contract-view/cdl-smart-contract-view.md" >}})
+* [Ledger Evolution view]({{< relref "../../../en/tools/cdl/ledger-evolution-view/cdl-ledger-evolution-view.md" >}})
+* [Ledger Evolution - Privacy Overlay]({{< relref "../../../en/tools/cdl/privacy-overlay/cdl-privacy-overlay.md" >}})
+* [BPMN view]({{< relref "../../../en/tools/cdl/bpmn-view/cdl-bpmn-view.md" >}})

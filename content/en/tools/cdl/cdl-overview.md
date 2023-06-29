@@ -43,7 +43,7 @@ There are three main CDL views, each of which serves a different purpose in comm
 * The Ledger Evolution view - a view of the smart contract in action, with representations of transactions and states on the Ledger.
 * The Business Process Modelling Notation (BPMN) views - showing the process flows of your CorDapp.
 
-In the sections below, you will find an overview of each CDL view. For a more in depth guide, take a look at the [CDL views documentation]({{< relref "../../../en/tools/cdl/cdl-views" >}}).
+In the sections below, you will find an overview of each CDL view. For a more in depth guide, take a look at the [CDL views documentation]({{< relref "../../../en/tools/cdl/cdl-views.md" >}}).
 
 ### The Smart Contract view
 
@@ -67,7 +67,7 @@ This view is conceptually modelled on a Finite State Machine. The classic exampl
 
 For simple CorDapp smart contracts, there may only be one, implicit status. The Smart Contract view can still be used to communicate the design, it just devolves down to a diagram with only one state box.
 
-A detailed explanation of the elements which make up the Smart Contract view can be found [here]({{< relref "../../../en/tools/cdl/smart-contract-view/cdl-smart-contract-view" >}}).
+A detailed explanation of the elements which make up the Smart Contract view can be found [here]({{< relref "../../../en/tools/cdl/smart-contract-view/cdl-smart-contract-view.md" >}}).
 
 A Lucidchart template with the CDL Smart Contract view standard shapes [can be found here](https://app.lucidchart.com/invitations/accept/6adacd29-482f-45ca-9bdd-57252d64c8fc).
 
@@ -75,7 +75,7 @@ A Lucidchart template with the CDL Smart Contract view standard shapes [can be f
 You need an active Lucidchart account to access this folder.
 {{< /note >}}
 
-In addition, the section [CDL to Code]({{< relref "../../../en/tools/cdl/cdl-to-code/cdl-to-code" >}}) section shows a standardised way to transform the CDL Smart Contract view into code.
+In addition, the section [CDL to Code]({{< relref "../../../en/tools/cdl/cdl-to-code/cdl-to-code.md" >}}) section shows a standardised way to transform the CDL Smart Contract view into code.
 
 
 ### The Ledger Evolution view (with Privacy overlay)
@@ -96,7 +96,7 @@ The Ledger Evolution view also has an additional Privacy overlay represented as 
 
 With this view, you have insight on privacy from the design phase. An unintended privacy leak can be a show stopper for a CorDapp. It's best to consider this early on, not at the point where your customer's information security team won't sign off the deployment.
 
-A detailed explanation of the elements which make up the Ledger Evolution view can be found [here]({{< relref "../../../en/tools/cdl/ledger-evolution-view/cdl-ledger-evolution-view" >}}).
+A detailed explanation of the elements which make up the Ledger Evolution view can be found [here]({{< relref "../../../en/tools/cdl/ledger-evolution-view/cdl-ledger-evolution-view.md" >}}).
 
 A Lucidchart template with the CDL Ledger Evolution view standard shapes can be found [here](https://app.lucidchart.com/invitations/accept/6adacd29-482f-45ca-9bdd-57252d64c8fc).
 
@@ -117,4 +117,4 @@ The notation follows BPMN v2 standards, with a few small additions:
 
 Lucidchart has a standard Shapes library for BPMN 2.0 diagrams, in addition a Lucidchart template with the CDL Ledger Evolution view standard shapes can be found [here](https://app.lucidchart.com/invitations/accept/6adacd29-482f-45ca-9bdd-57252d64c8fc).
 
-A detailed explanation of the elements which make up the BPM view can be found [here]({{< relref "../../../en/tools/cdl/bpmn-view/cdl-bpmn-view" >}}).
+A detailed explanation of the elements which make up the BPM view can be found [here]({{< relref "../../../en/tools/cdl/bpmn-view/cdl-bpmn-view.md" >}}).
