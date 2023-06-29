@@ -24,7 +24,7 @@ Corda Enterprise Edition 4.8.11 is a patch release of Corda Enterprise focused o
 
 As a developer or node operator, you should upgrade to the [latest released version of Corda](../enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](upgrading-index.md).
 
-# Fixed issues
+### Fixed issues
 
 * The certificate revocation checking has been improved with the introduction of a read timeout on the download of the certificate revocation lists (CRLs). The default CRL connect timeout has also been adjusted to better suit Corda nodes. The caching of CRLs has been increased from 30 seconds to 5 minutes.
 
