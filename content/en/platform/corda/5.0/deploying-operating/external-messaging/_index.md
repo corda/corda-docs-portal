@@ -20,7 +20,7 @@ CorDapp flows can send simple messages via Kafka to external systems. For more i
 ## Configuring External Messaging Routes
 
 The <a href="./config/fields/externalmessaging.html">`externalMessaging` configuration section</a> specifies how Corda creates the required messaging routes when [creating a new virtual node]({{< relref "../../application-networks/creating/members/cpi.md">}}). 
-You can update these using the <a href="../../reference/rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/put_config">`config` endpoint</a> of the REST API. For example:
+You can update these using the <a href="../reference/rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/put_config">`config` endpoint</a> of the REST API. For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
