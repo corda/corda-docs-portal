@@ -55,7 +55,7 @@ version = 1
 
 Corda does not create Kafka topics used for external messaging. You must manually create a Kafka topic for each active and current route created for a virtual node. To determine the required topics and create these topics, do the following:
 
-1. Retrieve the configuration of the virtual vode. For more information, see [Retrieving Virtual Nodes]({{< relref "../vnodes/retrieving.md" >}}). 
+1. Retrieve the configuration of the virtual node. For more information, see [Retrieving Virtual Nodes]({{< relref "../vnodes/retrieving.md" >}}). 
    If a CorDapp that implements external messaging is uploaded to a virtual node, the routes configuration is included in the response. For example:
    ```json
    {
