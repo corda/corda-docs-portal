@@ -15,5 +15,5 @@ This section describes how to manage virtual nodes. It contains the following:
 {{< childpages >}}
 
 {{< note >}}
-Creating virtual nodes is described in the [Creating Application Networks](../../application-networks/creating/_index.md) section.
+Creating virtual nodes is described in the [Creating Application Networks]({{< relref"../../application-networks/creating/_index.md">}}) section.
 {{< /note >}}
