@@ -29,4 +29,4 @@ The use case in the example flows is very simple:
 
 The following sections describe the flow code in more detail:
 * [Kotlin Flow Code Walkthrough]({{< relref "code-kotlin.md" >}})
-{{< childpages >}}
+* [Java Flow Code Walkthrough]({{< relref "code-java.md" >}})
