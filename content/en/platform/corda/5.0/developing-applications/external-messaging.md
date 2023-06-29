@@ -37,6 +37,11 @@ To create a CorDapp that can use external messaging, you must add a resource fil
      ]
    }
    ```
+   {{< note >}}
+   * Both the `name` and type `fields` are manatory.
+   * In this version, `type` must be set to `SEND`.
+   * Names can contain alphanumeric values, underscores, periods, and dashes and must have between 1 and 100 characters. Topic names with a period or underscore could clash in internal data structures, so we recommend you use either but not both.
+   {{< /note >}}
 
 2. Add the API service using `@CordaInject`. The following example flow shows how the API is injected and how the API can be called, sending a simple string message to the defined channel `external_app`:  
 
@@ -70,4 +75,4 @@ To create a CorDapp that can use external messaging, you must add a resource fil
    }
    ``` 
 
-   Once your CorDapp has been [packaged]({{< relref "./packaging/_index.md">}}), the Network Operator can [create a virtual node]({{< relref "../application-networks/creating/members/cpi.md">}}) to run the CorDapp. The Cluster Administrator must manually [create the required Kafka topics]({{< relref "../deploying-operating/external-messaging/_index.md#creating-kafka-topics">}}) and can also optionally [change the default route configuration]({{< relref "../deploying-operating/external-messaging/_index.md#configuring-external-messaging-routes">}}).
+   Once your CorDapp has been [packaged]({{< relref "./packaging/_index.md">}}), the Network Operator can [create a virtual node]({{< relref "../application-networks/creating/members/cpi.md">}}) to run the CorDapp. Corda creates routes for the virtual node as part of the virtual node creation process.  The Cluster Administrator must manually [create the required Kafka topics]({{< relref "../deploying-operating/external-messaging/_index.md#creating-kafka-topics">}}) and can also optionally [change the default route configuration]({{< relref "../deploying-operating/external-messaging/_index.md#configuring-external-messaging-routes">}}).
