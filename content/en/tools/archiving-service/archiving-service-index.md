@@ -36,7 +36,7 @@ It also makes use of the [Application Entity Manager](app-entity-manager.md) - w
 
 {{< note >}}
 
-The Archiving Service relies on the [Ledger Graph](../ledgergraph/ledgergraph-index.md) functionality. For the Archiving Service to work correctly, the Ledger Graph must load your entire graph in memory to function.
+The Archiving Service relies on the [Ledger Graph]({{< relref "../ledgergraph/ledgergraph-index" >}}) functionality. For the Archiving Service to work correctly, the Ledger Graph must load your entire graph in memory to function.
 
 Unless you follow the guide for [making Archive-friendly CorDapps](#making-archive-friendly-cordapps), this can cause:
 
@@ -68,7 +68,7 @@ The Archive Service is compatible with [Ledger Graph V1.2.1 On Demand function](
 
 The Archive Service has commands you can use to identify which transactions can be archived in your vault. A fully consumed transaction or attachment will be marked as archivable when:
 
-* There are no unconsumed transactions in the same LedgerGraph component. A LedgerGraph component is a connected group of transactions, represented as a Direct Acrylic Graph (DAG) in the [LedgerGraph service](../ledgergraph/ledgergraph-index.md).
+* There are no unconsumed transactions in the same LedgerGraph component. A LedgerGraph component is a connected group of transactions, represented as a Direct Acrylic Graph (DAG) in the [LedgerGraph service]({{< relref "../ledgergraph/ledgergraph-index" >}}).
 * The transaction is not also referenced by another LedgerGraph component that contains unconsumed transactions.
 * The attachment itself is not a contract attachment.
 
@@ -82,11 +82,11 @@ Once the Archive Service has marked a transaction or attachment as archivable, y
 
 ### Archiving and Collaborative Recovery
 
-The [Collaborative Recovery CorDapp LedgerSync V1.2.1](../../../../../../../en/platform/corda/4.9/enterprise/node/collaborative-recovery/ledger-sync.md) has been introduced for compatibility with the Archive Service. If you or anyone on your network uses Collaborative Recovery to recover data after a disaster scenario, archived transactions in any nodes on the network are marked as such. This means they do not appear to be 'lost' or 'missing' data and will not be recovered automatically in the recovery process.
+The [Collaborative Recovery CorDapp LedgerSync V1.2.1]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/collaborative-recovery/ledger-sync" >}}) has been introduced for compatibility with the Archive Service. If you or anyone on your network uses Collaborative Recovery to recover data after a disaster scenario, archived transactions in any nodes on the network are marked as such. This means they do not appear to be 'lost' or 'missing' data and will not be recovered automatically in the recovery process.
 
 ### Archiving and onDemand LedgerGraph
 
-If you are using the Archive Service with [LedgerGraph V1.2.1](../ledgergraph/ledgergraph-index.md), you can save heap memory usage by configuring the option `onDemand` to `true` in your LedgerGraph configuration settings. This means LedgerGraph is only triggered when required by the Archive Service. For example, when you make a `create-snapshot` request.
+If you are using the Archive Service with [LedgerGraph V1.2.1]({{< relref "../ledgergraph/ledgergraph-index" >}}), you can save heap memory usage by configuring the option `onDemand` to `true` in your LedgerGraph configuration settings. This means LedgerGraph is only triggered when required by the Archive Service. For example, when you make a `create-snapshot` request.
 
 ## Making archive-friendly CorDapps
 
@@ -110,7 +110,7 @@ The Archive Service requires:
 
 * Node minimum platform version 6.
 * Corda Enterprise minimum version 4.4.
-* [LedgerGraph V1.2](../ledgergraph/ledgergraph-index.md).
+* [LedgerGraph V1.2]({{< relref "../ledgergraph/ledgergraph-index" >}}).
 * Collaborative Recovery V 1.2 (if you use Collaborative Recovery).
 
 {{< warning >}}

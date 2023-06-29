@@ -17,4 +17,4 @@ Once you have installed the Collaborative Recovery CorDapps, you can safely use 
 
 As the name suggests, this is a collaborative method for recovering data. For maximum peace of mind, you should seek agreement across your Business Network to make this feature part of the overall disaster recovery policy.
 
-Read the full documentation about the [Collaborative Recovery solution](../../../en/platform/corda/4.8/enterprise/node/collaborative-recovery/introduction-cr.md).
+Read the full documentation about the [Collaborative Recovery solution]({{< relref "../../../en/platform/corda/4.8/enterprise/node/collaborative-recovery/introduction-cr" >}}).

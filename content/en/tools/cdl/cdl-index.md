@@ -18,7 +18,7 @@ As Corda transactions can represent high-value business activity, where mistakes
 
 From here you can:
 
-* Get started with an [overview of the CDL](../../../en/tools/cdl/cdl-overview.md).
-* Explore [the CDL views](../../../en/tools/cdl/cdl-views.md).
-* See how to move from [CDL to code](../../../en/tools/cdl/cdl-to-code/cdl-to-code.md).
-* Learn how to [test CDL code](../../../en/tools/cdl/testing/cdl-testing.md)
+* Get started with an [overview of the CDL]({{< relref "../../../en/tools/cdl/cdl-overview" >}}).
+* Explore [the CDL views]({{< relref "../../../en/tools/cdl/cdl-views" >}}).
+* See how to move from [CDL to code]({{< relref "../../../en/tools/cdl/cdl-to-code/cdl-to-code" >}}).
+* Learn how to [test CDL code]({{< relref "../../../en/tools/cdl/testing/cdl-testing" >}})
