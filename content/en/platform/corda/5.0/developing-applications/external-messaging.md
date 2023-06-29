@@ -19,14 +19,14 @@ In 5.0, this is limited to sending messages, but a future version will support b
 External messaging is implemented in CorDapps by the following components:
 * **Channels** - abstract representations of routes from a flow to an external system. They allow Cluster Aministrators and Network Operators to control the Kafka implementation of a logical channel at the cluster and virtual node level. A CorDapp Developer is responsible for defining the channels as part of the CorDapp.
 * **Routes** - a per virtual node configuration of the channel and its behaviour for the specific virtual node. This includes the actual Kafka topic to be used, if the route is active or not, and how the flow API responds to an inactive route.
-* **Default Route Configuration** - the route configuration used, along with any channels defined in the CorDapp, to generate the virtual node’s routes. The default route configuration is defined at the cluster level and can be updated via the <a href="../../reference/rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/put_config">`config` endpoint</a> of the REST API. For more information see [Configuring External Messaging]({{< relref "../deploying-operating/external-messaging/_index.md">}}).
+* **Default Route Configuration** - the route configuration used, along with any channels defined in the CorDapp, to generate the virtual node’s routes. The default route configuration is defined at the cluster level and can be updated via the <a href="../reference/rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/put_config">`config` endpoint</a> of the REST API. For more information see [Configuring External Messaging]({{< relref "../deploying-operating/external-messaging/_index.md">}}).
 * **Flow API** - an injectable flow service allows the flow to send messages via a configured, named channel to external systems. 
 
 To create a CorDapp that can use external messaging, you must add a resource file to define the channel(s) to use and inject the external messaging API service into the flow: 
 
 1. To define the channel(s) to use:
 
-   Create a JSON configuration file, `external-channels.json`, in `resources\config\` and define a list of the named channels and their type. For exampple:
+   Create a JSON configuration file, `external-channels.json`, in `resources\config\` and define a list of the named channels and their type. For example:
    ```json
    {
      "channels": [
@@ -38,7 +38,7 @@ To create a CorDapp that can use external messaging, you must add a resource fil
    }
    ```
    {{< note >}}
-   * Both the `name` and type `fields` are manatory.
+   * Both the `name` and `type` fields are mandatory.
    * In this version, `type` must be set to `SEND`.
    * Names can contain alphanumeric values, underscores, periods, and dashes and must have between 1 and 100 characters. Topic names with a period or underscore could clash in internal data structures, so we recommend you use either but not both.
    {{< /note >}}
