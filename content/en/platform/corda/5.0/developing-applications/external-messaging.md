@@ -1,6 +1,6 @@
 ---
 date: '2023-06-22'
-title: "External Messaging"
+title: "External Messaging CorDapps"
 project: corda
 version: 'Corda 5.0 Beta 4'
 menu:
@@ -11,7 +11,7 @@ menu:
 section_menu: corda5
 ---
 
-# External Messaging
+# External Messaging CorDapps
 
 A running Corda flow can send simple messages via Kafka to external systems. 
 In 5.0, this is limited to sending messages, but a future version will support both send and send-and-receive messages. 
@@ -70,4 +70,4 @@ To create a CorDapp that can use external messaging, you must add a resource fil
    }
    ``` 
 
-   Once your CorDapp has been [packaged](), the Network Operator can [create a virtual node]() to run the CorDapp. The Cluster Administrator can configure t** 
+   Once your CorDapp has been [packaged]({{< relref "./packaging/_index.md">}}), the Network Operator can [create a virtual node]({{< relref "../application-networks/creating/members/cpi.md">}}) to run the CorDapp. The Cluster Administrator must manually [create the required Kafka topics]({{< relref "../deploying-operating/external-messaging/_index.md#creating-kafka-topics">}}) and can also optionally [change the default route configuration]({{< relref "../deploying-operating/external-messaging/_index.md#configuring-external-messaging-routes">}}).
