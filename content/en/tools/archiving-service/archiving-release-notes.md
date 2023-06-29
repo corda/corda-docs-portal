@@ -17,7 +17,9 @@ The Archive Service is a standalone service that operates on a different release
 
 In this release:
 
-* An issue occurred where the Archive Service misunderstood reference states when part of transactions. As of this release, the Archive Service now correctly allows a transaction to be archived even if it still has unconsumed outbound references; that is, it references a transaction that is still unconsumed. The behavior is unchanged for any unconsumed transaction that references the transaction (inbound): in this scenario, it will still be unarchivable.
+* Previously, an issue occurred where the Archive Service misunderstood reference states when part of transactions. Now, the Archive Service  correctly allows a transaction to be archived even if it still has unconsumed outbound references; that is, it references a transaction that is still unconsumed. 
+
+  The behavior is unchanged for any unconsumed transaction that references the inbound transaction. In this case, it will still be unarchivable.
 
 ## Archive Service 1.0.4
 
