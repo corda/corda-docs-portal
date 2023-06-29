@@ -21,7 +21,7 @@ To set up SSO with Azure AD, you need to:
 1. Configure your Azure AD using the Azure online console.
 2. Configure your [Auth Service]({{< relref "../../../../4.9/enterprise/node/auth-service.md" >}}).
 3. If you use the [CENM Command-line Interface Tool]({{< relref "../../../../1.5/cenm/cenm-cli-tool.md" >}}), you also need to configure Azure AD to enable commands.
-[](../../../../1.5/)
+
 {{< note >}}
 Some steps in the Auth configuration require reference to your Azure AD account and setup, so you should be able to access both when setting up Azure AD SSO.
 {{< /note >}}

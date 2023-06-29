@@ -75,7 +75,7 @@ A Lucidchart template with the CDL Smart Contract view standard shapes [can be f
 You need an active Lucidchart account to access this folder.
 {{< /note >}}
 
-In addition, the section [CDL to Code]({{< relref "../../../en/tools/cdl/cdl-to-code/cdl-to-code.md" >}}) section shows a standardised way to transform the CDL Smart Contract view into code.
+In addition, the section [CDL to Code]({{< relref "../../../en/tools/cdl/cdl-to-code/cdl-to-code.md" >}}) section shows a standardized way to transform the CDL Smart Contract view into code.
 
 
 ### The Ledger Evolution view (with Privacy overlay)
@@ -94,7 +94,7 @@ Here both states and transactions are represented as "nodes" in the graph. There
 
 The Ledger Evolution view also has an additional Privacy overlay represented as the purple and orange lines in the above diagram. Each overlay is from the perspective of a Party on the ledger. It starts with a state which the Party is a participant on and then traces back through the DAG to show all the previous transactions the Party's node will receive a copy of through the transaction resolution mechanism. The green circles indicate that privacy has been preserved, where as the red circles indicate a privacy leak.
 
-With this view, you have insight on privacy from the design phase. An unintended privacy leak can be a show stopper for a CorDapp. It's best to consider this early on, not at the point where your customer's information security team won't sign off the deployment.
+With this view, you have insight on privacy from the design phase. An unintended privacy leak can be a show-stopper for a CorDapp. It's best to consider this early on, not at the point where your customer's information security team won't sign off the deployment.
 
 A detailed explanation of the elements which make up the Ledger Evolution view can be found [here]({{< relref "../../../en/tools/cdl/ledger-evolution-view/cdl-ledger-evolution-view.md" >}}).
 
