@@ -347,7 +347,7 @@ Each filter has its own configuration requirements, which it takes either from t
 the command line or from the CorDapp configuration file.
 
 Custom filters can be implemented by using the Archive Service Library. For more details see
-the [Archive Service Library documentation](../../../../../../../en/platform/corda/4.9/enterprise/node/archiving/archive-library.md).
+the [Archive Service Library documentation]({{< relref "../../tools/archiving-service/archive-library.md" >}}).
 
 ### Filter configuration
 
@@ -436,7 +436,7 @@ By default, no exporters are applied.
 
 Each exporter has its own configuration requirements, which it takes either from the HOCON file given on the command line or from the CorDapp configuration file.
 
-Custom exporters can be implemented for individual archive solutions. For more details see the [Archive Service Library documentation](../../../../../../../en/platform/corda/4.9/enterprise/node/archiving/archive-library.md).
+Custom exporters can be implemented for individual archive solutions. For more details see the [Archive Service Library documentation]({{< relref "../../tools/archiving-service/archive-library.md" >}}).
 
 ## Archive schema
 
@@ -460,7 +460,7 @@ The following are keys for configuring the Archive Service.
 * `target.user`: Backup schema archive database user, required if a backup schema is used.
 * `target.password`: Backup schema archive database password, required if a backup schema is used.
 
-Passwords can be obfuscated using [Corda Configuration Obfuscator tool](../../../../../../../en/platform/corda/4.9/enterprise/tools-config-obfuscator.md).
+Passwords can be obfuscated using [Corda Configuration Obfuscator tool]({{< relref "../../platform/corda/4.9/enterprise/tools-config-obfuscator.md" >}}).
 
 A sample configuration file follows below:
 
