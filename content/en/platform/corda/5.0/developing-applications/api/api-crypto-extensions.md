@@ -17,7 +17,7 @@ The `corda-crypto-extensions` module of the `Corda Crypto API` defines low-level
 The Corda Crypto Library implements a wide variety of digest algorithms out of the box. However, you can use a digest algorithm that is not supported by the library by simply implementing some interfaces and adding the code into the CPK with the CorDapp code. Corda picks up any custom algorithms at runtime. We recommend adding custom digest code in a separate Java module.
 
 {{< note >}}
-* Digest algorithms must be cryptographically strong. For example, MD5 is not a strong algorithm and so is not supported by the library.
+* Digest algorithms must be cryptographically strong. For example, MD5 is not a strong algorithm and is therefore not supported by the library.
 * Custom algorithms cannot be used as an implicit part of the digital signing. For example, you cannot specify a signature specification such as 'SHA-256-TRIPLEwithRSA'. You must calculate the digest first and then sign/verify the produced hash using built-in signature specs.
 {{< /note >}}
 
