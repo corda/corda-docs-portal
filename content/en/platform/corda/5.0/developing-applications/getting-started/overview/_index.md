@@ -22,9 +22,9 @@ The images in this section show the `CSDE-cordapp-template-kotlin` repository in
 On the left, you can see the folder structure created, ready for CorDapps development.
  {{< figure src="project-structure.png" figcaption="CSDE folder structure" alt="CSDE folders in IntelliJ" >}}
 
-For Kotlin, write your flow code in `workflows/src/main/kotlin/<your package path>` and your contract and states code in `/contracts/src/main/kotlin<your package path>`.
+For Kotlin, write your flow code in `workflows/src/main/kotlin/<your package path>` and your contract and states code in `/contracts/src/main/kotlin/<your package path>`.
 
-For Java, use `workflows/src/main/java/<your package path>` and your contract and states code in `/contracts/src/main/kotlin<your package path>`.
+For Java, use `workflows/src/main/java/<your package path>` and your contract and states code in `/contracts/src/main/java/<your package path>`.
 
 For test code, use the corresponding test folder.
 ## Gradle Helpers for the Combined Worker

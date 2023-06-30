@@ -1,6 +1,6 @@
 ---
 date: '2023-04-20'
-title: "Managing Application Networks"
+title: "Operating Application Networks"
 project: corda
 version: 'Corda 5.0 Beta 4'
 menu:
@@ -9,7 +9,7 @@ menu:
     weight: 5000
 section_menu: corda5
 ---
-# Managing Application Networks
+# Operating Application Networks
 
 This section describes the tasks performed by Corda Network Operators. It contains the following:
 {{< childpages >}}
