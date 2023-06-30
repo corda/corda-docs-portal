@@ -86,7 +86,7 @@ Corda does not create Kafka topics used for external messaging. You must manuall
    ```
    The `externalMessagingRouteConfiguration` field contains the configuration for the routes that were generated for each channel. The `currentRoutes` field specifies the current configuration while the `previousVersionRoutes` field contains historical configuration. The `previousVersionRoutes` field shows how the configuration has evolved over time, which can be useful when troubleshooting issues.
 
-2. Manually create a Kafka topic for each route returned in `externalMessagingRouteConfiguration.currentRoutes.routes`. In the example above, create a topic named `ext.B5C16DBC7BB5.external_app_v1.receive`. For more information, see the [Manual Bootstrapping section]({{< relref "../deployment/deploying/manual-bootstrapping.md">}}).
+2. Manually create a Kafka topic for each route returned in `externalMessagingRouteConfiguration.currentRoutes.routes`. In the example above, create a topic named `ext.B5C16DBC7BB5.external_app_v1.receive`. For more information, see the [Manual Bootstrapping]({{< relref "../deployment/deploying/manual-bootstrapping.md">}}) section.
 
 3. Listen to the Kafka topic for messages using the `kafka-console-consumer` command. Login to the pod or container that is running Kafka and execute the following:
    ```
