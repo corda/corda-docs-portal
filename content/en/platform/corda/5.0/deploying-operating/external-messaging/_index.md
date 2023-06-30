@@ -88,7 +88,7 @@ Corda does not create Kafka topics used for external messaging. You must manuall
 
 2. Manually create a Kafka topic for each route returned in `externalMessagingRouteConfiguration.currentRoutes.routes`. In the example above, create a topic named `ext.B5C16DBC7BB5.external_app_v1.receive`. For more information, see the [Manual Bootstrapping]({{< relref "../deployment/deploying/manual-bootstrapping.md">}}) section.
 
-3. Listen to the Kafka topic for messages using the `kafka-console-consumer` command. Login to the pod or container that is running Kafka and execute the following:
+3. Listen to the Kafka topic for messages using the `kafka-console-consumer` command. Log in to the pod or container that is running Kafka and execute the following:
    ```
    kafka-console-consumer --topic <topic-nam> --from-beginning --bootstrap-server localhost:9092
    ```
