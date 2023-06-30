@@ -15,6 +15,10 @@ You can download the LedgerGraph release files if you have access to the reposit
 
 Before you install the downloaded files, verify the integrity of each file to ensure that it has not been tampered with or corrupted during the download. You can do this by calculating the **checksum** of your downloaded file, then comparing its value to the checksum value provided below.
 
+## Checksums of LedgerGraph 1.2.5 release files
+
+The checksum information for LedgerGraph 1.2.5 can be found as part of the [Corda 4.10.2 release]({{< relref "../../platform/corda/4.10/enterprise/release-checksum-enterprise.md" >}}).
+
 ## Checksums of LedgerGraph 1.2.4 release files
 
 * ledger-graph-1.2.4-javadoc.jar (261 bytes / 261 bytes)
