@@ -28,5 +28,4 @@ The use case in the example flows is very simple:
 ## MyFirstFlow Code
 
 The following sections describe the flow code in more detail:
-* [Kotlin Flow Code Walkthrough]({{< relref "code-kotlin.md" >}})
 {{< childpages >}}
