@@ -15,7 +15,7 @@ With the SDK, you can define your token and its attributes, then add functionali
 
 ## Tokens SDK Documentation
 
-Tokens SDK documentation can be found [here](../../../en/platform/corda/4.10/enterprise/cordapps/token-sdk-introduction.md).
+Tokens SDK documentation can be found [here]({{< relref "../../../en/platform/corda/4.10/enterprise/cordapps/token-sdk-introduction.md" >}}).
 
 ## Upgrading
 
