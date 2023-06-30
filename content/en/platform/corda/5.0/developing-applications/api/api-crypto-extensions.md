@@ -21,7 +21,7 @@ The Corda Crypto Library implements a wide variety of digest algorithms out of t
 * Custom algorithms cannot be used as an implicit part of the digital signing. For example, you cannot specify a signature specification such as 'SHA-256-TRIPLEwithRSA'. You must calculate the digest first and then sign/verify the produced hash using built-in signature specs.
 {{< /note >}}
 
-Double SHA-256 is supported by the platform but let us assume that you want to support Triple SHA-256 where the first pass calculates the message digest and subsequent passes calculate the digest of the previous pass result. The following sections show how to acheive this.
+Double SHA-256 is supported by the platform, but let us assume that you want to support Triple SHA-256 where the first pass calculates the message digest and subsequent passes calculate the digest of the previous pass result. The following sections show how to achieve this.
 
 ## TripleSha256Digest.kt
 {{< tabs name="TripleSha256Digest">}}
