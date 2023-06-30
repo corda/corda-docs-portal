@@ -40,7 +40,7 @@ To create a CorDapp that can use external messaging, you must add a resource fil
    {{< note >}}
    * Both the `name` and `type` fields are mandatory.
    * In this version, `type` must be set to `SEND`.
-   * Names can contain alphanumeric values, underscores, periods, and dashes and must have between 1 and 100 characters. Topic names with a period or underscore could clash in internal data structures, so we recommend you use either but not both.
+   * Names can contain alphanumeric values, underscores, periods, and dashes and must have between 1 and 100 characters. Topic names with a period or underscore could clash in internal data structures, so we recommend that you use either but not both.
    {{< /note >}}
 
 2. Add the API service using `@CordaInject`. The following example flow shows how the API is injected and how the API can be called, sending a simple string message to the defined channel `external_app`:  
