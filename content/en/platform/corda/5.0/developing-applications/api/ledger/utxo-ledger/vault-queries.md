@@ -140,6 +140,10 @@ After the output state has been finalized it will be represented as the followin
 {{< note >}}
 The `net.corda.v5.ledger.utxo.ContractState` field is a part of the JSON representation for all state types.
 {{< /note >}}
+{{< note >}}
+The implementation of the JSON factory needs to be defined in the same CPK as the state
+it is working on so the platform can get hold of it when persisting a state to the database.
+{{< /note >}}
 
 Use this representation to create the vault-named queries in the next section.
 
