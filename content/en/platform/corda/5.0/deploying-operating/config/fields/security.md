@@ -1,7 +1,7 @@
 ---
 date: '2023-03-08'
 title: "corda.security"
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 menu:
   corda5:
     parent: corda5-config-fields

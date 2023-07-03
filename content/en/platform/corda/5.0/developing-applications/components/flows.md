@@ -1,6 +1,6 @@
 ---
 date: '2023-02-23'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 title: "Flows"
 menu:
   corda5:

@@ -1,6 +1,6 @@
 ---
 date: '2022-10-19'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 title: "Java Flow Code Walkthrough"
 menu:
   corda5:
@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 # Java Flow Code Walkthrough
-The Java code for the flows and supporting classes can be found in the CSDE repo in the `src/main/java/com/r3/developers/csdetemplate/flowexample/workflows` folder.
+The Java code for the flows and supporting classes can be found in the CSDE repo in the `workflows/src/main/java/com/r3/developers/csdetemplate/flowexample/workflows` folder.
 
 ## Java Flow Files
 
@@ -158,10 +158,10 @@ RequestBody for triggering the flow via REST:
 ```java
 package com.r3.developers.csdetemplate.flowexample.workflows;
 
-import net.corda.v5.application.flows.*;
-import net.corda.v5.application.marshalling.JsonMarshallingService;
+import net.corda.v5.application.flows.CordaInject;
+import net.corda.v5.application.flows.InitiatedBy;
+import net.corda.v5.application.flows.ResponderFlow;
 import net.corda.v5.application.membership.MemberLookup;
-import net.corda.v5.application.messaging.FlowMessaging;
 import net.corda.v5.application.messaging.FlowSession;
 import net.corda.v5.base.annotations.Suspendable;
 import net.corda.v5.base.types.MemberX500Name;
@@ -169,89 +169,55 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-// MyFirstFlow is an initiating flow, it's corresponding responder flow is called MyFirstFlowResponder (defined below)
+// MyFirstFlowResponder is a responder flow. Its corresponding initiating flow is called MyFirstFlow (defined in MyFirstFlow.java)
 // to link the two sides of the flow together they need to have the same protocol.
-@InitiatingFlow(protocol = "my-first-flow")
-// MyFirstFlow should inherit from ClientStartableFlow, which tells Corda it can be started via an REST call
-public class MyFirstFlow implements ClientStartableFlow {
+@InitiatedBy(protocol = "my-first-flow")
+// Responder flows must inherit from ResponderFlow
+public class MyFirstFlowResponder implements ResponderFlow {
 
-  // Log messages from the flows for debugging.
-  private final static Logger log = LoggerFactory.getLogger(MyFirstFlow.class);
+    // Log messages from the flows for debugging.
+    private final static Logger log = LoggerFactory.getLogger(MyFirstFlowResponder.class);
 
-  // Corda has a set of injectable services which are injected into the flow at runtime.
-  // Flows declare them with @CordaInjectable, then the flows have access to their services.
+    // MemberLookup looks for information about members of the virtual network which 
+    // this CorDapp operates in. 
+    @CordaInject
+    public MemberLookup memberLookup;
 
-  // JsonMarshallingService provides a service for manipulating JSON.
-  @CordaInject
-  public JsonMarshallingService jsonMarshallingService;
+    public MyFirstFlowResponder() {}
 
-  // FlowMessaging provides a service that establishes flow sessions between virtual nodes
-  // that send and receive payloads between them.
-  @CordaInject
-  public FlowMessaging flowMessaging;
+    // Responder flows are invoked when an initiating flow makes a call via a session set up with the virtual
+    // node hosting the responder flow. When a responder flow is invoked its call() method is called.
+    // call() methods must be marked as @Suspendable, this allows Corda to pause mid-execution to wait
+    // for a response from the other flows and services.
+    // The call() method has the flow session passed in as a parameter by Corda so the session is available to
+    // responder flow code, you don't need to inject the FlowMessaging service.
+    @Suspendable
+    @Override
+    public void call(FlowSession session) {
 
-  // MemberLookup provides a service for looking up information about members of the virtual network which
-  // this CorDapp operates in.
-  @CordaInject
-  public MemberLookup memberLookup;
+        // Follow what happens in the console or logs.
+        log.info("MFF: MyFirstResponderFlow.call() called");
 
-  public MyFirstFlow() {}
+        // Receive the payload and deserialize it into a message class.
+        Message receivedMessage = session.receive(Message.class);
 
-  // When a flow is invoked its call() method is called.
-  // Call() methods must be marked as @Suspendable, this allows Corda to pause mid-execution to wait
-  // for a response from the other flows and services.
+        // Log the message as a proxy for performing some useful operation on it.
+        log.info("MFF: Message received from " + receivedMessage.getSender() + ":" + receivedMessage.getMessage());
 
-  @Suspendable
-  @Override
-  public String call(ClientRequestBody requestBody) {
+        // Get our identity from the MemberLookup service.
+        MemberX500Name ourIdentity = memberLookup.myInfo().getName();
 
-    // Follow what happens in the console or logs.
-    log.info("MFF: MyFirstFlow.call() called");
+        // Create a message to greet the sender.
+        Message response = new Message(ourIdentity,
+                "Hello " + session.getCounterparty().getCommonName() + ", best wishes from " + ourIdentity.getCommonName());
 
-    // Show the requestBody in the logs - this can be used to help establish the format for starting a flow on Corda.
-    log.info("MFF: requestBody: " + requestBody.getRequestBody());
+        // Log the response to be sent.
+        log.info("MFF: response.message: " + response.getMessage());
 
-    // Deserialize the Json requestBody into the MyfirstFlowStartArgs class using the JsonSerialisation service.
-    MyFirstFlowStartArgs flowArgs = requestBody.getRequestBodyAs(jsonMarshallingService, MyFirstFlowStartArgs.class);
-
-    // Obtain the MemberX500Name of the counterparty.
-    MemberX500Name otherMember = flowArgs.getOtherMember();
-
-    // Get our identity from the MemberLookup service.
-    MemberX500Name ourIdentity = memberLookup.myInfo().getName();
-
-    // Create the message payload using the MessageClass we defined.
-    Message message = new Message(otherMember, "Hello from " + ourIdentity + ".");
-
-    // Log the message to be sent.
-    log.info("MFF: message.message: " + message.getMessage());
-
-    // Start a flow session with the otherMember using the FlowMessaging service.
-    // The otherMember's virtual node will run the corresponding MyFirstFlowResponder responder flow.
-    FlowSession session = flowMessaging.initiateFlow(otherMember);
-
-    // Send the Payload using the send method on the session to the MyFirstFlowResponder responder flow.
-    session.send(message);
-
-    // Receive a response from the responder flow.
-    Message response = session.receive(Message.class);
-
-    // The return value of a ClientStartableFlow must always be a String. This will be passed
-    // back as the REST response when the status of the flow is queried on Corda.
-    return response.getMessage();
-  }
+        // Send the response via the send method on the flow session
+        session.send(response);
+    }
 }
-
-/*
-RequestBody for triggering the flow via REST:
-{
-    "clientRequestId": "r1",
-    "flowClassName": "com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlow",
-    "requestBody": {
-        "otherMember":"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB"
-        }
-}
- */
 
 ```
 

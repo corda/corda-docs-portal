@@ -2,7 +2,7 @@
 date: '2023-04-07'
 title: "Onboarding the MGM"
 project: corda
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 menu:
   corda5:
     parent: corda5-networks-create
@@ -20,7 +20,7 @@ These sections describe a standard configuration. You can read about alternative
 
 {{< note >}}
 These tutorials all assume that you have:
-* [deployed Corda 5 to a Kubernetes cluster](../../../deploying-operating/deployment/deploying/_index.md).
+* [deployed Corda 5 to a Kubernetes cluster]({{< relref "../../../deploying-operating/deployment/deploying/_index.md" >}}).
 * cloned the [GitHub corda-runtime-os repository](https://github.com/corda/corda-runtime-os).
 
 The PowerShell commands listed are for use with PowerShell 7.0 and will not execute correctly with PowerShell 5.x.

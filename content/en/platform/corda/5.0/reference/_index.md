@@ -1,7 +1,7 @@
 ---
 title: "References"
 project: corda
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 date: 2023-04-24
 menu:
   corda5:

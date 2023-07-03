@@ -1,6 +1,6 @@
 ---
 date: '2022-10-19'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 title: "Kotlin Flow Code Walkthrough"
 menu:
   corda5:
@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 # Kotlin Flow Code Walkthrough
-The Kotlin code for the flows and supporting classes can be found in the CSDE repo at `src/main/kotlin/com/r3/developers/csdetemplate/flowexample/workflows/MyFirstFlow.kt`.
+The Kotlin code for the flows and supporting classes can be found in the CSDE repo at `workflows/src/main/kotlin/com/r3/developers/csdetemplate/flowexample/workflows/MyFirstFlow.kt`.
 
 The full listing with explanatory comments is as follows:
 ```kotlin

@@ -1,6 +1,6 @@
 ---
 date: '2022-09-20'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 title: "Your First Flow"
 menu:
   corda5:
@@ -28,5 +28,4 @@ The use case in the example flows is very simple:
 ## MyFirstFlow Code
 
 The following sections describe the flow code in more detail:
-* [Kotlin Flow Code Walkthrough]({{< relref "code-kotlin.md" >}})
 {{< childpages >}}

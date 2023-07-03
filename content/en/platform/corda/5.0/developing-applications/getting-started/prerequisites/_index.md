@@ -1,6 +1,6 @@
 ---
 date: '2022-09-19'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 title: "Prerequisites for the CSDE"
 menu:
   corda5:

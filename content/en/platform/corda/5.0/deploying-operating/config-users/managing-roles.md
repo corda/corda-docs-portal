@@ -1,6 +1,6 @@
 ---
 date: '2023-04-24'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 title: "Managing Roles and Permissions"
 menu:
   corda5:

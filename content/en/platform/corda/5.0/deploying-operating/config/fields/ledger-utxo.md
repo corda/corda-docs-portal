@@ -1,6 +1,6 @@
 ---
 date: '2023-03-08'
-version: 'Corda 5.0'
+version: 'Corda 5.0 Beta 4'
 title: "corda.ledger.utxo"
 menu:
   corda5:
