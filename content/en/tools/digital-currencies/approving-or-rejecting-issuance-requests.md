@@ -50,7 +50,7 @@ To approve or reject an issuance request (as either an issuer or a custodian):
 	  alt="Issuance Requests Panel (as Issuer)"
    >}}
    
-   If you are logged in as the custodian, the panel may look like this if the issuer for their part has already approved the request:
+   If you are logged in as the custodian, the panel may look like this if the issuer has already approved the request:
      
    {{< 
       figure
@@ -67,8 +67,7 @@ To approve or reject an issuance request (as either an issuer or a custodian):
    * **Token name:** The name of the token definition; normally the full name of the currency; for example, Canadian Dollar
    * **Token symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, *CAD*
    * **Amount:** The number of tokens requested
-   * **Issuer:** This issuer of the tokens; this field is displayed for the issuer.
-   * **Requester:** The entity making the issuance request; this field is displayed for the custodian.
+   * **Requester:** The entity making the issuance request
    * **Last Updated:** The date and time at which the request was last updated
    
 2. Click the relevant request.
@@ -79,9 +78,19 @@ To approve or reject an issuance request (as either an issuer or a custodian):
       figure
 	  src="images/approving-issuance-request.png"
       width=40%
-	  figcaption="Issuance Requests Confirmation Dialog"
-	  alt="Issuance Requests Panel (Issuer)"
+	  figcaption="Issuance Request Confirmation Dialog"
+	  alt="Issuance Request Confirmation Dialog"
    >}}  
+   
+   If the dialog box looks like the following image, that means the current participant is a custodian but the issuer has not yet approved the request:
+   
+   {{< 
+      figure
+	  src="images/approving-issuance-request-issuer-not-approved.png"
+      width=40%
+	  figcaption="Issuance Request Confirmation Dialog - Not Approved by Issuer"
+	  alt="Issuance Request Confirmation Dialog - Not Approved by Issuer"
+   >}}
    
 7. Click **Approve**.
 
@@ -137,7 +146,7 @@ To approve or reject an issuance request (as either an issuer or a custodian):
    >}}
    
    
-Once both the issuer and the custodian have approved the issuance request, the participant that created the request will see their request has been approved. However, they will not see their vault balance updated until the issuer has actually issued the tokens.
+Once both the issuer and the custodian have approved the issuance request, the participant that created the request will see their request has been approved. However, they will not see their vault balance updated until the issuer actually [issues the tokens]({{< relref "issuing-tokens.md" >}}).
    
    
    

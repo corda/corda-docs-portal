@@ -51,18 +51,18 @@ The Digital Currencies GUI is displayed:
 >}}
 
 Note that you can select the network participant you are at any time by using the **Settings** button; see [Viewing the GUI Settings]({{< relref "viewing-the-gui-settings.md" >}}).
-
 The GUI has the following elements:
 
 * A left-hand sidebar contains the following options (depending on which participant you selected, not all will be shown):
-  * **Define Token**: See [Creating Token Definitions]({{< relref "creating-token-definitions.md" >}})
-  * **Token Definitions**: See [Viewing Token Definitions]({{< relref "viewing-token-definitions.md" >}})
+  * **Define Token:** See [Creating Token Definitions]({{< relref "creating-token-definitions.md" >}})
+  * **Token Definitions:** See [Viewing Token Definitions]({{< relref "viewing-token-definitions.md" >}})
   * **Token Manager**: See:
     * [Minting Tokens]({{< relref "minting-tokens.md" >}})
     * [Burning Tokens]({{< relref "burning-tokens.md" >}})
     * [Viewing Vault Balances]({{< relref "viewing-vault-balances.md" >}})
-  * **Issuances**: See [Creating Issuance Requests]({{< relref "creating-issuance-requests.md"  >}})
-  * **Redemptions**: See:
+  * **Issuances:** See [Creating Issuance Requests]({{< relref "creating-issuance-requests.md"  >}})
+  * **Transfers:** See [Transferring Tokens]({{< relref "transferring-tokens.md" >}})
+  * **Redemptions:** See:
     
 * The **Settings** button (![](images/setting-buttons.png)): See [Viewing the GUI Settings]({{< relref "viewing-the-gui-settings.md" >}}). 
 * The flow tracker button (![](images/flow-drawer-button.png)): When performing flows such as creating token definitions and minting tokens, click this button to display a pop-out flow tracker which displays the current status of flows. By default, the five most recent flows are displayed.

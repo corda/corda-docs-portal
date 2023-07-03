@@ -36,12 +36,11 @@ Before [tokens can be created]({{< relref "minting-tokens.md" >}}), a {{< toolti
    
 2. In the **New Token Definition** panel, specify the following parameters:
 
-   * **Token Name:** The name of the token definition; normally the full name of the currency; for example, Canadian Dollar
-   * **Token Symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217 for the currency; for example, CAD
-   * **Token Decimal Place:** An integer that specifies the number of decimal places for the currency; for many currencies this is 2; for example, the Canadian dollar (€9.99)
+   * **Token Name:** The name of the token definition; normally the full name of the currency; for example, UAE Dirham
+   * **Token Symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, AED
+   * **Token Decimal Place:** An integer that specifies the number of decimal places for the currency; for many currencies this is 2.
    
    <!-- Keep the above descriptions in sync with those in the overview -->
-   
    
 3. Click **Next**.
 
@@ -57,7 +56,7 @@ Before [tokens can be created]({{< relref "minting-tokens.md" >}}), a {{< toolti
    
 4. Specify the following parameters:
 
-   * **Token Issuer:** The name of the Token Issuing Entity; this is the party on the network that can issue tokens of this type.  This party will make the final decision whether an issuance happens or not.
+   * **Issuer:** The name of the Token Issuing Entity; this is the party on the network that can issue tokens of this type.  This party will make the final decision whether an issuance happens or not.
    * **Custodian:** The name of the Custodian; they are the party on the network responsible for the exchange of off-ledger collateral when a non-issuing party requests tokens of this token definition state from the Token Issuer. This party’s responsibility is to inform the issuer that a requesting bank has paid for the token they are requesting. This setting is optional and can be "None".
 
 

@@ -87,7 +87,7 @@ The new request is now listed in the **Issuance Requests** panel:
    {{< 
       figure
 	  src="images/issuance-requests-panel-issuer.png"
-      width=50%
+      width=90%
 	  figcaption="Issuance Requests Panel"
 	  alt="Issuance Requests Panel"
    >}}
