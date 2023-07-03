@@ -19,7 +19,7 @@ In this release:
 
 * Previously, an issue occurred where the Archive Service misunderstood reference states. This would prevent a transaction from being archivable if it referenced an unconsumed transaction and did not have any unconsumed transactions that referenced it.
 
- Now, a transaction that only has outbound references (to unconsumed transactions) and no inbound references (from unconsumed transactions) will now be marked as archivable by the Archive service. Any inbound references will still make a transaction unarchivable.
+ Now, a transaction that only has outbound references (to unconsumed transactions) and no inbound references (from unconsumed transactions) will be marked as archivable by the Archive Service. Any inbound references will still make a transaction unarchivable.
 
 ## Archive Service 1.0.4
 
