@@ -2,7 +2,6 @@
 date: '2023-03-21'
 lastmod: '2023-03-21'
 section_menu: tools
-draft: yes
 menu:
   tools:
     name: "Redeeming Tokens"
