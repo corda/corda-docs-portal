@@ -18,30 +18,30 @@ from Maven Central Repository or similar.
 
 1. Ensure that the repositories block of the project has `mavenCentral()` declared in the following way:
 
-```
-repositories {
-    mavenCentral()
-    // other repos
-}
-```
+   ```
+   repositories {
+       mavenCentral()
+       // other repos
+   }
+   ```
 
 2. Add the following code to the project's main `build.gradle` file:
 
-```
-cordaUtxoLibGroupId=com.r3.corda.ledger.utxo
-cordaUtxoLibVersion=0.9.0-Iguana1.0
-```
+   ```
+   cordaUtxoLibGroupId=com.r3.corda.ledger.utxo
+   cordaUtxoLibVersion=0.9.0-Iguana1.0
+   ```
 
 3. Add the following dependencies to the project's contract sub-module `build.gradle` file:
 
-```
-dependencies {
-    cordapp "$cordaUtxoLibGroupId:corda-ledger-extensions-base:$cordaUtxoLibVersion"
-    cordapp "$cordaUtxoLibGroupId:corda-ledger-extensions-fungible:$cordaUtxoLibVersion"
-    cordapp "$cordaUtxoLibGroupId:corda-ledger-extensions-identifiable:$cordaUtxoLibVersion"
-    cordapp "$cordaUtxoLibGroupId:corda-ledger-extensions-issuable:$cordaUtxoLibVersion"
-    cordapp "$cordaUtxoLibGroupId:corda-ledger-extensions-ownable:$cordaUtxoLibVersion"
+   ```
+   dependencies {
+       cordapp "$cordaUtxoLibGroupId:corda-ledger-extensions-base:$cordaUtxoLibVersion"
+       cordapp "$cordaUtxoLibGroupId:corda-ledger-extensions-fungible:$cordaUtxoLibVersion"
+       cordapp "$cordaUtxoLibGroupId:corda-ledger-extensions-identifiable:$cordaUtxoLibVersion"
+       cordapp "$cordaUtxoLibGroupId:corda-ledger-extensions-issuable:$cordaUtxoLibVersion"
+       cordapp "$cordaUtxoLibGroupId:corda-ledger-extensions-ownable:$cordaUtxoLibVersion"
 
-    ...etc.
-}
-```
+       ...etc.
+   }
+   ```
