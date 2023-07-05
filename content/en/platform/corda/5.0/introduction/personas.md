@@ -54,7 +54,7 @@ A Cluster Administrator is responsible for:
 * the disaster recovery story for Corda.
 * monitoring the health metrics of Corda.
 
-To learn more, see the [Operating Corda Clusters]({{< relref "../deploying-operating/_index.md">}}) section.
+To learn more, see the [Administering Corda Clusters]({{< relref "../deploying-operating/_index.md">}}) section.
 
 ## Network Operator
 
@@ -70,4 +70,4 @@ The Network Operator:
 * defines and applies network membership rules for participation in the business network.
 * distributes CorDapps to network participants.
 
-To learn more, see the [Managing Application Networks]({{< relref "../application-networks/_index.md">}}) section.
+To learn more, see the [Operating Application Networks]({{< relref "../application-networks/_index.md">}}) section.

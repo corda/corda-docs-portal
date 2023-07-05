@@ -1,5 +1,5 @@
 ---
-date: '2020-06-16T12:00:00Z'
+date: '2023-05-08'
 menu:
   corda-enterprise-4-10:
     identifier: corda-enterprise-4-10-operations-guide-deployment-hsm
@@ -123,7 +123,7 @@ cryptoServiceName : "GEMALTO_LUNA"
 cryptoServiceConf : "gemalto.conf"
 ```
 
-The configuration file for Gemalto Luna has two fields. The `keyStore` field needs to specify a slot or partition. The `password` field contains the password associated with the slot or partition.
+The configuration file for Gemalto Luna has two parameters. The `keyStore` parameter needs to specify a slot or partition. The `password` parameter contains the password associated with the slot or partition.
 
 * **keyStore**:
 specify the slot or partition.
@@ -131,11 +131,16 @@ specify the slot or partition.
 * **password**:
 the password associated with the slot or partition.
 
+The optional parameter `usekwp` can also be added to the file. When FIPS mode is activated in the Luna HSM, version 7.7.1 of the firmware does not allow the mechanism AES/CBC/PKCS5Padding to use wrap functionality. This has resulted in flow errors with confidential identities when using "wrapped" mode. 
+
+A new mechanism (AES/KWP/NoPadding) has been enabled that allows wrapping when in FIPS mode. To switch to this new mechanism, set the `usekwp` parameter to true. If false or the parameter does not exist in the configuration file, then the existing mechanism is used.
+
 Example configuration file:
 
 ```kotlin
 keyStore: "tokenlabel:my-partition"
 password: "my-password"
+usekwp: true
 ```
 
 Note that the Gemalto’s JCA provider (version 7.3) has to be installed as described in the documentation for the Gemalto Luna.
@@ -299,7 +304,7 @@ Corda Enterprise nodes can be configured to generate keys in [nCipher nShield Co
 
 Security World Software has to be installed and configured for use with nCipherKM JCA/JCE Cryptographic Service Provider (CSP), as described in the documentation for nShield.
 
-In the `node.conf`, the `cryptoServiceName` needs to be set to “N_SHIELD”, and `cryptoServiceConf` should contain the path to a configuration file, the content of which is explained further down. The `cryptoServiceTimeout` needs to be increased to 10 seconds to allow file-based keystore creation during initial node registration.
+In the `node.conf`, the `cryptoServiceName` needs to be set to “N_SHIELD”, and `cryptoServiceConf` should contain the path to a configuration file, the content of which is explained further down. The `cryptoServiceTimeout` needs to be increased to 10000 milliseconds to allow file-based keystore creation during initial node registration.
 
 ```kotlin
 cryptoServiceName: "N_SHIELD"

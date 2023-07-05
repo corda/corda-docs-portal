@@ -15,7 +15,7 @@ With the SDK, you can define your token and its attributes, then add functionali
 
 ## Tokens SDK Documentation
 
-Tokens SDK documentation can be found [here](../../../en/platform/corda/4.10/enterprise/cordapps/token-sdk-introduction.md).
+Tokens SDK documentation can be found [here]({{< relref "../../../en/platform/corda/4.10/enterprise/cordapps/token-sdk-introduction.md" >}}).
 
 ## Upgrading
 
@@ -26,6 +26,10 @@ If you have developed a CorDapp that uses the Tokens SDK 1.1 or 1.2.1, you can u
 Versions 1.2.1 and 1.2.3 of the Tokens SDK are compatible with **Corda release version 4.6** and higher.
 
 Version 1.2.4 of the Tokens SDK is compatible with **Corda release version 4.8** and higher.
+
+## Changes in Tokens SDK 1.2.4
+
+Previously, the in-memory token selector would start loading its tokens in parallel to the vault being initialised or during node startup, which may have resulted in some tokens not being loaded into the selector. This issue has now been resolved.
 
 ## Changes in Tokens SDK 1.2.3
 

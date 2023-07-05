@@ -13,6 +13,14 @@ weight: 705
 
 The Archive Service is a standalone service that operates on a different release cadence to the Corda platform.
 
+## Archive Service 1.0.5
+
+In this release:
+
+* Previously, an issue occurred where the Archive Service misunderstood reference states. This would prevent a transaction from being archivable if it referenced an unconsumed transaction and did not have any unconsumed transactions that referenced it.
+
+ Now, a transaction that only has outbound references (to unconsumed transactions) and no inbound references (from unconsumed transactions) will be marked as archivable by the Archive Service. Any inbound references will still make a transaction unarchivable.
+
 ## Archive Service 1.0.4
 
 In this release:
@@ -26,8 +34,6 @@ In this release:
 * A new configuration option has been added which allows the Archive Service to ignore transactions that cause failures when exporting a JSON snapshot. For more information, see the [Archive Service]({{< relref "archiving-service-index.md#new-in-v103" >}}) documentation.
 
 ## Archive Service 1.0.2
-
-### Fixed issues
 
 In this release:
 
