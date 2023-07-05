@@ -5,15 +5,15 @@ section_menu: tools
 menu:
   tools:
     name: "Creating Token Definitions"
-    weight: 300
-    parent: digital-currencies-tokens-overview
+    weight: 200
+    parent: digital-currencies-token-definitions
     identifier: digital-currencies-creating-token-definitions
     description: "Digital Currencies documentation describing how to create token definitions via the GUI"
 title: "Creating Token Definitions"
 ---
 
 
-Before [tokens can be created]({{< relref "minting-tokens.md" >}}), a {{< tooltip >}}token definition{{< definitiondc term="token definition" >}}{{< /tooltip >}} must be created. 
+Before [tokens can be minted]({{< relref "../minting/_index.md" >}}), a {{< tooltip >}}token definition{{< definitiondc term="token definition" >}}{{< /tooltip >}} must be created.
 
 1. In the Digital Currencies GUI, select **Define Token**.
 
@@ -58,8 +58,6 @@ Before [tokens can be created]({{< relref "minting-tokens.md" >}}), a {{< toolti
 
    * **Issuer:** The name of the Token Issuing Entity; this is the party on the network that can issue tokens of this type.  This party will make the final decision whether an issuance happens or not.
    * **Custodian:** The name of the Custodian; they are the party on the network responsible for the exchange of off-ledger collateral when a non-issuing party requests tokens of this token definition state from the Token Issuer. This party’s responsibility is to inform the issuer that a requesting bank has paid for the token they are requesting. This setting is optional and can be "None".
-
-
 
 5. Click **Next**.
 
@@ -159,7 +157,7 @@ The token defining entity cannot publish the token definition to the TIE unless 
 Now that a token definition has been created, you can:
 
 * [View existing token definitions]({{< relref "viewing-token-definitions.md" >}})
-* [Mint tokens based on that definition]({{< relref "minting-tokens.md" >}})
+* [Mint tokens based on that definition]({{< relref "../minting/_index.md" >}})
    
    
  

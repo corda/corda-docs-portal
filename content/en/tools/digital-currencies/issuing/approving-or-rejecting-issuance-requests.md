@@ -5,8 +5,8 @@ section_menu: tools
 menu:
   tools:
     name: "Approving or Rejecting Issuance Requests"
-    weight: 1370
-    parent: digital-currencies-tokens-overview
+    weight: 600
+    parent: digital-currencies-token-issuance
     identifier: digital-currencies-approving-rejecting-issuance-requests-issuer
     description: "Digital Currencies documentation describing how to approve or reject issuance requests via the GUI"
 title: "Approving or Rejecting Issuance Requests"

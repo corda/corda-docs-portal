@@ -6,15 +6,13 @@ menu:
   tools:
     name: "Decommissioning Token Definitions"
     weight: 800
-    parent: digital-currencies-tokens-overview
+    parent: digital-currencies-token-definitions
     identifier: digital-currencies-decommissioning-token-definitions
     description: "Digital Currencies documentation describing how to decommission token definitions via the GUI"
 title: "Decommissioning Token Definitions"
 ---
 
 This topic describes how to decommission a token definition. Only the definer of a token can decommission.
-
-
 
 1. In the Digital Currencies GUI, [view existing token definitions]({{< relref "viewing-token-definitions.md" >}}).
 
@@ -27,9 +25,7 @@ This topic describes how to decommission a token definition. Only the definer of
 	  alt="Token Definitions Page"
 	  figcaption="Token Definitions Page"
    >}}
-   
-   This page is described in more detail in [Viewing Token Definitions]({{< relref "viewing-token-definitions.md" >}}).
-
+  
 2. In the **Active Token Definitions** pane, click **Decommission** for the relevant token definition:
 
    {{< 

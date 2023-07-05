@@ -5,8 +5,8 @@ section_menu: tools
 menu:
   tools:
     name: "Issuing Tokens"
-    weight: 1380
-    parent: digital-currencies-tokens-overview
+    weight: 800
+    parent: digital-currencies-token-issuance
     identifier: digital-currencies-issuing-tokens
     description: "Digital Currencies documentation describing how to issue tokens via the GUI"
 title: "Issuing Tokens"

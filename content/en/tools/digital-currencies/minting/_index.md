@@ -5,14 +5,14 @@ section_menu: tools
 menu:
   tools:
     name: "Minting Tokens"
-    weight: 900
-    parent: digital-currencies-tokens-overview
-    identifier: digital-currencies-mimting-tokens
+    weight: 600
+    parent: digital-currencies
+    identifier: digital-currencies-minting-tokens
     description: "Digital Currencies documentation describing how to mint tokens via the GUI"
 title: "Minting Tokens"
 ---
 
-Once a token definition has been created, new tokens of that type can be issued. Such tokens can then be used as for currency or utility purposes and allows the issuing party to maintain monetary policy and provide easily accessible digital currency tokens to specific entities.
+Once a [token definition has been created]({{< relref "../defining/creating-token-definitions.md " >}}), new tokens of that type can be issued. Such tokens can then be used as for currency or utility purposes and allows the issuing party to maintain monetary policy and provide easily accessible digital currency tokens to specific entities.
 
 1. Click **Token Manager** in the left-hand sidebar.
 
@@ -30,11 +30,11 @@ Once a token definition has been created, new tokens of that type can be issued.
    
    * **Vault Balances:** Displays the number of tokens available for each token definition for the current participant.
    * **Mint Tokens:** Enables you to mint tokens of a certain token definition.
-   * **Burn Tokens:** Enables you to burn tokens; see [Burning Tokens]({{< relref "burning-tokens.md" >}})).
+   * **Burn Tokens:** Enables you to burn tokens; see [Burning Tokens]({{< relref "../burning/_index.md" >}})).
    
 4. In the **Mint Tokens** pane, specify the following values:
 
-   * **Token Definition:** Select the relevant token definition (previously created as described in [Creating Token Definitions]({{< relref "creating-token-definitions.md" >}})).
+   * **Token Definition:** Select the relevant token definition (previously created as described in [Creating Token Definitions]({{< relref "../defining/creating-token-definitions.md" >}})).
    * **Amount:** Enter the number of token you want; for example *100*.
    
 5. Click **Create**.

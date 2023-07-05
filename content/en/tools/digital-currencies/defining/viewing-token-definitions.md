@@ -6,13 +6,13 @@ menu:
   tools:
     name: "Viewing Token Definitions"
     weight: 400
-    parent: digital-currencies-tokens-overview
+    parent: digital-currencies-token-definitions
     identifier: digital-currencies-viewing-token-definitions
     description: "Digital Currencies documentation describing how to create token definitions via the GUI"
 title: "Viewing Token Definitions"
 ---
 
-Once [token definitions]({{< relref "tokens-overview.md#token-definitions" >}}) have been created, they can be viewed on the **Token Definitions** page.
+Once [token definitions have been created]{{< relref "creating-token-definitions.md" >}}), they can be viewed on the **Token Definitions** page.
 
 * In the Digital Currencies GUI, select **Token Definitions**.
 

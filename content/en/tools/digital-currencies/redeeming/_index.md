@@ -6,7 +6,7 @@ menu:
   tools:
     name: "Redeeming Tokens"
     weight: 1200
-    parent: digital-currencies-tokens-overview
+    parent: digital-currencies
     identifier: digital-currencies-redeeming-tokens
     description: "Digital Currencies documentation describing how to redeem tokens via the GUI"
 title: "Redeeming Tokens"

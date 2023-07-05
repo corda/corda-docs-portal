@@ -5,46 +5,44 @@ section_menu: tools
 menu:
   tools:
     name: "Viewing Issuance Requests"
-    weight: 1350
-    parent: digital-currencies-tokens-overview
+    weight: 400
+    parent: digital-currencies-token-issuance
     identifier: digital-currencies-viewing-transfer-requests
     description: "Digital Currencies documentation describing how to view transfer requests via the GUI"
 title: "Viewing Issuance Requests"
 ---
 
-To view the list of existing transfer requests:
+To view the list of existing issuance requests for the current participant:
 
-1. In the left-hand menu, click on **Transfers**.
+1. In the left-hand menu, click on **Issuances**.
 
-   The following page is displayed:
+   The **Issuances** page is displayed. This page contains the **Issuance Requests** panel, which lists existing issuance requests and their status:
    
    {{< 
       figure
-	  src="images/commercial-bank-transfers-page.png"
+	  src="images/issuance-requests-panel-issuer.png"
       width=100%
-	  figcaption="Transfers Page"
-	  alt="Transfers Page"
+	  figcaption="Issuance Requests Panel"
+	  alt="Issuance Requests Panel"
    >}}
 
-   The page shows the following panels related to transfers:
-
-   * **Vault Balance**: A Corda vault is a database containing all data from the ledger relevant to a participant. For more information, see [the Vault topic]({{< relref "/en/platform/corda/5.0-beta/developing/ledger/vault.md" >}}).
-   * **Request Transfer**: Allows you to create a transfer request; see [Creating Transfer Requests](creating-transfer-requests.md)
-   * **Transfer Requests:** Lists any existing transfer requests and their status.
-  
-   {{< 
-      figure
-	  src="images/transfer-requests-panel.png"
-      width=100%
-	  figcaption="Transfer Requests Panel"
-	  alt="Transfer Requests Panel"
-   >}}
+   For each issuance request, the following information is displayed:
    
-   For each transfer request, the following information is displayed:
-   
-   * **Status:** The status of the request
+   * **Issuer Status:** Whether or not the issuer has approved the issuance request
+   * **Custodian Status:** Whether or not the custodian has approved the issuance request
    * **Token name:** The name of the token definition; normally the full name of the currency; for example, Canadian Dollar
    * **Token symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, *CAD*
    * **Amount:** The number of tokens requested
-   * **Approver:** The Transacting Entity who either (1) has to approve the receipt of tokens (if the other party made a Request to Send) or (2) has to approve the sending of tokens (if the other party made a Request to Receive)
+   * **Requester:** The entity making the issuance request
    * **Last Updated:** The date and time at which the request was last updated
+   
+You can change the GUI settings using the following buttons:
+
+* **Columns**: Enables you to hide some or all columns in the list
+* **Filters**: Enables you to filter items in the list
+* **Density**: Enables you to change the vertical spacing between rows in the list* 
+* **Export**: Enables you to export the list as a CSV (Comma Separated Value) file, or to print the list
+   
+From this panel, you can perform the following actions:
+
+* [Approve or reject issuance requests]({{< relref "approving-or-rejecting-issuance-requests.md" >}})

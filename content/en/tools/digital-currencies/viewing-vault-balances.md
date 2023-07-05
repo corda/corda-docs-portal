@@ -6,7 +6,7 @@ menu:
   tools:
     name: "Viewing Vault Balances"
     weight: 1800
-    parent: digital-currencies-tokens-overview
+    parent: digital-currencies
     identifier: digital-currencies-viewing-vault-balances
     description: "Digital Currencies documentation describing how to view vault balances via the GUI"
 title: "Viewing Vault Balances"
