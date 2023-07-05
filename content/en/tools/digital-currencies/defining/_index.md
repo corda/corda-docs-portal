@@ -24,7 +24,7 @@ Token definitions have the following properties:
 * **Custodian:** The name of the Custodian; they are the party on the network responsible for the exchange of off-ledger collateral when a non-issuing party requests tokens of this token definition state from the Token Issuer. This party’s responsibility is to inform the issuer that a requesting bank has paid for the token they are requesting. This setting is optional and can be "None".
 * **Timestamp:** The date and time at which the token definition was committed to the Corda ledger; this setting is specified automatically when the token definition is defined.
 * **ID:** The unique ID for the token definition; this setting is specified automatically when the token definition is defined.
-* **Version:** An integer specifying the version of the token definition
+* **Version:** An integer specifying the version of the token definition.
 
 This section describes the tasks associated with token definitions. It contains the following:
 {{< childpages >}}
