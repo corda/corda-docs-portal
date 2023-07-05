@@ -505,7 +505,7 @@ database = {
 }
 ```
 
-Replace the placeholders *\<host\>* and *\<port\>* with appropriate values (the default SQL Server port is 1433). By default, the connection to the database is not SSL. To secure the JDBC connection, refer to [Securing JDBC Driver Applications](https://docs.microsoft.com/en-us/sql/connect/jdbc/securing-jdbc-driver-applications?view=sql-server-2017).
+Replace the placeholders *host* and *port* with appropriate values (the default SQL Server port is 1433). By default, the connection to the database is not SSL. To secure the JDBC connection, refer to [Securing JDBC Driver Applications](https://docs.microsoft.com/en-us/sql/connect/jdbc/securing-jdbc-driver-applications?view=sql-server-2017).
 
 You can download the Microsoft JDBC 6.2 driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55539) - extract the downloaded archive and copy the file `mssql-jdbc-6.2.2.jre8.jar` (the archive comes with two JAR files).
 The [Database configuration section](#4-database-configuration) further below explains the correct location for the driver JAR file in the CENM service installation structure.
@@ -546,7 +546,7 @@ database = {
 }
 ```
 
-Replace the placeholders *\<host\>*,*\<port\>* and *\<sid\>* with appropriate values. For a basic Oracle installation, the default *\<sid\>* value is `xe`.
+Replace the placeholders *host*,*port* and *sid* with appropriate values. For a basic Oracle installation, the default *sid* value is `xe`.
 
 Set the `database.schema` value to the username of the admin user (in the example above - *my_admin_user*). CENM does not guarantee prefixing all SQL queries with the schema namespace. The additional configuration entry `connectionInitSql` sets the current schema to the username of the admin user (in the example above - *my_admin_user*) on connection to the database.
 
@@ -569,7 +569,7 @@ database = {
 }
 ```
 
-Replace the placeholders *\<host\>* and *\<port\>* with appropriate values.
+Replace the placeholders *host* and *port* with appropriate values.
 The `database.schema` is the database schema name assigned to you (the user).
 The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity (without quotes, PostgresSQL would treat *AliceCorp* as the value *alicecorp*).
 
