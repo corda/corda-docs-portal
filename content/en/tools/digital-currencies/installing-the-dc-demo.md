@@ -222,7 +222,7 @@ To access Corda, you must authorize Swagger:
 
 4. Click **Close**.
 
-For the purposes of testing Corda, we will use the CPI endpoint.
+For the purpose of testing Corda, use the CPI endpoint.
 
 5. Click the CPI GET method to expand it:
 
