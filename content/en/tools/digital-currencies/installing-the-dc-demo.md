@@ -246,7 +246,7 @@ For the purpose of testing Corda, use the CPI endpoint.
 	  alt="cpi GET method"
    >}}
 
-   As we have not uploaded any CPIs yet, the returned list of CPIs is empty. If Corda has not started yet, Swagger will return a *TypeError: Load failed* error.
+   As no CPIs have been uploaded yet, the returned list of CPIs is empty. If Corda has not started yet, Swagger will return a *TypeError: Load failed* error.
 
    {{< note >}}
    If you get any errors, first try the following: run the *stopAndCleanCorda* Gradle task, run the *startCorda* Gradle task, wait one minute, then try and access Swagger again.
