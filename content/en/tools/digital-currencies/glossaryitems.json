@@ -37,7 +37,7 @@
         "more": "For more information, see the topic <a href=\"./roles-overview.html\">Roles Overview</a>." 
     },
     "token issuing entity": {
-        "definition": "They are responsible for receiving attestation from custodians with regards to the backing of the collateral and issuing (creating then transfering) tokens to recipients.",
+        "definition": "They are responsible for receiving attestation from custodians with regards to the backing of the collateral and issuing (creating then transferring) tokens to recipients.",
         "more": "For more information, see the topic <a href=\"./roles-overview.html\">Roles Overview</a>." 
     },
    "transacting entity": {
@@ -46,7 +46,7 @@
     },
 	"transfer": {
 		"definition": "The movement of tokens (value) between two or more entities (for example, wholesale banks, bank branches, retailers, retailer branches or franchises) on a Corda network to exchange goods and services.",
-		"more": "For more information, see the topic <a href=\"./transfering-tokens.html\">Transfering Tokens</a>."
+		"more": "For more information, see the topic <a href=\"./transferring-tokens.html\">Transferring Tokens</a>."
 
 	}
 }

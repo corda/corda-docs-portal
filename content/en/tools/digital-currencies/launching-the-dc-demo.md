@@ -8,7 +8,7 @@ menu:
     parent: digital-currencies
     identifier: digital-currencies-launching-demo
     description: "Digital Currencies documentation describing how to launch the Digital Currencies demo"
-title: Launching the the Digital Currencies Demo
+title: Launching the Digital Currencies Demo
 ---
 
 In a browser access the relevant URL:
@@ -27,7 +27,7 @@ The **Participants** page is displayed:
 	  alt="Participants Page"
 >}}
 
-The initial page let you select the network participant you want to act as. For each participant, the following details are displayed:
+The initial page lets you select the network participant you want to act as. For each participant, the following details are displayed:
 
 * Title
 * X.500 name

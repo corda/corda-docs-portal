@@ -12,4 +12,4 @@ menu:
 title: "Redeeming Tokens"
 ---
 
-Transacting entities of the network can redeem their tokens - that is, exchange the tokens for the collateral they initially posted. This entails transfering to the token back to the token issuing entity, who then burns or destroys the token.
+Transacting entities of the network can redeem their tokens - that is, exchange the tokens for the collateral they initially posted. This entails transferring the token back to the token issuing entity, who then *burns* (or destroys) the token.

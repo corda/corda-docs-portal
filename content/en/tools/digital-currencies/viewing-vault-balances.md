@@ -17,7 +17,7 @@ To view the current total of each token that you currently own:
 * Open the relevant page:
 
   * For central banks: Click **Token Manager**.
-  * For commercial banks: Click Issuances, Transfers or **Redemptions**.
+  * For commercial banks: Click **Issuances**, **Transfers**, or **Redemptions**.
 
 The page displays the **Vault Balances** panel:
 

@@ -6,7 +6,7 @@ menu:
   tools:
     name: "Burning Tokens"
     weight: 1700
-    parent: digital-currencies-tokens-overview
+    parent: digital-currencies
     identifier: digital-currencies-burning-tokens
     description: "Digital Currencies documentation describing how to burn tokens via the GUI"
 title: "Burning Tokens"

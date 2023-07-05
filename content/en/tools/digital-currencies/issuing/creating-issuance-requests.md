@@ -12,11 +12,11 @@ menu:
 title: "Creating Issuance Requests"
 ---
 
-Once [tokens have been minted]({{< relref "../minting/_index.md" >}}), tokens of that type can be issued. Issuing tokens involves transfering them to the relevant entities.  
+Once [tokens have been minted]({{< relref "../minting/_index.md" >}}), tokens of that type can be issued. Issuing tokens involves transferring them to the relevant entities.  
 
-The general process of issuance, and the on-ledger actions involved will be very similar, if not identical, for both central bank  and SC. However, the permissions of these on-ledger actions may be divided differently based on implementation. For example, in {{< tooltip >}}CBDC{{< definitiondc term="CBDC" >}}{{< /tooltip >}} issuance, the custodian and the token issuing entity will both be a central bank, while these roles may be divided for a stablecoin.
+The general process of issuance, and the on-ledger actions involved will be very similar, if not identical, for both CBDCs and for stablecoins. However, the permissions of these on-ledger actions may be divided differently based on implementation. For example, in {{< tooltip >}}CBDC{{< definitiondc term="CBDC" >}}{{< /tooltip >}} issuance, the custodian and the token issuing entity will both be a central bank, while these roles may be divided for a stablecoin.
 
-The following assumes you are logged in as a entity capable to creating an issuance request, such as a commercial bank.
+The following assumes you are logged in as an entity capable of creating an issuance request, such as a commercial bank.
 
 1. In the left-hand menu, click on **Issuances**.
 
@@ -33,8 +33,8 @@ The following assumes you are logged in as a entity capable to creating an issua
   The page shows the following panels related to issuances:
 
   * **Vault Balance**: A Corda vault is a database containing all data from the ledger relevant to a participant. For more information, see [the Vault topic]({{< relref "/en/platform/corda/5.0-beta/developing/ledger/vault.md" >}}).
-  * **Request Issuance**: Allows you to perform a issuance request.
-  * **Issuance Requests:** Lists any existing issuances requests and their status; see [Viewing Issuance Requests](viewing-issuance-requests.md).
+  * **Request Issuance**: Allows you to perform an issuance request.
+  * **Issuance Requests:** Lists any existing issuance requests and their status; see [Viewing Issuance Requests](viewing-issuance-requests.md).
 
 2. In the **Request Issuance** panel, specify the following values:
 
