@@ -95,7 +95,7 @@ You need a local copy of both the following repositories:
 	 alt="Cloned Repositories"
    >}}
 
-3. If necessary, for each repository, initialise the git repository and change the remote URL so you do not inadvertently push your work back:
+3. If necessary, for each repository, initialize the git repository and change the remote URL so you do not inadvertently push your work back:
 
    ```sh
    git init
