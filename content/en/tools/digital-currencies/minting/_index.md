@@ -12,7 +12,7 @@ menu:
 title: "Minting Tokens"
 ---
 
-Once a [token definition has been created]({{< relref "../defining/creating-token-definitions.md " >}}), new tokens of that type can be issued. Such tokens can then be used as for currency or utility purposes and allows the issuing party to maintain monetary policy and provide easily accessible digital currency tokens to specific entities.
+Once a [token definition has been created]({{< relref "../defining/creating-token-definitions.md " >}}), new tokens of that type can be minted. Such tokens can then be used as for currency or utility purposes and allows the issuing party to maintain monetary policy and provide easily accessible digital currency tokens to specific entities.
 
 1. Click **Token Manager** in the left-hand sidebar.
 
@@ -73,4 +73,5 @@ Once a [token definition has been created]({{< relref "../defining/creating-toke
 	  alt="Updated Vault Balance"
    >}}
    
+Once tokens have been minted, then can now be [issued]({{< relref "../issuing/_index.md" >}}).
   
