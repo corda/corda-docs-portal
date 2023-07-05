@@ -64,7 +64,7 @@ The GUI has the following elements:
   * **Transfers:** TBD
   * **Redemptions:** TBD
     
-* The **Settings** button (![](images/setting-buttons.png)): See [Viewing the GUI Settings]({{< relref "viewing-the-gui-settings.md" >}}). 
+* The **Settings** button (![](images/setting-buttons.png)): See [Viewing the GUI Settings]({{< relref "viewing-the-gui-settings.md" >}}) 
 * The flow tracker button (![](images/flow-drawer-button.png)): When performing flows such as creating token definitions and minting tokens, click this button to display a pop-out flow tracker which displays the current status of flows. By default, the five most recent flows are displayed.
   
 
