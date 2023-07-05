@@ -34,7 +34,7 @@ The following guide assumes you have the following prerequisites installed.
 * node (version 16.18.0)
 * Gradle
 * Docker Engine ~v20.X.Y or Docker Desktop ~v3.5.X
-* Intellij
+* IntelliJ
 * [Corda CLI]({{< relref "../../platform/corda/5.0-beta/developing/getting-started/installing-corda-cli.md" >}}) 
 
   {{< attention >}}
