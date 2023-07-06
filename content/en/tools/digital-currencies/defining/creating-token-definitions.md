@@ -36,7 +36,7 @@ Before [tokens can be minted]({{< relref "../minting/_index.md" >}}), you must c
    
 2. In the **New Token Definition** panel, specify the following parameters:
 
-   * **Token Name:** The name of the token definition; normally the full name of the currency; for example, UAE Dirham
+   * **Token Name:** The name of the token definition; normally the full name of the currency; for example, UAE Dirham.
    * **Token Symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, AED
    * **Token Decimal Place:** An integer that specifies the number of decimal places for the currency; for many currencies this is 2.
    
