@@ -14,7 +14,7 @@ title: "Approving or Rejecting Issuance Requests"
 
 An issuance request must be approved by both:
 
-* The issuer of the digital currency
+* The issuer of the digital currency.
 * The custodian of the digital currency
 
 The issuer must perform the first approval, followed by the custodian. 
