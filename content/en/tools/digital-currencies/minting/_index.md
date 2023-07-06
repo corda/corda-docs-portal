@@ -30,7 +30,7 @@ Once a [token definition has been created]({{< relref "../defining/creating-toke
    
    * **Vault Balances:** Displays the number of tokens available for each token definition for the current participant.
    * **Mint Tokens:** Enables you to mint tokens of a certain token definition.
-   * **Burn Tokens:** Enables you to burn tokens; see [Burning Tokens]({{< relref "../burning/_index.md" >}})).
+   * **Burn Tokens:** Enables you to burn tokens; see [Burning Tokens]({{< relref "../burning/_index.md" >}}).
    
 4. In the **Mint Tokens** pane, specify the following values:
 
