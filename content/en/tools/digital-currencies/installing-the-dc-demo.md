@@ -128,7 +128,7 @@ Configure Gradle to use the correct version of Java:
 
 7. In the **Settings** dialog box, select **Build, Execution, Deployment > Build Tools > Gradle**.
 
-8. In the  **Gradle VM** field, ensure that *Project SDK zulu-11* is selected, then click **OK**
+8. In the  **Gradle VM** field, ensure that *Project SDK zulu-11* is selected, then click **OK**.
 
 ## Run Corda
 
