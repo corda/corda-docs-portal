@@ -208,7 +208,7 @@ To access Corda, you must authorize Swagger:
 	  alt="Swagger Authorize Button"
     >}}
 
-3. Enter the username and password *admin* and *admin* and click **Authorize**.
+3. Type *admin* in both the Username and Password fields, then click **Authorize**.
 
    You are now authorized:
 
