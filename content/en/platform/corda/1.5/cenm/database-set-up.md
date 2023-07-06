@@ -261,9 +261,19 @@ GRANT USAGE, SELECT ON ALL sequences IN SCHEMA "my_schema" TO "my_user";
 ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences TO "my_user";
 ALTER ROLE "my_user" SET search_path = "my_schema";
 ```
-If you are creating a CENM service instance user in PostgreSQL using a custom schema name (different from the username), the preferred way to do this is by using the JDBC URL as described in the [CENM Service Configuation section](#postgresql-1). 
+If you are creating a CENM service instance user in PostgreSQL using a custom schema name (different from the username), connect to the database as an administrator and run the script above. The last statement in the script - setting the `search_path` - prevents querying the differing [default schema search path](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH). If you don't have the privileges required to run the script, set the custom schema in the URL in the node.conf file in the database configuration section: 
 
-You can also connect to the database as an administrator and run the script above. The last statement in the script - setting the `search_path` - prevents querying the differing [default schema search path](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH).
+```groovy
+database = {
+    jdbcDriver = path/to/postgresql-xx.x.x.jar
+    driverClassName = "org.postgresql.Driver"
+    url = "jdbc:postgresql://<host>:<port>/sample_db?currentSchema=my_schema"
+    user = my_user
+    password = "my_password"
+}
+```
+
+Replace the placeholders *host* and *port* in the URL with appropriate values.
 
 ## 2. Database schema creation
 
@@ -546,7 +556,7 @@ database = {
 }
 ```
 
-Replace the placeholders *host*, *port* and *sid* with appropriate values. For a basic Oracle installation, the default *sid* value is `xe`.
+Replace the placeholders *host*, *port*, and *sid* with appropriate values. For a basic Oracle installation, the default *sid* value is `xe`.
 
 Set the `database.schema` value to the username of the admin user (in the example above - *my_admin_user*). CENM does not guarantee prefixing all SQL queries with the schema namespace. The additional configuration entry `connectionInitSql` sets the current schema to the username of the admin user (in the example above - *my_admin_user*) on connection to the database.
 
