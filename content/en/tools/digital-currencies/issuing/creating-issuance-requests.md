@@ -48,7 +48,7 @@ The following assumes you are logged in as an entity capable of creating an issu
 
 
    * **Token Definition**: Select the token definition for the token you want to transfer.
-   * **Amount**: Enter the number of tokens you want to request.
+   * **Amount**: Type the number of tokens you want to request.
    
 3. Click **Request**. 
 
