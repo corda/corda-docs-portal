@@ -5,7 +5,7 @@ section_menu: tools
 menu:
   tools:
     name: "Activating Token Definitions"
-    weight: 400
+    weight: 600
     parent: digital-currencies-token-definitions
     identifier: digital-currencies-activating-token-definitions
     description: "Digital Currencies documentation describing how to activate decommissioned token definitions via the GUI"

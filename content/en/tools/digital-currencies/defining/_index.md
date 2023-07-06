@@ -27,4 +27,6 @@ Token definitions have the following properties:
 * **Version:** An integer specifying the version of the token definition.
 
 This section describes the tasks associated with token definitions. It contains the following:
-{{< childpages >}}
+
+{{< childpages sort="weight" >}}
+
