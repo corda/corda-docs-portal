@@ -261,7 +261,7 @@ GRANT USAGE, SELECT ON ALL sequences IN SCHEMA "my_schema" TO "my_user";
 ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences TO "my_user";
 ALTER ROLE "my_user" SET search_path = "my_schema";
 ```
-If you are creating a CENM service instance user in PostgreSQL using a custom schema name (different from the username), connect to the database as an administrator and run the script above. The last statement in the script - setting the `search_path` - prevents querying the differing [default schema search path](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH). If you don't have the privileges required to run the script, set the custom schema in the URL in the node.conf file in the database configuration section: 
+If you are creating a CENM service instance user in PostgreSQL using a custom schema name (different from the username), connect to the database as an administrator and run the script above. The last statement in the script - setting the `search_path` - prevents querying the differing [default schema search path](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH). If you don't have the privileges required to run the script, set the custom schema in the URL in the database configuration section of the node.conf file: 
 
 ```groovy
 database = {
