@@ -4,8 +4,8 @@
 		"more": ""
 	},
 	"custodian": {
-		"definition": "EA custodian attests to the reception of the underlying collateral funds for tokens created by the TIE on the network. It verifies collateral payments that are received from a network participant through banking deposits either held with a central bank or a commercial bank.",
-		"more": "For more information, see the topic <a href=\"./roles-overview.html\">Roles Overview</a>" 
+		"definition": "A custodian attests to the reception of the underlying collateral funds for tokens created by the TIE on the network. It verifies collateral payments that are received from a network participant through banking deposits either held with a central bank or a commercial bank.",
+		"more": "" 
 	},
 	"issuance": {
 		"definition": "The process where a central bank or commercial bank creates new tokens and then transfers them to another party.",

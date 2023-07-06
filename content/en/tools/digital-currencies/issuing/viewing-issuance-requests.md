@@ -28,13 +28,13 @@ To view the list of existing issuance requests for the current participant:
 
    For each issuance request, the following information is displayed:
 
-   * **Issuer Status:** Whether or not the issuer has approved the issuance request
-   * **Custodian Status:** Whether or not the custodian has approved the issuance request
-   * **Token name:** The name of the token definition; normally the full name of the currency; for example, Canadian Dollar
-   * **Token symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, *CAD*
-   * **Amount:** The number of tokens requested
-   * **Requester:** The entity making the issuance request
-   * **Last Updated:** The date and time at which the request was last updated
+   * **Issuer Status:** Whether or not the issuer has approved the issuance request.
+   * **Custodian Status:** Whether or not the custodian has approved the issuance request.
+   * **Token name:** The name of the token definition; normally the full name of the currency; for example, Canadian Dollar.
+   * **Token symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, *CAD*.
+   * **Amount:** The number of tokens requested.
+   * **Requester:** The entity making the issuance request.
+   * **Last Updated:** The date and time at which the request was last updated.
 
 You can change the GUI settings using the following buttons:
 

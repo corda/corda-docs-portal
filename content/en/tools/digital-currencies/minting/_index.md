@@ -21,7 +21,7 @@ Once a [token definition has been created]({{< relref "../defining/creating-toke
    {{< 
       figure
 	  src="images/token-manager-page.png"
-      width=100%
+      width=80%
 	  figcaption="Token Manager Page"
 	  alt="Token Manager Page"
    >}}
