@@ -64,7 +64,7 @@ To approve or reject an issuance request (as either an issuer or a custodian):
    
    * **Issuer Status:** Whether or not the issuer has approved the issuance request
    * **Custodian Status:** Whether or not the custodian has approved the issuance request
-   * **Token name:** The name of the token definition; normally the full name of the currency; for example, Canadian Dollar
+   * **Token name:** The name of the token definition; normally the full name of the currency; for example, Canadian Dollar.
    * **Token symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, *CAD*.
    * **Amount:** The number of tokens requested.
    * **Requester:** The entity making the issuance request.
