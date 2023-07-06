@@ -35,7 +35,7 @@ Once a [token definition has been created]({{< relref "../defining/creating-toke
 4. In the **Mint Tokens** pane, specify the following values:
 
    * **Token Definition:** Select the relevant token definition (previously created as described in [Creating Token Definitions]({{< relref "../defining/creating-token-definitions.md" >}})).
-   * **Amount:** Enter the number of token you want; for example *100*.
+   * **Amount:** Type the number of token you want; for example *100*.
    
 5. Click **Create**.
   
