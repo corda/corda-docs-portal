@@ -68,7 +68,7 @@ To approve or reject an issuance request (as either an issuer or a custodian):
    * **Token symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, *CAD*.
    * **Amount:** The number of tokens requested.
    * **Requester:** The entity making the issuance request.
-   * **Last Updated:** The date and time at which the request was last updated
+   * **Last Updated:** The date and time at which the request was last updated.
    
 2. Click the relevant request.
 
