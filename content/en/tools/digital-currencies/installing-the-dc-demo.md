@@ -341,7 +341,7 @@ This section can normally be skipped as appConfig.json is automatically configur
 
 4. Click **Try it out**, then **Execute**.
 
-   (You may need to enter your credentials - *admin/admin* - again.)
+   (You may need to type your credentials - *admin/admin* - again.)
 
    The response body will include a list of five nodes:
 
