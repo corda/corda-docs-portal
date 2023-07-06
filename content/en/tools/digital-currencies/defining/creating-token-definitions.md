@@ -30,7 +30,7 @@ Before [tokens can be minted]({{< relref "../minting/_index.md" >}}), you must c
    The page displays two panels:
    
    * **New Token Definition:** Enables you to define a new token definition.
-   * **Active Token Definitions:** Lists any existing token definitions
+   * **Active Token Definitions:** Lists any existing token definitions.
    
    The **New Token Definition** panel initially shows the **Details** stage of the user journey.
    
