@@ -122,7 +122,7 @@ The project includes Gradle tasks to manage a local deployment of Corda and DC.
 
 Configure Gradle to use the correct version of Java:
 
-6. Select **File > Settings**
+6. Select **File > Settings**.
 
    The **Settings** dialog box is displayed.
 
