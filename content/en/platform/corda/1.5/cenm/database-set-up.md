@@ -546,7 +546,7 @@ database = {
 }
 ```
 
-Replace the placeholders *host*,*port* and *sid* with appropriate values. For a basic Oracle installation, the default *sid* value is `xe`.
+Replace the placeholders *host*, *port* and *sid* with appropriate values. For a basic Oracle installation, the default *sid* value is `xe`.
 
 Set the `database.schema` value to the username of the admin user (in the example above - *my_admin_user*). CENM does not guarantee prefixing all SQL queries with the schema namespace. The additional configuration entry `connectionInitSql` sets the current schema to the username of the admin user (in the example above - *my_admin_user*) on connection to the database.
 
