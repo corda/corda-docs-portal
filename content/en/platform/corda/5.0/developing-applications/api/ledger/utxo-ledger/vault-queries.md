@@ -210,7 +210,7 @@ This function is called during start-up and it defines how a query will operate 
   Always start with the actual `WHERE` statement and then write the rest of the clause. Fields need to be prefixed with the `visible_states.` qualifier. Since `visible_states.custom_representation` is a JSON column, we can use some JSON specific  operations, more info here.
   * Parameters can be used in the query in a :parameter format. In this example, use a parameter called :testField which can be set when executing this query. This works similarly to popular Java SQL libraries such as Hibernate.
   {{< /note >}}
-* To finalize query creation and to store the created query in the registry to be executed later, call `register()`. This call needs to be the last step when defining a query.
+* To finalize query creation and to store the created query in the registry to be executed later, call `register()`. This call must be the last step when defining a query.
 
 ### Complex Query Example
 
