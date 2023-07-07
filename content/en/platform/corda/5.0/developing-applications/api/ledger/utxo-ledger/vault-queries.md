@@ -227,7 +227,7 @@ These optional logics will always be applied in the following order:
 3. Collecting
 
 {{< note >}}
-The query `whereJson` will return `StateAndRef` objects and the data going into the filtering and transforming logic consists of `StateAndRefs`.
+The query `whereJson` returns `StateAndRef` objects and the data going into the filtering and transforming logic consists of `StateAndRefs`.
 {{< /note >}}
 
 #### Filtering
