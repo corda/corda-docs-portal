@@ -412,7 +412,7 @@ public class JsonQueryFactory implements VaultNamedQueryFactory {
 {{< /tabs >}}
 
 {{< note >}}
-The collector always needs to be the last one in the chain as all previous filtering and mapping functionality will be applied before collecting.
+The collector always must be the last one in the chain as all previous filtering and mapping functionality will be applied before collecting.
 {{< /note >}}
 
 ### Executing a Vault-Named Query
