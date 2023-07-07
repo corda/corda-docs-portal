@@ -197,7 +197,6 @@ State machine [CDL]({{< relref "../../../../tools/cdl/cdl-overview.md" >}}) char
 ### Reissuance - state evolution
 
 State evolution [CDL]({{< relref "../../../../tools/cdl/cdl-overview.md" >}}) chart:
-[](../community/)
 
    {{< 
      figure

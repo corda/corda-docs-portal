@@ -593,4 +593,8 @@ body.dark {
       border-bottom: solid 1px $gray-200;
      }
   }
+
+  .chain-icon {
+    filter: opacity(60%) invert(1);
+  }
 }
