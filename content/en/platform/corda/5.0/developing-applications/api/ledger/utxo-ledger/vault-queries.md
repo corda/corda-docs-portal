@@ -141,7 +141,7 @@ After the output state finalizes, it will be represented as the following in the
 The `net.corda.v5.ledger.utxo.ContractState` field is a part of the JSON representation for all state types.
 {{< /note >}}
 {{< note >}}
-The implementation of the JSON factory needs to be defined in the same CPK as the state
+The implementation of the JSON factory must be defined in the same CPK as the state
 it is working on so the platform can get hold of it when persisting a state to the database.
 {{< /note >}}
 
