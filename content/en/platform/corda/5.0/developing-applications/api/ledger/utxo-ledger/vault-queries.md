@@ -124,7 +124,7 @@ class TestUtxoStateJsonFactory implements ContractStateVaultJsonFactory<TestUtxo
 {{% /tab %}}
 {{< /tabs >}}
 
-After the output state has been finalized it will be represented as the following in the database (`custom_representation column`):
+After the output state finalizes, it will be represented as the following in the database (`custom_representation column`):
 
 ```json
 {
