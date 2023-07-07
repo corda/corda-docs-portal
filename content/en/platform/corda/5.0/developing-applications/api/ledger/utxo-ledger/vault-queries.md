@@ -476,7 +476,7 @@ In this case it would look like this:
 {{< /tabs >}}
 
 {{< note >}}
-A dummy value is assigned for the `testField` parameter in this query but it can be replaced. There is only one parameter in this example query which is `:testField`.
+A dummy value is assigned for the `testField` parameter in this query, but it can be replaced. There is only one parameter in this example query which is `:testField`.
 {{</ note >}}
 
 Results can be acquired by calling `getResults()` on the `ResultSet`.
