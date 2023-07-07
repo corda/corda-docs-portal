@@ -579,7 +579,7 @@ database = {
 }
 ```
 
-Replace the placeholders *\<host\>* and *\<port\>* with appropriate values.
+Replace the placeholders `\<host\>` and `\<port\>` with appropriate values.
 The `database.schema` is the database schema name assigned to you (the user).
 The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity (without quotes, PostgresSQL would treat *AliceCorp* as the value *alicecorp*).
 
