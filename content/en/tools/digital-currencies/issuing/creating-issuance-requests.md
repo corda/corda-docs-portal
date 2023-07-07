@@ -32,7 +32,7 @@ The following assumes you are logged in as an entity capable of creating an issu
 
   The page shows the following panels related to issuances:
 
-  * **Vault Balance**: A Corda vault is a database containing all data from the ledger relevant to a participant. For more information, see [the Vault topic]({{< relref "/en/platform/corda/5.0-beta/developing/ledger/vault.md" >}}).
+  * **Vault Balance**: A Corda vault is a database containing all data from the ledger relevant to a participant. For more information, see [the Vault topic]({{< relref "/en/platform/corda/5.0/developing-applications/ledger/vault/_index.md" >}}).
   * **Request Issuance**: Allows you to perform an issuance request.
   * **Issuance Requests:** Lists any existing issuance requests and their status; see [Viewing Issuance Requests](viewing-issuance-requests.md).
 

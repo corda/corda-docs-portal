@@ -35,7 +35,7 @@ The following guide assumes you have the following prerequisites installed.
 * Gradle
 * Docker Engine ~v20.X.Y or Docker Desktop ~v3.5.X
 * IntelliJ
-* [Corda CLI]({{< relref "../../platform/corda/5.0-beta/developing/getting-started/installing-corda-cli.md" >}}) 
+* [Corda CLI]({{< relref "../../platform/corda/5.0/developing-applications/tooling/installing-corda-cli.md" >}}) 
 
   {{< attention >}}
   Ensure that you have the latest version of Corda CLI ("Gecko").
@@ -251,7 +251,7 @@ For the purpose of testing Corda, use the CPI endpoint.
    {{< note >}}
    If you get any errors, first try the following: run the *stopAndCleanCorda* Gradle task, run the *startCorda* Gradle task, wait one minute, then try and access Swagger again.
 
-   If you still get errors, check the topic on [Resetting the CSDE]({{< relref "/content/en/platform/corda/5.0-beta/developing/getting-started/reset-csde.md" >}}).
+   If you still get errors, check the topic on [Resetting the CSDE]({{< relref "/content/en/platform/corda/5.0/developing-applications/getting-started/reset-csde.md" >}}).
    {{</ note >}}
 
 ## Deploy the Digital Currencies CorDapp
