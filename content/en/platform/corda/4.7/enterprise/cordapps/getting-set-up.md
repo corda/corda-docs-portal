@@ -63,7 +63,7 @@ We recommend [running a sample CorDapp](tutorial-cordapp.md) to see Corda in act
 ## Resources
 
 * [Sample CorDapps, templates, and community projects](https://www.corda.net/samples/).
-* [Corda API documentation](../../../../../../en/api-ref.html).
+* [Corda API documentation*****.
 * [Flow cookbook](flow-cookbook.md).
 * CorDapp [Java](https://github.com/corda/samples-java) and [Kotlin](https://github.com/corda/samples-kotlin) sample repositories - contain multiple sample CorDapps, from those to get you started, to those which demonstrate specific features and advanced usage.
 * CorDapp [Java](https://github.com/corda/cordapp-template-java) and [Kotlin](https://github.com/corda/cordapp-template-kotlin) templates - a stubbed-out CorDapp that you can use to bootstrap your own CorDapps.
