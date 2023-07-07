@@ -232,7 +232,7 @@ The query `whereJson` returns `StateAndRef` objects and the data going into the 
 
 #### Filtering
 
-To create a filtering logic implement the `net.corda.v5.ledger.utxo.query.VaultNamedQueryStateAndRefFilter<T>` interface. The `<T>` type here is the state type that will be returned from the database, in this case it’s `TestState`. This interface has only one function:
+To create a filtering logic, implement the `net.corda.v5.ledger.utxo.query.VaultNamedQueryStateAndRefFilter<T>` interface. The `<T>` type here is the state type that will be returned from the database, which in this case is `TestState`. This interface has only one function:
 
 
 This defines whether or not to keep the given element (`row`) from the result set. Elements returning true are kept and the rest are discarded.
