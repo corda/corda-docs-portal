@@ -273,7 +273,7 @@ database = {
 }
 ```
 
-Replace the placeholders *\<host\>* and *\<port\>* in the URL with appropriate values.
+Replace the placeholders `\<host\>` and `\<port\>` in the URL with appropriate values.
 
 ## 2. Database schema creation
 
