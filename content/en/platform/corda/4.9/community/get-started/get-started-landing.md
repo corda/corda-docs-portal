@@ -48,7 +48,7 @@ Follow the upgrade guides to make sure your [node]({{< relref "../../community/n
 2. Run a [sample CorDapp]({{< relref "../../community/tutorial-cordapp.md" >}}) to see Corda in action.
 4. [Build your own CorDapp]({{< relref "../../community/building-a-cordapp-index.md" >}}) from scratch.
 
-You can then take your Corda integration to the next level by deep diving into specific topics in our [Corda Community Edition](../../community.html) documentation. You can also view the [API reference material*****, browse [featured apps]({{< relref "../apps/apps-index.md" >}}), or browse [tools and add-ons]({{< relref "../../../../../tools/_index.md" >}}).
+You can then take your Corda integration to the next level by deep diving into specific topics in our [Corda Community Edition]({{< relref "../../community/_index.md" >}}) documentation. You can also view the [API reference material*****, browse [featured apps]({{< relref "../apps/apps-index.md" >}}), or browse [tools and add-ons]({{< relref "../../../../../tools/_index.md" >}}).
 
 {{< note >}}
 <b>Read Corda white papers</b>

@@ -13,4 +13,4 @@ title: Node management console
 
 The node management console lets you see information about a node and perform some operations on it.
 
-Read the full documentation about the [node management console](../../../en/platform/corda/4.8/enterprise/node/management-console.html).
+Read the full documentation about the [node management console]({{< relref "../../../en/platform/corda/4.8/enterprise/node/management-console.md" >}}).
