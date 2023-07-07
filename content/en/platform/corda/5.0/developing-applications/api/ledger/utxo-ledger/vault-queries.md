@@ -437,7 +437,7 @@ utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class)
 {{% /tab %}}
 {{< /tabs >}}
 
-Provide the name of the query (in this case `DUMMY_CUSTOM_QUERY`) and the return type. Since the result set is collected into an integer in the complex query example use `Int` (or `Integer` in Java).
+Provide the name of the query (in this case `DUMMY_CUSTOM_QUERY`) and the return type. Since the result set is collected into an integer in the complex query example, use `Int` (or `Integer` in Java).
 
 Before executing define the following:
 
