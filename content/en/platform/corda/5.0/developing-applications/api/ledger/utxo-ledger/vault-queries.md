@@ -439,7 +439,7 @@ utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class)
 
 Provide the name of the query (in this case `DUMMY_CUSTOM_QUERY`) and the return type. Since the result set is collected into an integer in the complex query example, use `Int` (or `Integer` in Java).
 
-Before executing define the following:
+Before executing, define the following:
 
 * Which index the result set should start (`setOffset`), default 0.
 * How many results should the query return (`setLimit`), default Int.MAX (2,147,483,647).
