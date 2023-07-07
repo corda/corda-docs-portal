@@ -37,7 +37,7 @@ To approve or reject an issuance request (as either an issuer or a custodian):
 
    The page shows the following panels related to transfers:
 
-   * **Vault Balance**: A Corda vault is a database containing all data from the ledger relevant to a participant. For more information, see [the Vault topic]({{< relref "/en/platform/corda/5.0-beta/developing/ledger/vault.md" >}}).
+   * **Vault Balance**: A Corda vault is a database containing all data from the ledger relevant to a participant. For more information, see [the Vault topic]({{< relref "/en/platform/corda/5.0/developing-applications/ledger/vault/_index.md" >}}).
    * **Issuance Requests:** Lists any existing issuance requests and their status.
   
   If you are logged in as the issuer, the panel will look like this:
