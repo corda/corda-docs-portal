@@ -308,7 +308,7 @@ class DummyCustomQueryMapper implements VaultNamedQueryStateAndRefTransformer<Te
 {{% /tab %}}
 {{< /tabs >}}
 
-This transforms each element to a `String` object which is the given state’s transaction ID.
+This transforms each element to a `String` object, which is the given state’s transaction ID.
 
 #### Collecting
 
