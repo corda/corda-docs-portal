@@ -86,7 +86,9 @@ public class TestState implements ContractState {
 {{% /tab %}}
 {{< /tabs >}}
 
+{{< note >}}
 This contract has no verification logic and should only be used for testing purposes. The state itself has a `testField` property defined for JSON representation and constructing queries.
+{{</ note >}}
 
 To represent a state as a JSON string, use `ContractStateVaultJsonFactory` as follows:
 
@@ -124,7 +126,7 @@ class TestUtxoStateJsonFactory implements ContractStateVaultJsonFactory<TestUtxo
 {{% /tab %}}
 {{< /tabs >}}
 
-After the output state finalizes, it will be represented as the following in the database (`custom_representation column`):
+After the output state finalizes, it is represented as the following in the database (`custom_representation column`):
 
 ```json
 {
@@ -139,9 +141,7 @@ After the output state finalizes, it will be represented as the following in the
 
 {{< note >}}
 The `net.corda.v5.ledger.utxo.ContractState` field is a part of the JSON representation for all state types.
-{{< /note >}}
-{{< note >}}
-The implementation of the JSON factory must be defined in the same CPK as the state
+* The implementation of the JSON factory must be defined in the same CPK as the state
 that it is working on, so that the platform can get hold of it when persisting a state to the database.
 {{< /note >}}
 
@@ -207,7 +207,7 @@ This function is called during start-up and it defines how a query will operate 
 * To create a vault-named query with a given name, in this case it is `DUMMY_CUSTOM_QUERY`, call `vaultNamedQueryBuilderFactory.create()`.
 * To define how a query's `WHERE` clause will work, call `whereJson()`.
   {{< note >}}
-  Always start with the actual `WHERE` statement and then write the rest of the clause. Fields need to be prefixed with the `visible_states.` qualifier. Since `visible_states.custom_representation` is a JSON column, we can use some JSON specific  operations, more info here.
+  Always start with the actual `WHERE` statement and then write the rest of the clause. Fields need to be prefixed with the `visible_states.` qualifier. Since `visible_states.custom_representation` is a JSON column, we can use some JSON specific  operations.
   * Parameters can be used in the query in a :parameter format. In this example, use a parameter called :testField which can be set when executing this query. This works similarly to popular Java SQL libraries such as Hibernate.
   {{< /note >}}
 * To finalize query creation and to store the created query in the registry to be executed later, call `register()`. This call must be the last step when defining a query.
@@ -412,7 +412,7 @@ public class JsonQueryFactory implements VaultNamedQueryFactory {
 {{< /tabs >}}
 
 {{< note >}}
-The collector always must be the last one in the chain as all previous filtering and mapping functionality will be applied before collecting.
+The collector always must be the last one in the chain as all previous filtering and mapping functionality is applied before collecting.
 {{< /note >}}
 
 ### Executing a Vault-Named Query
