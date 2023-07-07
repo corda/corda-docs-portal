@@ -443,7 +443,7 @@ Before executing, define the following:
 
 * Which index the result set should start (`setOffset`), default 0.
 * How many results should the query return (`setLimit`), default Int.MAX (2,147,483,647).
-* Define named parameters that are in the query and the actual value for them. {{< note >}} All parameters must be defined otherwise the execution will fail. (`setParameter` or `setParameters`) {{</ note >}}
+* Define named parameters that are in the query and the actual value for them. {{< note >}} All parameters must be defined, otherwise the execution will fail. (`setParameter` or `setParameters`) {{</ note >}}
 * Each state in the database has a timestamp value for when it was inserted. Set an * upper limit to only return states that were inserted before a given time. (`setTimestampLimit`)
 
 In this case it would look like this:
