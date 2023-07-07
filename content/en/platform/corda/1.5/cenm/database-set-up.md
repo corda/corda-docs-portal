@@ -515,7 +515,7 @@ database = {
 }
 ```
 
-Replace the placeholders *\<host\>* and *\<port\>* with appropriate values (the default SQL Server port is 1433). By default, the connection to the database is not SSL. To secure the JDBC connection, refer to [Securing JDBC Driver Applications](https://docs.microsoft.com/en-us/sql/connect/jdbc/securing-jdbc-driver-applications?view=sql-server-2017).
+Replace the placeholders `\<host\>` and `\<port\>` with appropriate values (the default SQL Server port is 1433). By default, the connection to the database is not SSL. To secure the JDBC connection, refer to [Securing JDBC Driver Applications](https://docs.microsoft.com/en-us/sql/connect/jdbc/securing-jdbc-driver-applications?view=sql-server-2017).
 
 You can download the Microsoft JDBC 6.2 driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55539) - extract the downloaded archive and copy the file `mssql-jdbc-6.2.2.jre8.jar` (the archive comes with two JAR files).
 The [Database configuration section](#4-database-configuration) further below explains the correct location for the driver JAR file in the CENM service installation structure.
