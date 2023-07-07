@@ -20,7 +20,7 @@ A vault-named query is a database query that can be defined by Corda users. The 
 * Optional transformation logic of the result set
 * Optional collection logic of the result set
 
- The query creator needs to follow a few pre-defined steps in order for the query to be registered and to be usable.
+ The query creator must follow a few pre-defined steps so that the query is registered and usable.
 
 ## Representing a State in the Database
 
