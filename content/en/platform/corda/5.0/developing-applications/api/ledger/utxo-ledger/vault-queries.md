@@ -15,7 +15,7 @@ section_menu: corda5
 A vault-named query is a database query that can be defined by Corda users. The user can define the following:
 
 * The name of the query
-* The query functionality (state type the query will work on and the `WHERE` clause)
+* The query functionality (state the type that the query will work on and the `WHERE` clause)
 * Optional filtering logic of the result set
 * Optional transformation logic of the result set
 * Optional collection logic of the result set
