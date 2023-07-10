@@ -12,14 +12,7 @@ section_menu: corda5
 
 # Tracing Framework
 
-As a Corda Cluster Operator, you may want to configure sample rate when deploying the Helm chart. You can do this using the
-`--trace-samples-per-second` command line option that:
-
-* defaults to 1 sample per second if not set
-* allows specifying unsigned numeric values as samples per second
-* allows `unlimited` value to to sample all requests
-
-The tracing configuration supported by the Helm chart contains the following information in the `values.yaml` file:
+As a Corda Cluster Operator, you may want to configure a tracing server and sample rate when deploying the Helm chart. The tracing configuration supported by the Helm chart contains the following configuration in the `values.yaml` file:
 
 ```
 tracing:
