@@ -1,5 +1,5 @@
 ---
-title: Release files and checksums
+title: Release packs and checksums
 date: '2023-01-27'
 menu:
   cenm-1-5:
@@ -8,13 +8,17 @@ menu:
     weight: 85
 ---
 
-# Corda Enterprise Network Manager release files and checksums
+# Corda Enterprise Network Manager release packs and checksums 
 
-Customers who have access to the Corda repositories can download the release files from the repositories.
+You can download the Corda Enterprise Network Manager release packs and their respective checksum files from the Customer Hub.
 
-Before installing any downloaded file, we recommend that you verify the integrity of each file as a security precaution, to ensure that the files have not been tampered with or become corrupted during the download. You can do this by calculating the checksum of your downloaded file and then comparing its value to the checksum value provided below.
+Before you install the downloaded packs, verify the integrity of each pack using the respective checksum file to ensure it has not been tampered with or corrupted during the download. You can do this by calculating the checksum of your downloaded file, then comparing its value to the checksum value provided below.
 
-## Corda Enterprise Network Manager 1.5.7 release files and checksums
+## Release pack and checksums for Corda Enterprise Network Manager 1.5.8
+
+The release pack and checksum file for CENM 1.5.8 can be downloaded from the [Customer Hub](https://customerhub.r3.com/s/).
+
+## Checksums of Corda Enterprise Network Manager 1.5.7 release files
 
 * accounts-application-1.1.6.jar (86 Mb / 90374064 bytes)
   * `47de39ef4ffb5c96bad79ee48aa17e748e09161f` (sha1)
@@ -169,7 +173,7 @@ Before installing any downloaded file, we recommend that you verify the integrit
   * `23430c784c4c12755d4ea38db83f4005` (md5)
   * `bb286c4f3fddd55885f809f7901cff56efbef585f2910a06c704d042c7ba5d0f` (sha256)
 
-## Corda Enterprise Network Manager 1.5.6 release files and checksums
+## Checksums of Corda Enterprise Network Manager 1.5.6 release files
 
 * accounts-application-1.1.5.jar (85 Mb / 89540292 bytes)
   * `263ef17de6b4f0deb77ba1acc6312343e63b6402` (sha1)
@@ -324,7 +328,7 @@ Before installing any downloaded file, we recommend that you verify the integrit
   * `4198de96497a4a8dddd7b157e80f9cca` (md5)
   * `db97f8329b5b49f44429603da6b6fe6391b1282df9b2ecceb57470290f8f9be3` (sha256)
 
-## Corda Enterprise Network Manager 1.5.5 release files and checksums
+## Checksums of Corda Enterprise Network Manager 1.5.5 release files
 
 * accounts-application-1.1.5.jar (85 Mb / 89540292 bytes)
   * `263ef17de6b4f0deb77ba1acc6312343e63b6402` (sha1)
@@ -479,7 +483,7 @@ Before installing any downloaded file, we recommend that you verify the integrit
   * `f511e0857d9e571bef0dfe525b864698` (md5)
   * `c5dda772f84b50e688be5a0581c37da11f455b5c1afe9ea9741a42957e1ac079` (sha256)
 
-## Corda Enterprise Network Manager 1.5.4 release files and checksums
+## Checksums of Corda Enterprise Network Manager 1.5.4 release files
 
 * accounts-application-1.1.4.jar (80Mb / 84039730 bytes)
   * `c742f10a51d962bf760707743dfa30e483451788` (sha1)
