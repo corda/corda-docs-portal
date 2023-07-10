@@ -11,7 +11,7 @@ menu:
 section_menu: corda5
 ---
 
-# Ledger Extensions API Reference
+# Advanced Ledger Extensions API Reference
 
 ## Advanced Contract Design
 
@@ -39,6 +39,9 @@ The Chainable API provides the component model for designing chainable states an
 
 A chainable state can be implemented by implementing the `ChainableState<T>` interface; for example:
 
+{{< tabs name="tabs-1" >}}
+{{% tab name="Kotlin" %}}
+
 ```kotlin
 @BelongsToContract(ExampleChainableContract.class)
 public final class ExampleChainableState extends ChainableState<ExampleChainableState> {
@@ -61,6 +64,35 @@ public final class ExampleChainableState extends ChainableState<ExampleChainable
 }
 ```
 
+{{% /tab %}}
+{{% tab name="Java" %}}
+
+```java
+@BelongsToContract(ExampleChainableContract.class)
+public final class ExampleChainableState extends ChainableState<ExampleChainableState> {
+
+  @Nullable
+  private final StaticPointer<ExampleChainableState> pointer;
+
+  public ExampleChainableState(@NotNull final StaticPointer<ExampleChainableState> pointer) {
+    this.pointer = pointer;
+  }
+
+  @Nullable
+  public StaticPointer<ExampleChainableState> getPreviousStatePointer() {
+    return pointer;
+  }
+
+  @NotNull
+  public List<PublicKey> getParticipants() {
+    return List.of(...);
+  }
+}
+```
+
+{{% /tab %}}
+{{< /tabs >}}
+
 #### Designing Chainable Commands
 
 Chainable commands allow users to create, update, and delete chainable states.
@@ -68,6 +100,9 @@ The `ChainableContractCreateCommand` creates new chainable states and verifies t
 
 * On chainable state(s) creating, at least one chainable state must be created.
 * On chainable state(s) creating, the previous state pointer of every created chainable state must be null.
+
+{{< tabs name="tabs-2" >}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 public final class Create extends ChainableContractCreateCommand<ExampleChainableState> {
@@ -83,12 +118,36 @@ public final class Create extends ChainableContractCreateCommand<ExampleChainabl
 }
 ```
 
+{{% /tab %}}
+{{% tab name="Java" %}}
+
+```java
+public final class Create extends ChainableContractCreateCommand<ExampleChainableState> {
+
+  @NotNull
+  public Class<ExampleChainableState> getContractStateType() {
+    return ExampleChainableState.class;
+  }
+
+  @Override
+  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+    // Verify additional Create constraints
+  }
+}
+```
+
+{{% /tab %}}
+{{< /tabs >}}
+
 The `ChainableContractUpdateCommand` supports updating existing chainable states and verifies the following constraints:
 
 * On chainable state(s) updating, at least one chainable state must be consumed.
 * On chainable state(s) updating, at least one chainable state must be created.
 * On chainable state(s) updating, the previous state pointer of every created chainable state must not be null.
 * On chainable state(s) updating, the previous state pointer of every created chainable state must be pointing to exactly one consumed chainable state, exclusively.
+
+{{< tabs name="tabs-3" >}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 public final class Update extends ChainableContractUpdateCommand<ExampleChainableState> {
@@ -104,9 +163,33 @@ public final class Update extends ChainableContractUpdateCommand<ExampleChainabl
 }
 ```
 
+{{% /tab %}}
+{{% tab name="Java" %}}
+
+```java
+public final class Update extends ChainableContractUpdateCommand<ExampleChainableState> {
+
+  @NotNull
+  public Class<ExampleChainableState> getContractStateType() {
+    return ExampleChainableState.class;
+  }
+
+  @Override
+  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+    // Verify additional Update constraints
+  }
+}
+```
+
+{{% /tab %}}
+{{< /tabs >}}
+
 The `ChainableContractDeleteCommand` supports deleting existing chainable states and verifies the following constraint:
 
 * On chainable state(s) deleting, at least one chainable state must be consumed.
+
+{{< tabs name="tabs-4" >}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 public final class Delete extends ChainableContractDeleteCommand<ExampleChainableState> {
@@ -122,9 +205,34 @@ public final class Delete extends ChainableContractDeleteCommand<ExampleChainabl
 }
 ```
 
+{{% /tab %}}
+{{% tab name="Java" %}}
+
+```java
+public final class Delete extends ChainableContractDeleteCommand<ExampleChainableState> {
+
+  @NotNull
+  public Class<ExampleChainableState> getContractStateType() {
+    return ExampleChainableState.class;
+  }
+
+  @Override
+  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+    // Verify additional Delete constraints
+  }
+}
+```
+
+{{% /tab %}}
+{{< /tabs >}}
+
 #### Designing Chainable Contracts
 
 A chainable contract can be implemented by extending the `ChainableContract` class; for example:
+
+{{< tabs name="tabs-5" >}}
+{{% tab name="Kotlin" %}}
+
 
 ```kotlin
 public final class ExampleChainableContract extends ChainableContract {
@@ -134,6 +242,23 @@ public final class ExampleChainableContract extends ChainableContract {
   }
 }
 ```
+
+{{% /tab %}}
+{{% tab name="Java" %}}
+
+
+```java
+public final class ExampleChainableContract extends ChainableContract {
+
+  @Override
+  public List<Class<? extends ChainableContractCommand<?>>> getPermittedCommandTypes() {
+    return List.of(Create.class, Update.class, Delete.class);
+  }
+}
+```
+
+{{% /tab %}}
+{{< /tabs >}}
 
 ### Fungible API
 
@@ -146,6 +271,10 @@ The fungible API provides the component model for designing fungible states and 
 #### Designing Fungible States
 
 A fungible state can be implemented by implementing the `FungibleState<T>` interface; for example:
+
+{{< tabs name="tabs-6" >}}
+{{% tab name="Kotlin" %}}
+
 
 ```kotlin
 public final class ExampleFungibleState extends FungibleState<NumericDecimal> {  
@@ -173,6 +302,39 @@ public final class ExampleFungibleState extends FungibleState<NumericDecimal> {
 }
 ```
 
+{{% /tab %}}
+{{% tab name="Java" %}}
+
+```java
+public final class ExampleFungibleState extends FungibleState<NumericDecimal> {
+
+  @NotNull
+  private final NumericDecimal quantity;
+
+  public ExampleFungibleState(@NotNull final NumericDecimal quantity) {
+    this.quantity = quantity;
+  }
+
+  @NotNull
+  public NumericDecimal getQuantity() {
+    return quantity;
+  }
+
+  @NotNull
+  public List<PublicKey> getParticipants() {
+    return List.of(...);
+  }
+
+  @Override
+  public boolean isFungibleWith(@NotNull final FungibleState<NumericDecimal> other) {
+    return this == other || other instanceof ExampleFungibleState // && other fungibility rules.
+  }
+}
+```
+
+{{% /tab %}}
+{{< /tabs >}}
+
 #### Designing Fungible Commands
 
 Fungible commands allow users to create, update and delete fungible states.
@@ -180,6 +342,9 @@ The `FungibleContractCreateCommand` creates new fungible states and verifies the
 
 * On fungible state(s) creating, at least one fungible state must be created.
 * On fungible state(s) creating, the quantity of every created fungible state must be greater than zero.
+
+{{< tabs name="tabs-7" >}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 public final class Create extends FungibleContractCreateCommand<ExampleFungibleState> {
@@ -195,6 +360,27 @@ public final class Create extends FungibleContractCreateCommand<ExampleFungibleS
 }
 ```
 
+{{% /tab %}}
+{{% tab name="Java" %}}
+
+```java
+public final class Create extends FungibleContractCreateCommand<ExampleFungibleState> {
+
+  @NotNull
+  public Class<ExampleFungibleState> getContractStateType() {
+    return ExampleFungibleState.class;
+  }
+
+  @Override
+  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+    // Verify additional Create constraints
+  }
+}
+```
+
+{{% /tab %}}
+{{< /tabs >}}
+
 The `FungibleContractUpdateCommand` supports updating existing fungible states and verifies the following constraints:
 
 * On fungible state(s) updating, at least one fungible state must be consumed.
@@ -202,6 +388,9 @@ The `FungibleContractUpdateCommand` supports updating existing fungible states a
 * On fungible state(s) updating, the quantity of every created fungible state must be greater than zero.
 * On fungible state(s) updating, the sum of the unscaled values of the consumed states must be equal to the sum of the unscaled values of the created states.
 * On fungible state(s) updating, the sum of the consumed states that are fungible with each other must be equal to the sum of the created states that are fungible with each other.
+
+{{< tabs name="tabs-8" >}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 public final class Update extends FungibleContractUpdateCommand<ExampleFungibleState> {
@@ -217,11 +406,35 @@ public final class Update extends FungibleContractUpdateCommand<ExampleFungibleS
 }
 ```
 
+{{% /tab %}}
+{{% tab name="Java" %}}
+
+```java
+public final class Update extends FungibleContractUpdateCommand<ExampleFungibleState> {
+
+  @NotNull
+  public Class<ExampleFungibleState> getContractStateType() {
+    return ExampleFungibleState.class;
+  }
+
+  @Override
+  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+    // Verify additional Update constraints
+  }
+}
+```
+
+{{% /tab %}}
+{{< /tabs >}}
+
 The `FungibleContractDeleteCommand` supports deleting existing fungible states and verifies the following constraints:
 
 * On fungible state(s) deleting, at least one fungible state input must be consumed.
 * On fungible state(s) deleting, the sum of the unscaled values of the consumed states must be greater than the sum of the unscaled values of the created states.
 * On fungible state(s) deleting, the sum of consumed states that are fungible with each other must be greater than the sum of the created states that are fungible with each other.
+
+{{< tabs name="tabs-9" >}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 public final class Delete extends FungibleContractDeleteCommand<ExampleFungibleState> {
@@ -237,9 +450,33 @@ public final class Delete extends FungibleContractDeleteCommand<ExampleFungibleS
 }
 ```
 
+{{% /tab %}}
+{{% tab name="Java" %}}
+
+```java
+public final class Delete extends FungibleContractDeleteCommand<ExampleFungibleState> {
+
+  @NotNull
+  public Class<ExampleFungibleState> getContractStateType() {
+    return ExampleFungibleState.class;
+  }
+
+  @Override
+  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+    // Verify additional Delete constraints
+  }
+}
+```
+
+{{% /tab %}}
+{{< /tabs >}}
+
 #### Designing Fungible Contracts
 
 A fungible contract can be implemented by extending the `FungibleContract` class, for example:
+
+{{< tabs name="tabs-10" >}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 public final class ExampleFungibleContract extends FungibleContract {
@@ -250,6 +487,21 @@ public final class ExampleFungibleContract extends FungibleContract {
 }
 ```
 
+{{% /tab %}}
+{{% tab name="Java" %}}
+
+```java
+public final class ExampleFungibleContract extends FungibleContract {
+
+  @Override
+  public List<Class<? extends FungibleContractCommand<?>>> getPermittedCommandTypes() {
+    return List.of(Create.class, Update.class, Delete.class);
+  }
+}
+```
+
+{{% /tab %}}
+{{< /tabs >}}
 
 ### Identifiable API
 
@@ -262,6 +514,9 @@ The Identifiable API provides the component model for designing identifiable sta
 #### Designing Identifiable States
 
 An identifiable state can be implemented by implementing the `IdentifiableState` interface, for example:
+
+{{< tabs name="tabs-11" >}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 public final class ExampleIdentifiableState extends IdentifiableState {
@@ -284,10 +539,41 @@ public final class ExampleIdentifiableState extends IdentifiableState {
 }
 ```
 
+{{% /tab %}}
+{{% tab name="Java" %}}
+
+```java
+public final class ExampleIdentifiableState extends IdentifiableState {
+
+  @Nullable
+  private final StateRef id;
+
+  public ExampleIdentifiableState(@Nullable final StateRef id) {
+    this.id = id;
+  }
+
+  @Nullable
+  public StateRef getId() {
+    return id;
+  }
+
+  @NotNull
+  public List<PublicKey> getParticipants() {
+    return List.of(...);
+  }
+}
+```
+
+{{% /tab %}}
+{{< /tabs >}}
+
 #### Designing Identifiable Commands
 
 Identifiable commands support creating, updating and deleting identifiable states.
 The `IdentifiableContractCreateCommand` supports creating new identifiable states and verifies the identifiable state(s) creation, at least one identifiable state must be created.
+
+{{< tabs name="tabs-12" >}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 public final class Create extends IdentifiableContractCreateCommand<ExampleIdentifiableState> {
@@ -303,11 +589,35 @@ public final class Create extends IdentifiableContractCreateCommand<ExampleIdent
 }
 ```
 
+{{% /tab %}}
+{{% tab name="Java" %}}
+
+```java
+public final class Create extends IdentifiableContractCreateCommand<ExampleIdentifiableState> {
+
+  @NotNull
+  public Class<ExampleIdentifiableState> getContractStateType() {
+    return ExampleIdentifiableState.class;
+  }
+
+  @Override
+  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+    // Verify additional Create constraints
+  }
+}
+```
+
+{{% /tab %}}
+{{< /tabs >}}
+
 The `IdentifiableContractUpdateCommand` updates existing identifiable states and verifies the following constraints:
 
 * On identifiable state(s) updating, at least one identifiable state must be consumed.
 * On identifiable state(s) updating, at least one identifiable state must be created.
 * On identifiable state(s) updating, each created identifiable state's identifier must match one consumed identifiable state's state reference or identifier, exclusively.
+
+{{< tabs name="tabs-13" >}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 public final class Update extends IdentifiableContractUpdateCommand<ExampleIdentifiableState> {
@@ -323,7 +633,32 @@ public final class Update extends IdentifiableContractUpdateCommand<ExampleIdent
 }
 ```
 
+{{% /tab %}}
+{{% tab name="Java" %}}
+
+```java
+public final class Update extends IdentifiableContractUpdateCommand<ExampleIdentifiableState> {
+
+  @NotNull
+  public Class<ExampleIdentifiableState> getContractStateType() {
+    return ExampleIdentifiableState.class;
+  }
+
+  @Override
+  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+    // Verify additional Update constraints
+  }
+}
+```
+
+{{% /tab %}}
+{{< /tabs >}}
+
+
 The `IdentifiableContractDeleteCommand` deletes existing identifiable states and verifies the identifiable state(s) deletion, at least one identifiable state must be consumed.
+
+{{< tabs name="tabs-14" >}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 public final class Delete extends IdentifiableContractDeleteCommand<ExampleIdentifiableState> {
@@ -339,9 +674,33 @@ public final class Delete extends IdentifiableContractDeleteCommand<ExampleIdent
 }
 ```
 
+{{% /tab %}}
+{{% tab name="Java" %}}
+
+```java
+public final class Delete extends IdentifiableContractDeleteCommand<ExampleIdentifiableState> {
+
+  @NotNull
+  public Class<ExampleIdentifiableState> getContractStateType() {
+    return ExampleIdentifiableState.class;
+  }
+
+  @Override
+  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+    // Verify additional Delete constraints
+  }
+}
+```
+
+{{% /tab %}}
+{{< /tabs >}}
+
 #### Designing Identifiable Contracts
 
 An identifiable contract can be implemented by extending the `IdentifiableContract` class, for example:
+
+{{< tabs name="tabs-15" >}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 public final class ExampleIdentifiableContract extends IdentifiableContract {
@@ -351,6 +710,22 @@ public final class ExampleIdentifiableContract extends IdentifiableContract {
   }
 }
 ```
+
+{{% /tab %}}
+{{% tab name="Java" %}}
+
+```java
+public final class ExampleIdentifiableContract extends IdentifiableContract {
+
+  @Override
+  public List<Class<? extends IdentifiableContractCommand<?>>> getPermittedCommandTypes() {
+    return List.of(Create.class, Update.class, Delete.class);
+  }
+}
+```
+
+{{% /tab %}}
+{{< /tabs >}}
 
 ### Ownable API
 
@@ -376,6 +751,7 @@ class ExampleOwnableState(private val owner: PublicKey) : OwnableState {
     }
 }
 ```
+
 #### Designing Ownable Contracts
 
 The contract for an ownable state must check in the `verify` method that the owner of consumed ownable
