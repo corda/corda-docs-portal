@@ -133,7 +133,6 @@ dependencies
 * `corda-shell` - Used by the Corda node. Never depend on this directly.
 * `corda-test-common` - A common test library. Automatically included by other test libraries.
 * `corda-test-utils` - Used when writing tests against Corda/Cordapps.
-* `corda-tools-explorer` - The Node Explorer tool. Do not depend on.
 * `corda-tools-network-bootstrapper` - The Network Builder tool. Useful in build scripts.
 * `corda-tools-shell-cli` - The Shell CLI tool. Useful in build scripts.
 

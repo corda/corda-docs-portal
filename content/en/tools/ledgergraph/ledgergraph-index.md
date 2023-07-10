@@ -13,14 +13,14 @@ title: LedgerGraph
 
 **LedgerGraph** is a CorDapp you can use to get in-memory access to transaction data. Transaction information is kept in a graph structure on any node where **LedgerGraph** is installed. As not all transactions are related to all other transactions, there can actually be multiple components in the graph: each a **directed acyclic graph** (DAG).
 
-**LedgerGraph** enables other CorDapps, such as the set of [Collaborative Recovery CorDapps](..../../../../platform/corda/4.9/enterprise/node/collaborative-recovery/introduction-cr.md), to have near real-time access to data concerning all of a node's transactions and their relationships. Without it, many operations would be unacceptably slow and impractical.
+**LedgerGraph** enables other CorDapps, such as the set of [Collaborative Recovery CorDapps]({{< relref "../../platform/corda/4.9/enterprise/node/collaborative-recovery/introduction-cr.md" >}}), to have near real-time access to data concerning all of a node's transactions and their relationships. Without it, many operations would be unacceptably slow and impractical.
 
 {{< warning >}}
 LedgerGraph is a dependency for the set of Collaborative Recovery CorDapps V1.1 and above. If you are using an earlier version of Collaborative Recovery, you should not install the stand-alone LedgerGraph.
 {{< /warning >}}
 
 {{< note >}}
-The [Archive Service](../../../en/platform/corda/4.9/enterprise/node/archiving/archiving-setup.md) relies on the LedgerGraph functionality. For the Archiving Service to work correctly, the LedgerGraph must load your entire graph in memory to function. This can cause:
+The [Archive Service]({{< relref "../../../en/platform/corda/4.9/enterprise/node/archiving/archiving-setup.md" >}}) relies on the LedgerGraph functionality. For the Archiving Service to work correctly, the LedgerGraph must load your entire graph in memory to function. This can cause:
 * Increased time to run Archiving tasks.
 * Increased JVM heap memory usage while Archiving tasks are being performed.
 
@@ -33,11 +33,11 @@ In order to improve speed and memory usage when using the Archiving Service, JVM
 
 A new configuration option has been added which allows LedgerGraph to initialize and include transactions that have legacy contract states associated with them, that would otherwise fail to deserialize. This configuration option is: `ignoreTransactionLoadingFailures = true`.
 
-By default, this value is false and the behaviour of LedgerGraph is unchanged. However, if you experience a `TransactionDeserializationException` when initializing LedgerGraph, this configuration option can be added. This allows these transactions to be skipped by substituting in their place an `UnknownContractState`. The transactions that cause failures will still be included in the graph, however, some of the data contained in these transactions will have unknown values. This may cause issues if filtering the graph by **Contract** or **Participant Data**.
+By default, this value is false and the behavior of LedgerGraph is unchanged. However, if you experience a `TransactionDeserializationException` when initializing LedgerGraph, this configuration option can be added. This allows these transactions to be skipped by substituting in their place an `UnknownContractState`. The transactions that cause failures will still be included in the graph, however, some of the data contained in these transactions will have unknown values. This may cause issues if filtering the graph by **Contract** or **Participant Data**.
 
 ### In V1.2.3
 
-To see what's new in V1.2.3, see the [LedgerGraph release notes](../ledgergraph/ledgergraph-release-notes.md).
+To see what's new in V1.2.3, see the [LedgerGraph release notes]({{< relref "../ledgergraph/ledgergraph-release-notes.md" >}}).
 
 ### In V1.2.2
 
@@ -45,7 +45,7 @@ Some improvements have been made to minimize memory footprint. There are no func
 
 ### In V1.2.1
 
-**onDemand**: In V1.2.1 you can configure the setting `onDemand` to `true` or `false`. When set to `true`, your LedgerGraph becomes an on-demand service, active only when triggered by the [Archive Service](../../../en/platform/corda/4.9/enterprise/node/archiving/archiving-setup.md). This saves heap memory usage.
+**onDemand**: In V1.2.1 you can configure the setting `onDemand` to `true` or `false`. When set to `true`, your LedgerGraph becomes an on-demand service, active only when triggered by the [Archive Service]({{< relref "../../../en/platform/corda/4.9/enterprise/node/archiving/archiving-setup.md" >}}). This saves heap memory usage.
 
 LedgerGraph then deletes a constructed graph when the Archive Service `create-snapshot` task completes. For example, if a `create-snapshot` task is followed by a `list-items` task, the graph will be initialized once more.
 
@@ -62,7 +62,7 @@ LedgerGraph then deletes a constructed graph when the Archive Service `create-sn
 
 ### Database requirements
 
-LedgerGraph CorDapps are tested against Corda Enterprise and will work according to the [support matrix](../../../en/platform/corda/4.9/enterprise/platform-support-matrix.md).
+LedgerGraph CorDapps are tested against Corda Enterprise and will work according to the [support matrix]({{< relref "../../../en/platform/corda/4.9/enterprise/platform-support-matrix.md" >}}).
 
 ## Install LedgerGraph
 
@@ -123,7 +123,7 @@ If you're installing the <nobr>`ledger-graph-confidential-identities`</nobr> Cor
 
 ### Restart the Node
 
-Restart the node in the same manner originally started by the [node operator](../../../en/platform/corda/4.9/enterprise/node/deploy/deploying-a-node.md).
+Restart the node in the same manner originally started by the [node operator]({{< relref "../../../en/platform/corda/4.9/enterprise/node/deploy/deploying-a-node.md" >}}).
 
 Depending on the size of the  node's vault, it might take longer to start than it did previously.
 
@@ -148,7 +148,7 @@ You should now see a list of flows printed to the console, including those liste
 
 ## Configuration Parameters
 
-You can tune **LedgerGraph**'s behaviour through the following configuration parameters:
+You can tune **LedgerGraph**'s behavior through the following configuration parameters:
 
  
 
@@ -179,7 +179,7 @@ You can tune **LedgerGraph**'s behaviour through the following configuration par
 
 **Possible values:** true, false
 
-**Description:** When set to `true`, your LedgerGraph becomes an on-demand service, active only when triggered by the [Archive Service](../../../en/platform/corda/4.9/enterprise/node/archiving/archiving-setup.md). This saves heap memory usage.
+**Description:** When set to `true`, your LedgerGraph becomes an on-demand service, active only when triggered by the [Archive Service]({{< relref "../../../en/platform/corda/4.9/enterprise/node/archiving/archiving-setup.md" >}}). This saves heap memory usage.
 
 ### `ignoreTransactionLoadingFailures`
 
@@ -205,7 +205,7 @@ transactionReaderPoolSize = 32
 
 ## Support for Confidential Identities
 
-If you are using Corda [Confidential Identities](../../../en/platform/corda/4.9/enterprise/cordapps/api-confidential-identity.md), you need to add further configuration to LedgerGraph in order to properly support your environment. This is due to a limitation in the current implementation of the Confidential Identities CorDapp.
+If you are using Corda [Confidential Identities]({{< relref "../../../en/platform/corda/4.9/enterprise/cordapps/api-confidential-identity.md" >}}), you need to add further configuration to LedgerGraph in order to properly support your environment. This is due to a limitation in the current implementation of the Confidential Identities CorDapp.
 
 This additional configuration step helps to ensure that confidential identities on your node are properly mapped to known identities (where they have been shared with your node) when new transactions are processed and added to the graph.
 
@@ -472,7 +472,7 @@ A list of strings that provide a description of the errors that were encountered
 The **LedgerGraph** CorDapp requires participating Corda nodes to be:
 - Using Corda Enterprise, not Corda Open Source (OS).
 - Corda Minimum Platform Version (MPV) > 6.
-- Running on top of a supported [database technology](../../../en/platform/corda/4.9/enterprise/platform-support-matrix.md).
+- Running on top of a supported [database technology]({{< relref "../../../en/platform/corda/4.9/enterprise/platform-support-matrix.md" >}}).
 
 ### Memory Requirements
 
