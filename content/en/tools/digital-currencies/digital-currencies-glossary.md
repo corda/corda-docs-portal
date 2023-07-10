@@ -14,6 +14,8 @@ title: "Digital Currencies Glossary"
 
 **Central Bank Digital Currency (CBDC)** A central bank-issued digital money, denominated in a national unit of account, which is backed by the full faith and credit of the issuing central bank.
 
+**CIC** Currency in Circulation: The amount of cash available in a country that is available to conduct transactions.
+
 **Defining** Creating a token definition, which specifies the properties that a token of that type may have. Defining a token is a similar process for CBDCs and for commercial bank-issued stablecoins; however, the approval process may differ.
 
 **Issuing party** The network participant which has the authority to take minted tokens and issue them to other parties.
