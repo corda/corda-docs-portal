@@ -38,12 +38,12 @@ To burn tokens:
    * **Mint Tokens:** Enables you to mint tokens; see [Minting Tokens]({{<relref "../minting/_index.md" >}}).
    * **Burn Tokens:** Enables you to burn tokens.
       
-4. In the **Burn Tokens** pane, specify the following values:
+2. In the **Burn Tokens** pane, specify the following values:
 
    * **Token Definition:** Select the relevant token definition (previously created as described in [Creating Token Definitions]({{< relref "../defining/creating-token-definitions.md" >}})).
    * **Amount:** Type the number of tokens you want to burn; for example *100*.
 
-5. Click **Burn**.
+3. Click **Burn**.
   
    The *Successfully submitted tokens to burn* message is displayed:
    
