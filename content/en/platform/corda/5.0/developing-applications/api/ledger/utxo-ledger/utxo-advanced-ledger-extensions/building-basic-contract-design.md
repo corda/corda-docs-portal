@@ -211,7 +211,7 @@ public final class ExampleContract implements Contract {
         List<? extends ExampleContractCommand> commands = transaction
             .getCommands(ExampleContractCommand.class);
                   
-        for (ExampleContractCommand command : commands) {
+    for (ExampleContractCommand command : commands) {
             command.verify(transaction);
         }
     }
