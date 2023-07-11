@@ -20,6 +20,6 @@ tracing:
   # -- URL for the endpoint to send Zipkin-format distributed traces to for example http://tempo:9411
   endpoint: ""
   # --  Number of request traces to sample per second, defaults to 1 sample per second. Set to 'unlimited' to record all
-  traces, but in this case amount of tracing data produced can be quite vast.
+  traces, but in this case the amount of tracing data produced can be quite vast.
   samplesPerSecond: "1"
 ```
