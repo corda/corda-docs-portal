@@ -14,7 +14,7 @@ title: "Burning Tokens"
 
 ## Burning Tokens
 
-The introduction of {{< tooltip >}}CBDC{{< definitiondc term="CBDC" >}}{{< /tooltip >}} will inject a new source of liquidity into the economy. However, many central banks however peg their currency to the US dollar and as such hold dollar reserves to stabilize their currency. As a result, central banks will have a minimum threshold of foreign reserves - this can differ country to country. 
+The introduction of {{< tooltip >}}CBDC{{< definitiondc term="CBDC" >}}{{< /tooltip >}} will inject a new source of liquidity into the economy. However, many central banks peg their currency to the US dollar and as such hold dollar reserves to stabilize their currency. As a result, central banks will have a minimum threshold of foreign reserves - this can differ country to country. 
 
 As a result, central banks, which have [defined]({{< relref "../defining/_index.md" >}}) and [issued]({{< relref "../issuing/_index.md" >}}) tokens, need the ability to burn and thereby redeem them for US dollar to maintain a stable domestic currency value and a certain amount of currency in circulation, or {{< tooltip >}}CIC{{< definitiondc term="CIC" >}}{{< /tooltip >}}.
 
@@ -65,8 +65,8 @@ To burn tokens:
       figure
 	  src="images/tokens-have-been-successfully-burned-message.png"
       width=50%
-	  figcaption="'Tokens have been successfully created...' Message"
-	  alt="'Tokens have been successfully created...' Message"
+	  figcaption="'Tokens have been successfully burned...' Message"
+	  alt="'Tokens have been successfully burned...' Message"
    >}}  
    
    The vault balance for the token definition will now show the updated amount in the central bank's vault, minus the burned tokens:
