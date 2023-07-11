@@ -46,17 +46,17 @@ public final class ExampleChainableState extends ChainableState<ExampleChainable
     private final StaticPointer<ExampleChainableState> pointer;
   
     public ExampleChainableState(@NotNull final StaticPointer<ExampleChainableState> pointer) {
-    this.pointer = pointer;
+        this.pointer = pointer;
     }
   
     @Nullable 
     public StaticPointer<ExampleChainableState> getPreviousStatePointer() {
-    return pointer;
+        return pointer;
     }
   
     @NotNull
     public List<PublicKey> getParticipants() {
-    return List.of(...);
+        return List.of(...);
     }
 }
 ```
@@ -73,12 +73,12 @@ The `ChainableContractCreateCommand` creates new chainable states and verifies t
 public final class Create extends ChainableContractCreateCommand<ExampleChainableState> {
     @NotNull
     public Class<ExampleChainableState> getContractStateType() {
-    return ExampleChainableState.class;
+        return ExampleChainableState.class;
     }
   
     @Override
     protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-    // Verify additional Create constraints
+        // Verify additional Create constraints
     }
 }
 ```
@@ -94,12 +94,12 @@ The `ChainableContractUpdateCommand` supports updating existing chainable states
 public final class Update extends ChainableContractUpdateCommand<ExampleChainableState> {
     @NotNull
     public Class<ExampleChainableState> getContractStateType() {
-    return ExampleChainableState.class;
+        return ExampleChainableState.class;
     }
   
     @Override
     protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {    
-    // Verify additional Update constraints
+        // Verify additional Update constraints
     }
 }
 ```
@@ -112,12 +112,12 @@ The `ChainableContractDeleteCommand` supports deleting existing chainable states
 public final class Delete extends ChainableContractDeleteCommand<ExampleChainableState> {
     @NotNull
     public Class<ExampleChainableState> getContractStateType() {
-    return ExampleChainableState.class;
+        return ExampleChainableState.class;
     }
   
     @Override
     protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-    // Verify additional Delete constraints
+        // Verify additional Delete constraints
     }
 }
 ```
@@ -130,7 +130,7 @@ A chainable contract can be implemented by extending the `ChainableContract` cla
 public final class ExampleChainableContract extends ChainableContract {
     @Override
     public List<Class<? extends ChainableContractCommand<?>>> getPermittedCommandTypes() {
-    return List.of(Create.class, Update.class, Delete.class);  
+        return List.of(Create.class, Update.class, Delete.class);  
     }
 }
 ```
@@ -154,22 +154,22 @@ public final class ExampleFungibleState extends FungibleState<NumericDecimal> {
     private final NumericDecimal quantity;
   
     public ExampleFungibleState(@NotNull final NumericDecimal quantity) {
-    this.quantity = quantity;
+        this.quantity = quantity;
     }
   
     @NotNull
     public NumericDecimal getQuantity() {
-    return quantity;
+        return quantity;
     }
   
     @NotNull
     public List<PublicKey> getParticipants() {
-    return List.of(...);
+        return List.of(...);
     }
   
     @Override
     public boolean isFungibleWith(@NotNull final FungibleState<NumericDecimal> other) {
-    return this == other || other instanceof ExampleFungibleState // && other fungibility rules.
+        return this == other || other instanceof ExampleFungibleState // && other fungibility rules.
     }
 }
 ```
@@ -186,12 +186,12 @@ The `FungibleContractCreateCommand` creates new fungible states and verifies the
 public final class Create extends FungibleContractCreateCommand<ExampleFungibleState> {
     @NotNull
     public Class<ExampleFungibleState> getContractStateType() {
-    return ExampleFungibleState.class;
+        return ExampleFungibleState.class;
     }
   
     @Override
     protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-    // Verify additional Create constraints
+        // Verify additional Create constraints
     }
 }
 ```
@@ -208,12 +208,12 @@ The `FungibleContractUpdateCommand` supports updating existing fungible states a
 public final class Update extends FungibleContractUpdateCommand<ExampleFungibleState> {
     @NotNull
     public Class<ExampleFungibleState> getContractStateType() {
-    return ExampleFungibleState.class;
+        return ExampleFungibleState.class;
     }
   
     @Override
     protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-    // Verify additional Update constraints
+        // Verify additional Update constraints
     }
 }
 ```
@@ -228,12 +228,12 @@ The `FungibleContractDeleteCommand` supports deleting existing fungible states a
 public final class Delete extends FungibleContractDeleteCommand<ExampleFungibleState> {
     @NotNull
     public Class<ExampleFungibleState> getContractStateType() {
-    return ExampleFungibleState.class;
+        return ExampleFungibleState.class;
     }
   
     @Override
     protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-    // Verify additional Delete constraints
+        // Verify additional Delete constraints
     }
 }
 ```
@@ -246,7 +246,7 @@ A fungible contract can be implemented by extending the `FungibleContract` class
 public final class ExampleFungibleContract extends FungibleContract {
     @Override
     public List<Class<? extends FungibleContractCommand<?>>> getPermittedCommandTypes() {
-    return List.of(Create.class, Update.class, Delete.class);
+        return List.of(Create.class, Update.class, Delete.class);
     }
 }
 ```
@@ -269,17 +269,17 @@ public final class ExampleIdentifiableState extends IdentifiableState {
     private final StateRef id;
   
     public ExampleIdentifiableState(@Nullable final StateRef id) {
-    this.id = id;
+        this.id = id;
     }
   
     @Nullable
     public StateRef getId() {
-    return id;
+        return id;
     }
   
     @NotNull
     public List<PublicKey> getParticipants() {
-    return List.of(...);
+        return List.of(...);
     }
 }
 ```
@@ -293,12 +293,12 @@ The `IdentifiableContractCreateCommand` supports creating new identifiable state
 public final class Create extends IdentifiableContractCreateCommand<ExampleIdentifiableState> {
     @NotNull
     public Class<ExampleIdentifiableState> getContractStateType() {
-    return ExampleIdentifiableState.class;
+        return ExampleIdentifiableState.class;
     }
   
     @Override
     protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-    // Verify additional Create constraints
+        // Verify additional Create constraints
     }
 }
 ```
@@ -313,12 +313,12 @@ The `IdentifiableContractUpdateCommand` updates existing identifiable states and
 public final class Update extends IdentifiableContractUpdateCommand<ExampleIdentifiableState> {
     @NotNull
     public Class<ExampleIdentifiableState> getContractStateType() {
-    return ExampleIdentifiableState.class;
+        return ExampleIdentifiableState.class;
     }
   
-  @Override
-  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-    // Verify additional Update constraints
+    @Override
+     protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+       // Verify additional Update constraints
   }
 }
 ```
@@ -329,12 +329,12 @@ The `IdentifiableContractDeleteCommand` deletes existing identifiable states and
 public final class Delete extends IdentifiableContractDeleteCommand<ExampleIdentifiableState> {
     @NotNull
     public Class<ExampleIdentifiableState> getContractStateType() {
-    return ExampleIdentifiableState.class;
+        return ExampleIdentifiableState.class;
     }
   
     @Override
     protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-    // Verify additional Delete constraints
+        // Verify additional Delete constraints
     }
 }
 ```
@@ -347,7 +347,7 @@ An identifiable contract can be implemented by extending the `IdentifiableContra
 public final class ExampleIdentifiableContract extends IdentifiableContract {
     @Override
     public List<Class<? extends IdentifiableContractCommand<?>>> getPermittedCommandTypes() {
-    return List.of(Create.class, Update.class, Delete.class);
+        return List.of(Create.class, Update.class, Delete.class);
     }
 }
 ```
@@ -368,11 +368,11 @@ An ownable state can be designed by implementing the `OwnableState` interface:
 class ExampleOwnableState(private val owner: PublicKey) : OwnableState {
 
     override fun getOwner(): PublicKey {
-    return owner
+        return owner
     }
 
     override fun getParticipants(): List<PublicKey> {
-    return listOf(getOwner())
+        return listOf(getOwner())
     }
 }
 ```
@@ -388,7 +388,7 @@ to get this behaviour.
 class ExampleOwnableContract : DelegatedContract<ExampleOwnableContract.ExampleOwnableContractCommand>() {
 
     override fun getPermittedCommandTypes(): List<Class<out ExampleOwnableContractCommand>> {
-    return listOf(Update::class.java)
+        return listOf(Update::class.java)
     }
 
     sealed interface ExampleOwnableContractCommand : VerifiableCommand, ContractStateType<ExampleOwnableState>
@@ -396,7 +396,7 @@ class ExampleOwnableContract : DelegatedContract<ExampleOwnableContract.ExampleO
     object Update : ExampleOwnableContractCommand {
 
     override fun getContractStateType(): Class<ExampleOwnableState> {
-    return ExampleOwnableState::class.java
+        return ExampleOwnableState::class.java
     }
 
     override fun verify(transaction: UtxoLedgerTransaction) {
@@ -425,11 +425,11 @@ An issuable state can be designed by implementing the `IssuableState` interface:
 class ExampleIssuableState(private val issuer: PublicKey) : IssuableState {
 
     override fun getIssuer(): PublicKey {
-    return issuer
+        return issuer
     }
 
     override fun getParticipants(): List<PublicKey> {
-    return listOf(getIssuer())
+        return listOf(getIssuer())
     }
 }
 ```
@@ -444,7 +444,7 @@ the `IssuableConstraints` helpers provided in the library.
 class ExampleIssuableContract : DelegatedContract<ExampleIssuableContract.ExampleIssuableContractCommand>() {
 
     override fun getPermittedCommandTypes(): List<Class<out ExampleIssuableContractCommand>> {
-    return listOf(Create::class.java, Delete::class.java)
+        return listOf(Create::class.java, Delete::class.java)
     }
 
     sealed interface ExampleIssuableContractCommand : VerifiableCommand, ContractStateType<ExampleIssuableState>
@@ -452,21 +452,21 @@ class ExampleIssuableContract : DelegatedContract<ExampleIssuableContract.Exampl
 
     object Create : ExampleIssuableContractCommand {
     override fun getContractStateType(): Class<ExampleIssuableState> {
-    return ExampleIssuableState::class.java
+        return ExampleIssuableState::class.java
     }
 
     override fun verify(transaction: UtxoLedgerTransaction) {
-    IssuableConstraints.verifyCreate(transaction, contractStateType)
+        IssuableConstraints.verifyCreate(transaction, contractStateType)
     }
     }
 
     object Delete : ExampleIssuableContractCommand {
     override fun getContractStateType(): Class<ExampleIssuableState> {
-    return ExampleIssuableState::class.java
+        return ExampleIssuableState::class.java
     }
 
     override fun verify(transaction: UtxoLedgerTransaction) {
-    IssuableConstraints.verifyDelete(transaction, contractStateType)
+        IssuableConstraints.verifyDelete(transaction, contractStateType)
     }
     }
 }
