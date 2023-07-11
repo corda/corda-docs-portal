@@ -61,9 +61,7 @@ For a quick start guide on deploying Corda Enterprise Network Manager services a
 * [Certificate Revocation List]({{< relref "../../../../../en/platform/corda/1.5/cenm/certificate-revocation.md" >}})
 
 ## CENM releases
-[](../../1.5/cenm/release-notes.md)
-* [Release notes]({{< relref "../../1.5/cenm/release-notes.md" >}})
-
+* [Release notes]({{< relref "release-notes.md" >}})
 * [Upgrading Corda Enterprise Network Manager]({{< relref "../../1.5/cenm/upgrade-notes.md" >}})
 
 ## Operations
