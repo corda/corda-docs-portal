@@ -15,10 +15,7 @@ section_menu: corda5
 
 The following contract defines three commands; `Create`, `Update` and `Delete`. The `verify` function delegates these command types to `verifyCreate`, `verifyUpdate`, and `verifyDelete` functions respectively, for example:
 
-{{< tabs name="tabs-1" >}}
-{{% tab name="Kotlin" %}}
-
-```kotlin
+```java
 public final class ExampleContract implements Contract {
     
     private interface ExampleContractCommand extends Command { }
@@ -54,49 +51,6 @@ public final class ExampleContract implements Contract {
 }
 ```
 
-{{% /tab %}}
-{{% tab name="Java" %}}
-
-```java
-public final class ExampleContract implements Contract {
-
-    private interface ExampleContractCommand extends Command { }
-
-    public static class Create implements ExampleContractCommand { }
-    public static class Update implements ExampleContractCommand { }
-    public static class Delete implements ExampleContractCommand { }
-
-    @Override
-    public void verify(UtxoLedgerTransaction transaction) {
-
-        List<? extends ExampleContractCommand> commands = transaction
-                .getCommands(ExampleContractCommand.class);
-
-        for (ExampleContractCommand command : commands) {
-            if (command instanceof Create) verifyCreate(transaction);
-            else if (command instanceof Update) verifyUpdate(transaction);
-            else if (command instanceof Delete) verifyDelete(transaction);
-            else throw new IllegalStateException("Unrecognised command type.");
-        }
-    }
-
-    private void verifyCreate(UtxoLedgerTransaction transaction) {
-        // Verify Create constraints
-    }
-
-    private void verifyUpdate(UtxoLedgerTransaction transaction) {
-        // Verify Update constraints
-    }
-
-    private void verifyDelete(UtxoLedgerTransaction transaction) {
-        // Verify Delete constraints
-    }
-}
-```
-
-{{% /tab %}}
-{{< /tabs >}}
-
 Designing a contract as shown in the above example will suffice in many cases. Assuming that the constraints have been implemented correctly, the contract functionality and design is perfectly acceptable.
 
 {{< note >}}
@@ -112,10 +66,7 @@ The contract still provides the same three commands: `Create`, `Update`, and `De
 The 'verify' function has been marked final. This change is necessary as it prevents derived contract implementations from circumventing the base contract rules.
 {{< /note >}}
 
-{{< tabs name="tabs-2" >}}
-{{% tab name="Kotlin" %}}
-
-```kotlin
+```java
 public class ExampleContract implements Contract {
  
     private interface ExampleContractCommand extends Command { }
@@ -161,69 +112,13 @@ public class ExampleContract implements Contract {
 }
 ```
 
-{{% /tab %}}
-{{% tab name="Java" %}}
-
-```java
-public class ExampleContract implements Contract {
-
-    private interface ExampleContractCommand extends Command { }
-
-    public static class Create implements ExampleContractCommand { }
-    public static class Update implements ExampleContractCommand { }
-    public static class Delete implements ExampleContractCommand { }
-
-    @Override
-    public final void verify(UtxoLedgerTransaction transaction) {
-
-        List<? extends ExampleContractCommand> commands = transaction
-                .getCommands(ExampleContractCommand.class);
-
-        for (ExampleContractCommand command : commands) {
-            if (command instanceof Create) verifyCreate(transaction);
-            else if (command instanceof Update) verifyUpdate(transaction);
-            else if (command instanceof Delete) verifyDelete(transaction);
-            else throw new IllegalStateException("Unrecognised command type.");
-        }
-    }
-
-    protected void onVerifyCreate(UtxoLedgerTransaction transaction) { }
-    protected void onVerifyUpdate(UtxoLedgerTransaction transaction) { }
-    protected void onVerifyDelete(UtxoLedgerTransaction transaction) { }    
-
-    private void verifyCreate(UtxoLedgerTransaction transaction) {
-      	// Verify base Create constraints
-        // Then verify additional Create constraints implemented by derived contracts
-        onVerifyCreate(transaction);
-    }
-
-    private void verifyUpdate(UtxoLedgerTransaction transaction) {
-        // Verify base Update constraints
-        // Then verify additional Update constraints implemented by derived contracts
-        onVerifyUpdate(transaction);
-    }
-
-    private void verifyDelete(UtxoLedgerTransaction transaction) {
-        // Verify base Delete constraints
-        // Then verify additional Delete constraints implemented by derived contracts
-        onVerifyDelete(transaction);
-    }
-}
-```
-
-{{% /tab %}}
-{{< /tabs >}}
-
 Refactoring a contract as shown in the above example allows CorDapp implementors to derive from the contract, allowing additional constraints which will be verified in addition to the constraints specified by the base contract.
 
 There are still some outstanding issues with this design, where this design approach no longer fits the design goals of the system being implemented.
 
 The problem really lies in the `verify` function; for example:
 
-{{< tabs name="tabs-3" >}}
-{{% tab name="Kotlin" %}}
-
-```kotlin
+```java
 public final void verify(UtxoLedgerTransaction transaction) {
     List<? extends ExampleContractCommand> commands = transaction
             .getCommands(ExampleContractCommand.class);
@@ -236,26 +131,6 @@ public final void verify(UtxoLedgerTransaction transaction) {
     }
 }
 ```
-{{% /tab %}}
-{{% tab name="Java" %}}
-
-```java
-public final void verify(UtxoLedgerTransaction transaction) {
-
-    List<? extends ExampleContractCommand> commands = transaction
-            .getCommands(ExampleContractCommand.class);
-
-    for (ExampleContractCommand command : commands) {
-        if (command instanceof Create) verifyCreate(transaction);
-        else if (command instanceof Update) verifyUpdate(transaction);
-        else if (command instanceof Delete) verifyDelete(transaction);
-        else throw new IllegalStateException("Unrecognised command type.");
-    }
-}
-```
-
-{{% /tab %}}
-{{< /tabs >}}
 
 The `verify` function is marked final for security reasons, and therefore additional commands cannot be added to the contract. For example, the contract may wish to describe multiple ways to `Update` a state, or set of states. The contract only defines a single `Update` command: there can only be one mechanism to perform updates.
 
@@ -268,135 +143,58 @@ In the contracts above, the commands are nothing more than marker classes; effec
 Implement the `verify` function on the command itself. Instead of being an empty marker class, this gives the command responsibility, as it becomes responsible for implementing its associated contract verification constraints.
 In this case, define a `VerifiableCommand` interface with a `verify` function; for example:
 
-{{< tabs name="tabs-4" >}}
-{{% tab name="Kotlin" %}}
-
-```kotlin
-public interface VerifiableCommand extends Command {
-    void verify(UtxoLedgerTransaction transaction);
-}
-```
-
-{{% /tab %}}
-{{% tab name="Java" %}}
-
 ```java
 public interface VerifiableCommand extends Command {
     void verify(UtxoLedgerTransaction transaction);
 }
 ```
-
-{{% /tab %}}
-{{< /tabs >}}
 
 Now that you have a command which itself can implement contract verification constraints, you can use this as the basis for the `ExampleContractCommand` class. This needs to be a class rather than an interface, because you need to be in complete control of its implementations for security.
 
 You can achieve this by making the default constructor package private, so that only commands within the same package can extend it; for example:
 
-{{< tabs name="tabs-5" >}}
-{{% tab name="Kotlin" %}}
-
-```kotlin
+```java
 public class ExampleContractCommand implements VerifiableCommand {
     ExampleContractCommand() { }
 }
 ```
 
-{{% /tab %}}
-{{% tab name="Java" %}}
-
-```java
-public class ExampleContractCommand implements VerifiableCommand {
-  ExampleContractCommand() { }
-}
-```
-
-{{% /tab %}}
-{{< /tabs >}}
-
 Next, implement this interface as `Create`, `Update` and `Delete` commands; for example:
 
-{{< tabs name="tabs-6" >}}
-{{% tab name="Kotlin" %}}
-
-```kotlin
-public class Create extends ExampleContractCommand {
-    @Override
-    public final void verify(UtxoLedgerTransaction transaction) {
-        // Verify base Create constraints
-        // Then verify additional Create constraints implemented in derived commands
-        onVerify(transaction);
-    }
-    
-    protected void onVerify(UtxoLedgerTransaction transaction) { }
-}
-
-public class Update extends ExampleContractCommand {
-    @Override
-    public final void verify(UtxoLedgerTransaction transaction) {
-        // Verify base Update constraints
-        // Then verify additional Update constraints implemented in derived commands
-        onVerify(transaction);
-    }
-    
-    protected void onVerify(UtxoLedgerTransaction transaction) { }
-}
-
-public class Delete extends ExampleContractCommand {
-    @Override
-    public final void verify(UtxoLedgerTransaction transaction) {
-        // Verify base Delete constraints
-        // Then verify additional Delete constraints implemented in derived commands
-        onVerify(transaction);
-    }
-    
-    protected void onVerify(UtxoLedgerTransaction transaction) { }
-}
-```
-
-{{% /tab %}}
-{{% tab name="Java" %}}
-
 ```java
 public class Create extends ExampleContractCommand {
-
     @Override
     public final void verify(UtxoLedgerTransaction transaction) {
         // Verify base Create constraints
         // Then verify additional Create constraints implemented in derived commands
         onVerify(transaction);
     }
-
+    
     protected void onVerify(UtxoLedgerTransaction transaction) { }
 }
 
 public class Update extends ExampleContractCommand {
-
     @Override
     public final void verify(UtxoLedgerTransaction transaction) {
         // Verify base Update constraints
         // Then verify additional Update constraints implemented in derived commands
         onVerify(transaction);
     }
-
+    
     protected void onVerify(UtxoLedgerTransaction transaction) { }
 }
 
 public class Delete extends ExampleContractCommand {
-
     @Override
     public final void verify(UtxoLedgerTransaction transaction) {
         // Verify base Delete constraints
         // Then verify additional Delete constraints implemented in derived commands
         onVerify(transaction);
     }
-
+    
     protected void onVerify(UtxoLedgerTransaction transaction) { }
 }
 ```
-
-{{% /tab %}}
-{{< /tabs >}}
 
 {{< note >}}
 The `Create`, `Update` and `Delete` commands are not marked final. Therefore, you can extend the contract verification constraints from these points, but you cannot extend them from `ExampleContractCommand`.
@@ -406,10 +204,7 @@ The `Create`, `Update` and `Delete` commands are not marked final. Therefore, yo
 
 As you have now delegated contract verification constraint logic to the commands themselves, you must also refactor the contract to support this delegation. The contract implementation in this case becomes simpler, since it is no longer responsible for defining contract verification constraints. For example:
 
-{{< tabs name="tabs-7" >}}
-{{% tab name="Kotlin" %}}
-
-```kotlin
+```java
 public final class ExampleContract implements Contract {
     @Override
     public void verify(UtxoLedgerTransaction transaction) {
@@ -423,35 +218,9 @@ public final class ExampleContract implements Contract {
 }
 ```
 
-{{% /tab %}}
-{{% tab name="Java" %}}
-
-```java
-public final class ExampleContract implements Contract {
-
-    @Override
-    public void verify(UtxoLedgerTransaction transaction) {
-
-        List<? extends ExampleContractCommand> commands = transaction
-                .getCommands(ExampleContractCommand.class);
-
-        for (ExampleContractCommand command : commands) {
-            command.verify(transaction);
-        }
-    }
-}
-```
-
-{{% /tab %}}
-{{< /tabs >}}
-
 This design addresses the outstanding issues in regard to being able to extend a contract with multiple commands, and being able to assign names to commands that make sense in the context that they're used. For example:
 
-{{< tabs name="tabs-8" >}}
-{{% tab name="Kotlin" %}}
-
-
-```kotlin
+```java
     class Mint extends Create { ... }
     class Issue extends Update { ... }
     class Transfer extends Update { ... }
@@ -459,21 +228,6 @@ This design addresses the outstanding issues in regard to being able to extend a
     class Redeem extends Update { ... }
     class Burn extends Delete { ... }
 ```
-
-{{% /tab %}}
-{{% tab name="Java" %}}
-
-```java
-class Mint extends Create { ... }
-class Issue extends Update { ... }
-class Transfer extends Update { ... }
-class Exchange extends Update { ... }
-class Redeem extends Update { ... }
-class Burn extends Delete { ... }
-```
-
-{{% /tab %}}
-{{< /tabs >}}
 
 {{< note >}}
  The contract now supports five different command types, each of which implements different constraints and derives from `Create`, `Update`, or `Delete`.
