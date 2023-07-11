@@ -364,7 +364,7 @@ The Ownable API provides the component to design ownable states and contracts; t
 
 An ownable state can be designed by implementing the `OwnableState` interface:
 
-``` java
+``` kotlin
 class ExampleOwnableState(private val owner: PublicKey) : OwnableState {
 
     override fun getOwner(): PublicKey {
@@ -384,7 +384,7 @@ states have signed the transaction. To simplify writing such a contract, the lib
 `OwnableConstraints` helpers. You must include and invoke the appropriate helper in your contract
 to get this behaviour.
 
-``` java
+``` kotlin
 class ExampleOwnableContract : DelegatedContract<ExampleOwnableContract.ExampleOwnableContractCommand>() {
 
     override fun getPermittedCommandTypes(): List<Class<out ExampleOwnableContractCommand>> {
@@ -420,7 +420,7 @@ of this particular type.
 
 An issuable state can be designed by implementing the `IssuableState` interface:
 
-``` java
+``` kotlin
 @BelongsToContract(ExampleIssuableContract::class)
 class ExampleIssuableState(private val issuer: PublicKey) : IssuableState {
 
@@ -440,7 +440,7 @@ The contract for issuable states needs to verify that the issuance rules are adh
 the issuer signs for issuance and deletion of any issuable states. This can be achieved by invoking
 the `IssuableConstraints` helpers provided in the library.
 
-``` java
+``` kotlin
 class ExampleIssuableContract : DelegatedContract<ExampleIssuableContract.ExampleIssuableContractCommand>() {
 
     override fun getPermittedCommandTypes(): List<Class<out ExampleIssuableContractCommand>> {
