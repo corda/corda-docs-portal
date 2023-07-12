@@ -115,7 +115,7 @@ public final class Delete extends ChainableContractDeleteCommand<ExampleChainabl
     return ExampleChainableState.class;
   }
   
-    @Override
+  @Override
     protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
         // Verify additional Delete constraints
     }
