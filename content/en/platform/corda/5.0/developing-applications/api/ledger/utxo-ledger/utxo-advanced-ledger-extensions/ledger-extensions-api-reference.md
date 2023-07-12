@@ -316,7 +316,7 @@ public final class Update extends IdentifiableContractUpdateCommand<ExampleIdent
     return ExampleIdentifiableState.class;
   }
   
-    @Override
+  @Override
      protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
        // Verify additional Update constraints
   }
