@@ -223,7 +223,7 @@ This design addresses the outstanding issues in regard to being able to extend a
 ```java
 class Mint extends Create { ... }
 class Issue extends Update { ... }
-    class Transfer extends Update { ... }
+class Transfer extends Update { ... }
     class Exchange extends Update { ... }
     class Redeem extends Update { ... }
     class Burn extends Delete { ... }
