@@ -334,7 +334,7 @@ public final class Delete extends IdentifiableContractDeleteCommand<ExampleIdent
   
   @Override
   protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-        // Verify additional Delete constraints
+    // Verify additional Delete constraints
     }
 }
 ```
