@@ -155,7 +155,7 @@ public final class ExampleFungibleState extends FungibleState<NumericDecimal> {
   
   public ExampleFungibleState(@NotNull final NumericDecimal quantity) {
     this.quantity = quantity;
-    }
+  }
   
     @NotNull
     public NumericDecimal getQuantity() {
