@@ -313,7 +313,7 @@ The `IdentifiableContractUpdateCommand` updates existing identifiable states and
 public final class Update extends IdentifiableContractUpdateCommand<ExampleIdentifiableState> {
   @NotNull
   public Class<ExampleIdentifiableState> getContractStateType() {
-        return ExampleIdentifiableState.class;
+    return ExampleIdentifiableState.class;
     }
   
     @Override
