@@ -314,7 +314,7 @@ public final class Update extends IdentifiableContractUpdateCommand<ExampleIdent
   @NotNull
   public Class<ExampleIdentifiableState> getContractStateType() {
     return ExampleIdentifiableState.class;
-    }
+  }
   
     @Override
      protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
