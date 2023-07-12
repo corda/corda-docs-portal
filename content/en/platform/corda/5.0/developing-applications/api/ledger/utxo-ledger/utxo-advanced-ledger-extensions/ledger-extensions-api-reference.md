@@ -231,10 +231,10 @@ public final class Delete extends FungibleContractDeleteCommand<ExampleFungibleS
     return ExampleFungibleState.class;
   }
   
-    @Override
-    protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-        // Verify additional Delete constraints
-    }
+  @Override
+  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+    // Verify additional Delete constraints
+  }
 }
 ```
 
