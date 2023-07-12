@@ -110,7 +110,7 @@ The `ChainableContractDeleteCommand` supports deleting existing chainable states
 
 ```java
 public final class Delete extends ChainableContractDeleteCommand<ExampleChainableState> {
-    @NotNull
+  @NotNull
     public Class<ExampleChainableState> getContractStateType() {
         return ExampleChainableState.class;
     }
