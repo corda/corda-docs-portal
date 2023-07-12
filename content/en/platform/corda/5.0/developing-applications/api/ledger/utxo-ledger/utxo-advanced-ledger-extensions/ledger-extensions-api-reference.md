@@ -329,7 +329,7 @@ The `IdentifiableContractDeleteCommand` deletes existing identifiable states and
 public final class Delete extends IdentifiableContractDeleteCommand<ExampleIdentifiableState> {
   @NotNull
   public Class<ExampleIdentifiableState> getContractStateType() {
-        return ExampleIdentifiableState.class;
+    return ExampleIdentifiableState.class;
     }
   
     @Override
