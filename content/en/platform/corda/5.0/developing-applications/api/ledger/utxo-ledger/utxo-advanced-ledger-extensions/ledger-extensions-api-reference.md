@@ -43,7 +43,7 @@ A chainable state can be implemented by implementing the `ChainableState<T>` int
 @BelongsToContract(ExampleChainableContract.class)
 public final class ExampleChainableState extends ChainableState<ExampleChainableState> {
   @Nullable
-    private final StaticPointer<ExampleChainableState> pointer;
+  private final StaticPointer<ExampleChainableState> pointer;
   
     public ExampleChainableState(@NotNull final StaticPointer<ExampleChainableState> pointer) {
         this.pointer = pointer;
