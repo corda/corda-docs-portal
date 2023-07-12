@@ -272,10 +272,10 @@ public final class ExampleIdentifiableState extends IdentifiableState {
     this.id = id;
   }
   
-    @Nullable
-    public StateRef getId() {
-        return id;
-    }
+  @Nullable
+  public StateRef getId() {
+    return id;
+  }
   
     @NotNull
     public List<PublicKey> getParticipants() {
