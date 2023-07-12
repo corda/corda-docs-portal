@@ -227,7 +227,7 @@ The `FungibleContractDeleteCommand` supports deleting existing fungible states a
 ```java
 public final class Delete extends FungibleContractDeleteCommand<ExampleFungibleState> {
   @NotNull
-    public Class<ExampleFungibleState> getContractStateType() {
+  public Class<ExampleFungibleState> getContractStateType() {
         return ExampleFungibleState.class;
     }
   
