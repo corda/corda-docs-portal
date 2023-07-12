@@ -94,7 +94,7 @@ The `ChainableContractUpdateCommand` supports updating existing chainable states
 public final class Update extends ChainableContractUpdateCommand<ExampleChainableState> {
   @NotNull
   public Class<ExampleChainableState> getContractStateType() {
-        return ExampleChainableState.class;
+    return ExampleChainableState.class;
     }
   
     @Override
