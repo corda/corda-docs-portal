@@ -317,8 +317,8 @@ public final class Update extends IdentifiableContractUpdateCommand<ExampleIdent
   }
   
   @Override
- protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-   // Verify additional Update constraints
+  protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
+    // Verify additional Update constraints
   }
 }
 ```
@@ -387,7 +387,7 @@ to get this behaviour.
 ``` kotlin
 class ExampleOwnableContract : DelegatedContract<ExampleOwnableContract.ExampleOwnableContractCommand>() {
 
-    override fun getPermittedCommandTypes(): List<Class<out ExampleOwnableContractCommand>> {
+        override fun getPermittedCommandTypes(): List<Class<out ExampleOwnableContractCommand>> {
         return listOf(Update::class.java)
     }
 
@@ -395,13 +395,13 @@ class ExampleOwnableContract : DelegatedContract<ExampleOwnableContract.ExampleO
 
     object Update : ExampleOwnableContractCommand {
 
-    override fun getContractStateType(): Class<ExampleOwnableState> {
-        return ExampleOwnableState::class.java
-    }
+        override fun getContractStateType(): Class<ExampleOwnableState> {
+            return ExampleOwnableState::class.java
+            }
 
-    override fun verify(transaction: UtxoLedgerTransaction) {
-    OwnableConstraints.verifyUpdate(transaction, contractStateType)
-    }
+        override fun verify(transaction: UtxoLedgerTransaction) {
+            OwnableConstraints.verifyUpdate(transaction, contractStateType)
+            }
     }
 }
 ```
@@ -451,23 +451,23 @@ class ExampleIssuableContract : DelegatedContract<ExampleIssuableContract.Exampl
 
 
     object Create : ExampleIssuableContractCommand {
-    override fun getContractStateType(): Class<ExampleIssuableState> {
-        return ExampleIssuableState::class.java
-    }
+        override fun getContractStateType(): Class<ExampleIssuableState> {
+            return ExampleIssuableState::class.java
+        }
 
     override fun verify(transaction: UtxoLedgerTransaction) {
         IssuableConstraints.verifyCreate(transaction, contractStateType)
-    }
+        }
     }
 
     object Delete : ExampleIssuableContractCommand {
-    override fun getContractStateType(): Class<ExampleIssuableState> {
-        return ExampleIssuableState::class.java
-    }
+        override fun getContractStateType(): Class<ExampleIssuableState> {
+            return ExampleIssuableState::class.java
+        }
 
     override fun verify(transaction: UtxoLedgerTransaction) {
         IssuableConstraints.verifyDelete(transaction, contractStateType)
-    }
+        }
     }
 }
 ```
