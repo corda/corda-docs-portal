@@ -93,7 +93,7 @@ The `ChainableContractUpdateCommand` supports updating existing chainable states
 ```java
 public final class Update extends ChainableContractUpdateCommand<ExampleChainableState> {
   @NotNull
-    public Class<ExampleChainableState> getContractStateType() {
+  public Class<ExampleChainableState> getContractStateType() {
         return ExampleChainableState.class;
     }
   
