@@ -277,10 +277,10 @@ public final class ExampleIdentifiableState extends IdentifiableState {
     return id;
   }
   
-    @NotNull
-    public List<PublicKey> getParticipants() {
-        return List.of(...);
-    }
+  @NotNull
+  public List<PublicKey> getParticipants() {
+    return List.of(...);
+  }
 }
 ```
 
