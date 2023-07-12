@@ -296,7 +296,7 @@ public final class Create extends IdentifiableContractCreateCommand<ExampleIdent
     return ExampleIdentifiableState.class;
   }
   
-    @Override
+  @Override
     protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
         // Verify additional Create constraints
     }
