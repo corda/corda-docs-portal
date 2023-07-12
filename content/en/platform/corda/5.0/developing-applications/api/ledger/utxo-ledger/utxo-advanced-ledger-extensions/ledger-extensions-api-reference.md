@@ -293,7 +293,7 @@ The `IdentifiableContractCreateCommand` supports creating new identifiable state
 public final class Create extends IdentifiableContractCreateCommand<ExampleIdentifiableState> {
   @NotNull
   public Class<ExampleIdentifiableState> getContractStateType() {
-        return ExampleIdentifiableState.class;
+    return ExampleIdentifiableState.class;
     }
   
     @Override
