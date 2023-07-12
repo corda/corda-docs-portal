@@ -211,7 +211,7 @@ public final class Update extends FungibleContractUpdateCommand<ExampleFungibleS
     return ExampleFungibleState.class;
   }
   
-    @Override
+  @Override
     protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
         // Verify additional Update constraints
     }
