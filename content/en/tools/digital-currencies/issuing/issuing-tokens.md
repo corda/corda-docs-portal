@@ -77,7 +77,7 @@ As an issuer:
    {{<
       figure
 	  src="images/vault-balances-panel-after-issue.png"
-      width=80%
+      width=40%
 	  figcaption="Vault Balances Panel After Issue"
 	  alt="Vault Balances Panel After Issue"
    >}}
