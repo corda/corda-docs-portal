@@ -186,7 +186,7 @@ The `FungibleContractCreateCommand` creates new fungible states and verifies the
 public final class Create extends FungibleContractCreateCommand<ExampleFungibleState> {
   @NotNull
   public Class<ExampleFungibleState> getContractStateType() {
-        return ExampleFungibleState.class;
+    return ExampleFungibleState.class;
     }
   
     @Override
