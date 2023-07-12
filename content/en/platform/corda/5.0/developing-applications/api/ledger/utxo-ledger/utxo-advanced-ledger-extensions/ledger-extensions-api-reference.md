@@ -206,7 +206,7 @@ The `FungibleContractUpdateCommand` supports updating existing fungible states a
 
 ```java
 public final class Update extends FungibleContractUpdateCommand<ExampleFungibleState> {
-    @NotNull
+  @NotNull
     public Class<ExampleFungibleState> getContractStateType() {
         return ExampleFungibleState.class;
     }
