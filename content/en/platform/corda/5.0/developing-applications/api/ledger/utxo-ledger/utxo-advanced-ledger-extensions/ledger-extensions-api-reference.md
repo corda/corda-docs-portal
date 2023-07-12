@@ -265,8 +265,8 @@ An identifiable state can be implemented by implementing the `IdentifiableState`
 
 ```java
 public final class ExampleIdentifiableState extends IdentifiableState {
-    @Nullable
-    private final StateRef id;
+  @Nullable
+  private final StateRef id;
   
     public ExampleIdentifiableState(@Nullable final StateRef id) {
         this.id = id;
