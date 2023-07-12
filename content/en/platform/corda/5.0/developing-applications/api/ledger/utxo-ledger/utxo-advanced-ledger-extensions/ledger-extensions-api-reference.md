@@ -170,7 +170,7 @@ public final class ExampleFungibleState extends FungibleState<NumericDecimal> {
   @Override
   public boolean isFungibleWith(@NotNull final FungibleState<NumericDecimal> other) {
     return this == other || other instanceof ExampleFungibleState // && other fungibility rules.
-    }
+  }
 }
 ```
 
