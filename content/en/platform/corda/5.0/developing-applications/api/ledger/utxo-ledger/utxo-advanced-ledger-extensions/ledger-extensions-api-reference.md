@@ -72,7 +72,7 @@ The `ChainableContractCreateCommand` creates new chainable states and verifies t
 ```java
 public final class Create extends ChainableContractCreateCommand<ExampleChainableState> {
   @NotNull
-    public Class<ExampleChainableState> getContractStateType() {
+  public Class<ExampleChainableState> getContractStateType() {
         return ExampleChainableState.class;
     }
   
