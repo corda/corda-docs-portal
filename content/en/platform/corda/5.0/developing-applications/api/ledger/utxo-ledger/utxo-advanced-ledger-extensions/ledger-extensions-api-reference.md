@@ -49,7 +49,7 @@ public final class ExampleChainableState extends ChainableState<ExampleChainable
     this.pointer = pointer;
     }
   
-    @Nullable 
+  @Nullable
     public StaticPointer<ExampleChainableState> getPreviousStatePointer() {
         return pointer;
     }
