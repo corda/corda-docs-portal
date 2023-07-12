@@ -192,7 +192,7 @@ public final class Create extends FungibleContractCreateCommand<ExampleFungibleS
   @Override
   protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
     // Verify additional Create constraints
-    }
+  }
 }
 ```
 
