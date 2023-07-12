@@ -99,7 +99,7 @@ public final class Update extends ChainableContractUpdateCommand<ExampleChainabl
   
   @Override
   protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {    
-        // Verify additional Update constraints
+    // Verify additional Update constraints
     }
 }
 ```
