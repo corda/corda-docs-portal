@@ -229,7 +229,7 @@ public final class Delete extends FungibleContractDeleteCommand<ExampleFungibleS
   @NotNull
   public Class<ExampleFungibleState> getContractStateType() {
     return ExampleFungibleState.class;
-    }
+  }
   
     @Override
     protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
