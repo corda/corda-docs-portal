@@ -151,7 +151,7 @@ A fungible state can be implemented by implementing the `FungibleState<T>` inter
 ```java
 public final class ExampleFungibleState extends FungibleState<NumericDecimal> {  
   @NotNull
-    private final NumericDecimal quantity;
+  private final NumericDecimal quantity;
   
     public ExampleFungibleState(@NotNull final NumericDecimal quantity) {
         this.quantity = quantity;
