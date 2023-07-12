@@ -113,7 +113,7 @@ public final class Delete extends ChainableContractDeleteCommand<ExampleChainabl
   @NotNull
   public Class<ExampleChainableState> getContractStateType() {
     return ExampleChainableState.class;
-    }
+  }
   
     @Override
     protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
