@@ -292,7 +292,7 @@ The `IdentifiableContractCreateCommand` supports creating new identifiable state
 ```java
 public final class Create extends IdentifiableContractCreateCommand<ExampleIdentifiableState> {
   @NotNull
-    public Class<ExampleIdentifiableState> getContractStateType() {
+  public Class<ExampleIdentifiableState> getContractStateType() {
         return ExampleIdentifiableState.class;
     }
   
