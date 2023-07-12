@@ -78,7 +78,7 @@ public final class Create extends ChainableContractCreateCommand<ExampleChainabl
   
   @Override
   protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-        // Verify additional Create constraints
+    // Verify additional Create constraints
     }
 }
 ```
