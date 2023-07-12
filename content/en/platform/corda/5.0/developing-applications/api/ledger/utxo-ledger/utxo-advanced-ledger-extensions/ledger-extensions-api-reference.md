@@ -268,9 +268,9 @@ public final class ExampleIdentifiableState extends IdentifiableState {
   @Nullable
   private final StateRef id;
   
-    public ExampleIdentifiableState(@Nullable final StateRef id) {
-        this.id = id;
-    }
+  public ExampleIdentifiableState(@Nullable final StateRef id) {
+    this.id = id;
+  }
   
     @Nullable
     public StateRef getId() {
