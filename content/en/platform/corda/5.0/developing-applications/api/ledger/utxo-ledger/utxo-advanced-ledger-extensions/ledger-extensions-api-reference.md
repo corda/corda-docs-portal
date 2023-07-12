@@ -46,7 +46,7 @@ public final class ExampleChainableState extends ChainableState<ExampleChainable
   private final StaticPointer<ExampleChainableState> pointer;
   
   public ExampleChainableState(@NotNull final StaticPointer<ExampleChainableState> pointer) {
-        this.pointer = pointer;
+    this.pointer = pointer;
     }
   
     @Nullable 
