@@ -209,7 +209,7 @@ public final class Update extends FungibleContractUpdateCommand<ExampleFungibleS
   @NotNull
   public Class<ExampleFungibleState> getContractStateType() {
     return ExampleFungibleState.class;
-    }
+  }
   
     @Override
     protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
