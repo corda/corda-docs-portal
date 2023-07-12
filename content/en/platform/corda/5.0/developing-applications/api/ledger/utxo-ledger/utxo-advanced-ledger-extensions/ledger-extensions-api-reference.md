@@ -52,7 +52,7 @@ public final class ExampleChainableState extends ChainableState<ExampleChainable
   @Nullable
   public StaticPointer<ExampleChainableState> getPreviousStatePointer() {
     return pointer;
-    }
+  }
   
     @NotNull
     public List<PublicKey> getParticipants() {
