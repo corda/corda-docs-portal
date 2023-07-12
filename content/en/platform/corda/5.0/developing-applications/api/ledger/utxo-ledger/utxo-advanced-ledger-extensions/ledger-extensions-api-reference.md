@@ -163,7 +163,7 @@ public final class ExampleFungibleState extends FungibleState<NumericDecimal> {
   }
   
   @NotNull
-    public List<PublicKey> getParticipants() {
+  public List<PublicKey> getParticipants() {
         return List.of(...);
     }
   
