@@ -185,7 +185,7 @@ The `FungibleContractCreateCommand` creates new fungible states and verifies the
 ```java
 public final class Create extends FungibleContractCreateCommand<ExampleFungibleState> {
   @NotNull
-    public Class<ExampleFungibleState> getContractStateType() {
+  public Class<ExampleFungibleState> getContractStateType() {
         return ExampleFungibleState.class;
     }
   
