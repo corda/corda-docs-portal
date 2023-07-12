@@ -312,7 +312,7 @@ The `IdentifiableContractUpdateCommand` updates existing identifiable states and
 ```java
 public final class Update extends IdentifiableContractUpdateCommand<ExampleIdentifiableState> {
   @NotNull
-    public Class<ExampleIdentifiableState> getContractStateType() {
+  public Class<ExampleIdentifiableState> getContractStateType() {
         return ExampleIdentifiableState.class;
     }
   
