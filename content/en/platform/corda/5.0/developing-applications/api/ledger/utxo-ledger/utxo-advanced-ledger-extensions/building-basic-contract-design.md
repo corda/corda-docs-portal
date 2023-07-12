@@ -225,7 +225,7 @@ class Mint extends Create { ... }
 class Issue extends Update { ... }
 class Transfer extends Update { ... }
 class Exchange extends Update { ... }
-    class Redeem extends Update { ... }
+class Redeem extends Update { ... }
     class Burn extends Delete { ... }
 ```
 
