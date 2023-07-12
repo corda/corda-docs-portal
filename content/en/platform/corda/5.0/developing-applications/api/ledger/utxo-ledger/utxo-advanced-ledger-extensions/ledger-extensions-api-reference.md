@@ -244,10 +244,10 @@ A fungible contract can be implemented by extending the `FungibleContract` class
 
 ```java
 public final class ExampleFungibleContract extends FungibleContract {
-    @Override
-    public List<Class<? extends FungibleContractCommand<?>>> getPermittedCommandTypes() {
-        return List.of(Create.class, Update.class, Delete.class);
-    }
+  @Override
+  public List<Class<? extends FungibleContractCommand<?>>> getPermittedCommandTypes() {
+    return List.of(Create.class, Update.class, Delete.class);
+  }
 }
 ```
 
