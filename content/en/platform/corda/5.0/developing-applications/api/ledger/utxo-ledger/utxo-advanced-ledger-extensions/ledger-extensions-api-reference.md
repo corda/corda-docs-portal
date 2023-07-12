@@ -298,7 +298,7 @@ public final class Create extends IdentifiableContractCreateCommand<ExampleIdent
   
   @Override
   protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
-        // Verify additional Create constraints
+    // Verify additional Create constraints
     }
 }
 ```
