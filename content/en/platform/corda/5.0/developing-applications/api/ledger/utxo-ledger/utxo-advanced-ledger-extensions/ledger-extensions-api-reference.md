@@ -294,7 +294,7 @@ public final class Create extends IdentifiableContractCreateCommand<ExampleIdent
   @NotNull
   public Class<ExampleIdentifiableState> getContractStateType() {
     return ExampleIdentifiableState.class;
-    }
+  }
   
     @Override
     protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {
