@@ -95,7 +95,7 @@ public final class Update extends ChainableContractUpdateCommand<ExampleChainabl
   @NotNull
   public Class<ExampleChainableState> getContractStateType() {
     return ExampleChainableState.class;
-    }
+  }
   
     @Override
     protected void onVerify(@NotNull final UtxoLedgerTransaction transaction) {    
