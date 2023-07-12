@@ -130,7 +130,7 @@ A chainable contract can be implemented by extending the `ChainableContract` cla
 public final class ExampleChainableContract extends ChainableContract {
   @Override
   public List<Class<? extends ChainableContractCommand<?>>> getPermittedCommandTypes() {
-        return List.of(Create.class, Update.class, Delete.class);  
+    return List.of(Create.class, Update.class, Delete.class);  
     }
 }
 ```
