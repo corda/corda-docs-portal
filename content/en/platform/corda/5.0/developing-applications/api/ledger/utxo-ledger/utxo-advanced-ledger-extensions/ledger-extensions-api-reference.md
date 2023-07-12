@@ -345,7 +345,7 @@ An identifiable contract can be implemented by extending the `IdentifiableContra
 
 ```java
 public final class ExampleIdentifiableContract extends IdentifiableContract {
-    @Override
+  @Override
     public List<Class<? extends IdentifiableContractCommand<?>>> getPermittedCommandTypes() {
         return List.of(Create.class, Update.class, Delete.class);
     }
