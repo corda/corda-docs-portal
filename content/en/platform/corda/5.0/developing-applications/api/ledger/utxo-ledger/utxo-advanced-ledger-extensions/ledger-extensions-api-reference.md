@@ -54,7 +54,7 @@ public final class ExampleChainableState extends ChainableState<ExampleChainable
     return pointer;
   }
   
-    @NotNull
+  @NotNull
     public List<PublicKey> getParticipants() {
         return List.of(...);
     }
