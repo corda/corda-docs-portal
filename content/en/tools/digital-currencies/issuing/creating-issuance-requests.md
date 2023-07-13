@@ -18,37 +18,38 @@ The general process of issuance, and the on-ledger actions involved will be very
 
 The following assumes you are logged in as an entity capable of creating an issuance request, such as a commercial bank.
 
-1. In the left-hand menu, click on **Issuances**.
+Create a redemption request:
 
-   The following page is displayed:
-   
-   {{< 
+1. Click **Redemptions** in the left-hand sidebar.
+
+   The **Redemptions** page is displayed:
+
+   {{<
       figure
-	  src="images/issuances-page-commercial-bank.png"
+	  src="images/redemptions-page.png"
       width=100%
-	  figcaption="Issuances Page"
-	  alt="Issuances Page"
+	  figcaption="Redemptions Page"
+	  alt="Redemptions Page"
    >}}
-
-  The page shows the following panels related to issuances:
+   
+  The page shows the following panels related to redemptions:
 
   * **Vault Balance**: A Corda vault is a database containing all data from the ledger relevant to a participant. For more information, see [the Vault topic]({{< relref "/en/platform/corda/5.0/developing-applications/ledger/vault/_index.md" >}}).
-  * **Request Issuance**: Allows you to perform an issuance request.
-  * **Issuance Requests:** Lists any existing issuance requests and their status; see [Viewing Issuance Requests](viewing-issuance-requests.md).
-
-2. In the **Request Issuance** panel, specify the following values:
+  * **Request Redemption**: Allows you to perform an redemption request.
+  * **Redemption Requests:** Lists any existing redemption requests and their status for the current participant.
+  
+2. In the **Request Redemption** panel, specify the following values:
 
    {{< 
       figure
-	  src="images/request-issuance-panel.png"
+	  src="images/request-redemption-panel.png"
       width=50%
-	  figcaption="Request Issuance Panel"
-	  alt="Request Issuance Panel"
+	  figcaption="Request Redemption Panel"
+	  alt="Request Redemption Panel"
    >}}
 
-
-   * **Token Definition**: Select the token definition for the token you want to transfer.
-   * **Amount**: Type the number of tokens you want to request.
+   * **Token Definition**: Select the token definition for the token you want to redeem.
+   * **Amount**: Type the number of tokens you want to redeem.
    
 3. Click **Request**. 
 
@@ -93,3 +94,11 @@ The new request is now listed in the **Issuance Requests** panel:
    >}}
 
 The issuer and the custodian of the digital currency both now need to [approve this request]({{< relref "approving-or-rejecting-issuance-requests.md" >}}).
+
+
+
+
+
+
+
+
