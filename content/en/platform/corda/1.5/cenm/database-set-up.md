@@ -261,8 +261,19 @@ GRANT USAGE, SELECT ON ALL sequences IN SCHEMA "my_schema" TO "my_user";
 ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences TO "my_user";
 ALTER ROLE "my_user" SET search_path = "my_schema";
 ```
+If you are creating a CENM service instance user in PostgreSQL using a custom schema name (different from the user name), connect to the database as an administrator and run the script above. The last statement in the script - setting the `search_path` - prevents querying the differing [default schema search path](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH). If you don't have the privileges required to run the script, set the custom schema in the URL in the database configuration section of the `node.conf` file: 
 
-If you provide a custom schema name (different from the user name), then the last statement in the script - setting the `search_path` - prevents querying the differing ([default schema search path](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH)).
+```groovy
+database = {
+    jdbcDriver = path/to/postgresql-xx.x.x.jar
+    driverClassName = "org.postgresql.Driver"
+    url = "jdbc:postgresql://<host>:<port>/sample_db?currentSchema=my_schema"
+    user = my_user
+    password = "my_password"
+}
+```
+
+Replace the placeholders `<host>` and `<port>` in the URL with appropriate values.
 
 ## 2. Database schema creation
 
@@ -504,7 +515,7 @@ database = {
 }
 ```
 
-Replace the placeholders *<host>* and *<port>* with appropriate values (the default SQL Server port is 1433). By default, the connection to the database is not SSL. To secure the JDBC connection, refer to [Securing JDBC Driver Applications](https://docs.microsoft.com/en-us/sql/connect/jdbc/securing-jdbc-driver-applications?view=sql-server-2017).
+Replace the placeholders `<host>` and `<port>` with appropriate values (the default SQL Server port is 1433). By default, the connection to the database is not SSL. To secure the JDBC connection, refer to [Securing JDBC Driver Applications](https://docs.microsoft.com/en-us/sql/connect/jdbc/securing-jdbc-driver-applications?view=sql-server-2017).
 
 You can download the Microsoft JDBC 6.2 driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55539) - extract the downloaded archive and copy the file `mssql-jdbc-6.2.2.jre8.jar` (the archive comes with two JAR files).
 The [Database configuration section](#4-database-configuration) further below explains the correct location for the driver JAR file in the CENM service installation structure.
@@ -545,7 +556,7 @@ database = {
 }
 ```
 
-Replace the placeholders *<host>*, *<port>*, and *<sid>* with appropriate values. For a basic Oracle installation, the default *<sid>* value is `xe`.
+Replace the placeholders `<host>`, `<port>`, and `<sid>` with appropriate values. For a basic Oracle installation, the default `<sid>` value is `xe`.
 
 Set the `database.schema` value to the username of the admin user (in the example above - *my_admin_user*). CENM does not guarantee prefixing all SQL queries with the schema namespace. The additional configuration entry `connectionInitSql` sets the current schema to the username of the admin user (in the example above - *my_admin_user*) on connection to the database.
 
@@ -562,14 +573,13 @@ See below an example CENM service configuration for PostgreSQL:
 database = {
     jdbcDriver = path/to/postgresql-xx.x.x.jar
     driverClassName = "org.postgresql.Driver"
-    url = "jdbc:postgresql://<host>:<port>/<database>"
+    url = "jdbc:postgresql://<host>:<port>/sample_db?currentSchema=my_schema"
     user = my_user
     password = "my_password"
-    schema = my_schema
 }
 ```
 
-Replace the placeholders *<host>*, *<port>*, and *<database>* with appropriate values.
+Replace the placeholders `<host>` and `<port>` with appropriate values.
 The `database.schema` is the database schema name assigned to you (the user).
 The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity (without quotes, PostgresSQL would treat *AliceCorp* as the value *alicecorp*).
 
