@@ -25,7 +25,7 @@ If you have developed a CorDapp that uses the Tokens SDK 1.1 or 1.2.1, you can u
 
 Versions 1.2.1 and 1.2.3 of the Tokens SDK are compatible with **Corda release version 4.6** and higher.
 
-Versions 1.2.4 and 1.2.5 of the Tokens SDK is compatible with **Corda release version 4.8** and higher.
+Versions 1.2.4 and 1.2.5 of the Tokens SDK are compatible with **Corda release version 4.8** and higher.
 
 ## Changes in Tokens SDK 1.2.5
 
