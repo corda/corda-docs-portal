@@ -450,7 +450,7 @@ class ExampleIssuableContract : DelegatedContract<ExampleIssuableContract.Exampl
 
 
     object Create : ExampleIssuableContractCommand {
-      override fun getContractStateType(): Class<ExampleIssuableState> {
+    override fun getContractStateType(): Class<ExampleIssuableState> {
         return ExampleIssuableState::class.java
     }
 
@@ -460,7 +460,7 @@ class ExampleIssuableContract : DelegatedContract<ExampleIssuableContract.Exampl
     }
 
     object Delete : ExampleIssuableContractCommand {
-      override fun getContractStateType(): Class<ExampleIssuableState> {
+    override fun getContractStateType(): Class<ExampleIssuableState> {
           return ExampleIssuableState::class.java
     }
 
