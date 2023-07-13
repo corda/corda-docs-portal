@@ -386,21 +386,21 @@ to get this behaviour.
 ``` kotlin
 class ExampleOwnableContract : DelegatedContract<ExampleOwnableContract.ExampleOwnableContractCommand>() {
 
-        override fun getPermittedCommandTypes(): List<Class<out ExampleOwnableContractCommand>> {
-        return listOf(Update::class.java)
+    override fun getPermittedCommandTypes(): List<Class<out ExampleOwnableContractCommand>> {
+       return listOf(Update::class.java)
     }
 
     sealed interface ExampleOwnableContractCommand : VerifiableCommand, ContractStateType<ExampleOwnableState>
 
     object Update : ExampleOwnableContractCommand {
 
-        override fun getContractStateType(): Class<ExampleOwnableState> {
-            return ExampleOwnableState::class.java
-            }
+    override fun getContractStateType(): Class<ExampleOwnableState> {
+       return ExampleOwnableState::class.java
+    }
 
-        override fun verify(transaction: UtxoLedgerTransaction) {
-            OwnableConstraints.verifyUpdate(transaction, contractStateType)
-            }
+    override fun verify(transaction: UtxoLedgerTransaction) {
+      OwnableConstraints.verifyUpdate(transaction, contractStateType)
+    }
     }
 }
 ```
@@ -461,7 +461,7 @@ class ExampleIssuableContract : DelegatedContract<ExampleIssuableContract.Exampl
 
     object Delete : ExampleIssuableContractCommand {
     override fun getContractStateType(): Class<ExampleIssuableState> {
-          return ExampleIssuableState::class.java
+        return ExampleIssuableState::class.java
     }
 
     override fun verify(transaction: UtxoLedgerTransaction) {
