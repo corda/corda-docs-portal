@@ -445,7 +445,7 @@ class ExampleIssuableContract : DelegatedContract<ExampleIssuableContract.Exampl
 
     override fun getPermittedCommandTypes(): List<Class<out ExampleIssuableContractCommand>> {
         return listOf(Create::class.java, Delete::class.java)
-    }
+        }
 
     sealed interface ExampleIssuableContractCommand : VerifiableCommand, ContractStateType<ExampleIssuableState>
 
