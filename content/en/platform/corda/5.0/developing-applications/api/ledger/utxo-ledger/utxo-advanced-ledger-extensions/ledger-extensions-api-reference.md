@@ -47,7 +47,7 @@ public final class ExampleChainableState extends ChainableState<ExampleChainable
   
   public ExampleChainableState(@NotNull final StaticPointer<ExampleChainableState> pointer) {
     this.pointer = pointer;
-    }
+  }
   
   @Nullable
   public StaticPointer<ExampleChainableState> getPreviousStatePointer() {
@@ -146,7 +146,6 @@ The fungible API provides the component model for designing fungible states and 
 #### Designing Fungible States
 
 A fungible state can be implemented by implementing the `FungibleState<T>` interface; for example:
-
 
 ```java
 public final class ExampleFungibleState extends FungibleState<NumericDecimal> {  
@@ -368,11 +367,11 @@ An ownable state can be designed by implementing the `OwnableState` interface:
 class ExampleOwnableState(private val owner: PublicKey) : OwnableState {
 
     override fun getOwner(): PublicKey {
-        return owner
+      return owner
     }
 
     override fun getParticipants(): List<PublicKey> {
-        return listOf(getOwner())
+      return listOf(getOwner())
     }
 }
 ```
@@ -445,29 +444,29 @@ class ExampleIssuableContract : DelegatedContract<ExampleIssuableContract.Exampl
 
     override fun getPermittedCommandTypes(): List<Class<out ExampleIssuableContractCommand>> {
         return listOf(Create::class.java, Delete::class.java)
-        }
+    }
 
     sealed interface ExampleIssuableContractCommand : VerifiableCommand, ContractStateType<ExampleIssuableState>
 
 
     object Create : ExampleIssuableContractCommand {
-        override fun getContractStateType(): Class<ExampleIssuableState> {
-            return ExampleIssuableState::class.java
-        }
+      override fun getContractStateType(): Class<ExampleIssuableState> {
+        return ExampleIssuableState::class.java
+    }
 
     override fun verify(transaction: UtxoLedgerTransaction) {
-        IssuableConstraints.verifyCreate(transaction, contractStateType)
-        }
+      IssuableConstraints.verifyCreate(transaction, contractStateType)
+    }
     }
 
     object Delete : ExampleIssuableContractCommand {
-        override fun getContractStateType(): Class<ExampleIssuableState> {
-            return ExampleIssuableState::class.java
-        }
+      override fun getContractStateType(): Class<ExampleIssuableState> {
+          return ExampleIssuableState::class.java
+    }
 
     override fun verify(transaction: UtxoLedgerTransaction) {
         IssuableConstraints.verifyDelete(transaction, contractStateType)
-        }
+    }
     }
 }
 ```
