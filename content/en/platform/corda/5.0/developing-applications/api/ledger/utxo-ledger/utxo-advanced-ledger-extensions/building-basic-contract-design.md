@@ -17,18 +17,18 @@ The following contract defines three commands; `Create`, `Update` and `Delete`. 
 
 ```java
 public final class ExampleContract implements Contract {
-    
+
     private interface ExampleContractCommand extends Command { }
-  
+
     public static class Create implements ExampleContractCommand { }
     public static class Update implements ExampleContractCommand { }
     public static class Delete implements ExampleContractCommand { }
-    
+
     @Override
     public void verify(UtxoLedgerTransaction transaction) {
         List<? extends ExampleContractCommand> commands = transaction
                 .getCommands(ExampleContractCommand.class);
-        
+
         for (ExampleContractCommand command : commands) {
             if (command instanceof Create) verifyCreate(transaction);
             else if (command instanceof Update) verifyUpdate(transaction);
@@ -36,15 +36,15 @@ public final class ExampleContract implements Contract {
             else throw new IllegalStateException("Unrecognised command type.");
         }
     }
-    
+
     private void verifyCreate(UtxoLedgerTransaction transaction) {
         // Verify Create constraints
     }
-    
+
     private void verifyUpdate(UtxoLedgerTransaction transaction) {
         // Verify Update constraints
     }
-    
+
     private void verifyDelete(UtxoLedgerTransaction transaction) {
         // Verify Delete constraints
     }
@@ -68,18 +68,18 @@ The 'verify' function has been marked final. This change is necessary as it prev
 
 ```java
 public class ExampleContract implements Contract {
- 
+
     private interface ExampleContractCommand extends Command { }
 
     public static class Create implements ExampleContractCommand { }
     public static class Update implements ExampleContractCommand { }
     public static class Delete implements ExampleContractCommand { }
-    
+
     @Override
     public final void verify(UtxoLedgerTransaction transaction) {
         List<? extends ExampleContractCommand> commands = transaction
                 .getCommands(ExampleContractCommand.class);
-                
+
         for (ExampleContractCommand command : commands) {
             if (command instanceof Create) verifyCreate(transaction);
             else if (command instanceof Update) verifyUpdate(transaction);
@@ -87,23 +87,23 @@ public class ExampleContract implements Contract {
             else throw new IllegalStateException("Unrecognised command type.");
         }
     }
-    
+
     protected void onVerifyCreate(UtxoLedgerTransaction transaction) { }
     protected void onVerifyUpdate(UtxoLedgerTransaction transaction) { }
-    protected void onVerifyDelete(UtxoLedgerTransaction transaction) { }    
+    protected void onVerifyDelete(UtxoLedgerTransaction transaction) { }
 
     private void verifyCreate(UtxoLedgerTransaction transaction) {
         // Verify base Create constraints
         // Then verify additional Create constraints implemented by derived contracts
         onVerifyCreate(transaction);
     }
-    
+
     private void verifyUpdate(UtxoLedgerTransaction transaction) {
         // Verify base Update constraints
         // Then verify additional Update constraints implemented by derived contracts
         onVerifyUpdate(transaction);
     }
-    
+
     private void verifyDelete(UtxoLedgerTransaction transaction) {
         // Verify base Delete constraints
         // Then verify additional Delete constraints implemented by derived contracts
@@ -121,8 +121,8 @@ The problem really lies in the `verify` function; for example:
 ```java
 public final void verify(UtxoLedgerTransaction transaction) {
     List<? extends ExampleContractCommand> commands = transaction
-            .getCommands(ExampleContractCommand.class);
-            
+        .getCommands(ExampleContractCommand.class);
+
     for (ExampleContractCommand command : commands) {
         if (command instanceof Create) verifyCreate(transaction);
         else if (command instanceof Update) verifyUpdate(transaction);
@@ -169,7 +169,7 @@ public class Create extends ExampleContractCommand {
         // Then verify additional Create constraints implemented in derived commands
         onVerify(transaction);
     }
-    
+
     protected void onVerify(UtxoLedgerTransaction transaction) { }
 }
 
@@ -180,7 +180,7 @@ public class Update extends ExampleContractCommand {
         // Then verify additional Update constraints implemented in derived commands
         onVerify(transaction);
     }
-    
+
     protected void onVerify(UtxoLedgerTransaction transaction) { }
 }
 
@@ -191,7 +191,7 @@ public class Delete extends ExampleContractCommand {
         // Then verify additional Delete constraints implemented in derived commands
         onVerify(transaction);
     }
-    
+
     protected void onVerify(UtxoLedgerTransaction transaction) { }
 }
 ```
@@ -210,7 +210,7 @@ public final class ExampleContract implements Contract {
     public void verify(UtxoLedgerTransaction transaction) {
         List<? extends ExampleContractCommand> commands = transaction
             .getCommands(ExampleContractCommand.class);
-                  
+
     for (ExampleContractCommand command : commands) {
             command.verify(transaction);
         }
