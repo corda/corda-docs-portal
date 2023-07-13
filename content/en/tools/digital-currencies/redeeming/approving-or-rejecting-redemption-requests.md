@@ -19,7 +19,7 @@ An redemption request must be approved by both:
 
 The issuer must perform the first approval, followed by the custodian. 
 
-Once approved, the tokens are then redeemed.
+Once approved, the participant who [created the request]({{< relref "creating-redemption-requests.md" >}}) can then [complete the token redemption]({{< relref "completing-redemptions.md" >}}).
 
 To approve or reject an redemption request (as either an issuer or a custodian):
 
@@ -64,8 +64,8 @@ To approve or reject an redemption request (as either an issuer or a custodian):
    
    * **Issuer Status:** Whether or not the issuer has approved the redemption request.
    * **Custodian Status:** Whether or not the custodian has approved the redemption request.
-   * **Token name:** The name of the token definition; normally the full name of the currency; for example, Canadian Dollar.
-   * **Token symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, *CAD*.
+   * **Token name:** The name of the token definition; normally the full name of the currency; for example, UAE Dirham.
+   * **Token symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, *AED*.
    * **Amount:** The number of tokens to be redeemed.
    * **Requester:** The entity making the redemption request.
    * **Last Updated:** The date and time at which the redemption request was last updated.
@@ -124,7 +124,7 @@ To approve or reject an redemption request (as either an issuer or a custodian):
 	  alt="'Your request update has been successful' Message"
    >}}
   
-   If you are an issuer, in the **Redemption Requests** panel, you can see that the **Issuer Status** of the redemption request is now **Approved**:  
+   If you are an issuer, you can now see that, in the **Redemption Requests** panel, the **Issuer Status** of the redemption request is now **Approved**:  
   
    {{< 
       figure
@@ -134,7 +134,7 @@ To approve or reject an redemption request (as either an issuer or a custodian):
 	  alt="Redemption Requests Panel - Approved by Issuer"
    >}}
    
-   If you are a custodian, in the **Redemption Requests** panel, you can see that the **Custodian Status** of the redemption request is now **Approved**:  
+   If you are a custodian, you can now see that, in the **Redemption Requests** panel, the **Custodian Status** of the redemption request is now **Approved**:  
 
    {{< 
       figure

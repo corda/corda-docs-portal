@@ -13,7 +13,7 @@ title: "Creating Redemption Requests"
 ---
 
 
-The following assumes you are logged in as an entity capable of creating an redemption request, such as a commercial bank.
+The following assumes you are logged in as an entity capable of creating an redemption request, such as a commercial bank, and that you possess tokens in your vault to redeem.
 
 1. In the left-hand menu, click on **Redemptions**.
 
@@ -29,9 +29,9 @@ The following assumes you are logged in as an entity capable of creating an rede
 
   The page shows the following panels related to redemptions:
 
-  * **Vault Balance**: A Corda vault is a database containing all data from the ledger relevant to a participant. For more information, see [the Vault topic]({{< relref "/en/platform/corda/5.0/developing-applications/ledger/vault/_index.md" >}}).
-  * **Request Redemption**: Allows you to perform an redemption request.
-  * **Redemption Requests:** Lists any existing redemption requests and their status; see [Viewing Redemption Requests](viewing-redemption-requests.md).
+  * **Vault Balances:** A Corda vault is a database containing all data from the ledger relevant to a participant. For more information, see [the Vault topic]({{< relref "/en/platform/corda/5.0/developing-applications/ledger/vault/_index.md" >}}).
+  * **Request Redemption:** Allows you to perform an redemption request.
+  * **Redemption Requests:** Lists any existing redemption requests and their status; see [Viewing Redemption Requests]({{< relref "viewing-redemption-requests.md" >}}).
 
 2. In the **Request Redemption** panel, specify the following values:
 
@@ -73,7 +73,7 @@ The following assumes you are logged in as an entity capable of creating an rede
 
    {{< 
       figure
-	  src="images/redemption-request-successfully-created-message.png"
+	  src="images/your-redemption-request-successfully-created-message.png"
       width=50%
 	  figcaption="'Your redemption request has been successfully created' message"
 	  alt="'Your redemption request has been successfully created' message"

@@ -12,7 +12,7 @@ menu:
 title: "Completing Redemptions"
 ---
 
-Once an [redemption request has been created]({{< relref "creating-redemption-requests.md" >}}) and then subsequently [approved by both the issuer and the custodian]({{< relref "approving-or-rejecting-redemption-requests.md" >}}), the redemption process can be completed by the particupant who initiated its.
+Once an [redemption request has been created]({{< relref "creating-redemption-requests.md" >}}) and then subsequently [approved by both the issuer and the custodian]({{< relref "approving-or-rejecting-redemption-requests.md" >}}), the redemption process can be completed by the participant who initiated it.
 
 
 As the participant who created the original request:
