@@ -465,7 +465,7 @@ class ExampleIssuableContract : DelegatedContract<ExampleIssuableContract.Exampl
     }
 
     override fun verify(transaction: UtxoLedgerTransaction) {
-        IssuableConstraints.verifyDelete(transaction, contractStateType)
+      IssuableConstraints.verifyDelete(transaction, contractStateType)
     }
     }
 }
