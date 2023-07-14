@@ -1,6 +1,7 @@
 ---
 date: '2023-02-28'
-menu:
+description: "Documentation for the 4.10 Community Edition release of Corda"
+enu:
   versions:
     weight: -650
   corda-community-4-10:
