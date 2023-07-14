@@ -172,7 +172,7 @@ The [CENM management console](cenm-console.md) is a new CENM web UI that enables
 
 #### Single sign-on for Azure AD
 
-CENM 1.5 introduces support for Azure Active Directory (AAD) as a single sign-on (SSO) for the CENM [Auth Service]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/auth-service.md" >}}), which supports full Role-Based Access Control (RBAC) and provides a web-based management interface for system administrators to create and manage user groups and entitlements. As a result, you can now operate an SSO set-up between Corda services and Azure AD, with a [simple configuration](../../../../../en/platform/corda/4.7/enterprise/node/azure-ad-sso.html) to both your Azure AD and Corda Auth services.
+CENM 1.5 introduces support for Azure Active Directory (AAD) as a single sign-on (SSO) for the CENM [Auth Service]({{< relref "../../4.7/enterprise/node/auth-service.md" >}}), which supports full Role-Based Access Control (RBAC) and provides a web-based management interface for system administrators to create and manage user groups and entitlements. As a result, you can now operate an SSO set-up between Corda services and Azure AD, with a [simple configuration]({{< relref "../../4.7/enterprise/node/azure-ad-sso/_index.md" >}}) to both your Azure AD and Corda Auth services.
 
 #### Certificate rotation: ability to reissue node legal identity keys and certificates
 

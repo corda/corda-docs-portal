@@ -134,7 +134,7 @@ Inconsistencies in the ledger can indicate some serious underlying issues. If th
 
 6. Once the issue has been debugged and understood, you can recover the missing transactions from other parties on a peer-to-peer basis.
 The list of missing transaction IDs can be obtained from the `lastSuccessfulReconciliationStatus` field of a reconciliation status.
-`lastSuccessfulReconciliationStatus` is a binary field and can be decoded using [Corda Blob Inspector](../../blob-inspector.html).
+`lastSuccessfulReconciliationStatus` is a binary field and can be decoded using [Corda Blob Inspector]({{< relref "../../blob-inspector.md" >}}).
 
 7. Depending on the size of the difference, either [manual](ledger-recovery-manual.md) or [automatic](ledger-recovery-automatic.md) recovery can be used. Consider using automatic LedgerRecover and switch to manual if automatic fails because there have been too many transactions or too frequent recovery requests.
 
