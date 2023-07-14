@@ -22,7 +22,13 @@ For Corda 5.0, only a single notary protocol is provided, the **non-validating n
 ## Plugin Packaging
 The following sections describe the details of the architecture shown in the diagram below and the steps you need to take to successfully build your CorDapp. For information on how to deploy a functioning network, see the [Onboarding Notaries]({{< relref "../../../application-networks/creating/notaries.md" >}}) section.
 
-{{< figure src="c5-non-validating-notary.jpg" width=70% figcaption="The CPKs, CPBs and CPIs involved in getting a functioning network that can run a notary (and by extension, UTXO ledger functionality)" alt="Corda 5 non-validating notary" >}}
+{{< 
+  figure
+	 src="c5-non-validating-notary.jpg"
+   width=70%
+	 figcaption="The CPKs, CPBs and CPIs involved in getting a functioning network that can run a notary (and by extension, UTXO ledger functionality)"
+	 alt="Corda 5 non-validating notary"
+>}}
 
 ## Notary CPKs
 There are four modules/CPKs of relevance to the non-validating notary protocol, which are then packaged into two different CPBs. These are:
