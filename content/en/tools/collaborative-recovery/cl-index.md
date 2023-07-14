@@ -1,6 +1,7 @@
 ---
 date: '2021-04-24T00:00:00Z'
 section_menu: tools
+description: "Documentation for Collaborative Recovery; this is a secure, privacy-oriented solution that helps you identify and retrieve data if you ever encounter a disaster recovery (DR) scenario on your business network"
 menu:
   tools:
     name: Collaborative recovery

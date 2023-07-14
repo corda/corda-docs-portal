@@ -2,6 +2,7 @@
 aliases:
 - /docs/cdl/cdl.html
 date: '2021-04-24T00:00:00Z'
+description: "Documentation for the CorDapp Design Language (CDL); this helps you effectively document, analyze, and communicate your CorDapp designs"
 menu:
   tools:
     name: CorDapp Design Language (CDL)

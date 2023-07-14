@@ -1,5 +1,6 @@
 ---
 date: '2020-01-08T09:59:25Z'
+description: "Documentation for the Bank in a Box CorDapp, highlighting Corda use cases in a banking application"
 section_menu: apps
 menu:
   apps:
