@@ -196,23 +196,15 @@ at boot, and means the Corda service stays running with no users connected to th
 
 **Prerequisites**:
 
+A supported Java distribution. The supported versions are listed in [Getting set up for CorDapp development](getting-set-up.md)
+* Create a `Corda\cordapps` directory:
+   ```shell
+   mkdir C:\Corda\cordapps
+   ```
+* Download the following JAR file: https://software.r3.com/ui/native/corda-releases/net/corda/corda/4.4/corda-4.4.jar
+* Copy the file to the Corda/cordapps directory, and rename it corda.jar.
+* Alternatively, download one of our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory.
 
-
-* A supported Java distribution. The supported versions are listed in [Getting set up for CorDapp development](getting-set-up.md)
-
-
-
-* Create a Corda directory and download the Corda jar. Here’s an
-example using PowerShell:
-
-```shell
-mkdir C:\Corda
-wget http://jcenter.bintray.com/net/corda/corda/4.4/corda-4.4.jar -OutFile C:\Corda\corda.jar
-```
-
-
-* Create a directory called `cordapps` in `C:\Corda\` and save your CorDapp jar file to it. Alternatively,
-download one of our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory
 * Save the below as `C:\Corda\node.conf`. See [Node configuration](corda-configuration-file.md) for a description of these options:
 
 ```none

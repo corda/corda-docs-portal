@@ -192,95 +192,74 @@ SystemD or Upstart configuration files so they are unique.
 We recommend running Corda as a Windows service. This provides service handling, ensures the Corda service is run
 at boot, and means the Corda service stays running with no users connected to the server.
 
-**Prerequisites**:
+1. Install a supported Java distribution. The supported versions are listed in [Getting set up for CorDapp development](getting-set-up.md).
 
+2. Create a `Corda\cordapps` directory:
+   ```shell
+   mkdir C:\Corda\cordapps
+   ```
+3. Download the following JAR file: https://software.r3.com/ui/native/corda-releases/net/corda/corda/4.10/corda-4.10.jar
+4. Copy the file to the `Corda/cordapps` directory, and rename it `corda.jar`.
+5. Alternatively, download one of our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory.
+6. Save the following configuration as the file `C:\Corda\node.conf`. See [Node configuration](corda-configuration-file.md) for a description of these options:
 
+    ```none
+     p2pAddress = "example.com:10002"
+     rpcSettings {
+         address = "example.com:10003"
+         adminAddress = "example.com:10004"
+     }
+     h2port = 11000
+     emailAddress = "you@example.com"
+     myLegalName = "O=Bank of Breakfast Tea, L=London, C=GB"
+     keyStorePassword = "cordacadevpass"
+     trustStorePassword = "trustpass"
+     devMode = false
+     rpcSettings {
+        useSsl = false
+        standAloneBroker = false
+        address = "example.com:10003"
+        adminAddress = "example.com:10004"
+    }
+    custom { jvmArgs = [ '-Xmx2048m', '-XX:+UseG1GC' ] }
+    ```
 
-* A supported Java distribution. The supported versions are listed in [Getting set up for CorDapp development](getting-set-up.md)
-
-
-
-* Create a Corda directory and download the Corda jar. Here’s an
-example using PowerShell:
-
-```shell
-mkdir C:\Corda
-wget http://jcenter.bintray.com/net/corda/corda/4.8/corda-4.8.jar -OutFile C:\Corda\corda.jar
-```
-
-
-* Create a directory called `cordapps` in `C:\Corda\` and save your CorDapp jar file to it. Alternatively,
-download one of our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory
-* Save the below as `C:\Corda\node.conf`. See [Node configuration](corda-configuration-file.md) for a description of these options:
-
-```none
- p2pAddress = "example.com:10002"
- rpcSettings {
-     address = "example.com:10003"
-     adminAddress = "example.com:10004"
- }
- h2port = 11000
- emailAddress = "you@example.com"
- myLegalName = "O=Bank of Breakfast Tea, L=London, C=GB"
- keyStorePassword = "cordacadevpass"
- trustStorePassword = "trustpass"
- devMode = false
- rpcSettings {
-    useSsl = false
-    standAloneBroker = false
-    address = "example.com:10003"
-    adminAddress = "example.com:10004"
-}
-custom { jvmArgs = [ '-Xmx2048m', '-XX:+UseG1GC' ] }
-```
-
-
-* Make the following changes to `C:\Corda\node.conf`:
-* Change the `p2pAddress`, `rpcSettings.address` and `rpcSettings.adminAddress` values to match
+7. Make the following changes to `C:\Corda\node.conf`:
+8. Change the `p2pAddress`, `rpcSettings.address` and `rpcSettings.adminAddress` values to match
 your server’s hostname or external IP address. These are the addresses other nodes or RPC interfaces will use to
 communicate with your node.
-* Change the ports if necessary, for example if you are running multiple nodes on one server (see below).
-* Enter an email address which will be used as an administrative contact during the registration process. This is
+9. Change the ports if necessary, for example if you are running multiple nodes on one server (see below).
+10. Enter an email address which will be used as an administrative contact during the registration process. This is
 only visible to the permissioning service.
-* Enter your node’s desired legal name (see [Node identity](node-naming.html#node-identity) for more details).
-* If required, add RPC users
+11. Enter your node’s desired legal name (see [Node identity](node-naming.html#node-identity) for more details).
+12. If required, add RPC users.
+13. Copy the required Java keystores to the node. See [Network certificates](permissioning.md)
+14. Download the [NSSM service manager](https://nssm.cc/)
+15. Unzip `nssm-2.24\win64\nssm.exe` to `C:\Corda`
+16. Save the following configuration as `C:\Corda\nssm.bat`:
 
+    ```batch
+    nssm install cordanode1 java.exe
+    nssm set cordanode1 AppParameters "-jar corda.jar"
+    nssm set cordanode1 AppDirectory C:\Corda
+    nssm set cordanode1 AppStdout C:\Corda\service.log
+    nssm set cordanode1 AppStderr C:\Corda\service.log
+    nssm set cordanode1 AppEnvironmentExtra CAPSULE_CACHE_DIR=./capsule
+    nssm set cordanode1 Description Corda Node - Bank of Breakfast Tea
+    nssm set cordanode1 Start SERVICE_AUTO_START
+    sc start cordanode1
+    ```
 
-* Copy the required Java keystores to the node. See [Network certificates](permissioning.md)
-* Download the [NSSM service manager](https://nssm.cc/)
-* Unzip `nssm-2.24\win64\nssm.exe` to `C:\Corda`
-* Save the following as `C:\Corda\nssm.bat`:
-
-```batch
-nssm install cordanode1 java.exe
-nssm set cordanode1 AppParameters "-jar corda.jar"
-nssm set cordanode1 AppDirectory C:\Corda
-nssm set cordanode1 AppStdout C:\Corda\service.log
-nssm set cordanode1 AppStderr C:\Corda\service.log
-nssm set cordanode1 AppEnvironmentExtra CAPSULE_CACHE_DIR=./capsule
-nssm set cordanode1 Description Corda Node - Bank of Breakfast Tea
-nssm set cordanode1 Start SERVICE_AUTO_START
-sc start cordanode1
-```
-
-
-* Modify the batch file:>
-
-* If you are installing multiple nodes, use a different service name (`cordanode1`), and modify
-*AppDirectory*, *AppStdout* and *AppStderr* for each node accordingly
-* Set an informative description
-
-
-
-* Provision the required certificates to your node. Contact the network permissioning service or see
-[Network certificates](permissioning.md)
-* Run the batch file by clicking on it or from a command prompt
-* Run `services.msc` and verify that a service called `cordanode1` is present and running
-* Run `netstat -ano` and check for the ports you configured in `node.conf`
-* You may need to open the ports on the Windows firewall
-
-
-
+17. Edit the `nssm.bat` file.
+18. If you are installing multiple nodes, use a different service name (`cordanode1`), and modify
+*AppDirectory*, *AppStdout* and *AppStderr* for each node accordingly.
+19. Set an informative description.
+20. Provision the required certificates to your node. Contact the network permissioning service or see
+[Network certificates](permissioning.md).
+21. Run the batch file by clicking on it or from a command prompt.
+22. Run `services.msc` and verify that a service called `cordanode1` is present and running.
+23. Run `netstat -ano` and check for the ports you configured in `node.conf`.
+24. You may need to open the ports on the Windows firewall.
 
 ## Testing your installation
 

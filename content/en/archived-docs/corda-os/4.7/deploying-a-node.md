@@ -51,8 +51,7 @@ handling, and ensures the Corda service is run at boot.
 `sudo adduser --system --no-create-home --group corda`
 
 * Create a directory called `/opt/corda` and change its ownership to the user you want to use to run Corda:`mkdir /opt/corda; chown corda:corda /opt/corda`
-* Download the [Corda jar](https://r3.bintray.com/corda/net/corda/corda/)
-(under `/4.7/corda-4.7.jar`) and place it in `/opt/corda`
+* Download the Corda jar from https://software.r3.com/artifactory/corda-releases/net/corda/corda/4.7/corda-4.7.jar and place it in `/opt/corda`.
 * Create a directory called `cordapps` in `/opt/corda` and save your CorDapp jar file to it. Alternatively, download one of
 our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory
 * Save the below as `/opt/corda/node.conf`. See [Node configuration](corda-configuration-file.md) for a description of these options:
@@ -193,24 +192,14 @@ We recommend running Corda as a Windows service. This provides service handling,
 at boot, and means the Corda service stays running with no users connected to the server.
 
 **Prerequisites**:
-
-
-
-* A supported Java distribution. The supported versions are listed in [Getting set up for CorDapp development](getting-set-up.md)
-
-
-
-* Create a Corda directory and download the Corda jar. Here’s an
-example using PowerShell:
-
-```shell
-mkdir C:\Corda
-wget http://jcenter.bintray.com/net/corda/corda/4.7/corda-4.7.jar -OutFile C:\Corda\corda.jar
-```
-
-
-* Create a directory called `cordapps` in `C:\Corda\` and save your CorDapp jar file to it. Alternatively,
-download one of our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory
+A supported Java distribution. The supported versions are listed in [Getting set up for CorDapp development](getting-set-up.md)
+* Create a `Corda\cordapps` directory:
+   ```shell
+   mkdir C:\Corda\cordapps
+   ```
+* Download the following JAR file: https://software.r3.com/ui/native/corda-releases/net/corda/corda/4.7/corda-4.7.jar
+* Copy the file to the Corda/cordapps directory, and rename it corda.jar.
+* Alternatively, download one of our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory.
 * Save the below as `C:\Corda\node.conf`. See [Node configuration](corda-configuration-file.md) for a description of these options:
 
 ```none
