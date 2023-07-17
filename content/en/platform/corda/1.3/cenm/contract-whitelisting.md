@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-3:
-    identifier: cenm-1-3-config-contract-whitelisting
+    identifier: cenm-1-3-contract-whitelisting
     parent: cenm-1-3-configuration
     weight: 320
 tags:
