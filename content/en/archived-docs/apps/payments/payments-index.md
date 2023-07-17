@@ -1,5 +1,6 @@
 ---
 date: '2020-01-08T09:59:25Z'
+description: "Documentation for the Corda Payments Technical Preview; an early release of Corda Payments, a solution that allows you to initiate and manage payments from within a Corda network via an external Payment Service Provider (PSP)"
 section_menu: apps
 menu:
   apps:

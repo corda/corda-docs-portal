@@ -1,5 +1,6 @@
 ---
 date: '2021-04-24T00:00:00Z'
+description: "Documentation for state reissuance CorDapps"
 section_menu: apps
 menu:
   apps:

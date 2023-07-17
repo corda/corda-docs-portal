@@ -1,5 +1,6 @@
 ---
 date: '2021-04-24T00:00:00Z'
+description: "Documentation for the LedgerGraph CorDapp; this allows in-memory access to transaction data"
 section_menu: tools
 menu:
   tools:
