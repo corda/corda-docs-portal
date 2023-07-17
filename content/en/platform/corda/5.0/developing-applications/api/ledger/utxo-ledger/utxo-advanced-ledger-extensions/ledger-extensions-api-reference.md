@@ -393,14 +393,14 @@ class ExampleOwnableContract : DelegatedContract<ExampleOwnableContract.ExampleO
     sealed interface ExampleOwnableContractCommand : VerifiableCommand, ContractStateType<ExampleOwnableState>
 
     object Update : ExampleOwnableContractCommand {
+  
+        override fun getContractStateType(): Class<ExampleOwnableState> {
+            return ExampleOwnableState::class.java
+        }
 
-    override fun getContractStateType(): Class<ExampleOwnableState> {
-        return ExampleOwnableState::class.java
-    }
-
-    override fun verify(transaction: UtxoLedgerTransaction) {
-        OwnableConstraints.verifyUpdate(transaction, contractStateType)
-    }
+        override fun verify(transaction: UtxoLedgerTransaction) {
+            OwnableConstraints.verifyUpdate(transaction, contractStateType)
+        }
     }
 }
 ```
