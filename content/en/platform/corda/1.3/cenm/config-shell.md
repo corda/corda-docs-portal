@@ -6,7 +6,7 @@ menu:
   cenm-1-3:
     identifier: cenm-1-3-config-shell
     parent: cenm-1-3-configuration
-    weight: 240
+    weight: 250
 tags:
 - config
 - shell
