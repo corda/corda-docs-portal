@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-3:
-    identifier: cenm-1-3-config-migration-tool
+    identifier: cenm-1-3-tool-config-migration
     parent: cenm-1-3-tools-index
     weight: 1060
 tags:
