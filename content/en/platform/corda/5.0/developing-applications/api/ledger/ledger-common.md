@@ -18,4 +18,4 @@ The `ledger-common` package contains interfaces and types that can be used for d
 * A container for transaction metadata.
 {{< note >}}
 Any ledger model implementation can use any of these types, but it is not mandatory.
-{{<> /note >}}
+{{< /note >}}
