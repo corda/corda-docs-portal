@@ -16,6 +16,10 @@ You can download the Archive Service release files if you have access to the rep
 
 Before you install the downloaded files, verify the integrity of each file to ensure that it has not been tampered with or corrupted during the download. You can do this by calculating the **checksum** of your downloaded file, then comparing its value to the checksum value provided below.
 
+## Checksums of Archive Service 1.0.5 release files
+
+The checksum information for Archive Service 1.0.5 can be found as part of the [Corda 4.10.2 release]({{< relref "../../platform/corda/4.10/enterprise/release-checksum-enterprise.md" >}}).
+
 ## Checksums of Archive Service 1.0.3 release files
 
 * archive-service-1.0.3-javadoc.jar (261 bytes / 261 bytes)

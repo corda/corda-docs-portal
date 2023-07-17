@@ -1,5 +1,6 @@
 ---
 date: '2021-04-24T00:00:00Z'
+description: "Documentation for the Flow Management Console; this shows the state of the flows running on a node and lets you perform operations on them"
 section_menu: tools
 menu:
   tools:

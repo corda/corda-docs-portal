@@ -1,5 +1,6 @@
 ---
 date: '2020-12-10T12:00:00Z'
+description: "Documentation for the Corda Archive Service; this is used to make an archive of transactions and attachments from the Corda vault which can no longer be part of an ongoing or new transaction flow"
 section_menu: tools
 menu:
   tools:

@@ -15,3 +15,5 @@ section_menu: corda5
 
 The following sections describe the fields of each Corda configuration section:
 {{< childpages >}}
+
+For information about updating these values, see [Dynamic Configuration]({{< relref "../dynamic.md">}}).
