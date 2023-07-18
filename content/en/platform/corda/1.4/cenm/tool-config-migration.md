@@ -2,7 +2,11 @@
 aliases:
 - /tool-config-migration.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  cenm-1-4:
+    identifier: cenm-1-4-tool-config-migration
+    parent: cenm-1-4-tools-index
+    weight: 1060
 tags:
 - tool
 - config
