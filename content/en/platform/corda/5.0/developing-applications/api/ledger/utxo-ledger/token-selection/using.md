@@ -119,7 +119,7 @@ To query the balance of a pool of tokens:
    // Assume there is an issuer who has created some coin states
    val bankX500 = MemberX500Name.parse(ISSUING_BANK_X500) 
  
-   // Assume you are using a single notrary
+   // Assume you are using a single notary
    val notary = notaryLookup.notaryServices.single()
 
    // Create the balance criteria
