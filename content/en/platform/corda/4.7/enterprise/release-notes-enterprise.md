@@ -22,7 +22,7 @@ Corda Enterprise Edition 4.7.10 is a patch release of Corda Enterprise focused o
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.10/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.10/enterprise/upgrading-index.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.10/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.10/enterprise/upgrading-index.md" >}}).
 
 ## Corda Enterprise Edition 4.7.9 release notes
 
