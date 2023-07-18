@@ -15,7 +15,7 @@ The `ledger-common` package contains interfaces and types that can be used for d
 * Exception types
 * A basic transaction interface that gets implemented by different ledger models
 * A transaction signature format
-* A container for transaction metadata.
+* A container for transaction metadata
 
 {{< note >}}
 Any ledger model implementation can use any of these types, but it is not mandatory.
