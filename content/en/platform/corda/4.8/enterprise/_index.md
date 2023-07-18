@@ -1,5 +1,6 @@
 ---
 date: '2023-02-28'
+description: "Documentation for the 4.8 Enterprise Edition release of Corda"
 menu:
   versions:
     weight: -645

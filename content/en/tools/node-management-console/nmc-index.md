@@ -1,5 +1,6 @@
 ---
 date: '2021-04-24T00:00:00Z'
+description: "Documentation for the Node Management Console; this allows you to view information about and perform operations on a node"
 section_menu: tools
 menu:
   tools:
