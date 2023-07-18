@@ -1,7 +1,7 @@
 ---
 title: "Key Concepts"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 date: 2023-04-21
 menu:
   corda5:

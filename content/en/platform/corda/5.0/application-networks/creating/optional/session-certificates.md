@@ -1,6 +1,6 @@
 ---
 date: '2022-11-15'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 title: "Session Certificates"
 menu:
   corda5:

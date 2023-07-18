@@ -1,7 +1,7 @@
 ---
 title: "Notaries"
 date: 2023-06-08
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-fundamentals-ledger-notaries
@@ -65,4 +65,4 @@ A notary cluster will only sign a transaction if it is the appointed notary clus
 * When a single transaction needs to consume several states that have different appointed notary clusters.
 * When a node would prefer to use a different notary cluster for a given transaction due to privacy or efficiency concerns.
 
-Before these transactions can be created, the states must first all be re-pointed to the same notary cluster. This is achieved using a special notary-change transaction. This has not been implemented for Corda 5 Beta yet.
+Before these transactions can be created, the states must first all be re-pointed to the same notary cluster. This is achieved using a special notary-change transaction. This has not been implemented for Corda 5.0 yet.
