@@ -2,7 +2,7 @@
 date: '2023-05-10'
 title: "Cluster Administrator Tooling"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-cluster-tooling

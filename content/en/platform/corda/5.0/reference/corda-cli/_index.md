@@ -1,7 +1,7 @@
 ---
 title: "Corda CLI Commands"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 date: 2023-04-24
 menu:
   corda5:

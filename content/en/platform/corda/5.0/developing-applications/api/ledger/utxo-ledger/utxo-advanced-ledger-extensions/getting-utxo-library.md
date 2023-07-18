@@ -2,7 +2,7 @@
 date: '2023-07-04'
 title: "Getting the UTXO Library"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-utxo-ledger-getting-utxo-library
