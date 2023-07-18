@@ -2,7 +2,11 @@
 aliases:
 - /config-database.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:  
+  cenm-1-4:
+    identifier: cenm-1-4-config-database
+    parent: cenm-1-4-configuration
+    weight: 210
 tags:
 - config
 - database
