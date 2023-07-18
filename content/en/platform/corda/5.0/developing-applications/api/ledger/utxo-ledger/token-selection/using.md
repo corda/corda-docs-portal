@@ -87,7 +87,7 @@ The following example outlines the basic building blocks to consider when using 
        return "FAILED TO FIND ENOUGH TOKENS"
       }
  
-      // We've claimed some tokens we can now try and spend them,
+      // You've claimed some tokens you can now try and spend them,
       // we must release the claim regardless of the outcome, indicating
       // how many tokens were used
       var spentCoins = listOf<StateRef>()
