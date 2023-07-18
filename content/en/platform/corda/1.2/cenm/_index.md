@@ -2,6 +2,7 @@
 aliases:
 - /releases/release-1.2/index.html
 date: '2020-01-08T09:59:25Z'
+description: "Documentation for the 1.2 release of Corda Enterprise Network Manager (CENM)"
 menu:
   versions:
     weight: 320

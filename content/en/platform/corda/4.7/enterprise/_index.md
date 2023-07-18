@@ -3,6 +3,7 @@ aliases:
 - /docs/corda-enterprise/head/index.html
 - /docs/corda-enterprise/index.html
 date: '2023-02-28'
+description: "Documentation for the 4.7 Enterprise Edition release of Corda"
 menu:
   versions:
     weight: 9
