@@ -64,7 +64,7 @@ The following example outlines the basic building blocks to consider when using 
       ```java
       // Assume there is an issuer who has created some coin states
       val bankX500 = MemberX500Name.parse(ISSUING_BANK_X500) 
-      // Assume you are using a single notrary
+      // Assume you are using a single notary
       val notary = notaryLookup.notaryServices.single()
 
       // Create your selection criteria to select a minimum of 100 GBP worth of coins
