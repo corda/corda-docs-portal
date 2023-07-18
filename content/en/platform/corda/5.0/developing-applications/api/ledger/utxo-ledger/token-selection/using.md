@@ -12,7 +12,12 @@ section_menu: corda5
 ---
 
 # Using the UTXO Ledger Token Selection API
+This section contains the following:
+* [Using the Token Claim API]({{< relref "#using-the-token-claim-api" >}})
+* [Using the Balance Query API]({{< relref "#using-the-balance-query-api" >}})
 
+
+## Using the Token Claim API
 
 The following example outlines the basic building blocks to consider when using the [token selection API]({{< relref "./_index.md" >}}) with the UTXO ledger. The example only covers the token selection aspects of a flow and omits any details about how to create [UTXO ledger transactions]({{< relref "../../../../ledger/transactions/_index.md" >}}).
 
@@ -56,40 +61,81 @@ The following example outlines the basic building blocks to consider when using 
    ```
 
    a. Create the criteria for the type of tokens we need and set a target amount:
+      ```java
+      // Assume we have an issuer who has created some coin states
+      val bankX500 = MemberX500Name.parse(ISSUING_BANK_X500) 
+      // Assume we are using a single notrary
+      val notary = notaryLookup.notaryServices.single()
+
+      // Create our selection criteria to select a minimum of 100 GBP worth of coins
+      val selectionCriteria = TokenClaimCriteria(
+        tokenType = CoinState.tokenType,
+        issuerHash = bankX500.toSecureHash(),
+        notaryX500Name = notary.name,
+        symbol = "GBP",
+        targetAmount = BigDecimal(100)
+      )
+      ```
+
+   b. Issue the query, handle the response, and clean-up any claim we make:
+      ```java
+       // Query for required tokens
+      val tokenClaim = tokenSelection.tryClaim(selectionCriteria)
+ 
+      // A null result indicates the query could not be satisfied
+      if (tokenClaim == null) {
+       return "FAILED TO FIND ENOUGH TOKENS"
+      }
+ 
+      // We've claimed some tokens we can now try and spend them,
+      // we must release the claim regardless of the outcome, indicating
+      // how many tokens were used
+      var spentCoins = listOf<StateRef>()
+ 
+      try {
+         spentCoins = aSpendFunction(tokenClaim.claimedTokens)
+      } finally {
+        tokenClaim.useAndRelease(spentCoins)
+      }
+      ```
+
+## Using the Balance Query API
+
+The Balance Query API enables users to retrieve the balance of a pool of tokens, taking into account only the tokens that satisfy a certain criteria. Two values are calculated when the query is executed:
+* The available balance which only includes tokens that have not been spent nor claimed. 
+* The total balance which includes all tokens that have not been spent. That is, the total balance is the available balance plus the balance of all claimed tokens.
+
+The following example has similarities to the [Token Claim API example]({{< relref "#using-the-token-claim-api" >}}) and assumes that `CoinState` and `CoinStateObserver` have been implemented as described in that example.
+
+To query the balance of a pool of tokens:
+
+1. Add the token selection API to your flow as an injected property:
+   ```java
+   @CordaInject
+   lateinit var tokenSelection: TokenSelection
+   ```
+2. Create the criteria that specifies which tokens should be taken into account to calculate the balance:
    ```java
    // Assume we have an issuer who has created some coin states
    val bankX500 = MemberX500Name.parse(ISSUING_BANK_X500) 
+ 
    // Assume we are using a single notrary
    val notary = notaryLookup.notaryServices.single()
 
-   // Create our selection criteria to select a minimum of 100 GBP worth of coins
-   val selectionCriteria = TokenClaimCriteria(
+   // Create the balance criteria
+   val balanceQueryCriteria = TokenBalanceCriteria(
      tokenType = CoinState.tokenType,
      issuerHash = bankX500.toSecureHash(),
      notaryX500Name = notary.name,
-     symbol = "GBP",
-     targetAmount = BigDecimal(100)
+     symbol = "GBP"
    )
    ```
-
-   b. Issue the query, handle the response, and clean-up any claim we make:
+3. Issue the query and print the response:
    ```java
-    // Query for required tokens
-   val tokenClaim = tokenSelection.tryClaim(selectionCriteria)
- 
-   // A null result indicates the query could not be satisfied
-   if (tokenClaim == null) {
-    return "FAILED TO FIND ENOUGH TOKENS"
-   }
- 
-   // We've claimed some tokens we can now try and spend them,
-   // we must release the claim regardless of the outcome, indicating
-   // how many tokens were used
-   var spentCoins = listOf<StateRef>()
- 
-   try {
-      spentCoins = aSpendFunction(tokenClaim.claimedTokens)
-   } finally {
-     tokenClaim.useAndRelease(spentCoins)
-   }
+   // Query the balance tokens
+   val tokenBalance = tokenSelection.queryBalance(balanceQueryCriteria)!!
+
+   // Output the result
+   println("Available balance: ${tokenBalance.availableBalance}")
+   println("Total balance: ${tokenBalance.totalBalance}")
    ```
