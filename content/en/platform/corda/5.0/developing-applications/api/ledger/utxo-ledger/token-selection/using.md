@@ -116,7 +116,7 @@ To query the balance of a pool of tokens:
    ```
 2. Create the criteria that specifies which tokens should be taken into account to calculate the balance:
    ```java
-   // Assume we have an issuer who has created some coin states
+   // Assume there is an issuer who has created some coin states
    val bankX500 = MemberX500Name.parse(ISSUING_BANK_X500) 
  
    // Assume you are using a single notrary
