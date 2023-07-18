@@ -23,7 +23,7 @@ The `startCorda` task runs in an Intellij 'Run' window. After about one minute, 
 {{< figure src="starting-corda-running.png" figcaption="CSDE startCorda task running" alt="CSDE task to start the combined worker in IntelliJ" >}}
 
 The `startCorda` will continue to run whilst the Corda cluster is running. It will stop when the cluster is shut down.
-Currently, we do not have a liveness detector for Corda in the CSDE so we check liveness by manually hitting an endpoint. You can use the [listVNodes helper]({{< relref "../cordapp-standard-development-environment/_index.md#csde-queries" >}}) to do this.
+Currently, we do not have a liveness detector for Corda in the CSDE so we check liveness by manually hitting an endpoint. You can use the [listVNodes helper]({{< relref "../overview/_index.md#csde-queries" >}}) to do this.
 
 ## Testing Liveness and Swagger
 
