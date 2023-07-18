@@ -13,11 +13,19 @@ tags:
 - enterprise
 ---
 
-# Corda Enterprise Edition 4.7 release files and checksums
+# Corda Enterprise Edition 4.7 release packs and checksums
 
-Customers who have access to the Corda repositories can download the release files from the repositories.
+The Corda Enterprise release consists of multiple release packs. You can download the Corda Enterprise release packs and their respective checksum files from the Customer Hub.
 
-Before installing any downloaded file, we recommend that you verify the integrity of each file as a security precaution, to ensure that the files have not been tampered with or become corrupted during the download. You can do this by calculating the checksum of your downloaded file and then comparing its value to the checksum value provided below.
+Before you install the downloaded packs, verify the integrity of each pack using the respective checksum file to ensure it has not been tampered with or corrupted during the download. You can do this by calculating the checksum of your downloaded file, then comparing its value to the checksum value provided below.
+
+## Release pack and checksums for Corda Enterprise Edition 4.7.10
+
+The release pack and checksum files for Corda Enterprise 4.7.10 can be downloaded from the Customer Hub.
+
+The following release pack is available, along with its respective checksum files:
+
+* release-pack-4.7.10.tar.gz
 
 ## Corda Enterprise Edition 4.7.9 release files and checksums
 
