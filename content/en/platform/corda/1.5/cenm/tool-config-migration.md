@@ -11,11 +11,11 @@ tags:
 - tool
 - config
 - migration
-title: Config migration tool
+title: Configuration Migration Tool
 ---
 
 
-# Config migration tool
+# Configuration Migration Tool
 
 The configuration migration tool migrates v0.2.2 and v0.3+ Doorman and Network Map configurations to v1.0 Identity Manager and
 Network Map configurations. Norman (v0.2.2 combined Network Map and Doorman) configurations produce separate Identity Manager and
