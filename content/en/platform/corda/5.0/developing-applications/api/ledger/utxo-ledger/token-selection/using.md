@@ -62,7 +62,7 @@ The following example outlines the basic building blocks to consider when using 
 
    a. Create the criteria for the type of tokens you need and set a target amount:
       ```java
-      // Assume we have an issuer who has created some coin states
+      // Assume there is an issuer who has created some coin states
       val bankX500 = MemberX500Name.parse(ISSUING_BANK_X500) 
       // Assume we are using a single notrary
       val notary = notaryLookup.notaryServices.single()
