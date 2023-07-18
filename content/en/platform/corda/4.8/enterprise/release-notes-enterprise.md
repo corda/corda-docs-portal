@@ -53,7 +53,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
   * Finished flows: Log messages now show the number of finished flows.
 
   For example:
-  ```
+  ```shell
   [INFO ] 2023-02-03T17:00:12,767Z [main] statemachine.MultiThreadedStateMachineManager. - Loading checkPoints flows {}
   [INFO ] 2023-02-03T17:00:12,903Z [main] statemachine.MultiThreadedStateMachineManager. - Number of runnable flows: 0. Number of paused flows: 0 {}
   [INFO ] 2023-02-03T17:00:12,911Z [main] statemachine.MultiThreadedStateMachineManager. - Started loading finished flows {}
