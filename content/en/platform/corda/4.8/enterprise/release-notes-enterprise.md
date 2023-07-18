@@ -66,7 +66,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 * The default SSL handshake timeout for inbound connections has been increased to 60 seconds. If during SSL handshake, certificate revocation lists (CRLs) take a long time to download, or are unreachable, then this 60 seconds gives the node enough time to establish the connection if `crlCheckSoftFail` is enabled.
 
-* Improved compatibility when using the performance test suite from Apple silicon Macs.
+* Compatibility when using the performance test suite from Apple silicon Macs has been improved.
 
 ## Corda Enterprise Edition 4.8.10 release notes
 
