@@ -67,7 +67,7 @@ The following example outlines the basic building blocks to consider when using 
       // Assume we are using a single notrary
       val notary = notaryLookup.notaryServices.single()
 
-      // Create our selection criteria to select a minimum of 100 GBP worth of coins
+      // Create your selection criteria to select a minimum of 100 GBP worth of coins
       val selectionCriteria = TokenClaimCriteria(
         tokenType = CoinState.tokenType,
         issuerHash = bankX500.toSecureHash(),
