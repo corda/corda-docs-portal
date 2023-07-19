@@ -29,7 +29,6 @@ Definitions:
 | Corda Community Edition 4.9   | 03/2022         | 03/2024            | 03/2025         | 03/2025        |
 | Corda Enterprise Edition 4.10 | 01/2023         | 01/2025            | 01/2026         | 01/2026        |
 | Corda Community Edition 4.10  | 01/2023         | 01/2025            | 01/2026         | 01/2026        |
-| Corda 5.0  | 07/2023         | 01/2024            | 01/2024         | 01/2024        |
 
 {{< /table >}}
 
