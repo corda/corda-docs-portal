@@ -29,7 +29,7 @@ from Maven Central Repository or similar.
 
    ```
    cordaUtxoLibGroupId=com.r3.corda.ledger.utxo
-   cordaUtxoLibVersion=0.9.0-Iguana1.0
+   cordaUtxoLibVersion=0.9.0
    ```
 
 3. Add the following dependencies to the project's contract sub-module `build.gradle` file:
