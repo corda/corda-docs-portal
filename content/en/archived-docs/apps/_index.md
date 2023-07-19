@@ -1,5 +1,6 @@
 ---
 date: '2020-12-23T09:59:25Z'
+description: "Documentation for early-version featured apps for Corda"
 section_menu: apps
 menu:
   projects:

@@ -1,5 +1,6 @@
 ---
 date: '2021-04-24T00:00:00Z'
+description: "Documentation for the Corda Business Network membership extension; this allows you to create and manage business networks"
 section_menu: tools
 menu:
   tools:
