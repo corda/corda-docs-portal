@@ -12,7 +12,7 @@ section_menu: corda5
 # About the Docs
 The following topics are explained on this page:
 * [Documenting Corda]({{< relref "#documenting-corda">}})
-<!--* [End of Life Strategy]({{< relref "#end-of-life-strategy">}})-->
+* [End of Life Strategy]({{< relref "#end-of-life-strategy">}})
 * [Reporting an Error in the Docs]({{< relref "#reporting-an-error-in-the-docs">}})
 
 ## Documenting Corda
@@ -30,7 +30,7 @@ From Corda 5.0 onwards, there is one documentation set, but the features that re
 * **A**: The heading without the 'Enterprise only' icon is the most common and it is used where the content applies to all Corda users.
 * **B**: The ‘Enterprise only' icon is used mostly in headings, indicating that the content under that heading relates to a Corda Enterprise feature. On occasions, the icon may be used inline to identify sentences, paragraphs, or tables that apply to a Corda Enterprise feature. 
 
-<!--## End of Life Strategy
+## End of Life Strategy
 Use the following table to track the end of life schedule for each version of Corda 5. Each version of Corda has R3 support available for a fixed period. 
 After this period has ended, these versions are no longer supported by R3 and associated documentation is archived. You should always aim to upgrade to the latest version of Corda whenever possible.
 
@@ -42,11 +42,10 @@ Definitions:
 
 | **Version** | **Date of Release** | **End of Maintenance** | **End of Security**   | **End of Support**    |
 |:-------------:|:-------------------:|:----------------------:|:---------------------:|:---------------------:|
-| **Corda 5.0** | Jun-23              | Upon release of 5.2    | Upon release of 5.2   | Upon release of 5.2   |
-| **Corda 5.1** | TBC                 | Upon release of 5.2    | Upon release of 5.2   | Upon release of 5.2   |
-| **Corda 5.2** | TBC                 | 2 years after release  | 2 years after release | 2 years after release |
+| **Corda 5.0** | Jul-23              | Jan-24    | Jan-24   | Jan-24   |
+| **Corda 5.1** | TBC                 | TBC    | TBC   | TBC   |
 
--->
+
 ## Reporting an Error in the Docs
 In 2023, the R3 Technical Writing team will be making big changes to our documentation and our overall content strategy. As we make improvements, we’d love to get your feedback on what we’re doing well, and what we could be doing better. 
 
