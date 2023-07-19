@@ -117,7 +117,7 @@ var pathtoroot = "../../../../";
 public final class <span class="typeNameLabel"><a href=KeyUtils.html>KeyUtils</a></span>
 
                     </pre>
-                    <div class="block"></div>
+                    <div class="block"><p>Helper functions for key look up in a set of keys. These functions also work when the key to look up in the set of keys is <a href=CompositeKey.html>CompositeKey</a>.</p></div>
                 </li>
             </ul>
         </div>
@@ -314,17 +314,17 @@ public final class <span class="typeNameLabel"><a href=KeyUtils.html>KeyUtils</a
                                     <li class="blockList">
                                         <h4>isKeyInSet</h4>
                                         <pre class="methodSignature"> static boolean <a href=KeyUtils.html#isKeyInSet(java.security.PublicKey,java.util.Set)>isKeyInSet</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> key, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; otherKeys)</pre>
-                                        <div class="block"><p>Checks whether <code>key</code> has any intersection with the keys in <code>otherKeys</code>, recursing into <code>key</code> (the first argument) if it is a composite key. Does not match any composite keys in <code>otherKeys</code>. </p> For simple non-compound public keys, this operation simply checks if the first argument occurs in the second argument. If <code>key</code> is a compound key, the outcome is whether any of its leaf keys are in <code>otherKeys</code>. <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>. This function checks against compound key tree leaves, which by definition are not <a href=CompositeKey.html>CompositeKey</a>. That is why if any of the <code>otherKeys</code> is a <a href=CompositeKey.html>CompositeKey</a>, this function will not find a match, though composite keys in the <code>otherKeys</code> set is not regarded as an error; they are silently ignored.  The notion of a key being in a set is about equality, which is not the same as whether one key is fulfilled by another key. For example, a <a href=CompositeKey.html>CompositeKey</a> C could be defined to have threshold 2 and: <ul><li> Public key X with weight 1 </li><li> Public key Y with weight 1 </li><li> Public key Z with weight 2 </li></ul> Then we would find that <code>isKeyInSet(C, X)</code> is true, but X would not fulfill C since C is fulfilled by X and Y together but not X on its. However, <code>isKeyInSet(C, Z)</code> is true, and Z fulfills C by itself.</div>
+                                        <div class="block"><p>Checks whether <code>key</code> has any intersection with the keys in <code>otherKeys</code>, recursing into <code>key</code> (the first argument) if it is a composite key. Does not match any composite keys in <code>otherKeys</code>. </p> For simple non-compound public keys, this operation simply checks if the first argument occurs in the second argument. If <code>key</code> is a compound key, the outcome is whether any of its leaf keys are in <code>otherKeys</code>. <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>.  This function checks against compound key tree leaves, which by definition are not <a href=CompositeKey.html>CompositeKey</a>. That is why if any of the <code>otherKeys</code> is a <a href=CompositeKey.html>CompositeKey</a>, this function will not find a match, though composite keys in the <code>otherKeys</code> set is not regarded as an error; they are silently ignored.  The notion of a key being in a set is about equality, which is not the same as whether one key is fulfilled by another key. For example, a <a href=CompositeKey.html>CompositeKey</a> C could be defined to have threshold 2 and: <ul><li> Public key X with weight 1 </li><li> Public key Y with weight 1 </li><li> Public key Z with weight 2 </li></ul> Then we would find that <code>isKeyInSet(C, X)</code> is true, but X would not fulfill C since C is fulfilled by X and Y together but not X on its. However, <code>isKeyInSet(C, Z)</code> is true, and Z fulfills C by itself.</div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
                                             
                                             
-                                            <dd><code>key</code> - The key being checked for.</dd>
+                                            <dd><code>key</code> - The key being looked for.</dd>
                                             
                                             
                                             
-                                            <dd><code>otherKeys</code> - An <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a> sequence of <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>.</dd>
+                                            <dd><code>otherKeys</code> - The keys searched for the <code>key</code>.</dd>
                                             
                                             
                                         </dl>
@@ -348,11 +348,11 @@ public final class <span class="typeNameLabel"><a href=KeyUtils.html>KeyUtils</a
                                             <dt><span class="paramLabel">Parameters:</span></dt>
                                             
                                             
-                                            <dd><code>key</code> - The key with the requirements.</dd>
+                                            <dd><code>key</code> - The key to be checked whether it is being fulfilled by <code>otherKeys</code>.</dd>
                                             
                                             
                                             
-                                            <dd><code>otherKeys</code> - The key to check whether requirements are fulfilled.</dd>
+                                            <dd><code>otherKeys</code> - The keys against which the <code>key</code> is being checked for fulfilment.</dd>
                                             
                                             
                                         </dl>
@@ -372,7 +372,7 @@ public final class <span class="typeNameLabel"><a href=KeyUtils.html>KeyUtils</a
                                         <pre class="methodSignature"> static boolean <a href=KeyUtils.html#isKeyFulfilledBy(java.security.PublicKey,java.security.PublicKey)>isKeyFulfilledBy</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> key, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> otherKey)</pre>
                                         <div class="block"><p>Return true if one key fulfills the requirements of another key. See the previous variant; this overload is the same as calling as the variant that takes an iterable set of other keys with <code>otherKey<pre><code>
      as a single element iterable.  
-      
+     </code></pre></code></p><p><code><pre><code>
      Since we do not define composite keys as acceptable on the second argument of this function, this relation 
      is not reflexive, not symmetric and not transitive.</code></pre></code></p></div>
                                         
@@ -380,11 +380,11 @@ public final class <span class="typeNameLabel"><a href=KeyUtils.html>KeyUtils</a
                                             <dt><span class="paramLabel">Parameters:</span></dt>
                                             
                                             
-                                            <dd><code>key</code> - The key with the requirements.</dd>
+                                            <dd><code>key</code> - The key to be checked whether it is being fulfilled by <code>otherKey</code>.</dd>
                                             
                                             
                                             
-                                            <dd><code>otherKey</code> - The key to check whether requirements are fulfilled.</dd>
+                                            <dd><code>otherKey</code> - The key against which the <code>key</code> is being checked for fulfilment.</dd>
                                             
                                             
                                         </dl>

@@ -242,7 +242,7 @@ public interface <span class="typeNameLabel"><a href=MerkleProof.html>MerkleProo
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=MerkleProof.html#getProofType()>getProofType</a>() </code>
                                             </th>
-                                            <td class="colLast">Get the type of the proof.</td>
+                                            <td class="colLast">Returns the type of the proof.</td>
                                         </tr>
                                         
                                         <tr id="i1" class="rowColor">
@@ -250,7 +250,7 @@ public interface <span class="typeNameLabel"><a href=MerkleProof.html>MerkleProo
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=MerkleProof.html#getTreeSize()>getTreeSize</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Returns the size of the <a href=MerkleTree.html>MerkleTree</a> out of which this proof was created.</td>
                                         </tr>
                                         
                                         <tr id="i2" class="altColor">
@@ -258,7 +258,7 @@ public interface <span class="typeNameLabel"><a href=MerkleProof.html>MerkleProo
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=MerkleProof.html#getLeaves()>getLeaves</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Returns disclosed plain data of a <a href=MerkleTree.html>MerkleTree</a> which are to be verified that they are indeed part of a <code>MerkleTree</code>.</td>
                                         </tr>
                                         
                                         <tr id="i3" class="rowColor">
@@ -266,7 +266,7 @@ public interface <span class="typeNameLabel"><a href=MerkleProof.html>MerkleProo
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=MerkleProof.html#getHashes()>getHashes</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Returns the hashed intermediate node data supplementing the plain data.</td>
                                         </tr>
                                         
                                         <tr id="i4" class="altColor">
@@ -338,7 +338,7 @@ public interface <span class="typeNameLabel"><a href=MerkleProof.html>MerkleProo
                                     <li class="blockList">
                                         <h4>getProofType</h4>
                                         <pre class="methodSignature">@NotNull() abstract <a href=MerkleProofType.html>MerkleProofType</a> <a href=MerkleProof.html#getProofType()>getProofType</a>()</pre>
-                                        <div class="block"><p>Get the type of the proof.</p></div>
+                                        <div class="block"><p>Returns the type of the proof.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -353,7 +353,7 @@ public interface <span class="typeNameLabel"><a href=MerkleProof.html>MerkleProo
                                     <li class="blockList">
                                         <h4>getTreeSize</h4>
                                         <pre class="methodSignature"> abstract int <a href=MerkleProof.html#getTreeSize()>getTreeSize</a>()</pre>
-                                        <div class="block"></div>
+                                        <div class="block"><p>Returns the size of the <a href=MerkleTree.html>MerkleTree</a> out of which this proof was created.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -368,7 +368,7 @@ public interface <span class="typeNameLabel"><a href=MerkleProof.html>MerkleProo
                                     <li class="blockList">
                                         <h4>getLeaves</h4>
                                         <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=IndexedMerkleLeaf.html>IndexedMerkleLeaf</a>&gt; <a href=MerkleProof.html#getLeaves()>getLeaves</a>()</pre>
-                                        <div class="block"></div>
+                                        <div class="block"><p>Returns disclosed plain data of a <a href=MerkleTree.html>MerkleTree</a> which are to be verified that they are indeed part of a <code>MerkleTree</code>.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -383,7 +383,7 @@ public interface <span class="typeNameLabel"><a href=MerkleProof.html>MerkleProo
                                     <li class="blockList">
                                         <h4>getHashes</h4>
                                         <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../SecureHash.html>SecureHash</a>&gt; <a href=MerkleProof.html#getHashes()>getHashes</a>()</pre>
-                                        <div class="block"></div>
+                                        <div class="block"><p>Returns the hashed intermediate node data supplementing the plain data.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
