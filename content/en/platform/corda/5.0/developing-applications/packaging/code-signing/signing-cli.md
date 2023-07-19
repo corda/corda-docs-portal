@@ -1,6 +1,6 @@
 ---
 date: '2023-05-18'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 title: "Signing Packages Using Corda CLI"
 menu:
   corda5:

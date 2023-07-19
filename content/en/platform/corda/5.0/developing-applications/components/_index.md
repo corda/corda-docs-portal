@@ -2,7 +2,7 @@
 date: '2023-02-23'
 title: "CorDapp Components"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-develop-components

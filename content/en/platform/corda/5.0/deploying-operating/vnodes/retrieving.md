@@ -2,7 +2,7 @@
 date: '2023-06-12'
 title: "Retrieving Virtual Nodes"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-cluster-nodes-retrieving

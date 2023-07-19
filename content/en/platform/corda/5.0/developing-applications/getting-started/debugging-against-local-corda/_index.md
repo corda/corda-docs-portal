@@ -1,6 +1,6 @@
 ---
 date: '2022-09-20'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 title: "Debugging Against Local Corda"
 menu:
   corda5:

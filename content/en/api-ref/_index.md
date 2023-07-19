@@ -17,9 +17,9 @@ title: API reference
 
 # API reference
 
-## Corda 5 Beta API reference
+## Corda 5 API reference
 
-See the [Corda 5.0 Beta](../../en/api-ref/corda/5.0/java/index.html) page to access the API reference documentation for all API modules publicly exposed in the Corda 5 beta release.
+See the [Corda 5.0](../../en/api-ref/corda/5.0/java/index.html) page to access the API reference documentation for all API modules publicly exposed in the Corda 5 beta release.
 
 ## Corda 4 API reference
 

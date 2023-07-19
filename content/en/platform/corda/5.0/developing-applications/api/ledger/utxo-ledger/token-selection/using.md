@@ -2,7 +2,7 @@
 date: '2023-06-20'
 title: "Using the UTXO Ledger Token Selection API"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-develop-utxo
