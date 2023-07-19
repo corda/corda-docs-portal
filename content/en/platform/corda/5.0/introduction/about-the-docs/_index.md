@@ -12,7 +12,7 @@ section_menu: corda5
 # About the Docs
 The following topics are explained on this page:
 * [Documenting Corda]({{< relref "#documenting-corda">}})
-<!--* [End of Life Strategy]({{< relref "#end-of-life-strategy">}})-->
+* [End of Life Strategy]({{< relref "#end-of-life-strategy">}})
 * [Reporting an Error in the Docs]({{< relref "#reporting-an-error-in-the-docs">}})
 
 ## Documenting Corda
