@@ -17,15 +17,15 @@
     },
     "CPK": {
         "definition": "Corda Package. A signed ZIP/JAR library of Java code packaged to be portable with all of its dependencies and version information contained within it.",
-        "more": "CPKs are designed to be modular so that reusable libraries of code, or data models, can be shared between projects."
+        "more": "CPKs are designed to be modular so that reusable libraries of code, or data models, can be shared between projects. For more information, see <a href=\"../developing-applications/packaging.html\">Packaging</a>."
     }, 
     "CPB": {
         "definition": "Corda Package Bundle. A signed ZIP/JAR collection of CPKs that forms a complete application suite and contains all the code that a virtual node must operate, minus the specific network details. ",
-        "more": "This separation is present in Corda 5 so that software can be developed and tested against development networks and then fuller UAT networks before final publication of the production CPI with the surety that the code has not changed."
+        "more": "This separation is present in Corda 5 so that software can be developed and tested against development networks and then fuller UAT networks before final publication of the production CPI with the surety that the code has not changed. For more information, see <a href=\"../developing-applications/packaging.html\">Packaging</a>."
     },
     "CPI": {
         "definition": "Corda Package Installer. A signed ZIP/JAR combination of a CPB and a Group Policy File that defines not only the application code that a virtual node will run, but also the details of the MGM with which to register, and the details of network PKI requirements.",
-        "more": "A CPI must be installed into a Corda Cluster before creating and registering a virtual node, as it defines the application software that will be run and the requirements for membership on that network.​"
+        "more": "A CPI must be installed into a Corda Cluster before creating and registering a virtual node, as it defines the application software that will be run and the requirements for membership on that network. For more information, see <a href=\"../developing-applications/packaging.html\">Packaging</a>.​"
     },   
     "Autoscaling": {
         "definition": "A technique used to automatically adjust the amount of computing resources allocated to an application or service based on its workload.",
@@ -49,11 +49,11 @@
     }, 
     "Consensus": {
         "definition": "Consensus that a proposed transaction is valid is required before you can add it to the ledger. ",
-        "more": "In Corda, this is achieved by proving a transaction is both <i>valid</i> and <i>unique</i>:<ul><li>Validity consensus determines if a transaction is accepted by the smart contracts it references.</li><li>Uniqueness consensus prevents double-spends.</li></ul>"
+        "more": "In Corda, this is achieved by proving a transaction is both <i>valid</i> and <i>unique</i>:<ul><li>Validity consensus determines if a transaction is accepted by the smart contracts it references.</li><li>Uniqueness consensus prevents double-spends.</li></ul> For more information, see <a href=\"../developing-applications/ledger/consensus.html\">Consensus</a>."
     }, 
     "Corda CLI": {
         "definition": "A command line tool that supports various Corda-related tasks, including Corda Package Installer (CPI) creation and Corda cluster management. ",
-        "more": "The CorDapp Standard Development Environment (CSDE) uses Corda CLI in the background. As a result, you must install Corda CLI before using CSDE."
+        "more": "The CorDapp Standard Development Environment (CSDE) uses Corda CLI in the background. As a result, you must install Corda CLI before using CSDE. For more information, see <a href=\"../reference/corda-cli.html\">Corda CLI Commands</a>."
     }, 
     "CorDapp": {
         "definition": "Corda Distributed Application. A Java (or any JVM targeting language) application built using the Corda build toolchain and Corda APIs to solve some problem that is best solved in a decentralized manner. CorDapps are assembled as one or more JAR files bundled into the CorDapp packaging format. That file is then uploaded to Corda where it is executed, Corda acting as the application host for the CorDapp.",
@@ -153,7 +153,7 @@
     }, 
     "MGM": {
         "definition": "Membership Group Manager. May also be referred to as the Network Manager. It is a virtual node and Corda identity that acts as a central registrar for group membership. ",
-        "more": "The CPI files point at the MGM server, so that when a virtual node is created, the node contains the PKI policies and addresses the MGM. The MGM server is responsible for accepting membership proposals. For users coming from Corda 4, MGM replaces CENM."
+        "more": "The CPI files point at the MGM server, so that when a virtual node is created, the node contains the PKI policies and addresses the MGM. The MGM server is responsible for accepting membership proposals. For users coming from Corda 4, MGM replaces CENM. For more information, see <a href=\"../application-networks/creating/mgm.html\">Onboarding the MGM</a>."
     }, 
     "PKI": {
         "definition": "A comprehensive system of hardware, software, policies, and procedures that enables the secure creation, distribution, management, and revocation of digital certificates and public-key cryptography.",
@@ -217,7 +217,7 @@
     }, 
     "Time windows": {
         "definition": "Included in every transaction: the transaction can only be committed during that window. ",
-        "more": "Times in transactions are specified as time windows and not absolute times."
+        "more": "Times in transactions are specified as time windows and not absolute times. For more information, see <a href=\"../developing-applications/ledger/time-windows.html\">Time Windows</a>."
     }, 
     "Token": {
         "definition": "A type of programmable digital asset that can represent value and be traded. Tokens can be fungible or non-fungible. ",
@@ -241,7 +241,7 @@
     }, 
     "Vault": {
         "definition": "A database containing all data from the ledger relevant to a participant. The database tracks spent and unspent (consumed and unconsumed) states. ",
-        "more": "From a business perspective, this means a record of all the transaction states that you can spend as a participant, and a record of all spent states from transactions relevant to you. You can compare it to a cryptocurrency wallet — record of what you have spent and how much you have available to spend."
+        "more": "From a business perspective, this means a record of all the transaction states that you can spend as a participant, and a record of all spent states from transactions relevant to you. You can compare it to a cryptocurrency wallet — record of what you have spent and how much you have available to spend. For more information, see <a href=\"../developing-applications/ledger/vault.html\">Vault</a>."
     }, 
     "Virtual node": {
         "definition": "The combination of the context of a user and the ephemeral compute instances created to progress a transaction on that identity's behalf.   ",
@@ -253,7 +253,7 @@
     }, 
     "X.500": {
         "definition": "A series of international standards defining a global directory service protocol for computer networks. It provides a structured framework for storing, accessing, and managing information about network resources and users in a hierarchical and distributed manner.",
-        "more": ""
+        "more": "For information about how X.500 names can be defined in Corda, see <a href=\"../deploying-operating/vnodes/x500.html\"> Rules for X.500 Member Names</a>."
     }, 
     "X.509": {
         "definition": "A widely used standard for digital certificates in public key infrastructure (PKI) systems. An X.509 certificate contains an identity (such as an individual or hostname ) and a public key. ",
