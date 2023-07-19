@@ -22,7 +22,6 @@ Before you install the downloaded packs, verify the integrity of each pack using
 ## Release pack and checksums for Corda Enterprise Edition 4.7.10
 
 The release pack and checksum files for Corda Enterprise 4.7.10 can be downloaded from the Customer Hub.
-
 The following release pack is available, along with its respective checksum files:
 
 * release-pack-4.7.10.tar.gz
