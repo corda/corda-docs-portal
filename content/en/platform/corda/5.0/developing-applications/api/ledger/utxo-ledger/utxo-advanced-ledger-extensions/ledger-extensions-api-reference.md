@@ -2,7 +2,7 @@
 date: '2023-06-01'
 title: "Ledger Extensions API Reference"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-utxo-ledger-extensions-api-reference
@@ -135,19 +135,19 @@ public final class ExampleChainableContract extends ChainableContract {
 }
 ```
 
-#### Creating, updating and deleting Chainable States
+#### Creating, Updating and Deleting Chainable States
 
-To create a chainable state, create an instance of a `ChainableState` with a `pointer` of `null`.
+To create a chainable state, create an instance of a `ChainableState` with a `pointer` of `null`:
 
-  ```java
-  new ExampleChainableState(null);
-  ```
+```java
+new ExampleChainableState(null);
+```
 
-To update an existing chainable state, retrieve the existing `ChainableState`'s `StateRef` and create a new instance of the `ChainableState`. Pass in the `StateRef` from the previous step as the `pointer` value.
+To update an existing chainable state, retrieve the existing `ChainableState`'s `StateRef` and create a new instance of the `ChainableState`. Pass in the `StateRef` from the previous step as the `pointer` value:
 
-  ```java
-  new ExampleChainableState(new StaticPointer(previousStateRef, ExampleChainableState.class));
-  ```
+```java
+new ExampleChainableState(new StaticPointer(previousStateRef, ExampleChainableState.class));
+```
 
 Consume the existing instance in the same transaction that contains the updated instance.
 
@@ -369,7 +369,7 @@ public final class ExampleIdentifiableContract extends IdentifiableContract {
 }
 ```
 
-#### Creating, updating and deleting Identifiable States
+#### Creating, Updating and Deleting Identifiable States
 
 To create a unique identifiable state, create an instance of an `IdentifiableState` with an `id` of `null`.
 
@@ -384,14 +384,14 @@ To delete an identifiable state, do the following:
 1. Retrieve the existing `IdentifiableState`'s `StateRef`.
 2. Consume the state using the `StateRef`.
 
-#### Retrieving the latest Identifiable States
+#### Retrieving the Latest Identifiable States
 
 To retrieve the latest `IdentifiableState`s:
 
 1. Call `UtxoLedgerService.query`.
 2. Pass in `IdentifiableStateQueries.GET_BY_IDS` as the query name.
 3. Set the result class as `StateAndRef`.
-4. Call `setParameter` with a key of `id` and value containing all the `id`s (or `StateRef`s) as `String`s for the states that you are retrieving.
+4. Call `setParameter` with a key of `id` and value containing all the `id`s (or `StateRef`s) as `String`s for the states that are retrieved.
 
 For example:
 
@@ -449,8 +449,8 @@ public final class ExampleOwnableState implements OwnableState {
 
 The contract for an ownable state must check in the `verify` method that the owner of consumed ownable
 states have signed the transaction. To simplify writing such a contract, the library provides
-`OwnableConstraints` helpers. You must include and invoke the appropriate helper in your contract
-to get this behaviour.
+`OwnableConstraints` helpers. Include and invoke the appropriate helper in the contract
+to get this behaviour
 
 ```java
 public final class ExampleOwnableContract extends DelegatedContract<ExampleOwnableContract.ExampleOwnableContractCommand> {
@@ -585,7 +585,9 @@ while (resultSet.hasNext()) {
 }
 ```
 
-While `WellKnownOwnableState` can be used independently from `OwnableState`, they work well with each other as you can leverage the `OwnableConstraints` while querying for specific owners by name instead of by `PublicKey`s.
+{{< note >}}
+While `WellKnownOwnableState` can be used independently from `OwnableState`, they work well with each other as it can leverage the `OwnableConstraints` while querying for specific owners by name instead of by `PublicKey`s.
+{{< /note >}}
 
 ### Issuable API
 
@@ -593,7 +595,7 @@ Module: issuable
 
 Package: com.r3.corda.ledger.utxo.issuable
 
-The Issuable API allows you to design states that have an issuer as part of the state, verifying that
+The Issuable API designs states that have an issuer as part of the state, verifying that
 any issuance of the state has been signed by the issuer, thus restricting who can issue states
 of this particular type.
 
@@ -744,9 +746,10 @@ public class ExampleWellKnownIssuableState implements WellKnownIssuableState {
     }
 }
 ```
+
 {{< note >}}
-While `WellKnownIssuableState` can be used independently from `IssuableState`, they work well with each other as you can leverage the `IssuableConstraints` while querying for specific issuers by name instead of by `PublicKey`s.
-{{</note >}}
+While `WellKnownIssuableState` can be used independently from `IssuableState`, they work well with each other as it can leverage the `IssuableConstraints` while querying for specific issuers by name instead of by `PublicKey`s.
+{{</note>}}
 
 #### Retrieving Wellknown Issuable States
 
