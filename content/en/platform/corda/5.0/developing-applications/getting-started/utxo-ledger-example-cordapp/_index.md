@@ -1,6 +1,6 @@
 ---
 date: '2023-01-27'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 title: "UTXO Ledger Example CorDapp"
 menu:
   corda5:

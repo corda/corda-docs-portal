@@ -2,7 +2,7 @@
 date: '2023-05-16'
 title: "Notary Plugin CorDapps"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: notary-plugin-cordapps

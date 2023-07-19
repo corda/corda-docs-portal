@@ -1,7 +1,7 @@
 ---
 title: "Accessing the REST API"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 date: 2023-05-08
 menu:
   corda5:

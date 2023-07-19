@@ -1,6 +1,6 @@
 ---
 date: '2023-04-12'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-develop-cli
@@ -21,20 +21,20 @@ Java     | Azul JDK 11
 
 ## Downloading Corda CLI
 
-To obtain the Corda CLI installer, download `platform-jars-Iguana1.0.tar.gz` from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda) and extract `corda-cli-installer-5.0.0.0-Iguana1.0.zip` from `net\corda\cli\deployment\corda-cli-installer\5.0.0.0-Iguana1.0`.
+To obtain the Corda CLI installer, download `platform-jars-5.0.0.tar.gz` from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda) and extract `corda-cli-installer-5.0.0.0.zip` from `net\corda\cli\deployment\corda-cli-installer\5.0.0.0`.
 
 ## Installing on Linux/macOS
 
 1. Ensure that you remove any existing installations of Corda CLI by deleting the `<user-home>/.corda/cli` folder.
 2. Start a shell session (bash or zsh).
-2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Iguana1.0.zip`.
+2. Change directory to where you saved `corda-cli-installer-5.0.0.0.zip`.
 3. Extract the contents of the `zip` file:
    ```shell
-   unzip ./corda-cli-installer-5.0.0.0-Iguana1.0.zip -d corda-cli-installer-5.0.0.0-Iguana1.0
+   unzip ./corda-cli-installer-5.0.0.0.zip -d corda-cli-installer-5.0.0.0
    ```
 4. Change directory to the directory extracted from the `zip` file:
    ```shell
-   cd corda-cli-installer-5.0.0.0-Iguana1.0
+   cd corda-cli-installer-5.0.0.0
    ```
 5. Run the install script:
    ```shell
@@ -52,14 +52,14 @@ To obtain the Corda CLI installer, download `platform-jars-Iguana1.0.tar.gz` fro
 
 1. Ensure that you remove any existing installations of Corda CLI by deleting the `<user-home>/.corda/cli` folder.
 2. Start a Powershell session.
-2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Iguana1.0.zip`.
+2. Change directory to where you saved `corda-cli-installer-5.0.0.0.zip`.
 3. Extract the contents of the `zip` file:
    ```shell
-   Expand-Archive .\corda-cli-installer-5.0.0.0-Iguana1.0.zip
+   Expand-Archive .\corda-cli-installer-5.0.0.0.zip
    ```
 4. Change directory to the directory extracted from the `zip` file:
    ```shell
-   cd corda-cli-installer-5.0.0.0-Iguana1.0
+   cd corda-cli-installer-5.0.0.0
    ```
 5. Run the install script:
    ```shell
