@@ -128,7 +128,7 @@
         "more": ""
     }, 
     "Ledger key": {
-        "definition": "A key which can be used to sign for transactions. This key may be held confidentially and signatures may be used as evidence of authority to sign transactions. Alternatively, it may be published in the virtual nodes's <code>MemberInfo</code> to act as a published fact to prove the identity of the virtual node on the ledger.",
+        "definition": "A key which can be used to sign for transactions. This key may be held confidentially and signatures may be used as evidence of authority to sign transactions. Alternatively, it may be published in the virtual nodes's MemberInfo to act as a published fact to prove the identity of the virtual node on the ledger.",
         "more": ""
     }, 
     "Link Manager": {
