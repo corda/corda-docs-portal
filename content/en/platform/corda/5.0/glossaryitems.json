@@ -12,11 +12,11 @@
     },
     "Application network": {
         "definition": "The set of all possible entities onboarded according to the rules of the network. Application networks enable people and businesses to interact with each other on Corda.",
-        "more": "New entities can join a network by installing a single file distributed by the network manager. Network participants are Corda identities represented by Virtual Nodes. They communicate or transact using the CorDapps contained in the network's installer. Participants can join multiple application networks using different Virtual Nodes, which can all run on a single node infrastructure. For more information see the <a href=\"../key-concepts/fundamentals/application-networks.html\">Key Concepts</a> page. "
+        "more": "New entities can join a network by installing a single file distributed by the network manager. Network participants are Corda identities represented by virtual nodes. They communicate or transact using the CorDapps contained in the network's installer. Participants can join multiple application networks using different virtual nodes, which can all run on a single node infrastructure. For more information see the <a href=\"../key-concepts/fundamentals/application-networks.html\">Key Concepts</a> page. "
     },
     "Notary": {
         "definition": "Corda’s uniqueness consensus service. The notary’s primary role is to prevent double-spends by ensuring each transaction contains only unique unconsumed input states. ",
-        "more": "It also acts as the time-stamping authority. Every transaction includes a time window and it can only be notarized during that window. For more information, see <a href=\"../developing-applications/ledger/notaries.html\">Notaires</a>."
+        "more": "It also acts as the time-stamping authority. Every transaction includes a time window and it can only be notarized during that window. For more information, see <a href=\"../developing-applications/ledger/notaries.html\">Notaries</a>."
     } ,
     "Group policy": {
         "definition": "A JSON file containing network information that is bundled with a CPB to create a CPI. ",
@@ -197,5 +197,73 @@
     "Session initiation key": {
         "definition": "The key for a virtual node, which is published in the `MemberInfo`, and used by Link Managers to authenticate and establish secure messaging sessions between network members.",
         "more": ""
-    }  
+    }, 
+    "Session trustroot": {
+        "definition": "Refers to the highest-level or root certificate in a certificate chain that is established during a secure communication session. This root certificate is issued by a trusted Certificate Authority (CA) and serves as the ultimate authority for validating the authenticity and trustworthiness of other certificates in the chain. A transport layer security (TLS) communications session established between two endpoints needs to share a common trustroot; this is typically a root certificate authority with a secured private key.",
+        "more": ". By validating the session trust root, an application or user can ensure the integrity and security of the entire certificate chain, leading to the establishment of a secure and encrypted connection between the communicating parties."
+    }, 
+    "Smart contract": {
+        "definition": "Digitize agreements by turning the contract terms into code that executes automatically when the terms are met. ",
+        "more": "This means that:<ul><li>Parties do not have to trust each other to follow through on the agreement terms.</li><li>No external enforcement is required.</li><li>The contract is always interpreted the same way.</li></ul>"
+    }, 
+    "State": {
+        "definition": "An immutable object representing a fact known by one or more participants at a specific point in time. You can use states to represent any type of data, and any kind of fact. ",
+        "more": "Facts evolve on the ledger when participants create new states and mark outdated states as consumed. Each participant has a vault where it stores the states it shares with other nodes."
+    }, 
+    "TLS": {
+        "definition": "Transport Layer Security. A protocol that establishes an encrypted session between two computers on the Internet. ",
+        "more": ""
+    }, 
+    "TLS identity": {
+        "definition": "Certificates used to validate peer-to-peer (P2P) connectivity.",
+        "more": ""
+    }, 
+    "TLS key and certificates​": {
+        "definition": "The PKI keys and certificates that are used in the gateway workers when establishing TLS links to other Gateway Workers. Typically, they are selected by Server Name Indication (SNI) to match the expected target of the communication.​",
+        "more": ""
+    }, 
+    "Time windows": {
+        "definition": "Included in every transaction: the transaction can only be committed during that window. ",
+        "more": "Times in transactions are specified as time windows and not absolute times."
+    }, 
+    "Token": {
+        "definition": "A type of programmable digital asset that can represent value and be traded. Tokens can be fungible or non-fungible. ",
+        "more": ""
+    }, 
+    "Transaction": {
+        "definition": "A transaction is a proposal to update the ledger. It is only committed to the ledger if it:<ul><li>does not contain double-spends</li><li>is contractually valid</li><li>is signed by the required parties</li></ul>",
+        "more": ""
+    }, 
+    "Trust store": {
+        "definition": "In the context of X.500 certificates and digital security, this is a repository or database containing a collection of trusted digital certificates, often from Certificate Authorities (CAs). ",
+        "more": "These certificates are used to verify and establish the authenticity and trustworthiness of a remote party's digital certificate during secure communication. Trust stores play a crucial role in public key infrastructure (PKI) systems by allowing applications and users to validate the identity and legitimacy of servers, websites, and other digital entities, helping to ensure secure and encrypted data exchanges."
+    }, 
+    "UTXO": {
+        "definition": "Unspent Transaction Output. Refers to the unspent output of a cryptocurrency transaction, representing the amount of digital currency that has not been spent and is available for use in future transactions. ",
+        "more": "In a blockchain-based system, such as Corda, UTXOs are the fundamental building blocks of the ledger, ensuring accurate tracking of ownership and transaction history. When a user initiates a new transaction, UTXOs are combined as inputs and new UTXOs are generated as outputs, reflecting the updated balance and ownership of the involved parties."
+    }, 
+    "Validity": {
+        "definition": "Simply gathering the required signatures is not enough to commit a transaction to the ledger. As well as being unique, it must also be valid. This means that the proposed transaction must be signed by all the required parties and be contractually valid.",
+        "more": "If the transaction gathers all the required signatures without meeting these conditions, the transaction’s outputs are not valid and will not be accepted as inputs to subsequent transactions."
+    }, 
+    "Vault": {
+        "definition": "A database containing all data from the ledger relevant to a participant. The database tracks spent and unspent (consumed and unconsumed) states. ",
+        "more": "From a business perspective, this means a record of all the transaction states that you can spend as a participant, and a record of all spent states from transactions relevant to you. You can compare it to a cryptocurrency wallet — record of what you have spent and how much you have available to spend."
+    }, 
+    "Virtual node": {
+        "definition": "The combination of the context of a user and the ephemeral compute instances created to progress a transaction on that identity's behalf.   ",
+        "more": "Corda 5 virtualizes the execution of flow process steps, allowing flows for multiple identities and from multiple applications to be executed within the same compute environment at the same time. A virtual node is created to handle the execution steps needed and then allowed to dematerialize. A virtual node runs one version of the CPI, which also runs that CPI’s flows and contracts. The cluster can run many virtual node identities on a multi-tenant node while keeping keys, data, and code separate. For Corda 5 users, a virtual node is equivalent to a Corda 5 node. “Virtual” means that the flows are virtualized into a series of messages sent between Worker processes, which are stateless."
+    }, 
+    "Worker": {
+        "definition": "JVM processes that run in a cluster and perform a specific task. The processes required to form a cluster depend on the deployment topology. Workers increase or scale back their capacity depending on the number of available tasks. ",
+        "more": "Corda 5 includes dedicated Workers such as REST Workers, flow Workers, DB Workers and crypto Workers. Additional Workers are also available to handle cross-cluster communication and network membership. You can add additional Worker replicas to provide further resilience and scaling."
+    }, 
+    "X.500": {
+        "definition": "A series of international standards defining a global directory service protocol for computer networks. It provides a structured framework for storing, accessing, and managing information about network resources and users in a hierarchical and distributed manner.",
+        "more": ""
+    }, 
+    "X.509": {
+        "definition": "A widely used standard for digital certificates in public key infrastructure (PKI) systems. An X.509 certificate contains an identity (such as an individual or hostname ) and a public key. ",
+        "more": "It binds the identity to the public key using a digital signature. These certificates are typically issued and signed by trusted Certificate Authorities (CAs) and include information about the certificate owner, the public key, the CA's digital signature, and other relevant details. X.509 certificates are commonly employed in various security protocols, such as SSL/TLS, to establish secure connections and authenticate the parties involved in online transactions or data exchanges."
+    }       
 }    
