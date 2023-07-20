@@ -80,7 +80,7 @@
         "more": "ECDH works by multiplying your private key by another's public key to get a shared secret, then using that shared secret to perform symmetric encryption."
     }, 
     "Entity": {
-        "definition": "An organisation or individual that participates in one ore more application networks that can provide attestation that they are whom they claim to be.",
+        "definition": "An organization or individual that participates in one or more application networks that can provide attestation that they are whom they claim to be.",
         "more": "An entity will have many identities. "
     }, 
     "Flow": {
