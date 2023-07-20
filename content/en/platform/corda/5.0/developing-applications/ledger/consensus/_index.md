@@ -21,7 +21,7 @@ Transactions must achieve both *validity* consensus and *uniqueness* consensus t
 
 There must be consensus that a proposed transaction is valid before you can add it to the ledger. Blockchains use consensus mechanisms to achieve agreement, trust, and security across decentralized networks. You may be familiar with popular mechanisms such as proof-of-work or proof-of-stake.
 
-Corda is different. Corda's notary service enables you to achieve consensus by proving a transaction is both valid and unique.
+Corda is different. Corda's notary service enables you to achieve consensus by proving that a transaction is both valid and unique.
 
 ## Validity Consensus
 
