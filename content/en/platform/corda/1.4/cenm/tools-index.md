@@ -8,10 +8,10 @@ menu:
     weight: 280
 tags:
 - tools
-title: Tools and utilities
+title: Tools and Utilities
 ---
 
-# Tools and utilities
+# Tools and Utilities
 
 A small number of tools and utilities are available to help with setting up, running, and testing a network.
 
