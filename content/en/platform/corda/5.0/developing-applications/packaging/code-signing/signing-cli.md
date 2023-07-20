@@ -26,7 +26,9 @@ mycpb.cpb \
 --key "signing key 1"
 ```
 
-2. Supply the group policy into CPI version 2 by performing one of the following actions:
+2. Build a CPI (version 2).
+   You can supply the group policy file into the CPI by either passing it to the CLI `package` command parameters as a file
+   or by piping it to the CLI `package` command as shown below:
 
    * Use a command:
    ```shell
