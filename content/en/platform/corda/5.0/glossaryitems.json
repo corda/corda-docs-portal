@@ -256,7 +256,7 @@
         "more": "For information about how X.500 names can be defined in Corda, see <a href=\"../deploying-operating/vnodes/x500.html\"> Rules for X.500 Member Names</a>."
     }, 
     "X.509": {
-        "definition": "A widely used standard for digital certificates in public key infrastructure (PKI) systems. An X.509 certificate contains an identity (such as an individual or hostname ) and a public key. ",
+        "definition": "A widely used standard for digital certificates in public key infrastructure (PKI) systems. An X.509 certificate contains an identity (such as an individual or hostname) and a public key. ",
         "more": "It binds the identity to the public key using a digital signature. These certificates are typically issued and signed by trusted Certificate Authorities (CAs) and include information about the certificate owner, the public key, the CA's digital signature, and other relevant details. X.509 certificates are commonly employed in various security protocols, such as SSL/TLS, to establish secure connections and authenticate the parties involved in online transactions or data exchanges."
     }       
 }    
