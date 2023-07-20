@@ -56,7 +56,7 @@ pluginManagement {
 }
 ```
 
-Where `cpkPluginVersion` and `cordaReleaseVersion` are both Gradle properties:
+Where `cpkPluginVersion` and `cordaReleaseVersion` are both Gradle properties. For example:
 
 ```
 cpkPluginVersion = '6.0.0'
