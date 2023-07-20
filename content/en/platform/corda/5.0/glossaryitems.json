@@ -40,11 +40,11 @@
         "more": "When you set up a membership group, you must decide which certificate authorities apply to various identities: TLS, ledger, and REST user identities."
     }, 
     "Cluster": {
-        "definition": "A complete set of worker processes. Clusters require a fully-functioning virtual node infrastructure.",
+        "definition": "A complete set of worker processes. Clusters require a fully functioning virtual node infrastructure.",
         "more": "The cluster hosts a dynamically-configured set of virtual nodes, which are equivalent to nodes used in Corda 4."
     }, 
     "Corda Host": {
-        "definition": "A complete set of worker processes. Clusters require a fully-functioning virtual node infrastructure.",
+        "definition": "A complete set of worker processes. Clusters require a fully functioning virtual node infrastructure.",
         "more": "The cluster hosts a dynamically-configured set of virtual nodes, which are equivalent to nodes used in Corda 4."
     }, 
     "Consensus": {
