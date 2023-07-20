@@ -26,24 +26,23 @@ To obtain the Corda CLI installer, download `platform-jars-5.0.0.tar.gz` from th
 
 1. Ensure that you remove any existing installations of Corda CLI by deleting the `<user-home>/.corda/cli` folder.
 2. Start a shell session (bash or zsh).
-2. Change directory to where you saved `corda-cli-installer-5.0.0.0.zip`.
-3. Extract the contents of the `zip` file:
+3. Change directory to where you saved `corda-cli-installer-5.0.0.0.zip`.
+4. Extract the contents of the `zip` file:
    ```shell
    unzip ./corda-cli-installer-5.0.0.0.zip -d corda-cli-installer-5.0.0.0
    ```
-4. Change directory to the directory extracted from the `zip` file:
+5. Change directory to the directory extracted from the `zip` file:
    ```shell
    cd corda-cli-installer-5.0.0.0
    ```
-   5. Run the install script:
-      ```shell
-      ./install.sh
-      ```
-      The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. For example, on macOS, this is typically something like `/Users/charlie.smith` or on Linux, something like `/home/charlie.smith`. You should add the Corda CLI directory to your PATH variable.
-
-6. Run the following commands to verify your installation:
+6. Run the install script:
    ```shell
-   cd $HOME/.corda/cli
+   ./install.sh
+   ```
+   The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. For example, on macOS, this is typically something like `/Users/charlie.smith` or on Linux, something like `/home/charlie.smith`.
+7. Add `<user-home>/.corda/cli` to your system's `Path` environment variable.
+8. Run the following command to verify your installation:
+   ```shell
    ./corda-cli.sh -h
    ```
    If successful, this outputs details of the Corda CLI commands.
@@ -52,30 +51,27 @@ To obtain the Corda CLI installer, download `platform-jars-5.0.0.tar.gz` from th
 
 1. Ensure that you remove any existing installations of Corda CLI by deleting the `<user-home>/.corda/cli` folder.
 2. Start a Powershell session.
-2. Change directory to where you saved `corda-cli-installer-5.0.0.0.zip`.
-3. Extract the contents of the `zip` file:
+3. Change directory to where you saved `corda-cli-installer-5.0.0.0.zip`.
+4. Extract the contents of the `zip` file:
    ```shell
    Expand-Archive .\corda-cli-installer-5.0.0.0.zip
    ```
-4. Change directory to the directory extracted from the `zip` file:
+5. Change directory to the directory extracted from the `zip` file:
    ```shell
    cd corda-cli-installer-5.0.0.0
    ```
-5. Run the install script:
+6. Run the install script:
    ```shell
    .\install.ps1
    ```
-   The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. On Windows, this is typically something like `C:\Users\Charlie.Smith`. You should add the Corda CLI directory to your PATH variable.
+   The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. On Windows, this is typically something like `C:\Users\Charlie.Smith`.
 
    {{< note >}}
    If your PowerShell execution policy does not allow you to run this script, copy the contents to your own PowerShell script and execute that instead.
    {{< /note >}}
-
-6. Run the following commands to verify your installation:
+7. Add `<user-home>/.corda/cli` to your system's `Path` environment variable.
+8. Run the following command to verify your installation:
      ```shell
-     cd %USERPROFILE%/.corda/cli
      corda-cli.cmd -h
      ```
-
-
     If successful, this outputs details of the Corda CLI commands.

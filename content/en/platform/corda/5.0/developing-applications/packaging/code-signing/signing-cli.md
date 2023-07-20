@@ -26,31 +26,35 @@ mycpb.cpb \
 --key "signing key 1"
 ```
 
-2. Build a CPI version 2:
-```shell
-./corda-cli.sh package create-cpi \
---cpb mycpb.cpb \
---group-policy TestGroupPolicy.json \
---cpi-name "cpi name" \
---cpi-version "1.0.0.0-SNAPSHOT" \
---file output.cpi \
---keystore signingkeys.pfx \
---storepass "keystore password" \
---key "signing key 1"
-```
+2. Build a CPI (version 2).
+   You can supply the group policy file into the CPI by either passing it to the CLI `package` command parameters as a file
+   or by piping it to the CLI `package` command as shown below:
 
-3. Pipe group policy into CPI version 2:
-```shell
-./corda-cli.sh mgm groupPolicy | ./corda-cli.sh package create-cpi \
---cpb mycpb.cpb \
---group-policy - \
---cpi-name "cpi name" \
---cpi-version "1.0.0.0-SNAPSHOT" \
---file output.cpi \
---keystore signingkeys.pfx \
---storepass "keystore password" \
---key "signing key 1"
-```
+   * Use a command:
+   ```shell
+   ./corda-cli.sh package create-cpi \
+   --cpb mycpb.cpb \
+   --group-policy TestGroupPolicy.json \
+   --cpi-name "cpi name" \
+   --cpi-version "1.0.0.0-SNAPSHOT" \
+   --file output.cpi \
+   --keystore signingkeys.pfx \
+   --storepass "keystore password" \
+   --key "signing key 1"
+   ```
+
+   * Or pipe the group policy:
+   ```shell
+   ./corda-cli.sh mgm groupPolicy | ./corda-cli.sh package create-cpi \
+   --cpb mycpb.cpb \
+   --group-policy - \
+   --cpi-name "cpi name" \
+   --cpi-version "1.0.0.0-SNAPSHOT" \
+   --file output.cpi \
+   --keystore signingkeys.pfx \
+   --storepass "keystore password" \
+   --key "signing key 1"
+   ```
 
 4. Check signatures using `jarsigner`:
 ```shell
