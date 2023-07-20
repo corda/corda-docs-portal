@@ -556,7 +556,7 @@ More specifically, in order to ensure optimal performance it is required:
 * A supported Java distribution (see [Getting set up for CorDapp development]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md" >}}))
 * Corda Enterprise JAR
 * Corda Firewall JAR
-* Apache Artemis v2.6.2 (v2.19.1 if you are using Corda 4.9.1 or above) or RedHat amq broker v7.2.2
+* Apache Artemis v2.6.2 (v2.19.1 for Corda 4.9.1 and above) or RedHat amq broker v7.2.2
 * Optional: Zookeeper v3.6.1 if using Bridge cluster
 
 It is possible to allow two or more Corda nodes (HA and/or non-HA) handle outgoing and incoming P2P communication through a shared bridge. This is possible by configuring the nodes to use
@@ -696,7 +696,7 @@ HA Utilities for Artemis server configuration tool, which you can use to build a
 To run Apache Artemis you can use: `cd artemis && bin/artemis run`
 
 {{< /note >}}
-We have tested Corda against Apache Artemis v2.6.2 and RedHat amq broker v7.2.2. It is recommended to use these Artemis versions with Corda.
+We have tested Corda against Apache Artemis v2.6.2 (v2.19.1 for Corda 4.9.1 and above) and RedHat amq broker v7.2.2. It is recommended to use these Artemis versions with Corda.
 
 
 ## Apache ZooKeeper

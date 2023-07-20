@@ -696,7 +696,7 @@ HA Utilities for Artemis server configuration tool, which you can use to build a
 To run Apache Artemis you can use: `cd artemis && bin/artemis run`
 
 {{< /note >}}
-We have tested Corda against Apache Artemis v2.6.2 and RedHat amq broker v7.2.2. It is recommended to use these Artemis versions with Corda.
+We have tested Corda against Apache Artemis v2.19.1 and RedHat amq broker v7.2.2. It is recommended to use these Artemis versions with Corda.
 
 
 ## Apache ZooKeeper
