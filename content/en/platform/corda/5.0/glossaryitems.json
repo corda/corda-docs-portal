@@ -48,7 +48,7 @@
         "more": "The cluster hosts a dynamically-configured set of virtual nodes, which are equivalent to nodes used in Corda 4."
     }, 
     "Consensus": {
-        "definition": "Consensus that a proposed transaction is valid is required before you can add it to the ledger. ",
+        "definition": "An agreement that a proposed transaction is valid is required before you can add it to the ledger. ",
         "more": "In Corda, this is achieved by proving a transaction is both <i>valid</i> and <i>unique</i>:<ul><li>Validity consensus determines if a transaction is accepted by the smart contracts it references.</li><li>Uniqueness consensus prevents double-spends.</li></ul> For more information, see <a href=\"../developing-applications/ledger/consensus.html\">Consensus</a>."
     }, 
     "Corda CLI": {
@@ -108,8 +108,8 @@
         "more": "Membership is granted based on evidence from the entity submitted at time of request, that they are whom they claim to be. The threshold for that claim is the responsibility of the Application Network Operator to set out in their Terms of Service. The Network Operator can choose any approach here, from accepting entities at their word, through to a full KYC process."
     }, 
     "JKS": {
-        "definition": "Java KeyStore",
-        "more": "A repository of security certificates, either authorization certificates or public key certificates, plus corresponding private keys, used for instance in TLS encryption."
+        "definition": "Java KeyStore. A repository of security certificates, either authorization certificates or public key certificates, plus corresponding private keys, used for instance in TLS encryption.",
+        "more": ""
     }, 
     "Kafka": {
         "definition": "The means by which Corda workers communicate, acting as a central message bus between the worker processes. ",
@@ -192,11 +192,11 @@
         "more": ""
     }, 
     "Session trustroot": {
-        "definition": "Refers to the highest-level or root certificate in a certificate chain that is established during a secure communication session. This root certificate is issued by a trusted Certificate Authority (CA) and serves as the ultimate authority for validating the authenticity and trustworthiness of other certificates in the chain. A transport layer security (TLS) communications session established between two endpoints needs to share a common trustroot; this is typically a root certificate authority with a secured private key.",
+        "definition": "The highest-level or root certificate in a certificate chain that is established during a secure communication session. This root certificate is issued by a trusted Certificate Authority (CA) and serves as the ultimate authority for validating the authenticity and trustworthiness of other certificates in the chain. A transport layer security (TLS) communications session established between two endpoints needs to share a common trustroot; this is typically a root certificate authority with a secured private key.",
         "more": ". By validating the session trust root, an application or user can ensure the integrity and security of the entire certificate chain, leading to the establishment of a secure and encrypted connection between the communicating parties."
     }, 
     "Smart contract": {
-        "definition": "Digitize agreements by turning the contract terms into code that executes automatically when the terms are met. ",
+        "definition": "Digitizes agreements by turning the contract terms into code that executes automatically when the terms are met. ",
         "more": "This means that:<ul><li>Parties do not have to trust each other to follow through on the agreement terms.</li><li>No external enforcement is required.</li><li>The contract is always interpreted the same way.</li></ul>"
     }, 
     "State": {
@@ -224,15 +224,15 @@
         "more": ""
     }, 
     "Transaction": {
-        "definition": "A transaction is a proposal to update the ledger. It is only committed to the ledger if it:<ul><li>does not contain double-spends</li><li>is contractually valid</li><li>is signed by the required parties</li></ul>",
-        "more": ""
+        "definition": "A transaction is a proposal to update the ledger. ",
+        "more": "It is only committed to the ledger if it:<ul><li>does not contain double-spends</li><li>is contractually valid</li><li>is signed by the required parties</li></ul>"
     }, 
     "Trust store": {
         "definition": "In the context of X.500 certificates and digital security, this is a repository or database containing a collection of trusted digital certificates, often from Certificate Authorities (CAs). ",
         "more": "These certificates are used to verify and establish the authenticity and trustworthiness of a remote party's digital certificate during secure communication. Trust stores play a crucial role in public key infrastructure (PKI) systems by allowing applications and users to validate the identity and legitimacy of servers, websites, and other digital entities, helping to ensure secure and encrypted data exchanges."
     }, 
     "UTXO": {
-        "definition": "Unspent Transaction Output. Refers to the unspent output of a cryptocurrency transaction, representing the amount of digital currency that has not been spent and is available for use in future transactions. ",
+        "definition": "Unspent Transaction Output. The unspent output of a cryptocurrency transaction, representing the amount of digital currency that has not been spent and is available for use in future transactions. ",
         "more": "In a blockchain-based system, such as Corda, UTXOs are the fundamental building blocks of the ledger, ensuring accurate tracking of ownership and transaction history. When a user initiates a new transaction, UTXOs are combined as inputs and new UTXOs are generated as outputs, reflecting the updated balance and ownership of the involved parties."
     }, 
     "Validity": {
