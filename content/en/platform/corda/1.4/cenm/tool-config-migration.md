@@ -2,16 +2,20 @@
 aliases:
 - /tool-config-migration.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  cenm-1-4:
+    identifier: cenm-1-4-tool-config-migration
+    parent: cenm-1-4-tools-index
+    weight: 1060
 tags:
 - tool
 - config
 - migration
-title: Config migration tool
+title: Configuration Migration Tool
 ---
 
 
-# Config migration tool
+# Configuration Migration Tool
 
 The configuration migration tool migrates v0.2.2 and v0.3+ Doorman and Network Map configurations to v1.0 Identity Manager and
 Network Map configurations. Norman (v0.2.2 combined Network Map and Doorman) configurations produce separate Identity Manager and
