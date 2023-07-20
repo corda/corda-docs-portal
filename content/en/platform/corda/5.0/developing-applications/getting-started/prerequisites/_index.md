@@ -14,7 +14,7 @@ This section lists the third-party software prerequisites for local deployment w
 For information about the prerequisites for multi-worker cluster deployments, see [Prerequisites for Cluster Deployments]({{< relref "../../../deploying-operating/deployment/prerequisites.md" >}}).
 
 {{< note >}}
-You cannot start Corda via the CSDE `startCorda` task if any existing local programs are using ports 5432, 5005, or 8888. Reserve these ports.
+You cannot start Corda via the CSDE `startCorda` task if any existing local programs are using ports 5432, 5005, or 8888. Reserve these ports. For more information, see [Required CSDE Ports]({{< relref "#required-csde-ports" >}}). 
 {{< /note >}}
 
 ## Software Prerequisites
