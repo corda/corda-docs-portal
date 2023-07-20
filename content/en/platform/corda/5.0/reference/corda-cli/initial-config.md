@@ -78,8 +78,8 @@ The `create-crypto-config` command creates the SQL statements to insert the init
 | -l, \-\-location                        | The path to write the generated SQL files to.                                                                                                    |
 | -p, \-\-passphrase                      | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the database worker. |
 | -s, \-\-salt                            | Salt for the encrypting secrets service. This must match the value specified in the Corda deployment configuration for the database worker.             |
-| -wp, \-\-wrapping-passphrase            | The passphrase for the key derivation function for the root wrapping key used to protect all crypto database content via a second set of wrapping keys.                                                                                               |
-| -ws, \-\-wrapping-salt                  | The salt for the key derivation function for the root wrapping key used to protect all crypto database content via a second set of wrapping keys.                                                                                                         |
+| -wp, \-\-wrapping-passphrase            | The passphrase for the key derivation function for the root wrapping key. Used to protect all crypto database content via a second set of wrapping keys.                                                                                               |
+| -ws, \-\-wrapping-salt                  | The salt for the key derivation function for the root wrapping key. Used to protect all crypto database content via a second set of wrapping keys.                                                                                                         |
 
 {{< tabs name="DDL-crypto-config">}}
 {{% tab name="Bash" %}}

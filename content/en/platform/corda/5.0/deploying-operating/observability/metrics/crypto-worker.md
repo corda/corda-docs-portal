@@ -20,12 +20,12 @@ The keys of the virtual nodes are stored in dedicated databases per virtual node
 The crypto requests can be categorized into flow requests and everything else. Flow requests to the crypto processor are of more importance in terms of metrics as they occur frequently and impact the time taken to complete flows. With the crypto worker metrics, you can measure the below crypto requests within the crypto worker:
 
 * Flow-crypto requests, which consist of the operations:
-  * `SigningService.sign`: The `sign` operation is initiated on the flow side and is performed in the crypto processor. It sends the bytes to be signed along with the public part of the signing key and the signature spec to the crypto worker.
+    * `SigningService.sign`: The `sign` operation is initiated on the flow side and is performed in the crypto processor. It sends the bytes to be signed, along with the public part of the signing key and the signature spec, to the crypto worker.
     On the crypto worker side, the crypto worker attempts to find the key in the keys hosted for the virtual node that
     sent the request and if found, it signs the bytes and returns the signature.
     The metrics in the following table pertain to the time taken to handle the entire `sign` request. Additionally, there are more detailed metrics related to key caches and the 'sign' operation itself.
-  * `SigningService.findMySigningKeys`: The `findMySigningKeys` operation sends a set of public keys to the crypto worker,which then filters and returns the keys owned by the calling virtual node.
-      The metrics in the following table are related to the time taken to handle the entire `findMySigningKeys` request. Additionally, there are metrics related to key caches.
+    * `SigningService.findMySigningKeys`: The `findMySigningKeys` operation sends a set of public keys to the crypto worker,which then filters and returns the keys owned by the calling virtual node.
+    The metrics in the following table are related to the time taken to handle the entire `findMySigningKeys` request. Additionally, there are metrics related to key caches.
 
 * Admin or other requests, which involve operations such as creating a new key pair for a virtual node, or list information about the keys owned by a virtual node. Regarding metrics for these requests, the following metrics pertain to the time taken to handle the requests as a whole.
 
