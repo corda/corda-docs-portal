@@ -684,7 +684,7 @@ To retrieve `IssuableState`s for a particular issuer:
 2. Pass in `IssuableStateQueries.GET_BY_ISSUER` as the query name.
 3. Set the result class as `StateAndRef`.
 4. Pass in the following parameters using `setParameter`
-    *`issuer` - Parse the issuer key into a `String` using the `DigestService`.
+    * `issuer` - Parse the issuer key into a `String` using the `DigestService`.
     * `stateType` - The type of state to retrieve, as a `String`.
 
 For example:
