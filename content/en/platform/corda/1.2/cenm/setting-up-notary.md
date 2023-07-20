@@ -4,7 +4,11 @@ aliases:
 - /docs/cenm/head/setting-up-notary.html
 - /docs/cenm/setting-up-notary.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  cenm-1-2:
+    identifier: cenm-1-2-setting-up-notary
+    parent: cenm-1-2-tools-index
+    weight: 1010
 tags:
 - setting
 - notary
