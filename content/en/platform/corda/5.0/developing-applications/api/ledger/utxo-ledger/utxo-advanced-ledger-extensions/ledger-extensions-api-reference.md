@@ -375,9 +375,10 @@ To create a unique identifiable state, create an instance of an `IdentifiableSta
 
 To update an existing identifiable state, do the following:
 
-1. Retrieve the existing `IdentifiableState`, `id` or its `StateRef` if the `id` is `null`.
-2. Create a new instance of the `IdentifiableState` and pass in the `id` or `StateRef` from the previous step.
-3. Consume the existing instance in the same transaction that contains the updated instance.
+1. Retrieve the existing `IdentifiableState.
+2. Extract the `id` or `StateRef` from the state once it has been retrieved, only use the `StateRef` if the `id` is `null` which occurs when it has been updated for the first time
+3. Create a new instance of the `IdentifiableState` and pass in the `id` or `StateRef` from the previous step.
+4. Consume the existing instance in the same transaction that contains the updated instance.
 
 To delete an identifiable state, do the following:
 
