@@ -391,7 +391,7 @@ To retrieve the latest `IdentifiableState`s:
 1. Call `UtxoLedgerService.query`.
 2. Pass in `IdentifiableStateQueries.GET_BY_IDS` as the query name.
 3. Set the result class as `StateAndRef`.
-4. Call `setParameter` with a key of `id` and value containing all the `id`s (or `StateRef`s) as `String`s for the states that are retrieved.
+4. Call `setParameter` with a key of `ids` and value containing all the `id`s (or `StateRef`s) as `String`s for the states that are retrieved.
 
 For example:
 
