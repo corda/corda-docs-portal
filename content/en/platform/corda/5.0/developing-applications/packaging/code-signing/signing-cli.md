@@ -26,7 +26,7 @@ mycpb.cpb \
 --key "signing key 1"
 ```
 
-2. Supply the group policy into CPI version 2 by performing one of the following actions:
+2. Build the CPI. Supply the group policy into CPI version 2 by performing one of the following actions:
 
    * Use a command:
    ```shell
@@ -54,7 +54,7 @@ mycpb.cpb \
    --key "signing key 1"
    ```
 
-4. Check signatures using `jarsigner`:
+3. Check signatures using `jarsigner`:
 ```shell
 jarsigner -keystore signingkeys.pfx -storepass "keystore password" -verbose -certs  -verify output.cpi
 ```
