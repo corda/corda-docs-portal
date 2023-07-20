@@ -26,7 +26,9 @@ mycpb.cpb \
 --key "signing key 1"
 ```
 
-2. Build the CPI. Supply the group policy into CPI version 2 by performing one of the following actions:
+2. Build a CPI (version 2).
+   You can supply the group policy file into the CPI by either passing it to the CLI `package` command parameters as a file
+   or by piping it to the CLI `package` command as shown below:
 
    * Use a command:
    ```shell
@@ -54,7 +56,7 @@ mycpb.cpb \
    --key "signing key 1"
    ```
 
-3. Check signatures using `jarsigner`:
+4. Check signatures using `jarsigner`:
 ```shell
 jarsigner -keystore signingkeys.pfx -storepass "keystore password" -verbose -certs  -verify output.cpi
 ```
