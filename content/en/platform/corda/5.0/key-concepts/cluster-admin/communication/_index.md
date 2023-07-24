@@ -29,5 +29,5 @@ The components of the peer-to-peer communications layer are responsible for deli
 If the two virtual nodes communicating reside in the same cluster, the messages can be routed back without exiting the cluster at all. 
 If the two virtual nodes communicating reside in separate clusters, the link manager processor is responsible for establishing end-to-end authenticated sessions with the link managers on the other cluster in order to transfer the messages in a secure way. 
 The link manager is also responsible for ensuring the message is delivered reliably in the case of any transient issues in the network path between the two clusters. 
-Any messages destined for a separate cluster are forwarded by the link manager to the p2p gateway, which forwards them to the p2p gateway of the other cluster via HTTPS. 
+Any messages destined for a separate cluster are forwarded by the link manager to the P2P gateway, which forwards them to the P2P gateway of the other cluster via HTTPS. 
 A gateway can connect to another gateway in a separate cluster via mutual TLS, depending on the policy of the application network. 
