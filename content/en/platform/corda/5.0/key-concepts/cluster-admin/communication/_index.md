@@ -20,7 +20,7 @@ Interaction with the Corda Cluster for administration or flow management uses a 
 These HTTP REST endpoints are exposed by the REST workers in the cluster. 
 Like other worker types, REST workers are stateless, so requests can be divided across all REST workers using a standard HTTP load balancer, which must be exposed to the application and/or user that interacts with the cluster.
 
-HTTP requests are authenticated using basic authentication and authorization is based on Corda’s [RBAC capabilities]({{< relref "../../../deploying-operating/config-users/_index.md" >}}).
+HTTP requests are authenticated using basic authentication, and authorization is based on Corda’s [RBAC capabilities]({{< relref "../../../deploying-operating/config-users/_index.md" >}}).
 
 ## P2P
 
