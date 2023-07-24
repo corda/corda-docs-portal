@@ -82,6 +82,7 @@ Apache Kafka version 3.2.0 is supported by Corda. It is used internally in the C
 
 ## Load Balancers
 A standard HTTP load balancer can be used to balance load between all REST API workers.
+For information about configuring your load balancer, see the [Deploying]({{< relref "../../../deploying-operating/deployment/deploying/_index.md#expose-the-rest-api" >}}) section.
 
 ## Java/JVM
 
