@@ -69,7 +69,7 @@ Corda required the following types of keys:
 * Ledger
 * CorDapp publisher code signing
 
-All of the above keys are stored in the Crypto datbases (cluster and virtual nodes) and they are all encrypted at rest with “Wrapping keys”. <!--more info to follow-->
+All of the above keys are stored in the Crypto databases (cluster and virtual nodes) and they are all encrypted at rest with “Wrapping keys”. <!--more info to follow-->
 
 {{< note >}}
 It is not currently possible to revoke or rotate keys.
