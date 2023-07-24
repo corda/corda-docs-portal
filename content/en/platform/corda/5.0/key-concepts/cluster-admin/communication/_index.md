@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Cluster Communications
 
-Communication between workers, within a cluster, is mostly achieved through the internal message bus, integrated with Kafka. However, communication originating from outside a cluster is usually using the HTTP protocol. 
+Communication between workers, within a cluster, is mostly achieved through the internal message bus, integrated with Kafka. However, communication originating from outside a cluster usually uses the HTTP protocol. 
 
 ## REST
 
