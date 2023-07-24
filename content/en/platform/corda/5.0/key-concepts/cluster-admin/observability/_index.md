@@ -14,7 +14,7 @@ section_menu: corda5
 
 ## Logging
 
-All components in a Corda cluster produce logs at level INFO by default. There are send to stdout/stderr and can easily be integrated with a log collector or aggregator of choice. All application-level logging is handled by log4J which means the log level and target can be changed through customising the log4J config.
+All components in a Corda cluster produce logs at level INFO by default. There are send to stdout/stderr and can easily be integrated with a log collector or aggregator of choice. All application-level logging is handled by log4J which means the log level and target can be changed through customizing the log4J config.
 
 For more information about retrieving logs from Kubernetes, see [Metrics]({{< relref "../../../deploying-operating/observability/logs.md" >}}).
 
