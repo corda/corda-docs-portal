@@ -46,7 +46,7 @@ To disable revocation checks, do the following:
    ```shell
    export CONFIG_VERSION=<configuration-version>
    ```
-3. Send the following request to disable revocation checks for the specified gateway worker:
+3. Send the following request to disable revocation checks for the specified link manager:
    ```
    curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.p2p.linkManager", "version":"'$CONFIG_VERSION'", "config": { "revocationCheck": { "mode": "OFF" } }, "schemaVersion": {"major": 1, "minor": 0}}' $REST_API_URL"/config"
    ```
