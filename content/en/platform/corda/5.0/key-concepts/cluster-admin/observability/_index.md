@@ -20,4 +20,4 @@ For more information about retrieving logs from Kubernetes, see [Metrics]({{< re
 
 ## Metrics
 
-Corda workers expose metrics to provide a better insight into the system as a whole. These metrics are exposed as [prometheus](https://prometheus.io/) compatible HTTP endpoints that can be consumed by a collector and visualisation tool of choice. For more information, see [Metrics]({{< relref "../../../deploying-operating/observability/metrics/_index.md" >}}).
+Corda workers expose metrics to provide a better insight into the system as a whole. These metrics are exposed as [prometheus](https://prometheus.io/) compatible HTTP endpoints that can be consumed by a collector and visualization tool of choice. For more information, see [Metrics]({{< relref "../../../deploying-operating/observability/metrics/_index.md" >}}).
