@@ -52,7 +52,7 @@ Corda creates one of each of the following types per virtual node:
 All cluster-level databases must be initialized before Corda is operational. See the [Corda Deployment section]({{< relref "../../../deploying-operating/deployment/deploying/_index.md#database" >}}) for information about how databases are bootstrapped.
 Once the databases are created, Corda must be aware of where the dependent databases are. This happens in two places:
 * `Config` database — the connection details for the config database are passed into all instances of the database worker when it is started. A read-only connection to this database must also be passed into the crypto worker to enable it to read crypto database configuration.
-* All other databases — connection details for all other database are stored in a table inside the `Config` database. 
+* All other databases — connection details for all other databases are stored in a table inside the `Config` database. 
 
 This design enables Corda to connect to a dynamic set of databases, specifically the virtual node databases, which are created and managed by Corda itself.
 Virtual node databases are automatically created when a new virtual node is created. A future version may include functionality that allows a Cluster Administrator to create and manage virtual node databases outside of Corda.
