@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Workers 
 
-Corda 5 introduces a distributed architecture for the Corda runtime that is based on worker processes. There are different types of worker processors which each have their own operational responsibility and because each worker is stateless, it is possible to scale horizontally.
+Corda 5 introduces a distributed architecture for the Corda runtime that is based on worker processes. There are different types of worker processors which each have their own operational responsibility and, because each worker is stateless, it is possible to scale horizontally.
 
 {{< 
   figure
