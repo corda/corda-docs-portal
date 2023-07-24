@@ -1,5 +1,5 @@
 ---
-title: "Architecture for Cluster Admininstrators"
+title: "Architecture for Cluster Administrators"
 date: 2023-07-24
 version: 'Corda 5.0'
 menu:
