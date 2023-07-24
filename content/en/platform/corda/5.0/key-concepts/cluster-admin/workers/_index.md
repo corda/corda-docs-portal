@@ -23,7 +23,7 @@ Corda 5 introduces a distributed architecture for the Corda runtime that is base
 
 Currently, Corda uses the following types of workers:
 
-* Crypto workers — the only worker type that load to sensitive cryptographic material such as private keys.
+* Crypto workers — the only worker type that can load sensitive cryptographic material such as private keys.
 * Database workers — responsible for all persistence operations (read, write, update) for the cluster or on behalf of the virtual nodes.
 * Flow workers — execute the CorDapp code represented by flows.
 * Member workers — provide all membership capabilities, such as joining an application network and discovering other members in the network.

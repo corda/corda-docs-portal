@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Technology Stack
 
-This section examines the core technologies that underpin Corda. Corda 5 is a distributed application made of multiple stateless workers, as described in the [following section]({{< relref "#workers" >}}). This section contains the following:
+This section examines the core technologies that underpin Corda. Corda 5 is a distributed application made of multiple stateless workers, as described in the [following section]({{< relref "../workers" >}}). This section contains the following:
 * [Persistence](#persistence)
 * [Key Management](#key-management)
 * [Kafka](#kafka)
@@ -21,7 +21,7 @@ This section examines the core technologies that underpin Corda. Corda 5 is a di
 
 ## Persistence
 
-Corda uses relational databases for its persistence layer. Currently, Corda supports PostgreSQL Version 14.4 only, but support for other types of databases may be added in future releases. Corda uses a number of databases which can be co-hosted on the same database host or even share a single database instance but segregated by schema. All are logically separated with Corda managing connection details for each of the logical databases.
+Corda uses relational databases for its persistence layer. Currently, Corda only supports PostgreSQL Version 14.4, but support for other types of databases may be added in future releases. Corda uses a number of databases which can be co-hosted on the same database host or even share a single database instance but segregated by schema. All are logically separated, with Corda managing the connection details for each of the logical databases.
 
 Broadly speaking, there are two groups of databases:
 * [Cluster-wide databases]({{< relref "#cluster-databases" >}}) — contain data that is necessary for the running of the Corda cluster.
