@@ -1,6 +1,6 @@
 ---
 date: '2023-04-07'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 title: "Submitting a Token in a Registration Request"
 menu:
   corda5:

@@ -2,7 +2,7 @@
 date: '2023-06-22'
 title: "External Messaging CorDapps"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-develop-external-messaging
