@@ -16,7 +16,7 @@ From Corda 5 onwards, a single Corda deployment can host multiple virtual node i
 
 We now also refer to application networks, as networks of virtual nodes that all run the same, or compatible, CorDapps and where membership of the network is managed by the Membership Group Manager (MGM). In other words, a virtual node represents an identity on a network of application users that is managed by the MGM.
 
-A virtual node is abstracted from the Corda runtime, and so a Corda cluster can support many virtual nodes members of different networks. However, a given virtual node can only belong to a single application network, and only deployed to a single Corda cluster at one time, and of course, an application network can span multiple Corda clusters.
+A virtual node is abstracted from the Corda runtime, and so a Corda cluster can support many virtual node members of different networks. However, a given virtual node can only belong to a single application network, and can only be deployed to a single Corda cluster at one time. An application network can span multiple Corda clusters.
 
 {{< 
   figure
