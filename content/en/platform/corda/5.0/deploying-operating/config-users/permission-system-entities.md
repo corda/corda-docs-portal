@@ -21,15 +21,13 @@ This entity represents a human user or system user.
 
 * `Full Name` is a human-readable name. This is a property which cannot be used to code any permissions against it.
   It also has a UUID identifier for a concrete reference to the instance of an entity.
-* `Login Name` is the name used for authentication and authorization purposes. It can be in an email address
-  in case of SSO. There can be only one `Enabled` user for a given `Login Name`.
+* `Login Name` is the name used for authentication and authorization purposes. There can be only one `Enabled` user for a given `Login Name`.
 * `Enabled` is a boolean flag to indicate whether the user is enabled or temporarily suspended.
 * `E-mail` is an email address for the user account used for communication of any important information
   affecting this account. The same email address may be used for multiple accounts.
 * `Salt value` is a randomly generated value used when hashing the password. It only makes sense when the password is
   assigned as well.
 * `Hashed password` is a salted and hashed representation of the password.
- This property can be set to `null` for SSO-only accounts.
 * `Password expiry` is only applicable when the password is assigned and when it specifies the timestamp after which the password
   is deemed expired and needs changing.
 * `Parent Group` is an optional identifier of the group to which the user belongs. This property can be set to `null`. In such

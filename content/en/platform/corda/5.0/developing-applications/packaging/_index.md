@@ -7,7 +7,7 @@ menu:
   corda5:
     identifier: corda5-develop-packaging
     parent: corda5-develop
-    weight: 4000
+    weight: 6050
 section_menu: corda5
 ---
 # Packaging
