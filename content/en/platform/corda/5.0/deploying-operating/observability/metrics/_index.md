@@ -1,6 +1,6 @@
 ---
 date: '2023-05-10'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 title: "Metrics"
 menu:
   corda5:

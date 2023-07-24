@@ -2,7 +2,7 @@
 date: '2023-04-20'
 title: "Managing Pre-Authorization"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-networks-pre-auth
