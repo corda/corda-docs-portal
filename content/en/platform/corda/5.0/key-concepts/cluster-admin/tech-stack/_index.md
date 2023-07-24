@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Technology Stack
 
-This section examines the core technologies that underpin Corda. Corda 5 is a distributed application made of multiple stateles workers, as described in the [following section]({{< relref "#workers" >}}). This section contains the following:
+This section examines the core technologies that underpin Corda. Corda 5 is a distributed application made of multiple stateless workers, as described in the [following section]({{< relref "#workers" >}}). This section contains the following:
 * [Persistence](#persistence)
 * [Key Management](#key-management)
 * [Kafka](#kafka)
