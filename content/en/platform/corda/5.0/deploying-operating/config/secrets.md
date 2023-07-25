@@ -41,7 +41,7 @@ You can specify the `pass` value as a secret using the `configSecret` value, as 
   "database": {
      "pass": {
          "configSecret": {
-           "encryptedSecret": "<encryped-db-password>"
+           "encryptedSecret": "<encrypted-db-password>"
          }
      }
   }
