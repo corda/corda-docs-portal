@@ -23,9 +23,7 @@ The packages are not required but they define a suggested structure for you to f
 In this tutorial, you will use the CSDE repository as a template and build on top of it.
 This project already contains some example flows, contracts, and states.
 
-1. Clone or fork the [CSDE repository](https://github.com/corda/CSDE-cordapp-template-kotlin).
-
-2. Read the CSDE [installation instructions]({{< relref "../getting-started/installing/_index.md" >}}) and repeat the steps relevant to your CorDapp.
+1. Follow the CSDE [installation instructions]({{< relref "../getting-started/installing/_index.md" >}}) to clone the [Kotlin CSDE repository](https://github.com/corda/CSDE-cordapp-template-kotlin).
 
 3. Update the `workflows` module by performing the following steps:
 
