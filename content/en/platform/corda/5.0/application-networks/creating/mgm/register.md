@@ -1,6 +1,6 @@
 ---
 date: '2023-04-07'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 title: "Register the MGM"
 menu:
   corda5:
@@ -23,7 +23,8 @@ To register the MGM, you must first generate the registration context:
 * [Build Registration Context Using Bash]({{< relref "#build-registration-context-using-bash">}})
 * [Build Registration Context Using PowerShell]({{< relref "#build-registration-context-using-powershell">}})
 
-The examples in this section set `corda.group.key.session.policy` to `Distinct`, indicating that the ledger and session initiation key must not be the same key. Alternatively, setting `corda.group.key.session.policy` to `Combined` means that the ledger key used by a member must be the same as the session initiation key.
+The examples in this section set `corda.group.key.session.policy` to `Distinct`, indicating that the ledger and session
+initiation key must not be the same key. This is the only supported mode at the moment.
 
 {{< note >}}
 * If you want to use certificates for session initiation keys for peer-to-peer communication, see [Configuring Optional Session Certificates]({{< relref "../optional/session-certificates.html#build-registration-context-for-mgm-registration" >}}) for information about the additional JSON fields required in the registration context.

@@ -1,7 +1,7 @@
 ---
 date: '2023-01-23'
 title: "Running the Chat CorDapp"
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     parent: corda5-utxo-example
@@ -31,7 +31,7 @@ Remember to start your docker engine before you attempt to start Corda and make 
 ## Using Swagger
 
 For this walkthrough, we assume you are using the `Swagger GUI` to trigger flows. For each flow we use the Flow Management section of the API.
-You must know the `holdingidentityshorthash` for both Alice and Bob’s nodes. You can retrieve this by running the `listVNodes` Gradle helper in the `csde-queries` section of the [gradle helper]({{< relref "../../cordapp-standard-development-environment/_index.md" >}}) tasks.
+You must know the `holdingidentityshorthash` for both Alice and Bob’s nodes. You can retrieve this by running the `listVNodes` Gradle helper in the `csde-queries` section of the [gradle helper]({{< relref "../../overview/_index.md" >}}) tasks.
 
 {{< figure src="listvnodes.png" figcaption="listVnodes Gradler helper" alt="listVnodes Gradler helper" width=30% length=30% >}}
 

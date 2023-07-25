@@ -2,7 +2,7 @@
 date: '2023-05-03'
 title: "Building Your First CorDapp"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-develop-first-cordapp
@@ -20,7 +20,7 @@ Follow this learning path to build your first CorDapp with a step-by-step guide.
 Before you start building your first CorDapp:
 - Read about [Corda key concepts]({{< relref "../../key-concepts/_index.md" >}}).
 - Install the required [prerequisites]({{< relref "../tooling/_index.md" >}}).
-- Read the CorDapp Standard Development Environment (CSDE) [installation instructions]({{< relref "../getting-started/cordapp-standard-development-environment/_index.md" >}}).
+- Read the CorDapp Standard Development Environment (CSDE) [installation instructions]({{< relref "../getting-started/installing/_index.md" >}})
 
 ## The Story
 

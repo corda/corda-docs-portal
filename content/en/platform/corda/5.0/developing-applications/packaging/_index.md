@@ -2,12 +2,12 @@
 date: '2023-02-23'
 title: "Packaging"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-develop-packaging
     parent: corda5-develop
-    weight: 4000
+    weight: 6050
 section_menu: corda5
 ---
 # Packaging

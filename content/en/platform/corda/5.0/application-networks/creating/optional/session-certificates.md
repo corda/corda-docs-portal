@@ -1,6 +1,6 @@
 ---
 date: '2022-11-15'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 title: "Session Certificates"
 menu:
   corda5:
@@ -46,7 +46,7 @@ To disable revocation checks, do the following:
    ```shell
    export CONFIG_VERSION=<configuration-version>
    ```
-3. Send the following request to disable revocation checks for the specified gateway worker:
+3. Send the following request to disable revocation checks for the specified link manager:
    ```
    curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.p2p.linkManager", "version":"'$CONFIG_VERSION'", "config": { "revocationCheck": { "mode": "OFF" } }, "schemaVersion": {"major": 1, "minor": 0}}' $REST_API_URL"/config"
    ```
@@ -60,7 +60,7 @@ If using session certificates, make the following changes to the [MGM registrati
 
 ## Configure Virtual Node as Network Participant
 
-If using session certificates, you must also add the `sessionCertificateChainAlias` and `useClusterLevelSessionCertificateAndKey` JSON fields to the network setup REST request. For example:
+If using session certificates, you must also add the `sessionCertificateChainAlias` JSON field to the network setup REST request. For example:
 ```shell
 curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "useClusterLevelTlsCertificateAndKey": true, "sessionKeysAndCertificates": [{"sessionKeyId": "'$SESSION_KEY_ID'", "sessionCertificateChainAlias": "session-certificate", "preferred": true}]}' $REST_API_URL/network/setup/$HOLDING_ID
 ```
