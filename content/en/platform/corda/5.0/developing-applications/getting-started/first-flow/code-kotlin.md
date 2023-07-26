@@ -209,7 +209,7 @@ We recommend adding an easily searchable tag to each log message. For example:
         log.info("MFF: MyFirstFlow.call() called")
 ```
 ## call() Method
-As with flows in Corda 4, each flow has a `call()` method. This is the method which Corda invokes when the flow is invoked.
+Each flow has a `call()` method. This is the method which Corda invokes when the flow is invoked.
 
 When a flow is started via REST, the `requestBody` from the HTTP request is passed into the `call` method as the  `requestBody` parameter, giving the rest of the call method access to the parameters passed in via HTTP.
 
@@ -260,7 +260,7 @@ The services are then available in the call function. For example to initiate a 
  ```
 ## Obtaining the REST requestBody
 The first thing that the `MyFirstFlow.call()` method does is convert the `requestBody` parameters into a Kotlin class.
-It does this using the `getRequestBodyAs()` method. This takes the `jsonMarshallingService` and the class that the `requestBody` parameters should be parsed into. The `flowArgs` variable has the type `MyFirstFlowStartArgs`, the helper class we declared in [the Helper classes section](#helper-classes) and used in the test.
+It does this using the `getRequestBodyAs()` method. This takes the `jsonMarshallingService` and the class that the `requestBody` parameters should be parsed into. The `flowArgs` variable has the type `MyFirstFlowStartArgs`, the helper class we declared in [the Helper classes section](#helper-classes).
 ```kotlin
 @Suspendable
     override fun call(requestBody: ClientRequestBody): String {
@@ -302,7 +302,7 @@ We can now start sending messages to the responder:
    ```kotlin
            val response = session.receive(Message::class.java)
     ```
-    When the `send()` is sent to the responder, Corda executes the `MyFirstResponderFlow` responder flow `call()` method down to the `session.receive()`, which returns the payload that was sent in the initiator's `send()` method.
+   When the message is sent to the responder via the `send()` method, Corda executes the `session.receive()` in the `MyFirstResponderFlow` responder flow's `call()` method. This returns the payload that was sent in the initiator's `send()` method.
    ```kotlin
        @Suspendable
        override fun call(session: FlowSession) {
@@ -337,7 +337,7 @@ We can now start sending messages to the responder:
 ## Other Considerations for FlowSessions
 It is important that the sends and receives in the initiator and responder flows match. If the initiator sends a Foo and the responder expects a Bar, the flow hangs and likely results in a timeout error.
 
-As with Corda 4, there is also a `sendAndReceive` method on `FlowSession` that sends a payload, check-points the flow, and then waits for a response to be received:
+The `sendAndReceive` method on `FlowSession` sends a payload, check-points the flow, and then waits for a response to be received:
 ```kotlin
 val response = myFlowSession.sendAndReceive(<ReceiveType>::class.java, payload)
 ```
