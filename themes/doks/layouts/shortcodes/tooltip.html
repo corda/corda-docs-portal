@@ -25,17 +25,16 @@
         opacity: 1;
     }
 </style>
-<span class="term">
-    
-    {{ $glossarylist := getJSON "content/en/platform/corda/5.0/glossaryitems.json" }}
-    {{ if (isset $glossarylist $.Params.term ) }}
-        {{ range $term, $value := $glossarylist }}
-            {{ if eq $term $.Params.term}} 
-                <span class="definition">{{ $value.definition }}</span>
-            {{ end }}
-        {{ end }}
-    {{ else }}
-        {{ errorf "Glossary term not found: %q" $.Params.term $.Page}}
-    {{ end }}
 
-</span>
+<span class="term">&nbsp{{ .Inner }}</span>
+
+{{ $glossarylist := getJSON "content/en/platform/corda/5.0/glossaryitems.json" }}
+{{ if (isset $glossarylist .Inner) }}
+    {{ range $term, $value := $glossarylist }}
+        {{ if eq $term .Inner}} 
+                <span class="definition">{{ $value.definition }}</span>
+        {{ end }}
+    {{ end }}
+{{ else }}
+        {{ errorf "Glossary term not found: %q" .Inner $.Page}}
+{{ end }}
