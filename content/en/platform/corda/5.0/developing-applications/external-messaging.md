@@ -11,8 +11,7 @@ menu:
 section_menu: corda5
 ---
 
-# External Messaging CorDapps
-
+# External Messaging CorDapps {{< enterprise-icon >}}
 A running Corda flow can send simple messages via Kafka to external systems. 
 In Corda 5.0, this is limited to sending messages, but a future version will support both send and send-and-receive messages. 
 
