@@ -111,9 +111,9 @@ There are six flows in the Chat Application:
 </tr>
 <tr>
 <td><code>FinalizeChatResponderFlow</code></td>
-<td><code>ResponderFlow </code></td>
+<td><code>ResponderFlow</code></td>
 <td><code><li>FlowSession</li></code></td>
-<td><li>It is initiated by <code>FinalizeChatSubFlow</code>. Runs the <code>receiveFinality()</code> function which performs the responder side of the finality() function. <code>ReceiveFinality()</code> takes a Lambda verifier which runs validations on the transactions.</li><li> The validator checks for banned words and checks that the message comes from the same party as the <code>messageFrom</code> field.</li></td>
+<td><li>The <code>FinalizeChatResponderFlow</code> is initiated by <code>FinalizeChatSubFlow</code>. Runs the <code>receiveFinality()</code> function which performs the responder side of the finality() function. <code>ReceiveFinality()</code> takes a Lambda verifier which runs validations on the transactions.</li><li> The validator checks for banned words and checks that the message comes from the same party as the <code>messageFrom</code> field.</li></td>
 </tr>
 </tbody>
 </table>
