@@ -37,6 +37,10 @@ Corda supports the following `SignatureSpec` (signature schemes) for creating `j
 
 Use `SignatureSpecService` to retrieve the `SignatureSpec`.
 
+Initially the above list of signature spec was available to users. However, they could be passing the wrong signature spec for a signing key type (e.g. an RSA key with an SHA256withECDSA), which would lead to an error when attempting to generate the signature.
+
+Instead SignatureSpecService was introduced which takes in a key (and a digest algorithm optionally) and returns a default signature spec for those.
+
 ## CompositeKey.java
 
 ```kotlin
