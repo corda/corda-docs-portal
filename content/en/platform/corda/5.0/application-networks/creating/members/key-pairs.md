@@ -1,6 +1,6 @@
 ---
 date: '2023-04-13'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 title: "Configure Key Pairs and Certificates"
 menu:
   corda5:
@@ -118,7 +118,7 @@ If using mutual TLS, you must must add the certificate subject to the allowed li
 
    You can inspect the `request2.csr` file by running this command:
    ```shell
-   openssl req -text -noout -verify -in ./request.csr
+   openssl req -text -noout -verify -in ./request2.csr
    ```
    The contents should resemble the following:
 

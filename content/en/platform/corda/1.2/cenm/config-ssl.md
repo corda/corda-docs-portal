@@ -4,7 +4,11 @@ aliases:
 - /docs/cenm/head/config-ssl.html
 - /docs/cenm/config-ssl.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  cenm-1-2:
+    identifier: cenm-1-2-config-ssl
+    parent: cenm-1-2-configuration
+    weight: 260
 tags:
 - config
 - ssl

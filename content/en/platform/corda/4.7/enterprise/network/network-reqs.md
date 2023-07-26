@@ -1,16 +1,19 @@
 ---
 date: '2020-04-07T12:00:00Z'
-menu: []
+menu:
+  corda-enterprise-4-7:
+    parent: corda-enterprise-4-7-corda-networks
 tags:
 - network
-title: Corda network considerations
+title: Corda Network Considerations
+weight: 2
 ---
 
 
-# Corda network considerations
+# Corda Network Considerations
 
 
-## Corda network parameters
+## Corda Network Parameters
 
 There is a set of parameters that all Nodes on the network must agree on in order to interoperate. These are listed below.
 

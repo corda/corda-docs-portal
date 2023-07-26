@@ -10,7 +10,7 @@ menu:
     weight: 280
 tags:
 - tools
-title: Tools and utilities
+title: Tools and Utilities
 ---
 
 

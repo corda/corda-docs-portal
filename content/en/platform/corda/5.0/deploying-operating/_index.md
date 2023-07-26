@@ -1,7 +1,7 @@
 ---
 title: "Administering Corda Clusters"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 date: '2023-05-16'
 menu:
   corda5:

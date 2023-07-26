@@ -1,6 +1,6 @@
 ---
 date: '2022-09-22'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 title: "Resetting the CSDE"
 menu:
   corda5:
