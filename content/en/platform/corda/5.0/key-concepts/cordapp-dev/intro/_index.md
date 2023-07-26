@@ -17,7 +17,7 @@ section_menu: corda5
 A CorDapp, or Corda distributed application, is distributed because parts of the application can be, or may need to be, executed on a Corda instance that is operated by another party that is a member of the same Corda application network.
 This is not the same as an application that has multiple instances, hosted on different environments.
 
-Consider the centralized application below. This is a single application that always executes within a single execution environment, regardless of the fact we have multiple deployments.
+Consider the centralized application below. This is a single application that always executes within a single execution environment, regardless of the number of deployments.
 
 {{< 
   figure
@@ -50,7 +50,7 @@ CorDapps are usually composed of workflows, contracts, and states. This section 
 
 Flows support the [orchestration layer]({{< relref "../../fundamentals/CorDapps/_index.md#orchestration-layer--flows" >}}), and are written in a JVM compatible language and are hosted by Corda. Typically, flows create or transfer states on behalf of a member of the application network (a virtual node) who seeks to form [consensus]({{< relref "../../fundamentals/CorDapps/_index.md#consensus-layer" >}}) with their peer nodes with the help of the notary.
 
-Taking our [IOU Sample App](https://github.com/corda/corda5-samples/blob/main/kotlin-samples/corda5-obligation-cordapp/) as an example of a distributed app, all members of this fictional network can be lenders or borrowers issuing, transferring, or settling loans directly to each other. There is no central ledger of loans, and consensus is achieved between the participating parties, not a central entity.
+Taking the [IOU Sample App](https://github.com/corda/corda5-samples/blob/main/kotlin-samples/corda5-obligation-cordapp/) as an example of a distributed app, all members of this fictional network can be lenders or borrowers issuing, transferring, or settling loans directly to each other. There is no central ledger of loans, and consensus is achieved between the participating parties, not a central entity.
 
 The sample app contains three flows:
 
@@ -72,7 +72,7 @@ In this example, transactions are between borrower and lender, which means each 
 
 Corda flows usually involve multiple parties or participants, where each participant must be a member of the application network, or a virtual node, and is generally identified by an X.500 name.
 
-In flow terms, we refer to the initiating flow as the code that is executed on the initiating participant, and the responder flow as the code that is executed as a response on the counter party (or parties). The initiating flow is generally initiated using the REST API, as described in the [Introducing the Corda APIs]({{< relref "../api/_index.md" >}}) section.
+In flow terms, the initiating flow is the code that is executed on the initiating participant, and the responder flow as the code that is executed as a response on the counter party (or parties). The initiating flow is generally initiated using the REST API, as described in the [Introducing the Corda APIs]({{< relref "../api/_index.md" >}}) section.
 
 In the IOU example, the borrower and lender are both participants in the IOU issue flow, with the borrower on the initiating side and the lender on the responder side.
 
