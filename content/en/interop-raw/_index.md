@@ -1,4 +1,4 @@
-~~---
+---
 title: "Interoperability Cordapp API"
 date: 2023-07-25
 version: 'Corda 5.2'
