@@ -83,7 +83,7 @@ our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` director
 
    a. Change the `p2pAddress`, `rpcSettings.address` and `rpcSettings.adminAddress` values to match your server’s hostname or external IP address. These are the addresses other nodes or RPC interfaces will use to communicate with your node.
    
-   b. Change the ports if necessary, for example if you are running multiple nodes on one server (see below).
+   b. Change the ports if necessary; for example, if you are running multiple nodes on one server (see below).
    
    c. Enter an email address which will be used as an administrative contact during the registration process. This is only visible to the permissioning service.
    
