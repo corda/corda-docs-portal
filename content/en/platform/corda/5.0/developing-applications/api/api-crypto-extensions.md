@@ -10,9 +10,9 @@ menu:
 section_menu: corda5
 ---
 # net.corda.v5.crypto.extensions
-The `corda-crypto-extensions` module of the `Corda Crypto API` defines low-level crypto capabilities that can be used to extend functionality of the Corda Crypto Library by implementing them in a CPK. 
+The `corda-crypto-extensions` module of the `Corda Crypto API` defines low-level crypto capabilities that can be used to extend functionality of the Corda Crypto Library by implementing them in a CPK.
 
-# Extending Supported Digest Algorithms
+## Extending Supported Digest Algorithms
 
 The Corda Crypto Library implements a wide variety of digest algorithms out of the box. However, you can use a digest algorithm that is not supported by the library by simply implementing some interfaces and adding the code into the CPK with the CorDapp code. Corda picks up any custom algorithms at runtime. We recommend adding custom digest code in a separate Java module.
 
