@@ -26,7 +26,7 @@ Where:
 
 * `message` is the message in the Chat.
 
-* `participants` is the list of `PublicKeys` belonging to the vnodes of the participants of the chat.
+* `participants` is the list of `PublicKeys` belonging to the virtual nodes of the participants of the chat.
 
 The history of a chat will be recorded in the backchain of the chat.
 
@@ -83,13 +83,13 @@ There are six flows in the Chat Application:
 <td><code>CreateNewChatFlow </code></td>
 <td><code>ClientStartableFlow </code></td>
 <td><code><li>chatName</li><li>otherMember</li><li>message</li></code></td>
-<td> <li>Forms a draft transaction using the transaction builder, which creates a new ChatState with the details provided.</li> <li> Signs the draft transaction with the vnodes first Ledger Key.</li><li> Calls <code>FinalizeChatSubFlow</code> which finalizes the transaction.</li></td>
+<td> <li>Forms a draft transaction using the transaction builder, which creates a new ChatState with the details provided.</li> <li> Signs the draft transaction with the virtual nodes first Ledger Key.</li><li> Calls <code>FinalizeChatSubFlow</code> which finalizes the transaction.</li></td>
 </tr>
 <tr>
 <td><code>UpdateChatFlow </code></td>
 <td><code>ClientStartableFlow </code></td>
 <td><code> <li>id</li><li>message</li> </code></td>
-<td> <li>Locates the last message in the backchain for the given <code>id</code>.</li><li> Creates a draft transaction which consumes the last message in the chain and creates a new ChatState with the latest message.</li> <li>Signs the draft transaction with the vnodes first Ledger Key.</li><li> Calls <code>FinalizeChatSubFlow</code> which finalises the transaction.</li></td>
+<td> <li>Locates the last message in the backchain for the given <code>id</code>.</li><li> Creates a draft transaction which consumes the last message in the chain and creates a new ChatState with the latest message.</li> <li>Signs the draft transaction with the virtual nodes first Ledger Key.</li><li> Calls <code>FinalizeChatSubFlow</code> which finalises the transaction.</li></td>
 </tr>
 <tr>
 <td><code>ListChatsFlow </code></a></td>
