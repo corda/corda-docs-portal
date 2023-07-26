@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Tech Stack
 
-CorDapps, consisting of flows, and optionally states and contracts, are “pieces of code” hosted by the Corda runtime. This code can be written in a JVM compatible language. Java and Kotlin are officially supported. Currently, Corda 5 supports CorDapps compiled using Azul Zulu JDK 17. Other OpenJDK compatible JAVA 11 SDKs may also work but have not been fully tested.
+CorDapps, consisting of flows, and optionally states and contracts, are “pieces of code” hosted by the Corda runtime. This code can be written in a JVM compatible language. Java and Kotlin are officially supported. Currently, Corda 5 supports CorDapps compiled using Azul Zulu JDK 17. Other OpenJDK compatible Java 11 SDKs may also work but have not been fully tested.
 
 CorDapps are simply code, written in a JVM compatible language, compiled into a special type of JAR called a CPK (Corda Package). These CPKs are compiled using the [Gradle plugin]({{< relref "../../../developing-applications/packaging/cpk-plugin.md" >}}). See our [Corda 5 Samples repository](https://github.com/corda/corda5-samples) for an example of a typical CorDapp.
 
@@ -33,7 +33,7 @@ The CPB must then be combined with network metadata into a CPI (Corda Package In
 	 figcaption="CorDapp Packaging"
 >}}
 
-While CPBs and CPIs use the `.cpb` and `.cpi` file extension, the files conform to the Jar file specification, and therefor jar tools can be used to inspect them. For example:
+While CPBs and CPIs use the `.cpb` and `.cpi` file extension, the files conform to the JAR file specification, and therefor JAR tools can be used to inspect them. For example:
 
 ```
 ❯ jar tf iou-app.cpb
@@ -73,9 +73,9 @@ val iou = IOUState(
 val signedTransaction = txBuilder.toSignedTransaction()
 
 ...
-// Calls the Corda provided finalise() function which gather signatures from the counterparty,
+// Calls the Corda provided finalise() function which gathers signatures from the counterparty,
 // notarises the transaction and persists the transaction to each party's vault.
-// On success returns the id of the transaction created.
+// On success returns the ID of the transaction created.
 val finalizedSignedTransaction = ledgerService.finalize(
    signedTransaction,
    sessions
@@ -94,7 +94,7 @@ The responder flow looks something like this:
 ```kotlin
 // Calls receiveFinality() function which provides the responder to the finalise() function
 // in the Initiating Flow. Accepts a lambda validator containing the business logic to decide whether
-// responder should sign the Transaction.
+// the responder should sign the transaction.
 val finalizedSignedTransaction = ledgerService.receiveFinality(session) { ledgerTransaction ->
 
     val state = ledgerTransaction.getOutputStates(IOUState::class.java).singleOrNull() ?:
@@ -191,4 +191,4 @@ This code runs inside what we refer to as a Corda sandbox and there are three di
 This relates to the separation of contract and workflow CPKs, as follows:
 * Flow sandbox — requires both workflow and contract CPKs in order to execute an initiating or responder flow. 
 * Persistence sandbox — has special privileges as it is allowed to interact with the virtual node’s databases. However, it only requires the custom entities and states that are part of the contract CPK. Workflow CPKs are never loaded into the persistence sandbox.
-* Verify sandbox — exclusively used for verifying the contract. Therefore, it only needs the contract CPK. Workflow CPKs are never loaded into the verify sandbox. During backchain verification, it is sometimes necessary to verify “old” states that require previous version of the contract to verify. This is another reason why it is wise to separate contract CPKs from workflow CPKs as their version lifecycle may be different.
+* Verify sandbox — exclusively used for verifying the contract. Therefore, it only needs the contract CPK. Workflow CPKs are never loaded into the verify sandbox. During backchain verification, it is sometimes necessary to verify “old” states that require the previous version of the contract to verify. This is another reason why it is wise to separate contract CPKs from workflow CPKs as their version lifecycle may be different.

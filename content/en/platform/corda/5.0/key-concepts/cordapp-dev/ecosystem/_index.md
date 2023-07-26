@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Integrating Corda into the Wider Ecosystem
 
-Corda is usually deployed as part of a wider ecosystem of application in a modern enterprise. There are two possible integration points:
+Corda is usually deployed as part of a wider ecosystem of applications in a modern enterprise. There are two possible integration points:
 * [Corda REST API]({{< relref "#corda-rest-api">}})
 * [External Messaging API]({{< relref "#external-messaging-api">}}) {{< enterprise-icon >}}
 
