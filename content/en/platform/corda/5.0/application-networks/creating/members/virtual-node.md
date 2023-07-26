@@ -1,6 +1,6 @@
 ---
 date: '2023-04-13'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 title: "Create a Virtual Node"
 menu:
   corda5:
@@ -34,7 +34,7 @@ curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/virtualnode/st
 This request returns a JSON object with `status` set to `SUCCEEDED` once the operation is complete. You may have to call the `/virtualnode/status` endpoint multiple times until you receive the `SUCCEEDED` status. Once complete, to save the ID of the virtual node for future use, run the following command, replacing `<resource-ID>` with the ID returned in the received response:
 
 ```shell
-export MGM_HOLDING_ID = <resource-ID>
+export HOLDING_ID = <resource-ID>
 ```
 
 ## Create a Virtual Node on Windows

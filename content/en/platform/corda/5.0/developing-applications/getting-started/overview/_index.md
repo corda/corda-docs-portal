@@ -1,7 +1,7 @@
 ---
 date: '2023-06-21'
 title: "CSDE Overview"
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     parent: corda5-develop-get-started

@@ -2,7 +2,7 @@
 date: '2023-02-23'
 title: "Build a CPB"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     parent: corda5-develop-packaging
