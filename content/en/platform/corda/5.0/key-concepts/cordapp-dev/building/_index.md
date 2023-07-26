@@ -33,7 +33,7 @@ The CPB must then be combined with network metadata into a CPI (Corda Package In
 	 figcaption="CorDapp Packaging"
 >}}
 
-While CPBs and CPIs use the `.cpb` and `.cpi` file extension, the files conform to the JAR file specification, and therefor JAR tools can be used to inspect them. For example:
+While CPBs and CPIs use the `.cpb` and `.cpi` file extension, the files conform to the JAR file specification, and therefore JAR tools can be used to inspect them. For example:
 
 ```
 ❯ jar tf iou-app.cpb
