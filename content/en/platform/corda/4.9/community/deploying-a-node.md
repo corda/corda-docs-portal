@@ -82,11 +82,16 @@ our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` director
 
 
 7. Make the following changes to `/opt/corda/node.conf`:
-   1. Change the `p2pAddress`, `rpcSettings.address` and `rpcSettings.adminAddress` values to match your server’s hostname or external IP address. These are the addresses other nodes or RPC interfaces will use to communicate with your node.
-   2. Change the ports if necessary; for example, if you are running multiple nodes on one server (see below).
-   3. Enter an email address which will be used as an administrative contact during the registration process. This is only visible to the permissioning service.
-   4. Enter your node’s desired legal name; see [Node identity]({{< relref "node-naming.md#node-identity" >}}) for more details.
-   5. If required, add RPC users.
+
+   a. Change the `p2pAddress`, `rpcSettings.address`, and `rpcSettings.adminAddress` values to match your server’s hostname or external IP address. These are the addresses other nodes or RPC interfaces will use to communicate with your node.
+   
+   b. Change the ports if necessary; for example, if you are running multiple nodes on one server (see below).
+   
+   c. Enter an email address which will be used as an administrative contact during the registration process. This is only visible to the permissioning service.
+   
+   d. Enter your node’s desired legal name; see [Node identity]({{< relref "node-naming.md#node-identity" >}}) for more details.
+   
+   e. If required, add RPC users.
 
 {{< note >}}
 Ubuntu 16.04 and most current Linux distributions use SystemD, so if you are running one of these
@@ -129,8 +134,9 @@ If you are running Ubuntu 14.04, follow the instructions for **Upstart**.
 
 10. Make the following changes to `corda.service` or `corda.conf`:
 
-    1. Make sure the service description is informative - particularly if you plan to run multiple nodes.
-    2. Change the username to the user account you want to use to run Corda. **We recommend that this user account is not root.**
+    a. Make sure the service description is informative - particularly if you plan to run multiple nodes.
+    
+    b. Change the username to the user account you want to use to run Corda. **We recommend that this user account is not root.**
 
 11. **SystemD**: Make sure the `corda.service` file is owned by root with the correct permissions:
 
@@ -211,11 +217,16 @@ at boot, and means the Corda service stays running with no users connected to th
 
 
 7. Make the following changes to `C:\Corda\node.conf`:
-   1. Change the `p2pAddress`, `rpcSettings.address` and `rpcSettings.adminAddress` values to match your server’s hostname or external IP address. These are the addresses other nodes or RPC interfaces will use to communicate with your node.
-   2. Change the ports if necessary; for example, if you are running multiple nodes on one server (see below).
-   3. Enter an email address which will be used as an administrative contact during the registration process. This is only visible to the permissioning service.
-   4. Enter your node’s desired legal name; see [Node identity]({{< relref "node-naming.md#node-identity" >}}) for more details.
-   5. If required, add RPC users.
+
+   a. Change the `p2pAddress`, `rpcSettings.address` and `rpcSettings.adminAddress` values to match your server’s hostname or external IP address. These are the addresses other nodes or RPC interfaces will use to communicate with your node.
+   
+   b. Change the ports if necessary; for example, if you are running multiple nodes on one server (see below).
+   
+   c. Enter an email address which will be used as an administrative contact during the registration process. This is only visible to the permissioning service.
+   
+   d. Enter your node’s desired legal name; see [Node identity]({{< relref "node-naming.md#node-identity" >}}) for more details.
+   
+   e. If required, add RPC users.
   
 8. Copy the required Java keystores to the node; see [Network certificates](permissioning.md).
 9. Download the [NSSM service manager](https://nssm.cc/).
@@ -236,8 +247,9 @@ at boot, and means the Corda service stays running with no users connected to th
 
 12. Modify the batch file:
 
-    1. If you are installing multiple nodes, use a different service name (`cordanode1`), and modify *AppDirectory*, *AppStdout* and *AppStderr* for each node accordingly.
-    2. Set an informative description.
+    a. If you are installing multiple nodes, use a different service name (`cordanode1`), and modify *AppDirectory*, *AppStdout* and *AppStderr* for each node accordingly.
+    
+    b. Set an informative description.
 
 13. Provision the required certificates to your node. Contact the network permissioning service or see [Network certificates](permissioning.md).
 14. Run the batch file by clicking on it or from a command prompt.
@@ -260,7 +272,7 @@ telnet.
 
 ### Database schema initialisation
 
-From Corda 4.9, the database schema objects are not automatically initialised during the first run of the node. There are two ways to initialise the database schema sets:
+From Corda 4.9, the database schema objects are not automatically initialized during the first run of the node. There are two ways to initialize the database schema sets:
 
 #### Use `initial-registration`
 
