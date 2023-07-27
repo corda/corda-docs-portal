@@ -14,7 +14,7 @@ weight: 250
 
 # Platform support
 
-This topic lists the JDKs, operating systems and database types that support Corda Enterprise Edition 4.9, both for production and for development.
+This topic lists the JDKs, operating systems and database types that support Corda Enterprise Edition 4.9, both for production and for development. For the 'end of life schedule' for Corda verisons and the associated documentation, refer to the [End of Life Schedule]({{< relref "../../eol-schedule.md" >}}).
 
 ## JDK support
 

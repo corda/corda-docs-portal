@@ -8,22 +8,28 @@
 
     {{ if eq .IsHome true }}
       window.facetFilters = [
-        ['project:get-started', 'project:tutorials', 'project:samples', 'project:tools', 'project:announcements', 'version:Community Edition 4.10', 'version:Enterprise 4.10', 'version:CENM 1.5', 'version:Corda 5.0 Beta 2'],
+        ['project:get-started', 'project:tutorials', 'project:samples', 'project:tools', 'project:announcements', 'version:Community Edition 4.10', 'version:Enterprise 4.10', 'version:CENM 1.5', 'version:Corda 5.0 Beta 3'],
         'language:en'
       ];
 
-//if the page does not have a parent, the version is returned as "corda index"
-    {{ else if or (eq .Parent.Page.Params.version "Corda Index") (eq .Parent.Page.Params.version nil) }}
+    {{ else if eq .Page.Params.version "Corda Index"}}
       {{ $project := .Page.Params.project}}
-      {{ $version := .Page.Params.version}}
+      window.facetFilters = [
+        ['project:{{- $project -}}'],
+        ['version:Community Edition 4.10', 'version:Enterprise 4.10', 'version:CENM 1.5', 'version:Corda 5.0 Beta 3'],
+        'language:en'
+      ];
+    {{ else if eq .Page.Params.version nil }}
+      {{ $project := .Page.Params.project}}
+      {{ $version := .Parent.Page.Params.version}}
       window.facetFilters = [
         ['project:{{- $project -}}'],
         ['version:{{- $version -}}'],
         'language:en'
       ];
     {{ else }}
-      {{ $project := .Parent.Page.Params.project}}
-      {{ $version := .Parent.Page.Params.version}}
+      {{ $project := .Page.Params.project}}
+      {{ $version := .Page.Params.version}}
       window.facetFilters = [
        ['project:{{- $project -}}'],
        ['version:{{- $version -}}'],

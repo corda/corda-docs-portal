@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>UtxoLedgerTokenStateObserver</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../../index.html">
+<span>corda-api</span>            </a>    </div>
+    <div>5.0.0.755-Hawk1.0
+    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":ledger:ledger-utxo:dokkaHtmlPartial/main">jvm</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="ledger-utxo::net.corda.v5.ledger.utxo.observer/UtxoLedgerTokenStateObserver///PointingToDeclaration//-692495681">
+  <div class="breadcrumbs"><a href="../../index.html">ledger-utxo</a><span class="delimiter">/</span><a href="../index.html">net.corda.v5.ledger.utxo.observer</a><span class="delimiter">/</span><span class="current">UtxoLedgerTokenStateObserver</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Utxo</span><wbr><span>Ledger</span><wbr><span>Token</span><wbr><span>State</span><wbr><span><span>Observer</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">UtxoLedgerTokenStateObserver</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">?</span><span class="token operator">&gt;</span></div><p class="paragraph">Defines a mechanism to observe produced contract states of type <a href="index.html">T</a> when they are committed to the ledger. </p><p class="paragraph"> Users should implement this interface for any states that need to be selectable via the <a href="../../net.corda.v5.ledger.utxo.token.selection/-token-selection/index.html">TokenSelection</a> API. </p><p class="paragraph"> The Corda platform will discover and invoke implementations of this interface for all produced states that match the type specified by <a href="get-state-type.html">getStateType</a>. </p><p class="paragraph"> Example usage: </p><ul><li>Java:<div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">
+public class ExampleStateJ implements ContractState {
+public List&lt;PublicKey&gt; participants;
+public SecureHash issuer;
+public String currency;
+public BigDecimal amount;
+
+
+public List&lt;PublicKey&gt; getParticipants() {
+return participants;
+}
+}
+
+public class UtxoLedgerTokenStateObserverJavaExample implements UtxoLedgerTokenStateObserver&lt;ExampleStateJ&gt; {
+
+public Class&lt;ExampleStateJ&gt; getStateType() {
+return ExampleStateJ.class;
+}
+
+public UtxoToken onCommit(@NotNull ExampleStateJ state) {
+return new UtxoToken(
+new UtxoTokenPoolKey(ExampleStateK.class.getName(), state.issuer, state.currency),
+state.amount,
+new UtxoTokenFilterFields()
+);
+}
+}
+</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li><li>Kotlin:<div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">
+data class ExampleStateK(
+override val participants: List&lt;PublicKey&gt;,
+val issuer: SecureHash,
+val currency: String,
+val amount: BigDecimal
+) : ContractState
+
+class UtxoLedgerTokenStateObserverKotlinExample : UtxoLedgerTokenStateObserver&lt;ExampleStateK&gt; {
+
+override val stateType = ExampleStateK::class.java
+
+override fun onCommit(state: ExampleStateK): UtxoToken {
+return UtxoToken(
+UtxoTokenPoolKey(ExampleStateK::class.java.name, state.issuer, state.currency),
+state.amount,
+UtxoTokenFilterFields()
+)
+}
+}
+</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li></ul></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,FUNCTION,PROPERTY">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1756843463%2FFunctions%2F-692495681" anchor-label="getStateType" id="-1756843463%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-state-type.html"><span>get</span><wbr><span>State</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1756843463%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-state-type.html"><span class="token function">getStateType</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="index.html">T</a><span class="token operator">&gt;</span></div><div class="brief ">Gets the <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> type that the current observer is intended for.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="123784100%2FFunctions%2F-692495681" anchor-label="onCommit" id="123784100%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-commit.html"><span>on</span><wbr><span><span>Commit</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="123784100%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="on-commit.html"><span class="token function">onCommit</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span>state<span class="token operator">: </span><a href="index.html">T</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span>digestService<span class="token operator">: </span><a href="../../../../application/net.corda.v5.application.crypto/-digest-service/index.html">DigestService</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-utxo-token/index.html">UtxoToken</a></div><div class="brief ">The action to be performed when a <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> of type <a href="index.html">T</a> is committed to the ledger.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
+

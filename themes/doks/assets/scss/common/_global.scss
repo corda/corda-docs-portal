@@ -60,7 +60,7 @@ h6,
   .h4,
   .h5,
   .h6 {
-    scroll-margin-top: 155px;
+    scroll-margin-top: 240px;
     margin-bottom: 1.125rem;
   }
 }
@@ -138,7 +138,6 @@ body {
 
     .docs-sidebar-content {
       background-color: $gray-300;
-      width: 313px;
       padding-left: 2rem;
       height: 100%;
     }
@@ -167,6 +166,7 @@ body {
   padding-top: 1rem;
   padding-bottom: 7rem;
   padding-right: .75rem;
+  margin-bottom: 320px;
 }
 
 @include media-breakpoint-up(lg) {
@@ -417,4 +417,47 @@ figure {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+main > nav[aria-label="breadcrumb"] {
+  position: relative;
+
+  @include media-breakpoint-up(md) {
+    position: sticky;
+    top: 150.5px;
+    background-color: var(--bs-body-bg);
+    width: 100%;
+    padding: 2px;
+    z-index: 900;
+    border-bottom: solid 1px $gray-200;
+   }
+}
+
+.docs-sidebar-content {
+  position: fixed;
+  height: 100%;
+  width: 300px;
+  overflow: auto;
+}
+
+.footer {
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+}
+
+details>summary {
+ 
+  list-style: none;
+  margin-top: 1rem;
+}
+summary::-webkit-details-marker {
+  display: none
+}
+
+summary::after {
+  content: url("/icons/icon-arrow-down.svg");
+}
+details[open] summary:after {
+  content: url("/icons/icon-arrow-up.svg");
 }

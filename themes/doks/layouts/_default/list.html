@@ -9,10 +9,30 @@
       </div>
 		</div>
     {{ end -}}
-		<main class="docs-content col-lg-11 col-xl-9 mx-lg-auto">
-      {{- .Content -}}
+		<main class="docs-content col-lg-11 col-xl-12 mx-lg-auto">
+			{{ if .Site.Params.options.breadCrumb -}}
+			{{ if and (ne .Parent.Title "") (ne .Parent.Title "Corda") (ne .Title "Corda") }}
+				<!-- https://discourse.gohugo.io/t/breadcrumb-navigation-for-highly-nested-content/27359/6 -->
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						{{ partial "main/breadcrumb" . -}}
+							<li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+					</ol>
+				</nav>
+			{{ end }}
+			{{ end }}
+			{{ if ne .Page.Params.version "Corda 5.0"}}			
+    			<h1>{{ .Title }}</h1>
+			{{ end }}
+      {{ if .Site.Params.editPage -}}
+        {{ partial "main/edit-page.html" . }}
+      {{ end -}}
+			<p class="lead">{{ .Params.lead | safeHTML }}</p>
+			<algolia-content class>
+			{{ partial "main/headline-hash.html" .Content }}
+			</algolia-content>
+			{{ partial "main/docs-navigation.html" . }}
       {{ partial "main/feedback.html" . }}
-		</main>
+	</main>
 	</div>
-</div>
 {{ end }}

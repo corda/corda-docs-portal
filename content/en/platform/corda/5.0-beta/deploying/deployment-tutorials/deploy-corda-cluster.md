@@ -9,7 +9,13 @@ menu:
 section_menu: corda-5-beta
 ---
 
-This page describes how to deploy Corda 5 Beta. It assumes all necessary [prerequisites](../prerequisites.html) have been installed.
+This page describes how to deploy Corda 5 Beta.
+
+All the necessary [prerequisites](../prerequisites.html) must have been satisfied before Corda is deployed.
+In particular, PostgreSQL and Kafka must be running. The mechanism to achieve that is up to you. For example, you can:
+
+* run PostgreSQL and Kafka on Kubernetes.
+* use a managed service such as Amazon RDS for PostgreSQL, Amazon Managed Streaming for Apache Kafka, or Confluent Cloud.
 
 ## Download and Push Container Images to a Registry
 
@@ -18,11 +24,11 @@ By default, the images are made available via Docker Hub.
 If your Kubernetes cluster can pull images from Docker Hub, you can skip this section.
 If not, then the following instructions describe how to push the images from the provided `tar` file into a container registry that is accessible from the cluster.
 
-1. Download `corda-worker-images-Gecko.tar` from the [R3 Customer Hub](https://r3.force.com/).
+1. Download `corda-worker-images-Hawk1.0.1.tar` from the [R3 Customer Hub](https://r3.force.com/).
 
-2. Inflate and load the `corda-worker-images-Gecko.tar` file into the local Docker engine with the following command:
+2. Inflate and load the `corda-worker-images-Hawk1.0.1.tar` file into the local Docker engine with the following command:
    ```shell
-   docker load -i corda-worker-images-Gecko.tar
+   docker load -i corda-worker-images-Hawk1.0.1.tar
    ```
 
 3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target container registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
@@ -38,7 +44,7 @@ If not, then the following instructions describe how to push the images from the
     "corda-os-member-worker" "corda-os-p2p-gateway-worker"
     "corda-os-p2p-link-manager-worker" "corda-os-db-worker"
     "corda-os-crypto-worker" "corda-os-plugins" )
-   tag=5.0.0.0-Gecko1.0
+   tag=5.0.0.0-Hawk1.0.1
    target_registry=$1
 
    for image in "${images[@]}"; do
@@ -58,10 +64,10 @@ If not, then the following instructions describe how to push the images from the
 If you have access to Docker Hub, you can download the Corda Helm chart using the following command:
 
 ```shell
-helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.0-Gecko1.0
+helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.0-Hawk1.0.1
 ```
 
-If you do not have access to Docker Hub, you can download the `corda-5.0.0-Gecko1.0.tgz` file from the [R3 Customer Hub](https://r3.force.com/).
+If you do not have access to Docker Hub, you can download the `corda-5.0.0-Hawk1.0.1.tgz` file from the [R3 Customer Hub](https://r3.force.com/).
 
 ## Configure the Deployment
 
@@ -69,12 +75,12 @@ For each deployment, you should create a YAML file to define a set of Helm overr
 The following sections describe the minimal set of configuration options required for a deployment.
 You can extract a README containing the full set of options from the Helm chart using the following command:
 ```shell
-helm show readme corda-5.0.0-Gecko1.0.tgz
+helm show readme corda-5.0.0-Hawk1.0.1.tgz
 ```
 
 You can extract a YAML file containing all of the default values using the following command:
 ```shell
-helm show values corda-5.0.0-Gecko1.0.tgz
+helm show values corda-5.0.0-Hawk1.0.1.tgz
 ```
 
 ### Image Registry
@@ -118,33 +124,79 @@ Depending on your application workload, you may require additional replicas.
 
 ### Resource Requests and Limits
 
-Specify a default set of resource requests and limits for the Corda containers:
+Specify a default set of resource requests and limits for the Corda containers. The following are recommended as a starting point:
 ```yaml
 resources:
   requests:
     memory: 512Mi
-    cpu: 125m
+    cpu: 250m
   limits:
-    memory: 2048Mi
-    cpu: 1000m
+    memory: 512Mi
+    cpu: 2000m
 ```
 {{< note >}}
 It is particularly important to specify resource requests when using a Kubernetes cluster with auto-scaling, to ensure that it scales appropriately when the Corda cluster is deployed.
 {{< /note >}}
 
-You can also override the default resource requests and limits separately for each type of Corda worker. For example, to increase the memory limit for flow workers:
+You can also override the default resource requests and limits separately for each type of Corda worker.
+For example, we recommend starting with higher memory limits for the database and flow workers:
 ```yaml
 workers:
+  db:
+    resources:
+      requests:
+        memory: 2048Mi
+      limits:
+        memory: 2048Mi
   flow:
-    resource:
-      limit:
-        memory: 4096Mi
+    resources:
+      requests:
+        memory: 2048Mi
+      limits:
+        memory: 2048Mi
 ```
 As with the number of replicas, you may need to adjust these values based on testing with your actual application workload.
 
-### REST API Load Balancer
+#### Recommended Infrastructure
 
-By default, the [REST API](../../operating/operating-tutorials/rest-api.html) is exposed on an internal Kubernetes service. To enable access from outside the Kubernetes cluster, the API should be fronted by a load balancer. The Helm chart allows annotations to be specified to facilitate the creation of a load balancer by a cloud-platform specific controller. For example, the following configuration specifies that the [AWS Load Balancer Controller](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html) fronts the REST API with a Network Load Balancer internal to the Virtual Private Cloud (VPC):
+Regarding AWS topology, we recommend the following initial configuration:
+
+* Kubernetes: For a cluster with a single replica of each worker, a Kubernetes cluster with two `t3.2xlarge` nodes is
+a reasonable starting point. For a cluster with three replicas of each worker, extend that to four nodes.
+
+* RDS PostgreSQL: `db.r5.large` instance size is sufficient for both a Corda cluster with a single replica of each worker
+and three replicas of each worker, subject to the persistence requirements of any CorDapp running in the cluster.
+
+* MSK: For a cluster with a single replica of each worker and a topic replica count of three, a Kafka cluster of three
+`kafka.t3.small` instances may suffice. In a HA topology with three replicas of each worker and a topic replica count
+of three, we recommend five brokers using at least `kafka.m5.large` instances.
+
+### Exposing the REST API
+
+By default, the [REST API]({{< relref "../../operating/operating-tutorials/rest-api.md" >}}) is exposed on an internal Kubernetes service. To enable access from outside the Kubernetes cluster, use one of the following:
+
+* [Kubernetes Ingress]({{< relref "#kubernetes-ingress" >}})
+* [AWS Load Balancer Controller]({{< relref "#aws-load-balancer-controller" >}})
+
+#### Kubernetes Ingress
+
+We recommend configuring Kubernetes Ingress to provide the REST worker with HTTP load balancing. This also enables optional annotations for additional integration, such as External DNS or Cert Manager. For example:
+```yaml
+workers:
+  rest:
+    ingress:
+      # optional annotations for the REST worker ingress
+      annotations: {}
+      # optional className for the REST worker ingress
+      className: "nginx"
+      # required hosts for the REST worker ingress
+      hosts:
+      - <your-rest-worker.development.example.com>
+```
+
+#### AWS Load Balancer Controller
+
+Alternatively, the API can be fronted directly by a load balancer. The Helm chart allows annotations to be specified to facilitate the creation of a load balancer by a cloud-platform specific controller. For example, the following configuration specifies that the [AWS Load Balancer Controller](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html) fronts the REST API with a Network Load Balancer internal to the Virtual Private Cloud (VPC):
 ```yaml
 workers:
   rest:
@@ -180,7 +232,7 @@ db:
 Specify the Kafka bootstrap servers as a comma-separated list:
 ```yaml
 kafka:
-  boostrapServers: <KAFKA_BOOTSTRAP_SERVERS>
+  bootstrapServers: <KAFKA_BOOTSTRAP_SERVERS>
 ```
 If desired, a prefix can be applied to all of the Kafka topics used by the Corda deployment. This enables multiple Corda clusters to share a Kafka cluster. For example:
 ```yaml
@@ -201,7 +253,7 @@ kafka
     secretRef:
       name: <TRUST-STORE-SECRET-NAME>
       key: "ca.crt"
-    type: PEM   
+    type: PEM
 ```
 
 Corda supports SASL for Kafka authentication. If your Kafka instance requires SASL authentication, enable the option in the overrides along with the required mechanism:
@@ -311,12 +363,12 @@ db:
     repository: "postgres"
     tag: "14.4"
 ```
-Part of the database bootstrapping involves populating the initial admin credentials. You can specify these in one of the following ways:
+Part of the database bootstrapping involves populating the initial credentials for the REST API admin. You can specify these in one of the following ways:
 
 * Pass the user name and password as Helm values:
   ```yaml
   bootstrap:
-    initialAdminUser:
+    restApiAdmin:
       username:
         value: <USERNAME>
       password:
@@ -328,7 +380,7 @@ Part of the database bootstrapping involves populating the initial admin credent
 * Create a Kubernetes secret containing the user credentials:
   ```yaml
   bootstrap:
-    initialAdminUser:
+    restApiAdmin:
       username:
         valueFrom:
           secretKeyRef:
@@ -435,7 +487,7 @@ To define `annotation-key-2` for only the crypto worker:
 workers:
   crypto:
     annotations:
-      annotation-key-2/is-safe: "true" 
+      annotation-key-2/is-safe: "true"
 ```
 
 ### Example Configuration
@@ -455,11 +507,11 @@ imagePullSecrets:
 
 resources:
   requests:
-    memory: "512Mi"
-    cpu: "125m"
+    memory: 512Mi
+    cpu: 250m
   limits:
-    memory: "2048Mi"
-    cpu: "1000m"
+    memory: 512Mi
+    cpu: 2000m
 
 serviceAccount: "corda-privileged"
 
@@ -477,7 +529,7 @@ db:
           key: "password"
 
 kafka:
-  boostrapServers: "kafka-1.example.com,kafka-2.example.com,kafka-3.example.com"
+  bootstrapServers: "kafka-1.example.com,kafka-2.example.com,kafka-3.example.com"
   tls:
     enabled: true
   sasl:
@@ -528,6 +580,11 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "db"
+    resources:
+      requests:
+        memory: 2048Mi
+      limits:
+        memory: 2048Mi
     replicaCount: 3
   flow:
     kafka:
@@ -539,6 +596,11 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "flow"
+    resources:
+      requests:
+        memory: 2048Mi
+      limits:
+        memory: 2048Mi
     replicaCount: 3
   membership:
     kafka:
@@ -597,18 +659,18 @@ workers:
 
 Once the configuration for the environment has been defined in a YAML file, you can install the Helm chart:
 ```shell
-helm install -n <NAMESPACE> <HELM-RELEASE-NAME> corda-5.0.0-Gecko1.0.tgz -f <PATH-TO-YAML-FILE>
+helm install -n <NAMESPACE> <HELM-RELEASE-NAME> corda-5.0.0-Hawk1.0.1.tgz -f <PATH-TO-YAML-FILE>
 ```
 For example, to create a Helm release called `corda` in the `corda` namespace using the overrides specified in a file called `values.yaml`, run the following:
 
 ```shell
-helm install -n corda corda corda-5.0.0-Gecko1.0.tgz -f values.yaml
+helm install -n corda corda corda-5.0.0-Hawk1.0.1.tgz -f values.yaml
 ```
 
 If you are using the Helm chart from Docker Hub, you can install directly from there rather than using `helm fetch` first. For example:
 
 ```shell
-helm install -n corda corda oci://registry-1.docker.io/corda/corda --version 5.0.0-Gecko1.0 -f values.yaml
+helm install -n corda corda oci://registry-1.docker.io/corda/corda --version 5.0.0-Hawk1.0.1 -f values.yaml
 ```
 
 Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how to access the [Corda REST API](../../operating/operating-tutorials/rest-api.html). If the Helm install fails, see the troubleshooting section on [Cluster Health](../troubleshooting/cluster-health.html).

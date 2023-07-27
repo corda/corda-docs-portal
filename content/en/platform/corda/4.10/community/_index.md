@@ -10,7 +10,7 @@ menu:
 project: corda
 section_menu: corda-community-4-10
 title: Corda Community 4.10
-version: 'Community 4.10'
+version: 'Community & Open Source 4.10'
 ---
 
 # Corda Community Edition 4.10

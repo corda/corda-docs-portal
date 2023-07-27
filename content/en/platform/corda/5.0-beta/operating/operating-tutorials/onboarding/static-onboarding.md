@@ -65,7 +65,7 @@ This returns the holding identity ID short hashes.
 
 To register a member, run the following, replacing `<ID-short-hash>` with the holding identity ID short hash obtained in the [Create Virtual Nodes for Each Member](#create-virtual-nodes-for-each-member) section:
 ```shell
-curl --insecure -u admin:admin -d '{ "memberRegistrationRequest": { "action": "requestJoin", "context": { "corda.key.scheme": "CORDA.ECDSA.SECP256R1" } } }' https://localhost:8888/api/v1/membership/<ID-short-hash>
+curl --insecure -u admin:admin -d '{ "memberRegistrationRequest": { "context": { "corda.key.scheme": "CORDA.ECDSA.SECP256R1" } } }' https://localhost:8888/api/v1/membership/<ID-short-hash>
 ```
 {{< note >}}
 The available key schemes are viewable through `KeysRpcOps`. One of them is used as an example in this command.

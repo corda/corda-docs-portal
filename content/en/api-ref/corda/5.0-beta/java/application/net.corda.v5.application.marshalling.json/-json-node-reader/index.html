@@ -1,0 +1,510 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>JsonNodeReader</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>corda-api</span>            </a>    </div>
+    <div>5.0.0.755-Hawk1.0
+    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":application:dokkaHtmlPartial/main">jvm</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="application::net.corda.v5.application.marshalling.json/JsonNodeReader///PointingToDeclaration//-8125750">
+  <div class="breadcrumbs"><a href="../../index.html">application</a><span class="delimiter">/</span><a href="../index.html">net.corda.v5.application.marshalling.json</a><span class="delimiter">/</span><span class="current">JsonNodeReader</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Json</span><wbr><span>Node</span><wbr><span><span>Reader</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="../../../base/net.corda.v5.base.annotations/-do-not-implement/index.html"><span class="token annotation builtin">DoNotImplement</span></a></div></div><span class="token keyword">interface </span><a href="index.html">JsonNodeReader</a></div><p class="paragraph">Every <a href="index.html">JsonNodeReader</a> can be thought of as a node in the tree of Json objects being read. Each node in the tree, including the root node represents a value in Json. Every node is referenced in its parent by a field name, except the root node which has no parent. Thus the field name is a property of the parent not the node itself. Writers of deserializers can traverse the tree and extract values of different types in order to construct a class which is represented by Json. </p><p class="paragraph"> Where the value type of a <a href="index.html">JsonNodeReader</a> is not a Json object or array, that <a href="index.html">JsonNodeReader</a> is a leaf in three (no children) from which a single value can be read. </p><p class="paragraph"> Where the value type of a <a href="index.html">JsonNodeReader</a> is a Json object it will contain multiple field value pairs, and each of those values is represented by a <a href="index.html">JsonNodeReader</a> which can be thought of as a child node. </p><p class="paragraph"> Where the value type of a <a href="index.html">JsonNodeReader</a> is an array, that array is represented by an iterator of <a href="index.html">JsonNodeReader</a> objects, which also can be thought of as child nodes.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,FUNCTION,PROPERTY">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="164250236%2FFunctions%2F-8125750" anchor-label="asArray" id="164250236%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="as-array.html"><span>as</span><wbr><span><span>Array</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="164250236%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/Nullable///PointingToDeclaration/"><span class="token annotation builtin">Nullable</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="as-array.html"><span class="token function">asArray</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html">Iterator</a><span class="token operator">&lt;</span><a href="index.html">JsonNodeReader</a><span class="token operator">&gt;</span></div><div class="brief ">Returns an iterator allowing iteration over a group of <a href="index.html">JsonNodeReader</a> each of which represents the next value in the array.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1427706222%2FFunctions%2F-8125750" anchor-label="asBoolean" id="1427706222%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="as-boolean.html"><span>as</span><wbr><span><span>Boolean</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1427706222%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="as-boolean.html"><span class="token function">asBoolean</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="as-boolean.html"><span class="token function">asBoolean</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">defaultValue<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">This method attempts to convert the underlying Json for this node to a Boolean type.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-309650069%2FFunctions%2F-8125750" anchor-label="asDouble" id="-309650069%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="as-double.html"><span>as</span><wbr><span><span>Double</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-309650069%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="as-double.html"><span class="token function">asDouble</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a></div><div class="brief ">This method attempts to convert the underlying Json for this node to a double type using default Java coercion rules.</div><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="as-double.html"><span class="token function">asDouble</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">defaultValue<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a></div><div class="brief ">This method attempts to convert the underlying Json for this node to a Double type using default Java coercion rules.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-667259225%2FFunctions%2F-8125750" anchor-label="asInt" id="-667259225%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="as-int.html"><span>as</span><wbr><span><span>Int</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-667259225%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="as-int.html"><span class="token function">asInt</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="as-int.html"><span class="token function">asInt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">defaultValue<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">This method attempts to convert the underlying Json for this node to an <code class="lang-kotlin">int</code> type using default Java rules.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1771085494%2FFunctions%2F-8125750" anchor-label="asLong" id="-1771085494%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="as-long.html"><span>as</span><wbr><span><span>Long</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1771085494%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="as-long.html"><span class="token function">asLong</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></div><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="as-long.html"><span class="token function">asLong</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">defaultValue<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></div><div class="brief ">This method attempts to convert the underlying Json for this node to a <code class="lang-kotlin">long</code> type using default Java rules.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-494389281%2FFunctions%2F-8125750" anchor-label="asText" id="-494389281%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="as-text.html"><span>as</span><wbr><span><span>Text</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-494389281%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="as-text.html"><span class="token function">asText</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></div><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="as-text.html"><span class="token function">asText</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span>defaultValue<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></div><div class="brief ">Returns the value of this node as a <code class="lang-kotlin">String</code> if the underlying Json value is not an array or object.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1230863837%2FFunctions%2F-8125750" anchor-label="bigDecimalValue" id="-1230863837%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="big-decimal-value.html"><span>big</span><wbr><span>Decimal</span><wbr><span><span>Value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1230863837%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="big-decimal-value.html"><span class="token function">bigDecimalValue</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html">BigDecimal</a></div><div class="brief ">If this node represents a Json number, this method returns the value as a <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html">BigDecimal</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1171287216%2FFunctions%2F-8125750" anchor-label="bigIntegerValue" id="-1171287216%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="big-integer-value.html"><span>big</span><wbr><span>Integer</span><wbr><span><span>Value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1171287216%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="big-integer-value.html"><span class="token function">bigIntegerValue</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">BigInteger</a></div><div class="brief ">If this node represents a Json number, this method returns the value as a <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">BigInteger</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1531901683%2FFunctions%2F-8125750" anchor-label="binaryValue" id="1531901683%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="binary-value.html"><span>binary</span><wbr><span><span>Value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1531901683%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/Nullable///PointingToDeclaration/"><span class="token annotation builtin">Nullable</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="binary-value.html"><span class="token function">binaryValue</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html">Byte</a><span class="token operator">&gt;</span></div><div class="brief ">Returns a byte array if this node represents a string in the Json which contains a base64 encoded byte array.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="241877906%2FFunctions%2F-8125750" anchor-label="canConvertToInt" id="241877906%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="can-convert-to-int.html"><span>can</span><wbr><span>Convert</span><wbr><span>To</span><wbr><span><span>Int</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="241877906%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="can-convert-to-int.html"><span class="token function">canConvertToInt</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if this node represents a number in the underlying Json and can be converted to an <code class="lang-kotlin">int</code>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="452149341%2FFunctions%2F-8125750" anchor-label="canConvertToLong" id="452149341%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="can-convert-to-long.html"><span>can</span><wbr><span>Convert</span><wbr><span>To</span><wbr><span><span>Long</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="452149341%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="can-convert-to-long.html"><span class="token function">canConvertToLong</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if this node represents a number in the underlying Json and can be converted to a <code class="lang-kotlin">long</code>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="54975171%2FFunctions%2F-8125750" anchor-label="doubleValue" id="54975171%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="double-value.html"><span>double</span><wbr><span><span>Value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="54975171%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="double-value.html"><span class="token function">doubleValue</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a></div><div class="brief ">If this node represents a number in the underlying Json, this method returns the value as a <code class="lang-kotlin">double</code>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2014419906%2FFunctions%2F-8125750" anchor-label="fields" id="-2014419906%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="fields.html"><span><span>fields</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2014419906%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/Nullable///PointingToDeclaration/"><span class="token annotation builtin">Nullable</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="fields.html"><span class="token function">fields</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html">Iterator</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.Entry.html">Map.Entry</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token punctuation">, </span><a href="index.html">JsonNodeReader</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief ">Get an iterator to map entries which allows iteration over all field names and values in this <a href="index.html">JsonNodeReader</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1419663618%2FFunctions%2F-8125750" anchor-label="floatValue" id="1419663618%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="float-value.html"><span>float</span><wbr><span><span>Value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1419663618%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="float-value.html"><span class="token function">floatValue</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a></div><div class="brief ">If this node represents a Json number type, this method returns the value as a <code class="lang-kotlin">float</code>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2045313934%2FFunctions%2F-8125750" anchor-label="getField" id="2045313934%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-field.html"><span>get</span><wbr><span><span>Field</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2045313934%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/Nullable///PointingToDeclaration/"><span class="token annotation builtin">Nullable</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-field.html"><span class="token function">getField</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span>fieldName<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JsonNodeReader</a></div><div class="brief ">If this <a href="index.html">JsonNodeReader</a> represents a Json object, get the value of a field in that object by name.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="766961715%2FFunctions%2F-8125750" anchor-label="getType" id="766961715%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-type.html"><span>get</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="766961715%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-type.html"><span class="token function">getType</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-json-node-reader-type/index.html">JsonNodeReaderType</a></div><div class="brief ">The type of this node.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="483258322%2FFunctions%2F-8125750" anchor-label="hasField" id="483258322%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-field.html"><span>has</span><wbr><span><span>Field</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="483258322%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-field.html"><span class="token function">hasField</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span>fieldName<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Determine whether this <a href="index.html">JsonNodeReader</a> is an object with the specified field.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1263288692%2FFunctions%2F-8125750" anchor-label="isArray" id="1263288692%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-array.html"><span>is</span><wbr><span><span>Array</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1263288692%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-array.html"><span class="token function">isArray</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if this node represents an array in the Json.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2126585211%2FFunctions%2F-8125750" anchor-label="isBoolean" id="-2126585211%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-boolean.html"><span>is</span><wbr><span><span>Boolean</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2126585211%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-boolean.html"><span class="token function">isBoolean</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if this node represents a boolean in the Json.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="571193628%2FFunctions%2F-8125750" anchor-label="isDouble" id="571193628%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-double.html"><span>is</span><wbr><span><span>Double</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="571193628%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-double.html"><span class="token function">isDouble</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if this node represents a double in the Json.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-134183942%2FFunctions%2F-8125750" anchor-label="isFloatingPointNumber" id="-134183942%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-floating-point-number.html"><span>is</span><wbr><span>Floating</span><wbr><span>Point</span><wbr><span><span>Number</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-134183942%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-floating-point-number.html"><span class="token function">isFloatingPointNumber</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if this node represents a number in the underlying Json and that number has a decimal component.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-362599266%2FFunctions%2F-8125750" anchor-label="isInt" id="-362599266%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-int.html"><span>is</span><wbr><span><span>Int</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-362599266%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-int.html"><span class="token function">isInt</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if this node represents an integer in the Json.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1277848614%2FFunctions%2F-8125750" anchor-label="isNull" id="1277848614%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-null.html"><span>is</span><wbr><span><span>Null</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1277848614%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-null.html"><span class="token function">isNull</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if this node represents the value of "null" in the underlying Json.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="864170148%2FFunctions%2F-8125750" anchor-label="isNumber" id="864170148%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-number.html"><span>is</span><wbr><span><span>Number</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="864170148%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-number.html"><span class="token function">isNumber</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if this node represents a number in the Json.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="590227822%2FFunctions%2F-8125750" anchor-label="isObject" id="590227822%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-object.html"><span>is</span><wbr><span><span>Object</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="590227822%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-object.html"><span class="token function">isObject</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if this node represents an object in the Json.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-175066304%2FFunctions%2F-8125750" anchor-label="isText" id="-175066304%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-text.html"><span>is</span><wbr><span><span>Text</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-175066304%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-text.html"><span class="token function">isText</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if this node represents a string in the Json.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1683347515%2FFunctions%2F-8125750" anchor-label="numberValue" id="1683347515%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="number-value.html"><span>number</span><wbr><span><span>Value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1683347515%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/Nullable///PointingToDeclaration/"><span class="token annotation builtin">Nullable</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="number-value.html"><span class="token function">numberValue</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Number.html">Number</a></div><div class="brief ">If this node represents a number in the underlying Json, this method returns the value as a Number.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="511302542%2FFunctions%2F-8125750" anchor-label="parse" id="511302542%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="parse.html"><span><span>parse</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="511302542%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/Nullable///PointingToDeclaration/"><span class="token annotation builtin">Nullable</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="parse.html">T</a><span class="token operator">&gt; </span><a href="parse.html"><span class="token function">parse</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span>clazz<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="parse.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="parse.html">T</a></div><div class="brief ">Parse this <a href="index.html">JsonNodeReader</a> to strongly typed objects.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1537916126%2FFunctions%2F-8125750" anchor-label="shortValue" id="-1537916126%2FFunctions%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="short-value.html"><span>short</span><wbr><span><span>Value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1537916126%2FFunctions%2F-8125750"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="short-value.html"><span class="token function">shortValue</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html">Short</a></div><div class="brief ">If this node represents a Json Number type, this method returns the value as a <code class="lang-kotlin">short</code>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
+

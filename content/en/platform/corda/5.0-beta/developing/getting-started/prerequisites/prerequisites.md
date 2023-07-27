@@ -20,24 +20,25 @@ You cannot start Corda via the CSDE `startCorda` task if any existing local prog
 
 The Corda 5 Beta CSDE has been tested with the following:
 
-| Software      | Version |
-| ----------- | ----------- |
-| Operating systems      | <li>Mac OS (intel and ARM)</li><li>Windows 10/11</li><li>Linux</li>     |
-| Java   | Azul Zulu JDK 11 (Other versions should work but have not been extensively tested.)  |
-| Intellij    | ~v2021.X.Y community edition   |
-| git | ~v2.24.1    |
-| Docker | Docker Engine ~v20.X.Y or Docker Desktop ~v3.5.X    |
+| Software          | Version                                                                             |
+| ----------------- | ----------------------------------------------------------------------------------- |
+| Operating systems | <li>Mac OS (intel and ARM)</li><li>Windows 10/11</li><li>Linux</li>                 |
+| Java              | Azul Zulu JDK 11 (Other versions should work but have not been extensively tested.) |
+| Intellij          | ~v2021.X.Y community edition                                                        |
+| git               | ~v2.24.1                                                                            |
+| Docker            | Docker Engine ~v20.X.Y or Docker Desktop ~v3.5.X                                    |
+| Corda CLI         | See [Installing the Corda CLI]({{< relref "../installing-corda-cli.md" >}})         |
 <!--| Gradle |  7.0+   |-->
 
 <!--## Hardware prerequisites
 
 Most of the computers that we use to develop, build, and test Corda 5 have:
 
-| Hardware      | Description |
-| ----------- | ----------- |
-| CPU      | Gen 9 Intel (6 cores / 12 threads)      |
-| RAM   | 32GiB         |
-| Hard disk   | At least 30GiB.        |
+| Hardware  | Description                        |
+| --------- | ---------------------------------- |
+| CPU       | Gen 9 Intel (6 cores / 12 threads) |
+| RAM       | 32GiB                              |
+| Hard disk | At least 30GiB.                    |
 
 These are not minimum specifications.
 This what is known to work with the code as of Developer Preview 2.-->

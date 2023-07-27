@@ -5,13 +5,17 @@ window.addEventListener('DOMContentLoaded', () => {
 	const observer = new IntersectionObserver(entries => {
 		entries.forEach(entry => {
 			const id = entry.target.getAttribute('id');
-			if (entry.intersectionRatio > 0) {
-				document.querySelector(`#TableOfContents li a[href="#${id}"]`).classList.add('active');
-			} else {
-				document.querySelector(`#TableOfContents li a[href="#${id}"]`).classList.remove('active');
+      if (entry.intersectionRatio > 0) {
+        if (document.querySelector(`#TableOfContents li a[href="#${id}"]`)) {
+          document.querySelector(`#TableOfContents li a[href="#${id}"]`).classList.add('active');
+        }
+      } else {
+        if (document.querySelector(`#TableOfContents li a[href="#${id}"]`)) {
+          document.querySelector(`#TableOfContents li a[href="#${id}"]`).classList.remove('active');
+        }	
 			}
 		});
-	});
+  }, { root: null, rootMargin: "-230px",});
 
 	// Track all sections that have an `id` applied
 	document.querySelectorAll('main h2, main h3, main h4, main h5').forEach((section) => {

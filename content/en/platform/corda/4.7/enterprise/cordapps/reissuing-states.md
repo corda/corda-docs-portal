@@ -184,14 +184,26 @@ The flow returns a set because the exact order of backchain transactions is not 
 
 State machine [CDL]({{< relref "../../../../../../en/tools/cdl/cdl-index.md" >}}) chart:
 
-{{% figure zoom="/en/images/reissuance-state-machine.png" alt="State reissuance - state machine CDL chart"%}}
-
+   {{< 
+     figure
+	    src="/en/images/reissuance-state-machine.png"
+      width=100%
+	    figcaption="State reissuance - state machine CDL chart"
+	    alt="State reissuance - state machine CDL chart"
+   >}}
+   
 ### Reissuance - state evolution
 
 State evolution [CDL]({{< relref "../../../../../../en/tools/cdl/cdl-index.md" >}}) chart:
 
-{{% figure zoom="/en/images/reissuance-state-evolution.png" alt="State reissuance - state evolution CDL chart"%}}
-
+   {{< 
+     figure
+	    src="/en/images/reissuance-state-evolution.png"
+      width=100%
+	    figcaption="State reissuance - state evolution CDL chart"
+	    alt="State reissuance - state evolution CDL chart"
+   >}}
+   
 ## Limitations
 
 ### Reissuance of encumbered states is not supported

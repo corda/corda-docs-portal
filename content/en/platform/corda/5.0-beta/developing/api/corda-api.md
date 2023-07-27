@@ -8,4 +8,4 @@ menu:
     weight: 2000
 section_menu: corda-5-beta
 ---
-This section describes the modules in the Corda API. All of these modules are described in the <a href="/en/api-ref/corda/5.0-beta/java/index.html" target="_blank">Java API documentation</a>.
+This section describes the modules in the Corda API. All of these modules are described in the <a href="/en/api-ref/corda/5.0-beta/java/index.html" target="_blank">Java API documentation</a>. 

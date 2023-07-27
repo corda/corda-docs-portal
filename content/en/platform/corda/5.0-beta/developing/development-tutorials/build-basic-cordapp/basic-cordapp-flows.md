@@ -232,7 +232,7 @@ Build the output `newStamp` using the parameters from the `AppleStamp` state:
 
 Use an `UtxoTransactionBuilder` to encapsulate everything into a transaction.
 
-1. Use `UtxoLedgerService.getTransactionBuilder` to create a `UtxoTransactionBuilder`.
+1. Use `UtxoLedgerService.createTransactionBuilder` to create a `UtxoTransactionBuilder`.
 
 2. Use `setNotary` to set the transaction’s notary.
 
@@ -249,7 +249,7 @@ Use an `UtxoTransactionBuilder` to encapsulate everything into a transaction.
 This is what your transaction creation code should look like now:
 
 ```kotlin
-val transaction = utxoLedgerService.getTransactionBuilder()
+val transaction = utxoLedgerService.createTransactionBuilder()
       .setNotary(notary)
       .addOutputState(newStamp)
       .addCommand(AppleStampContract.Commands.Issue())
@@ -475,7 +475,7 @@ class CreateAndIssueAppleStampFlow : ClientStartableFlow {
 
         // Create the transaction
         @Suppress("DEPRECATION")
-        val transaction = utxoLedgerService.getTransactionBuilder()
+        val transaction = utxoLedgerService.createTransactionBuilder()
             .setNotary(notary)
             .addOutputState(newStamp)
             .addCommand(AppleStampContract.Commands.Issue())
@@ -621,7 +621,7 @@ class PackApplesFlow : ClientStartableFlow {
         )
 
         // Create the transaction
-        val transaction = utxoLedgerService.getTransactionBuilder()
+        val transaction = utxoLedgerService.createTransactionBuilder()
             .setNotary(Party(notary.name, notaryKey))
             .addOutputState(basket)
             .addCommand(BasketOfApplesContract.Commands.PackBasket())
@@ -740,7 +740,7 @@ class RedeemApplesFlow : ClientStartableFlow {
 
         // Create the transaction
         @Suppress("DEPRECATION")
-        val transaction = utxoLedgerService.getTransactionBuilder()
+        val transaction = utxoLedgerService.createTransactionBuilder()
             .setNotary(notary)
             .addInputStates(appleStampStateAndRef.ref, basketOfApplesStampStateAndRef.ref)
             .addOutputState(updatedBasket)

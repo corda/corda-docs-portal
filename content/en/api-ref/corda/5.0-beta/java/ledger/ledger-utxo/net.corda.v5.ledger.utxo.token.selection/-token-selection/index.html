@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>TokenSelection</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../../index.html">
+<span>corda-api</span>            </a>    </div>
+    <div>5.0.0.755-Hawk1.0
+    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":ledger:ledger-utxo:dokkaHtmlPartial/main">jvm</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="ledger-utxo::net.corda.v5.ledger.utxo.token.selection/TokenSelection///PointingToDeclaration//-692495681">
+  <div class="breadcrumbs"><a href="../../index.html">ledger-utxo</a><span class="delimiter">/</span><a href="../index.html">net.corda.v5.ledger.utxo.token.selection</a><span class="delimiter">/</span><span class="current">TokenSelection</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Token</span><wbr><span><span>Selection</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="../../../../base/net.corda.v5.base.annotations/-do-not-implement/index.html"><span class="token annotation builtin">DoNotImplement</span></a></div></div><span class="token keyword">interface </span><a href="index.html">TokenSelection</a></div><p class="paragraph">Defines a mechanism to allow flows to query the token cache and claim a list of <a href="../-claimed-token/index.html">ClaimedToken</a> to spend. </p><p class="paragraph"> The API allows a flow to query for a target amount of a given state/token type it wishes to spend. If available, a set of tokens will be selected that sum to at least the target amount specified. The tokens will be locked in the cache to prevent other flows from selecting them. </p><p class="paragraph"> The platform will provide an instance of <a href="index.html">TokenSelection</a> to flows via property injection. </p><p class="paragraph"> Example usage: </p><ul><li>Kotlin:<div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">
+lateinit var tokenSelection: TokenSelection
+
+override fun call(requestBody: RestRequestBody): String {
+// Create a criteria describing the tokens to be selected and
+// the target amount to be claimed.
+val criteria = TokenClaimCriteria(
+"Currency",
+getIssuerHash(),
+getNotaryX500Name(),
+"USD",
+BigDecimal(100)
+)
+
+// Call the token selection API to try and claim the tokens.
+val claim = tokenSelection.tryClaim(criteria)
+
+if (claim == null) {
+// Not enough tokens could be claimed to satisfy the request.
+// take alternative action.
+} else {
+// Tokens we successfully claimed and can now be spent.
+val spentTokenRefs = spendTokens(claim.claimedTokens)
+
+// Release the claim by notifying the cache which tokens where spent. Any unspent tokens will be released
+// for other flows to claim.
+claim.useAndRelease(spentTokenRefs!!)
+}
+
+return "Done"
+}
+</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li><li>Java:<div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">
+public TokenSelection tokenSelection;
+public String call(RestRequestBody requestBody) {
+&lt;p&gt;
+// Create a criteria describing the tokens to be selected and
+// the target amount to be claimed.
+TokenClaimCriteria criteria = new TokenClaimCriteria (
+"Currency",
+getIssuerHash(),
+getNotaryX500Name(),
+"USD",
+new BigDecimal(100)
+);
+
+// Call the token selection API to try and claim the tokens.
+TokenClaim claim = tokenSelection.tryClaim(criteria);
+
+if (claim == null) {
+// Not enough tokens could be claimed to satisfy the request.
+// take alternative action.
+} else {
+// Tokens we successfully claimed and can now be spent.
+List&lt;StateRef&gt; spentTokenRefs = spendTokens(claim.getClaimedTokens());
+
+// Release the claim by notifying the cache which tokens where spent. Any unspent tokens will be released
+// for other flows to claim.
+claim.useAndRelease(spentTokenRefs);
+}
+
+return "Done";
+}
+</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li></ul></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,FUNCTION,PROPERTY">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-2043422587%2FFunctions%2F-692495681" anchor-label="tryClaim" id="-2043422587%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="try-claim.html"><span>try</span><wbr><span><span>Claim</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2043422587%2FFunctions%2F-692495681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/Nullable///PointingToDeclaration/"><span class="token annotation builtin">Nullable</span></span></div><div class="block"><span class="token annotation builtin">@</span><a href="../../../../base/net.corda.v5.base.annotations/-suspendable/index.html"><span class="token annotation builtin">Suspendable</span></a></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="try-claim.html"><span class="token function">tryClaim</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><span data-unresolved-link="org.jetbrains.annotations/NotNull///PointingToDeclaration/"><span class="token annotation builtin">NotNull</span></span>&nbsp;</span>criteria<span class="token operator">: </span><a href="../-token-claim-criteria/index.html">TokenClaimCriteria</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-token-claim/index.html">TokenClaim</a></div><div class="brief ">Attempts to claim a set of tokens from the cache that satisfies the specified <a href="../-token-claim-criteria/index.html">TokenClaimCriteria</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
+

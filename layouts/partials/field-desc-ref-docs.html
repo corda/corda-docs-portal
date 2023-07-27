@@ -30,9 +30,10 @@
 {{ end }}
 {{ with $value.default }}
     {{ if eq $value.type "array" }}
-        <br>Default value: 
         {{ range $arrayvalue := $value.default }}
-            {{ $arrayvalue }}
+            {{ if not (reflect.IsMap $arrayvalue)}}
+                <br>Default value: {{ $arrayvalue }}
+            {{ end }}
         {{ end }}
     {{ else if not (reflect.IsMap $value.default) }}
         <br>Default value: {{ string ($value.default) }} 
@@ -48,4 +49,11 @@
         {{ $def := (strings.TrimLeft "#/$defs/" $ref) }}
         {{ partial "defs-field-desc-ref-docs" (dict "url" $fullurl "def" $def) }}       
     {{ end }}
+{{ end }}
+{{ with $value.items.properties }}
+    <ul>
+    {{ range $childk, $childv := $value.items.properties }}
+        {{ partial "field-desc-ref-docs" (dict "value" $childv "key" $childk "url" $.Params.url) }}
+    {{ end }}
+    </ul>
 {{ end }}

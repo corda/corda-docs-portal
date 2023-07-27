@@ -1,0 +1,694 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Builder</title>
+<link href="../../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../../../index.html">
+<span>corda-api</span>            </a>    </div>
+    <div>5.0.0.755-Hawk1.0
+    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":data:avro-schema:dokkaHtmlPartial/main">jvm</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="avro-schema::net.corda.data.packaging/CpkMetadata.Builder///PointingToDeclaration//380713788">
+  <div class="breadcrumbs"><a href="../../../index.html">avro-schema</a><span class="delimiter">/</span><a href="../../index.html">net.corda.data.packaging</a><span class="delimiter">/</span><a href="../index.html">CpkMetadata</a><span class="delimiter">/</span><span class="current">Builder</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Builder</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">Builder</a> : <span data-unresolved-link="org.apache.avro.specific/SpecificRecordBuilderBase///PointingToDeclaration/">SpecificRecordBuilderBase</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.avro.specific/SpecificRecordBuilderBase///PointingToGenericParameters(0)/">T</span><span class="token operator">&gt; </span>, <span data-unresolved-link="org.apache.avro.data/RecordBuilder///PointingToDeclaration/">RecordBuilder</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.avro.data/RecordBuilder///PointingToGenericParameters(0)/">T</span><span class="token operator">&gt; </span></div><p class="paragraph">RecordBuilder for CpkMetadata instances.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,FUNCTION,PROPERTY">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1530728392%2FFunctions%2F380713788" anchor-label="build" id="-1530728392%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="build.html"><span><span>build</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1530728392%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="build.html"><span class="token function">build</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../index.html">CpkMetadata</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1531501950%2FFunctions%2F380713788" anchor-label="clearCorDappCertificates" id="-1531501950%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-cor-dapp-certificates.html"><span>clear</span><wbr><span>Cor</span><wbr><span>Dapp</span><wbr><span><span>Certificates</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1531501950%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-cor-dapp-certificates.html"><span class="token function">clearCorDappCertificates</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CpkMetadata.Builder</a></div><div class="brief ">Clears the value of the 'corDappCertificates' field.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-692623889%2FFunctions%2F380713788" anchor-label="clearCorDappManifest" id="-692623889%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-cor-dapp-manifest.html"><span>clear</span><wbr><span>Cor</span><wbr><span>Dapp</span><wbr><span><span>Manifest</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-692623889%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-cor-dapp-manifest.html"><span class="token function">clearCorDappManifest</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CpkMetadata.Builder</a></div><div class="brief ">Clears the value of the 'corDappManifest' field.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="492500700%2FFunctions%2F380713788" anchor-label="clearExternalChannelsConfig" id="492500700%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-external-channels-config.html"><span>clear</span><wbr><span>External</span><wbr><span>Channels</span><wbr><span><span>Config</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="492500700%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-external-channels-config.html"><span class="token function">clearExternalChannelsConfig</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CpkMetadata.Builder</a></div><div class="brief ">Clears the value of the 'externalChannelsConfig' field.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1650686517%2FFunctions%2F380713788" anchor-label="clearHash" id="-1650686517%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-hash.html"><span>clear</span><wbr><span><span>Hash</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1650686517%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-hash.html"><span class="token function">clearHash</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CpkMetadata.Builder</a></div><div class="brief ">Clears the value of the 'hash' field.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-697165474%2FFunctions%2F380713788" anchor-label="clearId" id="-697165474%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-id.html"><span>clear</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-697165474%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-id.html"><span class="token function">clearId</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CpkMetadata.Builder</a></div><div class="brief ">Clears the value of the 'id' field.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="657269096%2FFunctions%2F380713788" anchor-label="clearLibraries" id="657269096%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-libraries.html"><span>clear</span><wbr><span><span>Libraries</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="657269096%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-libraries.html"><span class="token function">clearLibraries</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CpkMetadata.Builder</a></div><div class="brief ">Clears the value of the 'libraries' field.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1773394210%2FFunctions%2F380713788" anchor-label="clearMainBundle" id="-1773394210%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-main-bundle.html"><span>clear</span><wbr><span>Main</span><wbr><span><span>Bundle</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1773394210%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-main-bundle.html"><span class="token function">clearMainBundle</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CpkMetadata.Builder</a></div><div class="brief ">Clears the value of the 'mainBundle' field.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1465294390%2FFunctions%2F380713788" anchor-label="clearManifest" id="-1465294390%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-manifest.html"><span>clear</span><wbr><span><span>Manifest</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1465294390%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-manifest.html"><span class="token function">clearManifest</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CpkMetadata.Builder</a></div><div class="brief ">Clears the value of the 'manifest' field.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2007237003%2FFunctions%2F380713788" anchor-label="clearTimestamp" id="2007237003%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-timestamp.html"><span>clear</span><wbr><span><span>Timestamp</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2007237003%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-timestamp.html"><span class="token function">clearTimestamp</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CpkMetadata.Builder</a></div><div class="brief ">Clears the value of the 'timestamp' field.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1869922591%2FFunctions%2F380713788" anchor-label="clearType" id="1869922591%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-type.html"><span>clear</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1869922591%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-type.html"><span class="token function">clearType</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CpkMetadata.Builder</a></div><div class="brief ">Clears the value of the 'type' field.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1611854712%2FFunctions%2F380713788" anchor-label="equals" id="1611854712%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../../net.corda.ledger.utxo.verification/-transaction-verification-response/-builder/index.html#1611854712%2FFunctions%2F380713788"><span><span>equals</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1611854712%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../../net.corda.ledger.utxo.verification/-transaction-verification-response/-builder/index.html#1611854712%2FFunctions%2F380713788"><span class="token function">equals</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">obj<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1059234063%2FFunctions%2F380713788" anchor-label="hasCorDappCertificates" id="1059234063%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-cor-dapp-certificates.html"><span>has</span><wbr><span>Cor</span><wbr><span>Dapp</span><wbr><span><span>Certificates</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1059234063%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-cor-dapp-certificates.html"><span class="token function">hasCorDappCertificates</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'corDappCertificates' field has been set.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-392547588%2FFunctions%2F380713788" anchor-label="hasCorDappManifest" id="-392547588%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-cor-dapp-manifest.html"><span>has</span><wbr><span>Cor</span><wbr><span>Dapp</span><wbr><span><span>Manifest</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-392547588%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-cor-dapp-manifest.html"><span class="token function">hasCorDappManifest</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'corDappManifest' field has been set.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1444186243%2FFunctions%2F380713788" anchor-label="hasCorDappManifestBuilder" id="1444186243%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-cor-dapp-manifest-builder.html"><span>has</span><wbr><span>Cor</span><wbr><span>Dapp</span><wbr><span>Manifest</span><wbr><span><span>Builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1444186243%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-cor-dapp-manifest-builder.html"><span class="token function">hasCorDappManifestBuilder</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'corDappManifest' field has an active Builder instance</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="546754863%2FFunctions%2F380713788" anchor-label="hasExternalChannelsConfig" id="546754863%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-external-channels-config.html"><span>has</span><wbr><span>External</span><wbr><span>Channels</span><wbr><span><span>Config</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="546754863%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-external-channels-config.html"><span class="token function">hasExternalChannelsConfig</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'externalChannelsConfig' field has been set.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="181886686%2FFunctions%2F380713788" anchor-label="hasHash" id="181886686%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-hash.html"><span>has</span><wbr><span><span>Hash</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="181886686%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-hash.html"><span class="token function">hasHash</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'hash' field has been set.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="747280993%2FFunctions%2F380713788" anchor-label="hasHashBuilder" id="747280993%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-hash-builder.html"><span>has</span><wbr><span>Hash</span><wbr><span><span>Builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="747280993%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-hash-builder.html"><span class="token function">hasHashBuilder</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'hash' field has an active Builder instance</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2075362737%2FFunctions%2F380713788" anchor-label="hashCode" id="-2075362737%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../../net.corda.ledger.utxo.verification/-transaction-verification-response/-builder/index.html#-2075362737%2FFunctions%2F380713788"><span>hash</span><wbr><span><span>Code</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2075362737%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../../net.corda.ledger.utxo.verification/-transaction-verification-response/-builder/index.html#-2075362737%2FFunctions%2F380713788"><span class="token function">hashCode</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="10885937%2FFunctions%2F380713788" anchor-label="hasId" id="10885937%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-id.html"><span>has</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="10885937%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-id.html"><span class="token function">hasId</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'id' field has been set.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1108219218%2FFunctions%2F380713788" anchor-label="hasIdBuilder" id="-1108219218%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-id-builder.html"><span>has</span><wbr><span>Id</span><wbr><span><span>Builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1108219218%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-id-builder.html"><span class="token function">hasIdBuilder</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'id' field has an active Builder instance</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1514011701%2FFunctions%2F380713788" anchor-label="hasLibraries" id="1514011701%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-libraries.html"><span>has</span><wbr><span><span>Libraries</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1514011701%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-libraries.html"><span class="token function">hasLibraries</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'libraries' field has been set.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-984177231%2FFunctions%2F380713788" anchor-label="hasMainBundle" id="-984177231%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-main-bundle.html"><span>has</span><wbr><span>Main</span><wbr><span><span>Bundle</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-984177231%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-main-bundle.html"><span class="token function">hasMainBundle</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'mainBundle' field has been set.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-606373539%2FFunctions%2F380713788" anchor-label="hasManifest" id="-606373539%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-manifest.html"><span>has</span><wbr><span><span>Manifest</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-606373539%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-manifest.html"><span class="token function">hasManifest</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'manifest' field has been set.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1447723778%2FFunctions%2F380713788" anchor-label="hasManifestBuilder" id="1447723778%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-manifest-builder.html"><span>has</span><wbr><span>Manifest</span><wbr><span><span>Builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1447723778%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-manifest-builder.html"><span class="token function">hasManifestBuilder</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'manifest' field has an active Builder instance</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1430987688%2FFunctions%2F380713788" anchor-label="hasTimestamp" id="-1430987688%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-timestamp.html"><span>has</span><wbr><span><span>Timestamp</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1430987688%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-timestamp.html"><span class="token function">hasTimestamp</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'timestamp' field has been set.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-592471502%2FFunctions%2F380713788" anchor-label="hasType" id="-592471502%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-type.html"><span>has</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-592471502%2FFunctions%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-type.html"><span class="token function">hasType</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'type' field has been set.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-1728865081%2FProperties%2F380713788" anchor-label="corDappCertificates" id="-1728865081%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cor-dapp-certificates.html"><span>cor</span><wbr><span>Dapp</span><wbr><span><span>Certificates</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1728865081%2FProperties%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="cor-dapp-certificates.html">corDappCertificates</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/nio/ByteBuffer.html">ByteBuffer</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-907162956%2FProperties%2F380713788" anchor-label="corDappManifest" id="-907162956%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cor-dapp-manifest.html"><span>cor</span><wbr><span>Dapp</span><wbr><span><span>Manifest</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-907162956%2FProperties%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="cor-dapp-manifest.html">corDappManifest</a><span class="token operator">: </span><a href="../../-cor-dapp-manifest/index.html">CorDappManifest</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1555124683%2FProperties%2F380713788" anchor-label="corDappManifestBuilder" id="1555124683%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cor-dapp-manifest-builder.html"><span>cor</span><wbr><span>Dapp</span><wbr><span>Manifest</span><wbr><span><span>Builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1555124683%2FProperties%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="cor-dapp-manifest-builder.html">corDappManifestBuilder</a><span class="token operator">: </span><a href="../../-cor-dapp-manifest/-builder/index.html">CorDappManifest.Builder</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="657693303%2FProperties%2F380713788" anchor-label="externalChannelsConfig" id="657693303%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="external-channels-config.html"><span>external</span><wbr><span>Channels</span><wbr><span><span>Config</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="657693303%2FProperties%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="external-channels-config.html">externalChannelsConfig</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1428854234%2FProperties%2F380713788" anchor-label="hash" id="-1428854234%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="hash.html"><span><span>hash</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1428854234%2FProperties%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="hash.html">hash</a><span class="token operator">: </span><a href="../../../net.corda.data.crypto/-secure-hash/index.html">SecureHash</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="386846233%2FProperties%2F380713788" anchor-label="hashBuilder" id="386846233%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="hash-builder.html"><span>hash</span><wbr><span><span>Builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="386846233%2FProperties%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="hash-builder.html">hashBuilder</a><span class="token operator">: </span><a href="../../../net.corda.data.crypto/-secure-hash/-builder/index.html">SecureHash.Builder</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2051123079%2FProperties%2F380713788" anchor-label="id" id="-2051123079%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="id.html"><span><span>id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2051123079%2FProperties%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="id.html">id</a><span class="token operator">: </span><a href="../../-cpk-identifier/index.html">CpkIdentifier</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1394627482%2FProperties%2F380713788" anchor-label="idBuilder" id="-1394627482%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="id-builder.html"><span>id</span><wbr><span><span>Builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1394627482%2FProperties%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="id-builder.html">idBuilder</a><span class="token operator">: </span><a href="../../-cpk-identifier/-builder/index.html">CpkIdentifier.Builder</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1227603437%2FProperties%2F380713788" anchor-label="libraries" id="1227603437%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="libraries.html"><span><span>libraries</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1227603437%2FProperties%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="libraries.html">libraries</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1272898823%2FProperties%2F380713788" anchor-label="mainBundle" id="-1272898823%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="main-bundle.html"><span>main</span><wbr><span><span>Bundle</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1272898823%2FProperties%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="main-bundle.html">mainBundle</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-338517851%2FProperties%2F380713788" anchor-label="manifest" id="-338517851%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="manifest.html"><span><span>manifest</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-338517851%2FProperties%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="manifest.html">manifest</a><span class="token operator">: </span><a href="../../-cpk-manifest/index.html">CpkManifest</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="933108410%2FProperties%2F380713788" anchor-label="manifestBuilder" id="933108410%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="manifest-builder.html"><span>manifest</span><wbr><span><span>Builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="933108410%2FProperties%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="manifest-builder.html">manifestBuilder</a><span class="token operator">: </span><a href="../../-cpk-manifest/-builder/index.html">CpkManifest.Builder</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1717395952%2FProperties%2F380713788" anchor-label="timestamp" id="-1717395952%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="timestamp.html"><span><span>timestamp</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1717395952%2FProperties%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="timestamp.html">timestamp</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html">Instant</a></div><div class="brief ">Time ([Instant]) in milliseconds when the record was updated or added.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2091754874%2FProperties%2F380713788" anchor-label="type" id="2091754874%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="type.html"><span><span>type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2091754874%2FProperties%2F380713788"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="type.html">type</a><span class="token operator">: </span><a href="../../-cpk-type/index.html">CpkType</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
+
