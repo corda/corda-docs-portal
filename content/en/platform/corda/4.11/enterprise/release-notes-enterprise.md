@@ -50,6 +50,12 @@ If a CorDapp is compiled against 4.11 (e.g. its TPV = 13) then Double Spend hand
 
 See [Finality Flow Recovery](finality-flow-recovery.md)
 
+### Ledger Recovery
+A new ledger recovery flow (`LedgerRecoveryFlow`) enables a node to identify and recover transactions from
+peer recovery nodes to which it was a party (initiator, receiver) and which are missing from its own ledger.
+
+See [Ledger Recovery Flow](ledger-recovery-flow.md)
+
 ## Fixed issues
 
 This release includes the following fixes:
