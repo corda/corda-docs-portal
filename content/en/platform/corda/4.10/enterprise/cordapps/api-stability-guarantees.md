@@ -41,7 +41,7 @@ also has a stable API.
 Corda does *not* guarantee stability for:
 
 * Incubating modules (where possible, disruption to developers will be minimized). See [Corda incubating modules](#corda-incubating-modules) for more information.
-* **The finance module**: a legacy module. Use the Tokens SDK `com.r3.corda.lib.tokens` (available in the [Tokens GitHub repository](https://github.com/corda/token-sdk) instead.
+* **The finance module**: a legacy module. Use the Tokens SDK `com.r3.corda.lib.tokens` (available in the [Tokens GitHub repository](https://github.com/corda/token-sdk) instead).
 
 {{< warning >}}
 
