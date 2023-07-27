@@ -31,11 +31,11 @@ Create or upgrade the database schema (database objects like tables, indices) to
 
 * **initialiseSchema**:
 *(Deprecated)* Automatically creates the tables required by the CENM component.
-{{< note>}} This property was used for H2 database only, its ignored since CENM 1.2 and its replaced by `runMigration`.{{< /note>}}
+{{< note>}} This property was used for H2 database only, it has been ignored since CENM 1.2 and it has been replaced by `runMigration`.{{< /note>}}
 
 
 * **jdbcDriver**:
-Path to the jar file containing the specific JDBC driver.
+Path to the JAR file containing the specific JDBC driver.
 
 
 * **driverClassName**:
@@ -43,7 +43,7 @@ See the specific JDBC driver documentation [here](https://www.oracle.com/java/te
 
 
 * **url**:
-Location of the Database on the network.
+Location of the database on the network.
 
 
 * **user**:
