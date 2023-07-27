@@ -1,19 +1,19 @@
 ---
-date: '2021-07-15'
+aliases:
+- /head/api-flows.html
+- /HEAD/api-flows.html
+- /api-flows.html
+date: '2021-08-12'
 menu:
-  corda-enterprise-4-10:
-    identifier: corda-enterprise-4-10-cordapps-flows
-    name: "CorDapp flows"
-    parent: corda-enterprise-4-10-cordapps
+  corda-community-4-10:
+    identifier: corda-community-4-10-api-flows
+    parent: corda-community-4-10-corda-api
+    weight: 220
 tags:
 - api
 - flows
-title: Flows
-weight: 70
+title: 'API: Flows'
 ---
-
-
-
 
 # Flows
 
@@ -91,7 +91,7 @@ The `initiator`:
 
 You can visualize the work performed by initiator like this:
 
-{{< figure alt="flow overview" width=80% zoom="../resources/flow-overview.png" >}}
+{{< figure alt="flow overview" width=80% zoom="./resources/flow-overview.png" >}}
 
 ## Responder flow class example
 
@@ -451,7 +451,7 @@ You can choose to wait to receive arbitrary data of a specific type from a count
 
 * You never receive a message back. In the current design, the flow is paused until the node’s owner kills the flow.
 * Instead of sending a message back, the counterparty throws a `FlowException`. This exception is propagated back
-to you. You can use the error message to establish what happened.
+  to you. You can use the error message to establish what happened.
 * You receive a message back, but it’s of the wrong type. In this case, a `FlowException` is thrown.
 * You receive back a message of the correct type.
 
@@ -656,7 +656,7 @@ Corda installs four initiating subflow pairs on each node by default:
 * `NotaryChangeFlow`/`NotaryChangeHandler`, used to change a state’s notary.
 * `ContractUpgradeFlow.Initiate`/`ContractUpgradeHandler`, used to change a state’s contract.
 * `SwapIdentitiesFlow`/`SwapIdentitiesHandler`, used to exchange confidential identities with a
-counterparty.
+  counterparty.
 
 {{< warning >}}
 `SwapIdentitiesFlow` and `SwapIdentitiesHandler` are only installed if you include the `confidential-identities` module. The `confidential-identities` module is not yet stabilized, so the
@@ -668,11 +668,11 @@ Corda provides a number of built-in inlined subflows that you can use to handle 
 important are:
 
 * `FinalityFlow`, used to notarize, locally record, and broadcast a signed transaction to its participants
-and any extra parties.
+  and any extra parties.
 * `ReceiveFinalityFlow`, used to receive these notarized transactions from the `FinalityFlow` sender and record them locally.
 * `CollectSignaturesFlow`, used to collect a transaction’s required signatures.
 * `SendTransactionFlow`, used to send a signed transaction if it needs to be resolved on
-the other side.
+  the other side.
 * `ReceiveTransactionFlow`, used to receive a signed transaction.
 
 
@@ -731,7 +731,7 @@ To record a transaction for all parties:
 
 1. **Only one** party calls `FinalityFlow`.
 2. All other parties  **must** call `ReceiveFinalityFlow` in their responder
-flow to receive the transaction:
+   flow to receive the transaction:
 
 {{< tabs name="tabs-15" >}}
 {{% tab name="kotlin" %}}
@@ -765,9 +765,7 @@ transaction fail to verify it, or the receiving flow (the finality handler) fail
 all parties will not have the up-to-date view of the ledger.
 
 To recover from this scenario, the receiver’s finality handler is automatically sent to the `node-flow-hospital`. There, it is suspended and retried from its last checkpoint
-
-upon node restart, or according to other conditional retry rules - see [flow hospital runtime behavior](../node/node-flow-hospital.html#run-time-behaviour).
-
+upon node restart, or according to other conditional retry rules - see [flow hospital runtime behavior](node-flow-hospital.md).
 This gives the node operator the opportunity to recover from the error. Until the issue is resolved, the node will continue to retry the flow
 on each startup. Upon successful completion by the receiver’s finality flow, the ledger will become fully consistent.
 
@@ -776,7 +774,26 @@ It’s possible to forcibly terminate the erroring finality handler using the `k
 
 {{< /warning >}}
 
+#### Two Phase Finality
 
+As of Corda 4.11 the finality protocol has changed to improve resilience and recoverability.
+
+`FinalityFlow` will now:
+- record the transaction locally without a notary signature.
+- broadcast the un-notarised transaction to other participants (for recording)
+- send the transaction to the chosen notary and obtain a signature if the transaction is valid
+- finalise the transaction locally with the notary signature
+- broadcast the notary signature to other participants (for finalisation)
+
+`ReceiveFinalityFlow` will now:
+- receive and record the un-notarised transaction locally
+- await receipt of the notary signature
+- finalise the transaction locally with the notary signature
+
+Additional flow transaction recovery metadata is stored upon recording the un-notarised transaction such that it can be
+recovered should anything go wrong after this point at either the flow initiator or receiver's side.
+
+See [Two Phase Finality](../enterprise/two-phase-finality.md) for further information.
 
 ### CollectSignaturesFlow/SignTransactionFlow
 
@@ -857,7 +874,7 @@ Check that:
 
 * The transaction received is the expected type, and has the expected types of inputs and outputs.
 * The properties of the outputs are expected, unless you have integrated reference
-data sources to facilitate this.
+  data sources to facilitate this.
 * The transaction is correctly spending asset states and is not spending them maliciously. The transaction creator could have access to some of signer’s state references.
 
 
@@ -1183,14 +1200,14 @@ You could use this functionality to:
 `FlowLogic` provides two `await` functions that allow custom operations to be defined and executed outside of the context of a flow:
 
 * `FlowExternalOperation`: Returns a result which should be run using a thread from one of the node’s
-thread pools.
+  thread pools.
 * `FlowExternalAsyncOperation`: Returns a future, which you should run on a thread provided for its implementation.
-Threading needs to be explicitly handled when using `FlowExternalAsyncOperation`.
+  Threading needs to be explicitly handled when using `FlowExternalAsyncOperation`.
 * `FlowExternalOperation`: Allows developers to write an operation that runs on a thread provided by the node’s flow external operation
-thread pool.
+  thread pool.
 
 {{< note >}}
-The size of the external operation thread pool can be configured. See [the node configuration documentation](../node/setup/corda-configuration-file.html#corda-configuration-flow-external-operation-thread-pool-size).
+The size of the external operation thread pool can be configured. See [the node configuration documentation](corda-configuration-file.md).
 
 {{< /note >}}
 You can call `FlowExternalOperation` from a flow to run an operation on a new thread, allowing the flow to suspend:
@@ -1350,7 +1367,7 @@ public class Data {
 In the code above:
 
 1. `ExternalService` is a Corda service that provides a way to contact an external system (by HTTP in this example). `ExternalService.retrieveDataFromExternalSystem` is passed a `deduplicationId` which is included as part of the request to the external system. The external system, in this example, handles deduplication and returns the previous result if it was already
-computed.
+   computed.
 2. An implementation of `FlowExternalOperation` (`RetrieveDataFromExternalSystem`) is created that calls `ExternalService.retrieveDataFromExternalSystem`.
 3. `RetrieveDataFromExternalSystem` is passed into `await` to execute the code contained in `RetrieveDataFromExternalSystem.execute`.
 4. The result of `RetrieveDataFromExternalSystem.execute` is returned to the flow once its execution finishes.
@@ -1365,7 +1382,7 @@ Threading must be explicitly controlled when using `FlowExternalAsyncOperation`.
 Implementations of `FlowExternalAsyncOperation` must return a `CompletableFuture`. The developer decides how to create this future.
 The best practice is to use `CompletableFuture.supplyAsync` and supply an executor to run the future. You can use other libraries to
 generate futures, as long as a `CompletableFuture` is returned out of `FlowExternalAsyncOperation`. You can see an example of creating a future
-using [Guava’s ListenableFuture](#api-flows-guava-future-conversion) Below.
+using Guava’s ListenableFuture below.
 
 {{< note >}}
 You can chain the future to execute further operations that continue using the same thread the future started on. For example,
@@ -1556,7 +1573,7 @@ In the code above:
 
 1. `ExternalService` is a Corda service that provides a way to contact an external system (by HTTP in this example). `ExternalService.retrieveDataFromExternalSystem` is passed a `deduplicationId`, which is included as part of the request to the external system. The external system, in this example, handles deduplication and returns the previous result if it was already computed.
 2. A `CompletableFuture` is created that contacts the external system. `CompletableFuture.supplyAsync` takes in a reference to the
-`ExecutorService`, which provides a thread for the external operation to run on.
+   `ExecutorService`, which provides a thread for the external operation to run on.
 3. An implementation of `FlowExternalAsyncOperation` (`RetrieveDataFromExternalSystem`) is created that calls the `ExternalService.retrieveDataFromExternalSystem`.
 4. `RetrieveDataFromExternalSystem` is passed into `await` to execute the code contained in `RetrieveDataFromExternalSystem.execute`.
 5. The result of `RetrieveDataFromExternalSystem.execute` is then returned to the flow once its execution finishes.
@@ -1738,7 +1755,7 @@ In the code above:
 1. A `ListenableFuture` is created and receives a thread from the `ListeningExecutorService`. This future does all the processing.
 2. A `CompletableFuture` is created, so that it can be returned to and executed by a `FlowExternalAsyncOperation`.
 3. A `FutureCallback` is registered to the `ListenableFuture`, which will complete the `CompletableFuture` (either successfully or
-exceptionally) depending on the outcome of the `ListenableFuture`.
+   exceptionally) depending on the outcome of the `ListenableFuture`.
 4. `CompletableFuture.cancel` is overridden to propagate its cancellation down to the underlying `ListenableFuture`.
 
 ## Concurrency, locking and waiting
@@ -1793,7 +1810,7 @@ A flow becomes unusable and problematic when it is:
 
 * Blocked due to a never-ending or long-running loop.
 * Waiting indefinitely for another node to respond.
-* Started accidentally.
+  *Started accidentally.
 
 To resolve these issues, you can kill a flow. This effectively "cancels" that flow.
 

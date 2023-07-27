@@ -15,7 +15,7 @@ weight: 45
 
 # Finality Flow Recovery
 
-[Two Phase Finality](two-phase-finality.md) introduces recovery metadata and a new transaction status of `IN_FLIGHT`
+[Two Phase Finality](../../4.10/enterprise/two-phase-finality.md) introduces recovery metadata and a new transaction status of `IN_FLIGHT`
 to denote that a transaction has not yet been fully finalised. The protocol stores the additional flow transaction recovery metadata
 upon initially recording an un-notarised transaction. This metadata is used to enable **initiator** and **receiver** recovery
 should a flow fail at some point within the finality protocol.
