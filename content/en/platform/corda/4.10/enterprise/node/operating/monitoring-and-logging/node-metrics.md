@@ -19,6 +19,10 @@ A Corda node exports a number of metrics for the purpose of monitoring the healt
 
 For more information on how to monitor a node, see [Node administration]({{< relref "../node-administration.md" >}}), [Node monitoring and logging](overview.md), and [Node monitoring scenarios](monitoring-scenarios.md).
 
+## Node status
+
+The node status, indicating what the node is currently doing, is published as `net.corda.Node.Status`, and is available almost immediately at startup.
+
 ## Metric accuracy and performance
 
 Histogram and timer-based metrics use internal data reservoirs to compute percentile-based metric data. By default, the metrics produced by Corda nodes rely on the reservoir implementation provided by the DropWizard metrics library, which is an exponentially decaying reservoir (EDR). These reservoirs sample the data and do not keep a full set of data over time. This can cause outlying data points to be missed if they are not included in the sample set.

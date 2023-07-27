@@ -1,7 +1,7 @@
 ---
 date: '2023-06-21'
 title: "Installing the CSDE"
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     parent: corda5-develop-get-started
@@ -16,7 +16,7 @@ The images in this section show the `CSDE-cordapp-template-kotlin` repository in
 
 ## Downloading the CSDE
 
-1. To obtain the CSDE template, clone the [CSDE-cordapp-template-kotlin repository](https://github.com/corda/CSDE-cordapp-template-kotlin) or [CSDE-cordapp-template-java repository](https://github.com/corda/CSDE-cordapp-template-java):
+1. To obtain the CSDE template, clone the [CSDE-cordapp-template-kotlin repository](https://github.com/corda/CSDE-cordapp-template-kotlin/tree/release/corda-5-0) or [CSDE-cordapp-template-java repository](https://github.com/corda/CSDE-cordapp-template-java/tree/release/corda-5-0):
 
    {{< tabs name="clone-csde">}}
    {{% tab name="Kotlin"%}}
@@ -32,10 +32,10 @@ The images in this section show the `CSDE-cordapp-template-kotlin` repository in
    {{% /tab %}}
    {{< /tabs >}}
 
-2. Change to the new folder and checkout the Beta 4 branch:
+2. Change to the new folder and checkout the 5.0 branch:
 
    ```sh
-   git checkout release/corda-5-beta-4
+   git checkout release/corda-5-0
    ```
 
 3. Initialise the Git repository and change the remote so you do not inadvertently push your work back to the R3 repository:

@@ -2,7 +2,7 @@
 date: '2023-06-06'
 title: "CPK Gradle Plugin"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     parent: corda5-develop-packaging
@@ -47,21 +47,21 @@ plugin to your root Gradle project:
      ```
 
 2. Declare the versions of both plugins in `settings.gradle`:
-```
-pluginManagement {
-    plugins {
-        id 'net.corda.cordapp.cordapp-configuration' version cordaReleaseVersion
-        id 'net.corda.plugins.cordapp-cpk2' version cpkPluginVersion
-    }
-}
-```
+   ```
+   pluginManagement {
+       plugins {
+           id 'net.corda.cordapp.cordapp-configuration' version cordaReleaseVersion
+           id 'net.corda.plugins.cordapp-cpk2' version cpkPluginVersion
+       }
+   }
+   ```
 
-Where `cpkPluginVersion` and `cordaReleaseVersion` are both Gradle properties. For example:
+   Where `cpkPluginVersion` and `cordaReleaseVersion` are both Gradle properties. For example:
 
-```
-cpkPluginVersion = '6.0.0'
-cordaReleaseVersion = '5.0.0'
-```
+   ```
+   cpkPluginVersion = '6.0.0'
+   cordaReleaseVersion = '5.0.0'
+   ```
 
 Applying the `cordapp-cpk2` plugin implicitly applies both Gradle's Java library plugin and Bnd's builder plugin,
 which means that the output of the JAR task will also become an OSGi bundle. The `cordapp-cpk2` plugin assigns the

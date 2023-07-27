@@ -1,7 +1,7 @@
 ---
 title: "Transactions"
 date: 2023-06-08
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-fundamentals-ledger-transactions
@@ -31,7 +31,7 @@ A transaction can contain any number of inputs, outputs, and references of any t
 * exit states by creating transactions without outputs. This does not create any new states to replace the ones consumed.
 * merge or split fungible assets. For example, they may combine a $2 state and a $5 state into a $7 cash state.
 
-Transactions are atomic. Either all of the transaction’s proposed changes are accepted or none.
+Transactions are atomic. Either all of a transaction’s proposed changes are accepted or none are.
 
 There are two basic types of transactions:
 
@@ -45,9 +45,9 @@ Notary-change transactions will be implemented in a future release.
 ## Transaction Backchains
 Transaction backchains enable a participant to verify that each input was generated from a valid series of transactions. This is called backchain verification. If you need to break this chain (for example, because you want to increase performance by reducing the number of transactions the node has to check, or because you want to keep previous transactions private) you can reissue states.
 
-Backchains are created as input state references (StateRefs) linked together over time. Input state references let you use the outputs of previous transactions as the inputs of new transactions.
+Backchains are created as input state references (StateRefs) linked together over time. StateRefs enable you to use the outputs of previous transactions as the inputs of new transactions.
 
-Input state references (StateRefs) consist of:
+Input StateRefs consist of:
 
 * The hash of the transaction that created the input.
 * The input’s index (location in the backchain) in the outputs of the previous transaction.
@@ -79,13 +79,6 @@ To be committed to the ledger, the transaction must receive signatures from all 
 >}}
 
 The transaction has the required signatures and so the inputs may be marked as consumed, and cannot be used in any future transactions. If otherwise valid, the transaction’s outputs become part of the current state of the ledger: 
-
-{{< 
-  figure
-	 width="50%"
-	 src="tx-chain.png"
-	 figcaption="Transaction Backchain Example"
->}}
 
 ### Validity
 
