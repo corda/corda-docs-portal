@@ -14,14 +14,14 @@ weight: 1
 
 # API stability guarantees
 
-Corda maintains the stability of specific APIs. APIs are categorized as:
+Corda maintains the stability of specific Corda 4 APIs. APIs are categorized as:
 
-* **Public APIs**, which are APIs/application binary interfaces (ABIs) that are backwards compatible. See [public API](#public-api) for more information.
-* **Non-public APIs**. These APIs are not guaranteed to be backwards compatible. See [non-public API (experimental)](#non-public-api-experimental) for more information.
+* **Public APIs**, which are APIs/application binary interfaces (ABIs) that are stable. See [public API](#public-api) for more information.
+* **Non-public APIs**. These APIs are not guaranteed to be stable. See [non-public API (experimental)](#non-public-api-experimental) for more information.
 
 ## Public API
 
-The following modules form part of Corda’s public API. These will be backwards compatible for future releases, unless an incompatible change is required for security reasons:
+The following modules form part of the Corda 4 public API. These will be stable for future releases, unless an incompatible change is required for security reasons:
 
 * **Core (net.corda.core)**: Core Corda libraries such as crypto functions, types for Corda’s building blocks (such as states, contracts, transactions, and attachments), and some interfaces for nodes and protocols.
 * **Client RPC (net.corda.client.rpc)**.
@@ -38,7 +38,7 @@ also has a stable API.
 
 ## Non-public API (experimental)
 
-Corda does *not* guarantee  backwards compatibility for:
+Corda does *not* guarantee stability for:
 
 * Incubating modules (where possible, disruption to developers will be minimized). See [Corda incubating modules](#corda-incubating-modules) for more information.
 * **The finance module**: a legacy module. Use the Tokens SDK `com.r3.corda.lib.tokens` (available in the [Tokens GitHub repository](https://github.com/corda/token-sdk) instead.
@@ -49,7 +49,6 @@ Do not use the following as they may be changed or deleted without notice.
 * Internal modules.
 * Package and/or sub-package containing `.internal` (for example, `net.corda.core.internal`).
 * Any interfaces, classes or methods whose name contains the word `internal` or `Internal`.
-
 {{< /warning >}}
 
 

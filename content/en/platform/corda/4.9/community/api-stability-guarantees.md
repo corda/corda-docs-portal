@@ -20,18 +20,16 @@ title: API stability guarantees
 
 # API stability guarantees
 
-Corda makes certain commitments about what parts of the API will preserve backwards compatibility as they change and
-which will not. Over time, more of the API will fall under the stability guarantees. Thus, APIs can be categorized in the following 2 broad categories:
+Corda makes certain commitments about what parts of the Corda 4 API will preserve stability as they change and
+which will not. Over time, more of the Corda 4 API will fall under the stability guarantees. Thus, APIs can be categorized in the following 2 broad categories:
 
 
-* **public APIs**, for which API/[ABI](https://en.wikipedia.org/wiki/Application_binary_interface) backwards compatibility guarantees are provided. See: [Public API](#public-api)
-* **non-public APIs**, for which no backwards compatibility guarantees are provided. See: [Non-public API (experimental)](#non-public-api-experimental)
-
-
+* **public APIs**, for which API/[ABI](https://en.wikipedia.org/wiki/Application_binary_interface) stability guarantees are provided. See: [Public API](#public-api)
+* **non-public APIs**, for which no stability guarantees are provided. See: [Non-public API (experimental)](#non-public-api-experimental)
 
 # Public API
 
-The following modules form part of Corda’s public API and we commit to API/ABI backwards compatibility in following releases, unless an incompatible change is required for security reasons:
+The following modules form part of the Corda 4 public API and we commit to API/ABI stability in following releases, unless an incompatible change is required for security reasons:
 
 
 * **Core (net.corda.core)**: core Corda libraries such as crypto functions, types for Corda’s building blocks: states, contracts, transactions, attachments, etc. and some interfaces for nodes and protocols
@@ -47,12 +45,9 @@ The following modules form part of Corda’s public API and we commit to API/ABI
 Additionally, the **Tokens SDK (com.r3.corda.lib.tokens)** available in [the Tokens GitHub repository](https://github.com/corda/token-sdk)
 has a stable API.
 
-
-
 # Non-public API (experimental)
 
-The following are not part of the Corda’s public API and no backwards compatibility guarantees are provided:
-
+The following are not part of the Corda 4 public API and no stability guarantees are provided:
 
 * Incubating modules, for which we will do our best to minimise disruption to developers using them until we are able to graduate them into the public API
 * Internal modules, which are not to be used, and will change without notice

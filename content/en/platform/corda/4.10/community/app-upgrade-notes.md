@@ -18,7 +18,7 @@ title: Upgrading CorDapps to newer platform versions
 
 # Upgrading CorDapps to newer platform versions
 
-These notes provide information on upgrading your CorDapps from previous versions. Corda provides backwards compatibility for public,
+These notes provide information on upgrading your CorDapps from previous versions. Corda 4 provides stability for public,
 non-experimental APIs that have been committed to. A list can be found in the [API stability guarantees](api-stability-guarantees.md) page.
 
 This means that you can upgrade your node across versions *without recompiling or adjusting your CorDapps*. You just have to upgrade
