@@ -23,7 +23,7 @@ The crypto requests can be categorized into flow requests and everything else. F
     * `SigningService.sign`: The `sign` operation is initiated on the flow side and is performed in the crypto processor. It sends the bytes to be signed, along with the public part of the signing key and the signature spec, to the crypto worker.
     On the crypto worker side, the crypto worker attempts to find the key in the keys hosted for the virtual node that
     sent the request and if found, it signs the bytes and returns the signature.
-    The metrics in the following table pertain to the time taken to handle the entire `sign` request. Additionally, there are more detailed metrics related to key caches and the 'sign' operation itself.
+    The metrics in the following table pertain to the time taken to handle the entire `sign` request. Additionally, there are more detailed metrics related to key caches and the `sign` operation itself.
     * `SigningService.findMySigningKeys`: The `findMySigningKeys` operation sends a set of public keys to the crypto worker, which then filters and returns the keys owned by the calling virtual node.
     The metrics in the following table are related to the time taken to handle the entire `findMySigningKeys` request. Additionally, there are metrics related to key caches.
 
