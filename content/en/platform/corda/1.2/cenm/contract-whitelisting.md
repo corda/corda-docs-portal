@@ -4,7 +4,11 @@ aliases:
 - /docs/cenm/head/contract-whitelisting.html
 - /docs/cenm/contract-whitelisting.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  cenm-1-2:
+    identifier: cenm-1-2-contract-whitelisting
+    parent: cenm-1-2-configuration
+    weight: 320
 tags:
 - contract
 - whitelisting

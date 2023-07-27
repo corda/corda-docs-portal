@@ -99,6 +99,7 @@ Below is an example of the JSON output:
       "progressStep" : "Awaiting counterparty's anonymous identity"
     }
   ],
+  "status" : "RUNNABLE",
   "suspendedOn" : {
     "sendAndReceive" : [
       {

@@ -94,7 +94,7 @@ The following database types are supported both in production and for developmen
 |Oracle|x86-64|19c|Oracle JDBC 8|
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
 |Oracle|x86-64|11gR2|Oracle JDBC 6|
-|PostgreSQL|x86-64|9.6, 10.10, 11.5, 13.8|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
+|PostgreSQL|x86-64|11.x, 13.x|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
 
 {{< /table >}}
 
@@ -145,7 +145,8 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 | Utimaco SecurityServer Se Gen2| Firmware version 4.21.1  | Firmware version 4.21.1  | Firmware version 4.21.1 | Firmware version 4.21.1   |
 |                               | Driver version 4.21.1    | Driver version 4.21.1    | Driver version 4.21.1   | Driver version 4.21.1     |
 | Gemalto Luna                  | Firmware version 7.0.3   | Firmware version 7.0.3   | Firmware version 7.0.3  | Firmware version 7.0.3    |
-|                               | Driver version 7.3       | Driver version 7.3       | Driver version 7.3      | Driver version 7.3        |
+| Gemalto Luna driver with Corda 4.9.6 and earlier, 4.10, 4.10.1  | Driver version 7.3 | Driver version 7.3 | Driver version 7.3 | Driver version 7.3 |
+| Gemalto Luna driver with Corda 4.9.7 and later versions of 4.9.* or 4.10.2 and later  | Driver version 10.4.0 | Driver version 10.4.0 | Driver version 10.4.0 | Driver version 10.4.0 |
 | FutureX Vectera Plus          | Firmware version 6.1.5.8 | Firmware version 6.1.5.8 | Firmware version 6.1.5.8 | Firmware version 6.1.5.8  |
 |                               | PKCS#11 version 3.1      | PKCS#11 version 3.1      | PKCS#11 version 3.1      | PKCS#11 version 3.1       |
 |                               | FXJCA version 1.17       | FXJCA version 1.17       | FXJCA version 1.17       | FXJCA version 1.17        |

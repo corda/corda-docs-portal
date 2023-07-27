@@ -1,6 +1,6 @@
 ---
 title: Corda Enterprise Edition 4.7 release notes
-date: '2020-04-07T12:00:00Z'
+date: '2023-04-18'
 menu:
   corda-enterprise-4-7:
     identifier: corda-enterprise-4-7-release-notes
@@ -16,13 +16,21 @@ weight: 10
 
 # Corda Enterprise Edition 4.7 release notes
 
+## Corda Enterprise Edition 4.7.10 release notes
+
+Corda Enterprise Edition 4.7.10 is a patch release of Corda Enterprise focused on security improvements.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.10/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.10/enterprise/upgrading-index.md" >}}).
+
 ## Corda Enterprise Edition 4.7.9 release notes
 
 Corda Enterprise Edition 4.7.9 is a patch release of Corda Enterprise focused on resolving issues.
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../4.9/enterprise/upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -36,7 +44,7 @@ Corda Enterprise Edition 4.7.8 is a patch release of Corda Enterprise Edition fo
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../4.9/enterprise/upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -65,9 +73,9 @@ Corda Enterprise Edition 4.7.7 is a patch release of Corda Enterprise that ensur
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md" >}}).
+As a developer, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../4.9/enterprise/upgrading-index.md" >}}).
 
-As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html).
+As a node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}).
 
 ### Fixed issues
 
@@ -80,9 +88,9 @@ Corda Enterprise Edition 4.7.6 is a patch release of Corda Enterprise that fixes
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md" >}}).
+As a developer, you should upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../4.8/enterprise/upgrading-index.md" >}}).
 
-As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html).
+As a node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}).
 
 ### Fixed issues
 
@@ -108,9 +116,9 @@ Upgrade to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https:
 
 ### Upgrade recommendation
 
-As a developer, you should urgently upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md" >}}).
+As a developer, you should urgently upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../4.8/enterprise/upgrading-index/_index.md" >}}).
 
-As a node operator, you should urgently upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html).
+As a node operator, you should urgently upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}).
 
 ### Fixed issues
 
@@ -125,9 +133,9 @@ after an internal notary flow retry.
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md" >}}).
+As a developer, you should upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here]({{< relref "../../4.8/enterprise/release-notes-enterprise.md" >}}).
 
-As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
@@ -139,9 +147,9 @@ Corda Enterprise Edition 4.7.2 is a patch release of Corda Enterprise that intro
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md" >}}).
+As a developer, you should upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here]({{< relref "../../4.8/enterprise/release-notes-enterprise.md" >}}).
 
-As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
@@ -159,9 +167,9 @@ The main new features and enhancements in Corda Enterprise Edition 4.7.1 are lis
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md" >}}).
+As a developer, you should upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here]({{< relref "../../4.8/enterprise/release-notes-enterprise.md" >}}).
 
-As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
@@ -246,13 +254,13 @@ They both run as part of the [Gateway Service]({{< relref "../../../../../en/pla
 
 ### Certificate rotation
 
-Corda Enterprise Edition 4.7 introduces a capability for reissuing node legal identity keys and certificates, allowing for re-registration of a node (including a notary node) with a new certificate in the Network Map in [Corda Enterprise Network Manager](../../../../../en/platform/corda/1.5/cenm.html). You must not change the node's `myLegalName` during certificate rotation.
+Corda Enterprise Edition 4.7 introduces a capability for reissuing node legal identity keys and certificates, allowing for re-registration of a node (including a notary node) with a new certificate in the Network Map in [Corda Enterprise Network Manager]({{< relref "../../1.5/cenm/_index.md" >}}). You must not change the node's `myLegalName` during certificate rotation.
 
 For more information about this feature, contact your R3 account manager.
 
 ### Other changes and improvements
 
-* **Single sign-on for Azure AD.** You can now operate a single sign-on (SSO) set-up between Corda services and Azure AD, with a [simple configuration](../../../../../en/platform/corda/4.7/enterprise/node/azure-ad-sso.html) to both your Azure AD and Corda Auth services.
+* **Single sign-on for Azure AD.** You can now operate a single sign-on (SSO) set-up between Corda services and Azure AD, with a [simple configuration]({{< relref "../../4.7/enterprise/node/azure-ad-sso/_index.md" >}}) to both your Azure AD and Corda Auth services.
 * **HSM integration support.** Corda Enterprise now supports users to integrate unsupported HSMs with their Corda Enterprise instance. This release includes a sample Java implementation to be used as an example, and a testing suite that can be used to test an implementation before deployment. For guidance on writing an HSM integration, see [HSM documentation]({{< relref "../../../../../en/platform/corda/4.7/enterprise/operations/deployment/hsm-integration.md" >}}).
 * **Ability to store confidential identity keys in HSMs.** Corda Enterprise now provides support for storing the keys associated with confidential identities in nCipher, Futurex, and Azure Key Vault HSMs. nCipher and Azure Key Vault HSMs support native use of confidential identity keys, and Futurex HSMs support the wrapped key mode. For more information on configuring these HSMs to store confidential identity keys, see the [HSM documentation](../../../../../en/platform/corda/4.7/enterprise/operations/deployment/hsm-deployment-confidential.html#using-an-hsm-with-confidential-identities).
 * **HSM APIs.** Corda Enterprise Edition 4.7 introduces an HSM library with its own API that external tooling developers can use to expand Corda Enterprise HSM support.

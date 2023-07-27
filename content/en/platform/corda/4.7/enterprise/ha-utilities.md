@@ -401,10 +401,10 @@ After successful registration, a keystore file is created by the tool. The locat
 
 This key store contains the service identity certificate (and key if not using a HSM) that all notary workers of this notary cluster share.
 Due to HSM restrictions around storing certificate chains, the key store will still be generated when using a HSM however it will only
-contain the notary service certificate chain. See [HSM Support](../../../../../en/platform/corda/4.7/enterprise/notary/hsm-support.html#hsm-support) for more information.
+contain the notary service certificate chain. See [HSM Support](../../4.7/enterprise/notary/hsm-support.html#hsm-support) for more information.
 
 ## Node Certificate Rotation Tool
 
-This tool enables the reissuing of node legal identity keys and certificates, allowing for re-registration of a node (including a notary node) with a new certificate in the Network Map in [Corda Enterprise Network Manager](../../../../../en/platform/corda/1.5/cenm.html). You must not change the node's `myLegalName` during certificate rotation.
+This tool enables the reissuing of node legal identity keys and certificates, allowing for re-registration of a node (including a notary node) with a new certificate in the Network Map in [Corda Enterprise Network Manager]({{< relref "../../1.5/cenm/_index.md" >}}). You must not change the node's `myLegalName` during certificate rotation.
 
 For more information about this feature, contact your R3 account manager.
