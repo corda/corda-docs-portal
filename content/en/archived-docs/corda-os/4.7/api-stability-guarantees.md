@@ -20,8 +20,7 @@ title: API stability guarantees
 
 # API stability guarantees
 
-Corda makes certain commitments about what parts of the Corda 4 API will preserve stability as they change and
-which will not. Over time, more of the Corda 4 API will fall under the stability guarantees. Thus, APIs can be categorized in the following 2 broad categories:
+Corda makes certain commitments about which parts of the Corda 4 API will preserve stability and which will not. Over time, more of the Corda 4 API will fall under the stability guarantees. Thus, APIs can be categorized in the following two broad categories:
 
 * **public APIs**, for which API/[ABI](https://en.wikipedia.org/wiki/Application_binary_interface) stability guarantees are provided. See: [Public API](#public-api)
 * **non-public APIs**, for which no stability guarantees are provided. See: [Non-public API (experimental)](#non-public-api)
@@ -48,7 +47,7 @@ has a stable API.
 
 # Non-public API (experimental)
 
-The following are not part of the the Corda 4 public API and no stability guarantees are provided:
+The following are not part of the Corda 4 public API and no stability guarantees are provided:
 
 
 * Incubating modules, for which we will do our best to minimise disruption to developers using them until we are able to graduate them into the public API
