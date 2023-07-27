@@ -44,8 +44,7 @@ Instead SignatureSpecService was introduced which takes in a key (and a digest a
 
 ## CompositeKey.java
 
-```kotlin
-
+```java
 package net.corda.v5.crypto;
 
 import org.jetbrains.annotations.NotNull;
@@ -109,8 +108,7 @@ public interface CompositeKey extends PublicKey {
 
 ## CompositeKeyNodeAndWeight.java
 
-```kotlin
-
+```java
 package net.corda.v5.crypto;
 
 import org.jetbrains.annotations.NotNull;
@@ -181,16 +179,11 @@ public final class CompositeKeyNodeAndWeight {
         return otherKey.weight == weight;
     }
 }
-
 ```
 
 ## CordaOID.java
 
-{{< tabs name="CordaOID">}}
-{{% tab name="Kotlin" %}}
-
-```kotlin
-
+```java
 package net.corda.v5.crypto;
 
 import org.jetbrains.annotations.NotNull;
@@ -245,7 +238,7 @@ public final class CordaOID {
 
 ## DigestAlgorithmName.java
 
-```kotlin
+```java
 package net.corda.v5.crypto;
 
 import net.corda.v5.base.annotations.CordaSerializable;
@@ -327,13 +320,11 @@ public final class DigestAlgorithmName {
         return this.name;
     }
 }
-
 ```
 
 ## DigitalSignature.java
 
-```kotlin
-
+```java
 package net.corda.v5.crypto;
 
 import net.corda.v5.base.annotations.CordaSerializable;
@@ -368,13 +359,11 @@ public interface DigitalSignature {
         SecureHash getBy();
     }
 }
-
 ```
 
 ## KeySchemeCodes.java
 
-```kotlin
-
+```java
 package net.corda.v5.crypto;
 
 import org.jetbrains.annotations.NotNull;
@@ -448,13 +437,11 @@ public final class KeySchemeCodes {
     @NotNull
     public static final String COMPOSITE_KEY_CODE_NAME = "COMPOSITE";
 }
-
 ```
 
 ## KeyUtils.java
 
-```kotlin
-
+```java
 package net.corda.v5.crypto;
 
 import org.jetbrains.annotations.NotNull;
@@ -556,13 +543,11 @@ public final class KeyUtils {
                 Collections.singleton(otherKey));
     }
 }
-
 ```
 
 ## MessageAuthenticationCode.java
 
-```kotlin
-
+```java
 package net.corda.v5.crypto;
 
 import org.jetbrains.annotations.NotNull;
@@ -582,13 +567,11 @@ public final class MessageAuthenticationCode {
     @NotNull
     public final static String HMAC_SHA512_ALGORITHM = "HmacSHA512";
 }
-
 ```
 
 ## SecureHash.java
 
-```kotlin
-
+```java
 package net.corda.v5.crypto;
 
 import net.corda.v5.base.annotations.CordaSerializable;
@@ -631,13 +614,11 @@ public interface SecureHash {
     @NotNull
     String toString();
 }
-
 ```
 
 ## SignatureSpec.java
 
-```kotlin
-
+```java
 package net.corda.v5.crypto;
 
 import net.corda.v5.base.annotations.CordaSerializable;
@@ -661,16 +642,13 @@ public interface SignatureSpec {
     @NotNull
     String getSignatureName();
 }
-
 ```
 
 ## package-info.java
 
-```kotlin
-
+```java
 @Export
 package net.corda.v5.crypto;
 
 import org.osgi.annotation.bundle.Export;
-
 ```
