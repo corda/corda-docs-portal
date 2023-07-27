@@ -40,7 +40,7 @@ A `ReceiverDistribution` record contains the following transaction metadata:
 - sender peer id (hashed value of `CordaX500Name`)
 - a distribution list comprising two sections:
     - an AES encrypted map of all peers, and their associated `StatesToRecord` value
-    - a tamper-proof cleartext `timestamp` of when the sender records were generated.
+    - a tamper-proof cleartext `senderRecordedTimestamp` of when the sender records were generated.
 
 The same timestamp will be used upon storing the `ReceiverDistribution` record at each of the receiving node peers.
 This is required to enable synchronised record comparisons across peers when performing transaction recovery.
@@ -80,7 +80,7 @@ where:
 
 - `timeWindow` refers to the recovery time window and defines a `fromTime` and `untilTime`
 
-   Mandatory option.
+   Mandatory option. Will default to using the Corda Network or Node Configuration configured time window.
 
 - `useAllNetworkNodes` specifies whether to use all peer nodes in the network map for recovery.
 
@@ -145,3 +145,36 @@ All transactions types are recoverable with exception of issuance transactions w
 ```kotlin
 net.corda.node.internal.recovery.FinalityRecoveryFlow
 ```
+
+### Privacy
+The ledger recovery `DistributionList` is now encrypted using AES keys stored in the node's database.
+The node on startup will create 10 random AES keys and store them in the node_aes_encryption_keys table, if there aren't any keys already present.
+The keys themselves are obfuscated by wrapping them with a deterministic AES key (derived from the key's ID and the node's X.500 name).
+This is done purely to reduce the impact of an accidental data dump of the keys, and is not meant to be a secure.
+
+The `senderRecordedTimestamp` has been moved to a separate header object and is treated as the authenticated additional data in the AES-GCM encryption.
+This allows it to be public, which is necessary as the receiver node needs to be read it without having access to the encryption key,
+but also gives a guarantee to the original sender during recovery that it hasn't been tampered with.
+
+### Operational
+Intended to be used in conjunction with a holistic Corda Network back-up policy.
+The `LedgerRecoveryFlow` will default to using the ledger configuration parameter value for its `TimeRecoveryWindow`:
+
+- `transactionRecoveryPeriod`: specifies how far back we will recover transactions from.
+  The assumption is that any transactions prior to this time have already been backed up.
+
+See [Ledger Recovery Configurability](https://r3-cev.atlassian.net/browse/ENT-9875) for more details.
+
+Recovery of transactions using Confidential Identities requires successful backup of the previous window of auto-generated CIs.
+
+See [Confidential Identity Pre-generation](https://r3-cev.atlassian.net/browse/ENT-9874) for more details.
+
+- `confidentialIdentityPreGenerationPeriod`: when a key is requested for a confidential identity we only hand out previously backed up keys. This configuration value is
+used to calculate the cut of time after which we assume keys have not been backup. So cut off time is current time - confidentialIdentityPreGenerationPeriod.
+
+### Performance
+TBC
+- scalable to hundreds of thousands of transactions
+- uses bounded recovery sub-windows to ensure performant "in-memory" processing in batches
+- uses an intermediate table to store identified missing transactions prior to recovering them (and storing results for post recovery analytics)
+

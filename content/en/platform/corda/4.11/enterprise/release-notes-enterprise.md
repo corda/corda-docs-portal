@@ -56,6 +56,17 @@ peer recovery nodes to which it was a party (initiator, receiver) and which are 
 
 See [Ledger Recovery Flow](ledger-recovery-flow.md)
 
+### Confidential Identity key-pair generator
+Introduction of a new service that pre-generates Confidential Identity keys to be used when using CI's in transactions.
+This pre-generated CI's are subsequently used for backup recovery purposes.
+
+### Ledger Recovery and CI Pre-generation configuration
+Additional network map and associated node configuration parameters:
+```
+recoveryMaximumBackupInterval: Duration? = null
+confidentialIdentityMinimumBackupInterval: Duration? = null
+```
+
 ## Fixed issues
 
 This release includes the following fixes:
@@ -64,33 +75,48 @@ This release includes the following fixes:
 
 The following database changes have been applied between 4.10 and 4.11:
 
-Two Phase Finality introduces additional data fields within the main `DbTransaction` table:
-
 ```bash
-  @Column(name = "signatures")
-  val signatures: ByteArray?,
+   @Entity
+    @Table(name = "${NODE_DATABASE_PREFIX}our_key_pairs")
+    class PersistentKey(
+            @Suppress("Unused")
+            @Id
+            @Column(name = "public_key_hash", length = MAX_HASH_HEX_SIZE, nullable = false)
+            var publicKeyHash: String,
+            @Lob
+            @Column(name = "public_key", nullable = false)
+            var publicKey: ByteArray = EMPTY_BYTE_ARRAY,
+            @Lob
+            @Column(name = "private_key", nullable = true)
+            var privateKey: ByteArray? = EMPTY_BYTE_ARRAY,
+            @Lob
+            @Column(name = "private_key_material_wrapped", nullable = true)
+            var privateWrappedKey: ByteArray?,
+            @Column(name = "scheme_code_name", nullable = true)
+            var schemeCodeName: String?,
 
-  /**
-   * Flow finality metadata used for recovery
-   * TODO: create association table solely for Flow metadata and recovery purposes.
-   * See https://r3-cev.atlassian.net/browse/ENT-9521
-   */
+            // Version of the encoding scheme for the wrapped key material
+            @Column(name = "version", nullable = true)
+            var version: Int? = null
+            var version: Int? = null,
 
-  /** X500Name of flow initiator **/
-  @Column(name = "initiator")
-  val initiator: String? = null,
+            @Enumerated(EnumType.ORDINAL)
+            @Column(name = "key_type", nullable = false)
+            var keyType: KeyType = CI,
 
-  /** X500Name of flow participant parties **/
-  @Column(name = "participants")
-  @Convert(converter = StringListConverter::class)
-  val participants: List<String>? = null,
+            @Column(name = "crypto_config_hash", length = MAX_HASH_HEX_SIZE, nullable = true)
+            var cryptoConfigHash: String? = null,
 
-  /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
-  @Column(name = "states_to_record")
-  val statesToRecord: StatesToRecord? = null
+            @Enumerated(EnumType.ORDINAL)
+            @Column(name = "status", nullable = false)
+            var status: Status = CREATED,
+
+            @Column(name = "generate_tm", nullable = false)
+            var insertionDate: Instant = Instant.now()
+    )
 ```
+
 See node migration scripts:
-- `node-core.changelog-v24.xml`: added transaction signatures.
-- `node-core.changelog-v24.xml`: added finality flow recovery metadata.
+- `node-core.changelog-v25.xml`: added pre-generated CI key pairs table.
 
 ### Third party component upgrades
