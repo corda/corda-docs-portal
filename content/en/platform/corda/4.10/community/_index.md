@@ -1,5 +1,6 @@
 ---
 date: '2023-02-28'
+description: "Documentation for the 4.10 Community Edition release of Corda"
 menu:
   versions:
     weight: -650

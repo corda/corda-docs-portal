@@ -1,5 +1,6 @@
 ---
 date: '2020-01-08T09:59:25Z'
+description: "Documentation for the 1.5 release of Corda Enterprise Network Manager (CENM)"
 menu:
   versions:
     weight: 290
@@ -61,64 +62,62 @@ For a quick start guide on deploying Corda Enterprise Network Manager services a
 * [Certificate Revocation List]({{< relref "../../../../../en/platform/corda/1.5/cenm/certificate-revocation.md" >}})
 
 ## CENM releases
-
-* [Release notes]({{< relref "../../../../../en/platform/corda/1.5/cenm/release-notes.md" >}})
-* [Release notes (Japanese)]({{< relref "../../../../../en/platform/corda/1.5/cenm/release-notes-ja.md" >}})
-* [Upgrading Corda Enterprise Network Manager]({{< relref "../../../../../en/platform/corda/1.5/cenm/upgrade-notes.md" >}})
+* [Release notes]({{< relref "release-notes.md" >}})
+* [Upgrading Corda Enterprise Network Manager]({{< relref "../../1.5/cenm/upgrade-notes.md" >}})
 
 ## Operations
 
-* [Deployment with Kubernetes]({{< relref "../../../../../en/platform/corda/1.5/cenm/deployment-kubernetes.md" >}})
-  * [CENM Auth Service Helm Chart]({{< relref "../../../../../en/platform/corda/1.5/cenm/deployment-kubernetes-auth.md" >}})
-  * [CENM Gateway Service Helm Chart]({{< relref "../../../../../en/platform/corda/1.5/cenm/deployment-kubernetes-gateway.md" >}})
-  * [CENM Identity Manager Helm Chart]({{< relref "../../../../../en/platform/corda/1.5/cenm/deployment-kubernetes-idman.md" >}})
-  * [CENM Network Map Helm Chart]({{< relref "../../../../../en/platform/corda/1.5/cenm/deployment-kubernetes-nmap.md" >}})
-  * [CENM Notary Helm Chart]({{< relref "../../../../../en/platform/corda/1.5/cenm/deployment-kubernetes-notary.md" >}})
-  * [CENM Signing Service Helm Chart]({{< relref "../../../../../en/platform/corda/1.5/cenm/deployment-kubernetes-signer.md" >}})
-  * [CENM Zone Service Helm Chart]({{< relref "../../../../../en/platform/corda/1.5/cenm/deployment-kubernetes-zone.md" >}})
-* [CENM test environment quick start guide]({{< relref "../../../../../en/platform/corda/1.5/cenm/quick-start.md" >}})
-* [Zone Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/zone-service.md" >}})
-* [Angel Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/angel-service.md" >}})
-* [Identity Manager Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/identity-manager.md" >}})
-* [Network Map Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/network-map.md" >}})
-* [Signing Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/signing-service.md" >}})
-* [Auth Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md" >}})
-* [Gateway Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md" >}})
-* [CENM Command-line Interface (CLI) tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/cenm-cli-tool.md" >}})
-* [Updating the network parameters]({{< relref "../../../../../en/platform/corda/1.5/cenm/updating-network-parameters.md" >}})
-* [Upgrading Corda Enterprise Network Manager]({{< relref "../../../../../en/platform/corda/1.5/cenm/upgrade-notes.md" >}})
-* [CENM databases]({{< relref "../../../../../en/platform/corda/1.5/cenm/database-set-up.md" >}})
-* [CENM User Admin tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/user-admin.md" >}})
-* [Troubleshooting common issues]({{< relref "../../../../../en/platform/corda/1.5/cenm/troubleshooting-common-issues.md" >}})
-* [CENM support matrix]({{< relref "../../../../../en/platform/corda/1.5/cenm/cenm-support-matrix.md" >}})
+* [Deployment with Kubernetes]({{< relref "../../1.5/cenm/deployment-kubernetes.md" >}})
+  * [CENM Auth Service Helm Chart]({{< relref "../../1.5/cenm/deployment-kubernetes-auth.md" >}})
+  * [CENM Gateway Service Helm Chart]({{< relref "../../1.5/cenm/deployment-kubernetes-gateway.md" >}})
+  * [CENM Identity Manager Helm Chart]({{< relref "../../1.5/cenm/deployment-kubernetes-idman.md" >}})
+  * [CENM Network Map Helm Chart]({{< relref "../../1.5/cenm/deployment-kubernetes-nmap.md" >}})
+  * [CENM Notary Helm Chart]({{< relref "../../1.5/cenm/deployment-kubernetes-notary.md" >}})
+  * [CENM Signing Service Helm Chart]({{< relref "../../1.5/cenm/deployment-kubernetes-signer.md" >}})
+  * [CENM Zone Service Helm Chart]({{< relref "../../1.5/cenm/deployment-kubernetes-zone.md" >}})
+* [CENM test environment quick start guide]({{< relref "../../1.5/cenm/quick-start.md" >}})
+* [Zone Service]({{< relref "../../1.5/cenm/zone-service.md" >}})
+* [Angel Service]({{< relref "../../1.5/cenm/angel-service.md" >}})
+* [Identity Manager Service]({{< relref "../../1.5/cenm/identity-manager.md" >}})
+* [Network Map Service]({{< relref "../../1.5/cenm/network-map.md" >}})
+* [Signing Service]({{< relref "../../1.5/cenm/signing-service.md" >}})
+* [Auth Service]({{< relref "../../4.8/enterprise/node/auth-service.md" >}})
+* [Gateway Service]({{< relref "../../4.8/enterprise/node/gateway-service.md" >}})
+* [CENM Command-line Interface (CLI) tool]({{< relref "../../1.5/cenm/cenm-cli-tool.md" >}})
+* [Updating the network parameters]({{< relref "../../1.5/cenm/updating-network-parameters.md" >}})
+* [Upgrading Corda Enterprise Network Manager]({{< relref "../../1.5/cenm/upgrade-notes.md" >}})
+* [CENM databases]({{< relref "../../1.5/cenm/database-set-up.md" >}})
+* [CENM User Admin tool]({{< relref "../../1.5/cenm/user-admin.md" >}})
+* [Troubleshooting common issues]({{< relref "../../1.5/cenm/troubleshooting-common-issues.md" >}})
+* [CENM support matrix]({{< relref "../../1.5/cenm/cenm-support-matrix.md" >}})
 
 ## Configuration
 
-* [Identity Manager Service configuration parameters]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-identity-manager-parameters.md" >}})
-* [Network Map Service configuration parameters]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-network-map-parameters.md" >}})
-* [Network parameters]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-network-parameters.md" >}})
-* [Configuring the CENM services to use SSL]({{< relref "../../../../../en/platform/corda/1.5/cenm/enm-with-ssl.md" >}})
-* [Workflow]({{< relref "../../../../../en/platform/corda/1.5/cenm/workflow.md" >}})
+* [Identity Manager Service configuration parameters]({{< relref "../../1.5/cenm/config-identity-manager-parameters.md" >}})
+* [Network Map Service configuration parameters]({{< relref "../../1.5/cenm/config-network-map-parameters.md" >}})
+* [Network parameters]({{< relref "../../1.5/cenm/config-network-parameters.md" >}})
+* [Configuring the CENM services to use SSL]({{< relref "../../1.5/cenm/enm-with-ssl.md" >}})
+* [Workflow]({{< relref "../../1.5/cenm/workflow.md" >}})
 
 ## Tools and utilities
 
-* [Index]({{< relref "../../../../../en/platform/corda/1.5/cenm/tools-index.md" >}})
-* [Public Key Infrastructure (PKI) Tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/pki-tool.md" >}})
-* [Certificate Revocation Request Submission Tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/tool-crr-submission.md" >}})
+* [Index]({{< relref "../../1.5/cenm/tools-index.md" >}})
+* [Public Key Infrastructure (PKI) Tool]({{< relref "../../1.5/cenm/pki-tool.md" >}})
+* [Certificate Revocation Request Submission Tool]({{< relref "../../1.5/cenm/tool-crr-submission.md" >}})
 * Node Certificate Rotation Tool (contact your R3 account manager)
-* [CENM Command-line Interface Tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/cenm-cli-tool.md" >}})
-* [CENM User Admin tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/user-admin.md" >}})
-* [CENM Management Console]({{< relref "../../../../../en/platform/corda/1.5/cenm/cenm-console.md" >}})
-* [Config Obfuscation Tool]({{< relref "../../../../../en/platform/corda/4.7/enterprise/tools-config-obfuscator.md" >}})
-* [CRL Endpoint Check Tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/crl-endpoint-check-tool.md" >}})
-* [Embedded shell]({{< relref "../../../../../en/platform/corda/1.5/cenm/shell.md" >}})
+* [CENM Command-line Interface Tool]({{< relref "../../1.5/cenm/cenm-cli-tool.md" >}})
+* [CENM User Admin tool]({{< relref "../../1.5/cenm/user-admin.md" >}})
+* [CENM Management Console]({{< relref "../../1.5/cenm/cenm-console.md" >}})
+* [Config Obfuscation Tool]({{< relref "../../4.7/enterprise/tools-config-obfuscator.md" >}})
+* [CRL Endpoint Check Tool]({{< relref "../../1.5/cenm/crl-endpoint-check-tool.md" >}})
+* [Embedded shell]({{< relref "../../1.5/cenm/shell.md" >}})
 
 ## Public Key Infrastructure
 
-* [Public Key Infrastructure (PKI) specifications]({{< relref "../../../../../en/platform/corda/1.5/cenm/pki-specifications.md" >}})
-* [Certificate hierarchy guide]({{< relref "../../../../../en/platform/corda/1.5/cenm/pki-guide.md" >}})
-* [Public Key Infrastructure (PKI) Tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/pki-tool.md" >}})
+* [Public Key Infrastructure (PKI) specifications]({{< relref "../../1.5/cenm/pki-specifications.md" >}})
+* [Certificate hierarchy guide]({{< relref "../../1.5/cenm/pki-guide.md" >}})
+* [Public Key Infrastructure (PKI) Tool]({{< relref "../../1.5/cenm/pki-tool.md" >}})
 
 ## Signing Plug-in Samples
 
-* [EJBCA sample plug-in]({{< relref "../../../../../en/platform/corda/1.5/cenm/ejbca-plugin.md" >}})
+* [EJBCA sample plug-in]({{< relref "../../1.5/cenm/ejbca-plugin.md" >}})

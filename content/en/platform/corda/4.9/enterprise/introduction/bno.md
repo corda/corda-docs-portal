@@ -15,4 +15,4 @@ Business network operators are the day to day managers of the network – the ta
 * [Network certificates]({{< relref "../network/permissioning.md" >}})
 
 
-See also [Corda Enterprise Network Manager](../../../1.5/cenm.html).
+See also [Corda Enterprise Network Manager]({{< relref "../../../1.5/cenm/_index.md" >}}).

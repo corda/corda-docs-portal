@@ -42,7 +42,7 @@ See the *enterpriseConfiguration* section of the corda-configuration-file doc fo
 When the private keys are stored in a HSM, only the certificates are stored in the keystore file.
 
 The associated certificates for the distributed notary identity and node certificate authority are issued by the Identity Manager on the
-network. See [Welcome to the Corda Enterprise Network Manager](../../../1.5/cenm.html) for more information. The legal identity certificate is issued by the node certificate authority.
+network. See [Welcome to the Corda Enterprise Network Manager]({{< relref "../../../1.5/cenm/_index.md" >}}) for more information. The legal identity certificate is issued by the node certificate authority.
 
 The worker specific legal identity key pair is used for P2P messaging, whereas the single distributed notary identity key pair is used by
 all the notary workers of the CFT notary cluster to sign valid transactions. During operation, each notary worker will access the HSM and
@@ -61,7 +61,7 @@ Add the following entries to your workers node.conf files, replacing the placeho
 ```sh
 cryptoServiceName: "AZURE_KEY_VAULT"
 cryptoServiceConf: "<path to the crypto service configuration file>"
-cryptoServiceTimeout: "<the desired timeout, default: 1s>"
+cryptoServiceTimeout: "<the desired timeout, default: 10s>"
 enterpriseConfiguration {
   identityKeyAlias: "<CUSTOM_WORKER_IDENTITY_KEY_ALIAS>"
   clientCaKeyAlias: "<CUSTOM_WORKER_CA_KEY_ALIAS>"

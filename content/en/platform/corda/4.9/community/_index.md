@@ -1,5 +1,6 @@
 ---
 date: '2020-04-07T12:00:00Z'
+description: "Documentation for the 4.9 Community Edition release of Corda"
 menu:
   versions:
     weight: -650
