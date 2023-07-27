@@ -16,7 +16,8 @@ The `corda-crypto` module
 
 ## Implementing Signature Schemes
 
-Corda supports the following `SignatureSpecs` (signature schemes) for creating `java.security.Signature` objects:
+Corda supports the following `SignatureSpecs` (signature schemes) for creating the following objects:
+
 * SHA256withRSA
 * SHA384withRSA
 * SHA512withRSA
