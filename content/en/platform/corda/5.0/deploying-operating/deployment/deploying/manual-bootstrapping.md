@@ -364,7 +364,7 @@ corda-cli.cmd initial-config create-crypto-config --salt <SALT> --passphrase <PA
 
 ## RBAC Roles
 
-By default, a post-install job normally creates three default [RBAC roles]({{< relref "../../config-users/_index.md">}}) for the Corda API.
+By default, a post-install job normally creates three default [RBAC roles]({{< relref "../../config-users/_index.md">}}) for the REST API.
 To create the roles manually, perform the steps described in this section.
 
 {{< note >}}
