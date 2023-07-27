@@ -29,7 +29,7 @@ Create or upgrade the database schema (database objects like tables, indices) to
 {{< note>}} This property was used for H2 database only. It has been ignored since CENM 1.2 and has been replaced by `runMigration`. {{< /note>}}
 
 * **jdbcDriver**:
-Path to the JAR file containing the specific JDBC driver
+Path to the JAR file containing the specific JDBC driver.
 
 * **driverClassName**:
 See the specific JDBC driver documentation [here](https://www.oracle.com/java/technologies/javase/javase-tech-database.html).
