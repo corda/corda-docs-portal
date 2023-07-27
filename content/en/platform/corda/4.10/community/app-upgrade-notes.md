@@ -18,8 +18,8 @@ title: Upgrading CorDapps to newer platform versions
 
 # Upgrading CorDapps to newer platform versions
 
-These notes provide information on upgrading your CorDapps from previous versions. Corda provides backwards compatibility for public,
-non-experimental APIs that have been committed to. A list can be found in the [API stability guarantees](api-stability-guarantees.md) page.
+These notes provide information on upgrading your CorDapps from previous versions. Corda 4 provides stability for public,
+non-experimental APIs that have been committed to. A list can be found in the [API stability guarantees]({{< relref "api-stability-guarantees.md" >}}) page.
 
 This means that you can upgrade your node across versions *without recompiling or adjusting your CorDapps*. You just have to upgrade
 your node and restart.
@@ -134,7 +134,7 @@ The issue here is that a new `Destination` interface introduced in Platform Vers
 used as an `AbstractParty` but has an actual value that is one of `Party` or `AnonymousParty`. These subclasses
 implement `Destination`, while the superclass does not. Kotlin must pick a type for the variable, and so chooses the most specific
 ancestor of both `AbstractParty` and `Destination`. This is `Any`, which is not a valid type for use as an `AbstractParty` later.
-For more information on `Destination`, see the [Changelog](https://docs.corda.net/docs/corda-os/4.4/changelog.html) for Platform Version 5, or the KDocs for the interface
+For more information on `Destination`, see the KDocs for the interface
 [here](../../../../api-ref/api-ref-corda-4.html#corda-community-edition-4x-api-reference).
 
 Note that this is a Kotlin-specific issue. Java can instead choose `? extends AbstractParty & Destination` here, which can later be used
