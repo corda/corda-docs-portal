@@ -17,16 +17,13 @@ title: API stability guarantees
 ---
 
 
-
-# API stability guarantees
-
 Corda makes certain commitments about which parts of the Corda 4 API will preserve stability and which will not. Over time, more of the Corda 4 API will fall under the stability guarantees. Thus, APIs can be categorized in the following two broad categories:
 
 
-* **public APIs**, for which API/[ABI](https://en.wikipedia.org/wiki/Application_binary_interface) stability guarantees are provided. See: [Public API](#public-api)
-* **non-public APIs**, for which no stability guarantees are provided. See: [Non-public API (experimental)](#non-public-api-experimental)
+* **public APIs**, for which API/[ABI](https://en.wikipedia.org/wiki/Application_binary_interface) stability guarantees are provided. See: [Public API]({{< relref "#public-api" >}})
+* **non-public APIs**, for which no stability guarantees are provided. See: [Non-public API (experimental)]({{< relref "#non-public-api-experimental" >}})
 
-# Public API
+## Public API
 
 The following modules form part of the Corda 4 public API and we commit to API/ABI stability in following releases, unless an incompatible change is required for security reasons:
 
@@ -44,7 +41,7 @@ The following modules form part of the Corda 4 public API and we commit to API/A
 Additionally, the **Tokens SDK (com.r3.corda.lib.tokens)** available in [the Tokens GitHub repository](https://github.com/corda/token-sdk)
 has a stable API.
 
-# Non-public API (experimental)
+## Non-public API (experimental)
 
 The following are not part of the Corda 4 public API and no stability guarantees are provided:
 
@@ -59,7 +56,7 @@ The **finance module** was the first CorDapp ever written and is a legacy module
 don’t anticipate much future change to it. Users should use the tokens SDK instead.
 
 
-## Corda incubating modules
+###  Corda incubating modules
 
 
 * **net.corda.confidential**: experimental support for confidential identities on the ledger
@@ -68,7 +65,7 @@ don’t anticipate much future change to it. Users should use the tokens SDK ins
 * **Cordformation**: Gradle integration plugins
 
 
-## Corda internal modules
+### Corda internal modules
 
 Every other module is internal and will change without notice, even deleted, and should not be used.
 
@@ -76,7 +73,7 @@ Some of the public modules may depend on internal modules, so be careful to not 
 testing modules depend on the node module and so you may end having the node in your test classpath.
 
 
-# The `@DoNotImplement` annotation
+## The `@DoNotImplement` annotation
 
 Certain interfaces and abstract classes within the Corda API have been annotated
 as `@DoNotImplement`. While we undertake not to remove or modify any of these classes’ existing

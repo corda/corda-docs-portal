@@ -17,8 +17,8 @@ weight: 1
 Corda makes certain commitments about which parts of the Corda 4 API will preserve stability and which will not. Over time, more of the Corda 4 API will fall under the stability guarantees. Thus, APIs can be categorized in the following two broad categories:
 
 
-* **public APIs**, for which API/[ABI](https://en.wikipedia.org/wiki/Application_binary_interface) stability guarantees are provided. See: [Public API](#public-api)
-* **non-public APIs**, for which no stability guarantees are provided. See: [Non-public API (experimental)](#non-public-api)
+* **Public APIs**, for which API/[ABI](https://en.wikipedia.org/wiki/Application_binary_interface) stability guarantees are provided. See: [Public API]({{< relref "#public-api" >}})
+* **Non-public APIs**, for which no stability guarantees are provided. See: [Non-public API (experimental)]({{< relref "#non-public-api" >}})
 
 
 ## Public API
