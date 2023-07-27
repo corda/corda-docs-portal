@@ -404,7 +404,7 @@ We can now start sending messages to the responder:
    ```java
            Message response = session.receive(Message.class);
     ```
-   When the message is sent to the responder via the `send()` method, Corda executes the `session.receive()` in the `MyFirstResponderFlow` responder flow's `call()` method. This `session.receive()` method retrieves the message that was sent in the initiator's `send()` method.
+   When the message is sent to the responder via the `send()` method, Corda executes `session.receive()` in the `MyFirstResponderFlow` responder flow's `call()` method. This `session.receive()` method retrieves the message that was sent in the initiator's `send()` method.
     ```java
     @Suspendable
     @Override
