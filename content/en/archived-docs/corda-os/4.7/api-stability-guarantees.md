@@ -30,7 +30,7 @@ Corda makes certain commitments about which parts of the Corda 4 API will preser
 The following modules form part of the Corda 4 public API and we commit to API/ABI stability in following releases, unless an incompatible change is required for security reasons:
 
 
-* **Core (net.corda.core)**: core Corda libraries such as crypto functions, types for Corda’s building blocks: states, contracts, transactions, attachments, etc. and some interfaces for nodes and protocols
+* **Core (net.corda.core)**: core Corda libraries such as crypto functions, types for Corda’s building blocks: states, contracts, transactions, attachments, etc. and some interfaces for nodes and protocols.
 * **Client RPC (net.corda.client.rpc)**: client RPC
 * **Client Jackson (net.corda.client.jackson)**: JSON support for client applications
 * **DSL Test Utils (net.corda.testing.dsl)**: a simple DSL for building pseudo-transactions (not the same as the wire protocol) for testing purposes.
