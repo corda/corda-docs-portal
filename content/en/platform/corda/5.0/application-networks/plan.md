@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 # Planning Application Networks
-Planning an application network (business network) requires some thought and consideration with regard to cluster deployment and topology, onboarding processes, security policy, and data sovereignty.
+Planning an {{< tooltip >}}application network{{< /tooltip >}} (business network) requires some thought and consideration with regard to cluster deployment and topology, onboarding processes, security policy, and data sovereignty.
 
 ## Network Onboarding
 Corda is a permissioned network, where the Network Operator makes decisions as to who can and cannot join the network. Typically, there are commercial and contractual agreements defined as part of the onboarding process.

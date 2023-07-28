@@ -14,7 +14,7 @@ section_menu: corda5
 
 ## Overview
 
-A CorDapp, or Corda distributed application, is distributed because parts of the application can be, or may need to be, executed on a Corda instance that is operated by another party that is a member of the same Corda application network.
+A CorDapp, or Corda distributed application, is distributed because parts of the application can be, or may need to be, executed on a Corda instance that is operated by another party that is a member of the same Corda {{< tooltip >}}application network{{< /tooltip >}}.
 This is not the same as an application that has multiple instances, hosted on different environments.
 
 Consider the centralized application below. This is a single application that always executes within a single execution environment, regardless of the number of deployments.

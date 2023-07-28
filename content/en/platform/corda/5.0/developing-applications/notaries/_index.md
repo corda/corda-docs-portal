@@ -12,7 +12,7 @@ section_menu: corda5
 ---
 # Notaries
 
-This section outlines how to get a notary up and running on a Corda application network.
+This section outlines how to get a notary up and running on a Corda {{< tooltip >}}application network{{< /tooltip >}}.
 
 {{< note >}} 
 Notary virtual nodes use an additional “uniqueness” database for capturing state data for double-spend prevention. This is similar to the existing “crypto” and “vault” databases. Currently, when auto-provisioning virtual node databases, a uniqueness database is always provisioned, regardless of whether it is a notary virtual node or not. This will be addressed in a future release.

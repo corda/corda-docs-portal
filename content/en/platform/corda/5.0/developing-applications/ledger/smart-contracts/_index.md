@@ -12,7 +12,6 @@ section_menu: corda5
 
 # Smart Contracts
 
-
 Smart contracts digitize agreements by turning them into code that executes automatically if the contract terms are met. Participants do not need to trust each other to follow through on contract terms, because the terms are enforced by the code. No external enforcement is required, and contracts are always interpreted the same way. Smart contracts govern the evolution of states over time. 
 
 The contract code is replicated on the virtual nodes in an application network. The network members have to reach a consensus that the terms of the agreement have been met before they execute the contract.
