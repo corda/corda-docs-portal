@@ -49,7 +49,7 @@ contracts-1.0-SNAPSHOT.jar
 
 Using a JVM compatible language for creating workflows, states, and contracts is very powerful. As a CorDapp developer, you have very effective languages such as Java and Kotlin at your disposal, as well as the rich JVM ecosystem.
 
-Corda enhances the programming experience by not just offering access to a familiar tech stack and tooling, but also by introducing a familiar programming model to distributed application development.
+Corda enhances the programming experience not just by offering access to a familiar tech stack and tooling, but also by introducing a familiar programming model to distributed application development.
 
 Consider the previous IOU issue flow example. The following is the code for the initiating flow:
 
@@ -166,7 +166,7 @@ cordapp {
 The following rules identify which CPK type is applicable:
 * Flow code (anything implementing the [Flow interface]({{< relref "../../../developing-applications/api/application/flows.md" >}})) can only exist in a workflow CPK.
 * Contracts and states (implementing `Contract` and `ContractState`) can only exist in a contract CPK.
-* Entity classes used in the [persistence]({{< relref "../../../developing-applications/api/application/persistence.md" >}})  API (annotated with `@Entity`), along with their database migration scripts, can only exist in a contract CPK.
+* Entity classes used in the [persistence]({{< relref "../../../developing-applications/api/application/persistence.md" >}}) API (annotated with `@Entity`), along with their database migration scripts, can only exist in a contract CPK.
 * Workflow CPKs can reference contract CPKs, but never the other way around.
 
 As a CorDapp Developer, it is usually sufficient to remember the above rules. 
