@@ -393,10 +393,10 @@ list to the `Required-Packages` key. It will completely override the plugin's ha
 Required-Packages=org.foo,org.bar
 ```
 
-#### Corda API Imports
+#### CorDapp API Imports
 
 Any CPK written for Corda 5.x must be compatible with every release of Corda 5.x. This requires the `cordapp-cpk2` plugin
-to apply an explicit OSGi "consumer policy" for every Corda API package that the CPK may use:
+to apply an explicit OSGi "consumer policy" for every CorDapp API package that the CPK may use:
 
 ```
 version='${range;[=,+);${@}}'

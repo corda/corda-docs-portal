@@ -20,7 +20,7 @@ changes have been made. These could range from database changes, to changes in t
 
 For developer information on upgrading CorDapps, see [Release new CorDapp versions](cordapps/upgrading-cordapps.md).
 
-To be compatible with Corda Enterprise, CorDapps need to bundle database migaration scripts (see [Database management scripts](cordapps/database-management.md)).
+To be compatible with Corda Enterprise, CorDapps need to bundle database migration scripts (see [Database management scripts](cordapps/database-management.md)).
 
 
 ## Flow upgrades
