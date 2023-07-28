@@ -27,7 +27,7 @@ Currently, we do not have a liveness detector for Corda in the CSDE so we check 
 
 ## Testing Liveness and Swagger
 
-Corda exposes HTTP REST API endpoints for interacting with itself and the CorDapps running on it. It also exposes a Swagger interface which is described in the following sections.
+Corda exposes HTTP REST {{< tooltip >}}API{{< /tooltip >}} endpoints for interacting with itself and the CorDapps running on it. It also exposes a Swagger interface which is described in the following sections.
 
 ### Displaying the Swagger UI
 To display the Swagger UI, use the following link:

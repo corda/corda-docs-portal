@@ -272,7 +272,7 @@ workers:
 
 ##### AWS Load Balancer Controller
 
-Alternatively, the API can be fronted directly by a load balancer. The Helm chart allows annotations to be specified to
+Alternatively, the REST API can be fronted directly by a load balancer. The Helm chart allows annotations to be specified to
 facilitate the creation of a load balancer by a cloud-platform specific controller.
 For example, the following configuration specifies that the [AWS Load Balancer Controller](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html)
 fronts the REST API with a Network Load Balancer internal to the Virtual Private Cloud (VPC):
