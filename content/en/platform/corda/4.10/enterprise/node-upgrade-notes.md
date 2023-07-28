@@ -27,15 +27,15 @@ If you are upgrading from Corda Enterprise 3.x, you must first:
 Corda Enterprise Edition 4.10 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.10, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
-Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs]({{< relref "../../../../api-ref/api-ref-corda-4.md" >}}). If you are working with a stable API, you don't need to update your CorDapps. To upgrade:
+Most of the Corda 4 public, non-experimental APIs are stable. See the [full list of stable APIs]({{< relref "../../../../api-ref/api-ref-corda-4.md" >}}). If you are working with a stable API, you don't need to update your CorDapps. To upgrade:
 
-1. [Drain the node](#step-1-drain-the-node).
-2. [Make a backup of the directories in your node and database](#step-2-make-a-backup-of-your-nodes-directories-and-database).
-3. [Update the database](#step-3-update-the-database).
-4. <a href="#step-4-replace-cordajar-with-the-new-version">Replace the `corda.jar` file with the new version.</a>
-5. [Update the configuration](#step-5-update-the-configuration).
-6. [Start the node](#step-6-start-the-node).
-7. [Undrain the node](#step-7-undrain-the-node).
+1. [Drain the node]({{< relref "#step-1-drain-the-node" >}}).
+2. [Make a backup of the directories in your node and database]({{< relref "#step-2-make-a-backup-of-your-nodes-directories-and-database" >}}).
+3. [Update the database]({{< relref "#step-3-update-the-database" >}}).
+4. [Replace the corda.jar file with the new version]({{< relref "#step-4-replace-cordajar-with-the-new-version" >}}).
+5. [Update the configuration]({{< relref "#step-5-update-the-configuration" >}}).
+6. [Start the node]({{< relref "#step-6-start-the-node" >}}).
+7. [Undrain the node]({{< relref "#step-7-undrain-the-node" >}}).
 
 {{< note >}}
 The protocol tolerates node outages. Peers on the network wait for your node to become available after upgrading.
@@ -43,7 +43,7 @@ The protocol tolerates node outages. Peers on the network wait for your node to 
 
 ## Step 1: Drain the node
 
-Node operators must drain nodes (or CorDapps on nodes) before they can upgrade them. Draining brings all [flows](cordapps/api-flows.md) that are currently running to a smooth halt. The node finishes any work already in progress, and queues any new work. This process frees CorDapps from the requirement to migrate workflows from an arbitrary point to another arbitrary point—a task that would rapidly become unfeasible as workflow
+Node operators must drain nodes (or CorDapps on nodes) before they can upgrade them. Draining brings all [flows]({{< relref "cordapps/api-flows.md" >}}) that are currently running to a smooth halt. The node finishes any work already in progress, and queues any new work. This process frees CorDapps from the requirement to migrate workflows from an arbitrary point to another arbitrary point—a task that would rapidly become unfeasible as workflow
 and protocol complexity increases.
 
 To drain a node, run `gracefulShutdown`. This waits for the all currently running flows to be completed and then shuts the node down.
@@ -63,7 +63,7 @@ For a smooth node draining process avoid long-running flows.
 
 Back up your data before upgrading, in case you need to roll back if there’s a problem. Make a copy of the node’s data directory or, if you use an external non-H2 database, consult your database user guide to learn how to make backups.
 
-For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations](node/operating/node-administration.html#backup-recommendations).
+For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations]({{< relref "node/operating/node-administration.md#backup-recommendations" >}}).
 
 
 
@@ -230,7 +230,7 @@ If you run the DDL and DML statements separately (for example, if the database a
 
 {{< /note >}}
 
-For more information about the Database Management Tool including available options and commands, see [Corda Database Management Tool](database-management-tool.md).
+For more information about the Database Management Tool including available options and commands, see [Corda Database Management Tool]({{< relref "database-management-tool.md" >}}).
 
 
 ### 3.3. Apply DDL scripts to a database
@@ -348,5 +348,5 @@ Your upgrade is complete.
 ## Notes
 
 {{< warning >}}
-You must align the multi-RPC client version with the node version. That means that both must be running the same version of Corda Enterprise. See [Querying flow data](node/operating/querying-flow-data.md) for more information.
+You must align the multi-RPC client version with the node version. That means that both must be running the same version of Corda Enterprise. See [Querying flow data]({{< relref "node/operating/querying-flow-data.md" >}}) for more information.
 {{< /warning >}}

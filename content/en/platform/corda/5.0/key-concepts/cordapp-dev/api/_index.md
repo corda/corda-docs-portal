@@ -12,19 +12,19 @@ section_menu: corda5
 
 # Introducing the Corda APIs
 
-There are two types of Corda API that are relevant to a CorDapp Developer:
-* [Corda API]({{< relref "#corda-api" >}})
+There are two types of Corda APIs that are relevant to a CorDapp Developer:
+* [CorDapp API]({{< relref "#corda-api" >}})
 * [Corda REST API]({{< relref "#corda-rest-api" >}})
 
-## Corda API 
+## CorDapp API 
  
-The [Corda API]({{< relref "../../../developing-applications/api/_index.md">}}) is the API that a CorDapp uses to interact with the Corda platform. This supports, for example, interacting with other members of the network, signing transactions, verifying contracts, persisting data etc. This API is provided as JVM compatible libraries.
+The [CorDapp API]({{< relref "../../../developing-applications/api/_index.md">}}) is the API that a CorDapp uses to interact with the Corda platform. This supports, for example, interacting with other members of the network, signing transactions, verifying contracts, persisting data etc. This API is provided as JVM compatible libraries.
 
 {{< 
   figure
 	 src="corda-api.png"
    width="50%"
-	 figcaption="Corda API"
+	 figcaption="CorDapp API"
 >}}
 
 ## Corda REST API

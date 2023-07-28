@@ -18,8 +18,8 @@ weight: 30
 Corda Enterprise Edition 4.7.1 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.7.1 please read the guidance on [upgrading your notary service]({{< relref "../../../../../en/platform/corda/4.7/enterprise/notary/upgrading-the-ha-notary-service.md" >}}).
 {{< /warning >}}
 
-These notes provide instructions for upgrading your CorDapps from previous versions. Corda provides backwards compatibility for public,
-non-experimental APIs that have been committed to. A list can be found in the api-stability-guarantees page.
+These notes provide instructions for upgrading your CorDapps from previous versions. Corda 4 provides stability for public,
+non-experimental APIs that have been committed to. A list can be found in [API Stability Guarantees]({{< relref "cordapps/api-stability-guarantees.md" >}}).
 
 This means that you can upgrade your node across versions *without recompiling or adjusting your CorDapps*. You just have to upgrade
 your node and restart.

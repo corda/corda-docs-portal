@@ -1,7 +1,7 @@
 {
     "API": {
         "definition": "APIs allow different software applications to communicate with each other and share data in a standardized and structured way.",
-        "more": "The Corda API enables developers using Corda to develop CorDapps by accessing data or functionality from a remote service or application, without needing to understand the underlying implementation details. For more information see the <a href=\"../developing-applications/api.html\"> Corda API documentation</a>. "
+        "more": "The CorDapp API enables developers using Corda to develop CorDapps by accessing data or functionality from a remote service or application, without needing to understand the underlying implementation details. For more information see the <a href=\"../developing-applications/api.html\"> CorDapp API documentation</a>. "
     },
     "Application network": {
         "definition": "The set of all possible entities onboarded according to the rules of the network. Application networks enable people and businesses to interact with each other on Corda.",
@@ -56,8 +56,8 @@
         "more": "The CorDapp Standard Development Environment (CSDE) uses Corda CLI in the background. As a result, you must install Corda CLI before using CSDE. For more information, see <a href=\"../reference/corda-cli.html\">Corda CLI Commands</a>."
     },
     "CorDapp": {
-        "definition": "Corda Distributed Application. A Java (or any JVM targeting language) application built using the Corda build toolchain and Corda APIs to solve some problem that is best solved in a decentralized manner. CorDapps are assembled as one or more JAR files bundled into the CorDapp packaging format. That file is then uploaded to Corda where it is executed, Corda acting as the application host for the CorDapp.",
-        "more": "A CorDapp is distributed because parts of the application can be, or may need to be, executed on a Corda instance that is operated by another party that is a member of the same Corda Application Network. For more information see the <a href=\"../key-concepts/fundamentals/cordapps.html\">Key Concepts</a> page. "
+        "definition": "Corda Distributed Application. A Java (or any JVM targeting language) application built using the Corda build toolchain and CorDapp API to solve some problem that is best solved in a decentralized manner.",
+        "more": "CorDapps are assembled as one or more JAR files bundled into the CorDapp packaging format. That file is then uploaded to Corda where it is executed, Corda acting as the application host for the CorDapp. A CorDapp is distributed because parts of the application can be, or may need to be, executed on a Corda instance that is operated by another party that is a member of the same Corda Application Network. For more information see the <a href=\"../key-concepts/fundamentals/cordapps.html\">Key Concepts</a> page. "
     },
     "Crypto worker": {
         "definition": "A worker that manages the cryptographic materials of the Corda cluster and virtual nodes. It connects to any Hardware Security Modules (HSM) used to hold private keys, as well as database(s) used as a software HSM to hold wrapped and encrypted private keys.",
