@@ -21,7 +21,7 @@ Corda Enterprise Edition 4.8 fixes a security vulnerability in the JPA notary. B
 This guide shows you how to upgrade your CorDapp from previous platform versions to benefit
 from the new features in the latest release.
 
-Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs](cordapps/api-stability-guarantees.html). If you are working with a stable API, you don't need to update your CorDapps. However, there are usually new features and other opt-in changes that may improve the security, performance, or usability of your
+Most of the Corda 4 public, non-experimental APIs are stable. See the [full list of stable APIs](cordapps/api-stability-guarantees.html). If you are working with a stable API, you don't need to update your CorDapps. However, there are usually new features and other opt-in changes that may improve the security, performance, or usability of your
 CorDapp that are worth considering for any actively maintained software.
 
 

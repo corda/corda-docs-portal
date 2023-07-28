@@ -211,10 +211,7 @@ To enable export of JMX metrics over HTTP via [Jolokia](https://jolokia.org/), r
 
 This command will start the node with JMX metrics accessible via HTTP on port 7005. 
 
-The status is published as: `net.corda.Node.Status`, and is available almost immediately at startup.
-
 See [Monitoring via Jolokia](../operating/node-administration.html#monitoring-via-jolokia) for further details.
-
 
 ## Starting all nodes at once on a local machine from the command prompt
 
