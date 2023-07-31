@@ -14,7 +14,7 @@ section_menu: corda5
 # Flow Mapper
 
 The flow mapper acts as a gateway component in the flow engine, to ensure that requests originating from outside the
-Corda cluster are deduplicated correctly. Mapper metrics give an indication of the health and performance of this component.
+{{< tooltip >}}Corda cluster{{< /tooltip >}} are deduplicated correctly. Mapper metrics give an indication of the health and performance of this component.
 
 <style>
 table th:first-of-type {

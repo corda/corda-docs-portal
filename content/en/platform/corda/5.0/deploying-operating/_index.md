@@ -10,5 +10,5 @@ menu:
 section_menu: corda5
 ---
 # Administering Corda Clusters
-This section describes the tasks performed by Corda cluster administrators. It contains the following:
+This section describes the tasks performed by {{< tooltip >}}Corda cluster{{< /tooltip >}} administrators. It contains the following:
 {{< childpages >}}

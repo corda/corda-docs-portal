@@ -69,7 +69,7 @@ export LEDGER_KEY_ID=<ledger-key-ID>
 ## Generate a TLS Key Pair
 
 {{< note >}}
-This step is only necessary when setting up a new cluster.
+This step is only necessary when setting up a new {{< tooltip >}}cluster{{< /tooltip >}}.
 It is only required once per cluster, allowing you to re-use the same TLS key and certificate for the whole cluster.
 {{< /note >}}
 
