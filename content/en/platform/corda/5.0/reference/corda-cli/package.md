@@ -19,7 +19,7 @@ This section lists the Corda CLI `package` arguments. You can use these commands
 
 ## create-cpb
 
-The `create-cpb` argument creates a CPB file from a set of CPK files using the following arguments:
+The `create-cpb` argument creates a CPB file from a set of {{< tooltip >}}CPK{{< /tooltip >}} files using the following arguments:
 
 | <div style="width:160px">Argument</div> | Description                                        |
 | --------------------------------------- | -------------------------------------------------- |
