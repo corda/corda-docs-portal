@@ -52,7 +52,7 @@ If you are using them you should re-namespace them to a package namespace you co
 | 3.3 | 3 |
 {{< /table >}}
 
-## Upgrading CorDapps to platform version 9, 10, 11, and 12
+## Upgrading CorDapps to platform version 9, 10, 11, 12, and 13
 
 No manual upgrade steps are required.
 

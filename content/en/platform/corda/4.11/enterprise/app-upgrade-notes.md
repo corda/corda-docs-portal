@@ -23,7 +23,6 @@ CorDapp that are worth considering for any actively maintained software.
 {{< warning >}}
 Sample CorDapps found in the Corda and Corda samples repositories should not be used in production.
 If you do use them, re-namespace them to a package namespace you control and sign/version them.
-
 {{< /warning >}}
 
 ## Platform version matrix
@@ -46,7 +45,7 @@ If you do use them, re-namespace them to a package namespace you control and sig
 | 3.3 | 3 |
 {{< /table >}}
 
-## Upgrading CorDapps to platform version 9, 10, 11, and 12
+## Upgrading CorDapps to platform version 9, 10, 11, 12, and 13
 
 No manual upgrade steps are required.
 
