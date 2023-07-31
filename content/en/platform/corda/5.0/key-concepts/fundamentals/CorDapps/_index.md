@@ -95,7 +95,7 @@ The defining aspect of a decentralized application is the ability for untrusting
 
 The orchestration layer has full, queryable access to the information contained within the consensus layer through the Corda CorDapp API. 
 
-The mechanism for achieving consensus in Corda is pluggable. For example, Corda 5 allows for a UTXO model with notary double-spend protection. However, common across all models is once the orchestration layer has negotiated a potential change amongst peers, and that change is determined to be valid, it is applied to the global state.
+The mechanism for achieving consensus in Corda is pluggable. For example, Corda 5 allows for a UTXO model with {{< tooltip >}}notary{{< /tooltip >}} double-spend protection. However, common across all models is once the orchestration layer has negotiated a potential change amongst peers, and that change is determined to be valid, it is applied to the global state.
 
 ### Decentralized Control
 

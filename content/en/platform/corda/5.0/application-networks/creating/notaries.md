@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 # Onboarding Notaries
-This section describes how to onboard a new member as a notary service representative. It assumes that you have configured the [MGM for the network]({{< relref "./mgm/_index.md" >}}). Onboarding a notary member is similar to any other member, but with the exceptions outlined on this page.
+This section describes how to onboard a new member as a {{< tooltip >}}notary{{< /tooltip >}} service representative. It assumes that you have configured the [MGM for the network]({{< relref "./mgm/_index.md" >}}). Onboarding a notary member is similar to any other member, but with the exceptions outlined on this page.
 
 {{< note >}}
 When onboarding a notary, you need to use the notary CPK to build a notary CPI.

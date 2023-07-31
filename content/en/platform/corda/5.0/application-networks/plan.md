@@ -37,4 +37,4 @@ The Corda cluster can be deployed either in a single cluster or multi-cluster to
 * In a centralized model (typically a single Corda cluster approach) the application network is managed centrally, along with managing any participating members, all under a single infrastructure.
 * In a decentralized model (typically a multi-cluster approach) the network participants run their own Corda infrastructure and deploy their own virtual nodes. Network Operators will need to consider the security of inter-cluster communications and latency.
 
-Additionally, there is the consideration of the Notary virtual node and the Corda infrastructure that it is to be deployed to, whether centralized or de-centralized.
+Additionally, there is the consideration of the {{< tooltip >}}notary{{< /tooltip >}} virtual node and the Corda infrastructure that it is to be deployed to, whether centralized or de-centralized.
