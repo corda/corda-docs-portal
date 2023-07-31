@@ -32,8 +32,7 @@ This includes public APIs on the node itself, the RPC system, messaging, and ser
 compatible and deprecation mechanisms are used to migrate away from old APIs. In very rare
 situations APIs may have to be changed, for example due to security issues.
 
-There is no relationship between the platform version
-and the release version—a change in the major or minor values may or may not increase the platform version.
+There is no relationship between the platform version and the release version—a change in the major or minor values may or may not increase the platform version.
 
 The platform version is part of the node’s `NodeInfo` object, which is available from the `ServiceHub`. CorDapps use this to
 find out which version a node is running and to determine whether a desired feature is available. When a node
@@ -57,6 +56,7 @@ The table below highlights key features and the corresponding version numbers.
 {{< table >}}
 |Feature|Corda platform version |Minimum network platform version |Introduced in OS version|Introduced in Enterprise version|
 |--------------------|--------------------|--------------------|--------------------|--------------------|
+|API update|13|4|4.11|4.11|
 |API update|12|4|4.10|4.10|
 |API update|11|4|4.9|4.9|
 |API update|10|4|4.8|4.8|
@@ -119,7 +119,7 @@ In the `build.gradle` file for your contract JAR, add a block like this:
 
 ```kotlin
 cordapp {
-    targetPlatformVersion 10
+    targetPlatformVersion 13
     minimumPlatformVersion 5
     contract {
         name "MegaApp Contracts"
@@ -137,7 +137,7 @@ In the `build.gradle` file for your workflows JAR, add a block like this:
 
 ```kotlin
 cordapp {
-    targetPlatformVersion 10
+    targetPlatformVersion 13
     minimumPlatformVersion 5
     workflow {
         name "MegaApp"

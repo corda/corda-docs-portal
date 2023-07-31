@@ -466,7 +466,7 @@ platform’s behaviour has changed. These attributes are specified in the JAR ma
 
 ```groovy
 'Min-Platform-Version': 5
-'Target-Platform-Version': 10
+'Target-Platform-Version': 13
 ```
 
 **Defaults**
