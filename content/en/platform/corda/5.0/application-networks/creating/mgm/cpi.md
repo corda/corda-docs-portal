@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Build the MGM CPI
 
-This section describes how to build a member {{< tooltip >}}CPI{{< /tooltip >}} and upload it to the network. It contains the following:
+This section describes how to build a MGM {{< tooltip >}}CPI{{< /tooltip >}} and upload it to the network. It contains the following:
 1. [Set Variables]({{< relref "#set-variables" >}})
 2. [Select a Certificate Authority]({{< relref "#select-a-certificate-authority" >}})
 3. [Create the Group Policy File]({{< relref "#create-the-group-policy-file" >}})
