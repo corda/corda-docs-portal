@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Chain of Trust
 
-Corda's chain of trust is configured when a Network Operator installs a new CPI. At this point, the code-signing certificates of the CPI, CPB, and {{< tooltip >}}CPK{{< /tooltip >}} publishers are validated and their Certificate Authority (CA) trust roots are checked. 
+Corda's chain of trust is configured when a Network Operator installs a new CPI. At this point, the code-signing certificates of the CPI, {{< tooltip >}}CPB{{< /tooltip >}}, and {{< tooltip >}}CPK{{< /tooltip >}} publishers are validated and their Certificate Authority (CA) trust roots are checked. 
 These code-signing trust roots may be self-signed publisher certificates, or they may be well-known public CAs. 
 Either way, the trust roots establish the standard of proof that the CorDapp code (and any future upgrades) has come from the expected publisher. 
 The Network Operator must establish that they trust the code-signing trust roots and upload them to the cluster to proceed with CPI installation. 

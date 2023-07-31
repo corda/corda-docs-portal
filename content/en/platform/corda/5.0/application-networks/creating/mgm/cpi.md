@@ -165,7 +165,7 @@ Build a CPI using the Corda CLI, passing in your generated `GroupPolicy.json` fi
    {{< /tabs >}}
 
 {{< note >}}
-Unlike other CPIs, an MGM CPI does not require a CPB file.
+Unlike other CPIs, an MGM CPI does not require a {{< tooltip >}}CPB{{< /tooltip >}} file.
 {{< /note >}}
 
 ## Import Code Signing Certificates

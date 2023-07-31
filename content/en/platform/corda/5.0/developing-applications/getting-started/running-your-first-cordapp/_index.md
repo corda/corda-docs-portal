@@ -73,7 +73,7 @@ You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
 1. Click the `5-vNodeSetup` Gradle task:
 {{< figure src="vnodesetup.png" width="50%" figcaption="CSDE vNodeSetup task" alt="CSDE task to set up the vNodes in IntelliJ" >}}
    This task runs a series of Gradle tasks to:
-   * Build the CPB
+   * Build the {{< tooltip >}}CPB{{< /tooltip >}}
    * Create the GroupPolicy (Application Network definition)
    * Generate signing keys to sign the CPB and CPI
    * Build the CPI (combination of CPB and Group Policy)
