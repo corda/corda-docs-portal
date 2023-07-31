@@ -158,7 +158,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 The status returned for the registration request will be one of the following:
 
 * `APPROVED`: The registration request passed all validations and was approved by the MGM.
-* `NEW`: The member’s {{< tooltip >}}Corda cluster{{< /tooltip >}} has accepted and persisted the registration request submitted via the REST API but is yet to process it.
+* `NEW`: The member’s Corda {{< tooltip >}}cluster{{< /tooltip >}} has accepted and persisted the registration request submitted via the REST API but is yet to process it.
 * `INVALID`: The member’s Corda cluster processed the registration request submitted via the REST API and determined the
 input to be invalid and did not attempt to send the request to join the network to the MGM’s Corda cluster.
 * `SENT_TO_MGM`: The member’s Corda cluster processed the registration request submitted via the REST API and found the input

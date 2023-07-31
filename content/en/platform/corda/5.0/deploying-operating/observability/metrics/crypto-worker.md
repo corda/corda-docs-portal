@@ -13,7 +13,7 @@ section_menu: corda5
 
 # Crypto Worker
 
-The crypto worker is responsible for handling crypto operations in Corda, such as signing. It is the only worker that hosts keys owned by the {{< tooltip >}}Corda cluster{{< /tooltip >}}, as well as keys owned by the virtual nodes required for crypto operations.
+The crypto worker is responsible for handling crypto operations in Corda, such as signing. It is the only worker that hosts keys owned by the Corda {{< tooltip >}}cluster{{< /tooltip >}}, as well as keys owned by the virtual nodes required for crypto operations.
 
 The keys of the virtual nodes are stored in dedicated databases per virtual node, while the keys of the Corda cluster are stored in a dedicated database for cluster keys. In addition to the database, there are caches universal to all virtual nodes that hold the keys in memory for faster lookup.
 
