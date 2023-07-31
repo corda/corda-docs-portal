@@ -98,7 +98,7 @@ Set the values of variables for use in later commands:
 
 ## Generate the Group Policy File
 
-To join a group, members must use a group policy file exported from the MGM of that group. To retrieve the `GroupPolicy.json` file from the MGM:
+To join a group, members must use a {{< tooltip >}}group policy{{< /tooltip >}} file exported from the MGM of that group. To retrieve the `GroupPolicy.json` file from the MGM:
 
    {{< tabs >}}
    {{% tab name="Bash"%}}

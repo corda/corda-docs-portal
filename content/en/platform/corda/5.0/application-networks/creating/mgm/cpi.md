@@ -100,7 +100,7 @@ This root CA certificate in PEM format must be included later when onboarding th
 
 ## Create the Group Policy File
 
-As most of the information in a group policy file is exported by the MGM, the initial MGM group policy is a much smaller file than that needed to create a member.
+As most of the information in a {{< tooltip >}}group policy{{< /tooltip >}} file is exported by the MGM, the initial MGM group policy is a much smaller file than that needed to create a member.
 
 The MGM group policy file only requires a flag to indicate that a group ID must be generated during virtual node onboarding and information about how to register itself as part of the group.
 Registration for an MGM is essentially finalising setup of the the group, but currently the registration terminology is kept in-line with the member setup.
