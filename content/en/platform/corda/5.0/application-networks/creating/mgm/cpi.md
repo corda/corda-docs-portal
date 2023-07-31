@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Build the MGM CPI
 
-This section describes how to build a MGM {{< tooltip >}}CPI{{< /tooltip >}} and upload it to the network. It contains the following:
+This section describes how to build an MGM {{< tooltip >}}CPI{{< /tooltip >}} and upload it to the network. It contains the following:
 1. [Set Variables]({{< relref "#set-variables" >}})
 2. [Select a Certificate Authority]({{< relref "#select-a-certificate-authority" >}})
 3. [Create the Group Policy File]({{< relref "#create-the-group-policy-file" >}})
@@ -103,7 +103,7 @@ This root CA certificate in PEM format must be included later when onboarding th
 As most of the information in a {{< tooltip >}}group policy{{< /tooltip >}} file is exported by the MGM, the initial MGM group policy is a much smaller file than that needed to create a member.
 
 The MGM group policy file only requires a flag to indicate that a group ID must be generated during virtual node onboarding and information about how to register itself as part of the group.
-Registration for an MGM is essentially finalising setup of the the group, but currently the registration terminology is kept in-line with the member setup.
+Registration for an MGM is essentially finalizing setup of the group, but currently the registration terminology is kept in-line with the member setup.
 
 This is a simple file that you can construct manually. 
 For example, to manually create the `GroupPolicy.json` file in your working directory:
