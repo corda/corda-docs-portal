@@ -24,7 +24,7 @@ CorDapps are simply code, written in a JVM compatible language, compiled into a 
 >}}
 
 A CorDapp must be installed in a Corda Cluster to make it available to virtual nodes. To enable this, the CorDapp must be packaged up into a {{< tooltip >}}CPB{{< /tooltip >}}, which comprises of all CPKs necessary for a CorDapp to be complete, and their dependencies. 
-The CPB must then be combined with network metadata into a CPI (Corda Package Installer) before it can be installed in the cluster. For more information, see [Packaging]({{< relref "../../../developing-applications/packaging/_index.md" >}}).
+The CPB must then be combined with network metadata into a {{< tooltip >}}CPI{{< /tooltip >}} before it can be installed in the cluster. For more information, see [Packaging]({{< relref "../../../developing-applications/packaging/_index.md" >}}).
 
 {{< 
   figure

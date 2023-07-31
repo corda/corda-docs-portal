@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Build and Upload the Member CPI
 
-This section describes how to build a member CPI and upload it to the network. It contains the following:
+This section describes how to build a member {{< tooltip >}}CPI{{< /tooltip >}} and upload it to the network. It contains the following:
 1. [Set Variables]({{< relref "#set-variables" >}})
 2. [Generate the Group Policy File]({{< relref "#generate-the-group-policy-file" >}})
 3. [Create the CPI File]({{< relref "#create-the-cpi-file" >}})

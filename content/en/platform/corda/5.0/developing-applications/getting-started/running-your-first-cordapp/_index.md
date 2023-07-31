@@ -75,8 +75,8 @@ You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
    This task runs a series of Gradle tasks to:
    * Build the {{< tooltip >}}CPB{{< /tooltip >}}
    * Create the GroupPolicy (Application Network definition)
-   * Generate signing keys to sign the CPB and CPI
-   * Build the CPI (combination of CPB and Group Policy)
+   * Generate signing keys to sign the CPB and {{< tooltip >}}CPI{{< /tooltip >}}
+   * Build the CPI
    * Sign the CPI
    * Upload the CPI to Corda
    * Create and register the virtual nodes with the CPI
