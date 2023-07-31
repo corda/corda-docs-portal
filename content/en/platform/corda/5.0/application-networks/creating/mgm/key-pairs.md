@@ -146,7 +146,7 @@ To set up the TLS key pair and certificate for the cluster:
    -----END CERTIFICATE REQUEST-----
    ```
 
-3. Provide the chosen CA with this CSR and request for certificate issuance.
+3. Provide the chosen {{< tooltip >}}CA{{< /tooltip >}}with this CSR and request for certificate issuance.
 
 4. To upload the certificate chain to the Corda cluster, run this command, where `certificate-folder` is the path to the folder in which you saved the certificate received from the CA:
    {{< tabs >}}

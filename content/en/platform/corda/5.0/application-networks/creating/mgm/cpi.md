@@ -94,7 +94,7 @@ Set the values of variables for use in later commands:
 
 ## Select a Certificate Authority
 
-Corda uses an external Certificate Authority (CA) for the keys it generates.
+Corda uses an external Certificate Authority ({{< tooltip >}}CA{{< /tooltip >}}) for the keys it generates.
 This is mandatory for P2P TLS certificates, and optionally, they may also be used for [session certificates]({{< relref "../optional/session-certificates.md">}}), depending on the network configuration defined by the MGM operator.
 This root CA certificate in PEM format must be included later when onboarding the MGM.
 
