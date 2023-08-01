@@ -172,7 +172,7 @@ RequestBody for triggering the flow via REST:
  ```
 ## Helper Classes
 There are two helper classes:
-* `MyFirstFlowStartArgs` — provides a wrapper around the single arguments that need to be passed into the flow — the other member of the application network who the message should be sent to:
+* `MyFirstFlowStartArgs` — provides a wrapper around the single arguments that need to be passed into the flow — the other member of the {{< tooltip >}}application network{{< /tooltip >}} who the message should be sent to:
    ```kotlin
    class MyFirstFlowStartArgs(val otherMember: MemberX500Name)
    ```
