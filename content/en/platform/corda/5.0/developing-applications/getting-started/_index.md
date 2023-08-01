@@ -11,7 +11,7 @@ menu:
 section_menu: corda5
 ---
 # Getting Started Using the CSDE
-This section guides Developers who are new to Corda 5 from setting up their development environment through to writing, compiling, and running their first basic CorDapp.
+This section guides Developers who are new to Corda 5 from setting up their development environment through to writing, compiling, and running their first basic {{< tooltip >}}CorDapp{{< /tooltip >}}.
 
 The CorDapp Standard Development Environment (CSDE) makes the process of prototyping CorDapps more straight-forward.
 The CSDE is obtained by cloning our `CSDE-cordapp-template-kotlin` or `CSDE-cordapp-template-java` repository to your local machine. The CSDE provides:

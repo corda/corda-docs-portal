@@ -20,7 +20,7 @@ table th:nth-of-type(2) {
 
 </style>
 # Application Developer Tooling
-CorDapp Developers require the following:
+{{< tooltip >}}CorDapp{{< /tooltip >}} Developers require the following:
 
 
 | Tool                                            | Description                                                                                                                                                                                                                                                                                                |

@@ -13,7 +13,7 @@ section_menu: corda5
 
 # Flow
 
-Flow metrics measure the execution of flow classes provided by the CorDapp, providing an indication of the performance
+Flow metrics measure the execution of flow classes provided by the {{< tooltip >}}CorDapp{{< /tooltip >}}, providing an indication of the performance
 and health of the flow engine Corda uses to execute these flows.
 
 <style>

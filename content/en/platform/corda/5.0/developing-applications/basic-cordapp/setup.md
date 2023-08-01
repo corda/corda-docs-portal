@@ -11,7 +11,7 @@ menu:
 
 # Initial Setup
 
-After you have completed this tutorial, you will have modified the CSDE environment to make it ready for building your CorDapp.
+After you have completed this tutorial, you will have modified the CSDE environment to make it ready for building your {{< tooltip >}}CorDapp{{< /tooltip >}}.
 You will have also created three packages within the existing CSDE project structure.
 
 {{< note >}}

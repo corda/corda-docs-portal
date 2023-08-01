@@ -19,7 +19,7 @@ Corda is usually deployed as part of a wider ecosystem of applications in a mode
 Each integration point has a specific purpose.
 
 ## Corda REST API
-The [Corda REST API]({{< relref "../../../reference/rest-api/_index.md">}}) is the primary way in which external applications interact with CorDapps. This API allows external systems to start flows, monitor the flow status, and retrieve the output of a flow. This REST API uses JSON for requests and responses, and flows can output data in any text representations. This provides flexibility to external systems around how they interact with Corda.
+The [Corda REST API]({{< relref "../../../reference/rest-api/_index.md">}}) is the primary way in which external applications interact with {{< tooltip >}}CorDapps{{< /tooltip >}}. This API allows external systems to start flows, monitor the flow status, and retrieve the output of a flow. This REST API uses JSON for requests and responses, and flows can output data in any text representations. This provides flexibility to external systems around how they interact with Corda.
 
 Because flows have access to a JVM compatible language along with a REST API, they can be built to provide a rich, custom CorDapp not just to initiate flows that interact with peers, but also flows that return or search a virtual node’s vault data, for example.
 

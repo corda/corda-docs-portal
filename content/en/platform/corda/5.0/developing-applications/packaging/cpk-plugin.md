@@ -12,7 +12,7 @@ section_menu: corda5
 ---
 # CPK Gradle Plugin
 
-Applying this plugin to a project declares that the project should create a CorDapp in CPK format. The CPK format
+Applying this plugin to a project declares that the project should create a {{< tooltip >}}CorDapp{{< /tooltip >}} in CPK format. The CPK format
 CorDapp is a ZIP file with a `.jar` extension, which is the output of the JAR task, along with the dependent JARs of that JAR.
 The plugin will not include any of Corda's own JARs among these dependencies, nor any JARs that should be provided by
 Corda, such as Kotlin or Quasar. The JAR should also contain sufficient OSGi metadata to be a valid OSGi bundle.

@@ -11,7 +11,7 @@ menu:
 
 # Write States
 
-This tutorial guides you through writing the two states you need in your CorDapp: `AppleStamp` and `BasketofApples`.
+This tutorial guides you through writing the two states you need in your {{< tooltip >}}CorDapp{{< /tooltip >}}: `AppleStamp` and `BasketofApples`.
 You will create these states in the `contracts/src/main/kotlin/com/r3/developers/apples/states` directory.
 
 ## Learning Objectives

@@ -20,7 +20,7 @@ The Token Selection API enables a flow to exclusively select a set of states to 
 
 ### Tokens
 
-The API defines a generic token that is used to represent a state. The purpose of the token is to allow a consistent model for querying user-defined states. Attributes of the token are partly derived by the platform and partly derived by the CorDapp using an implementation of `UtxoLedgerTokenStateObserver` for the given state. The following table describes these attributes:
+The API defines a generic token that is used to represent a state. The purpose of the token is to allow a consistent model for querying user-defined states. Attributes of the token are partly derived by the platform and partly derived by the {{< tooltip >}}CorDapp{{< /tooltip >}} using an implementation of `UtxoLedgerTokenStateObserver` for the given state. The following table describes these attributes:
 | <div style="width:100px">Attribute    </div>    | <div style="width:100px">Type       </div>      | <div style="width:100px">Provided By </div>| Description                                                                                                                                                                             |
 | ---------------- | ---------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | StateRef         | StateRef         | Platform    | The reference to the state linked to this token.                                                                                                                                        |

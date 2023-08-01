@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 # net.corda.v5.application
-The `corda-application` module provides the fundamental building blocks required to create a [flow]({{< relref "../../ledger/flows/_index.md" >}}) and so all CorDapps use this module.
+The `corda-application` module provides the fundamental building blocks required to create a [flow]({{< relref "../../ledger/flows/_index.md" >}}) and so all {{< tooltip >}}CorDapps{{< /tooltip >}} use this module.
 
 `corda-application` sits at a higher level in the module hierachy and exposes the following modules as API dependencies:
 

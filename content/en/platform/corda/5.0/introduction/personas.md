@@ -34,7 +34,7 @@ As an Architect working with Corda, all sections of the Corda documentation are 
 
 ## CorDapp Developer
 
-A CorDapp Developer uses Corda to:
+A {{< tooltip >}}CorDapp{{< /tooltip >}} Developer uses Corda to:
 * explore DLT and create their own chain of shared facts to experiment with.
 * design an enterprise production-grade distributed application.
 * work as part of a team to build an enterprise production-grade distributed application.

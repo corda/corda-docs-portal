@@ -11,7 +11,7 @@ section_menu: corda5
 ---
 # CSDE Overview
 
-This section provides an overview of the content of CSDE. Other sections show you how to use it in the process of writing a CorDapp.
+This section provides an overview of the content of CSDE. Other sections show you how to use it in the process of writing a {{< tooltip >}}CorDapp{{< /tooltip >}}.
 
 ## Project Structure
 

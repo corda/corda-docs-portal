@@ -13,7 +13,7 @@ section_menu: corda5
 
 # External Messaging Administration {{< enterprise-icon >}}
 
-CorDapp flows can send simple messages via Kafka to external systems. For more information, see [External Messaging CorDapps]({{< relref "../../developing-applications/external-messaging.md" >}}). This section describes the cluster administration tasks required for CorDapps that implement external messaging. It contains the following:
+{{< tooltip >}}CorDapp{{< /tooltip >}} flows can send simple messages via Kafka to external systems. For more information, see [External Messaging CorDapps]({{< relref "../../developing-applications/external-messaging.md" >}}). This section describes the cluster administration tasks required for CorDapps that implement external messaging. It contains the following:
 * [Configuring External Messaging Routes](#configuring-external-messaging-routes)
 * [Creating Kafka Topics](#creating-kafka-topics)
 

@@ -14,7 +14,7 @@ section_menu: corda5
 
 # Upgrading CorDapps
 
-This topic describes how to upgrade a Corda-deployed CorDapp to a newer version. This must be done in such a way that Corda will interpret the upgrade as a new version of the same application. Typically you might want to upgrade your CorDapp to fix bugs, create new functionality, or change existing functionality. 
+This topic describes how to upgrade a Corda-deployed {{< tooltip >}}CorDapp{{< /tooltip >}} to a newer version. This must be done in such a way that Corda will interpret the upgrade as a new version of the same application. Typically you might want to upgrade your CorDapp to fix bugs, create new functionality, or change existing functionality. 
 
 Corda must be able to interpret that the two versions are considered to be the same application. This is done in order to maintain continuity of any state it has preserved internally relating to that application's operation.
 

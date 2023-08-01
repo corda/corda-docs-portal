@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Introducing the Corda APIs
 
-There are two types of Corda APIs that are relevant to a CorDapp Developer:
+There are two types of Corda APIs that are relevant to a {{< tooltip >}}CorDapp{{< /tooltip >}} Developer:
 * [CorDapp API]({{< relref "#corda-api" >}})
 * [Corda REST API]({{< relref "#corda-rest-api" >}})
 
