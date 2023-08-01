@@ -121,7 +121,7 @@ If the flow has run successfully, this returns a “COMPLETED” status together
   ```
 
 {{< note >}}
-It can take up to a minute for Corda to process the flow, this is likely a function of using the local Combined Worker version of Corda which runs all the cluster processes in one JVM with limited resources. If this were to be run in a more typical cloud deployment, you would expect it to be much faster. Whilst Corda is still processing the request, Swagger returns a “RUNNING” status. Keep polling the end point every 10 seconds or so until you get a result.
+It can take up to a minute for Corda to process the flow, this is likely a function of using the local combined worker version of Corda which runs all the cluster processes in one JVM with limited resources. If this were to be run in a more typical cloud deployment, you would expect it to be much faster. Whilst Corda is still processing the request, Swagger returns a “RUNNING” status. Keep polling the end point every 10 seconds or so until you get a result.
 {{< /note >}}
 
 ## Typical Set of Flows

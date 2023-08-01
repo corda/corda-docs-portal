@@ -20,7 +20,7 @@ For example, for the member `O=Alice, L=London, C=GB`:
 curl -k -u $REST_API_USER:$REST_API_PASSWORD -X POST -d '{"ownerX500Name": "O=Alice, L=London, C=GB"}' $REST_API_URL/mgm/$MGM_HOLDING_ID/preauthtoken
 ```
 
-This token is tied to the specified X.500 name and only a registering member with the same X.500 name can consume that token.
+This token is tied to the specified {{< tooltip >}}X.500{{< /tooltip >}} name and only a registering member with the same X.500 name can consume that token.
 
 You can also pass the following optional properties when creating a token:
 * time-to-live — specifies a duration after which the token will no longer be valid.

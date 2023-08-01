@@ -32,7 +32,7 @@ The instructions in this section use the following terms:
    * On Linux, this is typically something like `/home/charlie.smith`.
 
 To reset the CSDE:
-1. Stop any running combined worker processes:
+1. Stop any running combined {{< tooltip >}}worker{{< /tooltip >}} processes:
    * On Linux/macOS:
 
       a. To find the process ID (pid), run:
