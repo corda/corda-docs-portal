@@ -236,10 +236,10 @@ The first step is to deploy the CorDapp to nodes running locally. To do this:
       * Windows: `./gradlew.bat deployNodes`
 3. After the build finishes, go to the `samples-java/Basic/cordapp-example/build/nodes` or `samples-kotlin/Basic/cordapp-example/build/nodes` folder.
 
-You will see the following output:
-      * A folder for each generated node
-      * A `runnodes` shell script for running all the nodes simultaneously on OSX
-      * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows
+    You will see the following output:
+    * A folder for each generated node
+    * A `runnodes` shell script for running all the nodes simultaneously on OSX
+    * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows
 
     Each node in the `nodes` folder is structured as follows:
 
