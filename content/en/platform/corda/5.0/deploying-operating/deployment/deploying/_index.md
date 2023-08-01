@@ -11,9 +11,9 @@ section_menu: corda5
 ---
 # Deploying
 This page describes how to deploy Corda 5. All the necessary [prerequisites]({{< relref "../prerequisites.md" >}}) must have been satisfied before Corda is deployed.
-In particular, PostgreSQL and Kafka must be running. The mechanism to achieve that is up to you. For example, you can:
+In particular, PostgreSQL and {{< tooltip >}}Kafka{{< /tooltip >}} must be running. The mechanism to achieve that is up to you. For example, you can:
 
-* run PostgreSQL and Kafka on Kubernetes.
+* run PostgreSQL and Kafka on {{< tooltip >}}Kubernetes{{< /tooltip >}}.
 * use a managed service such as Amazon RDS for PostgreSQL, Amazon Managed Streaming for Apache Kafka, or Confluent Cloud.
 
 This section contains the following:

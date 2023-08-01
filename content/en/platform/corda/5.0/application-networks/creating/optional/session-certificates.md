@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Session Certificates
 
-You can configure a dynamic network to use session certificates when sending messages. This requires additional steps when onboarding an MGM or member into the dynamic network.
+You can configure a dynamic network to use session certificates when sending messages. This requires additional steps when onboarding an {{< tooltip >}}MGM{{< /tooltip >}} or member into the dynamic network.
 
 ## Generate a Certificate Signing Request (CSR)
 
@@ -38,7 +38,7 @@ If session certificates are used, revocation checks are performed by the P2P Gat
 
 If the CA has not been configured with revocation, you can disable revocation checks. By default, revocation checks are enabled.
 To disable revocation checks, do the following:
-1. Retrieve the current link manager configuration version:
+1. Retrieve the current {{< tooltip >}}link manager{{< /tooltip >}} configuration version:
    ```shell
    curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/config/corda.p2p.linkManager
    ```

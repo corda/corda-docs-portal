@@ -17,10 +17,10 @@ The database worker is the sole worker with access to the database (apart from t
 own dedicated database). As a result, the activities carried out within the database worker pertain to the database.
 
 The database worker is responsible for handling and serving persistence requests originating from various Corda worker types,
-such as the flow worker or the MGM worker. The flow persistence requests metrics presented in this section measure:
+such as the flow worker or the {{< tooltip >}}MGM{{< /tooltip >}} worker. The flow persistence requests metrics presented in this section measure:
 
 * The time taken to handle the flow persistence requests.
-* The time the flow persistence requests remained on Kafka, from the moment they were added by flows until they were received
+* The time the flow persistence requests remained on {{< tooltip >}}Kafka{{< /tooltip >}}, from the moment they were added by flows until they were received
   by the database worker (Kafka lag).
 
 The ledger persistence requests metrics measure the time needed to execute the ledger transaction database requests against the database.

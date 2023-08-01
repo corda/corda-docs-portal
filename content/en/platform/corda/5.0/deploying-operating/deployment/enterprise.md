@@ -37,7 +37,7 @@ The migration process results in downtime for the Corda cluster.
      --set bootstrap.rbac.enabled=false
    ```  
 
-If the original Corda installation used automatic bootstrapping to generate the salt and passphrase, the installation of Corda Enterprise must also be configured with the location of the generated values in the Kubernetes secret `$HELM_RELEASE_NAME}-config`. For example:
+If the original Corda installation used automatic bootstrapping to generate the salt and passphrase, the installation of Corda Enterprise must also be configured with the location of the generated values in the {{< tooltip >}}Kubernetes{{< /tooltip >}} secret `$HELM_RELEASE_NAME}-config`. For example:
 ```
 helm install corda-enterprise corda-enterprise-5.0.0.tgz \
   --values values.yaml --namespace $KUBERNETES_NAMESPACE \

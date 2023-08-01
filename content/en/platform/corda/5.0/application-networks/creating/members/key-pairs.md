@@ -73,7 +73,7 @@ This step is only necessary when setting up a new cluster.
 It is only required once per cluster, allowing you to re-use the same TLS key and certificate for the whole cluster.
 {{< /note >}}
 
-You must perform the same steps as those for setting up the MGM to enable peer-to-peer communication for the locally hosted identities.
+You must perform the same steps as those for setting up the {{< tooltip >}}MGM{{< /tooltip >}} to enable peer-to-peer communication for the locally hosted identities.
 Use the Certificate Authority (CA) whose trustroot certificate was configured in the registration context of the MGM.
 
 If using mutual TLS, you must must add the certificate subject to the allowed list of the MGM. For more information, see [Update the MGM Allowed Certificate Subject List]({{< relref "../optional/mutual-tls-connections.md#update-the-mgm-allowed-certificate-subject-list" >}}).

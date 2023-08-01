@@ -11,13 +11,13 @@ menu:
 section_menu: corda5
 ---
 # Member Suspension
-It is possible to temporarily suspend a member of a group. Once a member has been suspended, Corda blocks flow communication between it and other members of the group. A suspended member performing a member lookup can only see updates from the MGM and not from other members. It is not possible to suspend the MGM. This section describes how to perform the following:
+It is possible to temporarily suspend a member of a group. Once a member has been suspended, Corda blocks flow communication between it and other members of the group. A suspended member performing a member lookup can only see updates from the MGM and not from other members. It is not possible to suspend the {{< tooltip >}}MGM{{< /tooltip >}}. This section describes how to perform the following:
 * [Search for Members]({{< relref "#search-for-members">}})
 * [Suspend a Member]({{< relref "#suspend-a-member">}})
 * [Activate a Member]({{< relref "#activate-a-member">}})
 
 The commands shown in this section, use the following variables:
-* `MGM_HOLDING_ID` — the short hash of the MGM's holding identity.
+* `MGM_HOLDING_ID` — the short hash of the MGM's {{< tooltip >}}holding identity{{< /tooltip >}}.
 * `X500_NAME` — the X.500 name of the member being suspended or re-activated.
 * `REST_API_URL` — the URL of the REST worker. This may vary depending on where you have deployed your cluster and how you have forwarded the ports. For example, `https://localhost:8888/api/v1`.
 * `REST_API_USER` — your username for invoking the REST API. 

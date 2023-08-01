@@ -12,8 +12,8 @@ section_menu: corda5
 # Prerequisites
 There are three prerequisites to the Corda deployment process:
 
-* Kubernetes for container orchestration
-* Kafka for messaging
+* {{< tooltip >}}Kubernetes{{< /tooltip >}} for container orchestration
+* {{< tooltip >}}Kafka{{< /tooltip >}} for messaging
 * PostgreSQL for persistence
 
 See the [Infrastructure Topology]({{< relref "../topology/_index.md" >}}) subsection for example topologies on the Amazon Web Services

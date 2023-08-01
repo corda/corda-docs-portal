@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Cluster Communications
 
-Communication between workers, within a cluster, is mostly achieved through the internal message bus, integrated with Kafka. However, communication originating from outside a cluster usually uses the HTTP protocol. 
+Communication between workers, within a cluster, is mostly achieved through the internal message bus, integrated with {{< tooltip >}}Kafka{{< /tooltip >}}. However, communication originating from outside a cluster usually uses the HTTP protocol. 
 
 ## REST
 
@@ -27,7 +27,7 @@ HTTP requests are authenticated using basic authentication, and authorization is
 Communication between different Corda clusters to support distributed workflows, that is peer-to-peer (P2P) communication, also uses standard secure HTTP (HTTPS). 
 The components of the peer-to-peer communications layer are responsible for delivering messages between virtual nodes in a secure and reliable way. 
 If the two virtual nodes communicating reside in the same cluster, the messages can be routed back without exiting the cluster at all. 
-If the two virtual nodes communicating reside in separate clusters, the link manager processor is responsible for establishing end-to-end authenticated sessions with the link managers on the other cluster in order to transfer the messages in a secure way. 
+If the two virtual nodes communicating reside in separate clusters, the {{< tooltip >}}link manager{{< /tooltip >}} processor is responsible for establishing end-to-end authenticated sessions with the link managers on the other cluster in order to transfer the messages in a secure way. 
 The link manager is also responsible for ensuring the message is delivered reliably in the case of any transient issues in the network path between the two clusters. 
 Any messages destined for a separate cluster are forwarded by the link manager to the P2P gateway, which forwards them to the P2P gateway of the other cluster via HTTPS. 
 A gateway can connect to another gateway in a separate cluster via mutual TLS, depending on the policy of the application network. 

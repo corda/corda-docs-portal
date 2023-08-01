@@ -46,7 +46,7 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{< /tabs >}}
 
-   These values vary depending on where you have deployed your cluster(s) and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`. Alternatively, you can specify the IP address of the gateway, instead of the hostname. For example, `192.168.0.1`.
+   These values vary depending on where you have deployed your cluster(s) and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway {{< tooltip >}}Kubernetes{{< /tooltip >}} service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`. Alternatively, you can specify the IP address of the gateway, instead of the hostname. For example, `192.168.0.1`.
 
 2. Set the REST API URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
    {{< tabs >}}
@@ -98,7 +98,7 @@ Set the values of variables for use in later commands:
 
 ## Generate the Group Policy File
 
-To join a group, members must use a group policy file exported from the MGM of that group. To retrieve the `GroupPolicy.json` file from the MGM:
+To join a group, members must use a group policy file exported from the {{< tooltip >}}MGM{{< /tooltip >}} of that group. To retrieve the `GroupPolicy.json` file from the MGM:
 
    {{< tabs >}}
    {{% tab name="Bash"%}}
