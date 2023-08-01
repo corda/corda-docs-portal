@@ -94,7 +94,7 @@ The project containing the sample CorDapp opens.
 1. Open the command line from the `cordapp-example` directory.
 2. Run the `deployNodes` Gradle task:
       * Unix/Mac OSX: `./gradlew deployNodes`
-      * Windows: `gradlew.bat deployNodes`
+      * Windows: `./gradlew.bat deployNodes`
 
    This builds three nodes with the CorDapp installed on them.
 

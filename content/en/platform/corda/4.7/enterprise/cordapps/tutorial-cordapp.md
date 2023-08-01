@@ -233,7 +233,7 @@ The first step is to deploy the CorDapp to nodes running locally. To do this:
 1. Open a terminal window in the `cordapp-example` directory.
 2. Run the `deployNodes` Gradle task to build four nodes with the CorDapp installed on them:
       * Unix/Mac OSX: `./gradlew deployNodes`
-      * Windows: `gradlew.bat deployNodes`
+      * Windows: `./gradlew.bat deployNodes`
 3. After the build finishes, go to the `samples-java/Basic/cordapp-example/build/nodes` or `samples-kotlin/Basic/cordapp-example/build/nodes` folder.
 
 You will see the following output:
