@@ -27,6 +27,6 @@ For example, the declaration of allowed notaries, or application-specific inform
 Virtual nodes must abide by the policy rules of the MGM. 
 For example, the MGM defines suitable [TLS trust roots]({{< relref "../../../application-networks/creating/mgm/key-pairs.md#configure-the-cluster-tls-key-pair" >}}) and the [type of TLS used]({{< relref "../../../application-networks/creating/optional/mutual-tls-connections.md">}}). 
 The Network Operator must lobby the MGM to accept their membership details before they can join the network or make a change to their details. 
-The session initiation keys, ledger keys, and other data included in the membership application become the published identity facts of the virtual node available to peers, presented with signatures from both MGM and virtual node private keys. 
+The {{< tooltip >}}session initiation keys{{< /tooltip >}}, ledger keys, and other data included in the membership application become the published identity facts of the virtual node available to peers, presented with signatures from both MGM and virtual node private keys. 
 Under its signature, the MGM also includes data that only it controls, such as membership active/suspended flags. This shared authenticated data is exposed to flows as the `MemberInfo` data structure. 
 `MemberInfo` is often used to locate peer keys to validate against, to advertise specific peer roles, or to control flow behaviour.

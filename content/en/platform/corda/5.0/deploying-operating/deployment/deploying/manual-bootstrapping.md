@@ -34,7 +34,7 @@ To create the topics manually, do the following:
        enabled: false
    ```
 2. Create a [Kafka client properties](https://kafka.apache.org/documentation/#configuration) file.
-The following is an example properties file for a Kafka cluster using TLS and SASL authentication:
+The following is an example properties file for a Kafka cluster using {{< tooltip >}}TLS{{< /tooltip >}} and SASL authentication:
 
    ```properties
    security.protocol=SASL_SSL
@@ -188,7 +188,7 @@ To create the schema manually, do the following:
 
    * If you are applying SQL to a schema using the `psql` command you can specify which schema to apply it to using the `--dbname` parameter like so: `--dbname "dbname=cordacluster options=--search_path=<SCHEMA-NAME>"`
 
-   * If you are targeting schemas, database and crypto generated SQL should be applied to the CONFIG schema, and create-user-config generated SQL should be applied to the RBAC schema. If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
+   * If you are targeting schemas, database and crypto generated SQL should be applied to the CONFIG schema, and create-user-config generated SQL should be applied to the {{< tooltip >}}RBAC schema{{< /tooltip >}}. If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
    {{< /note >}}
 
 2. Use the Corda CLI to generate DML files for creating the database tables to use for each of the `crypto`, `config`, and `rbac` components.
@@ -369,7 +369,7 @@ To create the roles manually, perform the steps described in this section.
 
 {{< note >}}
 
-You can create RBAC roles manually only after the Corda cluster setup has been completed as an RBAC role requires the REST API URL as a parameter. That value should be a URL where the API is [accessible]({{< relref "../../../reference/rest-api/accessing.md" >}}), either via a load balancer or by forwarding port 8888 from one of the REST worker pods.
+You can create RBAC roles manually only after the Corda cluster setup has been completed as an RBAC role requires the REST API URL as a parameter. That value should be a URL where the API is [accessible]({{< relref "../../../reference/rest-api/accessing.md" >}}), either via a load balancer or by forwarding port 8888 from one of the {{< tooltip >}}REST worker{{< /tooltip >}} pods.
 
 {{</ note >}}
 

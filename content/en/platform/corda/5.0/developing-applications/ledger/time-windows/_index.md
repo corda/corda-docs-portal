@@ -17,7 +17,7 @@ Every transaction includes a *time window*: the transaction can only be committe
 * only an end time
 
 {{< note >}}
-Corda requires every transaction to be completed within a specified time, and thus requires a time window that at least specifies an end time. The end time can be long (for example, three months), but must be defined. This is required to implement a more efficient notary protocol where the notary only tracks valid input states.
+Corda requires every transaction to be completed within a specified time, and thus requires a time window that at least specifies an end time. The end time can be long (for example, three months), but must be defined. This is required to implement a more efficient notary protocol where the notary only tracks valid input {{< tooltip >}}states{{< /tooltip >}}.
 {{< /note >}}
 
 The notary cluster acts as the timestamping authority. It verifies that a transaction occurred during a specific time window before notarizing it.

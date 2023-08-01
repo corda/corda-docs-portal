@@ -17,7 +17,7 @@ Communication between workers, within a cluster, is mostly achieved through the 
 ## REST
 
 Interaction with the Corda Cluster for administration or flow management uses a [REST API]({{< relref "../../../reference/rest-api/_index.md" >}}) over standard secure HTTP (HTTPS).
-These HTTP REST endpoints are exposed by the REST workers in the cluster. 
+These HTTP REST endpoints are exposed by the {{< tooltip >}}REST workers{{< /tooltip >}} in the cluster. 
 Like other worker types, REST workers are stateless, so requests can be divided across all REST workers using a standard HTTP load balancer, which must be exposed to the application and/or user that interacts with the cluster.
 
 HTTP requests are authenticated using basic authentication, and authorization is based on Corda’s [RBAC capabilities]({{< relref "../../../deploying-operating/config-users/_index.md" >}}).
@@ -30,4 +30,4 @@ If the two virtual nodes communicating reside in the same cluster, the messages 
 If the two virtual nodes communicating reside in separate clusters, the link manager processor is responsible for establishing end-to-end authenticated sessions with the link managers on the other cluster in order to transfer the messages in a secure way. 
 The link manager is also responsible for ensuring the message is delivered reliably in the case of any transient issues in the network path between the two clusters. 
 Any messages destined for a separate cluster are forwarded by the link manager to the P2P gateway, which forwards them to the P2P gateway of the other cluster via HTTPS. 
-A gateway can connect to another gateway in a separate cluster via mutual TLS, depending on the policy of the application network. 
+A gateway can connect to another gateway in a separate cluster via mutual {{< tooltip >}}TLS{{< /tooltip >}}, depending on the policy of the application network. 

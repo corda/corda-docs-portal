@@ -46,7 +46,7 @@ However, distributed applications in Corda, while being deployed by different pa
 
 ## Workflows, Contracts, and States
 
-CorDapps are usually composed of workflows, contracts, and states. This section illustrates that contracts and states are optional, but a CorDapp must always define at least one workflow, often referred to simply as a flow.
+CorDapps are usually composed of workflows, contracts, and {{< tooltip >}}states{{< /tooltip >}}. This section illustrates that contracts and states are optional, but a CorDapp must always define at least one workflow, often referred to simply as a flow.
 
 Flows support the [orchestration layer]({{< relref "../../fundamentals/CorDapps/_index.md#orchestration-layer--flows" >}}), and are written in a JVM compatible language and are hosted by Corda. Typically, flows create or transfer states on behalf of a member of the application network (a virtual node) who seeks to form [consensus]({{< relref "../../fundamentals/CorDapps/_index.md#consensus-layer" >}}) with their peer nodes with the help of the notary.
 

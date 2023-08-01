@@ -14,7 +14,7 @@ This section lists the Corda CLI `initial-config` arguments. You can use these c
 
 ## create-user-config 
 
-The `create-user-config` command creates the SQL script to add the RBAC configuration for an initial admin user. 
+The `create-user-config` command creates the SQL script to add the {{< tooltip >}}RBAC{{< /tooltip >}} configuration for an initial admin user. 
 
 | <div style="width:160px">Argument</div> | Description                                   |
 | --------------------------------------- | --------------------------------------------- |

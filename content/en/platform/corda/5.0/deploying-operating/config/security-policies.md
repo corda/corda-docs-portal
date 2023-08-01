@@ -30,7 +30,7 @@ permissions ::= ( '(' qname (quoted-string
 name        ::= quoted-string
 ```
 
-The following snippet shows an example of a deny-access block for the flow sandbox:
+The following snippet shows an example of a deny-access block for the flow {{< tooltip >}}sandbox{{< /tooltip >}}:
 
 ```
 DENY {

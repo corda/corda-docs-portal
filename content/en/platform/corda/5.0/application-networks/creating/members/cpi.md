@@ -20,7 +20,7 @@ This section describes how to build a member CPI and upload it to the network. I
 5. [Upload the CPI]({{< relref "#upload-the-cpi" >}})
 
 {{< note >}}
-If you want to use mutual TLS, see [Configuring Mutual TLS]({{< relref "../optional/mutual-tls-connections.md#modify-the-cluster-configurations" >}}) for additonal configuration steps before you upload the CPI.
+If you want to use mutual {{< tooltip >}}TLS{{< /tooltip >}}, see [Configuring Mutual TLS]({{< relref "../optional/mutual-tls-connections.md#modify-the-cluster-configurations" >}}) for additonal configuration steps before you upload the CPI.
 {{< /note >}}
 
 ## Set Variables
