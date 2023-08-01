@@ -135,5 +135,5 @@ Each transaction requires a defined time window during which it can be approved 
 This is enforced by adding a time window to the transaction, which specifies when the transaction can be committed. The notary enforces time window validity.
 
 ### Notary
-Notaries provide uniqueness consensus by attesting that, for a given transaction, it has not already signed other transactions that consume any of the proposed transaction’s input states. This is the final check before a transaction is committed to the ledger.
+Notaries provide uniqueness {{< tooltip >}}consensus{{< /tooltip >}} by attesting that, for a given transaction, it has not already signed other transactions that consume any of the proposed transaction’s input states. This is the final check before a transaction is committed to the ledger.
 Every transaction must be notarized, even if you are creating an issuance transaction that does not consume any other states and cannot double-spend, as this is required to enforce the time window validity. This allows for a much more efficient notary protocol where the notary tracks valid input states rather than spent states. For more information, see the [Notary section](notaries.html).

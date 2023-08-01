@@ -14,7 +14,7 @@ section_menu: corda5
 
 CorDapps, consisting of flows, and optionally states and contracts, are “pieces of code” hosted by the Corda runtime. This code can be written in a JVM compatible language. Java and Kotlin are officially supported. Currently, Corda 5 supports CorDapps compiled using Azul Zulu JDK 17. Other OpenJDK compatible Java 11 SDKs may also work but have not been fully tested.
 
-CorDapps are simply code, written in a JVM compatible language, compiled into a special type of JAR called a CPK (Corda Package). These CPKs are compiled using the [Gradle plugin]({{< relref "../../../developing-applications/packaging/cpk-plugin.md" >}}). See the [Corda 5 Samples repository](https://github.com/corda/corda5-samples) for an example of a typical CorDapp.
+CorDapps are simply code, written in a JVM compatible language, compiled into a special type of JAR called a {{< tooltip >}}CPK{{< /tooltip >}}. These CPKs are compiled using the [Gradle plugin]({{< relref "../../../developing-applications/packaging/cpk-plugin.md" >}}). See the [Corda 5 Samples repository](https://github.com/corda/corda5-samples) for an example of a typical CorDapp.
 
 {{< 
   figure
@@ -23,8 +23,8 @@ CorDapps are simply code, written in a JVM compatible language, compiled into a 
 	 figcaption="Example CPKs"
 >}}
 
-A CorDapp must be installed in a Corda Cluster to make it available to virtual nodes. To enable this, the CorDapp must be packaged up into a CPB (Corda Package Bundle), which comprises of all CPKs necessary for a CorDapp to be complete, and their dependencies. 
-The CPB must then be combined with network metadata into a CPI (Corda Package Installer) before it can be installed in the cluster. For more information, see [Packaging]({{< relref "../../../developing-applications/packaging/_index.md" >}}).
+A CorDapp must be installed in a Corda Cluster to make it available to virtual nodes. To enable this, the CorDapp must be packaged up into a {{< tooltip >}}CPB{{< /tooltip >}}, which comprises of all CPKs necessary for a CorDapp to be complete, and their dependencies. 
+The CPB must then be combined with network metadata into a {{< tooltip >}}CPI{{< /tooltip >}} before it can be installed in the cluster. For more information, see [Packaging]({{< relref "../../../developing-applications/packaging/_index.md" >}}).
 
 {{< 
   figure
