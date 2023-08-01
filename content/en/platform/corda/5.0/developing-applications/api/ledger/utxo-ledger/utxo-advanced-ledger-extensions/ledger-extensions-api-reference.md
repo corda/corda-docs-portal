@@ -15,7 +15,7 @@ section_menu: corda5
 
 ## Advanced Contract Design
 
-All the contract design issues described in [Building Basic Contract Design]({{< relref "building-basic-contract-design.md" >}}) are implemented by the Corda 5 Advanced UTXO Extensions library, and are included in all the specific implementations; for example, chainable, fungible and identifiable contracts.
+All the contract design issues described in [Building Basic Contract Design]({{< relref "building-basic-contract-design.md" >}}) are implemented by the Corda 5 Advanced {{< tooltip >}}UTXO{{< /tooltip >}} Extensions library, and are included in all the specific implementations; for example, chainable, fungible and identifiable contracts.
 
 ## Advanced Ledger Types
 
@@ -149,7 +149,7 @@ To update an existing chainable state, retrieve the existing `ChainableState`'s 
 new ExampleChainableState(new StaticPointer(previousStateRef, ExampleChainableState.class));
 ```
 
-Consume the existing instance in the same transaction that contains the updated instance.
+Consume the existing instance in the same {{< tooltip >}}transaction{{< /tooltip >}} that contains the updated instance.
 
 To delete a chainable state, retrieve the existing `ChainableState`'s `StateRef` and consume the state using the `StateRef`.
 
@@ -607,7 +607,7 @@ An issuable state can be designed by implementing the `IssuableState` interface:
 ```java
 @BelongsToContract(ExampleIssuableContract.class)
 public class ExampleIssuableState implements IssuableState {
-    
+
     @NotNull
     private final PublicKey issuer;
 

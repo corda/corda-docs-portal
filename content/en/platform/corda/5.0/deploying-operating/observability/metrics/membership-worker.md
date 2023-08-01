@@ -31,7 +31,7 @@ The timer metrics of the membership worker focus on the areas mentioned above. S
 
 These metrics are tagged with the name of the handler so that you can observe at a low-level exactly where time is spent
 across different processes. These handler names are tagged as the operation name. They are also tagged with the short
-hash ID and the group ID of the virtual node the operation is performed on behalf of in order to determine if certain
+hash ID and the group ID of the {{< tooltip >}}virtual node{{< /tooltip >}} the operation is performed on behalf of in order to determine if certain
 virtual nodes or groups are taking longer than others to process.
 
 The membership worker also includes a single gauge metric which shows the size of the network member list held in memory

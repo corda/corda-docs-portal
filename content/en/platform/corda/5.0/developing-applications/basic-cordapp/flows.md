@@ -187,7 +187,7 @@ class CreateAndIssueAppleStampFlow : ClientStartableFlow {
 
 #### Obtain a Reference for the Notary
 
-Any flows using the UTXO ledger require a notary service to track the states created and consumed by transactions.
+Any flows using the {{< tooltip >}}UTXO{{< /tooltip >}} ledger require a notary service to track the states created and consumed by transactions.
 
 Add the following code to retrieve a notary:
 
@@ -235,7 +235,7 @@ Build the output `newStamp` using the parameters from the `AppleStamp` state:
 
 #### Encapsulate the Output and Notary into a Transaction
 
-Use an `UtxoTransactionBuilder` to encapsulate everything into a transaction.
+Use an `UtxoTransactionBuilder` to encapsulate everything into a {{< tooltip >}}transaction{{< /tooltip >}}.
 
 1. Use `UtxoLedgerService.createTransactionBuilder` to create a `UtxoTransactionBuilder`.
 2. Use `setNotary` to set the name of the transaction’s notary.

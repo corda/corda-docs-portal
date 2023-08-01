@@ -20,7 +20,7 @@ A virtual node can have one of the following states:
     * `flowOperationalStatus` — a virtual node’s ability to start new flows.
     * `flowP2pOperationalStatus` — a virtual node’s ability to communicate with peers.
     * `flowStartOperationalStatus` — a virtual node’s ability to run flows, to have checkpoints, and to continue in-progress flows.
-    * `vaultDbOperationalStatus` — a virtual node’s ability to perform persistence operations on the virtual node’s vault.
+    * `vaultDbOperationalStatus` — a virtual node’s ability to perform persistence operations on the virtual node’s {{< tooltip >}}vault{{< /tooltip >}}.
 
     A virtual node in maintenance mode does not allow the starting or running of flows. Any activity for existing flows cause the flow to be killed and marked with a flow status of `KILLED`. Counterparty flows fail with an error message indicating that a peer is in maintenance. This state allows virtual node operators to have a static vault with which they can take backups before performing potentially destructive operations such as a virtual node upgrade for migrations. Changing a virtual node's state back to active requires that the virtual node has executed all migrations in the currently associated CPI. This prevents a virtual node from becoming operational while migrations are in progress during a virtual node upgrade.
 

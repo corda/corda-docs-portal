@@ -49,6 +49,6 @@ table th:nth-of-type(4) {
 | `corda_uniqueness_backingstore_db_read_time_seconds` | Timer | <ul><li>`virtualnode_source`</li><li>`operation_name`</li></ul> | The time taken to perform a single read operation from the database. If a transaction is retried, each retry contributes independently to this metric, meaning the number is not cumulative across retries. |
 
 Tags:
-* `virtualnode_source`: The virtual node identity.
+* `virtualnode_source`: The {{< tooltip >}}virtual node{{< /tooltip >}} identity.
 * `error_type`: The specific error class name.
 * `operation_name`: The specific type of read operation being performed, currently one of `getStateDetails`, `getTransactionDetails`, or `getTransactionError`.

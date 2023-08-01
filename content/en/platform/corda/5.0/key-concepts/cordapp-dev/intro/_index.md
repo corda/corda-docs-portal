@@ -19,16 +19,16 @@ This is not the same as an application that has multiple instances, hosted on di
 
 Consider the centralized application below. This is a single application that always executes within a single execution environment, regardless of the number of deployments.
 
-{{< 
+{{<
   figure
 	 src="centralized-application.png"
    width="50%"
 	 figcaption="Centralized Application"
 >}}
 
-Similarly, centralized applications often use a services architecture that means different parts of the applications interact with each other. This could be inside an entity’s network or different parts may be operated by different parties. 
+Similarly, centralized applications often use a services architecture that means different parts of the applications interact with each other. This could be inside an entity’s network or different parts may be operated by different parties.
 
-{{< 
+{{<
   figure
 	 src="services-architecture.png"
    width="50%"
@@ -37,7 +37,7 @@ Similarly, centralized applications often use a services architecture that means
 
 However, distributed applications in Corda, while being deployed by different parties in the network, are unique in that parts of the application execute in the different environments as part of the same execution context.
 
-{{< 
+{{<
   figure
 	 src="distributed-application.png"
    width="50%"
@@ -48,7 +48,7 @@ However, distributed applications in Corda, while being deployed by different pa
 
 CorDapps are usually composed of workflows, contracts, and states. This section illustrates that contracts and states are optional, but a CorDapp must always define at least one workflow, often referred to simply as a flow.
 
-Flows support the [orchestration layer]({{< relref "../../fundamentals/CorDapps/_index.md#orchestration-layer--flows" >}}), and are written in a JVM compatible language and are hosted by Corda. Typically, flows create or transfer states on behalf of a member of the application network (a virtual node) who seeks to form [consensus]({{< relref "../../fundamentals/CorDapps/_index.md#consensus-layer" >}}) with their peer nodes with the help of the notary.
+Flows support the [orchestration layer]({{< relref "../../fundamentals/CorDapps/_index.md#orchestration-layer--flows" >}}), and are written in a JVM compatible language and are hosted by Corda. Typically, flows create or transfer states on behalf of a member of the application network (a {{< tooltip >}}virtual node{{< /tooltip >}}) who seeks to form [consensus]({{< relref "../../fundamentals/CorDapps/_index.md#consensus-layer" >}}) with their peer nodes with the help of the notary.
 
 Taking the [IOU Sample App](https://github.com/corda/corda5-samples/blob/main/kotlin-samples/corda5-obligation-cordapp/) as an example of a distributed app, all members of this fictional network can be lenders or borrowers issuing, transferring, or settling loans directly to each other. There is no central ledger of loans, and consensus is achieved between the participating parties, not a central entity.
 
@@ -59,9 +59,9 @@ The sample app contains three flows:
 * Settle
 
 Each flow handles an `IOUState` that represents the loan amount, lender, and borrower. `IOUContract` is a contract that verifies transactions that are part of the given flows, using the given state.
-In this example, transactions are between borrower and lender, which means each party, members of the application network (virtual nodes), interact with each other to reach consensus. 
+In this example, transactions are between borrower and lender, which means each party, members of the application network (virtual nodes), interact with each other to reach consensus.
 
-{{< 
+{{<
   figure
 	 src="iou-app.png"
    width="75%"
@@ -76,24 +76,24 @@ In flow terms, the initiating flow is the code that is executed on the initiatin
 
 In the IOU example, the borrower and lender are both participants in the IOU issue flow, with the borrower on the initiating side and the lender on the responder side.
 
-{{< 
+{{<
   figure
 	 src="iou-app-flows.png"
    width="75%"
 	 figcaption="IOU Application Flows"
 >}}
 
-When the flow shown in the diagram completes successfully, both participants have stored the state (`IOUState`) in their respective vault databases.
+When the flow shown in the diagram completes successfully, both participants have stored the state (`IOUState`) in their respective {{< tooltip >}}vault{{< /tooltip >}} databases.
 In an example with multiple borrowers in the network, this could result in the following state:
 
-{{< 
+{{<
   figure
 	 src="iou-app-states.png"
    width="75%"
 	 figcaption="IOU Application State"
 >}}
 
-As shown, the lender’s vault contains all loans, but borrowers Alice and Bob can only see the loans related to them. 
+As shown, the lender’s vault contains all loans, but borrowers Alice and Bob can only see the loans related to them.
 This is referred to as a Distributed Ledger.
 
 It is worth noting that while flows usually involve multiple parties, they do not have to. Sometimes flows that only involve the initiating party are required. Examples of this are minting tokens or providing a read API for states already in the vault.
@@ -106,4 +106,4 @@ The IOU example records transactions in the vault. However, it is possible to cr
 * A flow can involve a single participant, but usually there are at least two.
 * A flow is initiated by a single participant, who executes the initiating flow, and is responded to by the other party/parties as part of the responder flow.
 * Each participant has their own vault where they can store states.
-* Participants only store the states they have been party to. 
+* Participants only store the states they have been party to.

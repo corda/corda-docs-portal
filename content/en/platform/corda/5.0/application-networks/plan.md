@@ -23,7 +23,7 @@ Network participants are identified by an X.509 certificate issued to that entit
 Alternatively, the PKI used to issue certificates to network participants could be a private PKI, typically owned and managed by the Network Operator. These private Certificate Authories must be trusted by the network participants.
 
 ## Data Sovereignty
-Network participants will each have a virtual node in the Corda infrastructure. The virtual node's data, specifically its view of the distributed ledger, will be stored in its database vault.
+Network participants will each have a {{< tooltip >}}virtual node{{< /tooltip >}} in the Corda infrastructure. The virtual node's data, specifically its view of the distributed ledger, will be stored in its database {{< tooltip >}}vault{{< /tooltip >}}.
 
 If there is a need to distribute network participant virtual nodes across geographic regions, this leads to a multi-cluster deployment topology and a more decentralized network model.
 

@@ -68,7 +68,7 @@ Tags:
 * `entityRequest.type`: The type of persistence request.
 * `entityRequest_outcome`: The outcome of processing a request (SUCCESS, FAILURE).
 * `flowId`: The flow ID to correlate with the flow.
-* `ledger_type`: It can be UTXO or CONSENSUAL.
+* `ledger_type`: It can be {{< tooltip >}}UTXO{{< /tooltip >}} or CONSENSUAL.
 * `operation_name`: The MGM persistence request name/type.
 * `group`: The membership group within which peer-to-peer communication happens.
 * `virtualnode`: The virtual node identity.

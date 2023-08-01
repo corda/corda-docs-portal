@@ -75,7 +75,7 @@ You can use the following schemes for ECDH key derivation:
 ## Configure the Cluster TLS Key Pair
 {{< note >}}
 This step is only necessary if setting up a new cluster.
-It is only required once per cluster, allowing you to re-use the same TLS key and certificate for the whole cluster.
+It is only required once per cluster, allowing you to re-use the same {{< tooltip >}}TLS key and certificate{{< /tooltip >}} for the whole cluster.
 {{< /note >}}
 
 To set up the TLS key pair and certificate for the cluster:

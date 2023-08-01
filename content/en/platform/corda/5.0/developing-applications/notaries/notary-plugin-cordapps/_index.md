@@ -10,7 +10,7 @@ menu:
     weight: 4700
 section_menu: corda5
 ---
-# Notary Plugin CorDapps 
+# Notary Plugin CorDapps
 
 In Corda 5, notary functionality is provided in the form of plugin CorDapps. In theory, anyone can write a new notary protocol by implementing their own CorDapps. However, initially, it is expected to only have protocols provided by R3. For a given notary protocol, two CPBs (Corda Package Bundles) are expected to be required:
 
@@ -22,11 +22,11 @@ For Corda 5.0, only a single notary protocol is provided, the **non-validating n
 ## Plugin Packaging
 The following sections describe the details of the architecture shown in the diagram below and the steps you need to take to successfully build your CorDapp. For information on how to deploy a functioning network, see the [Onboarding Notaries]({{< relref "../../../application-networks/creating/notaries.md" >}}) section.
 
-{{< 
+{{<
   figure
 	 src="c5-non-validating-notary.jpg"
    width=70%
-	 figcaption="The CPKs, CPBs and CPIs involved in getting a functioning network that can run a notary (and by extension, UTXO ledger functionality)"
+	 figcaption="The CPKs, CPBs and CPIs involved in getting a functioning network that can run a notary (and by extension, {{< tooltip >}}UTXO{{< /tooltip >}} ledger functionality)"
 	 alt="Corda 5 non-validating notary"
 >}}
 
@@ -35,7 +35,7 @@ There are four modules/CPKs of relevance to the non-validating notary protocol, 
 
 * **`notary-common`** —  contains useful library functionality that is not specific to a particular notary protocol. For example, it defines the structure of an error that may be returned by a notary protocol. This is an example of something that must be standard cross-protocol, because the UTXO ledger depends on this format to perform processing, and the ledger has no visibility of the specific notary protocol that performs notarisation.
 * **`non-validating-notary-api`** —  contains the payload definition that is used to communicate between the non-validating notary client and server CPKs. Extreme caution must be taken when making changes to this module, as backwards compatibility concerns must be taken into account.
-* **`non-validating-notary-client`** —  intended to run on application virtual nodes, and provides a sub-flow that initiates a notarization request to a notary virtual node when requested by the ledger finality flow.
+* **`non-validating-notary-client`** —  intended to run on application virtual nodes, and provides a sub-flow that initiates a notarization request to a notary {{< tooltip >}}virtual node{{< /tooltip >}} when requested by the ledger finality flow.
 * **`non-validating-notary-server`** —  provides a responder flow to the corresponding initiator flow in the client package, and will perform notarization processing.
 
 The source code for all of these modules can be found under the [notary-plugins area of corda-runtime-os](https://github.com/corda/corda-runtime-os/tree/release/os/5.0/notary-plugins).

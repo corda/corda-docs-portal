@@ -36,5 +36,5 @@ table th:nth-of-type(4) {
 | `corda_sandbox_create_time_seconds` | Timer | <ul><li>`virtualnode`</li><li>`sandbox_type`</li></ul> | The time it took to create the sandbox. |
 
 Tags:
-* `virtualnode`: A virtual node the sandbox applies to.
+* `virtualnode`: A {{< tooltip >}}virtual node{{< /tooltip >}} the sandbox applies to.
 * `sandbox_type`: The type of sandbox.

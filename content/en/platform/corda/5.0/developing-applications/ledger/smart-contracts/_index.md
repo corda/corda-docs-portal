@@ -13,7 +13,7 @@ section_menu: corda5
 # Smart Contracts
 
 
-Smart contracts digitize agreements by turning them into code that executes automatically if the contract terms are met. Participants do not need to trust each other to follow through on contract terms, because the terms are enforced by the code. No external enforcement is required, and contracts are always interpreted the same way. Smart contracts govern the evolution of states over time. 
+Smart contracts digitize agreements by turning them into code that executes automatically if the contract terms are met. Participants do not need to trust each other to follow through on contract terms, because the terms are enforced by the code. No external enforcement is required, and contracts are always interpreted the same way. Smart contracts govern the evolution of states over time.
 
 The contract code is replicated on the virtual nodes in an application network. The network members have to reach a consensus that the terms of the agreement have been met before they execute the contract.
 
@@ -28,11 +28,11 @@ Corda smart contracts must be written in Kotlin or Java.
 
 ## Contractual Validity
 
-Transactions must be digitally signed by all required signatories. However, even if a transaction gathers all the required signatures, it cannot be executed unless it is also contractually valid. A transaction that is not contractually valid is not a valid proposal to update the ledger, and can never be committed to the ledger. This means that contracts can impose rules on the evolution of states over time that are independent of the willingness of the required signatories to sign a given transaction.
+Transactions must be digitally signed by all required signatories. However, even if a {{< tooltip >}}transaction{{< /tooltip >}} gathers all the required signatures, it cannot be executed unless it is also contractually valid. A transaction that is not contractually valid is not a valid proposal to update the ledger, and can never be committed to the ledger. This means that contracts can impose rules on the evolution of states over time that are independent of the willingness of the required signatories to sign a given transaction.
 
 Each transaction state specifies a contract type. The contract specified takes the transaction as input, and determines if the transaction is valid based on the contract’s internal rules. The contract must evaluate every input state and every output state.
 
-{{< 
+{{<
   figure
 	 width="50%"
 	 src="tx-validation.png"
@@ -53,7 +53,7 @@ To enable the nodes on a network to reach consensus about a proposed update to t
 
 ## Contract Limitations
 
-By design, contracts do not have access to information from the outside world. They can only check transactions for internal validity. For example, a contract cannot know that the transaction is in accordance with what the parties involved originally agreed.
+By design, contracts do not have access to information from the outside world. They can only check transactions for internal {{< tooltip >}}validity{{< /tooltip >}}. For example, a contract cannot know that the transaction is in accordance with what the parties involved originally agreed.
 
 You should check the contents of a transaction before signing it, even if the transaction is contractually valid, to ensure that you agree with the proposed ledger update. You have no obligation to sign a transaction just because it is contractually valid. For example, you may not want to take on a loan that is too large, or may disagree with the amount of cash offered for an asset.
 

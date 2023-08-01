@@ -22,7 +22,7 @@ flows to confirm correct behaviour of your CorDapp.
 ## Before You Start
 
 Before you run your flows, you must install the CSDE environment.
-The CSDE environment will automatically provision a notary virtual node, in addition to virtual nodes for four participants
+The CSDE environment will automatically provision a notary {{< tooltip >}}virtual node{{< /tooltip >}}, in addition to virtual nodes for four participants
 – Alice, Bob, Charlie, and Dave. You will use the Bob and Dave virtual nodes for your flows. They represent the farmer
 and the customer referenced in the earlier tutorials.
 

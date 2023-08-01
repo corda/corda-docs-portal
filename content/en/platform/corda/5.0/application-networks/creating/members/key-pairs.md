@@ -70,7 +70,7 @@ export LEDGER_KEY_ID=<ledger-key-ID>
 
 {{< note >}}
 This step is only necessary when setting up a new cluster.
-It is only required once per cluster, allowing you to re-use the same TLS key and certificate for the whole cluster.
+It is only required once per cluster, allowing you to re-use the same {{< tooltip >}}TLS key and certificate{{< /tooltip >}} for the whole cluster.
 {{< /note >}}
 
 You must perform the same steps as those for setting up the MGM to enable peer-to-peer communication for the locally hosted identities.
@@ -173,7 +173,7 @@ If using mutual TLS, you must must add the certificate subject to the allowed li
 
 ### Disable Revocation Checks
 
-If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable revocation checks. 
+If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable revocation checks.
 * [Disable Revocation Checks Using Bash]({{< relref "#disable-revocation-checks-using-bash">}})
 * [Disable Revocation Checks Using PowerShell]({{< relref "#disable-revocation-checks-using-powershell">}})
 
