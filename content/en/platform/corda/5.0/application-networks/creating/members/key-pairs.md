@@ -20,7 +20,7 @@ This section describes how to configure key pairs and certificates. It contains 
 
 ## Generate a Session Initiation Key Pair
 
-To assign a soft hardware security module (HSM) and generate a {{< tooltip >}}session initiation key{{< tooltip >}} pair:
+To assign a soft hardware security module (HSM) and generate a {{< tooltip >}}session initiation key{{< /tooltip >}} pair:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```Bash
