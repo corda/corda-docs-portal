@@ -559,3 +559,147 @@ while (resultSet.hasNext()) {
 ```
 {{% /tab %}}
 {{< /tabs >}}
+
+# Vault-Named Query Syntax
+
+<table>
+<col style="width:20%">
+<col style="width:15%">
+<col style="width:15%">
+<col style="width:50%">
+<thead>
+<tr>
+<th>Operator</th>
+<th>Right Operand Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code> -> </code></td>
+<td><code> Int </code></td>
+<td> Get JSON array element</td>
+<td> <code> custom_representation 
+-> com.r3.corda.demo.ArrayObjState
+-> 0 </code>
+
+Example JSON would look like this:
+
+<code> 
+{
+  "com.r3.corda.demo.ArrayObjState": [
+    {"A": 1},
+    {"B": 2}
+  ]
+}
+</code>
+
+In this case, it would return:
+
+<code>
+{
+  "com.r3.corda.demo.ArrayObjState": [
+    {"A": 1},
+    {"B": 2}
+  ]
+}
+</code>
+</td>
+</tr>
+<tr>
+<td><code> -> </code></td>
+<td><code> Text </code></td>
+<td> Get JSON object field </td>
+<td> <code> custom_representation 
+-> 'com.r3.corda.demo.TestState'
+</code>
+Selects the top level JSON field called <code>com.r3.corda.demo.TestState</code> from the JSON object in the <code>custom_representation DB</code> column.
+
+Example JSON would look like this:
+<code>
+{
+  "com.r3.corda.demo.TestState": {
+    "testField": "ABC"
+  }
+}
+</code>
+
+In this case it would return:
+
+<code>
+{
+  "testField": "ABC"
+}
+</code>
+
+</td>
+</tr>
+<tr>
+<td><code> ->> </code></a></td>
+<td><code> Int </code></td>
+<td> Get JSON array element as text </td>
+<td><code> custom_representation
+-> 'com.r3.corda.demo.ArrayState'
+->> 2</code>
+Selects the 3rd element (indexing from 0)  of the array type top-level JSON field called <code>com.r3.corda.demo</code>.<code>ArrayState</code> from the JSON object in the <code> custom_representation DB </code> column.
+
+Example JSON would look like this:
+<code>
+{
+  "com.r3.corda.demo.ArrayState": [
+    5, 6, 7
+  ]
+}
+</code>
+In this case it would return 7.
+</td>
+</tr>
+<tr>
+<td><code> ->> </code></td>
+<td><code> text </code></td>
+<td> Get JSON object field as text </td>
+<td><code>
+custom_representation 
+-> 'com.r3.corda.demo.TestState'
+->> 'testField'
+</code>
+Selects the <code>testField</code> JSON field from the top-level JSON object called <code>com.r3.corda.demo.TestState</code> in the <code>custom_representation DB </code> column.
+ 
+Example JSON would look like this:
+<code>
+{
+  "com.r3.corda.demo.TestState": {
+    "testField": "ABC"
+  }
+}
+</code>
+In this case it would return <code> ABC </code>.</td>
+</tr>
+<tr>
+<td><code> ? </code></td>
+<td><code> text </code></td>
+<td> Check if JSON object field exists </td>
+<td><code> custom_representation ? 'com.r3.corda.demo.TestState'</code>
+Checks if the object in the <code>custom_representation DB </code> column has a top-level field called <code>com.r3.corda.demo.TestState</code>
+
+Example JSON would look like this:
+<code>
+{
+  "com.r3.corda.demo.TestState": {
+    "testField": "ABC"
+  }
+}
+</code>
+In this case it would return <code> true </code>.
+
+</td>
+</tr>
+<tr>
+<td><code>::</code></td>
+<td><code> A type, for example, Int </code></td>
+<td> Casts the element/object field to the specified type. </td>
+<td> <code> (visible_states.field ->> property)::int = 1234 </code></td>
+</tr>
+</tbody>
+</table>
