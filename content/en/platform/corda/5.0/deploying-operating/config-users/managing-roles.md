@@ -10,12 +10,12 @@ menu:
 section_menu: corda5
 ---
 # Managing Roles and Permissions
-By default, when a cluster starts, the "super admin" REST user is created, which has unrestricted access permissions.
+By default, when a {{< tooltip >}}cluster{{< /tooltip >}} starts, the "super admin" REST user is created, which has unrestricted access permissions.
 While this account can be used to perform any action, there is room for error if not used carefully.
 {{< tooltip >}}RBAC{{< /tooltip >}} permission templates enable you to create fine-grained roles for specific actions such as:
 
 * A dedicated role which can create users, roles, and permissions and drive all the associations between them.
-* A dedicated role with a set of all the necessary permissions to create a virtual node (including CPI upload).
+* A dedicated role with a set of all the necessary permissions to create a virtual node (including {{< tooltip >}}CPI{{< /tooltip >}} upload).
 * A dedicated role which allows flows to run on this virtual node.
 
 {{< note >}}

@@ -9,5 +9,5 @@ menu:
 section_menu: corda5
 ---
 # Managing Members
-This section describes how to manage members of your application network. It contains the following:
+This section describes how to manage members of your {{< tooltip >}}application network{{< /tooltip >}}. It contains the following:
 {{< childpages >}}

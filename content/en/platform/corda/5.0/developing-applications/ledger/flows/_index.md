@@ -12,8 +12,7 @@ section_menu: corda5
 
 # Flows
 
-
-Communication between participants in an application network is point-to-point using flows. Flows automate the process of agreeing ledger updates between two or more participants. Built-in flows are provided to automate common tasks.
+Communication between participants in an {{< tooltip >}}application network{{< /tooltip >}} is point-to-point using flows. Flows automate the process of agreeing ledger updates between two or more participants. Built-in flows are provided to automate common tasks.
 
 ## Point-to-Point Messaging
 

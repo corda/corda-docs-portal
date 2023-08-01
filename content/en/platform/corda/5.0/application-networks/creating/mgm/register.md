@@ -33,7 +33,7 @@ initiation key must not be the same key. This is the only supported mode at the 
 
 ### Build Registration Context Using Bash
 
-To build the registration context using Bash, run the following command, replacing `<TLS-CA-CERT>` with the PEM format certificate of the CA. This is the trustroot used to validate member certificates.
+To build the registration context using Bash, run the following command, replacing `<TLS-CA-CERT>` with the PEM format certificate of the {{< tooltip >}}CA{{< /tooltip >}}. This is the trustroot used to validate member certificates.
 The certificate must all be on one line in the curl command. Replace new lines with `\n`.
 ```shell
 export TLS_CA_CERT=$(cat /tmp/ca/ca/root-certificate.pem | awk '{printf "%s\\n", $0}')
@@ -158,7 +158,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 The status returned for the registration request will be one of the following:
 
 * `APPROVED`: The registration request passed all validations and was approved by the MGM.
-* `NEW`: The member’s Corda cluster has accepted and persisted the registration request submitted via the REST API but is yet to process it.
+* `NEW`: The member’s Corda {{< tooltip >}}cluster{{< /tooltip >}} has accepted and persisted the registration request submitted via the REST API but is yet to process it.
 * `INVALID`: The member’s Corda cluster processed the registration request submitted via the REST API and determined the
 input to be invalid and did not attempt to send the request to join the network to the MGM’s Corda cluster.
 * `SENT_TO_MGM`: The member’s Corda cluster processed the registration request submitted via the REST API and found the input

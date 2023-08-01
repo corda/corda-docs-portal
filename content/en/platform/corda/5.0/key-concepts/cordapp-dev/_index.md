@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Architecture for CorDapp Developers
 
-This section describes Corda 5 from the perspective of a [CorDapp Developer]({{< relref "../../introduction/personas.md#cordapp-developer" >}}). Corda is an application host for CorDapps. These are pieces of code, workflows, and contracts, executed on behalf of the members of an application network, usually as part of an interaction or transaction between peers on the network. CorDapp Developers are responsible for designing and writing this code.
+This section describes Corda 5 from the perspective of a [CorDapp Developer]({{< relref "../../introduction/personas.md#cordapp-developer" >}}). Corda is an application host for CorDapps. These are pieces of code, workflows, and contracts, executed on behalf of the members of an {{< tooltip >}}application network{{< /tooltip >}}, usually as part of an interaction or transaction between peers on the network. CorDapp Developers are responsible for designing and writing this code.
 
 This section contains the following:
 {{< childpages >}}

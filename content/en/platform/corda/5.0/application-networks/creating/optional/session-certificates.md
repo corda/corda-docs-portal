@@ -20,7 +20,8 @@ After creating the MGM or member session key pair, but before building the regis
 ```shell
 curl --fail-with-body -s -S -k -u $REST_API_USER:$REST_API_PASSWORD  -X POST -H "Content-Type: application/json" -d '{"x500Name": "'$X500_NAME'"}' $REST_API_URL"/certificates/"$HOLDING_ID/$SESSION_KEY_ID > $WORK_DIR/request.csr
 ```
-Similarly to the {{< tooltip >}}TLS{{< /tooltip >}} certificate, the CSR can be processed to issue a certificate using a CA chosen by the MGM operator. The CA trustroot for session certificates should be configured during the MGM onboarding.
+
+Similarly to the {{< tooltip >}}TLS{{< /tooltip >}} certificate, the CSR can be processed to issue a certificate using a {{< tooltip >}}CA{{< /tooltip >}} chosen by the MGM operator. The CA trustroot for session certificates should be configured during the MGM onboarding.
 
 Once you have a certificate based on the CSR exported from Corda issued by the CA, you must upload the certificate chain to the Corda cluster. To upload the certificate chain, run:
 ```shell

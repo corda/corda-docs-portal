@@ -272,7 +272,7 @@ workers:
 
 ##### AWS Load Balancer Controller
 
-Alternatively, the API can be fronted directly by a load balancer. The Helm chart allows annotations to be specified to
+Alternatively, the REST API can be fronted directly by a load balancer. The Helm chart allows annotations to be specified to
 facilitate the creation of a load balancer by a cloud-platform specific controller.
 For example, the following configuration specifies that the [AWS Load Balancer Controller](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html)
 fronts the REST API with a Network Load Balancer internal to the Virtual Private Cloud (VPC):
@@ -294,7 +294,7 @@ workers:
 The REST worker {{< tooltip >}}TLS{{< /tooltip >}} certificate is presented to a client any time a HTTPS connection is made.
 If no specific parameters are provided, a self-signed certificate is used and the connection to the {{< tooltip >}}REST Worker{{< /tooltip >}} is always HTTPS. However, a warning will be emitted into the REST worker log explaining how to provide parameters for custom TLS certificates.
 The following is required to install a valid TLS certificate:
-* The TLS certificate itself must be signed by a Certification Authority (CA) or an intermediary.
+* The TLS certificate itself must be signed by a Certification Authority ({{< tooltip >}}CA{{< /tooltip >}}) or an intermediary.
 * A private key corresponding to the public key included in the TLS certificate.
 * The Certification Chain must lead up to the CA.
 

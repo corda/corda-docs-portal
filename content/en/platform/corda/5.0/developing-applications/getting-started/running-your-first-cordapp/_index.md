@@ -27,7 +27,7 @@ Currently, we do not have a liveness detector for Corda in the CSDE so we check 
 
 ## Testing Liveness and Swagger
 
-Corda exposes HTTP REST API endpoints for interacting with itself and the CorDapps running on it. It also exposes a Swagger interface which is described in the following sections.
+Corda exposes HTTP REST {{< tooltip >}}API{{< /tooltip >}} endpoints for interacting with itself and the CorDapps running on it. It also exposes a Swagger interface which is described in the following sections.
 
 ### Displaying the Swagger UI
 To display the Swagger UI, use the following link:
@@ -73,10 +73,10 @@ You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
 1. Click the `5-vNodeSetup` Gradle task:
 {{< figure src="vnodesetup.png" width="50%" figcaption="CSDE vNodeSetup task" alt="CSDE task to set up the vNodes in IntelliJ" >}}
    This task runs a series of Gradle tasks to:
-   * Build the CPB
+   * Build the {{< tooltip >}}CPB{{< /tooltip >}}
    * Create the GroupPolicy (Application Network definition)
-   * Generate signing keys to sign the CPB and CPI
-   * Build the CPI (combination of CPB and Group Policy)
+   * Generate signing keys to sign the CPB and {{< tooltip >}}CPI{{< /tooltip >}}
+   * Build the CPI
    * Sign the CPI
    * Upload the CPI to Corda
    * Create and register the virtual nodes with the CPI
