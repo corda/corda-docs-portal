@@ -156,7 +156,7 @@
         "more": "The CPI files point at the MGM server, so that when a virtual node is created, the node contains the PKI policies and addresses the MGM. The MGM server is responsible for accepting membership proposals. For users coming from Corda 4, MGM replaces CENM. For more information, see <a href=\"../application-networks/creating/mgm.html\">Onboarding the MGM</a>."
     },
     "PKI": {
-        "definition": "Public key infrastructure: a comprehensive system of hardware, software, policies, and procedures that enables the secure creation, distribution, management, and revocation of digital certificates and public-key cryptography.",
+        "definition": "Public key infrastructure. A comprehensive system of hardware, software, policies, and procedures that enables the secure creation, distribution, management, and revocation of digital certificates and public-key cryptography.",
         "more": ""
     },
     "P2P Link Manager worker": {
