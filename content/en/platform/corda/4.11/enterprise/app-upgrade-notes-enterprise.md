@@ -17,15 +17,15 @@ weight: 20
 
 ## Upgrading from Corda Community Edition
 
-Before upgrading to Corda Enterprise Edition 4.11, upgrade your CorDapp to Corda Community Edition 4.11. See [Upgrading CorDapps to newer platform versions](app-upgrade-notes.md) for detailed instructions.
+Before upgrading to Corda Enterprise Edition 4.11, upgrade your CorDapp to Corda Community Edition 4.11. See [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) for detailed instructions.
 
 You don't need to re-compile your CorDapp to Corda Enterprise for it to run on Corda Enterprise. If you want your CorDapp to
 be compatible with nodes running open source, then compile it against Corda Community Edition (formerly Open Source) 4.x.
-However, if you want to leverage specific features of Corda Enterprise, such as third-party commercial database support, and don't envisage your CorDapp being run in an open source production environment, then follow the [re-compiling for Corda Enterprise Edition 4.11](#re-compiling-for-corda-enterprise-411) guide.
+However, if you want to leverage specific features of Corda Enterprise, such as third-party commercial database support, and don't envisage your CorDapp being run in an open source production environment, then follow the [re-compiling for Corda Enterprise Edition 4.11]({{< relref "#re-compiling-for-corda-enterprise-edition-411" >}}) guide.
 
 {{< note >}}
 Corda Enterprise and Corda Community Edition public APIs are currently identical. However, this may change for future releases.
-See [Corda and Corda Enterprise compatibility](version-compatibility.md) guarantees for further information.
+See [Corda and Corda Enterprise compatibility]({{< relref "version-compatibility.md" >}}) guarantees for further information.
 
 {{< /note >}}
 
@@ -36,15 +36,15 @@ To re-compile your CorDapp for Corda Enterprise Edition 4.11, you need to:
 
 1. Update your Gradle build file as follows.
 
-```shell
-corda_release_distribution = 'com.r3.corda'
-corda_core_release_distribution = 'net.corda'
-corda_release_version = '4.11'
-corda_core_release_version = '4.11'
-corda_gradle_plugins_version = '5.0.12'
-kotlin_version = '1.2.71'
-quasar_version = '0.7.15_r3'
-```
+    ```shell
+    corda_release_distribution = 'com.r3.corda'
+    corda_core_release_distribution = 'net.corda'
+    corda_release_version = '4.11'
+    corda_core_release_version = '4.11'
+    corda_gradle_plugins_version = '5.0.12'
+    kotlin_version = '1.2.71'
+    quasar_version = '0.7.15_r3'
+    ```
 
 2. Specify an additional repository entry pointing to the location of the Corda Enterprise distribution and Corda dependencies. Any
 dependencies on `corda-core` and/or `corda-serialization` must use the `corda_core_release_distribution` and
@@ -54,49 +54,49 @@ be imported from there. Therefore, a repository entry pointing to a matching Cor
 3. Update your `quasar.jar` file. If your project is based on one of the official CordApp templates, you'll likely have a `lib/quasar.jar` file checked in. You'll only use this if you use the JUnit runner in IntelliJ. In the latest release of the CorDapp templates, this directory has
 been removed.
 
-For example:
+   For example:
 
-```shell
-repositories {
-    // Example for Corda Enterprise
-    maven {
-        credentials {
-            username "username"
-            password "XXXXX"
+    ```shell
+    repositories {
+        // Example for Corda Enterprise
+        maven {
+            credentials {
+                username "username"
+                password "XXXXX"
+            }
+            url 'https://artifactory.mycompany.com/artifactory/corda-enterprise'
         }
-        url 'https://artifactory.mycompany.com/artifactory/corda-enterprise'
+
+        // Dependency on Corda Community Edition
+        maven { url "https://software.r3.com/artifactory/corda" }
+
+        // Corda dependencies for the patched Quasar version
+        maven { url "https://software.r3.com/artifactory/corda-dependencies" } // access to the patched Quasar version
     }
+    ```
 
-    // Dependency on Corda Community Edition
-    maven { url "https://software.r3.com/artifactory/corda" }
+   You can do either of the following:
 
-    // Corda dependencies for the patched Quasar version
-    maven { url "https://software.r3.com/artifactory/corda-dependencies" } // access to the patched Quasar version
-}
-```
+   * Upgrade your `quasar.jar` file to the version consistent with your Corda version.
+   * Delete your `lib` directory and switch to using the Gradle test runner.
 
-You can do either of the following:
-
-* Upgrade your `quasar.jar` file to the version consistent with your Corda version.
-* Delete your `lib` directory and switch to using the Gradle test runner.
-
-You can find instructions for both options in [Running tests in IntelliJ](testing.html#running-tests-in-intellij).
+   You can find instructions for both options in [Running tests in IntelliJ]({{< relref "testing.md#running-tests-in-intellij" >}}).
 
 4. Check you're using Corda Gradle plugins version 5.0.12, and that Corda Enterprise dependencies are referenced with the right distribution.
 
-For example:
+   For example:
 
-```shell
-cordaCompile "net.corda:corda-core:$corda_release_version"
-testCompile "net.corda:corda-node-driver:$corda_release_version"
-```
+    ```shell
+    cordaCompile "net.corda:corda-core:$corda_release_version"
+    testCompile "net.corda:corda-node-driver:$corda_release_version"
+    ```
 
-Becomes:
+   Becomes:
 
-```shell
-cordaCompile "$corda_core_release_distribution:corda-core:$corda_core_release_version" // core depends on open source
-testCompile "$corda_release_distribution:corda-node-driver:$corda_release_version"     // node based tests from Enterprise
-```
+    ```shell
+    cordaCompile "$corda_core_release_distribution:corda-core:$corda_core_release_version" // core depends on open source
+    testCompile "$corda_release_distribution:corda-node-driver:$corda_release_version"     // node based tests from Enterprise
+    ```
 
 {{< note >}}
 Corda Enterprise Edition 4.11 binaries are not publicly available. To make the dependencies available for development, either
@@ -113,6 +113,7 @@ Version 4 of the finance CorDapp is split into the following two signed JAR file
 
  * `corda-finance-contracts.jar`
  * `corda-finance-workflows.jar`
+
 As there should only be one unique hashed version of `corda-finance-contracts.jar` (the hash of a contract JAR file undergoes strict
 security checking upon transaction resolution), only a single instance of `corda-finance-contracts.jar` is published, and this is from the open source repository.
 
