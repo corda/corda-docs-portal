@@ -36,7 +36,7 @@ First, create the `AppleStampContract`. This contract verifies actions performed
 
 ### Declare the Contract Class
 
-A Corda state typically has a corresponding contract class to document the rules/policy of that state when used in a transaction.
+A Corda state typically has a corresponding contract class to document the rules/policy of that state when used in a {{< tooltip >}}transaction{{< /tooltip >}}.
 To declare the contract class, add the public class `AppleStampContract` that implements the `Contract` class. Your code should look as follows:
 
 ```kotlin

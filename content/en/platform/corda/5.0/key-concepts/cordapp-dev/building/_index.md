@@ -190,5 +190,5 @@ This code runs inside a Corda sandbox. There are three different types of sandbo
 
 This relates to the separation of contract and workflow CPKs, as follows:
 * Flow sandbox — requires both workflow and contract CPKs in order to execute an initiating or responder flow.
-* Persistence sandbox — has special privileges as it is allowed to interact with the {{< tooltip >}}virtual node’s{{< /tooltip >}} databases. However, it only requires the custom entities and states that are part of the contract CPK. Workflow CPKs are never loaded into the persistence sandbox.
+* Persistence sandbox — has special privileges as it is allowed to interact with the virtual node’s databases. However, it only requires the custom entities and states that are part of the contract CPK. Workflow CPKs are never loaded into the persistence sandbox.
 * Verify sandbox — exclusively used for verifying the contract. Therefore, it only needs the contract CPK. Workflow CPKs are never loaded into the verify sandbox. During backchain verification, it is sometimes necessary to verify “old” states that require the previous version of the contract to verify. This is another reason why it is wise to separate contract CPKs from workflow CPKs as their version lifecycle may be different.

@@ -117,7 +117,7 @@ In a decentralized system, how can an entity trust the global state when it has 
 	 figcaption="Issue of Trust in Decentralized Agreements"
 >}}
 
-Ultimately, each member of the network must be able to attest to the validity of all historic modifications so as to trust the current global state is, by inference, also valid.
+Ultimately, each member of the network must be able to attest to the {{< tooltip >}}validity{{< /tooltip >}} of all historic modifications so as to trust the current global state is, by inference, also valid.
 
 ### Validity and Smart Contracts
 

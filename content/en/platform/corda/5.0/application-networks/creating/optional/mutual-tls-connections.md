@@ -21,7 +21,7 @@ The server gateway has a set of accepted certificate subjects. As part of the cl
 {{< note >}}
 * Mutual TLS is set per cluster. It must apply to all groups that the cluster hosts and all clusters that host those groups. You can not onboard a member unless the TLS type of the MGM cluster is aligned with the TLS type of the member cluster.
 * Changing the TLS type after a member or an MGM was onboarded makes any TLS connection with that member unusable.
-* A virtual node can only be configured with a single TLS certificate that will be used as both a client and a server certificate.
+* A {{< tooltip >}}virtual node{{< /tooltip >}} can only be configured with a single TLS certificate that will be used as both a client and a server certificate.
 * A gateway accepts a TLS connection that uses a certificate associated with any member of any application network (partially) hosted in that cluster.
 {{< /note >}}
 

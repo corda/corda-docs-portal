@@ -199,7 +199,7 @@ Corda validates that uploaded CPIs are signed with a trusted key. To trust your 
    {{< /tabs >}}
 
 {{< note >}}
-Use an alias that will remain unique over time, taking into account that certificate expiry will require new certificates with the same {{< tooltip >}}X.500{{< /tooltip >}} name as existing certificates.
+Use an alias that will remain unique over time, taking into account that certificate expiry will require new certificates with the same X.500 name as existing certificates.
 {{< /note >}}
 
 ## Upload the CPI

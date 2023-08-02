@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Notaries
 
-The notary is Corda’s uniqueness consensus service. The notary’s primary role is to prevent double-spends by ensuring each transaction contains only unique unconsumed input states. It also acts as the time-stamping authority. Every transaction includes a time window and it can only be notarized during that window.
+The notary is Corda’s uniqueness consensus service. The notary’s primary role is to prevent double-spends by ensuring each {{< tooltip >}}transaction{{< /tooltip >}} contains only unique unconsumed input states. It also acts as the time-stamping authority. Every transaction includes a time window and it can only be notarized during that window.
 A notary service is formed by one or more notary workers that together form a notary cluster. The cluster’s signature is obtained once it verifies that a proposed transaction’s input states have not already been consumed by a prior transaction. Upon determining this, the notary cluster will either:
 
 * Sign the transaction in cases where all input states are found to be unique.
@@ -46,7 +46,7 @@ The protocol also records the calling party’s identity in the form of its {{< 
 
 ## Pluggable Notaries
 
-The notary is implemented as a special app on the application network, consisting of a client plug-in included with an application workflow app, and a server component that needs to be installed as a notary member with its own virtual node.
+The notary is implemented as a special app on the application network, consisting of a client plug-in included with an application workflow app, and a server component that needs to be installed as a notary member with its own {{< tooltip >}}virtual node{{< /tooltip >}}.
 
 The client plug-in and the server component define the protocol used by this notary.
 

@@ -126,7 +126,7 @@ The `flowStatus` in the response should also be completed. Following this step, 
 The above steps show the “happy path”. However, you may wish to execute some further flows to ensure that your contract validation works as expected. Some additional scenarios to try are:
 
 * Try redeeming the original `AppleStamp` again. You can do this by entering a new flow as you did when following the steps
-for redeeming the `AppleStamp`, but with a new client request ID. The transaction should fail with an error indicating
+for redeeming the `AppleStamp`, but with a new client request ID. The {{< tooltip >}}transaction{{< /tooltip >}} should fail with an error indicating
 that an `AppleStamp` with the specified ID could not be found.
 * Repeat all the steps for issuing an `AppleStamp`, but get another virtual node (for example, Charlie) to
 issue an `AppleStamp` to Dave, rather than Bob doing this. On redemption, the transaction should fail because Bob

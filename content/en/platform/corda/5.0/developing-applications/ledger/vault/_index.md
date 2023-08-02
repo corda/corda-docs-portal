@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Vault
 
-A Corda vault is a database containing all data from the ledger relevant to a participant. The database tracks spent and unspent (consumed and unconsumed) states. From a business perspective, this means a record of all of the transaction states that you can spend as a participant, and a record of all spent states from transactions relevant to you. You can compare it to a cryptocurrency wallet — a record of what you have spent and how much you have available to spend.
+A Corda vault is a database containing all data from the ledger relevant to a participant. The database tracks spent and unspent (consumed and unconsumed) states. From a business perspective, this means a record of all of the {{< tooltip >}}transaction{{< /tooltip >}} states that you can spend as a participant, and a record of all spent states from transactions relevant to you. You can compare it to a cryptocurrency wallet — a record of what you have spent and how much you have available to spend.
 
 ## Spent and Unspent States
 

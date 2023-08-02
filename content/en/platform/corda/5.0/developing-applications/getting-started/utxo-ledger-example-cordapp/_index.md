@@ -13,7 +13,7 @@ section_menu: corda5
 The CSDE template includes example CorDapp code for a simple {{< tooltip >}}UTXO{{< /tooltip >}} chat application. The chat CorDapp enables pairs of participants on a Corda application network to do the following:
 
 * Create and name a unique bilateral chat between the two virtual nodes.
-* Update chats with new messages from either virtual node.
+* Update chats with new messages from either {{< tooltip >}}virtual node{{< /tooltip >}}.
 * Obtain a list of chats that the virtual node is a participant in.
 * Retrieve a specified number of previous messages from a chat.
 

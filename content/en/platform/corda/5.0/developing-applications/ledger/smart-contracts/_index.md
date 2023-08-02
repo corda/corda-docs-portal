@@ -53,7 +53,7 @@ To enable the nodes on a network to reach consensus about a proposed update to t
 
 ## Contract Limitations
 
-By design, contracts do not have access to information from the outside world. They can only check transactions for internal {{< tooltip >}}validity{{< /tooltip >}}. For example, a contract cannot know that the transaction is in accordance with what the parties involved originally agreed.
+By design, contracts do not have access to information from the outside world. They can only check transactions for internal validity. For example, a contract cannot know that the transaction is in accordance with what the parties involved originally agreed.
 
 You should check the contents of a transaction before signing it, even if the transaction is contractually valid, to ensure that you agree with the proposed ledger update. You have no obligation to sign a transaction just because it is contractually valid. For example, you may not want to take on a loan that is too large, or may disagree with the amount of cash offered for an asset.
 

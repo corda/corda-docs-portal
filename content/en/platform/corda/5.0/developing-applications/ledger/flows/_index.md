@@ -61,7 +61,7 @@ Flows can be composed by starting a flow as a subprocess in the context of anoth
 
 ## Flow Library
 Corda provides a library of flows to handle common tasks. As a result, you do not have to redefine the logic behind common processes such as:
-* Notarizing and recording a transaction.
+* Notarizing and recording a {{< tooltip >}}{{< /tooltip >}}.
 * Gathering signatures from counterparty nodes.
 * Verifying a chain of transactions.
 Rather than exposing a library of subflows, this functionality is invoked via the `UtxoLedgerService` class. For example, calling the `finalize()` method invokes a subflow under the hood.

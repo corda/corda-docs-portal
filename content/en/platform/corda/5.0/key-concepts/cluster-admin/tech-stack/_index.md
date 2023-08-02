@@ -36,7 +36,7 @@ Broadly speaking, there are two groups of databases:
 
 ### Cluster Databases
 
-* `Config` — contains data that is used to support the general operation of the cluster, such as data about CorDapps, worker configuration, and virtual node metadata.
+* `Config` — contains data that is used to support the general operation of the cluster, such as data about CorDapps, {{< tooltip >}}worker{{< /tooltip >}} configuration, and virtual node metadata.
 * `RBAC` (Role Based Access Control) — contains the data used for User Access Control. Currently, this is used for authorization of the REST API.
 * `Crypto` — contains (encrypted) cryptographic key material that is used for cluster-wide operations. <!--For more information, see [Key Management](#key-management).-->
 
