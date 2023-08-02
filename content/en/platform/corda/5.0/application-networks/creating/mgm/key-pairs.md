@@ -1,7 +1,7 @@
 ---
 date: '2023-04-07'
 version: 'Corda 5.0'
-title: "Configure Key Pairs and Certificates for MGM"
+title: "Configure Key Pairs and Certificates for the MGM"
 menu:
   corda5:
     parent: corda5-networks-mgm
