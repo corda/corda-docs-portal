@@ -13,7 +13,7 @@ section_menu: corda5
 
 # Database Worker
 
-The database worker is the sole worker with access to the database (apart from the crypto worker, which has its
+The database worker is the sole worker with access to the database (apart from the {{< tooltip >}}crypto worker{{< /tooltip >}}, which has its
 own dedicated database). As a result, the activities carried out within the database worker pertain to the database.
 
 The database worker is responsible for handling and serving persistence requests originating from various Corda worker types,
