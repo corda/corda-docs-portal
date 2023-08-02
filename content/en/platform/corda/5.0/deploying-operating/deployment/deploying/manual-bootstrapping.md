@@ -210,7 +210,7 @@ To create the schema manually, do the following:
 
 3. Review the DML files generated and then execute against the database.
 
-4. Execute the following Corda CLI command to generate DDL for populating the RBAC database connection configuration, in this case use CONFIG:
+4. Execute the following Corda CLI command to generate DDL for populating the {{< tooltip >}}RBAC{{< /tooltip >}} database connection configuration, in this case use CONFIG:
 
    {{< tabs name="RBAC">}}
    {{% tab name="Bash" %}}
