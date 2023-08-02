@@ -187,7 +187,7 @@ class CreateAndIssueAppleStampFlow : ClientStartableFlow {
 
 #### Obtain a Reference for the Notary
 
-Any flows using the UTXO ledger require a notary service to track the {{< tooltip >}}states{{< /tooltip >}} created and consumed by transactions.
+Any flows using the {{< tooltip >}}UTXO{{< /tooltip >}} ledger require a notary service to track the {{< tooltip >}}states{{< /tooltip >}} created and consumed by transactions.
 
 Add the following code to retrieve a notary:
 
@@ -199,7 +199,7 @@ val notaryInfo = notaryLookup.notaryServices.single()
 {{< note >}}
 This code assumes there is only one notary service on the network. If this assumption is false, an exception will be thrown.
 For a network with multiple notary services, the CorDapp needs to implement logic to choose the appropriate notary service
-for a transaction. Do not use `first()` instead of `single()` because it will result in non-deterministic selection of
+for a {{< tooltip >}}transaction{{< /tooltip >}}. Do not use `first()` instead of `single()` because it will result in non-deterministic selection of
 a notary service when there are multiple notary services on the network.
 {{</ note >}}
 

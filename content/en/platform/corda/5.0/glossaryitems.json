@@ -211,7 +211,7 @@
         "definition": "Certificates used to validate peer-to-peer (P2P) connectivity.",
         "more": ""
     },
-    "TLS key and certificates": {
+    "TLS key and certificate": {
         "definition": "The PKI keys and certificates that are used in the gateway workers when establishing TLS links to other Gateway Workers. Typically, they are selected by Server Name Indication (SNI) to match the expected target of the communication.",
         "more": ""
     },

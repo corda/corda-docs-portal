@@ -32,7 +32,7 @@ If your Kubernetes cluster can not pull images from Docker Hub, or if you are de
 
 ### Container Images for Corda
 
-To push the Corda images: 
+To push the Corda images:
 
 1. Download `corda-os-worker-images-5.0.0.tar` from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
 
@@ -71,7 +71,7 @@ To push the Corda images:
 
 ### Container Images for Corda Enterprise {{< enterprise-icon >}}
 
-To push the Corda Enterprise images: 
+To push the Corda Enterprise images:
 
 1. Download `corda-ent-worker-images-5.0.0.tar` from the [R3 Customer Hub](https://r3.force.com/).
 
@@ -302,7 +302,7 @@ The following is required to install a valid TLS certificate:
 If you configure the REST worker to use a trusted certificate, `-k` should be removed from the example curl commands given throughout this documentation.
 {{< /note >}}
 
-Custom certificate information can be provided in PEM format as a Kubernetes secret. 
+Custom certificate information can be provided in PEM format as a Kubernetes secret.
 You can either create a Kubernetes secret manually to hold the certificate information or allow Helm to generate a new secret.
 You can specify the secret name manually as follows:
 ```yaml
@@ -357,7 +357,7 @@ kafka:
     enabled: true
 ```
 
-If the broker certificate is self-signed or cannot be trusted for some other reason, create a Kubernetes secret containing the client trust store. The trust store can be in PEM or JKS format. If JKS format is used, you can supply a password for the trust store. The following example is for a trust store in PEM format stored against the `ca.crt` key in the Kubernetes secret:
+If the broker certificate is self-signed or cannot be trusted for some other reason, create a Kubernetes secret containing the client {{< tooltip >}}trust store{{< /tooltip >}}. The trust store can be in PEM or JKS format. If JKS format is used, you can supply a password for the trust store. The following example is for a trust store in PEM format stored against the `ca.crt` key in the Kubernetes secret:
 ```yaml
 kafka
   tls:
@@ -449,7 +449,7 @@ config:
           secretKeyRef:
             name: <SALT_SECRET_NAME>
             key: <SALT_SECRET_KEY>
-      passphrase: 
+      passphrase:
         valueFrom:
           secretKeyRef:
             name: <PASSPHRASE_SECRET_NAME>
@@ -468,14 +468,14 @@ config:
     createdSecretPath: "<path-to-corda-created-secrets>"
 ```
 
-* `<vault-URL>` is the full URL including port at which the Vault instance is reachable, not including any path.
-* `<vault-token>` must allow sufficient permissions to read from Vault at the Corda configured paths and write to the `<path-to-corda-created-secrets>`, where Corda writes secrets it creates.
+* `<vault-URL>` is the full URL including port at which the vault instance is reachable, not including any path.
+* `<vault-token>` must allow sufficient permissions to read from vault at the Corda configured paths and write to the `<path-to-corda-created-secrets>`, where Corda writes secrets it creates.
 
-The passwords for the {{< tooltip >}}RBAC{{< /tooltip >}} and CRYPTO schemas and VNODES database must be available in Vault before Corda is deployed. These must be available in the Vault `dbsecrets` path, under the keys `rbac`, `crypto`, and `vnodes` respectively. 
+The passwords for the {{< tooltip >}}RBAC{{< /tooltip >}} and CRYPTO schemas and VNODES database must be available in vault before Corda is deployed. These must be available in the Vault `dbsecrets` path, under the keys `rbac`, `crypto`, and `vnodes` respectively.
 {{< note >}}
 These keys are not tied to the schema names. If the schema names change, the key names remain `rbac`, `crypto`, and `vnodes`.
 {{< /note >}}
-Additionally, a passphrase and salt for the Corda wrapping keys must be added to the Vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
+Additionally, a passphrase and salt for the Corda wrapping keys must be added to the vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
 
 ### Bootstrapping
 
@@ -483,7 +483,7 @@ By default, the Helm chart automatically configures Kafka, PostgreSQL, and a def
 If desired, each of these steps can be disabled and the necessary [configuration performed manually]({{< relref "manual-bootstrapping.md" >}}).
 
 {{< note >}}
-Bootstrap secrets are cleaned up automatically post-install with the exception of the `-rest-api-admin` secret. This secret should be manually deleted by the Administrator after retrieving the generated credentials. 
+Bootstrap secrets are cleaned up automatically post-install with the exception of the `-rest-api-admin` secret. This secret should be manually deleted by the Administrator after retrieving the generated credentials.
 {{< /note >}}
 
 #### Kafka

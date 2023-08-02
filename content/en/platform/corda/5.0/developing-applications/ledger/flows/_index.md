@@ -20,7 +20,7 @@ Corda networks use point-to-point messaging, instead of a global broadcast model
 
 For example, the following shows Alice and Bob agreeing a ledger update using this process:
 
-{{< 
+{{<
   figure
 	 width="50%"
 	 src="flow.gif"
@@ -29,10 +29,10 @@ For example, the following shows Alice and Bob agreeing a ledger update using th
 
 ## Flow Framework
 
-Rather than having to specify these steps manually, Corda automates the process using flows. A flow is a sequence of steps that tells a virtual node how to achieve a specific ledger update, such as issuing an asset or settling a trade.
+Rather than having to specify these steps manually, Corda automates the process using flows. A flow is a sequence of steps that tells a {{< tooltip >}}virtual node{{< /tooltip >}} how to achieve a specific ledger update, such as issuing an asset or settling a trade.
 For example, the following shows the flow’s steps used between Alice and Bob to perform the ledger update:
 
-{{< 
+{{<
   figure
 	 width="50%"
 	 src="flow-sequence.png"

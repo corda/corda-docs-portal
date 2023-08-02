@@ -135,7 +135,7 @@ After the output state finalizes, it is represented as the following in the data
   },
   "com.r3.corda.demo.contract.TestState" : {
     "testField": ""
-  } 
+  }
 }
 ```
 
@@ -216,7 +216,7 @@ This function is called during start-up and it defines how a query will operate 
  To add some extra logic to the query:
 
 * Only keep the results that have “Alice” in their participant list.
-* Transform the result set to only keep the transaction IDs.
+* Transform the result set to only keep the {{< tooltip >}}transaction{{< /tooltip >}} IDs.
 * Collect the result set into one single integer.
 
 These optional logics will always be applied in the following order:
@@ -532,7 +532,7 @@ val resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // 
                 .setParameter("testField", "dummy") // Set the parameter to a dummy value
                 .setCreatedTimestampLimit(Instant.now()) // Set the timestamp limit to the current time
                 .execute()
-                
+
 var results = resultSet.results
 
 while (resultSet.hasNext()) {
@@ -549,7 +549,7 @@ ResultSet<Integer> resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Int
                 .setParameter("testField", "dummy") // Set the parameter to a dummy value
                 .setCreatedTimestampLimit(Instant.now()) // Set the timestamp limit to the current time
                 .execute();
-                
+
 List<Integer> results = resultSet.getResults();
 
 while (resultSet.hasNext()) {

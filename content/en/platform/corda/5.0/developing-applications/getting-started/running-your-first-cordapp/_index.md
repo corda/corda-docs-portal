@@ -88,7 +88,7 @@ You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
 ### Starting Your First Flow
 
 To run your first flow:
-1. Find the `holdingidentityshorthash` for the virtual node you want to trigger the flow on. You can do this by running the `listVnodes` Gradle task to display a list of the configured virtual nodes:
+1. Find the `holdingidentityshorthash` for the {{< tooltip >}}virtual node{{< /tooltip >}} you want to trigger the flow on. You can do this by running the `listVnodes` Gradle task to display a list of the configured virtual nodes:
    {{< figure src="list-vnodes.png" width="100%" figcaption="Running the listVnodes gradle task" >}}
    The 12 digit hash is the `holdingidentityshorthash` that acts as the unique identifier for a virtual node.
 
@@ -127,7 +127,7 @@ To check the flow status:
 {{< figure src="get-flow-arguments.png" figcaption="Arguments for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}
    If the flow is successful, you will see the following response:
 {{< figure src="get-flow-completed.png" figcaption="Successful response for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}
-   You will learn more about the flowResult of "Hello Alice best wishes from Bob" in [Your first flow]({{< relref "../first-flow/_index.md" >}}). 
+   You will learn more about the flowResult of "Hello Alice best wishes from Bob" in [Your first flow]({{< relref "../first-flow/_index.md" >}}).
 
 {{< note >}}
 If you receive a response with a status of "RUNNING”, wait a short time and retry the status check.

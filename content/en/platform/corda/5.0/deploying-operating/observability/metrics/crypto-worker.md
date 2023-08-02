@@ -15,7 +15,7 @@ section_menu: corda5
 
 The crypto worker is responsible for handling crypto operations in Corda, such as signing. It is the only worker that hosts keys owned by the Corda {{< tooltip >}}cluster{{< /tooltip >}}, as well as keys owned by the virtual nodes required for crypto operations.
 
-The keys of the virtual nodes are stored in dedicated databases per virtual node, while the keys of the Corda cluster are stored in a dedicated database for cluster keys. In addition to the database, there are caches universal to all virtual nodes that hold the keys in memory for faster lookup.
+The keys of the virtual nodes are stored in dedicated databases per {{< tooltip >}}virtual node{{< /tooltip >}}, while the keys of the Corda cluster are stored in a dedicated database for cluster keys. In addition to the database, there are caches universal to all virtual nodes that hold the keys in memory for faster lookup.
 
 The crypto requests can be categorized into flow requests and everything else. Flow requests to the crypto processor are of more importance in terms of metrics as they occur frequently and impact the time taken to complete flows. With the crypto worker metrics, you can measure the below crypto requests within the crypto worker:
 
