@@ -15,7 +15,7 @@ Many of the features will be familiar to those Developers who have written Corda
 * Services are injected on an as-needed basis.
 * Flows are started via a REST endpoint, rather than a Java client sending Java classes over AMQP.
 * Initiating and responder flows are linked with a protocol rather than class names.
-* Singletons should be avoided in flow code because there is no guarantee that the same flow worker will continue to execute a flow after it has been check-pointed and restarted.
+* Singletons should be avoided in flow code because there is no guarantee that the same {{< tooltip >}}flow worker{{< /tooltip >}} will continue to execute a flow after it has been check-pointed and restarted.
 
 ## MyFirstFlow Use Case
 

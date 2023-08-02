@@ -181,7 +181,7 @@ There are different types of workers that each have their own operational respon
 	 figcaption="Corda Workers"
 >}}
 
-Two of these worker types, the flow worker and the {{< tooltip >}}database worker{{< /tooltip >}}, are special because they host CorDapp code. 
+Two of these worker types, the {{< tooltip >}}flow worker{{< /tooltip >}} and the {{< tooltip >}}database worker{{< /tooltip >}}, are special because they host CorDapp code. 
 They act as an application server for the code in the CPKs that are part of the CorDapp. 
 This code runs inside a Corda sandbox. There are three different types of sandboxes:
 * Flow - the flow engine host. This exists in the flow worker and is responsible for executing all flow code.
