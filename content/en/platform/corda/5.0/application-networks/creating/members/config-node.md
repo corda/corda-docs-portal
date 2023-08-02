@@ -1,16 +1,17 @@
 ---
 date: '2023-04-13'
 version: 'Corda 5.0'
-title: "Configure Communication Properties"
+title: "Configure Communication Properties for the Member"
 menu:
   corda5:
     identifier: corda5-networks-members-node-config
     parent: corda5-networks-members
     weight: 4000
+    name: "Configure Communication Properties"
 section_menu: corda5
 ---
 
-# Configure Communication Properties
+# Configure Communication Properties for the Member
 
 You must configure the {{< tooltip >}}virtual node{{< /tooltip >}} as a network participant with the properties required for peer-to-peer messaging. The order is slightly different to MGM onboarding because you must perform this step before registering a member.
 
