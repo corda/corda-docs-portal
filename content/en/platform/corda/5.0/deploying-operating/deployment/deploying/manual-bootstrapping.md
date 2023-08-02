@@ -83,7 +83,7 @@ corda-cli.cmd topic -b kafka-1.example.com -k config.properties create -r 3 -p 1
 {{% /tab %}}
 {{< /tabs >}}
 
-If you are authenticating Kafka users, the Corda CLI can also create Access Control List (ACL) entries as appropriate for each Corda worker.
+If you are authenticating Kafka users, the Corda CLI can also create Access Control List (ACL) entries as appropriate for each Corda {{< tooltip >}}worker{{< /tooltip >}}.
 Specify a set of name-value pairs giving the Kafka username that will be used for each Corda worker:
 
 {{< tabs name="acl">}}

@@ -23,7 +23,7 @@ As an Architect considering or planning a project with Corda, you:
 * are curious about the benefits of adopting DLT technology, but also concerned about any risks.
 * want to know why DLT is a better fit for your business problem than a centralized solution.
 * are for looking for answers and guidance to the following questions:
-   * Who has access to my vault data and how is privacy preserved in Corda?
+   * Who has access to my {{< tooltip >}}vault{{< /tooltip >}} data and how is privacy preserved in Corda?
    * How do I manage the compromising of cryptographic key material?
    * How do I maintain compliance with GDPR (and other data protection regulations) if personal data is stored in Corda?
    * How do I scale Corda?
@@ -58,7 +58,7 @@ To learn more, see the [Administering Corda Clusters]({{< relref "../deploying-o
 
 ## Network Operator
 
-The Network Operator is concerned with: 
+The Network Operator is concerned with:
 * how Corda delivers on the _permissioned_ aspect of a private permissioned DLT platform.
 * service levels for participants on the business network.
 * defining permissions for actions on the business network.

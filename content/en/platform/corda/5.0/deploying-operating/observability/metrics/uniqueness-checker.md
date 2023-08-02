@@ -23,7 +23,7 @@ The implementation is batched at two levels and three categories of metrics are 
   these metrics provide no context as to the identities of the batch being processed.
 
 * Metrics starting with `uniqueness_checker_subbatch` relate to “sub-batch level” metrics. Each sub-batch represents
-  a partition for each notary virtual node identity within a batch. The virtual node identity is captured via the existing `virtualnode.source` tag.
+  a partition for each notary {{< tooltip >}}virtual node{{< /tooltip >}} identity within a batch. The virtual node identity is captured via the existing `virtualnode.source` tag.
 
 * Metrics starting with `uniqueness_checker_request` relate to metrics applicable to specific requests within a sub-batch,
   such as the result of a request. Like the sub-batch metrics, these are also associated with the `virtualnode.source` tag.

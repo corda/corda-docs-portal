@@ -18,14 +18,14 @@ We now also refer to application networks, as networks of virtual nodes that all
 
 A virtual node is abstracted from the Corda runtime, and so a Corda cluster can support many virtual node members of different networks. However, a given virtual node can only belong to a single application network, and can only be deployed to a single Corda cluster at one time. An application network can span multiple Corda clusters.
 
-{{< 
+{{<
   figure
 	 src="virtual-nodes.png"
    width="50%"
 	 figcaption="Virtual Nodes"
 >}}
 
-Virtual nodes are identified by their X.500 name and the ID of the network they belong to. This means that the same X.500 name (for example, the same legal entity), can exist on multiple networks at the same time. 
-Future versions of Corda will support interoperability between these types of virtual nodes and networks. 
+Virtual nodes are identified by their {{< tooltip >}}X.500{{< /tooltip >}} name and the ID of the network they belong to. This means that the same X.500 name (for example, the same legal entity), can exist on multiple networks at the same time.
+Future versions of Corda will support interoperability between these types of virtual nodes and networks.
 
 For information about managing virtual nodes using the REST API, see [Managing Virtual Nodes]({{< relref "../../../deploying-operating/vnodes/_index.md" >}}).

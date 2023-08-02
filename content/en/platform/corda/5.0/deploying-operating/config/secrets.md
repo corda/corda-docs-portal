@@ -52,7 +52,7 @@ You can use the Corda CLI <a href = "../../reference/corda-cli/secret-config.md"
 
 ## External Secrets Service {{< enterprise-icon >}}
 
-Corda Enterprise supports integration with [HashiCorp Vault](https://www.vaultproject.io/) as an external secret management system. This is the recommended deployment configuration. The URL at which the Vault instance is reachable, the Vault token, and the path to Corda created secrets must be specified in the [deployment configuration]({{< relref "../deployment/deploying/manual-bootstrapping.md#external-secrets-service" >}}).
+Corda Enterprise supports integration with [HashiCorp Vault](https://www.vaultproject.io/) as an external secret management system. This is the recommended deployment configuration. The URL at which the vault instance is reachable, the vault token, and the path to Corda created secrets must be specified in the [deployment configuration]({{< relref "../deployment/deploying/manual-bootstrapping.md#external-secrets-service" >}}).
 
 For example, the following is a standard configuration:
 
@@ -79,8 +79,8 @@ You can specify `pass` as a secret, as follows:
 }
 ```
 
-You can use the Corda CLI <a href = "../../reference/corda-cli/secret-config.md">`secret-config` command</a> to generate the configuration for a value stored in Vault.
+You can use the Corda CLI <a href = "../../reference/corda-cli/secret-config.md">`secret-config` command</a> to generate the configuration for a value stored in vault.
 
-You can update a configuration value maintained in Vault in one of the following ways:
-* Change the value in Vault. Corda caches configuration values for a short period of time. For this reason, you must handle changes so that old values remain valid for a short period of time to avoid downtime. For example, when changing database credentials, create the new credential before revoking the old one to guarantee a smooth transition.
-* Add a new value in Vault, on a different path, and update the Corda configuration through the REST API. The relevant worker processes will pick up this new value asynchronously.
+You can update a configuration value maintained in vault in one of the following ways:
+* Change the value in vault. Corda caches configuration values for a short period of time. For this reason, you must handle changes so that old values remain valid for a short period of time to avoid downtime. For example, when changing database credentials, create the new credential before revoking the old one to guarantee a smooth transition.
+* Add a new value in vault, on a different path, and update the Corda configuration through the REST API. The relevant {{< tooltip >}}worker{{< /tooltip >}} processes will pick up this new value asynchronously.

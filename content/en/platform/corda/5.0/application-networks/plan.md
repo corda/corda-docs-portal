@@ -18,12 +18,12 @@ Corda is a permissioned network, where the Network Operator makes decisions as t
 The onboarding process may fall under regulations, such as Know Your Customer (KYC) in order to address anti-money laundering. Network Operators must decide the level of due diligence that must be performed before participants can be onboarded to their network. Network Operators will also decide whether to use automated approval or manual approval processes to accept and decline registration requests.
 
 ## Security Policy
-Network participants are identified by an X.509 certificate issued to that entity. The certificate issuing authority (Certificate Authority) is part of a ({{< tooltip >}}PKI{{< /tooltip >}}) that is trusted by the Network Operator. The PKI could be a public infrastructure whose public keys are published and typically stored in web browsers, so that they do not need to be manually downloaded and trusted.
+Network participants are identified by an {{< tooltip >}}X.509{{< /tooltip >}} certificate issued to that entity. The certificate issuing authority (Certificate Authority) is part of a ({{< tooltip >}}PKI{{< /tooltip >}}) that is trusted by the Network Operator. The PKI could be a public infrastructure whose public keys are published and typically stored in web browsers, so that they do not need to be manually downloaded and trusted.
 
 Alternatively, the PKI used to issue certificates to network participants could be a private PKI, typically owned and managed by the Network Operator. These private Certificate Authories must be trusted by the network participants.
 
 ## Data Sovereignty
-Network participants will each have a virtual node in the Corda infrastructure. The virtual node's data, specifically its view of the distributed ledger, will be stored in its database vault.
+Network participants will each have a virtual node in the Corda infrastructure. The virtual node's data, specifically its view of the distributed ledger, will be stored in its database {{< tooltip >}}vault{{< /tooltip >}}.
 
 If there is a need to distribute network participant virtual nodes across geographic regions, this leads to a multi-cluster deployment topology and a more decentralized network model.
 
