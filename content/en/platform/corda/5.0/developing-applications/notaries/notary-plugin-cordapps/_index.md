@@ -12,9 +12,9 @@ section_menu: corda5
 ---
 # Notary Plugin CorDapps
 
-In Corda 5, notary functionality is provided in the form of plugin CorDapps. In theory, anyone can write a new notary protocol by implementing their own CorDapps. However, initially, it is expected to only have protocols provided by R3. For a given notary protocol, two CPBs (Corda Package Bundles) are expected to be required:
+Notary functionality is provided in the form of plugin CorDapps. In theory, anyone can write a new notary protocol by implementing their own CorDapps. However, initially, it is expected to only have protocols provided by R3. For a given notary protocol, two {{< tooltip >}}CPBs{{< /tooltip >}} are expected to be required:
 
-* A **client**, or **application** CPB, which is used to generate a CPI (Corda Package Installer) associated with application virtual nodes. At a minimum, this contains a CPK (Corda Package) that has an initiating flow that is automatically invoked by the Corda 5 flow framework to initiate a notarization request.
+* A **client**, or **application** CPB, which is used to generate a {{< tooltip >}}CPI{{< /tooltip >}} associated with application virtual nodes. At a minimum, this contains a {{< tooltip >}}CPK{{< /tooltip >}} that has an initiating flow that is automatically invoked by the Corda 5 flow framework to initiate a notarization request.
 * A **notary server** CPB (Corda Package Bundle), which is used to generate a CPI associated with notary virtual nodes. At a minimum, this contains a CPK that has a responder flow to what is packaged in the client CPB.
 
 For Corda 5.0, only a single notary protocol is provided, the **non-validating notary protocol**.
@@ -65,5 +65,10 @@ Alternatively, you can form your application CPB using the [Corda CLI]({{< relre
 ## CPI Creation
 
 Having two CPBs for the application and notary virtual node roles on the network also extends to needing two different CPIs. This process is unchanged, but ensure the following:
+<<<<<<< HEAD
 * the notary server CPB signing key is used to create the CPI and and then imported to Corda
 * the same group policy file is used when creating both the application and notary CPIs, for more information see the [Onboarding Notaries]({{< relref "../../../application-networks/creating/notaries.md" >}}) section
+=======
+* the notary server CPB signing key is used to create the CPI and then imported to Corda
+* the same {{< tooltip >}}group policy{{< /tooltip >}} file is used when creating both the application and notary CPIs, for more information see the [Onboarding Notaries]({{< relref "../../../application-networks/creating/notaries.md" >}}) section
+>>>>>>> main

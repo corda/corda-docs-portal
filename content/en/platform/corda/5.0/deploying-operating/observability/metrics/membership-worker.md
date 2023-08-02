@@ -13,8 +13,8 @@ section_menu: corda5
 
 # Membership Worker
 
-The membership worker is responsible for the processing of application network functionality either on behalf of an MGM,
-a network member, or both. For an MGM, examples of this application functionality include:
+The membership worker is responsible for the processing of {{< tooltip >}}application network{{< /tooltip >}} functionality either on behalf of an {{< tooltip >}}MGM{{< /tooltip >}}, a network member, or both. 
+For an MGM, examples of this application functionality include:
 * handling incoming registration requests
 * network management
 * ensuring the network participants are all in sync with the latest network data

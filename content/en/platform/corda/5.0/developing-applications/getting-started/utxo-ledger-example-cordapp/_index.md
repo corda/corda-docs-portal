@@ -10,7 +10,11 @@ menu:
 section_menu: corda5
 ---
 # UTXO Ledger Example CorDapp
+<<<<<<< HEAD
 The CSDE template includes example CorDapp code for a simple {{< tooltip >}}UTXO{{< /tooltip >}} chat application. The chat CorDapp enables pairs of participants on a Corda application network to do the following:
+=======
+The CSDE template includes example CorDapp code for a simple UTXO (Unspent Transaction Output) chat application. The chat CorDapp enables pairs of participants on an {{< tooltip >}}application network{{< /tooltip >}} to do the following:
+>>>>>>> main
 
 * Create and name a unique bilateral chat between the two virtual nodes.
 * Update chats with new messages from either {{< tooltip >}}virtual node{{< /tooltip >}}.

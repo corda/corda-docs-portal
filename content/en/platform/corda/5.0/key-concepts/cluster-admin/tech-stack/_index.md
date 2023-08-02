@@ -36,8 +36,13 @@ Broadly speaking, there are two groups of databases:
 
 ### Cluster Databases
 
+<<<<<<< HEAD
 * `Config` — contains data that is used to support the general operation of the cluster, such as data about CorDapps, {{< tooltip >}}worker{{< /tooltip >}} configuration, and virtual node metadata.
 * `RBAC` (Role Based Access Control) — contains the data used for User Access Control. Currently, this is used for authorization of the REST API.
+=======
+* `Config` — contains data that is used to support the general operation of the cluster, such as data about CorDapps, worker configuration, and virtual node metadata.
+* `{{< tooltip >}}RBAC{{< /tooltip >}}` (Role Based Access Control) — contains the data used for User Access Control. Currently, this is used for authorization of the REST API.
+>>>>>>> main
 * `Crypto` — contains (encrypted) cryptographic key material that is used for cluster-wide operations. <!--For more information, see [Key Management](#key-management).-->
 
 ### Virtual Node Databases
@@ -45,7 +50,11 @@ Broadly speaking, there are two groups of databases:
 Corda creates one of each of the following types per virtual node:
 * `Vault` — contains the virtual node ledger data as well as data defined in CorDapp custom schemas.
 * `Crypto` — contains the virtual node (encrypted) cryptographic key material such as ledger keys.
+<<<<<<< HEAD
 * `Uniqueness` (optional) — maintains a record of unspent and spent states generated as part of {{< tooltip >}}UTXO{{< /tooltip >}} ledger transactions. This is only relevant for notary nodes.
+=======
+* `Uniqueness` (optional) — maintains a record of unspent and spent {{< tooltip >}}states{{< /tooltip >}} generated as part of UTXO ledger transactions. This is only relevant for {{< tooltip >}}notary{{< /tooltip >}} nodes.
+>>>>>>> main
 
 ### Database Management
 
@@ -62,7 +71,7 @@ Because database connection details, including credentials, are stored inside th
 ## Key Management
 
 Corda requires the following types of keys:
-* P2P TLS
+* P2P {{< tooltip >}}TLS{{< /tooltip >}}
 * P2P Session initiation
 * MGM ECDH
 * Notary

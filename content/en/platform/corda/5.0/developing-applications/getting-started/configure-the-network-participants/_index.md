@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 # Configuring the Network Participants
-The CSDE is pre-configured to create a Corda cluster with five virtual nodes: Alice, Bob, Charlie, Dave, and a notary.
+The CSDE is pre-configured to create a Corda cluster with five virtual nodes: Alice, Bob, Charlie, Dave, and a {{< tooltip >}}notary{{< /tooltip >}}.
 This configuration can be changed by modifying the `config/static-network-config.json` file.
 
 {{< figure src="static-network-config-file.png" figcaption="CSDE static-network-config.json file in IntelliJ" >}}

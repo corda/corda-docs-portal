@@ -13,7 +13,7 @@ section_menu: corda5
 # Accessing the REST API
 To access and invoke the REST API:
 
-1. If the REST API has not been exposed externally to the cluster via a load balancer, forward the port by running the following command in a terminal window, replacing `<NAMESPACE>` with the Kubernetes namespace that Corda is installed in:
+1. If the REST API has not been exposed externally to the {{< tooltip >}}cluster{{< /tooltip >}} via a load balancer, forward the port by running the following command in a terminal window, replacing `<NAMESPACE>` with the Kubernetes namespace that Corda is installed in:
 
    ```sh
    kubectl port-forward -n <NAMESPACE> deploy/corda-rest-worker 8888

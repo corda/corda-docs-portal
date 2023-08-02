@@ -10,7 +10,11 @@ menu:
 section_menu: corda5
 ---
 # net.corda.v5.ledger.utxo.token.selection
+<<<<<<< HEAD
 The Token Selection API enables a flow to exclusively select a set of states to potentially use as input states in a {{< tooltip >}}UTXO{{< /tooltip >}} {{< tooltip >}}transaction{{< /tooltip >}}. Although this can be achieved with simple {{< tooltip >}}vault{{< /tooltip >}} queries, the selection API offers the following key features that improve the performance and reliability of the flows:
+=======
+The Token Selection API enables a flow to exclusively select a set of {{< tooltip >}}states{{< /tooltip >}} to potentially use as input states in a UTXO transaction. Although this can be achieved with simple vault queries, the selection API offers the following key features that improve the performance and reliability of the flows:
+>>>>>>> main
 
 * **Exclusivity:** In an environment where multiple instances of a flow are running in parallel, it is important that each flow can exclusively claim states to spend. Without this, there is a high chance that multiple flows could attempt to spend the same states at the same time, causing transactions to fail during notarization, due to an attempt to spend a state that has already been spent.
 * **Target Amount Selection:** When selecting fungible states to spend, it is usual to select multiple states that sum to at least the target value of the proposed transaction. The selection API provides an explicit model for achieving this, which would be difficult to achieve using standard vault queries.
@@ -24,7 +28,7 @@ The API defines a generic {{< tooltip >}}token{{< /tooltip >}} that is used to r
 | <div style="width:100px">Attribute    </div>    | <div style="width:100px">Type       </div>      | <div style="width:100px">Provided By </div>| Description                                                                                                                                                                             |
 | ---------------- | ---------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | StateRef         | StateRef         | Platform    | The reference to the state linked to this token.                                                                                                                                        |
-| Notary X500 Name | MemberX500Name | Platform    | The notary of the state linked to this token.                                                                                                                                           |
+| Notary X500 Name | MemberX500Name | Platform    | The {{< tooltip >}}notary{{< /tooltip >}} of the state linked to this token.                                                                                                                                           |
 | Token Type       | String           | Both        | By default, the platform sets this to the FQN name of the Java Type of the state class this token is linked to. As a CorDapp Developer, you can override this with your own definition. |
 | Issuer Hash      | SecureHash       | User        | The hash of the issuer of the state, as defined by the CorDapp Developer.                                                                                                               |
 | Symbol           | String           | User        | The user-defined symbol for the token.                                                                                                                                                  |

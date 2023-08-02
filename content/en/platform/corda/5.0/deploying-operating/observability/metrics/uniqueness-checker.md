@@ -19,7 +19,7 @@ The uniqueness checker handles the business logic of uniqueness checking.
 The implementation is batched at two levels and three categories of metrics are provided:
 
 * Metrics starting with `uniqueness_checker_batch` relate to “top level” metrics, which apply to a single batch
-  processed by the uniqueness checker. As a batch may contain requests from different notary services and/or virtual nodes,
+  processed by the uniqueness checker. As a batch may contain requests from different {{< tooltip >}}notary{{< /tooltip >}} services and/or virtual nodes,
   these metrics provide no context as to the identities of the batch being processed.
 
 * Metrics starting with `uniqueness_checker_subbatch` relate to “sub-batch level” metrics. Each sub-batch represents

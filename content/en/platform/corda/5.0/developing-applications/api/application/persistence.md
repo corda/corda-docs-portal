@@ -17,8 +17,13 @@ Corda supports CRUD (Create, Read, Update, Delete) operations for user-defined t
 ## Defining Custom Tables Using Liquibase Migrations
 
 [CorDapps]({{< relref "../../../key-concepts/fundamentals/CorDapps/_index.md" >}}) store data in a relational database.
+<<<<<<< HEAD
 When a Network Operator creates a {{< tooltip >}}virtual node{{< /tooltip >}} for a CorDapp, it requires associated tables, indexes, foreign-keys, and so on.
 To create these, you must embed Liquibase files into the CorDapp CPK.
+=======
+When a Network Operator creates a virtual node for a CorDapp, it requires associated tables, indexes, foreign-keys, and so on.
+To create these, you must embed Liquibase files into the CorDapp {{< tooltip >}}CPK{{< /tooltip >}}.
+>>>>>>> main
 
 Liquibase manages database changes in a change log which references one or more change sets.
 You must specify the top-level `databaseChangeLog` in a resource file in the CPK called `migration/db.changelog-master.xml`.

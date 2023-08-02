@@ -33,7 +33,7 @@ initiation key must not be the same key. This is the only supported mode at the 
 
 ### Build Registration Context Using Bash
 
-To build the registration context using Bash, run the following command, replacing `<TLS-CA-CERT>` with the PEM format certificate of the CA. This is the trustroot used to validate member certificates.
+To build the registration context using Bash, run the following command, replacing `<TLS-CA-CERT>` with the PEM format certificate of the {{< tooltip >}}CA{{< /tooltip >}}. This is the trustroot used to validate member certificates.
 The certificate must all be on one line in the curl command. Replace new lines with `\n`.
 ```shell
 export TLS_CA_CERT=$(cat /tmp/ca/ca/root-certificate.pem | awk '{printf "%s\\n", $0}')
@@ -158,7 +158,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 The status returned for the registration request will be one of the following:
 
 * `APPROVED`: The registration request passed all validations and was approved by the MGM.
-* `NEW`: The member’s Corda cluster has accepted and persisted the registration request submitted via the REST API but is yet to process it.
+* `NEW`: The member’s Corda {{< tooltip >}}cluster{{< /tooltip >}} has accepted and persisted the registration request submitted via the REST API but is yet to process it.
 * `INVALID`: The member’s Corda cluster processed the registration request submitted via the REST API and determined the
 input to be invalid and did not attempt to send the request to join the network to the MGM’s Corda cluster.
 * `SENT_TO_MGM`: The member’s Corda cluster processed the registration request submitted via the REST API and found the input
@@ -173,5 +173,5 @@ The only remaining step is for the Network Operator to review and approve the re
 REST API before the member's registration request takes effect. To view requests pending manual approval, see
 [Viewing Requests Pending Manual Approval]({{< relref "../../managing/registration-requests/reviewing-registration-requests.html#viewing-requests-pending-manual-approval" >}}).
 * `PENDING_MEMBER_VERIFICATION`: The MGM has completed initial validation of the registration request and is now waiting
-for the registering member to respond to a P2P message in order to validate the provided session initiation key and P2P endpoint.
+for the registering member to respond to a P2P message in order to validate the provided {{< tooltip >}}session initiation key{{< /tooltip >}} and P2P endpoint.
 * `FAILED`: The registration request submitted via the REST API passed initial validation on the member’s cluster but failed to be sent to the MGM.

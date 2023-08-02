@@ -17,13 +17,19 @@ Communication between workers, within a cluster, is mostly achieved through the 
 ## REST
 
 Interaction with the Corda Cluster for administration or flow management uses a [REST API]({{< relref "../../../reference/rest-api/_index.md" >}}) over standard secure HTTP (HTTPS).
+<<<<<<< HEAD
 These HTTP REST endpoints are exposed by the REST workers in the cluster.
 Like other {{< tooltip >}}worker{{< /tooltip >}} types, REST workers are stateless, so requests can be divided across all REST workers using a standard HTTP load balancer, which must be exposed to the application and/or user that interacts with the cluster.
+=======
+These HTTP REST endpoints are exposed by the {{< tooltip >}}REST workers{{< /tooltip >}} in the cluster. 
+Like other worker types, REST workers are stateless, so requests can be divided across all REST workers using a standard HTTP load balancer, which must be exposed to the application and/or user that interacts with the cluster.
+>>>>>>> main
 
 HTTP requests are authenticated using basic authentication, and authorization is based on Corda’s [RBAC capabilities]({{< relref "../../../deploying-operating/config-users/_index.md" >}}).
 
 ## P2P
 
+<<<<<<< HEAD
 Communication between different Corda clusters to support distributed workflows, that is peer-to-peer (P2P) communication, also uses standard secure HTTP (HTTPS).
 The components of the peer-to-peer communications layer are responsible for delivering messages between virtual nodes in a secure and reliable way.
 If the two virtual nodes communicating reside in the same cluster, the messages can be routed back without exiting the cluster at all.
@@ -31,3 +37,12 @@ If the two virtual nodes communicating reside in separate clusters, the link man
 The link manager is also responsible for ensuring the message is delivered reliably in the case of any transient issues in the network path between the two clusters.
 Any messages destined for a separate cluster are forwarded by the link manager to the P2P gateway, which forwards them to the P2P gateway of the other cluster via HTTPS.
 A gateway can connect to another gateway in a separate cluster via mutual TLS, depending on the policy of the application network.
+=======
+Communication between different Corda clusters to support distributed workflows, that is peer-to-peer (P2P) communication, also uses standard secure HTTP (HTTPS). 
+The components of the peer-to-peer communications layer are responsible for delivering messages between virtual nodes in a secure and reliable way. 
+If the two virtual nodes communicating reside in the same cluster, the messages can be routed back without exiting the cluster at all. 
+If the two virtual nodes communicating reside in separate clusters, the link manager processor is responsible for establishing end-to-end authenticated sessions with the link managers on the other cluster in order to transfer the messages in a secure way. 
+The link manager is also responsible for ensuring the message is delivered reliably in the case of any transient issues in the network path between the two clusters. 
+Any messages destined for a separate cluster are forwarded by the link manager to the P2P gateway, which forwards them to the P2P gateway of the other cluster via HTTPS. 
+A gateway can connect to another gateway in a separate cluster via mutual {{< tooltip >}}TLS{{< /tooltip >}}, depending on the policy of the application network. 
+>>>>>>> main

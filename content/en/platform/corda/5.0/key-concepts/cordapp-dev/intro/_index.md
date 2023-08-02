@@ -14,7 +14,7 @@ section_menu: corda5
 
 ## Overview
 
-A CorDapp, or Corda distributed application, is distributed because parts of the application can be, or may need to be, executed on a Corda instance that is operated by another party that is a member of the same Corda application network.
+A CorDapp, or Corda distributed application, is distributed because parts of the application can be, or may need to be, executed on a Corda instance that is operated by another party that is a member of the same Corda {{< tooltip >}}application network{{< /tooltip >}}.
 This is not the same as an application that has multiple instances, hosted on different environments.
 
 Consider the centralized application below. This is a single application that always executes within a single execution environment, regardless of the number of deployments.
@@ -46,9 +46,13 @@ However, distributed applications in Corda, while being deployed by different pa
 
 ## Workflows, Contracts, and States
 
-CorDapps are usually composed of workflows, contracts, and states. This section illustrates that contracts and states are optional, but a CorDapp must always define at least one workflow, often referred to simply as a flow.
+CorDapps are usually composed of workflows, contracts, and {{< tooltip >}}states{{< /tooltip >}}. This section illustrates that contracts and states are optional, but a CorDapp must always define at least one workflow, often referred to simply as a flow.
 
+<<<<<<< HEAD
 Flows support the [orchestration layer]({{< relref "../../fundamentals/CorDapps/_index.md#orchestration-layer--flows" >}}), and are written in a JVM compatible language and are hosted by Corda. Typically, flows create or transfer states on behalf of a member of the application network (a {{< tooltip >}}virtual node{{< /tooltip >}}) who seeks to form [consensus]({{< relref "../../fundamentals/CorDapps/_index.md#consensus-layer" >}}) with their peer nodes with the help of the notary.
+=======
+Flows support the [orchestration layer]({{< relref "../../fundamentals/CorDapps/_index.md#orchestration-layer--flows" >}}), and are written in a JVM compatible language and are hosted by Corda. Typically, flows create or transfer states on behalf of a member of the application network (a virtual node) who seeks to form [consensus]({{< relref "../../fundamentals/CorDapps/_index.md#consensus-layer" >}}) with their peer nodes with the help of the {{< tooltip >}}notary{{< /tooltip >}}.
+>>>>>>> main
 
 Taking the [IOU Sample App](https://github.com/corda/corda5-samples/blob/main/kotlin-samples/corda5-obligation-cordapp/) as an example of a distributed app, all members of this fictional network can be lenders or borrowers issuing, transferring, or settling loans directly to each other. There is no central ledger of loans, and consensus is achieved between the participating parties, not a central entity.
 

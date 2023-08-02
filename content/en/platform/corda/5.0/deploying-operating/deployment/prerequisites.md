@@ -48,7 +48,11 @@ including Amazon Managed Streaming for Apache Kafka (MSK). Corda is also tested 
 | Confluent Cloud                                 |         |
 
 The Corda deployment process requires the Kafka bootstrap server addresses and their ports.
+<<<<<<< HEAD
 If the Kafka brokers are using TLS and the certificates used will not be trusted by the JVM’s default {{< tooltip >}}trust store{{< /tooltip >}},
+=======
+If the Kafka brokers are using {{< tooltip >}}TLS{{< /tooltip >}} and the certificates used will not be trusted by the JVM’s default trust store,
+>>>>>>> main
 then a trust store containing the root certificate is required. If automatic bootstrapping is used, the user name
 and password are required for a user that has permission to create topics with the given topic prefix and
 then define ACLs for each topic. It is recommended that a separate user is then used for each of the seven types of
@@ -68,5 +72,10 @@ Corda is tested with PostgreSQL 14.4 including Amazon RDS for PostgreSQL, Amazon
 
 The Corda deployment process requires the PostgreSQL hostname and port. If automatic bootstrapping is used,
 a user name and password are required for a user that has the ability to create the schemas for configuration, crypto,
+<<<<<<< HEAD
 and RBAC, and can create crypto and RBAC users and grant them access to their respective schemas.
 If [bootstrapping manually]({{< relref "./deploying/manual-bootstrapping.md" >}}), an additional {{< tooltip >}}virtual node{{< /tooltip >}} user will still need the ability to create schemas dynamically at runtime.
+=======
+and {{< tooltip >}}RBAC{{< /tooltip >}}, and can create crypto and RBAC users and grant them access to their respective schemas.
+If [bootstrapping manually]({{< relref "./deploying/manual-bootstrapping.md" >}}), an additional virtual node user will still need the ability to create schemas dynamically at runtime.
+>>>>>>> main
