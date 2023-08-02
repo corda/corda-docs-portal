@@ -70,7 +70,7 @@ In this example, transactions are between borrower and lender, which means each 
 
 ## Participants and a Distributed Ledger
 
-Corda flows usually involve multiple parties or participants, where each participant must be a member of the application network, or a virtual node, and is generally identified by an X.500 name.
+Corda flows usually involve multiple parties or participants, where each participant must be a member of the application network, or a virtual node, and is generally identified by an {{< tooltip >}}X.500{{< /tooltip >}} name.
 
 In flow terms, the initiating flow is the code that is executed on the initiating participant, and the responder flow as the code that is executed as a response on the counter party (or parties). The initiating flow is generally initiated using the REST API, as described in the [Introducing the Corda APIs]({{< relref "../api/_index.md" >}}) section.
 

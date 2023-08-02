@@ -645,7 +645,7 @@ annotations:
   annotation-key-1: "custom-value"
 ```
 
-To define `annotation-key-2` for only the crypto worker:
+To define `annotation-key-2` for only the {{< tooltip >}}crypto worker{{< /tooltip >}}:
 
 ```yaml
 workers:
