@@ -110,7 +110,7 @@ To push the Corda Enterprise images:
 
 ## Download the Corda Helm Chart
 
-The following sections describe how to download the Corda Helm chart:
+The following sections describe how to download the Corda {{< tooltip >}}Helm{{< /tooltip >}} chart:
 * [Corda Helm chart]({{< relref "#corda-helm-chart" >}})
 * [Corda Enterprise Helm chart]({{< relref "#corda-enterprise-helm-chart" >}})
 
