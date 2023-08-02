@@ -64,7 +64,7 @@ Because database connection details, including credentials, are stored inside th
 Corda requires the following types of keys:
 * P2P TLS
 * P2P Session initiation
-* MGM ECDH
+* MGM {{< tooltip >}}ECDH{{< /tooltip >}}
 * Notary
 * Ledger
 * CorDapp publisher code signing
