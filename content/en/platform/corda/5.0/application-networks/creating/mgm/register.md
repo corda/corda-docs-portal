@@ -28,7 +28,7 @@ initiation key must not be the same key. This is the only supported mode at the 
 
 {{< note >}}
 * If you want to use certificates for session initiation keys for peer-to-peer communication, see [Configuring Optional Session Certificates]({{< relref "../optional/session-certificates.html#build-registration-context-for-mgm-registration" >}}) for information about the additional JSON fields required in the registration context.
-* If you want to use mutual {{< tooltip >}}TLS{{< /tooltip >}}, see [Configuring Mutual TLS]({{< relref "../optional/mutual-tls-connections.md#set-the-tls-type-in-the-mgm-context" >}}) for additonal configuration steps.
+* If you want to use mutual TLS, see [Configuring Mutual TLS]({{< relref "../optional/mutual-tls-connections.md#set-the-tls-type-in-the-mgm-context" >}}) for additonal configuration steps.
 {{< /note >}}
 
 ### Build Registration Context Using Bash
