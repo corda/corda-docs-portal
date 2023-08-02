@@ -417,7 +417,7 @@ The collector always must be the last one in the chain as all previous filtering
 
 ### Executing a Vault-Named Query
 
-To execute a query use `UtxoLedgerService`. This can be injected to a flow via `@CordaInject`.
+To execute a query use `UtxoLedgerService`. This can be injected to a {{< tooltip >}}flow{{< /tooltip >}} via `@CordaInject`.
 To instantiate a query call the following:
 
 {{< tabs name="tabs-8" >}}

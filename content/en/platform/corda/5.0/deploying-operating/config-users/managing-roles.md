@@ -38,4 +38,4 @@ To retrieve permissions matching certain query criteria, use the [get_permission
 
 ## Checking Permissions When Starting Flows
 
-Currently, Corda checks if a user can execute `startFlow` REST operations. No checks are made to whether the user can start a particular flow. These checks should be performed against the RBAC sub-system before passing the start request to a FlowWorker.
+Currently, Corda checks if a user can execute `startFlow` REST operations. No checks are made to whether the user can start a particular {{< tooltip >}}flow{{< /tooltip >}}. These checks should be performed against the RBAC sub-system before passing the start request to a FlowWorker.

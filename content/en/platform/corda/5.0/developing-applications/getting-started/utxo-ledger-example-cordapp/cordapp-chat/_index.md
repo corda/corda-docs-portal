@@ -63,7 +63,7 @@ The evolution of the ledger when stepping through the walkthrough steps can be s
 
 ### Chat Flows
 
-There are six flows in the Chat Application:
+There are six {{< tooltip >}}flows{{< /tooltip >}} in the Chat Application:
 
 <table>
 <col style="width:20%">

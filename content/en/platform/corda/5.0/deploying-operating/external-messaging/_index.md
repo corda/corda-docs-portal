@@ -92,5 +92,5 @@ Corda does not create Kafka topics used for external messaging. You must manuall
    ```
    kafka-console-consumer --topic <topic-nam> --from-beginning --bootstrap-server localhost:9092
    ```
-   To test that everything is working correctly, start the flow that sends external messages. For more information, see the <a href="../reference/rest-api/C5_OpenAPI.html#tag/Flow-Management-API/operation/post_flow__holdingidentityshorthash_">REST API documentation of the `flow` endpoint</a>.
+   To test that everything is working correctly, start the {{< tooltip >}}flow{{< /tooltip >}} that sends external messages. For more information, see the <a href="../reference/rest-api/C5_OpenAPI.html#tag/Flow-Management-API/operation/post_flow__holdingidentityshorthash_">REST API documentation of the `flow` endpoint</a>.
 

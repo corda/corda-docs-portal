@@ -341,7 +341,7 @@ to ensure that the bundle respects OSGi's [Service Loader Mediator Specification
 The plugin generates `Corda-*-Classes` tags in the JAR's `MANIFEST.MF`. The generated tags are controlled by the
 `net.corda.cordapp.cordapp-configuration` Gradle plugin in the [corda-api](https://github.com/corda/corda-api) repo.
 
-Each tag contains a list of the classes within the JAR that have been identified as being a Corda contract, a Corda flow,
+Each tag contains a list of the classes within the JAR that have been identified as being a Corda contract, a Corda {{< tooltip >}}flow{{< /tooltip >}},
 and so on. Each of these classes has also been confirmed as being public, static, and non-abstract, which allows Corda
 to instantiate them. Empty tags are excluded from the final manifest, and so not every tag is guaranteed to be present.
 

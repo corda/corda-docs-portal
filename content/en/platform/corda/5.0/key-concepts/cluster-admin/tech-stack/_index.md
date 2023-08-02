@@ -87,7 +87,7 @@ It is not currently possible to revoke or rotate keys.
 {{< /note >}}
 
 ## Kafka
-Apache Kafka version 3.2.0 is supported by Corda. It is used internally in the Corda Cluster as a message bus and can also be used to emit events from flow code. For more information see:
+Apache Kafka version 3.2.0 is supported by Corda. It is used internally in the Corda Cluster as a message bus and can also be used to emit events from {{< tooltip >}}flow{{< /tooltip >}} code. For more information see:
 * [Configuring Kafka]({{< relref "../../../deploying-operating/deployment/deploying/_index.md#kafka" >}})
 * [External Messaging Administration]({{< relref "../../../deploying-operating/external-messaging/_index.md" >}}) {{< enterprise-icon >}}
 

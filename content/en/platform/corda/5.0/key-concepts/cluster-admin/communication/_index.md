@@ -16,7 +16,7 @@ Communication between workers, within a cluster, is mostly achieved through the 
 
 ## REST
 
-Interaction with the Corda Cluster for administration or flow management uses a [REST API]({{< relref "../../../reference/rest-api/_index.md" >}}) over standard secure HTTP (HTTPS).
+Interaction with the Corda Cluster for administration or {{< tooltip >}}flow{{< /tooltip >}} management uses a [REST API]({{< relref "../../../reference/rest-api/_index.md" >}}) over standard secure HTTP (HTTPS).
 These HTTP REST endpoints are exposed by the REST workers in the cluster. 
 Like other worker types, REST workers are stateless, so requests can be divided across all REST workers using a standard HTTP load balancer, which must be exposed to the application and/or user that interacts with the cluster.
 

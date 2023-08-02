@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 # Java Flow Code Walkthrough
-The Java code for the flows and supporting classes can be found in the CSDE repo in the `workflows/src/main/java/com/r3/developers/csdetemplate/flowexample/workflows` folder.
+The Java code for the {{< tooltip >}}flows{{< /tooltip >}} and supporting classes can be found in the CSDE repo in the `workflows/src/main/java/com/r3/developers/csdetemplate/flowexample/workflows` folder.
 
 ## Java Flow Files
 

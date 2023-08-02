@@ -17,7 +17,7 @@ The crypto worker is responsible for handling crypto operations in Corda, such a
 
 The keys of the virtual nodes are stored in dedicated databases per virtual node, while the keys of the Corda cluster are stored in a dedicated database for cluster keys. In addition to the database, there are caches universal to all virtual nodes that hold the keys in memory for faster lookup.
 
-The crypto requests can be categorized into flow requests and everything else. Flow requests to the crypto processor are of more importance in terms of metrics as they occur frequently and impact the time taken to complete flows. With the crypto worker metrics, you can measure the below crypto requests within the crypto worker:
+The crypto requests can be categorized into {{< tooltip >}}flow{{< /tooltip >}} requests and everything else. Flow requests to the crypto processor are of more importance in terms of metrics as they occur frequently and impact the time taken to complete flows. With the crypto worker metrics, you can measure the below crypto requests within the crypto worker:
 
 * Flow-crypto requests, which consist of the operations:
     * `SigningService.sign`: The `sign` operation is initiated on the flow side and is performed in the crypto processor. It sends the bytes to be signed, along with the public part of the signing key and the signature spec, to the crypto worker.

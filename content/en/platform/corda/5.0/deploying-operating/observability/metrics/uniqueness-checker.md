@@ -13,7 +13,7 @@ section_menu: corda5
 
 # Uniqueness Checker
 
-The uniqueness checker and backing store metrics are from the perspective of uniqueness processing, which runs independently of the flow processing.
+The uniqueness checker and backing store metrics are from the perspective of uniqueness processing, which runs independently of the {{< tooltip >}}flow{{< /tooltip >}} processing.
 
 The uniqueness checker handles the business logic of uniqueness checking.
 The implementation is batched at two levels and three categories of metrics are provided:

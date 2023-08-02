@@ -80,7 +80,7 @@ Custom serializers targeting Corda platform types or JDK types are not allowed. 
 {{< /note >}}
 
 {{< warning >}}
-Java 8 Lambda expressions are not serializable except in flow checkpoints, and then not by default. The syntax to declare a serializable Lambda
+Java 8 Lambda expressions are not serializable except in {{< tooltip >}}flow{{< /tooltip >}} checkpoints, and then not by default. The syntax to declare a serializable Lambda
 expression that will work with Corda is `Runnable r = (Runnable & Serializable) () -> System.out.println("Hello World");`, or
 `Callable<String> c = (Callable<String> & Serializable) () -> "Hello World";`.
 

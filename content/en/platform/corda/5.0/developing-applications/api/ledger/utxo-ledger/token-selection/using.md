@@ -19,7 +19,7 @@ This section contains the following:
 
 ## Using the Token Claim API
 
-The following example outlines the basic building blocks to consider when using the [token selection API]({{< relref "./_index.md" >}}) with the UTXO ledger. The example only covers the token selection aspects of a flow and omits any details about how to create [UTXO ledger transactions]({{< relref "../../../../ledger/transactions/_index.md" >}}).
+The following example outlines the basic building blocks to consider when using the [token selection API]({{< relref "./_index.md" >}}) with the UTXO ledger. The example only covers the token selection aspects of a {{< tooltip >}}flow{{< /tooltip >}} and omits any details about how to create [UTXO ledger transactions]({{< relref "../../../../ledger/transactions/_index.md" >}}).
 
 1. Define a custom state with enough detail to create a token from:
    ```java

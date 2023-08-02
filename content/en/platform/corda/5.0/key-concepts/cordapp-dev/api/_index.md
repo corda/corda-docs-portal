@@ -29,6 +29,6 @@ The [CorDapp API]({{< relref "../../../developing-applications/api/_index.md">}}
 
 ## Corda REST API
 
-The [Corda REST API]({{< relref "../../../reference/rest-api/_index.md">}}) enables you to interact with your CorDapp. For example, to start a flow or retrieve the result of a flow. This API is exposed as a REST service. This same REST API is also used by Cluster Administrators to manage virtual nodes and the Corda platform itself.
+The [Corda REST API]({{< relref "../../../reference/rest-api/_index.md">}}) enables you to interact with your CorDapp. For example, to start a {{< tooltip >}}flow{{< /tooltip >}} or retrieve the result of a flow. This API is exposed as a REST service. This same REST API is also used by Cluster Administrators to manage virtual nodes and the Corda platform itself.
 
 HTTP requests are authenticated using basic authentication, and authorization is based on Corda’s [RBAC capabilities]({{< relref "../../../deploying-operating/config-users/_index.md" >}}).

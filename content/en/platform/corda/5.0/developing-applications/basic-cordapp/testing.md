@@ -11,7 +11,7 @@ menu:
 
 # Test Your CorDapp
 
-This tutorial guides you through the steps required to execute the flows you have previously created,
+This tutorial guides you through the steps required to execute the {{< tooltip >}}flows{{< /tooltip >}} you have previously created,
 to confirm the {{< tooltip >}}CorDapp{{< /tooltip >}} works as expected.
 
 ## Learning Objectives
