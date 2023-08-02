@@ -103,12 +103,11 @@ The project containing the sample CorDapp opens.
       * A `runnodes` shell script for running all the nodes simultaneously on OSX
       * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows
 
-    See [Appendix B](#appendix-b-node-structure) for the node structure.
+    See [Appendix B](#appendix-b-node-structure-1) for the node structure.
 
-  {{< note >}}
-  `deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would create a single node as described in [Creating nodes locally]({{< relref "../node/deploy/generating-a-node.md" >}}) instead, and build your CorDapp JARs as described
-  in [Building and installing a CorDapp](cordapp-build-systems.md).
-  {{< /note >}}
+{{< note >}}
+`deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would create a single node as described in [Creating nodes locally]({{< relref "../node/deploy/generating-a-node.md" >}}) instead, and build your CorDapp JARs as described in [Building and installing a CorDapp]({{< relref "cordapp-build-systems.md" >}}).
+{{< /note >}}
 
 
 ### Step 4: Launch the sample CorDapp
