@@ -44,6 +44,10 @@ Instead SignatureSpecService was introduced which takes in a key (and a digest a
 
 ## CompositeKey.java
 
+A tree data structure that enables the representation of composite public keys, which are used to represent the signing requirements for multi-signature scenarios. A compotistee key is a lit of leaf keys and their contributing weight. Each leaf can be a conventional single key or a composite key.
+
+Keys contribute their weight to the total if they are matched by the signature.
+
 ```java
 package net.corda.v5.crypto;
 
@@ -53,11 +57,6 @@ import java.security.PublicKey;
 import java.util.Set;
 
 /**
- * A tree data structure that enables the representation of composite public keys, which are used to represent
- * the signing requirements for multi-signature scenarios. A composite key is a list
- * of leaf keys and their contributing weight, and each leaf can be a conventional single key or a composite key.
- * Keys contribute their weight to the total if they are matched by the signature.
- * <p>
  * For complex scenarios, such as <em>"Both Alice and Bob need to sign to consume a state S"</em>, we can represent
  * the requirement by creating a tree with a root {@link CompositeKey}, and <code>Alice</code> and <code>Bob</code> as children.
  * The root node would specify <strong>weights</strong> for each of its children and a <strong>threshold</strong> –
@@ -183,15 +182,13 @@ public final class CompositeKeyNodeAndWeight {
 
 ## CordaOID.java
 
+OIDs are used for the Corda platform. All entries must be defined in this file only and must not be removed.
+If an OID is incorrectly assigned, it should be marked deprecated and never reused.
+
 ```java
 package net.corda.v5.crypto;
 
 import org.jetbrains.annotations.NotNull;
-
-/**
- * OIDs used for the Corda platform. All entries MUST be defined in this file only and they MUST NOT be removed.
- * If an OID is incorrectly assigned, it should be marked deprecated and NEVER be reused again.
- */
 
 public final class CordaOID {
     private CordaOID() {}
@@ -238,6 +235,8 @@ public final class CordaOID {
 
 ## DigestAlgorithmName.java
 
+The digest algorithm name, this class is to be used in Cord hashing API.
+
 ```java
 package net.corda.v5.crypto;
 
@@ -245,9 +244,6 @@ import net.corda.v5.base.annotations.CordaSerializable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-/**
- * The digest algorithm name. This class is to be used in Corda hashing API.
- */
 @CordaSerializable
 public final class DigestAlgorithmName {
     private final String name;
@@ -324,6 +320,8 @@ public final class DigestAlgorithmName {
 
 ## DigitalSignature.java
 
+A digital signature that identifies who is the owner of the signing key used to create this signature.
+
 ```java
 package net.corda.v5.crypto;
 
@@ -344,9 +342,6 @@ public interface DigitalSignature {
     @NotNull
     byte[] getBytes();
 
-    /**
-     * A digital signature that identifies who is the owner of the signing key used to create this signature.
-     */
     @DoNotImplement
     interface WithKeyId extends DigitalSignature {
 
@@ -363,14 +358,14 @@ public interface DigitalSignature {
 
 ## KeySchemeCodes.java
 
+Key schemes are used in Corda for signing and key derivation.
+
 ```java
 package net.corda.v5.crypto;
 
 import org.jetbrains.annotations.NotNull;
 
-/**
- * Key schemes used in Corda for signing and key derivation.
- */
+
 public final class KeySchemeCodes {
     private KeySchemeCodes() {}
 
@@ -441,6 +436,8 @@ public final class KeySchemeCodes {
 
 ## KeyUtils.java
 
+Checks whether a `key` has any intersection with the keys in `otherKeys`,recurses into `key` (the first argument) if it is a composite key.
+
 ```java
 package net.corda.v5.crypto;
 
@@ -458,10 +455,6 @@ public final class KeyUtils {
     private KeyUtils() {}
 
     /**
-     * Checks whether <code>key</code> has any intersection with the keys in <code>otherKeys</code>, 
-     * recursing into <code>key</code> (the first argument) if it is a composite key. Does not match
-     * any composite keys in <code>otherKeys</code>.
-     * <p/>
      * For simple non-compound public keys, this operation simply checks if the first argument occurs in the
      * second argument. If <code>key</code> is a compound key, the outcome is whether any of its leaf keys
      * are in <code>otherKeys</code>.
@@ -571,6 +564,8 @@ public final class MessageAuthenticationCode {
 
 ## SecureHash.java
 
+A cryptographically secure hash value, computed by a specified digest algorithm.
+
 ```java
 package net.corda.v5.crypto;
 
@@ -579,7 +574,6 @@ import net.corda.v5.base.annotations.DoNotImplement;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * A cryptographically secure hash value, computed by a specified digest algorithm ({@link DigestAlgorithmName}).
  * A {@link SecureHash} can be computed and acquired through the {@link net.corda.v5.application.crypto.DigestService}.
  */
 @DoNotImplement
@@ -618,6 +612,8 @@ public interface SecureHash {
 
 ## SignatureSpec.java
 
+A digital signature scheme.
+
 ```java
 package net.corda.v5.crypto;
 
@@ -626,9 +622,6 @@ import net.corda.v5.base.annotations.DoNotImplement;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-/**
- * A digital signature scheme.
- */
 @CordaSerializable
 @DoNotImplement
 public interface SignatureSpec {
