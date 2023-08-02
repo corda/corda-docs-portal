@@ -45,7 +45,7 @@ The following is an example properties file for a Kafka cluster using TLS and SA
    ```
    The examples that follow assume that this file is called `config.properties`.
 
-3. Use the Corda CLI to assist in the creation of the topics prior to Corda installation in one of two ways:
+3. Use the {{< tooltip >}}Corda CLI{{< /tooltip >}} to assist in the creation of the topics prior to Corda installation in one of two ways:
     * [Topic Creation by Direct Connection](#topic-creation-by-direct-connection)
     * [Topic Creation by Scripting](#topic-creation-by-scripting)
 

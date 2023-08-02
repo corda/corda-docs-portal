@@ -42,7 +42,7 @@ You should always sign test CPBs with a different key used only for testing. The
 
 ### Build a CPB Using the Corda CLI
 
-To build a CPB using the Corda CLI:
+To build a CPB using the {{< tooltip >}}Corda CLI{{< /tooltip >}}:
 
 1. Generate a code signing key. For example: 
 

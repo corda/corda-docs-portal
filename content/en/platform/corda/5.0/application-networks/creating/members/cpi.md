@@ -129,7 +129,7 @@ To join a group, members must use a group policy file exported from the MGM of t
 If you are onboarding a notary, you need to import the [notary CPB code signing certificate]({{< relref "../notaries.md#import-notary-cpb-code-signing-certificate" >}}) before you create the notary CPI.
 {{< /note >}}
 
-Build a CPI using the Corda CLI, passing in the member CPB, the `GroupPolicy.json` file exported from the MGM, and the details of the keystore certificate used to sign the CPB. 
+Build a CPI using the {{< tooltip >}}Corda CLI{{< /tooltip >}}, passing in the member CPB, the `GroupPolicy.json` file exported from the MGM, and the details of the keystore certificate used to sign the CPB. 
 
    {{< tabs name="build-cpi">}}
    {{% tab name="Bash" %}}
