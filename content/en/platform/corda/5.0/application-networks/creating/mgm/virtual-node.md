@@ -1,16 +1,17 @@
 ---
 date: '2023-04-07'
 version: 'Corda 5.0'
-title: "Create a Virtual Node"
+title: "Create a Virtual Node for the MGM"
 menu:
   corda5:
     parent: corda5-networks-mgm
     identifier: corda5-networks-mgm-virtual-node
     weight: 2000
+    name: "Create a Virtual Node"
 section_menu: corda5
 ---
 
-# Create a Virtual Node
+# Create a Virtual Node for the MGM
 
 You can create a virtual node using the POST method of the [/api/v1/virtualnode endpoint](../../../reference/rest-api/C5_OpenAPI.html#tag/Virtual-Node-API/operation/post_virtualnode). The following sections describe how to use this method:
 * [Create a Virtual Node on Linux or macOS](#create-a-virtual-node-on-linux-or-macos)

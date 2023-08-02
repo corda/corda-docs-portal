@@ -7,6 +7,7 @@ menu:
     parent: corda5-networks-mgm
     identifier: corda5-networks-mgm-key-pairs
     weight: 3000
+    name:  "Configure Key Pairs and Certificates"
 section_menu: corda5
 ---
 # Configure Key Pairs and Certificates for the MGM
