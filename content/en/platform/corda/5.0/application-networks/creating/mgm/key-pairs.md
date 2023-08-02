@@ -11,7 +11,7 @@ section_menu: corda5
 ---
 # Configure Key Pairs and Certificates for MGM
 
-This section describes how to configure key pairs and certificates to the MGM. It contains the following:
+This section describes how to configure key pairs and certificates for the MGM. It contains the following:
 1. [Generate a Session Initiation Key Pair]({{< relref "#generate-a-session-initiation-key-pair">}})
 2. [Generate ECDH Key Pair]({{< relref "#generate-ecdh-key-pair">}})
 2. [Configure the Cluster TLS Key Pair]({{< relref "#configure-the-cluster-tls-key-pair">}})
