@@ -14,7 +14,7 @@ This section lists the Corda CLI `initial-config` arguments. You can use these c
 
 ## create-user-config 
 
-The `create-user-config` command creates the SQL script to add the RBAC configuration for an initial admin user. 
+The `create-user-config` command creates the SQL script to add the {{< tooltip >}}RBAC{{< /tooltip >}} configuration for an initial admin user. 
 
 | <div style="width:160px">Argument</div> | Description                                   |
 | --------------------------------------- | --------------------------------------------- |
@@ -77,9 +77,9 @@ The `create-crypto-config` command creates the SQL statements to insert the init
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | -l, \-\-location                        | The path to write the generated SQL files to.                                                                                                    |
 | -p, \-\-passphrase                      | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the database worker. |
-| -s, \-\-salt                            | Salt for the encrypting secrets service. This must match the value specified in the Corda deployment configuration for the database worker.            |
-| -wp, \-\-wrapping-passphrase            | The passphrase for the soft HSM root wrapping key.                                                                                               |
-| -ws, \-\-wrapping-salt                  | Salt for the soft HSM root wrapping key.                                                                                                         |
+| -s, \-\-salt                            | Salt for the encrypting secrets service. This must match the value specified in the Corda deployment configuration for the database worker.             |
+| -wp, \-\-wrapping-passphrase            | The passphrase for the key derivation function for the root wrapping key. Used to protect all crypto database content via a second set of wrapping keys.                                                                                               |
+| -ws, \-\-wrapping-salt                  | The salt for the key derivation function for the root wrapping key. Used to protect all crypto database content via a second set of wrapping keys.                                                                                                         |
 
 {{< tabs name="DDL-crypto-config">}}
 {{% tab name="Bash" %}}

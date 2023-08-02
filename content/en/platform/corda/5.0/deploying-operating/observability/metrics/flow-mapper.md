@@ -14,7 +14,7 @@ section_menu: corda5
 # Flow Mapper
 
 The flow mapper acts as a gateway component in the flow engine, to ensure that requests originating from outside the
-Corda cluster are deduplicated correctly. Mapper metrics give an indication of the health and performance of this component.
+Corda {{< tooltip >}}cluster{{< /tooltip >}} are deduplicated correctly. Mapper metrics give an indication of the health and performance of this component.
 
 <style>
 table th:first-of-type {
@@ -35,7 +35,7 @@ table th:nth-of-type(4) {
 | :----------- | :----------- | :----------- | :----------- |
 | `corda_flow_mapper_event_processing_time_seconds` | Timer | <ul><li>`flow_event`</li></ul> | The time it took to process a single message in the flow mapper. |
 | `corda_flow_mapper_deduplication_count` | Counter | <ul><li>`flow_event`</li></ul> | The number of events dropped due to deduplication of start events by the mapper. |
-| `corda_flow_mapper_creation_count` | Counter | <ul><li>`flow_event`</li></ul> | The number of new states being created. |
+| `corda_flow_mapper_creation_count` | Counter | <ul><li>`flow_event`</li></ul> | The number of new {{< tooltip >}}states{{< /tooltip >}} being created. |
 | `corda_flow_mapper_cleanup_count` | Counter | None | The number of states being cleaned up. |
 | `corda_flow_mapper_event_lag` | Counter | <ul><li>`flow_event`</li></ul> | The time between a mapper event being published and processed. |
 | `corda_flow_mapper_expired_session_event_count` | Counter | None | The number of expired session events dropped by the mapper. |

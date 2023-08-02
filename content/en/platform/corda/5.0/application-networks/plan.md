@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 # Planning Application Networks
-Planning an application network (business network) requires some thought and consideration with regard to cluster deployment and topology, onboarding processes, security policy, and data sovereignty.
+Planning an {{< tooltip >}}application network{{< /tooltip >}} (business network) requires some thought and consideration with regard to {{< tooltip >}}cluster{{< /tooltip >}} deployment and topology, onboarding processes, security policy, and data sovereignty.
 
 ## Network Onboarding
 Corda is a permissioned network, where the Network Operator makes decisions as to who can and cannot join the network. Typically, there are commercial and contractual agreements defined as part of the onboarding process.
@@ -18,7 +18,7 @@ Corda is a permissioned network, where the Network Operator makes decisions as t
 The onboarding process may fall under regulations, such as Know Your Customer (KYC) in order to address anti-money laundering. Network Operators must decide the level of due diligence that must be performed before participants can be onboarded to their network. Network Operators will also decide whether to use automated approval or manual approval processes to accept and decline registration requests.
 
 ## Security Policy
-Network participants are identified by an X.509 certificate issued to that entity. The certificate issuing authority (Certificate Authority) is part of a public key infrastructure (PKI) that is trusted by the Network Operator. The PKI could be a public infrastructure whose public keys are published and typically stored in web browsers, so that they do not need to be manually downloaded and trusted.
+Network participants are identified by an X.509 certificate issued to that entity. The certificate issuing authority (Certificate Authority) is part of a ({{< tooltip >}}PKI{{< /tooltip >}}) that is trusted by the Network Operator. The PKI could be a public infrastructure whose public keys are published and typically stored in web browsers, so that they do not need to be manually downloaded and trusted.
 
 Alternatively, the PKI used to issue certificates to network participants could be a private PKI, typically owned and managed by the Network Operator. These private Certificate Authories must be trusted by the network participants.
 
@@ -37,4 +37,4 @@ The Corda cluster can be deployed either in a single cluster or multi-cluster to
 * In a centralized model (typically a single Corda cluster approach) the application network is managed centrally, along with managing any participating members, all under a single infrastructure.
 * In a decentralized model (typically a multi-cluster approach) the network participants run their own Corda infrastructure and deploy their own virtual nodes. Network Operators will need to consider the security of inter-cluster communications and latency.
 
-Additionally, there is the consideration of the Notary virtual node and the Corda infrastructure that it is to be deployed to, whether centralized or de-centralized.
+Additionally, there is the consideration of the {{< tooltip >}}notary{{< /tooltip >}} virtual node and the Corda infrastructure that it is to be deployed to, whether centralized or de-centralized.

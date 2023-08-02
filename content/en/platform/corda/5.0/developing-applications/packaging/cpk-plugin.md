@@ -279,7 +279,7 @@ tasks.named('jar', Jar) {
 
 The `cordapp-cpk2` plugin creates a Bnd `-exportcontents` command to generate the JAR's OSGi `Export-Package` header.
 By default, it will automatically add every package inside the JAR to this `-exportcontents` command. The assumption
-here is that a CorDapp does not have a complicated package structure, and that Corda's OSGi sandboxes provides
+here is that a CorDapp does not have a complicated package structure, and that Corda's OSGi {{< tooltip >}}sandboxes{{< /tooltip >}} provides
 additional CorDapp isolation.
 
 CorDapp developers who wish to configure their package exports more precisely can disable this default behaviour in the `jar` task:
@@ -393,10 +393,10 @@ list to the `Required-Packages` key. It will completely override the plugin's ha
 Required-Packages=org.foo,org.bar
 ```
 
-#### Corda API Imports
+#### CorDapp API Imports
 
 Any CPK written for Corda 5.x must be compatible with every release of Corda 5.x. This requires the `cordapp-cpk2` plugin
-to apply an explicit OSGi "consumer policy" for every Corda API package that the CPK may use:
+to apply an explicit OSGi "consumer policy" for every CorDapp API package that the CPK may use:
 
 ```
 version='${range;[=,+);${@}}'

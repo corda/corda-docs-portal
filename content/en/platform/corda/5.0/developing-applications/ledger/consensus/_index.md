@@ -14,7 +14,7 @@ section_menu: corda5
 
 Transactions must achieve both *validity* consensus and *uniqueness* consensus to be committed to the ledger:
 
-* Validity consensus determines if a transaction is accepted by the smart contracts it references.
+* Validity consensus determines if a transaction is accepted by the {{< tooltip >}}smart contracts{{< /tooltip >}} it references.
 * Uniqueness consensus prevents double-spends.
 
 ## Consensus on Corda
@@ -27,7 +27,7 @@ Corda is different. Corda's notary service enables you to achieve consensus by p
 
 Validity consensus checks that, for the proposed transaction and for every transaction in the backchain that generated the inputs to the proposed transaction:
 
-* The transaction is accepted by the contracts of every input and output state.
+* The transaction is accepted by the contracts of every input and output {{< tooltip >}}state{{< /tooltip >}}.
 * The transaction has all the required signatures.
 
 This is called *walking the chain*.

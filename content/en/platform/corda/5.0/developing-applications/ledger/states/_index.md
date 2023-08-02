@@ -12,7 +12,7 @@ section_menu: corda5
 
 # States
 
-States represent facts on the ledger. Facts evolve on the ledger when participants create new states and mark outdated states as consumed. Each participant has a [vault]({{< relref "../vault/_index.md">}}) where it stores the states it shares with other nodes.
+{{< tooltip >}}States{{< /tooltip >}} represent facts on the ledger. Facts evolve on the ledger when participants create new states and mark outdated states as consumed. Each participant has a [vault]({{< relref "../vault/_index.md">}}) where it stores the states it shares with other nodes.
 
 A state is an immutable object representing a fact known by one or more participants at a specific point in time. You can use states to represent any type of data, and any kind of fact. For example, a financial instrument, Know Your Customer (KYC) data, or identity information.
 

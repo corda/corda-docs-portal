@@ -101,8 +101,7 @@ You will also need to define the environment variable `JAVA_HOME` to point to th
 
 ## JetBrains JDK
 
-Mac users should note that the best way to build a DemoBench DMG is with the [JetBrains JDK](https://github.com/JetBrains/jdk8u)
-which has [binary downloads available from BinTray](https://bintray.com/jetbrains/intellij-jdk).
+Mac users should note that the best way to build a DemoBench DMG is with the [JetBrains JDK](https://github.com/JetBrains/jdk8u).
 This JDK has some useful GUI fixes, most notably, when built with this JDK the DemoBench terminal will support emoji
 and as such, the nicer coloured ANSI progress renderer. It also resolves some issues with HiDPI rendering on
 Windows.
