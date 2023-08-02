@@ -70,7 +70,7 @@ export LEDGER_KEY_ID=<ledger-key-ID>
 
 {{< note >}}
 This step is only necessary when setting up a new cluster.
-It is only required once per cluster, allowing you to re-use the same {{< tooltip >}}TLS{{< /tooltip >}} key and certificate for the whole cluster.
+It is only required once per cluster, allowing you to re-use the same TLS key and certificate for the whole cluster.
 {{< /note >}}
 
 You must perform the same steps as those for setting up the MGM to enable peer-to-peer communication for the locally hosted identities.
