@@ -1,7 +1,7 @@
 ---
 date: '2023-04-13'
 version: 'Corda 5.0'
-title: "Configure Key Pairs and Certificates"
+title: "Configure Key Pairs and Certificates for Members"
 menu:
   corda5:
     identifier: corda5-networks-members-key-pairs
@@ -10,9 +10,9 @@ menu:
 section_menu: corda5
 ---
 
-# Configure Key Pairs and Certificates
+# Configure Key Pairs and Certificates for Members
 
-This section describes how to configure key pairs and certificates. It contains the following:
+This section describes how to configure key pairs and certificates for members. It contains the following:
 1. [Generate a Session Initiation Key Pair]({{< relref "#generate-a-session-initiation-key-pair">}})
 2. [Generate a Ledger Key Pair]({{< relref "#generate-a-ledger-key-pair">}})
 3. [Generate a TLS Key Pair]({{< relref "#generate-a-tls-key-pair">}})
