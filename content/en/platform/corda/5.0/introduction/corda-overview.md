@@ -32,7 +32,7 @@ This is achieved through the use of DLT, which allows for the creation of statef
 The technology uses cryptographic techniques to secure data and validate modifications.
 The validity of an update or modification is determined by a set of rules established within an application domain, which all members recognize as binding when an update is proposed.
 An update can only be applied when there is consensus within the domain that it is a valid proposal.
-These rules are expressed as smart contracts that are intrinsically linked with the chosen representation of the global state.
+These rules are expressed as {{< tooltip >}}smart contracts{{< /tooltip >}} that are intrinsically linked with the chosen representation of the global state.
 Every participant in the network has a view of the shared global state of data (the extent of that view depends on its visibility restrictions), which is updated in real-time as changes occur.
 This ensures that the data is accurate, transparent, and tamper-evident.
 
@@ -41,7 +41,7 @@ Blockchain is one popular type of DLT that is commonly used for cryptocurrencies
 
 ## Why DLT?
 Some of the many benefits of DLT are:
-* **Decentralization** - There is no centralized authority of control dictating what state changes can and cannot occur. Instead, parties come to a consensus about changes to the global state and this is controlled by consensus rules.
+* **Decentralization** - There is no centralized authority of control dictating what {{< tooltip >}}state{{< /tooltip >}} changes can and cannot occur. Instead, parties come to a consensus about changes to the global state and this is controlled by consensus rules.
 * **Security** - State changes are attested via signature to prevent unauthorised access and tampering is protected against. Three foundational principles apply:
   * **Confidentiality**, which is the ability of two actors to keep the data that they share private from others on a network.
   * **Integrity**, which ensures that data shared between parties is accurate, consistent, and valid over its lifecycle.

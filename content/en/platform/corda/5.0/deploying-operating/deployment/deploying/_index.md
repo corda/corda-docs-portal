@@ -291,8 +291,8 @@ workers:
 
 #### Install the REST Worker Certificate
 
-The REST worker TLS certificate is presented to a client any time a HTTPS connection is made.
-If no specific parameters are provided, a self-signed certificate is used and the connection to the REST Worker is always HTTPS. However, a warning will be emitted into the REST worker log explaining how to provide parameters for custom TLS certificates.
+The REST worker {{< tooltip >}}TLS{{< /tooltip >}} certificate is presented to a client any time a HTTPS connection is made.
+If no specific parameters are provided, a self-signed certificate is used and the connection to the {{< tooltip >}}REST Worker{{< /tooltip >}} is always HTTPS. However, a warning will be emitted into the REST worker log explaining how to provide parameters for custom TLS certificates.
 The following is required to install a valid TLS certificate:
 * The TLS certificate itself must be signed by a Certification Authority ({{< tooltip >}}CA{{< /tooltip >}}) or an intermediary.
 * A private key corresponding to the public key included in the TLS certificate.
@@ -471,7 +471,7 @@ config:
 * `<vault-URL>` is the full URL including port at which the Vault instance is reachable, not including any path.
 * `<vault-token>` must allow sufficient permissions to read from Vault at the Corda configured paths and write to the `<path-to-corda-created-secrets>`, where Corda writes secrets it creates.
 
-The passwords for the RBAC and CRYPTO schemas and VNODES database must be available in Vault before Corda is deployed. These must be available in the Vault `dbsecrets` path, under the keys `rbac`, `crypto`, and `vnodes` respectively. 
+The passwords for the {{< tooltip >}}RBAC{{< /tooltip >}} and CRYPTO schemas and VNODES database must be available in Vault before Corda is deployed. These must be available in the Vault `dbsecrets` path, under the keys `rbac`, `crypto`, and `vnodes` respectively. 
 {{< note >}}
 These keys are not tied to the schema names. If the schema names change, the key names remain `rbac`, `crypto`, and `vnodes`.
 {{< /note >}}

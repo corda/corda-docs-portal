@@ -121,7 +121,7 @@ Ultimately, each member of the network must be able to attest to the validity of
 
 ### Validity and Smart Contracts
 
-The validity of a proposal is evaluated within a decentralized system through a set of rules that each proposal must meet in order to be considered valid. Generally, this collection of rules is referred to as a smart contract and each proposed update will be governed by it.
+The validity of a proposal is evaluated within a decentralized system through a set of rules that each proposal must meet in order to be considered valid. Generally, this collection of rules is referred to as a {{< tooltip >}}smart contract{{< /tooltip >}} and each proposed update will be governed by it.
 
 Smart contracts can have different levels of granularity (network-wide or individual data representations) but the same general principles hold true that a proposal is only valid when the smart contract says it is. Rules in Corda can be arbitrary; however, there is a strong requirement that validity controls are deterministic as once evaluated as valid, checks on a change in the future must always return that it is valid. This means smart contracts can only reason about data present within the system of record: anything outside that generally leads to non-deterministic results as their presence cannot be guaranteed. 
 

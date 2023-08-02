@@ -17,7 +17,7 @@ Participants are members in the same [application network]({{< relref "../../app
 
 Each participant's copy of the ledger is held in their [vault]({{< relref "./vault/_index.md" >}}). Each participant has a different view of the ledger, depending on the facts it shares. Participants who share a fact must reach consensus before it is committed to the ledger. Two participants always see the exact same version of any on-ledger facts that they share.
 
-Corda does not have a central store of data. Each participant maintains its own database of [states]({{< relref "./states/_index.md" >}}) in their vault. This is information the particiapnt knows to be true based on its interactions. For example, if there are virtual nodes representing Alice and Bob on the network and Alice loans Bob some money, both Alice and Bob store an identical record of the facts about that loan. If the only parties involved with the loan are Alice and Bob, then they are the only nodes that ever see or store this data.
+Corda does not have a central store of data. Each participant maintains its own database of [states]({{< relref "./states/_index.md" >}}) in their vault. This is information the participant knows to be true based on its interactions. For example, if there are virtual nodes representing Alice and Bob on the network and Alice loans Bob some money, both Alice and Bob store an identical record of the facts about that loan. If the only parties involved with the loan are Alice and Bob, then they are the only nodes that ever see or store this data.
 
 This diagram shows a network with five participants (Alice, Bob, Carl, Demi, and Ed). Each numbered circle on an intersection represents a fact shared between two or more nodes:
 

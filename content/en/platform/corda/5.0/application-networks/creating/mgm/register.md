@@ -173,5 +173,5 @@ The only remaining step is for the Network Operator to review and approve the re
 REST API before the member's registration request takes effect. To view requests pending manual approval, see
 [Viewing Requests Pending Manual Approval]({{< relref "../../managing/registration-requests/reviewing-registration-requests.html#viewing-requests-pending-manual-approval" >}}).
 * `PENDING_MEMBER_VERIFICATION`: The MGM has completed initial validation of the registration request and is now waiting
-for the registering member to respond to a P2P message in order to validate the provided session initiation key and P2P endpoint.
+for the registering member to respond to a P2P message in order to validate the provided {{< tooltip >}}session initiation key{{< /tooltip >}} and P2P endpoint.
 * `FAILED`: The registration request submitted via the REST API passed initial validation on the member’s cluster but failed to be sent to the MGM.

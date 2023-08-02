@@ -33,7 +33,7 @@ Module: chainable
 
 Package: com.r3.corda.ledger.utxo.chainable
 
-The Chainable API provides the component model for designing chainable states and contracts. Chainable states represent strictly linear state chains, where every state in the chain points to the previous state in the chain. This could be thought of as a similar concept to a blockchain, where each new block points to the previous block.
+The Chainable API provides the component model for designing chainable {{< tooltip >}}states{{< /tooltip >}} and contracts. Chainable states represent strictly linear state chains, where every state in the chain points to the previous state in the chain. This could be thought of as a similar concept to a blockchain, where each new block points to the previous block.
 
 #### Designing Chainable States
 

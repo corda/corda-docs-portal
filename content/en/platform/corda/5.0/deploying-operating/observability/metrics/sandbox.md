@@ -13,8 +13,7 @@ section_menu: corda5
 
 # Sandbox
 
-Corda 5 sandbox is used to support Corda's stability and security when operating in a highly-available and multi-tenant
-configuration, allowing a safe execution environment within a JVM process that provides isolation for CorDapps.
+The Corda 5 {{< tooltip >}}sandbox{{< /tooltip >}} is used to support Corda's stability and security when operating in a highly-available and multi-tenant configuration, allowing a safe execution environment within a JVM process that provides isolation for CorDapps.
 
 <style>
 table th:first-of-type {

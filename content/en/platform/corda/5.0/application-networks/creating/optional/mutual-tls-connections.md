@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Mutual TLS Connections
 
-Corda 5 uses TLS to secure a connection between two clusters. While establishing a TLS connection between the gateways of two clusters, the server gateway sends its certificate to the client gateway. The client gateway verifies the server certificate using its trust root certificate. In mutual TLS, in addition to the client verifying the server certificate, the server gateway also requests the client gateway send a client certificate and verifies that it is using its trust root certificate.
+Corda 5 uses {{< tooltip >}}TLS{{< /tooltip >}} to secure a connection between two clusters. While establishing a TLS connection between the gateways of two clusters, the server gateway sends its certificate to the client gateway. The client gateway verifies the server certificate using its trust root certificate. In mutual TLS, in addition to the client verifying the server certificate, the server gateway also requests the client gateway send a client certificate and verifies that it is using its trust root certificate.
 
 As the gateway manages the TLS connections for an entire {{< tooltip >}}cluster{{< /tooltip >}}, the TLS mode (mutual or one-way) is defined in the gateway configuration and applies to the entire cluster. As a result, any group hosted in a mutual TLS cluster must be a mutual TLS group, and all its members must be hosted on a mutual TLS cluster.
 
@@ -52,7 +52,7 @@ If using Bash, perform the following steps to enable mutual TLS by configuring t
    ```shell
    curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.p2p.gateway", "version":"'$CONFIG_VERSION'", "config":"{ \"sslConfig\": { \"tlsType\": \"MUTUAL\"  }  }", "schemaVersion": {"major": 1, "minor": 0}}' $REST_API_URL"/config"
    ```
-   This command overwrites the revocation check setting. If you chose to disable revocation checks, use the following command instead:
+   This command overwrites the {{< tooltip >}}revocation check{{< /tooltip >}} setting. If you chose to disable revocation checks, use the following command instead:
 
    ```shell
    curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.p2p.gateway", "version":"'$CONFIG_VERSION'", "config":"{ \"sslConfig\": { \"tlsType\": \"MUTUAL\" , \"revocationCheck\": {\"mode\" : \"OFF\"} } }", "schemaVersion": {"major": 1, "minor": 0}}' $REST_API_URL"/config"

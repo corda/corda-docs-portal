@@ -25,7 +25,7 @@
     },
     "CPI": {
         "definition": "Corda Package Installer. A signed ZIP/JAR combination of a CPB and a Group Policy File that defines not only the application code that a virtual node will run, but also the details of the MGM with which to register, and the details of network PKI requirements.",
-        "more": "A CPI must be installed into a Corda Cluster before creating and registering a virtual node, as it defines the application software that will be run and the requirements for membership on that network. For more information, see <a href=\"../developing-applications/packaging.html\">Packaging</a>.​"
+        "more": "A CPI must be installed into a Corda Cluster before creating and registering a virtual node, as it defines the application software that will be run and the requirements for membership on that network. For more information, see <a href=\"../developing-applications/packaging.html\">Packaging</a>."
     },
     "Autoscaling": {
         "definition": "A technique used to automatically adjust the amount of computing resources allocated to an application or service based on its workload.",
@@ -92,7 +92,7 @@
         "more": "Similarly, when a CorDapp sends messages to a peer, the flow worker is responsible for the higher level retry, deduplication, and re-ordering of messages above and beyond the simple packet retries of the Link Manager messaging layer. In the case of unrecoverable errors, or loss of synchronization between virtual nodes, the flow worker signals the errors via the REST worker APIs and abort any remote operations that have been started in peers. In combination with the platform ledger code, this ensures that ledger operations operate atomically across peers."
     },
     "Gateway worker": {
-        "definition": "A worker designed to communicate with external Corda Clusters via HTTPS. They have restricted access only to specific topics on the Kafka bus and view only the minimum information needed for their role. The gateway workers are the only component of the cluster with access to the wider network and transfer Link Manager session messages taken from Kafka, then using HTTPS POST to send to the peer's gateway worker. ​",
+        "definition": "A worker designed to communicate with external Corda Clusters via HTTPS. They have restricted access only to specific topics on the Kafka bus and view only the minimum information needed for their role. The gateway workers are the only component of the cluster with access to the wider network and transfer Link Manager session messages taken from Kafka, then using HTTPS POST to send to the peer's gateway worker.",
         "more": "After local validation is received, messages are placed onto Kafka for the Link Manager to process. The gateway workers play the important role of establishing and validating the TLS links established to peer Corda Clusters and accessing external resources such as certificate revocation servers, or border proxies. Gateway workers have no direct access to any keys and can only request that the crypto workers sign the TLS handshake data via a specific Kafka topic. Crucially, the gateway worker has no ability to access the keys used in the Ledger, or by the Link Manager."
     },
     "Helm": {
@@ -156,12 +156,12 @@
         "more": "The CPI files point at the MGM server, so that when a virtual node is created, the node contains the PKI policies and addresses the MGM. The MGM server is responsible for accepting membership proposals. For users coming from Corda 4, MGM replaces CENM. For more information, see <a href=\"../application-networks/creating/mgm.html\">Onboarding the MGM</a>."
     },
     "PKI": {
-        "definition": "A comprehensive system of hardware, software, policies, and procedures that enables the secure creation, distribution, management, and revocation of digital certificates and public-key cryptography.",
+        "definition": "Public key infrastructure. A comprehensive system of hardware, software, policies, and procedures that enables the secure creation, distribution, management, and revocation of digital certificates and public-key cryptography.",
         "more": ""
     },
     "P2P Link Manager worker": {
         "definition": "A Worker that manages the secure transmission of packets to peers. The main functional component is the Link Manager which establishes end-to-end secure sessions for virtual nodes to communicate over.",
-        "more": "The Link Manager uses the data provided to it by the membership worker to translate virtual node names on Cordapp packets to physical HTTPS destination addresses and requests the gateway worker to transmit its secured packets to the peers. If packets cannot be delivered the Link Manager also manages redelivery, possibly via alternate gateway workers.​"
+        "more": "The Link Manager uses the data provided to it by the membership worker to translate virtual node names on CorDapp packets to physical HTTPS destination addresses and requests the gateway worker to transmit its secured packets to the peers. If packets cannot be delivered the Link Manager also manages redelivery, possibly via alternate gateway workers."
     },
     "RBAC": {
         "definition": "Role-based access control. Also known as role-based security. A permission system to restrict system access based on assigned permissions.",
@@ -172,10 +172,10 @@
         "more": ""
     },
     "REST worker": {
-        "definition": "A Worker that exposes the intranet HTTPS REST control ports of the Corda cluster. The REST workers support all the dynamic administration APIs of the cluster, such as APIs to configure the cluster, or setup user role based permissions, or create and register virtual nodes. They also provide the virtual node endpoint APIs for invoking the flows and the ledger applications and retrieving their status/results. ​",
+        "definition": "A Worker that exposes the intranet HTTPS REST control ports of the Corda cluster. The REST workers support all the dynamic administration APIs of the cluster, such as APIs to configure the cluster, or setup user role based permissions, or create and register virtual nodes. They also provide the virtual node endpoint APIs for invoking the flows and the ledger applications and retrieving their status/results.",
         "more": "All REST calls must be authenticated and authorized, typically using OAUTH2 for login/authentication and Role Based Access Controls checked against a user permissions database."
     },
-    "Revocation checks": {
+    "Revocation check": {
         "definition": "In the context of X.509 certificates, revocation checks refer to the process of verifying whether a digital certificate is still valid and has not been revoked by the issuing Certificate Authority (CA). Revocation checks are typically performed using mechanisms such as Certificate Revocation Lists (CRLs) or the Online Certificate Status Protocol (OCSP), which provide up-to-date information on the revocation status of certificates.",
         "more": ""
     },
@@ -211,8 +211,8 @@
         "definition": "Certificates used to validate peer-to-peer (P2P) connectivity.",
         "more": ""
     },
-    "TLS key and certificates​": {
-        "definition": "The PKI keys and certificates that are used in the gateway workers when establishing TLS links to other Gateway Workers. Typically, they are selected by Server Name Indication (SNI) to match the expected target of the communication.​",
+    "TLS key and certificates": {
+        "definition": "The PKI keys and certificates that are used in the gateway workers when establishing TLS links to other Gateway Workers. Typically, they are selected by Server Name Indication (SNI) to match the expected target of the communication.",
         "more": ""
     },
     "Time windows": {

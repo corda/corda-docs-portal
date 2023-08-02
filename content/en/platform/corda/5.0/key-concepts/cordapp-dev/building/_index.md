@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Tech Stack
 
-CorDapps, consisting of flows, and optionally states and contracts, are “pieces of code” hosted by the Corda runtime. This code can be written in a JVM compatible language. Java and Kotlin are officially supported. Currently, Corda 5 supports CorDapps compiled using Azul Zulu JDK 17. Other OpenJDK compatible Java 11 SDKs may also work but have not been fully tested.
+CorDapps, consisting of flows, and optionally {{< tooltip >}}states{{< /tooltip >}} and contracts, are “pieces of code” hosted by the Corda runtime. This code can be written in a JVM compatible language. Java and Kotlin are officially supported. Currently, Corda 5 supports CorDapps compiled using Azul Zulu JDK 17. Other OpenJDK compatible Java 11 SDKs may also work but have not been fully tested.
 
 CorDapps are simply code, written in a JVM compatible language, compiled into a special type of JAR called a {{< tooltip >}}CPK{{< /tooltip >}}. These CPKs are compiled using the [Gradle plugin]({{< relref "../../../developing-applications/packaging/cpk-plugin.md" >}}). See the [Corda 5 Samples repository](https://github.com/corda/corda5-samples) for an example of a typical CorDapp.
 
@@ -183,7 +183,7 @@ There are different types of workers that each have their own operational respon
 
 Two of these worker types, the flow worker and the database worker, are special because they host CorDapp code. 
 They act as an application server for the code in the CPKs that are part of the CorDapp. 
-This code runs inside a Corda sandbox. There are three different types of sandboxes:
+This code runs inside a Corda {{< tooltip >}}sandbox{{< /tooltip >}}. There are three different types of sandboxes:
 * Flow - the flow engine host. This exists in the flow worker and is responsible for executing all flow code.
 * Persistence - hosted by the database worker. This takes instructions from the flow engine to persist states or custom objects. For this reason, it needs to parse custom entity classes that are part of the CorDapp.
 * Verify - this is hosted by the flow worker but is exclusively responsible for contract verification.
