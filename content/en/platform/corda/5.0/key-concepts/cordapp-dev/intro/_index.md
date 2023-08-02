@@ -94,7 +94,7 @@ In an example with multiple borrowers in the network, this could result in the f
 >}}
 
 As shown, the lender’s vault contains all loans, but borrowers Alice and Bob can only see the loans related to them. 
-This is referred to as a Distributed Ledger.
+This is referred to as a {{< tooltip >}}Distributed Ledger{{< /tooltip >}}.
 
 It is worth noting that while flows usually involve multiple parties, they do not have to. Sometimes flows that only involve the initiating party are required. Examples of this are minting tokens or providing a read API for states already in the vault.
 

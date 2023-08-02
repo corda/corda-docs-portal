@@ -46,7 +46,7 @@ This is enforced at the platform level.
 
 ## Peer-to-Peer Communication
 
-Corda is different from other distributed ledger systems in that all communication between nodes is peer-to-peer, and only shared on a need-to-know basis. It is also encrypted using TLS (Transport Layer Security). 
+Corda is different from other {{< tooltip >}}distributed ledger{{< /tooltip >}} systems in that all communication between nodes is peer-to-peer, and only shared on a need-to-know basis. It is also encrypted using TLS (Transport Layer Security). 
 There are no global broadcasts to all nodes on a network, but all nodes in a network can send messages directly to each other. 
 If the recipient is offline, the message waits in an outbound queue until they are online again, just like an e-mail.
 
