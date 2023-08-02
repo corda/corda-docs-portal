@@ -45,7 +45,7 @@ repository, make your changes, and submit a pull request targeting the `main` br
 
 ### Steps
 1. Fork the [corda-docs-portal](https://github.com/corda/corda-docs-portal/) repository and add it as upstream (or sync your existing
-   fork with the upstream repo’s `main` branch - see below for instructions).
+   fork with the upstream repo’s `main` branch - see [Keep your fork in sync with the upstream repo]({{< relref "#keep-your-fork-in-sync-with-the-upstream-repo" >}})).
 2. Edit the documentation files in a new branch in your fork.
 3. Commit and push the changes to your fork.
 4. Create a pull request targeting the `main` branch in the upstream repo. Your pull request will be auto-assigned to R3's
