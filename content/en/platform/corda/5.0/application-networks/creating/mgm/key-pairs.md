@@ -9,7 +9,7 @@ menu:
     weight: 3000
 section_menu: corda5
 ---
-# Configure Key Pairs and Certificates for MGM
+# Configure Key Pairs and Certificates for the MGM
 
 This section describes how to configure key pairs and certificates for the MGM. It contains the following:
 1. [Generate a Session Initiation Key Pair]({{< relref "#generate-a-session-initiation-key-pair">}})
