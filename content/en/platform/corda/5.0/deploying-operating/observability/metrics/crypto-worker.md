@@ -13,9 +13,9 @@ section_menu: corda5
 
 # Crypto Worker
 
-The crypto worker is responsible for handling crypto operations in Corda, such as signing. It is the only worker that hosts keys owned by the Corda cluster, as well as keys owned by the virtual nodes required for crypto operations.
+The crypto worker is responsible for handling crypto operations in Corda, such as signing. It is the only worker that hosts keys owned by the Corda {{< tooltip >}}cluster{{< /tooltip >}}, as well as keys owned by the virtual nodes required for crypto operations.
 
-The keys of the virtual nodes are stored in dedicated databases per virtual node, while the keys of the Corda cluster are stored in a dedicated database for cluster keys. In addition to the database, there are caches universal to all virtual nodes that hold the keys in memory for faster lookup.
+The keys of the virtual nodes are stored in dedicated databases per {{< tooltip >}}virtual node{{< /tooltip >}}, while the keys of the Corda cluster are stored in a dedicated database for cluster keys. In addition to the database, there are caches universal to all virtual nodes that hold the keys in memory for faster lookup.
 
 The crypto requests can be categorized into {{< tooltip >}}flow{{< /tooltip >}} requests and everything else. Flow requests to the crypto processor are of more importance in terms of metrics as they occur frequently and impact the time taken to complete flows. With the crypto worker metrics, you can measure the below crypto requests within the crypto worker:
 
@@ -59,7 +59,7 @@ table th:nth-of-type(4) {
 
 Tags:
 * `operation_name`: The name of the operation that the metric is related to.
-* `tenant`: The identifier of a tenant: it's either a virtual node identifier or a category for cluster level keys, for example TLS.
+* `tenant`: The identifier of a tenant: it's either a virtual node identifier or a category for cluster level keys, for example {{< tooltip >}}TLS{{< /tooltip >}}.
 * `signature_spec`: The signature signing scheme name to create signatures during crypto signing operations.
 * `lookup_method`: The method used to look up signing key IDs, either public key IDs or public key short IDs.
 * `publickey_type`: The type of public key used in sign operations.

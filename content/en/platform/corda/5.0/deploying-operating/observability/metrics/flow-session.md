@@ -37,5 +37,5 @@ table th:nth-of-type(4) {
 | `corda_flow_session_messages_outgoing_count` | Counter | <ul><li>`virtualnode`</li><li>`flow_class`</li></ul> | The number of messages sent by sessions. |
 
 Tags:
-* `virtualnode`: The short hash of the virtual node to which a metric applies.
+* `virtualnode`: The short hash of the {{< tooltip >}}virtual node{{< /tooltip >}} to which a metric applies.
 * `flow_class`: The flow class for the metric.

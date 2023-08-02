@@ -48,7 +48,7 @@ table th:nth-of-type(4) {
 | `corda_flow_scheduled_wakeup_count` | Counter | None | The number of times a scheduled wakeup is published for flows. |
 
 Tags:
-* `virtualnode`: The short hash of the virtual node to which a metric applies.
+* `virtualnode`: The short hash of the {{< tooltip >}}virtual node{{< /tooltip >}} to which a metric applies.
 * `flow_class`: The flow class for the metric.
 * `status`: Indicates whether an operation succeeded or failed.
 * `flow_event`: The type of event that was being processed for a given metric.

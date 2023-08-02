@@ -22,7 +22,7 @@ Where:
 
 * `chatName` is a human readable name for the chat, it does not guarantee uniqueness.
 
-* `messageFrom` is the `MemberX500Name` for the virtual node which created this ChatState.
+* `messageFrom` is the `MemberX500Name` for the {{< tooltip >}}virtual node{{< /tooltip >}} which created this ChatState.
 
 * `message` is the message in the Chat.
 
@@ -32,13 +32,13 @@ The history of a chat will be recorded in the backchain of the chat.
 
 ### Chat Smart Contract
 
-The Smart Contract (combination of the ChatState and ChatContract) can be represented by a simple Smart Contract View diagram:
+The {{< tooltip >}}Smart Contract{{< /tooltip >}} (combination of the ChatState and ChatContract) can be represented by a simple Smart Contract View diagram:
 
 {{< figure src="chat-smart-contract-view.png" figcaption="Smart Contract View diagram" alt="Smart Contract View diagram" >}}
 
  {{< note >}}
 
-* In CDL the arrows represent transactions with the indicated command type. The state at the beginning of the arrow represents the input state, the state at the end of the arrow represents the output state for the transaction.
+* In CDL the arrows represent transactions with the indicated command type. The state at the beginning of the arrow represents the input state, the state at the end of the arrow represents the output state for the {{< tooltip >}}transaction{{< /tooltip >}}.
 * There is no ChatState status in this simple design.
 
 * The multiplicities (numbers on the arrows) indicate that for the create command there should be no input state and one output ChatState.

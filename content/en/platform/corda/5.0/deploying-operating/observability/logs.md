@@ -52,7 +52,7 @@ logging:
   level: "debug"
 ```
 
-You can also modify the log level for just a single type of worker. For example:
+You can also modify the log level for just a single type of {{< tooltip >}}worker{{< /tooltip >}}. For example:
 
 ```yaml
 workers:

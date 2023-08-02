@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Notaries
 
-The notary is Corda’s uniqueness consensus service. The notary’s primary role is to prevent double-spends by ensuring each transaction contains only unique unconsumed input states. It also acts as the time-stamping authority. Every transaction includes a time window and it can only be notarized during that window.   
+The notary is Corda’s uniqueness consensus service. The notary’s primary role is to prevent double-spends by ensuring each transaction contains only unique unconsumed input {{< tooltip >}}states{{< /tooltip >}}. It also acts as the time-stamping authority. Every transaction includes a time window and it can only be notarized during that window.
 A notary service is formed by one or more notary workers that together form a notary cluster. The cluster’s signature is obtained once it verifies that a proposed transaction’s input states have not already been consumed by a prior transaction. Upon determining this, the notary cluster will either:
 
 * Sign the transaction in cases where all input states are found to be unique.
@@ -20,7 +20,7 @@ A notary service is formed by one or more notary workers that together form a no
 
 Every state has an appointed notary cluster, so the cluster will only notarize a transaction if it is the appointed notary cluster of all the transaction’s input states. A network can have several notary clusters, all running different consensus algorithms.
 
-A notary service runs a notary protocol, which dictates the consensus algorithm and additional validation performed. In Corda 5.0, only the non-validating notary protocol is supported, which performs minimal additional checks beyond double-spend and time-window validation. 
+A notary service runs a notary protocol, which dictates the consensus algorithm and additional validation performed. In Corda 5.0, only the non-validating notary protocol is supported, which performs minimal additional checks beyond double-spend and time-window validation.
 
 ## Data Visibility
 
@@ -38,7 +38,7 @@ The non-validating notary protocol maintains a degree of privacy by only reveali
 | Signatures                        | Hidden                    |
 | Transaction metadata              | Fully visible             |
 
-The protocol also records the calling party’s identity in the form of its X.500 Distinguished Name.
+The protocol also records the calling party’s identity in the form of its {{< tooltip >}}X.500{{< /tooltip >}} Distinguished Name.
 
 [1] A state reference is composed of the issuing transaction’s ID and the state’s position in the outputs. It does not reveal what kind of state it is or its contents.
 

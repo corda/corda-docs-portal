@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Build and Upload the Member CPI
 
-This section describes how to build a member CPI and upload it to the network. It contains the following:
+This section describes how to build a member {{< tooltip >}}CPI{{< /tooltip >}} and upload it to the network. It contains the following:
 1. [Set Variables]({{< relref "#set-variables" >}})
 2. [Generate the Group Policy File]({{< relref "#generate-the-group-policy-file" >}})
 3. [Create the CPI File]({{< relref "#create-the-cpi-file" >}})
@@ -20,7 +20,7 @@ This section describes how to build a member CPI and upload it to the network. I
 5. [Upload the CPI]({{< relref "#upload-the-cpi" >}})
 
 {{< note >}}
-If you want to use mutual TLS, see [Configuring Mutual TLS]({{< relref "../optional/mutual-tls-connections.md#modify-the-cluster-configurations" >}}) for additonal configuration steps before you upload the CPI.
+If you want to use mutual TLS, see [Configuring Mutual TLS]({{< relref "../optional/mutual-tls-connections.md#modify-the-cluster-configurations" >}}) for additional configuration steps before you upload the CPI.
 {{< /note >}}
 
 ## Set Variables
@@ -46,7 +46,7 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{< /tabs >}}
 
-   These values vary depending on where you have deployed your cluster(s) and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`. Alternatively, you can specify the IP address of the gateway, instead of the hostname. For example, `192.168.0.1`.
+   These values vary depending on where you have deployed your {{< tooltip >}}clusters{{< /tooltip >}} and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`. Alternatively, you can specify the IP address of the gateway, instead of the hostname. For example, `192.168.0.1`.
 
 2. Set the REST API URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
    {{< tabs >}}
@@ -98,7 +98,7 @@ Set the values of variables for use in later commands:
 
 ## Generate the Group Policy File
 
-To join a group, members must use a group policy file exported from the MGM of that group. To retrieve the `GroupPolicy.json` file from the MGM:
+To join a group, members must use a {{< tooltip >}}group policy{{< /tooltip >}} file exported from the MGM of that group. To retrieve the `GroupPolicy.json` file from the MGM:
 
    {{< tabs >}}
    {{% tab name="Bash"%}}

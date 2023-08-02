@@ -23,7 +23,7 @@ Corda uses a custom form of typesafe binary serialisation. The primary drivers f
 * A desire to use a documented and static wire format that is platform independent, and is not subject to change with
   3rd party library upgrades, etc.
 * A desire to support open-ended polymorphism, where the number of subclasses of a superclass can expand over time
-  and the subclasses do not need to be defined in the schema *upfront*. This is key to many Corda concepts, such as states.
+  and the subclasses do not need to be defined in the schema *upfront*. This is key to many Corda concepts, such as {{< tooltip >}}states{{< /tooltip >}}.
 * Increased security when deserializing objects by constructing them through supported constructors, rather than having
   data inserted directly into their fields without an opportunity to validate consistency or intercept attempts to manipulate
   supposed invariants.

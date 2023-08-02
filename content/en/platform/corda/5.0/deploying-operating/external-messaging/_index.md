@@ -19,7 +19,7 @@ section_menu: corda5
 
 ## Configuring External Messaging Routes
 
-The <a href="./config/fields/externalmessaging.html">`externalMessaging` configuration section</a> specifies how Corda creates the required messaging routes when [creating a new virtual node]({{< relref "../../application-networks/creating/members/cpi.md">}}). 
+The <a href="./config/fields/externalmessaging.html">`externalMessaging` configuration section</a> specifies how Corda creates the required messaging routes when [creating a new virtual node]({{< relref "../../application-networks/creating/members/cpi.md">}}).
 You can update these using the <a href="../reference/rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/put_config">`config` endpoint</a> of the REST API. For example:
 
 {{< tabs >}}
@@ -53,9 +53,9 @@ version = 1
 
 ## Creating Kafka Topics
 
-Corda does not create Kafka topics used for external messaging. You must manually create a Kafka topic for each active and current route created for a virtual node. To determine the required topics and create these topics, do the following:
+Corda does not create Kafka topics used for external messaging. You must manually create a Kafka topic for each active and current route created for a {{< tooltip >}}virtual node{{< /tooltip >}}. To determine the required topics and create these topics, do the following:
 
-1. Retrieve the configuration of the virtual node. For more information, see [Retrieving Virtual Nodes]({{< relref "../vnodes/retrieving.md" >}}). 
+1. Retrieve the configuration of the virtual node. For more information, see [Retrieving Virtual Nodes]({{< relref "../vnodes/retrieving.md" >}}).
    If a CorDapp that implements external messaging is uploaded to a virtual node, the routes configuration is included in the response. For example:
    ```json
    {

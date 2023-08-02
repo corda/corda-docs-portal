@@ -11,7 +11,7 @@ section_menu: corda5
 ---
 # Enum Evolution
 In the continued development of a {{< tooltip >}}CorDapp{{< /tooltip >}} an enumerated type that was fit for purpose at one time may
-require changing. Normally, this would be problematic as anything serialised (and kept in a vault) would
+require changing. Normally, this would be problematic as anything serialised (and kept in a {{< tooltip >}}vault{{< /tooltip >}}) would
 run the risk of being unable to be deserialized in the future or older versions of the app still alive
 within a compatibility zone may fail to deserialize a message.
 

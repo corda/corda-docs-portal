@@ -33,7 +33,7 @@ The severity and extent of that attestation are, as previously mentioned, left t
 The Membership Group Manager (MGM) permits identities into an application network. 
 Identities wishing to join present a request containing various metadata describing them but, most importantly, their unique name and their location as an IP address.
 
-Whilst not strictly required, it is encouraged that alongside their name, identities submit a PKI (Public Key Infrastructure) certificate issued by a trusted authority, alongside the public key whose signature represents the identity's affirmation of acceptance. 
+Whilst not strictly required, it is encouraged that alongside their name, identities submit a {{< tooltip >}}PKI{{< /tooltip >}} certificate issued by a trusted authority, alongside the public key whose signature represents the identity's affirmation of acceptance. 
 
 The process of attestation is simple: identities submit their request, additionally request an escalated role, and the Network Operator either [approves or declines the request]({{< relref "../../../application-networks/managing/registration-requests/_index.md" >}}).
 
@@ -46,7 +46,7 @@ This is enforced at the platform level.
 
 ## Peer-to-Peer Communication
 
-Corda is different from other {{< tooltip >}}distributed ledger{{< /tooltip >}} systems in that all communication between nodes is peer-to-peer, and only shared on a need-to-know basis. It is also encrypted using TLS (Transport Layer Security). 
+Corda is different from other {{< tooltip >}}distributed ledger{{< /tooltip >}} systems in that all communication between nodes is peer-to-peer, and only shared on a need-to-know basis. It is also encrypted using {{< tooltip >}}TLS{{< /tooltip >}}. 
 There are no global broadcasts to all nodes on a network, but all nodes in a network can send messages directly to each other. 
 If the recipient is offline, the message waits in an outbound queue until they are online again, just like an e-mail.
 

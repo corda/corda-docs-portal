@@ -12,8 +12,7 @@ section_menu: corda5
 
 # Flows
 
-
-Communication between participants in an application network is point-to-point using flows. Flows automate the process of agreeing ledger updates between two or more participants. Built-in flows are provided to automate common tasks.
+Communication between participants in an {{< tooltip >}}application network{{< /tooltip >}} is point-to-point using flows. Flows automate the process of agreeing ledger updates between two or more participants. Built-in flows are provided to automate common tasks.
 
 ## Point-to-Point Messaging
 
@@ -21,7 +20,7 @@ Corda networks use point-to-point messaging, instead of a global broadcast model
 
 For example, the following shows Alice and Bob agreeing a ledger update using this process:
 
-{{< 
+{{<
   figure
 	 width="50%"
 	 src="flow.gif"
@@ -30,10 +29,10 @@ For example, the following shows Alice and Bob agreeing a ledger update using th
 
 ## Flow Framework
 
-Rather than having to specify these steps manually, Corda automates the process using flows. A flow is a sequence of steps that tells a virtual node how to achieve a specific ledger update, such as issuing an asset or settling a trade.
+Rather than having to specify these steps manually, Corda automates the process using flows. A flow is a sequence of steps that tells a {{< tooltip >}}virtual node{{< /tooltip >}} how to achieve a specific ledger update, such as issuing an asset or settling a trade.
 For example, the following shows the flow’s steps used between Alice and Bob to perform the ledger update:
 
-{{< 
+{{<
   figure
 	 width="50%"
 	 src="flow-sequence.png"
@@ -43,7 +42,7 @@ For example, the following shows the flow’s steps used between Alice and Bob t
 ## Running Flows
 
 Node operators use [REST]({{< relref "../../../reference/rest-api/_index.md">}}) calls to instruct their node to start a specific flow. The flow abstracts all the networking, I/O, and concurrency issues away from the node operator.
-All activity on the node occurs in the context of these flows. Unlike contracts, flows execute in a flow sandbox, meaning that nodes can perform actions such as networking, I/O, and use sources of randomness within the execution of a flow.
+All activity on the node occurs in the context of these flows. Unlike contracts, flows execute in a flow {{< tooltip >}}sandbox{{< /tooltip >}}, meaning that nodes can perform actions such as networking, I/O, and use sources of randomness within the execution of a flow.
 
 ### Inter-Node Communication
 Messages are passed from an active flow on one virtual node to an active flow on another virtual node. You can specify which flow classes a node can respond to and with what flow it responds with.

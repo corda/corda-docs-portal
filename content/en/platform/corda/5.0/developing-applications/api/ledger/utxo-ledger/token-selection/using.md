@@ -19,9 +19,9 @@ This section contains the following:
 
 ## Using the Token Claim API
 
-The following example outlines the basic building blocks to consider when using the [token selection API]({{< relref "./_index.md" >}}) with the UTXO ledger. The example only covers the token selection aspects of a {{< tooltip >}}flow{{< /tooltip >}} and omits any details about how to create [UTXO ledger transactions]({{< relref "../../../../ledger/transactions/_index.md" >}}).
+The following example outlines the basic building blocks to consider when using the [token selection API]({{< relref "./_index.md" >}}) with the {{< tooltip >}}UTXO{{< /tooltip >}} ledger. The example only covers the token selection aspects of a {{< tooltip >}}flow{{< /tooltip >}} and omits any details about how to create [UTXO ledger transactions]({{< relref "../../../../ledger/transactions/_index.md" >}}).
 
-1. Define a custom state with enough detail to create a token from:
+1. Define a custom state with enough detail to create a {{< tooltip >}}token{{< /tooltip >}} from:
    ```java
    class CoinState(
        override val participants: List<PublicKey>,
@@ -63,7 +63,7 @@ The following example outlines the basic building blocks to consider when using 
    a. Create the criteria for the type of tokens you need and set a target amount:
       ```java
       // Assume there is an issuer who has created some coin states
-      val bankX500 = MemberX500Name.parse(ISSUING_BANK_X500) 
+      val bankX500 = MemberX500Name.parse(ISSUING_BANK_X500)
       // Assume you are using a single notary
       val notary = notaryLookup.notaryServices.single()
 
@@ -81,17 +81,17 @@ The following example outlines the basic building blocks to consider when using 
       ```java
        // Query for required tokens
       val tokenClaim = tokenSelection.tryClaim(selectionCriteria)
- 
+
       // A null result indicates the query could not be satisfied
       if (tokenClaim == null) {
        return "FAILED TO FIND ENOUGH TOKENS"
       }
- 
+
       // You've claimed some tokens you can now try and spend them,
       // you must release the claim regardless of the outcome, indicating
       // how many tokens were used
       var spentCoins = listOf<StateRef>()
- 
+
       try {
          spentCoins = aSpendFunction(tokenClaim.claimedTokens)
       } finally {
@@ -102,7 +102,7 @@ The following example outlines the basic building blocks to consider when using 
 ## Using the Balance Query API
 
 The Balance Query API enables users to retrieve the balance of a pool of tokens, taking into account only the tokens that satisfy a certain criteria. Two values are calculated when the query is executed:
-* The available balance which only includes tokens that have not been spent nor claimed. 
+* The available balance which only includes tokens that have not been spent nor claimed.
 * The total balance which includes all tokens that have not been spent. That is, the total balance is the available balance plus the balance of all claimed tokens.
 
 The following example has similarities to the [Token Claim API example]({{< relref "#using-the-token-claim-api" >}}) and assumes that `CoinState` and `CoinStateObserver` have been implemented as described in that example.
@@ -117,8 +117,8 @@ To query the balance of a pool of tokens:
 2. Create the criteria that specifies which tokens should be taken into account to calculate the balance:
    ```java
    // Assume there is an issuer who has created some coin states
-   val bankX500 = MemberX500Name.parse(ISSUING_BANK_X500) 
- 
+   val bankX500 = MemberX500Name.parse(ISSUING_BANK_X500)
+
    // Assume you are using a single notary
    val notary = notaryLookup.notaryServices.single()
 

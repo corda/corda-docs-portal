@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Code Signing
 
-{{< tooltip >}}CorDapps{{< /tooltip >}} are packaged as CPKs, CPBs, and CPIs. Each of these packages must be signed with a Code Signing certificate.
+{{< tooltip >}}CorDapps{{< /tooltip >}} are packaged as {{< tooltip >}}CPKs{{< /tooltip >}}, {{< tooltip >}}CPBs{{< /tooltip >}}, and {{< tooltip >}}CPIs{{< /tooltip >}}. Each of these packages must be signed with a Code Signing certificate.
 The signatures are then verified when a CPI is installed. They are verified against the certificates uploaded to Corda using the REST API.
 
 CPK signatures are also verified during [backchain verification]({{< relref "../../ledger/transactions/_index.md" >}}), which is why you must carefully consider which certificates to sign with and which certificates to upload to the cluster to establish trust.

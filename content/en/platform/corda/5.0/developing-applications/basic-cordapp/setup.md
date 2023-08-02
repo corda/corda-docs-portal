@@ -11,7 +11,7 @@ menu:
 
 # Initial Setup
 
-After you have completed this tutorial, you will have modified the CSDE environment to make it ready for building your {{< tooltip >}}CorDapp{{< /tooltip >}}.
+After you have completed this tutorial, you will have modified the {{< tooltip >}}CSDE{{< /tooltip >}} environment to make it ready for building your {{< tooltip >}}CorDapp{{< /tooltip >}}.
 You will have also created three packages within the existing CSDE project structure.
 
 {{< note >}}
@@ -21,7 +21,7 @@ The packages are not required but they define a suggested structure for you to f
 ## Initial Setup of Your CorDapp
 
 In this tutorial, you will use the CSDE repository as a template and build on top of it.
-This project already contains some example flows, contracts, and states.
+This project already contains some example flows, contracts, and {{< tooltip >}}states{{< /tooltip >}}.
 
 1. Follow the CSDE [installation instructions]({{< relref "../getting-started/installing/_index.md" >}}) to clone the [Kotlin CSDE repository](https://github.com/corda/CSDE-cordapp-template-kotlin).
 

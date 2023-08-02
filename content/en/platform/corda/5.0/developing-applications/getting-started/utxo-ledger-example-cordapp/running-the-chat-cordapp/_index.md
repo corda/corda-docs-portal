@@ -13,7 +13,7 @@ section_menu: corda5
 
 ## Configuring the Application Network (Virtual Nodes)
 
-The CSDE is configured to create a five party application network required to run the Chat {{< tooltip >}}CorDapp{{< /tooltip >}}, including virtual nodes for Alice, Bob, Charlie, Dave, and a notary. To change the network configuration, see [Configuring the Network Participants]({{< relref "../../configure-the-network-participants/_index.md" >}}).
+The CSDE is configured to create a five party {{< tooltip >}}application network{{< /tooltip >}} required to run the Chat {{< tooltip >}}CorDapp{{< /tooltip >}}, including virtual nodes for Alice, Bob, Charlie, Dave, and a {{< tooltip >}}notary{{< /tooltip >}}. To change the network configuration, see [Configuring the Network Participants]({{< relref "../../configure-the-network-participants/_index.md" >}}).
 
 {{< note >}}
 You must keep the notary node to enable the CorDapp to finalise transactions.
