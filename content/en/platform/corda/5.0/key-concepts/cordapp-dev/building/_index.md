@@ -166,7 +166,7 @@ cordapp {
 The following rules identify which CPK type is applicable:
 * Flow code (anything implementing the [Flow interface]({{< relref "../../../developing-applications/api/application/flows.md" >}})) can only exist in a workflow CPK.
 * Contracts and states (implementing `Contract` and `ContractState`) can only exist in a contract CPK.
-* Entity classes used in the [persistence]({{< relref "../../../developing-applications/api/application/persistence.md" >}}) API (annotated with `@Entity`), along with their database migration scripts, can only exist in a contract CPK.
+* {{< tooltip >}}Entity{{< /tooltip >}} classes used in the [persistence]({{< relref "../../../developing-applications/api/application/persistence.md" >}}) API (annotated with `@Entity`), along with their database migration scripts, can only exist in a contract CPK.
 * Workflow CPKs can reference contract CPKs, but never the other way around.
 
 As a CorDapp Developer, it is usually sufficient to remember the above rules. 

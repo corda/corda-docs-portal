@@ -133,4 +133,4 @@ issue an `AppleStamp` to Dave, rather than Bob doing this. On redemption, the tr
 does not recognise the `AppleStamp` ID provided.
 * Repeat all the steps for redeeming the `AppleStamp`, but on redemption, Bob tries to redeem Dave’s
 `AppleStamp` by specifying himself as the buyer. This should be rejected. Similarly, attempting to specify a different
-entity altogether (for example, Charlie) should also be rejected.
+{{< tooltip >}}entity{{< /tooltip >}} altogether (for example, Charlie) should also be rejected.

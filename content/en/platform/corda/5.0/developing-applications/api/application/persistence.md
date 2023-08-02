@@ -144,7 +144,7 @@ To use the Persistence API from a flow:
        // your code goes here
    ```
 
-2. To create a `Dog` entity that writes a row to the database, use the following code:
+2. To create a `Dog` {{< tooltip >}}entity{{< /tooltip >}} that writes a row to the database, use the following code:
    ```kotlin
      val dog = Dog(dogId, "dog", Instant.now(), "none")
      persistenceService.persist(dog)

@@ -41,7 +41,7 @@ The process of attestation is simple: identities submit their request, additiona
 
 It is important within an application network that each identity is uniquely addressable and so each identity must present to the network a unique name.
 Corda does not allow duplicate names to join a single application network.
-However, the same name may exist in multiple different networks, especially if representing the same entity. 
+However, the same name may exist in multiple different networks, especially if representing the same {{< tooltip >}}entity{{< /tooltip >}}. 
 This is enforced at the platform level.
 
 ## Peer-to-Peer Communication

@@ -25,7 +25,7 @@ A virtual node is abstracted from the Corda runtime, and so a Corda cluster can 
 	 figcaption="Virtual Nodes"
 >}}
 
-Virtual nodes are identified by their X.500 name and the ID of the network they belong to. This means that the same X.500 name (for example, the same legal entity), can exist on multiple networks at the same time. 
+Virtual nodes are identified by their X.500 name and the ID of the network they belong to. This means that the same X.500 name (for example, the same legal {{< tooltip >}}entity{{< /tooltip >}}), can exist on multiple networks at the same time. 
 Future versions of Corda will support interoperability between these types of virtual nodes and networks. 
 
 For information about managing virtual nodes using the REST API, see [Managing Virtual Nodes]({{< relref "../../../deploying-operating/vnodes/_index.md" >}}).
