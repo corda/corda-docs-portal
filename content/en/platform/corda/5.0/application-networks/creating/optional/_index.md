@@ -10,5 +10,7 @@ menu:
     weight: 4000
 section_menu: corda5
 ---
+
+# Optional Configurations
 This section describes alternative configurations. It contains the following:
 {{< childpages >}}
