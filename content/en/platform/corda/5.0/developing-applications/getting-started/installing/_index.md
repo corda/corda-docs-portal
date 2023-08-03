@@ -61,4 +61,4 @@ The CSDE includes [Gradle tasks](#gradle-helpers-for-the-combined-worker) to man
 
 {{< figure src="configure-CSDE-build-gradle-block.png" figcaption="Configure the CSDE plugin via the build.gradle file" alt="CSDE build gradle block in IntelliJ for CSDE project" >}}
 
-If using IntelliJ IDEA version 2023.1.4 or greater, then you should instead set the environmental variable JAVA_HOME to point to your installation of Java Azul Zulu 11.
+If using IntelliJ IDEA version 2023.1.4 or greater, then you should instead set the environmental variable `JAVA_HOME` to point to your installation of Java Azul Zulu 11.
