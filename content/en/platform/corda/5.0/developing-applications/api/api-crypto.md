@@ -59,7 +59,7 @@ If an OID is incorrectly assigned, it should be marked deprecated and never reus
 
 ## DigestAlgorithmName.java
 
-This class is to be used in Cord hashing API.
+This class is to be used in Corda hashing API.
 
 ## DigitalSignature.java
 
