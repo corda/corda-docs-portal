@@ -8,7 +8,6 @@ menu:
     parent: corda5-api
     weight: 5000
 section_menu: corda5
-draft: true
 ---
 # net.corda.v5.crypto
 
