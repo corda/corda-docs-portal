@@ -44,7 +44,7 @@ export SESSION_KEY_ID=<session-key-ID>
 
 ## Generate a Ledger Key Pair
 
-To assign a soft hardware security module (HSM) and generate a ledger key pair:
+To assign a soft hardware security module (HSM) and generate a {{< tooltip >}}ledger key{{< /tooltip >}} pair:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
