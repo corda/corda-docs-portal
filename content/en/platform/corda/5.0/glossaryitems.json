@@ -160,7 +160,7 @@
         "more": "The Link Manager uses the data provided to it by the membership worker to translate virtual node names on CorDapp packets to physical HTTPS destination addresses and requests the gateway worker to transmit its secured packets to the peers. If packets cannot be delivered, the Link Manager also manages redelivery, possibly via alternate gateway workers."
     },
     "P2P Link Manager worker": {
-        "definition": "A worker that manages the secure transmission of packets to peers. The main functional component is the Link Manager which establishes end-to-end secure sessions for virtual nodes to communicate over.",
+        "definition": "A worker that manages the secure transmission of packets to peers. The main functional component is the Link Manager, which establishes end-to-end secure sessions for virtual nodes to communicate over.",
         "more": ""
     },
     "RBAC": {
