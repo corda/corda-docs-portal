@@ -1,0 +1,21 @@
+{{- /* Retrieves content from a specified file in the corda-docs-portal\themes\doks\layouts\snippets folder */}}
+{{- $snippetfile := "" }}
+{{- /* Get snippet filename param */}}
+{{- with (.Get 0) }}
+  {{- $snippetfile = . }}
+{{- /* Break build if no filename passed */}}
+{{- else }}
+  {{- errorf "The %q shortcode requires a single parameter; the name of a file in the snippets directory. See %s" .Name .Position}}
+{{- end }}
+
+{{- /* Get resource */}}
+{{- $r := "" }}
+{{ $path := printf "%s" $snippetfile | printf "%s%s" "snippets/" | printf "%s" }}
+{{- with resources.Get $path }}
+    {{- $r = . }}
+{{- /* Break build if file is not found in corda-docs-portal\themes\doks\layouts\snippets */}}    
+{{- else }}
+  {{- errorf "The %q shortcode was unable to find %q. See %s" .Name $path .Position}}
+{{- end }}
+{{- /* Render resource content. */}}
+{{- $r.Content | .Page.RenderString }}
