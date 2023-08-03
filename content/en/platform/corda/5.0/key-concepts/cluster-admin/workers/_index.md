@@ -27,7 +27,7 @@ Currently, Corda uses the following types of workers:
 * {{< tooltip >}}Database workers{{< /tooltip >}} — responsible for all persistence operations (read, write, update) for the cluster or on behalf of the virtual nodes.
 * {{< tooltip >}}Flow workers{{< /tooltip >}} — execute the {{< tooltip >}}CorDapp{{< /tooltip >}} code represented by {{< tooltip >}}flows{{< /tooltip >}}.
 * {{< tooltip >}}Membership workers{{< /tooltip >}} — provide all membership capabilities, such as joining an application network and discovering other {{< tooltip >}}members{{< /tooltip >}} in the network.
-* P2P Gateway workers — responsible for establishing {{< tooltip >}}TLS{{< /tooltip >}} connections with the gateways from other clusters and sending or receiving messages via HTTPS; this is typically internet facing.
+* {{< tooltip >}}Gateway workers{{< /tooltip >}} — responsible for establishing {{< tooltip >}}TLS{{< /tooltip >}} connections with the gateways from other clusters and sending or receiving messages via HTTPS; this is typically internet facing.
 * {{< tooltip >}}P2P Link Manager workers{{< /tooltip >}} — responsible for delivering messages between two virtual nodes in a secure and reliable way. 
 * {{< tooltip >}}REST workers{{< /tooltip >}} — expose the Corda REST API used for administration and flow execution.
 
