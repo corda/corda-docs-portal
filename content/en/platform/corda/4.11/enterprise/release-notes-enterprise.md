@@ -29,6 +29,8 @@ For more information about platform versions, see [Versioning](cordapps/versioni
 
 * This release includes improvements in the performance of deserializing AMQP data, which may result in performance improvements for LedgerGraph, Archiving and other CorDapps.
 
+* Updated documentation for both `.startNodes()` and `.stopNodes()` of `MockNetwork` to indicate that restarting nodes is not supported.
+
 ## Fixed issues
 
 This release includes the following fixes:
