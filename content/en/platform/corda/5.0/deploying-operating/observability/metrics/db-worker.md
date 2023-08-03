@@ -14,11 +14,10 @@ section_menu: corda5
 # Database Worker
 
 The database worker is the sole worker with access to the database (apart from the {{< tooltip >}}crypto worker{{< /tooltip >}}, which has its
-The database worker is the sole worker with access to the database (apart from the {{< tooltip >}}crypto worker{{< /tooltip >}}, which has its
 own dedicated database). As a result, the activities carried out within the database worker pertain to the database.
 
 The database worker is responsible for handling and serving persistence requests originating from various Corda worker types,
-such as the {{< tooltip >}}{{< tooltip >}}flow worker{{< /tooltip >}}{{< /tooltip >}} or the MGM worker. The {{< tooltip >}}flow{{< /tooltip >}} persistence requests metrics presented in this section measure:
+such as the {{< tooltip >}}}flow worker{{< /tooltip >}} or the MGM worker. The {{< tooltip >}}flow{{< /tooltip >}} persistence requests metrics presented in this section measure:
 
 * The time taken to handle the flow persistence requests.
 * The time the flow persistence requests remained on Kafka, from the moment they were added by flows until they were received
