@@ -192,7 +192,7 @@ If using Bash, to disable revocation checks, do the following:
    ```bash
    export CONFIG_VERSION=<configuration-version>
    ```
-3. Send the following request to disable revocation checks for the specified {{< tooltip >}}REST gateway worker{{< /tooltip >}}:
+3. Send the following request to disable revocation checks for the specified {{< tooltip >}}gateway worker{{< /tooltip >}}:
    ```bash
    curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.p2p.gateway", "version":"'$CONFIG_VERSION'", "config":"{ \"sslConfig\": { \"revocationCheck\": { \"mode\": \"OFF\" }  }  }", "schemaVersion": {"major": 1, "minor": 0}}' $REST_API_URL"/config"
    ```
