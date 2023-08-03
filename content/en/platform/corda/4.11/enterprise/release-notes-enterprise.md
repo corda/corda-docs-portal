@@ -31,7 +31,7 @@ For more information about platform versions, see [Versioning](cordapps/versioni
 
 * A new property, `previousPageAnchor`, has been added to `Vault.Page`. It is used to detect if the vault has changed while pages of a vault query have been loaded. If such a scenario is important to detect, then the property can be used to restart querying.
 
-  A example of how to use this property can be found in [Vault queries]({{< relref "cordapps/api-vault-query.md#query-for-all-states-using-a-pagination-specification-and-iterate-using-the-totalstatesavailable-field-until-no-further-pages-available-1" >}}).
+  A example of how to use this property can be found in [Vault Queries]({{< relref "cordapps/api-vault-query.md#query-for-all-states-using-a-pagination-specification-and-iterate-using-the-totalstatesavailable-field-until-no-further-pages-available-1" >}}).
   
 * The following dependencies have been upgraded to address critical- and high-severity security vulnerabilities:
   * H2 has been upgraded from 1.4.197 to 2.1.214.
@@ -50,17 +50,15 @@ This release includes the following fixes:
 
 * Previously, when configured to use confidential identities and the Securosys PrimusX HSM, it was possible for Corda to fail to generate a wrapped key-pair for a new confidential identity. This would cause a temporary key-pair to be leaked, consuming resource in the HSM. This issue occurred when:
 
-  * the Securosys HSM was configured in a master-clone cluster
-
-  * the master HSM had failed and Corda had failed-over to use the clone HSM
-
-  * there was an attempt to create a transaction using confidential identities
+  * The Securosys HSM was configured in a master-clone cluster
+  * The master HSM had failed and Corda had failed-over to use the clone HSM
+  * There was an attempt to create a transaction using confidential identities
 
   The issue is now resolved. When generating a wrapped key-pair the temporary key-pair is not persisted in the HSM and thus cannot be leaked.
 
   On applying this update the PrimusX JCE should be upgraded to version 2.3.4 or later.
 
-  There is no need to upgrade the HSM firmware version for this update but it is recommended to keep the firmware up to date as a matter of course. Currently the latest firmware version if 2.8.50.
+  There is no need to upgrade the HSM firmware version for this update but it is recommended to keep the firmware up to date as a matter of course. Currently, the latest firmware version if 2.8.50.
 
 * Previously, where nodes had invoked a very large number of flows, the cache of client IDs that had not been removed were taking up significant heap space. A solution has been implemented where the space taken up has been reduced by 170 bytes per entry. For example, 1 million unremoved client IDs now take up 170,000,000 bytes less heap space than before.
 
@@ -90,7 +88,7 @@ This release includes the following fixes:
 * Previously, if a node was configured to use two different slots on the Luna HSM (for example using one slot for node identities and a separate slot for the confidential identities), this failed. This issue has now been resolved. 
 
   {{< warning >}}
-  However as a result of this fix, you need to make sure the Luna client your are using is version 10.4.0 or later.
+  However, as a result of this fix, you need to make sure the Luna client your are using is version 10.4.0 or later.
   {{</ warning >}}
   
 * The default value for the node configuration value `cryptoServiceTimeout` has been increased from 1 second to 10 seconds.
@@ -98,9 +96,6 @@ This release includes the following fixes:
 * Flow checkpoint dumps now include a `status` field which shows the status of the flow; in particular, whether it is hospitalized or not.
 
 * Debug logging of the Artemis server has been added.
-
-* When a notary worker is shut down, message ID cleanup is now performed as the last shutdown activity, rather than the first; this prevents a situation where the notary worker might still appear to be part of the notary cluster and receiving client traffic while shutting down. 
-
 
 ### Database schema changes
 
