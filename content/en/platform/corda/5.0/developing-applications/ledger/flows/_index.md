@@ -12,8 +12,7 @@ section_menu: corda5
 
 # Flows
 
-
-Communication between participants in an application network is point-to-point using flows. Flows automate the process of agreeing ledger updates between two or more participants. Built-in flows are provided to automate common tasks.
+Communication between participants in an {{< tooltip >}}application network{{< /tooltip >}} is point-to-point using flows. Flows automate the process of agreeing ledger updates between two or more participants. Built-in flows are provided to automate common tasks.
 
 ## Point-to-Point Messaging
 
@@ -43,7 +42,7 @@ For example, the following shows the flow’s steps used between Alice and Bob t
 ## Running Flows
 
 Node operators use [REST]({{< relref "../../../reference/rest-api/_index.md">}}) calls to instruct their node to start a specific flow. The flow abstracts all the networking, I/O, and concurrency issues away from the node operator.
-All activity on the node occurs in the context of these flows. Unlike contracts, flows execute in a flow sandbox, meaning that nodes can perform actions such as networking, I/O, and use sources of randomness within the execution of a flow.
+All activity on the node occurs in the context of these flows. Unlike contracts, flows execute in a flow {{< tooltip >}}sandbox{{< /tooltip >}}, meaning that nodes can perform actions such as networking, I/O, and use sources of randomness within the execution of a flow.
 
 ### Inter-Node Communication
 Messages are passed from an active flow on one virtual node to an active flow on another virtual node. You can specify which flow classes a node can respond to and with what flow it responds with.

@@ -95,7 +95,7 @@ The defining aspect of a decentralized application is the ability for untrusting
 
 The orchestration layer has full, queryable access to the information contained within the consensus layer through the Corda CorDapp API. 
 
-The mechanism for achieving consensus in Corda is pluggable. For example, Corda 5 allows for a UTXO model with notary double-spend protection. However, common across all models is once the orchestration layer has negotiated a potential change amongst peers, and that change is determined to be valid, it is applied to the global state.
+The mechanism for achieving consensus in Corda is pluggable. For example, Corda 5 allows for a UTXO model with {{< tooltip >}}notary{{< /tooltip >}} double-spend protection. However, common across all models is once the orchestration layer has negotiated a potential change amongst peers, and that change is determined to be valid, it is applied to the global state.
 
 ### Decentralized Control
 
@@ -121,7 +121,7 @@ Ultimately, each member of the network must be able to attest to the validity of
 
 ### Validity and Smart Contracts
 
-The validity of a proposal is evaluated within a decentralized system through a set of rules that each proposal must meet in order to be considered valid. Generally, this collection of rules is referred to as a smart contract and each proposed update will be governed by it.
+The validity of a proposal is evaluated within a decentralized system through a set of rules that each proposal must meet in order to be considered valid. Generally, this collection of rules is referred to as a {{< tooltip >}}smart contract{{< /tooltip >}} and each proposed update will be governed by it.
 
 Smart contracts can have different levels of granularity (network-wide or individual data representations) but the same general principles hold true that a proposal is only valid when the smart contract says it is. Rules in Corda can be arbitrary; however, there is a strong requirement that validity controls are deterministic as once evaluated as valid, checks on a change in the future must always return that it is valid. This means smart contracts can only reason about data present within the system of record: anything outside that generally leads to non-deterministic results as their presence cannot be guaranteed. 
 
@@ -142,7 +142,7 @@ In parallel to the concept of validity, Corda also addresses the concept of affi
 
 This is achieved through a cryptographic signature on a hash of the proposal. A set of signatures by all involved parties is sufficient to indicate that all agree that the update should take place. In conjunction with the execution of the validity rules, Corda can ensure the global state is only changed in ways that are valid and trustable by all.
 
-For example, a simple IOU is issued from Alice to Bob, indicating that Alice owes Bob $100. The application network validates such a proposal with a set or rules, such as the IOU must have a borrower and a lender. This is the concept of validity, not morality or sensibility. In other words, although the rules might stop you from issuing an IOU without a lender, it will not prevent you issuing an IOU with an exceedingly large interest rate. This is where affirmative consent comes into play. Affirmative consent is represented by Bob signing the IOU proposal created and signed by Alice, to indicate that he agrees to the terms of the individual IOU proposal itself, such as interest rates, punishment for late payments, and so on. These two concepts in tandem are used to assure that the application network rules are not broken and that the involved parties agree to the proposal in a trustless environment.
+For example, a simple IOU is issued from Alice to Bob, indicating that Alice owes Bob $100. The {{< tooltip >}}application network{{< /tooltip >}} validates such a proposal with a set of rules, such as the IOU must have a borrower and a lender. This is the concept of validity, not morality or sensibility. In other words, although the rules might stop you from issuing an IOU without a lender, it will not prevent you issuing an IOU with an exceedingly large interest rate. This is where affirmative consent comes into play. Affirmative consent is represented by Bob signing the IOU proposal created and signed by Alice, to indicate that he agrees to the terms of the individual IOU proposal itself, such as interest rates, punishment for late payments, and so on. These two concepts in tandem are used to assure that the application network rules are not broken and that the involved parties agree to the proposal in a trustless environment.
 
 ## Identity Integration
 

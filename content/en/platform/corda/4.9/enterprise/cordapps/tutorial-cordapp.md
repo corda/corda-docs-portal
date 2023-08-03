@@ -93,24 +93,20 @@ The project containing the sample CorDapp opens.
 
 1. Open the command line from the `cordapp-example` directory.
 2. Run the `deployNodes` Gradle task:
-      * Unix/Mac OSX: `./gradlew deployNodes`
-      * Windows: `gradlew.bat deployNodes`
+      * Unix/macOS: `./gradlew deployNodes`
+      * Windows: `./gradlew.bat deployNodes`
 
    This builds three nodes with the CorDapp installed on them.
 
-3. When the build finishes, go to the `workflows-java/build/nodes` or `workflows-kotlin/build/nodes` folder.
-
-You will see the following output:
+3. When the build finishes, go to the `samples-java/Basic/cordapp-example/build/nodes` or `samples-kotlin/Basic/cordapp-example/build/nodes` folder. You will see the following output:
       * A folder for each generated node
-      * A `runnodes` shell script for running all the nodes simultaneously on OSX
+      * A `runnodes` shell script for running all the nodes simultaneously on macOS
       * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows
 
-    See **Appendix B** for the node structure.
-
+    See [Appendix B]({{< relref "#appendix-b-node-structure-1" >}}) for the node structure.
 
 {{< note >}}
-`deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would create a single node as described in [Creating nodes locally]({{< relref "../node/deploy/generating-a-node.md" >}}) instead, and build your CorDapp JARs as described
-in [Building and installing a CorDapp](cordapp-build-systems.md).
+`deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would instead create a single node as described in [Creating nodes locally]({{< relref "../node/deploy/generating-a-node.md" >}}), and build your CorDapp JARs as described in [Building and installing a CorDapp]({{< relref "cordapp-build-systems.md" >}}).
 {{< /note >}}
 
 
@@ -120,24 +116,24 @@ To start the nodes and the sample CorDapp:
 
 1. Run the command that corresponds to your operating system:
 
-* Unix/Mac OSX: `./build/nodes/runnodes`
+* Unix/macOS: `./build/nodes/runnodes`
 * Windows: `.\build\nodes\runnodes.bat`
 
 2. Start a Spring Boot server for Party A. Run the command:
 
-* Unix/Mac OSX: `./gradlew runPartyAServer`
+* Unix/macOS: `./gradlew runPartyAServer`
 * Windows: `gradlew.bat runPartyAServer`
 
 Look for the `Started Server in X seconds` message &mdash; don’t rely on the % indicator.
 
 3. Repeat the command to start the server for Party B:
 
-* Unix/Mac OSX: `./gradlew runPartyBServer`
+* Unix/macOS: `./gradlew runPartyBServer`
 * Windows: `gradlew.bat runPartyBServer`
 
 
 {{< warning >}}
-On Unix/Mac OSX, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `workflows-java/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/node/operating/shell.md" >}}).
+On Unix/macOS, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `workflows-java/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/node/operating/shell.md" >}}).
 {{< /warning >}}
 
 

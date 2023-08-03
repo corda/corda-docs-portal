@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Vault
 
-A Corda vault is a database containing all data from the ledger relevant to a participant. The database tracks spent and unspent (consumed and unconsumed) states. From a business perspective, this means a record of all of the transaction states that you can spend as a participant, and a record of all spent states from transactions relevant to you. You can compare it to a cryptocurrency wallet — a record of what you have spent and how much you have available to spend. 
+A Corda vault is a database containing all data from the ledger relevant to a participant. The database tracks spent and unspent (consumed and unconsumed) {{< tooltip >}}states{{< /tooltip >}}. From a business perspective, this means a record of all of the transaction states that you can spend as a participant, and a record of all spent states from transactions relevant to you. You can compare it to a cryptocurrency wallet — a record of what you have spent and how much you have available to spend. 
 
 ## Spent and Unspent States
 
@@ -31,7 +31,7 @@ Spending from the vault in this way ensures that transactions respect fungibilit
 ## Data Management on and off Ledger
 
 The vault supports the management of data in both authoritative on-ledger form and, where appropriate, shadow off-ledger form:
-* On-ledger data refers to distributed ledger state (cash, deals, trades) to which a party is participant. The on-ledger store tracks unconsumed states. The node updates it internally when all participants verify and sign a smart contract and commit a transaction to the ledger.
+* On-ledger data refers to distributed ledger state (cash, deals, trades) to which a party is participant. The on-ledger store tracks unconsumed states. The node updates it internally when all participants verify and sign a {{< tooltip >}}smart contract{{< /tooltip >}} and commit a transaction to the ledger.
 * Off-ledger data refers to a party’s internal reference, static, and systems data.
 
 In Corda 5.0, the vault query API is limited to either load outputs from a known transaction ID or find all unconsumed states of a specific type.

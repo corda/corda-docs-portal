@@ -187,7 +187,7 @@ class CreateAndIssueAppleStampFlow : ClientStartableFlow {
 
 #### Obtain a Reference for the Notary
 
-Any flows using the UTXO ledger require a notary service to track the states created and consumed by transactions.
+Any flows using the UTXO ledger require a notary service to track the {{< tooltip >}}states{{< /tooltip >}} created and consumed by transactions.
 
 Add the following code to retrieve a notary:
 

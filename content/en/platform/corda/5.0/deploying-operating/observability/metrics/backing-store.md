@@ -15,7 +15,7 @@ section_menu: corda5
 
 The backing store is responsible for abstracting database access from the uniqueness checker, and performs all read and write
 operations against the uniqueness database. These metrics also have the `virtualnode_source` tag which allows metrics to be
-associated with the holding IDs of specific notary virtual nodes.
+associated with the holding IDs of specific {{< tooltip >}}notary{{< /tooltip >}} virtual nodes.
 
 Metrics of type Timer have further metrics with the suffixes `_count`, `_max`, and `_sum` that represent the number of events,
 the maximum value, and the cumulative sum of values, respectively.
