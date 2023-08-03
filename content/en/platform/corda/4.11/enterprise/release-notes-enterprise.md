@@ -77,6 +77,12 @@ This release includes the following fixes:
   [INFO ] 2023-02-03T17:00:43,606Z [main] statemachine.MultiThreadedStateMachineManager. - Loaded 24001 finished flows {}
   [INFO ] 2023-02-03T17:00:46,650Z [main] statemachine.MultiThreadedStateMachineManager. - Number of finished flows : 27485 {}
   ```
+  
+* Previously, if a node was configured to use two different slots on the Luna HSM (for example using one slot for node identities and a separate slot for the confidential identities), this failed. This issue has now been resolved. 
+
+  {{< warning >}}
+  However as a result of this fix, you need to make sure the Luna client your are using is version 10.4.0 or later.
+  {{</ warning >}}
 
 ### Database schema changes
 
