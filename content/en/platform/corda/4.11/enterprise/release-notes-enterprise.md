@@ -27,7 +27,7 @@ For more information about platform versions, see [Versioning](cordapps/versioni
 
 ## New features and enhancements
 
-
+* This release includes improvements in the performance of deserializing AMQP data, which may result in performance improvements for LedgerGraph, Archiving and other CorDapps.
 
 ## Fixed issues
 
@@ -37,13 +37,13 @@ This release includes the following fixes:
 
 ### Database schema changes
 
-There are no database changes between 4.9 and 4.10.
+There are no database changes between 4.10 and 4.11.
 
 ### Third party component upgrades
 
-The following table lists the dependency version changes between 4.9.5 and 4.10 Enterprise Editions:
+The following table lists the dependency version changes between 4.10.2 and 4.11 Enterprise Editions:
 
-| Dependency                         | Name                | Version 4.9.5 Enterprise | Version 4.10 Enterprise|
+| Dependency                         | Name                | Version 4.1.2 Enterprise | Version 4.11 Enterprise|
 |------------------------------------|---------------------|--------------------------|------------------------|
 | com.squareup.okhttp3               | OKHttp              | 3.14.2                   | 3.14.9                 |
 | org.bouncycastle                   | Bouncy Castle       | 1.68                     | 1.70                   |
@@ -52,4 +52,5 @@ The following table lists the dependency version changes between 4.9.5 and 4.10 
 | org.apache.shiro                   | Apache Shiro        | 1.9.1                    | 1.10.0                 |
 
 ## Log4j patches
+
 Click [here]({{< relref "./log4j-patches.md" >}}) to find all patches addressing the December 2021 Log4j vulnerability.
