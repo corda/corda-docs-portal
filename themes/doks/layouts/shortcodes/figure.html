@@ -27,8 +27,11 @@
 {{end}}
 {{/* retrieve image file if part of page resources */}}
 {{ $image := .Page.Resources.GetMatch (printf "*%s*" $src ) -}}
-{{/* retrieve image file if in assets - used if figure is called from a snippet */}}
-{{ $assetimage := resources.Get (printf "%s" $src ) -}}
+{{/* retrieve image file if in assets\images\<versionfolder> - used if figure is called from a snippet */}}
+{{- /* Figure out what folder in corda-docs-portal\themes\doks\assets\images to look in based on version of the page calling the shortcode */}}
+{{ $versionfolder := replace (lower (.Page.Params.version)) " " "-" }}
+{{ $path := printf "%s" $src | printf "%s%s" "/" | printf "%s%s" $versionfolder | printf "%s%s" "images/" | printf "%s" }}
+{{ $assetimage := resources.Get (printf "%s" $path ) -}}
 <figure>
   {{if $zoom}}<a href="{{$zoom}}" target="_blank">{{end}}
     <img

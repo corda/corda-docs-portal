@@ -1,6 +1,6 @@
 {{- /* Shortcode to retrieve content from a specified Hugo markdown file in the relevant version folder in 
   corda-docs-portal\themes\doks\layouts\snippets folder */}}
-{{- /* If the snippet includes an image, save the image file to the corda-docs-portal\themes\doks\assets\images folder and include it by passing "iamges/filename.png" to the figure shortcode */}}
+{{- /* If the snippet includes an image, save the image file to the corda-docs-portal\themes\doks\assets\images\version folder */}}
 {{- $snippetfile := "" }}
 {{- /* Get snippet filename param */}}
 {{- with (.Get 0) }}
