@@ -1,7 +1,7 @@
 {
     "API": {
         "definition": "APIs allow different software applications to communicate with each other and share data in a standardized and structured way.",
-        "more": "<ul><li>The CorDapp API enables developers using Corda to develop CorDapps by accessing data or functionality from a remote service or application, without needing to understand the underlying implementation details. For more information see the <a href=\"../developing-applications/api.html\"> CorDapp API documentation</a>.</li><li>The Corda REST API enables you to interact with your CorDapp. For example, to start a flow or retrieve the result of a flow. This API is exposed as a REST service. For more information see the <a href=\"../reference/rest-api.html\"> Corda REST API documentation</a>.</li>"
+        "more": "<ul><li>The CorDapp API enables developers using Corda to develop CorDapps by accessing data or functionality from a remote service or application, without needing to understand the underlying implementation details. For more information see the <a href=\"../developing-applications/api.html\"> CorDapp API documentation</a>.</li><li>The Corda REST API enables you to interact with your CorDapp; for example, to start a flow or retrieve the result of a flow. This API is exposed as a REST service. For more information see the <a href=\"../reference/rest-api.html\"> Corda REST API documentation</a>.</li>"
     },
     "Application network": {
         "definition": "The set of all possible entities onboarded according to the rules of the network. Application networks enable people and businesses to interact with each other on Corda.",
