@@ -71,7 +71,7 @@ Key schemes are used in Corda for signing and key derivation.
 
 ## KeyUtils.java
 
-Checks whether a `key` has any intersection with the keys in `otherKeys`,recurses into `key` (the first argument) if it is a composite key.
+Checks whether a `key` has any intersection with the keys in `otherKeys` and recurses into `key` (the first argument) if it is a composite key.
 
 ## MessageAuthenticationCode.java
 
