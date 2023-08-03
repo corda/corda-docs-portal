@@ -176,7 +176,7 @@
         "more": "REST workers also provide the virtual node endpoint APIs for invoking the flows and the ledger applications and retrieving their status/results. All REST calls must be authenticated and authorized, typically using OAUTH2 for login/authentication and Role Based Access Controls checked against a user permissions database."
     },
     "Revocation check": {
-        "definition": "In the context of X.509 certificates, revocation checks refer to the process of verifying whether a digital certificate is still valid and has not been revoked by the issuing Certificate Authority (CA). ",
+        "definition": "In the context of X.509 certificates, revocation checks refer to the process of verifying if a digital certificate is still valid and has not been revoked by the issuing Certificate Authority (CA). ",
         "more": "Revocation checks are typically performed using mechanisms such as Certificate Revocation Lists (CRLs) or the Online Certificate Status Protocol (OCSP), which provide up-to-date information on the revocation status of certificates."
     },
     "Sandbox": {
