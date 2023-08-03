@@ -44,7 +44,7 @@ Instead SignatureSpecService was introduced which takes in a key (and a digest a
 
 ## CompositeKey.java
 
-A tree data structure that enables the representation of composite public keys, which are used to represent the signing requirements for multi-signature scenarios. A compotistee key is a lit of leaf keys and their contributing weight. Each leaf can be a conventional single key or a composite key.
+A tree data structure that enables the representation of composite public keys, which are used to represent the signing requirements for multi-signature scenarios. A composite key is a list of leaf keys and their contributing weight. Each leaf can be a conventional single key or a composite key.
 
 Keys contribute their weight to the total if they are matched by the signature.
 
