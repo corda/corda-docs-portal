@@ -30,7 +30,7 @@ The severity and extent of that attestation are, as previously mentioned, left t
 
 ## Identity Attestation
 
-The Membership Group Manager (MGM) permits identities into an application network. 
+The Membership Group Manager ({{< tooltip >}}MGM{{< /tooltip >}}) permits identities into an application network. 
 Identities wishing to join present a request containing various metadata describing them but, most importantly, their unique name and their location as an IP address.
 
 Whilst not strictly required, it is encouraged that alongside their name, identities submit a {{< tooltip >}}PKI{{< /tooltip >}} certificate issued by a trusted authority, alongside the public key whose signature represents the identity's affirmation of acceptance. 

@@ -32,7 +32,7 @@ Alternatively, use the following command line arguments to define the static net
 | <div style="width:160px">Argument</div> | Description                                                                                                                                                        |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | \-\-file, -f                            | The path to a JSON or YAML file that contains static network information; see [Generating GroupPolicy Using File Input](#generating-groupPolicy-using-file-input). |
-| \-\-name                                | The {{< tooltip >}}X.500{{< /tooltip >}} name of the member; see [Generating GroupPolicy Using String Parameters](#generating-grouppolicy-using-string-parameters).                               |
+| \-\-name                                | The {{< tooltip >}}X.500{{< /tooltip >}} name of the {{< tooltip >}}member{{< /tooltip >}}; see [Generating GroupPolicy Using String Parameters](#generating-grouppolicy-using-string-parameters).                               |
 | \-\-endpoint                            | The endpoint base URL; see [Generating GroupPolicy Using String Parameters](#generating-grouppolicy-using-string-parameters).                                      |
 | \-\-endpoint-protocol                   | The version of end-to-end authentication protocol; see [Generating GroupPolicy Using String Parameters](#generating-grouppolicy-using-string-parameters).          |
 

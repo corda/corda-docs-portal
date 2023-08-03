@@ -12,7 +12,7 @@ section_menu: corda5
 ---
 # Member Registration
 
-A Network Operator can configure a membership group so that the operator must manually approve (or decline) member registration requests.
+A Network Operator can configure a {{< tooltip >}}membership group{{< /tooltip >}} so that the operator must manually approve (or decline) {{< tooltip >}}member{{< /tooltip >}} registration requests.
 The configuration specifies that requests satisfying specific criteria require [manual approval]({{< relref "#manual-approval" >}}), while others are approved automatically.
 The Network Operator can also [pre-authenticate specific members]({{< relref "#pre-authentication" >}}), allowing them to bypass the standard approval rules defined for the group.
 The operator can further configure pre-authentication to specify that certain changes to the member's context must be manually reviewed.
@@ -23,8 +23,8 @@ The manual registration approval process presents requests to the operator, enab
 This process applies to both registration and re-registration requests.
 The approval process can be configured at any point in time, and only affects future registration requests: previously approved members are not required to re-register.
 
-Registration requests are evaluated according to regular expression-based rules defined by the MGM operator.
-The proposed `MemberInfo` is compared with the previous (if any) `MemberInfo` to calculate the difference in their member contexts.
+Registration requests are evaluated according to regular expression-based rules defined by the {{< tooltip >}}MGM{{< /tooltip >}} operator.
+The proposed {{< tooltip >}}MemberInfo{{< /tooltip >}} is compared with the previous (if any) `MemberInfo` to calculate the difference in their member contexts.
 This difference will be 100% in case of a first-time registration, since there will be no previous `MemberInfo` for that member known to the MGM.
 If any of the keys present in this `MemberInfo` difference match the regular expressions set by the MGM operator, the request requires manual approval.
 If there are no differences, the request is auto-approved.

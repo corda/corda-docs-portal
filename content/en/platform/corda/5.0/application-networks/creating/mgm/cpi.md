@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Build the MGM CPI
 
-This section describes how to build an MGM {{< tooltip >}}CPI{{< /tooltip >}} and upload it to the network. It contains the following:
+This section describes how to build an {{< tooltip >}}MGM{{< /tooltip >}} {{< tooltip >}}CPI{{< /tooltip >}} and upload it to the network. It contains the following:
 1. [Set Variables]({{< relref "#set-variables" >}})
 2. [Select a Certificate Authority]({{< relref "#select-a-certificate-authority" >}})
 3. [Create the Group Policy File]({{< relref "#create-the-group-policy-file" >}})
@@ -43,7 +43,7 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{< /tabs >}}
 
-    These values vary depending on where you have deployed your {{< tooltip >}}cluster{{< /tooltip >}} and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`. Alternatively, you can specify the IP address of the gateway, instead of the hostname. For example, `192.168.0.1`.
+    These values vary depending on where you have deployed your {{< tooltip >}}cluster{{< /tooltip >}} and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway {{< tooltip >}}Kubernetes{{< /tooltip >}} service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`. Alternatively, you can specify the IP address of the gateway, instead of the hostname. For example, `192.168.0.1`.
 
 2. Set the REST API URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
    {{< tabs >}}
@@ -95,7 +95,7 @@ Set the values of variables for use in later commands:
 ## Select a Certificate Authority
 
 Corda uses an external Certificate Authority ({{< tooltip >}}CA{{< /tooltip >}}) for the keys it generates.
-This is mandatory for P2P {{< tooltip >}}TLS{{< /tooltip >}} certificates, and optionally, they may also be used for [session certificates]({{< relref "../optional/session-certificates.md">}}), depending on the network configuration defined by the MGM operator.
+This is mandatory for P2P {{< tooltip >}}TLS{{< /tooltip >}} certificates, and optionally, they may also be used for [session certificates]({{< relref "../optional/session-certificates.md">}}), depending on the network configuration defined by the {{< tooltip >}}MGM{{< /tooltip >}} operator.
 This root CA certificate in PEM format must be included later when onboarding the MGM.
 
 ## Create the Group Policy File

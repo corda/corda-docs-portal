@@ -44,7 +44,7 @@ Broadly speaking, there are two groups of databases:
 
 Corda creates one of each of the following types per virtual node:
 * `Vault` — contains the virtual node ledger data as well as data defined in CorDapp custom schemas.
-* `Crypto` — contains the virtual node (encrypted) cryptographic key material such as ledger keys.
+* `Crypto` — contains the virtual node (encrypted) cryptographic key material such as {{< tooltip >}}ledger keys{{< /tooltip >}}.
 * `Uniqueness` (optional) — maintains a record of unspent and spent {{< tooltip >}}states{{< /tooltip >}} generated as part of {{< tooltip >}}UTXO{{< /tooltip >}} ledger transactions. This is only relevant for {{< tooltip >}}notary{{< /tooltip >}} nodes.
 
 ### Database Management

@@ -10,14 +10,14 @@ menu:
 section_menu: corda5
 ---
 # net.corda.v5.membership
-The `corda-membership` module defines interfaces that provide information about a member (a virtual node in a group), and a membership group. The interfaces in this module should not be implemented by {{< tooltip >}}CorDapp{{< /tooltip >}} Developers. Instead, instances can be retrieved through lookup services.
+The `corda-membership` module defines interfaces that provide information about a {{< tooltip >}}member{{< /tooltip >}} and a {{< tooltip >}}membership group{{< /tooltip >}}. The interfaces in this module should not be implemented by {{< tooltip >}}CorDapp{{< /tooltip >}} Developers. Instead, instances can be retrieved through lookup services.
 
 This module consists primarily of the following two root classes:
 * [MemberInfo](#memberinfo)
 * [GroupParameters](#groupparameters)
 
 ## `MemberInfo`
-The `MemberInfo` interface exposes properties of a virtual node's membership. This includes the {{< tooltip >}}X.500{{< /tooltip >}} name, ledger keys, and status. This information is a combination of information provided during network registration and metadata assigned to the member by the network manager (MGM).
+The `MemberInfo` interface exposes properties of a virtual node's membership. This includes the {{< tooltip >}}X.500{{< /tooltip >}} name, {{< tooltip >}}ledger keys{{< /tooltip >}}, and status. This information is a combination of information provided during network registration and metadata assigned to the member by the {{< tooltip >}}MGM{{< /tooltip >}}.
 
 Information provided by the virtual node operator at time of registration is the content of the `MemberContext` and the information provided by the MGM is the source of the `MGMContext` content.
 
