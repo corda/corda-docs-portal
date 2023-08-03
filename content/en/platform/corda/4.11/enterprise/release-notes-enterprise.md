@@ -57,6 +57,8 @@ This release includes the following fixes:
 
 * A new or restarted peer node coming online and connecting to a node for the first time can significantly slow message processing from other peers on the node to which it connects.  With this improvement, new peers coming online get a dedicated thread on the node they connect to and do not delay message processing for existing peer-to-peer connections on the receiving node.
 
+* Improved compatibility when using the performance test suite from Apple silicon Macs.
+
 ### Database schema changes
 
 There are no database changes between 4.10 and 4.11.
