@@ -36,7 +36,7 @@ Broadly speaking, there are two groups of databases:
 
 ### Cluster Databases
 
-* `Config` — contains data that is used to support the general operation of the cluster, such as data about CorDapps, worker configuration, and virtual node metadata.
+* `Config` — contains data that is used to support the general operation of the cluster, such as data about {{< tooltip >}}CorDapps{{< /tooltip >}}, worker configuration, and virtual node metadata.
 * `{{< tooltip >}}RBAC{{< /tooltip >}}` (Role Based Access Control) — contains the data used for User Access Control. Currently, this is used for authorization of the REST API.
 * `Crypto` — contains (encrypted) cryptographic key material that is used for cluster-wide operations. <!--For more information, see [Key Management](#key-management).-->
 
@@ -51,7 +51,7 @@ Corda creates one of each of the following types per virtual node:
 
 All cluster-level databases must be initialized before Corda is operational. See the [Corda Deployment section]({{< relref "../../../deploying-operating/deployment/deploying/_index.md#database" >}}) for information about how databases are bootstrapped.
 Once the databases are created, Corda must be aware of where the dependent databases are. This happens in two places:
-* `Config` database — the connection details for the config database are passed into all instances of the {{< tooltip >}}database worker{{< /tooltip >}} when it is started. A read-only connection to this database must also be passed into the {{< tooltip >}}crypto worker{{< /tooltip >}} to enable it to read crypto database configuration.
+* `Config` database — the connection details for the config database are passed into all instances of the {{< tooltip >}}{{< tooltip >}}database worker{{< /tooltip >}}{{< /tooltip >}} when it is started. A read-only connection to this database must also be passed into the {{< tooltip >}}crypto worker{{< /tooltip >}} to enable it to read crypto database configuration.
 * All other databases — connection details for all other databases are stored in a table inside the `Config` database.
 
 This design enables Corda to connect to a dynamic set of databases, specifically the virtual node databases, which are created and managed by Corda itself.
@@ -64,7 +64,7 @@ Because database connection details, including credentials, are stored inside th
 Corda requires the following types of keys:
 * P2P {{< tooltip >}}TLS{{< /tooltip >}}
 * P2P Session initiation
-* MGM ECDH
+* MGM {{< tooltip >}}ECDH{{< /tooltip >}}
 * Notary
 * Ledger
 * CorDapp publisher code signing
@@ -87,7 +87,7 @@ It is not currently possible to revoke or rotate keys.
 {{< /note >}}
 
 ## Kafka
-Apache Kafka version 3.2.0 is supported by Corda. It is used internally in the Corda Cluster as a message bus and can also be used to emit events from flow code. For more information see:
+Apache Kafka version 3.2.0 is supported by Corda. It is used internally in the Corda Cluster as a message bus and can also be used to emit events from {{< tooltip >}}flow{{< /tooltip >}} code. For more information see:
 * [Configuring Kafka]({{< relref "../../../deploying-operating/deployment/deploying/_index.md#kafka" >}})
 * [External Messaging Administration]({{< relref "../../../deploying-operating/external-messaging/_index.md" >}}) {{< enterprise-icon >}}
 

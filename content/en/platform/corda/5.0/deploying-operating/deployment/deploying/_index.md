@@ -110,7 +110,7 @@ To push the Corda Enterprise images:
 
 ## Download the Corda Helm Chart
 
-The following sections describe how to download the Corda Helm chart:
+The following sections describe how to download the Corda {{< tooltip >}}Helm{{< /tooltip >}} chart:
 * [Corda Helm chart]({{< relref "#corda-helm-chart" >}})
 * [Corda Enterprise Helm chart]({{< relref "#corda-enterprise-helm-chart" >}})
 
@@ -234,7 +234,7 @@ Regarding AWS topology, we recommend the following initial configuration:
   a reasonable starting point. For a cluster with three replicas of each worker, extend that to four nodes.
 
 * RDS PostgreSQL: `db.r5.large` instance size is sufficient for both a Corda cluster with a single replica of each worker
-  and three replicas of each worker, subject to the persistence requirements of any CorDapp running in the cluster.
+  and three replicas of each worker, subject to the persistence requirements of any {{< tooltip >}}CorDapp{{< /tooltip >}} running in the cluster.
 
 * MSK: For a cluster with a single replica of each worker and a topic replica count of three, a Kafka cluster of three
   `kafka.t3.small` instances may suffice. In a HA topology with three replicas of each worker and a topic replica count

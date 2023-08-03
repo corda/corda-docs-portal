@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Tech Stack
 
-CorDapps, consisting of flows, and optionally {{< tooltip >}}states{{< /tooltip >}} and contracts, are “pieces of code” hosted by the Corda runtime. This code can be written in a JVM compatible language. Java and Kotlin are officially supported. Currently, Corda 5 supports CorDapps compiled using Azul Zulu JDK 17. Other OpenJDK compatible Java 11 SDKs may also work but have not been fully tested.
+CorDapps, consisting of {{< tooltip >}}flows{{< /tooltip >}}, and optionally {{< tooltip >}}states{{< /tooltip >}} and contracts, are “pieces of code” hosted by the Corda runtime. This code can be written in a JVM compatible language. Java and Kotlin are officially supported. Currently, Corda 5 supports CorDapps compiled using Azul Zulu JDK 17. Other OpenJDK compatible Java 11 SDKs may also work but have not been fully tested.
 
 CorDapps are simply code, written in a JVM compatible language, compiled into a special type of JAR called a {{< tooltip >}}CPK{{< /tooltip >}}. These CPKs are compiled using the [Gradle plugin]({{< relref "../../../developing-applications/packaging/cpk-plugin.md" >}}). See the [Corda 5 Samples repository](https://github.com/corda/corda5-samples) for an example of a typical CorDapp.
 
@@ -166,7 +166,7 @@ cordapp {
 The following rules identify which CPK type is applicable:
 * Flow code (anything implementing the [Flow interface]({{< relref "../../../developing-applications/api/application/flows.md" >}})) can only exist in a workflow CPK.
 * Contracts and states (implementing `Contract` and `ContractState`) can only exist in a contract CPK.
-* Entity classes used in the [persistence]({{< relref "../../../developing-applications/api/application/persistence.md" >}}) API (annotated with `@Entity`), along with their database migration scripts, can only exist in a contract CPK.
+* {{< tooltip >}}Entity{{< /tooltip >}} classes used in the [persistence]({{< relref "../../../developing-applications/api/application/persistence.md" >}}) API (annotated with `@Entity`), along with their database migration scripts, can only exist in a contract CPK.
 * Workflow CPKs can reference contract CPKs, but never the other way around.
 
 As a CorDapp Developer, it is usually sufficient to remember the above rules.

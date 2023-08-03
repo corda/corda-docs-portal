@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Tracing Framework
 
-As a Corda Cluster Operator, you may want to configure a tracing server and sample rate when deploying the Helm chart.
+As a Corda Cluster Operator, you may want to configure a tracing server and sample rate when deploying the {{< tooltip >}}Helm{{< /tooltip >}} chart.
 The tracing configuration supported by the Helm chart contains the following configuration in the `values.yaml` file:
 
 ```

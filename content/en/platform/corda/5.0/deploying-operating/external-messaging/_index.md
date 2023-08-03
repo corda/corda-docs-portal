@@ -13,7 +13,7 @@ section_menu: corda5
 
 # External Messaging Administration {{< enterprise-icon >}}
 
-CorDapp flows can send simple messages via Kafka to external systems. For more information, see [External Messaging CorDapps]({{< relref "../../developing-applications/external-messaging.md" >}}). This section describes the cluster administration tasks required for CorDapps that implement external messaging. It contains the following:
+{{< tooltip >}}CorDapp{{< /tooltip >}} flows can send simple messages via Kafka to external systems. For more information, see [External Messaging CorDapps]({{< relref "../../developing-applications/external-messaging.md" >}}). This section describes the cluster administration tasks required for CorDapps that implement external messaging. It contains the following:
 * [Configuring External Messaging Routes](#configuring-external-messaging-routes)
 * [Creating Kafka Topics](#creating-kafka-topics)
 
@@ -92,5 +92,5 @@ Corda does not create Kafka topics used for external messaging. You must manuall
    ```
    kafka-console-consumer --topic <topic-nam> --from-beginning --bootstrap-server localhost:9092
    ```
-   To test that everything is working correctly, start the flow that sends external messages. For more information, see the <a href="../reference/rest-api/C5_OpenAPI.html#tag/Flow-Management-API/operation/post_flow__holdingidentityshorthash_">REST API documentation of the `flow` endpoint</a>.
+   To test that everything is working correctly, start the {{< tooltip >}}flow{{< /tooltip >}} that sends external messages. For more information, see the <a href="../reference/rest-api/C5_OpenAPI.html#tag/Flow-Management-API/operation/post_flow__holdingidentityshorthash_">REST API documentation of the `flow` endpoint</a>.
 

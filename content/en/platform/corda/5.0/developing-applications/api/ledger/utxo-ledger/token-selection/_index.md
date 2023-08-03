@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 # net.corda.v5.ledger.utxo.token.selection
-The Token Selection API enables a flow to exclusively select a set of {{< tooltip >}}states{{< /tooltip >}} to potentially use as input states in a {{< tooltip >}}UTXO{{< /tooltip >}} {{< tooltip >}}transaction{{< /tooltip >}}. Although this can be achieved with simple {{< tooltip >}}vault{{< /tooltip >}} queries, the selection API offers the following key features that improve the performance and reliability of the flows:
+The Token Selection API enables a {{< tooltip >}}flow{{< /tooltip >}} to exclusively select a set of {{< tooltip >}}states{{< /tooltip >}} to potentially use as input states in a {{< tooltip >}}UTXO{{< /tooltip >}} {{< tooltip >}}transaction{{< /tooltip >}}. Although this can be achieved with simple {{< tooltip >}}vault{{< /tooltip >}} queries, the selection API offers the following key features that improve the performance and reliability of the flows:
 
 * **Exclusivity:** In an environment where multiple instances of a flow are running in parallel, it is important that each flow can exclusively claim states to spend. Without this, there is a high chance that multiple flows could attempt to spend the same states at the same time, causing transactions to fail during notarization, due to an attempt to spend a state that has already been spent.
 * **Target Amount Selection:** When selecting fungible states to spend, it is usual to select multiple states that sum to at least the target value of the proposed transaction. The selection API provides an explicit model for achieving this, which would be difficult to achieve using standard vault queries.
@@ -20,7 +20,7 @@ The Token Selection API enables a flow to exclusively select a set of {{< toolti
 
 ### Tokens
 
-The API defines a generic {{< tooltip >}}token{{< /tooltip >}} that is used to represent a state. The purpose of the token is to allow a consistent model for querying user-defined states. Attributes of the token are partly derived by the platform and partly derived by the CorDapp using an implementation of `UtxoLedgerTokenStateObserver` for the given state. The following table describes these attributes:
+The API defines a generic {{< tooltip >}}token{{< /tooltip >}} that is used to represent a state. The purpose of the token is to allow a consistent model for querying user-defined states. Attributes of the token are partly derived by the platform and partly derived by the {{< tooltip >}}CorDapp{{< /tooltip >}} using an implementation of `UtxoLedgerTokenStateObserver` for the given state. The following table describes these attributes:
 | <div style="width:100px">Attribute    </div>    | <div style="width:100px">Type       </div>      | <div style="width:100px">Provided By </div>| Description                                                                                                                                                                             |
 | ---------------- | ---------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | StateRef         | StateRef         | Platform    | The reference to the state linked to this token.                                                                                                                                        |

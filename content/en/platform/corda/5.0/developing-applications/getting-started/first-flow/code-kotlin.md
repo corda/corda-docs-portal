@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 # Kotlin Flow Code Walkthrough
-The Kotlin code for the flows and supporting classes can be found in the CSDE repo at `workflows/src/main/kotlin/com/r3/developers/csdetemplate/flowexample/workflows/MyFirstFlow.kt`.
+The Kotlin code for the {{< tooltip >}}flows{{< /tooltip >}} and supporting classes can be found in the CSDE repo at `workflows/src/main/kotlin/com/r3/developers/csdetemplate/flowexample/workflows/MyFirstFlow.kt`.
 
 The full listing with explanatory comments is as follows:
 ```kotlin
@@ -176,7 +176,7 @@ There are two helper classes:
    ```kotlin
    class MyFirstFlowStartArgs(val otherMember: MemberX500Name)
    ```
-* `Message` —  specifies the sender and the message. This is used for both the message sent from the initiator to the responder and subsequently the message sent back from the responder to the initiator. Note, as this is a class defined in a CorDapp and it is going to be sent ‘down the wire’ between two virtual nodes, it requires the `@CordaSerializable` annotation.
+* `Message` —  specifies the sender and the message. This is used for both the message sent from the initiator to the responder and subsequently the message sent back from the responder to the initiator. Note, as this is a class defined in a {{< tooltip >}}CorDapp{{< /tooltip >}} and it is going to be sent ‘down the wire’ between two virtual nodes, it requires the `@CordaSerializable` annotation.
    ```kotlin
    @CordaSerializable
    class Message(val sender: MemberX500Name, val message: String)
@@ -295,7 +295,7 @@ We can now start sending messages to the responder:
    ```kotlin
         session.send(message)
    ```
-   The code continues to execute until it reaches the `session.receive()` method. At that point, the flow checkpoints and persists its {{< tooltip >}}state{{< /tooltip >}} to the database. It resumes when it receives a message back from the responder. This frees up the Corda cluster flow workers to perform other tasks.
+   The code continues to execute until it reaches the `session.receive()` method. At that point, the flow checkpoints and persists its {{< tooltip >}}state{{< /tooltip >}} to the database. It resumes when it receives a message back from the responder. This frees up the Corda cluster {{< tooltip >}}flow workers{{< /tooltip >}} to perform other tasks.
    {{< note >}}
    There is no guarantee that the same flow worker resumes the completion of the flow and so singleton objects should be avoided in Corda 5 flows.
    {{< /note >}}

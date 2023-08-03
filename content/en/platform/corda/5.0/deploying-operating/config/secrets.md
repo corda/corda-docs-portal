@@ -48,7 +48,7 @@ You can specify the `pass` value as a secret using the `configSecret` value, as 
 }
 ```
 
-You can use the Corda CLI <a href = "../../reference/corda-cli/secret-config.md">`secret-config` command</a> to generate the configuration for an encrypted value.
+You can use the {{< tooltip >}}Corda CLI{{< /tooltip >}} <a href = "../../reference/corda-cli/secret-config.md">`secret-config` command</a> to generate the configuration for an encrypted value.
 
 ## External Secrets Service {{< enterprise-icon >}}
 

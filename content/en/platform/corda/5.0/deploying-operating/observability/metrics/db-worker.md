@@ -17,7 +17,7 @@ The database worker is the sole worker with access to the database (apart from t
 own dedicated database). As a result, the activities carried out within the database worker pertain to the database.
 
 The database worker is responsible for handling and serving persistence requests originating from various Corda worker types,
-such as the {{< tooltip >}}flow worker{{< /tooltip >}} or the MGM worker. The flow persistence requests metrics presented in this section measure:
+such as the {{< tooltip >}}}flow worker{{< /tooltip >}} or the MGM worker. The {{< tooltip >}}flow{{< /tooltip >}} persistence requests metrics presented in this section measure:
 
 * The time taken to handle the flow persistence requests.
 * The time the flow persistence requests remained on Kafka, from the moment they were added by flows until they were received
@@ -57,7 +57,7 @@ table th:nth-of-type(4) {
 
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
-| `corda_db_entity_persistence_request_time_seconds` | Timer | <ul><li>`entityRequest_type`</li><li>`entityRequest_outcome`</li></ul> | The time it takes to process an entity persistence request, from the moment the request is received from Kafka. |
+| `corda_db_entity_persistence_request_time_seconds` | Timer | <ul><li>`entityRequest_type`</li><li>`entityRequest_outcome`</li></ul> | The time it takes to process an {{< tooltip >}}entity{{< /tooltip >}} persistence request, from the moment the request is received from Kafka. |
 | `corda_db_entity_persistence_request_lag_seconds` | Timer | <ul><li>`entityRequest_type`</li></ul> | The lag between the flow putting the entity persistence request to Kafka and the EntityMessageProcessor. |
 | `corda_ledger_persistence_time_seconds` | Timer | <ul><li>`flowId`</li><li>`ledger_type`</li><li>`operation_name`</li></ul> | The time it takes to execute ledger transaction database request against the database. |
 | `corda_membership_persistence_transaction_time_seconds` | Timer | <ul><li>`operation_name`</li><li>`group`</li><li>`virtualnode`</li></ul> | The time it takes to execute membership persistence transactions. Excludes time spent acquiring a database connection. |

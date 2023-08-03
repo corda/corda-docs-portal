@@ -13,7 +13,7 @@ menu:
 
 In Corda, flows automate the process of agreeing ledger updates. They are a sequence of steps that tell the node how to achieve a specific ledger update, such as issuing an asset or making a deposit. Nodes communicate using these flows in point-to-point interactions, rather than a global broadcast system. Network participants must specify what information needs to be sent, to which counterparties.
 
-This tutorial guides you through writing the three flows you need in your CorDapp. These are:
+This tutorial guides you through writing the three flows you need in your {{< tooltip >}}CorDapp{{< /tooltip >}}. These are:
 
 * `CreateAndIssueAppleStampFlow`
 * `PackageApplesFlow`

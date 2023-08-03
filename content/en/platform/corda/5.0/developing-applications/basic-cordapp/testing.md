@@ -11,8 +11,8 @@ menu:
 
 # Test Your CorDapp
 
-This tutorial guides you through the steps required to execute the flows you have previously created,
-to confirm the CorDapp works as expected.
+This tutorial guides you through the steps required to execute the {{< tooltip >}}flows{{< /tooltip >}} you have previously created,
+to confirm the {{< tooltip >}}CorDapp{{< /tooltip >}} works as expected.
 
 ## Learning Objectives
 
@@ -133,4 +133,4 @@ issue an `AppleStamp` to Dave, rather than Bob doing this. On redemption, the tr
 does not recognise the `AppleStamp` ID provided.
 * Repeat all the steps for redeeming the `AppleStamp`, but on redemption, Bob tries to redeem Dave’s
 `AppleStamp` by specifying himself as the buyer. This should be rejected. Similarly, attempting to specify a different
-entity altogether (for example, Charlie) should also be rejected.
+{{< tooltip >}}entity{{< /tooltip >}} altogether (for example, Charlie) should also be rejected.

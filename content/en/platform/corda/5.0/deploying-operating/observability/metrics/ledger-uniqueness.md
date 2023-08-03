@@ -13,7 +13,7 @@ section_menu: corda5
 
 # Ledger Uniqueness Checker Client Service
 
-The ledger uniqueness checker client service metrics are from the perspective of the notarization flow running on a {{< tooltip >}}notary{{< /tooltip >}} {{< tooltip >}}virtual node{{< /tooltip >}}.
+The ledger uniqueness checker client service metrics are from the perspective of the notarization {{< tooltip >}}flow{{< /tooltip >}} running on a {{< tooltip >}}notary{{< /tooltip >}} {{< tooltip >}}virtual node{{< /tooltip >}}.
 
 <style>
 table th:first-of-type {

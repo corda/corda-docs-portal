@@ -135,7 +135,7 @@ Add-Content $WORK_DIR/GroupPolicy.json @"
 
 ## Create the CPI File
 
-Build a CPI using the Corda CLI, passing in your generated `GroupPolicy.json` file:
+Build a CPI using the {{< tooltip >}}Corda CLI{{< /tooltip >}}, passing in your generated `GroupPolicy.json` file:
 
    {{< tabs name="build-cpi">}}
    {{% tab name="Bash" %}}

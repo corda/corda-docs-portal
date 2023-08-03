@@ -94,7 +94,7 @@ In an example with multiple borrowers in the network, this could result in the f
 >}}
 
 As shown, the lender’s vault contains all loans, but borrowers Alice and Bob can only see the loans related to them.
-This is referred to as a Distributed Ledger.
+This is referred to as a {{< tooltip >}}Distributed Ledger{{< /tooltip >}}.
 
 It is worth noting that while flows usually involve multiple parties, they do not have to. Sometimes flows that only involve the initiating party are required. Examples of this are minting tokens or providing a read API for states already in the vault.
 
@@ -105,5 +105,4 @@ The IOU example records transactions in the vault. However, it is possible to cr
 * Corda defines the concept of application networks. Each member of the network, or virtual node, is supported by a CorDapp.
 * A flow can involve a single participant, but usually there are at least two.
 * A flow is initiated by a single participant, who executes the initiating flow, and is responded to by the other party/parties as part of the responder flow.
-* Each participant has their own vault where they can store states.
 * Participants only store the states they have been party to.

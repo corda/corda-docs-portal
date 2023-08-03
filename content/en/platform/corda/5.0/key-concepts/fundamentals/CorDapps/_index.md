@@ -32,7 +32,7 @@ CorDapps are composed of two layers:
 	 figcaption="CorDapp Layers"
 >}}
 
-The first view, A, shows our CorDapp as a single entity. It interacts with Corda through the API at a programmatic level and with the hosting infrastructure when executing. Secondly, it interoperates with itself when other instances of it communicate and also with external systems where it is integrated into existing business processes and software.
+The first view, A, shows our CorDapp as a single {{< tooltip >}}entity{{< /tooltip >}}. It interacts with Corda through the API at a programmatic level and with the hosting infrastructure when executing. Secondly, it interoperates with itself when other instances of it communicate and also with external systems where it is integrated into existing business processes and software.
 
 Our second view, B, drills into this picture to highlight the two layers and how they interoperate with other aspects of a Corda deployment.
 

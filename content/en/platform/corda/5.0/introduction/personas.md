@@ -20,7 +20,7 @@ The Corda documentation is written from the perspectives of a collection of peop
 ## Architect
 
 As an Architect considering or planning a project with Corda, you:
-* are curious about the benefits of adopting DLT technology, but also concerned about any risks.
+* are curious about the benefits of adopting {{< tooltip >}}DLT{{< /tooltip >}} technology, but also concerned about any risks.
 * want to know why DLT is a better fit for your business problem than a centralized solution.
 * are for looking for answers and guidance to the following questions:
    * Who has access to my {{< tooltip >}}vault{{< /tooltip >}} data and how is privacy preserved in Corda?
@@ -34,7 +34,7 @@ As an Architect working with Corda, all sections of the Corda documentation are 
 
 ## CorDapp Developer
 
-A CorDapp Developer uses Corda to:
+A {{< tooltip >}}CorDapp{{< /tooltip >}} Developer uses Corda to:
 * explore DLT and create their own chain of shared facts to experiment with.
 * design an enterprise production-grade distributed application.
 * work as part of a team to build an enterprise production-grade distributed application.
