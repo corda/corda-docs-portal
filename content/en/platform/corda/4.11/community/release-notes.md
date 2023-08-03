@@ -39,6 +39,8 @@ This release includes the following fixes:
 * When a notary worker is shut down, message ID cleanup is now performed as the last shutdown activity, rather than the first; this prevents a situation where the notary worker might still appear to be part of the notary cluster and receiving client traffic while shutting down.
 
 * Debug logging of the Artemis server has been added.
+
+* When a notary worker is shut down, message ID cleanup is now performed as the last shutdown activity, rather than the first; this prevents a situation where the notary worker might still appear to be part of the notary cluster and receiving client traffic while shutting down.
   
 ### Database schema changes
 
