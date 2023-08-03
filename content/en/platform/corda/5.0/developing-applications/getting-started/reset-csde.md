@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 # Resetting the CSDE
-The CSDE creates temporary files to store data required to generate and upload Corda Package Installer (CPI) files and manage the Corda cluster.
+The CSDE creates temporary files to store data required to generate and upload {{< tooltip >}}CPI{{< /tooltip >}} files and manage the Corda cluster.
 If these files are modified, deleted, or otherwise get out of sync with the actual state of the Corda cluster, the CSDE Gradle tasks may not function correctly.
 For example:
 * A Corda cluster is started without using the `startCorda` task or by running `startCorda` from a different CSDE repository.

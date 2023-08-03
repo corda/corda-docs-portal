@@ -11,7 +11,7 @@ menu:
 
 # Write States
 
-This tutorial guides you through writing the two states you need in your CorDapp: `AppleStamp` and `BasketofApples`.
+This tutorial guides you through writing the two {{< tooltip >}}states{{< /tooltip >}} you need in your {{< tooltip >}}CorDapp{{< /tooltip >}}: `AppleStamp` and `BasketofApples`.
 You will create these states in the `contracts/src/main/kotlin/com/r3/developers/apples/states` directory.
 
 ## Learning Objectives
@@ -145,7 +145,7 @@ The `BasketOfApples` state is the basket of apples that Farmer Bob self-issues t
 
 You will also need to define a `participants` property and override the getter method, as you did when creating the `AppleStamp` contract.
 
-The `BasketOfApples` state is involved in two transactions. In the first transaction, Farmer Bob self-issues the `BasketOfApples`.
+The `BasketOfApples` state is involved in two transactions. In the first {{< tooltip >}}transaction{{< /tooltip >}}, Farmer Bob self-issues the `BasketOfApples`.
 At this point, Farmer Bob is both the `owner` and `farm` of the transaction. The second transaction occurs when Dave
 wishes to redeem his `AppleStamp` for the `BasketOfApples`. At this point, the owner changes from Bob to Dave.
 

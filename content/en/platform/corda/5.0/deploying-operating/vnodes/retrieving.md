@@ -15,7 +15,7 @@ section_menu: corda5
 
 ## Retrieving All Virtual Nodes
 
-To retrieve a list of all virtual nodes in the cluster, use the GET method of the <a href ="../../reference/rest-api/C5_OpenAPI.html#tag/Virtual-Node-API/operation/get_virtualnode">`/api/v1/virtualnode` endpoint </a>:
+To retrieve a list of all virtual nodes in the {{< tooltip >}}cluster{{< /tooltip >}}, use the GET method of the <a href ="../../reference/rest-api/C5_OpenAPI.html#tag/Virtual-Node-API/operation/get_virtualnode">`/api/v1/virtualnode` endpoint </a>:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -65,7 +65,7 @@ This endpoint returns the list of all virtual nodes in the cluster as an array o
 
 ## Retrieving the Virtual Node of a Member
 
-To retrieve information about the virtual node of a specific {{< tooltip >}}member{{< /tooltip >}} in the cluster, use the GET method of the <a href ="../../reference/rest-api/C5_OpenAPI.html#tag/Virtual-Node-API/operation/get_virtualnode__holdingidentityshorthash_">`/api/v1/virtualnode/<holdingidentityshorthash>` endpoint </a>:
+To retrieve information about the {{< tooltip >}}virtual node{{< /tooltip >}} of a specific {{< tooltip >}}member{{< /tooltip >}} in the cluster, use the GET method of the <a href ="../../reference/rest-api/C5_OpenAPI.html#tag/Virtual-Node-API/operation/get_virtualnode__holdingidentityshorthash_">`/api/v1/virtualnode/<holdingidentityshorthash>` endpoint </a>:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}

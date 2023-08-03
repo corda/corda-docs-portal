@@ -32,7 +32,7 @@ If your Kubernetes cluster can not pull images from Docker Hub, or if you are de
 
 ### Container Images for Corda
 
-To push the Corda images: 
+To push the Corda images:
 
 1. Download `corda-os-worker-images-5.0.0.tar` from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
 
@@ -71,7 +71,7 @@ To push the Corda images:
 
 ### Container Images for Corda Enterprise {{< enterprise-icon >}}
 
-To push the Corda Enterprise images: 
+To push the Corda Enterprise images:
 
 1. Download `corda-ent-worker-images-5.0.0.tar` from the [R3 Customer Hub](https://r3.force.com/).
 
@@ -110,7 +110,7 @@ To push the Corda Enterprise images:
 
 ## Download the Corda Helm Chart
 
-The following sections describe how to download the Corda Helm chart:
+The following sections describe how to download the Corda {{< tooltip >}}Helm{{< /tooltip >}} chart:
 * [Corda Helm chart]({{< relref "#corda-helm-chart" >}})
 * [Corda Enterprise Helm chart]({{< relref "#corda-enterprise-helm-chart" >}})
 
@@ -234,7 +234,7 @@ Regarding AWS topology, we recommend the following initial configuration:
   a reasonable starting point. For a cluster with three replicas of each worker, extend that to four nodes.
 
 * RDS PostgreSQL: `db.r5.large` instance size is sufficient for both a Corda cluster with a single replica of each worker
-  and three replicas of each worker, subject to the persistence requirements of any CorDapp running in the cluster.
+  and three replicas of each worker, subject to the persistence requirements of any {{< tooltip >}}CorDapp{{< /tooltip >}} running in the cluster.
 
 * MSK: For a cluster with a single replica of each worker and a topic replica count of three, a Kafka cluster of three
   `kafka.t3.small` instances may suffice. In a HA topology with three replicas of each worker and a topic replica count
@@ -272,7 +272,7 @@ workers:
 
 ##### AWS Load Balancer Controller
 
-Alternatively, the API can be fronted directly by a load balancer. The Helm chart allows annotations to be specified to
+Alternatively, the REST API can be fronted directly by a load balancer. The Helm chart allows annotations to be specified to
 facilitate the creation of a load balancer by a cloud-platform specific controller.
 For example, the following configuration specifies that the [AWS Load Balancer Controller](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html)
 fronts the REST API with a Network Load Balancer internal to the Virtual Private Cloud (VPC):
@@ -291,10 +291,10 @@ workers:
 
 #### Install the REST Worker Certificate
 
-The REST worker TLS certificate is presented to a client any time a HTTPS connection is made.
-If no specific parameters are provided, a self-signed certificate is used and the connection to the REST Worker is always HTTPS. However, a warning will be emitted into the REST worker log explaining how to provide parameters for custom TLS certificates.
+The REST worker {{< tooltip >}}TLS{{< /tooltip >}} certificate is presented to a client any time a HTTPS connection is made.
+If no specific parameters are provided, a self-signed certificate is used and the connection to the {{< tooltip >}}REST Worker{{< /tooltip >}} is always HTTPS. However, a warning will be emitted into the REST worker log explaining how to provide parameters for custom TLS certificates.
 The following is required to install a valid TLS certificate:
-* The TLS certificate itself must be signed by a Certification Authority (CA) or an intermediary.
+* The TLS certificate itself must be signed by a Certification Authority ({{< tooltip >}}CA{{< /tooltip >}}) or an intermediary.
 * A private key corresponding to the public key included in the TLS certificate.
 * The Certification Chain must lead up to the CA.
 
@@ -302,7 +302,7 @@ The following is required to install a valid TLS certificate:
 If you configure the REST worker to use a trusted certificate, `-k` should be removed from the example curl commands given throughout this documentation.
 {{< /note >}}
 
-Custom certificate information can be provided in PEM format as a Kubernetes secret. 
+Custom certificate information can be provided in PEM format as a Kubernetes secret.
 You can either create a Kubernetes secret manually to hold the certificate information or allow Helm to generate a new secret.
 You can specify the secret name manually as follows:
 ```yaml
@@ -357,7 +357,7 @@ kafka:
     enabled: true
 ```
 
-If the broker certificate is self-signed or cannot be trusted for some other reason, create a Kubernetes secret containing the client trust store. The trust store can be in PEM or {{< tooltip >}}JKS{{< /tooltip >}} format. If JKS format is used, you can supply a password for the trust store. The following example is for a trust store in PEM format stored against the `ca.crt` key in the Kubernetes secret:
+If the broker certificate is self-signed or cannot be trusted for some other reason, create a Kubernetes secret containing the client {{< tooltip >}}trust store{{< /tooltip >}}. The trust store can be in PEM or {{< tooltip >}}JKS{{< /tooltip >}} format. If JKS format is used, you can supply a password for the trust store. The following example is for a trust store in PEM format stored against the `ca.crt` key in the Kubernetes secret:
 ```yaml
 kafka
   tls:
@@ -449,7 +449,7 @@ config:
           secretKeyRef:
             name: <SALT_SECRET_NAME>
             key: <SALT_SECRET_KEY>
-      passphrase: 
+      passphrase:
         valueFrom:
           secretKeyRef:
             name: <PASSPHRASE_SECRET_NAME>
@@ -468,14 +468,14 @@ config:
     createdSecretPath: "<path-to-corda-created-secrets>"
 ```
 
-* `<vault-URL>` is the full URL including port at which the Vault instance is reachable, not including any path.
-* `<vault-token>` must allow sufficient permissions to read from Vault at the Corda configured paths and write to the `<path-to-corda-created-secrets>`, where Corda writes secrets it creates.
+* `<vault-URL>` is the full URL including port at which the vault instance is reachable, not including any path.
+* `<vault-token>` must allow sufficient permissions to read from vault at the Corda configured paths and write to the `<path-to-corda-created-secrets>`, where Corda writes secrets it creates.
 
-The passwords for the RBAC and CRYPTO schemas and VNODES database must be available in Vault before Corda is deployed. These must be available in the Vault `dbsecrets` path, under the keys `rbac`, `crypto`, and `vnodes` respectively. 
+The passwords for the {{< tooltip >}}RBAC{{< /tooltip >}} and CRYPTO schemas and VNODES database must be available in vault before Corda is deployed. These must be available in the Vault `dbsecrets` path, under the keys `rbac`, `crypto`, and `vnodes` respectively.
 {{< note >}}
 These keys are not tied to the schema names. If the schema names change, the key names remain `rbac`, `crypto`, and `vnodes`.
 {{< /note >}}
-Additionally, a passphrase and salt for the Corda wrapping keys must be added to the Vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
+Additionally, a passphrase and salt for the Corda wrapping keys must be added to the vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
 
 ### Bootstrapping
 
@@ -483,7 +483,7 @@ By default, the Helm chart automatically configures Kafka, PostgreSQL, and a def
 If desired, each of these steps can be disabled and the necessary [configuration performed manually]({{< relref "manual-bootstrapping.md" >}}).
 
 {{< note >}}
-Bootstrap secrets are cleaned up automatically post-install with the exception of the `-rest-api-admin` secret. This secret should be manually deleted by the Administrator after retrieving the generated credentials. 
+Bootstrap secrets are cleaned up automatically post-install with the exception of the `-rest-api-admin` secret. This secret should be manually deleted by the Administrator after retrieving the generated credentials.
 {{< /note >}}
 
 #### Kafka
@@ -645,7 +645,7 @@ annotations:
   annotation-key-1: "custom-value"
 ```
 
-To define `annotation-key-2` for only the crypto worker:
+To define `annotation-key-2` for only the {{< tooltip >}}crypto worker{{< /tooltip >}}:
 
 ```yaml
 workers:

@@ -10,5 +10,5 @@ menu:
 section_menu: corda5
 ---
 # Developing Applications
-This section describes the tasks performed by CorDapp Developers. It contains the following:
+This section describes the tasks performed by {{< tooltip >}}CorDapp{{< /tooltip >}} Developers. It contains the following:
 {{< childpages >}}

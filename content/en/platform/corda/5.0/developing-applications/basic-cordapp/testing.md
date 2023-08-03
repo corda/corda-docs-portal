@@ -11,8 +11,8 @@ menu:
 
 # Test Your CorDapp
 
-This tutorial guides you through the steps required to execute the flows you have previously created,
-to confirm the CorDapp works as expected.
+This tutorial guides you through the steps required to execute the {{< tooltip >}}flows{{< /tooltip >}} you have previously created,
+to confirm the {{< tooltip >}}CorDapp{{< /tooltip >}} works as expected.
 
 ## Learning Objectives
 
@@ -22,7 +22,7 @@ flows to confirm correct behaviour of your CorDapp.
 ## Before You Start
 
 Before you run your flows, you must install the CSDE environment.
-The CSDE environment will automatically provision a notary virtual node, in addition to virtual nodes for four participants
+The CSDE environment will automatically provision a notary {{< tooltip >}}virtual node{{< /tooltip >}}, in addition to virtual nodes for four participants
 – Alice, Bob, Charlie, and Dave. You will use the Bob and Dave virtual nodes for your flows. They represent the farmer
 and the customer referenced in the earlier tutorials.
 
@@ -126,11 +126,11 @@ The `flowStatus` in the response should also be completed. Following this step, 
 The above steps show the “happy path”. However, you may wish to execute some further flows to ensure that your contract validation works as expected. Some additional scenarios to try are:
 
 * Try redeeming the original `AppleStamp` again. You can do this by entering a new flow as you did when following the steps
-for redeeming the `AppleStamp`, but with a new client request ID. The transaction should fail with an error indicating
+for redeeming the `AppleStamp`, but with a new client request ID. The {{< tooltip >}}transaction{{< /tooltip >}} should fail with an error indicating
 that an `AppleStamp` with the specified ID could not be found.
 * Repeat all the steps for issuing an `AppleStamp`, but get another virtual node (for example, Charlie) to
 issue an `AppleStamp` to Dave, rather than Bob doing this. On redemption, the transaction should fail because Bob
 does not recognise the `AppleStamp` ID provided.
 * Repeat all the steps for redeeming the `AppleStamp`, but on redemption, Bob tries to redeem Dave’s
 `AppleStamp` by specifying himself as the buyer. This should be rejected. Similarly, attempting to specify a different
-entity altogether (for example, Charlie) should also be rejected.
+{{< tooltip >}}entity{{< /tooltip >}} altogether (for example, Charlie) should also be rejected.

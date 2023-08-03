@@ -23,7 +23,7 @@ Corda uses a custom form of typesafe binary serialisation. The primary drivers f
 * A desire to use a documented and static wire format that is platform independent, and is not subject to change with
   3rd party library upgrades, etc.
 * A desire to support open-ended polymorphism, where the number of subclasses of a superclass can expand over time
-  and the subclasses do not need to be defined in the schema *upfront*. This is key to many Corda concepts, such as states.
+  and the subclasses do not need to be defined in the schema *upfront*. This is key to many Corda concepts, such as {{< tooltip >}}states{{< /tooltip >}}.
 * Increased security when deserializing objects by constructing them through supported constructors, rather than having
   data inserted directly into their fields without an opportunity to validate consistency or intercept attempts to manipulate
   supposed invariants.
@@ -80,7 +80,7 @@ Custom serializers targeting Corda platform types or JDK types are not allowed. 
 {{< /note >}}
 
 {{< warning >}}
-Java 8 Lambda expressions are not serializable except in flow checkpoints, and then not by default. The syntax to declare a serializable Lambda
+Java 8 Lambda expressions are not serializable except in {{< tooltip >}}flow{{< /tooltip >}} checkpoints, and then not by default. The syntax to declare a serializable Lambda
 expression that will work with Corda is `Runnable r = (Runnable & Serializable) () -> System.out.println("Hello World");`, or
 `Callable<String> c = (Callable<String> & Serializable) () -> "Hello World";`.
 
@@ -92,7 +92,7 @@ Corda uses an extended form of AMQP 1.0 as its binary wire protocol.
 
 Corda serialisation is currently used for:
 
-* Passing objects between the flow worker and database worker
+* Passing objects between the {{< tooltip >}}flow worker{{< /tooltip >}} and {{< tooltip >}}database worker{{< /tooltip >}}
 
 
 For the checkpointing of flows Corda uses a private scheme that is subject to change. It is currently based on the Kryo
@@ -102,7 +102,7 @@ This separation of serialization schemes into different contexts allows us to us
 attempting to force a one-size-fits-all approach. Kryo is more suited to the serialization of a program’s stack frames, as it is more flexible
 than our AMQP framework in what it can construct and serialize. However, that flexibility makes it exceptionally difficult to make secure. Conversely, our AMQP framework allows us to work with a safer, secure framework with far fewer security holes.
 
-Selection of serialization context should, for the most part, be opaque to CorDapp Developers, the Corda framework selecting
+Selection of serialization context should, for the most part, be opaque to {{< tooltip >}}CorDapp {{< /tooltip >}} Developers, the Corda framework selecting
 the correct context as configured.
 
 This document describes what is currently and what will be supported in the Corda AMQP format from the perspective

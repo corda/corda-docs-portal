@@ -15,7 +15,7 @@ section_menu: corda5
 
 The backing store is responsible for abstracting database access from the uniqueness checker, and performs all read and write
 operations against the uniqueness database. These metrics also have the `virtualnode_source` tag which allows metrics to be
-associated with the holding IDs of specific notary virtual nodes.
+associated with the holding IDs of specific {{< tooltip >}}notary{{< /tooltip >}} virtual nodes.
 
 Metrics of type Timer have further metrics with the suffixes `_count`, `_max`, and `_sum` that represent the number of events,
 the maximum value, and the cumulative sum of values, respectively.
@@ -49,6 +49,6 @@ table th:nth-of-type(4) {
 | `corda_uniqueness_backingstore_db_read_time_seconds` | Timer | <ul><li>`virtualnode_source`</li><li>`operation_name`</li></ul> | The time taken to perform a single read operation from the database. If a transaction is retried, each retry contributes independently to this metric, meaning the number is not cumulative across retries. |
 
 Tags:
-* `virtualnode_source`: The virtual node identity.
+* `virtualnode_source`: The {{< tooltip >}}virtual node{{< /tooltip >}} identity.
 * `error_type`: The specific error class name.
 * `operation_name`: The specific type of read operation being performed, currently one of `getStateDetails`, `getTransactionDetails`, or `getTransactionError`.

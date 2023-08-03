@@ -12,9 +12,9 @@ section_menu: corda5
 
 # Mutual TLS Connections
 
-Corda 5 uses TLS to secure a connection between two clusters. While establishing a TLS connection between the gateways of two clusters, the server gateway sends its certificate to the client gateway. The client gateway verifies the server certificate using its trust root certificate. In mutual TLS, in addition to the client verifying the server certificate, the server gateway also requests the client gateway send a client certificate and verifies that it is using its trust root certificate.
+Corda 5 uses {{< tooltip >}}TLS{{< /tooltip >}} to secure a connection between two clusters. While establishing a TLS connection between the gateways of two clusters, the server gateway sends its certificate to the client gateway. The client gateway verifies the server certificate using its trust root certificate. In mutual TLS, in addition to the client verifying the server certificate, the server gateway also requests the client gateway send a client certificate and verifies that it is using its trust root certificate.
 
-As the gateway manages the TLS connections for an entire cluster, the TLS mode (mutual or one-way) is defined in the gateway configuration and applies to the entire cluster. As a result, any group hosted in a mutual TLS cluster must be a mutual TLS group, and all its {{< tooltip >}}members{{< /tooltip >}} must be hosted on a mutual TLS cluster.
+As the gateway manages the TLS connections for an entire {{< tooltip >}}cluster{{< /tooltip >}}, the TLS mode (mutual or one-way) is defined in the gateway configuration and applies to the entire cluster. As a result, any group hosted in a mutual TLS cluster must be a mutual TLS group, and all its {{< tooltip >}}members{{< /tooltip >}} must be hosted on a mutual TLS cluster.
 
 The server gateway has a set of accepted certificate subjects. As part of the client certificate verification, the server rejects a connection with a certificate that has a subject not specified in the allowed list. Before a member can register with a cluster that is configured with mutual TLS, you must add the certificate subject of that member to the allowed list of the {{< tooltip >}}MGM{{< /tooltip >}}. Once a member is successfully onboarded, the MGM distributes the certificate subject of the member to all other members in the group. The gateway in each member cluster uses this to accept TLS connections from any onboarded member.
 
@@ -29,7 +29,7 @@ The server gateway has a set of accepted certificate subjects. As part of the cl
 
 To configure a cluster to use mutual TLS, you must set the `sslConfig.tlsType` flag in the `corda.p2p.gateway` configuration section to `MUTUAL` for the following:
 * The MGM cluster before registering the MGM.
-* All member clusters before uploading the CPI.
+* All member clusters before uploading the {{< tooltip >}}CPI{{< /tooltip >}}.
 
 ### Enable Mutual TLS Using Bash
 
@@ -52,7 +52,7 @@ If using Bash, perform the following steps to enable mutual TLS by configuring t
    ```shell
    curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.p2p.gateway", "version":"'$CONFIG_VERSION'", "config":"{ \"sslConfig\": { \"tlsType\": \"MUTUAL\"  }  }", "schemaVersion": {"major": 1, "minor": 0}}' $REST_API_URL"/config"
    ```
-   This command overwrites the revocation check setting. If you chose to disable revocation checks, use the following command instead:
+   This command overwrites the {{< tooltip >}}revocation check{{< /tooltip >}} setting. If you chose to disable revocation checks, use the following command instead:
 
    ```shell
    curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.p2p.gateway", "version":"'$CONFIG_VERSION'", "config":"{ \"sslConfig\": { \"tlsType\": \"MUTUAL\" , \"revocationCheck\": {\"mode\" : \"OFF\"} } }", "schemaVersion": {"major": 1, "minor": 0}}' $REST_API_URL"/config"

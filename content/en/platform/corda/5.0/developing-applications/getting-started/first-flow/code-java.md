@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 # Java Flow Code Walkthrough
-The Java code for the flows and supporting classes can be found in the CSDE repo in the `workflows/src/main/java/com/r3/developers/csdetemplate/flowexample/workflows` folder.
+The Java code for the {{< tooltip >}}flows{{< /tooltip >}} and supporting classes can be found in the CSDE repo in the `workflows/src/main/java/com/r3/developers/csdetemplate/flowexample/workflows` folder.
 
 ## Java Flow Files
 
@@ -243,7 +243,7 @@ public class MyFirstFlowStartArgs {
 
 ## Helper Classes
 There are two helper classes:
-* `MyFirstFlowStartArgs` — provides a wrapper around the single arguments that need to be passed into the flow — the other member of the application network who the message should be sent to:
+* `MyFirstFlowStartArgs` — provides a wrapper around the single arguments that need to be passed into the flow — the other member of the {{< tooltip >}}application network{{< /tooltip >}} who the message should be sent to:
    ```java
    public class MyFirstFlowStartArgs {
     public MemberX500Name otherMember;
@@ -257,7 +257,7 @@ There are two helper classes:
    }
    ```
 
-* `Message` —  specifies the sender and the message. This is used for both the message sent from the initiator to the responder and subsequently the message sent back from the responder to the initiator. Note, as this is a class defined in a CorDapp and it is going to be sent ‘down the wire’ between two virtual nodes, it requires the `@CordaSerializable` annotation.
+* `Message` —  specifies the sender and the message. This is used for both the message sent from the initiator to the responder and subsequently the message sent back from the responder to the initiator. Note, as this is a class defined in a {{< tooltip >}}CorDapp{{< /tooltip >}} and it is going to be sent ‘down the wire’ between two virtual nodes, it requires the `@CordaSerializable` annotation.
    ```java
    @CordaSerializable
    public class Message {
@@ -397,9 +397,9 @@ We can now start sending messages to the responder:
    ```java
         session.send(message);
    ```
-   The code continues to execute until it reaches the `session.receive()` method. At that point, the flow checkpoints and persists its state to the database. It resumes when it receives a message back from the responder. This frees up the Corda cluster flow workers to perform other tasks.
+   The code continues to execute until it reaches the `session.receive()` method. At that point, the flow checkpoints and persists its {{< tooltip >}}state{{< /tooltip >}} to the database. It resumes when it receives a message back from the responder. This frees up the Corda cluster flow workers to perform other tasks.
    {{< note >}}
-   There is no guarantee that the same flow worker resumes the completion of the flow and so singleton objects should be avoided in Corda 5 flows.
+   There is no guarantee that the same {{< tooltip >}}flow worker{{< /tooltip >}} resumes the completion of the flow and so singleton objects should be avoided in Corda 5 flows.
    {{< /note >}}
    ```java
            Message response = session.receive(Message.class);

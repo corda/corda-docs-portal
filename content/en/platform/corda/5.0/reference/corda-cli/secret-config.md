@@ -12,7 +12,7 @@ title: "secret-config"
 
 # secret-config
 
-This section lists the Corda CLI `secret-config` arguments. You can use these commands to generate the configuration for use with the [configured secrets lookup service]({{< relref "../../deploying-operating/deployment/deploying/_index.md#encryption" >}}).
+This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `secret-config` arguments. You can use these commands to generate the configuration for use with the [configured secrets lookup service]({{< relref "../../deploying-operating/deployment/deploying/_index.md#encryption" >}}).
 
 | <div style="width:160px">Argument</div> | Description                                                                             |
 | --------------------------------------- | --------------------------------------------------------------------------------------- |

@@ -1,23 +1,24 @@
 ---
 date: '2023-04-13'
 version: 'Corda 5.0'
-title: "Create a Virtual Node"
+title: "Create a Virtual Node for the Member"
 menu:
   corda5:
     identifier: corda5-networks-members-node
     parent: corda5-networks-members
     weight: 2000
+    name: "Create a Virtual Node"
 section_menu: corda5
 ---
 
-# Create a Virtual Node
+# Create a Virtual Node for the Member
 You can create a virtual node using the POST method of the [/api/v1/virtualnode endpoint](../../../reference/rest-api/C5_OpenAPI.html#tag/Virtual-Node-API/operation/post_virtualnode). The following sections describe how to use this method:
 * [Create a Virtual Node on Linux or macOS](#create-a-virtual-node-on-linux-or-macos)
 * [Create a Virtual Node on Windows](#create-a-virtual-node-on-windows)
 
 ## Create a Virtual Node on Linux or macOS
 
-To create a virtual node for a {{< tooltip >}}member{{< /tooltip >}} on Linux or macOS, run the following commands in Bash to send the request using Curl, changing the X.500 name and using the checksum retrieved when you [uploaded the member CPI]({{< relref"./cpi.md#upload-the-cpi" >}}):
+To create a virtual node for a {{< tooltip >}}member{{< /tooltip >}} on Linux or macOS, run the following commands in Bash to send the request using Curl, changing the {{< tooltip >}}X.500{{< /tooltip >}} name and using the checksum retrieved when you [uploaded the member CPI]({{< relref"./cpi.md#upload-the-cpi" >}}):
 
 ```shell
 export CPI_CHECKSUM=<CPI-checksum>

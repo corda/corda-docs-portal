@@ -19,29 +19,29 @@ Systems have grown to the extent that single instances can no longer successfull
 However, these solutions are all limited by an implicit boundary that exists, yet is rarely recognized or included in architecture diagrams - trust.
 Distributed systems are designed to operate within a single trust zone where updates are applied and accepted, mutating the global state, without question.
 For example, when a bilateral agreement is executed between two parties, both must run their own reconciliation system to ensure that the exchange occurred and was done correctly.
-This adds friction to all transactions and adds considerable cost. 
-The challenge in solving this is that the two parties in our example have no ability to simply accept the word of the other party, without costly reconciliation. 
+This adds friction to all transactions and adds considerable cost.
+The challenge in solving this is that the two parties in our example have no ability to simply accept the word of the other party, without costly reconciliation.
 Decentralized applications are the solution to this problem.
 
 ## What is DLT?
-DLT stands for Distributed Ledger Technology. It is a digital system for recording, storing, and processing digital data in a decentralized way across a network of computers, perhaps in different locations and involving multiple organisations. 
+DLT stands for Distributed Ledger Technology. It is a digital system for recording, storing, and processing digital data in a decentralized way across a network of computers, perhaps in different locations and involving multiple organisations.
 
 Decentralized applications are a new paradigm of application where the source of truth, represented by the application's state, can cross trust boundaries without the requirement for a central, overarching, point of control.
 This is achieved through the use of DLT, which allows for the creation of stateful data that can be updated by any number of interested parties through the reaching of consensus between them that a proposed change is valid.
 
 The technology uses cryptographic techniques to secure data and validate modifications.
-The validity of an update or modification is determined by a set of rules established within an application domain, which all {{< tooltip >}}members{{< /tooltip >}} recognize as binding when an update is proposed.
+The {{< tooltip >}}validity{{< /tooltip >}} of an update or modification is determined by a set of rules established within an application domain, which all {{< tooltip >}}members{{< /tooltip >}} recognize as binding when an update is proposed.
 An update can only be applied when there is consensus within the domain that it is a valid proposal.
-These rules are expressed as smart contracts that are intrinsically linked with the chosen representation of the global state.
+These rules are expressed as {{< tooltip >}}smart contracts{{< /tooltip >}} that are intrinsically linked with the chosen representation of the global state.
 Every participant in the network has a view of the shared global state of data (the extent of that view depends on its visibility restrictions), which is updated in real-time as changes occur.
 This ensures that the data is accurate, transparent, and tamper-evident.
 
-Blockchain is one popular type of DLT that is commonly used for cryptocurrencies such as Bitcoin, but there are many other types of DLT besides blockchain.  
+Blockchain is one popular type of DLT that is commonly used for cryptocurrencies such as Bitcoin, but there are many other types of DLT besides blockchain.
 
 
 ## Why DLT?
 Some of the many benefits of DLT are:
-* **Decentralization** - There is no centralized authority of control dictating what state changes can and cannot occur. Instead, parties come to a consensus about changes to the global state and this is controlled by consensus rules.
+* **Decentralization** - There is no centralized authority of control dictating what {{< tooltip >}}state{{< /tooltip >}} changes can and cannot occur. Instead, parties come to a consensus about changes to the global state and this is controlled by consensus rules.
 * **Security** - State changes are attested via signature to prevent unauthorised access and tampering is protected against. Three foundational principles apply:
   * **Confidentiality**, which is the ability of two actors to keep the data that they share private from others on a network.
   * **Integrity**, which ensures that data shared between parties is accurate, consistent, and valid over its lifecycle.
@@ -49,7 +49,7 @@ Some of the many benefits of DLT are:
 * **Transparency** - All changes to states are audited, which instills more trust between participants and also leads to no errors.
 * **Immutability** - Records of state changes cannot be changed or deleted, but stand as a permanent record.
 * **You see what I see** - Once an update is agreed and verified, its validity is incontestable.
-This removes the need for post hoc reconciliation between organizations. 
+This removes the need for post hoc reconciliation between organizations.
 Consensus simply means that a threshold has been passed that establishes (within the problem domain) that a proposed modification will be valid and can be applied.
 More importantly, once applied and accepted, no parties within that domain can repudiate it.
 
@@ -69,7 +69,7 @@ Many other DLT and blockchain systems offer anonymity as a feature, especially f
 However, for use cases where trust is absolutely critical, Corda layers its platform with the concept of granting permissions to identities.
 These permissions can be granted during onboarding of identities and it is simply a case of attesting that supplied credentials prove that an entity is who they claim to be.
 Corda does not mandate certain levels of attestation, but rather each network is able to set their own rules. Without permissions, access to the state of a network and other members of that network is impossible.
-* **Privacy** - People who want to communicate with each other on Corda can install the same set of distributed applications, known as CorDapps.
+* **Privacy** - People who want to communicate with each other on Corda can install the same set of distributed applications, known as {{< tooltip >}}CorDapps{{< /tooltip >}}.
 These define the parameters of their interactions and exchange information and assets; all within the bounds of what the network operator has permitted around rules for visibility of states.
 In these private networks, only the parties involved can see the details of that state.
 This is important in financial services, where confidentiality is required.

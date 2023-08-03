@@ -13,11 +13,11 @@ section_menu: corda5
 
 # Database Worker
 
-The database worker is the sole worker with access to the database (apart from the crypto worker, which has its
+The database worker is the sole worker with access to the database (apart from the {{< tooltip >}}crypto worker{{< /tooltip >}}, which has its
 own dedicated database). As a result, the activities carried out within the database worker pertain to the database.
 
 The database worker is responsible for handling and serving persistence requests originating from various Corda worker types,
-such as the flow worker or the {{< tooltip >}}MGM{{< /tooltip >}} worker. The flow persistence requests metrics presented in this section measure:
+such as the {{< tooltip >}}flow worker{{< /tooltip >}} or the {{< tooltip >}}MGM{{< /tooltip >}} worker. The {{< tooltip >}}flow{{< /tooltip >}} persistence requests metrics presented in this section measure:
 
 * The time taken to handle the flow persistence requests.
 * The time the flow persistence requests remained on {{< tooltip >}}Kafka{{< /tooltip >}}, from the moment they were added by flows until they were received
@@ -57,7 +57,7 @@ table th:nth-of-type(4) {
 
 | Metric | Type | Tags | Description |
 | :----------- | :----------- | :----------- | :----------- |
-| `corda_db_entity_persistence_request_time_seconds` | Timer | <ul><li>`entityRequest_type`</li><li>`entityRequest_outcome`</li></ul> | The time it takes to process an entity persistence request, from the moment the request is received from Kafka. |
+| `corda_db_entity_persistence_request_time_seconds` | Timer | <ul><li>`entityRequest_type`</li><li>`entityRequest_outcome`</li></ul> | The time it takes to process an {{< tooltip >}}entity{{< /tooltip >}} persistence request, from the moment the request is received from Kafka. |
 | `corda_db_entity_persistence_request_lag_seconds` | Timer | <ul><li>`entityRequest_type`</li></ul> | The lag between the flow putting the entity persistence request to Kafka and the EntityMessageProcessor. |
 | `corda_ledger_persistence_time_seconds` | Timer | <ul><li>`flowId`</li><li>`ledger_type`</li><li>`operation_name`</li></ul> | The time it takes to execute ledger transaction database request against the database. |
 | `corda_membership_persistence_transaction_time_seconds` | Timer | <ul><li>`operation_name`</li><li>`group`</li><li>`virtualnode`</li></ul> | The time it takes to execute membership persistence transactions. Excludes time spent acquiring a database connection. |
@@ -68,9 +68,9 @@ Tags:
 * `entityRequest.type`: The type of persistence request.
 * `entityRequest_outcome`: The outcome of processing a request (SUCCESS, FAILURE).
 * `flowId`: The flow ID to correlate with the flow.
-* `ledger_type`: It can be UTXO or CONSENSUAL.
+* `ledger_type`: It can be {{< tooltip >}}UTXO{{< /tooltip >}} or CONSENSUAL.
 * `operation_name`: The MGM persistence request name/type.
 * `group`: The {{< tooltip >}}membership group{{< /tooltip >}} within which peer-to-peer communication happens.
-* `virtualnode`: The virtual node identity.
+* `virtualnode`: The {{< tooltip >}}virtual node{{< /tooltip >}} identity.
 * `reconciliation_reconciler_type`: The type of reconciler that run, for example, CPI metadata, virtual node metadata.
 * `reconciliation_outcome`: The outcome of a reconciliation run (SUCCESS or FAILURE).

@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 # net.corda.v5.ledger.utxo.token.selection
-The Token Selection API enables a flow to exclusively select a set of states to potentially use as input states in a UTXO transaction. Although this can be achieved with simple vault queries, the selection API offers the following key features that improve the performance and reliability of the flows:
+The Token Selection API enables a {{< tooltip >}}flow{{< /tooltip >}} to exclusively select a set of {{< tooltip >}}states{{< /tooltip >}} to potentially use as input states in a {{< tooltip >}}UTXO{{< /tooltip >}} {{< tooltip >}}transaction{{< /tooltip >}}. Although this can be achieved with simple {{< tooltip >}}vault{{< /tooltip >}} queries, the selection API offers the following key features that improve the performance and reliability of the flows:
 
 * **Exclusivity:** In an environment where multiple instances of a flow are running in parallel, it is important that each flow can exclusively claim states to spend. Without this, there is a high chance that multiple flows could attempt to spend the same states at the same time, causing transactions to fail during notarization, due to an attempt to spend a state that has already been spent.
 * **Target Amount Selection:** When selecting fungible states to spend, it is usual to select multiple states that sum to at least the target value of the proposed transaction. The selection API provides an explicit model for achieving this, which would be difficult to achieve using standard vault queries.
@@ -20,11 +20,11 @@ The Token Selection API enables a flow to exclusively select a set of states to 
 
 ### Tokens
 
-The API defines a generic token that is used to represent a state. The purpose of the token is to allow a consistent model for querying user-defined states. Attributes of the token are partly derived by the platform and partly derived by the CorDapp using an implementation of `UtxoLedgerTokenStateObserver` for the given state. The following table describes these attributes:
+The API defines a generic {{< tooltip >}}token{{< /tooltip >}} that is used to represent a state. The purpose of the token is to allow a consistent model for querying user-defined states. Attributes of the token are partly derived by the platform and partly derived by the {{< tooltip >}}CorDapp{{< /tooltip >}} using an implementation of `UtxoLedgerTokenStateObserver` for the given state. The following table describes these attributes:
 | <div style="width:100px">Attribute    </div>    | <div style="width:100px">Type       </div>      | <div style="width:100px">Provided By </div>| Description                                                                                                                                                                             |
 | ---------------- | ---------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | StateRef         | StateRef         | Platform    | The reference to the state linked to this token.                                                                                                                                        |
-| Notary X500 Name | MemberX500Name | Platform    | The notary of the state linked to this token.                                                                                                                                           |
+| Notary X500 Name | MemberX500Name | Platform    | The {{< tooltip >}}notary{{< /tooltip >}} of the state linked to this token.                                                                                                                                           |
 | Token Type       | String           | Both        | By default, the platform sets this to the FQN name of the Java Type of the state class this token is linked to. As a CorDapp Developer, you can override this with your own definition. |
 | Issuer Hash      | SecureHash       | User        | The hash of the issuer of the state, as defined by the CorDapp Developer.                                                                                                               |
 | Symbol           | String           | User        | The user-defined symbol for the token.                                                                                                                                                  |
@@ -46,7 +46,7 @@ The API allows a flow to claim tokens from a single pool of tokens for a given q
 A token observer converts a custom state into a token when a transaction is finalized and persisted in the vault. The CorDapp Developer implements the `UtxoLedgerTokenStateObserver` interface for a state type that is required for selection. The platform uses these observers to generate a token for each produced state when persisting a finalized transaction to the vault.
 
 ### Claim Query
-When a flow needs to select fungible states to spend, it can execute a claim query using the `TokenSelection` API. The API supports a single method `tryClaim` that takes a `TokenClaimCriteria` describing the target amount required and the type of tokens required. 
+When a flow needs to select fungible states to spend, it can execute a claim query using the `TokenSelection` API. The API supports a single method `tryClaim` that takes a `TokenClaimCriteria` describing the target amount required and the type of tokens required.
 
 ### Token Claim
 When a flow executes a successful query to select tokens via the selection API, it receives a Token Claim. The claim represents a list of tokens that have been exclusively claimed and can be used as inputs to a new transaction. Once the flow has completed (successfully or not), it should release the claim, signaling which tokens, if any, were consumed in a transaction. Any unused tokens are released back to the pool for others to use.

@@ -34,7 +34,7 @@ To create the topics manually, do the following:
        enabled: false
    ```
 2. Create a [Kafka client properties](https://kafka.apache.org/documentation/#configuration) file.
-The following is an example properties file for a Kafka cluster using TLS and SASL authentication:
+The following is an example properties file for a Kafka cluster using {{< tooltip >}}TLS{{< /tooltip >}} and SASL authentication:
 
    ```properties
    security.protocol=SASL_SSL
@@ -45,7 +45,7 @@ The following is an example properties file for a Kafka cluster using TLS and SA
    ```
    The examples that follow assume that this file is called `config.properties`.
 
-3. Use the Corda CLI to assist in the creation of the topics prior to Corda installation in one of two ways:
+3. Use the {{< tooltip >}}Corda CLI{{< /tooltip >}} to assist in the creation of the topics prior to Corda installation in one of two ways:
     * [Topic Creation by Direct Connection](#topic-creation-by-direct-connection)
     * [Topic Creation by Scripting](#topic-creation-by-scripting)
 
@@ -83,7 +83,7 @@ corda-cli.cmd topic -b kafka-1.example.com -k config.properties create -r 3 -p 1
 {{% /tab %}}
 {{< /tabs >}}
 
-If you are authenticating Kafka users, the Corda CLI can also create Access Control List (ACL) entries as appropriate for each Corda worker.
+If you are authenticating Kafka users, the Corda CLI can also create Access Control List (ACL) entries as appropriate for each Corda {{< tooltip >}}worker{{< /tooltip >}}.
 Specify a set of name-value pairs giving the Kafka username that will be used for each Corda worker:
 
 {{< tabs name="acl">}}
@@ -188,7 +188,7 @@ To create the schema manually, do the following:
 
    * If you are applying SQL to a schema using the `psql` command you can specify which schema to apply it to using the `--dbname` parameter like so: `--dbname "dbname=cordacluster options=--search_path=<SCHEMA-NAME>"`
 
-   * If you are targeting schemas, database and crypto generated SQL should be applied to the CONFIG schema, and create-user-config generated SQL should be applied to the RBAC schema. If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
+   * If you are targeting schemas, database and crypto-generated SQL should be applied to the CONFIG schema, and create-user-config generated SQL should be applied to the RBAC schema. If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
    {{< /note >}}
 
 2. Use the Corda CLI to generate DML files for creating the database tables to use for each of the `crypto`, `config`, and `rbac` components.
@@ -210,7 +210,7 @@ To create the schema manually, do the following:
 
 3. Review the DML files generated and then execute against the database.
 
-4. Execute the following Corda CLI command to generate DDL for populating the RBAC database connection configuration, in this case use CONFIG:
+4. Execute the following Corda CLI command to generate DDL for populating the {{< tooltip >}}RBAC{{< /tooltip >}} database connection configuration, in this case use CONFIG:
 
    {{< tabs name="RBAC">}}
    {{% tab name="Bash" %}}
