@@ -88,6 +88,8 @@ This release includes the following fixes:
 
 * Flow checkpoint dumps now include a `status` field which shows the status of the flow; in particular, whether it is hospitalized or not.
 
+* Debug logging of the Artemis server has been added.
+
 ### Database schema changes
 
 There are no database changes between 4.10 and 4.11.
