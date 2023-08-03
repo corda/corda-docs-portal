@@ -54,7 +54,7 @@ A simple data class for passing keys and weights into `CompositeKeyGenerator`
 
 ## CordaOID.java
 
-OIDs are used for the Corda platform. All entries must be defined in this file only and must not be removed.
+The OID tooltip is used for the Corda platform. All entries must be defined in this file only and must not be removed.
 If an OID is incorrectly assigned, it should be marked deprecated and never reused.
 
 ## DigestAlgorithmName.java
