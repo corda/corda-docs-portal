@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Session Certificates
 
-You can configure a dynamic network to use session certificates when sending messages. This requires additional steps when onboarding an {{< tooltip >}}MGM{{< /tooltip >}} or member into the dynamic network.
+You can configure a dynamic network to use session certificates when sending messages. This requires additional steps when onboarding an {{< tooltip >}}MGM{{< /tooltip >}} or {{< tooltip >}}member{{< /tooltip >}} into the dynamic network.
 
 ## Generate a Certificate Signing Request (CSR)
 

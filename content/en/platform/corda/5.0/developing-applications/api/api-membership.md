@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 # net.corda.v5.membership
-The `corda-membership` module defines interfaces that provide information about a member (a virtual node in a group), and a membership group. The interfaces in this module should not be implemented by CorDapp Developers. Instead, instances can be retrieved through lookup services.
+The `corda-membership` module defines interfaces that provide information about a {{< tooltip >}}member{{< /tooltip >}} and a {{< tooltip >}}membership group{{< /tooltip >}}. The interfaces in this module should not be implemented by CorDapp Developers. Instead, instances can be retrieved through lookup services.
 
 This module consists primarily of the following two root classes:
 * [MemberInfo](#memberinfo)

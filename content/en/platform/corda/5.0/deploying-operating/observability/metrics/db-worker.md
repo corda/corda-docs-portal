@@ -70,7 +70,7 @@ Tags:
 * `flowId`: The flow ID to correlate with the flow.
 * `ledger_type`: It can be UTXO or CONSENSUAL.
 * `operation_name`: The MGM persistence request name/type.
-* `group`: The membership group within which peer-to-peer communication happens.
+* `group`: The {{< tooltip >}}membership group{{< /tooltip >}} within which peer-to-peer communication happens.
 * `virtualnode`: The virtual node identity.
 * `reconciliation_reconciler_type`: The type of reconciler that run, for example, CPI metadata, virtual node metadata.
 * `reconciliation_outcome`: The outcome of a reconciliation run (SUCCESS or FAILURE).

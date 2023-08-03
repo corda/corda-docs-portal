@@ -30,7 +30,7 @@ Decentralized applications are a new paradigm of application where the source of
 This is achieved through the use of DLT, which allows for the creation of stateful data that can be updated by any number of interested parties through the reaching of consensus between them that a proposed change is valid.
 
 The technology uses cryptographic techniques to secure data and validate modifications.
-The validity of an update or modification is determined by a set of rules established within an application domain, which all members recognize as binding when an update is proposed.
+The validity of an update or modification is determined by a set of rules established within an application domain, which all {{< tooltip >}}members{{< /tooltip >}} recognize as binding when an update is proposed.
 An update can only be applied when there is consensus within the domain that it is a valid proposal.
 These rules are expressed as smart contracts that are intrinsically linked with the chosen representation of the global state.
 Every participant in the network has a view of the shared global state of data (the extent of that view depends on its visibility restrictions), which is updated in real-time as changes occur.

@@ -17,7 +17,7 @@ You can create a virtual node using the POST method of the [/api/v1/virtualnode 
 
 ## Create a Virtual Node on Linux or macOS
 
-To create a virtual node for a member on Linux or macOS, run the following commands in Bash to send the request using Curl, changing the X.500 name and using the checksum retrieved when you [uploaded the member CPI]({{< relref"./cpi.md#upload-the-cpi" >}}):
+To create a virtual node for a {{< tooltip >}}member{{< /tooltip >}} on Linux or macOS, run the following commands in Bash to send the request using Curl, changing the X.500 name and using the checksum retrieved when you [uploaded the member CPI]({{< relref"./cpi.md#upload-the-cpi" >}}):
 
 ```shell
 export CPI_CHECKSUM=<CPI-checksum>
