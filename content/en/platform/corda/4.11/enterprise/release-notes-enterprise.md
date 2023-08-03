@@ -86,6 +86,8 @@ This release includes the following fixes:
   
 * The default value for the node configuration value `cryptoServiceTimeout` has been increased from 1 second to 10 seconds.
 
+* Flow checkpoint dumps now include a `status` field which shows the status of the flow; in particular, whether it is hospitalized or not.
+
 ### Database schema changes
 
 There are no database changes between 4.10 and 4.11.
