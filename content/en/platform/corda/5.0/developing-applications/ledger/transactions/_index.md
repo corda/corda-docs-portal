@@ -12,12 +12,12 @@ section_menu: corda5
 
 # Transactions
 
-You can not edit the Corda ledger. The only way to change it is to add new transactions to it. A transaction updates the ledger by consuming existing input states and outputting new states. The states the transaction consumes are marked “consumed”.
-Every state is immutable. It can not be changed. This is called an UTXO (unspent transaction output) model.
+You can not edit the Corda ledger. The only way to change it is to add new transactions to it. A transaction updates the ledger by consuming existing input {{< tooltip >}}states{{< /tooltip >}} and outputting new states. The states the transaction consumes are marked “consumed”.
+Every state is immutable. It can not be changed. This is called an {{< tooltip >}}UTXO{{< /tooltip >}} model.
 
 The following is an example of a transaction with two inputs and two outputs:
 
-{{< 
+{{<
   figure
      width="50%"
 	 src="basic-tx.png"
@@ -35,7 +35,7 @@ Transactions are atomic. Either all of a transaction’s proposed changes are ac
 
 There are two basic types of transactions:
 
-* Notary-change transactions, to change a state’s notary. 
+* Notary-change transactions, to change a state’s notary.
 * General transactions, for everything else.
 
 {{< note >}}
@@ -54,7 +54,7 @@ Input StateRefs consist of:
 
 The following example transaction shows how this works:
 
-{{< 
+{{<
   figure
 	 width="50%"
 	 src="tx-chain.png"
@@ -71,14 +71,14 @@ Initially, a transaction is only a proposal to update the ledger. It represents 
 ### Signatures
 
 To be committed to the ledger, the transaction must receive signatures from all of the required signatories. Each required signatory appends their signature to the transaction to approve the proposal. For example, the following shows a proposed transaction:
-{{< 
+{{<
   figure
 	 width="50%"
 	 src="tx-with-sigs.png"
 	 figcaption="Proposed Signed Transaction"
 >}}
 
-The transaction has the required signatures and so the inputs may be marked as consumed, and cannot be used in any future transactions. If otherwise valid, the transaction’s outputs become part of the current state of the ledger: 
+The transaction has the required signatures and so the inputs may be marked as consumed, and cannot be used in any future transactions. If otherwise valid, the transaction’s outputs become part of the current state of the ledger:
 
 ### Validity
 
@@ -108,7 +108,7 @@ Attachments will be implemented in a future release.
 
 For example, suppose Alice uses $5 cash to pay off $5 of an IOU with Bob. This transaction contains a settlement command which reduces the amount outstanding on the IOU, and a payment command which changes the ownership of $5 from Alice to Bob. It also has two supporting attachments, and is notarized by `NotaryClusterA` if the notary pool receives it within the specified time window:
 
-{{< 
+{{<
   figure
 	 width="50%"
 	 src="full-tx.png"
@@ -118,7 +118,7 @@ For example, suppose Alice uses $5 cash to pay off $5 of an IOU with Bob. This t
 ### Commands
 Commands enable you to make adjustments to rules. Including a command in a transaction indicates the transaction’s intent, affecting how you check the validity of the transaction. For example, if you had a transaction with a cash state and a bond state as inputs, and a cash state and a bond state as outputs, it could represent either a bond purchase or a coupon payment on a bond. Different rules are required to define what constitutes a valid transaction depending on whether it is a purchase or a coupon payment. For example, in the case of a purchase, you would require a change in the bond’s current owner, but not for a coupon payment.
 
-{{< 
+{{<
   figure
 	 width="50%"
 	 src="commands.png"
@@ -135,5 +135,5 @@ Each transaction requires a defined time window during which it can be approved 
 This is enforced by adding a time window to the transaction, which specifies when the transaction can be committed. The notary enforces time window validity.
 
 ### Notary
-Notaries provide uniqueness consensus by attesting that, for a given transaction, it has not already signed other transactions that consume any of the proposed transaction’s input states. This is the final check before a transaction is committed to the ledger.
+Notaries provide uniqueness {{< tooltip >}}consensus{{< /tooltip >}} by attesting that, for a given transaction, it has not already signed other transactions that consume any of the proposed transaction’s input states. This is the final check before a transaction is committed to the ledger.
 Every transaction must be notarized, even if you are creating an issuance transaction that does not consume any other states and cannot double-spend, as this is required to enforce the time window validity. This allows for a much more efficient notary protocol where the notary tracks valid input states rather than spent states. For more information, see the [Notary section](notaries.html).

@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 # Running Your First CorDapp
-The CSDE includes flows and tests for a very simple CorDapp, which you can run out of the box.
+The CSDE includes {{< tooltip >}}flows{{< /tooltip >}} and tests for a very simple {{< tooltip >}}CorDapp{{< /tooltip >}}, which you can run out of the box.
 
 The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlow.kt` file. This is also the code described in the [first flow section]({{< relref "../first-flow/_index.md" >}}).
 
@@ -27,7 +27,7 @@ Currently, we do not have a liveness detector for Corda in the CSDE so we check 
 
 ## Testing Liveness and Swagger
 
-Corda exposes HTTP REST API endpoints for interacting with itself and the CorDapps running on it. It also exposes a Swagger interface which is described in the following sections.
+Corda exposes HTTP REST {{< tooltip >}}API{{< /tooltip >}} endpoints for interacting with itself and the CorDapps running on it. It also exposes a Swagger interface which is described in the following sections.
 
 ### Displaying the Swagger UI
 To display the Swagger UI, use the following link:
@@ -73,10 +73,10 @@ You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
 1. Click the `5-vNodeSetup` Gradle task:
 {{< figure src="vnodesetup.png" width="50%" figcaption="CSDE vNodeSetup task" alt="CSDE task to set up the vNodes in IntelliJ" >}}
    This task runs a series of Gradle tasks to:
-   * Build the CPB
+   * Build the {{< tooltip >}}CPB{{< /tooltip >}}
    * Create the GroupPolicy (Application Network definition)
-   * Generate signing keys to sign the CPB and CPI
-   * Build the CPI (combination of CPB and Group Policy)
+   * Generate signing keys to sign the CPB and {{< tooltip >}}CPI{{< /tooltip >}}
+   * Build the CPI
    * Sign the CPI
    * Upload the CPI to Corda
    * Create and register the virtual nodes with the CPI
@@ -88,7 +88,7 @@ You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
 ### Starting Your First Flow
 
 To run your first flow:
-1. Find the `holdingidentityshorthash` for the virtual node you want to trigger the flow on. You can do this by running the `listVnodes` Gradle task to display a list of the configured virtual nodes:
+1. Find the `holdingidentityshorthash` for the {{< tooltip >}}virtual node{{< /tooltip >}} you want to trigger the flow on. You can do this by running the `listVnodes` Gradle task to display a list of the configured virtual nodes:
    {{< figure src="list-vnodes.png" width="100%" figcaption="Running the listVnodes gradle task" >}}
    The 12 digit hash is the `holdingidentityshorthash` that acts as the unique identifier for a virtual node.
 
@@ -127,7 +127,7 @@ To check the flow status:
 {{< figure src="get-flow-arguments.png" figcaption="Arguments for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}
    If the flow is successful, you will see the following response:
 {{< figure src="get-flow-completed.png" figcaption="Successful response for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}
-   You will learn more about the flowResult of "Hello Alice best wishes from Bob" in [Your first flow]({{< relref "../first-flow/_index.md" >}}). 
+   You will learn more about the flowResult of "Hello Alice best wishes from Bob" in [Your first flow]({{< relref "../first-flow/_index.md" >}}).
 
 {{< note >}}
 If you receive a response with a status of "RUNNING”, wait a short time and retry the status check.
