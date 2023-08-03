@@ -14,15 +14,15 @@ draft: true
 
 The `crypto` package provides services and types for performing cryptographic operations. The list of services available are:
 
-* The `CompositeKey` is a tree data structure that enables the representation of composite public keys, which are used to represent the signing requirements for multi-signature scenarios.
-* The `CompositeKeyNodeAndWeight` is a simple data class for passing keys and weights into `CompositeKeyGenerator.`
-* The `CordaOID` is used for the Corda platform. All entries must be defined in this file only and must not be removed.If an OID is incorrectly assigned, it should be marked deprecated and never reused.
-* The `DigestAlgorithmName` is to be used in Corda hashing API.
-* The `DigitalSignature` is for identifying who is the owner of the signing key used to create this signature.
-* The `KeySchemeCodes` is for signing and key derivation.
-* The `KeyUtils` checks whether a `key` has any intersection with the keys in `otherKeys` and recurses into `key` (the first argument) if it is a composite key.
-* The `SecureHash` is a cryptographically secure hash value, computed by a specified digest algorithm.
-* The `SignatureSpec` is a digital signature scheme.
+* The <a href="../../../../../../api-ref/corda/5.0/net/corda/v5/crypto/CompositeKey.html" target="_blank"> `CompositeKey` </a> is a tree data structure that enables the representation of composite public keys, which are used to represent the signing requirements for multi-signature scenarios.
+* The <a href="../../../../../../api-ref/corda/5.0/net/corda/v5/crypto/CompositeKeyNodeAndWeight.html" target="_blank"> `CompositeKeyNodeandWeight` </a> is a simple data class for passing keys and weights into `CompositeKeyGenerator.`
+* The <a href="../../../../../../api-ref/corda/5.0/net/corda/v5/crypto/CordaOID.html" target="_blank"> `CordaOID` </a> is used for the Corda platform. All entries must be defined in this file only and must not be removed.If an OID is incorrectly assigned, it should be marked deprecated and never reused.
+* The <a href="../../../../../../api-ref/corda/5.0/net/corda/v5/crypto/DigestAlgorithmName.html" target="_blank"> `DigestAlgorithmName` </a> is to be used in Corda hashing API.
+* The <a href="../../../../../../api-ref/corda/5.0/net/corda/v5/crypto/DigitalSignature.html" target="_blank"> `DigitalSignature` </a>  is for identifying who is the owner of the signing key used to create this signature.
+* The <a href="../../../../../../api-ref/corda/5.0/net/corda/v5/crypto/KeySchemeCodes.html" target="_blank"> `KeySchemeCodes` </a> is for signing and key derivation.
+* The <a href="../../../../../../api-ref/corda/5.0/net/corda/v5/crypto/KeyUtils.html" target="_blank"> `KeyUtils` </a>  checks whether a `key` has any intersection with the keys in `otherKeys` and recurses into `key` (the first argument) if it is a composite key.
+* The <a href="../../../../../../api-ref/corda/5.0/net/corda/v5/crypto/SecureHash.html" target="_blank"> `SecureHash` </a> is a cryptographically secure hash value, computed by a specified digest algorithm.
+* The <a href="../../../../../../api-ref/corda/5.0/net/corda/v5/crypto/SignatureSpec.html" target="_blank"> `SignatureSpec` </a>  is a digital signature scheme.
 
 ## Implementing Signature Schemes
 
