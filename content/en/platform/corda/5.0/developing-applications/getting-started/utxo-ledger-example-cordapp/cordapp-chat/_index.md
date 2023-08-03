@@ -83,7 +83,7 @@ There are six flows in the Chat Application:
 <td><code>CreateNewChatFlow </code></td>
 <td><code>ClientStartableFlow </code></td>
 <td><code><li>chatName</li><li>otherMember</li><li>message</li></code></td>
-<td> <li>Forms a draft transaction using the transaction builder, which creates a new ChatState with the details provided.</li> <li> Signs the draft transaction with the virtual nodes first {{< tooltip >}}Ledger key{{< /tooltip >}}.</li><li> Calls <code>FinalizeChatSubFlow</code> which finalizes the transaction.</li></td>
+<td> <li>Forms a draft transaction using the transaction builder, which creates a new ChatState with the details provided.</li> <li> Signs the draft transaction with the virtual nodes first {{< tooltip >}}ledger key{{< /tooltip >}}.</li><li> Calls <code>FinalizeChatSubFlow</code> which finalizes the transaction.</li></td>
 </tr>
 <tr>
 <td><code>UpdateChatFlow </code></td>
