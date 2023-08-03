@@ -173,7 +173,7 @@
     },
     "REST worker": {
         "definition": "A worker that exposes the intranet HTTPS REST control ports of the Corda cluster. The REST workers support all of the dynamic administration APIs of the cluster, such as APIs to configure the cluster, set up user role based permissions, or create and register virtual nodes. ",
-        "more": "REST workers also provide the virtual node endpoint APIs for invoking the flows and the ledger applications and retrieving their status/results. All REST calls must be authenticated and authorized, typically using OAUTH2 for login/authentication and Role Based Access Controls checked against a user permissions database."
+        "more": "REST workers also provide the virtual node endpoint APIs for invoking the flows and the ledger applications, and for retrieving their status/results. All REST calls must be authenticated and authorized, typically using OAUTH2 for login/authentication and Role Based Access Controls checked against a user permissions database."
     },
     "Revocation check": {
         "definition": "In the context of X.509 certificates, revocation checks refer to the process of verifying if a digital certificate is still valid and has not been revoked by the issuing Certificate Authority (CA). ",
