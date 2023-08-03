@@ -30,7 +30,7 @@ For more information about platform versions, see [Versioning](versioning.md).
 
 ## New features and enhancements
 
-* The following dependencies have been upgraded to address critical- and high-severity security vulnerabilities with H2:
+* The following dependencies have been upgraded to address critical- and high-severity security vulnerabilities:
   * H2 has been upgraded from 1.4.197 to 2.1.214.
   * Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final.
   * Liquibase has been upgraded from 3.6.3 to 4.20.0.

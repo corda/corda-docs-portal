@@ -33,7 +33,7 @@ For more information about platform versions, see [Versioning](cordapps/versioni
 
   A example of how to use this property can be found in [Vault queries]({{< relref "cordapps/api-vault-query.md#query-for-all-states-using-a-pagination-specification-and-iterate-using-the-totalstatesavailable-field-until-no-further-pages-available-1" >}}).
   
-* The following dependencies have been upgraded to address critical- and high-severity security vulnerabilities with H2:
+* The following dependencies have been upgraded to address critical- and high-severity security vulnerabilities:
   * H2 has been upgraded from 1.4.197 to 2.1.214.
   * Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final.
   * Liquibase has been upgraded from 3.6.3 to 4.20.0.
