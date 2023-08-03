@@ -51,7 +51,7 @@ To ensure that your flows are available on the virtual nodes you will be using, 
 
 1. Following the [CSDE documentation]({{< relref "../getting-started/installing/_index.md" >}}) steps, open the Swagger UI and log in.
 2. Use the `GET flowclass/{holdingidentityshorthash}` endpoint to list the flows available.
-You should do this specifying the {{< tooltip >}}holding identities{{< /tooltip >}} that you noted down earlier for both Bob and Dave.
+You should do this specifying the holding identities that you noted down earlier for both Bob and Dave.
 The returned classes should contain the flow classes that you wrote in earlier tutorials.
 
 ### Issue an `AppleStamp`
