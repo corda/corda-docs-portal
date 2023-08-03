@@ -83,6 +83,8 @@ This release includes the following fixes:
   {{< warning >}}
   However as a result of this fix, you need to make sure the Luna client your are using is version 10.4.0 or later.
   {{</ warning >}}
+  
+* The default value for the node configuration value `cryptoServiceTimeout` has been increased from 1 second to 10 seconds.
 
 ### Database schema changes
 
