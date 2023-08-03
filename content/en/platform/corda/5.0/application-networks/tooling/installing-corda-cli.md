@@ -10,5 +10,4 @@ section_menu: corda5
 title: Installing the Corda CLI
 ---
 
-
 {{< snippet installing-corda-cli.md >}}
