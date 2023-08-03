@@ -32,7 +32,7 @@ Because flows have access to a JVM compatible language along with a REST API, th
 
 ## External Messaging API {{< enterprise-icon >}}
 
-The [external messaging]({{< relref "../../../developing-applications/external-messaging.md">}}) API provides a second way to interact with external systems. This API allows a CorDapp, from within flow code, to publish a message on a predefined Kafka topic which can then be consumed by an external system. This provides an integration point from within a CorDapp, as opposed to the REST API which provides integration points around a CorDapp.
+The [external messaging]({{< relref "../../../developing-applications/external-messaging.md">}}) API provides a second way to interact with external systems. This API allows a CorDapp, from within flow code, to publish a message on a predefined {{< tooltip >}}Kafka{{< /tooltip >}} topic which can then be consumed by an external system. This provides an integration point from within a CorDapp, as opposed to the REST API which provides integration points around a CorDapp.
 
 Corda 5.0 provides only outbound connectivity.
 That is, a flow can send a message, but not receive one.

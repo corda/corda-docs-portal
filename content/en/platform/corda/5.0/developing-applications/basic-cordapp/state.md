@@ -72,7 +72,7 @@ class AppleStamp : ContractState
    * The current owner of the stamp (`holder`)
 
 2. All `ContractStates` must include a parameter to indicate the participants that store the states. As `ContractState`
-is a Java API, you must store the participants as private members.
+is a Java API, you must store the participants as private {{< tooltip >}}members{{< /tooltip >}}.
 Add this property to the `AppleStamp`:
 
    ```kotlin

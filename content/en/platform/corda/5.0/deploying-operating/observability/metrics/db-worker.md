@@ -17,10 +17,10 @@ The database worker is the sole worker with access to the database (apart from t
 own dedicated database). As a result, the activities carried out within the database worker pertain to the database.
 
 The database worker is responsible for handling and serving persistence requests originating from various Corda worker types,
-such as the {{< tooltip >}}}flow worker{{< /tooltip >}} or the MGM worker. The {{< tooltip >}}flow{{< /tooltip >}} persistence requests metrics presented in this section measure:
+such as the {{< tooltip >}}flow worker{{< /tooltip >}} or the {{< tooltip >}}MGM{{< /tooltip >}} worker. The {{< tooltip >}}flow{{< /tooltip >}} persistence requests metrics presented in this section measure:
 
 * The time taken to handle the flow persistence requests.
-* The time the flow persistence requests remained on Kafka, from the moment they were added by flows until they were received
+* The time the flow persistence requests remained on {{< tooltip >}}Kafka{{< /tooltip >}}, from the moment they were added by flows until they were received
   by the database worker (Kafka lag).
 
 The ledger persistence requests metrics measure the time needed to execute the ledger transaction database requests against the database.
@@ -70,7 +70,7 @@ Tags:
 * `flowId`: The flow ID to correlate with the flow.
 * `ledger_type`: It can be {{< tooltip >}}UTXO{{< /tooltip >}} or CONSENSUAL.
 * `operation_name`: The MGM persistence request name/type.
-* `group`: The membership group within which peer-to-peer communication happens.
+* `group`: The {{< tooltip >}}membership group{{< /tooltip >}} within which peer-to-peer communication happens.
 * `virtualnode`: The {{< tooltip >}}virtual node{{< /tooltip >}} identity.
 * `reconciliation_reconciler_type`: The type of reconciler that run, for example, CPI metadata, virtual node metadata.
 * `reconciliation_outcome`: The outcome of a reconciliation run (SUCCESS or FAILURE).

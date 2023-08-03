@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 # Logs
-Corda workers write their logs to standard out/standard error from where they are collected by Kubernetes.
+Corda workers write their logs to standard out/standard error from where they are collected by {{< tooltip >}}Kubernetes{{< /tooltip >}}.
 You can retrieve the logs for a single pod using `kubectl`:
 
 ```kubectl

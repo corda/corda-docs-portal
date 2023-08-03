@@ -21,7 +21,7 @@ When you apply pre-auth rules, the member registration status is set as `PENDING
 
 To add an approval rule for registrations containing a valid pre-auth token, use the [mgm/{holdingidentityshorthash}/approval/rules/preauth POST method](../../../../reference/rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__approval_rules_preauth) of the REST API.
 
-For example, to specify that all requests that contain a valid pre-auth token, with changes to the endpoint information in the member context must be manually approved:
+For example, to specify that all requests that contain a valid pre-auth token, with changes to the endpoint information in the {{< tooltip >}}member{{< /tooltip >}}  context must be manually approved:
 
 ```bash
 RULE_PARAMS='{"ruleParams":{"ruleRegex": "^corda.endpoints.*$", "ruleLabel": "Any change to P2P endpoints requires manual review."}}'

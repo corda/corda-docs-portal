@@ -463,7 +463,7 @@ class ConfirmRequest(statesToConsume: List<StateRef>, val transactionId: SecureH
 
 The intention in the example is to always ensure that the states are stored in a specific order regardless of the ordering
 of the list used to initialise instances of the class. This is achieved by using the first constructor parameter as the
-basis for a private member. However, because that member is not mentioned in the constructor (whose parameters determine
+basis for a private {{< tooltip >}}member{{< /tooltip >}}. However, because that member is not mentioned in the constructor (whose parameters determine
 what is serializable as discussed above) it would not be serialized. In addition, as there is no provided mechanism to retrieve
 a value for `statesToConsume` we would fail to build a serializer for this Class.
 

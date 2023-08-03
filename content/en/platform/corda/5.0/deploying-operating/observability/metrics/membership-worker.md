@@ -13,7 +13,7 @@ section_menu: corda5
 
 # Membership Worker
 
-The membership worker is responsible for the processing of {{< tooltip >}}application network{{< /tooltip >}} functionality either on behalf of an {{< tooltip >}}MGM{{< /tooltip >}}, a network member, or both.
+The membership worker is responsible for the processing of {{< tooltip >}}application network{{< /tooltip >}} functionality either on behalf of an {{< tooltip >}}MGM{{< /tooltip >}}, a network {{< tooltip >}}member{{< /tooltip >}}, or both.
 For an MGM, examples of this application functionality include:
 * handling incoming registration requests
 * network management

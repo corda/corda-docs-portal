@@ -24,4 +24,4 @@ With the introduction of the {{< tooltip >}}UTXO{{< /tooltip >}} ledger and nota
 
 * **Application:** Members which run a {{< tooltip >}}CPI{{< /tooltip >}} containing a {{< tooltip >}}CPB{{< /tooltip >}} which provides a {{< tooltip >}}CorDapp{{< /tooltip >}} to run on the network. Most members fulfil this role, and would be our archetypical “Alice” or “Bob” nodes.
 * **Notary:** Members which run a CPI containing a CPB which provide a notarization service to the network. These are effectively representatives of a notary service, similar to how notary workers represented a notary service in a Corda 4 high-availability notary setup.
-* **MGM:** The Membership Group Manager. In the context of notary functionality, there is nothing special or different about the MGM. The MGM virtual node is deployed as part of your standard network setup.
+* **MGM:** The Membership Group Manager. In the context of notary functionality, there is nothing special or different about the {{< tooltip >}}MGM{{< /tooltip >}}. The MGM virtual node is deployed as part of your standard network setup.

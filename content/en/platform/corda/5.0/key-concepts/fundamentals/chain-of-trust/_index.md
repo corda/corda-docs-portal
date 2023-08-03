@@ -16,7 +16,7 @@ Corda's chain of trust is configured when a Network Operator installs a new {{< 
 These code-signing trust roots may be self-signed publisher certificates, or they may be well-known public CAs.
 Either way, the trust roots establish the standard of proof that the {{< tooltip >}}CorDapp{{< /tooltip >}} code (and any future upgrades) has come from the expected publisher.
 The Network Operator must establish that they trust the code-signing trust roots and upload them to the cluster to proceed with CPI installation.
-In choosing to install and trust the CPI, the Network Operator is crucially accepting the network details presented by the CPI and, in particular, the network credentials of the MGM, which subsequently act as authentication and a distribution root for the entire network.
+In choosing to install and trust the CPI, the Network Operator is crucially accepting the network details presented by the CPI and, in particular, the network credentials of the {{< tooltip >}}MGM{{< /tooltip >}}, which subsequently act as authentication and a distribution root for the entire network.
 
 The MGM trust root information is defined statically in the `GroupPolicy.json` file of the CPI.
 Corda updates this when virtual nodes are upgraded to a more recent CPI from the publisher.
@@ -27,6 +27,6 @@ For example, the declaration of allowed notaries, or application-specific inform
 Virtual nodes must abide by the policy rules of the MGM.
 For example, the MGM defines suitable [TLS trust roots]({{< relref "../../../application-networks/creating/mgm/key-pairs.md#configure-the-cluster-tls-key-pair" >}}) and the [type of TLS used]({{< relref "../../../application-networks/creating/optional/mutual-tls-connections.md">}}).
 The Network Operator must lobby the MGM to accept their membership details before they can join the network or make a change to their details.
-The {{< tooltip >}}session initiation keys{{< /tooltip >}}, ledger keys, and other data included in the membership application become the published identity facts of the {{< tooltip >}}virtual node{{< /tooltip >}} available to peers, presented with signatures from both MGM and virtual node private keys.
-Under its signature, the MGM also includes data that only it controls, such as membership active/suspended flags. This shared authenticated data is exposed to {{< tooltip >}}flows{{< /tooltip >}} as the `MemberInfo` data structure.
+The {{< tooltip >}}session initiation keys{{< /tooltip >}}, {{< tooltip >}}ledger keys{{< /tooltip >}}, and other data included in the membership application become the published identity facts of the {{< tooltip >}}virtual node{{< /tooltip >}} available to peers, presented with signatures from both MGM and virtual node private keys.
+Under its signature, the MGM also includes data that only it controls, such as membership active/suspended flags. This shared authenticated data is exposed to {{< tooltip >}}flows{{< /tooltip >}} as the {{< tooltip >}}MemberInfo{{< /tooltip >}} data structure.
 `MemberInfo` is often used to locate peer keys to validate against, to advertise specific peer roles, or to control flow behaviour.
