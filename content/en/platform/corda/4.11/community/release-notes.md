@@ -30,12 +30,22 @@ For more information about platform versions, see [Versioning](versioning.md).
 
 ## New features and enhancements
 
-
+* The following dependencies have been upgraded to address critical- and high-severity security vulnerabilities:
+  * H2 has been upgraded from 1.4.197 to 2.1.214.
+  * Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final.
+  * Liquibase has been upgraded from 3.6.3 to 4.20.0.
 
 ## Fixed issues
 
 This release includes the following fixes:
 
+* When a notary worker is shut down, message ID cleanup is now performed as the last shutdown activity, rather than the first; this prevents a situation where the notary worker might still appear to be part of the notary cluster and receiving client traffic while shutting down.
+
+* Debug logging of the Artemis server has been added.
+
+* A new property, `previousPageAnchor`, has been added to `Vault.Page`. It is used to detect if the vault has changed while pages of a vault query have been loaded. If such a scenario is important to detect, then the property can be used to restart querying.
+
+  A example of how to use this property can be found in [Vault Queries]({{< relref "api-vault-query.md#query-for-all-states-using-a-pagination-specification-and-iterate-using-the-totalstatesavailable-field-until-no-further-pages-available-1" >}}).
   
 ### Database schema changes
 
