@@ -11,7 +11,7 @@ section_menu: corda5
 ---
 # net.corda.v5.crypto
 
-The `crypto` package provides services and types for performing cryptographic operations. The following services are available:
+The `crypto` package provides types used by services in `net.corda.v5.application.crypto`. The following services are available:
 
 * `DigitalSignature` is used to identify the owner of the signing key used to create the signature.
 * `SecureHash` is a cryptographically secure hash value, computed by a specified digest algorithm.
