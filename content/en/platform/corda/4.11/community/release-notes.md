@@ -35,6 +35,8 @@ For more information about platform versions, see [Versioning](versioning.md).
   * Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final.
   * Liquibase has been upgraded from 3.6.3 to 4.20.0.
 
+* When a state is consumed by a transaction, the ID of the consuming transaction is now added to the `vault_state` table in the `consuming_tx_id` column. Note that this database column will only be updated for new transactions; for existing consumed states already in the ledger, the value of this consuming_tx_id will be null.
+
 ## Fixed issues
 
 This release includes the following fixes:
@@ -46,6 +48,8 @@ This release includes the following fixes:
 * A new property, `previousPageAnchor`, has been added to `Vault.Page`. It is used to detect if the vault has changed while pages of a vault query have been loaded. If such a scenario is important to detect, then the property can be used to restart querying.
 
   A example of how to use this property can be found in [Vault Queries]({{< relref "api-vault-query.md#query-for-all-states-using-a-pagination-specification-and-iterate-using-the-totalstatesavailable-field-until-no-further-pages-available-1" >}}).
+  
+  
   
 ### Database schema changes
 

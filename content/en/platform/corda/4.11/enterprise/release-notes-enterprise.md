@@ -37,6 +37,8 @@ For more information about platform versions, see [Versioning](cordapps/versioni
   * H2 has been upgraded from 1.4.197 to 2.1.214.
   * Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final.
   * Liquibase has been upgraded from 3.6.3 to 4.20.0.
+  
+* When a state is consumed by a transaction, the ID of the consuming transaction is now added to the `vault_state` table in the `consuming_tx_id` column. Note that this database column will only be updated for new transactions; for existing consumed states already in the ledger, the value of this consuming_tx_id will be null.
 
 ## Fixed issues
 
