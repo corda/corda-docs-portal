@@ -6,8 +6,8 @@ version: 'Corda 5.2'
 menu:
   corda5:
     identifier: corda5-interop-facade-definition
-    parent: corda5-interop-facades
-    weight: 1000
+    parent: corda5-interop-cordapp-api
+    weight: 3000
 section_menu: corda5
 ---
 

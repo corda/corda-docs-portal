@@ -6,7 +6,7 @@ menu:
   corda5:
     identifier: corda5-interop-cordapp-api
     parent: corda5-interop
-    weight: 2000
+    weight: 1000
 section_menu: corda5
 ---
 

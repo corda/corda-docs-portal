@@ -1,15 +1,17 @@
 ---
 date: '2023-08-02'
+title: "Interoperability and Corda Façades"
+project: corda
 version: 'Corda 5.2'
-title: "What is Interoperability"
 menu:
   corda5:
-    identifier: corda5-cordapp-api-intro
+    identifier: corda5-interop-facades
     parent: corda5-interop-cordapp-api
-    weight: 1000
+    weight: 2000
 section_menu: corda5
 ---
-# What is Interoperability
+
+# Interoperability and Corda Façades
 
 Interoperability is a capability of CorDapps to communicate and coordinate activities with peers from
 other application networks. These interactions between two different application networks often involve modifications of their
@@ -27,6 +29,9 @@ the capability to communicate with or trigger actions on a different CorDapp, ev
 The Interoperability API is built on the principle of minimizing the exposure of code between
 two different CorDapps and addresses the above requirements. This is achieved through the introduction of Façades and
 Façade Proxy objects as well as Corda services used in Corda flows.
+
+[MAYBE ADD SOMETHING ABOUT HOW CORDA FACADES ARE DIFFERENT TO GENERIC FACADE TERM USED IN PROGRAMMING?]
+
 The Façade API acts as a bridge, facilitating seamless and secure communication between distinct CorDapps. It enables
 them to interact and exchange data while maintaining a clear separation of concerns. The Façade serves as a common
 interface definition, abstracting away the implementation details from the underlying CorDapps.
@@ -35,3 +40,4 @@ while maintaining a consistent and familiar development experience.
 In the subsequent sections, we delve into the Façade API, exploring its components, functionality, and usage in depth.
 We aim to provide a comprehensive guide that empowers developers to harness the full potential of Interoperability in
 CorDapps, facilitating cross-network interactions and supporting diverse use cases.
+

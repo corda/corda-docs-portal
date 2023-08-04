@@ -6,8 +6,8 @@ version: 'Corda 5.2'
 menu:
   corda5:
     identifier: corda5-interop-mapping
-    parent: corda5-interop-facades
-    weight: 2000
+    parent: corda5-interop-cordapp-api
+    weight: 4000
 section_menu: corda5
 ---
 
