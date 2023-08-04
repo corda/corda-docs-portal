@@ -13,15 +13,13 @@ section_menu: corda5
 
 The `crypto` package provides services and types for performing cryptographic operations. The following services are available:
 
-* `CompositeKey` is a tree data structure that enables the representation of composite public keys, which are used to represent the signing requirements for multi-signature scenarios.
-* `DigestAlgorithmName` is used in the Corda hashing API.
 * `DigitalSignature` is used to identify the owner of the signing key used to create the signature.
 * `SecureHash` is a cryptographically secure hash value, computed by a specified digest algorithm.
-* The `SignatureSpec` is a digital signature scheme.
+* `SignatureSpec` is a digital signature scheme.
 
 ## Implementing Signature Schemes
 
-Corda supports the following `SignatureSpecs` (signature schemes) for creating the following objects:
+Corda supports the following `SignatureSpec`s (signature schemes) for creating the following objects:
 
 * SHA256withRSA
 * SHA384withRSA
@@ -41,7 +39,4 @@ Corda supports the following `SignatureSpecs` (signature schemes) for creating t
 * SHA256withSM2
 * GOST3411withGOST3410
 
-Use `SignatureSpecService` to retrieve the `SignatureSpec`.
-
-Initially the above list of signature spec was available to users. However, they could be passing the wrong signature spec for a signing key type (for example, an RSA key with an SHA256withECDSA), which would lead to an error when attempting to generate the signature.
-Instead, `SignatureSpecService` was introduced. It takes in a key (and a digest algorithm optionally) and returns a default signature spec for those.
+SignatureSpecService ensures that you do not pass the wrong signature spec for a signing-key type. It takes in a key and, optionally, a digest algorithm, and returns the appropriate default signature spec.
