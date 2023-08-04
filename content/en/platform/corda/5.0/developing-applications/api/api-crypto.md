@@ -11,7 +11,7 @@ section_menu: corda5
 ---
 # net.corda.v5.crypto
 
-The `crypto` package provides services and types for performing cryptographic operations. The list of services available are:
+The `crypto` package provides services and types for performing cryptographic operations. The following services are available:
 
 * The `CompositeKey` is a tree data structure that enables the representation of composite public keys, which are used to represent the signing requirements for multi-signature scenarios.
 * The `DigestAlgorithmName` is to be used in Corda hashing API.
