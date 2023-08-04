@@ -13,7 +13,7 @@ section_menu: corda5
 To be serializable by Corda, Java classes must be compiled with the -parameters switch to enable matching of its properties
 to constructor parameters. This is important because Corda’s internal AMQP serialization scheme will only construct
 objects using their constructors. However, when recompilation is not possible, or classes are built in such a way that
-they cannot be easily modified for simple serialization, CorDapps can provide custom proxy serializers. Corda
+they cannot be easily modified for simple serialization, {{< tooltip >}}CorDapps{{< /tooltip >}} can provide custom proxy serializers. Corda
 can use these serializers to move from a type it cannot serialize to an interim representation that it can serialize.
 The transformation to and from this proxy object is handled by the supplied serializer.
 

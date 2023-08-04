@@ -12,7 +12,7 @@ section_menu: corda5
 ---
 # CPK Gradle Plugin
 
-Applying this plugin to a project declares that the project should create a CorDapp in CPK format. The CPK format
+Applying this plugin to a project declares that the project should create a {{< tooltip >}}CorDapp{{< /tooltip >}} in CPK format. The CPK format
 CorDapp is a ZIP file with a `.jar` extension, which is the output of the JAR task, along with the dependent JARs of that JAR.
 The plugin will not include any of Corda's own JARs among these dependencies, nor any JARs that should be provided by
 Corda, such as Kotlin or Quasar. The JAR should also contain sufficient OSGi metadata to be a valid OSGi bundle.
@@ -279,7 +279,7 @@ tasks.named('jar', Jar) {
 
 The `cordapp-cpk2` plugin creates a Bnd `-exportcontents` command to generate the JAR's OSGi `Export-Package` header.
 By default, it will automatically add every package inside the JAR to this `-exportcontents` command. The assumption
-here is that a CorDapp does not have a complicated package structure, and that Corda's OSGi sandboxes provides
+here is that a CorDapp does not have a complicated package structure, and that Corda's OSGi {{< tooltip >}}sandboxes{{< /tooltip >}} provides
 additional CorDapp isolation.
 
 CorDapp developers who wish to configure their package exports more precisely can disable this default behaviour in the `jar` task:
@@ -341,7 +341,7 @@ to ensure that the bundle respects OSGi's [Service Loader Mediator Specification
 The plugin generates `Corda-*-Classes` tags in the JAR's `MANIFEST.MF`. The generated tags are controlled by the
 `net.corda.cordapp.cordapp-configuration` Gradle plugin in the [corda-api](https://github.com/corda/corda-api) repo.
 
-Each tag contains a list of the classes within the JAR that have been identified as being a Corda contract, a Corda flow,
+Each tag contains a list of the classes within the JAR that have been identified as being a Corda contract, a Corda {{< tooltip >}}flow{{< /tooltip >}},
 and so on. Each of these classes has also been confirmed as being public, static, and non-abstract, which allows Corda
 to instantiate them. Empty tags are excluded from the final manifest, and so not every tag is guaranteed to be present.
 

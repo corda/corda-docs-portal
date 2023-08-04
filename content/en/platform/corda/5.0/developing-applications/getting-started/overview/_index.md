@@ -11,14 +11,14 @@ section_menu: corda5
 ---
 # CSDE Overview
 
-This section provides an overview of the content of CSDE. Other sections show you how to use it in the process of writing a CorDapp.
+This section provides an overview of the content of CSDE. Other sections show you how to use it in the process of writing a {{< tooltip >}}CorDapp{{< /tooltip >}}.
 
 ## Project Structure
 
 On the left, you can see the folder structure created, ready for CorDapps development.
  {{< figure src="project-structure.png" figcaption="CSDE folder structure" alt="CSDE folders in IntelliJ" >}}
 
-For Kotlin, write your flow code in `workflows/src/main/kotlin/<your package path>` and your contract and states code in `/contracts/src/main/kotlin/<your package path>`.
+For Kotlin, write your {{< tooltip >}}flow{{< /tooltip >}} code in `workflows/src/main/kotlin/<your package path>` and your contract and {{< tooltip >}}states{{< /tooltip >}} code in `/contracts/src/main/kotlin/<your package path>`.
 
 For Java, use `workflows/src/main/java/<your package path>` and your contract and states code in `/contracts/src/main/java/<your package path>`.
 
@@ -47,8 +47,8 @@ These tasks help with the lifecycle of your local Corda cluster.
 
 | <div style="width:220px">Helper</div> | Description                                                                                                                                                                             |
 |---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `1-createGroupPolicy`                 | Creates the Group policy which is required to set up the Application Network.                                                                                                           |
-| `2-createKeyStore`                    | Creates the signing keys for publishing the CPIs.                                                                                                                                       |
+| `1-createGroupPolicy`                 | Creates the {{< tooltip >}}group policy{{< /tooltip >}} which is required to set up the {{< tooltip >}}application network{{< /tooltip >}}.                                                                                                           |
+| `2-createKeyStore`                    | Creates the signing keys for publishing the {{< tooltip >}}CPIs{{< /tooltip >}}.                                                                                                                                       |
 | `3-buildCPIs`                         | Builds your CorDapp and wraps it in a signed CPI.                                                                                                                                       |
 | `4-deployCPIs`                        | Deploys the CPI to your local Corda cluster. If the CPI has already been deployed to the nodes on the cluster, this task performs a forced upload and replaces the old CPI with the new one. |
 | `5-vNodeSetup`                        | Sets up the virtual nodes specified in `config/static-network-config.json` on you local Corda cluster with the uploaded CPI.                                                            |

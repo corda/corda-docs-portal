@@ -13,17 +13,17 @@ section_menu: corda5
 
 # Uniqueness Checker
 
-The uniqueness checker and backing store metrics are from the perspective of uniqueness processing, which runs independently of the flow processing.
+The uniqueness checker and backing store metrics are from the perspective of uniqueness processing, which runs independently of the {{< tooltip >}}flow{{< /tooltip >}} processing.
 
 The uniqueness checker handles the business logic of uniqueness checking.
 The implementation is batched at two levels and three categories of metrics are provided:
 
 * Metrics starting with `uniqueness_checker_batch` relate to “top level” metrics, which apply to a single batch
-  processed by the uniqueness checker. As a batch may contain requests from different notary services and/or virtual nodes,
+  processed by the uniqueness checker. As a batch may contain requests from different {{< tooltip >}}notary{{< /tooltip >}} services and/or virtual nodes,
   these metrics provide no context as to the identities of the batch being processed.
 
 * Metrics starting with `uniqueness_checker_subbatch` relate to “sub-batch level” metrics. Each sub-batch represents
-  a partition for each notary virtual node identity within a batch. The virtual node identity is captured via the existing `virtualnode.source` tag.
+  a partition for each notary {{< tooltip >}}virtual node{{< /tooltip >}} identity within a batch. The virtual node identity is captured via the existing `virtualnode.source` tag.
 
 * Metrics starting with `uniqueness_checker_request` relate to metrics applicable to specific requests within a sub-batch,
   such as the result of a request. Like the sub-batch metrics, these are also associated with the `virtualnode.source` tag.
@@ -47,7 +47,7 @@ table th:nth-of-type(4) {
 | :----------- | :----------- | :----------- | :----------- |
 | `corda_uniqueness_checker_batch_execution_time_seconds` | Timer | None | The overall time for the uniqueness checker to process a batch, inclusive of all sub-batches. |
 | `corda_uniqueness_checker_batch_size` | DistributionSummary | None | The number of requests in a batch processed by the uniqueness checker. |
-| `corda_uniqueness_checker_subbatch_execution_time_seconds` | Timer | <ul><li>`virtualnode_source`</li></ul> | The time for the uniqueness checker to process a sub-batch, that is, a partition of a batch segregated by notary virtual node holding identity. |
+| `corda_uniqueness_checker_subbatch_execution_time_seconds` | Timer | <ul><li>`virtualnode_source`</li></ul> | The time for the uniqueness checker to process a sub-batch, that is, a partition of a batch segregated by notary virtual node {{< tooltip >}}holding identity{{< /tooltip >}}. |
 | `corda_uniqueness_checker_subbatch_size` | DistributionSummary | <ul><li>`virtualnode_source`</li></ul> | The number of requests in a sub-batch processed by the uniqueness checker. |
 | `corda_uniqueness_checker_request_count` | Counter | <ul><li>`virtualnode_source`</li><li>`result_type`</li><li>`duplicate`</li></ul> | A count of the number of requests processed. On its own this simply duplicates information that is already captured at the batch and sub-batch levels, but the tags can be used to provide additional context not available in the other metrics. |
 

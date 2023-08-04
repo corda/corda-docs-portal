@@ -12,9 +12,9 @@ title: "initial-config"
 # initial-config
 This section lists the Corda CLI `initial-config` arguments. You can use these commands to manually perform various setup actions, as described in the [Manual Bootstrapping]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md" >}}) section.
 
-## create-user-config 
+## create-user-config
 
-The `create-user-config` command creates the SQL script to add the RBAC configuration for an initial admin user. 
+The `create-user-config` command creates the SQL script to add the {{< tooltip >}}RBAC{{< /tooltip >}} configuration for an initial admin user.
 
 | <div style="width:160px">Argument</div> | Description                                   |
 | --------------------------------------- | --------------------------------------------- |
@@ -43,7 +43,7 @@ The `create-db-config` command creates the SQL statements to insert the connecti
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | -a, \-\-is-admin                        | Specifies if this is an admin (DDL) connection. The default value is false.                                                                      |
 | -d, \-\-description                     | Detailed information about the database connection.                                                                                              |
-| -e, \-\-passphrase                      | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the database worker. |
+| -e, \-\-passphrase                      | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the {{< tooltip >}}database worker{{< /tooltip >}}. |
 | -j, \-\-jbdc-url                        | The JDBC URL for the connection. This value is required.                                                                                         |
 | \-\-jdbc-pool-max-size                  | The maximum size of the JDBC connection pool. The default value is 10.                                                                           |
 | -l, \-\-location                        | The path to write the generated SQL files to.                                                                                                    |

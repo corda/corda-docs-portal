@@ -10,7 +10,7 @@ section_menu: corda5
 title: "mgm"
 ---
 # mgm
-This section lists the Corda CLI `mgm` arguments. You can use these commands to execute membership operations for static networks used for testing pruposes.
+This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `mgm` arguments. You can use these commands to execute membership operations for static networks used for testing pruposes.
 
 Running the `groupPolicy` command without any arguments prints a sample `GroupPolicy.json` file that you can manually tweak.
 
@@ -32,7 +32,7 @@ Alternatively, use the following command line arguments to define the static net
 | <div style="width:160px">Argument</div> | Description                                                                                                                                                        |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | \-\-file, -f                            | The path to a JSON or YAML file that contains static network information; see [Generating GroupPolicy Using File Input](#generating-groupPolicy-using-file-input). |
-| \-\-name                                | The X.500 name of the member; see [Generating GroupPolicy Using String Parameters](#generating-grouppolicy-using-string-parameters).                               |
+| \-\-name                                | The {{< tooltip >}}X.500{{< /tooltip >}} name of the {{< tooltip >}}member{{< /tooltip >}}; see [Generating GroupPolicy Using String Parameters](#generating-grouppolicy-using-string-parameters).                               |
 | \-\-endpoint                            | The endpoint base URL; see [Generating GroupPolicy Using String Parameters](#generating-grouppolicy-using-string-parameters).                                      |
 | \-\-endpoint-protocol                   | The version of end-to-end authentication protocol; see [Generating GroupPolicy Using String Parameters](#generating-grouppolicy-using-string-parameters).          |
 
