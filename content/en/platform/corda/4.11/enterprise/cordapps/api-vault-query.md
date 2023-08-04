@@ -529,6 +529,8 @@ demonstrated in the following example.
 
 #### Query for all states using a pagination specification and iterate using the *totalStatesAvailable* field until no further pages available:
 
+The following code will also detect, using `previousPageAnchor`, if the vault has concurrently changed whilst querying and will try to get the latest up-to-date version.
+
 ```kotlin
 retry@
 while (true) {
@@ -844,6 +846,8 @@ Vault.Page<LinearState> results = vaultService.queryBy(LinearState.class, compos
 [VaultQueryJavaTests.java](https://github.com/corda/corda/blob/release/os/4.11/node/src/test/java/net/corda/node/services/vault/VaultQueryJavaTests.java)
 
 #### Query for all states using a pagination specification and iterate using the *totalStatesAvailable* field until no further pages available:
+
+The following code will also detect, using `previousPageAnchor`, if the vault has concurrently changed whilst querying and will try to get the latest up-to-date version.
 
 ```java
 retry:
