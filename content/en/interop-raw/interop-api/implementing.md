@@ -1,6 +1,6 @@
 ---
 date: '2023-08-02'
-title: "Implementing Façade"
+title: "Implementing Façades"
 project: corda
 version: 'Corda 5.2'
 menu:

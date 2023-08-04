@@ -1,6 +1,6 @@
 ---
 date: '2023-08-02'
-title: "Mapping Façade onto a Java Interface"
+title: "Mapping Façades onto a Java Interface"
 project: corda
 version: 'Corda 5.2'
 menu:
@@ -11,7 +11,7 @@ menu:
 section_menu: corda5
 ---
 
-# Mapping Façade onto a Java Interface
+# Mapping Façades onto a Java Interface
 
 Defining a Façade using the JSON schema provides a platform-independent and descriptive way of specifying the
 methods and data types that a system should support. To map a Façade JSON into a Java interface, you can use
