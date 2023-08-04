@@ -101,7 +101,7 @@ The project containing the sample CorDapp opens.
       * A `runnodes` shell script for running all the nodes simultaneously on macOS
       * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows
 
-      See [Appendix B]({{#appendix-b-node-structure" >}}) for the node structure.
+      See [Appendix B]({{< relref "#appendix-b-node-structure" >}}) for the node structure.
 
 
 {{< note >}}
