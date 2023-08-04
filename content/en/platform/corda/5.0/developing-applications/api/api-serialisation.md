@@ -102,7 +102,7 @@ This separation of serialization schemes into different contexts allows us to us
 attempting to force a one-size-fits-all approach. Kryo is more suited to the serialization of a program’s stack frames, as it is more flexible
 than our AMQP framework in what it can construct and serialize. However, that flexibility makes it exceptionally difficult to make secure. Conversely, our AMQP framework allows us to work with a safer, secure framework with far fewer security holes.
 
-Selection of serialization context should, for the most part, be opaque to {{< tooltip >}}CorDapp {{< /tooltip >}} Developers, the Corda framework selecting
+Selection of serialization context should, for the most part, be opaque to {{< tooltip >}}CorDapp{{< /tooltip >}} Developers, the Corda framework selecting
 the correct context as configured.
 
 This document describes what is currently and what will be supported in the Corda AMQP format from the perspective
