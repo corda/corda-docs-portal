@@ -11,7 +11,7 @@ menu:
 section_menu: corda5
 ---
 # Getting Started Using the CSDE
-This section guides Developers who are new to Corda 5 from setting up their development environment through to writing, compiling, and running their first basic CorDapp.
+This section guides Developers who are new to Corda 5 from setting up their development environment through to writing, compiling, and running their first basic {{< tooltip >}}CorDapp{{< /tooltip >}}.
 
 The CorDapp Standard Development Environment (CSDE) makes the process of prototyping CorDapps more straight-forward.
 The CSDE is obtained by cloning our `CSDE-cordapp-template-kotlin` or `CSDE-cordapp-template-java` repository to your local machine. The CSDE provides:
@@ -20,5 +20,5 @@ The CSDE is obtained by cloning our `CSDE-cordapp-template-kotlin` or `CSDE-cord
 * a set of Gradle helper tasks which speed up and simplify the development and deployment process; these are effectively wrappers over the [Corda CLI]({{< relref "../tooling/installing-corda-cli.md" >}}).
 * debug configuration for debugging a local Corda cluster.
 * the `MyFirstFlow` code which forms the basis of the Getting Started documentation.
-* the `utxoexample` Chat CorDapp, which provides a basic, working UTXO Ledger CorDapp.
+* the `utxoexample` Chat CorDapp, which provides a basic, working {{< tooltip >}}UTXO{{< /tooltip >}} Ledger CorDapp.
 * the ability to configure the members of the local Corda network.

@@ -14,7 +14,7 @@ This section describes how to review and manually approve or decline registratio
 
 ## Viewing Requests Pending Manual Approval
 
-To view all registration requests for a member group, use the [GET method of the
+To view all registration requests for a {{< tooltip >}}membership group{{< /tooltip >}}, use the [GET method of the
 mgm/{holdingidentityshorthash}/approval/registrations endpoint](../../../reference/rest-api/C5_OpenAPI.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__registrations).
 
 ```bash
@@ -37,7 +37,7 @@ This method returns the requests in the following format:
 
 Requests that are pending manual approval have the status `PENDING_MANUAL_APPROVAL`.
 
-To view requests from a specific member (for example, `C=GB, L=London, O=Alice`):
+To view requests from a specific {{< tooltip >}}member{{< /tooltip >}} (for example, `C=GB, L=London, O=Alice`):
 
 ```bash
 curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/mgm/$MGM_HOLDING_ID/approval/registrations?requestsubjectx500name=C%3DGB%2C%20L%3DLondon%2C%20O%3DAlice'

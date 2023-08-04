@@ -10,12 +10,12 @@ menu:
 section_menu: corda5
 ---
 # Managing Roles and Permissions
-By default, when a cluster starts, the "super admin" REST user is created, which has unrestricted access permissions.
+By default, when a {{< tooltip >}}cluster{{< /tooltip >}} starts, the "super admin" {{< tooltip >}}REST user identity{{< /tooltip >}} is created, which has unrestricted access permissions.
 While this account can be used to perform any action, there is room for error if not used carefully.
-Role-based access control (RBAC) permission templates enable you to create fine-grained roles for specific actions such as:
+{{< tooltip >}}RBAC{{< /tooltip >}} permission templates enable you to create fine-grained roles for specific actions such as:
 
 * A dedicated role which can create users, roles, and permissions and drive all the associations between them.
-* A dedicated role with a set of all the necessary permissions to create a virtual node (including CPI upload).
+* A dedicated role with a set of all the necessary permissions to create a {{< tooltip >}}virtual node{{< /tooltip >}} (including {{< tooltip >}}CPI{{< /tooltip >}} upload).
 * A dedicated role which allows flows to run on this virtual node.
 
 {{< note >}}
@@ -38,4 +38,4 @@ To retrieve permissions matching certain query criteria, use the [get_permission
 
 ## Checking Permissions When Starting Flows
 
-Currently, Corda checks if a user can execute `startFlow` REST operations. No checks are made to whether the user can start a particular flow. These checks should be performed against the RBAC sub-system before passing the start request to a FlowWorker.
+Currently, Corda checks if a user can execute `startFlow` REST operations. No checks are made to whether the user can start a particular {{< tooltip >}}flow{{< /tooltip >}}. These checks should be performed against the RBAC sub-system before passing the start request to a FlowWorker.
