@@ -1,5 +1,5 @@
 ---
-title: "Building a Small Applications with Façades"
+title: "Building Small Applications with Façades"
 date: 2023-07-25
 version: 'Corda 5.2'
 menu:
@@ -10,4 +10,4 @@ menu:
 section_menu: corda5
 ---
 
-# Building a Small Applications with Façades
+# Building Small Applications with Façades
