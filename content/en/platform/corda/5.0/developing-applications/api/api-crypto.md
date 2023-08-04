@@ -17,7 +17,7 @@ The `crypto` package provides services and types for performing cryptographic op
 * The `DigestAlgorithmName` is to be used in Corda hashing API.
 * The `DigitalSignature` is for identifying who is the owner of the signing key used to create this signature.
 * The `SecureHash` is a cryptographically secure hash value, computed by a specified digest algorithm.
-* The `SignatureSpec`  is a digital signature scheme.
+* The `SignatureSpec` is a digital signature scheme.
 
 ## Implementing Signature Schemes
 
