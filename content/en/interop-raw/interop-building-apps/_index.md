@@ -1,5 +1,5 @@
 ---
-title: "Building a Small Applications with Facades"
+title: "Building a Small Applications with Façades"
 date: 2023-07-25
 version: 'Corda 5.2'
 menu:

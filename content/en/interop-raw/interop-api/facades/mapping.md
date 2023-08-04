@@ -1,6 +1,6 @@
 ---
 date: '2023-08-02'
-title: "Mapping Facade onto a Java Interface"
+title: "Mapping Façade onto a Java Interface"
 project: corda
 version: 'Corda 5.2'
 menu:

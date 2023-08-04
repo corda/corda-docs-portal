@@ -1,6 +1,6 @@
 ---
 date: '2023-08-02'
-title: "Calling Facades"
+title: "Calling Façades"
 project: corda
 version: 'Corda 5.2'
 menu:

@@ -1,6 +1,6 @@
 ---
 date: '2023-08-02'
-title: "Implementing Facade"
+title: "Implementing Façade"
 project: corda
 version: 'Corda 5.2'
 menu:
@@ -18,7 +18,7 @@ section_menu: corda5
 ### CorDapp Service and Implementation
 
 In the Callee CorDapp, the Façade is implemented as a Java or Kotlin class that
-contains the full business logic for processing the Facade methods and it's also a responder flow.
+contains the full business logic for processing the Façade methods and it's also a responder flow.
 
 ### Dispatching Requests
 
