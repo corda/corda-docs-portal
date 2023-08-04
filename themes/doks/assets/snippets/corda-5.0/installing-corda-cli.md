@@ -48,7 +48,7 @@ To obtain the Corda CLI installer, download `platform-jars-5.0.0.tar.gz` from th
 
 1. Ensure that you remove any existing installations of Corda CLI by deleting the `<user-home>/.corda/cli` folder.
 
-2. Start a Powershell session.
+2. Start a PowerShell session.
 
 3. Change directory to where you saved `corda-cli-installer-5.0.0.0.zip`.
 
