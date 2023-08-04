@@ -2,7 +2,7 @@
 date: '2023-02-23'
 title: "Build a CPB"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     parent: corda5-develop-packaging
@@ -19,7 +19,7 @@ You can build a CPB from your CPK files using one of the following:
 
 To build a CPB using Gradle:
 
-1. Add the CPB plugin to your project by adding the following to the start of the `build.gradle` file of your CorDapp Gradle project:
+1. Add the CPB plugin to your project by adding the following to the start of the `build.gradle` file of your {{< tooltip >}}CorDapp{{< /tooltip >}} Gradle project:
    ```
    plugins {
        id 'net.corda.plugins.cordapp-cpb2'
@@ -42,7 +42,7 @@ You should always sign test CPBs with a different key used only for testing. The
 
 ### Build a CPB Using the Corda CLI
 
-To build a CPB using the Corda CLI:
+To build a CPB using the {{< tooltip >}}Corda CLI{{< /tooltip >}}:
 
 1. Generate a code signing key. For example: 
 

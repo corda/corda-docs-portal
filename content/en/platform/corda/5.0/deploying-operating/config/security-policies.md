@@ -1,6 +1,6 @@
 ---
 title: "Security Policies"
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 date: '2023-05-16'
 menu:
   corda5:
@@ -30,7 +30,7 @@ permissions ::= ( '(' qname (quoted-string
 name        ::= quoted-string
 ```
 
-The following snippet shows an example of a deny-access block for the flow sandbox:
+The following snippet shows an example of a deny-access block for the flow {{< tooltip >}}sandbox{{< /tooltip >}}:
 
 ```
 DENY {

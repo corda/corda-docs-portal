@@ -1,6 +1,6 @@
 ---
 date: '2023-01-06'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-cordacli-develop-commands
@@ -10,7 +10,7 @@ section_menu: corda5
 title: "package"
 ---
 # package
-This section lists the Corda CLI `package` arguments. You can use these commands to execute operations for working with CPB and CPI files, as described in the [Packaging section for CorDapp Developers]({{< relref "../../developing-applications/packaging/_index.md">}}).
+This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `package` arguments. You can use these commands to execute operations for working with {{< tooltip >}}CPB{{< /tooltip >}} and {{< tooltip >}}CPI{{< /tooltip >}} files, as described in the [Packaging section for CorDapp Developers]({{< relref "../../developing-applications/packaging/_index.md">}}).
 
 | <div style="width:160px">Argument</div> | Description                                        |
 | --------------------------------------- | -------------------------------------------------- |
@@ -19,7 +19,7 @@ This section lists the Corda CLI `package` arguments. You can use these commands
 
 ## create-cpb
 
-The `create-cpb` argument creates a CPB file from a set of CPK files using the following arguments:
+The `create-cpb` argument creates a CPB file from a set of {{< tooltip >}}CPK{{< /tooltip >}} files using the following arguments:
 
 | <div style="width:160px">Argument</div> | Description                                        |
 | --------------------------------------- | -------------------------------------------------- |
@@ -66,7 +66,7 @@ The `create-cpi` argument creates a CPI file using the following arguments:
 | <div style="width:160px">Argument</div> | Description                                                                                 |
 | --------------------------------------- | ------------------------------------------------------------------------------------------- |
 | \-\-cpb                                 | Specifies the CPB file to include in the CPI. This can be omitted when creating an MGM CPI.                                              |
-| \-\-group-policy                        | Specifies the group policy file to include in the CPI. |
+| \-\-group-policy                        | Specifies the {{< tooltip >}}group policy {{< /tooltip >}}file to include in the CPI. |
 | \-\-cpi-name                            | Specifies a name for the CPI.                                                               |
 | \-\-cpi-version                         | Specifies the CPI version.                                                                  |
 | \-\-file                                | Specifies the name of the CPI file to create.                                               |

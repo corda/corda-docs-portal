@@ -1,5 +1,6 @@
 ---
 date: '2021-04-24T00:00:00Z'
+description: "Documentation for the Tokens SDK; this provides you with the fastest and easiest way to create tokens that represent any kind of asset on your network"
 section_menu: tools
 menu:
   tools:

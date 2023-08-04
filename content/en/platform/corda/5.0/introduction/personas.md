@@ -1,7 +1,7 @@
 ---
 title: "Personas"
 date: 2023-05-31
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-personas
@@ -20,10 +20,10 @@ The Corda documentation is written from the perspectives of a collection of peop
 ## Architect
 
 As an Architect considering or planning a project with Corda, you:
-* are curious about the benefits of adopting DLT technology, but also concerned about any risks.
+* are curious about the benefits of adopting {{< tooltip >}}DLT{{< /tooltip >}} technology, but also concerned about any risks.
 * want to know why DLT is a better fit for your business problem than a centralized solution.
 * are for looking for answers and guidance to the following questions:
-   * Who has access to my vault data and how is privacy preserved in Corda?
+   * Who has access to my {{< tooltip >}}vault{{< /tooltip >}} data and how is privacy preserved in Corda?
    * How do I manage the compromising of cryptographic key material?
    * How do I maintain compliance with GDPR (and other data protection regulations) if personal data is stored in Corda?
    * How do I scale Corda?
@@ -34,7 +34,7 @@ As an Architect working with Corda, all sections of the Corda documentation are 
 
 ## CorDapp Developer
 
-A CorDapp Developer uses Corda to:
+A {{< tooltip >}}CorDapp{{< /tooltip >}} Developer uses Corda to:
 * explore DLT and create their own chain of shared facts to experiment with.
 * design an enterprise production-grade distributed application.
 * work as part of a team to build an enterprise production-grade distributed application.
@@ -58,7 +58,7 @@ To learn more, see the [Administering Corda Clusters]({{< relref "../deploying-o
 
 ## Network Operator
 
-The Network Operator is concerned with: 
+The Network Operator is concerned with:
 * how Corda delivers on the _permissioned_ aspect of a private permissioned DLT platform.
 * service levels for participants on the business network.
 * defining permissions for actions on the business network.

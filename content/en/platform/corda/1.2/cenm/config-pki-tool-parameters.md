@@ -4,7 +4,11 @@ aliases:
 - /docs/cenm/head/config-pki-tool-parameters.html
 - /docs/cenm/config-pki-tool-parameters.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  cenm-1-2:
+    identifier: cenm-1-2-config-pki-tool-parameters
+    parent: cenm-1-2-configuration
+    weight: 240
 tags:
 - config
 - pki

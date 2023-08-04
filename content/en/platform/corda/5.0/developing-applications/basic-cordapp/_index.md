@@ -2,7 +2,7 @@
 date: '2023-05-03'
 title: "Building Your First CorDapp"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-develop-first-cordapp
@@ -13,14 +13,14 @@ section_menu: corda5
 
 # Building Your First CorDapp
 
-Follow this learning path to build your first CorDapp with a step-by-step guide. This set of tutorials teaches you how to implement the functionality and features you need to get any CorDapp up and running.
+Follow this learning path to build your first {{< tooltip >}}CorDapp{{< /tooltip >}} with a step-by-step guide. This set of tutorials teaches you how to implement the functionality and features you need to get any CorDapp up and running.
 
 ## Before You Start
 
 Before you start building your first CorDapp:
 - Read about [Corda key concepts]({{< relref "../../key-concepts/_index.md" >}}).
 - Install the required [prerequisites]({{< relref "../tooling/_index.md" >}}).
-- Read the CorDapp Standard Development Environment (CSDE) [installation instructions]({{< relref "../getting-started/cordapp-standard-development-environment/_index.md" >}}).
+- Read the CorDapp Standard Development Environment (CSDE) [installation instructions]({{< relref "../getting-started/installing/_index.md" >}})
 
 ## The Story
 
@@ -43,7 +43,7 @@ An important feature of this CorDapp is that the voucher cannot be used more tha
 ## Corda Implementation
 
 1. Farmer Bob issues a voucher to Dave via a ledger transaction. In your CorDapp, this voucher is called `AppleStamp` and is a [state]({{< relref "../ledger/states/_index.md" >}}) on the [ledger]({{< relref "../ledger/_index.md" >}}). One transaction has been performed so far.
-2. When Farmer Bob prepares the apples Dave requested, he self-issues a bushel of apples via a self-issue transaction. This is another state on the ledger - `BasketofApples`. Two transactions have been performed so far.
+2. When Farmer Bob prepares the apples Dave requested, he self-issues a bushel of apples via a self-issue transaction. This is another {{< tooltip >}}state{{< /tooltip >}} on the ledger - `BasketofApples`. Two transactions have been performed so far.
 3. Next, Dave goes to the orchard to pick up his apples and redeems his voucher, triggering a transaction on the ledger that consumes the `AppleStamp` state. Three transactions have been performed so far.
 4. The `BasketofApples` state is transferred to Dave when the `AppleStamp` state is consumed and Farmer Bob gives Dave his apples.
 

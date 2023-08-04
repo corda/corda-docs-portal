@@ -1,7 +1,7 @@
 ---
 title: "Developing Applications"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 date: 2023-04-21
 menu:
   corda5:
@@ -10,5 +10,5 @@ menu:
 section_menu: corda5
 ---
 # Developing Applications
-This section describes the tasks performed by CorDapp Developers. It contains the following:
+This section describes the tasks performed by {{< tooltip >}}CorDapp{{< /tooltip >}} Developers. It contains the following:
 {{< childpages >}}

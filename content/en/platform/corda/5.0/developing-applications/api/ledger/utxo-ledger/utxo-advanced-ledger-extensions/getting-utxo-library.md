@@ -2,7 +2,7 @@
 date: '2023-07-04'
 title: "Getting the UTXO Library"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-utxo-ledger-getting-utxo-library
@@ -13,7 +13,7 @@ section_menu: corda5
 
 # Getting the UTXO Library
 
-The Corda 5 Advanced UTXO Ledger Extensions library is an external library and not part of Corda 5. It needs to be sourced
+The Corda 5 Advanced {{< tooltip >}}UTXO{{< /tooltip >}} Ledger Extensions library is an external library and not part of Corda 5. It needs to be sourced
 from Maven Central Repository or similar.
 
 1. Ensure that the repositories block of the project has `mavenCentral()` declared in the following way:
@@ -29,7 +29,7 @@ from Maven Central Repository or similar.
 
    ```
    cordaUtxoLibGroupId=com.r3.corda.ledger.utxo
-   cordaUtxoLibVersion=0.9.0-Iguana1.0
+   cordaUtxoLibVersion=0.9.0
    ```
 
 3. Add the following dependencies to the project's contract sub-module `build.gradle` file:

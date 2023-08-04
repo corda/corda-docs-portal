@@ -1,6 +1,6 @@
 ---
 date: '2023-04-13'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 title: "Register the Member"
 menu:
   corda5:
@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Register the Member
 
-This section describes how to register a member on a network. You can learn more about configuring the registration process in the [Managing Members section]({{< relref "../../managing/registration-requests/_index.md" >}}).
+This section describes how to register a {{< tooltip >}}member{{< /tooltip >}} on a network. You can learn more about configuring the registration process in the [Managing Members section]({{< relref "../../managing/registration-requests/_index.md" >}}).
 This section contains the following:
 1. [Build Registration Context]({{< relref "#build-registration-context" >}})
 2. [Register the Member]({{< relref "#register-the-member" >}})
@@ -24,7 +24,7 @@ You can retrieve the names available for signature-spec through `KeysRpcOps`. On
 {{< /note >}}<!--will need more info-->
 
 To build the registration context, run the following command, replacing the endpoint URL with the endpoint of the P2P gateway.
-For example, `https://corda-p2p-gateway-worker.corda-cluster-a:8080`, where `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within.
+For example, `https://corda-p2p-gateway-worker.corda-cluster-a:8080`, where `corda-p2p-gateway-worker` is the name of the P2P gateway {{< tooltip >}}Kubernetes{{< /tooltip >}} service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within.
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
@@ -73,7 +73,7 @@ $REGISTER_RESPONSE.registrationStatus
 {{% /tab %}}
 {{< /tabs >}}
 
-This sends a join request to the MGM. The response should be `SUBMITTED`.
+This sends a join request to the {{< tooltip >}}MGM{{< /tooltip >}}. The response should be `SUBMITTED`.
 
 If you are using the Swagger UI, use the following:
 ```shell

@@ -1,6 +1,6 @@
 ---
 date: '2022-12-20'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-cordacli-initial-config
@@ -12,9 +12,9 @@ title: "initial-config"
 # initial-config
 This section lists the Corda CLI `initial-config` arguments. You can use these commands to manually perform various setup actions, as described in the [Manual Bootstrapping]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md" >}}) section.
 
-## create-user-config 
+## create-user-config
 
-The `create-user-config` command creates the SQL script to add the RBAC configuration for an initial admin user. 
+The `create-user-config` command creates the SQL script to add the {{< tooltip >}}RBAC{{< /tooltip >}} configuration for an initial admin user.
 
 | <div style="width:160px">Argument</div> | Description                                   |
 | --------------------------------------- | --------------------------------------------- |
@@ -43,7 +43,7 @@ The `create-db-config` command creates the SQL statements to insert the connecti
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | -a, \-\-is-admin                        | Specifies if this is an admin (DDL) connection. The default value is false.                                                                      |
 | -d, \-\-description                     | Detailed information about the database connection.                                                                                              |
-| -e, \-\-passphrase                      | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the database worker. |
+| -e, \-\-passphrase                      | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the {{< tooltip >}}database worker{{< /tooltip >}}. |
 | -j, \-\-jbdc-url                        | The JDBC URL for the connection. This value is required.                                                                                         |
 | \-\-jdbc-pool-max-size                  | The maximum size of the JDBC connection pool. The default value is 10.                                                                           |
 | -l, \-\-location                        | The path to write the generated SQL files to.                                                                                                    |
@@ -77,9 +77,9 @@ The `create-crypto-config` command creates the SQL statements to insert the init
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | -l, \-\-location                        | The path to write the generated SQL files to.                                                                                                    |
 | -p, \-\-passphrase                      | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the database worker. |
-| -s, \-\-salt                            | Salt for the encrypting secrets service. This must match the value specified in the Corda deployment configuration for the database worker.            |
-| -wp, \-\-wrapping-passphrase            | The passphrase for the soft HSM root wrapping key.                                                                                               |
-| -ws, \-\-wrapping-salt                  | Salt for the soft HSM root wrapping key.                                                                                                         |
+| -s, \-\-salt                            | Salt for the encrypting secrets service. This must match the value specified in the Corda deployment configuration for the database worker.             |
+| -wp, \-\-wrapping-passphrase            | The passphrase for the key derivation function for the root wrapping key. Used to protect all crypto database content via a second set of wrapping keys.                                                                                               |
+| -ws, \-\-wrapping-salt                  | The salt for the key derivation function for the root wrapping key. Used to protect all crypto database content via a second set of wrapping keys.                                                                                                         |
 
 {{< tabs name="DDL-crypto-config">}}
 {{% tab name="Bash" %}}

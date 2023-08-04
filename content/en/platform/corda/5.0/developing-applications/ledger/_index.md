@@ -1,7 +1,7 @@
 ---
 title: "Ledger"
 date: 2023-06-08
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-fundamentals-ledger
@@ -12,16 +12,16 @@ section_menu: corda5
 
 # Ledger
 
-A distributed ledger is a database of facts that is replicated, shared, and synchronized across multiple participants on a network. We call an entity that can start or be involved in a transaction a *participant*. 
-Participants are members in the same [application network]({{< relref "../../application-networks/_index.md" >}}), represented by virtual nodes. Participants require a public/private key pair: they are identified by their public key, and use the private key to sign transactions. In the current implementation in Corda 5.0 Beta, all participants must be members, and they use the ledger key that was generated when joining the network.
+A distributed ledger is a database of facts that is replicated, shared, and synchronized across multiple participants on a network. We call an entity that can start or be involved in a {{< tooltip >}}transaction{{< /tooltip >}} a *participant*.
+Participants are members in the same [application network]({{< relref "../../application-networks/_index.md" >}}), represented by virtual nodes. Participants require a public/private key pair: they are identified by their public key, and use the private key to sign transactions. In the current implementation in Corda 5.0, all participants must be members, and they use the {{< tooltip >}}ledger key{{< /tooltip >}} that was generated when joining the network.
 
 Each participant's copy of the ledger is held in their [vault]({{< relref "./vault/_index.md" >}}). Each participant has a different view of the ledger, depending on the facts it shares. Participants who share a fact must reach consensus before it is committed to the ledger. Two participants always see the exact same version of any on-ledger facts that they share.
 
-Corda does not have a central store of data. Each participant maintains its own database of [states]({{< relref "./states/_index.md" >}}) in their vault. This is information the particiapnt knows to be true based on its interactions. For example, if there are virtual nodes representing Alice and Bob on the network and Alice loans Bob some money, both Alice and Bob store an identical record of the facts about that loan. If the only parties involved with the loan are Alice and Bob, then they are the only nodes that ever see or store this data.
+Corda does not have a central store of data. Each participant maintains its own database of [states]({{< relref "./states/_index.md" >}}) in their vault. This is information the participant knows to be true based on its interactions. For example, if there are virtual nodes representing Alice and Bob on the network and Alice loans Bob some money, both Alice and Bob store an identical record of the facts about that loan. If the only parties involved with the loan are Alice and Bob, then they are the only nodes that ever see or store this data.
 
 This diagram shows a network with five participants (Alice, Bob, Carl, Demi, and Ed). Each numbered circle on an intersection represents a fact shared between two or more nodes:
 
-{{< 
+{{<
   figure
 	 src="ledger-venn.png"
      width="50%"

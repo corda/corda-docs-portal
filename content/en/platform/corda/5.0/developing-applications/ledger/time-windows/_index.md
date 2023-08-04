@@ -1,7 +1,7 @@
 ---
 title: "Time Windows"
 date: 2023-06-08
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-fundamentals-ledger-time-window
@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Time Windows
 
-Every transaction includes a *time window*: the transaction can only be committed during that window. Times in transactions are specified as time windows and not absolute times. Transaction time windows must have one of the following:
+Every {{< tooltip >}}transaction{{< /tooltip >}} includes a *time window*: the transaction can only be committed during that window. Times in transactions are specified as time windows and not absolute times. Transaction time windows must have one of the following:
 * a start time and an end time
 * only an end time
 

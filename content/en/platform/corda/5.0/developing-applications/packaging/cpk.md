@@ -2,7 +2,7 @@
 date: '2023-02-23'
 title: "Build a CPK"
 project: corda
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     parent: corda5-develop-packaging
@@ -19,7 +19,7 @@ This section describes how to create CPKs. It contains the following:
 ## Configure your Project
 To configure your CPK project:
 
-1. Add the CPK plugin to your project by adding the following to the start of the `build.gradle` file of your CorDapp Gradle project:
+1. Add the CPK plugin to your project by adding the following to the start of the `build.gradle` file of your {{< tooltip >}}CorDapp{{< /tooltip >}} Gradle project:
    ```
    plugins {
        id 'net.corda.plugins.cordapp-cpk2'

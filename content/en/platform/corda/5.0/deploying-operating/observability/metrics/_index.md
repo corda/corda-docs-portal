@@ -1,6 +1,6 @@
 ---
 date: '2023-05-10'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 title: "Metrics"
 menu:
   corda5:
@@ -17,7 +17,7 @@ Metrics provide greater insight into the inner workings of Corda and can be used
 ## Collecting Metrics
 
 All the Corda worker pods expose metrics in Prometheus text format at `/metrics` on port 7000.
-By default, this port is not exposed outside the Kubernetes cluster but most observability platforms support
+By default, this port is not exposed outside the {{< tooltip >}}Kubernetes{{< /tooltip >}} cluster but most observability platforms support
 running an agent within the cluster that dynamically detects Kubernetes pods exposing Prometheus endpoints and then polls for metrics.
 
 By default, the pods have the following Kubernetes annotations which may be sufficient for some monitoring agents
@@ -29,7 +29,7 @@ prometheus.io/path: "/metrics"
 prometheus.io/port: "7000"
 ```
 
-You can disable these annotations by providing the following overrides on the Corda Helm chart:
+You can disable these annotations by providing the following overrides on the Corda {{< tooltip >}}Helm{{< /tooltip >}} chart:
 
 ```yaml
 metrics:

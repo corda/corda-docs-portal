@@ -1,6 +1,6 @@
 ---
 date: '2023-03-15'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 title: "Reviewing Registration Requests"
 menu:
   corda5:
@@ -14,14 +14,14 @@ This section describes how to review and manually approve or decline registratio
 
 ## Viewing Requests Pending Manual Approval
 
-To view all registration requests, use the [GET method of the
+To view all registration requests for a {{< tooltip >}}membership group{{< /tooltip >}}, use the [GET method of the
 mgm/{holdingidentityshorthash}/approval/registrations endpoint](../../../reference/rest-api/C5_OpenAPI.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__registrations).
 
 ```bash
 curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/mgm/$MGM_HOLDING_ID/approval/registrations
 ```
 
-This method returns the rules in the following format:
+This method returns the requests in the following format:
 ```JSON
   {
     "memberInfoSubmitted": {
@@ -29,15 +29,21 @@ This method returns the rules in the following format:
     },
     "reason": "string",
     "registrationId": "string",
-    "registrationSent": "2022-06-24T10:15:30Z",
-    "registrationStatus": "SENT_TO_MGM",
-    "registrationUpdated": "2022-06-24T10:15:30Z"
+    "registrationSent": "2023-06-24T10:15:30Z",
+    "registrationStatus": "PENDING_MANUAL_APPROVAL",
+    "registrationUpdated": "2023-06-24T10:15:30Z"
   }
 ```
 
 Requests that are pending manual approval have the status `PENDING_MANUAL_APPROVAL`.
 
-To view requests from a specific member (for example, `C=GB, L=London, O=Alice`) and include historic requests:
+To view requests from a specific {{< tooltip >}}member{{< /tooltip >}} (for example, `C=GB, L=London, O=Alice`):
+
+```bash
+curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/mgm/$MGM_HOLDING_ID/approval/registrations?requestsubjectx500name=C%3DGB%2C%20L%3DLondon%2C%20O%3DAlice'
+```
+
+To include historic requests, set the `viewhistoric` parameter to `true`:
 
 ```bash
 curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/mgm/$MGM_HOLDING_ID/approval/registrations?requestsubjectx500name=C%3DGB%2C%20L%3DLondon%2C%20O%3DAlice&viewhistoric=true'

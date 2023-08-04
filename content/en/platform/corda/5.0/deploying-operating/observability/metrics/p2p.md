@@ -1,8 +1,8 @@
 ---
 date: '2023-06-14'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 title: "Peer-to-peer Messages and Sessions"
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     parent: corda5-cluster-metrics
@@ -44,7 +44,7 @@ table th:nth-of-type(4) {
 | `corda_p2p_session_inbound`                  | SettableGauge | None                                                                                                                                | The number of inbound peer-to-peer sessions.  |
 
 Tags:
-* `virtualnode_source`: The source virtual node of the message.
+* `virtualnode_source`: The source {{< tooltip >}}virtual node{{< /tooltip >}} of the message.
 * `virtualnode_destination`: The destination virtual node of the message.
 * `group`: The network within which a message is exchanged.
 * `subsystem`: The upstream component that sent the message.

@@ -1,6 +1,6 @@
 ---
 date: '2023-02-10'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 title: "net.corda.v5.application.persistence"
 menu:
   corda5:
@@ -17,8 +17,8 @@ Corda supports CRUD (Create, Read, Update, Delete) operations for user-defined t
 ## Defining Custom Tables Using Liquibase Migrations
 
 [CorDapps]({{< relref "../../../key-concepts/fundamentals/CorDapps/_index.md" >}}) store data in a relational database.
-When a Network Operator creates a virtual node for a CorDapp, it requires associated tables, indexes, foreign-keys, and so on.
-To create these, you must embed Liquibase files into the CorDapp CPK.
+When a Network Operator creates a virtual node for a {{< tooltip >}}CorDapp{{< /tooltip >}}, it requires associated tables, indexes, foreign-keys, and so on.
+To create these, you must embed Liquibase files into the CorDapp {{< tooltip >}}CPK{{< /tooltip >}}.
 
 Liquibase manages database changes in a change log which references one or more change sets.
 You must specify the top-level `databaseChangeLog` in a resource file in the CPK called `migration/db.changelog-master.xml`.
@@ -129,7 +129,7 @@ If they are not specified, JPA uses defaults.
 
 ## Using the Persistence API From a CorDapp Flow
 
-To use the Persistence API from a flow:
+To use the Persistence API from a {{< tooltip >}}flow{{< /tooltip >}}:
 
 1. Define a reference to the persistence service. This should be supplied via the Corda dependency injection system:
    ```kotlin

@@ -1,6 +1,6 @@
 ---
 date: '2023-05-10'
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 title: "Logs"
 menu:
   corda5:
@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 # Logs
-Corda workers write their logs to standard out/standard error from where they are collected by Kubernetes.
+Corda workers write their logs to standard out/standard error from where they are collected by {{< tooltip >}}Kubernetes{{< /tooltip >}}.
 You can retrieve the logs for a single pod using `kubectl`:
 
 ```kubectl
@@ -36,7 +36,7 @@ Most observability platforms are capable of receiving logs from containers runni
 By default, the logs are JSON formatted using the [JsonLayout](https://logging.apache.org/log4j/2.x/manual/json-template-layout.html#event-templates)
 template for Log4J’s `JsonTemplateLayout`.
 If you are working without the benefit of an observability platform to parse the JSON logs, you can
-to install Corda with a text log format instead. Use the following overrides when installing the Corda Helm chart:
+to install Corda with a text log format instead. Use the following overrides when installing the Corda {{< tooltip >}}Helm{{< /tooltip >}} chart:
 
 ```yaml
 logging:
@@ -52,7 +52,7 @@ logging:
   level: "debug"
 ```
 
-You can also modify the log level for just a single type of worker. For example:
+You can also modify the log level for just a single type of {{< tooltip >}}worker{{< /tooltip >}}. For example:
 
 ```yaml
 workers:

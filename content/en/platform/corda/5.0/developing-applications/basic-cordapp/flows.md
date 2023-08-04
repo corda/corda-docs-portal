@@ -1,7 +1,7 @@
 ---
 date: '2023-05-03'
 title: "Write Flows"
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-develop-first-cordapp-flows
@@ -13,7 +13,7 @@ menu:
 
 In Corda, flows automate the process of agreeing ledger updates. They are a sequence of steps that tell the node how to achieve a specific ledger update, such as issuing an asset or making a deposit. Nodes communicate using these flows in point-to-point interactions, rather than a global broadcast system. Network participants must specify what information needs to be sent, to which counterparties.
 
-This tutorial guides you through writing the three flows you need in your CorDapp. These are:
+This tutorial guides you through writing the three flows you need in your {{< tooltip >}}CorDapp{{< /tooltip >}}. These are:
 
 * `CreateAndIssueAppleStampFlow`
 * `PackageApplesFlow`
@@ -187,7 +187,7 @@ class CreateAndIssueAppleStampFlow : ClientStartableFlow {
 
 #### Obtain a Reference for the Notary
 
-Any flows using the UTXO ledger require a notary service to track the states created and consumed by transactions.
+Any flows using the {{< tooltip >}}UTXO{{< /tooltip >}} ledger require a notary service to track the {{< tooltip >}}states{{< /tooltip >}} created and consumed by transactions.
 
 Add the following code to retrieve a notary:
 
@@ -199,7 +199,7 @@ val notaryInfo = notaryLookup.notaryServices.single()
 {{< note >}}
 This code assumes there is only one notary service on the network. If this assumption is false, an exception will be thrown.
 For a network with multiple notary services, the CorDapp needs to implement logic to choose the appropriate notary service
-for a transaction. Do not use `first()` instead of `single()` because it will result in non-deterministic selection of
+for a {{< tooltip >}}transaction{{< /tooltip >}}. Do not use `first()` instead of `single()` because it will result in non-deterministic selection of
 a notary service when there are multiple notary services on the network.
 {{</ note >}}
 

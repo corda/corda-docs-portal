@@ -1,7 +1,7 @@
 ---
 date: '2023-05-03'
 title: "Write Contracts"
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-develop-first-cordapp-contract
@@ -11,7 +11,7 @@ menu:
 
 # Write Contracts
 
-This tutorial guides you through writing the two contracts you need in your CorDapp: `AppleStampContract` and `BasketOfApplesContract`. You will link these contracts to the states that you created in the [Write States]({{< relref"./state.md" >}}) tutorial.
+This tutorial guides you through writing the two contracts you need in your {{< tooltip >}}CorDapp{{< /tooltip >}}: `AppleStampContract` and `BasketOfApplesContract`. You will link these contracts to the {{< tooltip >}}states{{< /tooltip >}} that you created in the [Write States]({{< relref"./state.md" >}}) tutorial.
 
 You will create these contracts in the `contracts/src/main/kotlin/com/r3/developers/apples/contracts` directory in this tutorial.
 

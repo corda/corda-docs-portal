@@ -1,7 +1,7 @@
 ---
 title: "Privacy"
 date: 2023-06-07
-version: 'Corda 5.0 Beta 4'
+version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-fundamentals-privacy
@@ -27,7 +27,7 @@ At any single point in time, an identity can be involved in any number of distin
 
 ## Global State
 
-In Corda, as in all DLT systems, there exists a global state. 
+In Corda, as in all {{< tooltip >}}DLT{{< /tooltip >}} systems, there exists a global state. 
 However, in Corda, that global state is not globally visible. 
 Each participant's identity only has visibility over those portions of the global data that are relevant to it.
 
