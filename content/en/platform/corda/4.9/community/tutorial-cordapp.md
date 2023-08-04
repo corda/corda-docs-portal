@@ -101,7 +101,7 @@ The project containing the sample CorDapp opens.
       * A `runnodes` shell script for running all the nodes simultaneously on macOS
       * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows
 
-      See [Appendix B](#appendix-b-node-structure) for the node structure.
+      See [Appendix B]({{< relref "#appendix-b-node-structure" >}}) for the node structure.
 
 
 {{< note >}}
@@ -132,7 +132,7 @@ Look for the `Started Server in X seconds` message &mdash; don’t rely on the %
 
 
 {{< warning >}}
-On Unix/macOS, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell](shell.md).
+On Unix/macOS, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell]({{< relref "shell.md" >}}).
 {{< /warning >}}
 
 
