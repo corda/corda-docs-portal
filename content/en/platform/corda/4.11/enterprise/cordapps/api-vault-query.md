@@ -529,16 +529,25 @@ demonstrated in the following example.
 
 #### Query for all states using a pagination specification and iterate using the *totalStatesAvailable* field until no further pages available:
 
-```kotlin
-var pageNumber = DEFAULT_PAGE_NUM
-val states = mutableListOf<StateAndRef<ContractState>>()
-do {
-    val pageSpec = PageSpecification(pageNumber = pageNumber, pageSize = pageSize)
-    val results = vaultService.queryBy<ContractState>(VaultQueryCriteria(), pageSpec)
-    states.addAll(results.states)
-    pageNumber++
-} while ((pageSpec.pageSize * (pageNumber - 1)) <= results.totalStatesAvailable)
+The following code will also detect, using `previousPageAnchor`, if the vault has concurrently changed whilst querying and will try to get the latest up-to-date version.
 
+```kotlin
+retry@
+while (true) {
+    var pageNumber = DEFAULT_PAGE_NUM
+    val states = mutableListOf<StateAndRef<ContractState>>()
+    do {
+        val pageSpec = PageSpecification(pageNumber = pageNumber, pageSize = pageSize)
+        val results = vaultService.queryBy<ContractState>(VaultQueryCriteria(), pageSpec)
+        if (results.previousPageAnchor != states.lastOrNull()?.ref) {
+            // Start querying from the 1st page again if we find the vault has changed from underneath us.
+            continue@retry
+        }
+        states.addAll(results.states)
+        pageNumber++
+    } while ((pageSpec.pageSize * (pageNumber - 1)) <= results.totalStatesAvailable)
+    return states
+}
 ```
 
 [VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.11/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
@@ -838,19 +847,27 @@ Vault.Page<LinearState> results = vaultService.queryBy(LinearState.class, compos
 
 #### Query for all states using a pagination specification and iterate using the *totalStatesAvailable* field until no further pages available:
 
+The following code will also detect, using `previousPageAnchor`, if the vault has concurrently changed whilst querying and will try to get the latest up-to-date version.
+
 ```java
-int pageNumber = DEFAULT_PAGE_NUM;
-List<StateAndRef<Cash.State>> states = new ArrayList<>();
-long totalResults;
-do {
-    PageSpecification pageSpec = new PageSpecification(pageNumber, pageSize);
-    Vault.Page<Cash.State> results = vaultService.queryBy(Cash.State.class, new VaultQueryCriteria(), pageSpec);
-    totalResults = results.getTotalStatesAvailable();
-    List<StateAndRef<Cash.State>> newStates = results.getStates();
-    System.out.println(newStates.size());
-    states.addAll(results.getStates());
-    pageNumber++;
-} while ((pageSize * (pageNumber - 1) <= totalResults));
+retry:
+while (true) {
+    int pageNumber = DEFAULT_PAGE_NUM;
+    List<StateAndRef<Cash.State>> states = new ArrayList<>();
+    long totalResults;
+    do {
+        PageSpecification pageSpec = new PageSpecification(pageNumber, pageSize);
+        Vault.Page<Cash.State> results = vaultService.queryBy(Cash.State.class, new VaultQueryCriteria(), pageSpec);
+        if (!states.isEmpty() && !states.get(states.size() - 1).getRef().equals(results.getPreviousPageAnchor())) {
+            // Start querying from the 1st page again if we find the vault has changed from underneath us.
+            continue retry;
+        }
+        totalResults = results.getTotalStatesAvailable();
+        states.addAll(results.getStates());
+        pageNumber++;
+    } while ((pageSize * (pageNumber - 1L) <= totalResults));
+    return states;
+}
 
 ```
 
