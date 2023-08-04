@@ -67,7 +67,7 @@ To switch to using the Gradle runner:
 
 * Navigate to `Build, Execution, Deployment -> Build Tools -> Gradle -> Runner` (or search for *runner*)
     * Windows: this is in “Settings”
-    * MacOS: this is in “Preferences”
+    * macOS: this is in “Preferences”
 
 
 * Set “Delegate IDE build/run actions to gradle” to true
