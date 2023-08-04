@@ -14,7 +14,7 @@ section_menu: corda5
 The `crypto` package provides services and types for performing cryptographic operations. The following services are available:
 
 * `CompositeKey` is a tree data structure that enables the representation of composite public keys, which are used to represent the signing requirements for multi-signature scenarios.
-* The `DigestAlgorithmName` is to be used in Corda hashing API.
+* `DigestAlgorithmName` is used in the Corda hashing API.
 * `DigitalSignature` is used to identify the owner of the signing key used to create the signature.
 * The `SecureHash` is a cryptographically secure hash value, computed by a specified digest algorithm.
 * The `SignatureSpec` is a digital signature scheme.
