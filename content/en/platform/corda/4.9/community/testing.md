@@ -37,7 +37,7 @@ These tests are mostly written with JUnit and can be run via `gradle`:
 
 
 * **Windows**: Run `gradlew test integrationTest smokeTest`
-* **Unix/Mac OSX**: Run `./gradlew test integrationTest smokeTest`
+* **Unix/macOS**: Run `./gradlew test integrationTest smokeTest`
 
 Before creating a pull request please make sure these pass.
 
