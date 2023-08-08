@@ -36,7 +36,7 @@ You will also need the following to work on Bank in a Box:
 
 Bank in a Box has the following computational requirements:
 
-* Memory: 6 Gibibytes
+* Memory: 6 Gigabytes
 * CPU: 2000m (2 full cores)
 
 ### Notes on Kubernetes cluster setup
