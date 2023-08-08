@@ -11,7 +11,7 @@ section_menu: corda5
 ---
 # Administrator
 
-By default, when a {{< tooltip >}}cluster{{< /tooltip >}} starts, a "super admin" REST user is created, which has unrestricted access permissions.
+By default, when a {{< tooltip >}}cluster{{< /tooltip >}} starts, a "super admin" {{< tooltip >}}REST user identity{{< /tooltip >}} is created, which has unrestricted access permissions.
 This user is created using a special utility that performs a one-time write to the {{< tooltip >}}RBAC{{< /tooltip >}} permissions database.
 
 The "super admin" user can create additional users and assign necessary permissions to them.
