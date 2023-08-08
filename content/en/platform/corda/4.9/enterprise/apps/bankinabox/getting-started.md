@@ -18,7 +18,7 @@ Follow this guide to set up Bank in a Box so you can start testing its features 
 
 ## Prerequisites
 
-Testing the Bank in a Box CorDapp or building your own banking CorDapp both require some Corda programming knowledge. If you are new to Corda, read about [Corda key concepts](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7/key-concepts.md) and [CorDapps](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7/cordapp-overview.md) to get up to speed.
+Testing the Bank in a Box CorDapp or building your own banking CorDapp both require some Corda programming knowledge. If you are new to Corda, read about [Corda key concepts]({{< relref "../../about-corda/corda-key-concepts.md" >}}) and [CorDapps]({{< relref "../../cordapps/cordapp-overview.md" >}}) to get up to speed.
 
 Follow the general instructions for [Getting set up]({{< relref "../../cordapps/getting-set-up.md" >}}) to develop CorDapps once you are ready to get started with Bank in a Box.
 
@@ -149,7 +149,7 @@ The following projects must be built to run Bank in a Box:
 - `webservices`
 
 
-To build your JAR files from source code, `cd` into the root of [the repository cloned above](#clone-the-bank-in-a-box-repository) and execute the following commands:
+To build your JAR files from source code, `cd` into the root of [the repository cloned above]({{< relref "#clone-the-bank-in-a-box-repository" >}}) and execute the following commands:
 
 `./gradlew workflows:jar`
 
@@ -171,7 +171,7 @@ BUILD SUCCESSFUL in 6s
 
 ### Set up Docker images
 
-To build your images from source code, `cd` into the root of [the repository cloned above](#clone-the-bank-in-a-box-repository) and execute the following commands to build a Corda node, the credit rating server, web api server, and front-end images:
+To build your images from source code, `cd` into the root of [the repository cloned above]({{< relref "#clone-the-bank-in-a-box-repository" >}}) and execute the following commands to build a Corda node, the credit rating server, web api server, and front-end images:
 
 ```
 docker build -t bank-in-a-box:0.0.1 -f docker/corda-node/Dockerfile .
@@ -209,7 +209,7 @@ front-end                                   0.0.1                               
 
 ### `helm install`
 
-To install Bank in a Box services to the Kubernetes cluster, use the `helm install` command. The installation command must be triggered from the `helm` directory of the [the repository cloned above](#clone-the-bank-in-a-box-repository).
+To install Bank in a Box services to the Kubernetes cluster, use the `helm install` command. The installation command must be triggered from the `helm` directory of the [the repository cloned above]({{< relref "#clone-the-bank-in-a-box-repository" >}}).
 
 1. Navigate to the `helm` directory.
 ```

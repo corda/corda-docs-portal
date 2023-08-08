@@ -121,7 +121,7 @@ The method checks that the account has sufficient funds - in either the account 
 
 #### Custom serialization
 
-Corda uses the [Kryo serializer](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7/serialization-index.md) to serialize objects on the call stack when suspending flows. There are known issues serializing JPA entity objects, particularly if they use one to many relationships or other complex structures. One approach to overcome this is to map entity objects to data classes, referred to as Data Transfer Objects (DTOs), for use within flows. Another approach is to implement custom serializers that generate the serialization for Kryo.
+Corda uses the [Kryo serializer]({{< relref "../../serialization-index.md" >}}) to serialize objects on the call stack when suspending flows. There are known issues serializing JPA entity objects, particularly if they use one to many relationships or other complex structures. One approach to overcome this is to map entity objects to data classes, referred to as Data Transfer Objects (DTOs), for use within flows. Another approach is to implement custom serializers that generate the serialization for Kryo.
 
 A custom serializer for a JPA entity can be specified with the `DefaultSerializer` annotation:
 
@@ -184,7 +184,7 @@ To create a new customer, use the `CreateCustomerFlow`. This flow also adds pers
 * `contactNumber`: Customer phone number.
 * `emailAddress`: Customer email address.
 * `postCode`: Post code of customer's address.
-* `attachments`: List of `SecureHash`, `String` pairs with references to the Corda attachments of additional customer documentation. For more information on the standard process for uploading attachments to Corda, see the documentation on [CorDapp Contract Attachments](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7/cordapp-build-systems.md).
+* `attachments`: List of `SecureHash`, `String` pairs with references to the Corda attachments of additional customer documentation. For more information on the standard process for uploading attachments to Corda, see the documentation on [CorDapp Contract Attachments]({{< relref "../../cordapp-build-systems.md" >}}).
 
 This flows returns `UUID`, the customer ID.
 
@@ -324,7 +324,7 @@ subFlow(ApproveOverdraftFlow(accountId, amount))
 
 ## Loans
 
-The Bank in a Box application uses [Oracles](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7/key-concepts-oracles.md) in various contexts, one of which is in the issuance of loans. A dummy Oracle is used to call external services based on a customer ID and sign off on the loan. The response is then embedded in the transaction that issues the loan. This mimics a real-life scenario where a bank calls a rating provider before giving a customer a loan.
+The Bank in a Box application uses [Oracles]({{< relref "../../key-concepts-oracles.md" >}}) in various contexts, one of which is in the issuance of loans. A dummy Oracle is used to call external services based on a customer ID and sign off on the loan. The response is then embedded in the transaction that issues the loan. This mimics a real-life scenario where a bank calls a rating provider before giving a customer a loan.
 
 Oracle signatures use [partial Merkle tree signing](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7/key-concepts-tearoffs.md), which provides privacy for the transaction. In this way, the external party present in the loan issuance transaction can only see the contents of the transaction that they must confirm before signing the transaction.
 
