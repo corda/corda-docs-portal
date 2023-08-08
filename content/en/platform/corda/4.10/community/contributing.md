@@ -66,8 +66,8 @@ Github branch is always the current development branch of Corda. Development wor
 unless the work is needed in a specific version of Corda. In that case, development work should target the oldest version
 of Corda for which the work would be appropriate. For instance, if a pull request would be applicable to Corda 4.6 and
 Corda 4.8, it would be appropriate to open a pull request for *release/os/4.6*. That work would then be merged forward
-from *release/os/4.6* to *release/os/4.8*. If the work is only applicable to Corda 4.8, a pull request need only be
-opened against release/os/4.8.
+from *release/os/4.6* to *release/os/4.10*. If the work is only applicable to Corda 4.10, a pull request need only be
+opened against release/os/4.10.
 
 
 ### Things to check
@@ -133,7 +133,7 @@ the [Community Maintainers](contributing-philosophy.html#community-maintainers) 
     * Leave comments requesting changes via the GitHub PR interface.
 
 3. Make the changes by pushing directly to your existing PR branch. The PR updates automatically.
-4. *Optional:* Open an additional PR to add yourself to the [contributors list](https://github.com/corda/corda/blob/release/os/4.4/CONTRIBUTORS.md). The format is generally `firstname surname (company)`. You can omit the company name.
+4. *Optional:* Open an additional PR to add yourself to the [contributors list](https://github.com/corda/corda/blob/release/os/4.10/CONTRIBUTORS.md). The format is generally `firstname surname (company)`. You can omit the company name.
 
 ## Large contributions
 
