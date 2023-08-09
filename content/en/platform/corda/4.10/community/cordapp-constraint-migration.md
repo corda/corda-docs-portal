@@ -140,12 +140,12 @@ by different parties and it will be expressed as a `CompositeKey` in the `Signat
 to all nodes in that CZ). The CZ network operator should check that the JAR is signed and not allow any more versions of it to be whitelisted in the future.
 From now on the development organisation that signed the JAR is responsible for signing new versions.The process of CZ network CorDapp whitelisting depends on how the Corda network is configured:
 
-* If using a hosted CZ network (such as [The Corda Network](https://docs.corda.net/head/corda-network/index.html) or
-[UAT Environment](https://docs.corda.net/head/corda-network/uat.html) ) running an Identity Operator (formerly known as Doorman) and
+* If using a hosted CZ network (such as [The Corda Network]({{< relref "corda-network/corda-network-foundation.md" >}}) or
+[UAT Environment]({{< relref "corda-network/uat.md" >}})) running an Identity Operator (formerly known as Doorman) and
 Network Map Service, you should manually send the hashes of the two JARs to the CZ network operator and request these be added using
 their network parameter update process.
 * If using a local network created using the Network Bootstrapper tool, please follow the instructions in
-[Updating the contract whitelist for bootstrapped networks](network-bootstrapper.md) to can add both CorDapp Contract JAR hashes.
+[Updating the contract whitelist for bootstrapped networks]({{< relref "network-bootstrapper.md" >}}) to can add both CorDapp Contract JAR hashes.
 * Any flow that builds transactions using this CorDapp will automatically transition states to use the `SignatureAttachmentConstraint` if
 no other constraint is specified and the CorDapp continues to be whitelisted. Therefore, there are two ways to alter the existing code.
   * Do not specify a constraint
