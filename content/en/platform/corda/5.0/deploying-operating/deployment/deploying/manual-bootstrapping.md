@@ -228,7 +228,7 @@ Create and populate the database schema, as follows:
 Depending on your installation, follow the steps in one of the following sections to generate DDL for populating the RBAC database connection configuration:
 
 * [RBAC Database Connection Configuration for Corda](#rbac-database-connection-configuration-for-corda)
-* [RBAC Database Connection Configuration for Corda Enterprise with HashiCorp Vault](#rbac-database-connection-configuration-for-corda-enterprise) {{< enterprise-icon >}}
+* [RBAC Database Connection Configuration for Corda Enterprise with HashiCorp Vault](#rbac-database-connection-configuration-for-corda-enterprise-with-hashicorp-vault) {{< enterprise-icon >}}
 
 #### RBAC Database Connection Configuration for Corda 
 
@@ -323,7 +323,7 @@ Depending on your installation, follow the steps in one of the following section
 Depending on your installation, follow the steps in one of the following sections to generate DDL for populating the RBAC database connection configuration:
 
 * [Crypto Database Connection Configuration for Corda](#crypto-database-connection-configuration-for-corda)
-* [Crypto Database Connection Configuration for Corda Enterprise with HashiCorp Vault](#crypto-database-connection-configuration-for-corda-enterprise) {{< enterprise-icon >}}
+* [Crypto Database Connection Configuration for Corda Enterprise with HashiCorp Vault](#crypto-database-connection-configuration-for-corda-enterprise-with-hashicorp-vault) {{< enterprise-icon >}}
 
 #### Crypto Database Connection Configuration for Corda
 
@@ -418,7 +418,7 @@ Depending on your installation, follow the steps in one of the following section
 Depending on your installation, follow the steps in one of the following sections to generate DDL for populating the RBAC database connection configuration:
 
 * [Virtual Nodes Database Connection Configuration for Corda](#virtual-nodes-database-connection-configuration-for-corda)
-* [Virtual Nodes Database Connection Configuration for Corda Enterprise with HashiCorp Vault](#virtual-nodes-database-connection-configuration-for-corda-enterprise) {{< enterprise-icon >}}
+* [Virtual Nodes Database Connection Configuration for Corda Enterprise with HashiCorp Vault](#virtual-nodes-database-connection-configuration-for-corda-enterprise-with-hashicorp-vault) {{< enterprise-icon >}}
 
 #### Virtual Nodes Database Connection Configuration for Corda
 
@@ -544,7 +544,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CRYPTO to <CRYPTO-U
 Depending on your installation, follow the steps in one of the following sections to generate DDL for populating the initial crypto configuration:
 
 * [Initial Crypto Configuration for Corda](#initial-crypto-configuration-for-corda)
-* [Initial Crypto Configuration for Corda Enterprise with HashiCorp Vault](#initial-crypto-configuration-for-corda-enterprise) {{< enterprise-icon >}}
+* [Initial Crypto Configuration for Corda Enterprise with HashiCorp Vault](#initial-crypto-configuration-for-corda-enterprise-with-hashicorp-vault) {{< enterprise-icon >}}
 
 #### Initial Crypto Configuration for Corda
 
