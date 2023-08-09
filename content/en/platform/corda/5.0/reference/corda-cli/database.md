@@ -12,7 +12,7 @@ title: "database"
 # database
 This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `database` arguments. You can use these commands to manually perform setup actions in the database, as described in the [Manual Bootstrapping]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md" >}}) section.
 
-| <div style="width:160px">Argument</div> | Description                                                                        |
+| <col style="width:40%"><div style="width:160px">Argument</div> | Description                                                                        |
 | --------------------------------------- | ---------------------------------------------------------------------------------- |
 | spec                                    | Generates the database schema from Liquibase.                                      |
 | -c, \-\-clear-change-log                | Deletes the changelogCSV in the PWD to force generation of the SQL files.          |
