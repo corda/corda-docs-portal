@@ -17,16 +17,16 @@ title: Tutorials
 
 The Corda 4.11 tutorials show you how to build a basic CorDapp and add advanced features to fit your business needs.
 
-Follow the [Building your first CorDapp](build-basic-cordapp/basic-cordapp-intro.md) learning path to learn how to:
+Follow the [Building your first CorDapp]({{< relref "build-basic-cordapp/basic-cordapp-intro.md" >}}) learning path to learn how to:
 
-* [Write states](build-basic-cordapp/basic-cordapp-state.md)
-* [Write contracts](build-basic-cordapp/basic-cordapp-contract.md)
-* [Write flows](build-basic-cordapp/basic-cordapp-flows.md)
-* [Write unit tests](build-basic-cordapp/basic-cordapp-unit-testing.md)
-* [Run your CorDapp](build-basic-cordapp/basic-cordapp-running.md)
-* [Conduct integration testing](build-basic-cordapp/basic-cordapp-int-testing.md)
+* [Write states]({{< relref "build-basic-cordapp/basic-cordapp-state.md" >}})
+* [Write contracts]({{< relref "build-basic-cordapp/basic-cordapp-contract.md" >}})
+* [Write flows]({{< relref "build-basic-cordapp/basic-cordapp-flows.md" >}})
+* [Write unit tests]({{< relref "build-basic-cordapp/basic-cordapp-unit-testing.md" >}})
+* [Run your CorDapp]({{< relref "build-basic-cordapp/basic-cordapp-running.md" >}})
+* [Conduct integration testing]({{< relref "build-basic-cordapp/basic-cordapp-int-testing.md" >}})
 
-Learn about individual platform features in the [Supplementary tutorials](supplementary-tutorials/supplementary-tutorials-intro.md). These tutorials cover the following standalone topics:
+Learn about individual platform features in the [Supplementary tutorials]({{< relref "supplementary-tutorials/supplementary-tutorials-intro.md" >}}). These tutorials cover the following standalone topics:
 
 {{< table >}}
 | Topics           | Supplementary tutorials                                                                                                                                                                                                                                                            |

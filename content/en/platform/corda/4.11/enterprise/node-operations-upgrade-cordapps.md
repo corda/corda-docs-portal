@@ -15,11 +15,11 @@ weight: 50
 
 # Upgrading deployed CorDapps
 
-For developer information on upgrading CorDapps, see [release new CorDapp versions](cordapps/upgrading-cordapps.md).
+For developer information on upgrading CorDapps, see [release new CorDapp versions]({{< relref "cordapps/upgrading-cordapps.md" >}}).
 
 {{< warning >}}
 
-To be compatible with Corda Enterprise, CorDapps need to bundle database migration scripts. See [database management scripts](cordapps/database-management.md) for more information.
+To be compatible with Corda Enterprise, CorDapps need to bundle database migration scripts. See [database management scripts]({{< relref "cordapps/database-management.md" >}}) for more information.
 
 {{< /warning >}}
 
@@ -39,7 +39,7 @@ There are two types of contract and state upgrade that you can perform.
 
 
 1. *Implicit* upgrades allow multiple implementations of the contract ahead of time, using constraints. See
-[Contract Constraints](cordapps/api-contract-constraints.md) to learn more.
+[Contract Constraints]({{< relref "cordapps/api-contract-constraints.md" >}}) to learn more.
 2. *Explicit* upgrades create a special *contract upgrade transaction* and require all participants of a state to sign it using the
 contract upgrade flows.
 
@@ -82,7 +82,7 @@ To perform the upgrade:
 
 4. Replace the existing JAR with the new version.
 
-5. Make required database changes to any custom vault tables for the upgraded CorDapp by following the database upgrade steps in [deploying CorDapps on a node](node/operating/node-operations-cordapp-deployment.md). Database changes required for a CorDapp upgrade follow the same steps as those to set up a database for a new CorDapp.
+5. Make required database changes to any custom vault tables for the upgraded CorDapp by following the database upgrade steps in [deploying CorDapps on a node]({{< relref "node/operating/node-operations-cordapp-deployment.md" >}}). Database changes required for a CorDapp upgrade follow the same steps as those to set up a database for a new CorDapp.
 
 6. Restart the node.
 

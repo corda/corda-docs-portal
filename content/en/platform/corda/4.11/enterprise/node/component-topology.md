@@ -45,7 +45,7 @@ CorDapps are installed on a node as JAR files located in the `cordapps` director
 
 The node configuration file is a single Human-Optimized Config Object Notation (HOCON) file that controls many aspects of a node. Node configuration files are hosted in the root node directory, and must be configured before the node can be started. Correctly configuring your node is an important part of optimizing the performance of your Corda solution.
 
-You can find an exhaustive list of node configuration options and defaults in the [Node configuration reference](setup/corda-configuration-fields.md) documentation, and an example configuration file in the [Node configuration](setup/corda-configuration-file.md) documentation.
+You can find an exhaustive list of node configuration options and defaults in the [Node configuration reference]({{< relref "setup/corda-configuration-fields.md" >}}) documentation, and an example configuration file in the [Node configuration]({{< relref "setup/corda-configuration-file.md" >}}) documentation.
 
 ### Node database
 
@@ -111,5 +111,5 @@ The diagram highlights that:
 Learn more about:
 
 * [The Corda firewall]({{< relref "corda-firewall-component.md" >}})
-* [The node database](operating/node-database.md)
-* [Node configuration](setup/corda-configuration-fields.md)
+* [The node database]({{< relref "operating/node-database.md" >}})
+* [Node configuration]({{< relref "setup/corda-configuration-fields.md" >}})

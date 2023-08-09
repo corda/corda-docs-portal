@@ -22,4 +22,4 @@ wish to try the [Blob Inspector]({{< relref "blob-inspector.md" >}}).
 
 * [Corda Network Builder]({{< relref "network-builder.md" >}})
 * [Network Bootstrapper]({{< relref "network-bootstrapper.md" >}})
-* [Checkpoint Tooling](node/operating/monitoring-and-logging/checkpoint-tooling.md)
+* [Checkpoint Tooling]({{< relref "node/operating/monitoring-and-logging/checkpoint-tooling.md" >}})
