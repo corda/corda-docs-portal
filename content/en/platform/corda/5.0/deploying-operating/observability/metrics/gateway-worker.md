@@ -1,8 +1,8 @@
 ---
 date: '2023-08-09'
-version: 'Corda 5.1'
+version: 'Corda 5.0'
 title: "Gateway Worker"
-version: 'Corda 5.1'
+version: 'Corda 5.0'
 menu:
   corda5:
     parent: corda5-cluster-metrics
