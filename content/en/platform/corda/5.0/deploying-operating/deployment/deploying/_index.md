@@ -204,7 +204,7 @@ resources:
     cpu: 2000m
 ```
 {{< note >}}
-It is particularly important to specify resource requests when using a Kubernetes cluster with auto-scaling, to ensure that it scales appropriately when the Corda cluster is deployed.
+It is particularly important to specify resource requests when using a Kubernetes cluster with autoscaling, to ensure that it scales appropriately when the Corda cluster is deployed.
 {{< /note >}}
 
 You can also override the default resource requests and limits separately for each type of Corda worker.
@@ -228,7 +228,7 @@ As with the number of replicas, you may need to adjust these values based on tes
 
 #### Recommended Infrastructure
 
-Regarding AWS topology, we recommend the following initial configuration:
+For an AWS topology, we recommend the following initial configuration:
 
 * Kubernetes: For a cluster with a single replica of each worker, a Kubernetes cluster with two `t3.2xlarge` nodes is
   a reasonable starting point. For a cluster with three replicas of each worker, extend that to four nodes.
@@ -237,7 +237,7 @@ Regarding AWS topology, we recommend the following initial configuration:
   and three replicas of each worker, subject to the persistence requirements of any {{< tooltip >}}CorDapp{{< /tooltip >}} running in the cluster.
 
 * MSK: For a cluster with a single replica of each worker and a topic replica count of three, a Kafka cluster of three
-  `kafka.t3.small` instances may suffice. In a HA topology with three replicas of each worker and a topic replica count
+  `kafka.t3.small` instances may suffice. In a high-availability topology with three replicas of each worker and a topic replica count
   of three, we recommend five brokers using at least `kafka.m5.large` instances.
 
 ### REST API
@@ -468,14 +468,14 @@ config:
     createdSecretPath: "<path-to-corda-created-secrets>"
 ```
 
-* `<vault-URL>` is the full URL including port at which the vault instance is reachable, not including any path.
-* `<vault-token>` must allow sufficient permissions to read from vault at the Corda configured paths and write to the `<path-to-corda-created-secrets>`, where Corda writes secrets it creates.
+* `<vault-URL>` is the full URL including port at which the Vault instance is reachable, not including any path.
+* `<vault-token>` must allow sufficient permissions to read from Vault at the Corda configured paths and write to the `<path-to-corda-created-secrets>`, where Corda writes secrets it creates.
 
-The passwords for the {{< tooltip >}}RBAC{{< /tooltip >}} and CRYPTO schemas and VNODES database must be available in vault before Corda is deployed. These must be available in the Vault `dbsecrets` path, under the keys `rbac`, `crypto`, and `vnodes` respectively.
+The passwords for the `RBAC` and `CRYPTO` schemas and `VNODES` database must be available in Vault before Corda is deployed. These must be available in the Vault `dbsecrets` path, under the keys `rbac`, `crypto`, and `vnodes` respectively.
 {{< note >}}
 These keys are not tied to the schema names. If the schema names change, the key names remain `rbac`, `crypto`, and `vnodes`.
 {{< /note >}}
-Additionally, a passphrase and salt for the Corda wrapping keys must be added to the vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
+Additionally, a passphrase and salt for the Corda [wrapping keys]({{< relref "../../../key-concepts/cluster-admin/tech-stack/_index.md#key-management" >}}) must be added to the vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
 
 ### Bootstrapping
 
@@ -514,6 +514,11 @@ bootstrap:
   db:
     enabled: true
 ```
+
+{{< note >}}
+If you are deploying Corda Enterprise, you must disable automatic bootstrapping and manually configure the database. For more information, see the [Database]({{< relref "./manual-bootstrapping.md#database" >}})  section in the [Manual Bootstrapping]({{< relref "./manual-bootstrapping.md" >}}) section.
+{{< /note >}}
+
 By default, the database bootstrapping uses the psql CLI from the Docker image `postgres:14.4` on Docker Hub.
 If the Kubernetes cluster does not have access to Docker Hub, you must make this image available in an internal registry.
 You can then specify the location of the image via overrides, as follows:
@@ -556,21 +561,21 @@ when the deployment completes contain instructions for how to retrieve this. Thi
             key: "password"
   ```
 
-* By default, there is a single database user used for both the bootstrap process and, subsequently at runtime, by the crypto and DB workers.
+By default, the bootstrap process and, subsequently at runtime, the crypto and database workers, use a single database user.
 R3 recommends configuring separate bootstrap and runtime users, by specifying a bootstrap user as follows:
 
-   ```yaml
-   bootstrap:
-     db:
-       cluster:
-         username:
-           value: <POSTGRESQL_BOOTSTRAP_USER>
-         password:
-           valueFrom:
-             secretKeyRef:
-               name: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_NAME>
-               key: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_KEY>
-   ```
+ ```yaml
+bootstrap:
+  db:
+    cluster:
+      username:
+        value: <POSTGRESQL_BOOTSTRAP_USER>
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_NAME>
+            key: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_KEY>
+```
 
 #### RBAC
 
