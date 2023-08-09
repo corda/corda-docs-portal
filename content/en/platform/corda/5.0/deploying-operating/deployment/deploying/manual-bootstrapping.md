@@ -544,7 +544,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CRYPTO to <CRYPTO-U
 Depending on your installation, follow the steps in one of the following sections to generate DDL for populating the initial crypto configuration:
 
 * [Initial Crypto Configuration for Corda](#initial-crypto-configuration-for-corda)
-* [Initial Crypto Configuration for Corda Enterprise](#initial-crypto-configuration-for-corda-enterprise) {{< enterprise-icon >}}
+* [Initial Crypto Configuration for Corda Enterprise with HashiCorp Vault](#initial-crypto-configuration-for-corda-enterprise) {{< enterprise-icon >}}
 
 #### Initial Crypto Configuration for Corda
 
