@@ -16,7 +16,16 @@ This section lists the Corda CLI `initial-config` arguments. You can use these c
 
 The `create-user-config` command creates the SQL script to add the {{< tooltip >}}RBAC{{< /tooltip >}} configuration for an initial admin user.
 
-| <div style="width:160px">Argument</div> | Description                                   |
+<style>
+table th:first-of-type {
+    width: 30%;
+}
+table th:nth-of-type(2) {
+    width: 70%;
+}
+</style>
+
+|Argument| Description                                   |
 | --------------------------------------- | --------------------------------------------- |
 | -l, \-\-location                        | The path to write the generated SQL files to. |
 | -p, \-\-password                        | The password of the initial admin user.       |
@@ -39,7 +48,16 @@ corda-cli.cmd initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <
 
 The `create-db-config` command creates the SQL statements to insert the connection manager configuration for the database.
 
-| <div style="width:160px">Argument</div> | Description                                                                                                                                      |
+<style>
+table th:first-of-type {
+    width: 30%;
+}
+table th:nth-of-type(2) {
+    width: 70%;
+}
+</style>
+
+|Argument| Description                                                                                                                                      |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | -a, \-\-is-admin                        | Specifies if this is an admin (DDL) connection. The default value is false.                                                                      |
 | -d, \-\-description                     | Detailed information about the database connection.                                                                                              |
