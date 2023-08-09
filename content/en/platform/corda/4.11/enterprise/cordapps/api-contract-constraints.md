@@ -66,7 +66,7 @@ Before signature constraints were released with Corda 4.0, constraints were mana
 * **Hash constraint**: Participants can only use one version of the CorDapp state. This prevents the CorDapp from being upgraded in the future while still making use of any states created using the original version.
 * **Compatibility zone whitelisted (or CZ whitelisted) constraint**: The compatibility zone operator lists the hashes of the versions that can be used with a contract class name.
 
-Learn more about constraints before Corda 4.0 in the <a href="https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs">`archived-docs`</a> directory of the <a href="https://github.com/corda/corda-docs-portal">`corda-docs-portal`</a> repository. You can also [migrate CorDapp contraints](cordapp-constraint-migration.md) from older versions by consuming and evolving pre-Corda 4 issued hash or CZ whitelisted constrained states using a Corda 4 signed CorDapp with signature constraints.
+Learn more about constraints before Corda 4.0 in the [archived-docs](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs) directory of the [corda-docs-portal](https://github.com/corda/corda-docs-portal) repository. You can also [migrate CorDapp contraints]({{< relref "cordapp-constraint-migration.md" >}}) from older versions by consuming and evolving pre-Corda 4 issued hash or CZ whitelisted constrained states using a Corda 4 signed CorDapp with signature constraints.
 
 
 ## Signature constraints
@@ -107,7 +107,7 @@ You can retrieve a JAR by hash using `AttachmentStorage.openAttachment`. You can
 
 
 {{< warning >}}
-Follow best practices by [structuring your CorDapp](writing-a-cordapp.md) as two modules: one that only contains contracts, states, and core data types, and another containing the rest of the CorDapp elements. If you structure your CorDapp as a single module, your entire CorDapp is published to the ledger. This causes the ledger to view changes to your flows or other parts of your CorDapp as a new CorDapp, and could trigger unnecessary upgrade procedures.
+Follow best practices by [structuring your CorDapp]({{< relref "writing-a-cordapp.md" >}}) as two modules: one that only contains contracts, states, and core data types, and another containing the rest of the CorDapp elements. If you structure your CorDapp as a single module, your entire CorDapp is published to the ledger. This causes the ledger to view changes to your flows or other parts of your CorDapp as a new CorDapp, and could trigger unnecessary upgrade procedures.
 {{< /warning >}}
 
 
@@ -296,7 +296,7 @@ If the node cannot resolve an attachment constraint it will throw a `MissingCont
 
 ### Not setting CorDapp packages in tests
 
-You must specify which CorDapp packages to scan when you run tests. Provide a package containing the contract class in `MockNetworkParameters`. See [Testing CorDapps](api-testing.md).
+You must specify which CorDapp packages to scan when you run tests. Provide a package containing the contract class in `MockNetworkParameters`. See [Testing CorDapps]({{< relref "api-testing.md" >}}).
 
 You must also specify a package when testing using `DriverDSl`. `DriverParameters` has a property `cordappsForAllNodes` (Kotlin)
 or method `withCordappsForAllNodes` in Java. Pass the collection of `TestCordapp` created by utility method `TestCordapp.findCordapp(String)`.
@@ -339,7 +339,7 @@ Driver.driver(
 
 ### Starting a node that is missing CorDapp(s)
 
-Make sure you place all CorDapp JARs in the `cordapps` directory of each node. The Gradle Cordform task `deployNodes` copies all JARs by default, if you have specified CorDapps to deploy. See [Creating nodes locally](../node/deploy/generating-a-node.html#creating-nodes-locally) for detailed instructions.
+Make sure you place all CorDapp JARs in the `cordapps` directory of each node. The Gradle Cordform task `deployNodes` copies all JARs by default, if you have specified CorDapps to deploy. See [Creating nodes locally]({{< relref "../node/deploy/generating-a-node.md#creating-nodes-locally" >}}) for detailed instructions.
 
 
 ### Including an incorrect fully-qualified contract name

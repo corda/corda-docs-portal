@@ -222,7 +222,7 @@ running the bootstrapper.
 
 ## Package namespace ownership
 
-To configure [package namespace ownership](../../../../../../../en/platform/corda/4.8/enterprise/node/deploy/env-dev.html#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper]({{< relref "../../network-bootstrapper.md" >}}) tool. For example:
+To configure [package namespace ownership]({{< relref "env-dev.md#package-namespace-ownership" >}}), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper]({{< relref "../../network-bootstrapper.md" >}}) tool. For example:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {

@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>sign - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="index.html">java.security.PrivateKey</a>&nbsp;/&nbsp;<a href="./sign.html">sign</a><br/>
+<br/>
+<h1>sign</h1>
+<a name="net.corda.core.crypto$sign(java.security.PrivateKey, kotlin.ByteArray)"></a>
+<code><span class="keyword">fun </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a><span class="symbol">.</span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto$sign(java.security.PrivateKey, kotlin.ByteArray)/bytesToSign">bytesToSign</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-digital-signature/index.html"><span class="identifier">DigitalSignature</span></a></code>
+<p>Utility to simplify the act of signing a byte array.</p>
+<h3>Parameters</h3>
+<p><a name="bytesToSign"></a>
+<code>bytesToSign</code> - the data/message to be signed in <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> form (usually the Merkle root).</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - if the signature scheme is not supported for this private key.</p>
+<p><a name="InvalidKeyException"></a>
+<code>InvalidKeyException</code> - if the private key is invalid.</p>
+<p><a name="SignatureException"></a>
+<code>SignatureException</code> - if signing is not possible due to malformed data or private key.</p>
+<p><strong>Return</strong><br/>
+the <a href="../-digital-signature/index.html">DigitalSignature</a> object on the input message.</p>
+<a name="net.corda.core.crypto$sign(java.security.PrivateKey, kotlin.ByteArray, java.security.PublicKey)"></a>
+<code><span class="keyword">fun </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a><span class="symbol">.</span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto$sign(java.security.PrivateKey, kotlin.ByteArray, java.security.PublicKey)/bytesToSign">bytesToSign</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto$sign(java.security.PrivateKey, kotlin.ByteArray, java.security.PublicKey)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">WithKey</span></code>
+<p>Utility to simplify the act of signing a byte array and return a <a href="../-digital-signature/-with-key/index.html">DigitalSignature.WithKey</a> object.
+Note that there is no check if the public key matches with the signing private key.</p>
+<h3>Parameters</h3>
+<p><a name="bytesToSign"></a>
+<code>bytesToSign</code> - the data/message to be signed in <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> form (usually the Merkle root).</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - if the signature scheme is not supported for this private key.</p>
+<p><a name="InvalidKeyException"></a>
+<code>InvalidKeyException</code> - if the private key is invalid.</p>
+<p><a name="SignatureException"></a>
+<code>SignatureException</code> - if signing is not possible due to malformed data or private key.</p>
+<p><strong>Return</strong><br/>
+the <a href="../-digital-signature/-with-key/index.html">DigitalSignature.WithKey</a> object on the input message <a href="sign.html#net.corda.core.crypto$sign(java.security.PrivateKey, kotlin.ByteArray, java.security.PublicKey)/bytesToSign">bytesToSign</a> and <a href="sign.html#net.corda.core.crypto$sign(java.security.PrivateKey, kotlin.ByteArray, java.security.PublicKey)/publicKey">publicKey</a>.</p>
+</BODY>
+</HTML>

@@ -1,0 +1,94 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MaybeSerializedSignedTransaction - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="./index.html">MaybeSerializedSignedTransaction</a><br/>
+<br/>
+<h1>MaybeSerializedSignedTransaction</h1>
+<code><span class="keyword">class </span><span class="identifier">MaybeSerializedSignedTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-named-by-hash/index.html"><span class="identifier">NamedByHash</span></a></code>
+<p>In the words of Matt working code is more important then pretty code. This class that contains code that may
+be serialized. If it were always serialized then the local disk fetch would need to serialize then de-serialize
+which wastes time. However over the wire we get batch fetch items serialized. This is because we need to get the exact
+length of the objects to pack them into the 10MB max message size buffer. We do not want to serialize them multiple times
+so it's a lot more efficient to send the byte stream.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>In the words of Matt working code is more important then pretty code. This class that contains code that may
+be serialized. If it were always serialized then the local disk fetch would need to serialize then de-serialize
+which wastes time. However over the wire we get batch fetch items serialized. This is because we need to get the exact
+length of the objects to pack them into the 10MB max message size buffer. We do not want to serialize them multiple times
+so it's a lot more efficient to send the byte stream.</p>
+<code><span class="identifier">MaybeSerializedSignedTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.MaybeSerializedSignedTransaction$<init>(net.corda.core.crypto.SecureHash, net.corda.core.serialization.SerializedBytes((net.corda.core.transactions.SignedTransaction)), net.corda.core.transactions.SignedTransaction)/id">id</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.MaybeSerializedSignedTransaction$<init>(net.corda.core.crypto.SecureHash, net.corda.core.serialization.SerializedBytes((net.corda.core.transactions.SignedTransaction)), net.corda.core.transactions.SignedTransaction)/serialized">serialized</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.serialization/-serialized-bytes/index.html"><span class="identifier">SerializedBytes</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.MaybeSerializedSignedTransaction$<init>(net.corda.core.crypto.SecureHash, net.corda.core.serialization.SerializedBytes((net.corda.core.transactions.SignedTransaction)), net.corda.core.transactions.SignedTransaction)/nonSerialised">nonSerialised</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">?</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="id.html">id</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">id</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="non-serialised.html">nonSerialised</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">nonSerialised</span><span class="symbol">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="serialized.html">serialized</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">serialized</span><span class="symbol">: </span><a href="../../net.corda.core.serialization/-serialized-bytes/index.html"><span class="identifier">SerializedBytes</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get.html">get</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">get</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-null.html">isNull</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">isNull</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="payload-content-description.html">payloadContentDescription</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">payloadContentDescription</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="serialized-byte-count.html">serializedByteCount</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">serializedByteCount</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>DigitalSignature.WithKey.verify - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="../index.html">DigitalSignature</a>&nbsp;/&nbsp;<a href="index.html">WithKey</a>&nbsp;/&nbsp;<a href="./verify.html">verify</a><br/>
+<br/>
+<h1>verify</h1>
+<a name="net.corda.core.crypto.DigitalSignature.WithKey$verify(kotlin.ByteArray)"></a>
+<code><span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.DigitalSignature.WithKey$verify(kotlin.ByteArray)/content">content</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code><br/>
+<a name="net.corda.core.crypto.DigitalSignature.WithKey$verify(net.corda.core.utilities.OpaqueBytes)"></a>
+<code><span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.DigitalSignature.WithKey$verify(net.corda.core.utilities.OpaqueBytes)/content">content</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Utility to simplify the act of verifying a signature.</p>
+<h3>Exceptions</h3>
+<p><a name="InvalidKeyException"></a>
+<code>InvalidKeyException</code> - if the key to verify the signature with is not valid (i.e. wrong key type for the
+signature).</p>
+<p><a name="SignatureException"></a>
+<code>SignatureException</code> - if the signature is invalid (i.e. damaged), or does not match the key (incorrect).</p>
+</BODY>
+</HTML>

@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ReceiveTransactionFlow.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="index.html">ReceiveTransactionFlow</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.core.flows.ReceiveTransactionFlow$&lt;init&gt;(net.corda.core.flows.FlowSession, kotlin.Boolean, net.corda.core.node.StatesToRecord)"></a>
+<code><span class="identifier">ReceiveTransactionFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.ReceiveTransactionFlow$<init>(net.corda.core.flows.FlowSession, kotlin.Boolean, net.corda.core.node.StatesToRecord)/otherSideSession">otherSideSession</span><span class="symbol">:</span>&nbsp;<a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.ReceiveTransactionFlow$<init>(net.corda.core.flows.FlowSession, kotlin.Boolean, net.corda.core.node.StatesToRecord)/checkSufficientSignatures">checkSufficientSignatures</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.ReceiveTransactionFlow$<init>(net.corda.core.flows.FlowSession, kotlin.Boolean, net.corda.core.node.StatesToRecord)/statesToRecord">statesToRecord</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-states-to-record/index.html"><span class="identifier">StatesToRecord</span></a>&nbsp;<span class="symbol">=</span>&nbsp;StatesToRecord.NONE<span class="symbol">)</span></code>
+<p>The <a href="index.html">ReceiveTransactionFlow</a> should be called in response to the <a href="../-send-transaction-flow/index.html">SendTransactionFlow</a>.</p>
+<p>This flow is a combination of <a href="../-flow-session/receive.html">FlowSession.receive</a>, resolve and <a href="../../net.corda.core.transactions/-signed-transaction/verify.html">SignedTransaction.verify</a>. This flow will receive the
+<a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a> and perform the resolution back-and-forth required to check the dependencies and download any missing
+attachments. The flow will return the <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a> after it is resolved and then verified using <a href="../../net.corda.core.transactions/-signed-transaction/verify.html">SignedTransaction.verify</a>.</p>
+<p>Please note that it will <em>not</em> store the transaction to the vault unless that is explicitly requested and checkSufficientSignatures is true.
+Setting statesToRecord to anything else when checkSufficientSignatures is false will <em>not</em> update the vault.</p>
+<p>Attention: At the moment, this flow receives a <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a> first thing and then proceeds by invoking a <a href="#">ResolveTransactionsFlow</a> subflow.
+    This is used as a criterion to identify cases, where a counterparty has failed notarising a transact</p>
+</BODY>
+</HTML>

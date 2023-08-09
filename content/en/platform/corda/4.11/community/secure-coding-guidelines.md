@@ -63,4 +63,4 @@ Make sure your contracts are secure. Check that:
 ## Related Content
 Learn more about:
 * [Writing flows]({{< relref "../enterprise/flow-state-machines.md" >}})
-* [Contracts]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contracts.md" >}})
+* [Contracts]({{< relref "../enterprise/cordapps/api-contracts.md" >}})

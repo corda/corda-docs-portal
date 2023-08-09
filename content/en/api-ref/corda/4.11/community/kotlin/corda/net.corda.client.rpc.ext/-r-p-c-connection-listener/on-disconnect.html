@@ -1,0 +1,16 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RPCConnectionListener.onDisconnect - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc.ext</a>&nbsp;/&nbsp;<a href="index.html">RPCConnectionListener</a>&nbsp;/&nbsp;<a href="./on-disconnect.html">onDisconnect</a><br/>
+<br/>
+<h1>onDisconnect</h1>
+<a name="net.corda.client.rpc.ext.RPCConnectionListener$onDisconnect(net.corda.client.rpc.ext.RPCConnectionListener.ConnectionContext((net.corda.client.rpc.ext.RPCConnectionListener.I)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">onDisconnect</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.ext.RPCConnectionListener$onDisconnect(net.corda.client.rpc.ext.RPCConnectionListener.ConnectionContext((net.corda.client.rpc.ext.RPCConnectionListener.I)))/context">context</span><span class="symbol">:</span>&nbsp;<span class="identifier">ConnectionContext</span><span class="symbol">&lt;</span><span class="identifier">I</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>This method will be called to inform about connection loss. Since given RPC client may produce multiple <a href="../../net.corda.client.rpc/-r-p-c-connection/index.html">RPCConnection</a>s,
+<a href="-connection-context/connection-opt.html">ConnectionContext.connectionOpt</a> will specify which connection is interrupted.</p>
+</BODY>
+</HTML>

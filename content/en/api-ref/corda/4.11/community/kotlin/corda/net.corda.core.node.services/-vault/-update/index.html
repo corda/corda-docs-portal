@@ -1,0 +1,122 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Vault.Update - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.core.node.services</a>&nbsp;/&nbsp;<a href="../index.html">Vault</a>&nbsp;/&nbsp;<a href="./index.html">Update</a><br/>
+<br/>
+<h1>Update</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Update</span><span class="symbol">&lt;</span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span></code>
+<p>Represents an update observed by the vault that will be notified to observers.  Include the <a href="../../../net.corda.core.contracts/-state-ref/index.html">StateRef</a>s of
+transaction outputs that were consumed (inputs) and the <a href="../../../net.corda.core.contracts/-contract-state/index.html">ContractState</a>s produced (outputs) to/by the transaction
+or transactions observed and the vault.</p>
+<p>If the vault observes multiple transactions simultaneously, where some transactions consume the outputs of some of the
+other transactions observed, then the changes are observed "net" of those.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Represents an update observed by the vault that will be notified to observers.  Include the <a href="../../../net.corda.core.contracts/-state-ref/index.html">StateRef</a>s of
+transaction outputs that were consumed (inputs) and the <a href="../../../net.corda.core.contracts/-contract-state/index.html">ContractState</a>s produced (outputs) to/by the transaction
+or transactions observed and the vault.</p>
+<code><span class="identifier">Update</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.Vault.Update$<init>(kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))), kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))), java.util.UUID, net.corda.core.node.services.Vault.UpdateType, kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))))/consumed">consumed</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.Vault.Update$<init>(kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))), kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))), java.util.UUID, net.corda.core.node.services.Vault.UpdateType, kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))))/produced">produced</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.Vault.Update$<init>(kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))), kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))), java.util.UUID, net.corda.core.node.services.Vault.UpdateType, kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))))/flowId">flowId</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.Vault.Update$<init>(kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))), kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))), java.util.UUID, net.corda.core.node.services.Vault.UpdateType, kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))))/type">type</span><span class="symbol">:</span>&nbsp;<span class="identifier">UpdateType</span>&nbsp;<span class="symbol">=</span>&nbsp;UpdateType.GENERAL<span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.Vault.Update$<init>(kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))), kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))), java.util.UUID, net.corda.core.node.services.Vault.UpdateType, kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))))/references">references</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;emptySet()<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="consumed.html">consumed</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">consumed</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="flow-id.html">flowId</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">flowId</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="produced.html">produced</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">produced</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="references.html">references</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">references</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="type.html">type</a></h4>
+</td>
+<td>
+<p>Specifies the type of update, currently supported types are general and, contract upgrade and notary change.
+Notary change transactions only modify the notary field on states, and potentially need to be handled
+differently.</p>
+<code><span class="keyword">val </span><span class="identifier">type</span><span class="symbol">: </span><span class="identifier">UpdateType</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="contains-type.html">containsType</a></h4>
+</td>
+<td>
+<p>Checks whether the update contains a state of the specified type.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <span class="identifier">containsType</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Checks whether the update contains a state of the specified type and state status</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <span class="identifier">containsType</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.Vault.Update$containsType(java.lang.Class((net.corda.core.node.services.Vault.Update.containsType.T)), net.corda.core.node.services.Vault.StateStatus)/clazz">clazz</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.Vault.Update$containsType(java.lang.Class((net.corda.core.node.services.Vault.Update.containsType.T)), net.corda.core.node.services.Vault.StateStatus)/status">status</span><span class="symbol">:</span>&nbsp;<span class="identifier">StateStatus</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="copy.html">copy</a></h4>
+</td>
+<td>
+<p>Additional copy method to maintain backwards compatibility.</p>
+<code><span class="keyword">fun </span><span class="identifier">copy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.Vault.Update$copy(kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))), kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))), java.util.UUID, net.corda.core.node.services.Vault.UpdateType)/consumed">consumed</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.Vault.Update$copy(kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))), kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))), java.util.UUID, net.corda.core.node.services.Vault.UpdateType)/produced">produced</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.Vault.Update$copy(kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))), kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))), java.util.UUID, net.corda.core.node.services.Vault.UpdateType)/flowId">flowId</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.Vault.Update$copy(kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))), kotlin.collections.Set((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Update.U)))), java.util.UUID, net.corda.core.node.services.Vault.UpdateType)/type">type</span><span class="symbol">:</span>&nbsp;<span class="identifier">UpdateType</span>&nbsp;<span class="symbol">=</span>&nbsp;UpdateType.GENERAL<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Update</span><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-empty.html">isEmpty</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">isEmpty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="plus.html">plus</a></h4>
+</td>
+<td>
+<p>Combine two updates into a single update with the combined inputs and outputs of the two updates but net
+any outputs of the left-hand-side (this) that are consumed by the inputs of the right-hand-side (rhs).</p>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">plus</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.Vault.Update$plus(net.corda.core.node.services.Vault.Update((net.corda.core.node.services.Vault.Update.U)))/rhs">rhs</span><span class="symbol">:</span>&nbsp;<span class="identifier">Update</span><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Update</span><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

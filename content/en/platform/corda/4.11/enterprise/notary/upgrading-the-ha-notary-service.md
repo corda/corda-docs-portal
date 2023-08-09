@@ -25,7 +25,6 @@ This release addresses a security issue in the JPA notary if the Corda database 
 
 No additional steps are needed to upgrade from version 4.6 to 4.7.
 
-
 ## Version 4.6
 
 No additional steps are needed to upgrade from version 4.5 to 4.6.

@@ -396,7 +396,7 @@ Once you have created an Azure Key Vault that you want to use, perform the follo
 
 The HSM pod is a helper pod, which loads a defined Docker image and attempts to load the folder containing the HSM-related
 files as a volume for the other pods to use. Follow the steps below:
-1. <a href="../../../../../../../en/platform/corda/1.5/cenm/signing-service.html#azure-key-vault">Create the library JAR</a>
+1. [Create the library JAR]({{< relref "../../../../../../../en/platform/corda/1.5/cenm/signing-service.md#azure-key-vault" >}}). 
 2. Create a Docker image containing the JAR file and the `.pkcs12` file used as the key store path.
 
 The Docker image and the directory where these files are stored must be specified in the relevant variables in the HSM `values.yaml` file.
@@ -560,4 +560,4 @@ kubectl get svc --namespace cenm nmap --template "{{ range (index .status.loadBa
 
 ## Appendix A: Docker Images
 
-Visit the [platform support matrix](../../platform-support-matrix.html#docker-images) for information on Corda Docker Images for version 4.8.
+Visit the [platform support matrix]({{< relref "../../platform-support-matrix.md#docker-images" >}}) for information on Corda Docker Images.

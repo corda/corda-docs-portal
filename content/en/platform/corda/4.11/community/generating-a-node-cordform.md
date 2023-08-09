@@ -231,7 +231,7 @@ running the bootstrapper.
 
 ## Package namespace ownership
 
-To configure [package namespace ownership](../../4.8/enterprise/node/deploy/env-dev.html#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper](network-bootstrapper.md) tool. For example:
+To configure [package namespace ownership]({{< relref "../enterprise/node/deploy/env-dev.html#package-namespace-ownership ">}}), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper](network-bootstrapper.md) tool. For example:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
@@ -308,7 +308,7 @@ The snippet below configures contracts classes from the Finance CorDapp to be ve
 
 ## Optional migration step
 
-If you are migrating your database schema from an older Corda version to Corda 4.8, you must add the following parameter to the node section in the `build.gradle` and set it to `true`:
+If you are migrating your database schema from an older Corda version to Corda 4.11, you must add the following parameter to the node section in the `build.gradle` and set it to `true`:
 
   ```
           runSchemaMigration = true

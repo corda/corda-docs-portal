@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TokenizableAssetInfo - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="./index.html">TokenizableAssetInfo</a><br/>
+<br/>
+<h1>TokenizableAssetInfo</h1>
+<code><span class="keyword">interface </span><span class="identifier">TokenizableAssetInfo</span></code>
+<p>This interface is used by <a href="../-amount/index.html">Amount</a> to determine the conversion ratio from
+indicative/displayed asset amounts in <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html">BigDecimal</a> to fungible tokens represented by Amount objects.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="display-token-size.html">displayTokenSize</a></h4>
+</td>
+<td>
+<p>The nominal display unit size of a single token, potentially with trailing decimal display places if the scale parameter is non-zero.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">displayTokenSize</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html"><span class="identifier">BigDecimal</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.finance.contracts/-commodity/index.html">Commodity</a></h4>
+</td>
+<td>
+<p>Class representing a commodity, as an equivalent to the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html">Currency</a> class. This exists purely to enable the
+<a href="#">CommodityContract</a> contract, and is likely to change in future.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Commodity</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TokenizableAssetInfo</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

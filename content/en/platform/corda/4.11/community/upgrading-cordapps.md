@@ -296,7 +296,7 @@ this type include utility flows for querying the vault and flows for reaching ou
 
 ### Flow drains
 
-A flow *checkpoint* is a serialised snapshot of the flow’s stack frames and any objects reachable from the stack.
+A flow *checkpoint* is a serialized snapshot of the flow’s stack frames and any objects reachable from the stack.
 Checkpoints are saved to the database automatically when a flow suspends or resumes, which typically happens when
 sending or receiving messages. A flow may be replayed from the last checkpoint if the node restarts. Automatic
 checkpointing is an unusual feature of Corda and significantly helps developers write reliable code that can survive
@@ -312,7 +312,7 @@ changes `@Suspendable` code. A drain blocks new flows from starting but allows e
 a drain is complete there should be no outstanding checkpoints or running flows. Upgrading the app will then succeed.
 
 A node can be drained or undrained via RPC using the `setFlowsDrainingModeEnabled` method, and via the shell using
-the standard `run` command to invoke the RPC. See [Node shell](shell.md) to learn more.
+the standard `run` command to invoke the RPC. See [Node shell]({{< relref "shell.md" >}}) to learn more.
 
 To assist in draining a node, the `checkpoints dump` shell command will output JSON representations of each checkpointed flow.
 A zip containing the JSON files is created in the `logs` directory of the node. This information can then be used to determine the
@@ -339,7 +339,7 @@ There are two types of contract/state upgrade:
 * *Explicit:* By creating a special *contract upgrade transaction* and getting all participants of a state to sign it using the
 contract upgrade flows.
 
-The general recommendation for Corda 4.8 is to use **implicit** upgrades for the reasons described [here](api-contract-constraints.html#implicit-vs-explicit-upgrades).
+The general recommendation for Corda is to use **implicit** upgrades for the reasons described [here]({{< relref "api-contract-constraints.md#implicit-vs-explicit-upgrades" >}}).
 
 
 
@@ -351,7 +351,7 @@ constraint of the states it’s allowed to replace.
 
 
 {{< warning >}}
-Corda 4 introduced the Signature Constraint (see [API: Contract Constraints](api-contract-constraints.md)). States created or migrated to
+Corda 4 introduced the Signature Constraint (see [API: Contract Constraints]({{< relref "api-contract-constraints.md" >}})). States created or migrated to 
 the Signature Constraint can’t be explicitly upgraded using the Contract upgrade transaction. This feature might be added in a future version.
 Given the nature of the Signature constraint there should be little need to create a brand new contract to fix issues in the old contract.
 
@@ -384,7 +384,7 @@ interface UpgradedContract<in OldState : ContractState, out NewState : ContractS
 
 The `upgrade` method describes how the old state type is upgraded to the new state type.
 
-By default this new contract will only be able to upgrade legacy states which are constrained by the zone whitelist (see [API: Contract Constraints](api-contract-constraints.md)).
+By default this new contract will only be able to upgrade legacy states which are constrained by the zone whitelist (see [API: Contract Constraints]({{< relref "api-contract-constraints.md" >}})).
 
 {{< note >}}
 The requirement for a `legacyContractConstraint` arises from the fact that when a transaction chain is verified and a `Contract Upgrade` is
@@ -434,7 +434,7 @@ in progress.
 #### 6. Re-run the network bootstrapper (only if you want to whitelist the new contract)
 
 If you’re using the network bootstrapper instead of a network map server and have defined any new contracts, you need to
-re-run the network bootstrapper to whitelist the new contracts. See [Network Bootstrapper](network-bootstrapper.md).
+re-run the network bootstrapper to whitelist the new contracts. See [Network Bootstrapper]({{< relref "network-bootstrapper.md" >}}).
 
 
 #### 7. Restart the nodes
@@ -473,7 +473,7 @@ which references the new contract code.
 
 #### 10. Migrate the new upgraded state to the Signature Constraint from the zone constraint
 
-Follow the guide in [API: Contract Constraints](api-contract-constraints.md).
+Follow the guide in [API: Contract Constraints]({{< relref "api-contract-constraints.md" >}}).
 
 
 ### Points to note
@@ -485,9 +485,9 @@ Follow the guide in [API: Contract Constraints](api-contract-constraints.md).
 * Despite its name, the `ContractUpgradeFlow` handles the update of both state object definitions and contract logic
 * The state can completely change as part of an upgrade! For example, it is possible to transmute a `Cat` state into
 a `Dog` state, provided that all participants in the `Cat` state agree to the change
-* If a node has not yet run the contract upgrade authorisation flow, they will not be able to upgrade the contract
+* If a node has not yet run the contract upgrade authorization flow, they will not be able to upgrade the contract
 and/or state objects
-* Upgrade authorisations can subsequently be deauthorised
+* Upgrade authorizations can subsequently be deauthorized
 * Upgrades do not have to happen immediately. For a period, the two parties can use the old states and contracts
 side-by-side
 * State schema changes are handled separately
@@ -508,13 +508,13 @@ value
 #### Permissioning
 
 
-* Only node administrators are able to run the contract upgrade authorisation and deauthorisation flows
+* Only node administrators are able to run the contract upgrade authorization and deauthorization flows
 
 
 #### Logistics
 
 
-* All nodes need to run the contract upgrade authorisation flow
+* All nodes need to run the contract upgrade authorization flow
 * Only one node should run the contract upgrade initiation flow. If multiple nodes run it for the same `StateRef`, a
 double-spend will occur for all but the first completed upgrade
 * The supplied upgrade flows upgrade one state object at a time
@@ -522,15 +522,15 @@ double-spend will occur for all but the first completed upgrade
 
 ## Serialization
 
-Currently, the serialisation format for everything except flow checkpoints (which uses a Kryo-based format) is based
-upon AMQP 1.0, a self-describing and controllable serialisation format. AMQP is desirable because it allows us to have
+Currently, the serialization format for everything except flow checkpoints (which uses a Kryo-based format) is based
+upon AMQP 1.0, a self-describing and controllable serialization format. AMQP is desirable because it allows us to have
 a schema describing what has been serialized alongside the data itself. This assists with versioning and deserialising
 long-ago archived data, among other things.
 
 
 ### Writing classes
 
-Although not strictly related to versioning, AMQP serialisation dictates that we must write our classes in a particular way:
+Although not strictly related to versioning, AMQP serialization dictates that we must write our classes in a particular way:
 
 
 * Your class must have a constructor that takes all the properties that you wish to record in the serialized form. This
@@ -562,10 +562,10 @@ such as a string.
 
 ## State schemas
 
-By default, all state objects are serialised to the database as a string of bytes and referenced by their `StateRef`.
-However, it is also possible to define custom schemas for serialising particular properties or combinations of
+By default, all state objects are serialized to the database as a string of bytes and referenced by their `StateRef`.
+However, it is also possible to define custom schemas for serializing particular properties or combinations of
 properties, so that they can be queried from a source other than the Corda Vault. This is done by implementing the
-`QueryableState` interface and creating a custom object relational mapper for the state. See [API: Persistence](api-persistence.md)
+`QueryableState` interface and creating a custom object relational mapper for the state. See [API: Persistence]({{< relref "api-persistence.md" >}})
 for details.
 
 For backwards compatible changes such as adding columns, the procedure for upgrading a state schema is to extend the

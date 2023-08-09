@@ -1,0 +1,78 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Vault.Page - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.core.node.services</a>&nbsp;/&nbsp;<a href="../index.html">Vault</a>&nbsp;/&nbsp;<a href="./index.html">Page</a><br/>
+<br/>
+<h1>Page</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Page</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span></code>
+<p>Returned in queries <a href="../../-vault-service/query-by.html">VaultService.queryBy</a> and <a href="../../-vault-service/track-by.html">VaultService.trackBy</a>.
+A Page contains:</p>
+<ol><li>a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a> of actual <a href="../../../net.corda.core.contracts/-state-and-ref/index.html">StateAndRef</a> requested by the specified <a href="../../../net.corda.core.node.services.vault/-query-criteria/index.html">QueryCriteria</a> to a maximum of <a href="../../../net.corda.core.node.services.vault/-m-a-x_-p-a-g-e_-s-i-z-e.html">MAX_PAGE_SIZE</a>.</li>
+<li>a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a> of associated <a href="../-state-metadata/index.html">Vault.StateMetadata</a>, one per <a href="../../../net.corda.core.contracts/-state-and-ref/index.html">StateAndRef</a> result.</li>
+<li>a total number of states that met the given <a href="../../../net.corda.core.node.services.vault/-query-criteria/index.html">QueryCriteria</a> if a <a href="../../../net.corda.core.node.services.vault/-page-specification/index.html">PageSpecification</a> was provided,
+    otherwise it defaults to -1.</li>
+<li>Status types used in this query: <a href="../-state-status/-u-n-c-o-n-s-u-m-e-d.html">StateStatus.UNCONSUMED</a>, <a href="../-state-status/-c-o-n-s-u-m-e-d.html">StateStatus.CONSUMED</a>, <a href="../-state-status/-a-l-l.html">StateStatus.ALL</a>.</li>
+<li>Other results as a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a> of any type (eg. aggregate function results with/without group by).</li>
+</ol>
+<p>Note: currently otherResults are used only for Aggregate Functions (in which case, the states and statesMetadata
+results will be empty).</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Returned in queries <a href="../../-vault-service/query-by.html">VaultService.queryBy</a> and <a href="../../-vault-service/track-by.html">VaultService.trackBy</a>.
+A Page contains:</p>
+<code><span class="identifier">Page</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.Vault.Page$<init>(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Page.T)))), kotlin.collections.List((net.corda.core.node.services.Vault.StateMetadata)), kotlin.Long, net.corda.core.node.services.Vault.StateStatus, kotlin.collections.List((kotlin.Any)))/states">states</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.Vault.Page$<init>(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Page.T)))), kotlin.collections.List((net.corda.core.node.services.Vault.StateMetadata)), kotlin.Long, net.corda.core.node.services.Vault.StateStatus, kotlin.collections.List((kotlin.Any)))/statesMetadata">statesMetadata</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">StateMetadata</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.Vault.Page$<init>(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Page.T)))), kotlin.collections.List((net.corda.core.node.services.Vault.StateMetadata)), kotlin.Long, net.corda.core.node.services.Vault.StateStatus, kotlin.collections.List((kotlin.Any)))/totalStatesAvailable">totalStatesAvailable</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.Vault.Page$<init>(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Page.T)))), kotlin.collections.List((net.corda.core.node.services.Vault.StateMetadata)), kotlin.Long, net.corda.core.node.services.Vault.StateStatus, kotlin.collections.List((kotlin.Any)))/stateTypes">stateTypes</span><span class="symbol">:</span>&nbsp;<span class="identifier">StateStatus</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.Vault.Page$<init>(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.node.services.Vault.Page.T)))), kotlin.collections.List((net.corda.core.node.services.Vault.StateMetadata)), kotlin.Long, net.corda.core.node.services.Vault.StateStatus, kotlin.collections.List((kotlin.Any)))/otherResults">otherResults</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="other-results.html">otherResults</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">otherResults</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="states.html">states</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">states</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="states-metadata.html">statesMetadata</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">statesMetadata</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">StateMetadata</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="state-types.html">stateTypes</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">stateTypes</span><span class="symbol">: </span><span class="identifier">StateStatus</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="total-states-available.html">totalStatesAvailable</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">totalStatesAvailable</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

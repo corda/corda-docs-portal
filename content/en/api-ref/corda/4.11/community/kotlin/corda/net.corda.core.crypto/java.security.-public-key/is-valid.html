@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>isValid - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="index.html">java.security.PublicKey</a>&nbsp;/&nbsp;<a href="./is-valid.html">isValid</a><br/>
+<br/>
+<h1>isValid</h1>
+<a name="net.corda.core.crypto$isValid(java.security.PublicKey, kotlin.ByteArray, net.corda.core.crypto.DigitalSignature)"></a>
+<code><span class="keyword">fun </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">.</span><span class="identifier">isValid</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto$isValid(java.security.PublicKey, kotlin.ByteArray, net.corda.core.crypto.DigitalSignature)/content">content</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto$isValid(java.security.PublicKey, kotlin.ByteArray, net.corda.core.crypto.DigitalSignature)/signature">signature</span><span class="symbol">:</span>&nbsp;<a href="../-digital-signature/index.html"><span class="identifier">DigitalSignature</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Utility to simplify the act of verifying a signature. In comparison to <a href="verify.html">verify</a> if the key and signature
+do not match it returns false rather than throwing an exception. Normally you should use the function which throws,
+as it avoids the risk of failing to test the result, but this is for uses such as <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Signature.html#verify(byte[])">java.security.Signature.verify</a>
+implementations.</p>
+<h3>Exceptions</h3>
+<p><a name="InvalidKeyException"></a>
+<code>InvalidKeyException</code> - if the key to verify the signature with is not valid (i.e. wrong key type for the
+signature).</p>
+<p><a name="SignatureException"></a>
+<code>SignatureException</code> - if the signature is invalid (i.e. damaged).</p>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - if the signature scheme is not supported or if any of the clear or signature data is empty.</p>
+<p><a name="IllegalStateException"></a>
+<code>IllegalStateException</code> - if this is a <a href="../-composite-key/index.html">CompositeKey</a>, because verification of composite key signatures is not supported.</p>
+<p><strong>Return</strong><br/>
+whether the signature is correct for this key.</p>
+</BODY>
+</HTML>
