@@ -444,7 +444,7 @@ Depending on your installation, follow the steps in one of the following section
    {{< /tabs >}}
 
    {{< note >}}
-   There is no schema in `--jdbc-url` as virtual  nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
+   There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
    {{< /note >}}
 
 2. Review the DDL files generated and then execute against the database, ensuring to apply them to the `CONFIG` schema.
