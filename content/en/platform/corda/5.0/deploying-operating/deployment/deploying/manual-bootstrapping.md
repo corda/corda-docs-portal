@@ -323,7 +323,7 @@ Depending on your installation, follow the steps in one of the following section
 Depending on your installation, follow the steps in one of the following sections to generate DDL for populating the RBAC database connection configuration:
 
 * [Crypto Database Connection Configuration for Corda](#crypto-database-connection-configuration-for-corda)
-* [Crypto Database Connection Configuration for Corda Enterprise](#crypto-database-connection-configuration-for-corda-enterprise) {{< enterprise-icon >}}
+* [Crypto Database Connection Configuration for Corda Enterprise with HashiCorp Vault](#crypto-database-connection-configuration-for-corda-enterprise) {{< enterprise-icon >}}
 
 #### Crypto Database Connection Configuration for Corda
 
