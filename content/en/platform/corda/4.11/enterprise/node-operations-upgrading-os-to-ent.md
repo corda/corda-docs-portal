@@ -55,7 +55,7 @@ java -jar tools-database-manager-|release|.jar dry-run -b path_to_configuration_
 The option `-b` points to the base directory (the directory containing a `node.conf` file, and the *drivers* and *cordapps* subdirectories). The generated script named *migrationYYYYMMDDHHMMSS.sql* will be present in the current directory.
 This script contains all of the statements to create the data structures (e.g. tables/indexes) for CorDapps,
 and inserts to the Liquibase management table *DATABASECHANGELOG*.
-For a description of the options, refer to the [Corda Database Management Tool](database-management-tool.md) manual.
+For a description of the options, refer to the [Corda Database Management Tool]({{< relref "database-management-tool.md" >}}) manual.
 
 * Run selected insert statements to update Liquibase database change logIn the generated script, find all inserts into *DATABASECHANGELOG* table related to your CorDapp,
 you can search for *– Changeset migration/<file-name>* lines, where <file-name> references the Liquibase Script file name from the CorDapp.
@@ -95,7 +95,7 @@ Please contact R3 for further advice.
 
 CorDapps, contracts and states written for Corda 4.x are compatible with Corda Enterprise Edition 4.11, so upgrading
 existing Corda Community Edition nodes should be a simple case of updating the Corda JAR file.
-See [Upgrading a node](node-upgrade-notes.md) for general instructions on upgrading your node.
+See [Upgrading a node]({{< relref "node-upgrade-notes.md" >}}) for general instructions on upgrading your node.
 For developer information on recompiling CorDapps against Corda Enterprise, See [Upgrading a CorDapp to a newer platform version]({{< relref "app-upgrade-notes.md" >}}).
 
 ### Reusing an existing database

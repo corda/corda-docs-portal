@@ -80,7 +80,7 @@ of available permissions and predefined roles. Copy this file to a directory cal
 
 To deploy the Auth service, you need to create a configuration file.
 
-When you create your config file, you establish its connection to your [Gateway Service](gateway-service.md). Make sure you know:
+When you create your config file, you establish its connection to your [Gateway Service]({{< relref "gateway-service.md" >}}). Make sure you know:
 
 * Your Gateway service ID.
 * Your Gateway service secret.

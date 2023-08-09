@@ -59,7 +59,7 @@ certificate path proving the certificate was issued by the doorman service.
 
 {{< warning >}}
 The `confidential-identities` module is still not stabilised, so this API may change in future releases.
-See [API stability guarantees](api-stability-guarantees.md).
+See [API stability guarantees]({{< relref "api-stability-guarantees.md" >}}).
 
 {{< /warning >}}
 

@@ -148,7 +148,7 @@ java -Dcorda.cordappSignerKeyFingerprintBlacklist.0="000000000000000000000000000
 
 ## Configuration file fields
 
-See [Configuration file fields](corda-configuration-fields.md).
+See [Configuration file fields]({{< relref "corda-configuration-fields.md" >}}).
 
 ## Reference.conf
 

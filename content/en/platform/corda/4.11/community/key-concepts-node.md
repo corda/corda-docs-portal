@@ -22,9 +22,9 @@ title: Nodes
 * Nodes represent individuals and businesses on a Corda network.
 * A node runs within a [Java Virtual Machine (JVM)](https://www.infoworld.com/article/3272244/what-is-the-jvm-introducing-the-java-virtual-machine.html) and has a unique network identity.
 * The node interfaces with the outside world through:
-  * The [network](key-concepts-ecosystem.md), which lets it interact with other nodes.
+  * The [network]({{< relref "key-concepts-ecosystem.md" >}}), which lets it interact with other nodes.
   * Remote procedure Call (RPC), which lets the node's owner interact with it.
-* You can add extra functions to your node by installing [CorDapps](cordapp-overview.md) in the plugin registry. CorDapps are distributed applications that let you accomplish different objectives with Corda.
+* You can add extra functions to your node by installing [CorDapps]({{< relref "cordapp-overview.md" >}}) in the plugin registry. CorDapps are distributed applications that let you accomplish different objectives with Corda.
 
 ## Video
 
@@ -70,7 +70,7 @@ Internally, the node has access to a rich set of services that are used during f
 updates. The key services are:
 
 * Information about other nodes on the network and the services they offer.
-* Access to the contents of the [vault](key-concepts-vault.md) and the storage service.
+* Access to the contents of the [vault]({{< relref "key-concepts-vault.md" >}}) and the storage service.
 * Access to the node’s public-private key pairs.
 * Generation of new public-private key pairs.
 * Information about the node itself.
@@ -89,7 +89,7 @@ Your node comes with several default CorDapps installed, which handle common tas
 ## Draining mode
 
 You may want to decommission or shut down a node for various activities, such as planned maintenance and upgrades, or investigating
-performance or latency issues. To shut down a node cleanly, you must drain it so that no node processes (or [flows](key-concepts-flows.md)) are active.
+performance or latency issues. To shut down a node cleanly, you must drain it so that no node processes (or [flows]({{< relref "key-concepts-flows.md" >}})) are active.
 
 Checkpoints ensure durability against crashes and restarts, by freezing a flow and capturing its current status which is automatically saved to the database. When the node is restarted, it replays the flow from the last checkpoint.
 
@@ -102,4 +102,4 @@ Draining mode ensures that before shutting down:
 Once the number of active flows reaches zero, it is safe to shut the node down.
 The draining mode property is durable, meaning that restarting the node does not reset it to its default value and that an RPC command is required.
 
-The node can be safely shut down via a drain using the [shell](shell.md), Corda's embedded command line.
+The node can be safely shut down via a drain using the [shell]({{< relref "shell.md" >}}), Corda's embedded command line.

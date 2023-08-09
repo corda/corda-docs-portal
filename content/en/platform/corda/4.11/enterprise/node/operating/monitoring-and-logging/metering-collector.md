@@ -12,7 +12,7 @@ title: Metering collection tool
 weight: 400
 ---
 
-All Corda Enterprise nodes record metering data, the metering collection tool is used to collect data from the node. Node metering data can also be collected using the [metering client](metering-rpc.md).
+All Corda Enterprise nodes record metering data, the metering collection tool is used to collect data from the node. Node metering data can also be collected using the [metering client]({{< relref "metering-rpc.md" >}}).
 
 The metering collection tool provides a mechanism for collecting metering data from nodes and notaries running Corda Enterprise. The metering collection tool is a CorDapp that includes a number of flows which return data from the node.
 

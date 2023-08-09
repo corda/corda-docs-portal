@@ -42,10 +42,10 @@ For a validating notary service specify:
 notary : { validating : true }
 ```
 
-See [Validation](key-concepts-notaries.md) for more details about validating versus non-validating notaries.
+See [Validation]({{< relref "../key-concepts-notaries.md" >}}) for more details about validating versus non-validating notaries.
 
 For clients to be able to use the notary service, its identity must be added to the network parameters. This will be
-done automatically when creating the network, if using [Network Bootstrapper](network-bootstrapper.md). See [Networks](corda-networks-index.md)
+done automatically when creating the network, if using [Network Bootstrapper]({{< relref "../network-bootstrapper.md" >}}). See [Networks]({{< relref "../network/corda-networks.md" >}})
 for more details.
 
 

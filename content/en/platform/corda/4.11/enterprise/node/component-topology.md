@@ -110,6 +110,6 @@ The diagram highlights that:
 
 Learn more about:
 
-* [The Corda firewall](corda-firewall-component.md)
+* [The Corda firewall]({{< relref "corda-firewall-component.md" >}})
 * [The node database](operating/node-database.md)
 * [Node configuration](setup/corda-configuration-fields.md)

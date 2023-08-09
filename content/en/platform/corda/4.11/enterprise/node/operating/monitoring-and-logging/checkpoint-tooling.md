@@ -158,7 +158,7 @@ The checkpoint agent logs output to a Log4j2-configured logger. This logger must
 
 To configure the checkpoint agent logger:
 
-1. Open the `sql.xml` logging configuration file. For information on general logging configuration, see [Monitoring and logging](overview.md).
+1. Open the `sql.xml` logging configuration file. For information on general logging configuration, see [Monitoring and logging]({{< relref "overview.md" >}}).
 2. Add the following logger entry:
 
     ```xml
@@ -328,4 +328,4 @@ The feature can also be enabled by setting the system property `reloadCheckpoint
 
 ## Related content
 
-* [Troubleshooting stuck flows](diagnosing-stuck-flows.md)
+* [Troubleshooting stuck flows]({{< relref "diagnosing-stuck-flows.md" >}})

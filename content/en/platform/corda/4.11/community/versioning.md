@@ -162,4 +162,4 @@ The following error message will be received before the node shuts down:
 file:/corda-open-source/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps/bank-of-corda-demo-4.11-SNAPSHOT.jar
 ```
 
-For more information on how to address this, see the [Release new CorDapp versions](upgrading-cordapps.md) page.
+For more information on how to address this, see the [Release new CorDapp versions]({{< relref "upgrading-cordapps.md" >}}) page.

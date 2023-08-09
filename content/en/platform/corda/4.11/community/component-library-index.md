@@ -20,9 +20,9 @@ title: Component library
 
 
 
-* [Contract catalogue](contract-catalogue.md)
-* [Financial model](financial-model.md)
-* [Interest rate swaps](contract-irs.md)
+* [Contract catalogue]({{< relref "contract-catalogue.md" >}})
+* [Financial model]({{< relref "financial-model.md" >}})
+* [Interest rate swaps]({{< relref "contract-irs.md" >}})
 
 
 

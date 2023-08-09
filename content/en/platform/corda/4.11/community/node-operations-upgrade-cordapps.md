@@ -23,7 +23,7 @@ title: Upgrading CorDapps on a node
 In order to upgrade a CorDapp on a node to a new version, it needs to be determined whether any backwards compatible
 changes have been made. These could range from database changes, to changes in the protocol.
 
-For developer information on upgrading CorDapps, see [Release new CorDapp versions](upgrading-cordapps.md).
+For developer information on upgrading CorDapps, see [Release new CorDapp versions]({{< relref "upgrading-cordapps.md" >}}).
 
 CorDapps must ship with database migration scripts or clear documentation about how to update the database to be compatible with the new version.
 
@@ -65,7 +65,7 @@ time.
 In order to perform the upgrade, follow the following steps:
 
 
-* If required, do a flow drain to avoid the definition of states or contracts changing whilst a flow is in progress (see [Flow drains](upgrading-cordapps.md) for more information)
+* If required, do a flow drain to avoid the definition of states or contracts changing whilst a flow is in progress (see [Flow drains]({{< relref "upgrading-cordapps.md" >}}) for more information)
     * By RPC using the `setFlowsDrainingModeEnabled` method with the parameter `true`
     * Via the shell by issuing the following command `run setFlowsDrainingModeEnabled enabled: true`
 

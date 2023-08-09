@@ -40,8 +40,8 @@ A Corda node with full control of the database schema can create or upgrade sche
 This eases the operational maintenance for development and testing.
 
 
-Database setup for production systems (with **restricted permissions**) is described in [Database schema setup](node-database-admin.md),
-and the recommended setup for development/testing environments are described in [Simplified database schema setup for development](node-database-developer.md).
+Database setup for production systems (with **restricted permissions**) is described in [Database schema setup]({{< relref "node-database-admin.md" >}}),
+and the recommended setup for development/testing environments are described in [Simplified database schema setup for development]({{< relref "node-database-developer.md" >}}).
 
 
 ## Database schema objects management
@@ -155,7 +155,7 @@ By default, the node database has the following tables:
 
 {{< /table >}}
 
-For more details, see [Database tables](node-database-tables.md).
+For more details, see [Database tables]({{< relref "node-database-tables.md" >}}).
 
 The node database for a Simple Notary has additional tables:
 

@@ -17,7 +17,7 @@ weight: 30
 Corda Enterprise supports the commercial 3rd party databases: Azure SQL, SQL Server, Oracle, and PostgreSQL.
 This document provides instructions describing how to create database schemas (user permissions, the Corda node’s tables, and other database objects),
 and how to configure Corda nodes to connect to a database with *restricted permissions* for production use.
-If you just need a quick database setup for testing/development, please refer to [Simplified database schema setup for development](node-database-developer.md).
+If you just need a quick database setup for testing/development, please refer to [Simplified database schema setup for development]({{< relref "node-database-developer.md" >}}).
 
 Setting up a Corda node to connect to a database requires:
 
@@ -34,7 +34,7 @@ Setting up a Corda node to connect to a database requires:
 A database administrator must create a database user and a schema namespace with **restricted permissions**.
 This grants the user access to DML execution only (to manipulate data itself e.g. select/delete rows).
 This permission set is recommended for Corda nodes hot-cold-deployment and production environments.
-The less restricted permission set for a database user with **administrative permissions** is described in [Simplified database schema setup for development](node-database-developer.md)
+The less restricted permission set for a database user with **administrative permissions** is described in [Simplified database schema setup for development]({{< relref "node-database-developer.md" >}})
 (this is recommended for development purposes only).
 
 {{< note >}}

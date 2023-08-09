@@ -13,7 +13,7 @@ title: Key concept webinar series
 
 # Key concept webinars
 
-Watch this series of webinars to learn more about the big ideas that make Corda work. You can also read our [key concept documentation](key-concepts.md), the [Corda Whitepaper](https://www.r3.com/white-papers/the-corda-platform-an-introduction-whitepaper/), and [Corda Technical Whitepaper](https://www.r3.com/white-papers/corda-technical-whitepaper/).
+Watch this series of webinars to learn more about the big ideas that make Corda work. You can also read our [key concept documentation]({{< relref "key-concepts.md" >}}), the [Corda Whitepaper](https://www.r3.com/white-papers/the-corda-platform-an-introduction-whitepaper/), and [Corda Technical Whitepaper](https://www.r3.com/white-papers/corda-technical-whitepaper/).
 
 
 ## 1 - The Corda Ledger

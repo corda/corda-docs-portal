@@ -159,7 +159,7 @@ then determine the logging module name from the console output.
 
 ## SSH access
 
-Node can be configured to run SSH server. See [Node shell](shell.md) for details.
+Node can be configured to run SSH server. See [Node shell]({{< relref "shell.md" >}}) for details.
 
 
 ## Database access

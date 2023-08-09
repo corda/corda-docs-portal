@@ -100,7 +100,7 @@ This what your code should look like so far:
 ```
 
 {{< note >}}
-Adding this annotation triggers an error in IntelliJ because you haven't created the `AppleStampContract` yet. Ignore this error for now - you will add the contract class in the [Write the contract](basic-cordapp-contract.md) tutorial.
+Adding this annotation triggers an error in IntelliJ because you haven't created the `AppleStampContract` yet. Ignore this error for now - you will add the contract class in the [Write the contract]({{< relref "basic-cordapp-contract.md" >}}) tutorial.
 {{< /note >}}
 
 When naming your CorDapp files, it's best practice to match your contract and state names. In this case the state is called `AppleStamp`, so the contract is called `AppleStampContract`. Follow this naming convention when you write an original CorDapp to avoid confusion.
@@ -111,7 +111,7 @@ You've probably noticed that the state template includes imports at the top of t
 
 ### Implement the state
 
-The next line of code you add defines the type of <a href="../../../cordapps/api-states.html#contractstate-sub-interfaces">`ContractState`</a> you implement with the `AppleStamp` class. Add this line to ensure that Corda recognizes the `AppleStamp` as a state.
+The next line of code you add defines the type of <a href="../../../cordapps/api-states.html#contractstate-sub-interfaces">``</a> you implement with the `AppleStamp` class. Add this line to ensure that Corda recognizes the `AppleStamp` as a state.
 
 In this case, use a `LinearState` to tie the `AppleStamp` to a `LinearID`.
 
@@ -476,7 +476,7 @@ public class BasketOfApples implements ContractState {
 
 ## Next steps
 
-Follow the [Write the contracts](basic-cordapp-contract.md) tutorial to continue on this learning path.
+Follow the [Write the contracts]({{< relref "basic-cordapp-contract.md" >}}) tutorial to continue on this learning path.
 
 ## Related content
 

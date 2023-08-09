@@ -52,7 +52,7 @@ This can be overridden using the additional `--network-root-truststore` flag.
 The utility performs the following steps:
 
 * It creates a certificate signing request based on the following information from the node’s configuration file (see
-[Node configuration](corda-configuration-file.md)):
+[Node configuration]({{< relref "corda-configuration-file.md" >}})):
   * **myLegalName** Your company’s legal name as an X.500 string. X.500 allows differentiation between entities with the same
 name, as the legal name needs to be unique on the network. If another node has already been permissioned with this
 name then the permissioning server will automatically reject the request. The request will also be rejected if it

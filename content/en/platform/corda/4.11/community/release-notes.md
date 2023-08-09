@@ -26,7 +26,7 @@ Corda Community Edition 4.11 includes several new features, enhancements, and fi
 
 Corda 4.11 uses platform version 13.
 
-For more information about platform versions, see [Versioning](versioning.md).
+For more information about platform versions, see [Versioning]({{< relref "versioning.md" >}}).
 
 ## New features and enhancements
 

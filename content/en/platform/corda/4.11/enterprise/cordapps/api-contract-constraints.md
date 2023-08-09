@@ -50,7 +50,7 @@ You can upgrade smart contracts via:
 * **Explicit upgrade**. Create a special *contract upgrade transaction* and get all the participants listed on a state to sign it using the contract upgrade flows. This lets you upgrade states even if they have a constraint. Unlike implicit upgrade, this is a complex method which requires all participants to sign and manually authorise the upgrade, and consumes notary and ledger resources.
 
 
-This article focuses on implicit contract upgrades. To learn about the explicit upgrades see [Release new CorDapp versions](upgrading-cordapps.md).
+This article focuses on implicit contract upgrades. To learn about the explicit upgrades see [Release new CorDapp versions]({{< relref "upgrading-cordapps.md" >}}).
 
 
 
@@ -82,7 +82,7 @@ The `TransactionBuilder` uses signature constraints when adding output states fo
 
 ## Signing CorDapps
 
-CorDapps that use signature constraints must be signed by a `CompositeKey` or a simpler `PublicKey`. CorDapps can be signed by a single organisation or multiple organisations. After the CorDapp is signed, it can be distributed to the relevant Corda nodes. Signed CorDapps require a [version number](versioning.md).
+CorDapps that use signature constraints must be signed by a `CompositeKey` or a simpler `PublicKey`. CorDapps can be signed by a single organisation or multiple organisations. After the CorDapp is signed, it can be distributed to the relevant Corda nodes. Signed CorDapps require a [version number]({{< relref "versioning.md" >}}).
 
 {{< note >}}
 The platform currently supports `CompositeKey`s, up to a maximum of 20 keys.

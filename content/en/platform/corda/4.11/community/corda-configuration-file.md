@@ -159,7 +159,7 @@ via environment variables or system properties will not work.
 
 ## Configuration file fields
 
-See [Configuration file fields](corda-configuration-fields.md).
+See [Configuration file fields]({{< relref "corda-configuration-fields.md" >}}).
 
 ## Reference.conf
 

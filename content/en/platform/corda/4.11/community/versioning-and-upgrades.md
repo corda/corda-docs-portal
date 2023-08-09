@@ -36,14 +36,14 @@ the world changes is a key part of any professionally built software.
 
 
 
-* [API stability guarantees](api-stability-guarantees.md)
+* [API stability guarantees]({{< relref "api-stability-guarantees.md" >}})
 * [Public API](api-stability-guarantees.html#public-api)
 * [Non-public API (experimental)](api-stability-guarantees.html#non-public-api-experimental)
 * [The `@DoNotImplement` annotation](api-stability-guarantees.html#the-donotimplement-annotation)
-* [Versioning](versioning.md)
-* [Release new CorDapp versions](upgrading-cordapps.md)
-* [CorDapp constraints migration](cordapp-constraint-migration.md)
-* [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md)
+* [Versioning]({{< relref "versioning.md" >}})
+* [Release new CorDapp versions]({{< relref "upgrading-cordapps.md" >}})
+* [CorDapp constraints migration]({{< relref "cordapp-constraint-migration.md" >}})
+* [CorDapp Upgradeability Guarantees]({{< relref "cordapp-upgradeability.md" >}})
 
 
 

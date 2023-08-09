@@ -36,7 +36,7 @@ with you to find an area for you to contribute.
 One of the things that makes Corda special is its coherent design. That's why we have defined some guidelines to ensure new contributions only ever enhance the project:
 
 
-**Quality**: Code in the Corda project should meet the [Corda coding style guidelines](codestyle.md), with sufficient test cases, descriptive commit messages, evidence that the contribution does not break any compatibility commitments or cause adverse feature interactions, and evidence of high-quality peer review.
+**Quality**: Code in the Corda project should meet the [Corda coding style guidelines]({{< relref "codestyle.md" >}}), with sufficient test cases, descriptive commit messages, evidence that the contribution does not break any compatibility commitments or cause adverse feature interactions, and evidence of high-quality peer review.
 * **Size**: The Corda project’s culture is one of small pull requests (PRs) submitted regularly. The larger a PR, the more likely it is that you will be asked to resubmit as a series of self-contained and individually-reviewable smaller PRs.
 * **Scope**: To ensure the Corda project remains coherent and focused, so we ask that the feature’s scope is within the definition specified in the [Corda Technical Whitepaper](/en/pdf/corda-technical-whitepaper.pdf).
 * **Maintainability**: If the feature requires ongoing maintenance (for example, support for a particular brand of database), we may ask you to accept responsibility for maintaining it.
@@ -50,9 +50,9 @@ In addition, there are a number of additional requirements that apply to [large 
 
 1. Create a fork of the [Corda repo](https://github.com/corda/corda).
 2. Clone the fork to your local machine.
-3. [Build Corda](building-corda.md).
+3. [Build Corda]({{< relref "building-corda.md" >}}).
 4. Be sure to work from the appropriate branch for your changes (see below).
-5. Make the changes in accordance with the [code style guide](codestyle.md).
+5. Make the changes in accordance with the [code style guide]({{< relref "codestyle.md" >}}).
 
 
 ### Selecting a development branch
@@ -79,13 +79,13 @@ it can’t catch semantic changes where the behavior of an API changes in ways t
 * **Suppress inevitable compiler warnings:** Compiler warnings should have a `@Suppress` annotation if they are expected and cannot be avoided.
 * **Remove deprecated functionality:** Make sure you remove deprecated uses in the codebase.
 * **Avoid making formatting changes as you work:** New style guide rules were implemented in Kotlin 1.2.20. The new Kotlin style guide is significantly more detailed and IntelliJ knows how to implement the new rules. Re-formatting the codebase creates a lot of diffs that make merging more complicated.
-* **Things to consider when writing CLI apps:** Make sure any changes to CLI applications conform to the [CLI UX Guide](cli-ux-guidelines.md).
+* **Things to consider when writing CLI apps:** Make sure any changes to CLI applications conform to the [CLI UX Guide]({{< relref "cli-ux-guidelines.md" >}}).
 
 
 ### Extending the flow state machine
 
 If you are interested in extending the flow state machine, you can find instructions on how to do this
-[here](contributing-flow-state-machines.md).
+[here]({{< relref "contributing-flow-state-machines.md" >}}).
 
 
 ## Testing the changes
@@ -95,10 +95,10 @@ To test your changes:
 
 1.  **Add tests**: Unit tests and integration tests for external API changes must cover Java and Kotlin. For internal API changes these
 tests can be scaled back to Kotlin only.
-2.  **Run the tests**: Your changes must pass [these tests](testing.md).
+2.  **Run the tests**: Your changes must pass [these tests]({{< relref "testing.md" >}}).
 3.  **Perform manual testing**: Before you send code for review, test the user experience manually. Automated tests are not a substitute for dogfooding.
-4.  **Build against the selected development branch**: You can [test your changes against CorDapps defined in other repos](building-against-non-release.md).
-5.  **Run the API scanner**: Your changes must not break compatibility with existing public API. We have an [API scanning tool](api-scanner.md) that
+4.  **Build against the selected development branch**: You can [test your changes against CorDapps defined in other repos]({{< relref "building-against-non-release.md" >}}).
+5.  **Run the API scanner**: Your changes must not break compatibility with existing public API. We have an [API scanning tool]({{< relref "api-scanner.md" >}}) that
 runs as part of the build process. Use this to flag any accidental changes.
 
 
@@ -111,8 +111,8 @@ Document any changes to Corda’s public API:
 synonyms (e.g. `%d` and `%date`), we prefer the longer form for legibility reasons. You can configure your IDE
 to highlight these in yellow.
 2. Update the relevant .md file(s).
-3. Include the change in the [changelog](release-notes.md) if the change is external and therefore visible to CorDapp developers and/or node operators.
-4. [Build the docs locally](building-the-docs.md) and check that the resulting .html files render correctly.
+3. Include the change in the [changelog]({{< relref "release-notes.md" >}}) if the change is external and therefore visible to CorDapp developers and/or node operators.
+4. [Build the docs locally]({{< relref "building-the-docs.md" >}}) and check that the resulting .html files render correctly.
 5. If relevant, add a sample. Samples are one of the key ways users learn what the platform can do. If you add a new API or feature and don’t update the samples, your work will have less impact.
 
 
@@ -167,7 +167,7 @@ The process for contributing a large change to Corda is as follows:
 
 3. If the proposal is accepted, please raise a design PR on the [Corda GitHub project](https://github.com/corda/corda). The design should give the rationale for the change, how the change will be implemented, and what alternative designs were rejected. The engineering team will review your design and indicate any required changes.
 
-4. Once the design is approved, please go ahead with the change according to the [guidelines for small and medium contributions](contributing.md). In addition to those guidelines, we require that large contributions be fully exercised by tests, including any exception paths and error handling.
+4. Once the design is approved, please go ahead with the change according to the [guidelines for small and medium contributions]({{< relref "contributing.md" >}}). In addition to those guidelines, we require that large contributions be fully exercised by tests, including any exception paths and error handling.
 
 
 ## Developer Certificate of Origin

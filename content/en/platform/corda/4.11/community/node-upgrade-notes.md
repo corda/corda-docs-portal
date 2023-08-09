@@ -35,7 +35,7 @@ The protocol is designed to tolerate node outages, so during the upgrade process
 ## Step 1: Drain the node
 
 Before a node or application on it can be upgraded, the node must be put in [Draining mode](key-concepts-node.html#draining-mode). This brings the currently running
-[Flows](key-concepts-flows.md) to a smooth halt such that existing work is finished and new work is queuing up rather than being processed.
+[Flows]({{< relref "key-concepts-flows.md" >}}) to a smooth halt such that existing work is finished and new work is queuing up rather than being processed.
 
 Draining flows is a key task for node administrators to perform. It exists to simplify applications by ensuring apps don’t have to be
 able to migrate workflows from any arbitrary point to other arbitrary points, a task that would rapidly become infeasible as workflow
@@ -70,7 +70,7 @@ Ensure your node is running Corda 4.0 or later.
 ## Step 5: Replace `corda.jar` with the new version
 
 Download the latest version of Corda from [our Artifactory site](https://software.r3.com/artifactory/webapp/#/artifacts/browse/simple/General/corda/net/corda/corda-node).
-Make sure it’s available on your path, and that you’ve read the [Release notes](release-notes.md), in particular to discover what version of Java this
+Make sure it’s available on your path, and that you’ve read the [Release notes]({{< relref "release-notes.md" >}}), in particular to discover what version of Java this
 node requires.
 
 {{< important >}}

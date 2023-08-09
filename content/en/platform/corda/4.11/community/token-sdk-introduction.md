@@ -54,7 +54,7 @@ Overview of changes:
 
 ### Changes in V1.2.2
 
-In V1.2.2, a new [Token Selection](token-selection.md) feature allows the exception `InsufficientNotLockedBalanceException` to be thrown when sufficient funds appear to exist for a transaction to take place, but an excess of those funds are soft locked by other in-flight transactions. The warning tells you that there are insufficient funds that have not been soft locked to satisfy the transaction amount.
+In V1.2.2, a new [Token Selection]({{< relref "token-selection.md" >}}) feature allows the exception `InsufficientNotLockedBalanceException` to be thrown when sufficient funds appear to exist for a transaction to take place, but an excess of those funds are soft locked by other in-flight transactions. The warning tells you that there are insufficient funds that have not been soft locked to satisfy the transaction amount.
 
 ### Upgrade Tokens SDK
 
@@ -143,7 +143,7 @@ An `EvolvableTokenType` has properties that can change over time. This is repres
 * Define the evolvable attributes that can change over time.
 * Identify at least one signatory service that can approve the newly evolved state. This is called a `Maintainer`.
 
-In the example below, the evolvable token is for a diamond. You can see the evolvable attributes, which are the attributes included in a grading report for a diamond. You can also see a full [walk-through of this example](token-diamond-example.md).
+In the example below, the evolvable token is for a diamond. You can see the evolvable attributes, which are the attributes included in a grading report for a diamond. You can also see a full [walk-through of this example]({{< relref "token-diamond-example.md" >}}).
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}

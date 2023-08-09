@@ -193,7 +193,7 @@ basis of a previous reconciliation record or `ReconciliationStatus`, uses built-
 to request and retrieve the appropriate transactions from a counterparty.
 
 For more information on this process and how it may be further configured, see the
-[docs](ledger-recovery-automatic.md).
+[docs]({{< relref "ledger-recovery-automatic.md" >}}).
 
 
 ```kotlin
@@ -315,7 +315,7 @@ Another option available to node operators is to initiate manual recovery of led
 outlines a simple wrapping flow that initiates manual recovery, persisting a record or `RecoveryRequest`
 on both the initiating and responding nodes.
 
-The participating nodes may then continue with the processes described [here](ledger-recovery-manual.md)
+The participating nodes may then continue with the processes described [here]({{< relref "ledger-recovery-manual.md" >}})
 to export, transfer and eventually import the missing transaction data.
 
 ```kotlin
