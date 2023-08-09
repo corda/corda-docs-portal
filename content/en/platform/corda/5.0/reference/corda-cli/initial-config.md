@@ -73,7 +73,16 @@ corda-cli.cmd initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWO
 
 The `create-crypto-config` command creates the SQL statements to insert the initial crypto configuration for the database. This operation must be performed after the cluster database is initialized but before the cluster is started.
 
-| <div style="width:160px">Argument</div> | Description                                                                                                                                      |
+<style>
+table th:first-of-type {
+    width: 30%;
+}
+table th:nth-of-type(2) {
+    width: 70%;
+}
+</style>
+
+|Argument | Description                                                                                                                                      |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | -l, \-\-location                        | The path to write the generated SQL files to.                                                                                                    |
 | -p, \-\-passphrase                      | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the database worker. |
