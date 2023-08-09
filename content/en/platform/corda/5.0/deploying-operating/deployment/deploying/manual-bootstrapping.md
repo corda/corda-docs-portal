@@ -283,14 +283,14 @@ Depending on your installation, follow the steps in one of the following section
    ```sh
    corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> \
       --name corda-rbac --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC' \
-      --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path dbsecrets --key rbac -l /tmp/db
+      --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key rbac -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <RBAC-USERNAME> `
      --name corda-rbac --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC `
-     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path dbsecrets --key rbac -l /tmp/db
+     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key rbac -l /tmp/db
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -378,14 +378,14 @@ Depending on your installation, follow the steps in one of the following section
    ```sh
    corda-cli.sh initial-config create-db-config -u <CRYPTO-USERNAME> \
      --name corda-crypto --jdbc-url `jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO` \
-     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path dbsecrets --key crypto -l /tmp/db
+     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key crypto -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <CRYPTO-USERNAME> `
      --name corda-crypto --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO `
-     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path dbsecrets --key crypto -l /tmp/db
+     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key crypto -l /tmp/db
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -458,7 +458,7 @@ Depending on your installation, follow the steps in one of the following section
    ```sh
    corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> \
      --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \ 
-     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path dbsecrets --key vnodes -l /tmp/db \
+     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key vnodes -l /tmp/db \
      --is-admin
    ```
    {{% /tab %}}
@@ -466,7 +466,7 @@ Depending on your installation, follow the steps in one of the following section
    ```shell
    corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> `
      --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> ` 
-     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path dbsecrets --key vnodes -l /tmp/db `
+     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key vnodes -l /tmp/db `
      --is-admin
    ```
    {{% /tab %}}
