@@ -184,7 +184,7 @@ To create the schema manually, set the following override in the deployment conf
 
 ```yaml
 bootstrap:
-   db:
+  db:
     enabled: false
 ```
 
