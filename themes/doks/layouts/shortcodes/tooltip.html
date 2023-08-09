@@ -43,7 +43,8 @@
 
 </style>
 
-{{ $searchtermkebab := lower ( replace (replace .Inner " " "-") "s" "") }}
+{{ $searchtermlower := lower .Inner }}
+{{ $searchtermkebab := replace (replace $searchtermlower " " "-") "s" "" }}
 {{ $termlink := printf "%s" $searchtermkebab  | printf "%s%s" "#" | printf "%s%s" "https://docs.r3.com/en/platform/corda/5.0/introduction/glossary.html" | safeURL }}
 <a class="term" href ='{{ $termlink }}' >&nbsp{{ .Inner }}
 
