@@ -369,7 +369,7 @@ Depending on your installation, follow the steps in one of the following section
 
 2. Review the DDL files generated and then execute against the database, ensuring to apply them to the `CONFIG` schema.
 
-#### Crypto Database Connection Configuration for Corda Enterprise {{< enterprise-icon >}}
+#### Crypto Database Connection Configuration for Corda Enterprise with HashiCorp Vault {{< enterprise-icon >}}
 
 1. Execute the following Corda CLI command to generate DDL for populating the Crypto database connection configuration:
 
