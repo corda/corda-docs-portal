@@ -228,7 +228,7 @@ Create and populate the database schema, as follows:
 Depending on your installation, follow the steps in one of the following sections to generate DDL for populating the RBAC database connection configuration:
 
 * [RBAC Database Connection Configuration for Corda](#rbac-database-connection-configuration-for-corda)
-* [RBAC Database Connection Configuration for Corda Enterprise](#rbac-database-connection-configuration-for-corda-enterprise) {{< enterprise-icon >}}
+* [RBAC Database Connection Configuration for Corda Enterprise with HashiCorp Vault](#rbac-database-connection-configuration-for-corda-enterprise) {{< enterprise-icon >}}
 
 #### RBAC Database Connection Configuration for Corda 
 
