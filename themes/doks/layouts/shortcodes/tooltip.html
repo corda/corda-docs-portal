@@ -23,6 +23,7 @@
         position: relative;
         display: inline;
         border-bottom: 1px dotted black;
+        text-decoration: none !important;  
     }
     .term:hover .definition {
         visibility: visible;
@@ -42,15 +43,17 @@
 
 </style>
 
-<span class="term">&nbsp{{ .Inner }}
-    {{ $searchtermlower := lower .Inner }}
-    {{ $glossarylist := getJSON "content/en/platform/corda/5.0/glossaryitems.json" }}
+{{ $searchtermkebab := lower ( replace (replace .Inner " " "-") "s" "") }}
+{{ $termlink := printf "%s" $searchtermkebab  | printf "%s%s" "#" | printf "%s%s" "https://docs.r3.com/en/platform/corda/5.0/introduction/glossary.html" | safeURL }}
+<a class="term" href ='{{ $termlink }}' >&nbsp{{ .Inner }}
+
+{{ $glossarylist := getJSON "content/en/platform/corda/5.0/glossaryitems.json" }}
     {{ range $term, $value := $glossarylist }}
         {{ $term := lower $term }}
         {{ if eq $term $searchtermlower }} 
-               <span class="definition">{{ $value.definition }}</span>
+               <span class="definition" >{{ $value.definition }}</span>
         {{ else if eq $term (strings.TrimSuffix "s" $searchtermlower) }}
                <span class="definition">{{ $value.definition }}</span>
         {{ end }}
     {{ end }}
-</span>
+    </a>
