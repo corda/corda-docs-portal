@@ -177,7 +177,7 @@ You can then execute the `create` script to create the topics.
 By default, a Corda installation automatically creates and populates the database schema it requires. 
 
 {{< note >}}
-If you are deploying Corda Enterprise, you must disable automatic bootstrapping and manually configure the database, as described in this section.
+If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database, as described in this section.
 {{< /note >}}
 
 To create the schema manually, set the following override in the deployment configuration to disable the automatic creation:
