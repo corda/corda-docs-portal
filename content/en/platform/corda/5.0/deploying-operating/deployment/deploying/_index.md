@@ -516,7 +516,7 @@ bootstrap:
 ```
 
 {{< note >}}
-If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database. For more information, see the [Database]({{< relref "./manual-bootstrapping.md#database" >}})  section in the [Manual Bootstrapping]({{< relref "./manual-bootstrapping.md" >}}) section.
+If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database. For more information, see the [Database]({{< relref "./manual-bootstrapping.md#database" >}}) section in the [Manual Bootstrapping]({{< relref "./manual-bootstrapping.md" >}}) section.
 {{< /note >}}
 
 By default, the database bootstrapping uses the psql CLI from the Docker image `postgres:14.4` on Docker Hub.
