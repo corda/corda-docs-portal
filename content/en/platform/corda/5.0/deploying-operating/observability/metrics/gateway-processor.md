@@ -1,0 +1,59 @@
+---
+date: '2023-08-09'
+version: 'Corda 5.1'
+title: "Gateway Processor"
+version: 'Corda 5.1'
+menu:
+  corda5:
+    parent: corda5-cluster-metrics
+    identifier: corda5-cluster-gateway-processor
+    weight: 13000
+section_menu: corda5
+---
+
+# Gateway Processor
+
+The P2P {{< tooltip >}}gateway worker{{< /tooltip >}} is tasked with sending outbound messages to virtual nodes located in
+different clusters and receiving inbound messages from virtual nodes within different clusters. To accomplish this,
+a gateway worker establishes TLS connections with gateway workers in other clusters and exchanges messages through HTTPS requests.
+
+In the outbound direction, internal components within the cluster forward messages intended for the gateway worker through a
+message bus (for example, Kafka). Similarly, in the inbound direction, the gateway worker forwards any messages received via HTTPS
+from other clusters to the local cluster through the message bus.
+
+The P2P gateway worker is additionally tasked with conducting certificate revocation checks. These checks are carried out
+either as part of the TLS handshake with other gateway workers or on behalf of other components within the internal network zone of
+the cluster that cannot reach out to the public Internet. The gateway worker receives requests to perform these revocation
+checks and returns the results via a message bus.
+
+You can observe the behavior of these functions using the following metrics: rate or latency of inbound/outbound requests,
+number of inbound/outbound TLS connections, and rate or latency of revocation checks.
+
+<style>
+table th:first-of-type {
+    width: 25%;
+}
+table th:nth-of-type(2) {
+    width: 10%;
+}
+table th:nth-of-type(3) {
+    width: 20%;
+}
+table th:nth-of-type(4) {
+    width: 45%;
+}
+</style>
+
+| Metric | Type | Tags | Description |
+| :----------- | :----------- | :----------- | :----------- |
+| `corda_p2p_gateway_inbound_request_time_seconds` | Timer | <ul><li>`response.type`</li><li>`endpoint.source`</li></ul> | The latency and the number of requests from a gateway processor to peer gateway processors in other clusters. |
+| `corda_p2p_gateway_outbound_request_time_seconds` | Timer | <ul><li>`response.type`</li><li>`endpoint.destination`</li></ul> | The number of incoming requests from peer gateway processors in other clusters and the time it took to process them. Main way of processing on the inbound requests is identifying the partition where a session is hosted and writing the message to Kafka, so that it’s later processed by the appropriate link manager. |
+| `corda_p2p_gateway_inbound_tls_connections_count` | Counter | <ul><li>`connection.result`</li><li>`endpoint.source`</li></ul> | The number of inbound TLS connections from other gateway processors. Connections are kept open while there is activity. |
+| `corda_p2p_gateway_outbound_tls_connections_count` | Counter | <ul><li>`connection.result`</li><li>`endpoint.destination`</li></ul> | The number of outbound TLS connections from other gateway processors. Connections are kept open while there is activity. |
+| `corda_p2p_gateway_cert_revocation_check_time_seconds` | Timer | None | The number of certificate revocation check requests and the time it took to process them. These requests are sent to the gateway processor from internal components when they want to check revocation of a certificate. An example is the link manager wanting to check revocation of session certificates when these are used (by default, session PKI is turned off). |
+
+Tags:
+* `response.type`: The status code of an HTTP request.
+* `endpoint.source`: The source endpoint of a peer-to-peer message.
+* `endpoint.destination`: The destination endpoint of a peer-to-peer message.
+* `connection.result`: The result of a TLS connection, for example, “success” or “failure".
