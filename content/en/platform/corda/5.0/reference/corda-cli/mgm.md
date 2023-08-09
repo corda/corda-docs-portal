@@ -29,7 +29,16 @@ corda-cli.cmd mgm groupPolicy
 
 Alternatively, use the following command line arguments to define the static network section of the GroupPolicy:
 
-| <div style="width:160px">Argument</div> | Description                                                                                                                                                        |
+<style>
+table th:first-of-type {
+    width: 30%;
+}
+table th:nth-of-type(2) {
+    width: 70%;
+}
+</style>
+
+|Argument| Description                                                                                                                                                        |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | \-\-file, -f                            | The path to a JSON or YAML file that contains static network information; see [Generating GroupPolicy Using File Input](#generating-groupPolicy-using-file-input). |
 | \-\-name                                | The {{< tooltip >}}X.500{{< /tooltip >}} name of the {{< tooltip >}}member{{< /tooltip >}}; see [Generating GroupPolicy Using String Parameters](#generating-grouppolicy-using-string-parameters).                               |

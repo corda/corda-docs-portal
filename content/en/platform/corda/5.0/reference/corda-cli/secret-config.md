@@ -14,7 +14,16 @@ title: "secret-config"
 
 This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `secret-config` arguments. You can use these commands to generate the configuration for use with the [configured secrets lookup service]({{< relref "../../deploying-operating/deployment/deploying/_index.md#encryption" >}}).
 
-| <div style="width:160px">Argument</div> | Description                                                                             |
+<style>
+table th:first-of-type {
+    width: 30%;
+}
+table th:nth-of-type(2) {
+    width: 70%;
+}
+</style>
+
+| Argument | Description                                                                             |
 | --------------------------------------- | --------------------------------------------------------------------------------------- |
 | \-\-create                              | Encrypts a configuration value for the secrets lookup service. See [create](#create).   |
 | \-\-decrypt                             | Decrypts a value for the Corda default secrets lookup service. See [decrypt](#decrypt). |
@@ -23,7 +32,16 @@ This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `secret-config` 
 
 The `create` argument generates the configuration string for use with the specified secrets lookup service using the following arguments:
 
-| <div style="width:160px">Argument</div> | Description                                                                                                                                                                                                                                                                                                                                                                      |
+<style>
+table th:first-of-type {
+    width: 30%;
+}
+table th:nth-of-type(2) {
+    width: 70%;
+}
+</style>
+
+| Argument | Description                                                                                                                                                                                                                                                                                                                                                                      |
 | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | \-p, \-\-passphrase                     | The passphrase for the default secrets lookup service. This must be the same value in the [deployment configuration]({{< relref "../../deploying-operating/deployment/deploying/_index.md#default-secrets-service" >}}).                                                                                                                                                                 |
 | \-s, \-\-salt                           | The salt for the default secrets lookup service. This must be the same value in the [deployment configuration]({{< relref "../../deploying-operating/deployment/deploying/_index.md#default-secrets-service" >}}).                                                                                                                                                                       |
@@ -65,7 +83,16 @@ For example, to generate the configuration to use to specify a value stored in a
 
 The `decrypt` argument decrypts a value encrypted by the Corda default secrets lookup service.
 
-| <div style="width:160px">Argument</div> | Description                                                                                                                                                                                                      |
+<style>
+table th:first-of-type {
+    width: 30%;
+}
+table th:nth-of-type(2) {
+    width: 70%;
+}
+</style>
+
+| Argument | Description                                                                                                                                                                                                      |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | \-p, \-\-passphrase                     | The passphrase for the default secrets lookup service. This must be the same value in the [deployment configuration]({{< relref "../../deploying-operating/deployment/deploying/_index.md#default-secrets-service" >}}). |
 | \-s, \-\-salt                           | The salt for the default secrets lookup service. This must be the same value in the [deployment configuration]({{< relref "../../deploying-operating/deployment/deploying/_index.md#default-secrets-service" >}}).       |
