@@ -418,7 +418,7 @@ Depending on your installation, follow the steps in one of the following section
 Depending on your installation, follow the steps in one of the following sections to generate DDL for populating the RBAC database connection configuration:
 
 * [Virtual Nodes Database Connection Configuration for Corda](#virtual-nodes-database-connection-configuration-for-corda)
-* [Virtual Nodes Database Connection Configuration for Corda Enterprise](#virtual-nodes-database-connection-configuration-for-corda-enterprise) {{< enterprise-icon >}}
+* [Virtual Nodes Database Connection Configuration for Corda Enterprise with HashiCorp Vault](#virtual-nodes-database-connection-configuration-for-corda-enterprise) {{< enterprise-icon >}}
 
 #### Virtual Nodes Database Connection Configuration for Corda
 
