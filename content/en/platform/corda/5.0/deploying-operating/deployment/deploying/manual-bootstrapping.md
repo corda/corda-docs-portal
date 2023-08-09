@@ -449,7 +449,7 @@ Depending on your installation, follow the steps in one of the following section
 
 2. Review the DDL files generated and then execute against the database, ensuring to apply them to the `CONFIG` schema.
 
-#### Virtual Nodes Database Connection Configuration for Corda Enterprise {{< enterprise-icon >}}
+#### Virtual Nodes Database Connection Configuration for Corda Enterprise with HashiCorp Vault {{< enterprise-icon >}}
 
 1. Execute the following Corda CLI command to generate DDL for populating the virtual nodes database connection configuration:
 
