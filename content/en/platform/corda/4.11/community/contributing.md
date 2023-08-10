@@ -120,7 +120,7 @@ to highlight these in yellow.
 
 1. Create a pull request (PR) from your fork to the equivalent branch of the Corda repo.
     * Complete the PR checklist in the **comments box**.
-      * Have you run [unit, integration and smoke tests](testing.md)?
+      * Have you run [unit, integration and smoke tests]({{< relref "testing.md" >}})?
       * If you added/changed public APIs, did you write/update the JavaDocs?
       * If the changes are of interest to application developers, have you added them to the changelog and release notes where applicable?
       * If you are contributing for the first time, please read the contribution guidelines above and indicate your agreement.

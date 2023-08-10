@@ -26,7 +26,7 @@ You can dive deeper into these topics in our introductory [webinar series]({{< r
 
 First, you'll learn about the Corda ecosystem, and how people and businesses in it represent themselves and find each other.
 
-* [Networks, discovery, and identity](key-concepts-ecosystem.md) tells you how Corda networks work, and how members identify themselves and find each other on networks.
+* [Networks, discovery, and identity]({{< relref "key-concepts-ecosystem.md" >}}) tells you how Corda networks work, and how members identify themselves and find each other on networks.
 * [Nodes]({{< relref "key-concepts-node.md" >}}) represent people and businesses on Corda.
 
 Next, you'll learn how nodes share and store information.

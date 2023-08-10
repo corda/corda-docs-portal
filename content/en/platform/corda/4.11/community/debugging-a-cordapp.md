@@ -28,7 +28,7 @@ You can attach the [IntelliJ IDEA debugger](https://www.jetbrains.com/help/idea/
 `MockNetwork` to debug your CorDapp:
 
 
-1. Define your flow tests as per [API: Testing](api-testing.md):
+1. Define your flow tests as per [API: Testing]({{< relref "api-testing.md" >}}):
 
     * In your `MockNetwork`, ensure that `threadPerNode` is set to `false`.
 

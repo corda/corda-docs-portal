@@ -419,7 +419,7 @@ TransactionBuilder txBuilder = new TransactionBuilder(specificNotary);
 
 {{< /tabs >}}
 
-We discuss the selection of a notary in [API: Flows](api-flows.md).
+We discuss the selection of a notary in [API: Flows]({{< relref "api-flows.md" >}}).
 
 If the transaction does not have any input states or a time-window, it does not require a notary, and can be
 instantiated without one:
@@ -802,7 +802,7 @@ If a transaction has inputs, we need to retrieve all the states in the transacti
 verify the transaction’s contents. This is because the transaction is only valid if its dependency chain is also valid.
 We do this by requesting any states in the chain that our node doesn’t currently have in its local storage from the
 proposer(s) of the transaction. This process is handled by a built-in flow called `ReceiveTransactionFlow`.
-See [API: Flows](api-flows.md) for more details.
+See [API: Flows]({{< relref "api-flows.md" >}}) for more details.
 
 We can now verify the transaction’s contents to ensure that it satisfies the contracts of all the transaction’s input
 and output states:
@@ -1085,5 +1085,5 @@ TransactionSignature sig2 = getServiceHub().createSignature(onceSignedTx, otherI
 
 ### Notarising and recording
 
-Notarising and recording a transaction is handled by a built-in flow called `FinalityFlow`. See [API: Flows](api-flows.md) for
+Notarising and recording a transaction is handled by a built-in flow called `FinalityFlow`. See [API: Flows]({{< relref "api-flows.md" >}}) for
 more details.

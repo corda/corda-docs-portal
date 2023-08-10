@@ -20,7 +20,7 @@ title: Networks
 
 
 
-* [What is a compatibility zone?](compatibility-zones.md)
+* [What is a compatibility zone?]({{< relref "compatibility-zones.md" >}})
 * [Network certificates]({{< relref "permissioning.md" >}})
 * [The network map]({{< relref "network-map.md" >}})
 * [Cipher suites supported by Corda]({{< relref "cipher-suites.md" >}})

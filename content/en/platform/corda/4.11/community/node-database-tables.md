@@ -102,7 +102,7 @@ Read more here: [The network map]({{< relref "network-map.md" >}})
 The following four tables are used by the `IdentityService` and are created from the NodeInfos.
 They are append only tables used for persistent caching.
 They will also be cleared on `rpc.clearNetworkMapCache()`.
-Read more in [API: Identity](api-identity.md) and [Node services]({{< relref "node-services.md" >}})
+Read more in [API: Identity]({{< relref "api-identity.md" >}}) and [Node services]({{< relref "node-services.md" >}})
 
 
 {{< table >}}

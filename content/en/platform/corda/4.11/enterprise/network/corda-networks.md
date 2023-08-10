@@ -97,7 +97,7 @@ Each Network Map requires:
 
 ## More in this section
 
-* [What is a compatibility zone?](compatibility-zones.md)
+* [What is a compatibility zone?]({{< relref "compatibility-zones.md" >}})
     * [How do I become part of a compatibility zone?](compatibility-zones.html#how-do-i-become-part-of-a-compatibility-zone)
         * [Bootstrapping a compatibility zone]({{< relref "compatibility-zones.md#bootstrapping-a-compatibility-zone" >}})
         * [Joining an existing compatibility zone]({{< relref "compatibility-zones.md#joining-an-existing-compatibility-zone" >}})

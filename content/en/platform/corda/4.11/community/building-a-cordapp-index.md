@@ -20,7 +20,7 @@ title: CorDapps
 
 
 
-* [What is a CorDapp?](cordapp-overview.md)
+* [What is a CorDapp?]({{< relref "cordapp-overview.md" >}})
 * [Getting set up for CorDapp development]({{< relref "getting-set-up.md" >}})
 * [Running a sample CorDapp]({{< relref "tutorial-cordapp.md" >}})
 * [Structuring a CorDapp]({{< relref "writing-a-cordapp.md" >}})

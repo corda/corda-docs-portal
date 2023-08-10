@@ -62,7 +62,7 @@ node’s owner does not interact with other network nodes directly.
 ## RPC interface
 
 The node’s owner interacts with the node via remote procedure calls (RPC). The key RPC operations the node exposes
-are documented in [API: RPC operations](api-rpc.md).
+are documented in [API: RPC operations]({{< relref "api-rpc.md" >}}).
 
 ## The service hub
 

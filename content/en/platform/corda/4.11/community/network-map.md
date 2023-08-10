@@ -159,7 +159,7 @@ parameters change.
 * **whitelistedContractImplementations**:
 List of whitelisted versions of contract code.
 For each contract class there is a list of SHA-256 hashes of the approved CorDapp jar versions containing that contract.
-Read more about *Zone constraints* here [API: Contract Constraints](api-contract-constraints.md)
+Read more about *Zone constraints* here [API: Contract Constraints]({{< relref "api-contract-constraints.md" >}})
 
 
 * **eventHorizon**:

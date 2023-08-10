@@ -30,7 +30,7 @@ with various HSM vendors, algorithm standardisation, variety of cryptographic pr
 post-quantum resistance, side channel security, efficiency and rigorous testing.
 
 Before we present the pool of supported schemes it is useful to be familiar with [Network certificates]({{< relref "permissioning.md" >}})
-and [API: Identity](api-identity.md). An important design decision in Corda is its shared hierarchy between the
+and [API: Identity]({{< relref "api-identity.md" >}}). An important design decision in Corda is its shared hierarchy between the
 TLS and Node Identity certificates.
 
 ## Certificate hierarchy

@@ -199,7 +199,7 @@ interfaces' common state attributes to the **VAULT_LINEAR_STATES** table.{{< /no
 
 
 * `VaultCustomQueryCriteria` provides the means to specify one or many arbitrary expressions on attributes defined
-by a custom contract state that implements its own schema as described in the [API: Persistence](api-persistence.md)
+by a custom contract state that implements its own schema as described in the [API: Persistence]({{< relref "api-persistence.md" >}})
 documentation and associated examples. Custom criteria expressions are expressed using one of the following type-safe forms of
 `CriteriaExpression`: `BinaryLogical`, `Not`, `ColumnPredicateExpression`, and `AggregateFunctionExpression`. The
 `ColumnPredicateExpression` allows for the specification of arbitrary criteria using the previously enumerated operator
@@ -221,7 +221,7 @@ construction of custom criteria using any combination of `ColumnPredicate`. See 
 `QueryCriteriaUtils` for a complete specification of the DSL.
 {{< note >}}
 Custom contract schemas are automatically registered upon node startup for CorDapps. Please refer to
-[API: Persistence](api-persistence.md) for mechanisms of registering custom schemas for different testing
+[API: Persistence]({{< relref "api-persistence.md" >}}) for mechanisms of registering custom schemas for different testing
 purposes.{{< /note >}}
 
 
@@ -266,7 +266,7 @@ When specifying the `ContractType` as a parameterised type to the `QueryCriteria
 {{< /note >}}
 
 The Vault Query API leverages the rich semantics of the underlying JPA [Hibernate](https://docs.jboss.org/hibernate/jpa/2.1/api/) based
-[API: Persistence](api-persistence.md) framework adopted by Corda.
+[API: Persistence]({{< relref "api-persistence.md" >}}) framework adopted by Corda.
 
 
 {{< note >}}

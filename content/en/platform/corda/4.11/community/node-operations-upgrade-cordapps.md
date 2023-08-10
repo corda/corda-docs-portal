@@ -30,7 +30,7 @@ CorDapps must ship with database migration scripts or clear documentation about 
 
 ## Flow upgrades
 
-If any backwards-incompatible changes have been made (see [What constitutes a non-backwards compatible flow change?](upgrading-cordapps.md)
+If any backwards-incompatible changes have been made (see [What constitutes a non-backwards compatible flow change?]({{< relref "upgrading-cordapps.md" >}})
 for more information), the upgrade method detailed below will need to be followed. Otherwise the CorDapp JAR can just
 be replaced with the new version.
 
@@ -41,7 +41,7 @@ There are two types of contract/state upgrade:
 
 
 * *Implicit:* By allowing multiple implementations of the contract ahead of time, using constraints. See
-[API: Contract Constraints](api-contract-constraints.md) to learn more.
+[API: Contract Constraints]({{< relref "api-contract-constraints.md" >}}) to learn more.
 * *Explicit:* By creating a special *contract upgrade transaction* and getting all participants of a state to sign it using the
 contract upgrade flows.
 
