@@ -20,7 +20,7 @@ A notary service is formed by one or more notary workers that together form a no
 
 Every state has an appointed notary cluster, so the cluster will only notarize a transaction if it is the appointed notary cluster of all the transaction’s input states. A network can have several notary clusters, all running different consensus algorithms.
 
-A notary service runs a notary protocol, which dictates the consensus algorithm and additional validation performed. In Corda 5.0, only the non-validating notary protocol is supported, which performs minimal additional checks beyond double-spend and time-window validation.
+A notary service runs a notary protocol, which dictates the consensus algorithm and additional validation performed. In {{< version >}}, only the non-validating notary protocol is supported, which performs minimal additional checks beyond double-spend and time-window validation.
 
 ## Data Visibility
 
@@ -65,4 +65,4 @@ A notary cluster will only sign a transaction if it is the appointed notary clus
 * When a single transaction needs to consume several states that have different appointed notary clusters.
 * When a node would prefer to use a different notary cluster for a given transaction due to privacy or efficiency concerns.
 
-Before these transactions can be created, the states must first all be re-pointed to the same notary cluster. This is achieved using a special notary-change transaction. This has not been implemented for Corda 5.0 yet.
+Before these transactions can be created, the states must first all be re-pointed to the same notary cluster. This is achieved using a special notary-change transaction. This has not been implemented for this version of Corda.

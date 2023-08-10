@@ -10,5 +10,5 @@ menu:
 section_menu: corda5
 ---
 # Introduction
-This section introduces Corda 5.0. It contains the following:
+This section introduces {{< version >}}. It contains the following:
 {{< childpages >}}
