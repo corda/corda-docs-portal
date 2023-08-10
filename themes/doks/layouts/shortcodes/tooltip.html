@@ -48,10 +48,7 @@
 {{ $termlink := printf "%s" $searchtermkebab  | printf "%s%s" "#" | printf "%s%s" "https://docs.r3.com/en/platform/corda/5.0/introduction/glossary.html" | safeURL }}
 <a class="term" href ='{{ $termlink }}' >&nbsp{{ .Inner }}
 
-{{ $versionfolder := replace .Page.Params.version "Corda " "" }}
-{{ $glossarypath := printf "%s%s" "/glossaryitems.json" | printf "%s" $versionfolder | printf "%s%s" "content/en/platform/corda/" }}
-{{ $glossarylist := getJSON $glossarypath }}
-
+{{ $glossarylist := getJSON "content/en/platform/corda/5.0/glossaryitems.json" }}
 {{ range $term, $value := $glossarylist }}
     {{ $term := lower $term }}
     {{ if eq $term $searchtermlower }} 
