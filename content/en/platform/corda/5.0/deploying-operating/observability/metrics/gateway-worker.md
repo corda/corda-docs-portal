@@ -14,7 +14,7 @@ section_menu: corda5
 
 The P2P {{< tooltip >}}gateway worker{{< /tooltip >}} is tasked with sending outbound messages to virtual nodes located in
 different clusters and receiving inbound messages from virtual nodes within different clusters. To accomplish this,
-a gateway worker establishes TLS connections with gateway workers in other clusters and exchanges messages through HTTPS requests.
+a gateway worker establishes {{< tooltip >}}TLS{{< /tooltip >}} connections with gateway workers in other clusters and exchanges messages through HTTPS requests.
 
 In the outbound direction, internal components within the cluster forward messages intended for the gateway worker through a
 message bus (for example, Kafka). Similarly, in the inbound direction, the gateway worker forwards any messages received via HTTPS
