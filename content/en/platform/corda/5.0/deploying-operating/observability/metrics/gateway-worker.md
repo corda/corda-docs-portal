@@ -20,7 +20,7 @@ In the outbound direction, internal components within the cluster forward messag
 message bus (for example, Kafka). Similarly, in the inbound direction, the gateway worker forwards any messages received via HTTPS
 from other clusters to the local cluster through the message bus.
 
-The P2P gateway worker is additionally tasked with conducting certificate revocation checks. These checks are carried out
+The P2P gateway worker is additionally tasked with conducting certificate {{< tooltip >}}revocation checks{{< /tooltip >}}. These checks are carried out
 either as part of the TLS handshake with other gateway workers or on behalf of other components within the internal network zone of
 the cluster that cannot reach out to the public Internet. The gateway worker receives requests to perform these revocation
 checks and returns the results via a message bus.
