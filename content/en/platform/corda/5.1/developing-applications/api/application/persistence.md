@@ -1,13 +1,13 @@
 ---
-date: '2023-02-10'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "net.corda.v5.application.persistence"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-api-app-persistence
     parent: corda51-api-application
     weight: 6000
-section_menu: corda5
+section_menu: corda51
 ---
 # net.corda.v5.application.persistence
 The `persistence` package provides services for performing persistence operations; mainly reading and writing data to and from the database. The `PersistenceService` is the main service for providing this functionality.

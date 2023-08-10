@@ -1,13 +1,13 @@
 ---
-date: '2023-03-15'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Reviewing Registration Requests"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-approval-review
     parent: corda51-networks-reg-requests
     weight: 3000
-section_menu: corda5
+section_menu: corda51
 ---
 # Reviewing Registration Requests
 This section describes how to review and manually approve or decline registration requests. This process applies to registration requests that meet the criteria for manual approval specified by a [standard rule for the group]({{< relref "./configuring-manual-approval-rules.md" >}}) or by a [pre-auth rule]({{< relref "pre-auth/configuring-pre-auth-rules.md" >}}). 

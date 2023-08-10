@@ -1,13 +1,13 @@
 ---
-date: '2023-02-23'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Mutual TLS Connections"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-network-mutual-tls
     parent: corda51-networks-optional
     weight: 1000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Mutual TLS Connections

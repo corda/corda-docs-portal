@@ -1,13 +1,13 @@
 ---
-date: '2023-04-24'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Managing Roles and Permissions"
 menu:
-  corda5:
+  corda51:
     parent: corda51-cluster-users
     identifier: corda51-cluster-managing-roles
     weight: 2000
-section_menu: corda5
+section_menu: corda51
 ---
 # Managing Roles and Permissions
 By default, when a {{< tooltip >}}cluster{{< /tooltip >}} starts, the "super admin" {{< tooltip >}}REST user identity{{< /tooltip >}} is created, which has unrestricted access permissions.

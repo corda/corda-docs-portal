@@ -1,13 +1,13 @@
 ---
-date: '2023-03-08'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "corda.secrets"
 menu:
-  corda5:
+  corda51:
     parent: corda51-config-fields
     identifier: corda51-config-secrets
     weight: 11000
-section_menu: corda5
+section_menu: corda51
 draft: "true"
 ---
 # corda.secrets

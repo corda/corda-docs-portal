@@ -1,13 +1,13 @@
 ---
-date: '2023-06-20'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Vault-Named Queries"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-api-vault-queries
     parent: corda51-api-ledger-utxo
     weight: 3000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Vault-Named Queries

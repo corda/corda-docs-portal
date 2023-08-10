@@ -1,13 +1,13 @@
 ---
-date: '2023-05-10'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Kubernetes Liveness and Readiness Probes"
 menu:
-  corda5:
+  corda51:
     parent: corda51-cluster-observability
     identifier: corda51-cluster-k8-probes
     weight: 1000
-section_menu: corda5
+section_menu: corda51
 ---
 # Kubernetes Liveness and Readiness Probes
 All the Corda worker pods are configured with {{< tooltip >}}Kubernetes{{< /tooltip >}} liveness and readiness probes.

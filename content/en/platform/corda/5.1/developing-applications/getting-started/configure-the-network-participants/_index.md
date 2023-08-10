@@ -1,13 +1,13 @@
 ---
-date: '2022-09-20'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Configuring the Network Participants"
 menu:
-  corda5:
+  corda51:
     parent: corda51-develop-get-started
     identifier: corda51-csde-network
     weight: 7000
-section_menu: corda5
+section_menu: corda51
 ---
 # Configuring the Network Participants
 The CSDE is pre-configured to create a Corda cluster with five virtual nodes: Alice, Bob, Charlie, Dave, and a {{< tooltip >}}notary{{< /tooltip >}}.

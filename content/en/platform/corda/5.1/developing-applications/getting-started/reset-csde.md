@@ -1,13 +1,13 @@
 ---
-date: '2022-09-22'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Resetting the CSDE"
 menu:
-  corda5:
+  corda51:
     parent: corda51-develop-get-started
     identifier: corda51-reset
     weight: 8000
-section_menu: corda5
+section_menu: corda51
 ---
 # Resetting the CSDE
 The CSDE creates temporary files to store data required to generate and upload {{< tooltip >}}CPI{{< /tooltip >}} files and manage the Corda cluster.

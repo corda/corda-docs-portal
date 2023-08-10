@@ -1,9 +1,9 @@
 ---
-date: '2023-05-03'
+date: '2023-08-10'
 title: "Test Your CorDapp"
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-develop-first-cordapp-testing
     parent: corda51-develop-first-cordapp
     weight: 5000

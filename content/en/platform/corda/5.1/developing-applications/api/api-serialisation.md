@@ -3,11 +3,11 @@ date: '2022-09-21T14:27:00+01:00'
 version: 'Corda 5.1'
 title: "net.corda.v5.serialization"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-api-serialisation
     parent: corda51-api
     weight: 8000
-section_menu: corda5
+section_menu: corda51
 ---
 # net.corda.v5.serialization
 Object serialization is the process of converting objects into a stream of bytes while deserialization is the reverse

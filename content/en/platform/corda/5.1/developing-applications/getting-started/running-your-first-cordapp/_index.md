@@ -1,13 +1,13 @@
 ---
-date: '2022-09-19'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Running Your First CorDapp"
 menu:
-  corda5:
+  corda51:
     parent: corda51-develop-get-started
     identifier: corda51-run-first-cordapp
     weight: 3000
-section_menu: corda5
+section_menu: corda51
 ---
 # Running Your First CorDapp
 The CSDE includes {{< tooltip >}}flows{{< /tooltip >}} and tests for a very simple {{< tooltip >}}CorDapp{{< /tooltip >}}, which you can run out of the box.

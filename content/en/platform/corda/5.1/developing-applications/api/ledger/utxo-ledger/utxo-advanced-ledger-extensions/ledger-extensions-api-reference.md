@@ -1,14 +1,14 @@
 ---
-date: '2023-06-01'
+date: '2023-08-10'
 title: "Ledger Extensions API Reference"
 project: corda
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-utxo-ledger-extensions-api-reference
     parent: corda51-utxo-advanced-ledger-extensions
     weight: 4600
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Advanced Ledger Extensions API Reference

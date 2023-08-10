@@ -1,14 +1,14 @@
 ---
-date: '2023-04-13'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Create a Virtual Node for the Member"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-networks-members-node
     parent: corda51-networks-members
     weight: 2000
     name: "Create a Virtual Node"
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Create a Virtual Node for the Member

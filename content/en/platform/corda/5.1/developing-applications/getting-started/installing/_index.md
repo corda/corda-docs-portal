@@ -1,13 +1,13 @@
 ---
-date: '2023-06-21'
+date: '2023-08-10'
 title: "Installing the CSDE"
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     parent: corda51-develop-get-started
     identifier: corda51-csde-installing
     weight: 2000
-section_menu: corda5
+section_menu: corda51
 ---
 # Installing the CSDE
 {{< note >}}

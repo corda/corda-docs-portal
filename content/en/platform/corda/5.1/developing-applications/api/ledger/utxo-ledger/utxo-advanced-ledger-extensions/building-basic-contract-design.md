@@ -1,14 +1,14 @@
 ---
-date: '2023-06-01'
+date: '2023-08-10'
 title: "Building Basic Contract Design"
 project: corda
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-utxo-ledger-building-basic-contract-design
     parent: corda51-utxo-advanced-ledger-extensions
     weight: 4500
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Building Basic Contract Design

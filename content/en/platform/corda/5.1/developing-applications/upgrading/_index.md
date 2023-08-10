@@ -1,14 +1,14 @@
 ---
-date: '2023-05-18'
+date: '2023-08-10'
 title: "Upgrading CorDapps"
 project: corda
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-upgrading
     parent: corda51-develop
     weight: 9000
-section_menu: corda5
+section_menu: corda51
 
 ---
 

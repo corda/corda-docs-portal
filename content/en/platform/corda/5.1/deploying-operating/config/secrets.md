@@ -1,13 +1,13 @@
 ---
 title: "Configuration Secrets"
 version: 'Corda 5.1'
-date: '2023-05-16'
+date: '2023-08-10'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-cluster-secrets
     parent: corda51-cluster-config
     weight: 3000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Configuration Secrets

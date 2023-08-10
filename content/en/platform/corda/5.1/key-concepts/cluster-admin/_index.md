@@ -3,11 +3,11 @@ title: "Architecture for Cluster Administrators"
 date: 2023-07-24
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-key-concepts-cluster-admin
     parent: corda51-key-concepts
     weight: 3000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Architecture for Cluster Administrators

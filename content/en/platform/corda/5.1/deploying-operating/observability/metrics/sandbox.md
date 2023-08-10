@@ -1,13 +1,13 @@
 ---
-date: '2023-06-14'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Sandbox"
 menu:
-  corda5:
+  corda51:
     parent: corda51-cluster-metrics
     identifier: corda51-cluster-sandbox
     weight: 2000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Sandbox

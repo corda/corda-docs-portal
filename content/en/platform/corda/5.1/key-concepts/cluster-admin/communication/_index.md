@@ -3,11 +3,11 @@ title: "Cluster Communications"
 date: 2023-07-24
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-cluster-admin-communications
     parent: corda51-key-concepts-cluster-admin
     weight: 4000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Cluster Communications

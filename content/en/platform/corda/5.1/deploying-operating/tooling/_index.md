@@ -1,14 +1,14 @@
 ---
-date: '2023-05-10'
+date: '2023-08-10'
 title: "Cluster Administrator Tooling"
 project: corda
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-cluster-tooling
     parent: corda51-cluster
     weight: 2000
-section_menu: corda5
+section_menu: corda51
 ---
 <style>
 table th:first-of-type {

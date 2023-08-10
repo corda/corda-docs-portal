@@ -1,13 +1,13 @@
 ---
-date: '2022-10-19'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Kotlin Flow Code Walkthrough"
 menu:
-  corda5:
+  corda51:
     parent: corda51-flow
     identifier: corda51-flow-kotlin
     weight: 1000
-section_menu: corda5
+section_menu: corda51
 ---
 # Kotlin Flow Code Walkthrough
 The Kotlin code for the {{< tooltip >}}flows{{< /tooltip >}} and supporting classes can be found in the CSDE repo at `workflows/src/main/kotlin/com/r3/developers/csdetemplate/flowexample/workflows/MyFirstFlow.kt`.

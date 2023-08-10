@@ -3,11 +3,11 @@ date: '2022-09-21T14:27:00+01:00'
 version: 'Corda 5.1'
 title: "Enum Evolution"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-api-serialisation-enum-evolution
     parent: corda51-api-serialisation
     weight: 8000
-section_menu: corda5
+section_menu: corda51
 ---
 # Enum Evolution
 In the continued development of a {{< tooltip >}}CorDapp{{< /tooltip >}} an enumerated type that was fit for purpose at one time may

@@ -1,13 +1,13 @@
 ---
-date: '2023-04-24'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Administrator"
 menu:
-  corda5:
+  corda51:
     parent: corda51-cluster-users
     identifier: corda51-cluster-administrator
     weight: 1000
-section_menu: corda5
+section_menu: corda51
 ---
 # Administrator
 

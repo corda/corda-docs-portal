@@ -1,13 +1,13 @@
 ---
-date: '2023-02-23'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Onboarding Notaries"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-networks-notaries
     parent: corda51-networks-create
     weight: 3000
-section_menu: corda5
+section_menu: corda51
 ---
 # Onboarding Notaries
 This section describes how to onboard a new {{< tooltip >}}member{{< /tooltip >}} as a {{< tooltip >}}notary{{< /tooltip >}} service representative. It assumes that you have configured the [MGM for the network]({{< relref "./mgm/_index.md" >}}). Onboarding a notary member is similar to any other member, but with the exceptions outlined on this page.

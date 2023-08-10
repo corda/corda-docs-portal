@@ -1,13 +1,13 @@
 ---
-date: '2023-05-11'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Migrating to Corda Enterprise"
 menu:
-  corda5:
+  corda51:
     parent: corda51-cluster-deploy
     identifier: corda51-cluster-enterprise
     weight: 4000
-section_menu: corda5
+section_menu: corda51
 ---
 # Migrating to Corda Enterprise {{< enterprise-icon >}} 
 

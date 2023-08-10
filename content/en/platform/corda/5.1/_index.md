@@ -1,14 +1,14 @@
 ---
-date: '2022-11-23'
+date: '2023-08-10'
 description: "Documentation for the next-gen release of Corda"
 title: Corda 5.1
 project: corda
 version: 'Corda 5.1'
-section_menu: corda5
+section_menu: corda51
 menu:
   versions:
-    weight: -650
-  corda5:
+    weight: -655
+  corda51:
     weight: 1000
     name: Corda 5.1  
 ---

@@ -1,13 +1,13 @@
 ---
-date: '2023-05-10'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Logs"
 menu:
-  corda5:
+  corda51:
     parent: corda51-cluster-observability
     identifier: corda51-cluster-logs
     weight: 3000
-section_menu: corda5
+section_menu: corda51
 ---
 # Logs
 Corda workers write their logs to standard out/standard error from where they are collected by {{< tooltip >}}Kubernetes{{< /tooltip >}}.

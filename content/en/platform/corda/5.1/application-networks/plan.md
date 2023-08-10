@@ -1,13 +1,13 @@
 ---
-date: '2023-02-23'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Planning Application Networks"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-networks-plan
     parent: corda51-networks
     weight: 1000
-section_menu: corda5
+section_menu: corda51
 ---
 # Planning Application Networks
 Planning an {{< tooltip >}}application network{{< /tooltip >}} (business network) requires some thought and consideration with regard to {{< tooltip >}}cluster{{< /tooltip >}} deployment and topology, onboarding processes, security policy, and data sovereignty.

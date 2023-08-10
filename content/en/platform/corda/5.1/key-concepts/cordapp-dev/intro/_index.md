@@ -3,11 +3,11 @@ title: "Introducing CorDapps"
 date: 2023-07-25
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-cordapp-dev-intro
     parent: corda51-key-concepts-cordapp-dev
     weight: 1000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Introducing CorDapps

@@ -1,13 +1,13 @@
 ---
-date: '2023-05-10'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Metrics"
 menu:
-  corda5:
+  corda51:
     parent: corda51-cluster-observability
     identifier: corda51-cluster-metrics
     weight: 2000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Metrics

@@ -1,14 +1,14 @@
 ---
-date: '2023-06-01'
+date: '2023-08-10'
 title: "UTXO Advanced Ledger Extensions Library"
 project: corda
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-utxo-advanced-ledger-extensions
     parent: corda51-api-ledger-utxo
     weight: 4000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # UTXO Advanced Ledger Extensions Library

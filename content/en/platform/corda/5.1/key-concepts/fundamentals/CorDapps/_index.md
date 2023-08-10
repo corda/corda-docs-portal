@@ -3,11 +3,11 @@ title: "CorDapps"
 date: 2023-06-07
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-fundamentals-cordapps
     parent: corda51-fundamentals
     weight: 1000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # CorDapps

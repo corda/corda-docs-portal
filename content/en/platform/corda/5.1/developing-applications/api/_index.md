@@ -1,14 +1,14 @@
 ---
-date: '2023-04-24'
+date: '2023-08-10'
 title: "CorDapp API"
 project: corda
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-api
     parent: corda51-develop
     weight: 8000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # CorDapp API

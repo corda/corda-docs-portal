@@ -1,13 +1,13 @@
 ---
-date: '2023-04-07'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Submitting a Token in a Registration Request"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-submit-token
     parent: corda51-networks-pre-auth
     weight: 3000
-section_menu: corda5
+section_menu: corda51
 ---
 # Submitting a Token in a Registration Request
 After you have [generated a pre-auth token]({{< relref "pre-auth/preauthenticating-tokens.md#creating-a-token" >}}), you can distribute this to a registering {{< tooltip >}}member{{< /tooltip >}} through offline channels, outside of Corda. 

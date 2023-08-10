@@ -1,14 +1,14 @@
 ---
-date: '2023-04-13'
+date: '2023-08-10'
 title: "Onboarding Members"
 project: corda
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-networks-members
     parent: corda51-networks-create
     weight: 2000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Onboarding Members

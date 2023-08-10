@@ -1,13 +1,13 @@
 ---
-date: '2023-05-16'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Dynamic Configuration"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-cluster-dynamic
     parent: corda51-cluster-config
     weight: 1000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Dynamic Configuration

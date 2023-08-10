@@ -1,14 +1,14 @@
 ---
-date: '2023-02-23'
+date: '2023-08-10'
 title: "Network Types"
 project: corda
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-develop-networks
     parent: corda51-develop
     weight: 2000
-section_menu: corda5
+section_menu: corda51
 ---
 # Network Types
 Corda supports the following types of networks:

@@ -1,13 +1,13 @@
 ---
-date: '2023-02-23'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Infrastructure Topology"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-cluster-topology
     parent: corda51-cluster
     weight: 3000
-section_menu: corda5
+section_menu: corda51
 ---
 # Infrastructure Topology
 

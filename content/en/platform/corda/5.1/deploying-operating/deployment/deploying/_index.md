@@ -1,13 +1,13 @@
 ---
-date: '2023-05-11'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Deploying"
 menu:
-  corda5:
+  corda51:
     parent: corda51-cluster-deploy
     identifier: corda51-cluster-deploying
     weight: 4000
-section_menu: corda5
+section_menu: corda51
 ---
 # Deploying
 This page describes how to deploy Corda 5. All the necessary [prerequisites]({{< relref "../prerequisites.md" >}}) must have been satisfied before Corda is deployed.

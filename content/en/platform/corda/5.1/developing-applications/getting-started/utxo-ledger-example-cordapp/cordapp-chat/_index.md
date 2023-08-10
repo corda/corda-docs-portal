@@ -1,13 +1,13 @@
 ---
-date: '2023-01-23'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Chat CorDapp Design"
 menu:
-  corda5:
+  corda51:
     parent: corda51-utxo-example
     identifier: corda51-chatcordapp
     weight: 1000
-section_menu: corda5
+section_menu: corda51
 ---
 # Chat CorDapp Design
 ## ChatState

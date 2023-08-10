@@ -1,13 +1,13 @@
 ---
-date: '2022-09-06'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "net.corda.v5.membership"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-api-membership
     parent: corda51-api
     weight: 6000
-section_menu: corda5
+section_menu: corda51
 ---
 # net.corda.v5.membership
 The `corda-membership` module defines interfaces that provide information about a {{< tooltip >}}member{{< /tooltip >}} and a {{< tooltip >}}membership group{{< /tooltip >}}. The interfaces in this module should not be implemented by {{< tooltip >}}CorDapp{{< /tooltip >}} Developers. Instead, instances can be retrieved through lookup services.

@@ -1,14 +1,14 @@
 ---
-date: '2023-04-07'
+date: '2023-08-10'
 title: "Member Registration"
 project: corda
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-networks-reg-requests
     parent: corda51-networks-manage
     weight: 1000
-section_menu: corda5
+section_menu: corda51
 ---
 # Member Registration
 

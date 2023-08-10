@@ -1,14 +1,14 @@
 ---
-date: '2023-04-07'
+date: '2023-08-10'
 title: "Onboarding the MGM"
 project: corda
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     parent: corda51-networks-create
     identifier: corda51-networks-mgm
     weight: 1000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Onboarding the MGM

@@ -1,13 +1,13 @@
 ---
-date: '2023-06-21'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "net.corda.v5.crypto"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-api-crypto
     parent: corda51-api
     weight: 5000
-section_menu: corda5
+section_menu: corda51
 ---
 # net.corda.v5.crypto
 

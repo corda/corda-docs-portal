@@ -1,14 +1,14 @@
 ---
-date: '2023-02-23'
+date: '2023-08-10'
 title: "Build a CPB"
 project: corda
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     parent: corda51-develop-packaging
     identifier: corda51-develop-packaging-cbp
     weight: 2000
-section_menu: corda5
+section_menu: corda51
 ---
 # Build a CPB
 You can build a CPB from your CPK files using one of the following:

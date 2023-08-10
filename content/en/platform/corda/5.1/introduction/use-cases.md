@@ -3,11 +3,11 @@ title: "Use Case Examples"
 date: 2023-04-21
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-use-cases
     parent: corda51-intro
     weight: 4000
-section_menu: corda5
+section_menu: corda51
 ---
 # Use Case Examples
 "_Who is Corda for?_" Corda was originally designed as a {{< tooltip >}}distributed ledger{{< /tooltip >}} and system of record for the financial services industry. 

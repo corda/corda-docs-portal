@@ -1,13 +1,13 @@
 ---
-date: '2023-01-23'
+date: '2023-08-10'
 title: "Running the Chat CorDapp"
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     parent: corda51-utxo-example
     identifier: corda51-runchat
     weight: 2000
-section_menu: corda5
+section_menu: corda51
 ---
 # Running the Chat CorDapp
 

@@ -3,11 +3,11 @@ title: "Personas"
 date: 2023-05-31
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-personas
     parent: corda51-intro
     weight: 4050
-section_menu: corda5
+section_menu: corda51
 ---
 # Personas
 

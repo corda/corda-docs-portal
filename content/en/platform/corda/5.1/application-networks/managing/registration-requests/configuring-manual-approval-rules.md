@@ -1,13 +1,13 @@
 ---
-date: '2023-04-07'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Configuring Manual Approval Rules"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-manual-approval-rules
     parent: corda51-networks-reg-requests
     weight: 1000
-section_menu: corda5
+section_menu: corda51
 ---
 # Configuring Manual Approval Rules
 

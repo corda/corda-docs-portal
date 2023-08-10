@@ -3,11 +3,11 @@ title: "Notaries"
 date: 2023-06-08
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-fundamentals-ledger-notaries
     parent: corda51-fundamentals-ledger
     weight: 6000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Notaries

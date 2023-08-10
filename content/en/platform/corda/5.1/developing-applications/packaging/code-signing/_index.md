@@ -1,13 +1,13 @@
 ---
-date: '2023-05-18'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Code Signing"
 menu:
-  corda5:
+  corda51:
     parent: corda51-develop-packaging
     identifier: corda51-develop-packaging-code-signing
     weight: 3000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Code Signing

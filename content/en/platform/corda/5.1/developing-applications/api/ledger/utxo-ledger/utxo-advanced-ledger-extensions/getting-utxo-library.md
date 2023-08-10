@@ -1,14 +1,14 @@
 ---
-date: '2023-07-04'
+date: '2023-08-10'
 title: "Getting the UTXO Library"
 project: corda
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-utxo-ledger-getting-utxo-library
     parent: corda51-utxo-advanced-ledger-extensions
     weight: 4490
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Getting the UTXO Library

@@ -1,14 +1,14 @@
 ---
-date: '2023-02-23'
+date: '2023-08-10'
 title: "Network Operator Tooling"
 project: corda
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-networks-tooling
     parent: corda51-networks
     weight: 2000
-section_menu: corda5
+section_menu: corda51
 ---
 <style>
 table th:first-of-type {

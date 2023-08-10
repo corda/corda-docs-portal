@@ -1,14 +1,14 @@
 ---
-date: '2023-06-28'
+date: '2023-08-10'
 title: "External Messaging Administration"
 project: corda
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-cluster-external-messaging
     parent: corda51-cluster
     weight: 10000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # External Messaging Administration {{< enterprise-icon >}}

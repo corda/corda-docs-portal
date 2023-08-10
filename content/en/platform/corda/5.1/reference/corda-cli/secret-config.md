@@ -1,12 +1,12 @@
 ---
-date: '2023-05-12'
+date: '2023-08-10'
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-cordacli-secret-config
     weight: 4050
     parent: corda51-cli-reference
-section_menu: corda5
+section_menu: corda51
 title: "secret-config"
 ---
 

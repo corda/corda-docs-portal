@@ -1,14 +1,14 @@
 ---
-date: '2023-02-23'
+date: '2023-08-10'
 title: "Packaging"
 project: corda
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-develop-packaging
     parent: corda51-develop
     weight: 6050
-section_menu: corda5
+section_menu: corda51
 ---
 # Packaging
 Just like a regular application, your {{< tooltip >}}CorDapp{{< /tooltip >}} must be packaged for distribution and installation. Corda takes a three-layered model to its packaging design to allow maximum reusability and portability:

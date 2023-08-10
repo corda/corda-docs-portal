@@ -1,14 +1,14 @@
 ---
-date: '2023-04-13'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Configure Key Pairs and Certificates for the Member"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-networks-members-key-pairs
     parent: corda51-networks-members
     weight: 3000
     name: "Configure Key Pairs and Certificates"
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Configure Key Pairs and Certificates for the Member

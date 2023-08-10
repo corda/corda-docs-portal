@@ -1,14 +1,14 @@
 ---
-date: '2023-05-09'
+date: '2023-08-10'
 title: "Member Suspension"
 project: corda
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-networks-member-suspension
     parent: corda51-networks-manage
     weight: 2000
-section_menu: corda5
+section_menu: corda51
 ---
 # Member Suspension
 It is possible to temporarily suspend a {{< tooltip >}}member{{< /tooltip >}} of a group. Once a member has been suspended, Corda blocks {{< tooltip >}}flow{{< /tooltip >}} communication between it and other members of the group. A suspended member performing a member lookup can only see updates from the {{< tooltip >}}MGM{{< /tooltip >}} and not from other members. It is not possible to suspend the MGM. This section describes how to perform the following:

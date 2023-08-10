@@ -1,13 +1,13 @@
 ---
-date: '2023-04-07'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Build the MGM CPI"
 menu:
-  corda5:
+  corda51:
     parent: corda51-networks-mgm
     identifier: corda51-networks-mgm-cpi
     weight: 1000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Build the MGM CPI

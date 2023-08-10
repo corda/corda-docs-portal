@@ -1,14 +1,14 @@
 ---
-date: '2023-04-13'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Configure Communication Properties for the Member"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-networks-members-node-config
     parent: corda51-networks-members
     weight: 4000
     name: "Configure Communication Properties"
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Configure Communication Properties for the Member

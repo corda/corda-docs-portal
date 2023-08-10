@@ -1,13 +1,13 @@
 ---
-date: '2023-06-20'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "net.corda.v5.ledger.consensual"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-api-ledger-consensual
     parent: corda51-api-ledger
     weight: 2000
-section_menu: corda5
+section_menu: corda51
 ---
 # net.corda.v5.ledger.consensual
 

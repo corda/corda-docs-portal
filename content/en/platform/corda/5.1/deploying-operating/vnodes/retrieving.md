@@ -1,14 +1,14 @@
 ---
-date: '2023-06-12'
+date: '2023-08-10'
 title: "Retrieving Virtual Nodes"
 project: corda
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-cluster-nodes-retrieving
     parent: corda51-cluster-nodes
     weight: 1000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Retrieving Virtual Nodes

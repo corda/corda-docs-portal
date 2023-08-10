@@ -1,13 +1,13 @@
 ---
-date: '2023-05-11'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Prerequisites"
 menu:
-  corda5:
+  corda51:
     parent: corda51-cluster-deploy
     identifier: corda51-cluster-prerequisites
     weight: 1000
-section_menu: corda5
+section_menu: corda51
 ---
 # Prerequisites
 There are three prerequisites to the Corda deployment process:

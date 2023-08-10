@@ -1,14 +1,14 @@
 ---
-date: '2023-06-12'
+date: '2023-08-10'
 title: "Setting the State of Virtual Nodes"
 project: corda
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-cluster-nodes-state
     parent: corda51-cluster-nodes
     weight: 2000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Setting the State of Virtual Nodes

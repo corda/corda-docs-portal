@@ -3,11 +3,11 @@ title: "Ledger"
 date: 2023-06-08
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-fundamentals-ledger
     parent: corda51-develop
     weight: 4750
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Ledger

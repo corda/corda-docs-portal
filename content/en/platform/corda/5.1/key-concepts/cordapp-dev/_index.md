@@ -3,11 +3,11 @@ title: "Architecture for CorDapp Developers"
 date: 2023-07-25
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-key-concepts-cordapp-dev
     parent: corda51-key-concepts
     weight: 2000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Architecture for CorDapp Developers

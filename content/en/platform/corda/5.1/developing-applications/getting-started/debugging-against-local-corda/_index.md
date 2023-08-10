@@ -1,13 +1,13 @@
 ---
-date: '2022-09-20'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Debugging Against Local Corda"
 menu:
-  corda5:
+  corda51:
     parent: corda51-develop-get-started
     identifier: corda51-debugging
     weight: 6000
-section_menu: corda5
+section_menu: corda51
 ---
 # Debugging Against Local Corda
 The CSDE includes an IntelliJ run-time configuration that allows you to attach IntelliJ’s debugger to the local Corda cluster.

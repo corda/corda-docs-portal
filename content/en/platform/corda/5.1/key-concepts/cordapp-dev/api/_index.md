@@ -3,11 +3,11 @@ title: "Introducing the Corda APIs"
 date: 2023-07-26
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-cordapp-dev-api
     parent: corda51-key-concepts-cordapp-dev
     weight: 3000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Introducing the Corda APIs

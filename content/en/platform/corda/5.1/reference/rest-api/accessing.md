@@ -4,11 +4,11 @@ project: corda
 version: 'Corda 5.1'
 date: 2023-05-08
 menu:
-  corda5:
+  corda51:
     parent: corda51-rest-api-reference
     identifier: corda51-rest-api-accessing
     weight: 1000
-section_menu: corda5
+section_menu: corda51
 ---
 # Accessing the REST API
 To access and invoke the REST API:

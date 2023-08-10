@@ -1,13 +1,13 @@
 ---
-title: "Corda 5.0 Platform Support"
+title: "Corda 5.1 Platform Support"
 date: 2023-05-23
 version: 'Corda 5.1'
 menu:
-  corda5:
+  corda51:
     identifier: corda51-platform-support
     parent: corda51-release-notes
     weight: 1000
-section_menu: corda5
+section_menu: corda51
 ---
 
 <style>

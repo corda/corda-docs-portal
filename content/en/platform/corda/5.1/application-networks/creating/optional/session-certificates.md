@@ -1,13 +1,13 @@
 ---
-date: '2022-11-15'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Session Certificates"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-network-session-certificates
     parent: corda51-networks-optional
     weight: 2000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Session Certificates

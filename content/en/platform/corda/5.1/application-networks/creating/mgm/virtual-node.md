@@ -1,14 +1,14 @@
 ---
-date: '2023-04-07'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Create a Virtual Node for the MGM"
 menu:
-  corda5:
+  corda51:
     parent: corda51-networks-mgm
     identifier: corda51-networks-mgm-virtual-node
     weight: 2000
     name: "Create a Virtual Node"
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Create a Virtual Node for the MGM

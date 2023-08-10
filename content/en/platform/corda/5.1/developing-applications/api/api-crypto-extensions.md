@@ -1,13 +1,13 @@
 ---
-date: '2023-02-10'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "net.corda.v5.crypto.extensions"
 menu:
-  corda5:
+  corda51:
     identifier: corda51-api-crypto-extensions
     parent: corda51-api
     weight: 5050
-section_menu: corda5
+section_menu: corda51
 ---
 # net.corda.v5.crypto.extensions
 The `corda-crypto-extensions` module of the `Corda Crypto API` defines low-level crypto capabilities that can be used to extend functionality of the Corda Crypto Library by implementing them in a {{< tooltip >}}CPK{{< /tooltip >}}. 
