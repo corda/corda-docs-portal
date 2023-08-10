@@ -21,7 +21,7 @@
 				</nav>
 			{{ end }}
 			{{ end }}
-			{{ if ne .Page.Params.version "Corda 5.0"}}			
+			{{ if ne .Page.Params.version ("Corda 5.0", "Corda 5.1") }}			
     			<h1>{{ .Title }}</h1>
 			{{ end }}
       {{ if .Site.Params.editPage -}}
