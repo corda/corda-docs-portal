@@ -20,7 +20,7 @@ table th:nth-of-type(2) {
 
 </style>
 
-# Corda 5.0 Platform Support
+# {{< version >}} Platform Support
 
 This page lists the supported versions of the following:
 * [Databases]({{< relref "#databases">}})

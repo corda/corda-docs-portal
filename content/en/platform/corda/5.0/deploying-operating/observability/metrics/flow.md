@@ -2,7 +2,6 @@
 date: '2023-06-14'
 version: 'Corda 5.0'
 title: "Flow"
-version: 'Corda 5.0'
 menu:
   corda5:
     parent: corda5-cluster-metrics
