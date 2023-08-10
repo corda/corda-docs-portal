@@ -232,7 +232,7 @@ You can use the shell to:
 The shell interacts with the node by issuing RPCs (remote procedure calls). You make an RPC from the shell by typing `run`, followed by the name of the desired RPC method.
 
 You can find a list of the available RPC methods
-[here](https://docs.corda.net/api/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/index.html).
+[here](../../../../../en/api-ref/corda/4.10/community/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/index.html).
 
 Some RPCs return a stream of events that will be shown on screen until you press Ctrl-C.
 
@@ -477,7 +477,7 @@ Use the different flow commands available to make changes on the ledger. You can
 
 #### Query flow data
 
-The shell can be used to query flow data. For more information on the types of data that can be queried and instructions for doing so, see the documentation on [Querying flow data](../../4.8/enterprise/node/operating/querying-flow-data.html#querying-flow-data-via-the-node-shell).
+The shell can be used to query flow data. For more information on the types of data that can be queried and instructions for doing so, see the documentation on [Querying flow data]({{< relref "../enterprise/node/operating/querying-flow-data.md#querying-flow-data-via-the-node-shell" >}}).
 
 
 #### Start a flow

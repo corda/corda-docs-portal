@@ -13,7 +13,7 @@ section_menu: corda5
 
 # External Messaging CorDapps {{< enterprise-icon >}}
 A running Corda {{< tooltip >}}flow{{< /tooltip >}} can send simple messages via {{< tooltip >}}Kafka{{< /tooltip >}} to external systems. 
-In Corda 5.0, this is limited to sending messages, but a future version will support both send and send-and-receive messages. 
+In {{< version >}}, this is limited to sending messages, but a future version will support both send and send-and-receive messages. 
 
 External messaging is implemented in {{< tooltip >}}CorDapps{{< /tooltip >}} by the following components:
 * **Channels** - abstract representations of routes from a flow to an external system. They allow Cluster Administrators and Network Operators to control the Kafka implementation of a logical channel at the cluster and virtual node level. A CorDapp Developer is responsible for defining the channels as part of the CorDapp.

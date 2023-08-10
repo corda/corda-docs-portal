@@ -10,5 +10,5 @@ menu:
 section_menu: corda5
 ---
 # Key Concepts
-This section provides a detailed look at Corda 5.0. It contains the following:
+This section provides a detailed look at {{< version >}}. It contains the following:
 {{< childpages >}}
