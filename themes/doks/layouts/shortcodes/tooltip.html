@@ -48,9 +48,10 @@
 {{ $termlink := printf "%s" $searchtermkebab  | printf "%s%s" "#" | printf "%s%s" "https://docs.r3.com/en/platform/corda/5.0/introduction/glossary.html" | safeURL }}
 <a class="term" href ='{{ $termlink }}' >&nbsp{{ .Inner }}
 
-{{ if eq .Page.Params.version 'Corda 5.0' }}
+{{ $glossarylist = "" }}
+{{ if eq .Page.Params.version "Corda 5.0" }}
     {{ $glossarylist := getJSON "content/en/platform/corda/5.0/glossaryitems.json" }}
-{{ else if eq .Page.Params.version 'Corda 5.1' }}
+{{ else if eq .Page.Params.version "Corda 5.1" }}
     {{ $glossarylist := getJSON "content/en/platform/corda/5.1/glossaryitems.json" }}
 {{ end }}
 
