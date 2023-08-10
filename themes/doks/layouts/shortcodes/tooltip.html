@@ -49,7 +49,7 @@
 <a class="term" href ='{{ $termlink }}' >&nbsp{{ .Inner }}
 
 {{ $versionfolder := replace .Page.Params.version "Corda " "" }}
-{{ $glossarypath := printf "%s%s" "/glossaryitems.json" | printf "%s" $versionfolder | printf "%s%s" "content/en/platform/corda/" }}
+{{ $glossarypath := printf "%s%s" "/glossaryitems.json" | printf "%s" $versionfolder | printf "%s%s" "content/en/platform/corda/"  | safeURL }}
 {{ $glossarylist := getJSON $glossarypath }}
 
 {{ range $term, $value := $glossarylist }}
