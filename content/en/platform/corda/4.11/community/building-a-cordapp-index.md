@@ -31,3 +31,4 @@ title: CorDapps
 * [Configuring Responder Flows]({{< relref "flow-overriding.md" >}})
 * [Starting a flow with a client-provided unique ID]({{< relref "flow-start-with-client-id.md" >}})
 * [Flow cookbook]({{< relref "flow-cookbook.md" >}})
+* [Flow cookbook]({{< relref "#doesntexist" >}})

@@ -566,7 +566,7 @@ If the initiating node (node A) throws an exception, it is very likely for one o
 
 - The recovery request breached one of the following constraints:
     - The list of transactions to be recovered is empty. This may be a result of a concurrent recovery processes with another counterparty. In this case, the reconciliation result contained only false positives and there is nothing to recover. Consider [refreshing the reconciliation results]({{< relref "ledger-sync.md#refreshreconciliationstatusesflow" >}}).
-    - There are too many transactions to recover. Consider running a [LedgerRecover (Manual)](ledger-recovery-manual.html#example-workflow) process instead.
+    - There are too many transactions to recover. Consider running a [LedgerRecover (Manual)]({{< relref "ledger-recovery-manual.md#example-workflow" >}})process instead.
     - The automatic recovery requests initiated against the counterparty are too frequent.
 
 ##### Unhappy path - Exception is thrown by the responding node
@@ -575,7 +575,7 @@ If the responder node (node B) throws an exception, it is very likely for one of
 
 - The recovery request breached one of the following constraints:
     - The list of transactions to be recovered is empty.
-    - The total size of transactions requested to be sent has exceeded the configured limits. Consider running a [LedgerRecover (Manual)](ledger-recovery-manual.html#example-workflow) process instead from the initiating node.
+    - The total size of transactions requested to be sent has exceeded the configured limits. Consider running a [LedgerRecover (Manual)]({{< relref "ledger-recovery-manual.md#example-workflow" >}})process instead from the initiating node.
     - The automatic recovery requests received from the initiating party are too frequent.
     - The requested transaction data should not be known about by the initiating party.
 
