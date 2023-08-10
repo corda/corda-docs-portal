@@ -13,7 +13,7 @@ weight: 40
 
 # Storing node TLS keys in HSM without running the Corda Enterprise Firewall
 
-You can store node TLS keys in HSM by using the optional `tlsCryptoServiceConfig` and `tlsKeyAlias` configuration fields in the `enterpriseConfiguration` [configuration block](corda-configuration-fields.html#enterpriseconfiguration) of the [node configuration file]({{< relref "corda-configuration-file.md" >}}).
+You can store node TLS keys in HSM by using the optional `tlsCryptoServiceConfig` and `tlsKeyAlias` configuration fields in the `enterpriseConfiguration` [configuration block]({{< relref "corda-configuration-fields.md#enterpriseconfiguration" >}}) of the [node configuration file]({{< relref "corda-configuration-file.md" >}}).
 
 ## Configuration
 
@@ -45,4 +45,4 @@ enterpriseConfiguration = {
 To migrate from a file-based node's TLS keystore to HSM:
 
 1. Add a `tlsCryptoServiceConfig` section the node configuration file.
-2. Renew the TLS certificate and keys, as described in  the [Renewing TLS certificates](../../ha-utilities.html#renewing-tls-certificates) section in [HA Utilities]({{< relref "../../ha-utilities.md" >}}).
+2. Renew the TLS certificate and keys, as described in  the [Renewing TLS certificates]({{< relref "../../ha-utilities.md#renewing-tls-certificates" >}}) section in [HA Utilities]({{< relref "../../ha-utilities.md" >}}).

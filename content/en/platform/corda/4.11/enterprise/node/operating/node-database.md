@@ -170,7 +170,7 @@ The node database for a Simple Notary has additional tables:
 
 {{< /table >}}
 
-The structure of the tables of JPA notaries are described at [Configuring a JPA notary backend](../../notary/installing-jpa.html#configuring-jpa-notary-backend).
+The structure of the tables of JPA notaries are described at [Configuring a JPA notary backend]({{< relref "../../notary/installing-jpa.md#configuring-jpa-notary-backend" >}}).
 
 The tables for other experimental notary implementations are not described here.
 
@@ -178,4 +178,4 @@ The tables for other experimental notary implementations are not described here.
 ### Database Schema Migration Logging
 
 Database migration logs for Corda internal tables follow a structured format
-described in [Database Schema Migration Logging](../../node-database-migration-logging.html#database-schema-migration-logging).
+described in [Database Schema Migration Logging]({{< relref "../../node-database-migration-logging.md#database-schema-migration-logging" >}}).

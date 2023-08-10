@@ -63,7 +63,7 @@ time.
 To perform the upgrade:
 
 
-1. Drain the node to avoid the definition of states or contracts changing whilst a flow is in progress. See [flow drains](cordapps/upgrading-cordapps.html#flow-drains) for more information. There are two ways you can drain the node:
+1. Drain the node to avoid the definition of states or contracts changing whilst a flow is in progress. See [flow drains]({{< relref "cordapps/upgrading-cordapps.md#flow-drains" >}}) for more information. There are two ways you can drain the node:
     * By RPC using the `setFlowsDrainingModeEnabled` method with the parameter `true`.
     * Via the shell by issuing the command `run setFlowsDrainingModeEnabled enabled: true`.
 

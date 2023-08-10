@@ -31,7 +31,7 @@ Notaries running on Corda Enterprise are also metered. The data recorded for not
 
 ### How metering data is shared
 
-The metering collection tool also contains responder flows that can be used by other nodes on the network to collect metering data from the node where the respective CorDapp is installed. This feature must be enabled by the node operator deploying a [CorDapp configuration file](../../../cordapps/cordapp-build-systems.html#cordapp-configuration-files) for the CorDapp.
+The metering collection tool also contains responder flows that can be used by other nodes on the network to collect metering data from the node where the respective CorDapp is installed. This feature must be enabled by the node operator deploying a [CorDapp configuration file]({{< relref "../../../cordapps/cordapp-build-systems.md#cordapp-configuration-files" >}}) for the CorDapp.
 
 If no configuration file is deployed, metering data will not be shared with any other network party. An example configuration file that enables metering data sharing is shown below:
 
@@ -810,7 +810,7 @@ This parameter requires an object created by the `filterBy` parameter that speci
 {{< /table >}}
 
 {{% note %}}
-The metering collection functionality Filtering by CorDapp name is case insensitive for MSSQL Server. For more information, see [Database configuration - SQL Server](../node-database-admin.html#sql-server-3)
+The metering collection functionality Filtering by CorDapp name is case insensitive for MSSQL Server. For more information, see [Database configuration - SQL Server]({{< relref "../node-database-admin.md#sql-server-3" >}})
 {{% /note %}}
 
 ### Filter by transaction type
@@ -839,7 +839,7 @@ Filtering by CorDapp is forbidden for the `AggregatedMeteringCollectionFlow` flo
 {{< /note >}}
 
 {{% note %}}
-The metering collection functionality Filtering by CorDapp name is case insensitive for MSSQL Server. For more information, see [Database configuration - SQL Server](../node-database-admin.html#sql-server-3)
+The metering collection functionality Filtering by CorDapp name is case insensitive for MSSQL Server. For more information, see [Database configuration - SQL Server]({{< relref "../node-database-admin.md#sql-server-3" >}})
 {{% /note %}}
 
 All classes listed below belong to the `com.r3.corda.metering.filter` package.

@@ -60,7 +60,7 @@ val ftx: FilteredTransaction = stx.buildFilteredTransaction(filtering)
 {{< /tabs >}}
 
 In the oracle example, this step takes place in `RatesFixFlow` by overriding the `filtering` function. See
-[Using an oracle](oracles.html#using-an-oracle).
+[Using an oracle]({{< relref "oracles.md#using-an-oracle" >}}).
 
 Both `WireTransaction` and `FilteredTransaction` inherit from `TraversableTransaction`, so access to the
 transaction components is exactly the same. Note that unlike `WireTransaction`,

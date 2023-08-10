@@ -34,7 +34,7 @@ The protocol is designed to tolerate node outages, so during the upgrade process
 
 ## Step 1: Drain the node
 
-Before a node or application on it can be upgraded, the node must be put in [Draining mode](key-concepts-node.html#draining-mode). This brings the currently running
+Before a node or application on it can be upgraded, the node must be put in [Draining mode]({{< relref "key-concepts-node.md#draining-mode" >}}). This brings the currently running
 [Flows]({{< relref "key-concepts-flows.md" >}}) to a smooth halt such that existing work is finished and new work is queuing up rather than being processed.
 
 Draining flows is a key task for node administrators to perform. It exists to simplify applications by ensuring apps don’t have to be
@@ -57,7 +57,7 @@ It’s always a good idea to make a backup of your data before upgrading any ser
 You can simply make a copy of the node’s data directory to enable this. If you use an external non-H2 database please consult your database
 user guide to learn how to make backups.
 
-We provide some [backup recommendations](node-administration.html#backup-recommendations) if you’d like more detail.
+We provide some [backup recommendations]({{< relref "node-administration.md#backup-recommendations" >}}) if you’d like more detail.
 
 ## Step 3: Download Corda Community Edition
 

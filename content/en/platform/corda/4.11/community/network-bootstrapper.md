@@ -512,4 +512,4 @@ bootstrapper [-hvV] [--copy-cordapps=<copyCordapps>] [--dir=<dir>]
 
 ### Sub-commands
 
-`install-shell-extensions`: Installs the `bootstrapper` alias and auto-completion for bash and zsh. See [Shell extentions for CLI applications](cli-application-shell-extensions.html#shell-extensions-for-cli-applications).
+`install-shell-extensions`: Installs the `bootstrapper` alias and auto-completion for bash and zsh. See [Shell extentions for CLI applications]({{< relref "cli-application-shell-extensions.md#shell-extensions-for-cli-applications" >}}).

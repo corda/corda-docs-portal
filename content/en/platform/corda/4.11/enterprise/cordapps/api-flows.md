@@ -766,7 +766,7 @@ all parties will not have the up-to-date view of the ledger.
 
 To recover from this scenario, the receiver’s finality handler is automatically sent to the `node-flow-hospital`. There, it is suspended and retried from its last checkpoint
 
-upon node restart, or according to other conditional retry rules - see [flow hospital runtime behavior](../node/node-flow-hospital.html#run-time-behaviour).
+upon node restart, or according to other conditional retry rules - see [flow hospital runtime behavior]({{< relref "../node/node-flow-hospital.md#run-time-behaviour" >}}).
 
 This gives the node operator the opportunity to recover from the error. Until the issue is resolved, the node will continue to retry the flow
 on each startup. Upon successful completion by the receiver’s finality flow, the ledger will become fully consistent.
@@ -1190,7 +1190,7 @@ Threading needs to be explicitly handled when using `FlowExternalAsyncOperation`
 thread pool.
 
 {{< note >}}
-The size of the external operation thread pool can be configured. See [the node configuration documentation](../node/setup/corda-configuration-file.html#corda-configuration-flow-external-operation-thread-pool-size).
+The size of the external operation thread pool can be configured. See [the node configuration documentation]({{< relref "../node/setup/corda-configuration-file.md#corda-configuration-flow-external-operation-thread-pool-size" >}}).
 
 {{< /note >}}
 You can call `FlowExternalOperation` from a flow to run an operation on a new thread, allowing the flow to suspend:

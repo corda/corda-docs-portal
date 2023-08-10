@@ -82,7 +82,7 @@ All flows can be paused when the node starts up - you can enable this in one of 
 
 These flows can then be individually retried via RPC or the node shell.
 
-See [Pause and resume flows](../../flow-pause-and-resume.html#starting-the-node-and-pausing-all-flows) for more information.
+See [Pause and resume flows]({{< relref "../../flow-pause-and-resume.md#starting-the-node-and-pausing-all-flows" >}}) for more information.
 {{< /note >}}
 
 

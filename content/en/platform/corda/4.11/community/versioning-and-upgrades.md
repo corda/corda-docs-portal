@@ -37,7 +37,7 @@ the world changes is a key part of any professionally built software.
 
 
 * [API stability guarantees]({{< relref "api-stability-guarantees.md" >}})
-* [Public API](api-stability-guarantees.html#public-api)
+* [Public API]({{< relref "api-stability-guarantees.md#public-api" >}})
 * [Non-public API (experimental)](api-stability-guarantees.html#non-public-api-experimental)
 * [The `@DoNotImplement` annotation](api-stability-guarantees.html#the-donotimplement-annotation)
 * [Versioning]({{< relref "versioning.md" >}})

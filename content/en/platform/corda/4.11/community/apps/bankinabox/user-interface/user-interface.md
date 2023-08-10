@@ -14,7 +14,7 @@ section_menu: corda-community-4-11
 
 # User interfaces on Bank in a Box
 
-The user interface on Bank in a Box provides an easy to use solution based on [React](https://reactjs.org/). The guides listed below will help you to understand the different role-based interfaces and how to perform a variety of tasks in the application. See the [getting started](../getting-started.html#deployment) section for instructions on deploying the user interface.
+The user interface on Bank in a Box provides an easy to use solution based on [React](https://reactjs.org/). The guides listed below will help you to understand the different role-based interfaces and how to perform a variety of tasks in the application. See the [getting started]({{< relref "../getting-started.md#deployment" >}}) section for instructions on deploying the user interface.
 
 * [Admin user interface]({{< relref "./admin-ui-guide.md" >}}).
 * [Customer and guest user interface]({{< relref "./customer-ui-guide.md" >}}).

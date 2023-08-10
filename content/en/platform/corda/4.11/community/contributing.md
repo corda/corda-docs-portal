@@ -21,12 +21,12 @@ title: How to contribute
 ## Identifying an area to contribute
 
 * If you'd like to contribute, but don't have a specific project in mind:
-    * Message a [Community Maintainer](contributing-philosophy.html#community-maintainers) saying “I want to help!”. They’ll work
+    * Message a [Community Maintainer]({{< relref "contributing-philosophy.md#community-maintainers" >}}) saying “I want to help!”. They’ll work
 with you to find an area for you to contribute.
     * Browse the issues labelled `help wanted` on the
 [Corda GitHub issues](https://github.com/corda/corda/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) page. Issues labeled `good first issue` are ideal for first-timers.
 * If you have a specific contribution in mind, message the
-`#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contact one of the [Community Maintainers](contributing-philosophy.html#community-maintainers) directly to confirm if it is appropriate before starting development.
+`#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contact one of the [Community Maintainers]({{< relref "contributing-philosophy.md#community-maintainers" >}}) directly to confirm if it is appropriate before starting development.
 
 
 
@@ -41,9 +41,9 @@ One of the things that makes Corda special is its coherent design. That's why we
 * **Scope**: To ensure the Corda project remains coherent and focused, so we ask that the feature’s scope is within the definition specified in the [Corda Technical Whitepaper](/en/pdf/corda-technical-whitepaper.pdf).
 * **Maintainability**: If the feature requires ongoing maintenance (for example, support for a particular brand of database), we may ask you to accept responsibility for maintaining it.
 * **Non-duplicative**: If the contribution duplicates features that already exist or are in progress, you may be asked to work with the project maintainers to reconcile this. As the major contributor to Corda, many employees of [R3](https://r3.com) are working on features at any given time. To avoid surprises and foster transparency,
-[our Jira work tracking system is public](https://r3-cev.atlassian.net/projects/CORDA/summary). If in doubt, reach out to one of the [Community Maintainers](contributing-philosophy.html#community-maintainers).
+[our Jira work tracking system is public](https://r3-cev.atlassian.net/projects/CORDA/summary). If in doubt, reach out to one of the [Community Maintainers]({{< relref "contributing-philosophy.md#community-maintainers" >}}).
 
-In addition, there are a number of additional requirements that apply to [large contributions](contributing.html#large-contributions).
+In addition, there are a number of additional requirements that apply to [large contributions]({{< relref "contributing.md#large-contributions" >}}).
 
 ## Making changes to Corda
 
@@ -128,7 +128,7 @@ to highlight these in yellow.
     * Add the following statement to confirm that your contribution is your own original work: “I hereby certify that my contribution is in accordance with the [Developer Certificate of Origin](https://developercertificate.org).”
 
 2. Request a review by reaching out in the `#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contacting one of
-the [Community Maintainers](contributing-philosophy.html#community-maintainers) directly. The reviewer will either:
+the [Community Maintainers]({{< relref "contributing-philosophy.md#community-maintainers" >}}) directly. The reviewer will either:
     * Accept and merge your PR.
     * Leave comments requesting changes via the GitHub PR interface.
 

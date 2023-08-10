@@ -236,5 +236,5 @@ Auth Service needs to be set up with baseline permission data for each applicati
 {{< /note >}}
 
 * [CENM management console](../../../../../../en/platform/corda/1.5/cenm/cenm-console.html#installation)
-* [Node management console](management-console.html#installation)
-* [Flow management console](node-flow-management-console.html#installation)
+* [Node management console]({{< relref "management-console.md#installation" >}})
+* [Flow management console]({{< relref "node-flow-management-console.md#installation" >}})

@@ -309,7 +309,7 @@ when you are updating an existing network, the value in the existing network par
 
 {{< note >}}
 All fields can contain placeholders for environment variables. For example: `${KEY_STORE_PASSWORD}` would be replaced by the contents of environment
-variable `KEY_STORE_PASSWORD`. See: [Hiding sensitive data](node/operating/node-administration.html#hiding-sensitive-data).
+variable `KEY_STORE_PASSWORD`. See: [Hiding sensitive data]({{< relref "node/operating/node-administration.md#hiding-sensitive-data" >}}).
 
 {{< /note >}}
 The available configuration fields are:
@@ -503,4 +503,4 @@ bootstrapper [-hvV] [--copy-cordapps=<copyCordapps>] [--dir=<dir>]
 
 ### Sub-commands
 
-`install-shell-extensions`: Installs the `bootstrapper` alias and auto-completion for bash and zsh. See [Shell extentions for CLI applications](node/operating/cli-application-shell-extensions.html#shell-extensions-for-cli-applications).
+`install-shell-extensions`: Installs the `bootstrapper` alias and auto-completion for bash and zsh. See [Shell extentions for CLI applications]({{< relref "node/operating/cli-application-shell-extensions.md#shell-extensions-for-cli-applications" >}}).

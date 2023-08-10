@@ -25,7 +25,7 @@ You can use the Collaborative Recovery CorDapps to automate the process of recov
 
 ## Schedule reconciliation
 
-If you and counterparties on your Business Network (BN) plan to use collaborative recovery as part of your disaster planning, it's a good idea to schedule regular reconciliation checks using the [LedgerSync CorDapp](ledger-sync.html#schedulereconciliationflow). You can achieve this by implementing a small layer to schedule and integrate ledger syncing with your Business Network services. For practical steps on scheduling recovery, use the [LedgerSync guide]({{< relref "ledger-sync.md" >}}).
+If you and counterparties on your Business Network (BN) plan to use collaborative recovery as part of your disaster planning, it's a good idea to schedule regular reconciliation checks using the [LedgerSync CorDapp]({{< relref "ledger-sync.md#schedulereconciliationflow" >}}). You can achieve this by implementing a small layer to schedule and integrate ledger syncing with your Business Network services. For practical steps on scheduling recovery, use the [LedgerSync guide]({{< relref "ledger-sync.md" >}}).
 
 How frequently you should run reconciliation checks depends on the size of your network. Since reconciliation flows carry some memory overheads, smaller networks may be able to schedule more regular reconciliation actions. For a larger network, you can implement a lighter schedule of reconciliations, or you could choose to reconcile more regularly, but with a random subset of available peers. This would give you an indication of the general health of data in the BN.
 
@@ -34,8 +34,8 @@ Since some recovery flows have been designed to be run manually, you can set ale
 ## Monitor reconciliation and receive alerts using metrics
 
 The Collaborative Recovery CorDapps expose a number of JMX metrics via Jolokia. You can see the full list of the exposed metrics for
-[LedgerSync here](ledger-sync.html#jmx-metrics), and [LedgerRecover here]({{< relref "ledger-recovery-automatic.md" >}}). These are exposed alongside metrics from the node.
-You can also [monitor via Jolokia](../operating/node-administration.html#monitoring-via-jolokia).
+[LedgerSync here]({{< relref "ledger-sync.md#jmx-metrics" >}}), and [LedgerRecover here]({{< relref "ledger-recovery-automatic.md" >}}). These are exposed alongside metrics from the node.
+You can also [monitor via Jolokia]({{< relref "../operating/node-administration.md#monitoring-via-jolokia" >}}).
 
 
 As part of your disaster recovery strategy, you can set up alerts for LedgerSync's `NumberOfFailedReconciliations` and `NumberOfReconciliationsWithDifferences` metrics.
@@ -74,10 +74,10 @@ The database tables are managed via Liquibase migration scripts that are shipped
 {{< note >}}
 No manual schema alterations should be performed at any time.
 {{< /note >}}
-[Database Management Tool](../operating/node-database.html#database-management-tool)
+[Database Management Tool]({{< relref "../operating/node-database.md#database-management-tool" >}})
 that is shipped as a part of Corda Enterprise.
 
-Collaborative Recovery CorDapps are compatible with the full range of the [databases supported by Corda Enterprise](../../platform-support-matrix.html#node-databases).
+Collaborative Recovery CorDapps are compatible with the full range of the [databases supported by Corda Enterprise]({{< relref "../../platform-support-matrix.md#node-databases" >}}).
 
 The contents of the Collaborative Recovery tables should *not* be altered manually. The tables are not envisioned to grow large in size.
 The space complexities are outlined below:

@@ -78,5 +78,5 @@ The debugger cannot attach to the node's webservers - they always run in a separ
 
 ## Method 3: Enable remote debugging on a node
 
-See [Enabling remote debugging](../node/node-commandline.html#enabling-remote-debugging).
+See [Enabling remote debugging]({{< relref "../node/node-commandline.md#enabling-remote-debugging" >}}).
 

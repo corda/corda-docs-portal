@@ -42,12 +42,12 @@ For the purposes of constraints migration, it is desirable that any new output s
 
 ### Should I use the **implicit** or **explicit** upgrade path?
 
-The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](api-contract-constraints.html#implicit-and-explicit-contract-upgrades). **Implicit** upgrades allow pre-authorizing multiple implementations of the contract ahead of time. They do not require additional coding and do not incur a complex choreographed operational upgrade process.
+The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here]({{< relref "api-contract-constraints.md#implicit-and-explicit-contract-upgrades" >}}). **Implicit** upgrades allow pre-authorizing multiple implementations of the contract ahead of time. They do not require additional coding and do not incur a complex choreographed operational upgrade process.
 
 {{< warning >}}
 The steps outlined in this page assume you are using the same CorDapp Contract (for example, same state definition, commands and verification code) and
 wish to use that CorDapp to leverage the upgradeability benefits of Corda 4 signature constraints. If you are looking to upgrade code within an existing
-Contract CorDapp please read [Contract and state versioning](upgrading-cordapps.html#contract-and-state-versioning) and [CorDapp Upgradeability Guarantees]({{< relref "cordapp-upgradeability.md" >}}) to understand your options.
+Contract CorDapp please read [Contract and state versioning]({{< relref "upgrading-cordapps.md#contract-and-state-versioning" >}}) and [CorDapp Upgradeability Guarantees]({{< relref "cordapp-upgradeability.md" >}}) to understand your options.
 {{< /warning >}}
 
 
@@ -69,7 +69,7 @@ Corda 4.10 requires some additional steps to consume and evolve pre-existing on-
 
 
 * All Corda Nodes in the same CZ or business network that may encounter a transaction chain with a hash constrained state must be started using
-relaxed hash constraint checking mode as described in [Hash constrained states in private networks](api-contract-constraints.html#types-of-contract-constraints).
+relaxed hash constraint checking mode as described in [Hash constrained states in private networks]({{< relref "api-contract-constraints.md#types-of-contract-constraints" >}}).
 * CorDapp flows that build transactions using pre-existing *hash-constrained* states must explicitly set output states to use *signature constraints*
 and specify the related public key(s) used in signing the associated CorDapp Contract JAR:
 
@@ -137,7 +137,7 @@ From now on the development organisation that signed the JAR is responsible for 
 Network Map Service, you should manually send the hashes of the two JARs to the CZ network operator and request these be added using
 their network parameter update process.
 * If using a local network created using the Network Bootstrapper tool, please follow the instructions in
-[Updating the contract whitelist for bootstrapped networks](../network-bootstrapper.html#bootstrapper-updating-whitelisted-contracts) to can add both CorDapp Contract JAR hashes.
+[Updating the contract whitelist for bootstrapped networks]({{< relref "../network-bootstrapper.md#bootstrapper-updating-whitelisted-contracts" >}}) to can add both CorDapp Contract JAR hashes.
 
 * Any flow that builds transactions using this CorDapp will automatically transition states to use the `SignatureAttachmentConstraint` if
 no other constraint is specified and the CorDapp continues to be whitelisted. Therefore, there are two ways to alter the existing code.

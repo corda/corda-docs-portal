@@ -84,7 +84,7 @@ dependencies {
 }
 ```
 
-3. Add both dependencies in your **Cordform** - `deployNodes` - [task](generating-a-node.html#tasks-using-the-cordform-plug-in).
+3. Add both dependencies in your **Cordform** - `deployNodes` - [task]({{< relref "generating-a-node.md#tasks-using-the-cordform-plug-in" >}}).
 
 You have installed the Business Network membership extension.
 

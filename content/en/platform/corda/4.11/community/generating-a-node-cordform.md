@@ -126,7 +126,7 @@ node {
 
 There are four mandatory fields that must be set for the Cordform plugin:
 
-1. `name` &lt;string&gt; is used to specify the legal identity name of the Corda node. For more information, see [myLegalName](corda-configuration-fields.html#mylegalname). For example:
+1. `name` &lt;string&gt; is used to specify the legal identity name of the Corda node. For more information, see [myLegalName]({{< relref "corda-configuration-fields.md#mylegalname" >}}). For example:
 
 ```kotlin
 name "O=PartyA,L=London,C=GB"
@@ -144,7 +144,7 @@ p2pAddress "example.com:10002"
 p2pPort 10006  // "localhost:10006"
 ```
 
-4. `rpcSettings` &lt;config&gt; is used to specify RPC settings for the node. For more information, see [rpcSettings](corda-configuration-fields.html#rpcsettings). For example:
+4. `rpcSettings` &lt;config&gt; is used to specify RPC settings for the node. For more information, see [rpcSettings]({{< relref "corda-configuration-fields.md#rpcsettings" >}}). For example:
 
 ```kotlin
 rpcSettings {
@@ -157,15 +157,15 @@ rpcSettings {
 
 In addition to the four mandatory configuration fields, there are a number of optional configuration options to meet the needs of more specific plugin deployments:
 
-* `notary` &lt;config&gt; is used to specify the node as a Notary node. **Required**> for Notary nodes. For more information, see [Notary](corda-configuration-fields.html#notary).
+* `notary` &lt;config&gt; is used to specify the node as a Notary node. **Required**> for Notary nodes. For more information, see [Notary]({{< relref "corda-configuration-fields.md#notary" >}}).
 
-* `devMode` &lt;boolean&gt; is used to enable development mode when you set its value to `true`. For more information, see [devMode](corda-configuration-fields.html#devmode). For example:
+* `devMode` &lt;boolean&gt; is used to enable development mode when you set its value to `true`. For more information, see [devMode]({{< relref "corda-configuration-fields.md#devmode" >}}). For example:
 
 ```kotlin
 devMode true
 ```
 
-* `rpcUsers` &lt;list&gt; is used to set the RPC users for the node. For more information, see [rpcUsers](corda-configuration-fields.html#rpcusers). You can use arbitrary values in this configuration block - "incorrect" settings will not cause a DSL error. An example follows below:
+* `rpcUsers` &lt;list&gt; is used to set the RPC users for the node. For more information, see [rpcUsers]({{< relref "corda-configuration-fields.md#rpcusers" >}}). You can use arbitrary values in this configuration block - "incorrect" settings will not cause a DSL error. An example follows below:
 
 ```kotlin
 rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.corda.flows.MyFlow"]]]
@@ -177,7 +177,7 @@ rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.
 configFile = "samples/trader-demo/src/main/resources/node-b.conf"
 ```
 
-* `sshdPort` &lt;integer&gt; is used to specify the SSH port for the Docker container. This will be mapped to the same port on the host.  If `sshdPort` is specified, then that port must be available on the host and not in use by some other service. If `sshdPort` is not specified, then a default value will be used for the SSH port on the container. Use the `docker port <container_name>` command to check which port has been allocated on the host for your container. For more information, see [sshd](corda-configuration-fields.html#sshd). For example:
+* `sshdPort` &lt;integer&gt; is used to specify the SSH port for the Docker container. This will be mapped to the same port on the host.  If `sshdPort` is specified, then that port must be available on the host and not in use by some other service. If `sshdPort` is not specified, then a default value will be used for the SSH port on the container. Use the `docker port <container_name>` command to check which port has been allocated on the host for your container. For more information, see [sshd]({{< relref "corda-configuration-fields.md#sshd" >}}). For example:
 
 ```kotlin
 sshd {

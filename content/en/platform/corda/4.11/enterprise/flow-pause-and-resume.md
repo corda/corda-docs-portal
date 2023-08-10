@@ -78,7 +78,7 @@ In all cases, the shell prints a message stating if the operation succeeded or n
 To pause and retry flows from an RPC Client using the extensions RPC Interface (`FlowRPC`), use the Multi RPC Client - `MultiRPCClient`.
 
 {{< note >}}
-For more information about `MultiRPCClient`, see [Interacting with a node](node/operating/clientrpc.html#building-the-multi-rpc-client).
+For more information about `MultiRPCClient`, see [Interacting with a node]({{< relref "node/operating/clientrpc.md#building-the-multi-rpc-client" >}}).
 {{< /note >}}
 
 First instantiate a `MultiRPCClient` for `FlowRPC` (this differs from the standard non-extensions RPC interface):

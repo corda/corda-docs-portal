@@ -145,7 +145,7 @@ You can optionally start a node using the following command-line options:
 * `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: `ERROR`, `WARN`, `INFO` (default), `DEBUG`, `TRACE`.
 * `--help`, `-h`: Show this help message and exit.
 * `--version`, `-V`: Print version information and exit.
-* `--pause-all-flows`: Paused all flows when the node starts up. Starting a node with the `--pause-all-flows` command-line option automatically enables flow draining mode but does not modify the node's configuration file. See [Pause and resume flows](../../flow-pause-and-resume.html#starting-the-node-and-pausing-all-flows) for more information.
+* `--pause-all-flows`: Paused all flows when the node starts up. Starting a node with the `--pause-all-flows` command-line option automatically enables flow draining mode but does not modify the node's configuration file. See [Pause and resume flows]({{< relref "../../flow-pause-and-resume.md#starting-the-node-and-pausing-all-flows" >}}) for more information.
 * `--allow-hibernate-to-manage-app-schema`: enable this option to make the node manage app schemas automatically using Hibernate
 with H2 in dev mode.
 
@@ -213,7 +213,7 @@ This command will start the node with JMX metrics accessible via HTTP on port 70
 
 The status is published as: `net.corda.Node.Status`, and is available almost immediately at startup.
 
-See [Monitoring via Jolokia](../operating/node-administration.html#monitoring-via-jolokia) for further details.
+See [Monitoring via Jolokia]({{< relref "../operating/node-administration.md#monitoring-via-jolokia" >}}) for further details.
 
 
 ## Starting all nodes at once on a local machine from the command prompt
