@@ -1,13 +1,13 @@
 ---
-date: '2023-08-09'
+date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Gateway Worker"
 menu:
-  corda5:
-    parent: corda5-cluster-metrics
-    identifier: corda5-cluster-gateway-worker
+  corda51:
+    parent: corda51-cluster-metrics
+    identifier: corda51-cluster-gateway-worker
     weight: 13000
-section_menu: corda5
+section_menu: corda51
 ---
 
 # Gateway Worker
