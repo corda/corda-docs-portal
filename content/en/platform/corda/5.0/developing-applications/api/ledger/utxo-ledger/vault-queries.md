@@ -576,10 +576,12 @@ The following list describes the operators and right operand types for the vault
 * `>=`
 * `<=`
 
-## ->
+### ->
 
 Right Operand Type: `Int`
+
 Description: Get JSON array element
+
 Example:
 
 `custom_representation`
@@ -609,7 +611,9 @@ In this case it would return:
 ```
 
 Right Operand Type: `Text`
+
 Description: Get JSON object field.
+
 Example:
 
 `custom_representation`
@@ -636,10 +640,12 @@ In this case it would return:
 
 ```
 
-## ->>
+### ->>
 
 Right Operand Type: `Int`
+
 Description: Get JSON array element as text.
+
 Example:
 
 `custom_representation` 
@@ -663,7 +669,9 @@ Example JSON would look like this:
 In this case it would return `7`.
 
 Right Operand Type: `Text`
+
 Description: Get JSON object field as text.
+
 Example:
 
 `custom_representation` 
@@ -684,10 +692,12 @@ Example JSON would look like this:
 
 In this case it would return `ABC`.
 
-## ?
+### ?
 
 Right Operand Type: `Text`
+
 Description: Check if JSON object field exists.
+
 Example:
 
 `custom_representation ?`
@@ -708,10 +718,12 @@ Example JSON would look like this:
 
 In this case it would return `true`.
 
-## ::
+### ::
 
 Right Operand Type: A type, e.g. `Int`
+
 Description: Casts the element/object field to the specified type.
+
 Example:
 
 `(visible_states.field ->> property)::int = 1234`
