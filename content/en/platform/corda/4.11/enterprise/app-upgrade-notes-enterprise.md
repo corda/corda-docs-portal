@@ -17,7 +17,7 @@ weight: 20
 
 ## Upgrading from Corda Community Edition
 
-Before upgrading to Corda Enterprise Edition 4.11, upgrade your CorDapp to Corda Community Edition 4.11. See [Upgrading CorDapps to newer platform versions](app-upgrade-notes.md) for detailed instructions.
+Before upgrading to Corda Enterprise Edition 4.11, upgrade your CorDapp to Corda Community Edition 4.11. See [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) for detailed instructions.
 
 You don't need to re-compile your CorDapp to Corda Enterprise for it to run on Corda Enterprise. If you want your CorDapp to
 be compatible with nodes running open source, then compile it against Corda Community Edition (formerly Open Source) 4.x.
@@ -25,7 +25,7 @@ However, if you want to leverage specific features of Corda Enterprise, such as 
 
 {{< note >}}
 Corda Enterprise and Corda Community Edition public APIs are currently identical. However, this may change for future releases.
-See [Corda and Corda Enterprise compatibility](version-compatibility.md) guarantees for further information.
+See [Corda and Corda Enterprise compatibility]({{< relref "version-compatibility.md" >}}) guarantees for further information.
 
 {{< /note >}}
 
@@ -80,7 +80,7 @@ You can do either of the following:
 * Upgrade your `quasar.jar` file to the version consistent with your Corda version.
 * Delete your `lib` directory and switch to using the Gradle test runner.
 
-You can find instructions for both options in [Running tests in IntelliJ](testing.html#running-tests-in-intellij).
+You can find instructions for both options in [Running tests in IntelliJ]({{< relref "testing.md#running-tests-in-intellij" >}}).
 
 4. Check you're using Corda Gradle plugins version 5.0.12, and that Corda Enterprise dependencies are referenced with the right distribution.
 

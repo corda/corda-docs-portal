@@ -23,7 +23,7 @@ Corda Enterprise Edition 4.11 includes several new features, enhancements, and f
 
 Corda 4.11 uses platform version 13.
 
-For more information about platform versions, see [Versioning](cordapps/versioning.md).
+For more information about platform versions, see [Versioning]({{< relref "cordapps/versioning.md" >}}).
 
 ## New features and enhancements
 

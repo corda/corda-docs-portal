@@ -22,7 +22,7 @@ You can attach the [IntelliJ IDEA debugger](https://www.jetbrains.com/help/idea/
 `MockNetwork` to debug your CorDapp.
 
 
-1. Define your [flow tests](api-testing.md).
+1. Define your [flow tests]({{< relref "api-testing.md" >}}).
 2. Set `threadPerNode` to `false` in your `MockNetwork`.
 3. Set your breakpoints.
 4. Run the flow tests using the debugger. When the tests hit a breakpoint, execution will pause.
@@ -78,5 +78,5 @@ The debugger cannot attach to the node's webservers - they always run in a separ
 
 ## Method 3: Enable remote debugging on a node
 
-See [Enabling remote debugging](../node/node-commandline.html#enabling-remote-debugging).
+See [Enabling remote debugging]({{< relref "../node/node-commandline.md#enabling-remote-debugging" >}}).
 

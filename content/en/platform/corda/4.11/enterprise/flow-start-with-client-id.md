@@ -22,7 +22,7 @@ You can use this feature to enable an RPC client to reconnect to an existing flo
 You can also enable an RPC client to signal to Corda to retain the flow's result or exception, so that it could be reclaimed at any time in the future.
 
 {{< note >}}
-`COMPLETED`, `FAILED`, and `KILLED` flows can only be queried via the Multi RPC client when started by the `startFlowWithClientId` or `startFlowDynamicWithClientId` APIs described further below. For more information, see the [Interacting with a node](node/operating/clientrpc.md).
+`COMPLETED`, `FAILED`, and `KILLED` flows can only be queried via the Multi RPC client when started by the `startFlowWithClientId` or `startFlowDynamicWithClientId` APIs described further below. For more information, see the [Interacting with a node]({{< relref "node/operating/clientrpc.md" >}}).
 {{< /note >}}
 
 
@@ -48,7 +48,7 @@ If a flow with the provided `clientId` exists, then the API return its future. O
 * The `startFlowDynamicWithClientId` API behaviour described above does not apply for the pre-existing start flow APIs (`startFlow` and `startTrackedFlow`) - in those cases a new start flow request always equals a new spawned flow.
 * Overloaded methods named `startFlowWithClientId` have been added in `CordaRPCOps` (only available for Kotlin).
 * A limit of **five** non-whitelisted arguments can be passed to the flow constructor using the `CordaRPCOps.startFlow` method.
-  Compound objects can be passed as long as they are [whitelisted](serialization.html#whitelisting) using the `@CordaSerializable` annotation.
+  Compound objects can be passed as long as they are [whitelisted]({{< relref "serialization.md#whitelisting" >}}) using the `@CordaSerializable` annotation.
 {{< /note >}}
 
 To start a flow with a `clientId`:

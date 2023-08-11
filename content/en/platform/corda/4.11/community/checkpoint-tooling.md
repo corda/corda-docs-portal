@@ -20,9 +20,9 @@ title: Checkpoint Tooling
 
 This page contains information about checkpoint tooling. These tools can be used to debug the causes of stuck flows.
 
-Before reading this page, please ensure you understand the mechanics and principles of Corda Flows by reading [Flows](key-concepts-flows.md) and [Writing flows](api-flows.md).
-It is also recommended that you understand the purpose and behaviour of the [Flow Hospital](node-flow-hospital.md) in relation to *checkpoints* and flow recovery.
-An advanced explanation of checkpoints within the flow state machine can be found here: [Flow framework internals](contributing-flow-internals.html#checkpoints).
+Before reading this page, please ensure you understand the mechanics and principles of Corda Flows by reading [Flows]({{< relref "key-concepts-flows.md" >}}) and [Writing flows]({{< relref "api-flows.md" >}}).
+It is also recommended that you understand the purpose and behaviour of the [Flow Hospital]({{< relref "node-flow-hospital.md" >}}) in relation to *checkpoints* and flow recovery.
+An advanced explanation of checkpoints within the flow state machine can be found here: [Flow framework internals]({{< relref "contributing-flow-internals.md#checkpoints" >}}).
 
 
 As a recap, a flow *checkpoint* is a serialised snapshot of the flow’s stack frames and any objects reachable from the stack. Checkpoints are saved to the database automatically when a flow suspends or resumes, which typically happens when sending or receiving messages. A flow may be replayed
@@ -191,7 +191,7 @@ To run simply pass in the following jar to the JVM used to start a Corda node: `
 
 {{< note >}}
 As above also ensure to use the jar when using corda gradle plugin configuration tasks: e.g. `cordformation deployNodes` task.
-See [Generating a node](generating-a-node.md).
+See [Generating a node]({{< relref "generating-a-node.md" >}}).
 
 {{< /note >}}
 
@@ -581,7 +581,7 @@ Useful commands include 'help' to see what is available, and 'bye' to shut down 
 Thu Jul 11 19:52:56 BST 2019>>> run setFlowsDrainingModeEnabled enabled: false
 ```
 
-See also [Flow draining mode](key-concepts-node.html#draining-mode).
+See also [Flow draining mode]({{< relref "key-concepts-node.md#draining-mode" >}}).
 
 
 * contacting other participants in the network where their nodes are not responding to an initiated flow.
@@ -625,7 +625,7 @@ The feature provides a way for flows to reload from checkpoints, even if no erro
 
 ### How to use this feature
 
-Add the `reloadCheckpointAfterSuspend` [node configuration option](corda-configuration-fields.md) and set it to `true`, as shown below:
+Add the `reloadCheckpointAfterSuspend` [node configuration option]({{< relref "corda-configuration-fields.md" >}}) and set it to `true`, as shown below:
 
 ```
 reloadCheckpointAfterSuspend = true

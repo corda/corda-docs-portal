@@ -121,7 +121,7 @@ node {
 
 ## Required configuration
 
-* `name` &lt;string&gt; - use this configuration option to specify the legal identity name of the Corda node. For more information, see [myLegalName](../setup/corda-configuration-fields.html#mylegalname). For example:
+* `name` &lt;string&gt; - use this configuration option to specify the legal identity name of the Corda node. For more information, see [myLegalName]({{< relref "../setup/corda-configuration-fields.md#mylegalname" >}}). For example:
 
 ```kotlin
 name "O=PartyA,L=London,C=GB"
@@ -137,7 +137,7 @@ p2pAddress "example.com:10002"
 p2pPort 10006  // "localhost:10006"
 ```
 
-* `rpcSettings` &lt;config&gt; - use this configuration option to specify RPC settings for the node. For more information, see [rpcSettings](../setup/corda-configuration-fields.html#rpcsettings). For example:
+* `rpcSettings` &lt;config&gt; - use this configuration option to specify RPC settings for the node. For more information, see [rpcSettings]({{< relref "../setup/corda-configuration-fields.md#rpcsettings" >}}). For example:
 
 ```kotlin
 rpcSettings {
@@ -148,15 +148,15 @@ rpcSettings {
 
 ## Optional configuration
 
-* `notary` &lt;config&gt; - use this configuration option to specify the node as a Notary node. **Required for Notary nodes**. For more information, see [notary](../setup/corda-configuration-fields.html#notary).
+* `notary` &lt;config&gt; - use this configuration option to specify the node as a Notary node. **Required for Notary nodes**. For more information, see [notary]({{< relref "../setup/corda-configuration-fields.md#notary" >}}).
 
-* `devMode` &lt;boolean&gt; - use this configuration option to enable development mode when you set its value to `true`. For more information, see [devMode](../setup/corda-configuration-fields.html#devmode). For example:
+* `devMode` &lt;boolean&gt; - use this configuration option to enable development mode when you set its value to `true`. For more information, see [devMode]({{< relref "../setup/corda-configuration-fields.md#devmode" >}}). For example:
 
 ```kotlin
 devMode true
 ```
 
-* `rpcUsers` &lt;list&gt; - use this configuration option to set the RPC users for the node. For more information, see [rpcUsers](../setup/corda-configuration-fields.html#rpcusers). You can use arbitrary values in this configuration block - "incorrect" settings will not cause a DSL error. An example follows below:
+* `rpcUsers` &lt;list&gt; - use this configuration option to set the RPC users for the node. For more information, see [rpcUsers]({{< relref "../setup/corda-configuration-fields.md#rpcusers" >}}). You can use arbitrary values in this configuration block - "incorrect" settings will not cause a DSL error. An example follows below:
 
 ```kotlin
 rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.corda.flows.MyFlow"]]]
@@ -168,7 +168,7 @@ rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.
 configFile = "samples/trader-demo/src/main/resources/node-b.conf"
 ```
 
-* `sshdPort` &lt;integer&gt; - use this configuration option to specify the SSH port for the Docker container. This will be mapped to the same port on the host.  If `sshdPort` is specified, then that port must be available on the host and not in use by some other service. If `sshdPort` is not specified, then a default value will be used for the SSH port on the container. Use the `docker port <container_name>` command to check which port has been allocated on the host for your container. For more information, see [sshd](../setup/corda-configuration-fields.html#sshd). For example:
+* `sshdPort` &lt;integer&gt; - use this configuration option to specify the SSH port for the Docker container. This will be mapped to the same port on the host.  If `sshdPort` is specified, then that port must be available on the host and not in use by some other service. If `sshdPort` is not specified, then a default value will be used for the SSH port on the container. Use the `docker port <container_name>` command to check which port has been allocated on the host for your container. For more information, see [sshd]({{< relref "../setup/corda-configuration-fields.md#sshd" >}}). For example:
 
 ```kotlin
 sshd {
@@ -222,7 +222,7 @@ running the bootstrapper.
 
 ## Package namespace ownership
 
-To configure [package namespace ownership](../../../../../../../en/platform/corda/4.8/enterprise/node/deploy/env-dev.html#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper]({{< relref "../../network-bootstrapper.md" >}}) tool. For example:
+To configure [package namespace ownership]({{< relref "env-dev.md#package-namespace-ownership" >}}), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper]({{< relref "../../network-bootstrapper.md" >}}) tool. For example:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {

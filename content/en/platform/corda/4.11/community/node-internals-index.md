@@ -20,8 +20,8 @@ title: Node internals
 
 
 
-* [Node services](node-services.md)
-* [Networking and messaging](messaging.md)
+* [Node services]({{< relref "node-services.md" >}})
+* [Networking and messaging]({{< relref "messaging.md" >}})
 
 
 

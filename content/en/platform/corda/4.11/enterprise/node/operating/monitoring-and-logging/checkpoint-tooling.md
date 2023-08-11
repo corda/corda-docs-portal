@@ -140,7 +140,7 @@ For a given flow checkpoint, the agent reports:
 * Information about the checkpoint such as its `flowId`.
 * A nested hierarchical view of its reachable objects and their associated sizes, including the state of any flows held within the checkpoint.
 
-The checkpoint agent writes information to standard Log4j2 log files in the node's `log` directory. This tool is particularly useful when used in conjunction with the `checkpoints dump` [CRaSH shell command](../shell.html#output-information-about-the-flows-running-on-the-node) to identify and troubleshoot problems associated with flows not completing. When a checkpoint is serialized to disk the checkpoint agent has access to all checkpoint data, including the fiber it was running on and the checkpoint ID. When a checkpoint is deserialized from disk the checkpoint agent only has access to the stack class hierarchy.
+The checkpoint agent writes information to standard Log4j2 log files in the node's `log` directory. This tool is particularly useful when used in conjunction with the `checkpoints dump` [CRaSH shell command]({{< relref "../shell.md#output-information-about-the-flows-running-on-the-node" >}}) to identify and troubleshoot problems associated with flows not completing. When a checkpoint is serialized to disk the checkpoint agent has access to all checkpoint data, including the fiber it was running on and the checkpoint ID. When a checkpoint is deserialized from disk the checkpoint agent only has access to the stack class hierarchy.
 
 To use the checkpoint agent:
 
@@ -158,7 +158,7 @@ The checkpoint agent logs output to a Log4j2-configured logger. This logger must
 
 To configure the checkpoint agent logger:
 
-1. Open the `sql.xml` logging configuration file. For information on general logging configuration, see [Monitoring and logging](overview.md).
+1. Open the `sql.xml` logging configuration file. For information on general logging configuration, see [Monitoring and logging]({{< relref "overview.md" >}}).
 2. Add the following logger entry:
 
     ```xml
@@ -306,7 +306,7 @@ The detection of unrestorable checkpoints can be enabled either by a node config
 To enable this feature in the node configuration:
 
 1. Open the `node.conf` node configuration file.
-2. Add the `reloadCheckpointAfterSuspend` [option](../../setup/corda-configuration-fields.html#reloadCheckpointAfterSuspend) to your node configuration, set to true:
+2. Add the `reloadCheckpointAfterSuspend` [option]({{< relref "../../setup/corda-configuration-fields.md#reloadCheckpointAfterSuspend" >}}) to your node configuration, set to true:
     ```
     reloadCheckpointAfterSuspend = true
     ```
@@ -328,4 +328,4 @@ The feature can also be enabled by setting the system property `reloadCheckpoint
 
 ## Related content
 
-* [Troubleshooting stuck flows](diagnosing-stuck-flows.md)
+* [Troubleshooting stuck flows]({{< relref "diagnosing-stuck-flows.md" >}})

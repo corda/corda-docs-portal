@@ -297,7 +297,7 @@ Please do not change.
   This acts as a human-readable alias to the node's public key and can be used with the network map to look up the node's info.
   This is the name that is used in the node's certificates (either when requesting them from the doorman, or when auto-generating them in dev mode).
   At runtime, Corda checks whether this name matches the name in the node's certificates.
-  The name must be a valid X.500 distinguished name, as per the [node naming constraints](node-naming.md).
+  The name must be a valid X.500 distinguished name, as per the [node naming constraints]({{< relref "node-naming.md" >}}).
 
   *Default:* not defined
 
@@ -350,7 +350,7 @@ Please do not change.
 
   This flag toggles auto accepting of network parameter changes.
   If a network operator issues a network parameter change which modifies only auto-acceptable options and this behaviour is enabled then the changes will be accepted without any manual intervention from the node operator.
-  See the [network map page](network-map.md) for more information on the update process and current auto-acceptable parameters.
+  See the [network map page]({{< relref "network-map.md" >}}) for more information on the update process and current auto-acceptable parameters.
   Set to `false` to disable.
 
   *Default:* true
@@ -513,7 +513,7 @@ Deprecated. Use rpcSettings instead.**
 
 ## `telemetry`
 
-There are new configuration fields for telemetry. See the [OpenTelemetry](opentelemetry.md) section for more information. 
+There are new configuration fields for telemetry. See the [OpenTelemetry]({{< relref "opentelemetry.md" >}}) section for more information. 
 
 * `openTelemetryEnabled` 
   * Specifies if the node should generate spans to be sent to a collector. The node will only generate spans if this property is set to `true` and an OpenTelemetry SDK is on the node classpath. By default, no OpenTelemetry SDK is on the node classpath, meaning by default no spans are actually generated. To prevent spans being generated regardless of whether the OpenTelemetry SDK is on the classpath, this configuration field should be set to `false`.
@@ -596,6 +596,6 @@ telemetry {
   This option is disabled by default and is independent from `devMode`.
   {{< /note >}}
 
-  For full details, see [Automatic detection of unrestorable checkpoints](checkpoint-tooling.html#automatic-detection-of-unrestorable-checkpoints).
+  For full details, see [Automatic detection of unrestorable checkpoints]({{< relref "checkpoint-tooling.md#automatic-detection-of-unrestorable-checkpoints" >}}).
 
   *Default:* not defined

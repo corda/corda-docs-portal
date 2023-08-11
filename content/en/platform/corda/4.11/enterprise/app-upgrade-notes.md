@@ -63,8 +63,8 @@ Follow the steps below for each upgrade path.
 
 #### Upgrade a node from Corda 4.5 (or earlier 4.x version)
 
-1. Remove any entries of `transactionIsolationLevel`, `initialiseSchema`, `initialiseAppSchema`, and `runMigration` from the database section of your [node configuration file](node/setup/corda-configuration-file.md).
-2. Update any missing core schema changes by either running the [Database Management Tool](database-management-tool.md) (recommended) or running the node in `run-migration-scripts` mode: `java -jar corda.jar run-migration-scripts --core-schemas`.
+1. Remove any entries of `transactionIsolationLevel`, `initialiseSchema`, `initialiseAppSchema`, and `runMigration` from the database section of your [node configuration file]({{< relref "node/setup/corda-configuration-file.md" >}}).
+2. Update any missing core schema changes by either running the [Database Management Tool]({{< relref "database-management-tool.md" >}}) (recommended) or running the node in `run-migration-scripts` mode: `java -jar corda.jar run-migration-scripts --core-schemas`.
 
 #### Upgrade a node from Corda 3.x or Corda Enterprise 3.x
 
@@ -121,7 +121,7 @@ If you try to compile this code in platform version 5, you'll get the following 
 This is because a new `Destination` interface (introduced in platform version 5) can cause type inference failures when using a variable as an `AbstractParty` which has an actual value that is one of `Party` or `AnonymousParty`. These subclasses
 implement `Destination`, while the superclass does not. Kotlin must pick a type for the variable, and so chooses the most specific
 ancestor of both `AbstractParty` and `Destination`. This is `Any`, which is not subsequently a valid type for `AbstractParty`.
-For more information on `Destination`, see the [Changelog](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.4/changelog.md) for platform version 5, or the [KDocs](../../../../api-ref/api-ref-corda-4.html#corda-enterprise-4x-api-reference) for the interface.
+For more information on `Destination`, see the [Changelog](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.4/changelog.md) for platform version 5, or the [KDocs]({{< relref "../../../../api-ref/api-ref-corda-4.md#corda-enterprise-4x-api-reference" >}})for the interface.
 
 
 {{< note >}}

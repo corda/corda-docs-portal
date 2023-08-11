@@ -32,7 +32,7 @@ A Corda vault is a database containing all data from the ledger relevant to a no
     * Transaction reporting.
     * Audit and archives, including the ability to perform joins with app-private data, like customer notes.
 
-You can use data in your vault to create transactions that send value to another party by combining [fungible states](key-concepts-states.md), and possibly adding a change output that makes the values balance. This process is referred to as ‘coin selection’.
+You can use data in your vault to create transactions that send value to another party by combining [fungible states]({{< relref "key-concepts-states.md" >}}), and possibly adding a change output that makes the values balance. This process is referred to as ‘coin selection’.
 
 Spending from the vault in this way ensures that transactions respect fungibility rules. The issuer and reference data is preserved as the assets pass between parties.
 
@@ -49,12 +49,12 @@ This diagram illustrates the breakdown of the vault into sub-system components:
 
 You can see:
 
-* The vault's on-ledger store tracks unconsumed states. The node updates it internally when all participants verify and sign a [smart contract](key-concepts-smart-contracts.md) and commit a transaction to the ledger.
+* The vault's on-ledger store tracks unconsumed states. The node updates it internally when all participants verify and sign a [smart contract]({{< relref "key-concepts-contracts.md" >}}) and commit a transaction to the ledger.
 * The vault “Off Ledger” store refers to additional data added by the node owner subsequent to transaction recording.
-* The vault performs fungible state spending (and in future, fungible state optimisation management including merging, splitting and re-issuance).
+* The vault performs fungible state spending (and in future, fungible state optimization management including merging, splitting and re-issuance).
 * Vault extensions represent additional custom plugin code a developer may write to query specific custom contract state attributes.
-* Customer “Off Ledger” (private store) represents internal organisational data that may be joined with the vault data to perform additional reporting or processing.
-* A [Vault Query API](api-vault-query.md) is exposed to developers using standard Corda RPC and CorDapp plugin mechanisms.
+* Customer “Off Ledger” (private store) represents internal organizational data that may be joined with the vault data to perform additional reporting or processing.
+* A [Vault Query API]({{< relref "api-vault-query.md" >}}) is exposed to developers using standard Corda RPC and CorDapp plugin mechanisms.
 * Transaction recording flows use a vault update API internally.
 * The vault database schemas are directly accessible via JDBC for customer joins and queries.
 
@@ -113,7 +113,7 @@ query soft locks associated with states as required by their CorDapp application
 
 ```
 
-[VaultService.kt](https://github.com/corda/corda/blob/release/os/4.8/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt)
+[VaultService.kt](https://github.com/corda/corda/blob/release/os/4.11/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt)
 
 
 ### Querying the vault with `SoftLockingCondition`
@@ -134,7 +134,7 @@ By default, vault queries always include locked states in its result sets. Custo
 
 ```
 
-[QueryCriteria.kt](https://github.com/corda/corda/blob/release/os/4.8/core/src/main/kotlin/net/corda/core/node/services/vault/QueryCriteria.kt)
+[QueryCriteria.kt](https://github.com/corda/corda/blob/release/os/4.11/core/src/main/kotlin/net/corda/core/node/services/vault/QueryCriteria.kt)
 
 
 ### Explicit Usage

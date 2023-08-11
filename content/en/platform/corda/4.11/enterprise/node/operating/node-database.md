@@ -40,8 +40,8 @@ A Corda node with full control of the database schema can create or upgrade sche
 This eases the operational maintenance for development and testing.
 
 
-Database setup for production systems (with **restricted permissions**) is described in [Database schema setup](node-database-admin.md),
-and the recommended setup for development/testing environments are described in [Simplified database schema setup for development](node-database-developer.md).
+Database setup for production systems (with **restricted permissions**) is described in [Database schema setup]({{< relref "node-database-admin.md" >}}),
+and the recommended setup for development/testing environments are described in [Simplified database schema setup for development]({{< relref "node-database-developer.md" >}}).
 
 
 ## Database schema objects management
@@ -155,7 +155,7 @@ By default, the node database has the following tables:
 
 {{< /table >}}
 
-For more details, see [Database tables](node-database-tables.md).
+For more details, see [Database tables]({{< relref "node-database-tables.md" >}}).
 
 The node database for a Simple Notary has additional tables:
 
@@ -170,7 +170,7 @@ The node database for a Simple Notary has additional tables:
 
 {{< /table >}}
 
-The structure of the tables of JPA notaries are described at [Configuring a JPA notary backend](../../notary/installing-jpa.html#configuring-jpa-notary-backend).
+The structure of the tables of JPA notaries are described at [Configuring a JPA notary backend]({{< relref "../../notary/installing-jpa.md#configuring-jpa-notary-backend" >}}).
 
 The tables for other experimental notary implementations are not described here.
 
@@ -178,4 +178,4 @@ The tables for other experimental notary implementations are not described here.
 ### Database Schema Migration Logging
 
 Database migration logs for Corda internal tables follow a structured format
-described in [Database Schema Migration Logging](../../node-database-migration-logging.html#database-schema-migration-logging).
+described in [Database Schema Migration Logging]({{< relref "../../node-database-migration-logging.md#database-schema-migration-logging" >}}).

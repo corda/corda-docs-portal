@@ -14,7 +14,7 @@ section_menu: corda-community-4-11
 
 # Admin user interface
 
-The admin user interface of Bank in a Box allows an admin user to perform the tasks of a bank employee. Read on to familiarise yourself with the elements of the user interface. To learn how to perform tasks as an admin user, see the [How to guide](./how-to.html#admin-tasks).
+The admin user interface of Bank in a Box allows an admin user to perform the tasks of a bank employee. Read on to familiarise yourself with the elements of the user interface. To learn how to perform tasks as an admin user, see the [How to guide]({{< relref "./how-to.md#admin-tasks" >}}).
 
 ## Log in and home screen
 
@@ -52,7 +52,7 @@ When you open the navigation menu, you will see the following:
 
 ## User management
 
-When you click on **User management** in the navigation menu, you will be taken to the **User management** screen. Here you can [assign and revoke user permissions](./how-to.html#assign-or-revoke-a-user-role).
+When you click on **User management** in the navigation menu, you will be taken to the **User management** screen. Here you can [assign and revoke user permissions]({{< relref "./how-to.md#assign-or-revoke-a-user-role" >}}).
 
 ## Customers screen
 
@@ -66,9 +66,9 @@ To find a specific customer, use the search bar. After typing three characters, 
 The search is case-sensitive.
 {{< /note >}}
 
-When you click on a customer name, you will be directed to the **Update Customer** screen where you can [view and update a customer profile](./how-to.html#update-customer-profile).
+When you click on a customer name, you will be directed to the **Update Customer** screen where you can [view and update a customer profile]({{< relref "./how-to.md#update-customer-profile" >}}).
 
-You may also wish to [create a new customer](./how-to.html#create-a-customer-profile). Click on the **Create New** button in the top right corner to be directed to the **Create Customer** screen.
+You may also wish to [create a new customer]({{< relref "./how-to.md#create-a-customer-profile" >}}). Click on the **Create New** button in the top right corner to be directed to the **Create Customer** screen.
 
 ## Accounts screen
 
@@ -122,7 +122,7 @@ On this tab, you can view customer information that is tied to the account. This
 
 
 {{< note >}}
-Customer information can be viewed but not modified from this tab. For instructions on modifying customer information, see the documentation on [updating a customer profile](./how-to.html#update-customer-profile).
+Customer information can be viewed but not modified from this tab. For instructions on modifying customer information, see the documentation on [updating a customer profile]({{< relref "./how-to.md#update-customer-profile" >}}).
 {{< /note >}}
 
 #### Transactions tab
@@ -267,7 +267,7 @@ To find a specific recurring payment, use the search bar. After typing three cha
 
 If you wish to see all relevant information for a specific recurring payment, click on the recurring payment and you will be directed to the [Recurring payments view](#recurring-payments-view).
 
-You may also wish to [create a new recurring payment](./how-to.html#create-a-recurring-payment). Click on the Create New button in the top right corner to be directed to the **Create a recurring payment** screen.
+You may also wish to [create a new recurring payment]({{< relref "./how-to.md#create-a-recurring-payment" >}}). Click on the Create New button in the top right corner to be directed to the **Create a recurring payment** screen.
 
 
 ### Recurring payments view

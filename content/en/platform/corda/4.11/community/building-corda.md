@@ -19,7 +19,7 @@ title: Building Corda
 # Building Corda
 
 These instructions are for downloading and building the Corda code locally. If you only wish to develop CorDapps for
-use on Corda, you don’t need to do this, follow the instructions at [Getting set up for CorDapp development](getting-set-up.md) and use the precompiled binaries.
+use on Corda, you don’t need to do this, follow the instructions at [Getting set up for CorDapp development]({{< relref "getting-set-up.md" >}}) and use the precompiled binaries.
 
 
 ## Windows

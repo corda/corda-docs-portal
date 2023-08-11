@@ -20,7 +20,7 @@ title: 'API: States'
 
 # CorDapp states
 
-Before you read this article, make sure you understand the [state key concepts](key-concepts-states.md).
+Before you read this article, make sure you understand the [state key concepts]({{< relref "key-concepts-states.md" >}}).
 
 In Corda, a contract state (or just ‘state’) stores data that the CorDapp needs to move from one transaction to another.
 
@@ -54,7 +54,7 @@ The `participants` in a state:
 * Receive any finalized transactions as part of `FinalityFlow` / `ReceiveFinalityFlow`.
 
 {{< note >}}
-See [Reissuing states](reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
+See [Reissuing states]({{< relref "reissuing-states.md" >}}) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
 {{< /note >}}
 
 ## ContractState sub-interfaces
