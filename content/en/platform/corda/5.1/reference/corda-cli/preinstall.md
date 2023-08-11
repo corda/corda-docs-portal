@@ -30,7 +30,7 @@ table th:nth-of-type(2) {
 | --------------------------------------- | ------------------------------------------|
 | \<path\> | The YAML file containing resource limit overrides for the Corda install. |
 
-   {{< tabs name="create">}}
+   {{< tabs name="check-limits">}}
    {{% tab name="Bash" %}}
    ```sh
    ./corda-cli.sh preinstall check-limits <path>
@@ -62,7 +62,7 @@ table th:nth-of-type(2) {
 | \<path\> | The YAML file containing the user name and password values for PostgreSQL - either as values, or as secret references. |
 |  \-n, \-\-namespace=<namespace> | The namespace in which to look for PostgreSQL secrets, if there are any. |
 
-   {{< tabs name="create">}}
+   {{< tabs name="check-postgres">}}
    {{% tab name="Bash" %}}
    ```sh
    ./corda-cli.sh preinstall check-postgres [-n=<namespace>] <path>
@@ -94,7 +94,7 @@ table th:nth-of-type(2) {
 | \-n, \-\-namespace=<namespace> | The namespace in which to look for the Kafka secrets if TLS or SASL is enabled. |
 | \-t, \-\-timeout=<timeout> | The timeout in milliseconds for testing the Kafka connection - defaults to 3000. |
 
-   {{< tabs name="create">}}
+   {{< tabs name="check-kafka">}}
    {{% tab name="Bash" %}}
    ```sh
    ./corda-cli.sh preinstall check-kafka [-n=<namespace>] [-t=<timeout>] <path>
@@ -126,7 +126,7 @@ table th:nth-of-type(2) {
 | \-n, \-\-namespace=<namespace> | The namespace in which to look for both the PostgreSQL and Kafka secrets. |
 | \-t, \-\-timeout=<timeout> | The timeout in milliseconds for testing the Kafka connection - defaults to 3000. |
 
-   {{< tabs name="create">}}
+   {{< tabs name="run-all">}}
    {{% tab name="Bash" %}}
    ```sh
    ./corda-cli.sh preinstall run-all [-n=<namespace>] [-t=<timeout>] <path>
