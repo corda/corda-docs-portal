@@ -50,7 +50,7 @@ handling, and ensures the Corda service is run at boot.
    ```
 
 4. Download the [Corda jar](https://software.r3.com:443/artifactory/corda-releases/net/corda/corda/4.11)
-(under `/4.11/corda-4.1.jar`) and place it in `/opt/corda`.
+(under `/4.11/corda-4.11.jar`) and place it in `/opt/corda`.
 5. Create a directory called `cordapps` in `/opt/corda` and save your CorDapp jar file to it. Alternatively, download one of
 our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory.
 6. Save the following as `/opt/corda/node.conf`; see [Node configuration]({{< relref "corda-configuration-file.md" >}}) for a description of these options:
