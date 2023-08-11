@@ -98,5 +98,3 @@ To approve or reject a transfer:
 	  alt="Transfer Requests Pane"
 	  figcaption="Transfer Requests Pane"
    >}}
-   
-   <TBD>

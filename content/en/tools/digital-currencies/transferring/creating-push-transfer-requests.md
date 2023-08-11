@@ -8,7 +8,7 @@ menu:
     weight: 1000
     parent: digital-currencies-tokens-transferring
     identifier: digital-currencies-creating-push-transfer-requests
-    description: "Digital Currencies documentation describing how to create push  transfer requests via the GUI"
+    description: "Digital Currencies documentation describing how to create push transfer requests via the GUI"
 title: "Creating Push Transfer Requests"
 ---
 
@@ -103,11 +103,3 @@ As a commercial bank:
    >}}
    
 The recipient must now approve the transfer request; see [Approving Transfer Requests]({{< relref "approving-or-rejecting-transfer-requests" >}}).
-   
-
-
-   
-   
-   
-   
-   

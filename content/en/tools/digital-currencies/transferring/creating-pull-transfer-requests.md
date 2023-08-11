@@ -98,11 +98,3 @@ This topic describes how to create a pull transfer request. A pull transfer occu
    >}}
    
 The recipient must now approve the transfer request; see [Approving Transfer Requests]({{< relref "approving-or-rejecting-transfer-requests" >}}).
-   
-
-
-   
-   
-   
-   
-   

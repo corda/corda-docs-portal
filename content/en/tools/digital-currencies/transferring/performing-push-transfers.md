@@ -12,9 +12,9 @@ menu:
 title: "Performing Push Transfers"
 ---
 
-This topic describes how to perform a push transfer . A push transfer occurs when the initiator of the transfer, which possesses tokens, wants to transfer those tokens to a recipient. Once the push transfer is performed, the tokens are immediately transferred to the recipient. 
+This topic describes how to perform a push transfer. A push transfer occurs when the initiator of the transfer, which possesses tokens, wants to transfer those tokens to a recipient. Once the push transfer is performed, the tokens are immediately transferred to the recipient. 
 
-You could instead [create a push transfer request]({{< relref "creating-push-transfer-requests.md" >}}). The difference between that and performing a push transfer is that, when creating a push transfer request, the recipient must approve the request before the tokens are  transferred.
+You could instead [create a push transfer request]({{< relref "creating-push-transfer-requests.md" >}}). The difference between that and performing a push transfer is that, when creating a push transfer request, the recipient must approve the request before the tokens are transferred.
 
 As a commercial bank:
 
@@ -90,12 +90,3 @@ As a commercial bank:
    >}}
 
    The vault balances of the sender and receiver are immediately updated to show their new balances.
-   
-   
-
-
-   
-   
-   
-   
-   

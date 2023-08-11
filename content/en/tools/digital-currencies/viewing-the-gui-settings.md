@@ -30,7 +30,7 @@ The page displays the following panels:
 
 * **Settings**: This panel displays the following configurable settings:
 
-  * **Dark app theme:** Select this option to change the GUI to have a dark  background.
+  * **Dark app theme:** Select this option to change the GUI to have a dark background.
   * **Show flow tracker:** Select this option to display the flow tracker button on the right-hand side of the GUI. 
   * **Hide flow tracker on click away:** Select this option to automatically hide the flow tracker if the user clicks anywhere outside it.
 
