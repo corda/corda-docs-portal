@@ -5,7 +5,7 @@ project: corda
 version: 'Corda 5.0'
 menu:
   corda5:
-    identifier: notary-plugin-cordapps
+    identifier: corda5-notary-plugin-cordapps
     parent: corda5-develop-notaries
     weight: 4700
 section_menu: corda5
