@@ -18,7 +18,7 @@ This topic describes how to install the Digital Currencies demo, enabling you to
 1. [Install the prerequisites](#install-the-prerequisites)
 2. [Configure Artifactory authentication](#configure-artifactory-authentication)
 2. [Clone the Digital Currencies repositories](#clone-the-digital-currencies-repositories)
-3. [Run a clean version of corda](#run-corda)
+3. [Run Corda](#run-corda)
 4. [Deploy the Digital Currencies CorDapp](#deploy-the-digital-currencies-cordapp) 
 6. [Specify Virtual Nodes for Digital Currencies UI](#specify-virtual-nodes-for-digital-currencies-ui)
 7. [Run the Digital Currencies UI](#run-the-digital-currencies-ui)
@@ -400,9 +400,9 @@ For each bank:
 
 The Digital Currencies UI can be run in one of three ways:
 
-* Run locally in developer mode
-* Run locally in production optimized mode
-* Run locally with Docker Compose
+* [Run locally in developer mode]({{< relref "#run-the-digital-currencies-ui-in-developer-mode" >}})
+* [Run locally in production optimized mode]({{< relref "#run-the-digital-currencies-ui-in-production-mode" >}})
+* [Run locally with Docker Compose]({{< relref "#run-the-digital-currencies-ui-with-docker-compose" >}})
 
 ### Run the Digital Currencies UI in Developer Mode
 

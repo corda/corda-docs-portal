@@ -12,6 +12,8 @@ menu:
 title: "Approving or Rejecting Transfer Requests"
 ---
 
+Once a [push transfer request]({{< relref "creating-push-transfer-requests.md" >}}) or [pull transfer request]({{< relref "creating-pull-transfer-requests.md" >}}) has been initiated, it must then either be approved or rejected. In the case of a push transfer, it must be approved by the recipient; in the case of a pull transfer, it must be approved by the sender. 
+
 To approve or reject a transfer:
 
 1. In the left-hand menu, click on **Transfers**.
@@ -19,7 +21,8 @@ To approve or reject a transfer:
    The **Transfers** page is displayed, showing the following panels related to transfers:
 
    * **Vault Balance**: A Corda vault is a database containing all data from the ledger relevant to a participant. For more information, see [the Vault topic]({{< relref "/en/platform/corda/5.0/developing-applications/ledger/vault/_index.md" >}}).
-   * **Request Transfer**: Allows you to create a transfer request; see [Creating Transfer Requests](creating-transfer-requests.md)
+   * **Request**: Allows you to create a push or pull transfer request; for more on creating pull requests, see [Creating Pull Transfer Requests]({{< relref "creating-pull-transfer-requests.md" >}}).
+   * **Transfer:** Allows you to perform a push transfer which does not require approval from the recipient; see [Performing Push Transfers]({{< relref "performing-push-transfers.md" >}}).
    * **Transfer Requests:** Lists any existing transfer requests and their status.
   
    {{< 

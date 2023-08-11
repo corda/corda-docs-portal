@@ -14,6 +14,8 @@ title: "Minting Tokens"
 
 Once a [token definition has been created]({{< relref "../defining/creating-token-definitions.md " >}}), new tokens of that type can be minted. Such tokens can then be used as for currency or utility purposes and allow the issuing party to maintain monetary policy and provide easily accessible digital currency tokens to specific entities.
 
+As a central bank:
+
 1. Click **Token Manager** in the left-hand sidebar.
 
    The **Token Manager** page is displayed:
@@ -35,7 +37,7 @@ Once a [token definition has been created]({{< relref "../defining/creating-toke
 4. In the **Mint Tokens** pane, specify the following values:
 
    * **Token Definition:** Select the relevant token definition (previously created as described in [Creating Token Definitions]({{< relref "../defining/creating-token-definitions.md" >}})).
-   * **Amount:** Type the number of token you want; for example *100*.
+   * **Amount:** Type the number of token you want; for example *1000000*.
    
 5. Click **Create**.
   

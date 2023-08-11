@@ -12,6 +12,7 @@ menu:
 title: "Creating Pull Transfer Requests"
 ---
 
+This topic describes how to create a pull transfer request. A pull transfer occurs when the initiator of the transfer wants to be the recipient of tokens sent from another participant which possesses tokens. Once the pull transfer request is created, it must then be [approved by the sender]({{< relref "approving-or-rejecting-transfer-requests.md" >}}).
 
 
 1. In the left-hand menu, click on **Transfers**.

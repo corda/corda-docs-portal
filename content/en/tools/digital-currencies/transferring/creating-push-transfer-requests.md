@@ -12,7 +12,12 @@ menu:
 title: "Creating Push Transfer Requests"
 ---
 
+This topic describes how to create a push transfer request. A push transfer occurs when the initiator of the transfer, which possesses tokens, wants to transfer those tokens to a recipient. Once the push transfer request is created, it must then be [approved by the recipient]({{< relref "approving-or-rejecting-transfer-requests.md" >}}).
 
+You could instead [perform a push transfer]({{< relref "performing-push-transfers.md" >}}). The difference between that and creating a push transfer request is that, when preforming a push transfer, no approval by the recipient is required and the tokens are immediately transferred.
+
+
+As a commercial bank:
 
 1. In the left-hand menu, click on **Transfers**.
 
