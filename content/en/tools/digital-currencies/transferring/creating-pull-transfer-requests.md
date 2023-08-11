@@ -46,7 +46,7 @@ This topic describes how to create a pull transfer request. A pull transfer occu
 	  alt="Request Transfer Panel"
    >}} 
   
-2. In the **Request Transfer** panel, specify the following values:
+3. In the **Request Transfer** panel, specify the following values:
 
    * **Request Transfer Type:** Select **Pull**.
    * **Receiving Party:** Select the participant to receive the tokens.
@@ -55,7 +55,7 @@ This topic describes how to create a pull transfer request. A pull transfer occu
    
    In this example, Commercial Bank 1 will create a pull request for 70,000 tokens to Commercial Bank 2.
 
-3. Click **Request**. 
+4. Click **Request**. 
 
    The message *Successfully submitted a transfer request* is displayed:
 

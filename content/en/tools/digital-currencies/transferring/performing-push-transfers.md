@@ -57,7 +57,7 @@ As a commercial bank:
    * **Receiving Party:** Select the participant (such as another commercial bank) who will receive the tokens. 
    * **Amount:** Enter the number of tokens to send.
       
-3. Click **Send**. 
+4. Click **Send**. 
 
    The message *Successfully submitted a transfer of tokens* is displayed:
 

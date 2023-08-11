@@ -34,12 +34,12 @@ As a central bank:
    * **Mint Tokens:** Enables you to mint tokens of a certain token definition.
    * **Burn Tokens:** Enables you to burn tokens; see [Burning Tokens]({{< relref "../burning/_index.md" >}}).
    
-4. In the **Mint Tokens** pane, specify the following values:
+2. In the **Mint Tokens** pane, specify the following values:
 
    * **Token Definition:** Select the relevant token definition (previously created as described in [Creating Token Definitions]({{< relref "../defining/creating-token-definitions.md" >}})).
-   * **Amount:** Type the number of token you want; for example *1000000*.
+   * **Amount:** Type the number of tokens you want; for example *1000000*.
    
-5. Click **Create**.
+3. Click **Create**.
   
    The *Successfully submitted the minting of new tokens* message is displayed:
    

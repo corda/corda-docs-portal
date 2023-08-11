@@ -12,7 +12,7 @@ menu:
 title: "Issuing Tokens"
 ---
 
-Once an [issuance request has been created]({{< relref "creating-issuance-requests.md" >}}) and then subsequently [approved by both the issuer and the custodian]({{< relref "approving-or-rejecting-issuance-requests.md" >}}), new tokens of that type can be issued by the issuer to the participant who made the approved request.
+Once an [issuance request has been created]({{< relref "creating-issuance-requests.md" >}}) and then subsequently [approved by both the issuer and the custodian]({{< relref "approving-or-rejecting-issuance-requests.md" >}}), new tokens of that type can be issued by the issuer to the participant that made the approved request.
 
 Such tokens can then be used as for currency or utility purposes and allow the issuing party to maintain monetary policy and provide easily accessible digital currency tokens to specific entities.
 
@@ -44,7 +44,7 @@ As an issuer:
 	  alt="Issuance Request Dialog Box"
    >}}
 
-5. Click **Issue**.
+3. Click **Issue**.
 
    The *Successfully submitted the issuance of tokens* message is displayed:
 

@@ -39,8 +39,8 @@ To approve or reject a transfer:
    * **Token name:** The name of the token definition; normally the full name of the currency; for example, UAE Dirham.
    * **Token symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, *AED*.
    * **Amount:** The number of tokens requested.
-   * **Approver:** The participant who either (1) has to approve the receipt of tokens (if the other party made a push request) or (2) has to approve the sending of tokens (if the other party made a pull request).
-   * **Requester:** The participant who create the transfer request.
+   * **Approver:** The participant that either (1) has to approve the receipt of tokens (if the other party made a push request) or (2) has to approve the sending of tokens (if the other party made a pull request).
+   * **Requester:** The participant that created the transfer request.
    * **Last Updated:** The date and time at which the request was last updated.
    
 2. Click on the relevant transfer request.

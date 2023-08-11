@@ -14,8 +14,8 @@ title: "Working with Token Transfers"
 
 Once a participant has been [issued tokens]({{< relref "../issuing/_index.md" >}}), they can be involved in transfers. A transfer is the movement of tokens (value) between two or more entities (for example, wholesale banks, bank branches, retailers, retailer branches or franchises) on a Corda network to exchange goods and services. The transfer process can work both ways: both *push requests* and *pull requests* can be made.
 
-* **Push request:** Participant A requests to ‘pay’ Participant B. Participant B confirms amount and Participant A completes the transfer by signing the transaction which turn alters the ownership of the tokens to Participant B. 
-* **Pull request:** Participant A requests Participant B to ‘pay’ a disclosed amount. Participant B, confirms and transfers token by signing the transaction which in turn alters the ownership of the tokens to Participant A.  
+* **Push request:** Participant A requests to send Participant B a number of tokens. Participant B confirms the amount and Participant A completes the transfer by signing the transaction which, in turn, alters the ownership of the tokens to Participant B. 
+* **Pull request:** Participant A requests that Participant B send them a number of tokens. Participant B confirms, and transfers the tokens by signing the transaction which in turn alters the ownership of the tokens to Participant A.  
 
 The following transfer methods are available:
 

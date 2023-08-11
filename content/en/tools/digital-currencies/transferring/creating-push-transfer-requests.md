@@ -50,7 +50,7 @@ As a commercial bank:
 	  alt="Request Transfer Panel"
    >}} 
   
-2. In the **Request Transfer** panel, specify the following values:
+3. In the **Request Transfer** panel, specify the following values:
 
    * **Request Transfer Type:** Select **Push**.
    * **Receiving Party:** Select the participant to receive the tokens.
@@ -60,7 +60,7 @@ As a commercial bank:
    In this example, Commercial Bank 1 will create a push request for 100,000 tokens to Commercial Bank 2.
 
    
-3. Click **Request**. 
+4. Click **Request**. 
 
    The message *Successfully submitted a transfer request* is displayed:
 
