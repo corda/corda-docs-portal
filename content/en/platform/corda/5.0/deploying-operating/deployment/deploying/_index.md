@@ -34,11 +34,11 @@ If your Kubernetes cluster can not pull images from Docker Hub, or if you are de
 
 To push the Corda images:
 
-1. Download `corda-os-worker-images-5.0.0.tar` from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
+1. Download `corda-os-worker-images-{{<version-num>}}.0.tar` from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
 
-2. Inflate and load the `corda-os-worker-images-5.0.0.tar` file into the local Docker engine with the following command:
+2. Inflate and load the `corda-os-worker-images-{{<version-num>}}.0.tar` file into the local Docker engine with the following command:
    ```shell
-   docker load -i corda-os-worker-images-5.0.0.tar
+   docker load -i corda-os-worker-images-{{<version-num>}}.0.tar
    ```
 
 3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target container registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
@@ -54,7 +54,7 @@ To push the Corda images:
     "corda-os-member-worker" "corda-os-p2p-gateway-worker"
     "corda-os-p2p-link-manager-worker" "corda-os-db-worker"
     "corda-os-crypto-worker" "corda-os-plugins" )
-   tag=5.0.0.0
+   tag={{<version-num>}}.0.0
    target_registry=$1
 
    for image in "${images[@]}"; do
@@ -73,11 +73,11 @@ To push the Corda images:
 
 To push the Corda Enterprise images:
 
-1. Download `corda-ent-worker-images-5.0.0.tar` from the [R3 Customer Hub](https://r3.force.com/).
+1. Download `corda-ent-worker-images-{{<version-num>}}.0.tar` from the [R3 Customer Hub](https://r3.force.com/).
 
-2. Inflate and load the `corda-ent-worker-images-5.0.0.tar` file into the local Docker engine with the following command:
+2. Inflate and load the `corda-ent-worker-images-{{<version-num>}}.0.tar` file into the local Docker engine with the following command:
    ```shell
-   docker load -i corda-ent-worker-images-5.0.0.tar
+   docker load -i corda-ent-worker-images-{{<version-num>}}.0.tar
    ```
 
 3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target container registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
@@ -93,7 +93,7 @@ To push the Corda Enterprise images:
     "corda-ent-member-worker" "corda-ent-p2p-gateway-worker"
     "corda-ent-p2p-link-manager-worker" "corda-ent-db-worker"
     "corda-ent-crypto-worker" "corda-ent-plugins" )
-   tag=5.0.0.0
+   tag={{<version-num>}}.0.0
    target_registry=$1
 
    for image in "${images[@]}"; do
@@ -119,14 +119,14 @@ The following sections describe how to download the Corda {{< tooltip >}}Helm{{<
 If you have access to Docker Hub, you can download the Corda Helm chart using the following command:
 
 ```shell
-helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.0
+helm fetch oci://registry-1.docker.io/corda/corda --version {{<version-num>}}.0
 ```
 
-If you do not have access to Docker Hub, you can download the `corda-5.0.0.tgz` file from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
+If you do not have access to Docker Hub, you can download the `corda-{{<version-num>}}.0.tgz` file from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
 
 ### Corda Enterprise Helm chart {{< enterprise-icon >}}
 
-You can download the `corda-enterprise-5.0.0.tgz` file from the the [R3 Customer Hub](https://r3.force.com/).
+You can download the `corda-enterprise-{{<version-num>}}.0.tgz` file from the the [R3 Customer Hub](https://r3.force.com/).
 
 ## Configure the Deployment
 
@@ -842,12 +842,12 @@ helm install -n corda corda <HELM-CHART-TGZ-FILE> -f values.yaml
 If you are using the Helm chart from Docker Hub, you can install directly from there rather than using `helm fetch` first. For example:
 
 ```shell
-helm install -n corda corda oci://corda-os-docker.software.r3.com/helm-charts/release-5.0.0.0/corda --version 5.0.0 -f values.yaml
+helm install -n corda corda oci://corda-os-docker.software.r3.com/helm-charts/release-{{<version-num>}}.0.0/corda --version {{<version-num>}}.0 -f values.yaml
 ```
 
 {{< enterprise-icon noMargin="true" >}}Alternatively, use the following command for Corda Enterprise:
 ```shell
-helm install -n corda corda oci://corda-os-docker.software.r3.com/helm-charts/release-5.0.0.0/corda-enterprise --version 5.0.0 -f values.yaml
+helm install -n corda corda oci://corda-os-docker.software.r3.com/helm-charts/release-{{<version-num>}}.0.0/corda-enterprise --version {{<version-num>}}.0 -f values.yaml
 ```
 
 Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how

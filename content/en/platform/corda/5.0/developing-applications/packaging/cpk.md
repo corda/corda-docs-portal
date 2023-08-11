@@ -51,7 +51,7 @@ To configure your CPK project:
    `cpkPluginVersion` and `cordaReleaseVersion` are both Gradle properties. For example:
    ```
    cpkPluginVersion = '6.0.0'
-   cordaReleaseVersion = '5.0.0'
+   cordaReleaseVersion = '{{<version-num>}}.0'
    ```
 
 ## Sign Your Code
