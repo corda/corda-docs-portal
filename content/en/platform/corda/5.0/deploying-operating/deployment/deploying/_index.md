@@ -471,7 +471,7 @@ config:
 * `<vault-URL>` is the full URL including port at which the Vault instance is reachable, not including any path.
 * `<vault-token>` must allow sufficient permissions to read from Vault at the Corda configured paths and write to the `<path-to-corda-created-secrets>`, where Corda writes secrets it creates.
 
-The passwords for the `RBAC` and `CRYPTO` schemas and `VNODES` database must be available in Vault before Corda is deployed. These must be available in the Vault `dbsecrets` path, under the keys `rbac`, `crypto`, and `vnodes` respectively.
+The passwords for the `RBAC` and `CRYPTO` schemas and `VNODES` database must be available in Vault before Corda is deployed. These must be available in the Vault path specified by `createdSecretPath`, under the keys `rbac`, `crypto`, and `vnodes` respectively.
 {{< note >}}
 These keys are not tied to the schema names. If the schema names change, the key names remain `rbac`, `crypto`, and `vnodes`.
 {{< /note >}}
