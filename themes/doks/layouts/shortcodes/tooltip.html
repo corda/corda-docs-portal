@@ -24,11 +24,24 @@
         display: inline;
         border-bottom: 1px dotted black;
         text-decoration: none !important;  
+        text-decoration: none !important;  
     }
     .term:hover .definition {
         visibility: visible;
         opacity: 1;
     }
+
+    .term .definition::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+    }    
+
 
     .term .definition::after {
     content: " ";
