@@ -30,18 +30,18 @@ table th:nth-of-type(2) {
 | --------------------------------------- | ------------------------------------------|
 | \<path\> | The YAML file containing resource limit overrides for the Corda install. |
 
-{{< tabs name="create">}}
-{{% tab name="Bash" %}}
+   {{< tabs name="create">}}
+   {{% tab name="Bash" %}}
    ```sh
    ./corda-cli.sh preinstall check-limits <path>
    ```
-{{% /tab %}}
-{{% tab name="PowerShell" %}}
+   {{% /tab %}}
+   {% tab name="PowerShell" %}}
    ```shell
    ./corda-cli.cmd preinstall check-limits <path>
    ```
-{{% /tab %}}
-{{< /tabs >}}
+   {{% /tab %}}
+   {{< /tabs >}}
 
 
 ## check-postgres
@@ -62,18 +62,18 @@ table th:nth-of-type(2) {
 | \<path\> | The YAML file containing the user name and password values for PostgreSQL - either as values, or as secret references. |
 |  \-n, \-\-namespace=<namespace> | The namespace in which to look for PostgreSQL secrets, if there are any. |
 
-{{< tabs name="create">}}
-{{% tab name="Bash" %}}
+   {{< tabs name="create">}}
+   {{% tab name="Bash" %}}
    ```sh
    ./corda-cli.sh preinstall check-postgres [-n=<namespace>] <path>
    ```
-{{% /tab %}}
-{{% tab name="PowerShell" %}}
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
    ```shell
    ./corda-cli.cmd preinstall check-postgres [-n=<namespace>] <path>
    ```
-{{% /tab %}}
-{{< /tabs >}}
+   {{% /tab %}}
+   {{< /tabs >}}
 
 ## check-kafka
 
@@ -94,18 +94,18 @@ table th:nth-of-type(2) {
 | \-n, \-\-namespace=<namespace> | The namespace in which to look for the Kafka secrets if TLS or SASL is enabled. |
 | \-t, \-\-timeout=<timeout> | The timeout in milliseconds for testing the Kafka connection - defaults to 3000. |
 
-{{< tabs name="create">}}
-{{% tab name="Bash" %}}
+   {{< tabs name="create">}}
+   {{% tab name="Bash" %}}
    ```sh
    ./corda-cli.sh preinstall check-kafka [-n=<namespace>] [-t=<timeout>] <path>
    ```
-{{% /tab %}}
-{{% tab name="PowerShell" %}}
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
    ```shell
    ./corda-cli.cmd preinstall check-kafka [-n=<namespace>] [-t=<timeout>] <path>
    ```
-{{% /tab %}}
-{{< /tabs >}}
+   {{% /tab %}}
+   {{< /tabs >}}
 
 ## run-all
 
@@ -126,15 +126,15 @@ table th:nth-of-type(2) {
 | \-n, \-\-namespace=<namespace> | The namespace in which to look for both the PostgreSQL and Kafka secrets. |
 | \-t, \-\-timeout=<timeout> | The timeout in milliseconds for testing the Kafka connection - defaults to 3000. |
 
-{{< tabs name="create">}}
-{{% tab name="Bash" %}}
+   {{< tabs name="create">}}
+   {{% tab name="Bash" %}}
    ```sh
    ./corda-cli.sh preinstall run-all [-n=<namespace>] [-t=<timeout>] <path>
    ```
-{{% /tab %}}
-{{% tab name="PowerShell" %}}
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
    ```shell
    ./corda-cli.cmd preinstall run-all [-n=<namespace>] [-t=<timeout>] <path>
    ```
-{{% /tab %}}
-{{< /tabs >}}
+   {{% /tab %}}
+   {{< /tabs >}}
