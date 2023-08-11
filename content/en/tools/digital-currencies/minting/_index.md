@@ -70,7 +70,7 @@ As a central bank:
    {{< 
       figure
 	  src="images/updated-vault-balance.png"
-      width=40%
+      width=30%
 	  figcaption="Updated Vault Balance"
 	  alt="Updated Vault Balance"
    >}}
