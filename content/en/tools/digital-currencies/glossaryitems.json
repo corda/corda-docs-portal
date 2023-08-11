@@ -1,6 +1,6 @@
 {
 	"CIC": {
-		"definition": "Currency in Circulation: The amount of cash available in a country that is available to conduct transactions. ",
+		"definition": "Currency in Circulation: The amount of cash available in a country that is available to conduct transactions.",
 		"more": ""
 	},
 	"CBDC": {
@@ -24,6 +24,10 @@
 		"definition": "Regulators only have read permissions and can view issuances, transfers and redemptions to keep track of economic statistics. They are unable to make transfers or hold tokens. Such a role might be used by regulatory authorities or risk departments.",
 		"more": "" 
 	},
+    "RTGS": {
+		"definition": "Real-time gross settlement (RTGS) systems are specialist funds transfer systems where the transfer of money or securities takes place from one bank to any other bank on a real-time and on a gross basis; that is, without being bundled with other transactions.",
+		"more": "" 
+	},  
 	"stablecoins": {
 		"definition": "A digital money, issued by an officially chartered organization, such as a bank, that can be backed by fiat, a basket of assets, or faith in the issuer's balance sheet.",
 		"more": ""
@@ -40,8 +44,8 @@
         "definition": "The role used to approve any token definitions. There can be multiple users across the entity which reside in different departments. Their function is to review the token definition presented and approve or reject. In a central bank, this role might be held by a Board of Governors; in a commercial bank, it might be Head of Legal Services or Head of Regulation/Compliance.",
         "more": "" 
     },
-    "token issuing entity": {
-        "definition": "They are responsible for receiving attestation from custodians with regards to the backing of the collateral and issuing (creating then transferring) tokens to recipients.",
+    "issuer": {
+        "definition": "Also known as a token issuing entity. The entity responsible for receiving attestation from custodians with regards to the backing of the collateral and issuing (creating then transferring) tokens to recipients.",
         "more": "" 
     },
    "transacting entity": {

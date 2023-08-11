@@ -12,6 +12,7 @@ menu:
 title: "Activating Token Definitions"
 ---
 
+As a central bank:
 
 1. In the Digital Currencies GUI, [view existing token definitions]({{< relref "viewing-token-definitions.md" >}}).
 

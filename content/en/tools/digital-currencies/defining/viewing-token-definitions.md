@@ -14,6 +14,8 @@ title: "Viewing Token Definitions"
 
 Once [token definitions have been created]({{< relref "creating-token-definitions.md" >}}), they can be viewed on the **Token Definitions** page.
 
+As a central bank:
+
 * In the Digital Currencies GUI, select **Token Definitions**.
 
    The **Token Definitions** page is displayed:

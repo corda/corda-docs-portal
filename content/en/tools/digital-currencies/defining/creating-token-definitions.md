@@ -15,6 +15,8 @@ title: "Creating Token Definitions"
 
 Before [tokens can be minted]({{< relref "../minting/_index.md" >}}), you must create a {{< tooltip >}}token definition{{< definitiondc term="token definition" >}}{{< /tooltip >}}.
 
+As a central bank:
+
 1. In the Digital Currencies GUI, select **Define Token**.
 
    The **Define Token** page is displayed:
