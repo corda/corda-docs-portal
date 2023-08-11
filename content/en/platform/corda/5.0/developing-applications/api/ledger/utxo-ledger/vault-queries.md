@@ -559,52 +559,145 @@ while (resultSet.hasNext()) {
 {{% /tab %}}
 {{< /tabs >}}
 
-# Vault-Named Query Syntax
+# Vault-Named Query Operators
 
-The following list describes the operators and right operand types for the vault-named query syntax: 
+The following list describes the operators and right operand types for the vault-named query syntax:
 
-<table>
-<col style="width:20%">
-<col style="width:15%">
-<col style="width:15%">
-<col style="width:50%">
-<thead>
-<tr>
-<th>Operator</th>
-<th>Right Operand Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code> -> </code></td>
-<td><code> Int </code></td>
-<td> Get JSON array element</td>
-</tr>
-<tr>
-<td><code> -> </code></td>
-<td><code> Text </code></td>
-<td> Get JSON object field, selects the top level JSON field called <code>com.r3.corda.demo.TestState</code> from the JSON object in the <code> custom_representation DB column </code>. </td>
-</tr>
-<tr>
-<td><code> ->> </code></a></td>
-<td><code> Int </code></td>
-<td> Get JSON array element as text </td>
-</tr>
-<tr>
-<td><code> ->> </code></td>
-<td><code> text </code></td>
-<td> Get JSON object field as text, selects the <code>testField</code> JSON field from the top-level JSON object called <code>com.r3.corda.demo.TestState</code> in the <code>custom_representation DB </code> column. </td>
-</tr>
-<tr>
-<td><code> ? </code></td>
-<td><code> text </code></td>
-<td> Check if JSON object field exists, checks if the object in the <code>custom_representation DB </code> column has a top-level field called <code>com.r3.corda.demo.TestState</code> </td>
-</tr>
-<tr>
-<td><code>::</code></td>
-<td><code> A type, for example, Int </code></td>
-<td> Casts the element/object field to the specified type. </td>
-</tr>
-</tbody>
-</table>
+Operator: `->`
+Right Operand Type: `Int`
+Description: Get JSON array element
+Example:
+
+`custom_representation`
+`->`
+`com.r3.corda.demo.ArrayObjState`
+`->`
+`0`
+
+Example JSON would look like this:
+
+```java
+
+{
+  "com.r3.corda.demo.ArrayObjState": [
+    {"A": 1},
+    {"B": 2}
+  ]
+}
+```
+
+In this case it would return:
+
+```java
+{
+  "A": 1
+}
+```
+
+Operator: `->`
+Right Operand Type: `Text`
+Description: Get JSON object field.
+Example:
+
+`custom_representation`
+`-> 'com.r3.corda.demo.TestState'`
+
+Selects the top level JSON field called `com.r3.corda.demo.TestState` from the JSON object in the `custom_representation` DB column.
+
+Example JSON would look like this:
+
+```java
+{
+  "com.r3.corda.demo.TestState": {
+    "testField": "ABC"
+  }
+}
+```
+
+In this case it would return:
+
+```java
+{
+  "testField": "ABC"
+}
+
+```
+
+Operator: `->>`
+Right Operand Type: `Int`
+Description: Get JSON array element as text.
+Example:
+
+`custom_representation` 
+`-> 'com.r3.corda.demo.ArrayState'`
+`->> 2`
+
+Selects the 3rd element (indexing from 0)  of the array type top-level JSON field called `com.r3.corda.demo.ArrayState` from the JSON object in the `custom_representation` DB column.
+
+Example JSON would look like this:
+
+```java
+
+{
+  "com.r3.corda.demo.ArrayState": [
+    5, 6, 7
+  ]
+}
+
+```
+
+In this case it would return `7`.
+
+Operator: `->>`
+Right Operand Type: `Text`
+Description: Get JSON object field as text.
+Example:
+
+`custom_representation` 
+`-> 'com.r3.corda.demo.TestState'`
+`->> 'testField'`
+
+Selects the testField JSON field from the top-level JSON object called com.r3.corda.demo.TestState in the custom_representation DB column.
+
+Example JSON would look like this:
+
+```java
+{
+  "com.r3.corda.demo.TestState": {
+    "testField": "ABC"
+  }
+}
+```
+
+In this case it would return `ABC`.
+
+Operator: `?`
+Right Operand Type: `Text`
+Description: Check if JSON object field exists.
+Example:
+
+`custom_representation ?`
+`'com.r3.corda.demo.TestState'`
+
+Checks if the object in the `custom_representation` DB column has a top-level field called `com.r3.corda.demo.TestState`
+
+Example JSON would look like this:
+
+```java
+{
+  "com.r3.corda.demo.TestState": {
+    "testField": "ABC"
+  }
+}
+
+```
+
+In this case it would return `true`.
+
+Operator: `::`
+Right Operand Type: A type, e.g. `Int`
+Description: Casts the element/object field to the specified type.
+Example:
+
+`(visible_states.field ->> property)::int = 1234`
+
