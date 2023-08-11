@@ -91,7 +91,7 @@ table th:nth-of-type(2) {
 | Argument | Description                                                                             |
 | --------------------------------------- | ---------------------------------------------------------|
 | \<path\> | The YAML file containing the Kafka, SASL, and TLS configurations. |
-| \-n, \-\-namespace=<namespace> | The namespace in which to look for the Kafka secrets if TLS or SASL is enabled. |
+| \-n, \-\-namespace=\<namespace\> | The namespace in which to look for the Kafka secrets if TLS or SASL is enabled. |
 | \-t, \-\-timeout=<timeout> | The timeout in milliseconds for testing the Kafka connection - defaults to 3000. |
 
 {{< tabs name="check-kafka">}}
