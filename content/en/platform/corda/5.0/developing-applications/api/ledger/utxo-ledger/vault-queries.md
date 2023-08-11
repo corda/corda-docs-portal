@@ -563,7 +563,21 @@ while (resultSet.hasNext()) {
 
 The following list describes the operators and right operand types for the vault-named query syntax:
 
-Operator: `->`
+* `IN`
+* `LIKE`
+* `IS NOT NULL`
+* `IS NULL`
+* `AS`
+* `OR`
+* `AND`
+* `!=`
+* `>`
+* `<`
+* `>=`
+* `<=`
+
+## ->
+
 Right Operand Type: `Int`
 Description: Get JSON array element
 Example:
@@ -594,7 +608,6 @@ In this case it would return:
 }
 ```
 
-Operator: `->`
 Right Operand Type: `Text`
 Description: Get JSON object field.
 Example:
@@ -623,7 +636,8 @@ In this case it would return:
 
 ```
 
-Operator: `->>`
+## ->>
+
 Right Operand Type: `Int`
 Description: Get JSON array element as text.
 Example:
@@ -648,7 +662,6 @@ Example JSON would look like this:
 
 In this case it would return `7`.
 
-Operator: `->>`
 Right Operand Type: `Text`
 Description: Get JSON object field as text.
 Example:
@@ -671,7 +684,8 @@ Example JSON would look like this:
 
 In this case it would return `ABC`.
 
-Operator: `?`
+## ?
+
 Right Operand Type: `Text`
 Description: Check if JSON object field exists.
 Example:
@@ -694,10 +708,10 @@ Example JSON would look like this:
 
 In this case it would return `true`.
 
-Operator: `::`
+## ::
+
 Right Operand Type: A type, e.g. `Int`
 Description: Casts the element/object field to the specified type.
 Example:
 
 `(visible_states.field ->> property)::int = 1234`
-
