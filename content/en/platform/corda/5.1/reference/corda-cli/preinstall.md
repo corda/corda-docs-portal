@@ -36,7 +36,7 @@ table th:nth-of-type(2) {
    ./corda-cli.sh preinstall check-limits <path>
    ```
 {{% /tab %}}
-{% tab name="PowerShell" %}}
+{{% tab name="PowerShell" %}}
    ```shell
    ./corda-cli.cmd preinstall check-limits <path>
    ```
