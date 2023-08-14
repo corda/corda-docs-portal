@@ -765,7 +765,7 @@ transaction fail to verify it, or the receiving flow (the finality handler) fail
 all parties will not have the up-to-date view of the ledger.
 
 To recover from this scenario, the receiver’s finality handler is automatically sent to the `node-flow-hospital`. There, it is suspended and retried from its last checkpoint
-upon node restart, or according to other conditional retry rules - see [flow hospital runtime behavior]({{< relref "node-flow-hospital.md" >}}).
+upon node restart, or according to other conditional retry rules - see [flow hospital runtime behavior]({{< relref "node-flow-hospital.md#run-time-behaviour" >}}).
 This gives the node operator the opportunity to recover from the error. Until the issue is resolved, the node will continue to retry the flow
 on each startup. Upon successful completion by the receiver’s finality flow, the ledger will become fully consistent.
 
@@ -776,22 +776,22 @@ It’s possible to forcibly terminate the erroring finality handler using the `k
 
 #### Two Phase Finality
 
-From Corda 4.11 onwards, the finality protocol has changed to improve resilience and recoverability.
+From Corda 4.11 on, the finality protocol has changed to improve resilience and recoverability.
 
 `FinalityFlow` will now:
-- record the transaction locally without a notary signature.
-- broadcast the un-notarised transaction to other participants (for recording)
-- send the transaction to the chosen notary and obtain a signature if the transaction is valid
-- finalise the transaction locally with the notary signature
-- broadcast the notary signature to other participants (for finalisation)
+* Record the transaction locally without a notary signature.
+* Broadcast the unnotarized transaction to other participants (for recording).
+* Send the transaction to the chosen notary, and obtain a signature if the transaction is valid.
+* Finalize the transaction locally with the notary signature.
+* Broadcast the notary signature to other participants for finalization.
 
 `ReceiveFinalityFlow` will now:
-- receive and record the un-notarised transaction locally
-- await receipt of the notary signature
-- finalise the transaction locally with the notary signature
+* Receive and record the unnotarized transaction locally.
+* Await receipt of the notary signature.
+* Finalize the transaction locally with the notary signature.
 
-Additional flow transaction recovery metadata is stored upon recording the un-notarised transaction such that it can be
-recovered should anything go wrong after this point at either the flow initiator or receiver's side.
+Additional flow transaction recovery metadata is stored upon recording the unnotarized transaction, so that it can be
+recovered should anything go wrong after this point at either the flow initiator's or the receiver's side.
 
 For more information, see [Two Phase Finality]({{< relref "../enterprise/two-phase-finality.md" >}}).
 
@@ -1207,7 +1207,7 @@ You could use this functionality to:
   thread pool.
 
 {{< note >}}
-The size of the external operation thread pool can be configured. See [the node configuration documentation]({{< relref "corda-configuration-file.md" >}}).
+The size of the external operation thread pool can be configured. See [the node configuration documentation]({{< relref "corda-configuration-file.md#corda-configuration-flow-external-operation-thread-pool-size" >}}).
 
 {{< /note >}}
 You can call `FlowExternalOperation` from a flow to run an operation on a new thread, allowing the flow to suspend:
@@ -1381,8 +1381,7 @@ Threading must be explicitly controlled when using `FlowExternalAsyncOperation`.
 
 Implementations of `FlowExternalAsyncOperation` must return a `CompletableFuture`. The developer decides how to create this future.
 The best practice is to use `CompletableFuture.supplyAsync` and supply an executor to run the future. You can use other libraries to
-generate futures, as long as a `CompletableFuture` is returned out of `FlowExternalAsyncOperation`. You can see an example of creating a future
-using Guava’s ListenableFuture below.
+generate futures, as long as a `CompletableFuture` is returned out of `FlowExternalAsyncOperation`. You can see an example of creating a future using [Guava’s ListenableFuture](#api-flows-guava-future-conversion) Below.
 
 {{< note >}}
 You can chain the future to execute further operations that continue using the same thread the future started on. For example,
