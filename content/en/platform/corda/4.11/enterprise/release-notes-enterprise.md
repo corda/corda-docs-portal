@@ -161,7 +161,7 @@ val participants: List<String>? = null,
 @Column(name = "states_to_record")
 val statesToRecord: StatesToRecord? = null
 ```
-See node migration scripts:
+See the following node migration scripts:
 * `node-core.changelog-v24.xml`: added transaction signatures.
 * `node-core.changelog-v24.xml`: added finality flow recovery metadata.
 
