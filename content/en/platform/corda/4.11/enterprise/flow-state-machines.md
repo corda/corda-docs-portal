@@ -519,18 +519,16 @@ Let’s take a look at the three subflows we invoke in this flow.
 
 ### FinalityFlow
 
-On the buyer side, we use `FinalityFlow` to finalise the transaction. It will:
-
+On the buyer side, we use `FinalityFlow` to finalize the transaction. It will:
 
 * Send the transaction to the chosen notary and, if necessary, satisfy the notary that the transaction is valid.
 * Record the transaction in the local vault, if it is relevant (i.e. involves the owner of the node).
 * Send the fully signed transaction to the other participants for recording as well.
 
-On the seller side we use `ReceiveFinalityFlow` to receive and record the finalised transaction.
-
+On the seller side we use `ReceiveFinalityFlow` to receive and record the finalized transaction.
 
 {{< warning >}}
-If the buyer stops before sending the finalised transaction to the seller, the buyer is left with a
+If the buyer stops before sending the finalized transaction to the seller, the buyer is left with a
 valid transaction but the seller isn’t, so they don’t get the cash! This sort of thing is not
 always a risk (as the buyer may not gain anything from that sort of behaviour except a lawsuit), but if it is, a future
 version of the platform will allow you to ask the notary to send you the transaction as well, in case your counterparty
@@ -557,6 +555,13 @@ leak will come later.
 
 {{< /note >}}
 
+#### Two Phase Finality
+
+As of Corda 4.11 the finality protocol has changed to improve resilience and recoverability.
+
+For information on the changes to `FinalityFlow` and `ReceiveFinalityFlow`, see [API Flows: Two Phase Finality]({{< relref "cordapps/api-flows.md#two-phase-finality" >}}). 
+
+See [FinalityFlow Recovery]({{< relref "finality-flow-recovery.md" >}}) for details on how to use recovery RPC operations and associated Node hell commands to recover from failure scenarios.
 #### Finalizing transactions with only one participant
 
 In some cases, transactions will only have one participant, the initiator. In these instances, there are no other

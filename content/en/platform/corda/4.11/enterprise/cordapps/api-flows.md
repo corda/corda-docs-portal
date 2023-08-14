@@ -776,7 +776,28 @@ It’s possible to forcibly terminate the erroring finality handler using the `k
 
 {{< /warning >}}
 
+#### Two Phase Finality
 
+From Corda 4.11 on, the finality protocol has changed to improve resilience and recoverability.
+
+`FinalityFlow` will now:
+
+* Record the transaction locally without a notary signature.
+* Broadcast the unnotarized transaction to other participants (for recording).
+* Send the transaction to the chosen notary, and obtain a signature if the transaction is valid.
+* Finalize the transaction locally with the notary signature.
+* Broadcast the notary signature to other participants for finalization.
+
+`ReceiveFinalityFlow` will now:
+
+* Receive and record the unnotarized transaction locally.
+* Await receipt of the notary signature.
+* Finalize the transaction locally with the notary signature.
+
+Additional flow transaction recovery metadata is stored upon recording the unnotarized transaction, so that it can be
+recovered should anything go wrong after this point at either the flow initiator's or the receiver's side.
+
+For more information, see [Two Phase Finality]({{< relref "../two-phase-finality.md" >}}).
 
 ### CollectSignaturesFlow/SignTransactionFlow
 

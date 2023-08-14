@@ -30,6 +30,10 @@ For more information about platform versions, see [Versioning]({{< relref "versi
 
 ## New features and enhancements
 
+* Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and recoverability of CorDapps using finality. Existing CorDapps will not require any changes to take advantage of this new improved protocol.
+
+  See [Two Phase Finality](two-phase-finality.md)
+
 * The following dependencies have been upgraded to address critical- and high-severity security vulnerabilities:
   * H2 has been upgraded from 1.4.197 to 2.1.214.
   * Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final.
@@ -50,10 +54,38 @@ This release includes the following fixes:
   A example of how to use this property can be found in [Vault Queries]({{< relref "api-vault-query.md#query-for-all-states-using-a-pagination-specification-and-iterate-using-the-totalstatesavailable-field-until-no-further-pages-available-1" >}}).
   
   
-  
 ### Database schema changes
 
-There are no database changes between 4.9 and 4.10.
+The following database changes have been applied between 4.10 and 4.11:
+
+Two Phase Finality introduces additional data fields within the main `DbTransaction` table:
+
+```bash
+  @Column(name = "signatures")
+  val signatures: ByteArray?,
+
+  /**
+   * Flow finality metadata used for recovery
+   * TODO: create association table solely for Flow metadata and recovery purposes.
+   * See https://r3-cev.atlassian.net/browse/ENT-9521
+   */
+
+  /** X500Name of flow initiator **/
+  @Column(name = "initiator")
+  val initiator: String? = null,
+
+  /** X500Name of flow participant parties **/
+  @Column(name = "participants")
+  @Convert(converter = StringListConverter::class)
+  val participants: List<String>? = null,
+
+  /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
+  @Column(name = "states_to_record")
+  val statesToRecord: StatesToRecord? = null
+```
+See node migration scripts:
+- `node-core.changelog-v24.xml`: added transaction signatures.
+- `node-core.changelog-v24.xml`: added finality flow recovery metadata.
 
 ### Third party component upgrades
 
