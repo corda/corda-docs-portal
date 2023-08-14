@@ -557,11 +557,12 @@ leak will come later.
 
 #### Two Phase Finality
 
-As of Corda 4.11 the finality protocol has changed to improve resilience and recoverability.
+From Corda 4.11 on, the finality protocol has changed to improve resilience and recoverability.
 
 For information on the changes to `FinalityFlow` and `ReceiveFinalityFlow`, see [API Flows: Two Phase Finality]({{< relref "cordapps/api-flows.md#two-phase-finality" >}}). 
 
-See [FinalityFlow Recovery]({{< relref "finality-flow-recovery.md" >}}) for details on how to use recovery RPC operations and associated Node hell commands to recover from failure scenarios.
+See [FinalityFlow Recovery]({{< relref "finality-flow-recovery.md" >}}) for details on how to use recovery RPC operations and associated Node Shell commands to recover from failure scenarios.
+
 #### Finalizing transactions with only one participant
 
 In some cases, transactions will only have one participant, the initiator. In these instances, there are no other
