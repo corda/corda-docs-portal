@@ -138,7 +138,7 @@ The following database changes have been applied between 4.10 and 4.11:
 
 Two Phase Finality introduces additional data fields within the main `DbTransaction` table:
 
-```kotlin
+```bash
 @Column(name = "signatures")
 val signatures: ByteArray?,
 
@@ -161,7 +161,7 @@ val participants: List<String>? = null,
 @Column(name = "states_to_record")
 val statesToRecord: StatesToRecord? = null
 ```
-See the following node migration scripts:
+See node migration scripts:
 * `node-core.changelog-v24.xml`: added transaction signatures.
 * `node-core.changelog-v24.xml`: added finality flow recovery metadata.
 
