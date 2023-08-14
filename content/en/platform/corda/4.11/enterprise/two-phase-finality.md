@@ -23,23 +23,23 @@ An **initiator** will use the built-in flow called `FinalityFlow` to finalize a 
 2. Record the transaction in the local vault, if it is relevant (that is, it involves the owner of the node).
 3. Send the fully signed transaction to the other participants for recording as well.
 
-One or more **receivers** will use the built-in flow `ReceiveFinalityFlow` to receive and record the finalized transaction.
+One or more **receivers** use the built-in flow `ReceiveFinalityFlow` to receive and record the finalized transaction.
 
 ## Conventional implementation
 
 Up until Corda 4.10, the finality flow protocol was implemented using a single pass transaction sharing mechanism as depicted below:
 
-{{< figure alt="conventional finality protocol" width=100% zoom="./resources/C4 Finality - Conventional.png" >}}
+{{< figure alt="Conventional Single Phase Finality Protocol" width=100% zoom="./resources/C4-finality-conventional.png" >}}
 
-Note the following:
-
+{{< note >}}
 * Peers only receive the finalized transaction after successful notarization.
 * Recovery is only possible at the initiator side, as peers have no record of a transaction until finality.
 * Failure conditions may lead to ledger inconsistency, requiring manual intervention for recovery.
+{{< /note >}}
 
 ## Two Phase Finality (2PF)
 
-To address the shortcomings of the conventional protocol, from Corda 4.11 on, Two Phase Finality introduces a multi-phased protocol whereby:
+To address the shortcomings of the conventional protocol, Two Phase Finality introduces a multi-phased protocol whereby:
 
 * All parties have a copy of the unnotarized transaction. (Phase 1)
 * Additional metadata is stored with the unnotarized transaction to aid recovery.
@@ -48,16 +48,16 @@ To address the shortcomings of the conventional protocol, from Corda 4.11 on, Tw
 * Failure conditions may lead to ledger inconsistency, which is recoverable using a new suite of
   [finality flow recovery tools and commands]({{< relref "finality-flow-recovery.md" >}}).
 
-The following diagram illustrates the new protocol:
+The following diagram illustrates the Two Phase Finality protocol:
 
-{{< figure alt="conventional finality protocol" width=100% zoom="./resources/C4 Finality - Optimized 2Phase Finality.png" >}}
+{{< figure alt="Two Phase Finality Protocol" width=100% zoom="./resources/C4-finality-optimized-two-phase-finality.png" >}}
 
 The two primary optimizations used within the protocol are:
 
 * Usage of a *Deferred Acknowledgment* in Phase 1, where the Receiver sends back an explicit `FetchDataFlow.Request.End`
   acknowledgement to the initiator `SendTransaction` flow.
 
-  Note that the `ReceiverTransactionFlow` is now passed an optional parameter (`deferredAck` = true) to tell it to not perform any final acknowledging.
+  Note that the `ReceiverTransactionFlow` is now passed an optional parameter (`deferredAck` = true) to instruct it to not perform any final acknowledging.
 
 * Implementation of an Optimistic Finalization protocol in Phase 2, where a FinalityFlow receiver of a follow-up
   transaction (with the same peer, and using a transaction derived from the same back chain as a previous unnotarized

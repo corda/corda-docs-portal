@@ -557,7 +557,7 @@ leak will come later.
 
 #### Two Phase Finality
 
-From Corda 4.11 on, the finality protocol has changed to improve resilience and recoverability.
+The Two Phase Finality protocol was introduced to improve resilience and recoverability.
 
 For information on the changes to `FinalityFlow` and `ReceiveFinalityFlow`, see [API Flows: Two Phase Finality]({{< relref "cordapps/api-flows.md#two-phase-finality" >}}). 
 
