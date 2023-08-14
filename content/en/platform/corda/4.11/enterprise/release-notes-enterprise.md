@@ -64,14 +64,14 @@ A example of how to use this property can be found in [Vault Queries]({{< relref
 
 ### Upgraded dependencies 
   
-The following dependencies have been upgraded to address critical- and high-severity security vulnerabilities:
+The following dependencies have been upgraded to address critical and high-severity security vulnerabilities:
 * H2 has been upgraded from 1.4.197 to 2.1.214.
 * Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final.
 * Liquibase has been upgraded from 3.6.3 to 4.20.0.
 
 ### Consuming transaction IDs added to `vault_state` table 
 
-When a state is consumed by a transaction, the ID of the consuming transaction is now added to the `vault_state` table in the `consuming_tx_id` column. Note that this database column will only be updated for new transactions; for existing consumed states already in the ledger, the value of this consuming_tx_id will be null.
+When a state is consumed by a transaction, Corda now adds the ID of the consuming transaction in the `consuming_tx_id` column of the `vault_state` table . Corda only updates this database column for new transactions; for existing consumed states already in the ledger, the value of `consuming_tx_id` is null.
 
 ## Fixed issues
 
@@ -134,7 +134,7 @@ This release includes the following fixes:
 
 ### Database schema changes
 
-The following database changes have been applied between 4.10 and 4.11:
+The following database changes have been applied:
 
 Two Phase Finality introduces additional data fields within the main `DbTransaction` table:
 

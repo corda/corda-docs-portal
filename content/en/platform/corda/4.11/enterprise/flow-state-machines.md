@@ -16,7 +16,7 @@ weight: 7
 
 # Writing flows
 
-This article explains our approach to modelling business processes and the lower level network protocols that implement
+This article explains our approach to modeling business processes and the lower level network protocols that implement
 them. It explains how the platform’s flow framework is used, and takes you through the code for a simple
 2-party asset trading flow which is included in the source.
 
@@ -136,15 +136,15 @@ object TwoPartyTradeFlow {
      */
     @CordaSerializable
     data class SellerTradeInfo(
-            val price: Amount<Currency>,
-            val payToIdentity: PartyAndCertificate
+        val price: Amount<Currency>,
+        val payToIdentity: PartyAndCertificate
     )
 
     open class Seller(private val otherSideSession: FlowSession,
-                      private val assetToSell: StateAndRef<OwnableState>,
-                      private val price: Amount<Currency>,
-                      private val myParty: PartyAndCertificate,
-                      override val progressTracker: ProgressTracker = TwoPartyTradeFlow.Seller.tracker()) : FlowLogic<SignedTransaction>() {
+        private val assetToSell: StateAndRef<OwnableState>,
+        private val price: Amount<Currency>,
+        private val myParty: PartyAndCertificate,
+        override val progressTracker: ProgressTracker = TwoPartyTradeFlow.Seller.tracker()) : FlowLogic<SignedTransaction>() {
 
         companion object {
             fun tracker() = ProgressTracker()
@@ -157,10 +157,10 @@ object TwoPartyTradeFlow {
     }
 
     open class Buyer(private val sellerSession: FlowSession,
-                     private val notary: Party,
-                     private val acceptablePrice: Amount<Currency>,
-                     private val typeToBuy: Class<out OwnableState>,
-                     private val anonymous: Boolean) : FlowLogic<SignedTransaction>() {
+        private val notary: Party,
+        private val acceptablePrice: Amount<Currency>,
+        private val typeToBuy: Class<out OwnableState>,
+        private val anonymous: Boolean) : FlowLogic<SignedTransaction>() {
 
         @Suspendable
         override fun call(): SignedTransaction {
@@ -458,7 +458,7 @@ what we expected to be offered.
 whilst a flow is suspended, such as the wallet or the network map.
 * We call `CollectSignaturesFlow` as a subflow to send the unfinished, still-invalid transaction to the seller so
 they can sign it and send it back to us.
-* Last, we call `FinalityFlow` as a subflow to finalize the transaction.
+* Finally, we call `FinalityFlow` as a subflow to finalize the transaction.
 
 As you can see, the flow logic is straightforward and does not contain any callbacks or network glue code, despite
 the fact that it takes minimal resources and can survive node restarts.
@@ -519,11 +519,11 @@ Let’s take a look at the three subflows we invoke in this flow.
 
 ### FinalityFlow
 
-On the buyer side, we use `FinalityFlow` to finalize the transaction. It will:
+On the buyer side, we use `FinalityFlow` to finalize the transaction. It does the following:
 
-* Send the transaction to the chosen notary and, if necessary, satisfy the notary that the transaction is valid.
-* Record the transaction in the local vault, if it is relevant (i.e. involves the owner of the node).
-* Send the fully signed transaction to the other participants for recording as well.
+* Sends the transaction to the chosen notary and, if necessary, satisfies the notary that the transaction is valid.
+* Records the transaction in the local vault, if it is relevant (that is, involves the owner of the node).
+* Sends the fully signed transaction to the other participants for recording also.
 
 On the seller side we use `ReceiveFinalityFlow` to receive and record the finalized transaction.
 
@@ -745,23 +745,23 @@ override val progressTracker = ProgressTracker(RECEIVING, VERIFYING, SIGNING, CO
 {{% tab name="java" %}}
 ```java
 private final ProgressTracker progressTracker = new ProgressTracker(
-        RECEIVING,
-        VERIFYING,
-        SIGNING,
-        COLLECTING_SIGNATURES,
-        RECORDING
+    RECEIVING,
+    VERIFYING,
+    SIGNING,
+    COLLECTING_SIGNATURES,
+    RECORDING
 );
 
 private static final ProgressTracker.Step RECEIVING = new ProgressTracker.Step(
-        "Waiting for seller trading info");
+    "Waiting for seller trading info");
 private static final ProgressTracker.Step VERIFYING = new ProgressTracker.Step(
-        "Verifying seller assets");
+    "Verifying seller assets");
 private static final ProgressTracker.Step SIGNING = new ProgressTracker.Step(
-        "Generating and signing transaction proposal");
+    "Generating and signing transaction proposal");
 private static final ProgressTracker.Step COLLECTING_SIGNATURES = new ProgressTracker.Step(
-        "Collecting signatures from other parties");
+    "Collecting signatures from other parties");
 private static final ProgressTracker.Step RECORDING = new ProgressTracker.Step(
-        "Recording completed transaction");
+    "Recording completed transaction");
 
 ```
 {{% /tab %}}

@@ -11,17 +11,15 @@ title: Two Phase Finality
 weight: 40
 ---
 
-# Two Phase Finality
-
 ## Introduction
 
-Finality refers to the act of notarizing, recording and sharing a transaction with all of its participants. Finality enables ledger consistency.
+Finality refers to the act of notarizing, recording, and sharing a transaction with all of its participants. Finality enables ledger consistency.
 
-An **initiator** will use the built-in flow called `FinalityFlow` to finalize a transaction:
+An **initiator** uses the built-in flow called `FinalityFlow` to finalize a transaction:
 
 1. Send the transaction to the chosen notary and, if necessary, satisfy the notary that the transaction is valid.
 2. Record the transaction in the local vault, if it is relevant (that is, it involves the owner of the node).
-3. Send the fully signed transaction to the other participants for recording as well.
+3. Send the fully signed transaction to the other participants for recording also.
 
 One or more **receivers** use the built-in flow `ReceiveFinalityFlow` to receive and record the finalized transaction.
 
