@@ -30,16 +30,22 @@ For more information about platform versions, see [Versioning]({{< relref "versi
 
 ## New features and enhancements
 
-* Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and recoverability of CorDapps using finality. Existing CorDapps will not require any changes to take advantage of this new improved protocol.
+### Two Phase Finality
 
-  See [Two Phase Finality](two-phase-finality.md)
+Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and recoverability of CorDapps using finality. Existing CorDapps will not require any changes to take advantage of this new improved protocol.
 
-* The following dependencies have been upgraded to address critical- and high-severity security vulnerabilities:
-  * H2 has been upgraded from 1.4.197 to 2.1.214.
-  * Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final.
-  * Liquibase has been upgraded from 3.6.3 to 4.20.0.
+See [Two Phase Finality]({{< relref "two-phase-finality.md" >}}).
 
-* When a state is consumed by a transaction, the ID of the consuming transaction is now added to the `vault_state` table in the `consuming_tx_id` column. Note that this database column will only be updated for new transactions; for existing consumed states already in the ledger, the value of this consuming_tx_id will be null.
+### Upgraded dependencies 
+
+The following dependencies have been upgraded to address critical- and high-severity security vulnerabilities:
+* H2 has been upgraded from 1.4.197 to 2.1.214.
+* Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final.
+* Liquibase has been upgraded from 3.6.3 to 4.20.0.
+
+### Consuming transaction IDs added to `vault_state` table 
+
+When a state is consumed by a transaction, the ID of the consuming transaction is now added to the `vault_state` table in the `consuming_tx_id` column. Note that this database column will only be updated for new transactions; for existing consumed states already in the ledger, the value of this consuming_tx_id will be null.
 
 ## Fixed issues
 
