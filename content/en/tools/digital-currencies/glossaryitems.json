@@ -1,4 +1,8 @@
 {
+	"CIC": {
+		"definition": "Currency in Circulation: The amount of cash available in a country that is available to conduct transactions.",
+		"more": ""
+	},
 	"CBDC": {
 		"definition": "Central Bank Digital Currency: a central bank-issued digital money, denominated in a national unit of account, which is backed by the full faith and credit of the issuing central bank.",
 		"more": ""
@@ -21,7 +25,7 @@
 		"more": "" 
 	},
     "RTGS": {
-		"definition": "Real-time gross settlement (RTGS) systems are specialist funds transfer systems where the transfer of money or securities takes place from one bank to any other bank on a real-time and on a gross basis; that is, without being bundled with other transactions. ",
+		"definition": "Real-time gross settlement (RTGS) systems are specialist funds transfer systems where the transfer of money or securities takes place from one bank to any other bank on a real-time and on a gross basis; that is, without being bundled with other transactions.",
 		"more": "" 
 	},  
 	"stablecoins": {

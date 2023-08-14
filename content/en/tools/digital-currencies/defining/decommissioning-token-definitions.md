@@ -14,6 +14,8 @@ title: "Decommissioning Token Definitions"
 
 This topic describes how to decommission a token definition. Only the definer of a token can decommission.
 
+As a central bank:
+
 1. In the Digital Currencies GUI, [view existing token definitions]({{< relref "viewing-token-definitions.md" >}}).
 
    The **Token Definitions** page is displayed:

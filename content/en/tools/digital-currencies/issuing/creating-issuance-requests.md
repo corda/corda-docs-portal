@@ -35,10 +35,10 @@ Create a redemption request:
   The page shows the following panels related to redemptions:
 
   * **Vault Balance**: A Corda vault is a database containing all data from the ledger relevant to a participant. For more information, see [the Vault topic]({{< relref "/en/platform/corda/5.0/developing-applications/ledger/vault/_index.md" >}}).
-  * **Request Redemption**: Allows you to perform an redemption request.
-  * **Redemption Requests:** Lists any existing redemption requests and their status for the current participant.
-  
-2. In the **Request Redemption** panel, specify the following values:
+  * **Request Issuance**: Allows you to perform an issuance request.
+  * **Issuance Requests:** Lists any existing issuance requests and their status; see [Viewing Issuance Requests]({{< relref "viewing-issuance-requests.md" >}}).
+
+2. In the **Request Issuance** panel, specify the following values:
 
    {{< 
       figure
