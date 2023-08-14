@@ -852,6 +852,6 @@ the features we have planned:
 * Exception management, with an improved node-flow-hospital facility to manually provide solutions to unavoidable
 problems (e.g. the other side doesn’t know the trade)
 * Being able to interact with people, either via some sort of external ticketing system, or email, or a custom UI.
-For example to implement human transaction authorisations
+For example to implement human transaction authorizations
 * A standard library of flows that can be easily sub-classed by local developers in order to integrate internal
 reporting logic, or anything else that might be required as part of a communications lifecycle

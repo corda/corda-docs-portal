@@ -50,11 +50,11 @@ To address the shortcomings of the conventional protocol, from Corda 4.11 on, Tw
 
 The following diagram illustrates the new protocol:
 
-{{< figure alt="conventional finality protocol" width=100% zoom="./resources/C4 Finality - Optimised 2Phase Finality.png" >}}
+{{< figure alt="conventional finality protocol" width=100% zoom="./resources/C4 Finality - Optimized 2Phase Finality.png" >}}
 
 The two primary optimizations used within the protocol are:
 
-* Usage of a *Deferred Acknowledgement* in Phase 1, where the Receiver sends back an explicit `FetchDataFlow.Request.End`
+* Usage of a *Deferred Acknowledgment* in Phase 1, where the Receiver sends back an explicit `FetchDataFlow.Request.End`
   acknowledgement to the initiator `SendTransaction` flow.
 
   Note that the `ReceiverTransactionFlow` is now passed an optional parameter (`deferredAck` = true) to tell it to not perform any final acknowledging.
