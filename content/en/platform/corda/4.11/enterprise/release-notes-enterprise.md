@@ -138,7 +138,7 @@ The following database changes have been applied between 4.10 and 4.11:
 
 Two Phase Finality introduces additional data fields within the main `DbTransaction` table:
 
-```bash
+```kotlin
 @Column(name = "signatures")
 val signatures: ByteArray?,
 
