@@ -583,7 +583,7 @@ Depending on your installation, follow the steps in one of the following section
 
     `salt` and `passphrase` are the names of Vault keys and should be entered as shown: they are not to be substituted for any actual salt or passphrase.
 
-2. Review the DDL files generated and then execute against the database, ensuring to apply to the `CONFIG` schema.
+2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
 ## RBAC Roles
 
