@@ -636,9 +636,11 @@ For example, when running with Red Hat OpenShift Container Platform, you must us
 3. In the configuration YAML for the Corda deployment, specify the service account to be used:
 
    ```yaml
-   serviceAccount: "corda-privileged"
+   serviceAccount: 
+      name: "corda-privileged"
    bootstrap:
-     serviceAccount: "corda-privileged"
+     serviceAccount: 
+        name: "corda-privileged"
    ```
 
 ### Custom Annotations for Worker Pods
@@ -685,14 +687,18 @@ resources:
     memory: 512Mi
     cpu: 2000m
 
-serviceAccount: "corda-privileged"
+serviceAccount:
+  name: "corda-privileged"
+bootstrap:
+  serviceAccount:
+    name: "corda-privileged"
 
 db:
   cluster:
     host: "postgres.example.com"
     port: 5432
     database: "cordacluster"
-    user:
+    username:
       value: "user"
     password:
       valueFrom:
