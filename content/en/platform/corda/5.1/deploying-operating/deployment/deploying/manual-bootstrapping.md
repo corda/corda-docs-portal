@@ -313,7 +313,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% /tab %}}
    {{< /tabs >}}
 
-2. Review the DDL files generated and then execute against the database, ensuring to apply them to the `CONFIG` schema.
+2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
 ### Populate the Crypto Database Connection Configuration
 
