@@ -581,7 +581,7 @@ Depending on your installation, follow the steps in one of the following section
    {{< /tab >}}
    {{< /tabs >}}
 
-    `salt` and `passphrase` are the names of Vault keys and should be entered as shown, they are not to be substituted for any actual salt or passphrase.
+    `salt` and `passphrase` are the names of Vault keys and should be entered as shown: they are not to be substituted for any actual salt or passphrase.
 
 2. Review the DDL files generated and then execute against the database, ensuring to apply to the `CONFIG` schema.
 
