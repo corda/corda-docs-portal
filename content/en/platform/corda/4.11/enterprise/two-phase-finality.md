@@ -30,9 +30,9 @@ Up until Corda 4.10, the finality flow protocol was implemented using a single p
 {{< figure alt="Conventional Single Phase Finality Protocol" width=100% zoom="./resources/C4-finality-conventional.png" >}}
 
 {{< note >}}
-* Peers only receive the finalized transaction after successful notarization.
-* Recovery is only possible at the initiator side, as peers have no record of a transaction until finality.
-* Failure conditions may lead to ledger inconsistency, requiring manual intervention for recovery.
+* Peers only received the finalized transaction after successful notarization.
+* Recovery was only possible at the initiator side, as peers had no record of a transaction until finality.
+* Failure conditions may have led to ledger inconsistency, requiring manual intervention for recovery.
 {{< /note >}}
 
 ## Two Phase Finality (2PF)
@@ -59,7 +59,7 @@ The two primary optimizations used within the protocol are:
 
 * Implementation of an Optimistic Finalization protocol in Phase 2, where a FinalityFlow receiver of a follow-up
   transaction (with the same peer, and using a transaction derived from the same back chain as a previous unnotarized
-  transaction) will automatically mark the unnotarized transaction as final. This is based on the guarantee that the follow-up
+  transaction) automatically marks the unnotarized transaction as final. This is based on the guarantee that the follow-up
   receiver flow is receiving the initial transaction from the originating initiator that already finalized it successfully.
 
 ### Performance

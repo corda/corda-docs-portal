@@ -18,7 +18,7 @@ weight: 7
 
 This article explains our approach to modeling business processes and the lower level network protocols that implement
 them. It explains how the platform’s flow framework is used, and takes you through the code for a simple
-2-party asset trading flow which is included in the source.
+two-party asset trading flow which is included in the source.
 
 
 ## Introduction
@@ -51,7 +51,7 @@ Actor frameworks can solve some of the above but they are often tightly bound to
 we would like to keep a clean separation. Additionally, they are typically not type safe, and don’t make persistence or
 writing sequential code much easier.
 
-To put these problems in perspective, the *payment channel protocol* in the bitcoinj library, which allows bitcoins to
+To put these problems in perspective, the *payment channel protocol* in the *bitcoinj* library, which allows bitcoins to
 be temporarily moved off-chain and traded at high speed between two parties in private, consists of about 7000 lines of
 Java and took over a month of full time work to develop. Most of that code is concerned with the details of persistence,
 message passing, lifecycle management, error handling and callback management. Because the business logic is quite
@@ -63,9 +63,9 @@ construction of them that automatically handles many of the concerns outlined ab
 
 ## Theory
 
-A *continuation* is a suspended stack frame stored in a regular object that can be passed around, serialised,
-unserialised and resumed from where it was suspended. This concept is sometimes referred to as “fibers”. This may
-sound abstract but don’t worry, the examples below will make it clearer. The JVM does not natively support
+A *continuation* is a suspended stack frame stored in a regular object that can be passed around, serialized,
+unserialized and resumed from where it was suspended. This concept is sometimes referred to as “fibers”. This may
+sound abstract but do not worry: the examples below will make it clearer. The JVM does not natively support
 continuations, so we implement them using a library called Quasar which works through behind-the-scenes
 bytecode rewriting. You don’t have to know how this works to benefit from it, however.
 
@@ -75,7 +75,7 @@ We use continuations for the following reasons:
 * It allows us to write code that is free of callbacks, that looks like ordinary sequential code.
 * A suspended continuation takes far less memory than a suspended thread. It can be as low as a few hundred bytes.
 In contrast a suspended Java thread stack can easily be 1mb in size.
-* It frees the developer from thinking (much) about persistence and serialisation.
+* It frees the developer from thinking (much) about persistence and serialization.
 
 A *state machine* is a piece of code that moves through various *states*. These are not the same as states in the data
 model (that represent facts about the world on the ledger), but rather indicate different stages in the progression
@@ -86,10 +86,10 @@ explicit variables to keep track of where you’re up to. The use of continuatio
 ## A two party trading flow
 
 We would like to implement the “hello world” of shared transaction building flows: a seller wishes to sell some
-*asset* (e.g. some commercial paper) in return for *cash*. The buyer wishes to purchase the asset using his cash. They
+*asset* (for example, some commercial paper) in return for *cash*. The buyer wishes to purchase the asset using his cash. They
 want the trade to be atomic so neither side is exposed to the risk of settlement failure. We assume that the buyer
 and seller have found each other and arranged the details on some exchange, or over the counter. The details of how
-the trade is arranged isn’t covered in this article.
+the trade is arranged is not covered in this article.
 
 Our flow has two parties (B and S for buyer and seller) and will proceed as follows:
 
@@ -98,10 +98,10 @@ Our flow has two parties (B and S for buyer and seller) and will proceed as foll
 B to pay.
 * B sends to S a `SignedTransaction` that includes two inputs (the state owned by S, and cash owned by B) and three
 outputs (the state now owned by B, the cash now owned by S, and any change cash still owned by B). The
-`SignedTransaction` has a single signature from B but isn’t valid because it lacks a signature from S authorising
+`SignedTransaction` has a single signature from B but is not valid because it lacks a signature from S authorizing
 movement of the asset.
 * S signs the transaction and sends it back to B.
-* B *finalises* the transaction by sending it to the notary who checks the transaction for validity, recording the
+* B *finalizes* the transaction by sending it to the notary who checks the transaction for validity, recording the
 transaction in B’s local vault, and then sending it on to S who also checks it and commits the transaction to S’s
 local vault.
 
@@ -110,7 +110,7 @@ You can find the implementation of this flow in the file [TwoPartyTradeFlow.kt](
 Assuming no malicious termination, they both end the flow being in possession of a valid, signed transaction that
 represents an atomic asset swap.
 
-Note that it’s the *seller* who initiates contact with the buyer, not vice-versa as you might imagine.
+Note that it is the *seller* who initiates contact with the buyer, not vice-versa as you might imagine.
 
 We start by defining two classes that will contain the flow definition. We also pick what data will be used by
 each side.
@@ -195,10 +195,10 @@ notaries
 * `acceptablePrice: Amount<Currency>` - the price that was agreed upon out of band. If the seller specifies
 a price less than or equal to this, then the trade will go ahead
 * `typeToBuy: Class<out OwnableState>` - the type of state that is being purchased. This is used to check that the
-sell side of the flow isn’t trying to sell us the wrong thing, whether by accident or on purpose
+sell side of the flow is not trying to sell us the wrong thing, whether by accident or on purpose
 * `anonymous: Boolean` - whether to generate a fresh, anonymous public key for the transaction
 
-Alright, so using this flow shouldn’t be too hard: in the simplest case we can just create a Buyer or Seller
+Alright, so using this flow shouldn’t be too hard: in the simplest case we can just create a buyer or seller
 with the details of the trade, depending on who we are. We then have to start the flow in some way. Just
 calling the `call` function ourselves won’t work: instead we need to ask the framework to start the flow for
 us. More on that in a moment.
@@ -208,7 +208,7 @@ us. More on that in a moment.
 
 The `call` function of the buyer/seller classes is marked with the `@Suspendable` annotation. What does this mean?
 
-As mentioned above, our flow framework will at points suspend the code and serialise it to disk. For this to work,
+As mentioned above, our flow framework will at points suspend the code and serialize it to disk. For this to work,
 any methods on the call stack must have been pre-marked as `@Suspendable` so the bytecode rewriter knows to modify
 the underlying code to support this new feature. A flow is suspended when calling either `receive`, `send` or
 `sendAndReceive` which we will learn more about below. For now, just be aware that when one of these methods is
@@ -227,7 +227,7 @@ For security reasons, we do not want Corda nodes to be able to just receive inst
 via messaging, since this has been exploited in other Java application containers in the past.  Instead, we require
 every class contained in messages to be whitelisted. Some classes are whitelisted by default (see `DefaultWhitelist`),
 but others outside of that set need to be whitelisted either by using the annotation `@CordaSerializable` or via the
-plugin framework.  See [Object serialization]({{< relref "serialization.md" >}}).  You can see above that the `SellerTradeInfo` has been annotated.
+plugin framework. See [Object serialization]({{< relref "serialization.md" >}}). You can see above that the `SellerTradeInfo` has been annotated.
 
 
 ## Starting your flow
@@ -235,7 +235,7 @@ plugin framework.  See [Object serialization]({{< relref "serialization.md" >}})
 The `StateMachineManager` is the class responsible for taking care of all running flows in a node. It knows
 how to register handlers with the messaging system (see [Networking and messaging]({{< relref "messaging.md" >}})) and iterate the right state machine
 when messages arrive. It provides the send/receive/sendAndReceive calls that let the code request network
-interaction and it will save/restore serialised versions of the fiber at the right times.
+interaction and it will save/restore serialized versions of the fiber at the right times.
 
 Flows can be invoked in several ways. For instance, they can be triggered by scheduled events (in which case they need to
 be annotated with `@SchedulableFlow`), see [Scheduling events]({{< relref "event-scheduling.md" >}}) to learn more about this. They can also be triggered
@@ -332,7 +332,7 @@ the trade info, and then call `otherSideSession.send`. which takes two arguments
 * The party we wish to send the message to
 * The payload being sent
 
-`otherSideSession.send` will serialise the payload and send it to the other party automatically.
+`otherSideSession.send` will serialize the payload and send it to the other party automatically.
 
 Next, we call a *subflow* called `IdentitySyncFlow.Receive` (see [Sub-flows](#sub-flows)). `IdentitySyncFlow.Receive`
 ensures that our node can de-anonymise any confidential identities in the transaction it’s about to be asked to sign.
@@ -525,12 +525,12 @@ On the buyer side, we use `FinalityFlow` to finalize the transaction. It does th
 * Records the transaction in the local vault, if it is relevant (that is, involves the owner of the node).
 * Sends the fully signed transaction to the other participants for recording also.
 
-On the seller side we use `ReceiveFinalityFlow` to receive and record the finalized transaction.
+On the seller side, we use `ReceiveFinalityFlow` to receive and record the finalized transaction.
 
 {{< warning >}}
 If the buyer stops before sending the finalized transaction to the seller, the buyer is left with a
-valid transaction but the seller isn’t, so they don’t get the cash! This sort of thing is not
-always a risk (as the buyer may not gain anything from that sort of behaviour except a lawsuit), but if it is, a future
+valid transaction but the seller is not, so they do not receive the cash! This sort of thing is not
+always a risk (as the buyer may not gain anything from that sort of behavior except a lawsuit), but if it is, a future
 version of the platform will allow you to ask the notary to send you the transaction as well, in case your counterparty
 does not. This is not the default because it reveals more private info to the notary.
 
@@ -549,7 +549,7 @@ transaction that uses them. This flow returns a list of `LedgerTransaction` obje
 {{< note >}}
 Transaction dependency resolution assumes that the peer you got the transaction from has all of the
 dependencies itself. It must do, otherwise it could not have convinced itself that the dependencies were themselves
-valid. It’s important to realise that requesting only the transactions we require is a privacy leak, because if
+valid. It is important to realize that requesting only the transactions we require is a privacy leak, because if
 we don’t download a transaction from the peer, they know we must have already seen it before. Fixing this privacy
 leak will come later.
 
@@ -664,7 +664,7 @@ loaded off disk again.
 {{< /note >}}
 
 {{< warning >}}
-If a node has flows still in a suspended state, with flow continuations written to disk, it will not be
+If a node has flows still in a suspended state, with flow continuations written to disk, it is not
 possible to upgrade that node to a new version of Corda or your app, because flows must be completely “drained”
 before an upgrade can be performed, and must reach a finished state for draining to complete (see [Draining the node]({{< relref "../enterprise/node-upgrade-notes.md#step-1-drain-the-node" >}}) for details). While there are mechanisms for “evolving” serialised data held
 in the vault, there are no equivalent mechanisms for updating serialised checkpoint data. For this
@@ -817,15 +817,15 @@ private static final ProgressTracker.Step VERIFYING_AND_SIGNING = new ProgressTr
 
 Every tracker has not only the steps given to it at construction time, but also the singleton
 `ProgressTracker.UNSTARTED` step and the `ProgressTracker.DONE` step. Once a tracker has become `DONE` its
-position may not be modified again (because e.g. the UI may have been removed/cleaned up), but until that point, the
+position may not be modified again (because, for example, the UI may have been removed/cleaned up), but until that point, the
 position can be set to any arbitrary set both forwards and backwards. Steps may be skipped, repeated, etc. Note that
 rolling the current step backwards will delete any progress trackers that are children of the steps being reversed, on
 the assumption that those subtasks will have to be repeated.
 
 Trackers provide an [Rx observable](http://reactivex.io/) which streams changes to the hierarchy. The top level
 observable exposes all the events generated by its children as well. The changes are represented by objects indicating
-whether the change is one of position (i.e. progress), structure (i.e. new subtasks being added/removed) or some other
-aspect of rendering (i.e. a step has changed in some way and is requesting a re-render).
+whether the change is one of position (i.e. progress), structure (that is, new subtasks being added/removed) or some other
+aspect of rendering (that is, a step has changed in some way and is requesting a re-render).
 
 The flow framework is somewhat integrated with this API. Each `FlowLogic` may optionally provide a tracker by
 overriding the `progressTracker` property (`getProgressTracker` method in Java). If the

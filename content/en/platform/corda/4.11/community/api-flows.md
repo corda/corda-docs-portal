@@ -615,7 +615,7 @@ determine which counter-flow should be kicked off is A, not B. This means that t
 inlined flow must be implemented explicitly in the kicked-off flow. You can do this by calling a
 matching inlined counter-flow, or by implementing the other side explicitly in the kicked-off parent flow.
 
-An example of this type of flow is `CollectSignaturesFlow`. It has a counter-flow, `SignTransactionFlow`, which isn’t
+An example of this type of flow is `CollectSignaturesFlow`. It has a counter-flow, `SignTransactionFlow`, which is not
 annotated with `InitiatedBy`. This is because both of these flows are inlined. The kick-off relationship is
 defined when the parent flows call `CollectSignaturesFlow` and `SignTransactionFlow`.
 
@@ -777,17 +777,19 @@ It is possible to forcibly terminate the error finality handler using the `killF
 
 The Two Phase Finality protocol was introduced to improve resilience and recoverability.
 
-`FinalityFlow` will now:
-* Record the transaction locally without a notary signature.
-* Broadcast the unnotarized transaction to other participants (for recording).
-* Send the transaction to the chosen notary, and obtain a signature if the transaction is valid.
-* Finalize the transaction locally with the notary signature.
-* Broadcast the notary signature to other participants for finalization.
+With Two Phase Finality, `FinalityFlow` performs the following actions:
 
-`ReceiveFinalityFlow` will now:
-* Receive and record the unnotarized transaction locally.
-* Await receipt of the notary signature.
-* Finalize the transaction locally with the notary signature.
+* Records the transaction locally without a notary signature.
+* Broadcasts the unnotarized transaction to other participants (for recording).
+* Sends the transaction to the chosen notary, and obtains a signature if the transaction is valid.
+* Finalizes the transaction locally with the notary signature.
+* Broadcasts the notary signature to other participants for finalization.
+
+With Two Phase Finality, `ReceiveFinalityFlow` performs the following actions:
+
+* Receives and records the unnotarized transaction locally.
+* Awaits receipt of the notary signature.
+* Finalizes the transaction locally with the notary signature.
 
 Additional flow transaction recovery metadata is stored upon recording the unnotarized transaction, so that it can be
 recovered should anything go wrong after this point at either the flow initiator's or the receiver's side.
@@ -1380,7 +1382,8 @@ Threading must be explicitly controlled when using `FlowExternalAsyncOperation`.
 
 Implementations of `FlowExternalAsyncOperation` must return a `CompletableFuture`. The developer decides how to create this future.
 The best practice is to use `CompletableFuture.supplyAsync` and supply an executor to run the future. You can use other libraries to
-generate futures, as long as a `CompletableFuture` is returned out of `FlowExternalAsyncOperation`. You can see an example of creating a future using [Guava’s ListenableFuture](#api-flows-guava-future-conversion) Below.
+generate futures, as long as a `CompletableFuture` is returned out of `FlowExternalAsyncOperation`. You can see an example of creating a future using [Guava’s ListenableFuture](#api-flows-guava-future-conversion) below.
+generate futures, as long as a `CompletableFuture` is returned out of `FlowExternalAsyncOperation`. You can see an example of creating a future using [Guava’s ListenableFuture](#api-flows-guava-future-conversion) below.
 
 {{< note >}}
 You can chain the future to execute further operations that continue using the same thread the future started on. For example,
@@ -1612,7 +1615,7 @@ Handling deduplication on the external system’s side is preferred compared to 
 {{< /note >}}
 
 {{< warning >}}
-You shouldn't use in-memory data structures to handle deduplication as their state will not survive node restarts.
+Do not use in-memory data structures to handle deduplication as their state will not survive node restarts.
 
 {{< /warning >}}
 <a name="api-flows-guava-future-conversion"></a>

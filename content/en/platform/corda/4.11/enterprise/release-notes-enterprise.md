@@ -30,18 +30,18 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 ### Two Phase Finality
 
 Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and
-recoverability of CorDapps using finality. Existing CorDapps will not require any changes to take advantage of this
+recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this
 new improved protocol.
 
 For more information, see [Two Phase Finality]({{< relref "two-phase-finality.md" >}})
 
 ### Improved double-spend exception handling
 
-Two Phase Finality will automatically delete an unnotarized transaction from the `DBTransaction` table if a double spend
+Two Phase Finality automatically deletes an unnotarized transaction from the `DBTransaction` table if a double spend
 is detected upon attempting notarization by the the initiator of `FinalityFlow`.
 
 Additionally, if the new optional `ReceiveFinalityFlow` `handlePropagatedNotaryError` constructor parameter is set to `true` (default: `false`),
-then the double spend error (NotaryError.Conflict) will propagate back to the 2PF initiator. This enables the initiator to automatically remove the associated unnotarized transaction from its `DBTransaction` table. 
+then the double spend error (NotaryError.Conflict) propagates back to the 2PF initiator. This enables the initiator to automatically remove the associated unnotarized transaction from its `DBTransaction` table. 
 
 If a CorDapp is compiled against Corda 4.11 (that is, its target platform version = 13) then double spend handling is enabled by default. For more information, see [Versioning]({{< relref "cordapps/versioning.md" >}}).
 
@@ -60,7 +60,7 @@ This release includes improvements in the performance of deserializing AMQP data
 
 A new property, `previousPageAnchor`, has been added to `Vault.Page`. It is used to detect if the vault has changed while pages of a vault query have been loaded. If such a scenario is important to detect, then the property can be used to restart querying.
 
-A example of how to use this property can be found in [Vault Queries]({{< relref "cordapps/api-vault-query.md#query-for-all-states-using-a-pagination-specification-and-iterate-using-the-totalstatesavailable-field-until-no-further-pages-available-1" >}}).
+An example of how to use this property can be found in [Vault Queries]({{< relref "cordapps/api-vault-query.md#query-for-all-states-using-a-pagination-specification-and-iterate-using-the-totalstatesavailable-field-until-no-further-pages-available-1" >}}).
 
 ### Upgraded dependencies 
   
@@ -71,7 +71,7 @@ The following dependencies have been upgraded to address critical and high-sever
 
 ### Consuming transaction IDs added to `vault_state` table 
 
-When a state is consumed by a transaction, Corda now adds the ID of the consuming transaction in the `consuming_tx_id` column of the `vault_state` table . Corda only updates this database column for new transactions; for existing consumed states already in the ledger, the value of `consuming_tx_id` is null.
+When a state is consumed by a transaction, Corda now adds the ID of the consuming transaction in the `consuming_tx_id` column of the `vault_state` table. Corda only updates this database column for new transactions; for existing consumed states already in the ledger, the value of `consuming_tx_id` is null.
 
 ## Fixed issues
 

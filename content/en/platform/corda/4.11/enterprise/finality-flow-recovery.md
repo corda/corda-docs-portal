@@ -20,7 +20,7 @@ weight: 45
 Specifically, the `FinalityFlow` initiator stores:
 
 * The Corda X.500 name of the **initiator** party.
-* The list of Corda X.500 names of the **other parties** we share the transaction with. These include participants on the transaction contract, plus any additional sessions passed into FinalityFlow, such as **observer** nodes.
+* The list of Corda X.500 names of the **other parties** the initiator shares the transaction with. These include participants on the transaction contract, plus any additional sessions passed into `FinalityFlow`, such as **observer** nodes.
 * The `StatesToRecord` status (the default value is `ONLY_RELEVANT`). This status determines if states are recorded in the vault for a node.
 
 The `ReceiveFinalityFlow` receiver stores:
@@ -28,16 +28,16 @@ The `ReceiveFinalityFlow` receiver stores:
 * The Corda X.500 name of the initiator party.
 * The `StatesToRecord` status (described above).
 
-The initiator of a `FinalityFlow` transaction will store all the above recovery metadata locally. The list of participants
+The initiator of a `FinalityFlow` transaction stores all of the above recovery metadata locally. The list of participants
 is not shared across the network, and is private only to the initiator.
 
-The receiver of a shared `FinalityFlow` transaction will only receive and record who the initiator is and the `StatesToRecord` status.
+The receiver of a shared `FinalityFlow` transaction only receives and records who the initiator is and the `StatesToRecord` status.
 
 A finality flow transaction is recoverable when its transaction status is `IN_FLIGHT`. This could be at either or both of the initiator and receiver(s) sides, depending on how far the finality protocol progressed before failure at a given participant:
 
 * If the initiator reached a point whereby the transaction was successfully notarized, then recovery can be executed at either, or both, the initiator and receiver sides:
-  * If the initiator triggers recovery first, it will not be necessary for the receiver to perform the same.
-  * If  the receiver triggers recovery first, then the initiator must also follow (only if it also failed after the notarization step).
+  * If the initiator triggers recovery first, it is not necessary for the receiver to perform the same.
+  * If the receiver triggers recovery first, then the initiator must also follow (only if it also failed after the notarization step).
 * If notarization has not yet taken place, then recovery must be triggered from the initiator side only.
 * If the initiator of a transaction successfully notarized and finalized, it is possible to trigger recovery of failed peers by triggering recovery on the initiator side and specifying the transaction ID to recover.
 
@@ -47,7 +47,7 @@ Finality flow failure typically leads to temporal ledger inconsistency. The foll
 * The receiver completes successfully before the initiator completes finalization. This may happen after the initiator successfully sends the notary signature to the receiver(s) but then fails prior to finalizing its own transaction.
 {{< /warning >}}
 
-The state machine enables you to recover finality flows that are in a `FAILED` checkpoint flow status. An optional `force-recover` flag also forces recovery of any finality flows that are in a `RUNNABLE`, `PAUSED` or `HOSPITALIZED`  checkpoint flow status.
+The state machine enables you to recover finality flows that are in a `FAILED` checkpoint flow status. An optional `force-recover` flag also forces recovery of any finality flows that are in a `RUNNABLE`, `PAUSED`, or `HOSPITALIZED` checkpoint flow status.
 
 {{< note >}}
 `PAUSED` and `HOSPITALIZED` flows are automatically retried on node startup, and so may recover without the need for  {{< /note >}}
@@ -56,7 +56,7 @@ The state machine enables you to recover finality flows that are in a `FAILED` c
 
 Transactions that do not require notarization (for example, issuance) also store recovery metadata such that any observers to
 an issuance transaction may also be recovered. That is, should an issuance transaction fail to broadcast the transaction
-to an observer peer, it will be possible to invoke the recovery flow at the initiator to ensure the transaction is correctly
+to an observer peer, it is possible to invoke the recovery flow at the initiator to ensure the transaction is correctly
 re-distributed to that observer peer.
 
 {{< note >}}
@@ -82,7 +82,7 @@ All recovery operations return the following:
 *  **false** if a transaction does not require recovery.
 *  **FlowRecoveryException** if there is an error whilst performing recovery.
 
-### Recovering finality flows using the extensions `FlowRPCOps` RPC API.
+### Recovering finality flows using the extensions `FlowRPCOps` RPC API
 
 The `FlowRPCOps` API exposes the following recovery operations:
 
@@ -223,8 +223,8 @@ FlowTransactionInfo(stateMachineRunId=[e0d781be-b4ab-43e0-b694-e97cc4eaa6ee], tx
       name: "O=Bob Plc,L=Rome,C=IT"
 ```
 {{< note >}}
-* `initiator` refers to myself as caller of the command.
-* `peers` field contains the other participants' distribution list.
+* The `initiator` field is the initiator of the command.
+* The `peers` field contains the other participants' distribution list.
 {{< /note >}}
 
 You can also perform the same check by specifying a transaction ID.  This is commonly the case when recovering from a receiver perspective (as an initiator flow ID is meaningless outside its own node).
@@ -270,7 +270,7 @@ Failed to recover finality flow 821884be-8e9f-486d-8228-70d97e215218
 
 Further information explaining why a flow failed to recover can be found in the node logs.
 A prime example is attempting to recover a flow that has already completed successfully.
-The node logs will show the following message:
+The node logs show the following message:
 
 ```bash
 Recovery not possible for transaction with status VERIFIED
@@ -282,7 +282,7 @@ To recover a failed finality flow by using the transaction ID:
 flow recoverFinalityByTxnId 7E7EE31CA6371D73CDDB1A7992E239CE222606EA845F1ABC87995898017904A4
 Recovered finality flow [821884be-8e9f-486d-8228-70d97e215218]
 ```
-Should recovery fail, you will see the following response:
+Should recovery fail, you see the following response:
 
 ```bash
 Failed to recover finality flow 7E7EE31CA6371D73CDDB1A7992E239CE222606EA845F1ABC87995898017904A4
@@ -303,7 +303,7 @@ This operation returns a list of flow identifier/Boolean (success/failure) pairs
 In all other cases, the shell prints a message stating if the operation succeeded or not.
 {{< /note >}}
 
-To recover all failed finality flows, including those in a PAUSED or HOSPITALIZED checkpoint state:
+To recover all failed finality flows, including those in a `PAUSED` or `HOSPITALIZED` checkpoint state:
 
 ```bash
 flow recoverAllFinality --force-recovery
@@ -345,7 +345,7 @@ To recover a single finality flow by ID, call `recoverFinalityFlow`:
 val status = flowClient.proxy.recoverFinalityFlow(flowHandle.id)
 ```
 
-This method will return a **status** of `true` if the operation was successful, or `false` otherwise.
+This method returns a **status** of `true` if the operation was successful, or `false` otherwise.
 
 To recover multiple finality flows by ID, call `recoverFinalityFlows`:
 
@@ -353,9 +353,9 @@ To recover multiple finality flows by ID, call `recoverFinalityFlows`:
 val resultMap = flowClient.proxy.recoverFinalityFlows(setOf(flowHandle1.id, flowHandle2.id))
 ```
 
-This method will return a **resultMap** (`Map<StateMachineRunId, Boolean>`), consisting of a collection of flow identifier/Boolean (success/failure) entries.
+This method returns a **resultMap** (`Map<StateMachineRunId, Boolean>`), consisting of a collection of flow identifier/Boolean (success/failure) entries.
 
-To recover a single finality flow which has been HOSPITALIZED or PAUSED, use the **force recovery flag**, as follows:
+To recover a single finality flow which has been `HOSPITALIZED` or `PAUSED`, use the **force recovery flag**, as follows:
 
 ```kotlin
 val status = flowClient.proxy.recoverFinalityFlow(flowHandle.id, forceRecover = true)
@@ -394,7 +394,6 @@ val resultMap = flowRPC.proxy.recoverFinalityFlowsMatching(
         )    
     )
 )
-
 ```
 
 To recover all finality flows initiated by Charlie using a matching criteria, call `recoverFinalityFlowsMatching`:
@@ -436,9 +435,9 @@ Similarly, to query a flow transaction by transaction ID, call `getFlowTransacti
 val flowInfo = flowClient.proxy.getFlowTransactionByTxnId(txnId)
 ```
 
-Both these methods will return a **FlowTransactionInfo** object if the flow transaction exists.
+Both these methods return a **FlowTransactionInfo** object if the flow transaction exists.
 
-#### Implementation ####
+#### Implementation
 
 `FinalityRecoveryFlow` is the primary flow that orchestrates recovery by identifying whether initiator or peer recovery
 is required according to the flow transaction recovery metadata.
@@ -457,7 +456,7 @@ net.corda.node.internal.recovery.TransactionnotarizationCheckFlow
 ```
 
 `TransactionnotarizationCheckFlow` is a helper flow used by the `FinalityPeerRecoveryFlow` that determines whether
-a [SignedTransaction] has been previously notarized.
+a `SignedTransaction` has been previously notarized.
 
 It builds a new transaction that has:
 * A single input from the original `SignedTransaction` as a reference state. Reference states cannot be spent and are thus never recorded by the notary upon a notarization check.

@@ -143,7 +143,7 @@ The `CashIssueFlow` test is part of the `perftest-cordapp` CorDapp. It issues ca
 
 ### Inter-Node Performance
 
-These are flows that are, to varying degrees, closer to modelling real-world loads.
+These are flows that are, to varying degrees, closer to modeling real-world loads.
 
 #### Issue and Pay Flows
 

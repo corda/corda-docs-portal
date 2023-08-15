@@ -32,7 +32,8 @@ For more information about platform versions, see [Versioning]({{< relref "versi
 
 ### Two Phase Finality
 
-Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and recoverability of CorDapps using finality. Existing CorDapps will not require any changes to take advantage of this new improved protocol.
+Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this new improved protocol.
+Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this new improved protocol.
 
 See [Two Phase Finality]({{< relref "two-phase-finality.md" >}}).
 
@@ -45,7 +46,7 @@ The following dependencies have been upgraded to address critical and high-sever
 
 ### Consuming transaction IDs added to `vault_state` table 
 
-When a state is consumed by a transaction, Corda now adds the ID of the consuming transaction in the `consuming_tx_id` column of the `vault_state` table . Corda only updates this database column for new transactions; for existing consumed states already in the ledger, the value of `consuming_tx_id` is null.
+When a state is consumed by a transaction, Corda now adds the ID of the consuming transaction in the `consuming_tx_id` column of the `vault_state` table. Corda only updates this database column for new transactions; for existing consumed states already in the ledger, the value of `consuming_tx_id` is null.
 
 ## Fixed issues
 
@@ -57,7 +58,7 @@ This release includes the following fixes:
 
 * A new property, `previousPageAnchor`, has been added to `Vault.Page`. It is used to detect if the vault has changed while pages of a vault query have been loaded. If such a scenario is important to detect, then the property can be used to restart querying.
 
-  A example of how to use this property can be found in [Vault Queries]({{< relref "api-vault-query.md#query-for-all-states-using-a-pagination-specification-and-iterate-using-the-totalstatesavailable-field-until-no-further-pages-available-1" >}}).
+  An example of how to use this property can be found in [Vault Queries]({{< relref "api-vault-query.md#query-for-all-states-using-a-pagination-specification-and-iterate-using-the-totalstatesavailable-field-until-no-further-pages-available-1" >}}).
   
   
 ### Database schema changes
@@ -66,14 +67,12 @@ The following database changes have been applied:
 
 Two Phase Finality introduces additional data fields within the main `DbTransaction` table:
 
-```bash
+```kotlin
   @Column(name = "signatures")
   val signatures: ByteArray?,
 
   /**
    * Flow finality metadata used for recovery
-   * TODO: create association table solely for Flow metadata and recovery purposes.
-   * See https://r3-cev.atlassian.net/browse/ENT-9521
    */
 
   /** X500Name of flow initiator **/
