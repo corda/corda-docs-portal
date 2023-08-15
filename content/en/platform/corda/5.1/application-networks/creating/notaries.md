@@ -155,7 +155,7 @@ This sets the following notary specific values:
 * `"corda.notary.service.flow.protocol.version.0" : "1"` - This must be specified and currently must be set to version 1. The 0 at the end of the name reflects the fact that in future there may be multiple versions supported, with additional versions specified by 1,2, and so on.
 
 {{< note >}}
-It is currently only possible to have a single notary virtual node associated with a notary service X.500 name. The eventual intent is to allow a many-to-one mapping, similar to the HA notary implementation in Corda 4. This will allow a notary service to be hosted across multiple Corda clusters/regions.
+It is currently only possible to have a single notary virtual node associated with a notary service X.500 name. The eventual intent is to allow a many-to-one mapping, similar to the high-availability notary implementation in Corda 4. This will allow a notary service to be hosted across multiple Corda clusters/regions.
 {{< /note >}}
 ### Register the Notary
 
