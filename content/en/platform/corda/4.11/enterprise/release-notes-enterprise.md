@@ -27,6 +27,26 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 ## New features and enhancements
 
+### Ledger Recovery
+
+A new ledger recovery flow (`LedgerRecoveryFlow`) enables a node to identify and recover transactions from
+peer recovery nodes to which it was a party (either initiator or receiver) and which are missing from its own ledger.
+
+For more information, see [Ledger Recovery Flow]({{< relref "ledger-recovery-flow.md" >}})
+
+### Confidential Identity key-pair generator
+
+A new service has been added that pregenerates Confidential Identity keys to be used when using CIs in transactions.
+These pre-generated CIs are subsequently used for backup recovery purposes.
+
+### Ledger Recovery and CI Pre-generation configuration
+
+Additional network map and associated node configuration parameters:
+```
+recoveryMaximumBackupInterval: Duration? = null
+confidentialIdentityMinimumBackupInterval: Duration? = null
+```
+
 * This release includes improvements in the performance of deserializing AMQP data, which may result in performance improvements for LedgerGraph, Archiving and other CorDapps.
 
 * A new property, `previousPageAnchor`, has been added to `Vault.Page`. It is used to detect if the vault has changed while pages of a vault query have been loaded. If such a scenario is important to detect, then the property can be used to restart querying.
