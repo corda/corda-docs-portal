@@ -23,12 +23,20 @@ To create a virtual node for the {{< tooltip >}}MGM{{< /tooltip >}} on Linux or 
 
 ```shell
 export CPI_CHECKSUM=<CPI-checksum>
-curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{ "request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "C=GB, L=London, O=MGM"}}' $REST_API_URL/virtualnode
+export X500_NAME="C=GB, L=London, O=MGM"
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{ "request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "'$X500_NAME'"}}' $REST_API_URL/virtualnode
 ```
 
-If successful, this request returns the details of the new virtual node as JSON. To save the ID of the virtual node for future use, run the following command, replacing `<holding-identity-ID>` with the ID returned in `holdingIdentity.shortHash` in the received response. For example, `58B6030FABDD`.
+Check that the virtual node was created successfully by running the following, replacing `<request-ID>` with the ID returned in the received response:
+
 ```shell
-export MGM_HOLDING_ID=<holding-identity-ID>
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/virtualnode/status/<request-ID>
+```
+
+This request returns a JSON object with `status` set to `SUCCEEDED` once the operation is complete. You may have to call the `/virtualnode/status` endpoint multiple times until you receive the `SUCCEEDED` status. Once complete, to save the ID of the virtual node for future use, run the following command, replacing `<resource-ID>` with the ID returned in the received response:
+
+```shell
+export HOLDING_ID = <resource-ID>
 ```
 
 ## Create a Virtual Node on Windows
@@ -36,14 +44,23 @@ export MGM_HOLDING_ID=<holding-identity-ID>
 To create a virtual node for the MGM on Windows, run the following commands in PowerShell, changing the X.500 name. The command uses the checksum of the CPI from the response saved when you [uploaded the MGM CPI]({{< relref"./cpi.md#upload-the-cpi" >}}).
 
 ```shell
+$X500_NAME = "C=GB, L=London, O=Alice"
 $VIRTUAL_NODE_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/virtualnode" -Method Post -Body (ConvertTo-Json @{
     request = @{
        cpiFileChecksum = $CPI_STATUS_RESPONSE.cpiFileChecksum
-       x500Name = "C=GB, L=London, O=MGM"
+       x500Name = $X500_NAME
     }
 })
-
-$MGM_HOLDING_ID = $VIRTUAL_NODE_RESPONSE.holdingIdentity.shortHash
 ```
 
-These commands save the ID of the created virtual node returned in the response as `$MGM_HOLDING_ID` for future use.
+Check that the virtual node was created successfully by running the following:
+
+```shell
+$VIRTUAL_NODE_RESPONSE_STATUS = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/virtualnode/status/$($VIRTUAL_NODE_RESPONSE.requestId)" -Method Get
+```
+
+This request returns a JSON object with `status` set to `SUCCEEDED` once the operation is complete. You may have to call the `/virtualnode/status` endpoint multiple times until you receive the `SUCCEEDED` status. Once complete, to save the ID of the virtual node for future use, run the following command:
+
+```shell
+$HOLDING_ID = $VIRTUAL_NODE_RESPONSE_STATUS.resourceId
+```
