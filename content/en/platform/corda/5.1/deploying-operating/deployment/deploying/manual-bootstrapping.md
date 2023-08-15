@@ -171,26 +171,37 @@ corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
 
 You can then execute the `create` script to create the topics.
 
-## Database
+By default, a Corda installation automatically creates and populates the database schema it requires. 
 
-By default, a Corda installation automatically creates and populates the database schema it requires.
-To create the schema manually, do the following:
-1. Set the following override in the deployment configuration to disable the automatic creation:
+{{< note >}}
+If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database, as described in this section.
+{{< /note >}}
 
-   ```yaml
-   bootstrap:
-     db:
-       enabled: false
-   ```
+To create the schema manually, set the following override in the deployment configuration to disable the automatic creation:
 
-   {{< note >}}
+```yaml
+bootstrap:
+  db:
+    enabled: false
+```
 
-   * If you are applying SQL to a schema using the `psql` command you can specify which schema to apply it to using the `--dbname` parameter like so: `--dbname "dbname=cordacluster options=--search_path=<SCHEMA-NAME>"`
+Create and populate the database schema, as follows:
+1. [Create the Database Tables](#create-the-database-tables)
+2. [Populate the RBAC Database Connection Configuration](#populate-the-rbac-database-connection-configuration)
+3. [Populate the Crypto Database Connection Configuration](#populate-the-crypto-database-connection-configuration)
+4. [Populate the Virtual Nodes Database Connection Configuration](#populate-the-virtual-nodes-database-connection-configuration)
+5. [Populate the REST Admin User](#populate-the-rest-admin-user)
+6. [Create the RBAC and Crypto Users](#create-the-rbac-and-crypto-users)
+7. [Populate the Crypto Configuration](#populate-the-crypto-configuration)
 
-   * If you are targeting schemas, database and crypto-generated SQL should be applied to the CONFIG schema, and create-user-config generated SQL should be applied to the RBAC schema. If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
-   {{< /note >}}
+{{< note >}}
+* If you are applying SQL to a schema using the `psql` command, you can specify which schema to apply it to using the `--dbname` parameter: `--dbname "dbname=cordacluster options=--search_path=<SCHEMA-NAME>"`.
+* If you are targeting schemas, database and crypto-generated SQL should be applied to the `CONFIG` schema, and `create-user-config` generated SQL should be applied to the `RBAC` schema. If you do not specify the schema, the installation process creates the tables in the default schema and you must update the next steps in this procedure to reflect this.
+{{< /note >}}
 
-2. Use the Corda CLI to generate DML files for creating the database tables to use for each of the `crypto`, `config`, and `rbac` components.
+### Create the Database Tables
+
+1. Use the Corda CLI to generate DML files for creating the database tables to use for each of the crypto, config, and rbac components.
 
    The following command specifies that the `CONFIG`, `RBAC`, and `CRYPTO` schema should be used for the corresponding components and generates the files in the directory `/tmp/db`:
 
@@ -207,9 +218,18 @@ To create the schema manually, do the following:
    {{% /tab %}}
    {{< /tabs >}}
 
-3. Review the DML files generated and then execute against the database.
+2. Review the DML files generated and then execute against the database.
 
-4. Execute the following Corda CLI command to generate DDL for populating the {{< tooltip >}}RBAC{{< /tooltip >}} database connection configuration, in this case use CONFIG:
+### Populate the RBAC Database Connection Configuration
+
+Depending on your installation, follow the steps in one of the following sections to generate DDL for populating the RBAC database connection configuration:
+
+* [RBAC Database Connection Configuration for Corda](#rbac-database-connection-configuration-for-corda)
+* [RBAC Database Connection Configuration for Corda Enterprise with HashiCorp Vault](#rbac-database-connection-configuration-for-corda-enterprise-with-hashicorp-vault) {{< enterprise-icon >}}
+
+#### RBAC Database Connection Configuration for Corda 
+
+1. Execute the following Corda CLI command to generate DDL for populating the {{< tooltip >}}RBAC{{< /tooltip >}} database connection configuration:
 
    {{< tabs name="RBAC">}}
    {{% tab name="Bash" %}}
@@ -228,7 +248,7 @@ To create the schema manually, do the following:
    {{% /tab %}}
    {{< /tabs >}}
 
-   The `<SALT>` and `<PASSPHRASE>` are used to encrypt the credentials in the database. These must match the values specified in the [Corda deployment configuration]({{< relref "#encryption" >}}).
+   The `<SALT>` and `<PASSPHRASE>` are used to encrypt the credentials in the database. These must match the values specified in the [Corda deployment configuration]({{< relref "./_index.md#encryption" >}}).
 
    For example:
 
@@ -249,9 +269,62 @@ To create the schema manually, do the following:
    {{% /tab %}}
    {{< /tabs >}}
 
-5. Review the DDL files generated and then execute against the database.
+2. Review the DDL files generated and then execute against the database, ensuring to apply them to the `CONFIG` schema.
 
-6. Execute the following Corda CLI command to generate DDL for populating the Crypto database connection configuration, in this case use CONFIG:
+#### RBAC Database Connection Configuration for Corda Enterprise with HashiCorp Vault {{< enterprise-icon >}}
+
+1. Execute the following Corda CLI command to generate DDL for populating the RBAC database connection configuration:
+
+   {{< tabs name="RBAC-ent">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> \
+      --name corda-rbac --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC' \
+      --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key rbac -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd initial-config create-db-config -u <RBAC-USERNAME> `
+     --name corda-rbac --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC `
+     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key rbac -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+   The Vault parameters are used to retrieve encrypted values from the external secrets service. These must match the values specified in the [Corda deployment configuration]({{< relref "./_index.md#encryption" >}}).
+
+   For example:
+
+   {{< tabs name="RBAC-example-ent">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh initial-config create-db-config -u rbacuser \
+      --name corda-rbac --jdbc-url 'jdbc:postgresql://prereqs-postgres:5432/cordacluster?currentSchema=RBAC' \
+      --jdbc-pool-max-size 5 -t VAULT --vault-path dbsecrets --key rbac -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd initial-config create-db-config -u rbacuser `
+     --name corda-rbac --jdbc-url jdbc:postgresql://prereqs-postgres:5432/cordacluster?currentSchema=RBAC `
+     --jdbc-pool-max-size 5 -t VAULT --vault-path dbsecrets --key rbac -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+2. Review the DDL files generated and then execute against the database, ensuring to apply them to the `CONFIG` schema.
+
+### Populate the Crypto Database Connection Configuration
+
+Depending on your installation, follow the steps in one of the following sections to generate DDL for populating the RBAC database connection configuration:
+
+* [Crypto Database Connection Configuration for Corda](#crypto-database-connection-configuration-for-corda)
+* [Crypto Database Connection Configuration for Corda Enterprise with HashiCorp Vault](#crypto-database-connection-configuration-for-corda-enterprise-with-hashicorp-vault) {{< enterprise-icon >}}
+
+#### Crypto Database Connection Configuration for Corda
+
+1. Execute the following Corda CLI command to generate DDL for populating the Crypto database connection configuration:
 
    {{< tabs name="DDL-crypto">}}
    {{% tab name="Bash" %}}
@@ -270,7 +343,7 @@ To create the schema manually, do the following:
    {{% /tab %}}
    {{< /tabs >}}
 
-   The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the [Corda deployment configuration]({{< relref "#encryption" >}}).
+   The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the [Corda deployment configuration]({{< relref "./_index.md#encryption" >}}).
 
    For example:
 
@@ -291,30 +364,140 @@ To create the schema manually, do the following:
    {{% /tab %}}
    {{< /tabs >}}
 
-7. Review the DDL files generated and then execute against the database.
+2. Review the DDL files generated and then execute against the database, ensuring to apply them to the `CONFIG` schema.
 
-8. Execute the following Corda CLI command to configure virtual nodes, in this case, use `CONFIG`:
+#### Crypto Database Connection Configuration for Corda Enterprise with HashiCorp Vault {{< enterprise-icon >}}
 
-   {{< tabs name="vNode-example">}}
+1. Execute the following Corda CLI command to generate DDL for populating the Crypto database connection configuration:
+
+   {{< tabs name="DDL-crypto-ent">}}
    {{% tab name="Bash" %}}
    ```sh
-   corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
-     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin'
+   corda-cli.sh initial-config create-db-config -u <CRYPTO-USERNAME> \
+     --name corda-crypto --jdbc-url `jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO` \
+     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key crypto -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
-     --name corda-virtual-nodes --jdbc-url `jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin`
+   corda-cli.cmd initial-config create-db-config -u <CRYPTO-USERNAME> `
+     --name corda-crypto --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO `
+     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key crypto -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+   The Vault parameters are used to retrieve encrypted values from the external secrets service. These must match the values specified in the [Corda deployment configuration]({{< relref "./_index.md#encryption" >}}).
+
+   For example:
+
+   {{< tabs name="DDL-crypto-example-ent">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh initial-config create-db-config -u cryptouser \
+     --name corda-crypto --jdbc-url 'jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO' \
+     --jdbc-pool-max-size 5 -t VAULT --vault-path dbsecrets --key crypto -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd initial-config create-db-config -u cryptouser `
+     --name corda-crypto --jdbc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO `
+     --jdbc-pool-max-size 5 -t VAULT --vault-path dbsecrets --key crypto -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+2. Review the DDL files generated and then execute against the database, ensuring to apply them to the `CONFIG` schema.
+
+### Populate the Virtual Nodes Database Connection Configuration
+
+Depending on your installation, follow the steps in one of the following sections to generate DDL for populating the RBAC database connection configuration:
+
+* [Virtual Nodes Database Connection Configuration for Corda](#virtual-nodes-database-connection-configuration-for-corda)
+* [Virtual Nodes Database Connection Configuration for Corda Enterprise with HashiCorp Vault](#virtual-nodes-database-connection-configuration-for-corda-enterprise-with-hashicorp-vault) {{< enterprise-icon >}}
+
+#### Virtual Nodes Database Connection Configuration for Corda
+
+1. Execute the following Corda CLI command to generate DDL for populating the virtual nodes database connection configuration:
+
+   {{< tabs name="vNode">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
+     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \ 
+     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \
+     --is-admin
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> `
+     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> ` 
+     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db ` 
+     --is-admin
    ```
    {{% /tab %}}
    {{< /tabs >}}
 
    {{< note >}}
-   There is no schema in `--jdbc-url` as vNodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
+   There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
    {{< /note >}}
 
-9. Execute the following Corda CLI command to generate DDL for populating the initial admin user for Corda, in this case use RBAC:
+2. Review the DDL files generated and then execute against the database, ensuring to apply them to the `CONFIG` schema.
+
+#### Virtual Nodes Database Connection Configuration for Corda Enterprise with HashiCorp Vault {{< enterprise-icon >}}
+
+1. Execute the following Corda CLI command to generate DDL for populating the virtual nodes database connection configuration:
+
+   {{< tabs name="vNode-ent">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> \
+     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \ 
+     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key vnodes -l /tmp/db \
+     --is-admin
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> `
+     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> ` 
+     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key vnodes -l /tmp/db `
+     --is-admin
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+   {{< note >}}
+   There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
+   {{< /note >}}
+
+   For example:
+   {{< tabs name="vNode-ent-example">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> \
+     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://prereqs-postgres:5432/cordacluster' \ 
+     --jdbc-pool-max-size  5 -t VAULT --vault-path dbsecrets --key vnodes -l /tmp/db \
+     --is-admin
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> `
+     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://prereqs-postgres:5432/cordacluster ` 
+     --jdbc-pool-max-size  5 -t VAULT --vault-path dbsecrets --key vnodes -l /tmp/db `
+     --is-admin
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+2. Review the DDL files generated and then execute against the database, ensuring to apply them to the `CONFIG` schema.
+
+### Populate the REST Admin User
+
+1. Execute the following Corda CLI command to generate DDL for populating the initial REST admin user for Corda:
 
    {{< tabs name="DDL-user">}}
    {{% tab name="Bash" %}}
@@ -329,41 +512,82 @@ To create the schema manually, do the following:
    {{% /tab %}}
    {{< /tabs >}}
 
-10. Review the DDL files generated and then execute against the database.
+2. Review the DDL files generated and then execute against the database, ensuring to apply them to the `RBAC` schema.
 
-11. Create the RBAC and Crypto users and grant access as follows:
+### Grant Access to the Cluster Database
 
-    ```sql
-    CREATE USER <RBAC-USERNAME> WITH ENCRYPTED PASSWORD '<RBAC-PASSWORD>';
-    GRANT USAGE ON SCHEMA RBAC to <RBAC-USERNAME>;
-    GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA RBAC to <RBAC-USERNAME>;
-    CREATE USER <CRYPTO-USERNAME> WITH ENCRYPTED PASSWORD '<CRYPTO-PASSWORD>';
-    GRANT USAGE ON SCHEMA CRYPTO to <CRYPTO-USERNAME>;
-    GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CRYPTO to <CRYPTO-USERNAME>;
-    ```
+The cluster database user is the user specified in `db.cluster.username` in the [deployment configuration]({{< relref "./_index.md#configure-the-deployment" >}}). Grant access to this user as follows:
+```sql
+GRANT USAGE ON SCHEMA CONFIG to <CLUSTER-DB-USER>;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CONFIG to <CLUSTER-DB-USER>;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA CONFIG TO <CLUSTER-DB-USER>;
+```
 
-12. Execute the following Corda CLI command to generate DDL for populating the initial crypto configuration, in this case use CONFIG:
+### Create the RBAC and Crypto Users
 
-    {{< tabs name="DDL-crypto-config">}}
-    {{< tab name="Bash" codelang=sh >}}
-    ```
-corda-cli.sh initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
-    ```
-    {{< /tab >}}
-    {{< tab name="Bash" codelang=shell >}}
-    ```shell
-corda-cli.cmd initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
-    ```
-    {{< /tab >}}
-    {{< /tabs >}}
+Create the RBAC and Crypto users and grant access as follows:
 
-    The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
+```sql
+CREATE USER <RBAC-USERNAME> WITH ENCRYPTED PASSWORD '<RBAC-PASSWORD>';
+GRANT USAGE ON SCHEMA RBAC to <RBAC-USERNAME>;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA RBAC to <RBAC-USERNAME>;
+CREATE USER <CRYPTO-USERNAME> WITH ENCRYPTED PASSWORD '<CRYPTO-PASSWORD>';
+GRANT USAGE ON SCHEMA CRYPTO to <CRYPTO-USERNAME>;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CRYPTO to <CRYPTO-USERNAME>;
+```
 
-13. Review the DDL files generated and then execute against the database.
+### Populate the Crypto Configuration
+
+Depending on your installation, follow the steps in one of the following sections to generate DDL for populating the initial crypto configuration:
+
+* [Initial Crypto Configuration for Corda](#initial-crypto-configuration-for-corda)
+* [Initial Crypto Configuration for Corda Enterprise with HashiCorp Vault](#initial-crypto-configuration-for-corda-enterprise-with-hashicorp-vault) {{< enterprise-icon >}}
+
+#### Initial Crypto Configuration for Corda
+
+1. Execute the following Corda CLI command to generate DDL for populating the initial crypto configuration:
+
+   {{< tabs name="DDL-crypto-config">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+   ```
+   {{< /tab >}}
+   {{% tab name="PowerShell" %}}
+   ```sh
+   corda-cli.cmd initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+   ```
+   {{< /tab >}}
+   {{< /tabs >}}
+
+   The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
+
+2. Review the DDL files generated and then execute against the database, ensuring to apply to the `CONFIG` schema.
+
+#### Initial Crypto Configuration for Corda Enterprise with HashiCorp Vault {{< enterprise-icon >}}
+
+1. Execute the following Corda CLI command to generate DDL for populating the initial crypto configuration:
+
+   {{< tabs name="DDL-crypto-config-ent">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh initial-config create-crypto-config -t VAULT -v cryptosecrets -ks salt -kp passphrase -l /tmp/db
+   ```
+   {{< /tab >}}
+   {{% tab name="PowerShell" %}}
+   ```sh
+   corda-cli.cmd initial-config create-crypto-config -t VAULT -v cryptosecrets -ks salt -kp passphrase -l /tmp/db
+   ```
+   {{< /tab >}}
+   {{< /tabs >}}
+
+    `salt` and `passphrase` are the names of Vault keys and should be entered as shown, they are not to be substituted for any actual salt or passphrase.
+
+2. Review the DDL files generated and then execute against the database, ensuring to apply to the `CONFIG` schema.
 
 ## RBAC Roles
 
-By default, a post-install job normally creates three default [RBAC roles]({{< relref "../../config-users/_index.md">}}) for the REST API.
+By default, a post-install job creates three default [RBAC roles]({{< relref "../../config-users/_index.md">}}) for the REST API.
 To create the roles manually, perform the steps described in this section.
 
 {{< note >}}
