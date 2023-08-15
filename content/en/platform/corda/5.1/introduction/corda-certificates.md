@@ -15,8 +15,8 @@ This page is to document different types of keys and certificates in Corda 5 and
 <table>
 <col style="width:20%">
 <col style="width:15%">
-<col style="width:15%">
 <col style="width:50%">
+<col style="width:15%">
 <thead>
 <tr>
 <th>Key name</th>
