@@ -578,11 +578,11 @@ The following list describes the operators and right operand types for the vault
 
 ### ->
 
-Right Operand Type: `Int`
+<b> Right Operand Type:</b> <br />`Int`
 
-Description: Get JSON array element
+<b> Description:</b> <br /> Get JSON array element
 
-Example:
+<b> Example:</b> <br />
 
 `custom_representation`
 `->`
@@ -610,11 +610,11 @@ In this case it would return:
 }
 ```
 
-Right Operand Type: `Text`
+<b> Right Operand Type: </b> `Text`
 
-Description: Get JSON object field.
+<b> Description: </b> Get JSON object field.
 
-Example:
+<b> Example: </b>
 
 `custom_representation`
 `-> 'com.r3.corda.demo.TestState'`
@@ -642,11 +642,11 @@ In this case it would return:
 
 ### ->>
 
-Right Operand Type: `Int`
+<b> Right Operand Type: </b> `Int`
 
-Description: Get JSON array element as text.
+<b> Description: </b> Get JSON array element as text.
 
-Example:
+<b> Example:</b>
 
 `custom_representation` 
 `-> 'com.r3.corda.demo.ArrayState'`
