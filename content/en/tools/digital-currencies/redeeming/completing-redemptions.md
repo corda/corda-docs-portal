@@ -12,7 +12,7 @@ menu:
 title: "Completing Redemptions"
 ---
 
-Once an [redemption request has been created]({{< relref "creating-redemption-requests.md" >}}) and then subsequently [approved by both the issuer and the custodian]({{< relref "approving-or-rejecting-redemption-requests.md" >}}), the redemption process can be completed by the participant who initiated it.
+Once an [redemption request has been created]({{< relref "creating-redemption-requests.md" >}}) and then subsequently [approved by both the issuer and the custodian]({{< relref "approving-or-rejecting-redemption-requests.md" >}}), the {{< tooltip >}}redemption{{< definitiondc term="redemption" >}}{{< /tooltip >}} process can be completed by the participant who initiated it.
 
 
 As the participant who created the original request:
@@ -29,7 +29,7 @@ As the participant who created the original request:
 	  alt="Redemptions Page"
    >}}
 
-   The **Redemption Requests** panel lists any redemption requests for tokens to the currently-logged-in issuer.
+   The **Redemption Requests** panel lists any redemption requests for tokens for the current participant.
 
 2. In the **Redemption Requests** pane, click on any request which has been approved by both the issuer and the custodian (that is, the values of **Issuer Status** and **Custodian Status** are both **Approved**).
 
@@ -49,7 +49,7 @@ As the participant who created the original request:
 
    {{< figure src="images/successfully-submitted-redemption-finalisation-request-message.png" width=50% figcaption="'Successfully submitted redemption finalisation request' Message" alt="'Successfully submitted redemption finalisation request' Message" >}}
 
-   The Redeem Token flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
+   The **Redeem Token** flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
 
    {{<
       figure
@@ -59,7 +59,7 @@ As the participant who created the original request:
 	  alt="Redeem Token - Flow Running"
    >}}
 
-   Once the Redeem Token flow completes, the message *Tokens have been redeemed successfully* is displayed:
+   Once the **Redeem Token** flow completes, the message **Tokens have been redeemed successfully** is displayed:
 
    {{<
       figure
@@ -71,7 +71,7 @@ As the participant who created the original request:
 
    The redemption request disappears from the **Redemption Requests** panel.
    
-   The vault balance of the requesting participant is updated to show the redemption:
+   The vault balance of the requesting participant is updated to show the number of tokens has been debited in accordance with the redemption:
    
    {{<
       figure
@@ -81,3 +81,4 @@ As the participant who created the original request:
 	  alt="Vault Balances Panel After Redemption"
    >}}
 
+   Similarly, the vault balance of the relevant issuer is updated to show the number of tokens has been increased in accordance with the redemption.

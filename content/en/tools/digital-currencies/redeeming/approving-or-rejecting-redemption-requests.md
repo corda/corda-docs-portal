@@ -12,7 +12,7 @@ menu:
 title: "Approving or Rejecting Redemption Requests"
 ---
 
-An redemption request must be approved by both:
+A {{< tooltip >}}redemption{{< definitiondc term="redemption" >}}{{< /tooltip >}} request must be approved by both:
 
 * The issuer of the digital currency.
 * The custodian of the digital currency.
@@ -23,9 +23,9 @@ Once approved, the participant who [created the request]({{< relref "creating-re
 
 To approve or reject an redemption request (as either an issuer or a custodian):
 
-1. In the left-hand menu, click on **Redemption**.
+1. In the left-hand menu, click on **Redemptions**.
 
-   The following page is displayed:
+   The **Redemptions** page is displayed:
    
    {{< 
       figure
@@ -35,9 +35,9 @@ To approve or reject an redemption request (as either an issuer or a custodian):
 	  alt="Redemptions Page"
    >}}
 
-   The page shows the following panels related to redemptions:
+   The page shows the following panels:
 
-   * **Vault Balance**: A Corda vault is a database containing all data from the ledger relevant to a participant. For more information, see [the Vault topic]({{< relref "/en/platform/corda/5.0/developing-applications/ledger/vault/_index.md" >}}).
+   * **Vault Balances**: A Corda vault is a database containing all data from the ledger relevant to a participant. For more information, see [the Vault topic]({{< relref "/en/platform/corda/5.0/developing-applications/ledger/vault/_index.md" >}}).
    * **Redemption Requests:** Lists any existing issuance requests and their status.
   
   If you are logged in as the issuer, the panel will look like this:
@@ -62,8 +62,8 @@ To approve or reject an redemption request (as either an issuer or a custodian):
    
    For each redemption request, the following information is displayed:
    
-   * **Issuer Status:** Whether or not the issuer has approved the redemption request.
-   * **Custodian Status:** Whether or not the custodian has approved the redemption request.
+   * **Issuer Status:** APPROVED or PENDING, depending on if the issuer has approved the redemption request or not.
+   * **Custodian Status:** APPROVED or PENDING, depending on if the custodian has approved the redemption request or not.
    * **Token name:** The name of the token definition; normally the full name of the currency; for example, UAE Dirham.
    * **Token symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, *AED*.
    * **Amount:** The number of tokens to be redeemed.
@@ -72,7 +72,7 @@ To approve or reject an redemption request (as either an issuer or a custodian):
    
 2. Click the relevant redemption request.
 
-   The following dialog box is displayed:
+   The **Redemption Request** dialog box is displayed:
    
    {{< 
       figure
@@ -94,14 +94,14 @@ To approve or reject an redemption request (as either an issuer or a custodian):
    
 7. Click **Approve**.
 
-   The message **Successfully submitted your redemption request** is displayed:
+   The message **Successfully submitted your redemption approval request update** is displayed:
    
    {{< 
       figure
 	  src="images/successfully-submitted-redemption-approval-request-update-message.png"
       width=40%
-	  figcaption="'Successfully submitted your redemption request approval request update' Message"
-	  alt="'Successfully submitted your redemption request approval request update' Message"
+	  figcaption="'Successfully submitted your redemption approval request update' Message"
+	  alt="'Successfully submitted your redemption approval request update' Message"
    >}}
    
    The **Update Approval Request** flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen: 

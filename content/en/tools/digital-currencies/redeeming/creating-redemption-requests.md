@@ -12,6 +12,7 @@ menu:
 title: "Creating Redemption Requests"
 ---
 
+This topic describes how to create a {{< tooltip >}}redemption{{< definitiondc term="redemption" >}}{{< /tooltip >}} request.
 
 The following assumes you are logged in as an entity capable of creating an redemption request, such as a commercial bank, and that you possess tokens in your vault to redeem.
 
@@ -59,7 +60,7 @@ The following assumes you are logged in as an entity capable of creating an rede
 	  alt="'Successfully submitted an redemption request' message"
    >}}
    
-   The Request Redemptions flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
+   The **Request Redemption** flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
 
    {{< 
       figure
@@ -69,7 +70,7 @@ The following assumes you are logged in as an entity capable of creating an rede
 	  alt="Request Redemption - Flow Running"
    >}}
    
-   Once the **Request Tokens** flow finishes, the message **Your redemption request has been successfully created** is displayed:
+   Once the **Request Redemption** flow finishes, the message **Your redemption request has been successfully created** is displayed:
 
    {{< 
       figure

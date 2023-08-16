@@ -13,10 +13,12 @@ title: "Working with Token Redemption"
 ---
 
 
-A participant, such as a commercial bank, can use redemption to exchange the tokens they possess for their collateral. For example, the participant may create a redemption request to redeem their tokens with a central bank if they require an end-of-day settlement in order to gain overnight interest on their collateral. 
+A participant, such as a commercial bank, can perform a *redemption*: exchange the tokens they possess for their collateral. For example, the participant may [create a redemption request]({{< relref "creating-redemption-requests.md" >}}) to redeem their tokens with a central bank if they require an end-of-day settlement in order to gain overnight interest on their collateral. 
 
-The participant will check their balance and [create a redemption request]({{< relref "creating-redemption-requests.md" >}}) by selecting the token definition they wish to redeem against.  This request is sent to the {{< tooltip >}}issuer{{< definitiondc term="issuer" >}}{{< /tooltip >}} and {{< tooltip >}}custodian{{< definitiondc term="custodian" >}}{{< /tooltip >}}. Depending on the token definition, the issuer will check the {{< tooltip >}}RTGS{{< definitiondc term="RTGS" >}}{{< /tooltip >}} balance off-ledger. If the collateral required to be redeem can be supported, the issuer and custodian will [approve the redemption request]({{< relref "approving-or-rejecting-redemption-requests.md" >}}). The custodian will then perform an off-ledger movement of collateral into the participant's RTGS account or bank account. Simultaneously, the tokens are moved from the participant's vault to the issuer's vault when the participant [completes the redemption]({{< relref "completing-redemptions.md" >}}).
+This redemption request is sent to both the {{< tooltip >}}issuer{{< definitiondc term="issuer" >}}{{< /tooltip >}} and {{< tooltip >}}custodian{{< definitiondc term="custodian" >}}{{< /tooltip >}}. Depending on the token definition, the issuer checks the {{< tooltip >}}RTGS{{< definitiondc term="RTGS" >}}{{< /tooltip >}} balance off-ledger. 
 
-The issuer then has the option to [burn (destroy) the tokens]({{< relref "../burning/_index.md" >}}).
+If the collateral required to be redeemed can be supported, the issuer and custodian [approve the redemption request]({{< relref "approving-or-rejecting-redemption-requests.md" >}}). The custodian then performs an off-ledger movement of collateral into the participant's RTGS account or bank account. Simultaneously, the tokens are moved from the participant's vault to the issuer's vault when the participant [completes the redemption]({{< relref "completing-redemptions.md" >}}).
+
+The issuer then has the option to [burn the tokens]({{< relref "../burning/_index.md" >}}).
 
 {{< childpages >}}

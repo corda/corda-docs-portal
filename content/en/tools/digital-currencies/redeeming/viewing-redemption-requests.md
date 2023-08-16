@@ -12,7 +12,7 @@ menu:
 title: "Viewing Redemption Requests"
 ---
 
-To view the list of existing redemption requests for the current participant:
+To view the list of existing {{< tooltip >}}redemption{{< definitiondc term="redemption" >}}{{< /tooltip >}} requests for the current participant:
 
 1. In the left-hand menu, click on **Redemptions**.
 
@@ -28,8 +28,8 @@ To view the list of existing redemption requests for the current participant:
 
    For each redemption request, the following information is displayed:
 
-   * **Issuer Status:** Whether or not the issuer has approved the redemption request.
-   * **Custodian Status:** Whether or not the custodian has approved the redemption request.
+   * **Issuer Status:** APPROVED or PENDING, depending on if the issuer has approved the redemption request or not.
+   * **Custodian Status:** APPROVED or PENDING, depending on if the custodian has approved the redemption request or not.
    * **Token name:** The name of the token definition; normally the full name of the currency; for example, UAE Dirham.
    * **Token symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, *AED*.
    * **Amount:** The number of tokens to be redeemed.

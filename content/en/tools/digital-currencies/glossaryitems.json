@@ -17,7 +17,7 @@
 	},
 
     "redemption": {
-        "definition": "When a commercial bank or central bank removes a token, which it defined, from a transacting entity or a network.",
+        "definition": "A redemption is when a participant, such as a commercial bank, exchange the tokens they possess for their collateral. For example, the participant may create a redemption request to redeem their tokens with a central bank if they require an end-of-day settlement in order to gain overnight interest on their collateral.",
         "more": ""
     },
     "regulator": {
