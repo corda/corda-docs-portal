@@ -33,7 +33,6 @@ For more information about platform versions, see [Versioning]({{< relref "versi
 ### Two Phase Finality
 
 Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this new improved protocol.
-Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this new improved protocol.
 
 See [Two Phase Finality]({{< relref "two-phase-finality.md" >}}).
 

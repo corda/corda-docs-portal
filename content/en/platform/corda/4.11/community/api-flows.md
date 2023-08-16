@@ -1383,7 +1383,6 @@ Threading must be explicitly controlled when using `FlowExternalAsyncOperation`.
 Implementations of `FlowExternalAsyncOperation` must return a `CompletableFuture`. The developer decides how to create this future.
 The best practice is to use `CompletableFuture.supplyAsync` and supply an executor to run the future. You can use other libraries to
 generate futures, as long as a `CompletableFuture` is returned out of `FlowExternalAsyncOperation`. You can see an example of creating a future using [Guava’s ListenableFuture](#api-flows-guava-future-conversion) below.
-generate futures, as long as a `CompletableFuture` is returned out of `FlowExternalAsyncOperation`. You can see an example of creating a future using [Guava’s ListenableFuture](#api-flows-guava-future-conversion) below.
 
 {{< note >}}
 You can chain the future to execute further operations that continue using the same thread the future started on. For example,

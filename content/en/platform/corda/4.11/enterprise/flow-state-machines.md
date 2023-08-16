@@ -110,7 +110,7 @@ You can find the implementation of this flow in the file [TwoPartyTradeFlow.kt](
 Assuming no malicious termination, they both end the flow being in possession of a valid, signed transaction that
 represents an atomic asset swap.
 
-Note that it is the *seller* who initiates contact with the buyer, not vice-versa as you might imagine.
+Note that it is the *seller* who initiates contact with the buyer, not vice-versa as you might expect.
 
 We start by defining two classes that will contain the flow definition. We also pick what data will be used by
 each side.
@@ -180,14 +180,12 @@ simply flow messages or exceptions. The other two represent the buyer and seller
 
 Going through the data needed to become a seller, we have:
 
-
 * `otherSideSession: FlowSession` - a flow session for communication with the buyer
 * `assetToSell: StateAndRef<OwnableState>` - a pointer to the ledger entry that represents the thing being sold
 * `price: Amount<Currency>` - the agreed on price that the asset is being sold for (without an issuer constraint)
 * `myParty: PartyAndCertificate` - the certificate representing the party that controls the asset being sold
 
 And for the buyer:
-
 
 * `sellerSession: FlowSession` - a flow session for communication with the seller
 * `notary: Party` - the entry in the network map for the chosen notary. See “Notaries” for more information on
@@ -198,10 +196,8 @@ a price less than or equal to this, then the trade will go ahead
 sell side of the flow is not trying to sell us the wrong thing, whether by accident or on purpose
 * `anonymous: Boolean` - whether to generate a fresh, anonymous public key for the transaction
 
-Alright, so using this flow shouldn’t be too hard: in the simplest case we can just create a buyer or seller
-with the details of the trade, depending on who we are. We then have to start the flow in some way. Just
-calling the `call` function ourselves won’t work: instead we need to ask the framework to start the flow for
-us. More on that in a moment.
+Using this flow should not be too hard: in the simplest case, just create a buyer or seller
+with the details of the trade. Then start the flow in some way. Calling the `call` function won't work: instead you need to ask the framework to start the flow. More on that in a moment.
 
 
 ## Suspendable functions
@@ -332,7 +328,7 @@ the trade info, and then call `otherSideSession.send`. which takes two arguments
 * The party we wish to send the message to
 * The payload being sent
 
-`otherSideSession.send` will serialize the payload and send it to the other party automatically.
+`otherSideSession.send` serializes the payload and sends it to the other party automatically.
 
 Next, we call a *subflow* called `IdentitySyncFlow.Receive` (see [Sub-flows](#sub-flows)). `IdentitySyncFlow.Receive`
 ensures that our node can de-anonymise any confidential identities in the transaction it’s about to be asked to sign.
@@ -477,7 +473,7 @@ actual communication will kick off a counter-flow on the other side, receiving a
 when either flow ends, whether as expected or pre-maturely. If a flow ends pre-maturely then the other side will be
 notified of that and they will also end, as the whole point of flows is a known sequence of message transfers. Flows end
 pre-maturely due to exceptions, and as described above, if that exception is `FlowException` or a sub-type then it
-will propagate to the other side. Any other exception will not propagate.
+propagates to the other side. Any other exception will not propagate.
 
 Taking a step back, we mentioned that the other side has to accept the session request for there to be a communication
 channel. A node accepts a session request if it has registered the flow type (the fully-qualified class name) that is
