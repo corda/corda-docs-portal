@@ -576,13 +576,15 @@ The following list describes the operators and right operand types for the vault
 * `>=`
 * `<=`
 
-### ->
+### Detailed operators
 
-<b> Right Operand Type:</b> <br />`Int`
+<b> Name: </b> `->`
 
-<b> Description:</b> <br /> Get JSON array element
+<b> Right Operand Type:</b> `Int`
 
-<b> Example:</b> <br />
+<b> Description:</b>  Get JSON array element
+
+<b> Example:</b> 
 
 `custom_representation`
 `->`
@@ -609,6 +611,8 @@ In this case it would return:
   "A": 1
 }
 ```
+
+<b> Name: </b> `->`
 
 <b> Right Operand Type: </b> `Text`
 
@@ -640,7 +644,7 @@ In this case it would return:
 
 ```
 
-### ->>
+<b> Name: </b> `->>`
 
 <b> Right Operand Type: </b> `Int`
 
@@ -668,11 +672,13 @@ Example JSON would look like this:
 
 In this case it would return `7`.
 
-Right Operand Type: `Text`
+<b> Name: </b> `->>`
 
-Description: Get JSON object field as text.
+<b> Right Operand Type: </b> `Text`
 
-Example:
+<b> Description: </b> Get JSON object field as text.
+
+<b> Example: </b>
 
 `custom_representation` 
 `-> 'com.r3.corda.demo.TestState'`
@@ -692,13 +698,13 @@ Example JSON would look like this:
 
 In this case it would return `ABC`.
 
-### ?
+<b> Name: </b> `?`
 
-Right Operand Type: `Text`
+</b> Right Operand Type: </b> `Text`
 
-Description: Check if JSON object field exists.
+</b> Description: </b> Check if JSON object field exists.
 
-Example:
+<b> Example: </b>
 
 `custom_representation ?`
 `'com.r3.corda.demo.TestState'`
@@ -718,12 +724,12 @@ Example JSON would look like this:
 
 In this case it would return `true`.
 
-### ::
+<b> Name: </b> `::`
 
-Right Operand Type: A type, e.g. `Int`
+<b> Right Operand Type: </b> A type, e.g. `Int`
 
-Description: Casts the element/object field to the specified type.
+<b> Description: </b> Casts the element/object field to the specified type.
 
-Example:
+<b> Example: </b>
 
 `(visible_states.field ->> property)::int = 1234`
