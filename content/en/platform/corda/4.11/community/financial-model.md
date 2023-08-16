@@ -84,7 +84,7 @@ In additional to the common state types, a number of interfaces extend `Contract
 
 `LinearState`A state which has a unique identifier beyond its StateRef and carries it through state transitions.
 Such a state cannot be duplicated, merged or split in a transaction: only continued or deleted. A linear state is
-useful when modelling an indivisible/non-fungible thing like a specific deal, or an asset that can’t be
+useful when modeling an indivisible/non-fungible thing like a specific deal, or an asset that can’t be
 split (like a rare piece of art).`DealState`A LinearState representing an agreement between two or more parties. Intended to simplify implementing generic
 protocols that manipulate many agreement types.`FungibleAsset`A FungibleAsset is intended to be used for contract states representing assets which are fungible, countable and issued by a
 specific party. States contain assets which are equivalent (such as cash of the same currency), so records of their existence

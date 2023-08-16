@@ -16,7 +16,7 @@ title: Scheduling time-based events
 
 # Scheduling time-based events
 
-This tutorial explains our approach to modelling time based events in code.
+This tutorial explains our approach to modeling time based events in code.
 
 It explains how a contract state can expose an upcoming event and what action to take if the scheduled time for that event is reached.
 

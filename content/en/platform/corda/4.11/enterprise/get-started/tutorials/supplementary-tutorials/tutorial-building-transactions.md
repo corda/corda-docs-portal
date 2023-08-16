@@ -85,7 +85,7 @@ searching the vault via the `VaultService` interface on the
 To give a few more specific details, consider two simplified real-world
 scenarios. First, a basic foreign exchange cash transaction. This
 transaction needs to locate a set of funds to exchange. A flow
-modelling this is implemented in `FxTransactionBuildTutorial.kt`
+modeling this is implemented in `FxTransactionBuildTutorial.kt`
 (in the [main Corda repo](https://github.com/corda/corda)).
 Second, a simple business model in which parties manually accept or
 reject each other’s trade proposals, which is implemented in
