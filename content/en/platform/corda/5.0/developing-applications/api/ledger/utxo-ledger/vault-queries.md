@@ -582,7 +582,7 @@ The following list describes the operators and right operand types for the vault
 
 <b> Right Operand Type:</b> `Int`
 
-<b> Description:</b>  Get JSON array element
+<b> Description:</b>  Get JSON array element.
 
 <b> Example:</b> 
 
