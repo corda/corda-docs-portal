@@ -6,7 +6,7 @@ menu:
   corda51:
     identifier: corda51-glossary
     parent: corda51-intro
-    weight: 5000
+    weight: 5050
 section_menu: corda51
 ---
 # Glossary
