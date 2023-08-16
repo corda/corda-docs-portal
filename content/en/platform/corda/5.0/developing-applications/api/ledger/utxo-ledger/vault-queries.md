@@ -700,9 +700,9 @@ In this case it would return `ABC`.
 
 <b> Name: </b> `?`
 
-</b> Right Operand Type: </b> `Text`
+<b> Right Operand Type: </b> `Text`
 
-</b> Description: </b> Check if JSON object field exists.
+<b> Description: </b> Check if JSON object field exists.
 
 <b> Example: </b>
 
