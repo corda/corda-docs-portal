@@ -39,7 +39,7 @@ If session certificates are used, {{< tooltip >}}revocation checks{{< /tooltip >
 
 If the CA has not been configured with revocation, you can disable revocation checks. By default, revocation checks are enabled.
 To disable revocation checks, do the following:
-1. Retrieve the current {{< tooltip >}}link manager{{< /tooltip >}} configuration version:
+1. Retrieve the current {{< tooltip >}}P2P link manager{{< /tooltip >}} configuration version:
    ```shell
    curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/config/corda.p2p.linkManager
    ```
@@ -47,7 +47,7 @@ To disable revocation checks, do the following:
    ```shell
    export CONFIG_VERSION=<configuration-version>
    ```
-3. Send the following request to disable revocation checks for the specified link manager:
+3. Send the following request to disable revocation checks for the specified P2P link manager:
    ```
    curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.p2p.linkManager", "version":"'$CONFIG_VERSION'", "config": { "revocationCheck": { "mode": "OFF" } }, "schemaVersion": {"major": 1, "minor": 0}}' $REST_API_URL"/config"
    ```

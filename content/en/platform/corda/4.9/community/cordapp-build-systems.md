@@ -242,7 +242,7 @@ dependencies {
 
 After you have set your dependencies, build your CorDapp `.jar`(s) using the Gradle `jar` task:
 
-* Unix/Mac OSX: `./gradlew jar`
+* Unix/macOS: `./gradlew jar`
 * Windows: `gradlew.bat jar`
 
 Each of the project’s modules is compiled into its own CorDapp `.jar`. You can find these CorDapp `.jar`s in the `build/libs` folders of each of the project’s modules.
