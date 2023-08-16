@@ -26,13 +26,13 @@ export X500_NAME="C=GB, L=London, O=Alice"
 curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{"request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "'$X500_NAME'"}}' $REST_API_URL/virtualnode
 ```
 
-Check that the virtual node was created successfully by running the following, replacing `<request-ID>` with the ID returned in the received response:
+You can use the `requestId` from the response to check that the virtual node was created successfully. Run the following, replacing `<request-ID>` with the ID received:
 
 ```shell
 curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/virtualnode/status/<request-ID>
 ```
 
-This request returns a JSON object with `status` set to `SUCCEEDED` once the operation is complete. You may have to call the `/virtualnode/status` endpoint multiple times until you receive the `SUCCEEDED` status. Once complete, to save the ID of the virtual node for future use, run the following command, replacing `<resource-ID>` with the ID returned in the received response:
+Once the operation is complete, this request returns a JSON object with `status` set to `SUCCEEDED`. You may have to call the `/virtualnode/status` endpoint multiple times until you receive the `SUCCEEDED` status. Once complete, to save the ID of the virtual node for future use, run the following command, replacing `<resource-ID>` with the ID returned in the received response:
 
 ```shell
 export HOLDING_ID = <resource-ID>
@@ -51,7 +51,7 @@ $VIRTUAL_NODE_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Aut
     }
 })
 ```
-Check that the virtual node was created successfully by running the following:
+You can use the `requestId` from the response to check that the virtual node was created successfully by running the following:
 
 ```shell
 $VIRTUAL_NODE_RESPONSE_STATUS = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/virtualnode/status/$($VIRTUAL_NODE_RESPONSE.requestId)" -Method Get
