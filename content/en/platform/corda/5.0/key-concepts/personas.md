@@ -5,8 +5,8 @@ version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-personas
-    parent: corda5-intro
-    weight: 4050
+    parent: corda5-key-concepts
+    weight: 950
 section_menu: corda5
 ---
 # Personas
