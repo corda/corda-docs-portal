@@ -1,12 +1,12 @@
 ---
-title: "Corda 5.0 Platform Support"
-date: 2023-05-23
+title: "Support"
+date: 2023-08-17
 version: 'Corda 5.0'
 menu:
   corda5:
-    identifier: corda5-platform-support
     parent: corda5-release-notes
-    weight: 1000
+    identifier: corda5-release-notes-support
+    weight: 900
 section_menu: corda5
 ---
 
@@ -20,15 +20,19 @@ table th:nth-of-type(2) {
 
 </style>
 
-# {{< version >}} Platform Support
+# {{< version >}} Support
 
-This page lists the supported versions of the following:
+This page lists the versions of [third-party software](#third-party-support) that {{< version >}} supports. It also outlines the [end of life strategy](#end-of-life-strategy).
+
+## Third-Party Support
+
+This section lists the supported versions of the following:
 * [Databases]({{< relref "#databases">}})
 * [Container Orchestration]({{< relref "#container-orchestration">}})
 * [Messaging]({{< relref "#messaging">}})
 * [Security Vault]({{< relref "#security-vault">}})
 
-## Databases
+### Databases
 
 | Database                  | Version |
 | ------------------------- | ------- |
@@ -37,7 +41,7 @@ This page lists the supported versions of the following:
 | Amazon Aurora PostgreSQL  | 14.4    |
 | Microsoft Azure for PostgreSQL  | 14.4    |
 
-## Container Orchestration
+### Container Orchestration
 
 | Software                                                                          | Version |
 | --------------------------------------------------------------------------------- | ------- |
@@ -46,7 +50,7 @@ This page lists the supported versions of the following:
 | Azure Kubernetes Service (AKS)                                                    | 1.25    |
 | RedHat OpenShift Container Platform (OCP) {{< enterprise-icon noMargin="True" >}} | 4.12.12 |
 
-## Messaging
+### Messaging
 
 | Software                                        | Version |
 | ----------------------------------------------- | ------- |
@@ -54,8 +58,25 @@ This page lists the supported versions of the following:
 | Amazon Managed Streaming for Apache Kafka (MSK) | 3.2.0   |
 | Confluent Cloud                                 | 3.2.0   |
 
-## Security Vault {{< enterprise-icon >}}
+### Security Vault {{< enterprise-icon >}}
 
 | Software        | Version |
 | --------------- | ------- |
 | HashiCorp Vault | 1.13.1  |
+
+
+## End of Life Strategy
+Use the following table to track the end of life schedule for each version of Corda. Each version of Corda has R3 support available for a fixed period. 
+After this period has ended, these versions are no longer supported by R3 and associated documentation is archived. You should always aim to upgrade to the latest version of Corda whenever possible.
+
+Definitions:
+
+* **End of maintenance**: This release will no longer receive functional patches after the date shown.
+* **End of security**: This release will no longer be eligible for security patches after the date shown.
+* **End of support**: Support (including documentation) provided by R3 is no longer available after this date.
+
+{{< note >}}
+All dates refer to the end of the month indicated.
+{{< /note >}}
+
+{{< snippet "end-of-life-corda5.md" >}}
