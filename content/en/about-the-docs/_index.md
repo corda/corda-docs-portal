@@ -48,7 +48,7 @@ All dates refer to the end of the month indicated.
 
 ## Documenting Corda 5
 The Corda 5 documentation is structured differently to previous versions of Corda. Previously, Corda Enterprise and Corda Community content was published in separate documentation sets. 
-From Corda 5.0 onwards, there is one documentation set, but the features that relate to Corda Enterprise are marked to avoid confusion. 
+From Corda 5.0 onwards, there is one documentation set, but the features that relate only to Corda Enterprise are marked to avoid confusion. 
 
 {{< 
   figure
