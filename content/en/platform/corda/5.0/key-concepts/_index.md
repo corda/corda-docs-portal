@@ -8,7 +8,6 @@ menu:
   corda5:
     identifier: corda5-key-concepts
     weight: 950
-section_menu: corda5
 ---
 # Key Concepts
 
