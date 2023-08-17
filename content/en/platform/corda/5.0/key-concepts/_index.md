@@ -12,4 +12,5 @@ section_menu: corda5
 ---
 # Key Concepts
 
-This section provides a detailed look at {{< version >}}. It contains the following: {{< childpages >}}
+This section provides a detailed look at {{< version >}}. It contains the following: 
+{{< childpages >}}
