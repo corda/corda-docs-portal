@@ -1,5 +1,5 @@
 ---
-title: "Support"
+title: "Platform Support"
 date: 2023-08-17
 version: 'Corda 5.0'
 menu:
@@ -20,7 +20,7 @@ table th:nth-of-type(2) {
 
 </style>
 
-# {{< version >}} Support
+# {{< version >}} Platform Support
 
 This page lists the versions of [third-party software](#third-party-support) that {{< version >}} supports. It also outlines the [end of life strategy](#end-of-life-strategy).
 
