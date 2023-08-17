@@ -14,7 +14,7 @@ title: "Viewing Redemption Requests"
 
 To view the list of existing {{< tooltip >}}redemption{{< definitiondc term="redemption" >}}{{< /tooltip >}} requests for the current participant:
 
-1. In the left-hand menu, click on **Redemptions**.
+*. In the left-hand menu, click on **Redemptions**.
 
    The **Redemptions** page is displayed. This page contains the **Redemption Requests** panel, which lists existing redemption requests and their status:
 
@@ -34,7 +34,7 @@ To view the list of existing {{< tooltip >}}redemption{{< definitiondc term="red
    * **Token symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, *AED*.
    * **Amount:** The number of tokens to be redeemed.
    * **Requester:** The participant making the redemption request.
-   * **Last Updated:** The date and time at which the request was last updated.
+   * **Last updated:** The date and time at which the request was last updated.
 
 You can change the GUI settings using the following buttons:
 

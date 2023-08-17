@@ -8,13 +8,13 @@ menu:
     weight: 200
     parent: digital-currencies-token-redemption
     identifier: digital-currencies-creating-redemption-requests
-    description: "Digital Currencies documentation describing how to request an redemption of tokens via the GUI"
+    description: "Digital Currencies documentation describing how to request a redemption of tokens via the GUI"
 title: "Creating Redemption Requests"
 ---
 
 This topic describes how to create a {{< tooltip >}}redemption{{< definitiondc term="redemption" >}}{{< /tooltip >}} request.
 
-The following assumes you are logged in as an entity capable of creating an redemption request, such as a commercial bank, and that you possess tokens in your vault to redeem.
+The following assumes you are logged in as an entity capable of creating a redemption request, such as a commercial bank, and that you possess tokens in your vault to redeem.
 
 1. In the left-hand menu, click on **Redemptions**.
 
@@ -31,7 +31,7 @@ The following assumes you are logged in as an entity capable of creating an rede
   The page shows the following panels related to redemptions:
 
   * **Vault Balances:** A Corda vault is a database containing all data from the ledger relevant to a participant. For more information, see [the Vault topic]({{< relref "/en/platform/corda/5.0/developing-applications/ledger/vault/_index.md" >}}).
-  * **Request Redemption:** Allows you to perform an redemption request.
+  * **Request Redemption:** Allows you to perform a redemption request.
   * **Redemption Requests:** Lists any existing redemption requests and their status; see [Viewing Redemption Requests]({{< relref "viewing-redemption-requests.md" >}}).
 
 2. In the **Request Redemption** panel, specify the following values:
@@ -56,8 +56,8 @@ The following assumes you are logged in as an entity capable of creating an rede
       figure
 	  src="images/successfully-submitted-redemption-request-message.png"
       width=50%
-	  figcaption="'Successfully submitted an redemption request' message"
-	  alt="'Successfully submitted an redemption request' message"
+	  figcaption="'Successfully submitted a redemption request' message"
+	  alt="'Successfully submitted a redemption request' message"
    >}}
    
    The **Request Redemption** flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:

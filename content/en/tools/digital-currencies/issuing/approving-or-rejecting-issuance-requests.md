@@ -92,7 +92,7 @@ To approve or reject an issuance request (as either an issuer or a custodian):
 	  alt="Issuance Request Confirmation Dialog - Not Approved by Issuer"
    >}}
    
-7. Click **Approve**.
+3. Click **Approve**.
 
    The message **Successfully submitted your issuance request** is displayed:
    

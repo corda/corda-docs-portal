@@ -12,7 +12,7 @@ menu:
 title: "Completing Redemptions"
 ---
 
-Once an [redemption request has been created]({{< relref "creating-redemption-requests.md" >}}) and then subsequently [approved by both the issuer and the custodian]({{< relref "approving-or-rejecting-redemption-requests.md" >}}), the {{< tooltip >}}redemption{{< definitiondc term="redemption" >}}{{< /tooltip >}} process can be completed by the participant who initiated it.
+Once a [redemption request has been created]({{< relref "creating-redemption-requests.md" >}}) and then subsequently [approved by both the issuer and the custodian]({{< relref "approving-or-rejecting-redemption-requests.md" >}}), the {{< tooltip >}}redemption{{< definitiondc term="redemption" >}}{{< /tooltip >}} process can be completed by the participant who initiated it.
 
 
 As the participant who created the original request:
@@ -43,7 +43,7 @@ As the participant who created the original request:
 	  alt="Redemption Request Dialog Box"
    >}}
 
-5. Click **Complete Redemption**.
+3. Click **Complete Redemption**.
 
    The *Successfully submitted redemption finalisation request* message is displayed:
 
@@ -71,7 +71,7 @@ As the participant who created the original request:
 
    The redemption request disappears from the **Redemption Requests** panel.
    
-   The vault balance of the requesting participant is updated to show the number of tokens has been debited in accordance with the redemption:
+   The vault balance of the requesting participant is updated to show the number of tokens that has been debited in accordance with the redemption:
    
    {{<
       figure
@@ -81,4 +81,4 @@ As the participant who created the original request:
 	  alt="Vault Balances Panel After Redemption"
    >}}
 
-   Similarly, the vault balance of the relevant issuer is updated to show the number of tokens has been increased in accordance with the redemption.
+   Similarly, the vault balance of the relevant issuer is updated to show the number of tokens that has been increased in accordance with the redemption.

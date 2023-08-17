@@ -21,7 +21,7 @@ The issuer must perform the first approval, followed by the custodian.
 
 Once approved, the participant who [created the request]({{< relref "creating-redemption-requests.md" >}}) can then [complete the token redemption]({{< relref "completing-redemptions.md" >}}).
 
-To approve or reject an redemption request (as either an issuer or a custodian):
+To approve or reject a redemption request (as either an issuer or a custodian):
 
 1. In the left-hand menu, click on **Redemptions**.
 
@@ -68,7 +68,7 @@ To approve or reject an redemption request (as either an issuer or a custodian):
    * **Token symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, *AED*.
    * **Amount:** The number of tokens to be redeemed.
    * **Requester:** The entity making the redemption request.
-   * **Last Updated:** The date and time at which the redemption request was last updated.
+   * **Last updated:** The date and time at which the redemption request was last updated.
    
 2. Click the relevant redemption request.
 
@@ -92,7 +92,7 @@ To approve or reject an redemption request (as either an issuer or a custodian):
 	  alt="Redemption Request Confirmation Dialog - Not Approved by Issuer"
    >}}
    
-7. Click **Approve**.
+3. Click **Approve**.
 
    The message **Successfully submitted your redemption approval request update** is displayed:
    
@@ -140,8 +140,8 @@ To approve or reject an redemption request (as either an issuer or a custodian):
       figure
 	  src="images/issuance-requests-panel-custodian-approved.png"
       width=100%
-	  figcaption="Redemption Requests Panel - Approved by Issuer"
-	  alt="Redemption Requests Panel - Approved by Issuer"
+	  figcaption="Redemption Requests Panel - Approved by Custodian"
+	  alt="Redemption Requests Panel - Approved by Custodian"
    >}}
    
    
