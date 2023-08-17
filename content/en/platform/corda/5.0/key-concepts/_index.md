@@ -10,6 +10,5 @@ menu:
     weight: 950
 ---
 # Key Concepts
-
 This section provides a detailed look at {{< version >}}. It contains the following: 
 {{< childpages >}}
