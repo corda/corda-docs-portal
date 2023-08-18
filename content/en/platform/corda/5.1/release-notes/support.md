@@ -7,7 +7,7 @@ menu:
     parent: corda51-release-notes
     identifier: corda51-release-notes-support
     weight: 900
-section_menu: corda5
+section_menu: corda51
 ---
 
 <style>
