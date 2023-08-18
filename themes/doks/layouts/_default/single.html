@@ -9,13 +9,13 @@
       </div>
 		</div>
     {{ end -}}
-		{{ $c5 := in .Site.Params.corda5versions .Page.Params.version }}
-		{{ if eq $c5 false }}
+		{{ $isCorda5Version := in .Site.Params.corda5versions .Page.Params.version }}
+		{{ if eq $isCorda5Version false }}
 			<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
 				{{ partial "sidebar/docs-toc.html" . }}
 			</nav>
 		{{ end -}}
-		{{ if eq $c5 false }}
+		{{ if eq $isCorda5Version false }}
 			<main class="docs-content col-lg-11 col-xl-9 mx-lg-auto">
 		{{ else -}}
 			<main class="docs-content col-lg-11 col-xl-12 mx-lg-auto">
@@ -29,7 +29,7 @@
 					</ol>
 				</nav>
 			{{ end }}
-			{{ if eq $c5 false }}			
+			{{ if eq $isCorda5Version false }}			
     			<h1>{{ .Title }}</h1>
 			{{ end }}
       {{ if .Site.Params.editPage -}}

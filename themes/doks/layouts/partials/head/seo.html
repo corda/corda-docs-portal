@@ -12,7 +12,7 @@
 
 {{ if or .IsHome -}}
   <title>{{ .Site.Params.title }} {{ .Site.Params.titleSeparator }} {{ .Site.Params.titleAddition }}</title>
-{{ else if or (eq .Params.version "Corda Index" "api-ref" "tools") (eq .Parent.Page.Params.version "api-ref" "tools")}}  
+{{ else if or (eq .Params.version "Corda Index" "api-ref" "tools") (eq .Parent.Page.Params.version "api-ref" "tools") (eq .Params.title "About the Docs")}}  
 <title>{{ .Title }} {{ .Site.Params.titleSeparator }} {{ .Site.Params.title }} </title>
 {{ else -}}
   <title>
