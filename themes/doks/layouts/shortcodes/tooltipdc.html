@@ -1,0 +1,60 @@
+{{/* Function to display the definition for the specified term, as defined for Digital Currencies in glossaryitems.json, as a tooltip.*/}}
+{{/* Example usage: {{< tooltipdc >}}Custodian{{< /tooltipdc >}} */}}
+{{/* NOTE the "term" passed to this shortcode is case-insensitive and simple plural versions should match. For example, passing "members" should match "Member" in the JSON file. */}}
+
+<style>
+    .definition {
+        visibility: hidden;
+        width: 300px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1200;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -150px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    .term {
+        position: relative;
+        display: inline;
+        border-bottom: 1px dotted black;
+        text-decoration: none !important;  
+    }
+    .term:hover .definition {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .term .definition::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+    }    
+
+</style>
+
+{{ $searchtermlower := lower .Inner }}
+{{ $searchtermkebab := replace $searchtermlower " " "-" }}
+{{ $termlink := printf "%s" $searchtermkebab  | printf "%s%s" "en/platform/digital-currencies/digital-currencies-glossary.html#" | printf "%s%s" .Site.BaseURL | safeURL }}
+<a class="term" href ='{{ $termlink }}' >&nbsp{{ .Inner }}
+
+{{ $glossarylist := getJSON "content/en/platform/digital-currencies/glossaryitems.json" }}
+{{ range $term, $value := $glossarylist }}
+    {{ $term := lower $term }}
+    {{ if eq $term $searchtermlower }} 
+        <span class="definition" >{{ $value.definition }}</span>
+    {{ else if eq $term (strings.TrimSuffix "s" $searchtermlower) }}
+        <span class="definition">{{ $value.definition }}</span>
+    {{ end }}
+{{ end }}
+</a>
