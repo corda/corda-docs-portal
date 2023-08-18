@@ -8,9 +8,6 @@ section_menu: corda51
 menu:
   versions:
     weight: -655
-  corda51:
-    weight: 1000
-    name: Corda 5.1  
 ---
 # Next-Gen {{< version >}}
 

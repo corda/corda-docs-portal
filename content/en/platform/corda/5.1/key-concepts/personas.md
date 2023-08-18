@@ -5,8 +5,8 @@ version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-personas
-    parent: corda51-intro
-    weight: 4050
+    parent: corda51-key-concepts
+    weight: 950
 section_menu: corda51
 ---
 # Personas
@@ -30,7 +30,7 @@ As an Architect considering or planning a project with Corda, you:
    * How do I maintain business continuity for Corda?
    * How do I deploy Corda into my enterprise infrastructure and integrate it with my enterprise applications?
 
-As an Architect working with Corda, all sections of the Corda documentation are of interest to you, but particularly the [Key Concepts]({{< relref "../key-concepts/_index.md">}}).
+As an Architect working with Corda, all sections of the Corda documentation are of interest to you, but particularly the [Key Concepts]({{< relref "_index.md">}}).
 
 ## CorDapp Developer
 
