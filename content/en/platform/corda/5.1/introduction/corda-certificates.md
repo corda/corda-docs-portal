@@ -12,6 +12,8 @@ section_menu: corda51
 
 This page is to document different types of keys and certificates in Corda 5 and their purpose.
 
+## List of Keys
+
 <table>
 <col style="width:20%">
 <col style="width:15%">
@@ -48,7 +50,7 @@ This page is to document different types of keys and certificates in Corda 5 and
 <td>Notary key</td>
 <td>No </td>
 <td>Combination of Notary Key + X500 Name,at Notarisation stage of Finality, the Notary Key is used to sign a transaction. Once a transaction is signed using the Notary Key, a transaction is deemed Notarised.</td>
-<td> </td>
+<td> ECDSA key pair </td>
 </tr>
 <tr>
 <td>REST TLS key</td>
@@ -78,13 +80,105 @@ This page is to document different types of keys and certificates in Corda 5 and
 <td>CPI publisher key</td>
 <td> TBD </td>
 <td> In some cases this will be managed by the clients, but in some cases it could be managed by R3,for example, Notary CPI.  </td>
-<td> </td>
+<td> Asymmetric key pair </td>
+</tr>
+<tr>
+<td> Ledger Key</td>
+<td> TBD </td>
+<td> Also known as VNode private ledger signing key public and private VNode ledger keys. Key is used to sign flows and consume Corda network ledger states. This key is critical for availability  </td>
+<td>  Asymmetric key pair </td>
 </tr>
 <tr>
 <td>Encryption secrets service wrapping key</td>
 <td> No</td>
 <td> This is a single master wrapping key specified via a salt and passphrase in the environment of the Corda workers, which are used to derive a symmetric key.  </td>
 <td> </td>
+</tr>
+<tr>
+<td>HTTP Gateway TLS key</td>
+<td> No</td>
+<td> TLS key for HTTP Gateway / REST API connections </td>
+<td> ECDSA private key </td>
+</tr>
+</tbody>
+</table>
+
+## PKI assets
+
+A list of PKI assest supported by Corda 5.
+
+<table>
+<col style="width:20%">
+<col style="width:15%">
+<col style="width:50%">
+<col style="width:15%">
+<thead>
+<tr>
+<th>PKI name</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Client Kafka credentials for a specific worker</td>
+<td> Kafka credentials (username and password) Kafka client credentials are created at deployment time and stored by default in Kubernetes ETCD as secret configuration. This value is passed to worker pods memory at runtime. </td>
+<td> Unencrypted string </td>
+</tr>
+<tr>
+<td>Cluster DB credentials</td>
+<td> Cluster DB credentials </td>
+<td> Unencrypted string </td>
+</tr>
+<tr>
+<td>Kafka truststore</td>
+<td> Kafka truststore for server authentication (TLS) </td>
+<td> PEM </td>
+</tr>
+</tbody>
+</table>
+
+## List of Credentials
+
+<table>
+<col style="width:20%">
+<col style="width:15%">
+<col style="width:50%">
+<col style="width:15%">
+<thead>
+<tr>
+<th>Credential name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSO config credentials</td>
+<td> SSO credentials living inside the HTTP Gateway process. The credential is currently an API_ID (long randon string) provided by Azure AD. </td>
+</tr>
+<tr>
+<td>Installation credentials creation</td>
+<td>Creation of the installation credentials with enough entropy </td>
+</tr>
+<tr>
+<td>Client Kafka credentials for a specific worker</td>
+<td> Kafka credentials (username and password) Kafka client credentials are created at deployment time and stored by default in Kubernetes ETCD as secret configuration. This value is passed to worker pods memory at runtime. </td>
+</tr>
+<tr>
+<td>Kubernetes secrets creation via API</td>
+<td> The Infrastructure operator creates the secrets in the Kubernetes (etcd) to be used by the installation scripts (helm charts). This is executed optionally when Helm charts overrides are not used in alternative. </td>
+</tr>
+<tr>
+<td>Kubernetes secrets configured in Helm charts</td>
+<td> Secrets are configured (overrides) inside helm charts; using this as an alternate option to DF_K8S_SECRET_CONFIG. </td>
+</tr>
+<tr>
+<td>HELM chart execution</td>
+<td> Corda cluster installation HELM chart execution targeting a Kubernetes environment</td>
+</tr>
+<tr>
+<td>CLUSTER_OPERATOR user credentials</td>
+<td> Cluster operator user credentials</td>
 </tr>
 </tbody>
 </table>
