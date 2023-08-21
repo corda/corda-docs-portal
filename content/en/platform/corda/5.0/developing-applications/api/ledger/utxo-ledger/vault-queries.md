@@ -709,7 +709,7 @@ In this case it would return `ABC`.
 `custom_representation ?`
 `'com.r3.corda.demo.TestState'`
 
-Checks if the object in the `custom_representation` DB column has a top-level field called `com.r3.corda.demo.TestState`
+Checks if the object in the `custom_representation` database column has a top-level field called `com.r3.corda.demo.TestState`.
 
 Example JSON would look like this:
 
