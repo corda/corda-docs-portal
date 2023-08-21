@@ -623,7 +623,7 @@ In this case it would return:
 `custom_representation`
 `-> 'com.r3.corda.demo.TestState'`
 
-Selects the top level JSON field called `com.r3.corda.demo.TestState` from the JSON object in the `custom_representation` DB column.
+Selects the top-level JSON field called `com.r3.corda.demo.TestState` from the JSON object in the `custom_representation` database column.
 
 Example JSON would look like this:
 
