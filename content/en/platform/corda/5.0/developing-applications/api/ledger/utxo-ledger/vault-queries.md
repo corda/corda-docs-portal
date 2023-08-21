@@ -561,7 +561,7 @@ while (resultSet.hasNext()) {
 
 # Vault-Named Query Operators
 
-The following list describes the operators and right operand types for the vault-named query syntax:
+The following is the list of the operators and right operand types for the vault-named query syntax:
 
 * `IN`
 * `LIKE`
