@@ -684,7 +684,7 @@ In this case it would return `7`.
 `-> 'com.r3.corda.demo.TestState'`
 `->> 'testField'`
 
-Selects the testField JSON field from the top-level JSON object called com.r3.corda.demo.TestState in the custom_representation DB column.
+Selects the `testField` JSON field from the top-level JSON object called `com.r3.corda.demo.TestState` in the `custom_representation` database column.
 
 Example JSON would look like this:
 
