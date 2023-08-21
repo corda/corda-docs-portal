@@ -656,7 +656,7 @@ In this case it would return:
 `-> 'com.r3.corda.demo.ArrayState'`
 `->> 2`
 
-Selects the 3rd element (indexing from 0)  of the array type top-level JSON field called `com.r3.corda.demo.ArrayState` from the JSON object in the `custom_representation` DB column.
+Selects the third element (indexing from 0)  of the array type top-level JSON field called `com.r3.corda.demo.ArrayState` from the JSON object in the `custom_representation` database column.
 
 Example JSON would look like this:
 
