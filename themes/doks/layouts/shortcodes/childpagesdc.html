@@ -1,7 +1,0 @@
-{{- with .Page.Pages -}}
-<ul>
-{{- range sort . ".Params.menu.digitalcurrencies.weight" -}}
-<li><a href='{{- .Permalink -}}'>{{ .Title }}</a></li>
-{{- end -}}
-</ul>
-{{- end -}}
