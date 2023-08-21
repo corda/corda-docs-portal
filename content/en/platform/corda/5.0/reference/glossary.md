@@ -1,13 +1,14 @@
 ---
 title: "Glossary"
-date: 2023-04-21
+date: 2023-08-17
 version: 'Corda 5.0'
 menu:
   corda5:
+    parent: corda5-references
     identifier: corda5-glossary
-    parent: corda5-intro
-    weight: 5000
+    weight: 900
 section_menu: corda5
 ---
+
 # Glossary
 {{< glossary >}}

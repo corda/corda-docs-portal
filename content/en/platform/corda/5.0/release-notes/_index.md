@@ -5,7 +5,6 @@ version: 'Corda 5.0'
 menu:
   corda5:
     identifier: corda5-release-notes
-    parent: corda5-intro
     weight: 6000
 section_menu: corda5
 ---
