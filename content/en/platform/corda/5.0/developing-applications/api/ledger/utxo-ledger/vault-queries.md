@@ -576,7 +576,7 @@ The following is the list of the operators and right operand types for the vault
 * `>=`
 * `<=`
 
-### Detailed operators
+### Detailed Operators
 
 *Name:* `->`
 
