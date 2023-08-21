@@ -247,7 +247,7 @@
         "definition": "The combination of the context of a user and the ephemeral compute instances created to progress a transaction on that identity's behalf.",
         "more": "Corda 5 virtualizes the execution of flow process steps, allowing flows for multiple identities and from multiple applications to be executed within the same compute environment at the same time. A virtual node is created to handle the execution steps needed and then allowed to dematerialize. A virtual node runs one version of the CPI, which also runs that CPI’s flows and contracts. The cluster can run many virtual node identities on a multi-tenant node while keeping keys, data, and code separate. For Corda 5 users, a virtual node is equivalent to a Corda 5 node. “Virtual” means that the flows are virtualized into a series of messages sent between worker processes, which are stateless."
     },
-    "worker": {
+    "Worker": {
         "definition": "JVM processes that run in a cluster and perform a specific task. The processes required to form a cluster depend on the deployment topology. Workers increase or scale back their capacity depending on the number of available tasks. ",
         "more": "Corda 5 includes dedicated workers such as REST workers, flow workers, DB workers and crypto workers. Additional workers are also available to handle cross-cluster communication and network membership. You can add additional worker replicas to provide further resilience and scaling."
     },
