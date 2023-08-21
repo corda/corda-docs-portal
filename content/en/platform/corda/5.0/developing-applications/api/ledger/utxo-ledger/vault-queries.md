@@ -580,11 +580,11 @@ The following is the list of the operators and right operand types for the vault
 
 *Name:* `->`
 
-<b> Right Operand Type:</b> `Int`
+*Right Operand Type:* `Int`
 
-<b> Description:</b>  Get JSON array element.
+*Description:*  Gets JSON array element.
 
-<b> Example:</b> 
+*Example:*
 
 `custom_representation`
 `->`
@@ -604,7 +604,7 @@ Example JSON would look like this:
 }
 ```
 
-In this case it would return:
+In this case, it would return:
 
 ```java
 {
@@ -612,13 +612,13 @@ In this case it would return:
 }
 ```
 
-<b> Name: </b> `->`
+*Name:* `->`
 
-<b> Right Operand Type: </b> `Text`
+*Right Operand Type:* </b> `Text`
 
-<b> Description: </b> Get JSON object field.
+*Description:* Get JSON object field.
 
-<b> Example: </b>
+*Example:*
 
 `custom_representation`
 `-> 'com.r3.corda.demo.TestState'`
@@ -635,7 +635,7 @@ Example JSON would look like this:
 }
 ```
 
-In this case it would return:
+In this case, it would return:
 
 ```java
 {
@@ -644,13 +644,13 @@ In this case it would return:
 
 ```
 
-<b> Name: </b> `->>`
+*Name:* `->>`
 
-<b> Right Operand Type: </b> `Int`
+*Right Operand Type:* `Int`
 
-<b> Description: </b> Get JSON array element as text.
+*Description:* Get JSON array element as text.
 
-<b> Example:</b>
+*Example:*
 
 `custom_representation` 
 `-> 'com.r3.corda.demo.ArrayState'`
@@ -670,15 +670,15 @@ Example JSON would look like this:
 
 ```
 
-In this case it would return `7`.
+In this case, it would return `7`.
 
-<b> Name: </b> `->>`
+*Name:* `->>`
 
-<b> Right Operand Type: </b> `Text`
+*Right Operand Type:* `Text`
 
-<b> Description: </b> Get JSON object field as text.
+*Description:* Get JSON object field as text.
 
-<b> Example: </b>
+*Example:*
 
 `custom_representation` 
 `-> 'com.r3.corda.demo.TestState'`
@@ -696,15 +696,15 @@ Example JSON would look like this:
 }
 ```
 
-In this case it would return `ABC`.
+In this case, it would return `ABC`.
 
-<b> Name: </b> `?`
+*Name:* `?`
 
-<b> Right Operand Type: </b> `Text`
+*Right Operand Type:* `Text`
 
-<b> Description: </b> Check if JSON object field exists.
+*Description:* Checks if JSON object field exists.
 
-<b> Example: </b>
+*Example:*
 
 `custom_representation ?`
 `'com.r3.corda.demo.TestState'`
@@ -722,14 +722,14 @@ Example JSON would look like this:
 
 ```
 
-In this case it would return `true`.
+In this case, it would return `true`.
 
-<b> Name: </b> `::`
+*Name:* `::`
 
-<b> Right Operand Type: </b> A type, e.g. `Int`
+*Right Operand Type:* A type, for example, `Int`
 
-<b> Description: </b> Casts the element/object field to the specified type.
+*Description:* Casts the element/object field to the specified type.
 
-<b> Example: </b>
+*Example:*
 
 `(visible_states.field ->> property)::int = 1234`
