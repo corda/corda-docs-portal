@@ -306,7 +306,7 @@ In all other cases, the shell prints a message stating if the operation succeede
 To recover all failed finality flows, including those in a `PAUSED` or `HOSPITALIZED` checkpoint state:
 
 ```bash
-flow recoverAllFinality --force-recovery
+flow recoverAllFinality --force-recover
 Recovered finality flow(s)
 Results: [[358a7b4e-074a-4da8-b6d7-64f1d923f9a8]=true, [c3cf2d33-6a36-4266-a9cb-f488ac3194cc]=true]
 ```
@@ -391,7 +391,7 @@ val resultMap = flowRPC.proxy.recoverFinalityFlowsMatching(
     FlowRecoveryQuery(timeframe = FlowTimeWindow(
         fromTime = startTime,
         untilTime = endTime
-        )    
+        )
     )
 )
 ```
