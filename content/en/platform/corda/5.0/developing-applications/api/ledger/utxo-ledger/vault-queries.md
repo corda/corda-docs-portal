@@ -561,7 +561,7 @@ while (resultSet.hasNext()) {
 
 # Vault-Named Query Operators
 
-The following is the list of the operators and right operand types for the vault-named query syntax:
+The following is the list of the standard operators for the vault-named query syntax:
 
 * `IN`
 * `LIKE`
@@ -578,13 +578,15 @@ The following is the list of the operators and right operand types for the vault
 
 ### Detailed Operators
 
-*Name:* `->`
+The following is the list of operators and right operand types for the vault-named query syntax:
 
-*Right Operand Type:* `Int`
+**Name:** `->`
 
-*Description:*  Gets JSON array element.
+**Right Operand Type:** `Int`
 
-*Example:*
+**Description:**  Gets JSON array element.
+
+**Example:**
 
 `custom_representation`
 `->`
@@ -612,13 +614,13 @@ In this case, it would return:
 }
 ```
 
-*Name:* `->`
+**Name:** `->`
 
-*Right Operand Type:* </b> `Text`
+**Right Operand Type:** </b> `Text`
 
-*Description:* Get JSON object field.
+**Description:** Get JSON object field.
 
-*Example:*
+**Example:**
 
 `custom_representation`
 `-> 'com.r3.corda.demo.TestState'`
@@ -644,13 +646,13 @@ In this case, it would return:
 
 ```
 
-*Name:* `->>`
+**Name:** `->>`
 
-*Right Operand Type:* `Int`
+**Right Operand Type:** `Int`
 
-*Description:* Get JSON array element as text.
+**Description:** Get JSON array element as text.
 
-*Example:*
+**Example:**
 
 `custom_representation` 
 `-> 'com.r3.corda.demo.ArrayState'`
@@ -672,13 +674,13 @@ Example JSON would look like this:
 
 In this case, it would return `7`.
 
-*Name:* `->>`
+**Name:** `->>`
 
-*Right Operand Type:* `Text`
+**Right Operand Type:** `Text`
 
-*Description:* Get JSON object field as text.
+**Description:** Get JSON object field as text.
 
-*Example:*
+**Example:**
 
 `custom_representation` 
 `-> 'com.r3.corda.demo.TestState'`
@@ -698,13 +700,13 @@ Example JSON would look like this:
 
 In this case, it would return `ABC`.
 
-*Name:* `?`
+**Name:** `?`
 
-*Right Operand Type:* `Text`
+**Right Operand Type:** `Text`
 
-*Description:* Checks if JSON object field exists.
+**Description:** Checks if JSON object field exists.
 
-*Example:*
+**Example:**
 
 `custom_representation ?`
 `'com.r3.corda.demo.TestState'`
@@ -724,12 +726,12 @@ Example JSON would look like this:
 
 In this case, it would return `true`.
 
-*Name:* `::`
+**Name:** `::`
 
-*Right Operand Type:* A type, for example, `Int`
+**Right Operand Type:** A type, for example, `Int`
 
-*Description:* Casts the element/object field to the specified type.
+**Description:** Casts the element/object field to the specified type.
 
-*Example:*
+**Example:**
 
 `(visible_states.field ->> property)::int = 1234`
