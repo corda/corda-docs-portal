@@ -59,7 +59,7 @@ As a commercial bank:
       
 4. Click **Send**. 
 
-   The message *Successfully submitted a transfer of tokens* is displayed:
+   The message **Successfully submitted a transfer of tokens** is displayed:
 
    {{< 
       figure
@@ -69,7 +69,7 @@ As a commercial bank:
 	  figcaption="'Successfully submitted a transfer of tokens' Message"
    >}}
 
-   The Push Transfer flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
+   The **Push Transfer** flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
     
    {{< 
       figure
@@ -79,7 +79,7 @@ As a commercial bank:
 	  alt="Push Transfer - Flow Running"
    >}}  
 
-   Once the Push Transfer flow finishes, the message *Tokens have been transferred successfully* is displayed:
+   Once the **Push Transfer** flow finishes, the message **Tokens have been transferred successfully** is displayed:
 
    {{< 
       figure

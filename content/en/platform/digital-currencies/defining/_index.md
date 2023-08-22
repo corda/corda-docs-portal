@@ -27,5 +27,5 @@ Token definitions have the following properties:
 
 This section describes the tasks associated with token definitions. It contains the following:
 
-{{< childpagesdc >}}
+{{< childpages >}}
 

@@ -51,7 +51,7 @@ As a central bank:
    
 3. Click **Confirm**.
    
-   The message *Token definition activation submitted* is displayed:
+   The message **Token definition activation submitted** is displayed:
 
    {{< 
       figure
@@ -61,7 +61,7 @@ As a central bank:
 	  figcaption="Token definition activation submitted' Message"
    >}}
 
-   The token definition activation flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
+   The **Activate Token Definition** flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
     
    {{< 
       figure
@@ -71,7 +71,7 @@ As a central bank:
 	  alt="Activating Token Definitions - Flow Running"
    >}}  
 
-   Once the token definition activation flow finishes, the message *Token definition has been successfully activated* is displayed:
+   Once the **Activate Token Definition** finishes, the message **Token definition has been successfully activated** is displayed:
 
    {{< 
       figure

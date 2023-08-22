@@ -21,7 +21,7 @@ This topic describes how to create a pull transfer request. A pull transfer occu
    
    {{< 
       figure
-	  src="images/transfers-page-centralbank1.png"
+	  src="images/transfers-page-centralbank1-pullrequest.png"
       width=100%
 	  figcaption="Transfers Page"
 	  alt="Transfers Page"
@@ -67,7 +67,7 @@ This topic describes how to create a pull transfer request. A pull transfer occu
 	  figcaption="'Successfully submitted a transfer request' Message"
    >}}
 
-   The Request Transfer flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
+   The **Request Transfer** flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
     
    {{< 
       figure
@@ -77,7 +77,7 @@ This topic describes how to create a pull transfer request. A pull transfer occu
 	  alt="Request Transfer - Flow Running"
    >}}  
 
-   Once the transfer flow finishes, the message *Your transfer request has been successfully created* is displayed:
+   Once the **Request Transfer** flow finishes, the message *Your transfer request has been successfully created* is displayed:
 
    {{< 
       figure

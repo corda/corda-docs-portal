@@ -59,9 +59,9 @@ The GUI has the following elements:
     * [Minting Tokens]({{< relref "minting/_index.md" >}})
     * [Burning Tokens]({{< relref "burning/_index.md" >}})
     * [Viewing Vault Balances]({{< relref "viewing-vault-balances.md" >}})
-  * **Issuances:** See [Working with Issuances]({{< relref "issuing/_index.md"  >}})
-  * **Transfers:** TBD
-  * **Redemptions:** TBD
+  * **Issuances:** See [Working with Token Issuance]({{< relref "issuing/_index.md"  >}})
+  * **Transfers:** See [Working with Token Transfers]({{< relref "transferring/_index.md" >}})
+  * **Redemptions:** See [Working with Token Redemption]({{< relref "redeeming/_index.md" >}})
     
 * The **Settings** button (![](images/setting-buttons.png)): See [Viewing the GUI Settings]({{< relref "viewing-the-gui-settings.md" >}}) 
 * The flow tracker button (![](images/flow-drawer-button.png)): When performing flows such as creating token definitions and minting tokens, click this button to display a pop-out flow tracker which displays the current status of flows. By default, the five most recent flows are displayed.

@@ -52,11 +52,11 @@ To burn tokens:
       figure
 	  src="images/running-flows-burn-tokens.png"
       width=50%
-	  figcaption=" - Flow Running"
+	  figcaption="Burn Tokens - Flow Running"
 	  alt="Burn Tokens - Flow Running"
    >}}  
    
-   Once the Burn Tokens flow completes, the message *Tokens have been successfully burned, check your vault balance for new balance* is displayed:
+   Once the **Burn Tokens** flow completes, the message *Tokens have been successfully burned, check your vault balance for new balance* is displayed:
 
    {{< 
       figure

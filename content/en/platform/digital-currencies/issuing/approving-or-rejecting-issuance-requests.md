@@ -94,14 +94,14 @@ To approve or reject an issuance request (as either an issuer or a custodian):
    
 3. Click **Approve**.
 
-   The message **Successfully submitted your issuance request** is displayed:
+   The message **Successfully submitted your issuance request update** is displayed:
    
    {{< 
       figure
 	  src="images/successfully-submitted-issuance-request-update-message.png"
       width=40%
-	  figcaption="'Successfully submitted your issuance request' Message"
-	  alt="'Successfully submitted your issuance request' Message"
+	  figcaption="'Successfully submitted your issuance request update' Message"
+	  alt="'Successfully submitted your issuance request update' Message"
    >}}
    
    The **Update Approval Request** flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen: 

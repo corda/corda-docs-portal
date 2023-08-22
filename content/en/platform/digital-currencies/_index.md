@@ -29,4 +29,4 @@ R3 Digital Currencies for Corda 5 enables central banks, commercial banks and in
 
 For more information, see the following topics:
 
-{{< childpagesdc >}}
+{{< childpages >}}

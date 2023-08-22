@@ -22,4 +22,4 @@ The issuer then has the option to [burn the tokens]({{< relref "../burning/_inde
 
 This section describes the actions associated with token redemption. It contains the following:
 
-{{< childpagesdc >}}
+{{< childpages >}}

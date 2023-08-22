@@ -46,9 +46,9 @@ As an issuer:
 
 3. Click **Issue**.
 
-   The *Successfully submitted the issuance of tokens* message is displayed:
+   The *Successfully submitted an issuance of tokens* message is displayed:
 
-   {{< figure src="images/successfully-submitted-issuance-tokens-message.png" width=50% figcaption="'Successfully submitted the issuance of tokens' Message" alt="'Successfully submitted the issuance of tokens' Message" >}}
+   {{< figure src="images/successfully-submitted-issuance-tokens-message.png" width=50% figcaption="'Successfully submitted an issuance of tokens' Message" alt="'Successfully submitted an issuance of tokens' Message" >}}
 
    The **Issue tokens** flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
 

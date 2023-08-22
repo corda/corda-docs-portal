@@ -14,7 +14,7 @@ title: "Viewing Redemption Requests"
 
 To view the list of existing {{< tooltipdc >}}redemption{{< /tooltipdc >}} requests for the current participant:
 
-*. In the left-hand menu, click on **Redemptions**.
+*  In the left-hand menu, click on **Redemptions**.
 
    The **Redemptions** page is displayed. This page contains the **Redemption Requests** panel, which lists existing redemption requests and their status:
 

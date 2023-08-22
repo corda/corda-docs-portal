@@ -101,7 +101,7 @@ As a central bank:
 	  alt="Token Definition Success"
    >}}
    
-   The token definition flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
+   The **Create Token Definition** flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
     
    {{< 
       figure
@@ -111,7 +111,7 @@ As a central bank:
 	  alt="Creating Token Definitions - Flow Running"
    >}}  
    
-   Once the token definition flow completes, the message *A new token definition has been successfully created* is displayed:
+   Once the **Create Token Definition** flow completes, the message *A new token definition has been successfully created* is displayed:
 
    {{< 
       figure

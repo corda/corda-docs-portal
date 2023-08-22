@@ -72,7 +72,7 @@ As a commercial bank:
 	  figcaption="'Successfully submitted a transfer request' Message"
    >}}
 
-   The Request Transfer flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
+   The **Request Transfer** flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
     
    {{< 
       figure
@@ -82,7 +82,7 @@ As a commercial bank:
 	  alt="Request Transfer - Flow Running"
    >}}  
 
-   Once the transfer flow finishes, the message *Your transfer request has been successfully created* is displayed:
+   Once the **Request Transfer** flow finishes, the message *Your transfer request has been successfully created* is displayed:
 
    {{< 
       figure

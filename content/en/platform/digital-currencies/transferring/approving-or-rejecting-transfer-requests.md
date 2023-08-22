@@ -59,7 +59,7 @@ To approve or reject a transfer:
 
    (Alternately, you can click **Reject** if you do not want the transfer to proceed.)
    
-   The message *Your token transfer approval update has been successfully submitted* is displayed:
+   The message **Your token transfer approval update has been successfully submitted** is displayed:
 
    {{< 
       figure
@@ -69,7 +69,7 @@ To approve or reject a transfer:
 	  figcaption="'Your token transfer approval update has been successfully submitted' Message"
    >}}
 
-   The Update Transfer Request flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
+   The **Update Transfer Request** flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
     
    {{< 
       figure
@@ -79,7 +79,7 @@ To approve or reject a transfer:
 	  alt="Update Transfer Request - Flow Running"
    >}}  
 
-   Once the Update Transfer Request flow finishes, the message *Your request update has been successful* is displayed:
+   Once the **Update Transfer** Request flow finishes, the message *Your request update has been successful* is displayed:
 
    {{< 
       figure

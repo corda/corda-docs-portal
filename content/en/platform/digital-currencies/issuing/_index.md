@@ -17,4 +17,4 @@ The general process of issuance, and the on-ledger actions involved will be very
 
 This section describes the actions associated with token issuance. It contains the following:
 
-{{< childpagesdc >}}
+{{< childpages >}}

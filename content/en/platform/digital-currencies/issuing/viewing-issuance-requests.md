@@ -14,7 +14,7 @@ title: "Viewing Issuance Requests"
 
 To view the list of existing issuance requests for the current participant:
 
-1. In the left-hand menu, click on **Issuances**.
+* In the left-hand menu, click on **Issuances**.
 
    The **Issuances** page is displayed. This page contains the **Issuance Requests** panel, which lists existing issuance requests and their status:
 
