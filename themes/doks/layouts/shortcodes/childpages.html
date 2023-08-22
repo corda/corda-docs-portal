@@ -1,5 +1,4 @@
-{{ $menu := .Page.Params.section_menu }}
-{{ $weight := printf "%s" ".weight" | printf "%s%s" $menu | printf "%s%s" ".Params.menu." | printf "%s" }}
+{{ $weight := printf "%s" ".weight" | printf "%s%s" ".Page.Params.section_menu" | printf "%s%s" ".Params.menu." | printf "%s" }}
 {{- with .Page.Pages -}}
 <ul>
 {{- range sort . $weight -}}
