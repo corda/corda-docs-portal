@@ -608,7 +608,7 @@ Example JSON:
 }
 ```
 
-This example return:
+This example returns:
 
 ```java
 {
@@ -639,7 +639,7 @@ Example JSON:
 }
 ```
 
-This example return:
+This example returns:
 
 ```java
 {
