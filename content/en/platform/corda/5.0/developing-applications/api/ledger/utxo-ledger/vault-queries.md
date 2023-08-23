@@ -596,7 +596,7 @@ Where the behaviour is not standard, the operators are explained in detail in th
 `->`
 `0`
 
-Example JSON would look like this:
+Example JSON:
 
 ```java
 
@@ -608,7 +608,7 @@ Example JSON would look like this:
 }
 ```
 
-In this case, it would return:
+This example return:
 
 ```java
 {
@@ -629,7 +629,7 @@ In this case, it would return:
 
 Selects the top-level JSON field called `com.r3.corda.demo.TestState` from the JSON object in the `custom_representation` database column.
 
-Example JSON would look like this:
+Example JSON:
 
 ```java
 {
@@ -639,7 +639,7 @@ Example JSON would look like this:
 }
 ```
 
-In this case, it would return:
+This example return:
 
 ```java
 {
@@ -662,7 +662,7 @@ In this case, it would return:
 
 Selects the third element (indexing from 0)  of the array type top-level JSON field called `com.r3.corda.demo.ArrayState` from the JSON object in the `custom_representation` database column.
 
-Example JSON would look like this:
+Example JSON:
 
 ```java
 
@@ -674,7 +674,7 @@ Example JSON would look like this:
 
 ```
 
-In this case, it would return `7`.
+This example returns: `7`.
 
 **Name:** `->>`
 
@@ -690,7 +690,7 @@ In this case, it would return `7`.
 
 Selects the `testField` JSON field from the top-level JSON object called `com.r3.corda.demo.TestState` in the `custom_representation` database column.
 
-Example JSON would look like this:
+Example JSON:
 
 ```java
 {
@@ -700,7 +700,7 @@ Example JSON would look like this:
 }
 ```
 
-In this case, it would return `ABC`.
+This example returns: `ABC`.
 
 **Name:** `?`
 
@@ -715,7 +715,7 @@ In this case, it would return `ABC`.
 
 Checks if the object in the `custom_representation` database column has a top-level field called `com.r3.corda.demo.TestState`.
 
-Example JSON would look like this:
+Example JSON:
 
 ```java
 {
@@ -726,7 +726,7 @@ Example JSON would look like this:
 
 ```
 
-In this case, it would return `true`.
+This example returns: `true`.
 
 **Name:** `::`
 
