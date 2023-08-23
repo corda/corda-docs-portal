@@ -559,7 +559,6 @@ while (resultSet.hasNext()) {
 {{% /tab %}}
 {{< /tabs >}}
 
-
 # Vault-Named Query Operators
 
 The following is the list of the standard operators for the vault-named query syntax:
