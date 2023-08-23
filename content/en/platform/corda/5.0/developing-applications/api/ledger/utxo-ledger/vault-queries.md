@@ -575,10 +575,12 @@ The following is the list of the standard operators for the vault-named query sy
 * `<`
 * `>=`
 * `<=`
+* `->`
+* `->>`
+* `?`
+* `::`
 
-### Detailed Operators
-
-The following is the list of operators and right operand types for the vault-named query syntax:
+Where the behaviour is not standard, the operators are explained in detail in the following sections.
 
 **Name:** `->`
 
