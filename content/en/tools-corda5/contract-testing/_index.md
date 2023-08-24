@@ -11,6 +11,9 @@ menu:
 
 The Contract Testing library enables {{< tooltip >}}CorDapp{{< /tooltip >}} Developers to test {{< tooltip >}}UTXO{{< /tooltip >}} contracts locally, at an early stage of the development cycle. With this library, you can check that your CorDapp contracts behave as expected before you write the flows.
 
+The Contract Testing library is currently compatible with the following versions of Corda:
+* 5.0
+
 ## Prerequisites
 
 * {{< tooltip >}}CSDE{{< /tooltip >}} — contains Contract Testing library [examples](#examples).
