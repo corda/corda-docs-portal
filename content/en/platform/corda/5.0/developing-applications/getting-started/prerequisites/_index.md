@@ -19,7 +19,7 @@ You cannot start Corda via the CSDE `startCorda` task if any existing local prog
 
 ## Software Prerequisites
 
-The Corda 5.0 CSDE has been tested with the following:
+The {{< version >}} CSDE has been tested with the following:
 
 | Software          | Version                                                                             |
 | ----------------- | ----------------------------------------------------------------------------------- |

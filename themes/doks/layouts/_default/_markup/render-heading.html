@@ -20,7 +20,8 @@
   }
 </script>
 
-{{ if ne .Page.Params.version "Corda 5.0" }}
+{{ $isCorda5Version := in site.Params.corda5versions .Page.Params.version }}
+{{ if eq $isCorda5Version false }}
   {{ if ne .Level 1 }}
     <h{{ .Level }} id="{{ .Anchor | safeURL }}"  class="link-heading">
       <a href="#{{ .Anchor | safeURL }}">

@@ -6,7 +6,6 @@ menu:
     identifier: corda5-develop-cli
     weight: 1050
     parent: corda5-develop-tooling   
-    identifier: corda5-develop-cli-tooling
 section_menu: corda5
 title: Installing the Corda CLI
 ---

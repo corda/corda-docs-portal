@@ -60,7 +60,7 @@ plugin to your root Gradle project:
 
    ```
    cpkPluginVersion = '6.0.0'
-   cordaReleaseVersion = '5.0.0'
+   cordaReleaseVersion = '{{<version-num>}}.0'
    ```
 
 Applying the `cordapp-cpk2` plugin implicitly applies both Gradle's Java library plugin and Bnd's builder plugin,

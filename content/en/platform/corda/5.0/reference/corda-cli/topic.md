@@ -12,7 +12,16 @@ title: "topic"
 # topic
 This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `topic` arguments. You can use these commands to manually create or delete topics in {{< tooltip >}}Kafka{{< /tooltip >}}, as described in the [Manual Bootstrapping]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md" >}}) section.
 
-| <div style="width:160px">Argument</div> | Description                                                                                                                                                       |
+<style>
+table th:first-of-type {
+    width: 30%;
+}
+table th:nth-of-type(2) {
+    width: 70%;
+}
+</style>
+
+| Argument | Description                                                                                                                                                       |
 | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | -b, \-\-bootstrap-server                | The address of the bootstrap server.                                                                                                                              |
 | -k, \-\-kafka-config                    | The path to the Kafka configuration file.                                                                                                                         |
