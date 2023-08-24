@@ -75,7 +75,7 @@ The sample project folders will appear in your chosen directory.
 The `samples-java` and `samples-kotlin` repositories each contain a number of sample CorDapps. For details of all the sample CorDapps and their features and usage, see the README file in the `samples-java` or `samples-kotlin` folder. The sample CorDapp that you are going to run and deploy is the **Basic** CorDapp in the `Basic\cordapp-example` sub-folder.
 
 
-You can see the project structure in [Appendix A]({{< relref "#appendix-a-projects-structure" >}}).
+You can see the project structure in [Appendix A]({{< relref "#appendix-a-project-structure" >}}).
 {{< /note >}}
 
 
