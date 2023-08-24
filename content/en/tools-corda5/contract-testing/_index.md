@@ -60,16 +60,16 @@ table th:nth-of-type(2) {
 If you expect your test to pass the contract validation, use `assertVerifies`. For example:
 ```java
 @Test
-  public void happyPath() {
-    UtxoSignedTransaction transaction = getLedgerService()
-      .createTransactionBuilder()
-      .addInputState(inputState)
-      .addOutputState(outputState)
-      .addCommand(new MyContract.MyCommand())
-      .addSignatories(List.of(bankAKey, bankBKey, notaryKey))
-      .toSignedTransaction();
-    assertVerifies(transaction);
-  }
+    public void happyPath() {
+        UtxoSignedTransaction transaction = getLedgerService()
+            .createTransactionBuilder()
+            .addInputState(inputState)
+            .addOutputState(outputState)
+            .addCommand(new MyContract.MyCommand())
+            .addSignatories(List.of(bankAKey, bankBKey, notaryKey))
+            .toSignedTransaction();
+          assertVerifies(transaction);
+    }
 ```
 
 ### Negative Path Testing
@@ -77,16 +77,16 @@ If you expect your test to pass the contract validation, use `assertVerifies`. F
 If you expect the contract validation to reject the transaction, make use of `assertFailsWith`. For example:
 ```java
 @Test
-  public void negativePath() {
-    UtxoSignedTransaction transaction = getLedgerService()
-      .createTransactionBuilder()
-      .addInputState(invalidInputState)
-      .addOutputState(outputState)
-      .addCommand(new MyContract.MyCommand())
-      .addSignatories(List.of(bankAKey, bankBKey, notaryKey))
-      .toSignedTransaction();
-    assertFailsWith(transaction, "Validation message here");
-  }
+    public void negativePath() {
+        UtxoSignedTransaction transaction = getLedgerService()
+            .createTransactionBuilder()
+            .addInputState(invalidInputState)
+            .addOutputState(outputState)
+            .addCommand(new MyContract.MyCommand())
+            .addSignatories(List.of(bankAKey, bankBKey, notaryKey))
+            .toSignedTransaction();
+          assertFailsWith(transaction, "Validation message here");
+    }
 ```
 
 ## Examples
