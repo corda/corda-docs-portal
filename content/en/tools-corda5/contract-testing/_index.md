@@ -68,7 +68,7 @@ If you expect your test to pass the contract validation, use `assertVerifies`. F
             .addCommand(new MyContract.MyCommand())
             .addSignatories(List.of(bankAKey, bankBKey, notaryKey))
             .toSignedTransaction();
-          assertVerifies(transaction);
+        assertVerifies(transaction);
     }
 ```
 
@@ -85,7 +85,7 @@ If you expect the contract validation to reject the transaction, make use of `as
             .addCommand(new MyContract.MyCommand())
             .addSignatories(List.of(bankAKey, bankBKey, notaryKey))
             .toSignedTransaction();
-          assertFailsWith(transaction, "Validation message here");
+        assertFailsWith(transaction, "Validation message here");
     }
 ```
 
