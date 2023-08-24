@@ -75,7 +75,7 @@ The sample project folders will appear in your chosen directory.
 The `samples-java` and `samples-kotlin` repositories each contain a number of sample CorDapps. For details of all the sample CorDapps and their features and usage, see the README file in the `samples-java` or `samples-kotlin` folder. The sample CorDapp that you are going to run and deploy is the **Basic** CorDapp in the `Basic\cordapp-example` sub-folder.
 
 
-You can see the project structure in Appendix A.
+You can see the project structure in [Appendix A]({{< relref "#appendix-a-projects-structure" >}}).
 {{< /note >}}
 
 
@@ -103,7 +103,7 @@ The project containing the sample CorDapp opens.
       * A `runnodes` shell script for running all the nodes simultaneously on macOS
       * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows
 
-    See [Appendix B]({{< relref "#appendix-b-node-structure-1" >}}) for the node structure.
+    See [Appendix B]({{< relref "#appendix-b-node-structure" >}}) for the node structure.
 
 {{< note >}}
 `deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would instead create a single node as described in [Creating nodes locally]({{< relref "../node/deploy/generating-a-node.md" >}}), and build your CorDapp JARs as described in [Building and installing a CorDapp]({{< relref "cordapp-build-systems.md" >}}). 
@@ -455,141 +455,6 @@ The key files and directories are as follows:
 * **contracts-kotlin** and **workflows-kotlin** contain the same source code, but written in Kotlin. CorDapps can be developed in either Java and Kotlin
 * **gradle** contains the Gradle Wrapper, which allows the use of Gradle without installing it yourself and worrying about which version is required.
 * **lib** contains the Quasar jar, which rewrites your CorDapp’s flows to be checkpointable.
-
-## Appendix B: Node structure
-
-Each node in the `nodes` folder is structured as follows:
-
-```
-=======
-
-├── clients
-│   ├── build.gradle
-│   └── src
-│       └── main
-│           ├── java
-│           │   └── com
-│           │       └── example
-│           │           └── server
-│           │               ├── CONSTANTS.java
-│           │               ├── MainController.java
-│           │               ├── NodeRPCConnection.java
-│           │               └── Server.java
-│           │  
-│           └── resources
-│               ├── application.properties
-│               └── public
-│                   ├── index.html
-│                   └── js
-│                       └── angular-module.js
-├── config
-│   ├── dev
-│      └── log4j2.xml
-│  
-│  
-├── contracts-java
-│   ├── build.gradle
-│   └── src
-│       └── main
-│           └── java
-│               └── com
-│                   └── example
-│                       ├── contract
-│                       │   └── IOUContract.java
-│                       ├── schema
-│                       │   ├── IOUSchema.java
-│                       │   └── IOUSchemaV1.java
-│                       └── state
-│                           └── IOUState.java
-├── contracts-kotlin
-│   ├── build.gradle
-│   └── src
-│       └── main
-│           └── kotlin
-│               └── com
-│                   └── example
-│                       ├── contract
-│                       │   └── IOUContract
-│                       ├── schema
-│                       │   └── IOUSchema.kt
-│                       └── state
-│                           └── IOUState
-├── gradle
-│   └── wrapper
-│       ├── gradle-wrapper.jar
-│       └── gradle-wrapper.properties
-│ 
-├── lib
-│   ├── README.txt
-│   └── quasar.jar
-│ 
-├── workflows-java
-│   ├── build.gradle
-│   └── src
-│       ├── integrationTest
-│       │   └── java
-│       │       └── com
-│       │           └── example
-│       │               └── DriverBasedTests.java
-│       ├── main
-│       │   └── java
-│       │       └── com
-│       │           └── example
-│       │               └── flow
-│       │                   └── ExampleFlow.java
-│       └── test
-│           └── java
-│               └── com
-│                   └── example
-│                       ├── NodeDriver.java
-│                       ├── contract
-│                       │   └── IOUContractTests.java
-│                       └── flow
-│                           └── IOUFlowTests.java
-├──  workflows-kotlin
-│    ├── build.gradle
-│    └── src
-│        ├── integrationTest
-│        │   └── kotlin
-│        │       └── com
-│        │           └── example
-│        │               └── DriverBasedTests.kt
-│        ├── main
-│        │   └── kotlin
-│        │       └── com
-│        │           └── example
-│        │               └── flow
-│        │                   └── ExampleFlow.kt
-│        └── test
-│            └── kotlin
-│                └── com
-│                    └── example
-│                        ├── NodeDriver.kt
-│                        ├── contract
-│                        │   └── IOUContractTests.kt
-│                        └── flow
-│                            └── IOUFlowTests.kt
-├── build.gradle
-├── gradle.properties
-├── gradlew
-├── gradlew.bat
-├── LICENCE
-├── README.md
-├── repositories.gradle
-├── settings.gradle
-└── TRADEMARK
-
-```
-
-The key files and directories are as follows:
-
-* The **root directory** contains some gradle files, a README, a LICENSE and a TRADEMARK statement
-* **clients** contains the source code for Spring Boot integration
-* **config** contains the log4j2 configuration
-* **contracts-java** and **workflows-java** contain the source code for the sample CorDapp written in Java
-* **contracts-kotlin** and **workflows-kotlin** contain the same source code, but written in Kotlin. CorDapps can be developed in either Java and Kotlin
-* **gradle** contains the gradle wrapper, which allows the use of Gradle without installing it yourself and worrying about which version is required
-* **lib** contains the Quasar jar, which rewrites our CorDapp’s flows to be checkpointable
 
 ## Appendix B: Node structure
 
