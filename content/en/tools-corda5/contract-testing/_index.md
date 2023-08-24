@@ -20,12 +20,12 @@ The Contract Testing library enables {{< tooltip >}}CorDapp{{< /tooltip >}} Deve
 
 To import the library to your CorDapp, add it to your `contracts` `build.gradle` dependencies:
 ```
-testImplementation "com.r3.corda.ledger.utxo:contract-testing:0.9.0”
+testImplementation "com.r3.corda.ledger.utxo:contract-testing:1.0.0-beta”
 ```
 
 If you are using Kotlin, you can also add the Kotlin DSL:
 ```
-testImplementation "com.r3.corda.ledger.utxo:contract-testing-kotlin:0.9.0”
+testImplementation "com.r3.corda.ledger.utxo:contract-testing-kotlin:1.0.0-beta”
 ```
 
 You can now extend the `ContractTest` interface.
