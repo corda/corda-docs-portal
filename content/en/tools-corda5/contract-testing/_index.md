@@ -61,15 +61,15 @@ If you expect your test to pass the contract validation, use `assertVerifies`. F
 ```java
 @Test
 public void happyPath() {
-        UtxoSignedTransaction transaction = getLedgerService()
-            .createTransactionBuilder()
-            .addInputState(inputState)
-            .addOutputState(outputState)
-            .addCommand(new MyContract.MyCommand())
-            .addSignatories(List.of(bankAKey, bankBKey, notaryKey))
-            .toSignedTransaction();
-        assertVerifies(transaction);
-    }
+    UtxoSignedTransaction transaction = getLedgerService()
+        .createTransactionBuilder()
+        .addInputState(inputState)
+        .addOutputState(outputState)
+        .addCommand(new MyContract.MyCommand())
+        .addSignatories(List.of(bankAKey, bankBKey, notaryKey))
+        .toSignedTransaction();
+    assertVerifies(transaction);
+}
 ```
 
 ### Negative Path Testing
@@ -78,15 +78,15 @@ If you expect the contract validation to reject the transaction, make use of `as
 ```java
 @Test
 public void negativePath() {
-        UtxoSignedTransaction transaction = getLedgerService()
-            .createTransactionBuilder()
-            .addInputState(invalidInputState)
-            .addOutputState(outputState)
-            .addCommand(new MyContract.MyCommand())
-            .addSignatories(List.of(bankAKey, bankBKey, notaryKey))
-            .toSignedTransaction();
-        assertFailsWith(transaction, "Validation message here");
-    }
+    UtxoSignedTransaction transaction = getLedgerService()
+        .createTransactionBuilder()
+        .addInputState(invalidInputState)
+        .addOutputState(outputState)
+        .addCommand(new MyContract.MyCommand())
+        .addSignatories(List.of(bankAKey, bankBKey, notaryKey))
+        .toSignedTransaction();
+    assertFailsWith(transaction, "Validation message here");
+}
 ```
 
 ## Examples
