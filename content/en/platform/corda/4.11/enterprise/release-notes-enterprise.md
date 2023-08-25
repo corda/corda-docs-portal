@@ -132,6 +132,8 @@ This release includes the following fixes:
 
 * Debug logging of the Artemis server has been added.
 
+* A `StackOverflowException` was thrown when an attempt was made to store a deleted party in the vault. This issue has been resolved.
+
 ### Database schema changes
 
 The following database changes have been applied:
