@@ -47,6 +47,10 @@ The following dependencies have been upgraded to address critical and high-sever
 
 When a state is consumed by a transaction, Corda now adds the ID of the consuming transaction in the `consuming_tx_id` column of the `vault_state` table. Corda only updates this database column for new transactions; for existing consumed states already in the ledger, the value of `consuming_tx_id` is null.
 
+### Deserializing AMQP data performance improvement
+
+This release includes improvements in the performance of deserializing AMQP data, which may result in performance improvements for LedgerGraph, Archiving and other CorDapps.
+
 ## Fixed issues
 
 This release includes the following fixes:
