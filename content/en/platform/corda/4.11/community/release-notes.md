@@ -69,6 +69,8 @@ This release includes the following fixes:
 
 * The certificate revocation checking has been improved with the introduction of a read timeout on the download of the certificate revocation lists (CRLs). The default CRL connect timeout has also been adjusted to better suit Corda nodes. The caching of CRLs has been increased from 30 seconds to 5 minutes.
 
+* Added improvements to node thread names to make logging and debugging clearer.
+
 ### Database schema changes
 
 The following database changes have been applied:
