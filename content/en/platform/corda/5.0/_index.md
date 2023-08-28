@@ -20,7 +20,7 @@ Once packaged, applications are deployed onto Corda which executes both applicat
 DLT is a digital system for recording, storing, and processing digital data in a decentralized way across a network of computers, perhaps in different locations and involving multiple organizations.
 Some of the many benefits of DLT are:
 * **Decentralization** - There is no centralized authority of control dictating what {{< tooltip >}}state{{< /tooltip >}} changes can and cannot occur. Instead, parties come to a consensus about changes to the global state and this is controlled by consensus rules.
-* **Security** - State changes are attested via signature to prevent unauthorized access and tampering is protected against. Three foundational principles apply:
+* **Security** - State changes are attested via signature to prevent unauthorized access and protect against tampering. Three foundational principles apply:
   * **Confidentiality**, which is the ability of two actors to keep the data that they share private from others on a network.
   * **Integrity**, which ensures that data shared between parties is accurate, consistent, and valid over its lifecycle.
   * **Availability**, which importantly guarantees some level of uptime, by being resilient to faults that may occur during operation.
