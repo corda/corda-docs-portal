@@ -11,16 +11,16 @@ menu:
 section_menu: corda5
 ---
 # Member Suspension
-It is possible to temporarily suspend a member of a group. Once a member has been suspended, Corda blocks flow communication between it and other members of the group. A suspended member performing a member lookup can only see updates from the MGM and not from other members. It is not possible to suspend the MGM. This section describes how to perform the following:
+It is possible to temporarily suspend a {{< tooltip >}}member{{< /tooltip >}} of a group. Once a member has been suspended, Corda blocks {{< tooltip >}}flow{{< /tooltip >}} communication between it and other members of the group. A suspended member performing a member lookup can only see updates from the {{< tooltip >}}MGM{{< /tooltip >}} and not from other members. It is not possible to suspend the MGM. This section describes how to perform the following:
 * [Search for Members]({{< relref "#search-for-members">}})
 * [Suspend a Member]({{< relref "#suspend-a-member">}})
 * [Activate a Member]({{< relref "#activate-a-member">}})
 
 The commands shown in this section, use the following variables:
-* `MGM_HOLDING_ID` — the short hash of the MGM's holding identity.
-* `X500_NAME` — the X.500 name of the member being suspended or re-activated.
-* `REST_API_URL` — the URL of the REST worker. This may vary depending on where you have deployed your cluster and how you have forwarded the ports. For example, `https://localhost:8888/api/v1`.
-* `REST_API_USER` — your username for invoking the REST API. 
+* `MGM_HOLDING_ID` — the short hash of the MGM's {{< tooltip >}}holding identity{{< /tooltip >}}.
+* `X500_NAME` — the {{< tooltip >}}X.500{{< /tooltip >}} name of the member being suspended or re-activated.
+* `REST_API_URL` — the URL of the {{< tooltip >}}REST worker{{< /tooltip >}}. This may vary depending on where you have deployed your {{< tooltip >}}cluster{{< /tooltip >}} and how you have forwarded the ports. For example, `https://localhost:8888/api/v1`.
+* `REST_API_USER` — your username for invoking the REST API.
 * `REST_API_PASSWORD` — your password for invoking the REST API.
 * `AUTH_INFO` — the authentication information if using PowerShell. You can set this as follows:
    ```
@@ -29,7 +29,7 @@ The commands shown in this section, use the following variables:
 
 ## Search for Members
 
-You can use the [Member Lookup REST endpoint](../../reference/rest-api/C5_OpenAPI.html#tag/Member-Lookup-API) to query for all members with a particular status by specifying the MGM and the status. By default, the endpoint only returns members with the status ACTIVE. You can also query for multiple statuses together. For example, to query for all members with the status SUSPENDED:
+You can use the [Member Lookup REST endpoint](../../reference/rest-api/openapi.html#tag/Member-Lookup-API) to query for all members with a particular status by specifying the MGM and the status. By default, the endpoint only returns members with the status ACTIVE. You can also query for multiple statuses together. For example, to query for all members with the status SUSPENDED:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -49,7 +49,7 @@ The GET method of the `/api/v1/members/{holdingidentityshorthash}` endpoint retu
 
 ## Suspend a Member
 
-You can use the <a href="../../reference/rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__suspend">POST method of the `/api/v1/members/{holdingidentityshorthash}/suspend` endpoint</a> to suspend a member of a group:
+You can use the <a href="../../reference/rest-api/openapi.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__suspend">POST method of the `/api/v1/members/{holdingidentityshorthash}/suspend` endpoint</a> to suspend a member of a group:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -71,7 +71,7 @@ Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f
 
 ## Activate a Member
 
-You can use the <a href="../../reference/rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__activate">POST method of the `/api/v1/members/{holdingidentityshorthash}/activate` endpoint</a> to re-activate a suspended member of a group:
+You can use the <a href="../../reference/rest-api/openapi.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__activate">POST method of the `/api/v1/members/{holdingidentityshorthash}/activate` endpoint</a> to re-activate a suspended member of a group:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}

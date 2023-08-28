@@ -2,7 +2,6 @@
 date: '2023-06-14'
 version: 'Corda 5.0'
 title: "Membership Worker"
-version: 'Corda 5.0'
 menu:
   corda5:
     parent: corda5-cluster-metrics
@@ -13,8 +12,8 @@ section_menu: corda5
 
 # Membership Worker
 
-The membership worker is responsible for the processing of application network functionality either on behalf of an MGM,
-a network member, or both. For an MGM, examples of this application functionality include:
+The membership worker is responsible for the processing of {{< tooltip >}}application network{{< /tooltip >}} functionality either on behalf of an {{< tooltip >}}MGM{{< /tooltip >}}, a network {{< tooltip >}}member{{< /tooltip >}}, or both.
+For an MGM, examples of this application functionality include:
 * handling incoming registration requests
 * network management
 * ensuring the network participants are all in sync with the latest network data
@@ -31,7 +30,7 @@ The timer metrics of the membership worker focus on the areas mentioned above. S
 
 These metrics are tagged with the name of the handler so that you can observe at a low-level exactly where time is spent
 across different processes. These handler names are tagged as the operation name. They are also tagged with the short
-hash ID and the group ID of the virtual node the operation is performed on behalf of in order to determine if certain
+hash ID and the group ID of the {{< tooltip >}}virtual node{{< /tooltip >}} the operation is performed on behalf of in order to determine if certain
 virtual nodes or groups are taking longer than others to process.
 
 The membership worker also includes a single gauge metric which shows the size of the network member list held in memory

@@ -75,7 +75,7 @@ The sample project folders will appear in your chosen directory.
 The `samples-java` and `samples-kotlin` repositories each contain a number of sample CorDapps. For details of all the sample CorDapps and their features and usage, see the README file in the `samples-java` or `samples-kotlin` folder. The sample CorDapp that you are going to run and deploy is the **Basic** CorDapp in the `Basic\cordapp-example` sub-folder.
 
 
-You can see the project structure in Appendix A.
+You can see the project structure in [Appendix A]({{< relref "#appendix-a-project-structure" >}}).
 {{< /note >}}
 
 
@@ -93,24 +93,20 @@ The project containing the sample CorDapp opens.
 
 1. Open the command line from the `cordapp-example` directory.
 2. Run the `deployNodes` Gradle task:
-      * Unix/Mac OSX: `./gradlew deployNodes`
-      * Windows: `gradlew.bat deployNodes`
+      * Unix/macOS: `./gradlew deployNodes`
+      * Windows: `./gradlew.bat deployNodes`
 
    This builds three nodes with the CorDapp installed on them.
 
-3. When the build finishes, go to the `workflows-java/build/nodes` or `workflows-kotlin/build/nodes` folder.
-
-You will see the following output:
+3. When the build finishes, go to the `samples-java/Basic/cordapp-example/build/nodes` or `samples-kotlin/Basic/cordapp-example/build/nodes` folder. You will see the following output:
       * A folder for each generated node
-      * A `runnodes` shell script for running all the nodes simultaneously on OSX
+      * A `runnodes` shell script for running all the nodes simultaneously on macOS
       * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows
 
-    See **Appendix B** for the node structure.
-
+    See [Appendix B]({{< relref "#appendix-b-node-structure" >}}) for the node structure.
 
 {{< note >}}
-`deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would create a single node as described in [Creating nodes locally]({{< relref "../node/deploy/generating-a-node.md" >}}) instead, and build your CorDapp JARs as described
-in [Building and installing a CorDapp](cordapp-build-systems.md).
+`deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would instead create a single node as described in [Creating nodes locally]({{< relref "../node/deploy/generating-a-node.md" >}}), and build your CorDapp JARs as described in [Building and installing a CorDapp]({{< relref "cordapp-build-systems.md" >}}).
 {{< /note >}}
 
 
@@ -120,24 +116,24 @@ To start the nodes and the sample CorDapp:
 
 1. Run the command that corresponds to your operating system:
 
-* Unix/Mac OSX: `./build/nodes/runnodes`
+* Unix/macOS: `./build/nodes/runnodes`
 * Windows: `.\build\nodes\runnodes.bat`
 
 2. Start a Spring Boot server for Party A. Run the command:
 
-* Unix/Mac OSX: `./gradlew runPartyAServer`
+* Unix/macOS: `./gradlew runPartyAServer`
 * Windows: `gradlew.bat runPartyAServer`
 
 Look for the `Started Server in X seconds` message &mdash; don’t rely on the % indicator.
 
 3. Repeat the command to start the server for Party B:
 
-* Unix/Mac OSX: `./gradlew runPartyBServer`
+* Unix/macOS: `./gradlew runPartyBServer`
 * Windows: `gradlew.bat runPartyBServer`
 
 
 {{< warning >}}
-On Unix/Mac OSX, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `workflows-java/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/node/operating/shell.md" >}}).
+On Unix/macOS, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `workflows-java/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/node/operating/shell.md" >}}).
 {{< /warning >}}
 
 
@@ -462,142 +458,6 @@ The key files and directories are as follows:
 ## Appendix B: Node structure
 
 Each node in the `nodes` folder is structured as follows:
-
-```
-=======
-
-├── clients
-│   ├── build.gradle
-│   └── src
-│       └── main
-│           ├── java
-│           │   └── com
-│           │       └── example
-│           │           └── server
-│           │               ├── CONSTANTS.java
-│           │               ├── MainController.java
-│           │               ├── NodeRPCConnection.java
-│           │               └── Server.java
-│           │  
-│           └── resources
-│               ├── application.properties
-│               └── public
-│                   ├── index.html
-│                   └── js
-│                       └── angular-module.js
-├── config
-│   ├── dev
-│      └── log4j2.xml
-│  
-│  
-├── contracts-java
-│   ├── build.gradle
-│   └── src
-│       └── main
-│           └── java
-│               └── com
-│                   └── example
-│                       ├── contract
-│                       │   └── IOUContract.java
-│                       ├── schema
-│                       │   ├── IOUSchema.java
-│                       │   └── IOUSchemaV1.java
-│                       └── state
-│                           └── IOUState.java
-├── contracts-kotlin
-│   ├── build.gradle
-│   └── src
-│       └── main
-│           └── kotlin
-│               └── com
-│                   └── example
-│                       ├── contract
-│                       │   └── IOUContract
-│                       ├── schema
-│                       │   └── IOUSchema.kt
-│                       └── state
-│                           └── IOUState
-├── gradle
-│   └── wrapper
-│       ├── gradle-wrapper.jar
-│       └── gradle-wrapper.properties
-│ 
-├── lib
-│   ├── README.txt
-│   └── quasar.jar
-│ 
-├── workflows-java
-│   ├── build.gradle
-│   └── src
-│       ├── integrationTest
-│       │   └── java
-│       │       └── com
-│       │           └── example
-│       │               └── DriverBasedTests.java
-│       ├── main
-│       │   └── java
-│       │       └── com
-│       │           └── example
-│       │               └── flow
-│       │                   └── ExampleFlow.java
-│       └── test
-│           └── java
-│               └── com
-│                   └── example
-│                       ├── NodeDriver.java
-│                       ├── contract
-│                       │   └── IOUContractTests.java
-│                       └── flow
-│                           └── IOUFlowTests.java
-├──  workflows-kotlin
-│    ├── build.gradle
-│    └── src
-│        ├── integrationTest
-│        │   └── kotlin
-│        │       └── com
-│        │           └── example
-│        │               └── DriverBasedTests.kt
-│        ├── main
-│        │   └── kotlin
-│        │       └── com
-│        │           └── example
-│        │               └── flow
-│        │                   └── ExampleFlow.kt
-│        └── test
-│            └── kotlin
-│                └── com
-│                    └── example
-│                        ├── NodeDriver.kt
-│                        ├── contract
-│                        │   └── IOUContractTests.kt
-│                        └── flow
-│                            └── IOUFlowTests.kt
-├── build.gradle
-├── gradle.properties
-├── gradlew
-├── gradlew.bat
-├── LICENCE
-├── README.md
-├── repositories.gradle
-├── settings.gradle
-└── TRADEMARK
-
-```
-
-The key files and directories are as follows:
-
-* The **root directory** contains some gradle files, a README, a LICENSE and a TRADEMARK statement
-* **clients** contains the source code for Spring Boot integration
-* **config** contains the log4j2 configuration
-* **contracts-java** and **workflows-java** contain the source code for the sample CorDapp written in Java
-* **contracts-kotlin** and **workflows-kotlin** contain the same source code, but written in Kotlin. CorDapps can be developed in either Java and Kotlin
-* **gradle** contains the gradle wrapper, which allows the use of Gradle without installing it yourself and worrying about which version is required
-* **lib** contains the Quasar jar, which rewrites our CorDapp’s flows to be checkpointable
-
-## Appendix B: Node structure
-
-Each node in the `nodes` folder is structured as follows:
-
 
 ```none
 . nodeName

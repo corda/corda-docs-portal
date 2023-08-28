@@ -10,18 +10,36 @@ section_menu: corda5
 title: "package"
 ---
 # package
-This section lists the Corda CLI `package` arguments. You can use these commands to execute operations for working with CPB and CPI files, as described in the [Packaging section for CorDapp Developers]({{< relref "../../developing-applications/packaging/_index.md">}}).
+This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `package` arguments. You can use these commands to execute operations for working with {{< tooltip >}}CPB{{< /tooltip >}} and {{< tooltip >}}CPI{{< /tooltip >}} files, as described in the [Packaging section for CorDapp Developers]({{< relref "../../developing-applications/packaging/_index.md">}}).
 
-| <div style="width:160px">Argument</div> | Description                                        |
+<style>
+table th:first-of-type {
+    width: 30%;
+}
+table th:nth-of-type(2) {
+    width: 70%;
+}
+</style>
+
+| Argument | Description                                        |
 | --------------------------------------- | -------------------------------------------------- |
 | \-\-create-cpb                          | Creates a CPB file. See [create-cpb](#create-cpb). |
 | \-\-create-cpi                          | Creates a CPI file. See [create-cpi](#create-cpi). |
 
 ## create-cpb
 
-The `create-cpb` argument creates a CPB file from a set of CPK files using the following arguments:
+The `create-cpb` argument creates a CPB file from a set of {{< tooltip >}}CPK{{< /tooltip >}} files using the following arguments:
 
-| <div style="width:160px">Argument</div> | Description                                        |
+<style>
+table th:first-of-type {
+    width: 30%;
+}
+table th:nth-of-type(2) {
+    width: 70%;
+}
+</style>
+
+| Argument | Description                                        |
 | --------------------------------------- | -------------------------------------------------- |
 | \-\-cpb-name                            | Specifies a name for the CPB.                      |
 | \-\-cpb-version                         | Specifies the CPB version.                         |
@@ -63,10 +81,19 @@ For example:
 
 The `create-cpi` argument creates a CPI file using the following arguments:
 
-| <div style="width:160px">Argument</div> | Description                                                                                 |
+<style>
+table th:first-of-type {
+    width: 30%;
+}
+table th:nth-of-type(2) {
+    width: 70%;
+}
+</style>
+
+| Argument | Description                                                                                 |
 | --------------------------------------- | ------------------------------------------------------------------------------------------- |
 | \-\-cpb                                 | Specifies the CPB file to include in the CPI. This can be omitted when creating an MGM CPI.                                              |
-| \-\-group-policy                        | Specifies the group policy file to include in the CPI. |
+| \-\-group-policy                        | Specifies the {{< tooltip >}}group policy{{< /tooltip >}}file to include in the CPI. |
 | \-\-cpi-name                            | Specifies a name for the CPI.                                                               |
 | \-\-cpi-version                         | Specifies the CPI version.                                                                  |
 | \-\-file                                | Specifies the name of the CPI file to create.                                               |

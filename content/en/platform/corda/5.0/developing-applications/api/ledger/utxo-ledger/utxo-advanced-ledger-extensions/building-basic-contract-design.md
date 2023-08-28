@@ -112,7 +112,7 @@ public class ExampleContract implements Contract {
 }
 ```
 
-Refactoring a contract as shown in the above example allows CorDapp implementors to derive from the contract, allowing additional constraints which will be verified in addition to the constraints specified by the base contract.
+Refactoring a contract as shown in the above example allows {{< tooltip >}}CorDapp{{< /tooltip >}} implementors to derive from the contract, allowing additional constraints which will be verified in addition to the constraints specified by the base contract.
 
 There are still some outstanding issues with this design, where this design approach no longer fits the design goals of the system being implemented.
 
@@ -132,7 +132,7 @@ public final void verify(UtxoLedgerTransaction transaction) {
 }
 ```
 
-The `verify` function is marked final for security reasons, and therefore additional commands cannot be added to the contract. For example, the contract may wish to describe multiple ways to `Update` a state, or set of states. The contract only defines a single `Update` command: there can only be one mechanism to perform updates.
+The `verify` function is marked final for security reasons, and therefore additional commands cannot be added to the contract. For example, the contract may wish to describe multiple ways to `Update` a {{< tooltip >}}state{{< /tooltip >}}, or set of states. The contract only defines a single `Update` command: there can only be one mechanism to perform updates.
 
 The second problem lies in the commands themselves and their names. `Create`, `Update` and `Delete` are very ambiguous names, which may not make sense depending on the context of the contract being implemented.
 

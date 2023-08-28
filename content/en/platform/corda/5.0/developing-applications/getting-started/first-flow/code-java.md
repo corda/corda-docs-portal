@@ -10,7 +10,7 @@ menu:
 section_menu: corda5
 ---
 # Java Flow Code Walkthrough
-The Java code for the flows and supporting classes can be found in the CSDE repo in the `workflows/src/main/java/com/r3/developers/csdetemplate/flowexample/workflows` folder.
+The Java code for the {{< tooltip >}}flows{{< /tooltip >}} and supporting classes can be found in the CSDE repo in the `workflows/src/main/java/com/r3/developers/csdetemplate/flowexample/workflows` folder.
 
 ## Java Flow Files
 
@@ -178,8 +178,8 @@ public class MyFirstFlowResponder implements ResponderFlow {
     // Log messages from the flows for debugging.
     private final static Logger log = LoggerFactory.getLogger(MyFirstFlowResponder.class);
 
-    // MemberLookup looks for information about members of the virtual network which 
-    // this CorDapp operates in. 
+    // MemberLookup looks for information about members of the virtual network which
+    // this CorDapp operates in.
     @CordaInject
     public MemberLookup memberLookup;
 
@@ -243,7 +243,7 @@ public class MyFirstFlowStartArgs {
 
 ## Helper Classes
 There are two helper classes:
-* `MyFirstFlowStartArgs` — provides a wrapper around the single arguments that need to be passed into the flow — the other member of the application network who the message should be sent to:
+* `MyFirstFlowStartArgs` — provides a wrapper around the single arguments that need to be passed into the flow — the other member of the {{< tooltip >}}application network{{< /tooltip >}} who the message should be sent to:
    ```java
    public class MyFirstFlowStartArgs {
     public MemberX500Name otherMember;
@@ -257,7 +257,7 @@ There are two helper classes:
    }
    ```
 
-* `Message` —  specifies the sender and the message. This is used for both the message sent from the initiator to the responder and subsequently the message sent back from the responder to the initiator. Note, as this is a class defined in a CorDapp and it is going to be sent ‘down the wire’ between two virtual nodes, it requires the `@CordaSerializable` annotation.
+* `Message` —  specifies the sender and the message. This is used for both the message sent from the initiator to the responder and subsequently the message sent back from the responder to the initiator. Note, as this is a class defined in a {{< tooltip >}}CorDapp{{< /tooltip >}} and it is going to be sent ‘down the wire’ between two virtual nodes, it requires the `@CordaSerializable` annotation.
    ```java
    @CordaSerializable
    public class Message {
@@ -306,7 +306,7 @@ We recommend adding an easily searchable tag to each log message. For example:
         log.info("MFF: MyFirstFlow.call() called");
 ```
 ## call() Method
-As with flows in Corda 4, each flow has a `call()` method. This is the method which Corda invokes when the flow is invoked.
+Each flow has a `call()` method. This is the method which Corda invokes when the flow is invoked.
 
 When a flow is started via REST, the `requestBody` from the HTTP request is passed into the `call` method as the  `requestBody` parameter, giving the rest of the call method access to the parameters passed in via HTTP.
 
@@ -361,7 +361,7 @@ The services are then available in the call function. For example to initiate a 
 ## Obtaining the REST requestBody
 
 The first thing that the `MyFirstFlow.call()` method does is convert the `requestBody` parameters into a Kotlin class.
-It does this using the `getRequestBodyAs()` method. This takes the `jsonMarshallingService` and the class that the `requestBody` parameters should be parsed into. The `flowArgs` variable has the type `MyFirstFlowStartArgs`, the helper class we declared in [the Helper classes section](#helper-classes) and used in the test.
+It does this using the `getRequestBodyAs()` method. This takes the `jsonMarshallingService` and the class that the `requestBody` parameters should be parsed into. The `flowArgs` variable has the type `MyFirstFlowStartArgs`, the helper class we declared in [the Helper classes section](#helper-classes).
 ```java
    @Suspendable
     @Override
@@ -397,14 +397,14 @@ We can now start sending messages to the responder:
    ```java
         session.send(message);
    ```
-   The code continues to execute until it reaches the `session.receive()` method. At that point, the flow checkpoints and persists its state to the database. It resumes when it receives a message back from the responder. This frees up the Corda cluster flow workers to perform other tasks.
+   The code continues to execute until it reaches the `session.receive()` method. At that point, the flow checkpoints and persists its {{< tooltip >}}state{{< /tooltip >}} to the database. It resumes when it receives a message back from the responder. This frees up the Corda cluster flow workers to perform other tasks.
    {{< note >}}
-   There is no guarantee that the same flow worker resumes the completion of the flow and so singleton objects should be avoided in Corda 5 flows.
+   There is no guarantee that the same {{< tooltip >}}flow worker{{< /tooltip >}} resumes the completion of the flow and so singleton objects should be avoided in Corda 5 flows.
    {{< /note >}}
    ```java
            Message response = session.receive(Message.class);
     ```
-    When the `send()` is sent to the responder, Corda executes the `MyFirstResponderFlow` responder flow `call()` method down to the `session.receive()`, which returns the payload that was sent in the initiator's `send()` method.
+   When the message is sent to the responder via the `send()` method, Corda executes `session.receive()` in the `MyFirstResponderFlow` responder flow's `call()` method. This `session.receive()` method retrieves the message that was sent in the initiator's `send()` method.
     ```java
     @Suspendable
     @Override
@@ -437,7 +437,7 @@ We can now start sending messages to the responder:
 ## Other Considerations for FlowSessions
 It is important that the sends and receives in the initiator and responder flows match. If the initiator sends a Foo and the responder expects a Bar, the flow hangs and likely results in a timeout error.
 
-As with Corda 4, there is also a `sendAndReceive` method on `FlowSession` that sends a payload, check-points the flow, and then waits for a response to be received:
+The `sendAndReceive` method on `FlowSession` sends a payload, check-points the flow, and then waits for a response to be received:
 ```java
 <ReceiveType> response = myFlowSession.sendAndReceive(<ReceiveType>.class, payload);
 ```

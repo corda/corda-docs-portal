@@ -33,7 +33,7 @@ To work against a non-release branch, proceed as follows:
 
 
 
-* Unix/Mac OSX: `./gradlew install`
+* Unix/macOS: `./gradlew install`
 * Windows: `gradlew.bat install`
 
 
