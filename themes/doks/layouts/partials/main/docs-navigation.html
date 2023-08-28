@@ -79,6 +79,7 @@
 
 {{/* Now render the results */}}
 
+{{ if or (.Scratch.Get "page_prev") (.Scratch.Get "page_next") }}
 <div class="docs-navigation d-flex justify-content-between my-4 pt-4">
 	<!-- https://www.feliciano.tech/blog/custom-sort-hugo-single-pages/ -->
   {{ with .Scratch.Get "page_prev" }}
@@ -105,3 +106,4 @@
 		</div>
   {{ end -}}
 </div>
+{{ end -}}
