@@ -62,7 +62,7 @@ In the first step for creating a proxy object you needed to provide the coordina
 to a peer from other application network (Interoperability identity name and Interoperability group ID).
 The Corda service `InteropIdentityLookUp` allows to retrieve registered Interoperability identities, including their own
 Interoperability identity.
-The registration process is an administrative task. For more information, see [TODO link].
+The registration process is an administrative task. For more information, see [Interoperability Administration and Identity Management Guide](../interop-admin).
 Developers can call the `lookup` method of the service by providing the `applicationName` as a parameter. The
 method will return the corresponding `InterOpIdentityInfo` containing the Interoperability member information:
 identity, associated with a particular X.500 name and the host network.
