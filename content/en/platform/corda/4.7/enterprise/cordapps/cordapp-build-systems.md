@@ -91,7 +91,7 @@ referencing Corda Enterprise Edition 4 packages to provide transitive dependenci
 ```groovy
 repositories {
     // ... other dependencies
-    maven { url "https://software.r3.com/artifactory/corda-dependencies" } // access to the patched Quasar and Caffeine version
+    maven { url "https://download.corda.net/maven/corda-dependencies" } // access to the patched Quasar and Caffeine version
 }
 ```
 

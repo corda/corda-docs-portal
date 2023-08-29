@@ -277,7 +277,7 @@ Option `-b` points to the base directory which contains a `node.conf` file and `
 
 Replace corda.jar with its latest version.
 
-Download the latest version of Corda from [our Artifactory site](https://software.r3.com/artifactory/webapp/#/artifacts/browse/simple/General/corda/net/corda/corda-node).
+Download the latest version of Corda from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-node/4.9.7/corda-node-4.9.7.jar).
 Make sure it’s available on your path, and that you’ve read the [Corda release notes](release-notes-enterprise.md). Pay particular attention to which version of Java that the node requires.
 
 {{< important >}}

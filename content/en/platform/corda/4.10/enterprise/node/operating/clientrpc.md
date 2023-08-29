@@ -39,7 +39,7 @@ this dependency:
 ```kotlin
 repositories {
     // ... other dependencies
-    maven { url "https://software.r3.com/artifactory/corda-dependencies" } // access to the patched Caffeine version
+    maven { url "https://download.corda.net/maven/corda-dependencies" } // access to the patched Caffeine version
 }
 ```
 
