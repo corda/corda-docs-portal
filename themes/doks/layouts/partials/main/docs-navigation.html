@@ -79,29 +79,31 @@
 
 {{/* Now render the results */}}
 
-<div class="docs-navigation d-flex justify-content-between my-4 pt-4">
-	<!-- https://www.feliciano.tech/blog/custom-sort-hugo-single-pages/ -->
-  {{ with .Scratch.Get "page_prev" }}
-		<div>
-			Previous<br />
-			<a href="{{ .Permalink }}">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 14 14">
-          <path stroke="#ec1d24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.668 2.917L1.75 7l3.918 4.083"/>
-          <path stroke="#ec1d24" stroke-linecap="round" stroke-width="2" d="M1 -1L9.344 -1" transform="matrix(1 0 0 -1 1.90576 6.43518)"/>
-        </svg>
-        {{ .Title }}</a>
-		</div>
-  {{ end -}}
+{{ if or (.Scratch.Get "page_prev") (.Scratch.Get "page_next") }}
+  <div class="docs-navigation d-flex justify-content-between my-4 pt-4">
+    <!-- https://www.feliciano.tech/blog/custom-sort-hugo-single-pages/ -->
+    {{ with .Scratch.Get "page_prev" }}
+      <div>
+        Previous<br />
+        <a href="{{ .Permalink }}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 14 14">
+            <path stroke="#ec1d24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.668 2.917L1.75 7l3.918 4.083"/>
+            <path stroke="#ec1d24" stroke-linecap="round" stroke-width="2" d="M1 -1L9.344 -1" transform="matrix(1 0 0 -1 1.90576 6.43518)"/>
+          </svg>
+          {{ .Title }}</a>
+      </div>
+    {{ end -}}
 
-  {{ with .Scratch.Get "page_next" }}
-		<div class="ms-auto text-end">
-			Next<br />
-			<a href="{{ .Permalink }}">{{ .Title }}
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 14 14">
-          <path stroke="#ec1d24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.332 11.083L12.25 7 8.332 2.917"/>
-          <path stroke="#ec1d24" stroke-linecap="round" stroke-width="2" d="M1 -1L9.344 -1" transform="matrix(-1 -8.74228e-08 -8.74228e-08 1 12.0942 7.56482)"/>
-        </svg>
-      </a>
-		</div>
-  {{ end -}}
-</div>
+    {{ with .Scratch.Get "page_next" }}
+      <div class="ms-auto text-end">
+        Next<br />
+        <a href="{{ .Permalink }}">{{ .Title }}
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 14 14">
+            <path stroke="#ec1d24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.332 11.083L12.25 7 8.332 2.917"/>
+            <path stroke="#ec1d24" stroke-linecap="round" stroke-width="2" d="M1 -1L9.344 -1" transform="matrix(-1 -8.74228e-08 -8.74228e-08 1 12.0942 7.56482)"/>
+          </svg>
+        </a>
+      </div>
+    {{ end -}}
+  </div>
+{{ end -}}
