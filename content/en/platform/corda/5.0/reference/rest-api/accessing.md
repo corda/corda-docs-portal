@@ -22,7 +22,7 @@ To access and invoke the REST API:
    If you did not explicitly specify the username for the initial admin user at install time, the default is `admin`. If you did not explicitly specify the password for the initial admin user at install time, you can retrieve it using the following command:
 
    ```sh
-   kubectl get secret -n <NAMESPACE> corda-initial-admin-user -o go-template="{{ .data.password | base64decode }}"
+   kubectl get secret -n <NAMESPACE> corda-rest-api-admin -o go-template="{{ .data.password | base64decode }}"
    ```
 
 4. The REST API is at the path `/api/v1`. The following is an example invocation using `curl` when the API endpoint is exposed via port forwarding:
@@ -30,7 +30,7 @@ To access and invoke the REST API:
    ```sh
    REST_API_URL=https://localhost:8888/api/v1
    REST_API_USER=admin
-   REST_API_PASSWORD=$(kubectl get secret -n <NAMESPACE> corda-initial-admin-user -o go-template="{{ .data.password | base64decode }}")
+   REST_API_PASSWORD=$(kubectl get secret -n <NAMESPACE> corda-rest-api-admin -o go-template="{{ .data.password | base64decode }}")
    curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/hello
    ```
 

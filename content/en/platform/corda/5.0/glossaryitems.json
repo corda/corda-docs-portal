@@ -72,8 +72,8 @@
         "more": "When a virtual node reads or writes ledger data, the work request is sent across Kafka to one of the Database workers for processing and the results are returned to the Flow Engine over Kafka."
     },
     "DLT": {
-        "definition": "Distributed Ledger Technology. A type of database technology that enables a network of computers to maintain a shared and synchronized database. It is a decentralized and transparent ledger that records transactions in a tamper-evident and secure manner, making it well-suited for use cases that require high levels of security, trust, and transparency.",
-        "more": ""
+        "definition": "Distributed Ledger Technology. A type of database technology that enables a network of computers to maintain a shared and synchronized database.",
+        "more": "It is a decentralized and transparent ledger that records transactions in a tamper-evident and secure manner, making it well-suited for use cases that require high levels of security, trust, and transparency."
     },
     "ECDH": {
         "definition": "Elliptic-curve Diffie–Hellman. A key sharing algorithm, most commonly used to send encrypted messages. ",
