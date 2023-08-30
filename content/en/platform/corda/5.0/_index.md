@@ -1,13 +1,15 @@
 ---
 date: '2022-08-17'
 description: "Documentation for the next-gen release of Corda"
-title: "Corda 5.0"
+title: "Next-Gen Corda 5.0"
 project: corda
 version: 'Corda 5.0'
 section_menu: corda5
 menu:
   versions:
     weight: -652
+  corda5:
+    weight: -100
 aliases: 5.0-beta.html   
 ---
 # Next-Gen {{< version >}}
