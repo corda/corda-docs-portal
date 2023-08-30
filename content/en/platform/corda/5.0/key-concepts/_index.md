@@ -42,13 +42,13 @@ Blockchain is one popular type of DLT that is commonly used for cryptocurrencies
 ## What is Corda’s take on DLT?
 Corda is a distributed application platform for the creation and operation of decentralized applications, which are written using a rich Java API.
 These applications are created using standard Java development tools and packaged using Corda tooling.
-Once packaged, applications are deployed onto Corda which executes both applications and ledger update workflows on behalf of organizational entities.
+Once packaged, applications are deployed onto Corda, which executes both applications and ledger update workflows on behalf of organizational entities.
 
 There are some approaches that differentiate Corda from other DLTs. Identity (along with associated permissions) and privacy are especially important in order to serve the needs of highly regulated financial institutions. The following summarizes what Corda does differently:
 
 * **Identity** - Knowing who you are transacting with and knowing that their identity was attested to a given level of assurance is important for establishing trust.
-This is especially the case for regulated industries that need to perform some level of KYC (know your customer).
-Often this is because of anti-money laundering (AML) legislation that requires you to know who you are transacting with, but it can also be for other reasons such as avoiding the legal consequences of engaging with an entity on a sanction list.
+This is especially the case for regulated industries that need to perform some level of KYC (Know Your Customer).
+Often this is because of anti-money laundering (AML) legislation that requires you to know who you are transacting with, but it can also be for other reasons, such as avoiding the legal consequences of engaging with an entity on a sanction list.
 Identity validation is handled when onboarding a participant identity to a business network.
 Many other DLT and blockchain systems offer anonymity as a feature, especially for cases where true censor-resistant mutation of some global state is a requirement.
 However, for use cases where trust is absolutely critical, Corda layers its platform with the concept of granting permissions to identities.
@@ -62,7 +62,7 @@ Unlike more public DLT offerings, where the entire ledger state is shared betwee
 This removes the ability for information to leak out through the observation of anonymous state changes in more public systems where, despite the potential anonymity of participants, the entire state is visible.
 * **Compliance** - Corda, being designed with the financial services industry in mind, works seamlessly with existing financial systems, allowing banks and other financial institutions to integrate it into their existing processes.
 * **Scalability** - Corda is designed to be highly scalable, allowing it to handle large volumes of operations without sacrificing performance or security. This is especially suitable for the financial services industry, which processes huge volumes of financial transactions in short periods of time.
-* **Consensus mechanisms** - Corda uses smart contracts to automate complex agreements between parties. These contracts are written in common programming languages, making them easier to create and manage than some other DLT platforms. Smart contracts on Corda are compatible with existing and future regulations and grounded in legal constructs. They record and manage the evolution of agreements (for example, financial agreements) and other shared data between two or more verified and identifiable parties. Supervisory and regulatory bodies can be given access to the network as observers to verify the contract.
+* **Consensus mechanisms** - Corda uses smart contracts to automate complex agreements between parties. These contracts are written in common programming languages, Java and Kotlin, making them easier to create and manage than some other DLT platforms. Smart contracts on Corda are compatible with existing and future regulations and grounded in legal constructs. They record and manage the evolution of agreements (for example, financial agreements) and other shared data between two or more verified and identifiable parties. Supervisory and regulatory bodies can be given access to the network as observers to verify the contract.
 * **Workflow** - Corda flows are an important feature of Corda. They help to simplify and automate often complex business processes on the Corda network. Flows define the steps required to complete a specific business process, such as a trade or a settlement.
 Flows use a messaging system to allow communication and updates between relevant parties. Flows are designed to be modular, meaning that each step in the flow can be executed independently and in parallel with other steps, which makes Corda efficient, with fast processing times.
 
