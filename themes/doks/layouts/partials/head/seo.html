@@ -18,7 +18,11 @@
   <title>
     {{ .Title }} 
     {{ if .Params.version }}
-      {{ .Site.Params.titleSeparator }} {{ .Params.version }}
+      {{ if eq .Params.version .Title }}
+        {{ .Site.Params.titleSeparator }} Home
+      {{ else }}
+        {{ .Site.Params.titleSeparator }} {{ .Params.version }}
+      {{ end }}
     {{ else }}
       {{ .Site.Params.titleSeparator }} {{.Parent.Page.Params.version}}
     {{ end }}
