@@ -1,6 +1,6 @@
 ---
 date: '2023-09-01'
-title: "The Import Interoperability Identity Endpoint"
+title: "Import Interoperability Identity Endpoint"
 project: corda
 version: 'Corda 5.2'
 menu:
@@ -11,7 +11,7 @@ menu:
 section_menu: corda5
 ---
 
-# The Import Interoperability Identity Endpoint
+# Import Interoperability Identity Endpoint
 
 You can use the `importInterOpIdentity` endpoint to import an Interoperability identity which was previously exported
 from elsewhere into the system of another Interoperability identity. This allows for reliable delivery of messages between

@@ -1,6 +1,6 @@
 ---
 date: '2023-09-01'
-title: "The Export Interoperability Identity Endpoint"
+title: "Export Interoperability Identity Endpoint"
 project: corda
 version: 'Corda 5.2'
 menu:
@@ -11,7 +11,7 @@ menu:
 section_menu: corda5
 ---
 
-# The Export Interoperability Identity Endpoint
+# Export Interoperability Identity Endpoint
 
 You can use the `exportInterOpIdentity` endpoint to export an Interoperability identity and group policy information as
 a JSON string so that it can be added to the systems of other Interoperability peers.

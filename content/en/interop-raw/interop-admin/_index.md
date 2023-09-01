@@ -11,7 +11,6 @@ section_menu: corda5
 ---
 
 # Interoperability Administration and Identity Management Guide
-## Interoperability Registration REST Endpoints
 
-The Interoperability API is used to administrate Interoperability identities and groups. It allows for creating,
+The Interoperability REST API endpoints are used to administrate Interoperability identities and groups. They allow for creating,
 exporting and importing Interoperability identities, as well as Interoperability group creation and lookup.
