@@ -18,7 +18,7 @@ Corda is a {{< tooltip >}}DLT{{< /tooltip >}} application platform for the creat
 These applications are created using standard Java development tools and packaged using Corda tooling.
 Once packaged, applications are deployed onto Corda, which executes both applications and ledger update workflows on behalf of organizational entities.
 
-# Why DLT?
+## Why DLT?
 DLT is a digital system for recording, storing, and processing digital data in a decentralized way across a network of computers, perhaps in different locations and involving multiple organizations.
 Some of the many benefits of DLT are:
 * **Decentralization** - There is no centralized authority of control dictating what {{< tooltip >}}state{{< /tooltip >}} changes can and cannot occur. Instead, parties come to a consensus about changes to the global state and this is controlled by consensus rules.
@@ -33,7 +33,7 @@ This removes the need for post hoc reconciliation between organizations.
 Consensus simply means that a threshold has been passed that establishes (within the problem domain) that a proposed modification will be valid and can be applied.
 More importantly, once applied and accepted, no parties within that domain can repudiate it.
 
-# Why Corda?
+## Why Corda?
 
 There are several approaches that differentiate Corda from other DLTs:
 * **Identity** - Knowing who you are transacting with and knowing that their identity was attested to a given level of assurance is important for establishing trust.
@@ -49,10 +49,20 @@ In these private networks, only the parties involved can see the details of that
 * **Workflow** - Corda flows are an important feature of Corda. They help to simplify and automate often complex business processes on the Corda network. Flows define the steps required to complete a specific business process, such as a trade or a settlement.
 Flows use a messaging system to allow communication and updates between relevant parties. Flows are designed to be modular, meaning that each step in the flow can be executed independently and in parallel with other steps, which makes Corda efficient, with fast processing times.
 
- To learn more about DLT and Corda's take on DLT, see the [Key Concepts]({{< relref "./key-concepts/_index.md" >}}) section.
+To learn more about DLT and Corda's take on DLT, see the [Key Concepts]({{< relref "./key-concepts/_index.md" >}}) section.
 
-# The Evolution of Corda
+### The Evolution of Corda
 
 R3 began the creation of Corda to deliver the above capabilities, creating the first privately permissioned DLT/Blockchain platform, with version 1 released in 2017.
 Today, Next-Gen Corda (Corda 5) represents the next step for the platform, evolving the underlying technology to better meet the needs of our customers running Corda in production.
 This evolution focuses on scaling, throughput, and availability, whilst retaining its position as a market-leading DLT solution.
+
+## Learn More
+
+The {{< version >}} documentation currently addresses the following collections of people:
+* **Architects** — As an Architect working with Corda, all sections of the Corda documentation are of interest to you, but particularly the [Key Concepts]({{< relref "./key-concepts/_index.md" >}}).
+* **CorDapp Developers** — To get started developing CorDapps, see the [Developing Applications]({{< relref "./developing-applications/_index.md">}}) section.
+* **Cluster Administrators** — To learn how to deploy and configure Corda, see the [Administering Corda Clusters]({{< relref "./deploying-operating/_index.md">}}) section.
+* **Network Operators** — To begin creating application networks and managing the members, see the [Operating Application Networks]({{< relref "./application-networks/_index.md">}}) section.
+
+For more information about the roles of these personas, see [About the Docs]({{< relref "../../../about-the-docs/_index.md" >}}).

@@ -4,25 +4,65 @@ date: 2023-08-16
 ---
 # About the Docs
 The following topics are explained on this page:
-* [Reporting an Error in the Docs]({{< relref "#reporting-an-error-in-the-docs">}})
+* [Reading the Docs]({{< relref "#reading-the-docs">}})
 * [Documentation End of Life Strategy]({{< relref "#documentation-end-of-life-strategy">}})
 * [Documenting Corda 5]({{< relref "#documenting-corda-5">}})
+* [Reporting an Error in the Docs]({{< relref "#reporting-an-error-in-the-docs">}})
 
-## Reporting an Error in the Docs
-The R3 Technical Writing team continuously strive to improve our documentation and overall content strategy. As we make improvements, we would love to get your feedback on what we are doing well, and what we could be doing better. 
+## Reading the Docs
 
-Click [here](mailto:docs@r3.com) to email the R3 Technical Writing team. To help us deal with your feedback effectively, please include all of the following:
+The Corda documentation is written from the perspectives of a collection of people; each with their own problems to solve. Relevant sections of the documentation should resonate with you, depending on the persona whose goals you share. The documentation currently addresses the following personas:
+* [Architect]({{< relref "#architect">}})
+* [CorDapp Developer]({{< relref "#cordapp-developer">}})
+* [Cluster Administrator]({{< relref "#cluster-administrator">}})
+* [Network Operator]({{< relref "#network-operator">}})
 
-* Your name
-* Your company name
-* Your email address (if different from the one being used to report)
-* The URL of the documentation page (if it is an issue being reported)
+### Architect
 
-Please include as much detail as you can in your feedback, as it is valuable to us and it will be read and shared with the rest of the team. A ticket is then created for any issues received, which will be quickly triaged and, if necessary, assigned to a Technical Writer to effect changes.
+As an Architect considering or planning a project with Corda, you:
+* are curious about the benefits of adopting {{< tooltip >}}DLT{{< /tooltip >}} technology, but also concerned about any risks.
+* want to know why DLT is a better fit for your business problem than a centralized solution.
+* are for looking for answers and guidance to the following questions:
+   * Who has access to my {{< tooltip >}}vault{{< /tooltip >}} data and how is privacy preserved in Corda?
+   * How do I manage the compromising of cryptographic key material?
+   * How do I maintain compliance with GDPR (and other data protection regulations) if personal data is stored in Corda?
+   * How do I scale Corda?
+   * How do I maintain business continuity for Corda?
+   * How do I deploy Corda into my enterprise infrastructure and integrate it with my enterprise applications?
 
-{{< note >}}
-We are working on refining our documentation feedback process. In the near future, you will be able to submit feedback more interactively and directly from the documentation.
-{{</ note >}}
+### CorDapp Developer
+
+A {{< tooltip >}}CorDapp{{< /tooltip >}} Developer uses Corda to:
+* explore DLT and create their own chain of shared facts to experiment with.
+* design an enterprise production-grade distributed application.
+* work as part of a team to build an enterprise production-grade distributed application.
+* understand the software development lifecycle (SDLC) of a distributed application.
+* implement a method in the API to make something simpler.
+* discover best practice design tips for distributed applications.
+
+### Cluster Administrator
+
+A Cluster Administrator is responsible for:
+* making informed decisions to deliver the prerequisites for Corda.
+* installing and operating the Corda software.
+* integrating Corda into Continuous Integration and Delivery CI/CD pipelines.
+* understanding how Corda manages errors to deliver continuous execution.
+* the disaster recovery story for Corda.
+* monitoring the health metrics of Corda.
+
+### Network Operator
+
+The Network Operator is concerned with:
+* how Corda delivers on the _permissioned_ aspect of a private permissioned DLT platform.
+* service levels for participants on the business network.
+* defining permissions for actions on the business network.
+* “know your customer” (KYC) regulations.
+
+The Network Operator:
+* onboards participants of a business network.
+* manages the lifecycle of participants on the network.
+* defines and applies network membership rules for participation in the business network.
+* distributes CorDapps to network participants.
 
 ## Documentation End of Life Strategy
 Use the following table to track the end of life schedule for each version of Corda. Each version of Corda has R3 support available for a fixed period. 
@@ -60,3 +100,19 @@ From Corda 5.0 onwards, there is one documentation set, but the features that re
 
 * **A**: The heading without the 'Enterprise only' icon is the most common and it is used where the content applies to all Corda users.
 * **B**: The ‘Enterprise only' icon is used mostly in headings, indicating that the content under that heading relates to a Corda Enterprise feature. On occasions, the icon may be used inline to identify sentences, paragraphs, or tables that apply to a Corda Enterprise feature.
+
+## Reporting an Error in the Docs
+The R3 Technical Writing team continuously strive to improve our documentation and overall content strategy. As we make improvements, we would love to get your feedback on what we are doing well, and what we could be doing better. 
+
+Click [here](mailto:docs@r3.com) to email the R3 Technical Writing team. To help us deal with your feedback effectively, please include all of the following:
+
+* Your name
+* Your company name
+* Your email address (if different from the one being used to report)
+* The URL of the documentation page (if it is an issue being reported)
+
+Please include as much detail as you can in your feedback, as it is valuable to us and it will be read and shared with the rest of the team. A ticket is then created for any issues received, which will be quickly triaged and, if necessary, assigned to a Technical Writer to effect changes.
+
+{{< note >}}
+We are working on refining our documentation feedback process. In the near future, you will be able to submit feedback more interactively and directly from the documentation.
+{{</ note >}}
