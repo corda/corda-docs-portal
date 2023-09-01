@@ -9,7 +9,11 @@ menu:
     weight: 1000
 ---
 
-The Contract Testing library enables {{< tooltip >}}CorDapp{{< /tooltip >}} Developers to test {{< tooltip >}}UTXO{{< /tooltip >}} contracts locally, at an early stage of the development cycle. With this library, you can check that your CorDapp contracts behave as expected before you write the flows.
+The Contract Testing library enables {{< tooltip >}}CorDapp{{< /tooltip >}} Developers to test smart contracts locally, at an early stage of the development cycle. With this library, you can check that your CorDapp contracts behave as expected before, or after, you write the flows.
+
+{{< note >}}
+This version of the Contract Testing library only supports UTXO contracts.
+{{< /note >}}
 
 The Contract Testing library is currently compatible with the following versions of Corda:
 * 5.0
@@ -31,12 +35,11 @@ If you are using Kotlin, you can also add the Kotlin DSL:
 testImplementation "com.r3.corda.ledger.utxo:contract-testing-kotlin:1.0.0-beta”
 ```
 
-You can now extend the `ContractTest` interface.
+You can now extend the `ContractTest` interface to create a test class for your smart contracts.
 
 ## Testing with the Library
 
-All tests should extend `ContractTest` as a starting point. This provides the `ledgerService` and `signingService` and also some useful
-test data:
+All tests should extend `ContractTest` as a starting point. The `ContractTest` class provides functions to easily write contract tests, the `UTXOLedgerService` and `MockSigningService` classes, and also some useful test data:
 
 <style>
 table th:first-of-type {
@@ -64,6 +67,7 @@ If you expect your test to pass the contract validation, use `assertVerifies`. F
 ```java
 @Test
 public void happyPath() {
+    // Create a UTXO transaction on the ledger passing in valid contract arguments
     UtxoSignedTransaction transaction = getLedgerService()
         .createTransactionBuilder()
         .addInputState(inputState)
@@ -71,9 +75,11 @@ public void happyPath() {
         .addCommand(new MyContract.MyCommand())
         .addSignatories(List.of(bankAKey, bankBKey, notaryKey))
         .toSignedTransaction();
+    // Validate the output transaction is successful
     assertVerifies(transaction);
 }
 ```
+The `buildTransaction` function creates a `UtxoLedgerTransaction` that contract tests can reference. The `assertVerifies` function tests if a contract test passes or fails. If the transaction is verified, the contract tests pass.
 
 ### Negative Path Testing
 
@@ -81,6 +87,7 @@ If you expect the contract validation to reject the transaction, make use of `as
 ```java
 @Test
 public void negativePath() {
+    // Create a UTXO transaction on the ledger passing in invalid contract arguments
     UtxoSignedTransaction transaction = getLedgerService()
         .createTransactionBuilder()
         .addInputState(invalidInputState)
@@ -88,9 +95,13 @@ public void negativePath() {
         .addCommand(new MyContract.MyCommand())
         .addSignatories(List.of(bankAKey, bankBKey, notaryKey))
         .toSignedTransaction();
+    // Validate that the output transaction fails with a specific validation error message 
     assertFailsWith(transaction, "Validation message here");
 }
 ```
+
+The `assertFailsWith` function tests for unhappy-path contract tests. The `assertFailsWith` method tests if the 
+exact string of the error message matches the expected message. To test if the string of the error message contains a substring, use the `assertFailsWithMessageContaining` function using the same arguments.
 
 ## Examples
 
