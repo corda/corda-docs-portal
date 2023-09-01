@@ -59,7 +59,7 @@ This evolution focuses on scaling, throughput, and availability, whilst retainin
 
 ## Learn More
 
-The {{< version >}} documentation currently addresses the following collections of people:
+The {{< version >}} documentation addresses the following collections of people:
 * **Architects** — As an Architect working with Corda, all sections of the Corda documentation are of interest to you, but particularly the [Key Concepts]({{< relref "./key-concepts/_index.md" >}}).
 * **CorDapp Developers** — To get started developing CorDapps, see the [Developing Applications]({{< relref "./developing-applications/_index.md">}}) section.
 * **Cluster Administrators** — To learn how to deploy and configure Corda, see the [Administering Corda Clusters]({{< relref "./deploying-operating/_index.md">}}) section.
