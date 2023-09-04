@@ -32,6 +32,8 @@ Corda Community Edition 4.10.3 is a patch release of Corda Community Edition foc
 
 * Added improvements to node thread names to make logging and debugging clearer.
 
+* Delays when performing a SSL handshake with new nodes no longer impacts existing connections with other nodes.
+
 ## Corda Community Edition 4.10.2 release notes
 
 Corda Community Edition 4.10.2 is a patch release of Corda Community Edition focused on resolving issues.

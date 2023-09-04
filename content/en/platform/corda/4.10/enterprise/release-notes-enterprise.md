@@ -33,6 +33,8 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 * Added improvements to node thread names to make logging and debugging clearer.
 
+* Delays when performing a SSL handshake with new nodes no longer impacts existing connections with other nodes.
+
 ## Corda Enterprise Edition 4.10.2 release notes
 
 Corda Enterprise Edition 4.10.2 is a patch release of Corda Enterprise Edition focused on resolving issues.
