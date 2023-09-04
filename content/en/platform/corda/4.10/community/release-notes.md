@@ -20,6 +20,14 @@ tags:
 
 # Corda Community Edition 4.10 release notes
 
+## Corda Community Edition 4.10.3 release notes
+
+Corda Community Edition 4.10.3 is a patch release of Corda Community Edition focused on resolving issues.
+
+### Fixed issues
+
+* Vault queries have been optimised to avoid the extra SQL query for the total state count where possible.
+
 ## Corda Community Edition 4.10.2 release notes
 
 Corda Community Edition 4.10.2 is a patch release of Corda Community Edition focused on resolving issues.
