@@ -23,7 +23,7 @@ A CorDapp is a Java (or any JVM targeting language) application built using the 
 
 CorDapps are composed of two layers:
 * Orchestration layer
-* Consensus layer
+* {{< tooltip >}}Consensus{{< /tooltip >}} layer
 
 {{<
   figure
