@@ -21,9 +21,16 @@ weight: 10
 
 Corda Enterprise Edition 4.9.8 is a patch release of Corda Enterprise focused on resolving issues.
 
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "../../4.9/enterprise/upgrading-index.md" >}}).
+
+### Fixed Issues
+
 * Vault queries have been optimised to avoid the extra SQL query for the total state count where possible.
 * Node thread names have been made more descriptive to make logging and debugging easier.
 * Delays when SSL handshaking with new nodes no longer impact existing connections with existing nodes.
+* An issue has been resolved where, sometimes, the order of the states returned by a vault query would be incorrect if they belonged to the same transaction. 
 
 ## Corda Enterprise Edition 4.9.7 release notes
 
