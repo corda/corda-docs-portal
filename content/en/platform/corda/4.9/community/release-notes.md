@@ -24,6 +24,7 @@ Corda Community Edition 4.9.8 is a patch release of Corda Community Edition focu
 ### Fixed issues
 
 * Node thread names have been made more specific to make logging more descriptive and debugging easier.
+* Delays when SSL handshaking with new nodes no longer impact existing connections with existing nodes.
 
 ## Corda Community Edition 4.9.7 release notes
 
