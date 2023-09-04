@@ -1,6 +1,6 @@
 ---
 title: Corda Enterprise Edition 4.9 release notes
-date: '2023-05-05'
+date: '2023-09-04'
 
 menu:
   corda-enterprise-4-9:
@@ -16,6 +16,12 @@ weight: 10
 ---
 
 # Corda Enterprise Edition 4.9 release notes
+
+## Corda Enterprise Edition 4.9.8 release notes
+
+Corda Enterprise Edition 4.9.8 is a patch release of Corda Enterprise focused on resolving issues.
+
+* Vault queries have been optimised to avoid the extra SQL query for the total state count where possible.
 
 ## Corda Enterprise Edition 4.9.7 release notes
 
