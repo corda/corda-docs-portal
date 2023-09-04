@@ -112,7 +112,3 @@ To contact the R3 Technical Writing team, send an e-mail to [docs@r3.com](mailto
 * The URL of the documentation page (if it is an issue being reported)
 
 Please include as much detail as you can in your feedback, as it is valuable to us and it will be read and shared with the rest of the team. A ticket is then created for any issues received, which will be quickly triaged and, if necessary, assigned to a Technical Writer to effect changes.
-
-{{< note >}}
-We are working on refining our documentation feedback process. In the near future, you will be able to submit feedback more interactively and directly from the documentation.
-{{</ note >}}
