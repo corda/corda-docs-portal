@@ -104,7 +104,7 @@ From Corda 5.0 onwards, there is one documentation set, but the features that re
 ## Reporting an Error in the Docs
 The R3 Technical Writing team continuously strive to improve our documentation and overall content strategy. As we make improvements, we would love to get your feedback on what we are doing well, and what we could be doing better. 
 
-Click [here](mailto:docs@r3.com) to email the R3 Technical Writing team. To help us deal with your feedback effectively, please include all of the following:
+To contact the R3 Technical Writing team, send an e-mail to [docs@r3.com](mailto:docs@r3.com). To help us deal with your feedback effectively, please include all of the following:
 
 * Your name
 * Your company name
