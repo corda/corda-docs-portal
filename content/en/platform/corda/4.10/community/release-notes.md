@@ -28,6 +28,8 @@ Corda Community Edition 4.10.3 is a patch release of Corda Community Edition foc
 
 * Vault queries have been optimised to avoid the extra SQL query for the total state count where possible.
 
+* Previously, the order of the states in vault query results would sometimes be incorrect if they belonged to the same transaction. This issue has been resolved.
+
 ## Corda Community Edition 4.10.2 release notes
 
 Corda Community Edition 4.10.2 is a patch release of Corda Community Edition focused on resolving issues.
