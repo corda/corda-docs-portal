@@ -30,6 +30,8 @@ Corda Community Edition 4.10.3 is a patch release of Corda Community Edition foc
 
 * Previously, the order of the states in vault query results would sometimes be incorrect if they belonged to the same transaction. This issue has been resolved.
 
+* Added improvements to node thread names to make logging and debugging clearer.
+
 ## Corda Community Edition 4.10.2 release notes
 
 Corda Community Edition 4.10.2 is a patch release of Corda Community Edition focused on resolving issues.
