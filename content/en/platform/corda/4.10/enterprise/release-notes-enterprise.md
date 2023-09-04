@@ -17,6 +17,18 @@ weight: 10
 
 # Corda Enterprise Edition 4.10 release notes
 
+## Corda Enterprise Edition 4.10.3 release notes
+
+Corda Enterprise Edition 4.10.3 is a patch release of Corda Enterprise Edition focused on resolving issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node](upgrading-index.md).
+
+### Fixed issues
+
+* Vault queries have been optimised to avoid the extra SQL query for the total state count where possible.
+
 ## Corda Enterprise Edition 4.10.2 release notes
 
 Corda Enterprise Edition 4.10.2 is a patch release of Corda Enterprise Edition focused on resolving issues.
