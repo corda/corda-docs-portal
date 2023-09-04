@@ -22,6 +22,7 @@ weight: 10
 Corda Enterprise Edition 4.9.8 is a patch release of Corda Enterprise focused on resolving issues.
 
 * Vault queries have been optimised to avoid the extra SQL query for the total state count where possible.
+* Node thread names have been made more descriptive to make logging and debugging easier.
 
 ## Corda Enterprise Edition 4.9.7 release notes
 
