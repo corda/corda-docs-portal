@@ -15,7 +15,7 @@ section_menu: corda5
 Corda, as previously described, is a private, permissioned, {{< tooltip >}}DLT{{< /tooltip >}} platform. 
 An application network is a discrete instance of a permissioned collective associated with one or more applications.
 
-Unlike public DLT platforms, such as Ethereum, where the ability to use the system is open to all, access to a Corda system is gated by the entity/entities (known as the Network Operators) choosing to operate the network. 
+Unlike public DLT platforms, such as Ethereum, where the ability to use the system is open to all, access to a Corda system is gated by the entity/entities (known as the Network Operators) operating the network. 
 This network is associated with a {{< tooltip >}}CorDapp{{< /tooltip >}}, where the members of the network are allowed to utilize the system for some purpose. The specific rules specifying how an identity is allowed to join are left to the operator to determine. 
 However, once permitted to join, each member understands that each other member has had their identity challenged to the same extent. 
 
@@ -24,7 +24,7 @@ The severity and extent of that attestation are, as previously mentioned, left t
 {{< 
   figure
 	 src="application-network.png"
-   width=50%
+   width=40%
 	 figcaption="Application Network"
 >}}
 
@@ -53,10 +53,73 @@ If the recipient is offline, the message waits in an outbound queue until they a
 {{< 
   figure
 	 src="point-to-point-communication.png"
-   width=50%
+   width=25%
 	 figcaption="Peer-to-Peer Communication"
 >}}
 
 Identities not registered as members of the application network cannot communicate with those that are, even if they obtain a copy of the CorDapp code:
 * The identities may not be externally visible outside of the application network.
 * The reverse connection attestation undertaken by the Corda networking layer ensures that only attested identities can communicate. 
+
+
+## Privacy
+
+### Communication
+
+Through its attested identity model, Corda allows for direct [peer-to-peer messaging]({{< relref "../application-networks/_index.md/#peer-to-peer-communication" >}}) between identities. 
+A proposal to mutate the global state can be undertaken without the knowledge of those not a party to that mutation; there is no need to globally broadcast updates and thus avoid leaking sensitive information.
+At any single point in time, an identity can be involved in any number of distinct transactions.
+
+{{< 
+  figure
+	 src="private-communication.png"
+   width="25%"
+	 figcaption="Private Communication"
+>}}
+
+### Global State
+
+In Corda, as in all {{< tooltip >}}DLT{{< /tooltip >}} systems, there exists a global state. 
+However, in Corda, that global state is not globally visible. 
+Each participant's identity only has visibility over those portions of the global data that are relevant to it.
+
+{{< 
+  figure
+	 src="global-state.png"
+   width="50%"
+	 figcaption="Global State"
+>}}
+
+There is no single storage point or distribution of data globally. 
+Each identity locally stores the slices of the global state it needs to, either because:
+* it is a direct participant in a mutation of the global state.
+* it was added as an interested party by a participant.
+
+{{< 
+  figure
+	 src="global-state-facts.png"
+   width="50%"
+	 figcaption="Historic and Current Facts in the Global State"
+>}}
+
+Therefore, multiple copies of data are distributed and replicated where needed.
+
+{{< 
+  figure
+	 src="multiple-copies-data.png"
+   width="40%"
+	 figcaption="Distributed and Replicated Copies of Data"
+>}}
+
+### Trust
+
+Ultimately, the fundamental promise of Corda and all DLTs is that, once committed to the global state and accepted as valid, there can be no disagreement that an event has occurred.
+
+{{< 
+  figure
+	 src="trust.png"
+   width="40%"
+	 figcaption="You See What I See"
+>}}
+
+Reconciliation is not needed as there is a single accepted version of valid that has been attested by all parties and that those with visibility trust.
