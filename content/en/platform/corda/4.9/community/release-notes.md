@@ -26,6 +26,7 @@ Corda Community Edition 4.9.8 is a patch release of Corda Community Edition focu
 * Node thread names have been made more specific to make logging more descriptive and debugging easier.
 * Delays when SSL handshaking with new nodes no longer impact existing connections with existing nodes.
 * An issue has been resolved where, sometimes, the order of the states returned by a vault query would be incorrect if they belonged to the same transaction. 
+* An issue has been resolved where, previously, an incorrect value for `Page.totalStatesAvailable` was returned for queries on `externalIds`, when there where external IDs mapped to multiple keys.
 
 ## Corda Community Edition 4.9.7 release notes
 
