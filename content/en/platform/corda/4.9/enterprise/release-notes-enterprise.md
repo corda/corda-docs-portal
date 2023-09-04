@@ -28,7 +28,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 ### Fixed Issues
 
 * Vault queries have been optimised to avoid the extra SQL query for the total state count where possible.
-* Node thread names have been made more descriptive to make logging and debugging easier.
+* Node thread names have been made more specific to make logging more descriptive and debugging easier.
 * Delays when SSL handshaking with new nodes no longer impact existing connections with existing nodes.
 * An issue has been resolved where, sometimes, the order of the states returned by a vault query would be incorrect if they belonged to the same transaction. 
 * An issue has been resolved where, previously, an incorrect value for `Page.totalStatesAvailable` was returned for queries on `externalIds`, when there where external IDs mapped to multiple keys.
