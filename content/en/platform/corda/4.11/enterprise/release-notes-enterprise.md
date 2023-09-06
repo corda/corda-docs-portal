@@ -140,6 +140,8 @@ This release includes the following fixes:
 
 * Previously, the order of the states in vault query results would sometimes be incorrect if they belonged to the same transaction. This issue has been resolved.
 
+* Delays when performing a SSL handshake with new nodes no longer impacts existing connections with other nodes.
+
 ### Database schema changes
 
 The following database changes have been applied:
