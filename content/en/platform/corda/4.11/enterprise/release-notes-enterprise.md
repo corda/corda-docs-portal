@@ -138,6 +138,8 @@ This release includes the following fixes:
 
 * Added improvements to node thread names to make logging and debugging clearer.
 
+* Previously, the order of the states in vault query results would sometimes be incorrect if they belonged to the same transaction. This issue has been resolved.
+
 ### Database schema changes
 
 The following database changes have been applied:
