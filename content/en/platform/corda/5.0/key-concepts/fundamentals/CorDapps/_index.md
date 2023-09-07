@@ -99,7 +99,7 @@ The mechanism for achieving consensus in Corda is pluggable. For example, Corda 
 
 ### Decentralized Control
 
-In a decentralized system, there is no single point of access to the global state. When untrusting parties reach a consensus, that is done in parallel by disparate parties with no implied ordering. The following diagram highlights the difference between consensus in centralized  and decentralized systems:
+In a decentralized system, there is no single point of access to the global state. When untrusting parties reach a consensus, that is done in parallel by disparate parties with no implied ordering. The following diagram highlights the difference between consensus in centralized and decentralized systems:
 
 {{<
   figure
