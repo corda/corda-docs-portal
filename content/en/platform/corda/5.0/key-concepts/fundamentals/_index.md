@@ -12,7 +12,7 @@ section_menu: corda5
 # Fundamentals
 
 Corda offers a single, global, source of truth that can be shared by multiple untrusting individuals. 
-Corda provides this utilizing a distributed ledger.
+Corda provides this by utilizing a distributed ledger.
 {{< tooltip >}}DLT{{< /tooltip >}} has the following characteristics:
 * A distributed ledger is a database of facts that are replicated, shared, and synchronized across multiple participants on a network.
 * A participant is known as an {{< tooltip >}}identity{{< /tooltip >}} and represent a real-world {{< tooltip >}}entity{{< /tooltip >}} within the context of an {{< tooltip >}}application network{{< /tooltip >}}.
