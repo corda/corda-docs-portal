@@ -19,7 +19,9 @@ Unlike public DLT platforms, such as Ethereum, where the ability to use the syst
 This network is associated with a {{< tooltip >}}CorDapp{{< /tooltip >}}, where the members of the network are allowed to utilize the system for some purpose. The specific rules specifying how an identity is allowed to join are left to the operator to determine. 
 However, once permitted to join, each member understands that each other member has had their identity challenged to the same extent. 
 
-The severity and extent of that attestation are, as previously mentioned, left to the Network Operator, but should reflect the needs of the CorDapp being operated by the network and can range from allowing anyone to join unchallenged to performing a full KYC process on each request.
+The severity and extent of that attestation are, as previously mentioned, left to the Network Operator, but should reflect the needs of the CorDapp being operated by the network and can range from allowing anyone to join unchallenged to performing a full KYC process on each request. 
+
+The following diagram shows the application network architecture:
 
 {{< 
   figure
@@ -46,7 +48,7 @@ This is enforced at the platform level.
 
 ## Peer-to-Peer Communication
 
-Corda is different from other {{< tooltip >}}distributed ledger{{< /tooltip >}} systems in that all communication between nodes is peer-to-peer, and only shared on a need-to-know basis. It is also encrypted using {{< tooltip >}}TLS{{< /tooltip >}}. 
+As shown below, Corda is different from other {{< tooltip >}}distributed ledger{{< /tooltip >}} systems in that all communication between nodes is peer-to-peer, and only shared on a need-to-know basis. It is also encrypted using {{< tooltip >}}TLS{{< /tooltip >}}. 
 There are no global broadcasts to all nodes on a network, but all nodes in a network can send messages directly to each other. 
 If the recipient is offline, the message waits in an outbound queue until they are online again, just like an e-mail.
 
@@ -68,7 +70,7 @@ Identities not registered as members of the application network cannot communica
 
 Through its attested identity model, Corda allows for direct [peer-to-peer messaging]({{< relref "../application-networks/_index.md/#peer-to-peer-communication" >}}) between identities. 
 A proposal to mutate the global state can be undertaken without the knowledge of those not a party to that mutation; there is no need to globally broadcast updates and thus avoid leaking sensitive information.
-At any single point in time, an identity can be involved in any number of distinct transactions.
+At any single point in time, an identity can be involved in any number of distinct transactions:
 
 {{< 
   figure
@@ -81,7 +83,7 @@ At any single point in time, an identity can be involved in any number of distin
 
 In Corda, as in all {{< tooltip >}}DLT{{< /tooltip >}} systems, there exists a global state. 
 However, in Corda, that global state is not globally visible. 
-Each participant's identity only has visibility over those portions of the global data that are relevant to it.
+Each participant's identity only has visibility over those portions of the global data that are relevant to it:
 
 {{< 
   figure
@@ -90,7 +92,7 @@ Each participant's identity only has visibility over those portions of the globa
 	 figcaption="Global State"
 >}}
 
-There is no single storage point or distribution of data globally. 
+As shown in the following diagram, there is no single storage point or distribution of data globally. 
 Each identity locally stores the slices of the global state it needs to, either because:
 * it is a direct participant in a mutation of the global state.
 * it was added as an interested party by a participant.
@@ -102,7 +104,7 @@ Each identity locally stores the slices of the global state it needs to, either 
 	 figcaption="Historic and Current Facts in the Global State"
 >}}
 
-Therefore, multiple copies of data are distributed and replicated where needed.
+Therefore, multiple copies of data are distributed and replicated where needed:
 
 {{< 
   figure
@@ -111,9 +113,7 @@ Therefore, multiple copies of data are distributed and replicated where needed.
 	 figcaption="Distributed and Replicated Copies of Data"
 >}}
 
-### Trust
-
-Ultimately, the fundamental promise of Corda and all DLTs is that, once committed to the global state and accepted as valid, there can be no disagreement that an event has occurred.
+Ultimately, the fundamental promise of Corda and all DLTs is that, once committed to the global state and accepted as valid, there can be no disagreement that an event has occurred:
 
 {{< 
   figure

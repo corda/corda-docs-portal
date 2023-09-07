@@ -99,7 +99,7 @@ The mechanism for achieving consensus in Corda is pluggable. For example, Corda 
 
 ### Decentralized Control
 
-In a decentralized system, there is no single point of access to the global state. When untrusting parties reach a consensus, that is done in parallel by disparate parties with no implied ordering. The following diagram highlights the difference between consensus in centralized  and decentralized systems.
+In a decentralized system, there is no single point of access to the global state. When untrusting parties reach a consensus, that is done in parallel by disparate parties with no implied ordering. The following diagram highlights the difference between consensus in centralized  and decentralized systems:
 
 {{<
   figure
@@ -119,9 +119,10 @@ In a decentralized system, how can an entity trust the global state when it has 
 
 ### Validity and Smart Contracts
 
-The validity of a proposal is evaluated within a decentralized system through a set of rules that each proposal must meet in order to be considered valid. Generally, this collection of rules is referred to as a {{< tooltip >}}smart contract{{< /tooltip >}} and each proposed update will be governed by it.
+The validity of a proposal is evaluated within a decentralized system through a set of rules that each proposal must meet in order to be considered valid. Generally, this collection of rules is referred to as a {{< tooltip >}}smart contract{{< /tooltip >}} and each proposed update is governed by it.
 
-Smart contracts can have different levels of granularity (network-wide or individual data representations) but the same general principles hold true that a proposal is only valid when the smart contract says it is. Rules in Corda can be arbitrary; however, there is a strong requirement that validity controls are deterministic as once evaluated as valid, checks on a change in the future must always return that it is valid. This means smart contracts can only reason about data present within the system of record: anything outside that generally leads to non-deterministic results as their presence cannot be guaranteed.**
+Smart contracts can have different levels of granularity (network-wide or individual data representations) but the same general principles hold true that a proposal is only accepted if the smart contract validates it. Rules in Corda can be arbitrary; however, there is a strong requirement that validity controls are deterministic as once evaluated as valid, checks on a change in the future must always return that it is valid. As a result, smart contracts can only reason about data present within the system of record: anything outside that generally leads to non-deterministic results as their presence cannot be guaranteed. The following diagram shows how valid rules update the system of record:
+
 
 {{<
   figure
@@ -144,7 +145,7 @@ For example, a simple IOU is issued from Alice to Bob, indicating that Alice owe
 
 ## Identity Integration
 
-This documentation references multiple parties several times in explaining the fundamental tenets of Corda and other decentralized platforms. This means that Corda must internalize the concept that CorDapps are only ever operated as an aspect of an entity referred to as an identity.
+On several occasions, this documentation references multiple parties in explaining the fundamental tenets of Corda and other decentralized platforms. As shown in the following diagram, Corda must internalize the concept that CorDapps are only ever operated as an aspect of an entity referred to as an identity:
 
 {{<
   figure
@@ -153,7 +154,7 @@ This documentation references multiple parties several times in explaining the f
 	 figcaption="Identity Integration"
 >}}
 
-An instance of a CorDapp must always have an associated identity in Corda. A flow runs on behalf of an identity and communicates with another identity selected from the pool of possible candidates which responds in kind.
+An instance of a CorDapp must always have an associated identity in Corda. A flow runs on behalf of an identity and communicates with another identity selected from the pool of possible candidates which responds in kind:
 
 {{<
   figure
