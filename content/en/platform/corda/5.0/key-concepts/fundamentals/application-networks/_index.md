@@ -15,7 +15,7 @@ section_menu: corda5
 Corda, as previously described, is a private, permissioned, {{< tooltip >}}DLT{{< /tooltip >}} platform. 
 An application network is a discrete instance of a permissioned collective associated with one or more applications.
 
-Unlike public DLT platforms, such as Ethereum, where the ability to use the system is open to all, access to a Corda system is gated by the entity/entities (known as the Network Operators) operating the network. 
+Unlike public DLT platforms such as Ethereum, where the ability to use the system is open to all, access to a Corda system is gated by the entity/entities (known as the Network Operators) operating the network. 
 This network is associated with a {{< tooltip >}}CorDapp{{< /tooltip >}}, where the members of the network are allowed to utilize the system for some purpose. The specific rules specifying how an identity is allowed to join are left to the operator to determine. 
 However, once permitted to join, each member understands that each other member has had their identity challenged to the same extent. 
 
