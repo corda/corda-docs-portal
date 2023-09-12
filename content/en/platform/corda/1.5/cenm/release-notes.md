@@ -24,6 +24,7 @@ CENM 1.5.9 introduces fixes to known issues in CENM 1.5.
 * The JDK version used by CENM has been upgraded from JDK 8.0.322 to JDK 8.0.382.
 * Fixed an issue where the signing service, specifically using Gemalto Luna HSM, would deadlock when there was more than one outstanding signing task on starting the signing service. 
 * The PostgreSQL database driver shipped with CENM Docker images has been updated from version 42.2.25 to 42.5.2.
+* When a CENM service starts, the startup log message generated now includes the service version.
 
 ## Corda Enterprise Network Manager 1.5.8
 
