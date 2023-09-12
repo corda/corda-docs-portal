@@ -35,6 +35,8 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 * Delays when performing a SSL handshake with new nodes no longer impacts existing connections with other nodes.
 
+* An issue has been resolved where, previously, an incorrect value for `Page.totalStatesAvailable` was returned for queries on `externalIds`, when there where external IDs mapped to multiple keys.
+
 ## Corda Enterprise Edition 4.10.2 release notes
 
 Corda Enterprise Edition 4.10.2 is a patch release of Corda Enterprise Edition focused on resolving issues.

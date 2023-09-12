@@ -34,6 +34,8 @@ Corda Community Edition 4.10.3 is a patch release of Corda Community Edition foc
 
 * Delays when performing a SSL handshake with new nodes no longer impacts existing connections with other nodes.
 
+* An issue has been resolved where, previously, an incorrect value for `Page.totalStatesAvailable` was returned for queries on `externalIds`, when there where external IDs mapped to multiple keys.
+
 ## Corda Community Edition 4.10.2 release notes
 
 Corda Community Edition 4.10.2 is a patch release of Corda Community Edition focused on resolving issues.
