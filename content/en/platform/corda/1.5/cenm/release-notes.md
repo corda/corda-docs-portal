@@ -22,7 +22,7 @@ CENM 1.5.9 introduces fixes to known issues in CENM 1.5.
 ### Fixed Issues
 
 * The JDK version used by CENM was upgraded from JDK 8.0.322 to JDK 8.0.382.
-
+* Fixed an issue where the signing service, specifically using Gemalto Luna HSM, would deadlock when there was more than one outstanding signing task on starting the signing service. 
 
 ## Corda Enterprise Network Manager 1.5.8
 
