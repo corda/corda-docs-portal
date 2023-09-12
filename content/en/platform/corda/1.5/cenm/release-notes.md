@@ -1,5 +1,5 @@
 ---
-date: '2023-01-23'
+date: '2023-09-12'
 menu:
   cenm-1-5:
     identifier: cenm-1-5-release-notes
@@ -13,6 +13,16 @@ title: Release notes
 ---
 
 # Corda Enterprise Network Manager release notes
+
+
+## Corda Enterprise Network Manager 1.5.9
+
+CENM 1.5.9 introduces fixes to known issues in CENM 1.5.
+
+### Fixed Issues
+
+* The JDK version used by CENM was upgraded from JDK 8.0.322 to JDK 8.0.382.
+
 
 ## Corda Enterprise Network Manager 1.5.8
 
