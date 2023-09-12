@@ -23,6 +23,12 @@ Corda Community Edition 4.9.8 is a patch release of Corda Community Edition focu
 
 ### Fixed issues
 
+* A new system property `net.corda.node.services.messaging.nettyLogHandshake` has been added, which enables trace-level log messages detailing SSL handshaking to be logged at higher levels. This allows handshaking issues to be diagnosed without the need to enable all trace-level logging for the entire node.
+
+  If `net.corda.node.services.messaging.nettyLogHandshake` is set to `false` (the default value), log messages are logged at TRACE level. 
+
+  If set to `true`, log messages are logged at either INFO or WARN level, depending on the message being logged.
+
 * Node thread names have been made more specific to make logging more descriptive and debugging easier.
 * Delays when SSL handshaking with new nodes no longer impact existing connections with existing nodes.
 * An issue has been resolved where, sometimes, the order of the states returned by a vault query would be incorrect if they belonged to the same transaction. 
