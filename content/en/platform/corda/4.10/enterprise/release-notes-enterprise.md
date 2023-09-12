@@ -27,6 +27,12 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
+* A new system property `net.corda.node.services.messaging.nettyLogHandshake` has been added, which enables trace-level log messages detailing SSL handshaking to be logged at higher levels. This allows handshaking issues to be diagnosed without the need to enable all trace-level logging for the entire node.
+
+  If `net.corda.node.services.messaging.nettyLogHandshake` is set to `false` (the default value), log messages are logged at TRACE level. 
+
+  If set to `true`, log messages are logged at either INFO or WARN level, depending on the message being logged.
+
 * Vault queries have been optimised to avoid the extra SQL query for the total state count where possible.
 
 * Previously, the order of the states in vault query results would sometimes be incorrect if they belonged to the same transaction. This issue has been resolved.
