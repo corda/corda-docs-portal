@@ -27,20 +27,11 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
-* A new system property `net.corda.node.services.messaging.nettyLogHandshake` has been added, which enables trace-level log messages detailing SSL handshaking to be logged at higher levels. This allows handshaking issues to be diagnosed without the need to enable all trace-level logging for the entire node.
-
-  If `net.corda.node.services.messaging.nettyLogHandshake` is set to `false` (the default value), log messages are logged at TRACE level. 
-
-  If set to `true`, log messages are logged at either INFO or WARN level, depending on the message being logged.
-
+* Some log messages at warning level relating to failed SSL handshakes were accidentally introduced as part of improvements to SSL certificate handling in the previous patch release, and would appear frequently in the logs as part of connectivity tests of traffic load balancers and system monitoring.  These log messages have been silenced to reduce “noise” in the logs.
 * Vault queries have been optimised to avoid the extra SQL query for the total state count where possible.
-
 * Previously, the order of the states in vault query results would sometimes be incorrect if they belonged to the same transaction. This issue has been resolved.
-
 * Added improvements to node thread names to make logging and debugging clearer.
-
 * Delays when performing a SSL handshake with new nodes no longer impacts existing connections with other nodes.
-
 * An issue has been resolved where, previously, an incorrect value for `Page.totalStatesAvailable` was returned for queries on `externalIds`, when there where external IDs mapped to multiple keys.
 
 ## Corda Enterprise Edition 4.10.2 release notes
