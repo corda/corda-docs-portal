@@ -77,6 +77,8 @@ When a state is consumed by a transaction, Corda now adds the ID of the consumin
 
 This release includes the following fixes:
 
+* Vault queries have been optimised to avoid the extra SQL query for the total state count where possible..
+
 * Updated documentation for both `.startNodes()` and `.stopNodes()` of `MockNetwork` to indicate that restarting nodes is not supported.
 
 * A fix for cache eviction has been applied where an issue resulted in an incorrect contract verification status while a database transaction was in progress during contract verification.
