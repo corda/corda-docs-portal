@@ -11,9 +11,9 @@ section_menu: corda5
 ---
 # Deploying
 This page describes how to deploy Corda 5. All the necessary [prerequisites]({{< relref "../prerequisites.md" >}}) must have been satisfied before Corda is deployed.
-In particular, PostgreSQL and Kafka must be running. The mechanism to achieve that is up to you. For example, you can:
+In particular, PostgreSQL and {{< tooltip >}}Kafka{{< /tooltip >}} must be running. The mechanism to achieve that is up to you. For example, you can:
 
-* run PostgreSQL and Kafka on Kubernetes.
+* run PostgreSQL and Kafka on {{< tooltip >}}Kubernetes{{< /tooltip >}}.
 * use a managed service such as Amazon RDS for PostgreSQL, Amazon Managed Streaming for Apache Kafka, or Confluent Cloud.
 
 This section contains the following:
@@ -32,13 +32,13 @@ If your Kubernetes cluster can not pull images from Docker Hub, or if you are de
 
 ### Container Images for Corda
 
-To push the Corda images: 
+To push the Corda images:
 
-1. Download `corda-os-worker-images-5.0.0.tar` from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
+1. Download `corda-os-worker-images-{{<version-num>}}.0.tar` from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
 
-2. Inflate and load the `corda-os-worker-images-5.0.0.tar` file into the local Docker engine with the following command:
+2. Inflate and load the `corda-os-worker-images-{{<version-num>}}.0.tar` file into the local Docker engine with the following command:
    ```shell
-   docker load -i corda-os-worker-images-5.0.0.tar
+   docker load -i corda-os-worker-images-{{<version-num>}}.0.tar
    ```
 
 3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target container registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
@@ -54,7 +54,7 @@ To push the Corda images:
     "corda-os-member-worker" "corda-os-p2p-gateway-worker"
     "corda-os-p2p-link-manager-worker" "corda-os-db-worker"
     "corda-os-crypto-worker" "corda-os-plugins" )
-   tag=5.0.0.0
+   tag={{<version-num>}}.0.0
    target_registry=$1
 
    for image in "${images[@]}"; do
@@ -71,13 +71,13 @@ To push the Corda images:
 
 ### Container Images for Corda Enterprise {{< enterprise-icon >}}
 
-To push the Corda Enterprise images: 
+To push the Corda Enterprise images:
 
-1. Download `corda-ent-worker-images-5.0.0.tar` from the [R3 Customer Hub](https://r3.force.com/).
+1. Download `corda-ent-worker-images-{{<version-num>}}.0.tar` from the [R3 Customer Hub](https://r3.force.com/).
 
-2. Inflate and load the `corda-ent-worker-images-5.0.0.tar` file into the local Docker engine with the following command:
+2. Inflate and load the `corda-ent-worker-images-{{<version-num>}}.0.tar` file into the local Docker engine with the following command:
    ```shell
-   docker load -i corda-ent-worker-images-5.0.0.tar
+   docker load -i corda-ent-worker-images-{{<version-num>}}.0.tar
    ```
 
 3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target container registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
@@ -93,7 +93,7 @@ To push the Corda Enterprise images:
     "corda-ent-member-worker" "corda-ent-p2p-gateway-worker"
     "corda-ent-p2p-link-manager-worker" "corda-ent-db-worker"
     "corda-ent-crypto-worker" "corda-ent-plugins" )
-   tag=5.0.0.0
+   tag={{<version-num>}}.0.0
    target_registry=$1
 
    for image in "${images[@]}"; do
@@ -110,7 +110,7 @@ To push the Corda Enterprise images:
 
 ## Download the Corda Helm Chart
 
-The following sections describe how to download the Corda Helm chart:
+The following sections describe how to download the Corda {{< tooltip >}}Helm{{< /tooltip >}} chart:
 * [Corda Helm chart]({{< relref "#corda-helm-chart" >}})
 * [Corda Enterprise Helm chart]({{< relref "#corda-enterprise-helm-chart" >}})
 
@@ -119,14 +119,14 @@ The following sections describe how to download the Corda Helm chart:
 If you have access to Docker Hub, you can download the Corda Helm chart using the following command:
 
 ```shell
-helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.0
+helm fetch oci://registry-1.docker.io/corda/corda --version {{<version-num>}}.0
 ```
 
-If you do not have access to Docker Hub, you can download the `corda-5.0.0.tgz` file from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
+If you do not have access to Docker Hub, you can download the `corda-{{<version-num>}}.0.tgz` file from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
 
 ### Corda Enterprise Helm chart {{< enterprise-icon >}}
 
-You can download the `corda-enterprise-5.0.0.tgz` file from the the [R3 Customer Hub](https://r3.force.com/).
+You can download the `corda-enterprise-{{<version-num>}}.0.tgz` file from the the [R3 Customer Hub](https://r3.force.com/).
 
 ## Configure the Deployment
 
@@ -204,7 +204,7 @@ resources:
     cpu: 2000m
 ```
 {{< note >}}
-It is particularly important to specify resource requests when using a Kubernetes cluster with auto-scaling, to ensure that it scales appropriately when the Corda cluster is deployed.
+It is particularly important to specify resource requests when using a Kubernetes cluster with autoscaling, to ensure that it scales appropriately when the Corda cluster is deployed.
 {{< /note >}}
 
 You can also override the default resource requests and limits separately for each type of Corda worker.
@@ -228,16 +228,16 @@ As with the number of replicas, you may need to adjust these values based on tes
 
 #### Recommended Infrastructure
 
-Regarding AWS topology, we recommend the following initial configuration:
+For an AWS topology, we recommend the following initial configuration:
 
 * Kubernetes: For a cluster with a single replica of each worker, a Kubernetes cluster with two `t3.2xlarge` nodes is
   a reasonable starting point. For a cluster with three replicas of each worker, extend that to four nodes.
 
 * RDS PostgreSQL: `db.r5.large` instance size is sufficient for both a Corda cluster with a single replica of each worker
-  and three replicas of each worker, subject to the persistence requirements of any CorDapp running in the cluster.
+  and three replicas of each worker, subject to the persistence requirements of any {{< tooltip >}}CorDapp{{< /tooltip >}} running in the cluster.
 
 * MSK: For a cluster with a single replica of each worker and a topic replica count of three, a Kafka cluster of three
-  `kafka.t3.small` instances may suffice. In a HA topology with three replicas of each worker and a topic replica count
+  `kafka.t3.small` instances may suffice. In a high-availability topology with three replicas of each worker and a topic replica count
   of three, we recommend five brokers using at least `kafka.m5.large` instances.
 
 ### REST API
@@ -302,7 +302,7 @@ The following is required to install a valid TLS certificate:
 If you configure the REST worker to use a trusted certificate, `-k` should be removed from the example curl commands given throughout this documentation.
 {{< /note >}}
 
-Custom certificate information can be provided in PEM format as a Kubernetes secret. 
+Custom certificate information can be provided in PEM format as a Kubernetes secret.
 You can either create a Kubernetes secret manually to hold the certificate information or allow Helm to generate a new secret.
 You can specify the secret name manually as follows:
 ```yaml
@@ -357,7 +357,7 @@ kafka:
     enabled: true
 ```
 
-If the broker certificate is self-signed or cannot be trusted for some other reason, create a Kubernetes secret containing the client trust store. The trust store can be in PEM or JKS format. If JKS format is used, you can supply a password for the trust store. The following example is for a trust store in PEM format stored against the `ca.crt` key in the Kubernetes secret:
+If the broker certificate is self-signed or cannot be trusted for some other reason, create a Kubernetes secret containing the client {{< tooltip >}}trust store{{< /tooltip >}}. The trust store can be in PEM or {{< tooltip >}}JKS{{< /tooltip >}} format. If JKS format is used, you can supply a password for the trust store. The following example is for a trust store in PEM format stored against the `ca.crt` key in the Kubernetes secret:
 ```yaml
 kafka
   tls:
@@ -449,7 +449,7 @@ config:
           secretKeyRef:
             name: <SALT_SECRET_NAME>
             key: <SALT_SECRET_KEY>
-      passphrase: 
+      passphrase:
         valueFrom:
           secretKeyRef:
             name: <PASSPHRASE_SECRET_NAME>
@@ -471,11 +471,11 @@ config:
 * `<vault-URL>` is the full URL including port at which the Vault instance is reachable, not including any path.
 * `<vault-token>` must allow sufficient permissions to read from Vault at the Corda configured paths and write to the `<path-to-corda-created-secrets>`, where Corda writes secrets it creates.
 
-The passwords for the {{< tooltip >}}RBAC{{< /tooltip >}} and CRYPTO schemas and VNODES database must be available in Vault before Corda is deployed. These must be available in the Vault `dbsecrets` path, under the keys `rbac`, `crypto`, and `vnodes` respectively. 
+The passwords for the `RBAC` and `CRYPTO` schemas and `VNODES` database must be available in Vault before Corda is deployed. These must be available in the Vault path specified by `createdSecretPath`, under the keys `rbac`, `crypto`, and `vnodes` respectively.
 {{< note >}}
 These keys are not tied to the schema names. If the schema names change, the key names remain `rbac`, `crypto`, and `vnodes`.
 {{< /note >}}
-Additionally, a passphrase and salt for the Corda wrapping keys must be added to the Vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
+Additionally, a passphrase and salt for the Corda [wrapping keys]({{< relref "../../../key-concepts/cluster-admin/tech-stack/_index.md#key-management" >}}) must be added to the vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
 
 ### Bootstrapping
 
@@ -483,7 +483,7 @@ By default, the Helm chart automatically configures Kafka, PostgreSQL, and a def
 If desired, each of these steps can be disabled and the necessary [configuration performed manually]({{< relref "manual-bootstrapping.md" >}}).
 
 {{< note >}}
-Bootstrap secrets are cleaned up automatically post-install with the exception of the `-rest-api-admin` secret. This secret should be manually deleted by the Administrator after retrieving the generated credentials. 
+Bootstrap secrets are cleaned up automatically post-install with the exception of the `-rest-api-admin` secret. This secret should be manually deleted by the Administrator after retrieving the generated credentials.
 {{< /note >}}
 
 #### Kafka
@@ -514,6 +514,11 @@ bootstrap:
   db:
     enabled: true
 ```
+
+{{< note >}}
+If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database. For more information, see the [Database]({{< relref "./manual-bootstrapping.md#database" >}}) section in the *Manual Bootstrapping* section.
+{{< /note >}}
+
 By default, the database bootstrapping uses the psql CLI from the Docker image `postgres:14.4` on Docker Hub.
 If the Kubernetes cluster does not have access to Docker Hub, you must make this image available in an internal registry.
 You can then specify the location of the image via overrides, as follows:
@@ -556,21 +561,21 @@ when the deployment completes contain instructions for how to retrieve this. Thi
             key: "password"
   ```
 
-* By default, there is a single database user used for both the bootstrap process and, subsequently at runtime, by the crypto and DB workers.
+By default, the bootstrap process and, subsequently at runtime, the crypto and database workers, use a single database user.
 R3 recommends configuring separate bootstrap and runtime users, by specifying a bootstrap user as follows:
 
-   ```yaml
-   bootstrap:
-     db:
-       cluster:
-         username:
-           value: <POSTGRESQL_BOOTSTRAP_USER>
-         password:
-           valueFrom:
-             secretKeyRef:
-               name: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_NAME>
-               key: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_KEY>
-   ```
+ ```yaml
+bootstrap:
+  db:
+    cluster:
+      username:
+        value: <POSTGRESQL_BOOTSTRAP_USER>
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_NAME>
+            key: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_KEY>
+```
 
 #### RBAC
 
@@ -631,9 +636,11 @@ For example, when running with Red Hat OpenShift Container Platform, you must us
 3. In the configuration YAML for the Corda deployment, specify the service account to be used:
 
    ```yaml
-   serviceAccount: "corda-privileged"
+   serviceAccount: 
+      name: "corda-privileged"
    bootstrap:
-     serviceAccount: "corda-privileged"
+     serviceAccount: 
+        name: "corda-privileged"
    ```
 
 ### Custom Annotations for Worker Pods
@@ -645,7 +652,7 @@ annotations:
   annotation-key-1: "custom-value"
 ```
 
-To define `annotation-key-2` for only the crypto worker:
+To define `annotation-key-2` for only the {{< tooltip >}}crypto worker{{< /tooltip >}}:
 
 ```yaml
 workers:
@@ -680,14 +687,18 @@ resources:
     memory: 512Mi
     cpu: 2000m
 
-serviceAccount: "corda-privileged"
+serviceAccount:
+  name: "corda-privileged"
+bootstrap:
+  serviceAccount:
+    name: "corda-privileged"
 
 db:
   cluster:
     host: "postgres.example.com"
     port: 5432
     database: "cordacluster"
-    user:
+    username:
       value: "user"
     password:
       valueFrom:
@@ -837,12 +848,12 @@ helm install -n corda corda <HELM-CHART-TGZ-FILE> -f values.yaml
 If you are using the Helm chart from Docker Hub, you can install directly from there rather than using `helm fetch` first. For example:
 
 ```shell
-helm install -n corda corda oci://corda-os-docker.software.r3.com/helm-charts/release-5.0.0.0/corda --version 5.0.0 -f values.yaml
+helm install -n corda corda oci://corda-os-docker.software.r3.com/helm-charts/release-{{<version-num>}}.0.0/corda --version {{<version-num>}}.0 -f values.yaml
 ```
 
 {{< enterprise-icon noMargin="true" >}}Alternatively, use the following command for Corda Enterprise:
 ```shell
-helm install -n corda corda oci://corda-os-docker.software.r3.com/helm-charts/release-5.0.0.0/corda-enterprise --version 5.0.0 -f values.yaml
+helm install -n corda corda oci://corda-os-docker.software.r3.com/helm-charts/release-{{<version-num>}}.0.0/corda-enterprise --version {{<version-num>}}.0 -f values.yaml
 ```
 
 Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how

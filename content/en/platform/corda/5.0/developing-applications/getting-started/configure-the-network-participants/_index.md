@@ -15,7 +15,7 @@ This configuration can be changed by modifying the `config/static-network-config
 
 {{< figure src="static-network-config-file.png" figcaption="CSDE static-network-config.json file in IntelliJ" >}}
 
-As CSDE is primarily for prototyping CorDapps, it uses a static version of a Corda network and so you cannot dynamically add or remove participants. To apply network changes, you must run: `stopCorda`, `startCorda`, and `5-vNodeSetup`.
+As CSDE is primarily for prototyping {{< tooltip >}}CorDapps{{< /tooltip >}}, it uses a static version of a Corda network and so you cannot dynamically add or remove participants. To apply network changes, you must run: `stopCorda`, `startCorda`, and `5-vNodeSetup`.
 {{< note >}}
 Applying an updated `static-network-config.json` file changes the `ShortHashes` of all nodes.
 {{< /note >}}

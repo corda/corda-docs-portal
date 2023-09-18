@@ -12,11 +12,20 @@ title: "initial-config"
 # initial-config
 This section lists the Corda CLI `initial-config` arguments. You can use these commands to manually perform various setup actions, as described in the [Manual Bootstrapping]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md" >}}) section.
 
-## create-user-config 
+## create-user-config
 
-The `create-user-config` command creates the SQL script to add the {{< tooltip >}}RBAC{{< /tooltip >}} configuration for an initial admin user. 
+The `create-user-config` command creates the SQL script to add the {{< tooltip >}}RBAC{{< /tooltip >}} configuration for an initial admin user.
 
-| <div style="width:160px">Argument</div> | Description                                   |
+<style>
+table th:first-of-type {
+    width: 30%;
+}
+table th:nth-of-type(2) {
+    width: 70%;
+}
+</style>
+
+|Argument| Description                                   |
 | --------------------------------------- | --------------------------------------------- |
 | -l, \-\-location                        | The path to write the generated SQL files to. |
 | -p, \-\-password                        | The password of the initial admin user.       |
@@ -39,11 +48,20 @@ corda-cli.cmd initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <
 
 The `create-db-config` command creates the SQL statements to insert the connection manager configuration for the database.
 
-| <div style="width:160px">Argument</div> | Description                                                                                                                                      |
+<style>
+table th:first-of-type {
+    width: 30%;
+}
+table th:nth-of-type(2) {
+    width: 70%;
+}
+</style>
+
+|Argument| Description                                                                                                                                      |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | -a, \-\-is-admin                        | Specifies if this is an admin (DDL) connection. The default value is false.                                                                      |
 | -d, \-\-description                     | Detailed information about the database connection.                                                                                              |
-| -e, \-\-passphrase                      | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the database worker. |
+| -e, \-\-passphrase                      | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the {{< tooltip >}}database worker{{< /tooltip >}}. |
 | -j, \-\-jbdc-url                        | The JDBC URL for the connection. This value is required.                                                                                         |
 | \-\-jdbc-pool-max-size                  | The maximum size of the JDBC connection pool. The default value is 10.                                                                           |
 | -l, \-\-location                        | The path to write the generated SQL files to.                                                                                                    |
@@ -73,7 +91,16 @@ corda-cli.cmd initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWO
 
 The `create-crypto-config` command creates the SQL statements to insert the initial crypto configuration for the database. This operation must be performed after the cluster database is initialized but before the cluster is started.
 
-| <div style="width:160px">Argument</div> | Description                                                                                                                                      |
+<style>
+table th:first-of-type {
+    width: 30%;
+}
+table th:nth-of-type(2) {
+    width: 70%;
+}
+</style>
+
+|Argument | Description                                                                                                                                      |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | -l, \-\-location                        | The path to write the generated SQL files to.                                                                                                    |
 | -p, \-\-passphrase                      | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the database worker. |

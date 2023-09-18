@@ -135,7 +135,7 @@ After the output state finalizes, it is represented as the following in the data
   },
   "com.r3.corda.demo.contract.TestState" : {
     "testField": ""
-  } 
+  }
 }
 ```
 
@@ -216,7 +216,7 @@ This function is called during start-up and it defines how a query will operate 
  To add some extra logic to the query:
 
 * Only keep the results that have “Alice” in their participant list.
-* Transform the result set to only keep the transaction IDs.
+* Transform the result set to only keep the {{< tooltip >}}transaction{{< /tooltip >}} IDs.
 * Collect the result set into one single integer.
 
 These optional logics will always be applied in the following order:
@@ -416,7 +416,7 @@ The collector always must be the last one in the chain as all previous filtering
 
 ### Executing a Vault-Named Query
 
-To execute a query use `UtxoLedgerService`. This can be injected to a flow via `@CordaInject`.
+To execute a query use `UtxoLedgerService`. This can be injected to a {{< tooltip >}}flow{{< /tooltip >}} via `@CordaInject`.
 To instantiate a query call the following:
 
 {{< tabs name="tabs-8" >}}
@@ -532,7 +532,7 @@ val resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // 
                 .setParameter("testField", "dummy") // Set the parameter to a dummy value
                 .setCreatedTimestampLimit(Instant.now()) // Set the timestamp limit to the current time
                 .execute()
-                
+
 var results = resultSet.results
 
 while (resultSet.hasNext()) {
@@ -549,7 +549,7 @@ ResultSet<Integer> resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Int
                 .setParameter("testField", "dummy") // Set the parameter to a dummy value
                 .setCreatedTimestampLimit(Instant.now()) // Set the timestamp limit to the current time
                 .execute();
-                
+
 List<Integer> results = resultSet.getResults();
 
 while (resultSet.hasNext()) {
@@ -558,3 +558,182 @@ while (resultSet.hasNext()) {
 ```
 {{% /tab %}}
 {{< /tabs >}}
+
+# Vault-Named Query Operators
+
+The following is the list of the standard operators for the vault-named query syntax:
+
+* `IN`
+* `LIKE`
+* `IS NOT NULL`
+* `IS NULL`
+* `AS`
+* `OR`
+* `AND`
+* `!=`
+* `>`
+* `<`
+* `>=`
+* `<=`
+* `->`
+* `->>`
+* `?`
+* `::`
+
+Where the behaviour is not standard, the operators are explained in detail in the following sections.
+
+**Name:** `->`
+
+**Right Operand Type:** `Int`
+
+**Description:**  Gets JSON array element.
+
+**Example:**
+
+`custom_representation`
+`->`
+`com.r3.corda.demo.ArrayObjState`
+`->`
+`0`
+
+Example JSON:
+
+```java
+
+{
+  "com.r3.corda.demo.ArrayObjState": [
+    {"A": 1},
+    {"B": 2}
+  ]
+}
+```
+
+This example returns:
+
+```java
+{
+  "A": 1
+}
+```
+
+**Name:** `->`
+
+**Right Operand Type:** </b> `Text`
+
+**Description:** Get JSON object field.
+
+**Example:**
+
+`custom_representation`
+`-> 'com.r3.corda.demo.TestState'`
+
+Selects the top-level JSON field called `com.r3.corda.demo.TestState` from the JSON object in the `custom_representation` database column.
+
+Example JSON:
+
+```java
+{
+  "com.r3.corda.demo.TestState": {
+    "testField": "ABC"
+  }
+}
+```
+
+This example returns:
+
+```java
+{
+  "testField": "ABC"
+}
+
+```
+
+**Name:** `->>`
+
+**Right Operand Type:** `Int`
+
+**Description:** Get JSON array element as text.
+
+**Example:**
+
+`custom_representation` 
+`-> 'com.r3.corda.demo.ArrayState'`
+`->> 2`
+
+Selects the third element (indexing from 0)  of the array type top-level JSON field called `com.r3.corda.demo.ArrayState` from the JSON object in the `custom_representation` database column.
+
+Example JSON:
+
+```java
+
+{
+  "com.r3.corda.demo.ArrayState": [
+    5, 6, 7
+  ]
+}
+
+```
+
+This example returns: `7`.
+
+**Name:** `->>`
+
+**Right Operand Type:** `Text`
+
+**Description:** Get JSON object field as text.
+
+**Example:**
+
+`custom_representation` 
+`-> 'com.r3.corda.demo.TestState'`
+`->> 'testField'`
+
+Selects the `testField` JSON field from the top-level JSON object called `com.r3.corda.demo.TestState` in the `custom_representation` database column.
+
+Example JSON:
+
+```java
+{
+  "com.r3.corda.demo.TestState": {
+    "testField": "ABC"
+  }
+}
+```
+
+This example returns: `ABC`.
+
+**Name:** `?`
+
+**Right Operand Type:** `Text`
+
+**Description:** Checks if JSON object field exists.
+
+**Example:**
+
+`custom_representation ?`
+`'com.r3.corda.demo.TestState'`
+
+Checks if the object in the `custom_representation` database column has a top-level field called `com.r3.corda.demo.TestState`.
+
+Example JSON:
+
+```java
+{
+  "com.r3.corda.demo.TestState": {
+    "testField": "ABC"
+  }
+}
+
+```
+
+This example returns: `true`.
+
+**Name:** `::`
+
+**Right Operand Type:** A type, for example, `Int`
+
+**Description:** Casts the element/object field to the specified type.
+
+**Example:**
+
+`(visible_states.field ->> property)::int = 1234`

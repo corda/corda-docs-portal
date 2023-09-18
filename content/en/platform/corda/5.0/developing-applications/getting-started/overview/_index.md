@@ -11,14 +11,14 @@ section_menu: corda5
 ---
 # CSDE Overview
 
-This section provides an overview of the content of CSDE. Other sections show you how to use it in the process of writing a CorDapp.
+This section provides an overview of the content of CSDE. Other sections show you how to use it in the process of writing a {{< tooltip >}}CorDapp{{< /tooltip >}}.
 
 ## Project Structure
 
 On the left, you can see the folder structure created, ready for CorDapps development.
  {{< figure src="project-structure.png" figcaption="CSDE folder structure" alt="CSDE folders in IntelliJ" >}}
 
-For Kotlin, write your flow code in `workflows/src/main/kotlin/<your package path>` and your contract and {{< tooltip >}}states{{< /tooltip >}} code in `/contracts/src/main/kotlin/<your package path>`.
+For Kotlin, write your {{< tooltip >}}flow{{< /tooltip >}} code in `workflows/src/main/kotlin/<your package path>` and your contract and {{< tooltip >}}states{{< /tooltip >}} code in `/contracts/src/main/kotlin/<your package path>`.
 
 For Java, use `workflows/src/main/java/<your package path>` and your contract and states code in `/contracts/src/main/java/<your package path>`.
 
