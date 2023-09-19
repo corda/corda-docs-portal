@@ -1,5 +1,5 @@
 {{- /* Shortcode to retrieve content from a specified Hugo markdown file in the relevant version folder in 
-  corda-docs-portal\themes\doks\layouts\snippets folder */}}
+  corda-docs-portal\themes\doks\assets\snippets folder */}}
 {{- /* If the snippet includes an image, save the image file to the corda-docs-portal\themes\doks\assets\images\version folder */}}
 
 {{- $snippetfile := "" }}
@@ -11,7 +11,7 @@
   {{- errorf "The %q shortcode requires a single parameter; the name of a file in the snippets directory. See %s" .Name .Position}}
 {{- end }}
 
-{{- /* Figure out what folder in corda-docs-portal\themes\doks\layouts\snippets to look in based on version of the page calling the shortcode */}}
+{{- /* Figure out what folder in corda-docs-portal\themes\doks\assets\snippets to look in based on version of the page calling the shortcode */}}
 {{ $versionfolder := replace (lower (.Page.Params.version)) " " "-" }}
 
 {{- /* Get resource */}}
@@ -20,7 +20,7 @@
 {{ if $r }}
   {{/* Render resource content. */}}
   {{ $r.Content | .Page.RenderString }}
-  {{- /* Break build if file is not found in corda-docs-portal\themes\doks\layouts\snippets\version */}}    
+  {{- /* Break build if file is not found in corda-docs-portal\themes\doks\assets\snippets\version */}}    
 {{ else }}
   {{ errorf "The %q shortcode was unable to find %q. See %s" .Name $path .Position }}
 {{ end }}

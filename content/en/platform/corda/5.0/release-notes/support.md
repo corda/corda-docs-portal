@@ -34,35 +34,19 @@ This section lists the supported versions of the following:
 
 ### Databases
 
-| Database                  | Version |
-| ------------------------- | ------- |
-| PostgreSQL                | 14.4    |
-| Amazon RDS for PostgreSQL | 14.4    |
-| Amazon Aurora PostgreSQL  | 14.4    |
-| Microsoft Azure for PostgreSQL  | 14.4    |
+{{< snippet "prereqs-databases.md" >}}
 
 ### Container Orchestration
 
-| Software                                                                          | Version |
-| --------------------------------------------------------------------------------- | ------- |
-| Kubernetes                                                                        | 1.25    |
-| Amazon Elastic Kubernetes Service (EKS)                                           | 1.25    |
-| Azure Kubernetes Service (AKS)                                                    | 1.25    |
-| RedHat OpenShift Container Platform (OCP) {{< enterprise-icon noMargin="True" >}} | 4.12.12 |
+{{< snippet "prereqs-container.md" >}}
 
 ### Messaging
 
-| Software                                        | Version |
-| ----------------------------------------------- | ------- |
-| Kafka                                           | 3.2.0   |
-| Amazon Managed Streaming for Apache Kafka (MSK) | 3.2.0   |
-| Confluent Cloud                                 | 3.2.0   |
+{{< snippet "prereqs-messaging.md" >}}
 
 ### Security Vault {{< enterprise-icon >}}
 
-| Software        | Version |
-| --------------- | ------- |
-| HashiCorp Vault | 1.13.1  |
+{{< snippet "prereqs-vault.md" >}}
 
 
 ## End of Life Strategy
