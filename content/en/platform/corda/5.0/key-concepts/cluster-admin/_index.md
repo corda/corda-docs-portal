@@ -97,12 +97,14 @@ It is not currently possible to revoke or rotate keys.
 {{< /note >}}
 
 ## Kafka
+
 Corda uses Apache Kafka internally as a message bus and also to emit events from {{< tooltip >}}flow{{< /tooltip >}} code. For more information see:
 
 * [Configuring Kafka]({{< relref "../../deploying-operating/deployment/deploying/_index.md#kafka" >}})
 * [External Messaging Administration]({{< relref "../../deploying-operating/external-messaging/_index.md" >}}) {{< enterprise-icon >}}
 
 ## Load Balancers
+
 A standard HTTP load balancer can be used to balance the load between all REST API workers.
 For information about configuring your load balancer, see the [Deploying]({{< relref "../../deploying-operating/deployment/deploying/_index.md#expose-the-rest-api" >}}) section.
 
