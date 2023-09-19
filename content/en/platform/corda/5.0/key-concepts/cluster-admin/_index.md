@@ -21,6 +21,7 @@ Corda 5 is a distributed application made of multiple stateless workers, as desc
 * [Kafka](#kafka)
 * [Load Balancers](#load-balancers)
 * [Java/JVM](#javajvm)
+* [Observability](#observability)
 
 ## Persistence
 
