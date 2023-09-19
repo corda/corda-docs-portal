@@ -27,6 +27,16 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 ## New features and enhancements
 
+### Distribution Record cleanup
+
+A new maintenance job `DistributionRecordCleanupTask` has been added. This removes ledger recovery distribution records that are older than the `recoveryMaximumBackupInterval` network parameter, and which are no longer needed.
+
+If the network parameter `recoveryMaximumBackupInterval` is not defined, then the node parameter `enterpriseConfiguration.ledgerRecoveryConfiguration.recoveryMaximumBackupInterval`, if defined, is used instead.
+
+If neither parameter is defined , then the distribution record maintenance job is disabled.
+
+For more information, see the topic {{< relref "node/operating/maintenance-mode.md" >}}.
+
 ### Two Phase Finality
 
 Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and
