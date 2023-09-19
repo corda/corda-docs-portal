@@ -26,7 +26,7 @@ The following diagram shows a centralized application. This is a single applicat
 	 figcaption="Centralized Application"
 >}}
 
-Similarly, centralized applications often use a services architecture that means different parts of the applications interact with each other. This could be inside an entity’s network or different parts may be operated by different parties.
+Similarly, centralized applications often use a services architecture, meaning different parts of the applications interact with each other. This could be inside an entity’s network, or different parts may be operated by different parties.
 
 {{<
   figure
