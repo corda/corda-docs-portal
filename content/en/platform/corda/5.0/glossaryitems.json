@@ -25,7 +25,7 @@
     },
     "CPI": {
         "definition": "Corda Package Installer. A signed ZIP/JAR combination of a CPB and a Group Policy File that defines not only the application code that a virtual node will run, but also the details of the MGM with which to register, and the details of network PKI requirements.",
-        "more": "A CPI must be installed into a Corda Cluster before creating and registering a virtual node, as it defines the application software that will be run and the requirements for membership on that network. For more information, see <a href=\"../developing-applications/packaging.html\">Packaging</a>."
+        "more": "A CPI must be installed into a Corda cluster before creating and registering a virtual node, as it defines the application software that will be run and the requirements for membership on that network. For more information, see <a href=\"../developing-applications/packaging.html\">Packaging</a>."
     },
     "Autoscaling": {
         "definition": "A technique used to automatically adjust the amount of computing resources allocated to an application or service based on its workload.",
@@ -68,7 +68,7 @@
         "more": "For more information see <a href=\"../developing-applications/getting-started.html\">Getting Started Using the CSDE</a>."
     },
     "Database worker": {
-        "definition": "A worker that connects to, manages, and operates upon the database(s) used by the Corda Cluster. This includes the cluster-level database schemas needed to store configuration data for the cluster, but also the separate databases/schemas used by each virtual node. ",
+        "definition": "A worker that connects to, manages, and operates upon the database(s) used by the Corda cluster. This includes the cluster-level database schemas needed to store configuration data for the cluster, but also the separate databases/schemas used by each virtual node. ",
         "more": "When a virtual node reads or writes ledger data, the work request is sent across Kafka to one of the Database workers for processing and the results are returned to the Flow Engine over Kafka."
     },
     "DLT": {
@@ -92,8 +92,8 @@
         "more": "Similarly, when a CorDapp sends messages to a peer, the flow worker is responsible for the higher level retry, deduplication, and re-ordering of messages above and beyond the simple packet retries of the Link Manager messaging layer. In the case of unrecoverable errors, or loss of synchronization between virtual nodes, the flow worker signals the errors via the REST worker APIs and abort any remote operations that have been started in peers. In combination with the platform ledger code, this ensures that ledger operations operate atomically across peers."
     },
     "Gateway worker": {
-        "definition": "A worker designed to communicate with external Corda Clusters via HTTPS. They have restricted access only to specific topics on the Kafka bus and view only the minimum information needed for their role. ",
-        "more": "The gateway workers are the only component of the cluster with access to the wider network. The workers transfer Link Manager session messages taken from Kafka and use HTTPS POST to send them to the peer's gateway worker. After local validation is received, messages are placed onto Kafka for the Link Manager to process. The gateway workers play the important role of establishing and validating the TLS links established to peer Corda Clusters and accessing external resources such as certificate revocation servers, or border proxies. Gateway workers have no direct access to any keys and can only request that the crypto workers sign the TLS handshake data via a specific Kafka topic. Crucially, the gateway worker has no ability to access the keys used in the Ledger, or by the Link Manager."
+        "definition": "A worker designed to communicate with external Corda clusters via HTTPS. They have restricted access only to specific topics on the Kafka bus and view only the minimum information needed for their role. ",
+        "more": "The gateway workers are the only component of the cluster with access to the wider network. The workers transfer Link Manager session messages taken from Kafka and use HTTPS POST to send them to the peer's gateway worker. After local validation is received, messages are placed onto Kafka for the Link Manager to process. The gateway workers play the important role of establishing and validating the TLS links established to peer Corda clusters and accessing external resources such as certificate revocation servers, or border proxies. Gateway workers have no direct access to any keys and can only request that the crypto workers sign the TLS handshake data via a specific Kafka topic. Crucially, the gateway worker has no ability to access the keys used in the Ledger, or by the Link Manager."
     },
     "Helm": {
         "definition": "A package manager for Kubernetes, which is an open-source container orchestration platform. ",
@@ -145,7 +145,7 @@
     },
     "Membership worker": {
         "definition": "A worker that manages the peer-to-peer routing information available to virtual nodes. The membership workers communicate periodically with the MGM to ensure they have up-to-date network information on peers. This MGM communication is secured via the Link Manager protocols.",
-        "more": "If the Corda Cluster is hosting a Membership Group Manager(MGM), then the Membership worker is also responsible for hosting the administrative and broadcast functions of the MGM."
+        "more": "If the Corda cluster is hosting a Membership Group Manager(MGM), then the Membership worker is also responsible for hosting the administrative and broadcast functions of the MGM."
     },
     "MGM": {
         "definition": "Membership Group Manager. May also be referred to as the Network Manager. It is a virtual node and Corda identity that acts as a central registrar for group membership. ",
