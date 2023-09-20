@@ -8,6 +8,8 @@ section_menu: corda51
 menu:
   versions:
     weight: -655
+  corda5:
+    weight: -100    
 ---
 # Next-Gen {{< version >}}
 
