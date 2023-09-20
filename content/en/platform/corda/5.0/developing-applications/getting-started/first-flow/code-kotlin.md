@@ -10,9 +10,21 @@ menu:
 section_menu: corda5
 ---
 # Kotlin Flow Code Walkthrough
-The Kotlin code for the {{< tooltip >}}flows{{< /tooltip >}} and supporting classes can be found in the CSDE repo at `workflows/src/main/kotlin/com/r3/developers/csdetemplate/flowexample/workflows/MyFirstFlow.kt`.
+
+This section describes the Kotlin code for the {{< tooltip >}}flows{{< /tooltip >}} and supporting classes in `workflows/src/main/kotlin/com/r3/developers/csdetemplate/flowexample/workflows/MyFirstFlow.kt` in the [CSDE repo](https://github.com/corda/CSDE-cordapp-template-kotlin). It contains the following:
+
+* [Helper Classes](#helper-classes)
+* [Initiating and Responding Flows](#initiating-and-responding-flows)
+* [Logging](#logging)
+* [call() Method](#call-method)
+* [Injecting Services](#injecting-services)
+* [Obtaining the REST requestBody](#obtaining-the-rest-requestbody)
+* [Creating the Message](#creating-the-message)
+* [Setting up the FlowSession](#setting-up-the-flowsession)
+* [Other Considerations for FlowSessions](#other-considerations-for-flowsessions)
 
 The full listing with explanatory comments is as follows:
+
 ```kotlin
 package com.r3.developers.csdetemplate.flowexample.workflows
 
@@ -63,8 +75,6 @@ class MyFirstFlow: ClientStartableFlow {
   // this CorDapp is operating in.
   @CordaInject
   lateinit var memberLookup: MemberLookup
-
-
 
   // When a flow is invoked it's call() method is called.
   // call() methods must be marked as @Suspendable, this allows Corda to pause mid-execution to wait
@@ -170,8 +180,11 @@ RequestBody for triggering the flow via REST:
 }
  */
  ```
+
 ## Helper Classes
+
 There are two helper classes:
+
 * `MyFirstFlowStartArgs` — provides a wrapper around the single arguments that need to be passed into the flow — the other member of the {{< tooltip >}}application network{{< /tooltip >}} who the message should be sent to:
    ```kotlin
    class MyFirstFlowStartArgs(val otherMember: MemberX500Name)
@@ -181,7 +194,9 @@ There are two helper classes:
    @CordaSerializable
    class Message(val sender: MemberX500Name, val message: String)
    ```
+
 ## Initiating and Responding Flows
+
 To trigger a flow from REST, the flow must  inherit from `ClientStartableFlow`. Most flows will come in pairs; one initiating flow and a corresponding responder flow. The responder flow must inherit from `ResponderFlow`. The two flows are linked by adding the `@InitiatingFlow` and `@InitiatedBy` annotations which both specify the same protocol in this case "my-first-flow":
 ```kotlin
 @InitiatingFlow(protocol = "my-first-flow")
@@ -191,7 +206,9 @@ class MyFirstFlow: ClientStartableFlow { ... }
 @InitiatedBy(protocol = "my-first-flow")
 class MyFirstFlowResponder: ResponderFlow { ... }
 ```
+
 ## Logging
+
 It is useful to add logging statements to both the initiating and responder flows.
 To do this, add a logger to each class.
 When running tests locally, the console displays log entries.
@@ -208,7 +225,9 @@ We recommend adding an easily searchable tag to each log message. For example:
 ```kotlin
         log.info("MFF: MyFirstFlow.call() called")
 ```
+
 ## call() Method
+
 Each flow has a `call()` method. This is the method which Corda invokes when the flow is invoked.
 
 When a flow is started via REST, the `requestBody` from the HTTP request is passed into the `call` method as the  `requestBody` parameter, giving the rest of the call method access to the parameters passed in via HTTP.
@@ -227,8 +246,11 @@ In the responder flow:
     @Suspendable
     override fun call(session: FlowSession) { ... }
 ```
+
 ## Injecting Services
+
 Corda 5 requires a CorDapp Developer to explicitly specify which Corda services are required by the flow. In this simple example we use three services:
+
 * `JsonMarshallingService` — a service that CorDapps and other services may use to marshal arbitrary content in and out of JSON format using standard approved mappers.
 * `FlowMessaging`  — a service that CorDapps can use to create communication sessions between two virtual nodes. Once set up, you can send and receive using the session object.
 * `MemberLookup`  — a service that CorDapps can use to retrieve information about virtual nodes on the network.
@@ -258,7 +280,9 @@ The services are then available in the call function. For example to initiate a 
 ```kotlin
     val session = flowMessaging.initiateFlow(otherMember)
  ```
+
 ## Obtaining the REST requestBody
+
 The first thing that the `MyFirstFlow.call()` method does is convert the `requestBody` parameters into a Kotlin class.
 It does this using the `getRequestBodyAs()` method. This takes the `jsonMarshallingService` and the class that the `requestBody` parameters should be parsed into. The `flowArgs` variable has the type `MyFirstFlowStartArgs`, the helper class we declared in [the Helper classes section](#helper-classes).
 ```kotlin
@@ -277,7 +301,9 @@ We can now obtain the X500 name of the other virtual node that we want to send t
 ```kotlin
         val otherMember = flowArgs.otherMember
 ```
+
 ## Creating the Message
+
 To create the message, you must know the identity of the initiator. Remember that this flow could run on any node, so the identity cannot be hard coded. To find out the identity of the virtual node running the initiator flow, use the injected  `memberLookup` service:
 ```kotlin
         val otherMember = flowArgs.otherMember
@@ -285,8 +311,11 @@ To create the message, you must know the identity of the initiator. Remember tha
         val message = Message(otherMember, "Hello from $ourIdentity.")
         log.info("MFF: message.message: ${message.message}")
 ```
+
 ## Setting up the FlowSession
+
 We can now start sending messages to the responder:
+
 1. Set up a `FlowSession` between the initiator and responder node:
    ```kotlin
         val session = flowMessaging.initiateFlow(otherMember)
@@ -335,6 +364,7 @@ We can now start sending messages to the responder:
    The response from the initiating flow is always a string, which can be returned when the flow status is queried by REST.
 
 ## Other Considerations for FlowSessions
+
 It is important that the sends and receives in the initiator and responder flows match. If the initiator sends a Foo and the responder expects a Bar, the flow hangs and likely results in a timeout error.
 
 The `sendAndReceive` method on `FlowSession` sends a payload, check-points the flow, and then waits for a response to be received:
