@@ -21,6 +21,7 @@ Corda 5 is a distributed application made of multiple stateless workers, as desc
 * [Kafka](#kafka)
 * [Load Balancers](#load-balancers)
 * [Java/JVM](#javajvm)
+* [Observability](#observability)
 
 ## Persistence
 
@@ -111,3 +112,15 @@ For information about configuring your load balancer, see the [Deploying]({{< re
 ## Java/JVM
 
 All Corda components are hosted in a JAVA 17 compatible JVM. Azul Zulu 17 is currently the only supported and tested JVM, and is distributed with the Corda container images.
+
+## Observability
+
+### Logging
+
+All components in a Corda cluster produce logs at level INFO by default. These are sent to stdout/stderr and can easily be integrated with a log collector or aggregator of choice. All application-level logging is handled by Log4J which means the log level and target can be changed through customizing the Log4J config.
+
+For more information about retrieving logs from {{< tooltip >}}Kubernetes{{< /tooltip >}}, see [Metrics]({{< relref "../../deploying-operating/observability/logs.md" >}}).
+
+### Metrics
+
+Corda workers expose metrics to provide a better insight into the system as a whole. These metrics are exposed as [Prometheus](https://prometheus.io/)-compatible HTTP endpoints that can be consumed by a collector and visualization tool of choice. For more information, see [Metrics]({{< relref "../../deploying-operating/observability/metrics/_index.md" >}}).
