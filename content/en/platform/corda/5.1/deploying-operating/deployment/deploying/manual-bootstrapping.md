@@ -186,13 +186,14 @@ bootstrap:
 ```
 
 Create and populate the database schema, as follows:
-1. [Create the database tables.](#create-the-database-tables)
-2. [Populate the RBAC database connection configuration.](#populate-the-rbac-database-connection-configuration)
-3. [Populate the crypto database connection configuration.](#populate-the-crypto-database-connection-configuration)
-4. [Populate the virtual nodes database connection configuration.](#populate-the-virtual-nodes-database-connection-configuration)
-5. [Populate the REST admin user.](#populate-the-rest-admin-user)
-6. [Create the RBAC and crypto users.](#create-the-rbac-and-crypto-users)
-7. [Populate the crypto configuration.](#populate-the-crypto-configuration)
+
+1. [Create the database tables](#create-the-database-tables).
+2. [Populate the RBAC database connection configuration](#populate-the-rbac-database-connection-configuration).
+3. [Populate the crypto database connection configuration](#populate-the-crypto-database-connection-configuration).
+4. [Populate the virtual nodes database connection configuration](#populate-the-virtual-nodes-database-connection-configuration).
+5. [Populate the REST admin user](#populate-the-rest-admin-user).
+6. [Create the RBAC and crypto users](#create-the-rbac-and-crypto-users).
+7. [Populate the crypto configuration](#populate-the-crypto-configuration).
 
 {{< note >}}
 * If you are applying SQL to a schema using the `psql` command, you can specify which schema to apply it to using the `--dbname` parameter: `--dbname "dbname=cordacluster options=--search_path=<SCHEMA-NAME>"`.
@@ -562,7 +563,7 @@ Depending on your installation, follow the steps in one of the following section
 
    The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
 
-2. Review the DDL files generated and then execute against the database, ensuring to apply to the `CONFIG` schema.
+2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
 #### Initial Crypto Configuration for Corda Enterprise with HashiCorp Vault {{< enterprise-icon >}}
 
