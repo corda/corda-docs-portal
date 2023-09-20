@@ -312,7 +312,7 @@ When a flow is started via REST, the `requestBody` from the HTTP request is pass
 
 When a responder flow is invoked as a result of an initiator flow on another node, the flow session with the initiating node is passed in as the parameter `session`.
 
-The `call()` method in both flows must be marked as `@Suspendable`. This is an indicator to Corda that this method can be paused and persisted to the database whilst the flow waits for an asynchronous response. It will be rehydrated and continue to execute once the appropriate response is received. It is this mechanism that allows a CorDapp Developer to write what appears to be synchronous, blocking code that executes asynchronously and does not block the Corda Cluster.
+The `call()` method in both flows must be marked as `@Suspendable`. This is an indicator to Corda that this method can be paused and persisted to the database whilst the flow waits for an asynchronous response. It will be rehydrated and continue to execute once the appropriate response is received. It is this mechanism that allows a CorDapp Developer to write what appears to be synchronous, blocking code that executes asynchronously and does not block the Corda cluster.
 
 In the initiating flow:
 ```java
