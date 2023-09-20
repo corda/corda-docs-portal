@@ -4,7 +4,7 @@ footer {
 
   .footer-links {
     display: flex;
-    width: 100%;
+    width: 75%;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: space-between;
@@ -18,8 +18,8 @@ footer {
   }
 
   .footer-cnt {
-    padding-top: 3.5rem;
-    padding-bottom: 2.25rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
 
     .row {
       display: flex;

@@ -25,12 +25,7 @@ Corda uses Kubernetes to manage the scheduling and availability of Corda workers
 Corda is tested on version 1.23 of Kubernetes, running on Amazon Elastic Kubernetes Service (EKS),
 Azure Kubernetes Service (AKS), and Red Hat OpenShift Container Platform.
 
-| Software                                                                               | Version |
-| :------------------------------------------------------------------------------------- | :------ |
-| Kubernetes                                                                             | 1.23    |
-| Amazon Elastic Kubernetes Service (EKS). Currently only supported on EC2, not Fargate. | 1.23    |
-| Microsoft Azure Kubernetes Service (AKS)                                               | 1.23    |
-| Red Hat OpenShift Container Platform                                                   | 4.10    |
+{{< snippet "prereqs-container.md" >}}
 
 The Corda deployment process requires a Kubernetes context with credentials that provide access to the namespace
 in which Corda is to be installed. It needs permission to create deployments, secrets, and,
@@ -41,11 +36,7 @@ if automatic bootstrapping is used, jobs. Corda does not create any persistent v
 Corda uses Kafka for communication between the Corda workers. Corda is tested with Kafka 3.2.0,
 including Amazon Managed Streaming for Apache Kafka (MSK). Corda is also tested with Confluent Cloud.
 
-| Software                                        | Version |
-| :---------------------------------------------- | :------ |
-| Kafka                                           | 3.2.0   |
-| Amazon Managed Streaming for Apache Kafka (MSK) | 3.2.0   |
-| Confluent Cloud                                 |         |
+{{< snippet "prereqs-messaging.md" >}}
 
 The Corda deployment process requires the Kafka bootstrap server addresses and their ports.
 If the Kafka brokers are using {{< tooltip >}}TLS{{< /tooltip >}} and the certificates used will not be trusted by the JVM’s default {{< tooltip >}}trust store{{< /tooltip >}},
@@ -59,14 +50,15 @@ Corda workers although, for development and test, a single user can be used.
 Corda uses PostgreSQL for the persistence of system and application data, including configuration and state information.
 Corda is tested with PostgreSQL 14.4 including Amazon RDS for PostgreSQL, Amazon Aurora PostgreSQL, and Microsoft Azure PostgreSQL.
 
-| Software                   | Version |
-| :------------------------- | :------ |
-| PostgreSQL                 | 14.4    |
-| Amazon RDS for PostgreSQL  | 14.4    |
-| Amazon Aurora PostgreSQL   | 14.4    |
-| Microsoft Azure PostgreSQL | 14.4    |
+{{< snippet "prereqs-databases.md" >}}
 
 The Corda deployment process requires the PostgreSQL hostname and port. If automatic bootstrapping is used,
 a user name and password are required for a user that has the ability to create the schemas for configuration, crypto,
 and {{< tooltip >}}RBAC{{< /tooltip >}}, and can create crypto and RBAC users and grant them access to their respective schemas.
 If [bootstrapping manually]({{< relref "./deploying/manual-bootstrapping.md" >}}), an additional {{< tooltip >}}virtual node{{< /tooltip >}} user will still need the ability to create schemas dynamically at runtime.
+
+### Security Vault {{< enterprise-icon >}}
+
+Corda Enterprise supports integration with HashiCorp Vault as an external secret management system. This is the recommended deployment configuration. For more information, see [Configuration Secrets]({{< relref "../config/secrets.md" >}}).
+
+{{< snippet "prereqs-vault.md" >}}
