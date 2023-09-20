@@ -34,9 +34,11 @@
       {{ end -}}
       {{ end -}}
 
-      <a class="navbar-brand order-1" href="{{ .Site.BaseURL | absURL }}" aria-label="{{ .Site.Title }} home page">
+      <a class="navbar-brand order-1" href="https://r3.com/" target="_blank" aria-label="R3 home page">
         <img src="{{ "images/r3.svg" | absURL }}" alt="R3 Docs" class="d-lg-none ms-2 me-3" height="32">
         <img src="{{ "images/r3.svg" | absURL }}" alt="R3 Docs" class="d-none d-lg-inline-block me-4" height="40">
+      </a>
+      <a class="navbar-brand order-1" href="{{ .Site.BaseURL | absURL }}" aria-label="{{ .Site.Title }} home page">
         <span class="badge bg-secondary docs">Home</span>
       </a>
 

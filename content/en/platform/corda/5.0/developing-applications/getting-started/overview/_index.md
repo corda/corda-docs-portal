@@ -11,7 +11,11 @@ section_menu: corda5
 ---
 # CSDE Overview
 
-This section provides an overview of the content of CSDE. Other sections show you how to use it in the process of writing a {{< tooltip >}}CorDapp{{< /tooltip >}}.
+This section provides an overview of the content of CSDE. It contains the following:
+
+* [Project Structure](#project-structure)
+* [Gradle Helpers for the Combined Worker](#gradle-helpers-for-the-combined-worker)
+* [Debug Configuration](#debug-configuration)
 
 ## Project Structure
 
