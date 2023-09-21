@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Register the MGM
 
-This section describes how to register the MGM on a network. It contains the following:
+This section describes how to register the {{< tooltip >}}MGM{{< /tooltip >}} on a network. It contains the following:
 1. [Build Registration Context]({{< relref "#build-registration-context" >}})
 2. [Register the MGM]({{< relref "#register-the-mgm" >}})
 3. [Confirm Registration]({{< relref "#confirm-registration" >}})
@@ -33,7 +33,7 @@ initiation key must not be the same key. This is the only supported mode at the 
 
 ### Build Registration Context Using Bash
 
-To build the registration context using Bash, run the following command, replacing `<TLS-CA-CERT>` with the PEM format certificate of the {{< tooltip >}}CA{{< /tooltip >}}. This is the trustroot used to validate member certificates.
+To build the registration context using Bash, run the following command, replacing `<TLS-CA-CERT>` with the PEM format certificate of the {{< tooltip >}}CA{{< /tooltip >}}. This is the trustroot used to validate {{< tooltip >}}member{{< /tooltip >}} certificates.
 The certificate must all be on one line in the curl command. Replace new lines with `\n`.
 ```shell
 export TLS_CA_CERT=$(cat /tmp/ca/ca/root-certificate.pem | awk '{printf "%s\\n", $0}')

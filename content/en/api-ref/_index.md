@@ -2,13 +2,6 @@
 date: '2021-04-24T00:00:00Z'
 description: "API reference documentation for all versions of Corda"
 section_menu: api-ref
-menu:
-  projects:
-    weight: 60000
-  api-ref:
-    name: API Reference
-    weight: 450
-    identifier: homepage-api-ref
 project: api-ref
 version: 'api-ref'
 title: API Reference

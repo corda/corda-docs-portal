@@ -13,7 +13,7 @@ section_menu: corda5
 
 The `ledger-common` package contains interfaces and types that can be used for different ledger implementations, such as:
 * Exception types
-* A basic transaction interface that gets implemented by different ledger models
+* A basic {{< tooltip >}}transaction{{< /tooltip >}} interface that gets implemented by different ledger models
 * A transaction signature format
 * A container for transaction metadata
 

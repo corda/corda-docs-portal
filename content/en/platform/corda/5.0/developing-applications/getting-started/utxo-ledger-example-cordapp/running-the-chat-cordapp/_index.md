@@ -11,9 +11,16 @@ section_menu: corda5
 ---
 # Running the Chat CorDapp
 
+This section describes how to run the {{< tooltip >}}UTXO{{< /tooltip >}} chat {{< tooltip >}}CorDapp{{< /tooltip >}}. It contains the following:
+
+* [Configuring the Application Network (Virtual Nodes)](#configuring-the-application-network-virtual-nodes)
+* [Deploying the CorDapp](#deploying-the-cordapp)
+* [Using Swagger](#using-swagger)
+* [Typical Set of Flows](#typical-set-of-flows)
+
 ## Configuring the Application Network (Virtual Nodes)
 
-The CSDE is configured to create a five party {{< tooltip >}}application network{{< /tooltip >}} required to run the Chat CorDapp, including virtual nodes for Alice, Bob, Charlie, Dave, and a {{< tooltip >}}notary{{< /tooltip >}}. To change the network configuration, see [Configuring the Network Participants]({{< relref "../../configure-the-network-participants/_index.md" >}}).
+The CSDE is configured to create a five party {{< tooltip >}}application network{{< /tooltip >}} required to run the Chat {{< tooltip >}}CorDapp{{< /tooltip >}}, including virtual nodes for Alice, Bob, Charlie, Dave, and a {{< tooltip >}}notary{{< /tooltip >}}. To change the network configuration, see [Configuring the Network Participants]({{< relref "../../configure-the-network-participants/_index.md" >}}).
 
 {{< note >}}
 You must keep the notary node to enable the CorDapp to finalise transactions.
@@ -22,7 +29,7 @@ You must keep the notary node to enable the CorDapp to finalise transactions.
 ## Deploying the CorDapp
 
 To deploy and run the CorDapp, follow the same steps as outlined in the [Running Your First CorDapp]({{< relref "../../running-your-first-cordapp/_index.md" >}}) section of this [Getting Started guide]({{< relref "../../_index.md" >}}).
-However, when you come to trigger the flows, you must trigger the appropriate `ChatFlow` rather than `MyFirstFlow`.
+However, when you come to trigger the {{< tooltip >}}flows{{< /tooltip >}}, you must trigger the appropriate `ChatFlow` rather than `MyFirstFlow`.
 
 {{< note >}}
 Remember to start your docker engine before you attempt to start Corda and make sure Corda is responding to requests before deploying the CorDapp.

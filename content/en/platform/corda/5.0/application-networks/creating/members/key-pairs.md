@@ -45,7 +45,7 @@ export SESSION_KEY_ID=<session-key-ID>
 
 ## Generate a Ledger Key Pair
 
-To assign a soft hardware security module (HSM) and generate a ledger key pair:
+To assign a soft hardware security module (HSM) and generate a {{< tooltip >}}ledger key{{< /tooltip >}} pair:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
@@ -74,7 +74,7 @@ This step is only necessary when setting up a new cluster.
 It is only required once per cluster, allowing you to re-use the same TLS key and certificate for the whole cluster.
 {{< /note >}}
 
-You must perform the same steps as those for setting up the MGM to enable peer-to-peer communication for the locally hosted identities.
+You must perform the same steps as those for setting up the {{< tooltip >}}MGM{{< /tooltip >}} to enable peer-to-peer communication for the locally hosted identities.
 Use the Certificate Authority ({{< tooltip >}}CA{{< /tooltip >}}) whose trustroot certificate was configured in the registration context of the MGM.
 
 If using mutual {{< tooltip >}}TLS{{< /tooltip >}}, you must add the certificate subject to the allowed list of the MGM. For more information, see [Update the MGM Allowed Certificate Subject List]({{< relref "../optional/mutual-tls-connections.md#update-the-mgm-allowed-certificate-subject-list" >}}).
@@ -174,7 +174,7 @@ If using mutual {{< tooltip >}}TLS{{< /tooltip >}}, you must add the certificate
 
 ### Disable Revocation Checks
 
-If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable {{< tooltip >}}revocation checks{{< /tooltip >}}. 
+If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable {{< tooltip >}}revocation checks{{< /tooltip >}}.
 * [Disable Revocation Checks Using Bash]({{< relref "#disable-revocation-checks-using-bash">}})
 * [Disable Revocation Checks Using PowerShell]({{< relref "#disable-revocation-checks-using-powershell">}})
 
@@ -192,7 +192,7 @@ If using Bash, to disable revocation checks, do the following:
    ```bash
    export CONFIG_VERSION=<configuration-version>
    ```
-3. Send the following request to disable revocation checks for the specified gateway worker:
+3. Send the following request to disable revocation checks for the specified {{< tooltip >}}gateway worker{{< /tooltip >}}:
    ```bash
    curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.p2p.gateway", "version":"'$CONFIG_VERSION'", "config":"{ \"sslConfig\": { \"revocationCheck\": { \"mode\": \"OFF\" }  }  }", "schemaVersion": {"major": 1, "minor": 0}}' $REST_API_URL"/config"
    ```

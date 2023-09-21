@@ -15,7 +15,7 @@ section_menu: corda5
 
 ## Advanced Contract Design
 
-All the contract design issues described in [Building Basic Contract Design]({{< relref "building-basic-contract-design.md" >}}) are implemented by the Corda 5 Advanced UTXO Extensions library, and are included in all the specific implementations; for example, chainable, fungible and identifiable contracts.
+All the contract design issues described in [Building Basic Contract Design]({{< relref "building-basic-contract-design.md" >}}) are implemented by the Corda 5 Advanced {{< tooltip >}}UTXO{{< /tooltip >}} Extensions library, and are included in all the specific implementations; for example, chainable, fungible and identifiable contracts.
 
 ## Advanced Ledger Types
 
@@ -25,7 +25,7 @@ Module: base
 
 Package: com.r3.corda.ledger.utxo.base
 
-The Base API provides the underlying component model for designing extensible contracts with delegated contract verification constraint logic, as well as other components which allow CorDapp developers to better express intent throughout their applications.
+The Base API provides the underlying component model for designing extensible contracts with delegated contract verification constraint logic, as well as other components which allow {{< tooltip >}}CorDapp{{< /tooltip >}} developers to better express intent throughout their applications.
 
 ### Chainable API
 
@@ -607,7 +607,7 @@ An issuable state can be designed by implementing the `IssuableState` interface:
 ```java
 @BelongsToContract(ExampleIssuableContract.class)
 public class ExampleIssuableState implements IssuableState {
-    
+
     @NotNull
     private final PublicKey issuer;
 

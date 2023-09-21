@@ -68,7 +68,7 @@ There are also operations that allow starting/killing the flows or even stopping
 * Starting flows requires `InvokeRpc.registeredFlows` and `InvokeRpc.wellKnownPartyFromX500Name`, as well as a permission for the flow being started.
 * Killing flows (`flow kill`) requires `InvokeRpc.killFlow`. This currently allows the user to kill *any* flow, so please be careful when granting it!
 
-Description of RPC operations can be found in the [RPC operations](api-rpc.md) documentation.
+Description of RPC operations can be found in the [RPC operations]({{< relref "../../api-rpc.md" >}}) documentation.
 
 {{< note >}}
 `InvokeRpc.startTrackedFlowDynamic` permission gives permission to run all existing flows.
@@ -262,7 +262,7 @@ You can use the shell to:
 The shell interacts with the node by issuing RPCs (remote procedure calls). You make an RPC from the shell by typing `run`, followed by the name of the desired RPC method.
 
 You can find a list of the available RPC methods
-[here](https://docs.corda.net/api/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/index.html).
+[here](../../../../../../../en/api-ref/corda/4.10/community/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/index.html).
 
 Some RPCs return a stream of events that will be shown on screen until you press Ctrl-C.
 
