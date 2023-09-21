@@ -3,7 +3,7 @@ date: '2023-02-28'
 description: "Documentation for the 4.10 Community Edition release of Corda"
 menu:
   versions:
-    weight: -650
+    weight: -651
   corda-community-4-10:
     identifier: about-corda-landing-4-10-community
     weight: -5
