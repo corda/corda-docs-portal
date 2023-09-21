@@ -1,7 +1,7 @@
 ---
 date: '2023-02-10'
 version: 'Corda 5.0'
-title: "net.corda.v5.crypto.extensions"
+title: "crypto.extensions"
 menu:
   corda5:
     identifier: corda5-api-crypto-extensions
