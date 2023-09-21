@@ -4,7 +4,7 @@ version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-cordacli-preinstall
-    weight: 6000
+    weight: 4025
     parent: corda51-cli-reference
 section_menu: corda51
 title: "preinstall"
