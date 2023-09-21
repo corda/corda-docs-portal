@@ -7,7 +7,7 @@ menu:
   corda5:
     identifier: corda5-develop-get-started
     parent: corda5-develop
-    weight: 5000
+    weight: 2000
 section_menu: corda5
 ---
 # Getting Started Using the CSDE

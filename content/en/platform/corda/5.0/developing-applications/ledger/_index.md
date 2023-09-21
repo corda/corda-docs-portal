@@ -6,7 +6,7 @@ menu:
   corda5:
     identifier: corda5-fundamentals-ledger
     parent: corda5-develop
-    weight: 4750
+    weight: 4500
 section_menu: corda5
 ---
 
