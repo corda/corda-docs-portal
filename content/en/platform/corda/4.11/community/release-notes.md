@@ -79,6 +79,8 @@ This release includes the following fixes:
 
 * Postgres 9.6 and 10.10 have been removed from our support matrix as they are no longer supported by Postgres themselves.
 
+* Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
+
 ### Database schema changes
 
 The following database changes have been applied:
