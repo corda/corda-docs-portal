@@ -1,7 +1,7 @@
 ---
 date: '2022-09-21T14:27:00+01:00'
 version: 'Corda 5.0'
-title: "net.corda.v5.serialization"
+title: "serialization"
 menu:
   corda5:
     identifier: corda5-api-serialisation
