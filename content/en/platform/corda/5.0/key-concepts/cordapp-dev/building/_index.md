@@ -142,6 +142,7 @@ Corda manages suspending and resuming. However, it may be necessary for a CorDap
 ## Workflow Versus Contract
 
 CorDapps typically consist of [flows]({{< relref "../../fundamentals/CorDapps/_index.md#orchestration-layer--flows" >}}), states, and contracts, all written in a JVM compatible language, and deployed as JARs. Corda, however, makes a distinction between workflow and contract CPKs (JARs). This is identified in the Gradle CorDapp configuration.
+
 Workflow CPK:
 ```
 cordapp {

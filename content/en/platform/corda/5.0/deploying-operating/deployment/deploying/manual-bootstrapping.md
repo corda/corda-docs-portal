@@ -188,6 +188,7 @@ bootstrap:
 ```
 
 Create and populate the database schema, as follows:
+
 1. [Create the database tables](#create-the-database-tables).
 2. [Populate the RBAC database connection configuration](#populate-the-rbac-database-connection-configuration).
 3. [Populate the crypto database connection configuration](#populate-the-crypto-database-connection-configuration).
@@ -472,7 +473,7 @@ Depending on your installation, follow the steps in one of the following section
    {{< /tabs >}}
 
    {{< note >}}
-   There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
+   There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration, not DML.
    {{< /note >}}
 
    For example:
@@ -564,7 +565,7 @@ Depending on your installation, follow the steps in one of the following section
 
    The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
 
-2. Review the DDL files generated and then execute against the database, ensuring that you apply to the `CONFIG` schema.
+2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
 #### Initial Crypto Configuration for Corda Enterprise with HashiCorp Vault {{< enterprise-icon >}}
 
@@ -585,7 +586,7 @@ Depending on your installation, follow the steps in one of the following section
 
    `salt` and `passphrase` are the names of Vault keys and should be entered as shown: they are not to be substituted for any actual salt or passphrase.
 
-2. Review the DDL files generated and then execute against the database, ensuring that you apply to the `CONFIG` schema.
+2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
 ## RBAC Roles
 

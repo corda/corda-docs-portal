@@ -12,18 +12,18 @@ section_menu: corda51
 
 # CorDapps
 
-A CorDapp is a Java (or any JVM targeting language) application built using the Corda build toolchain and APIs to solve a problem best solved using a decentralized approach. CorDapps are assembled as one or more JAR files bundled into the CorDapp packaging format. That file is then uploaded to Corda where it is executed, Corda acting as the application host for the CorDapp. Corda itself is running on a JVM usually hosted within a container framework.
+A CorDapp is a Java (or any JVM targeting language) application built using the Corda build toolchain and APIs to solve a problem best solved using a decentralized approach. CorDapps are assembled as one or more JAR files bundled into the CorDapp packaging format. The JAR files are uploaded to Corda where they are executed, with Corda acting as the application host for the CorDapp. Corda itself runs on a JVM usually hosted within a container framework. The following diagram illustrates this architecture:
 
 {{<
   figure
 	 src="cordapp.png"
-   width="50%"
+   width="25%"
 	 figcaption="CorDapp Architecture"
 >}}
 
-CorDapps are composed of two layers:
+As shown in the following diagram, CorDapps are composed of two layers:
 * Orchestration layer
-* Consensus layer
+* {{< tooltip >}}Consensus{{< /tooltip >}} layer
 
 {{<
   figure
@@ -69,7 +69,7 @@ In Corda, several parties can be involved in the execution of a flow:
 	 figcaption="Multiple Parties to a Flow"
 >}}
 
-The power of the Corda programming model is that it enables CorDapp Developers to write flows as seemingly synchronous singleton functions, whilst the hosting compute infrastructure actually breaks that user code up into many different chunks of work that can be distributed around the system as needed, much like a standard operating system grants access to physical compute resources.
+The power of the Corda programming model is that it enables CorDapp Developers to write flows as seemingly synchronous singleton functions, whilst the hosting compute infrastructure actually breaks that user code up into many different chunks of work that can be distributed around the system as needed, much like a standard operating system grants access to physical compute resources:
 
 {{<
   figure
@@ -78,7 +78,7 @@ The power of the Corda programming model is that it enables CorDapp Developers t
 	 figcaption="Chunks of Work in a Flow"
 >}}
 
-Whilst the general case for flows within a CorDapp is the orchestration of a global state change, they are also the primary mechanism by which behaviors can be invoked by users through external interaction via a REST service.
+Whilst the general case for flows within a CorDapp is the orchestration of a global state change, they are also the primary mechanism by which behaviors can be invoked by users through external interaction via a REST service:
 
 {{<
   figure
@@ -99,7 +99,7 @@ The mechanism for achieving consensus in Corda is pluggable. For example, Corda 
 
 ### Decentralized Control
 
-In a decentralized system, there is no single point of access to the global state. When untrusting parties reach a consensus, that is done in parallel by disparate parties with no implied ordering.
+In a decentralized system, there is no single point of access to the global state. When untrusting parties reach a consensus, that is done in parallel by disparate parties with no implied ordering. The following diagram highlights the difference between consensus in centralized and decentralized systems:
 
 {{<
   figure
@@ -108,27 +108,26 @@ In a decentralized system, there is no single point of access to the global stat
 	 figcaption="Centralized Versus Decentralized Agreement"
 >}}
 
-In a decentralized system, how can an entity trust the global state when it has no direct say in all of the mutations applied?
+In a decentralized system, how can an entity trust the global state when it has no direct say in all of the mutations applied? Ultimately, each member of the network must be able to attest to the {{< tooltip >}}validity{{< /tooltip >}} of all historic modifications and so trusting the current global state is, by inference, also valid:
 
 {{<
   figure
 	 src="trust.png"
-   width="50%"
+   width="40%"
 	 figcaption="Issue of Trust in Decentralized Agreements"
 >}}
 
-Ultimately, each member of the network must be able to attest to the {{< tooltip >}}validity{{< /tooltip >}} of all historic modifications so as to trust the current global state is, by inference, also valid.
-
 ### Validity and Smart Contracts
 
-The validity of a proposal is evaluated within a decentralized system through a set of rules that each proposal must meet in order to be considered valid. Generally, this collection of rules is referred to as a {{< tooltip >}}smart contract{{< /tooltip >}} and each proposed update will be governed by it.
+The validity of a proposal is evaluated within a decentralized system through a set of rules that each proposal must meet in order to be considered valid. Generally, this collection of rules is referred to as a {{< tooltip >}}smart contract{{< /tooltip >}} and each proposed update is governed by it.
 
-Smart contracts can have different levels of granularity (network-wide or individual data representations) but the same general principles hold true that a proposal is only valid when the smart contract says it is. Rules in Corda can be arbitrary; however, there is a strong requirement that validity controls are deterministic as once evaluated as valid, checks on a change in the future must always return that it is valid. This means smart contracts can only reason about data present within the system of record: anything outside that generally leads to non-deterministic results as their presence cannot be guaranteed.
+Smart contracts can have different levels of granularity (network-wide or individual data representations) but the same general principles hold true that a proposal is only accepted if the smart contract validates it. Rules in Corda can be arbitrary; however, there is a strong requirement that validity controls are deterministic as once evaluated as valid, checks on a change in the future must always return that it is valid. As a result, smart contracts can only reason about data present within the system of record: anything outside that generally leads to non-deterministic results as their presence cannot be guaranteed. The following diagram shows how valid rules update the system of record:
+
 
 {{<
   figure
 	 src="proposal-rules.png"
-   width="50%"
+   width="40%"
 	 figcaption="Validity of Proposals"
 >}}
 
@@ -146,7 +145,7 @@ For example, a simple IOU is issued from Alice to Bob, indicating that Alice owe
 
 ## Identity Integration
 
-This documentation references multiple parties several times in explaining the fundamental tenets of Corda and other decentralized platforms. This means Corda must internalize the concept that CorDapps are only ever operated as an aspect of an entity referred to as an identity.
+On several occasions, this documentation references multiple parties in explaining the fundamental tenets of Corda and other decentralized platforms. As shown in the following diagram, Corda must internalize the concept that CorDapps are only ever operated as an aspect of an entity referred to as an identity:
 
 {{<
   figure
@@ -155,12 +154,12 @@ This documentation references multiple parties several times in explaining the f
 	 figcaption="Identity Integration"
 >}}
 
-An instance of a CorDapp must always have an associated identity in Corda. A flow runs on behalf of an identity and communicates with another identity selected from the pool of possible candidates which responds in kind.
+An instance of a CorDapp must always have an associated identity in Corda. A flow runs on behalf of an identity and communicates with another identity selected from the pool of possible candidates which responds in kind:
 
 {{<
   figure
 	 src="identities.png"
-   width="50%"
+   width="40%"
 	 figcaption="Communicating Identities"
 >}}
 

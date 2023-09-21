@@ -12,14 +12,14 @@ section_menu: corda5
 
 # Application Networks
 
-Corda, as previously described, is a private, permissioned, {{< tooltip >}}DLT{{< /tooltip >}} platform. 
+Corda, as previously described, is a private, permissioned, {{< tooltip >}}DLT{{< /tooltip >}} platform.
 An application network is a discrete instance of a permissioned collective associated with one or more applications.
 
-Unlike public DLT platforms such as Ethereum, where the ability to use the system is open to all, access to a Corda system is gated by the entity/entities (known as the Network Operators) operating the network. 
-This network is associated with a {{< tooltip >}}CorDapp{{< /tooltip >}}, where the members of the network are allowed to utilize the system for some purpose. The specific rules specifying how an identity is allowed to join are left to the operator to determine. 
-However, once permitted to join, each member understands that each other member has had their identity challenged to the same extent. 
+Unlike public DLT platforms such as Ethereum, where the ability to use the system is open to all, access to a Corda system is gated by the entity/entities (known as the Network Operators) operating the network.
+This network is associated with a {{< tooltip >}}CorDapp{{< /tooltip >}}, where the members of the network are allowed to utilize the system for some purpose. The specific rules specifying how an identity is allowed to join are left to the operator to determine.
+However, once permitted to join, each member understands that each other member has had their identity challenged to the same extent.
 
-The severity and extent of that attestation are, as previously mentioned, left to the Network Operator, but should reflect the needs of the CorDapp being operated by the network and can range from allowing anyone to join unchallenged to performing a full KYC process on each request. 
+The severity and extent of that attestation are, as previously mentioned, left to the Network Operator, but should reflect the needs of the CorDapp being operated by the network and can range from allowing anyone to join unchallenged to performing a full KYC process on each request.
 
 The following diagram shows the application network architecture:
 
@@ -48,8 +48,8 @@ This is enforced at the platform level.
 
 ## Peer-to-Peer Communication
 
-As shown below, Corda is different from other {{< tooltip >}}distributed ledger{{< /tooltip >}} systems in that all communication between nodes is peer-to-peer, and only shared on a need-to-know basis. It is also encrypted using {{< tooltip >}}TLS{{< /tooltip >}}. 
-There are no global broadcasts to all nodes on a network, but all nodes in a network can send messages directly to each other. 
+As shown below, Corda is different from other {{< tooltip >}}distributed ledger{{< /tooltip >}} systems in that all communication between nodes is peer-to-peer, and only shared on a need-to-know basis. It is also encrypted using {{< tooltip >}}TLS{{< /tooltip >}}.
+There are no global broadcasts to all nodes on a network, but all nodes in a network can send messages directly to each other.
 If the recipient is offline, the message waits in an outbound queue until they are online again, just like an e-mail.
 
 {{< 
@@ -62,7 +62,6 @@ If the recipient is offline, the message waits in an outbound queue until they a
 Identities not registered as members of the application network cannot communicate with those that are, even if they obtain a copy of the CorDapp code:
 * The identities may not be externally visible outside of the application network.
 * The reverse connection attestation undertaken by the Corda networking layer ensures that only attested identities can communicate. 
-
 
 ## Privacy
 

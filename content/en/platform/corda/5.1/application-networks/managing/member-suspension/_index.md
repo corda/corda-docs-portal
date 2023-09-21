@@ -29,7 +29,7 @@ The commands shown in this section, use the following variables:
 
 ## Search for Members
 
-You can use the [Member Lookup REST endpoint](../../reference/rest-api/C5_OpenAPI.html#tag/Member-Lookup-API) to query for all members with a particular status by specifying the MGM and the status. By default, the endpoint only returns members with the status ACTIVE. You can also query for multiple statuses together. For example, to query for all members with the status SUSPENDED:
+You can use the [Member Lookup REST endpoint](../../reference/rest-api/openapi.html#tag/Member-Lookup-API) to query for all members with a particular status by specifying the MGM and the status. By default, the endpoint only returns members with the status ACTIVE. You can also query for multiple statuses together. For example, to query for all members with the status SUSPENDED:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -49,7 +49,7 @@ The GET method of the `/api/v5_1/members/{holdingidentityshorthash}` endpoint re
 
 ## Suspend a Member
 
-You can use the <a href="../../reference/rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__suspend">POST method of the `/api/v5_1/members/{holdingidentityshorthash}/suspend` endpoint</a> to suspend a member of a group:
+You can use the <a href="../../reference/rest-api/openapi.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__suspend">POST method of the `/api/v5_1/members/{holdingidentityshorthash}/suspend` endpoint</a> to suspend a member of a group:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -72,7 +72,7 @@ If the serial number does not match, the method returns a `409 CONFLICT`. This c
 
 ## Activate a Member
 
-You can use the <a href="../../reference/rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__activate">POST method of the `/api/v5_1/members/{holdingidentityshorthash}/activate` endpoint</a> to re-activate a suspended member of a group:
+You can use the <a href="../../reference/rest-api/openapi.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__activate">POST method of the `/api/v5_1/members/{holdingidentityshorthash}/activate` endpoint</a> to re-activate a suspended member of a group:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
