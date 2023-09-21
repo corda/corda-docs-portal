@@ -55,6 +55,8 @@ This release includes improvements in the performance of deserializing AMQP data
 
 This release includes the following fixes:
 
+* An issue has been resolved where, previously, an incorrect value for `Page.totalStatesAvailable` was returned for queries on `externalIds`, when there where external IDs mapped to multiple keys.
+
 * Vault queries have been optimised to avoid the extra SQL query for the total state count where possible..
 
 * When a notary worker is shut down, message ID cleanup is now performed as the last shutdown activity, rather than the first; this prevents a situation where the notary worker might still appear to be part of the notary cluster and receiving client traffic while shutting down.

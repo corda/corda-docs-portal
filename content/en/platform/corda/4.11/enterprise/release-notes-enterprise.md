@@ -87,6 +87,8 @@ When a state is consumed by a transaction, Corda now adds the ID of the consumin
 
 This release includes the following fixes:
 
+* An issue has been resolved where, previously, an incorrect value for `Page.totalStatesAvailable` was returned for queries on `externalIds`, when there where external IDs mapped to multiple keys.
+
 * Vault queries have been optimised to avoid the extra SQL query for the total state count where possible..
 
 * Updated documentation for both `.startNodes()` and `.stopNodes()` of `MockNetwork` to indicate that restarting nodes is not supported.
