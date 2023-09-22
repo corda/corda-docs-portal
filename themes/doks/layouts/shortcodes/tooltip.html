@@ -46,11 +46,16 @@
 {{ $searchtermlower := lower .Inner }}
 {{ $searchtermkebab := replace $searchtermlower " " "-" }}
 {{ $versionfolder := replace (lower (.Page.Params.version)) " " "/" }}
+{{ if eq $versionfolder "" }}
+  {{- /* If no version set for file, point to latest C5 version */}}    
+  {{ $versionfolder := "corda/5.0" }}
+{{ end }}
+
 {{ $termlink := printf "%s" $searchtermkebab | printf "%s%s" "/reference/glossary.html#"  | printf "%s%s" $versionfolder | printf "%s%s" "en/platform/" | printf "%s%s" .Site.BaseURL | safeURL }}
 {{ $file := printf "%s" "/glossaryitems.json" | printf "%s%s" $versionfolder | printf "%s%s" "content/en/platform/" }}
 <a class="term" href ='{{ $termlink }}' >&nbsp{{ .Inner }}
 
-{{ $glossarylist := getJSON "content/en/platform/corda/5.0/glossaryitems.json" }}
+{{ $glossarylist := getJSON $file }}
 {{ range $term, $value := $glossarylist }}
     {{ $term := lower $term }}
     {{ if eq $term $searchtermlower }} 
