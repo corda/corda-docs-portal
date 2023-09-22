@@ -22,7 +22,7 @@ Corda Enterprise Edition supports a subset of the platforms that are supported b
 
 ### JDK support in production
 
-Corda Enterprise Edition 4.11 has been tested and verified to work with **Oracle JDK 8 JVM 8u351** and **Azul Zulu Enterprise 8u352**, for Azure deployment downloadable from
+Corda Enterprise Edition 4.11 has been tested and verified to work with **Oracle JDK 8 JVM 8u381** and **Azul Zulu Enterprise 8u382**, for Azure deployment downloadable from
 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.11.
@@ -41,10 +41,10 @@ The following JDKs support Corda for development purposes. Corda does not curren
 
 |Supported JDKs|Latest supported version|
 |-----------------------------------|-----------|
-|[Oracle JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)|8u351|
+|[Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)|8u381|
 |[Amazon Corretto 8](https://aws.amazon.com/corretto/)|8.252.09.1|
 |[Red Hat OpenJDK](https://developers.redhat.com/products/openjdk/overview/)|8u322|
-|[Zulu OpenJDK](https://www.azul.com/)|8u352|
+|[Zulu OpenJDK](https://www.azul.com/)|8u382|
 
 {{< /table >}}
 
