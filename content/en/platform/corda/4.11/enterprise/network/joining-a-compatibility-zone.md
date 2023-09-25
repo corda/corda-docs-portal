@@ -8,7 +8,7 @@ tags:
 - compatibility
 - zone
 title: Joining an existing compatibility zone
-weight: 3
+weight: 30
 ---
 
 # Joining an existing compatibility zone

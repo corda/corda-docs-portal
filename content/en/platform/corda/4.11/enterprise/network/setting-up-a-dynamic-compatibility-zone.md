@@ -9,7 +9,7 @@ tags:
 - compatibility
 - zone
 title: Setting up a dynamic compatibility zone
-weight: 5
+weight: 50
 ---
 
 # Setting up a dynamic compatibility zone

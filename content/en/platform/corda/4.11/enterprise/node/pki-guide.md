@@ -7,7 +7,7 @@ tags:
 - pki
 - guide
 title: Certificate Hierarchy Guide
-weight: 11
+weight: 110
 ---
 
 
