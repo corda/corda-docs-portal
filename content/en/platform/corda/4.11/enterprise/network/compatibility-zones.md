@@ -7,7 +7,7 @@ tags:
 - compatibility
 - zones
 title: What is a compatibility zone?
-weight: 2
+weight: 20
 ---
 
 

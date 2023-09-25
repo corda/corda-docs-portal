@@ -6,7 +6,7 @@ menu:
 tags:
 - network
 title: Corda Network Considerations
-weight: 2
+weight: 20
 ---
 
 

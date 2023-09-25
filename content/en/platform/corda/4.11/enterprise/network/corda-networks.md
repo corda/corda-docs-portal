@@ -7,7 +7,7 @@ tags:
 - corda
 - networks
 title: Understanding Corda Networks
-weight: 1
+weight: 10
 ---
 
 # Corda Networks
