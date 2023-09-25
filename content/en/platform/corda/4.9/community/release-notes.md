@@ -4,7 +4,7 @@ aliases:
 - /head/release-notes.html
 - /HEAD/release-notes.html
 - /release-notes.html
-date: '2023-05-05'
+date: '2023-09-04'
 menu:
   corda-community-4-9:
     identifier: corda-community-4-9-release-notes
@@ -16,6 +16,18 @@ tags:
 ---
 
 # Corda Community Edition 4.9 release notes
+
+## Corda Community Edition 4.9.8 release notes
+
+Corda Community Edition 4.9.8 is a patch release of Corda Community Edition focused on resolving issues.
+
+### Fixed issues
+
+* Some log messages at warning level relating to failed SSL handshakes were accidentally introduced as part of improvements to SSL certificate handling in the previous patch release, and would appear frequently in the logs as part of connectivity tests of traffic load balancers and system monitoring.  These log messages have been silenced to reduce “noise” in the logs.
+* Node thread names have been made more specific to make logging more descriptive and debugging easier.
+* Delays when SSL handshaking with new nodes no longer impact existing connections with existing nodes.
+* An issue has been resolved where, sometimes, the order of the states returned by a vault query would be incorrect if they belonged to the same transaction. 
+* An issue has been resolved where, previously, an incorrect value for `Page.totalStatesAvailable` was returned for queries on `externalIds`, when there where external IDs mapped to multiple keys.
 
 ## Corda Community Edition 4.9.7 release notes
 
