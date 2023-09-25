@@ -19,9 +19,9 @@ This topic lists the currently-available network parameters:
 The minimum platform version that the nodes must be running. Any node which is below this will
 not start.
 
-{{< note >}}
-To determine which *minimumPlatformVersion* a zone must mandate in order to permit all the features of Corda 4.11, see [Corda versioning]({{< relref "../cordapps/versioning.md" >}}).
-{{< /note >}}
+   {{< note >}}
+   To determine which *minimumPlatformVersion* a zone must mandate in order to permit all the features of Corda 4.11, see [Corda versioning]({{< relref "../cordapps/versioning.md" >}}).
+   {{< /note >}}
 
 * **notaries**:
 List of identity and validation type (either validating or non-validating) of the notaries which are permitted
