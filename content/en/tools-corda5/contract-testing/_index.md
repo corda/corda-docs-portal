@@ -9,7 +9,7 @@ menu:
     weight: 1000
 ---
 
-The Contract Testing library enables {{< tooltip >}}CorDapp{{< /tooltip >}} Developers to test smart contracts locally, at an early stage of the development cycle. With this library, you can check that your CorDapp contracts behave as expected before, or after, you write the flows.
+The Contract Testing library enables {{< tooltip >}}CorDapp{{< /tooltip >}} developers to test smart contracts locally at an early stage of the development cycle. With this library, you can check that your CorDapp contracts behave as expected before, or after, you write the flows.
 
 {{< note >}}
 This version of the Contract Testing library only supports UTXO contracts.
