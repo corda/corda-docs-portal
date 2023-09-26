@@ -22,7 +22,7 @@ If a member needs to make changes to their endpoint information, for example, ch
    ```shell
    export NEW_CONFIG='{
    "config": {
-     "serversConfiguration":[{"hostAddress":"'$P2P_GATEWAY_HOST'","hostPort":8080,"urlPath":"/"}, {"hostAddress":"'$P2P_GATEWAY_HOST'","hostPort":8081,"urlPath":"/"}],"sslConfig":{"revocationCheck":{"mode":"OFF"} }
+     "serversConfiguration":[{"hostAddress":"'$P2P_GATEWAY_HOST'","hostPort":8080,"urlPath":"/"}, {"hostAddress":"'$P2P_GATEWAY_HOST'","hostPort":8081,"urlPath":"/"}]}
    },
    "schemaVersion": {
      "major": 1,
@@ -38,11 +38,7 @@ If a member needs to make changes to their endpoint information, for example, ch
    ```shell
    Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method Put -Uri "$REST_API_URL/config" -Body (ConvertTo-Json -Depth 4 @{
       "config": "{
-         "serversConfiguration":[{"hostAddress":"'$P2P_GATEWAY_HOST'","hostPort":8080,"urlPath":"/"}, {"hostAddress":"'$P2P_GATEWAY_HOST'","hostPort":8081,"urlPath":"/"}],
-         "sslConfig":{
-            "revocationCheck":{
-               "mode":"OFF"
-            } 
+         "serversConfiguration":[{"hostAddress":"'$P2P_GATEWAY_HOST'","hostPort":8080,"urlPath":"/"}, {"hostAddress":"'$P2P_GATEWAY_HOST'","hostPort":8081,"urlPath":"/"}] 
          }
       }",
       "schemaVersion": {
@@ -72,7 +68,7 @@ If a member needs to make changes to their endpoint information, for example, ch
    ```shell
    export NEW_CONFIG='{
    "config": {
-     "serversConfiguration":[{"hostAddress":"'$P2P_GATEWAY_HOST'","hostPort":8081,"urlPath":"/"}],"sslConfig":{"revocationCheck":{"mode":"OFF"} }
+     "serversConfiguration":[{"hostAddress":"'$P2P_GATEWAY_HOST'","hostPort":8081,"urlPath":"/"}]}
    },
    "schemaVersion": {
      "major": 1,
@@ -88,12 +84,7 @@ If a member needs to make changes to their endpoint information, for example, ch
    ```shell
    Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method Put -Uri "$REST_API_URL/config" -Body (ConvertTo-Json -Depth 4 @{
       "config": "{
-         "serversConfiguration":[{"hostAddress":"'$P2P_GATEWAY_HOST'","hostPort":8081,"urlPath":"/"}],
-         "sslConfig":{
-            "revocationCheck":{
-               "mode":"OFF"
-            } 
-         }
+         "serversConfiguration":[{"hostAddress":"'$P2P_GATEWAY_HOST'","hostPort":8081,"urlPath":"/"}]
       }",
       "schemaVersion": {
          "major": 1,
