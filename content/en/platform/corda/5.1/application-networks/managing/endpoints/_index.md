@@ -12,7 +12,7 @@ section_menu: corda51
 ---
 # Member Endpoints
 
-If a member needs to make changes to their endpoint information, for example, changing the URL of the endpoint or adding a new endpoint, the member must re-register with the updated endpoint information. To minimize communication disruption, the member should re-register with both the old and new information, before removing the old information, as follows:
+If a member needs to make changes to their endpoint information, for example, changing the URL of the endpoint or adding a new endpoint, the member must re-register with the updated endpoint information. To minimize communication disruption, the member should also configure the P2P Gateway with both the old and new information, before re-registering, and then remove the old information, as follows:
 
 1. Ensure that the cluster can accept connections on the new endpoint.
    In a production environment that exposes the Corda P2P Gateway service via a load balancer, this may require updating the load balancer configuration with the new endpoint.
