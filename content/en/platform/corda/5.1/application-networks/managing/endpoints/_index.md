@@ -16,7 +16,7 @@ If a member needs to make changes to their endpoint information (for example, ch
 
 1. Ensure that the cluster can accept connections on the new endpoint.
    In a production environment that exposes the Corda P2P Gateway service via a load balancer, this may require updating the load balancer configuration with the new endpoint.
-2. Add the new endpoint information to the cluster's [P2P Gateway configuration]({{< relref "../../../deploying-operating/config/fields/p2p-gateway.md">}}) so that it listens on both the old and new endpoints. For example to configure two endpoints with different ports, using Bash with Curl or PowerShell:
+2. Add the new endpoint information to the cluster's [P2P Gateway configuration]({{< relref "../../../deploying-operating/config/fields/p2p-gateway.md">}}) so that it listens on both the old and new endpoints. For example, to configure two endpoints with different ports, using Bash with Curl or PowerShell:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
