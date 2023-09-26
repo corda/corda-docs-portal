@@ -14,7 +14,6 @@ title: Release notes
 
 # Corda Enterprise Network Manager release notes
 
-
 ## Corda Enterprise Network Manager 1.5.9
 
 CENM 1.5.9 introduces fixes to known issues in CENM 1.5.
@@ -22,9 +21,16 @@ CENM 1.5.9 introduces fixes to known issues in CENM 1.5.
 ### Fixed Issues
 
 * The JDK version used by CENM has been upgraded from JDK 8.0.322 to JDK 8.0.382.
-* Fixed an issue where the signing service, specifically using Gemalto Luna HSM, would deadlock when there was more than one outstanding signing task on starting the signing service. 
+* Fixed an issue where the signing service, specifically using Gemalto Luna HSM, would deadlock when there was more than one outstanding signing task on starting the signing service.
 * The PostgreSQL database driver shipped with CENM Docker images has been updated from version 42.2.25 to 42.5.2.
 * When a CENM service starts, the startup log message generated now includes the service version.
+* This release includes the following vulnerability fixes to third-party software:
+   * org.springframework updated to 5.3.27
+   * com.google.guava updated to 32.1.1-jre
+   * org.apache.tomcat.embed updated to 9.0.80
+   * Java 8 version 8u322 updated to 8u382
+   * Postgres driver 42.2.25 updated to 42.5.2
+   * removed MySQL references
 
 ## Corda Enterprise Network Manager 1.5.8
 
@@ -44,7 +50,7 @@ CENM 1.5.7 introduces enhancements and fixes to known issues in CENM 1.5.
 * The Java serialization in CENM has been disabled as a security mitigation against access being obtained maliciously to perform remote code execution.
 * A synchronous call will now be made to the `IDManager` instead of an asynchronous call when a node requests to publish `nodeInfo`.
 
-### Fixed Issues 
+### Fixed Issues
 
 * Improved error messages are returned when submitting a second CRR request for the same node via the CRR submission tool.
 * Reduced deadlocks associated with the insert and/or update of `NodeInfoEntity` records.
