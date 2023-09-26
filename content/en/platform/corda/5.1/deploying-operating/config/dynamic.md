@@ -32,8 +32,6 @@ For example, to set fields in the [messaging]({{< relref "./fields/messaging.md"
    {{% tab name="PowerShell" %}}
    ```shell
    Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method Put -Uri "$REST_API_URL/config" -Body (ConvertTo-Json -Depth 4 @{
-    section = "corda.messaging"
-    version = 1
     {
      "config": "{
         "maxAllowedMessageSize":972800,

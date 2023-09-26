@@ -16,6 +16,7 @@ section_menu: corda5
 ## Setting Configuration Fields Dynamically
 
 You can set the fields in a configuration section by sending the values as JSON to the <a href="../../reference/rest-api/openapi.html#tag/Configuration-API/operation/put_config">`config` endpoint</a> of the REST API. The PUT method of `/api/v1/config` requires the following parameters:
+
 * `section` — the configuration section that the JSON updates. See the [Configuration Fields page]({{< relref "./fields/_index.md" >}}) for a list of the configuration sections.
 * `version` — the version of the configuration. Corda versions configurations to avoid two concurrent updates clashing with each other. You can [retrieve]({{< relref "#retrieving-current-configuration-values">}}) the current version, with the current configuration structure, using the GET method of the `/api/v1/config` endpoint.
 * `config` — the configuration fields and values specified as JSON. For more information about these fields, see [Configuration Fields]({{< relref "./fields/_index.md">}}).
