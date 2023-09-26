@@ -105,4 +105,4 @@ If a member needs to make changes to their endpoint information, for example, ch
    ```
    {{% /tab %}}
    {{< /tabs >}}
-5. Re-register with the updated registration context.
+5. Re-register with the updated registration context that contains only the new endpoint.
