@@ -34,7 +34,7 @@ For information about creating these roles manually, see the [Manual Bootstrappi
 
 ## Querying Permissions via REST
 
-To retrieve permissions matching certain query criteria, use the [get_permission](../../reference/rest-api/C5_OpenAPI.html#tag/RBAC-Permission-API/operation/get_permission) API call.
+To retrieve permissions matching certain query criteria, use the [get_permission](../../reference/rest-api/openapi.html#tag/RBAC-Permission-API/operation/get_permission) API call.
 
 ## Checking Permissions When Starting Flows
 

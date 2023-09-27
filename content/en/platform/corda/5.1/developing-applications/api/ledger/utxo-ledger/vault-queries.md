@@ -558,3 +558,182 @@ while (resultSet.hasNext()) {
 ```
 {{% /tab %}}
 {{< /tabs >}}
+
+# Vault-Named Query Operators
+
+The following is the list of the standard operators for the vault-named query syntax:
+
+* `IN`
+* `LIKE`
+* `IS NOT NULL`
+* `IS NULL`
+* `AS`
+* `OR`
+* `AND`
+* `!=`
+* `>`
+* `<`
+* `>=`
+* `<=`
+* `->`
+* `->>`
+* `?`
+* `::`
+
+Where the behaviour is not standard, the operators are explained in detail in the following sections.
+
+**Name:** `->`
+
+**Right Operand Type:** `Int`
+
+**Description:**  Gets JSON array element.
+
+**Example:**
+
+`custom_representation`
+`->`
+`com.r3.corda.demo.ArrayObjState`
+`->`
+`0`
+
+Example JSON:
+
+```java
+
+{
+  "com.r3.corda.demo.ArrayObjState": [
+    {"A": 1},
+    {"B": 2}
+  ]
+}
+```
+
+This example returns:
+
+```java
+{
+  "A": 1
+}
+```
+
+**Name:** `->`
+
+**Right Operand Type:** </b> `Text`
+
+**Description:** Get JSON object field.
+
+**Example:**
+
+`custom_representation`
+`-> 'com.r3.corda.demo.TestState'`
+
+Selects the top-level JSON field called `com.r3.corda.demo.TestState` from the JSON object in the `custom_representation` database column.
+
+Example JSON:
+
+```java
+{
+  "com.r3.corda.demo.TestState": {
+    "testField": "ABC"
+  }
+}
+```
+
+This example returns:
+
+```java
+{
+  "testField": "ABC"
+}
+
+```
+
+**Name:** `->>`
+
+**Right Operand Type:** `Int`
+
+**Description:** Get JSON array element as text.
+
+**Example:**
+
+`custom_representation` 
+`-> 'com.r3.corda.demo.ArrayState'`
+`->> 2`
+
+Selects the third element (indexing from 0)  of the array type top-level JSON field called `com.r3.corda.demo.ArrayState` from the JSON object in the `custom_representation` database column.
+
+Example JSON:
+
+```java
+
+{
+  "com.r3.corda.demo.ArrayState": [
+    5, 6, 7
+  ]
+}
+
+```
+
+This example returns: `7`.
+
+**Name:** `->>`
+
+**Right Operand Type:** `Text`
+
+**Description:** Get JSON object field as text.
+
+**Example:**
+
+`custom_representation` 
+`-> 'com.r3.corda.demo.TestState'`
+`->> 'testField'`
+
+Selects the `testField` JSON field from the top-level JSON object called `com.r3.corda.demo.TestState` in the `custom_representation` database column.
+
+Example JSON:
+
+```java
+{
+  "com.r3.corda.demo.TestState": {
+    "testField": "ABC"
+  }
+}
+```
+
+This example returns: `ABC`.
+
+**Name:** `?`
+
+**Right Operand Type:** `Text`
+
+**Description:** Checks if JSON object field exists.
+
+**Example:**
+
+`custom_representation ?`
+`'com.r3.corda.demo.TestState'`
+
+Checks if the object in the `custom_representation` database column has a top-level field called `com.r3.corda.demo.TestState`.
+
+Example JSON:
+
+```java
+{
+  "com.r3.corda.demo.TestState": {
+    "testField": "ABC"
+  }
+}
+
+```
+
+This example returns: `true`.
+
+**Name:** `::`
+
+**Right Operand Type:** A type, for example, `Int`
+
+**Description:** Casts the element/object field to the specified type.
+
+**Example:**
+
+`(visible_states.field ->> property)::int = 1234`

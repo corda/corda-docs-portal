@@ -17,7 +17,7 @@ This section describes how to onboard new {{< tooltip >}}members{{< /tooltip >}}
 
 {{< childpages >}}
 
-These sections describe a standard configuration. You can read about alternative configurations in the [Optional Configurations]({{< relref"../optional/_index.md">}}) section. 
+These sections describe a standard configuration. You can read about alternative configurations in the [Optional Configurations]({{< relref"../optional/_index.md">}}) section.
 
 {{< note >}}
 The PowerShell commands listed are for use with PowerShell 7.0 and will not execute correctly with PowerShell 5.x.

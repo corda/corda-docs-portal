@@ -23,13 +23,13 @@ CorDapps are simply code, written in a JVM compatible language, compiled into a 
 	 figcaption="Example CPKs"
 >}}
 
-A CorDapp must be installed in a Corda Cluster to make it available to virtual nodes. To enable this, the CorDapp must be packaged up into a {{< tooltip >}}CPB{{< /tooltip >}}, which comprises of all CPKs necessary for a CorDapp to be complete, and their dependencies.
+A CorDapp must be installed in a Corda cluster to make it available to {{< tooltip >}}virtual nodes{{< /tooltip >}}. To enable this, the CorDapp must be packaged up into a {{< tooltip >}}CPB{{< /tooltip >}}, which comprises of all CPKs necessary for a CorDapp to be complete, and their dependencies.
 The CPB must then be combined with network metadata into a {{< tooltip >}}CPI{{< /tooltip >}} before it can be installed in the cluster. For more information, see [Packaging]({{< relref "../../../developing-applications/packaging/_index.md" >}}).
 
 {{<
   figure
 	 src="packaging.png"
-   width="50%"
+   width="40%"
 	 figcaption="CorDapp Packaging"
 >}}
 
@@ -51,7 +51,16 @@ Using a JVM compatible language for creating workflows, states, and contracts is
 
 Corda enhances the programming experience not just by offering access to a familiar tech stack and tooling, but also by introducing a familiar programming model to distributed application development.
 
-Consider the previous IOU issue flow example. The following is the code for the initiating flow:
+Consider the previous IOU issue flow example. The following diagram describes this scenario:
+
+{{<
+  figure
+	 src="iou-model.png"
+   width="80%"
+	 figcaption="IOU App Programming Model"
+>}}
+
+The following is the code for the initiating flow:
 
 ```kotlin
 ...
@@ -104,15 +113,6 @@ val finalizedSignedTransaction = ledgerService.receiveFinality(session) { ledger
 }
 ```
 
-The following diagram describes this scenario:
-
-{{<
-  figure
-	 src="iou-model.png"
-   width="80%"
-	 figcaption="IOU App Programming Model"
->}}
-
 ## Continuance
 
 As shown in the previous diagram, what seem like simple function calls in a CorDapp often represent complex “out-of-process” operations.
@@ -133,7 +133,7 @@ Returning to the IOU example, the following diagram shows suspension and resumpt
 {{<
   figure
 	 src="iou-points.png"
-   width="75%"
+   width="50%"
 	 figcaption="IOU App Suspension and Resumption points"
 >}}
 
@@ -141,7 +141,8 @@ Corda manages suspending and resuming. However, it may be necessary for a CorDap
 
 ## Workflow Versus Contract
 
-CorDapps typically consist of flows, states, and contracts, all written in a JVM compatible language, and deployed as JARs. Corda, however, makes a distinction between workflow and contract CPKs (JARs). This is identified in the Gradle CorDapp configuration.
+CorDapps typically consist of [flows]({{< relref "../../fundamentals/CorDapps/_index.md#orchestration-layer--flows" >}}), states, and contracts, all written in a JVM compatible language, and deployed as JARs. Corda, however, makes a distinction between workflow and contract CPKs (JARs). This is identified in the Gradle CorDapp configuration.
+
 Workflow CPK:
 ```
 cordapp {
@@ -164,6 +165,7 @@ cordapp {
 ```
 
 The following rules identify which CPK type is applicable:
+
 * Flow code (anything implementing the [Flow interface]({{< relref "../../../developing-applications/api/application/flows.md" >}})) can only exist in a workflow CPK.
 * Contracts and states (implementing `Contract` and `ContractState`) can only exist in a contract CPK.
 * {{< tooltip >}}Entity{{< /tooltip >}} classes used in the [persistence]({{< relref "../../../developing-applications/api/application/persistence.md" >}}) API (annotated with `@Entity`), along with their database migration scripts, can only exist in a contract CPK.
@@ -184,11 +186,13 @@ There are different types of workers that each have their own operational respon
 Two of these worker types, the {{< tooltip >}}flow worker{{< /tooltip >}} and the {{< tooltip >}}database worker{{< /tooltip >}}, are special because they host CorDapp code.
 They act as an application server for the code in the CPKs that are part of the CorDapp.
 This code runs inside a Corda {{< tooltip >}}sandbox{{< /tooltip >}}. There are three different types of sandboxes:
+
 * Flow - the flow engine host. This exists in the flow worker and is responsible for executing all flow code.
 * Persistence - hosted by the database worker. This takes instructions from the flow engine to persist states or custom objects. For this reason, it needs to parse custom entity classes that are part of the CorDapp.
 * Verify - this is hosted by the flow worker but is exclusively responsible for contract verification.
 
 This relates to the separation of contract and workflow CPKs, as follows:
+
 * Flow sandbox — requires both workflow and contract CPKs in order to execute an initiating or responder flow.
 * Persistence sandbox — has special privileges as it is allowed to interact with the {{< tooltip >}}virtual node{{< /tooltip >}}’s databases. However, it only requires the custom entities and states that are part of the contract CPK. Workflow CPKs are never loaded into the persistence sandbox.
 * Verify sandbox — exclusively used for verifying the contract. Therefore, it only needs the contract CPK. Workflow CPKs are never loaded into the verify sandbox. During backchain verification, it is sometimes necessary to verify “old” states that require the previous version of the contract to verify. This is another reason why it is wise to separate contract CPKs from workflow CPKs as their version lifecycle may be different.

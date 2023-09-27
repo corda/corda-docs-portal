@@ -4,8 +4,8 @@ description: "Documentation for the tools and add-ons associated with Corda"
 section_menu: tools
 menu:
   projects:
-    name: Tools and add-ons
-    weight: 80000
+    name: Corda 4 Tools & Add-Ons
+    weight: 3000
     identifier: tools
   tools:
     weight: 10

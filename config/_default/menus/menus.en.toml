@@ -329,11 +329,18 @@ name = "Participate"
 weight = 500
 
 [[corda5]]
-identifier = "corda-rest-ref"
+identifier = "corda5-rest-ref"
 parent = "corda5-rest-api-reference"
 name = "REST API Reference"
 weight = 2000
-url = 'https://docs.r3.com/en/platform/corda/5.0/reference/rest-api/C5_OpenAPI.html'
+url = "/en/platform/corda/5.0/reference/rest-api/openapi.html"
+
+[[corda51]]
+identifier = "corda51-rest-ref"
+parent = "corda51-rest-api-reference"
+name = "REST API Reference"
+weight = 2000
+url = "/en/platform/corda/5.1/reference/rest-api/openapi.html"
 
 #keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
 #[[tools-cdl]]

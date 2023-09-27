@@ -24,7 +24,7 @@ The {{< version >}} CSDE has been tested with the following:
 | Software          | Version                                                                             |
 | ----------------- | ----------------------------------------------------------------------------------- |
 | Operating systems | <li>Mac OS (intel and ARM)</li><li>Windows 10/11</li><li>Linux</li>                 |
-| Java              | Azul Zulu JDK 11 (Other versions should work but have not been extensively tested.) |
+| Java              | Azul Zulu JDK 17 (Other versions should work but have not been extensively tested.) |
 | Intellij          | ~v2021.X.Y community edition                                                        |
 | git               | ~v2.24.1                                                                            |
 | Docker            | Docker Engine ~v20.X.Y or Docker Desktop ~v3.5.X                                    |

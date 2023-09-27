@@ -11,6 +11,13 @@ section_menu: corda51
 ---
 # Running the Chat CorDapp
 
+This section describes how to run the {{< tooltip >}}UTXO{{< /tooltip >}} chat {{< tooltip >}}CorDapp{{< /tooltip >}}. It contains the following:
+
+* [Configuring the Application Network (Virtual Nodes)](#configuring-the-application-network-virtual-nodes)
+* [Deploying the CorDapp](#deploying-the-cordapp)
+* [Using Swagger](#using-swagger)
+* [Typical Set of Flows](#typical-set-of-flows)
+
 ## Configuring the Application Network (Virtual Nodes)
 
 The CSDE is configured to create a five party {{< tooltip >}}application network{{< /tooltip >}} required to run the Chat {{< tooltip >}}CorDapp{{< /tooltip >}}, including virtual nodes for Alice, Bob, Charlie, Dave, and a {{< tooltip >}}notary{{< /tooltip >}}. To change the network configuration, see [Configuring the Network Participants]({{< relref "../../configure-the-network-participants/_index.md" >}}).
