@@ -171,10 +171,6 @@ data class DBSenderDistributionRecord(
         @Column(name = "tx_id", length = 144, nullable = false)
         var txId: String,
 
-        /** PartyId of flow peer **/
-        @Column(name = "receiver_party_id", nullable = false)
-        val receiverPartyId: Long,
-
         /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
         @Column(name = "states_to_record", nullable = false)
         var statesToRecord: StatesToRecord
@@ -187,17 +183,17 @@ data class DBReceiverDistributionRecord(
         @EmbeddedId
         var compositeKey: PersistentKey,
 
-        @Column(name = "tx_id", length = 144, nullable = false)
+        @Column(name = "transaction_id", length = 144, nullable = false)
         var txId: String,
 
-        /** PartyId of flow initiator **/
-        @Column(name = "sender_party_id", nullable = true)
-        val senderPartyId: Long,
-
-        /** Encrypted recovery information for sole use by Sender. See [HashedDistributionList] **/
+        /** Encrypted recovery information for sole use by Sender **/
         @Lob
         @Column(name = "distribution_list", nullable = false)
-        val distributionList: ByteArray
+        val distributionList: ByteArray,
+
+        /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
+        @Column(name = "receiver_states_to_record", nullable = false)
+        val receiverStatesToRecord: StatesToRecord
 )
 ```
 
@@ -207,8 +203,10 @@ The above tables use the same persistent composite key type:
 @Embeddable
 @Immutable
 data class PersistentKey(
-        @Column(name = "sequence_number", nullable = false)
-        var sequenceNumber: Long,
+        /** PartyId of flow peer **/
+        
+        @Column(name = "peer_party_id", nullable = false)
+        var peerPartyId: Long,
 
         @Column(name = "timestamp", nullable = false)
         var timestamp: Instant,

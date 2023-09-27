@@ -21,7 +21,7 @@ Receiver peers include any participants and/or observers to the transaction.
 A `SenderDistribution` record contains the following transaction metadata:
 
 * Transaction ID
-* Receiver peer ID (the hashed value of `CordaX500Name`)
+* Receiver peer ID (the secure hashed value of `CordaX500Name` using SHA256)
 * Receiver `StatesToRecord` value
 
 {{< note >}}
@@ -50,6 +50,7 @@ A receiver cannot decrypt the actual contents of the distribution list within th
 Both sender and receiver distribution records use the same composite key type for uniquely storing records. The `PersistentKey` contains the following fields:
 
 * Incremental sequence Number (Long)
+* PartyId of flow peer (a secure hash stored as a String).
 * Timestamp (Instant)
 * Timestamp discriminator (Int)
 
@@ -63,7 +64,7 @@ The Ledger Recovery flow takes the following parameters:
 
 ```
 private val recoveryPeers: Collection<Party>,
-private val timeWindow: RecoveryTimeWindow,
+private val timeWindow: RecoveryTimeWindow? = null,
 private val useAllNetworkNodes: Boolean = false,
 private val transactionRole: TransactionRole = TransactionRole.ALL,
 private val dryRun: Boolean = false,
@@ -81,9 +82,9 @@ These parameters are described in the following section.
 
 #### `timeWindows`
 
-`timeWindow` refers to the recovery time window and defines a `fromTime` and `untilTime`. This parameter is mandatory. 
+`timeWindow` refers to the recovery time window and defines a `fromTime` and `untilTime`. This parameter is mandatory.  
 
-It defaults to using the Corda Network or Node Configuration configured time window.
+If a value is not specified by the user, the flow will attempt to use the Corda Network or Node Configuration configured time window.
 
 #### `useAllNetworkNodes`
 
@@ -143,7 +144,7 @@ All transactions types are recoverable with the exception of issuance transactio
 ## Invoking ledger recovery
 
 ```kotlin
-net.corda.node.internal.recovery.FinalityRecoveryFlow
+net.corda.core.flows.LedgerRecoveryFlow
 ```
 
 ### Privacy
