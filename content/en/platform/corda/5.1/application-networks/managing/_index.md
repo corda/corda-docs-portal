@@ -1,6 +1,7 @@
 ---
 date: '2023-08-10'
 title: "Managing Members"
+version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-networks-manage
