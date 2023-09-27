@@ -36,6 +36,24 @@ Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows)
 
 See [Two Phase Finality]({{< relref "two-phase-finality.md" >}}).
 
+### Extended SendTransactionFlow
+
+`SendTransactionFlow` has been extended to allow for sending to multiple sessions.
+The caller of `SendTransactionFlow` can indicate the type of sessions to send to, using the following new constructor arguments:
+
+```
+participantSessions: Set<FlowSessions>
+observerSessions: Set<FlowSession>
+```
+These parameters are also used to infer and construct the type of recovery metadata to store on the sender side.
+
+* Participant sessions default to using a `StatesToRecord` value of ONLY_RELEVANT
+* Participant sessions default to using a `StatesToRecord` value of ALL_VISIBLE
+
+### New Encryption Service
+
+An AES-key implementation is used to encrypt and decrypt distribution record recovery metadata for sharing and persistence amongst peers.
+
 ### Upgraded dependencies 
 
 The following dependencies have been upgraded to address critical and high-severity security vulnerabilities:
@@ -62,34 +80,100 @@ This release includes the following fixes:
   
 ### Database schema changes
 
-The following database changes have been applied:
+Two Phase Finality introduces two new database tables for storage of recovery metadata distribution records:
 
-Two Phase Finality introduces additional data fields within the main `DbTransaction` table:
+```bash
+@Entity
+@Table(name = "${NODE_DATABASE_PREFIX}sender_distribution_records")
+data class DBSenderDistributionRecord(
+        @EmbeddedId
+        var compositeKey: PersistentKey,
 
-```kotlin
-  @Column(name = "signatures")
-  val signatures: ByteArray?,
+        @Column(name = "tx_id", length = 144, nullable = false)
+        var txId: String,
 
-  /**
-   * Flow finality metadata used for recovery
-   */
+        /** PartyId of flow peer **/
+        @Column(name = "receiver_party_id", nullable = false)
+        val receiverPartyId: Long,
 
-  /** X500Name of flow initiator **/
-  @Column(name = "initiator")
-  val initiator: String? = null,
+        /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
+        @Column(name = "states_to_record", nullable = false)
+        var statesToRecord: StatesToRecord
 
-  /** X500Name of flow participant parties **/
-  @Column(name = "participants")
-  @Convert(converter = StringListConverter::class)
-  val participants: List<String>? = null,
+)
 
-  /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
-  @Column(name = "states_to_record")
-  val statesToRecord: StatesToRecord? = null
+@Entity
+@Table(name = "${NODE_DATABASE_PREFIX}receiver_distribution_records")
+data class DBReceiverDistributionRecord(
+        @EmbeddedId
+        var compositeKey: PersistentKey,
+
+        @Column(name = "tx_id", length = 144, nullable = false)
+        var txId: String,
+
+        /** PartyId of flow initiator **/
+        @Column(name = "sender_party_id", nullable = true)
+        val senderPartyId: Long,
+
+        /** Encrypted recovery information for sole use by Sender. See [HashedDistributionList] **/
+        @Lob
+        @Column(name = "distribution_list", nullable = false)
+        val distributionList: ByteArray
+)
 ```
+
+The above tables use the same persistent composite key type:
+
+```bash
+@Embeddable
+@Immutable
+data class PersistentKey(
+        @Column(name = "sequence_number", nullable = false)
+        var sequenceNumber: Long,
+
+        @Column(name = "timestamp", nullable = false)
+        var timestamp: Instant,
+
+        @Column(name = "timestamp_discriminator", nullable = false)
+        var timestampDiscriminator: Int
+
+)
+```
+
+There are two further tables to hold distribution list privacy information (including encryption keys):
+
+```bash
+@Entity
+@Table(name = "${NODE_DATABASE_PREFIX}recovery_party_info")
+data class DBRecoveryPartyInfo(
+        @Id
+        /** CordaX500Name hashCode() **/
+        @Column(name = "party_id", nullable = false)
+        var partyId: Long,
+
+        /** CordaX500Name of party **/
+        @Column(name = "party_name", nullable = false)
+        val partyName: String
+)
+
+@Entity
+@Table(name = "${NODE_DATABASE_PREFIX}aes_encryption_keys")
+class EncryptionKeyRecord(
+        @Id
+        @Type(type = "uuid-char")
+        @Column(name = "key_id", nullable = false)
+        val keyId: UUID,
+
+        @Column(name = "key_material", nullable = false)
+        val keyMaterial: ByteArray
+)
+```
+
 See node migration scripts:
-- `node-core.changelog-v24.xml`: added transaction signatures.
-- `node-core.changelog-v24.xml`: added finality flow recovery metadata.
+
+* `node-core.changelog-v25.xml`: Adds Sender and Receiver recovery distribution record tables, plus the PartyInfo table.
+* `node-core.changelog-v26.xml`: Adds AES encryption keys table.
+
 
 ### Third party component upgrades
 
