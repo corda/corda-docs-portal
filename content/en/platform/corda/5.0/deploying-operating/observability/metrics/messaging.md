@@ -2,7 +2,6 @@
 date: '2023-06-14'
 version: 'Corda 5.0'
 title: "Messaging"
-version: 'Corda 5.0'
 menu:
   corda5:
     parent: corda5-cluster-metrics
@@ -13,7 +12,7 @@ section_menu: corda5
 
 # Messaging
 
-The messaging patterns library contains several embedded metrics that provide measurements for all workers through their Kafka consumers and producers.
+The messaging patterns library contains several embedded metrics that provide measurements for all workers through their {{< tooltip >}}Kafka{{< /tooltip >}} consumers and producers.
 
 <style>
 table th:first-of-type {

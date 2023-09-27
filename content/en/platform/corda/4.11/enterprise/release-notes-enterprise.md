@@ -34,31 +34,67 @@ peer recovery nodes to which it was a party (either initiator or receiver) and w
 
 For more information, see [Ledger Recovery Flow]({{< relref "ledger-recovery-flow.md" >}})
 
-### Confidential Identity key-pair generator
+### Confidential identity key-pair enerator
 
 A new service has been added that pregenerates Confidential Identity keys to be used when using CIs in transactions.
 These pre-generated CIs are subsequently used for backup recovery purposes.
 
-### Ledger Recovery and CI Pre-generation configuration
+### Additional Network Parameters
 
-Additional network map and associated node configuration parameters:
-```
-recoveryMaximumBackupInterval: Duration? = null
-confidentialIdentityMinimumBackupInterval: Duration? = null
-```
+The following network parameters, and associated node configuration parameters, have been added:
 
-* This release includes improvements in the performance of deserializing AMQP data, which may result in performance improvements for LedgerGraph, Archiving and other CorDapps.
+* `confidentialIdentityMinimumBackupInterval` 
+* `confidentialIdentityPreGenerationPeriod`
+* `recoveryMaximumBackupInterval` 
+* `transactionRecoveryPeriod`
 
-* A new property, `previousPageAnchor`, has been added to `Vault.Page`. It is used to detect if the vault has changed while pages of a vault query have been loaded. If such a scenario is important to detect, then the property can be used to restart querying.
+For more information, see [Available Network Parameters]({{< relref "network/available-network-parameters.md" >}})
 
-  A example of how to use this property can be found in [Vault Queries]({{< relref "cordapps/api-vault-query.md#query-for-all-states-using-a-pagination-specification-and-iterate-using-the-totalstatesavailable-field-until-no-further-pages-available-1" >}}).
+### Two Phase Finality
+
+Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and
+recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this
+new improved protocol.
+
+For more information, see [Two Phase Finality]({{< relref "two-phase-finality.md" >}})
+
+### Improved double-spend exception handling
+
+Two Phase Finality automatically deletes an unnotarized transaction from the `DBTransaction` table if a double spend
+is detected upon attempting notarization by the the initiator of `FinalityFlow`.
+
+Additionally, if the new optional `ReceiveFinalityFlow` `handlePropagatedNotaryError` constructor parameter is set to `true` (default: `false`),
+then the double spend error (`NotaryError.Conflict`) propagates back to the 2PF initiator. This enables the initiator to automatically remove the associated unnotarized transaction from its `DBTransaction` table. 
+
+If a CorDapp is compiled against Corda 4.11 (that is, its target platform version = 13) then double spend handling is enabled by default. For more information, see [Versioning]({{< relref "cordapps/versioning.md" >}}).
+
+### Finality Recovery Tooling
+
+RPC extension operations (additions to the FlowRPCOps interface) which allow for Finality Flow recovery by both the initiator and the receiver(s).
+Also, Node Shell commands now allow operations teams to perform Finality Flow recovery.
+
+For more information, see [Finality Flow Recovery]({{< relref "finality-flow-recovery.md" >}})
+
+### Deserializing AMQP data performance improvement
+
+This release includes improvements in the performance of deserializing AMQP data, which may result in performance improvements for LedgerGraph, Archiving and other CorDapps.
+
+### Detect vault changes while vault query pages loaded
+
+A new property, `previousPageAnchor`, has been added to `Vault.Page`. It is used to detect if the vault has changed while pages of a vault query have been loaded. If such a scenario is important to detect, then the property can be used to restart querying.
+
+An example of how to use this property can be found in [Vault Queries]({{< relref "cordapps/api-vault-query.md#query-for-all-states-using-a-pagination-specification-and-iterate-using-the-totalstatesavailable-field-until-no-further-pages-available-1" >}}).
+
+### Upgraded dependencies 
   
-* The following dependencies have been upgraded to address critical- and high-severity security vulnerabilities:
-  * H2 has been upgraded from 1.4.197 to 2.1.214.
-  * Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final.
-  * Liquibase has been upgraded from 3.6.3 to 4.20.0.
-  
-* When a state is consumed by a transaction, the ID of the consuming transaction is now added to the `vault_state` table in the `consuming_tx_id` column. Note that this database column will only be updated for new transactions; for existing consumed states already in the ledger, the value of this consuming_tx_id will be null.
+The following dependencies have been upgraded to address critical and high-severity security vulnerabilities:
+* H2 has been upgraded from 1.4.197 to 2.1.214.
+* Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final.
+* Liquibase has been upgraded from 3.6.3 to 4.20.0.
+
+### Consuming transaction IDs added to `vault_state` table 
+
+When a state is consumed by a transaction, Corda now adds the ID of the consuming transaction in the `consuming_tx_id` column of the `vault_state` table. Corda only updates this database column for new transactions; for existing consumed states already in the ledger, the value of `consuming_tx_id` is null.
 
 ## Fixed issues
 
@@ -121,7 +157,36 @@ This release includes the following fixes:
 
 ### Database schema changes
 
-There are no database changes between 4.10 and 4.11.
+The following database changes have been applied:
+
+Two Phase Finality introduces additional data fields within the main `DbTransaction` table:
+
+```kotlin
+@Column(name = "signatures")
+val signatures: ByteArray?,
+
+/**
+* Flow finality metadata used for recovery
+* TODO: create association table solely for Flow metadata and recovery purposes.
+* See https://r3-cev.atlassian.net/browse/ENT-9521
+*/
+
+/** X500Name of flow initiator **/
+@Column(name = "initiator")
+val initiator: String? = null,
+
+/** X500Name of flow participant parties **/
+@Column(name = "participants")
+@Convert(converter = StringListConverter::class)
+val participants: List<String>? = null,
+
+/** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
+@Column(name = "states_to_record")
+val statesToRecord: StatesToRecord? = null
+```
+See the following node migration scripts:
+* `node-core.changelog-v24.xml`: added transaction signatures.
+* `node-core.changelog-v24.xml`: added finality flow recovery metadata.
 
 ### Third party component upgrades
 

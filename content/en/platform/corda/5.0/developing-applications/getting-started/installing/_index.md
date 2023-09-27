@@ -10,6 +10,10 @@ menu:
 section_menu: corda5
 ---
 # Installing the CSDE
+
+* [Downloading the CSDE](#downloading-the-csde)
+* [Configuring the CSDE](#configuring-the-csde)
+
 {{< note >}}
 The images in this section show the `CSDE-cordapp-template-kotlin` repository in IntelliJ. If you are working with the `CSDE-cordapp-template-java` repository, it looks very similar but the flow code is in a `java` folder and the flow code is saved in more source files. For more information, see [Java Flow Code]({{< relref "../first-flow/code-java.md" >}}).
 {{< /note >}}
@@ -60,3 +64,5 @@ The CSDE includes [Gradle tasks](#gradle-helpers-for-the-combined-worker) to man
 {{< figure src="gradle-configuration.png" figcaption="Gradle Java version" alt="JVM version in IntelliJ for CSDE project" >}}
 
 {{< figure src="configure-CSDE-build-gradle-block.png" figcaption="Configure the CSDE plugin via the build.gradle file" alt="CSDE build gradle block in IntelliJ for CSDE project" >}}
+
+If using IntelliJ IDEA version 2023.1.4 or greater, then you should instead set the environmental variable `JAVA_HOME` to point to your installation of Java Azul Zulu 11.

@@ -13,8 +13,8 @@ section_menu: corda5
 
 # UTXO Advanced Ledger Extensions Library
 
-The Corda 5 Advanced UTXO Ledger Extensions library provides several powerful features to Corda 5's UTXO ledger.
-These features have been selected and designed to solve common problems that CorDapp developers face when building {{< tooltip >}}states{{< /tooltip >}} and contracts on Corda.
+The Corda 5 Advanced {{< tooltip >}}UTXO{{< /tooltip >}} Ledger Extensions library provides several powerful features to Corda 5's UTXO ledger.
+These features have been selected and designed to solve common problems that {{< tooltip >}}CorDapp{{< /tooltip >}} developers face when building {{< tooltip >}}states{{< /tooltip >}} and contracts on Corda.
 
 ## Feature Overview
 

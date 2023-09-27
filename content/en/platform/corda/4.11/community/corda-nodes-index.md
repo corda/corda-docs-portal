@@ -26,7 +26,7 @@ title: Nodes
 * [Node command-line options]({{< relref "node-commandline.md" >}})
 * [Node administration]({{< relref "node-administration.md" >}})
 * [Deploying a node to a server]({{< relref "deploying-a-node.md" >}})
-* [Database access when running H2](node-database-access-h2.md)
+* [Database access when running H2]({{< relref "node-database-access-h2.md" >}})
 * [Database tables]({{< relref "node-database-tables.md" >}})
 * [Upgrading CorDapps on a node]({{< relref "node-operations-upgrade-cordapps.md" >}})
 * [Node shell]({{< relref "shell.md" >}})

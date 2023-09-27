@@ -10,14 +10,17 @@ menu:
 section_menu: corda5
 ---
 # Running Your First CorDapp
-The CSDE includes flows and tests for a very simple CorDapp, which you can run out of the box.
 
-The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlow.kt` file. This is also the code described in the [first flow section]({{< relref "../first-flow/_index.md" >}}).
+The CSDE includes {{< tooltip >}}flows{{< /tooltip >}} and tests for a very simple {{< tooltip >}}CorDapp{{< /tooltip >}}, which you can run out of the box. The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlow.kt` file. This is also the code described in the [first flow section]({{< relref "../first-flow/_index.md" >}}). This section describes how to run, test, and deploy this flow. It contains the following:
+
+* [Starting the Corda Combined Worker](#starting-the-corda-combined-worker)
+* [Testing Liveness and Swagger](#testing-liveness-and-swagger)
+* [Deploying a CorDapp](#deploying-a-cordapp)
 
 ## Starting the Corda Combined Worker
 
 To run the flow, you must first start a local combined worker version of Corda. CSDE includes helper Gradle tasks to do this.
-{{< figure src="starting-corda.png" width="50%" figcaption="CSDE startCorda task" alt="CSDE task to start the combined worker in IntelliJ" >}}
+{{< figure src="starting-corda.png" width="40%" figcaption="CSDE startCorda task" alt="CSDE task to start the combined worker in IntelliJ" >}}
 
 The `startCorda` task runs in an Intellij 'Run' window. After about one minute, it shows the following output:
 {{< figure src="starting-corda-running.png" figcaption="CSDE startCorda task running" alt="CSDE task to start the combined worker in IntelliJ" >}}
@@ -35,25 +38,27 @@ To display the Swagger UI, use the following link:
 [https://localhost:8888/api/v1/swagger#/](https://localhost:8888/api/v1/swagger#/)
 
 If Corda has started, the Swagger UI displays:
-{{< figure src="swagger-ui.png" figcaption="Swagger UI showing Corda liveness" alt="Swagger UI showing Corda" >}}
+{{< figure src="swagger-ui.png" width="80%" figcaption="Swagger UI showing Corda liveness" alt="Swagger UI showing Corda" >}}
 
 If Corda has not started yet, the page will not load.
 If the Swagger UI is already open whilst starting Corda, you must hit an endpoint to test liveness of Corda.
 
 ### Authorizing Swagger
 
- To access the Corda cluster, you must authorize Swagger:
- 1. Click the green **Authorize** button.
-{{< figure src="authorize-button.png"  width="50%" figcaption="Swagger Authorize button" alt="Button in Swagger UI to authorize access to the Corda cluster" >}}
+To access the Corda cluster, you must authorize Swagger:
+
+1. Click the green **Authorize** button.
+{{< figure src="authorize-button.png" width="30%" figcaption="Swagger Authorize button" alt="Button in Swagger UI to authorize access to the Corda cluster" >}}
    The **Available authorizations** window is displayed.
 2. If necessary, click **Logout**.
 3. Enter the username and password. For the purposes of experimental development, the username for the combined worker is set to  `admin` and the password is `admin`.
-{{< figure src="authorize.png" figcaption="Swagger Authorize authorizations window" alt="Authorize authorizations window in Swagger UI to authorize access to the Corda cluster" >}}
+{{< figure src="authorize.png" width="70%" figcaption="Swagger Authorize authorizations window" alt="Authorize authorizations window in Swagger UI to authorize access to the Corda cluster" >}}
 4. Click **Authorise** and then **Close**.
 
 ### Hitting Endpoints
 
 Once authorised, you can start hitting endpoints. The easiest one to try is `/cpi` because it is the first one on the Swagger page and requires no arguments:
+
 1. Expand the `GET /cpi` row and click **Try it out**.
 {{< figure src="get-cpi.png" figcaption="Try it out button for GET /cpi" alt="Expanded GET /cpi with Try it out button" >}}
 2. Click the **Execute** button to hit the endpoint.
@@ -70,8 +75,9 @@ Once authorised, you can start hitting endpoints. The easiest one to try is `/cp
 ## Deploying a CorDapp
 
 You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
+
 1. Click the `5-vNodeSetup` Gradle task:
-{{< figure src="vnodesetup.png" width="50%" figcaption="CSDE vNodeSetup task" alt="CSDE task to set up the vNodes in IntelliJ" >}}
+{{< figure src="vnodesetup.png" width="40%" figcaption="CSDE vNodeSetup task" alt="CSDE task to set up the vNodes in IntelliJ" >}}
    This task runs a series of Gradle tasks to:
    * Build the {{< tooltip >}}CPB{{< /tooltip >}}
    * Create the GroupPolicy (Application Network definition)
@@ -88,7 +94,8 @@ You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
 ### Starting Your First Flow
 
 To run your first flow:
-1. Find the `holdingidentityshorthash` for the virtual node you want to trigger the flow on. You can do this by running the `listVnodes` Gradle task to display a list of the configured virtual nodes:
+
+1. Find the `holdingidentityshorthash` for the {{< tooltip >}}virtual node{{< /tooltip >}} you want to trigger the flow on. You can do this by running the `listVnodes` Gradle task to display a list of the configured virtual nodes:
    {{< figure src="list-vnodes.png" width="100%" figcaption="Running the listVnodes gradle task" >}}
    The 12 digit hash is the `holdingidentityshorthash` that acts as the unique identifier for a virtual node.
 
@@ -107,6 +114,7 @@ requestBody code:
    }
 }
 ```
+
 * `ClientRequestId` is a unique identifier for the request to start a flow.
 * `flowClassName` is the fully qualified path to the flow class you want to run.
 * `requestBody` is the set of arguments you pass to the flow.
@@ -122,12 +130,13 @@ Because the API is asynchronous, at this stage you only receive the confirmation
 ### Checking the Flow Status
 
 To check the flow status:
+
 1. Expand the `GET /flow/{holdingidentityshorthash}/{clientrequestid}` endpoint in Swagger and click **Try it out**.
 2. Enter the hash and the `requestid` used when [starting the flow](#starting-your-first-flow) and click **Execute**.
 {{< figure src="get-flow-arguments.png" figcaption="Arguments for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}
    If the flow is successful, you will see the following response:
 {{< figure src="get-flow-completed.png" figcaption="Successful response for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}
-   You will learn more about the flowResult of "Hello Alice best wishes from Bob" in [Your first flow]({{< relref "../first-flow/_index.md" >}}). 
+   You will learn more about the flowResult of "Hello Alice best wishes from Bob" in [Your first flow]({{< relref "../first-flow/_index.md" >}}).
 
 {{< note >}}
 If you receive a response with a status of "RUNNING”, wait a short time and retry the status check.

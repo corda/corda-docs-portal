@@ -48,11 +48,11 @@ You can specify the `pass` value as a secret using the `configSecret` value, as 
 }
 ```
 
-You can use the Corda CLI <a href = "../../reference/corda-cli/secret-config.md">`secret-config` command</a> to generate the configuration for an encrypted value.
+You can use the {{< tooltip >}}Corda CLI{{< /tooltip >}} <a href = "../../reference/corda-cli/secret-config.md">`secret-config` command</a> to generate the configuration for an encrypted value.
 
 ## External Secrets Service {{< enterprise-icon >}}
 
-Corda Enterprise supports integration with [HashiCorp Vault](https://www.vaultproject.io/) as an external secret management system. This is the recommended deployment configuration. The URL at which the Vault instance is reachable, the Vault token, and the path to Corda created secrets must be specified in the [deployment configuration]({{< relref "../deployment/deploying/manual-bootstrapping.md#external-secrets-service" >}}).
+Corda Enterprise supports integration with [HashiCorp Vault](https://www.vaultproject.io/) as an external secret management system. This is the recommended deployment configuration. The URL at which the Vault instance is reachable, the Vault token, and the path to Corda created secrets must be specified in the [deployment configuration]({{< relref "../deployment/deploying/_index.md#external-secrets-service" >}}).
 
 For example, the following is a standard configuration:
 
@@ -83,4 +83,4 @@ You can use the Corda CLI <a href = "../../reference/corda-cli/secret-config.md"
 
 You can update a configuration value maintained in Vault in one of the following ways:
 * Change the value in Vault. Corda caches configuration values for a short period of time. For this reason, you must handle changes so that old values remain valid for a short period of time to avoid downtime. For example, when changing database credentials, create the new credential before revoking the old one to guarantee a smooth transition.
-* Add a new value in Vault, on a different path, and update the Corda configuration through the REST API. The relevant worker processes will pick up this new value asynchronously.
+* Add a new value in Vault, on a different path, and update the Corda configuration through the REST API. The relevant {{< tooltip >}}worker{{< /tooltip >}} processes will pick up this new value asynchronously.

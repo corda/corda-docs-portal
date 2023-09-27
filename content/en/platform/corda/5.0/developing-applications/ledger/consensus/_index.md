@@ -39,14 +39,14 @@ For example, if a participant proposes a transaction transferring a treasury bon
 
 Walking the chain for this transaction would look like this:
 
-{{< 
+{{<
   figure
 	 width="50%"
 	 src="validation-consensus.png"
 	 figcaption="Walking the Chain"
 >}}
 
-When verifying a proposed transaction, a virtual node may not have every transaction in the transaction chain that they need to verify. In this case, they can request the missing transactions from the transaction proposer. The transaction proposer always has the full transaction chain, because they must request it when verifying the transaction that created the proposed transaction’s input states.
+When verifying a proposed transaction, a {{< tooltip >}}virtual node{{< /tooltip >}} may not have every transaction in the transaction chain that they need to verify. In this case, they can request the missing transactions from the transaction proposer. The transaction proposer always has the full transaction chain, because they must request it when verifying the transaction that created the proposed transaction’s input states.
 
 ## Uniqueness Consensus
 
@@ -59,7 +59,7 @@ Imagine that Alice holds a valid central-bank-issued cash state of $1,000,000. A
 
 Both transactions will achieve validity consensus, yet Alice has managed to “double-spend” her USD to get double the amount of GBP and EUR:
 
-{{< 
+{{<
   figure
 	 width="50%"
 	 src="uniqueness-consensus.png"

@@ -13,7 +13,7 @@ section_menu: corda5
 
 # Onboarding Members
 
-This section describes how to onboard new members to a dynamic network. It assumes that you have configured the [MGM for the network]({{< relref "../mgm/_index.md" >}}). The sections must be completed in the order in which they are presented:
+This section describes how to onboard new {{< tooltip >}}members{{< /tooltip >}} to a dynamic network. It assumes that you have configured the [MGM for the network]({{< relref "../mgm/_index.md" >}}). The sections must be completed in the order in which they are presented:
 
 {{< childpages >}}
 

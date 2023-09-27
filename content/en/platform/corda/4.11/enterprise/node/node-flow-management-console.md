@@ -61,7 +61,7 @@ To access the flow management console, visit the Gateway service plug-in launche
 The flow management console has two tabs: the **Dashboard** tab and the **Query flows** tab. The **Dashboard** tab is selected by default, and is at `http://<gateway-service-ip>:<port>/flow-management/dashboard`.
 
 {{< warning >}}
-If a flow does **not** have a client ID attached to it, it will not be visible in the `COMPLETED`, `FAILED`, or `KILLED` states, but it will be visible in the `PAUSED`, `RUNNABLE`, and `HOSPITALIZED` states.
+If a flow does **not** have a client ID attached to it, it is not visible in the `COMPLETED`, `FAILED`, or `KILLED` states, but it is visible in the `PAUSED`, `RUNNABLE`, and `HOSPITALIZED` states.
 {{< /warning >}}
 
 ## Dashboard tab
