@@ -53,4 +53,4 @@ Tags:
 * `operation_name`: Operation name.
 * `ledger_type`: Ledger type.
 * `serialized_class`: The class being serialized.
-* : Flow class name.
+* `flow_class_name`: Flow class name.
