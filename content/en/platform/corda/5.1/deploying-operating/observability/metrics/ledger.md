@@ -44,8 +44,7 @@ table th:nth-of-type(4) {
 | `corda_ledger_persistence_time_seconds` | Timer | <ul><li>`ledger_type`</li><li>`operation_name`</li></ul> | The time taken from receiving an event in the ledger persistence processor to completing the event's processing. |
 | `corda_serialization_amqp_serialization_time_seconds` | Timer | <ul><li>`serialized_class`</li></ul> | The time taken to serialize an object. |
 | `corda_serialization_amqp_deserialization_time_seconds` | Timer | <ul><li>`serialized_class`</li></ul> | The time taken to deserialize an object. |
-| `corda_flow_run_time_seconds` | Timer | <ul><li>`flow_class`</li></ul> | The time taken to run a subflow to completion. This is the same metric as run time for top-level flows, rather than its own independent metric. |
-| `corda_ledger_backchain_resolution_chain_length` | Counter | None | The number of transaction’s resolved within a transaction’s backchain. |
+| `corda_ledger_backchain_resolution_chain_length` | Distribution Summary | None | The number of transaction’s resolved within a transaction’s backchain. |
 
 
 Tags:
@@ -53,4 +52,3 @@ Tags:
 * `operation_name`: Operation name.
 * `ledger_type`: Ledger type.
 * `serialized_class`: The class being serialized.
-* `flow_class`: Flow class name.
