@@ -12,11 +12,11 @@ section_menu: corda51
 
 # UTXO Ledger
 
-This document outlines the metrics that enable you to monitor the {{< tooltip >}}UTXO{{< /tooltip >}} ledger performance.
+This section outlines the metrics that enable you to monitor the {{< tooltip >}}UTXO{{< /tooltip >}} ledger performance.
 
 The UTXO ledger is built on Corda’s flow functionality with several specialised processors that execute various operations.
 Each of these processors is connected via the message bus to flows. Therefore, the most prominent performance improvements
-revolve around decreasing the number of times a flow suspends, reducing the time lost to the message bus.
+revolve around decreasing the number of times a flow suspends and reducing the time lost to the message bus.
 
 <style>
 table th:first-of-type {
@@ -44,7 +44,7 @@ table th:nth-of-type(4) {
 | `corda_ledger_persistence_time_seconds` | Timer | <ul><li>`ledger_type`</li><li>`operation_name`</li></ul> | The time taken from receiving an event in the ledger persistence processor to completing the event's processing. |
 | `corda_serialization_amqp_serialization_time_seconds` | Timer | <ul><li>`serialized_class`</li></ul> | The time taken to serialize an object. |
 | `corda_serialization_amqp_deserialization_time_seconds` | Timer | <ul><li>`serialized_class`</li></ul> | The time taken to deserialize an object. |
-| `corda_flow_run_time_seconds` | Timer | <ul><li>`flow_class_name`</li></ul> | The time taken to run a subflow to completion. This is the same metric as run time for top-level flows, rather than its own independent metric. |
+| `corda_flow_run_time_seconds` | Timer | <ul><li>`flow_class`</li></ul> | The time taken to run a subflow to completion. This is the same metric as run time for top-level flows, rather than its own independent metric. |
 | `corda_ledger_backchain_resolution_chain_length` | Counter | None | The number of transaction’s resolved within a transaction’s backchain. |
 
 
@@ -53,4 +53,4 @@ Tags:
 * `operation_name`: Operation name.
 * `ledger_type`: Ledger type.
 * `serialized_class`: The class being serialized.
-* `flow_class_name`: Flow class name.
+* `flow_class`: Flow class name.
