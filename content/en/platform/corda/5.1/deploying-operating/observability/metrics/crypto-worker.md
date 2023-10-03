@@ -6,7 +6,7 @@ menu:
   corda51:
     parent: corda51-cluster-metrics
     identifier: corda51-cluster-crypto-worker
-    weight: 12000
+    weight: 200
 section_menu: corda51
 ---
 

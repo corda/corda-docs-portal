@@ -6,7 +6,7 @@ menu:
   corda51:
     parent: corda51-cluster-metrics
     identifier: corda51-cluster-ledger
-    weight: 13000
+    weight: 900
 section_menu: corda51
 ---
 
@@ -44,7 +44,7 @@ table th:nth-of-type(4) {
 | `corda_ledger_persistence_time_seconds` | Timer | <ul><li>`ledger_type`</li><li>`operation_name`</li></ul> | The time taken from receiving an event in the ledger persistence processor to completing the event's processing. |
 | `corda_serialization_amqp_serialization_time_seconds` | Timer | <ul><li>`serialized_class`</li></ul> | The time taken to serialize an object. |
 | `corda_serialization_amqp_deserialization_time_seconds` | Timer | <ul><li>`serialized_class`</li></ul> | The time taken to deserialize an object. |
-| `corda_ledger_backchain_resolution_chain_length` | Distribution Summary | None | The number of transaction’s resolved within a transaction’s backchain. |
+| `corda_ledger_backchain_resolution_chain_length` | Distribution Summary | None | The number of transactions resolved within a transaction’s backchain. |
 
 
 Tags:
