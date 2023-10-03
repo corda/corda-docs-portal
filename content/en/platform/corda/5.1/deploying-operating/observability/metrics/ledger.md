@@ -40,7 +40,7 @@ table th:nth-of-type(4) {
 | `corda_ledger_verification_contract_total_time_seconds` | Timer | None | The time taken to execute contracts when verifying a transaction. |
 | `corda_ledger_verification_contract_time_seconds` | Timer | <ul><li>`ledger_contract_name`</li></ul> | The time taken to execute a contract’s contract code. |
 | `corda_ledger_verification_contract_count` | Counter | None | The number of executed contracts when verifying a transaction. |
-| `corda_ledger_flow_persistence_time_seconds` | Timer | <ul><li>`operation_name`</li></ul> | Then time taken from calling any ledger persistence operation within a flow until a response is returned to the calling code. |
+| `corda_ledger_flow_persistence_time_seconds` | Timer | <ul><li>`operation_name`</li></ul> | The time taken from calling any ledger persistence operation within a flow until a response is returned to the calling code. |
 | `corda_ledger_persistence_time_seconds` | Timer | <ul><li>`ledger_type`</li><li>`operation_name`</li></ul> | The time taken from receiving an event in the ledger persistence processor to completing the event's processing. |
 | `corda_serialization_amqp_serialization_time_seconds` | Timer | <ul><li>`serialized_class`</li></ul> | The time taken to serialize an object. |
 | `corda_serialization_amqp_deserialization_time_seconds` | Timer | <ul><li>`serialized_class`</li></ul> | The time taken to deserialize an object. |
