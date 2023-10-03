@@ -6,7 +6,7 @@ menu:
   corda51:
     parent: corda51-cluster-metrics
     identifier: corda51-cluster-flow
-    weight: 4000
+    weight: 400
 section_menu: corda51
 ---
 
