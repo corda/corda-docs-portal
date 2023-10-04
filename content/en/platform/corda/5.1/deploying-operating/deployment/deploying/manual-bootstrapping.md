@@ -237,14 +237,16 @@ Depending on your installation, follow the steps in one of the following section
    ```sh
    corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
      --name corda-rbac --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC' \
-     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+     --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> \
+     --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> `
      --name corda-rbac --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC `
-     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+     --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> `
+     --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -258,14 +260,16 @@ Depending on your installation, follow the steps in one of the following section
    ```sh
    corda-cli.sh initial-config create-db-config -u rbacuser -p rc9VLHU3 \
      --name corda-rbac --jdbc-url 'jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC' \
-     --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+     --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 \
+     --validation-timeout 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u rbacuser -p rc9VLHU3 `
       --name corda-rbac --jdbc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC `
-      --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+      --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 ` 
+      --validation-timeout 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
    {{< /tabs >}}
