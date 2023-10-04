@@ -21,9 +21,11 @@ The instructions on this page assume that you have completed the [registration](
 You can learn more about configuring the registration process in the [Managing Members section]({{< relref "../../managing/registration-requests/_index.md" >}}).
 
 This section contains the following:
-1. [Build Registration Context]({{< relref "#build-registration-context" >}})
-2. [Register the Member]({{< relref "#register-the-member" >}})
-3. [Confirm Registration]({{< relref "#confirm-registration" >}})
+1. [Inspect Member-Provided Context]({{< relref "#inspect-member-provided-context" >}})
+2. [Re-register a Member]({{< relref "#re-register-a-member" >}})
+3. [**Optional:** Include Serial Number in the Registration Context]({{< relref "#optional:-include-serial-number-in-the-registration-context" >}})
+4. [Request Queue]({{< relref "#request-queue" >}})
+5. [MGM Admin API]({{< relref "#mgm-admin-api" >}})
 
 ## Inspect Member-Provided Context
 
