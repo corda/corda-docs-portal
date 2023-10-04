@@ -16,7 +16,7 @@ In certain cases, a {{< tooltip >}}member{{< /tooltip >}} may request to update 
 after key rotation or changes to its endpoint information. Additionally, a member who previously attempted to register but
 failed may wish to try again. The membership re-registration steps described in this section can be followed for both of these scenarios.
 
-The instructions on this page assume that you have completed the [registration](register.md) steps.
+The instructions on this page assume that you have completed the [registration]({{< relref "register.md" >}}) steps.
 
 You can learn more about configuring the registration process in the [Managing Members section]({{< relref "../../managing/registration-requests/_index.md" >}}).
 
