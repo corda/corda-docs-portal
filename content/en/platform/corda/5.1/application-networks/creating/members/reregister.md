@@ -23,7 +23,7 @@ You can learn more about configuring the registration process in the [Managing M
 This section contains the following:
 1. [Inspect Member-Provided Context]({{< relref "#inspect-member-provided-context" >}})
 2. [Re-register a Member]({{< relref "#re-register-a-member-1" >}})
-3. [**Optional:** Include Serial Number in the Registration Context]({{< relref "#optional-include-serial-number-in-the-registration-context" >}})
+3. [Optional: Include Serial Number in the Registration Context]({{< relref "#optional-include-serial-number-in-the-registration-context" >}})
 4. [Request Queue]({{< relref "#request-queue" >}})
 5. [MGM Admin API]({{< relref "#mgm-admin-api" >}})
 
