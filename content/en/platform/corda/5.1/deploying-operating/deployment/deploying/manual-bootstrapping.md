@@ -371,7 +371,7 @@ Depending on your installation, follow the steps in one of the following section
    ```shell
    corda-cli.cmd initial-config create-db-config -u cryptouser -p TqoCp4v2 `
      --name corda-crypto --jdbc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO `
-     --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 ``
+     --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 `
      --validation-timeout 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
