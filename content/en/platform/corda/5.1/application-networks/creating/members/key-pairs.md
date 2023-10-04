@@ -154,7 +154,7 @@ If using mutual {{< tooltip >}}TLS{{< /tooltip >}}, you must add the certificate
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT  -F certificate=<certificate-folder>/certificate.pem -F alias=p2p-tls-cert $REST_API_URL/certificates/cluster/p2p-tls
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT  -F certificate=@<certificate-folder>/certificate.pem -F alias=p2p-tls-cert $REST_API_URL/certificates/cluster/p2p-tls
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
