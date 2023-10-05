@@ -16,7 +16,7 @@ As the Network Operator, you can use the MGM admin API to decline an in-progress
 some other unexpected behaviour.
 
 {{< note >}}
-You should use this endpoint under exceptional circumstances.
+Only use this endpoint under exceptional circumstances.
 {{< /note >}}
 
 {{< tabs >}}
