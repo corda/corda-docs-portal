@@ -214,6 +214,6 @@ $REGISTRATION_CONTEXT = @{
 If a member submits more than one registration request at the same time, the MGM queues the requests and processes them
 one by one, treating each subsequent request in the queue as a re-registration attempt.
 
-If a member submits multiple re-registration requests with the same serial number, the first request will be processed
+If a member submits multiple re-registration requests with the same serial number, the MGM processes the first request
 (if the serial number is valid). However, the other requests will be declined because the serial number specified in
 those requests would be outdated after the first request is completed.
