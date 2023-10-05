@@ -23,8 +23,6 @@ You can learn more about configuring the registration process in the [Managing M
 This section contains the following:
 1. [Inspect Member-Provided Context]({{< relref "#inspect-member-provided-context" >}})
 2. [Re-register a Member]({{< relref "#re-register-a-member-1" >}})
-3. [Optional: Include Serial Number in the Registration Context]({{< relref "#optional-include-serial-number-in-the-registration-context" >}})
-4. [Request Queue]({{< relref "#request-queue" >}})
 
 ## Inspect Member-Provided Context
 
@@ -133,35 +131,7 @@ $REGISTRATION_CONTEXT = @{
 {{% /tab %}}
 {{< /tabs >}}
 
-3. Send a re-registration request using the common registration/re-registration endpoint:
-
-{{< tabs >}}
-{{% tab name="Bash"%}}
-```bash
-export REGISTRATION_REQUEST='{"memberRegistrationRequest":{"context": '$REGISTRATION_CONTEXT'}}'
-curl --insecure -u admin:admin -d "$REGISTRATION_REQUEST" $API_URL/membership/$HOLDING_ID
-```
-{{% /tab %}}
-{{% tab name="PowerShell" %}}
-```shell
-$RESGISTER_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/membership/$HOLDING_ID" -Body (ConvertTo-Json -Depth 4 @{
-    memberRegistrationRequest = @{
-        context = $REGISTRATION_CONTEXT
-    }
-})
-$RESGISTER_RESPONSE.registrationStatus
-```
-{{% /tab %}}
-{{< /tabs >}}
-
-This sends the request to the MGM, which should return a successful response with status `SUBMITTED`. You can check if the
-request was approved by checking the status of the registration request.
-
-After successful re-registration, you should be able to see the member's information containing the `ext.sample` field in
-their member-provided context. The member retains its most recent status in the group, for example, a suspended member
-will remain suspended after successful re-registration.
-
-## Optional: Include Serial Number in the Registration Context
+3. Optional: Include serial number in the registration context.
 
 The `corda.serial` Corda platform property is embedded in the `MemberInfo` of all members. It acts as the `MemberInfo`'s version,
 and is incremented by 1 after each registration.
@@ -208,7 +178,29 @@ $REGISTRATION_CONTEXT = @{
 {{% /tab %}}
 {{< /tabs >}}
 
-## Request Queue
+4. Send a re-registration request using the common registration/re-registration endpoint:
+
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```bash
+export REGISTRATION_REQUEST='{"memberRegistrationRequest":{"context": '$REGISTRATION_CONTEXT'}}'
+curl --insecure -u admin:admin -d "$REGISTRATION_REQUEST" $API_URL/membership/$HOLDING_ID
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+$RESGISTER_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/membership/$HOLDING_ID" -Body (ConvertTo-Json -Depth 4 @{
+    memberRegistrationRequest = @{
+        context = $REGISTRATION_CONTEXT
+    }
+})
+$RESGISTER_RESPONSE.registrationStatus
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+This sends the request to the MGM, which should return a successful response with status `SUBMITTED`. You can check if the
+request was approved by checking the status of the registration request.
 
 If a member submits more than one registration request at the same time, the MGM queues the requests and processes them
 one by one, treating each subsequent request in the queue as a re-registration attempt.
@@ -216,3 +208,7 @@ one by one, treating each subsequent request in the queue as a re-registration a
 If a member submits multiple re-registration requests with the same serial number, the MGM processes the first request
 (if the serial number is valid). The MGM declines the other requests because the serial number specified in
 those requests is outdated after the first request is completed.
+
+After successful re-registration, you should be able to see the member's information containing the `ext.sample` field in
+their member-provided context. The member retains its most recent status in the group, for example, a suspended member
+will remain suspended after successful re-registration.
