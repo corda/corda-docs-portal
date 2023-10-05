@@ -31,7 +31,7 @@ This section contains the following:
 Currently, updates to the member-provided context are limited to custom properties (keys with the `ext.` prefix) and endpoint
 information only. Changes to other Corda platform properties are not currently supported.
 
-A member may inspect its current member-provided context either by performing a member lookup, or by looking up its latest
+You may inspect member's current member-provided context either by performing a member lookup, or by looking up its latest
 registration request. For example, to look up Alice:
 
 {{< tabs >}}
@@ -73,7 +73,7 @@ curl --insecure -u admin:admin -X GET $API_URL/keys/$HOLDING_ID
 
 ## Re-register a Member
 
-Consider a member who has previously registered successfully with the following member-provided context:
+1. Get a member-provided context of a member who has previously registered successfully, for example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -102,7 +102,7 @@ $REGISTRATION_CONTEXT = @{
 {{% /tab %}}
 {{< /tabs >}}
 
-The member now wishes to add a custom property to its member-provided context, and must re-register with the updated context:
+2. Add a custom property to the member-provided context. In this example, the updated context contains the new custom property with the `ext.` prefix:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -133,8 +133,7 @@ $REGISTRATION_CONTEXT = @{
 {{% /tab %}}
 {{< /tabs >}}
 
-The updated context contains the new custom property with the `ext.` prefix. The member sends a re-registration request
-using the common registration/re-registration endpoint:
+3. Send a re-registration request using the common registration/re-registration endpoint:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -162,7 +161,7 @@ After successful re-registration, you should be able to see the member's informa
 their member-provided context. The member retains its most recent status in the group, for example, a suspended member
 will remain suspended after successful re-registration.
 
-## **Optional:** Include Serial Number in the Registration Context
+## Optional: Include Serial Number in the Registration Context
 
 The `corda.serial` Corda platform property is embedded in the `MemberInfo` of all members. It acts as the `MemberInfo`'s version,
 and is incremented by 1 after each registration.
