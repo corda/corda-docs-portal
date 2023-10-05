@@ -74,7 +74,7 @@ Swagger also gives the curl command which you can use to run the request directl
 
   ```java
 curl -X 'POST' \
-  'https://localhost:8888/api/v1/flow/253501665E9D' \
+  'https://localhost:8888/api/v5_1/flow/253501665E9D' \
   -H 'accept: application/json' \
   -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
   -H 'Content-Type: application/json' \
@@ -109,7 +109,7 @@ For polling for the result of a flow, use the `GET: /flow/{holdingidentityshorth
 The curl version is:
   ```java
 curl -X 'GET' \
-  'https://localhost:8888/api/v1/flow/253501665E9D/create-1' \
+  'https://localhost:8888/api/v5_1/flow/253501665E9D/create-1' \
   -H 'accept: application/json' \
   -H 'Authorization: Basic YWRtaW46YWRtaW4='
   ```
