@@ -25,7 +25,6 @@ This section contains the following:
 2. [Re-register a Member]({{< relref "#re-register-a-member-1" >}})
 3. [Optional: Include Serial Number in the Registration Context]({{< relref "#optional-include-serial-number-in-the-registration-context" >}})
 4. [Request Queue]({{< relref "#request-queue" >}})
-5. [MGM Admin API]({{< relref "#mgm-admin-api" >}})
 
 ## Inspect Member-Provided Context
 
@@ -218,27 +217,3 @@ one by one, treating each subsequent request in the queue as a re-registration a
 If a member submits multiple re-registration requests with the same serial number, the first request will be processed
 (if the serial number is valid). However, the other requests will be declined because the serial number specified in
 those requests would be outdated after the first request is completed.
-
-## MGM Admin API
-
-The MGM can use the MGM Admin API to force decline an in-progress registration request that may be stuck or displaying
-some other unexpected behaviour.
-
-{{< note >}}
-This endpoint should only be used under exceptional circumstances.
-{{< /note >}}
-
-{{< tabs >}}
-{{% tab name="Bash"%}}
-```bash
-REQUEST_ID=<REQUEST ID>
-curl --insecure -u admin:admin -X POST $API_URL/mgmadmin/$MGM_HOLDING_ID/force-decline/$REQUEST_ID
-```
-{{% /tab %}}
-{{% tab name="PowerShell" %}}
-```shell
-$REQUEST_ID = <REQUEST ID>
-Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/mgmadmin/$MGM_HOLDING_ID/force-decline/$REQUEST_ID" -Method POST
-```
-{{% /tab %}}
-{{< /tabs >}}
