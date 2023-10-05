@@ -47,6 +47,8 @@ The following is an example properties file for a Kafka cluster using {{< toolti
 3. Use the {{< tooltip >}}Corda CLI{{< /tooltip >}} to assist in the creation of the topics prior to Corda installation in one of two ways:
     * [Topic Creation by Direct Connection](#topic-creation-by-direct-connection)
     * [Topic Creation by Scripting](#topic-creation-by-scripting)
+   
+   For information about the Corda CLI `topic` arguments, see the [Corda CLI reference]({{< relref"../../../reference/corda-cli/topic.md">}}).
 
 ### Topic Creation by Direct Connection
 
@@ -171,10 +173,12 @@ corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
 
 You can then execute the `create` script to create the topics.
 
+## Database
+
 By default, a Corda installation automatically creates and populates the database schema it requires. 
 
 {{< note >}}
-If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database, as described in this section.
+If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database, as described in this section. {{< enterprise-icon>}}
 {{< /note >}}
 
 To create the schema manually, set the following override in the deployment configuration to disable the automatic creation:
@@ -219,6 +223,8 @@ Create and populate the database schema, as follows:
    {{% /tab %}}
    {{< /tabs >}}
 
+   For information about the Corda CLI `database` arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/database.md">}}).
+
 2. Review the DML files generated and then execute against the database.
 
 ### Populate the RBAC Database Connection Configuration
@@ -253,7 +259,7 @@ Depending on your installation, follow the steps in one of the following section
 
    The `<SALT>` and `<PASSPHRASE>` are used to encrypt the credentials in the database. These must match the values specified in the [Corda deployment configuration]({{< relref "./_index.md#encryption" >}}).
 
-   For example:
+   For information about the Corda CLI `initial-config` arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config" >}}). For example:
 
    {{< tabs name="RBAC-example">}}
    {{% tab name="Bash" %}}
@@ -301,7 +307,7 @@ Depending on your installation, follow the steps in one of the following section
 
    The Vault parameters are used to retrieve encrypted values from the external secrets service. These must match the values specified in the [Corda deployment configuration]({{< relref "./_index.md#encryption" >}}).
 
-   For example:
+   For information about the Corda CLI `initial-config` arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config" >}}). For example:
 
    {{< tabs name="RBAC-example-ent">}}
    {{% tab name="Bash" %}}
@@ -356,7 +362,7 @@ Depending on your installation, follow the steps in one of the following section
 
    The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the [Corda deployment configuration]({{< relref "./_index.md#encryption" >}}).
 
-   For example:
+   For information about the Corda CLI `initial-config` arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config" >}}). For example::
 
    {{< tabs name="DDL-crypto-example">}}
    {{% tab name="Bash" %}}
@@ -404,7 +410,7 @@ Depending on your installation, follow the steps in one of the following section
 
    The Vault parameters are used to retrieve encrypted values from the external secrets service. These must match the values specified in the [Corda deployment configuration]({{< relref "./_index.md#encryption" >}}).
 
-   For example:
+   For information about the Corda CLI `initial-config` arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config" >}}). For example:
 
    {{< tabs name="DDL-crypto-example-ent">}}
    {{% tab name="Bash" %}}
@@ -460,7 +466,7 @@ Depending on your installation, follow the steps in one of the following section
    {{< /tabs >}}
 
    {{< note >}}
-   There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
+   There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML. For more information about the Corda CLI `initial-config` arguments, see the ({{< relref "../../../reference/corda-cli/initial-config.md">}}). For example:
    {{< /note >}}
 
 2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
@@ -491,7 +497,7 @@ Depending on your installation, follow the steps in one of the following section
    {{< /tabs >}}
 
    {{< note >}}
-   There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration, not DML.
+   There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration, not DML. For more information about the Corda CLI `initial-config` arguments, see the ({{< relref "../../../reference/corda-cli/initial-config.md" >}}). For example:
    {{< /note >}}
 
    For example:
