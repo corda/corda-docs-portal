@@ -12,7 +12,7 @@ section_menu: corda51
 ---
 
 # Create a Virtual Node for the Member
-You can create a virtual node using the POST method of the [/api/v1/virtualnode endpoint](../../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/post_virtualnode). The following sections describe how to use this method:
+You can create a virtual node using the POST method of the [/api/v5_1/virtualnode endpoint](../../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/post_virtualnode). The following sections describe how to use this method:
 * [Create a Virtual Node on Linux or macOS](#create-a-virtual-node-on-linux-or-macos)
 * [Create a Virtual Node on Windows](#create-a-virtual-node-on-windows)
 
