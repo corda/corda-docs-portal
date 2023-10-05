@@ -12,7 +12,7 @@ section_menu: corda51
 
 # Re-register a Member
 
-In certain cases, a {{< tooltip >}}member{{< /tooltip >}} may request to update its own member-provided context, for example,
+A {{< tooltip >}}member{{< /tooltip >}} may request to update its own member-provided context, for example,
 after key rotation or changes to its endpoint information. Additionally, a member who previously attempted to register but
 failed may wish to try again. The membership re-registration steps described in this section can be followed for both of these scenarios.
 
