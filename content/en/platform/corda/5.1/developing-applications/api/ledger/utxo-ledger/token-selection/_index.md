@@ -20,7 +20,7 @@ The Token Selection API enables a {{< tooltip >}}flow{{< /tooltip >}} to exclusi
 
 ### Tokens
 
-The API defines a generic {{< tooltip >}}token{{< /tooltip >}} that is used to represent a state. The purpose of the token is to allow a consistent model for querying user-defined states. Attributes of the token are partly derived by the platform and partly derived by the {{< tooltip >}}CorDapp{{< /tooltip >}} using an implementation of `UtxoLedgerTokenStateObserver` for the given state. The following table describes these attributes:
+The API defines a generic {{< tooltip >}}token{{< /tooltip >}} that is used to represent a state. The purpose of the token is to allow a consistent model for querying user-defined states. Attributes of the token are partly derived by the platform and partly derived by the {{< tooltip >}}CorDapp{{< /tooltip >}} using an implementation of `UtxoTokenTransactionStateObserver` or `UtxoLedgerTokenStateObserver` (now deprecated) for the given state. The following table describes these attributes:
 | <div style="width:100px">Attribute    </div>    | <div style="width:100px">Type       </div>      | <div style="width:100px">Provided By </div>| Description                                                                                                                                                                             |
 | ---------------- | ---------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | StateRef         | StateRef         | Platform    | The reference to the state linked to this token.                                                                                                                                        |
@@ -43,7 +43,7 @@ Tokens are grouped into pools using the following fields as the key:
 The API allows a flow to claim tokens from a single pool of tokens for a given query. It is not possible to select tokens from multiple pools in a single query.
 
 ### Token Observers
-A token observer converts a custom state into a token when a transaction is finalized and persisted in the vault. The CorDapp Developer implements the `UtxoLedgerTokenStateObserver` interface for a state type that is required for selection. The platform uses these observers to generate a token for each produced state when persisting a finalized transaction to the vault.
+A token observer converts a custom state into a token when a transaction is finalized and persisted in the vault. The CorDapp Developer implements the `UtxoTokenTransactionStateObserver` or the `UtxoLedgerTokenStateObserver` (now deprecated) interfaces for a state type that is required for selection. The platform uses these observers to generate a token for each produced state when persisting a finalized transaction to the vault.
 
 ### Claim Query
 When a flow needs to select fungible states to spend, it can execute a claim query using the `TokenSelection` API. The API supports a single method `tryClaim` that takes a `TokenClaimCriteria` describing the target amount required and the type of tokens required.
