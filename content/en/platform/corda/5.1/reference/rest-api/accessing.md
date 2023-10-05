@@ -25,10 +25,10 @@ To access and invoke the REST API:
    kubectl get secret -n <NAMESPACE> corda-rest-api-admin -o go-template="{{ .data.password | base64decode }}"
    ```
 
-4. The REST API is at the path `/api/v1`. The following is an example invocation using `curl` when the API endpoint is exposed via port forwarding:
+4. The REST API is at the path `/api/v5_1`. The following is an example invocation using `curl` when the API endpoint is exposed via port forwarding:
 
    ```sh
-   REST_API_URL=https://localhost:8888/api/v1
+   REST_API_URL=https://localhost:8888/api/v5_1
    REST_API_USER=admin
    REST_API_PASSWORD=$(kubectl get secret -n <NAMESPACE> corda-rest-api-admin -o go-template="{{ .data.password | base64decode }}")
    curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/hello
@@ -38,6 +38,6 @@ To access and invoke the REST API:
    The REST API is protected by a self-signed certificate.
    {{< /note >}}
 
-You can access the Swagger documentation for the REST API at the path `/api/v1/swagger`. For example, when using port forwarding, the documentation is available at `<REST_API_URL>/swagger`.
+You can access the Swagger documentation for the REST API at the path `/api/v5_1/swagger`. For example, when using port forwarding, the documentation is available at `<REST_API_URL>/swagger`.
 
 You can also view the REST API documentation [here](./openapi.html).

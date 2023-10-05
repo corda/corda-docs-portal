@@ -52,12 +52,12 @@ Set the values of variables for use in later commands:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export REST_API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v1"
+   export REST_API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v5_1"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $REST_API_URL = "https://${REST_API_HOST}:${REST_API_PORT}/api/v1"
+   $REST_API_URL = "https://${REST_API_HOST}:${REST_API_PORT}/api/v5_1"
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -105,7 +105,7 @@ To join a group, members must use a {{< tooltip >}}group policy{{< /tooltip >}} 
    ```shell
    export MGM_REST_HOST=localhost
    export MGM_REST_PORT=8888
-   export MGM_REST_URL="https://$MGM_REST_HOST:$MGM_REST_PORT/api/v1"
+   export MGM_REST_URL="https://$MGM_REST_HOST:$MGM_REST_PORT/api/v5_1"
    export MGM_HOLDING_ID=<MGM-holding-ID>
    ```
    {{% /tab %}}
@@ -113,7 +113,7 @@ To join a group, members must use a {{< tooltip >}}group policy{{< /tooltip >}} 
    ```shell
    $MGM_REST_HOST = "localhost"
    $MGM_REST_PORT = "8888"
-   $MGM_REST_URL = "https://$MGM_REST_HOST:$MGM_REST_PORT/api/v1"
+   $MGM_REST_URL = "https://$MGM_REST_HOST:$MGM_REST_PORT/api/v5_1"
    $MGM_HOLDING_ID = <MGM-holding-ID>
    Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$MGM_REST_URL/mgm/$MGM_HOLDING_ID/info" | ConvertTo-Json -Depth 4 > $WORK_DIR/GroupPolicy.json
    ```
