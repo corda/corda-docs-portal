@@ -71,7 +71,7 @@ curl --insecure -u admin:admin -X GET $API_URL/keys/$HOLDING_ID
 
 ## Re-register a Member
 
-1. Get a member-provided context of a member who has previously registered successfully, for example:
+1. Retrieve a member-provided context of a member who has previously registered successfully, for example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
