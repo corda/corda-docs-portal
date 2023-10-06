@@ -31,7 +31,7 @@ You can learn more about configuring the registration process in the [Managing M
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```bash
-   curl --insecure -u admin:admin -X GET $API_URL/members/$HOLDING_ID?O=Alice
+   curl -k -u admin:admin -X GET $API_URL/members/$HOLDING_ID?O=Alice
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
@@ -47,7 +47,7 @@ You can learn more about configuring the registration process in the [Managing M
    {{% tab name="Bash"%}}
    ```bash
    export REGISTRATION_ID=<registration ID>
-   curl --insecure -u admin:admin -X GET $API_URL/membership/$HOLDING_ID/$REGISTRATION_ID
+   curl -k -u admin:admin -X GET $API_URL/membership/$HOLDING_ID/$REGISTRATION_ID
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
@@ -62,7 +62,7 @@ You can learn more about configuring the registration process in the [Managing M
    holding identity, use:
 
    ```bash
-   curl --insecure -u admin:admin -X GET $API_URL/keys/$HOLDING_ID
+   curl -k -u admin:admin -X GET $API_URL/keys/$HOLDING_ID
    ```
 
    The following is an example of a member-provided context for a member who has previously registered successfully:
@@ -185,7 +185,7 @@ You can learn more about configuring the registration process in the [Managing M
    {{% tab name="Bash"%}}
    ```bash
    export REGISTRATION_REQUEST='{"memberRegistrationRequest":{"context": '$REGISTRATION_CONTEXT'}}'
-   curl --insecure -u admin:admin -d "$REGISTRATION_REQUEST" $API_URL/membership/$HOLDING_ID
+   curl -k -u admin:admin -d "$REGISTRATION_REQUEST" $API_URL/membership/$HOLDING_ID
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
