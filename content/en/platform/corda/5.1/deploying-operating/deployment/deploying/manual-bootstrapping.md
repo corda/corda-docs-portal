@@ -280,7 +280,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% /tab %}}
    {{< /tabs >}}
 
-   For information about the Corda CLI `initial-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config" >}}).
+   For information about the Corda CLI `create-db-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config" >}}).
 
 2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
@@ -366,7 +366,7 @@ Depending on your installation, follow the steps in one of the following section
 
    The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the [Corda deployment configuration]({{< relref "./_index.md#encryption" >}}).
 
-   For example::
+   For example:
 
    {{< tabs name="DDL-crypto-example">}}
    {{% tab name="Bash" %}}
@@ -474,7 +474,9 @@ Depending on your installation, follow the steps in one of the following section
    {{< /tabs >}}
 
    {{< note >}}
-   There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML. For more information about the Corda CLI `create-db-config` command's arguments, see the ({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config">}}). For example:
+   There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
+   
+   For more information about the Corda CLI `create-db-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config">}}).
    {{< /note >}}
 
 2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
@@ -505,7 +507,9 @@ Depending on your installation, follow the steps in one of the following section
    {{< /tabs >}}
 
    {{< note >}}
-   There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration, not DML. For more information about the Corda CLI `create-db-config` command's arguments, see the ({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config" >}}). For example:
+   There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration, not DML. 
+
+   For more information about the Corda CLI `create-db-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config">}}).
    {{< /note >}}
 
    For example:
@@ -548,6 +552,8 @@ Depending on your installation, follow the steps in one of the following section
    ```
    {{% /tab %}}
    {{< /tabs >}}
+
+   For more information about the Corda CLI `create-user-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-user-config">}}).
 
 2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `RBAC` schema.
 
@@ -597,7 +603,7 @@ Depending on your installation, follow the steps in one of the following section
    {{< /tab >}}
    {{< /tabs >}}
 
-   The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
+   The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration. For more information about the Corda CLI `create-crypto-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-crypto-config">}}).
 
 2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
@@ -618,7 +624,7 @@ Depending on your installation, follow the steps in one of the following section
    {{< /tab >}}
    {{< /tabs >}}
 
-    `salt` and `passphrase` are the names of Vault keys and should be entered as shown: they are not to be substituted for any actual salt or passphrase.
+   `salt` and `passphrase` are the names of Vault keys and should be entered as shown: they are not to be substituted for any actual salt or passphrase. For more information about the Corda CLI `create-crypto-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-crypto-config">}}).
 
 2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
