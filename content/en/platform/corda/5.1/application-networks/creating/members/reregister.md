@@ -25,7 +25,7 @@ You can learn more about configuring the registration process in the [Managing M
    Currently, updates to the member-provided context are limited to custom properties (keys with the `ext.` prefix) and endpoint
    information only. Changes to other Corda platform properties are not currently supported.
 
-   You may inspect member's current member-provided context either by performing a member lookup, or by looking up its latest
+   You can inspect a member's current member-provided context either by performing a member lookup, or by looking up its latest
    registration request. For example, to look up Alice:
 
    {{< tabs >}}
