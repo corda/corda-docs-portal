@@ -29,12 +29,12 @@ You can put an operational virtual node into maintenance mode, or return a node 
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT $REST_API_URL/api/v1/virtualnode/<virtualnodeshortid>/state/<newstate>
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT $REST_API_URL/api/v5_1/virtualnode/<virtualnodeshortid>/state/<newstate>
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $REST_API_USER:$REST_API_PASSWORD)} -Method PUT -Uri $REST_API_URL/api/v1virtualnode/<virtualnodeshortid>/state/<newstate>
+Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $REST_API_USER:$REST_API_PASSWORD)} -Method PUT -Uri $REST_API_URL/api/v5_1virtualnode/<virtualnodeshortid>/state/<newstate>
 ```
 {{% /tab %}}
 {{< /tabs >}}
