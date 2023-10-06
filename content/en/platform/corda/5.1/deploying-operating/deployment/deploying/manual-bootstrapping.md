@@ -48,9 +48,7 @@ The following is an example properties file for a Kafka cluster using {{< toolti
     * [Topic Creation by Direct Connection](#topic-creation-by-direct-connection)
     * [Topic Creation by Scripting](#topic-creation-by-scripting)
    
-   For information about the Corda CLI `topic` command's arguments, see the [Corda CLI reference]({{< relref"../../../reference/corda-cli/topic.md">}}).
-
-### Topic Creation by Direct Connection
+   ### Topic Creation by Direct Connection
 
 In the first option, the Corda CLI connects directly to the Kafka broker to create the topics.
 The Corda CLI command to create the topics looks as follows:
@@ -108,6 +106,7 @@ corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
 {{% /tab %}}
 {{< /tabs >}}
 
+For information about the Corda CLI `topic` command's arguments, see the [Corda CLI reference]({{< relref"../../../reference/corda-cli/topic.md">}}).
 ### Topic Creation by Scripting
 
 Alternatively, the Corda CLI can generate a script which you should review before executing against the broker.
@@ -172,6 +171,8 @@ corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
 {{< /tabs >}}
 
 You can then execute the `create` script to create the topics.
+
+For information about the Corda CLI `topic` command's arguments, see the [Corda CLI reference]({{< relref"../../../reference/corda-cli/topic.md">}}).
 
 ## Database
 
