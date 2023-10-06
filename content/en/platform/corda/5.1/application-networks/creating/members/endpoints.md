@@ -6,13 +6,14 @@ version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-networks-member-endpoints
-    parent: corda51-networks-manage
-    weight: 3000
+    parent: corda51-networks-members
+    weight: 5500
 section_menu: corda51
 ---
+
 # Member Endpoints
 
-If a member needs to make changes to their endpoint information (for example, changing the URL of the endpoint or adding a new endpoint), the member must re-register with the updated endpoint information. To minimize communication disruption, the member should also configure the P2P Gateway with both the old and new information, before re-registering, and then remove the old information, as follows:
+If a member needs to make changes to their endpoint information (for example, changing the URL of the endpoint or adding a new endpoint), the member must [re-register]({{< relref "reregister.md" >}}) with the updated endpoint information. To minimize communication disruption, the member should also configure the P2P Gateway with both the old and new information, before re-registering, and then remove the old information, as follows:
 
 1. Ensure that the cluster can accept connections on the new endpoint.
    In a production environment that exposes the Corda P2P Gateway service via a load balancer, this may require updating the load balancer configuration with the new endpoint.
@@ -60,7 +61,7 @@ If a member needs to make changes to their endpoint information (for example, ch
    "corda.endpoints.0.connectionURL": "https://'$P2P_GATEWAY_HOST':8081",
    "corda.endpoints.0.protocolVersion": "1"
    }'
-   ``` 
+   ```
 4. Remove the old endpoint from the cluster's P2P Gateway configuration to make it unavailable for Corda services. For example:
    {{< tabs >}}
    {{% tab name="Bash"%}}
