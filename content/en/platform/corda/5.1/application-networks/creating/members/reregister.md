@@ -131,7 +131,7 @@ You can learn more about configuring the registration process in the [Managing M
    and is incremented by 1 after each registration.
 
    This serial number may be optionally included in the registration context to specify which version of the `MemberInfo` was
-   intended to be updated. If no serial number is provided while re-registering, the platform will use the member's latest
+   intended to be updated. If no serial number is provided while re-registering, the platform uses the member's latest
    serial number by default. Only the latest `MemberInfo` version may be updated - requests with an older serial number are declined.
    It is recommended to provide the serial number to avoid unintentional updates, in case you have an outdated version of the `MemberInfo`.
 
