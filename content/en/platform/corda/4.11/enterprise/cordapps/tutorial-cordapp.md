@@ -470,7 +470,6 @@ Each node in the `nodes` folder is structured as follows:
 │   ├── config
 │   ├── corda-example-contracts-0.1.jar
 │   └── corda-example-workflows-0.1.jar
-├── djvm
 ├── drivers
 ├── logs
 ├── network-parameters
