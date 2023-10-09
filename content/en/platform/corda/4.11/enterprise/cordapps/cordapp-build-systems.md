@@ -115,8 +115,6 @@ using `Cordformation`.
 * `corda-confidential-identities` - A part of the core Corda libraries. Automatically pulled in by other libraries.
 * `corda-core` (*) - Usually automatically included by another dependency. Contains core Corda utilities, model, and
 functionality. Include manually if the utilities are useful or you are writing a library for Corda.
-* `corda-core-deterministic` (*) - Used by the Corda node for deterministic contracts. Not likely to be used externally.
-* `corda-djvm` (*) - Used by the Corda node for deterministic contracts. Not likely to be used externally.
 * `corda-finance-contracts` (*), `corda-finance-workflows` and deprecated `corda-finance`. Corda finance CorDapp, use contracts and flows parts respectively. Only include as a `cordaCompile` dependency if using as a dependent Cordapp or if you need access to the Corda finance types. Use as a `cordapp` dependency if using as a CorDapp dependency (see below).
 * `corda-jackson` - Corda Jackson support. Use if you plan to serialise Corda objects to and/or from JSON.
 * `corda-jfx` - JavaFX utilities with some Corda-specific models and utilities. Only use with JavaFX apps.
@@ -128,8 +126,6 @@ configuration here - however, this is not best practice).
 * `corda-node-driver` - Testing utility for programmatically starting nodes from JVM languages. Use for tests
 * `corda-rpc` - The Corda RPC client library. Used when writing an RPC client.
 * `corda-serialization` (*) - The Corda core serialization library. Automatically included by other dependencies
-* `corda-serialization-deterministic` (*) - The Corda core serialization library. Automatically included by other
-dependencies
 * `corda-shell` - Used by the Corda node. Never depend on this directly.
 * `corda-test-common` - A common test library. Automatically included by other test libraries.
 * `corda-test-utils` - Used when writing tests against Corda/Cordapps.
