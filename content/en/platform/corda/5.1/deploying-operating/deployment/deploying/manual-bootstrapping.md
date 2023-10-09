@@ -48,7 +48,7 @@ The following is an example properties file for a Kafka cluster using {{< toolti
     * [Topic Creation by Direct Connection](#topic-creation-by-direct-connection)
     * [Topic Creation by Scripting](#topic-creation-by-scripting)
    
-   ### Topic Creation by Direct Connection
+### Topic Creation by Direct Connection
 
 In the first option, the Corda CLI connects directly to the Kafka broker to create the topics.
 The Corda CLI command to create the topics looks as follows:
