@@ -592,9 +592,7 @@ By default, a post-install job creates three default [RBAC roles]({{< relref "..
 To create the roles manually, perform the steps described in this section.
 
 {{< note >}}
-
 You can create RBAC roles manually only after the Corda cluster setup has been completed as an RBAC role requires the REST API URL as a parameter. That value should be a URL where the API is [accessible]({{< relref "../../../reference/rest-api/accessing.md" >}}), either via a load balancer or by forwarding port 8888 from one of the REST worker pods.
-
 {{</ note >}}
 
 1. Set the following override in the deployment configuration to disable the automatic creation:
@@ -605,27 +603,19 @@ You can create RBAC roles manually only after the Corda cluster setup has been c
        enabled: false
    ```
 
-2. Execute the following three commands:
+2. Execute the following command:
 
    {{< tabs name="rbac">}}
    {{% tab name="Bash" %}}
    ```sh
-   corda-cli.sh initial-rbac user-admin --yield 300 --user <INITIAL-ADMIN-USERNAME> \
-     --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
-   corda-cli.sh initial-rbac vnode-creator --yield 300 --user <INITIAL-ADMIN-USERNAME> \
-     --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
-   corda-cli.sh initial-rbac corda-developer --yield 300 --user <INITIAL-ADMIN-USERNAME> \
-     --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
+   corda-cli.sh initial-rbac all-cluster-roles --yield 300 --user <INITIAL-ADMIN-USERNAME> --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   corda-cli.cmd initial-rbac user-admin --yield 300 --user <INITIAL-ADMIN-USERNAME> `
-     --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
-   corda-cli.cmd initial-rbac vnode-creator --yield 300 --user <INITIAL-ADMIN-USERNAME> `
-     --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
-   corda-cli.cmd initial-rbac corda-developer --yield 300 --user <INITIAL-ADMIN-USERNAME> `
-     --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
+   corda-cli.cmd initial-rbac all-cluster-roles --yield 300 --user <INITIAL-ADMIN-USERNAME> --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
    ```
    {{% /tab %}}
    {{< /tabs >}}
+
+   For information about the Corda CLI `initial-rbac` command's arguments, see the [Corda CLI reference]({{< relref"../../../reference/corda-cli/initial-rbac.md">}}).
