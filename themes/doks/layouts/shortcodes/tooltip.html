@@ -49,7 +49,7 @@
 {{ $versionfolder := "corda/5.0" }}
 {{ $version := string (.Page.Params.version) }}
 {{ with $version }}
-    {{ $versionfolder := replace (lower ($version)) " " "/" }}
+    {{ $versionfolder = replace (lower ($version)) " " "/" }}
 {{ end }}
 
 {{ $termlink := printf "%s" $searchtermkebab | printf "%s%s" "/reference/glossary.html#"  | printf "%s%s" $versionfolder | printf "%s%s" "en/platform/" | printf "%s%s" .Site.BaseURL | safeURL }}
