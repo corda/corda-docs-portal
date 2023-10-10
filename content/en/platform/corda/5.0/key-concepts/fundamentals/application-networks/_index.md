@@ -23,8 +23,6 @@ The severity and extent of that attestation are, as previously mentioned, left t
 
 The following diagram shows the application network architecture:
 
-The following diagram shows the application network architecture:
-
 {{< 
   figure
 	 src="application-network.png"
