@@ -19,6 +19,12 @@ The `confidentialIdentityMinimumBackupInterval` network parameter is an optional
 
 This parameter is optional in both the network parameters and the node configuration. If no value is specified for either, then it is assumed to be zero.
 
+For example:
+
+```
+confidentialIdentityMinimumBackupInterval = 10m
+```
+
 ## `confidentialIdentityPreGenerationPeriod`
 
 When a key is requested for a Confidential Identity, we only hand out previously backed-up keys. This configuration value is used to calculate the cut-off time after which we assume keys have not been backed up. Therefore, the cut-off time is calculated as *current time - confidentialIdentityPreGenerationPeriod*.
@@ -66,6 +72,12 @@ This value can be overridden by specifying an override in the flow. It can also 
 
 The parameter is optional in both the network parameters and the node configuration. However, if no values are set then it needs to be specified in the flow.
 
+For example:
+
+```
+recoveryMaximumBackupInterval = 10m
+```
+
 ## `packageOwnership`
 
 The list of the network-wide Java packages that were successfully claimed by their owners.
@@ -78,6 +90,12 @@ Read more about package ownership in the [Package namespace ownership]({{< relre
 ## `transactionRecoveryPeriod`
 
 When performing [Ledger Recovery](ledger-recovery.md), this value specifies how far back in days transactions are recovered. The assumption is that any transactions prior to this time have already been backed up.
+
+For example:
+
+```
+tranasctionRecoveryPeriod = 10m
+```
 
 ## `whitelistedContractImplementations`
 
