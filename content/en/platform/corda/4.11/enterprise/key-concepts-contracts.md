@@ -73,8 +73,6 @@ See [Reissuing states]({{< relref "cordapps/reissuing-states.md" >}}) for inform
 
 For the nodes on a network to reach consensus about a proposed update to the [ledger]({{< relref "key-concepts-ledger.md" >}}), transaction verification must be *deterministic*. That means contracts must **always accept** or **always reject** a given transaction. For example, a transaction's validity cannot depend on the time it was validated, or the amount of information the node running the contract holds.
 
-Developers can pre-verify that their CorDapps are deterministic by linking them to [deterministic modules]({{< relref "deterministic-modules.md" >}})).
-
 ## Contract limitations
 
 By design, contracts don't have access to information from the outside world (unless they use an [oracle]({{< relref "key-concepts-oracles.md" >}}). They can only check transactions for internal validity. For example, a contract wouldn't know that the transaction is in accordance with what the parties involved originally agreed.

@@ -338,7 +338,7 @@ To `exec` into the running pod execute command `kubectl exec -it <pod_name> -- /
 $ kubectl exec -it corda-bank-deployment-6cd6bbffd6-tlg4q   -- /bin/bash
 corda@corda-bank-deployment-6cd6bbffd6-tlg4q:~$ ls
 additional-node-infos  bin	certificates	     cordapps  drivers	network-parameters							   persistence	      persistence.trace.db  shell-commands  starting-node.conf
-artemis		       brokers	config-exporter.jar  djvm      logs	nodeInfo-5D9023BC20666D632B1382B53A3AFF7874B1F14870BC841BFB2C70397665D126  persistence.mv.db  process-id	    ssh		    workspace
+artemis		       brokers	config-exporter.jar  logs	nodeInfo-5D9023BC20666D632B1382B53A3AFF7874B1F14870BC841BFB2C70397665D126  persistence.mv.db  process-id	    ssh		    workspace
 corda@corda-bank-deployment-6cd6bbffd6-tlg4q:~$
 ```
 Once in the container, you can explore the contents of the running node file system, access log files, and evaluate environment variables.
