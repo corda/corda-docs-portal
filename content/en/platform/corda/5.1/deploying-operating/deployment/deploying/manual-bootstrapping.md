@@ -47,7 +47,7 @@ The following is an example properties file for a Kafka cluster using {{< toolti
 3. Use the {{< tooltip >}}Corda CLI{{< /tooltip >}} to assist in the creation of the topics prior to Corda installation in one of two ways:
     * [Topic Creation by Direct Connection](#topic-creation-by-direct-connection)
     * [Topic Creation by Scripting](#topic-creation-by-scripting)
-
+   
 ### Topic Creation by Direct Connection
 
 In the first option, the Corda CLI connects directly to the Kafka broker to create the topics.
@@ -106,6 +106,7 @@ corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
 {{% /tab %}}
 {{< /tabs >}}
 
+For information about the Corda CLI `topic` command's arguments, see the [Corda CLI reference]({{< relref"../../../reference/corda-cli/topic.md">}}).
 ### Topic Creation by Scripting
 
 Alternatively, the Corda CLI can generate a script which you should review before executing against the broker.
@@ -171,10 +172,14 @@ corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
 
 You can then execute the `create` script to create the topics.
 
+For information about the Corda CLI `topic` command's arguments, see the [Corda CLI reference]({{< relref"../../../reference/corda-cli/topic.md">}}).
+
+## Database
+
 By default, a Corda installation automatically creates and populates the database schema it requires. 
 
 {{< note >}}
-If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database, as described in this section.
+If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database, as described in this section. {{< enterprise-icon>}}
 {{< /note >}}
 
 To create the schema manually, set the following override in the deployment configuration to disable the automatic creation:
@@ -219,6 +224,8 @@ Create and populate the database schema, as follows:
    {{% /tab %}}
    {{< /tabs >}}
 
+   For information about the Corda CLI `database` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/database.md">}}).
+
 2. Review the DML files generated and then execute against the database.
 
 ### Populate the RBAC Database Connection Configuration
@@ -237,14 +244,16 @@ Depending on your installation, follow the steps in one of the following section
    ```sh
    corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
      --name corda-rbac --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC' \
-     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+     --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> \
+     --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> `
      --name corda-rbac --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC `
-     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+     --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> `
+     --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -258,17 +267,21 @@ Depending on your installation, follow the steps in one of the following section
    ```sh
    corda-cli.sh initial-config create-db-config -u rbacuser -p rc9VLHU3 \
      --name corda-rbac --jdbc-url 'jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC' \
-     --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+     --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 \
+     --validation-timeout 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u rbacuser -p rc9VLHU3 `
       --name corda-rbac --jdbc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC `
-      --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+      --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 ` 
+      --validation-timeout 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
    {{< /tabs >}}
+
+   For information about the Corda CLI `create-db-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config" >}}).
 
 2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
@@ -281,14 +294,16 @@ Depending on your installation, follow the steps in one of the following section
    ```sh
    corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> \
       --name corda-rbac --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC' \
-      --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key rbac -l /tmp/db
+      --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> \
+     --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> -t VAULT --vault-path <path-to-corda-created-secrets> --key rbac -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <RBAC-USERNAME> `
      --name corda-rbac --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC `
-     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key rbac -l /tmp/db
+     --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> `
+     --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> -t VAULT --vault-path <path-to-corda-created-secrets> --key rbac -l /tmp/db
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -302,17 +317,21 @@ Depending on your installation, follow the steps in one of the following section
    ```sh
    corda-cli.sh initial-config create-db-config -u rbacuser \
       --name corda-rbac --jdbc-url 'jdbc:postgresql://prereqs-postgres:5432/cordacluster?currentSchema=RBAC' \
-      --jdbc-pool-max-size 5 -t VAULT --vault-path dbsecrets --key rbac -l /tmp/db
+      --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 \
+     --validation-timeout 5 -t VAULT --vault-path dbsecrets --key rbac -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u rbacuser `
      --name corda-rbac --jdbc-url jdbc:postgresql://prereqs-postgres:5432/cordacluster?currentSchema=RBAC `
-     --jdbc-pool-max-size 5 -t VAULT --vault-path dbsecrets --key rbac -l /tmp/db
+     --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 `
+     --validation-timeout 5 -t VAULT --vault-path dbsecrets --key rbac -l /tmp/db
    ```
    {{% /tab %}}
    {{< /tabs >}}
+
+   For information about the Corda CLI `create-db-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config" >}}). 
 
 2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
@@ -332,14 +351,16 @@ Depending on your installation, follow the steps in one of the following section
    ```sh
    corda-cli.sh initial-config create-db-config -u <CRYPTO-USERNAME> -p <CRYPTO-PASSWORD> \
      --name corda-crypto --jdbc-url `jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO` \
-     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+     --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> \
+     --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <CRYPTO-USERNAME> -p <CRYPTO-PASSWORD> `
      --name corda-crypto --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO `
-     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+     --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> `
+     --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -353,17 +374,21 @@ Depending on your installation, follow the steps in one of the following section
    ```sh
    corda-cli.sh initial-config create-db-config -u cryptouser -p TqoCp4v2 \
      --name corda-crypto --jdbc-url 'jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO' \
-     --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+     --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 \
+     --validation-timeout 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u cryptouser -p TqoCp4v2 `
      --name corda-crypto --jdbc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO `
-     --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+     --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 `
+     --validation-timeout 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
    {{< /tabs >}}
+
+   For information about the Corda CLI `create-db-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config" >}}).
 
 2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
@@ -376,14 +401,16 @@ Depending on your installation, follow the steps in one of the following section
    ```sh
    corda-cli.sh initial-config create-db-config -u <CRYPTO-USERNAME> \
      --name corda-crypto --jdbc-url `jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO` \
-     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key crypto -l /tmp/db
+     --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> \
+     --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> -t VAULT --vault-path <path-to-corda-created-secrets> --key crypto -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <CRYPTO-USERNAME> `
      --name corda-crypto --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO `
-     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key crypto -l /tmp/db
+     --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> `
+     --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> -t VAULT --vault-path <path-to-corda-created-secrets> --key crypto -l /tmp/db
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -397,17 +424,21 @@ Depending on your installation, follow the steps in one of the following section
    ```sh
    corda-cli.sh initial-config create-db-config -u cryptouser \
      --name corda-crypto --jdbc-url 'jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO' \
-     --jdbc-pool-max-size 5 -t VAULT --vault-path dbsecrets --key crypto -l /tmp/db
+     --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 \
+     --validation-timeout 5 -t VAULT --vault-path dbsecrets --key crypto -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u cryptouser `
      --name corda-crypto --jdbc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO `
-     --jdbc-pool-max-size 5 -t VAULT --vault-path dbsecrets --key crypto -l /tmp/db
+     --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 `
+     --validation-timeout 5 -t VAULT --vault-path dbsecrets --key crypto -l /tmp/db
    ```
    {{% /tab %}}
    {{< /tabs >}}
+
+   For information about the Corda CLI `create-db-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config" >}}).
 
 2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
@@ -427,7 +458,8 @@ Depending on your installation, follow the steps in one of the following section
    ```sh
    corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
      --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \ 
-     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \
+     --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> \
+     --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \
      --is-admin
    ```
    {{% /tab %}}
@@ -435,7 +467,8 @@ Depending on your installation, follow the steps in one of the following section
    ```shell
    corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> `
      --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> ` 
-     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db ` 
+     --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> `
+     --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db ` 
      --is-admin
    ```
    {{% /tab %}}
@@ -443,6 +476,8 @@ Depending on your installation, follow the steps in one of the following section
 
    {{< note >}}
    There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
+   
+   For more information about the Corda CLI `create-db-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config">}}).
    {{< /note >}}
 
 2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
@@ -456,7 +491,8 @@ Depending on your installation, follow the steps in one of the following section
    ```sh
    corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> \
      --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \ 
-     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key vnodes -l /tmp/db \
+     --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> \
+     --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> -t VAULT --vault-path <path-to-corda-created-secrets> --key vnodes -l /tmp/db \
      --is-admin
    ```
    {{% /tab %}}
@@ -464,14 +500,17 @@ Depending on your installation, follow the steps in one of the following section
    ```shell
    corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> `
      --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> ` 
-     --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key vnodes -l /tmp/db `
+     --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> `
+     --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> -t VAULT --vault-path <path-to-corda-created-secrets> --key vnodes -l /tmp/db `
      --is-admin
    ```
    {{% /tab %}}
    {{< /tabs >}}
 
    {{< note >}}
-   There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration, not DML.
+   There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration, not DML. 
+
+   For more information about the Corda CLI `create-db-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config">}}).
    {{< /note >}}
 
    For example:
@@ -480,7 +519,8 @@ Depending on your installation, follow the steps in one of the following section
    ```sh
    corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> \
      --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://prereqs-postgres:5432/cordacluster' \ 
-     --jdbc-pool-max-size  5 -t VAULT --vault-path dbsecrets --key vnodes -l /tmp/db \
+     --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 \
+     --validation-timeout 5 -t VAULT --vault-path dbsecrets --key vnodes -l /tmp/db \
      --is-admin
    ```
    {{% /tab %}}
@@ -488,7 +528,8 @@ Depending on your installation, follow the steps in one of the following section
    ```shell
    corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> `
      --name corda-virtual-nodes --jdbc-url jdbc:postgresql://prereqs-postgres:5432/cordacluster ` 
-     --jdbc-pool-max-size  5 -t VAULT --vault-path dbsecrets --key vnodes -l /tmp/db `
+     --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 `
+     --validation-timeout 5 -t VAULT --vault-path dbsecrets --key vnodes -l /tmp/db `
      --is-admin
    ```
    {{% /tab %}}
@@ -512,6 +553,8 @@ Depending on your installation, follow the steps in one of the following section
    ```
    {{% /tab %}}
    {{< /tabs >}}
+
+   For more information about the Corda CLI `create-user-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-user-config">}}).
 
 2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `RBAC` schema.
 
@@ -561,7 +604,7 @@ Depending on your installation, follow the steps in one of the following section
    {{< /tab >}}
    {{< /tabs >}}
 
-   The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
+   The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration. For more information about the Corda CLI `create-crypto-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-crypto-config">}}).
 
 2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
@@ -582,7 +625,7 @@ Depending on your installation, follow the steps in one of the following section
    {{< /tab >}}
    {{< /tabs >}}
 
-    `salt` and `passphrase` are the names of Vault keys and should be entered as shown: they are not to be substituted for any actual salt or passphrase.
+   `salt` and `passphrase` are the names of Vault keys and should be entered as shown: they are not to be substituted for any actual salt or passphrase. For more information about the Corda CLI `create-crypto-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-crypto-config">}}).
 
 2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 

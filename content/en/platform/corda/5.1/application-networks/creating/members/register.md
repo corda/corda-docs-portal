@@ -89,7 +89,7 @@ If you are using the Swagger UI, use the following:
 You can confirm if the member was onboarded successfully by checking the status of the registration request:
 {{< tabs >}}
 {{% tab name="Bash"%}}
-```
+```bash
 export REGISTRATION_ID=<registration-ID>
 curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/membership/$HOLDING_ID/$REGISTRATION_ID
 ```
