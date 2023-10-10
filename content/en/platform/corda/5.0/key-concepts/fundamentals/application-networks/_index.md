@@ -19,7 +19,7 @@ Unlike public DLT platforms such as Ethereum, where the ability to use the syste
 This network is associated with a {{< tooltip >}}CorDapp{{< /tooltip >}}, where the members of the network are allowed to utilize the system for some purpose. The specific rules specifying how an identity is allowed to join are left to the operator to determine. 
 However, once permitted to join, each member understands that each other member has had their identity challenged to the same extent. 
 
-The severity and extent of that attestation are, as previously mentioned, left to the Network Operator, but should reflect the needs of the CorDapp being operated by the network and can range from allowing anyone to join unchallenged to performing a full KYC process on each request.
+The severity and extent of that attestation are, as previously mentioned, left to the Network Operator, but should reflect the needs of the CorDapp being operated by the network and can range from allowing anyone to join unchallenged to performing a full KYC process on each request. 
 
 The following diagram shows the application network architecture:
 
