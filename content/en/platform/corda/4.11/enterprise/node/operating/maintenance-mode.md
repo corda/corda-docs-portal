@@ -14,7 +14,7 @@ title: Node Maintenance Mode
 
 # Node Maintenance Mode
 
-The Node Maintenance Mode feature enables you to run certain house-keeping events automatically within Corda at specific times of the day or week, using a "_cron-like_" scheduling algorithm.
+The Node Maintenance Mode feature enables you to run certain house-keeping events automatically within Corda at specific times of the day or week, using a cron-like scheduling algorithm.
 
 Node Maintenance Mode is designed in a scalable way - maintenance tasks are discovered by Corda Enterprise through the use of an internal API.
 
@@ -24,6 +24,7 @@ The following maintenance tasks are currently supported:
 
 - Perform RPC Audit table clean-up
 - Run message ID clean-up
+- Ledger Recovery distribution record clean-up
 
 ## Configuration of Node Maintenance Mode
 
@@ -105,6 +106,48 @@ enterpriseConfiguration {
   }
 }
 ```
+
+
+## Ledger Recovery distribution record cleanup
+
+The Ledger Recovery distribution record cleanup removes distribution records earlier than a certain point in time. The job deletes entries from the `NODE_SENDER_DISTR_RECS` and `NODE_RECEIVER_DISTR_RECS` tables. For more information on Ledger Recovery and its associated distribution records, see [Ledger Recovery](../../ledger-recovery-flow.md).
+
+The Ledger Recovery distribution record cleanup only runs if one of the following parameters has been configured:
+
+* If the [network parameter](../../network/available-network-parameters.md) 'recoveryMaximumBackupInterval' is defined, then it is used and given first precedence.
+* Else, if the node parameter `enterpriseConfiguration.ledgerRecoveryConfiguration.recoveryMaximumBackupInterval` is defined, it is used.
+* Otherwise, the Ledger Recovery distribution record cleanup does not run.
+
+A typical configuration would be as follows:
+
+```
+enterpriseConfig = {
+    ledgerRecoveryConfiguration = {
+        noOfPreGeneratedKeys = # type: Int
+        noOfPreGeneratedKeysWithCerts = # type: Int
+        preGeneratedKeysTopUpInterval = # type: Long
+        recoveryMaximumBackupInterval = # type: Duration?
+        confidentialIdentityMinimumBackupInterval = # type: Duration?
+        canProvideNonBackedUpKeyPair = # type: Boolean
+    }
+}
+```
+
+For example:
+
+```
+enterpriseConfiguration = {
+    ledgerRecoveryConfiguration = {
+        noOfPreGeneratedKeys = 5
+        noOfPreGeneratedKeysWithCerts = 5
+        preGeneratedKeysTopUpInterval = 30000
+        recoveryMaximumBackupInterval = 15m
+        confidentialIdentityMinimumBackupInterval = 15m
+        canProvideNonBackedUpKeyPair = true
+    }
+}
+```
+
 
 ## Overrunning maintenance windows
 
