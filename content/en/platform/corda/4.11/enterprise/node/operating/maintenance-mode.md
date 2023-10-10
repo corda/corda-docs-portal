@@ -114,7 +114,7 @@ The Ledger Recovery distribution record cleanup removes distribution records ear
 
 The Ledger Recovery distribution record cleanup only runs if one of the following parameters has been configured:
 
-* If the [network parameter `recoveryMaximumBackupInterval`](../../network/available-network-parameters.md#) is defined, then it is used and given first precedence
+* If the [network parameter](../../network/available-network-parameters.md) 'recoveryMaximumBackupInterval' is defined, then it is used and given first precedence
 * Else, if the node parameter `enterpriseConfiguration.ledgerRecoveryConfiguration.recoveryMaximumBackupInterval` is defined, it is used.
 * Otherwise, it Ledger Recovery distribution record cleanup does not run.
 
