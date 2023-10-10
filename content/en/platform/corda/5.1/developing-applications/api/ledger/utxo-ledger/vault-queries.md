@@ -126,7 +126,8 @@ class TestUtxoStateJsonFactory implements ContractStateVaultJsonFactory<TestUtxo
 {{% /tab %}}
 {{< /tabs >}}
 
-After the output state finalizes, it is represented as the following in the database (`custom_representation column`):
+After the output state finalizes, it is represented as the following in the database (`custom_representation column`)
+with a `stateRef` field stored under the `ContractState` JSON object:
 
 ```json
 {
@@ -656,7 +657,7 @@ This example returns:
 
 **Example:**
 
-`custom_representation` 
+`custom_representation`
 `-> 'com.r3.corda.demo.ArrayState'`
 `->> 2`
 
@@ -684,7 +685,7 @@ This example returns: `7`.
 
 **Example:**
 
-`custom_representation` 
+`custom_representation`
 `-> 'com.r3.corda.demo.TestState'`
 `->> 'testField'`
 
