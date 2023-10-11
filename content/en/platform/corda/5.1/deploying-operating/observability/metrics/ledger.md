@@ -6,7 +6,7 @@ menu:
   corda51:
     parent: corda51-cluster-metrics
     identifier: corda51-cluster-ledger
-    weight: 900
+    weight: 1600
 section_menu: corda51
 ---
 
