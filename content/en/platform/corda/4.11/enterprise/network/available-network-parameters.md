@@ -68,7 +68,7 @@ in the compatibility zone.
 
 The `recoveryMaximumBackupInterval` network parameter is an optional parameter of type Duration, and is used by [Ledger Recovery](ledger-recovery.md). It specifies how far back in time the recovery process should consider. When attempting a recovery, a node will only restore to a database backup more recent than this value.
 
-This value can be overridden by specifying an override in the flow. It can also be overridden for a particular node if the same parameter is specified in the node configuration. An override to the flow takes priority over values in either the network configuration or node configuration. 
+This value can be overridden by specifying an override in the flow. It can also be overridden for a particular node if the same parameter is specified in the node configuration; the node configuration takes precedence over the network configuration. An override to the flow takes priority over values in either the network configuration or node configuration. 
 
 The parameter is optional in both the network parameters and the node configuration. However, if no values are set then it needs to be specified in the flow.
 
