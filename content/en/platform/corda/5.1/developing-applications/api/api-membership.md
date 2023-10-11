@@ -28,4 +28,4 @@ The `MemberInfo` interface extends the `LayeredPropertyMap` interface, which mea
 
 ## `GroupParameters`
 
-The `GroupParameters` interface is also a type of `LayerPropertyMap` which exposes properties of the group as distributed by the network manager (MGM). These properties define the parameters under which all members must operate during transactions and are exposed for Network Operators by GET methods. For more information, see [Updating Group Parameters]({{< relref "../../application-networks/managing/group-parameters/_index.md">}}).
+The `GroupParameters` interface is also a type of `LayeredPropertyMap` which exposes properties of the group as distributed by the network manager (MGM). These properties define the parameters under which all members must operate during transactions and are exposed for Network Operators by GET methods. For more information, see [Updating Group Parameters]({{< relref "../../application-networks/managing/group-parameters/_index.md">}}).
