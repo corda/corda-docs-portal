@@ -52,7 +52,7 @@ $REGISTRATION_CONTEXT = @{
 {{% /tab %}}
 {{< /tabs >}}
 
-The registration context of the member's request to join the network can specify custom properties. These will be included in the member's `MemberInfo`. For example:
+The registration context of the member's request to join the network can specify custom properties. Keys of custom properties must have the prefix `ext.`. For example:
 
 ```shell
 "context": {
@@ -60,6 +60,8 @@ The registration context of the member's request to join the network can specify
   "ext.member.key.1": "value1"
 }
 ```
+
+These properties will be included in the member's `MemberInfo`. 
 
 {{< note >}}
 Custom properties have a character limit of 128 for keys and 800 for values. A maximum of 100 key-value pairs can be defined in a registration context.
