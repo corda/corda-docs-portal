@@ -1,6 +1,6 @@
 ---
 date: '2023-08-10'
-title: "Member Registration"
+title: "Managing Member Registrations"
 project: corda
 version: 'Corda 5.1'
 menu:
@@ -10,7 +10,7 @@ menu:
     weight: 1000
 section_menu: corda51
 ---
-# Member Registration
+# Managing Member Registrations
 
 A Network Operator can configure a {{< tooltip >}}membership group{{< /tooltip >}} so that the operator must manually approve (or decline) {{< tooltip >}}member{{< /tooltip >}} registration requests.
 The configuration specifies that requests satisfying specific criteria require [manual approval]({{< relref "#manual-approval" >}}), while others are approved automatically.
