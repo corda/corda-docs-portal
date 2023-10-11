@@ -52,7 +52,7 @@ $REGISTRATION_CONTEXT = @{
 {{% /tab %}}
 {{< /tabs >}}
 
-The registration context of the member's request to join can specify custom properties. These will be included in the member's `MemberInfo`. For example:
+The registration context of the member's request to join the network can specify custom properties. These will be included in the member's `MemberInfo`. For example:
 
 ```shell
 "context": {

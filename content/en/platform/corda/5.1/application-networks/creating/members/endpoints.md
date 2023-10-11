@@ -1,6 +1,6 @@
 ---
 date: '2023-09-21'
-title: "Member Endpoints"
+title: "Modify Member Endpoints"
 project: corda
 version: 'Corda 5.1'
 menu:
@@ -11,7 +11,7 @@ menu:
 section_menu: corda51
 ---
 
-# Member Endpoints
+# Modify Member Endpoints
 
 If a member needs to make changes to their endpoint information (for example, changing the URL of the endpoint or adding a new endpoint), the member must [re-register]({{< relref "reregister.md" >}}) with the updated endpoint information. To minimize communication disruption, the member should also configure the P2P Gateway with both the old and new information, before re-registering, and then remove the old information, as follows:
 
