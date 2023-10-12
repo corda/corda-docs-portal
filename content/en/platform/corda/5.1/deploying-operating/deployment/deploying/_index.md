@@ -679,7 +679,9 @@ If you want to disable the pre-install checks from running automatically, for ex
 you can do it by adding the following property to your YAML file:
 
 ```yaml
-bootstrap.preinstallCheck.enabled=false
+bootstrap:
+  preinstallCheck:
+    enabled: false
 ```
 
 If the pre-install checks fail, for example, if Kafka or PostgreSQL are not available, you can retrieve the logs for a
