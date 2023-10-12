@@ -533,7 +533,7 @@ Since the flow only involves one party (Farmer Bob), there is no need to initiat
 Include these variables in the flow:
 
 * `appleDescription` - any relevant information, such as the type of apple. Use type `String`.
-* `weight` - the weight of the apples. Use type `int`.
+* `weight` - the weight of the apples. Use type `Int`.
 
 
 #### Check Your Work

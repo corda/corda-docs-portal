@@ -41,7 +41,7 @@ Add the annotation `@BelongsToContract(AppleStampContract::class)` to your state
 This what your code should look like so far:
 
 ```kotlin
-@BelongsToContract(AppleStampContract.class)
+@BelongsToContract(AppleStampContract::class)
 ```
 
 {{< note >}}
@@ -65,7 +65,7 @@ class AppleStamp : ContractState
 
 ### Add the Required Properties
 
-1. Add the properties for the following parameters:
+1. Add the properties for the following parameters required for the example:
    * The stamp identifier (`id`)
    * The stamp description (`stampDesc`)
    * The issuer of the stamp (`issuer`)
@@ -141,9 +141,9 @@ The `BasketOfApples` state is the basket of apples that Farmer Bob self-issues t
 * `description` - The brand or type of apple. Use type `String`.
 * `farm` - The origin of the apples. Use type `PublicKey`.
 * `owner` - The current owner of the basket. Use type `PublicKey`.
-* `weight` - The weight of the basket of apples. Use type `int`.
+* `weight` - The weight of the basket of apples. Use type `Int`.
 
-You will also need to define a `participants` property and override the getter method, as you did when creating the `AppleStamp` contract.
+You will also need to define a `participants` property and override the `getParticipants()` getter method, as you did when creating the `AppleStamp` contract.
 
 The `BasketOfApples` state is involved in two transactions. In the first {{< tooltip >}}transaction{{< /tooltip >}}, Farmer Bob self-issues the `BasketOfApples`.
 At this point, Farmer Bob is both the `owner` and `farm` of the transaction. The second transaction occurs when Dave

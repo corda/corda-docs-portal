@@ -28,14 +28,16 @@ and the customer referenced in the earlier tutorials.
 
 1. Follow the [CSDE environment instructions]({{< relref "../getting-started/installing/_index.md" >}}) to start the Corda combined worker and to deploy the static network.
 2. Once done, confirm that the nodes are available by running the `listVNodes` gradle task. It should return something like the following:
-```shell
-CPI Name		 Holding identity short hash 		X500 Name
-MyCorDapp		E18496F580F4 		CN=Bob, OU=Test Dept, O=R3, L=London, C=GB
-MyCorDapp		19F285FA7192 		CN=Alice, OU=Test Dept, O=R3, L=London, C=GB
-MyCorDapp		943300F6BD04 		CN=Charlie, OU=Test Dept, O=R3, L=London, C=GB
-NotaryServer		82E04CE54296 		CN=NotaryRep1, OU=Test Dept, O=R3, L=London, C=GB
-MyCorDapp		715E366736B2 		CN=Dave, OU=Test Dept, O=R3, L=London, C=GB
-```
+
+   ```shell
+   CPI Name		 Holding identity short hash 		X500 Name
+   MyCorDapp		E18496F580F4 		CN=Bob, OU=Test Dept, O=R3, L=London, C=GB
+   MyCorDapp		19F285FA7192 		CN=Alice, OU=Test Dept, O=R3, L=London, C=GB
+   MyCorDapp		943300F6BD04 		CN=Charlie, OU=Test Dept, O=R3, L=London, C=GB
+   NotaryServer		82E04CE54296 		CN=NotaryRep1, OU=Test Dept, O=R3, L=London, C=GB
+   MyCorDapp		715E366736B2 		CN=Dave, OU=Test Dept, O=R3, L=London, C=GB
+   ```
+
 3. **Optional:** You may need to run this a few times following network setup, to give the system chance to update
 the data being broadcast following registration.
 4. Take note of the holding ID short hash for both Bob and Dave. You will need these when running flows.
@@ -62,21 +64,21 @@ at a future time.
 1. use the `POST /flow/{holdingidentityshorthash}` endpoint, specifying Bob’s holding ID
 and the following request body with Dave’s name as the holder:
 
-```kotlin
-{
-  "clientRequestId": "create-stamp-1",
-  "flowClassName": "com.r3.developers.apples.workflows.CreateAndIssueAppleStampFlow",
-  "requestBody": {
-    "stampDescription": "Can be exchanged for a single basket of apples",
-    "holder": "CN=Dave, OU=Test Dept, O=R3, L=London, C=GB"
-  }
-}
-```
+   ```json
+   {
+     "clientRequestId": "create-stamp-1",
+     "flowClassName": "com.r3.developers.apples.workflows.CreateAndIssueAppleStampFlow",
+     "requestBody": {
+       "stampDescription": "Can be exchanged for a single basket of apples",
+       "holder": "CN=Dave, OU=Test Dept, O=R3, L=London, C=GB"
+     }
+   }
+   ```
 
 2. To confirm successful issuance of the stamp, run the `GET /flow/{holdingidentityshorthash}/{clientrequestid}` endpoint,
 specifying Bob’s holding ID again, and the client request ID used in the previous step.
 
-You should observe that the `flowStatus` in the response is completed, and `flowResult` contains a UUID.
+   You should observe that the `flowStatus` in the response is completed, and `flowResult` contains a UUID.
 
 3. Make a note of the UUID, as this is the ID of the newly issued stamp, which you will use again later.
 
@@ -86,20 +88,20 @@ Farmer Bob now has a `BasketOfApples` which he wishes to put on the ledger so th
 
 1. Repeat the instructions from the previous section, but use the following request body, which invokes a different flow:
 
-```kotlin
-{
-  "clientRequestId": "package-apples-1",
-  "flowClassName": "com.r3.developers.apples.workflows.PackageApplesFlow",
-  "requestBody": {
-    "appleDescription": "Golden delicious apples, picked on 11th May 2023",
-    "weight": 214
-  }
-}
-```
+   ```json
+   {
+     "clientRequestId": "package-apples-1",
+     "flowClassName": "com.r3.developers.apples.workflows.PackageApplesFlow",
+     "requestBody": {
+       "appleDescription": "Golden delicious apples, picked on 11th May 2023",
+       "weight": 214
+     }
+   }
+   ```
 
 2. Check the result of this flow.
 
-The `flowStatus` in the response should be completed. In this case, we do not care about the
+   The `flowStatus` in the response should be completed. In this case, we do not care about the
 flow result as this is not required to redeem the `AppleStamp`.
 
 ### Redeem the `AppleStamp` for a `BasketOfApples`
@@ -108,16 +110,16 @@ Finally, Dave can redeem his `AppleStamp`.
 
 1. Start a new flow against Bob’s virtual node. The request body in this case should be:
 
-```kotlin
-{
-  "clientRequestId": "redeem-apples-1",
-  "flowClassName": "com.r3.developers.apples.workflows.RedeemApplesFlow",
-  "requestBody": {
-    "buyer": "CN=Dave, OU=Test Dept, O=R3, L=London, C=GB",
-    "stampId": "<The stamp id noted earlier>"
-  }
-}
-```
+   ```json
+   {
+     "clientRequestId": "redeem-apples-1",
+     "flowClassName": "com.r3.developers.apples.workflows.RedeemApplesFlow",
+     "requestBody": {
+       "buyer": "CN=Dave, OU=Test Dept, O=R3, L=London, C=GB",
+       "stampId": "<The stamp id noted earlier>"
+     }
+   }
+   ```
 
 The `flowStatus` in the response should also be completed. Following this step, the `AppleStamp` has been spent, and Dave is now the owner of a basket of apples.
 
