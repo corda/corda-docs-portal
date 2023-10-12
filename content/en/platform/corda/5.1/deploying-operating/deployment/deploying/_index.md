@@ -140,6 +140,7 @@ The following sections describe the minimal set of configuration options require
 * [Encryption]({{< relref "#encryption" >}})
 * [Bootstrapping]({{< relref "#bootstrapping" >}})
 * [Custom Annotations for Worker Pods]({{< relref "#custom-annotations-for-worker-pods" >}})
+* [Pre-Install Checks]({{< relref "#pre-install-checks" >}})
 
 You can extract a README containing the full set of options from the Helm chart using the following command:
 ```shell
@@ -636,10 +637,10 @@ For example, when running with Red Hat OpenShift Container Platform, you must us
 3. In the configuration YAML for the Corda deployment, specify the service account to be used:
 
    ```yaml
-   serviceAccount: 
+   serviceAccount:
       name: "corda-privileged"
    bootstrap:
-      serviceAccount: 
+      serviceAccount:
         name: "corda-privileged"
    ```
 
@@ -660,6 +661,29 @@ workers:
     annotations:
       annotation-key-2: "some-value"
 ```
+
+### Pre-Install Checks
+
+When deploying Corda, pre-install checks are performed automatically to check the configuration of Corda and to confirm
+that all the [prerequisites]({{< relref "../prerequisites.md" >}}) are running and that the correct credentials and permissions
+are provided to install a running Corda cluster. The pre-install checks verify if:
+
+* the resource limits have been assigned correctly.
+* the PostgreSQL database is up and if the credentials work.
+* Kafka is up and if the credentials work.
+
+You can also run those checks manually using the Corda CLI [`preinstall`]({{< relref "../../../reference/corda-cli/preinstall.md" >}})
+command after you have deployed Corda.
+
+If you want to disable the pre-install checks from running automatically, for example, to save time when testing the deployment,
+you can do it by adding the following property to your YAML file:
+
+```yaml
+bootstrap.preinstallCheck.enabled=false
+```
+
+If the pre-install checks fail, for example, if Kafka or PostgreSQL are not available, you can retrieve the logs for a
+single pod using `kubectl`. For more information on retrieving the logs, see the [Logs]({{< relref "../../observability/logs.md" >}}) section.
 
 ### Example Configuration
 
