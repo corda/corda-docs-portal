@@ -136,6 +136,7 @@ The following sections describe the minimal set of configuration options require
 * [Replica Counts]({{< relref "#replica-counts" >}})
 * [Resource Requests and Limits]({{< relref "#resource-requests-and-limits" >}})
 * [REST API]({{< relref "#rest-api" >}})
+* [P2P Gateway]({{< relref "#p2p-gateway" >}})
 * [PostgreSQL]({{< relref "#postgresql" >}})
 * [Encryption]({{< relref "#encryption" >}})
 * [Bootstrapping]({{< relref "#bootstrapping" >}})
@@ -319,11 +320,12 @@ If the secret data is modified, the REST worker pod will not currently detect th
 
 ### P2P Gateway
 
-You can configure Kubernetes Ingress to provide the P2P gateway worker with HTTP load balancing
+You can configure Kubernetes Ingress to provide the P2P gateway worker with HTTP load balancing.
 
-Kubernetes Ingress makes the P2P gateway accessible from outside the Kubernetes cluster that the Corda cluster is deployed into. Your organization must own the domain name (`my-sub.mydomain.com` in the example below) and that must resolve to the IP address of the Ingress-managed load balancer. 
-
-The Gateway only supports TLS termination in the gateway and not inside the load balancer itself. 
+{{< note >}}
+* Kubernetes Ingress makes the P2P gateway accessible from outside the Kubernetes cluster that the Corda cluster is deployed into. Your organization must own the domain name (`my-sub.mydomain.com` in the example below) and that must resolve to the IP address of the Ingress-managed load balancer. 
+* The gateway only supports TLS termination in the gateway and not inside the load balancer itself. 
+{{< /note >}}
 
 R3 recommends using an NGINX load balancer. For example:
 ```yaml
