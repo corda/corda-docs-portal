@@ -38,7 +38,7 @@ establishes the relationship between a state and a contract. Without this, your 
 
 Add the annotation `@BelongsToContract(AppleStampContract::class)` to your state. The contract will be defined later.
 
-This what your code should look like so far:
+Your code should now look like:
 
 ```kotlin
 @BelongsToContract(AppleStampContract::class)
