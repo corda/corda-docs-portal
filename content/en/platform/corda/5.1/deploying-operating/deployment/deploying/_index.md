@@ -672,7 +672,7 @@ are provided to install a running Corda cluster. The pre-install checks verify i
 * the PostgreSQL database is up and if the credentials work.
 * Kafka is up and if the credentials work.
 
-You can also run those checks manually using the Corda CLI <a href="../../../reference/corda-cli/preinstall.html">
+You can also run those checks manually using the Corda CLI <a href="../../../reference/corda-cli/preinstall.html">`preinstall`</a>
 command after you have deployed Corda.
 
 If you want to disable the pre-install checks from running automatically, for example, to save time when testing the deployment,
