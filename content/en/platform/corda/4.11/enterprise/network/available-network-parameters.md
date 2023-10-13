@@ -86,7 +86,7 @@ recoveryMaximumBackupInterval = 10m
 ```
 or
 ```
-recoveryMaximumBackupInterval = 
+recoveryMaximumBackupInterval = 2d
 ```
 
 ## `packageOwnership`
