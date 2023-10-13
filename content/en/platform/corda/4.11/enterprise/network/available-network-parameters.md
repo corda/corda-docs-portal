@@ -15,7 +15,7 @@ This topic lists the currently-available network parameters, in alphabetical ord
 
 ## `confidentialIdentityMinimumBackupInterval`
 
-The `confidentialIdentityMinimumBackupInterval` network parameter is an optional parameter of type Duration. It specifies the minimum age of a generated Confidential Identity key before it can be used. This can be overridden in the node configuration or if a more recent database backup is indicated via RPC/shell. 
+The `confidentialIdentityMinimumBackupInterval` network parameter is an optional parameter of type `Duration`. It specifies the minimum age of a generated Confidential Identity key before it can be used. This can be overridden in the node configuration or if a more recent database backup is indicated via RPC/shell. 
 
 This parameter is optional in both the network parameters and the node configuration. If no value is specified for either, then it is assumed to be zero.
 
@@ -24,6 +24,13 @@ For example:
 ```
 confidentialIdentityMinimumBackupInterval = 10m
 ```
+
+or
+
+```
+confidentialIdentityMinimumBackupInterval = 2d
+```
+
 
 ## `confidentialIdentityPreGenerationPeriod`
 
@@ -66,7 +73,7 @@ in the compatibility zone.
 
 ## `recoveryMaximumBackupInterval`
 
-The `recoveryMaximumBackupInterval` network parameter is an optional parameter of type Duration, and is used by [Ledger Recovery](ledger-recovery.md). It specifies how far back in time the recovery process should consider. When attempting a recovery, a node will only restore to a database backup more recent than this value.
+The `recoveryMaximumBackupInterval` network parameter is an optional parameter of type `Duration`, and is used by [Ledger Recovery](ledger-recovery.md). It specifies how far back in time the recovery process should consider. When attempting a recovery, a node will only restore to a database backup more recent than this value.
 
 This value can be overridden by specifying an override in the flow. It can also be overridden for a particular node if the same parameter is specified in the node configuration; the node configuration takes precedence over the network configuration. An override to the flow takes priority over values in either the network configuration or node configuration. 
 
@@ -76,6 +83,10 @@ For example:
 
 ```
 recoveryMaximumBackupInterval = 10m
+```
+or
+```
+recoveryMaximumBackupInterval = 
 ```
 
 ## `packageOwnership`
