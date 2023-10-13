@@ -14,6 +14,9 @@ This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `preinstall` arg
 check Corda's configuration and to confirm that all the Corda deployment [prerequisites]({{< relref "../../deploying-operating/deployment/prerequisites.md" >}})
 are running and that the correct credentials and permissions are provided to install a running Corda cluster.
 
+The YAML files used by the commands must be of the format described in the [Configure the Deployment]({{< relref "../../deploying-operating/deployment/deploying.html#configure-the-deployment" >}})
+section. This allows you to use the commands to verify the override configuration used as part of a Corda Helm installation.
+
 ## check-limits
 
 The `check-limits` argument verifies if the resource limits have been assigned correctly.
