@@ -848,12 +848,7 @@ helm install -n corda corda <HELM-CHART-TGZ-FILE> -f values.yaml
 If you are using the Helm chart from Docker Hub, you can install directly from there rather than using `helm fetch` first. For example:
 
 ```shell
-helm install -n corda corda oci://corda-os-docker.software.r3.com/helm-charts/release-{{<version-num>}}.0.0/corda --version {{<version-num>}}.0 -f values.yaml
-```
-
-{{< enterprise-icon noMargin="true" >}}Alternatively, use the following command for Corda Enterprise:
-```shell
-helm install -n corda corda oci://corda-os-docker.software.r3.com/helm-charts/release-{{<version-num>}}.0.0/corda-enterprise --version {{<version-num>}}.0 -f values.yaml
+helm install -n corda corda oci://registry-1.docker.io/corda/corda --version {{<version-num>}}.0 -f values.yaml
 ```
 
 Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how
