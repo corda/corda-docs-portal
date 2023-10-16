@@ -22,13 +22,13 @@ This parameter is optional in both the network parameters and the node configura
 For example:
 
 ```
-confidentialIdentityMinimumBackupInterval = 10m
+confidentialIdentityMinimumBackupInterval = 5d
 ```
 
 or
 
 ```
-confidentialIdentityMinimumBackupInterval = 2d
+confidentialIdentityMinimumBackupInterval = 30d
 ```
 
 
@@ -82,11 +82,11 @@ The parameter is optional in both the network parameters and the node configurat
 For example:
 
 ```
-recoveryMaximumBackupInterval = 10m
+recoveryMaximumBackupInterval = 5d
 ```
 or
 ```
-recoveryMaximumBackupInterval = 2d
+recoveryMaximumBackupInterval = 30d
 ```
 
 ## `packageOwnership`
