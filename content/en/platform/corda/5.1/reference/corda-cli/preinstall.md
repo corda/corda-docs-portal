@@ -11,7 +11,7 @@ title: "preinstall"
 ---
 # preinstall
 This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `preinstall` arguments. You can use these commands to manually
-check Corda's configuration and to confirm that all the Corda deployment [prerequisites]({{< relref "../../deploying-operating/deployment/prerequisites.md" >}})
+check Corda's configuration, to confirm that all the Corda deployment [prerequisites]({{< relref "../../deploying-operating/deployment/prerequisites.md" >}})
 are running and that the correct credentials and permissions are provided to install a running Corda cluster.
 
 The YAML files used by the commands must be of the format described in the <a href="../../deploying-operating/deployment/deploying.html#configure-the-deployment">Configure the Deployment</a>
