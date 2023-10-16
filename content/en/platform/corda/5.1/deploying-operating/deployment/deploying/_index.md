@@ -664,7 +664,7 @@ workers:
 
 ### Pre-Install Checks
 
-When deploying Corda, pre-install checks are performed automatically to check the configuration of Corda and to confirm
+When deploying Corda, pre-install checks are performed automatically to check the configuration of Corda, to confirm
 that all the [prerequisites]({{< relref "../prerequisites.md" >}}) are running and that the correct credentials and permissions
 are provided to install a running Corda cluster. The pre-install checks verify if:
 
