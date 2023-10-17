@@ -27,13 +27,23 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 ## New features and enhancements
 
+### Distribution record cleanup
+
+A new maintenance job `DistributionRecordCleanupTask` has been added. This removes ledger recovery distribution records that are older than the `recoveryMaximumBackupInterval` network parameter, and which are no longer needed.
+
+If the network parameter `recoveryMaximumBackupInterval` is not defined, then the node parameter `enterpriseConfiguration.ledgerRecoveryConfiguration.recoveryMaximumBackupInterval`, if defined, is used instead.
+
+If neither parameter is defined, then the distribution record maintenance job is disabled.
+
+For more information, see [Ledger Recovery distribution record cleanup]({{< relref "node/operating/maintenance-mode.md#ledger-recovery-distribution-record-cleanup" >}}).
+
 ### Two Phase Finality
 
 Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and
 recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this
 new improved protocol.
 
-For more information, see [Two Phase Finality]({{< relref "two-phase-finality.md" >}})
+For more information, see [Two Phase Finality]({{< relref "two-phase-finality.md" >}}).
 
 ### Improved double-spend exception handling
 
@@ -76,6 +86,10 @@ When a state is consumed by a transaction, Corda now adds the ID of the consumin
 ## Fixed issues
 
 This release includes the following fixes:
+
+* An issue has been resolved where, previously, an incorrect value for `Page.totalStatesAvailable` was returned for queries on `externalIds`, when there were external IDs mapped to multiple keys.
+
+* Vault queries have been optimised to avoid the extra SQL query for the total state count where possible.
 
 * Updated documentation for both `.startNodes()` and `.stopNodes()` of `MockNetwork` to indicate that restarting nodes is not supported.
 
@@ -131,6 +145,20 @@ This release includes the following fixes:
 * Flow checkpoint dumps now include a `status` field which shows the status of the flow; in particular, whether it is hospitalized or not.
 
 * Debug logging of the Artemis server has been added.
+
+* A `StackOverflowException` was thrown when an attempt was made to store a deleted party in the vault. This issue has been resolved.
+
+* The certificate revocation checking has been improved with the introduction of a read timeout on the download of the certificate revocation lists (CRLs). The default CRL connect timeout has also been adjusted to better suit Corda nodes. The caching of CRLs has been increased from 30 seconds to 5 minutes.
+
+* Added improvements to node thread names to make logging and debugging clearer.
+
+* Previously, the order of the states in vault query results would sometimes be incorrect if they belonged to the same transaction. This issue has been resolved.
+
+* Delays when performing a SSL handshake with new nodes no longer impacts existing connections with other nodes.
+
+* PostgreSQL 9.6 and 10.10 have been removed from our support matrix as they are no longer supported by PostgreSQL themselves.
+
+* Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
 
 ### Database schema changes
 

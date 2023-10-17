@@ -47,11 +47,21 @@ The following dependencies have been upgraded to address critical and high-sever
 
 When a state is consumed by a transaction, Corda now adds the ID of the consuming transaction in the `consuming_tx_id` column of the `vault_state` table. Corda only updates this database column for new transactions; for existing consumed states already in the ledger, the value of `consuming_tx_id` is null.
 
+### Deserializing AMQP data performance improvement
+
+This release includes improvements in the performance of deserializing AMQP data, which may result in performance improvements for LedgerGraph, Archiving and other CorDapps.
+
 ## Fixed issues
 
 This release includes the following fixes:
 
+* An issue has been resolved where, previously, an incorrect value for `Page.totalStatesAvailable` was returned for queries on `externalIds`, when there were external IDs mapped to multiple keys.
+
+* Vault queries have been optimised to avoid the extra SQL query for the total state count where possible.
+
 * When a notary worker is shut down, message ID cleanup is now performed as the last shutdown activity, rather than the first; this prevents a situation where the notary worker might still appear to be part of the notary cluster and receiving client traffic while shutting down.
+
+* Flow checkpoint dumps now include a `status` field which shows the status of the flow; in particular, whether it is hospitalized or not.
 
 * Debug logging of the Artemis server has been added.
 
@@ -59,7 +69,20 @@ This release includes the following fixes:
 
   An example of how to use this property can be found in [Vault Queries]({{< relref "api-vault-query.md#query-for-all-states-using-a-pagination-specification-and-iterate-using-the-totalstatesavailable-field-until-no-further-pages-available-1" >}}).
   
-  
+* A `StackOverflowException` was thrown when an attempt was made to store a deleted party in the vault. This issue has been resolved.
+
+* The certificate revocation checking has been improved with the introduction of a read timeout on the download of the certificate revocation lists (CRLs). The default CRL connect timeout has also been adjusted to better suit Corda nodes. The caching of CRLs has been increased from 30 seconds to 5 minutes.
+
+* Added improvements to node thread names to make logging and debugging clearer.
+
+* Previously, the order of the states in vault query results would sometimes be incorrect if they belonged to the same transaction. This issue has been resolved.
+
+* Delays when performing a SSL handshake with new nodes no longer impacts existing connections with other nodes.
+
+* PostgreSQL 9.6 and 10.10 have been removed from our support matrix as they are no longer supported by PostgreSQL themselves.
+
+* Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
+
 ### Database schema changes
 
 The following database changes have been applied:
