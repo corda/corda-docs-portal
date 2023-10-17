@@ -7,7 +7,7 @@ tags:
 - cipher
 - suites
 title: Cipher suites supported by Corda
-weight: 10
+weight: 100
 ---
 
 

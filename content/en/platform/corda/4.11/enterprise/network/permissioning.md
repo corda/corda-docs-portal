@@ -6,7 +6,7 @@ menu:
 tags:
 - permissioning
 title: Network certificates
-weight: 4
+weight: 40
 ---
 
 # Network certificate hierarchy
