@@ -79,7 +79,7 @@ This release includes the following fixes:
 
 * Delays when performing a SSL handshake with new nodes no longer impacts existing connections with other nodes.
 
-* Postgres 9.6 and 10.10 have been removed from our support matrix as they are no longer supported by Postgres themselves.
+* PostgreSQL 9.6 and 10.10 have been removed from our support matrix as they are no longer supported by PostgreSQL themselves.
 
 * Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
 
