@@ -33,9 +33,9 @@ A new maintenance job `DistributionRecordCleanupTask` has been added. This remov
 
 If the network parameter `recoveryMaximumBackupInterval` is not defined, then the node parameter `enterpriseConfiguration.ledgerRecoveryConfiguration.recoveryMaximumBackupInterval`, if defined, is used instead.
 
-If neither parameter is defined , then the distribution record maintenance job is disabled.
+If neither parameter is defined, then the distribution record maintenance job is disabled.
 
-For more information, see the topic {{< relref "node/operating/maintenance-mode.md" >}}.
+For more information, see [Ledger Recovery distribution record cleanup]({{< relref "node/operating/maintenance-mode.md#ledger-recovery-distribution-record-cleanup" >}}).
 
 ### Two Phase Finality
 
@@ -43,7 +43,7 @@ Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows)
 recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this
 new improved protocol.
 
-For more information, see [Two Phase Finality]({{< relref "two-phase-finality.md" >}})
+For more information, see [Two Phase Finality]({{< relref "two-phase-finality.md" >}}).
 
 ### Improved double-spend exception handling
 
@@ -89,7 +89,7 @@ This release includes the following fixes:
 
 * An issue has been resolved where, previously, an incorrect value for `Page.totalStatesAvailable` was returned for queries on `externalIds`, when there where external IDs mapped to multiple keys.
 
-* Vault queries have been optimised to avoid the extra SQL query for the total state count where possible..
+* Vault queries have been optimised to avoid the extra SQL query for the total state count where possible.
 
 * Updated documentation for both `.startNodes()` and `.stopNodes()` of `MockNetwork` to indicate that restarting nodes is not supported.
 
