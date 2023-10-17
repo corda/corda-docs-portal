@@ -27,7 +27,7 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 ## New features and enhancements
 
-### Distribution Record cleanup
+### Distribution record cleanup
 
 A new maintenance job `DistributionRecordCleanupTask` has been added. This removes ledger recovery distribution records that are older than the `recoveryMaximumBackupInterval` network parameter, and which are no longer needed.
 
