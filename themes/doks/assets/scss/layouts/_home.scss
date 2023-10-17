@@ -36,8 +36,8 @@ body.home {
     display: block;
     text-align: center;
     color: $gray-100;
-    margin-top: 4rem;
-    margin-bottom: 4.5rem;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
     padding-top: 0;
     padding-bottom: 0;
 
@@ -50,7 +50,7 @@ body.home {
     }
 
     #home-search {
-      padding-top: 0.5rem;
+      padding-top: 1rem;
 
       form {
         margin: 0 auto;
@@ -81,7 +81,7 @@ body.home {
       position: absolute;
       z-index: -1;
       overflow-y: hidden;
-      height: 434px;
+      height: 340px;
     }
 
     @include media-breakpoint-up(md) {
