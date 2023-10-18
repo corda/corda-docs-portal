@@ -89,7 +89,15 @@
     },
     "Flow worker": {
         "definition": "A worker that runs the CorDapp application code and translates flow API calls into function requests to the relevant workers. The flow workers are designed to share work between themselves and to record checkpoints at each stage of the application's progress, so that in the event of worker failure, the operations can be retried.",
-        "more": "Similarly, when a CorDapp sends messages to a peer, the flow worker is responsible for the higher level retry, deduplication, and re-ordering of messages above and beyond the simple packet retries of the Link Manager messaging layer. In the case of unrecoverable errors, or loss of synchronization between virtual nodes, the flow worker signals the errors via the REST worker APIs and abort any remote operations that have been started in peers. In combination with the platform ledger code, this ensures that ledger operations operate atomically across peers."
+        "more": "Similarly, when a CorDapp sends messages to a peer, the flow worker is responsible for the higher level retry, deduplication, and re-ordering of messages above and beyond the simple packet retries of the Link Manager messaging layer. In the case of unrecoverable errors, or loss of synchronization between virtual nodes, the flow worker signals the errors via the REST worker APIs and aborts any remote operations that have been started in peers."
+    },
+    "Flow mapper worker": {
+        "definition": "A worker that maintains the mapping and context switching between flows and sessions.",
+        "more": ""
+    },
+    "Verification worker": {
+        "definition": "In combination with the platform ledger code, this worker ensures that the ledger operations of a flow operate atomically across peers.",
+        "more": ""
     },
     "Gateway worker": {
         "definition": "A worker designed to communicate with external Corda clusters via HTTPS. They have restricted access only to specific topics on the Kafka bus and view only the minimum information needed for their role. ",
