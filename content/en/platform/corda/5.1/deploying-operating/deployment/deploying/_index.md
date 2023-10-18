@@ -709,7 +709,7 @@ are provided to install a running Corda cluster. The pre-install checks verify i
 You can also run those checks manually using the Corda CLI <a href="../../reference/corda-cli/preinstall.html">`preinstall`</a>
 command after you have deployed Corda.
 
-If you want to disable the pre-install checks from running automatically, for example, to save time when testing the deployment, you can do it by adding the following property to your YAML file:
+If you want to disable the pre-install checks from running automatically (for example, to save time when testing the deployment), you can do it by adding the following property to your YAML file:
 
 ```yaml
 bootstrap:
