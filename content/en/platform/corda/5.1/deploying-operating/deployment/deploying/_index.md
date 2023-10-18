@@ -1,5 +1,5 @@
 ---
-date: '2023-08-10'
+date: '2023-10-18'
 version: 'Corda 5.1'
 title: "Deploying"
 menu:
@@ -179,6 +179,10 @@ workers:
     replicaCount: 3
   flow:
     replicaCount: 3
+  flowMapper:
+    replicaCount: 3
+  verification:
+    replicaCount: 3
   membership:
     replicaCount: 3
   rest:
@@ -186,6 +190,12 @@ workers:
   p2pGateway:
     replicaCount: 3
   p2pLinkManager:
+    replicaCount: 3
+  persistence:
+    replicaCount: 3
+  tokenSelection:
+    replicaCount: 3
+  uniqueness:
     replicaCount: 3
 ```
 
@@ -699,8 +709,7 @@ are provided to install a running Corda cluster. The pre-install checks verify i
 You can also run those checks manually using the Corda CLI <a href="../../reference/corda-cli/preinstall.html">`preinstall`</a>
 command after you have deployed Corda.
 
-If you want to disable the pre-install checks from running automatically, for example, to save time when testing the deployment,
-you can do it by adding the following property to your YAML file:
+If you want to disable the pre-install checks from running automatically (for example, to save time when testing the deployment), you can do it by adding the following property to your YAML file:
 
 ```yaml
 bootstrap:
@@ -798,6 +807,7 @@ workers:
               name: "kafka-credentials"
               key: "crypto"
     replicaCount: 3
+
   db:
     kafka:
       sasl:
@@ -814,6 +824,7 @@ workers:
       limits:
         memory: 2048Mi
     replicaCount: 3
+
   flow:
     kafka:
       sasl:
@@ -830,6 +841,31 @@ workers:
       limits:
         memory: 2048Mi
     replicaCount: 3
+
+  flowMapper:
+    kafka:
+      sasl:
+        username:
+          value: "flowMapper"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "kafka-credentials"
+              key: "flowMapper"
+    replicaCount: 3
+
+  verification:
+    kafka:
+      sasl:
+        username:
+          value: "verification"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "kafka-credentials"
+              key: "verification"
+    replicaCount: 3
+
   membership:
     kafka:
       sasl:
@@ -841,6 +877,7 @@ workers:
               name: "kafka-credentials"
               key: "membership"
     replicaCount: 3
+
   p2pGateway:
     kafka:
       sasl:
@@ -852,6 +889,7 @@ workers:
               name: "kafka-credentials"
               key: "p2pGateway"
     replicaCount: 3
+
   p2pLinkManager:
     kafka:
       sasl:
@@ -863,6 +901,36 @@ workers:
               name: "kafka-credentials"
               key: "p2pLinkManager"
     replicaCount: 3
+
+  persistence:
+    kafka:
+      sasl:
+        username:
+          value: "persistence"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "kafka-credentials"
+              key: "persistence"
+    resources:
+      requests:
+        memory: 2048Mi
+      limits:
+        memory: 2048Mi
+    replicaCount: 3
+
+  tokenSelection:
+    kafka:
+      sasl:
+        username:
+          value: "tokenSelection"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "kafka-credentials"
+              key: "tokenSelection"
+    replicaCount: 3
+
   rest:
     kafka:
       sasl:
@@ -881,6 +949,18 @@ workers:
         service.beta.kubernetes.io/aws-load-balancer-scheme: "internal"
         service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
         external-dns.beta.kubernetes.io/hostname: "corda.example.com"
+
+  uniqueness:
+    kafka:
+      sasl:
+        username:
+          value: "uniqueness"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "kafka-credentials"
+              key: "uniqueness"
+    replicaCount: 3
 ```
 
 ## Deployment
