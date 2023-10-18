@@ -1,14 +1,10 @@
 body.home {
-  .container,
-  .container-fluid,
-  .container-xxl,
-  .container-xl,
-  .container-lg,
-  .container-md,
-  .container-sm {
+
+  main{
+    min-height: calc(100vh - 20.25rem);
+    margin: auto;
     max-width: 1488px;
-    padding-right: var(--bs-gutter-x, 24px);
-    padding-left: var(--bs-gutter-x, 24px);
+    
   }
 
   header {
@@ -16,10 +12,6 @@ body.home {
       #header-links {
         margin-left: 0;
         margin-right: 0;
-      }
-
-      .navbar-brand {
-        margin-left: 0;
       }
 
       #mode {
@@ -81,7 +73,7 @@ body.home {
       position: absolute;
       z-index: -1;
       overflow-y: hidden;
-      height: 340px;
+      height: 360px;
     }
 
     @include media-breakpoint-up(md) {
@@ -235,12 +227,7 @@ body.home {
     }
   }
 
-  footer {
-    .container-fluid {
-      padding-right: var(--bs-gutter-x, 24px);
-      padding-left: var(--bs-gutter-x, 24px);
-    }
-  }
+
 
   &.dark{
     .card {
