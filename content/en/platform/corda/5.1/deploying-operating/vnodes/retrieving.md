@@ -15,7 +15,7 @@ section_menu: corda51
 
 This section describes how to retrieve information about virtual nodes in a cluster. It contains the following:
 * [Retrieving All Virtual Nodes](#retrieving-all-virtual-nodes)
-* [Retrieving the Virtual Node of a Member](#retrieving-the-virtual-node-of-a-member)
+* [Retrieving the Virtual Node of a Specific Member](#retrieving-the-virtual-node-of-a-specific-member)
 
 ## Retrieving All Virtual Nodes
 
@@ -67,7 +67,7 @@ This endpoint returns the list of all virtual nodes in the cluster as an array o
 }
 ```
 
-## Retrieving the Virtual Node of a Member
+## Retrieving the Virtual Node of a Specific Member
 
 To retrieve information about the {{< tooltip >}}virtual node{{< /tooltip >}} of a specific {{< tooltip >}}member{{< /tooltip >}} in the cluster, use the GET method of the <a href ="../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/get_virtualnode__holdingidentityshorthash_">`/api/v5_1/virtualnode/<holdingidentityshorthash>` endpoint </a>:
 
