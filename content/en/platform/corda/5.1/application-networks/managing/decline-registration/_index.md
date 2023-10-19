@@ -23,13 +23,13 @@ Only use this endpoint under exceptional circumstances.
 {{% tab name="Bash"%}}
 ```bash
 REQUEST_ID=<REQUEST ID>
-curl --insecure -u admin:admin -X POST $API_URL/mgmadmin/$MGM_HOLDING_ID/force-decline/$REQUEST_ID
+curl --insecure -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/mgmadmin/$MGM_HOLDING_ID/force-decline/$REQUEST_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
 $REQUEST_ID = <REQUEST ID>
-Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/mgmadmin/$MGM_HOLDING_ID/force-decline/$REQUEST_ID" -Method POST
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/mgmadmin/$MGM_HOLDING_ID/force-decline/$REQUEST_ID" -Method POST
 ```
 {{% /tab %}}
 {{< /tabs >}}
