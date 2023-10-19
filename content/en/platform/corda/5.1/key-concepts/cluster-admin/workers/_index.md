@@ -26,7 +26,7 @@ Currently, Corda uses the following types of workers:
 * {{< tooltip >}}Crypto workers{{< /tooltip >}} — the only worker type that can load sensitive cryptographic material such as private keys.
 * {{< tooltip >}}Database workers{{< /tooltip >}} — responsible for database configuration and management.
 * Persistence workers — responsible for flow and ledger persistence operations within the database sandbox.
-* Uniqueness workers — provide fixed-function checking for spent input and reference states and time window validation.
+* Uniqueness workers — provide fixed-function checking for spent input and reference states and time-window validation.
 * {{< tooltip >}}Flow workers{{< /tooltip >}} — execute the {{< tooltip >}}CorDapp{{< /tooltip >}} code represented by {{< tooltip >}}flows{{< /tooltip >}}.
 * {{< tooltip >}}Flow mapper workers{{< /tooltip >}} — maintain the mapping and context switching between flows and sessions.
 * {{< tooltip >}}Verification workers{{< /tooltip >}} — verifies ledger transactions within the ledger sandbox.
