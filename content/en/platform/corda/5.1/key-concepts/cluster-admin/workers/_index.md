@@ -34,6 +34,7 @@ Currently, Corda uses the following types of workers:
 * {{< tooltip >}}Gateway workers{{< /tooltip >}} — responsible for establishing {{< tooltip >}}TLS{{< /tooltip >}} connections with the gateways from other clusters and sending or receiving messages via HTTPS; this is typically internet facing.
 * {{< tooltip >}}P2P Link Manager workers{{< /tooltip >}} — responsible for delivering messages between two virtual nodes in a secure and reliable way.
 * {{< tooltip >}}REST workers{{< /tooltip >}} — expose the Corda REST API used for administration and flow execution.
+* Token selection worker — selects the set of states to use as input states in a UTXO transaction. 
 
 Workers are typically referred to in the plural form because they are designed to be deployed with multiple replicas (for example, [Kubernetes replica sets](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/)) to achieve high availability.
 Each worker instance is stateless, and work in the cluster is distributed to all available workers of a particular type. The number of replica workers needed is a function of the desired throughput and availability.
