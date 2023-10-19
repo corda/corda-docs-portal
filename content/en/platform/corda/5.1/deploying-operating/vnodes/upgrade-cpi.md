@@ -24,7 +24,7 @@ To upgrade a CPI, do the following:
 
 1. [Set the state of the virtual node to MAINTENANCE]({{< relref "./state.md">}}).
 2. Ensure no flows are running (that is, all flows have either “COMPLETED”, “FAILED” or “KILLED” status). You can check the list of running flows using <a href ="../../reference/rest-api/openapi.html#tag/Flow-Management-API/operation/get_flow__holdingidentityshorthash_">`GET /api/v5_1/flow/<holdingidentityshorthash>` </a>
-3. Send the checksum of the CPI to upgrade to using the PUT method of the <a href ="../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/put_virtualnode__virtualnodeshortid__cpi__targetcpifilechecksum_">`api/v1/virtualnode/<virtualnodeshortid>/cpi/<targetcpifilechecksum>` endpoint </a>:
+3. Send the checksum of the CPI to upgrade to using the PUT method of the <a href ="../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/put_virtualnode__virtualnodeshortid__cpi__targetcpifilechecksum_">`api/v1/virtualnode/<virtualnodeshortid>/cpi/<targetcpifilechecksum>` endpoint</a>:
 {{< tabs >}}   
 {{% tab name="Bash"%}}
 ```shell
@@ -37,4 +37,7 @@ Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f
 ```
 {{% /tab %}}
 {{< /tabs >}}
-   Upgrading a CPI triggers the member to [re-register]({< relref "../../application-networks/creating/members/reregister.md" >}) with the MGM. This ensures the MGM has the latest information about the CPIs that virtual nodes are running.
+   Upgrading a CPI triggers the member to [re-register]({{< relref "../../application-networks/creating/members/reregister.md" >}}) with the MGM. This ensures the MGM has the latest information about the CPIs that virtual nodes are running.
+{{< note >}}
+If necessary, you can set the optional `forceupgrade` query parameter to `true` to force an upgrade. An upgrade should only be forced if a previous upgrade attempt failed.
+{{< /note >}}
