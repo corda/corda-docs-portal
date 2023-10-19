@@ -23,7 +23,7 @@ the <a href ="./retrieving.md">`/api/v5_1/virtualnode` endpoint</a>.
 To upgrade a CPI, do the following:
 
 1. [Set the state of the virtual node to MAINTENANCE]({{< relref "./state.md">}}).
-2. Ensure no flows are running (that is, all flows have either “COMPLETED”, “FAILED” or “KILLED” status). You can check the list of running flows using <a href ="../../reference/rest-api/openapi.html#tag/Flow-Management-API/operation/get_flow__holdingidentityshorthash_">`GET /api/v5_1/flow/<holdingidentityshorthash>` </a>
+2. Ensure no flows are running (that is, all flows have either “COMPLETED”, “FAILED” or “KILLED” status). You can check the list of running flows using <a href ="../../reference/rest-api/openapi.html#tag/Flow-Management-API/operation/get_flow__holdingidentityshorthash_">`GET /api/v5_1/flow/<holdingidentityshorthash>` </a>.
 3. Send the checksum of the CPI to upgrade to using the PUT method of the <a href ="../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/put_virtualnode__virtualnodeshortid__cpi__targetcpifilechecksum_">`api/v1/virtualnode/<virtualnodeshortid>/cpi/<targetcpifilechecksum>` endpoint</a>:
 {{< tabs >}}   
 {{% tab name="Bash"%}}
