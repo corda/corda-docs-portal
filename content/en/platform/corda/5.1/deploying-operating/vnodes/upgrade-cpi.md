@@ -13,7 +13,7 @@ section_menu: corda51
 
 # Upgrading a CPI
 
-You can upgrade a virtual node's {{< tooltip >}}CPI{{< /tooltip >}}, using the PUT method of the <a href ="../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/put_virtualnode__virtualnodeshortid__cpi__targetcpifilechecksum_">`api/v1/virtualnode/<virtualnodeshortid>/cpi/<targetcpifilechecksum>` endpoint </a>.
+You can upgrade a virtual node's {{< tooltip >}}CPI{{< /tooltip >}} using the PUT method of the <a href ="../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/put_virtualnode__virtualnodeshortid__cpi__targetcpifilechecksum_">`api/v1/virtualnode/<virtualnodeshortid>/cpi/<targetcpifilechecksum>` endpoint </a>.
 
 {{< note >}}
 The target CPI should have the same name, signer summary hash, and MGM group ID as the existing CPI. You can check the values of the existing CPI using 
