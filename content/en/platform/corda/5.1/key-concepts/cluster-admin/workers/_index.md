@@ -29,7 +29,7 @@ Currently, Corda uses the following types of workers:
 * Uniqueness workers — provide fixed-function checking for spent input and reference states and time-window validation.
 * {{< tooltip >}}Flow workers{{< /tooltip >}} — execute the {{< tooltip >}}CorDapp{{< /tooltip >}} code represented by {{< tooltip >}}flows{{< /tooltip >}}.
 * {{< tooltip >}}Flow mapper workers{{< /tooltip >}} — maintain the mapping and context switching between flows and sessions.
-* {{< tooltip >}}Verification workers{{< /tooltip >}} — verifies ledger transactions within the ledger sandbox.
+* {{< tooltip >}}Verification workers{{< /tooltip >}} — verify ledger transactions within the ledger sandbox.
 * {{< tooltip >}}Membership workers{{< /tooltip >}} — provide all membership capabilities, such as joining an application network and discovering other {{< tooltip >}}members{{< /tooltip >}} in the network.
 * {{< tooltip >}}Gateway workers{{< /tooltip >}} — responsible for establishing {{< tooltip >}}TLS{{< /tooltip >}} connections with the gateways from other clusters and sending or receiving messages via HTTPS; this is typically internet facing.
 * {{< tooltip >}}P2P Link Manager workers{{< /tooltip >}} — responsible for delivering messages between two virtual nodes in a secure and reliable way.
