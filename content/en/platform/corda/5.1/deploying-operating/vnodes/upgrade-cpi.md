@@ -17,7 +17,7 @@ You can upgrade a virtual node's {{< tooltip >}}CPI{{< /tooltip >}}, using the P
 
 {{< note >}}
 The target CPI should have the same name, signer summary hash, and MGM group ID as the existing CPI. You can check the values of the existing CPI using 
-the <a href ="./retrieving.md">`/api/v5_1/virtualnode` endpoint </a>:
+the <a href ="./retrieving.md">`/api/v5_1/virtualnode` endpoint</a>.
 {{< /note >}}
 
 To upgrade a CPI, do the following:
