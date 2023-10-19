@@ -1,5 +1,5 @@
 ---
-date: '2023-08-10'
+date: '2023-10-18'
 version: 'Corda 5.1'
 title: "Deploying"
 menu:
@@ -136,10 +136,12 @@ The following sections describe the minimal set of configuration options require
 * [Replica Counts]({{< relref "#replica-counts" >}})
 * [Resource Requests and Limits]({{< relref "#resource-requests-and-limits" >}})
 * [REST API]({{< relref "#rest-api" >}})
+* [P2P Gateway]({{< relref "#p2p-gateway" >}})
 * [PostgreSQL]({{< relref "#postgresql" >}})
 * [Encryption]({{< relref "#encryption" >}})
 * [Bootstrapping]({{< relref "#bootstrapping" >}})
 * [Custom Annotations for Worker Pods]({{< relref "#custom-annotations-for-worker-pods" >}})
+* [Pre-Install Checks]({{< relref "#pre-install-checks" >}})
 
 You can extract a README containing the full set of options from the Helm chart using the following command:
 ```shell
@@ -177,6 +179,10 @@ workers:
     replicaCount: 3
   flow:
     replicaCount: 3
+  flowMapper:
+    replicaCount: 3
+  verification:
+    replicaCount: 3
   membership:
     replicaCount: 3
   rest:
@@ -184,6 +190,12 @@ workers:
   p2pGateway:
     replicaCount: 3
   p2pLinkManager:
+    replicaCount: 3
+  persistence:
+    replicaCount: 3
+  tokenSelection:
+    replicaCount: 3
+  uniqueness:
     replicaCount: 3
 ```
 
@@ -316,6 +328,29 @@ If this optional value is not provided, Helm generates the certificate data at i
 {{< note >}}
 If the secret data is modified, the REST worker pod will not currently detect the change until the pod is restarted.
 {{</ note >}}
+
+### P2P Gateway
+
+You can configure Kubernetes Ingress to provide the P2P gateway worker with HTTP load balancing.
+
+{{< note >}}
+* Kubernetes Ingress makes the P2P gateway accessible from outside the Kubernetes cluster that the Corda cluster is deployed into. Your organization must own the domain name (`my-sub.mydomain.com` in the example below) and that must resolve to the IP address of the Ingress-managed load balancer. 
+* The gateway only supports TLS termination in the gateway and not inside the load balancer itself. 
+{{< /note >}}
+
+R3 recommends using an NGINX load balancer. For example:
+```yaml
+workers:
+  p2pGateway:
+    ingress:
+      className: "nginx"
+      hosts:
+        - "my-sub.mydomain.com"
+      annotations:
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+        nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+        nginx.ingress.kubernetes.io/ssl-redirect: "true"
+```
 
 ### PostgreSQL
 
@@ -636,10 +671,10 @@ For example, when running with Red Hat OpenShift Container Platform, you must us
 3. In the configuration YAML for the Corda deployment, specify the service account to be used:
 
    ```yaml
-   serviceAccount: 
+   serviceAccount:
       name: "corda-privileged"
    bootstrap:
-      serviceAccount: 
+      serviceAccount:
         name: "corda-privileged"
    ```
 
@@ -660,6 +695,30 @@ workers:
     annotations:
       annotation-key-2: "some-value"
 ```
+
+### Pre-Install Checks
+
+When deploying Corda, pre-install checks are performed automatically to check the configuration of Corda, to confirm
+that all the [prerequisites]({{< relref "../prerequisites.md" >}}) are running and that the correct credentials and permissions
+are provided to install a running Corda cluster. The pre-install checks verify if:
+
+* the resource limits have been assigned correctly.
+* the PostgreSQL database is up and if the credentials work.
+* Kafka is up and if the credentials work.
+
+You can also run those checks manually using the Corda CLI <a href="../../reference/corda-cli/preinstall.html">`preinstall`</a>
+command after you have deployed Corda.
+
+If you want to disable the pre-install checks from running automatically (for example, to save time when testing the deployment), you can do it by adding the following property to your YAML file:
+
+```yaml
+bootstrap:
+  preinstallCheck:
+    enabled: false
+```
+
+If the pre-install checks fail, for example, if Kafka or PostgreSQL are not available, you can retrieve the logs for a
+single pod using `kubectl`. For more information on retrieving the logs, see the [Logs]({{< relref "../../observability/logs.md" >}}) section.
 
 ### Example Configuration
 
@@ -748,6 +807,7 @@ workers:
               name: "kafka-credentials"
               key: "crypto"
     replicaCount: 3
+
   db:
     kafka:
       sasl:
@@ -764,6 +824,7 @@ workers:
       limits:
         memory: 2048Mi
     replicaCount: 3
+
   flow:
     kafka:
       sasl:
@@ -780,6 +841,31 @@ workers:
       limits:
         memory: 2048Mi
     replicaCount: 3
+
+  flowMapper:
+    kafka:
+      sasl:
+        username:
+          value: "flowMapper"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "kafka-credentials"
+              key: "flowMapper"
+    replicaCount: 3
+
+  verification:
+    kafka:
+      sasl:
+        username:
+          value: "verification"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "kafka-credentials"
+              key: "verification"
+    replicaCount: 3
+
   membership:
     kafka:
       sasl:
@@ -791,6 +877,7 @@ workers:
               name: "kafka-credentials"
               key: "membership"
     replicaCount: 3
+
   p2pGateway:
     kafka:
       sasl:
@@ -802,6 +889,7 @@ workers:
               name: "kafka-credentials"
               key: "p2pGateway"
     replicaCount: 3
+
   p2pLinkManager:
     kafka:
       sasl:
@@ -813,6 +901,36 @@ workers:
               name: "kafka-credentials"
               key: "p2pLinkManager"
     replicaCount: 3
+
+  persistence:
+    kafka:
+      sasl:
+        username:
+          value: "persistence"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "kafka-credentials"
+              key: "persistence"
+    resources:
+      requests:
+        memory: 2048Mi
+      limits:
+        memory: 2048Mi
+    replicaCount: 3
+
+  tokenSelection:
+    kafka:
+      sasl:
+        username:
+          value: "tokenSelection"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "kafka-credentials"
+              key: "tokenSelection"
+    replicaCount: 3
+
   rest:
     kafka:
       sasl:
@@ -831,6 +949,18 @@ workers:
         service.beta.kubernetes.io/aws-load-balancer-scheme: "internal"
         service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
         external-dns.beta.kubernetes.io/hostname: "corda.example.com"
+
+  uniqueness:
+    kafka:
+      sasl:
+        username:
+          value: "uniqueness"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "kafka-credentials"
+              key: "uniqueness"
+    replicaCount: 3
 ```
 
 ## Deployment

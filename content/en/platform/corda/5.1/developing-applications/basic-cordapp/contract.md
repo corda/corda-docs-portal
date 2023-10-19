@@ -51,12 +51,12 @@ Commands indicate the transaction's intent — what type of actions performed by
 In this step, you define a command for issuing the bushel of apples.
 Do this in a separate file as commands can be used by different contracts within the CorDapp.
 
-1.	Go to `contracts/src/main/kotlin/com/r3/developers/apples` and right-click the `contracts` folder.
-2.	Select **New > Kotlin Class**.
-3.	Create a file called `AppleCommands`.
-4.	Open that file.
-5.	Add an `AppleCommands` public interface declaration which inherits from `Command`.
-6.	Inside the interface, add `Issue` and `Redeem` classes that implement `AppleCommands`.
+1. Go to `contracts/src/main/kotlin/com/r3/developers/apples` and right-click the `contracts` folder.
+2. Select **New > Kotlin Class**.
+3. Create a file called `AppleCommands`.
+4. Open that file.
+5. Add an `AppleCommands` public interface declaration which inherits from `Command`.
+6. Inside the interface, add `Issue` and `Redeem` classes that implement `AppleCommands`.
 
 This is what your code should look like now:
 
