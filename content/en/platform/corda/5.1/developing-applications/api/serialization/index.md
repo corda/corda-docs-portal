@@ -16,19 +16,15 @@ process of creating objects from a stream of bytes.  It takes place every time w
 Corda uses a custom form of typesafe binary serialisation. The primary drivers for this were:
 
 * A desire to have a schema describing what has been serialized alongside the actual data:
-  * To assist with versioning, both in terms of being able to interpret data archived long ago (e.g. trades from
-    a decade ago, long after the code has changed) and between differing code versions.
+  * To assist with versioning, both in terms of being able to interpret data archived long ago (e.g. trades from a decade ago, long after the code has changed) and between differing code versions.
   * To make it easier to write generic code; e.g. user interfaces that can navigate the serialized form of data.
   * To support cross platform (non-JVM) interaction, where the format of a class file is not so easily interpreted.
-* A desire to use a documented and static wire format that is platform independent, and is not subject to change with
-  3rd party library upgrades, etc.
-* A desire to support open-ended polymorphism, where the number of subclasses of a superclass can expand over time
-  and the subclasses do not need to be defined in the schema *upfront*. This is key to many Corda concepts, such as {{< tooltip >}}states{{< /tooltip >}}.
-* Increased security when deserializing objects by constructing them through supported constructors, rather than having
-  data inserted directly into their fields without an opportunity to validate consistency or intercept attempts to manipulate
-  supposed invariants.
-* Binary formats work better with digital signatures than text based formats, as there’s much less scope for
-  changes that modify syntax but not semantics.
+* A desire to use a documented and static wire format that is platform independent, and is not subject to change with 3rd party library upgrades, etc.
+* A desire to support open-ended polymorphism, where the number of subclasses of a superclass can expand over time and the subclasses do not need to be defined in the schema *upfront*. This is key to many Corda concepts, such as {{< tooltip >}}states{{< /tooltip >}}.
+* Increased security when deserializing objects by constructing them through supported constructors, rather than having data inserted directly into their fields without an opportunity to validate consistency or intercept attempts to manipulate supposed invariants.
+* Binary formats work better with digital signatures than text based formats, as there’s much less scope for changes that modify syntax but not semantics.
+
+For more information, see the documentation for the package in the <a href="/en/api-ref/corda/{{<version-num>}}/net/corda/v5/serialization/package-summary.html" target=" blank">Java API documentation</a>.
 
 ## Allow List
 
