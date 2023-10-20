@@ -381,7 +381,7 @@ Allows fine-grained controls of various features only available in the enterpris
 
     - `journalBufferTimeout`
       * The interval (in nanoseconds) at which Artemis messages that are buffered in-memory will be flushed to disk, if the buffer hasn't been filled yet. Setting this to 0 will disable the internal buffer and writes will be written directly to the journal file.
-      * *Default:* 1000000 nanoseconds
+      * *Default:* 1,000,000 nanoseconds
 
     - `journalBufferSize`
 
