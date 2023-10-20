@@ -24,7 +24,7 @@ Corda uses a custom form of typesafe binary serialisation. The primary drivers f
 * Increased security when deserializing objects by constructing them through supported constructors, rather than having data inserted directly into their fields without an opportunity to validate consistency or intercept attempts to manipulate supposed invariants.
 * Binary formats work better with digital signatures than text based formats, as there’s much less scope for changes that modify syntax but not semantics.
 
-For more information, see the documentation for the package in the <a href="/en/api-ref/corda/corda/{{<version-num>}}/net/corda/v5/serialization/package-summary.html" target=" blank">Java API documentation</a>.
+For more information, see the documentation for the package in the <a href="/en/api-ref/corda/{{<version-num>}}/net/corda/v5/serialization/package-summary.html" target=" blank">Java API documentation</a>.
 
 ## Allow List
 

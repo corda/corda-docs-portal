@@ -17,7 +17,7 @@ The `crypto` package provides types used by services in `net.corda.v5.applicatio
 * `SecureHash` is a cryptographically secure hash value, computed by a specified digest algorithm.
 * `SignatureSpec` is a digital signature scheme.
 
-For more information, see the documentation for the package in the <a href="/en/api-ref/corda/corda/{{<version-num>}}/net/corda/v5/crypto/package-summary.html" target=" blank">Java API documentation</a>.
+For more information, see the documentation for the package in the <a href="/en/api-ref/corda/{{<version-num>}}/net/corda/v5/crypto/package-summary.html" target=" blank">Java API documentation</a>.
 
 ## Implementing Signature Schemes
 
