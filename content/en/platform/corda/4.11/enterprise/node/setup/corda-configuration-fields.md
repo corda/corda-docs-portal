@@ -343,12 +343,12 @@ Allows fine-grained controls of various features only available in the enterpris
 
     - `backchainFetchBatchSize`
 
-      This is an optimization for sharing transaction backchains. Corda Enterprise nodes can request backchain items in bulk instead of one at a time. This field specifies the size of the batch. The value is just an integer indicating the maximum number of states that can be requested at a time during backchain resolution.
+        * This is an optimization for sharing transaction backchains. Corda Enterprise nodes can request backchain items in bulk instead of one at a time. This field specifies the size of the batch. The value is just an integer indicating the maximum number of states that can be requested at a time during backchain resolution.
         * *Default:* 50
 
     - `brokerConnectionTtlCheckIntervalMs`
 
-      The interval at which acknowledgements of completed commands are to be sent in case `p2pConfirmationWindowSize` is not exhausted in time.
+        * The interval at which acknowledgements of completed commands are to be sent in case `p2pConfirmationWindowSize` is not exhausted in time.
         * *Default:* 1 millisecond
 
     - `flowThreadPoolSize`
