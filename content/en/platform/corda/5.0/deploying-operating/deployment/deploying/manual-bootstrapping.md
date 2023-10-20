@@ -188,7 +188,6 @@ bootstrap:
 ```
 
 Create and populate the database schema, as follows:
-
 1. [Create the database tables](#create-the-database-tables).
 2. [Populate the RBAC database connection configuration](#populate-the-rbac-database-connection-configuration).
 3. [Populate the crypto database connection configuration](#populate-the-crypto-database-connection-configuration).

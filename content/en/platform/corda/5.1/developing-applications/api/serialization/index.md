@@ -1,5 +1,5 @@
 ---
-date: '2022-09-21T14:27:00+01:00'
+date: '2023-10-20'
 version: 'Corda 5.1'
 title: "serialization"
 menu:
@@ -10,6 +10,7 @@ menu:
 section_menu: corda51
 ---
 # net.corda.v5.serialization
+
 Object serialization is the process of converting objects into a stream of bytes while deserialization is the reverse
 process of creating objects from a stream of bytes.  It takes place every time we store transactions in the database.
 
@@ -90,7 +91,6 @@ Corda serialisation is currently used for:
 
 * Passing objects between the {{< tooltip >}}flow worker{{< /tooltip >}} and {{< tooltip >}}database worker{{< /tooltip >}}
 
-
 For the checkpointing of flows Corda uses a private scheme that is subject to change. It is currently based on the Kryo
 framework, but this may not be true in future.
 
@@ -105,11 +105,9 @@ This document describes what is currently and what will be supported in the Cord
 of CorDapp Developers, to allow CorDapps to take into consideration the future state.  The AMQP serialization format will
 continue to apply the allow list functionality that is already in place and described in this page.
 
-
 ## Core Types
 
 This section describes the classes and interfaces that the AMQP serialization format supports.
-
 
 ### Collection Types
 
@@ -215,6 +213,7 @@ java.util.UUID
 
 javax.security.auth.x500.X500Principal
 ```
+
 ### Third-Party Types
 
 The following 3rd-party types are supported:
@@ -246,7 +245,8 @@ Your own types must adhere to the following rules to be supported:
   but must be turned on in Java using the `-parameters` command line option to `javac`{{< note >}}
   In circumstances where classes cannot be recompiled, such as when using a third-party library, a
   proxy serializer can be used to avoid this problem. Details on creating such an object can be found on the
-  [Pluggable Serializers for CorDapps](amqp-serialization-cordapp-custom-serializers.html) page.{{< /note >}}
+  [Pluggable Serializers for CorDapps](./amqp-serialization-cordapp-custom-serializers.md) page.
+  {{< /note >}}
 * The class must be annotated with `@CordaSerializable`
 * The declared types of constructor arguments, getters, and setters must be supported, and where generics are used, the
   generic parameter must be a supported type, an open wildcard (`*`), or a bounded wildcard which is currently
@@ -574,7 +574,7 @@ to a mutable instance
 
 All enums are supported, provided they are annotated with `@CordaSerializable`. Corda supports interoperability of
 enumerated type versions. This allows such types to be changed over time without breaking backward (or forward)
-compatibility. The rules and mechanisms for doing this are discussed in [Enum Evolution](amqp-serialization-enum-evolution.html).
+compatibility. The rules and mechanisms for doing this are discussed in [Enum Evolution](./amqp-serialization-enum-evolution.md).
 
 ### Exceptions
 
@@ -585,6 +585,7 @@ The following rules apply to supported `Throwable` implementations.
 `Throwable` contained within it, including the class name of the original `Throwable`
 
 ### Kotlin Objects
+
 Kotlin’s non-anonymous `object` s (i.e. constructs like `object foo : Contract {...}`) are singletons and
 treated differently.  They are recorded into the stream with no properties, and deserialize back to the
 singleton instance. Currently, the same is not true of Java singletons, which will deserialize to new instances
@@ -594,4 +595,5 @@ Kotlin’s anonymous `object` s (i.e. constructs like `object : Contract {...}`)
 and will not serialize correctly. They need to be re-written as an explicit class declaration.
 
 ## Type Evolution
-Type evolution is the mechanism by which classes can be altered over time yet still remain serializable and deserializable across all versions of the class. This ensures an object serialized with an older idea of what the class “looked like” can be deserialized and a version of the current state of the class instantiated. You can learn more in [Default Class Evolution](amqp-serialization-default-evolution.html).
+
+Type evolution is the mechanism by which classes can be altered over time yet still remain serializable and deserializable across all versions of the class. This ensures an object serialized with an older idea of what the class “looked like” can be deserialized and a version of the current state of the class instantiated. You can learn more in [Default Class Evolution](./amqp-serialization-default-evolution.md).
