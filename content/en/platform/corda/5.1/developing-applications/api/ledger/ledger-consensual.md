@@ -18,4 +18,4 @@ Every consensual state has a list of participants, and if all participants have 
 
 There is no inherent mechanism to evolve or consume states. For example, any mechanism to form a linked chain of states is defined by the CorDapp; the platform cannot enforce such a chain in a consensual model.
 
-For more information, see the documentation for the package in the <a href="../../../../../../api-ref/corda/{{<version-num>}}/net/corda/v5/ledger/consensual/package-summary.html" target=" blank">Java API documentation</a>.
+For more information, see the documentation for the package in the <a href="/en/api-ref/corda/corda/{{<version-num>}}/net/corda/v5/ledger/consensual/package-summary.html" target=" blank">Java API documentation</a>.

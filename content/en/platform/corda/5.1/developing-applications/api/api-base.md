@@ -11,8 +11,8 @@ section_menu: corda51
 ---
 # net.corda.v5.base
 The `base` modules contain annotations, types exceptions, and some utility functions used throughout the CorDapp API:
-* <a href="../../../../../../api-ref/corda/{{<version-num>}}/net/corda/v5/base/annotations/package-summary.html" target=" blank">net.corda.v5.base.annotations</a>
-* <a href="../../../../../../api-ref/corda/{{<version-num>}}/net/corda/v5/base/exceptions/package-summary.html" target=" blank">net.corda.v5.base.exceptions</a>
-* <a href="../../../../../../api-ref/corda/{{<version-num>}}/net/corda/v5/base/types/package-summary.html" target=" blank">net.corda.v5.base.types</a>
-* <a href="../../../../../../api-ref/corda/{{<version-num>}}/net/corda/v5/base/util/package-summary.html" target=" blank">net.corda.v5.base.util</a>
-* <a href="../../../../../../api-ref/corda/{{<version-num>}}/net/corda/v5/base/versioning/package-summary.html" target=" blank">net.corda.v5.base.versioning</a>
+* <a href="/en/api-ref/corda/corda/{{<version-num>}}/net/corda/v5/base/annotations/package-summary.html" target=" blank">net.corda.v5.base.annotations</a>
+* <a href="/en/api-ref/corda/corda/{{<version-num>}}/net/corda/v5/base/exceptions/package-summary.html" target=" blank">net.corda.v5.base.exceptions</a>
+* <a href="/en/api-ref/corda/corda/{{<version-num>}}/net/corda/v5/base/types/package-summary.html" target=" blank">net.corda.v5.base.types</a>
+* <a href="/en/api-ref/corda/corda/{{<version-num>}}/net/corda/v5/base/util/package-summary.html" target=" blank">net.corda.v5.base.util</a>
+* <a href="/en/api-ref/corda/corda/{{<version-num>}}/net/corda/v5/base/versioning/package-summary.html" target=" blank">net.corda.v5.base.versioning</a>
