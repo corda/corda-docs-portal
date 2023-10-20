@@ -249,7 +249,7 @@ Your own types must adhere to the following rules to be supported:
   but must be turned on in Java using the `-parameters` command line option to `javac`{{< note >}}
   In circumstances where classes cannot be recompiled, such as when using a third-party library, a
   proxy serializer can be used to avoid this problem. Details on creating such an object can be found on the
-  [Pluggable Serializers for CorDapps]({{< relref "./amqp-serialization-cordapp-custom-serializers.md">}}) page.
+  [Pluggable Serializers for CorDapps](./amqp-serialization-cordapp-custom-serializers.md) page.
   {{< /note >}}
 * The class must be annotated with `@CordaSerializable`
 * The declared types of constructor arguments, getters, and setters must be supported, and where generics are used, the
@@ -578,7 +578,7 @@ to a mutable instance
 
 All enums are supported, provided they are annotated with `@CordaSerializable`. Corda supports interoperability of
 enumerated type versions. This allows such types to be changed over time without breaking backward (or forward)
-compatibility. The rules and mechanisms for doing this are discussed in [Enum Evolution]({{< relref "./amqp-serialization-enum-evolution.md">}}).
+compatibility. The rules and mechanisms for doing this are discussed in [Enum Evolution](./amqp-serialization-enum-evolution.md).
 
 ### Exceptions
 
@@ -600,4 +600,4 @@ and will not serialize correctly. They need to be re-written as an explicit clas
 
 ## Type Evolution
 
-Type evolution is the mechanism by which classes can be altered over time yet still remain serializable and deserializable across all versions of the class. This ensures an object serialized with an older idea of what the class “looked like” can be deserialized and a version of the current state of the class instantiated. You can learn more in [Default Class Evolution]({{< relref "./amqp-serialization-default-evolution.md">}}).
+Type evolution is the mechanism by which classes can be altered over time yet still remain serializable and deserializable across all versions of the class. This ensures an object serialized with an older idea of what the class “looked like” can be deserialized and a version of the current state of the class instantiated. You can learn more in [Default Class Evolution](./amqp-serialization-default-evolution.md).
