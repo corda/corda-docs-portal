@@ -115,10 +115,10 @@ Optional name of the CryptoService implementation. This only needs to be set if 
 Optional path to the configuration file for the CryptoService provider. This may have to be present if you use a different CryptoService provider than the default one.
 
 ## `cryptoServiceFlowRetryCount`
- 
-`cryptoServiceFlowRetryCount` is used to specify which actions should be taken in the event of a flow suffering a CryptoServiceException due to a timeout. 
 
-The *absolute value* of *cryptoServiceFlowRetryCount* determines the number of times that the flow is retried. The *sign* of the value determines what happens when all retries are exhausted: 
+`cryptoServiceFlowRetryCount` is used to specify which actions should be taken in the event of a flow suffering a CryptoServiceException due to a timeout.
+
+The *absolute value* of *cryptoServiceFlowRetryCount* determines the number of times that the flow is retried. The *sign* of the value determines what happens when all retries are exhausted:
 
 * If a *negative* value is specified, a `CryptoServiceException` is propagated back to the calling code and the flow fails; this was the default behaviour in versions of Corda before 4.10.
 * If a *positive* value is specified, then the flow is held in the flow hospital paused until either:
@@ -128,7 +128,7 @@ The *absolute value* of *cryptoServiceFlowRetryCount* determines the number of t
 
 For example, if `cryptoServiceFlowRetryCount` is set to `-2`, then the flow is retried a maximum of two times. If it still fails, then the exception is propagated back to the code that invoked the flow and the flow failed.
 
-*Default:* -2 
+*Default:* -2
 
 ## `cryptoServiceTimeout`
 
@@ -345,6 +345,10 @@ Allows fine-grained controls of various features only available in the enterpris
     This is an optimization for sharing transaction backchains. Corda Enterprise nodes can request backchain items in bulk instead of one at a time. This field specifies the size of the batch. The value is just an integer indicating the maximum number of states that can be requested at a time during backchain resolution.
       *Default:* 50
 
+    - `brokerConnectionTtlCheckIntervalMs`
+    The interval at which acknowledgements of completed commands are to be sent in case `p2pConfirmationWindowSize` is not exhausted in time.
+      *Default:* 1 millisecond
+
     - `flowThreadPoolSize`
 
       The number of threads available to handle flows in parallel. This is the number of flows
@@ -362,23 +366,24 @@ Allows fine-grained controls of various features only available in the enterpris
   using for example H2, any number beyond eight does not add any substantial benefit due to limitations with its internal
   architecture. For these reasons, the default size for the flow framework thread pool is the lower number between either the available number of processors times two, and 30. Overriding this value in the configuration allows you to specify any number.
 
-  - `rpcThreadPoolSize`
+    - `rpcThreadPoolSize`
 
-    * The number of threads handling RPC calls - this defines how many RPC requests can be handled
+      * The number of threads handling RPC calls - this defines how many RPC requests can be handled
   in parallel without queueing. The default value is set to the number of available processor cores.
-    * Incoming RPC calls are queued until a thread from this
+      * Incoming RPC calls are queued until a thread from this
   pool is available to handle the connection, prepare any required data and start the requested flow. As  this
   might be a non-trivial amount of work, the size of this pool can be configured in Corda Enterprise.
-    * On a multicore machine with a large `flowThreadPoolSize`, this might need to be increased, to avoid flow threads being idle while the payload is being deserialized and the flow invocation run.
-    * If there are idling flow threads while RPC calls are queued, it might be worthwhile increasing this * number slightly.
-    * Valid values for this property are between 4 (that is the number used for the single threaded state * machine in open source) and the number of flow threads.
+      * On a multicore machine with a large `flowThreadPoolSize`, this might need to be increased, to avoid flow threads being idle while the payload is being deserialized and the flow invocation run.
+      * If there are idling flow threads while RPC calls are queued, it might be worthwhile increasing this * number slightly.
+      * Valid values for this property are between 4 (that is the number used for the single threaded state * machine in open source) and the number of flow threads.
 
-  - `journalBufferTimeout`
-    * The interval (in nanoseconds) at which Artemis messages that are buffered in-memory will be flushed to disk, if the buffer hasn't been filled yet. Setting this to 0 will disable the internal buffer and writes will be written directly to the journal file.
+    - `journalBufferTimeout`
+      * The interval (in nanoseconds) at which Artemis messages that are buffered in-memory will be flushed to disk, if the buffer hasn't been filled yet. Setting this to 0 will disable the internal buffer and writes will be written directly to the journal file.
+      * *Default:* 1000000 nanoseconds
 
-  - `journalBufferSize`
+    - `journalBufferSize`
 
-    - The size of the in-memory Artemis buffer for messages, in bytes. Note that there is a lower bound to the buffer size, which is calculated based on the maximum message size of the network parameters to ensure messages of any allowed size can be stored successfully. As a result, any value lower than this bound will be ignored with the appropriate logging. This bound is also used as the default, if no value is specified.
+      - The size of the in-memory Artemis buffer for messages, in bytes. Note that there is a lower bound to the buffer size, which is calculated based on the maximum message size of the network parameters to ensure messages of any allowed size can be stored successfully. As a result, any value lower than this bound will be ignored with the appropriate logging. This bound is also used as the default, if no value is specified.
 
 ## `extraNetworkMapKeys`
 
@@ -584,6 +589,7 @@ Once a notary is configured with a default value, it cannot be reconfigured. To 
     * *Default:* 20
   * `batchTimeoutMs`
     * Configures the amount of time that the notary will wait before processing a batch, even if the batch is not full. Smaller values can lead to lower latency but potentially worse throughput as smaller batches might be processed.
+    * *Default:* 1
 * `mysql`
   * If using the MySQL notary (deprecated), specify this configuration section with the settings below.
   * `connectionRetries`
@@ -604,7 +610,7 @@ Once a notary is configured with a default value, it cannot be reconfigured. To 
     * *Default:* 10 000
   * `batchTimeoutMs`
     * Configures the amount of time that the notary will wait before processing a batch, even if the batch is not full. Smaller values can lead to lower latency but potentially worse throughput as smaller batches might be processed.
-    * *Default:* 200
+    * *Default:* 1
   * `maxQueueSize`
     * The maximum number of commit requests in flight. Once the capacity is reached the service will block on further commit requests.
     * *Default:* 100 000
@@ -681,7 +687,7 @@ Once a notary is configured with a default value, it cannot be reconfigured. To 
       * *Default:* 10
     * `batchTimeoutMs`
       * Configures the amount of time that the notary will wait before processing a batch, even if the batch is not full. Smaller values can lead to lower latency but potentially worse throughput as smaller batches might be processed.
-      * *Default:* 200
+      * *Default:* 1
     * `maxQueueSize`
       * The maximum number of commit requests in flight. Once the capacity is reached the service will block on further commit requests.
       * *Default:* 100 000
@@ -899,13 +905,13 @@ Keys and values of the map should be strings. e.g. `systemProperties = { "visual
 
 ## `telemetry`
 
-There are new configuration fields for telemetry. See the [OpenTelemetry]({{< relref "../../../enterprise/node/operating/monitoring-and-logging/opentelemetry.md" >}}) section for more information. 
+There are new configuration fields for telemetry. See the [OpenTelemetry]({{< relref "../../../enterprise/node/operating/monitoring-and-logging/opentelemetry.md" >}}) section for more information.
 
-* `openTelemetryEnabled` 
+* `openTelemetryEnabled`
   * Specifies if the node should generate spans to be sent to a collector. The node will only generate spans if this property is set to `true` and an OpenTelemetry SDK is on the node classpath. By default, no OpenTelemetry SDK is on the node classpath, meaning by default no spans are actually generated. To prevent spans being generated regardless of whether the OpenTelemetry SDK is on the classpath, this configuration field should be set to `false`.
   * *Default:* true
 * `spanStartEndEventsEnabled`
-  * When Corda generates spans for flows and certain significant operations, it has the capability to generate a span for starting the operation, ending the operation, and generating a single span to cover the whole operation. This can be useful to determine where a flow is stuck, as you will only see the start spans, and not the end spans. This is not standard OpenTelemetry behaviour, and it could also result in a lot of spans flooding the network. Setting this field to `true` will enable it. 
+  * When Corda generates spans for flows and certain significant operations, it has the capability to generate a span for starting the operation, ending the operation, and generating a single span to cover the whole operation. This can be useful to determine where a flow is stuck, as you will only see the start spans, and not the end spans. This is not standard OpenTelemetry behaviour, and it could also result in a lot of spans flooding the network. Setting this field to `true` will enable it.
   * *Default:* false
 * `copyBaggageToTags`
   * If set to `true`, this parameter will cause baggage to be copied to tags when generating spans. Baggage are fields which can be passed around with the invocation of OpenTelemetry.
