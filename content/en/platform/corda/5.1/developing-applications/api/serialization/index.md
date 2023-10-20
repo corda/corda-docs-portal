@@ -1,10 +1,6 @@
 ---
-date: '2022-09-21T14:27:00+01:00'
-<<<<<<<< HEAD:content/en/platform/corda/5.1/developing-applications/api/serialization/index.md
+date: '2023-10-20'
 version: 'Corda 5.1'
-========
-version: 'Corda 5.0'
->>>>>>>> 6733342d47ac446de20e4ff8ce21707f16313464:content/en/platform/corda/5.0/developing-applications/api/serialization/_index.md
 title: "serialization"
 menu:
   corda51:
