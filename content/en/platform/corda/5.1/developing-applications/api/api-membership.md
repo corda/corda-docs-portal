@@ -10,9 +10,10 @@ menu:
 section_menu: corda51
 ---
 # net.corda.v5.membership
-The `corda-membership` module defines interfaces that provide information about a {{< tooltip >}}member{{< /tooltip >}} and a {{< tooltip >}}membership group{{< /tooltip >}}. The interfaces in this module should not be implemented by {{< tooltip >}}CorDapp{{< /tooltip >}} Developers. Instead, instances can be retrieved through lookup services.
+The `corda-membership` package defines interfaces that provide information about a {{< tooltip >}}member{{< /tooltip >}} and a {{< tooltip >}}membership group{{< /tooltip >}}. The interfaces in this module should not be implemented by {{< tooltip >}}CorDapp{{< /tooltip >}} Developers. Instead, instances can be retrieved through lookup services.
+For more information about this package, see the documentation for the package in the <a href="../../../../../../api-ref/corda/{{<version-num>}}/net/corda/v5/membership/package-summary.html" target=" blank">Java API documentation</a>.
 
-This module consists primarily of the following two root classes:
+This package consists primarily of the following two root classes:
 * [MemberInfo](#memberinfo)
 * [GroupParameters](#groupparameters)
 
