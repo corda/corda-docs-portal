@@ -115,10 +115,10 @@ Optional name of the CryptoService implementation. This only needs to be set if 
 Optional path to the configuration file for the CryptoService provider. This may have to be present if you use a different CryptoService provider than the default one.
 
 ## `cryptoServiceFlowRetryCount`
- 
-`cryptoServiceFlowRetryCount` is used to specify which actions should be taken in the event of a flow suffering a CryptoServiceException due to a timeout. 
 
-The *absolute value* of *cryptoServiceFlowRetryCount* determines the number of times that the flow is retried. The *sign* of the value determines what happens when all retries are exhausted: 
+`cryptoServiceFlowRetryCount` is used to specify which actions should be taken in the event of a flow suffering a CryptoServiceException due to a timeout.
+
+The *absolute value* of *cryptoServiceFlowRetryCount* determines the number of times that the flow is retried. The *sign* of the value determines what happens when all retries are exhausted:
 
 * If a *negative* value is specified, a `CryptoServiceException` is propagated back to the calling code and the flow fails; this was the default behaviour in versions of Corda before 4.10.
 * If a *positive* value is specified, then the flow is held in the flow hospital paused until either:
@@ -128,7 +128,7 @@ The *absolute value* of *cryptoServiceFlowRetryCount* determines the number of t
 
 For example, if `cryptoServiceFlowRetryCount` is set to `-2`, then the flow is retried a maximum of two times. If it still fails, then the exception is propagated back to the code that invoked the flow and the flow failed.
 
-*Default:* -2 
+*Default:* -2
 
 ## `cryptoServiceTimeout`
 
@@ -339,11 +339,17 @@ Allows fine-grained controls of various features only available in the enterpris
 
 * `tuning`
 
-    * The Corda Node configuration file section that contains performance tuning parameters for Corda Enterprise Nodes.
+The Corda Node configuration file section that contains performance tuning parameters for Corda Enterprise Nodes.
 
     - `backchainFetchBatchSize`
+
     This is an optimization for sharing transaction backchains. Corda Enterprise nodes can request backchain items in bulk instead of one at a time. This field specifies the size of the batch. The value is just an integer indicating the maximum number of states that can be requested at a time during backchain resolution.
       *Default:* 50
+
+    - `brokerConnectionTtlCheckIntervalMs`
+
+    The interval at which acknowledgements of completed commands are to be sent in case `p2pConfirmationWindowSize` is not exhausted in time.
+      * *Default:* 1 millisecond
 
     - `flowThreadPoolSize`
 
@@ -375,6 +381,7 @@ Allows fine-grained controls of various features only available in the enterpris
 
   - `journalBufferTimeout`
     * The interval (in nanoseconds) at which Artemis messages that are buffered in-memory will be flushed to disk, if the buffer hasn't been filled yet. Setting this to 0 will disable the internal buffer and writes will be written directly to the journal file.
+    * *Default:* 1000000 nanoseconds
 
   - `journalBufferSize`
 
@@ -584,6 +591,7 @@ Once a notary is configured with a default value, it cannot be reconfigured. To 
     * *Default:* 20
   * `batchTimeoutMs`
     * Configures the amount of time that the notary will wait before processing a batch, even if the batch is not full. Smaller values can lead to lower latency but potentially worse throughput as smaller batches might be processed.
+    * *Default:* 1
 * `mysql`
   * If using the MySQL notary (deprecated), specify this configuration section with the settings below.
   * `connectionRetries`
@@ -604,7 +612,7 @@ Once a notary is configured with a default value, it cannot be reconfigured. To 
     * *Default:* 10 000
   * `batchTimeoutMs`
     * Configures the amount of time that the notary will wait before processing a batch, even if the batch is not full. Smaller values can lead to lower latency but potentially worse throughput as smaller batches might be processed.
-    * *Default:* 200
+    * *Default:* 1
   * `maxQueueSize`
     * The maximum number of commit requests in flight. Once the capacity is reached the service will block on further commit requests.
     * *Default:* 100 000
@@ -681,7 +689,7 @@ Once a notary is configured with a default value, it cannot be reconfigured. To 
       * *Default:* 10
     * `batchTimeoutMs`
       * Configures the amount of time that the notary will wait before processing a batch, even if the batch is not full. Smaller values can lead to lower latency but potentially worse throughput as smaller batches might be processed.
-      * *Default:* 200
+      * *Default:* 1
     * `maxQueueSize`
       * The maximum number of commit requests in flight. Once the capacity is reached the service will block on further commit requests.
       * *Default:* 100 000
@@ -899,13 +907,13 @@ Keys and values of the map should be strings. e.g. `systemProperties = { "visual
 
 ## `telemetry`
 
-There are new configuration fields for telemetry. See the [OpenTelemetry]({{< relref "../../../enterprise/node/operating/monitoring-and-logging/opentelemetry.md" >}}) section for more information. 
+There are new configuration fields for telemetry. See the [OpenTelemetry]({{< relref "../../../enterprise/node/operating/monitoring-and-logging/opentelemetry.md" >}}) section for more information.
 
-* `openTelemetryEnabled` 
+* `openTelemetryEnabled`
   * Specifies if the node should generate spans to be sent to a collector. The node will only generate spans if this property is set to `true` and an OpenTelemetry SDK is on the node classpath. By default, no OpenTelemetry SDK is on the node classpath, meaning by default no spans are actually generated. To prevent spans being generated regardless of whether the OpenTelemetry SDK is on the classpath, this configuration field should be set to `false`.
   * *Default:* true
 * `spanStartEndEventsEnabled`
-  * When Corda generates spans for flows and certain significant operations, it has the capability to generate a span for starting the operation, ending the operation, and generating a single span to cover the whole operation. This can be useful to determine where a flow is stuck, as you will only see the start spans, and not the end spans. This is not standard OpenTelemetry behaviour, and it could also result in a lot of spans flooding the network. Setting this field to `true` will enable it. 
+  * When Corda generates spans for flows and certain significant operations, it has the capability to generate a span for starting the operation, ending the operation, and generating a single span to cover the whole operation. This can be useful to determine where a flow is stuck, as you will only see the start spans, and not the end spans. This is not standard OpenTelemetry behaviour, and it could also result in a lot of spans flooding the network. Setting this field to `true` will enable it.
   * *Default:* false
 * `copyBaggageToTags`
   * If set to `true`, this parameter will cause baggage to be copied to tags when generating spans. Baggage are fields which can be passed around with the invocation of OpenTelemetry.
