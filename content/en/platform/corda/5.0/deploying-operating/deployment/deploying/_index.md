@@ -639,7 +639,7 @@ For example, when running with Red Hat OpenShift Container Platform, you must us
    serviceAccount: 
       name: "corda-privileged"
    bootstrap:
-      serviceAccount: 
+     serviceAccount: 
         name: "corda-privileged"
    ```
 
