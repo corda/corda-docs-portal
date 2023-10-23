@@ -27,6 +27,29 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 ## New features and enhancements
 
+### Ledger Recovery
+
+A new ledger recovery flow (`LedgerRecoveryFlow`) enables a node to identify and recover transactions from
+peer recovery nodes to which it was a party (either initiator or receiver) and which are missing from its own ledger.
+
+For more information, see [Ledger Recovery Flow]({{< relref "ledger-recovery-flow.md" >}})
+
+### Confidential Identity key-pair generator
+
+A new service has been added that pregenerates Confidential Identity keys to be used when using CIs in transactions.
+These pre-generated CIs are subsequently used for backup recovery purposes.
+
+### Additional Network Parameters
+
+The following network parameters, and associated node configuration parameters, have been added:
+
+* `confidentialIdentityMinimumBackupInterval`
+* `confidentialIdentityPreGenerationPeriod`
+* `recoveryMaximumBackupInterval`
+* `transactionRecoveryPeriod`
+
+For more information, see [Available Network Parameters]({{< relref "network/available-network-parameters.md" >}})
+
 ### Distribution record cleanup
 
 A new maintenance job `DistributionRecordCleanupTask` has been added. This removes ledger recovery distribution records that are older than the `recoveryMaximumBackupInterval` network parameter, and which are no longer needed.
@@ -51,7 +74,7 @@ Two Phase Finality automatically deletes an unnotarized transaction from the `DB
 is detected upon attempting notarization by the the initiator of `FinalityFlow`.
 
 Additionally, if the new optional `ReceiveFinalityFlow` `handlePropagatedNotaryError` constructor parameter is set to `true` (default: `false`),
-then the double spend error (`NotaryError.Conflict`) propagates back to the 2PF initiator. This enables the initiator to automatically remove the associated unnotarized transaction from its `DBTransaction` table. 
+then the double spend error (`NotaryError.Conflict`) propagates back to the 2PF initiator. This enables the initiator to automatically remove the associated unnotarized transaction from its `DBTransaction` table.
 
 If a CorDapp is compiled against Corda 4.11 (that is, its target platform version = 13) then double spend handling is enabled by default. For more information, see [Versioning]({{< relref "cordapps/versioning.md" >}}).
 
@@ -72,14 +95,14 @@ A new property, `previousPageAnchor`, has been added to `Vault.Page`. It is used
 
 An example of how to use this property can be found in [Vault Queries]({{< relref "cordapps/api-vault-query.md#query-for-all-states-using-a-pagination-specification-and-iterate-using-the-totalstatesavailable-field-until-no-further-pages-available-1" >}}).
 
-### Upgraded dependencies 
-  
+### Upgraded dependencies
+
 The following dependencies have been upgraded to address critical and high-severity security vulnerabilities:
 * H2 has been upgraded from 1.4.197 to 2.1.214.
 * Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final.
 * Liquibase has been upgraded from 3.6.3 to 4.20.0.
 
-### Consuming transaction IDs added to `vault_state` table 
+### Consuming transaction IDs added to `vault_state` table
 
 When a state is consumed by a transaction, Corda now adds the ID of the consuming transaction in the `consuming_tx_id` column of the `vault_state` table. Corda only updates this database column for new transactions; for existing consumed states already in the ledger, the value of `consuming_tx_id` is null.
 
@@ -133,13 +156,13 @@ This release includes the following fixes:
   [INFO ] 2023-02-03T17:00:43,606Z [main] statemachine.MultiThreadedStateMachineManager. - Loaded 24001 finished flows {}
   [INFO ] 2023-02-03T17:00:46,650Z [main] statemachine.MultiThreadedStateMachineManager. - Number of finished flows : 27485 {}
   ```
-  
-* Previously, if a node was configured to use two different slots on the Luna HSM (for example using one slot for node identities and a separate slot for the confidential identities), this failed. This issue has now been resolved. 
+
+* Previously, if a node was configured to use two different slots on the Luna HSM (for example using one slot for node identities and a separate slot for the confidential identities), this failed. This issue has now been resolved.
 
   {{< warning >}}
   However, as a result of this fix, you need to make sure the Luna client your are using is version 10.4.0 or later.
   {{</ warning >}}
-  
+
 * The default value for the node configuration value `cryptoServiceTimeout` has been increased from 1 second to 10 seconds.
 
 * Flow checkpoint dumps now include a `status` field which shows the status of the flow; in particular, whether it is hospitalized or not.
