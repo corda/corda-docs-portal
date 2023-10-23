@@ -27,12 +27,12 @@ The Contract Testing library is currently compatible with the following versions
 
 To import the library to your CorDapp, add it to your `contracts` `build.gradle` dependencies:
 ```
-testImplementation "com.r3.corda.ledger.utxo:contract-testing:1.0.0-beta”
+testImplementation "com.r3.corda.ledger.utxo:contract-testing:1.0.0”
 ```
 
 If you are using Kotlin, you can also add the Kotlin DSL:
 ```
-testImplementation "com.r3.corda.ledger.utxo:contract-testing-kotlin:1.0.0-beta”
+testImplementation "com.r3.corda.ledger.utxo:contract-testing-kotlin:1.0.0”
 ```
 
 You can now extend the `ContractTest` interface to create a test class for your smart contracts.
