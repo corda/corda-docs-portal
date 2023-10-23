@@ -14,7 +14,7 @@ weight: 120
 # Official Corda Docker image
 
 The official Corda Docker image is found at the [Corda Docker hub](https://hub.docker.com/u/corda). The [latest version](https://hub.docker.com/r/corda/corda-enterprise-alpine-zulu-java1.8-4.7.10)
-is `corda-enterprise-alpine-zulu-java1.8-4.7.10`.
+is `corda-enterprise-alpine-zulu-java1.8-4.7.10`. 
 
 {{< note >}}
 Note: Before running any Corda Docker images, you must accept the license agreement and indicate that you have done this by setting the environment variable `ACCEPT_LICENSE` to `YES` or `Y`. If you do not do this, none of the Docker containers will start.
