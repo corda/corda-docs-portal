@@ -118,13 +118,13 @@ data class DBSenderDistributionRecord(
         @EmbeddedId
         var compositeKey: PersistentKey,
 
-        @Column(name = "tx_id", length = 144, nullable = false)
-        var txId: String,
+        /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
+        @Column(name = "sender_states_to_record", nullable = false)
+        var senderStatesToRecord: StatesToRecord,
 
         /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
-        @Column(name = "states_to_record", nullable = false)
-        var statesToRecord: StatesToRecord
-
+        @Column(name = "receiver_states_to_record", nullable = false)
+        var receiverStatesToRecord: StatesToRecord
 )
 
 @Entity
@@ -132,9 +132,6 @@ data class DBSenderDistributionRecord(
 data class DBReceiverDistributionRecord(
         @EmbeddedId
         var compositeKey: PersistentKey,
-
-        @Column(name = "transaction_id", length = 144, nullable = false)
-        var txId: String,
 
         /** Encrypted recovery information for sole use by Sender **/
         @Lob
@@ -152,7 +149,8 @@ The above tables use the same persistent composite key type:
 @Embeddable
 @Immutable
 data class PersistentKey(
-        /** PartyId of flow peer **/
+        @Column(name = "transaction_id", length = 144, nullable = false)
+        var txId: String,
 
         @Column(name = "peer_party_id", nullable = false)
         var peerPartyId: Long,
@@ -162,7 +160,6 @@ data class PersistentKey(
 
         @Column(name = "timestamp_discriminator", nullable = false)
         var timestampDiscriminator: Int
-
 )
 ```
 
