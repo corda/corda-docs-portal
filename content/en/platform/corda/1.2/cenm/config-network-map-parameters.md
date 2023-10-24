@@ -103,13 +103,13 @@ See [SSL Settings](config-ssl.md)
 
 
 * **localSigner**:
-*(Optional)* Configuration of the local signer for the Network Map service. Useful for debug, testing orwhen HSM support is not available.
+*(Optional)* Configuration of the local signer for the Network Map Service. Useful for debug, testing orwhen HSM support is not available.
 * **keyStore**:
 Configuration for key store containing the Network Map key pair.
 
 
 * **file**:
-Path to the key store file containing the signing keys for the Network Map service.
+Path to the key store file containing the signing keys for the Network Map Service.
 
 
 * **password**:

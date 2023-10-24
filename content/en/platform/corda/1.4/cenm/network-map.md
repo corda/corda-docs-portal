@@ -235,7 +235,7 @@ mechanisms for this:
 
 #### Local Signing Service
 
-The local signing service is recommended for testing and toy environments. Given a local key store containing the
+The local Signing Service is recommended for testing and toy environments. Given a local key store containing the
 relevant signing keys, it provides the functionality to automatically sign all approved Network Map and Parameter
 updates on a configured schedule. No human interaction is needed and the credentials for the key stores have to be
 provided upfront. The service is an integrated signer that is a cut-down version of the standalone
@@ -271,9 +271,9 @@ integrated local signer as well as HSM integration and the ability for a user to
 network map or parameter changes. It should be used in all production environments where maximum security and validation
 checks are required.
 
-In order to retrieve the network map and parameter data, the signing service will communicate with the Network Map
+In order to retrieve the network map and parameter data, the Signing Service will communicate with the Network Map
 service via its [CENM internal server](#cenm-internal-server). This is the only configuration option that is needed if signing is being done
-via the external signing service.
+via the external Signing Service.
 
 
 ### Cache Timeout
@@ -386,8 +386,8 @@ however an example is provided below for reference:
 
 ```guess
 authServiceConfig {
-    host = <auth service host>
-    port = <auth service port>
+    host = <Auth Service host>
+    port = <Auth Service port>
     trustStore = {
         location = /path/to/trustroot.jks
         password = <key store password>

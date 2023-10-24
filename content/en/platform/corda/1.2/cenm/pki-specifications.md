@@ -35,4 +35,4 @@ Follow the specifications outlined in the [Signing and SMR Services](signing-ser
 
 ## Using your own Certificate Authority software
 
-To set up a Corda network using your own Certificate Authority software, use the Signable Material Retriever service. This service acts as a bridge between CENM services and one or more signing services. See the [Signable Material Retriever Service](signing-service.html#signable-material-retriever) documentation for instructions and specifications for using this service.
+To set up a Corda network using your own Certificate Authority software, use the Signable Material Retriever service. This service acts as a bridge between CENM services and one or more Signing Services. See the [Signable Material Retriever Service](signing-service.html#signable-material-retriever) documentation for instructions and specifications for using this service.

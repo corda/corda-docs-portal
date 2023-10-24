@@ -161,7 +161,7 @@ tool.
 
 ## Running services with obfuscated configs
 
-When using obfuscated config files for the Identity Manager, Network Map or Signing service, upon starting the
+When using obfuscated config files for the Identity Manager, Network Map or Signing Service, upon starting the
 respective service one has to explicitly set the `-o` command line flag to indicate that the config has been
 obfuscated.
 
