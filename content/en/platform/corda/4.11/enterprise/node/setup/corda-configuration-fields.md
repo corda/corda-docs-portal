@@ -612,7 +612,7 @@ Once a notary is configured with a default value, it cannot be reconfigured. To 
     * *Default:* 10 000
   * `batchTimeoutMs`
     * Configures the amount of time that the notary will wait before processing a batch, even if the batch is not full. Smaller values can lead to lower latency but potentially worse throughput as smaller batches might be processed.
-    * *Default:* 1
+    * *Default:* 200
   * `maxQueueSize`
     * The maximum number of commit requests in flight. Once the capacity is reached the service will block on further commit requests.
     * *Default:* 100 000
@@ -689,7 +689,7 @@ Once a notary is configured with a default value, it cannot be reconfigured. To 
       * *Default:* 10
     * `batchTimeoutMs`
       * Configures the amount of time that the notary will wait before processing a batch, even if the batch is not full. Smaller values can lead to lower latency but potentially worse throughput as smaller batches might be processed.
-      * *Default:* 1
+      * *Default:* 200
     * `maxQueueSize`
       * The maximum number of commit requests in flight. Once the capacity is reached the service will block on further commit requests.
       * *Default:* 100 000
