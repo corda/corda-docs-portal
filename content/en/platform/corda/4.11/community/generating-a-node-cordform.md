@@ -132,13 +132,13 @@ There are four mandatory fields that must be set for the Cordform plugin:
 name "O=PartyA,L=London,C=GB"
 ```
 
-2. `p2pAddress` &lt;string&gt; is used to specify the address/port the node uses for inbound communication from other nodes. For more information, see [p2pAddress](corda-configuration-fields.html#p2paddress). **Required if `p2pPort` is not specified**. For example:
+2. `p2pAddress` &lt;string&gt; is used to specify the address/port the node uses for inbound communication from other nodes. For more information, see [p2pAddress]({{< relref "corda-configuration-fields.md#p2paddress" >}}). **Required if `p2pPort` is not specified**. For example:
 
 ```kotlin
 p2pAddress "example.com:10002"
 ```
 
-3. `p2pPort` &lt;integer&gt; is used to specify the port the node uses for inbound communication from other nodes. The assumed IP address is `localhost`. For more information, see [p2pAddress](corda-configuration-fields.html#p2paddress). For example:
+3. `p2pPort` &lt;integer&gt; is used to specify the port the node uses for inbound communication from other nodes. The assumed IP address is `localhost`. For more information, see [p2pAddress]({{< relref "corda-configuration-fields.md#p2paddress" >}}). For example:
 
 ```kotlin
 p2pPort 10006  // "localhost:10006"
