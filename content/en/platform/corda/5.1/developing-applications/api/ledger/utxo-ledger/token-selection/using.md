@@ -63,42 +63,35 @@ The following example outlines the basic building blocks to consider when using 
 
    a. Create the criteria for the type of tokens you need and set a target amount:
 
-   ```java
-   // Assume we have an issuer who has created some coin states
-   val bankX500 = MemberX500Name.parse(ISSUING_BANK_X500)
-   // Assume we are using a single notrary
-   val notary = notaryLookup.notaryServices.single()
+      ```java
+      // Assume we have an issuer who has created some coin states
+      val bankX500 = MemberX500Name.parse(ISSUING_BANK_X500)
+      // Assume we are using a single notrary
+      val notary = notaryLookup.notaryServices.single()
 
-   // Create our selection criteria to select a minimum of 100 GBP worth of coins
-   val selectionCriteria = TokenClaimCriteria(
-     tokenType = CoinState.tokenType,
-     issuerHash = bankX500.toSecureHash(),
-     notaryX500Name = notary.name,
-     symbol = "GBP",
-     targetAmount = BigDecimal(100)
-   )
-   ```
+      // Create our selection criteria to select a minimum of 100 GBP worth of coins
+      val selectionCriteria = TokenClaimCriteria(
+        tokenType = CoinState.tokenType,
+        issuerHash = bankX500.toSecureHash(),
+        notaryX500Name = notary.name,
+        symbol = "GBP",
+        targetAmount = BigDecimal(100)
+      )
+      ```
 
    b. Issue the query, handle the response, and clean-up any claim you make:
+
       ```java
        // Query for required tokens
       val tokenClaim = tokenSelection.tryClaim(selectionCriteria)
 
       // A null result indicates the query could not be satisfied
-      if(tokenClaim == null) {
+      if (tokenClaim == null) {
        return "FAILED TO FIND ENOUGH TOKENS"
       }
 
-      // We've claimed some tokens we can now try and spend them,
-      // we must release the claim regardless of the outcome, indicating
-      // how many tokens were used
-      var spentCoins = listOf<StateRef>()
-
-      try{
-         spentCoins = aSpendFunction(tokenClaim.claimedTokens)
-      } finally {
-        tokenClaim.useAndRelease(spentCoins)
-      }
+      // You've claimed some tokens you can now try and spend them
+      aSpendFunction(tokenClaim.claimedTokens)
       ```
 
 ## Using the Balance Query API
