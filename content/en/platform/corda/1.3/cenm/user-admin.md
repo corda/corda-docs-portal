@@ -34,7 +34,7 @@ You can only use the User Admin tool if you are registered to use the tool as an
 
 ## Access the CENM User Admin tool
 
-You access the User Admin tool from the location of your [FARM service](gateway-service.html#manage-farm-service-configuration) instance. Enter the full address of your FARM service, including the port number, followed by `/admin` into a web browser.
+You access the User Admin tool from the location of your [FARM Service](gateway-service.html#manage-farm-service-configuration) instance. Enter the full address of your FARM Service, including the port number, followed by `/admin` into a web browser.
 
 For example:
 `http://10.230.41.12:8080/admin`

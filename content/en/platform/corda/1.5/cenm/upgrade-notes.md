@@ -27,7 +27,7 @@ Before you start the upgrade, you must consult the [CENM Release Notes](release-
 
 ### Database migrations
 
-The Identity Manager Service, the Network Map Service, the Zone Service, and the Auth service all require database migration.
+The Identity Manager Service, the Network Map Service, the Zone Service, and the Auth Service all require database migration.
 To enable database migration, set `runMigration = true` in the database configuration. If a service is connecting to a database with restricted user,
 you must temporarily change the service settings to connect with a privileged user (a user able to modify a database schema).
 
@@ -158,9 +158,9 @@ pluginJar
 CENM 1.3 introduces a significant number of services. You should upgrade to CENM 1.2.2 before upgrading to 1.3.
 The key steps for the upgrade are:
 
-1. Generate new certificates for [FARM]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/gateway-service.md" >}}), [Auth]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/auth-service.md" >}}), and [Zone]({{< relref "../../../../../en/platform/corda/1.3/cenm/zone-service.md" >}}) Services.
+1. Generate new certificates for [the Gateway Service]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/gateway-service.md" >}}), [the Auth Service]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/auth-service.md" >}}), and [the Zone Service]({{< relref "../../../../../en/platform/corda/1.3/cenm/zone-service.md" >}}).
 2. Generate a JWT token key pair for Auth Service.
-3. Deploy FARM Service to provide a gateway between the CLI tool and the back-end services.
+3. Deploy Gateway Service to provide a gateway between the CLI tool and the back-end services.
 4. Deploy Auth Service to provide user authentication and authorisation to other services.
 5. Deploy Zone Service to store configurations for the Identity Manager, Network Map, and Signing Services.
 6. Create users in the Auth Service, for zone and subzone management.
@@ -190,16 +190,16 @@ To generate the JWT, refer to the [Auth Service]({{< relref "../../../../../en/p
 The generated keys and certificates will then need to be distributed to the service hosts,
 replacing the existing SSL (but not network trust root or other signing key/certificates).
 
-### Deploying Farm, Auth, and Zone Services
+### Deploying Gateway, Auth, and Zone Services
 
 To deploy the new services, follow the guides in the service documentation:
 
-* [FARM Service]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/gateway-service.md" >}})
+* [Gateway Service]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/gateway-service.md" >}})
 * [Auth Service]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/auth-service.md" >}})
 * [Zone Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/zone-service.md" >}})
 
 {{< note >}}
-You should deploy two FARM Service instances - one for general access, accessible from user
+You should deploy two Gateway Service instances - one for general access, accessible from user
 systems, and a second one in the secure network alongside the Signing Service.
 {{< /note >}}
 
@@ -453,7 +453,7 @@ of the [Network Map Service](https://github.com/corda/corda-docs-portal/blob/mai
 
 
 
-#### The Network Map signing service requires a configuration update to specify communication with the Network Map Service
+#### The Network Map Signing Service requires a configuration update to specify communication with the Network Map Service
 
 The release modifies the Network Map Signing Service to request data through the Network Map Service rather than going
 directly to the database. Therefore the configuration needs to change to remove the redundant database configuration and
@@ -477,7 +477,7 @@ See the “Setting the Network Parameters” section of the [Network Map Service
 ## 0.1 to 0.2.1
 
 The major change from 0.1 to 0.2+ was the support of an arbitrary length PKI hierarchy. As a result, many of the
-configuration parameters for the network management and signing service were changed. 0.2.1 is very similar to 0.2,
+configuration parameters for the network management and Signing Service were changed. 0.2.1 is very similar to 0.2,
 but comes with backward compatibility along with a configuration upgrade tool.
 
 There are two ways to upgrade your old 0.1 network services environment:

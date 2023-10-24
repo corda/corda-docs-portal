@@ -24,13 +24,13 @@ This is an internal feature. Running a network with multiple sub-zones is not a 
 
 ## From a Node’s Perspective
 
-From the perspective of a node a network is defined by the Identity Manager and Network Map services it is configured
+From the perspective of a node a network is defined by the Identity Manager and Network Map Services it is configured
 to connect to. It has no comprehension of sub zones. It simply connects to the services configured within its
 configuration file and, once registered with both, interacts with other nodes and the apps deployed upon it via the
 RPC clients. This is summarised below:
 
 ![node zone view](/en/images/node-zone-view.png "node zone view")
-The node is unaware of other sub zones, seeing only those nodes registered with the network map service it itself has
+The node is unaware of other sub zones, seeing only those nodes registered with the Network Map Service it itself has
 registered with.
 
 
@@ -50,7 +50,7 @@ by the zone operator, whose nodeInfo is included in the whitelist of the network
 Interesting features
 
 
-* All nodes are registered with the zone’s Identity Manager service. *(This includes the notaries)*
+* All nodes are registered with the zone’s Identity Manager Service. *(This includes the notaries)*
 * Each sub zone is represented by a network map, each with its own database and network parameters file
 * Node 1 is on the “older” sub zone using a minimum platform version of 3, it is unaware Nodes 2 and 3 even exist
 (just as they are unaware of it) but can use Notary 1.

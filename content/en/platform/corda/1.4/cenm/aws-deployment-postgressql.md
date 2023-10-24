@@ -36,13 +36,13 @@ To set up a reference deployment of CENM using AWS and PostgreSQL:
 
 You must ensure that each CENM service has it's own PostgreSQL database. Complete the steps referenced below for each of the following:
 
-* [Auth service]({{< relref "../../../../../en/platform/corda/1.4/cenm/auth-service.md" >}}).
+* [Auth Service]({{< relref "../../../../../en/platform/corda/1.4/cenm/auth-service.md" >}}).
 * [Gateway service]({{< relref "../../../../../en/platform/corda/1.4/cenm/gateway-service.md" >}}).
 * [Identity manager]({{< relref "../../../../../en/platform/corda/1.4/cenm/identity-manager.md" >}}).
 * [Network Map]({{< relref "../../../../../en/platform/corda/1.4/cenm/network-map.md" >}}).
 * [Signer service]({{< relref "../../../../../en/platform/corda/1.4/cenm/signing-service.md" >}}).
-* [Zone service]({{< relref "../../../../../en/platform/corda/1.4/cenm/zone-service.md" >}}).
-* [Angel service]({{< relref "../../../../../en/platform/corda/1.4/cenm/angel-service.md" >}}).
+* [Zone Service]({{< relref "../../../../../en/platform/corda/1.4/cenm/zone-service.md" >}}).
+* [Angel Service]({{< relref "../../../../../en/platform/corda/1.4/cenm/angel-service.md" >}}).
 
 To set up each database:
 

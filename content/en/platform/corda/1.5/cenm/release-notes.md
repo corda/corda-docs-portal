@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ---
 date: '2023-09-12'
 menu:
@@ -769,4 +770,5 @@ assess in what state the service is.
 * Revocation Service (currently part of the Identity Manager): `http://<<REVOCATION_SERVICE_ADDRESS>>/status`
 
 ## Log4j patches
+
 Click [here]({{< relref "./log4j-patches.md" >}}) to find all patches addressing the December 2021 Log4j vulnerability.

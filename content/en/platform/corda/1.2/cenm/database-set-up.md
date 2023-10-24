@@ -21,15 +21,15 @@ title: CENM Databases
 There are currently two types of Corda Enterprise Network Manager database:
 
 1. **Identity Manager**
-- Used by the Identity Manager service. Contains information relating to certificate signing requests of nodes wanting
+- Used by the Identity Manager Service. Contains information relating to certificate signing requests of nodes wanting
 to join the network as well as information regarding revocation of nodes from the network.
 
 2. **Network Map**
-- Used by the Network Map service. Contains information relating to the current participants on the network, the current
+- Used by the Network Map Service. Contains information relating to the current participants on the network, the current
 network parameters and any pending parameter updates.
 
 Due to the way the migrations are defined, the services *must* use separate DB schemas (either in the same DB instance
-or in completely separate instances). Attempting to run an Identity Manager and Network Map service that share the same
+or in completely separate instances). Attempting to run an Identity Manager and Network Map Service that share the same
 DB schema will result in errors.
 
 
@@ -604,7 +604,7 @@ Note that `<SCHEMA_NAME>` below is a placeholder value representing the actual n
 
 ### Identity Manager
 
-The following is the list of tables created by the Identity Manager service:
+The following is the list of tables created by the Identity Manager Service:
 
 ```sql
 <SCHEMA_NAME>.DATABASECHANGELOG
@@ -623,7 +623,7 @@ The following is the list of tables created by the Identity Manager service:
 
 ### Network Map
 
-The following is the list of tables created by the Network Map service:
+The following is the list of tables created by the Network Map Service:
 
 ```sql
 <SCHEMA_NAME>.DATABASECHANGELOG
