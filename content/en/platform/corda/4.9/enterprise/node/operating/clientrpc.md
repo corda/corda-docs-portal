@@ -19,13 +19,6 @@ Corda Enterprise supports two types of RPC client:
 * **Corda RPC Client**, which is used if you want to interact with your node via the `CordaRPCOps` remote interface only.
 * **Multi RPC Client**, which is used if you want to interact with your node via any of the other remote interfaces that the Corda node provides.
 
-{{< warning >}}
-The built-in Corda test webserver is deprecated and unsuitable for production use. If you want to interact with
-your node via HTTP, you will need to stand up your own webserver that connects to your node using the
-[CordaRPCClient](../../../../../../../en/api-ref/corda/4.9/community/javadoc/net/corda/client/rpc/CordaRPCClient.html) class. You can find an example of how to do this using the popular Spring Boot server
-[here](https://github.com/corda/spring-webserver).
-{{< /warning >}}
-
 ## Building the Corda RPC Client
 
 To interact with your node via the `CordaRPCOps` remote interface, you need to build a client that uses the [CordaRPCClient](../../../../../../../en/api-ref/corda/4.9/community/javadoc/net/corda/client/rpc/CordaRPCClient.html) class. The `CordaRPCClient` class enables you to connect to your node via a message queue protocol and provides a simple RPC interface (the `CordaRPCOps` remote interface) for interacting with the node. You make calls on a JVM object as normal, and the marshalling back-and-forth is handled for you.

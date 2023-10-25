@@ -207,7 +207,6 @@ dependencies {
     cordaCompile "$corda_release_distribution:corda-jackson:$corda_release_version"
     cordaCompile "$corda_release_distribution:corda-rpc:$corda_release_version"
     cordaCompile "$corda_release_distribution:corda-node-api:$corda_release_version"
-    cordaCompile "$corda_release_distribution:corda-webserver-impl:$corda_release_version"
     cordaRuntime "$corda_release_distribution:corda:$corda_release_version"
     cordaRuntime "$corda_release_distribution:corda-testserver:$corda_release_version"
     testCompile "$corda_release_distribution:corda-test-utils:$corda_release_version"
