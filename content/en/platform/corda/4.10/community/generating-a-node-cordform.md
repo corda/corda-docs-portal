@@ -126,7 +126,7 @@ node {
 
 There are four mandatory fields that must be set for the Cordform plugin:
 
-1. `name` &lt;string&gt; is used to specify the legal identity name of the Corda node. For more information, see [myLegalName]({{<corda-configuration-fields.md#mylegalname" >}}). For example:
+1. `name` &lt;string&gt; is used to specify the legal identity name of the Corda node. For more information, see [myLegalName]({{< relref "corda-configuration-fields.md#mylegalname" >}}). For example:
 
 ```kotlin
 name "O=PartyA,L=London,C=GB"
