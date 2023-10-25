@@ -159,7 +159,7 @@ To add a security policy use `java -Dcapsule.jvm.args=-javaagent:./drivers/jolok
 
 #### Monitor development systems with Jolokia
 
-If you Corda instance is set to dev mode you can access Hibernate statistics using the Jolokia interface. Hibernate statistics are disabled outside of dev mode due to expensive runtime costs. Hibernate statistics reporting can be enabled or disabled regardless of dev mode using the `exportHibernateJMXStatistics` flag on the [database configuration](../../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.html#database).
+If you Corda instance is set to dev mode you can access Hibernate statistics using the Jolokia interface. Hibernate statistics are disabled outside of dev mode due to expensive runtime costs. Hibernate statistics reporting can be enabled or disabled regardless of dev mode using the `exportHibernateJMXStatistics` flag on the [database configuration]({{< relref "../../setup/corda-configuration-fields.md#database" >}}).
 
 ### Monitoring your node using Graphite
 
