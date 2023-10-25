@@ -191,7 +191,7 @@ See [Monitoring via Jolokia]({{< relref "node-administration.md#monitoring-jolok
 ### Cordform
 
 The [Cordform]({{< relref "generating-a-node-cordform.md" >}}) gradle plugin (as used by the `deployNodes` gradle task)  generates a `runnodes` script. Executing
-this allows you to quickly start up all nodes and their webservers. Only use`runnodes` for testing purposes.
+this allows you to quickly start up all nodes. Only use`runnodes` for testing purposes.
 
 
 Start the nodes with `runnodes` by running the following command from the root of the project:
