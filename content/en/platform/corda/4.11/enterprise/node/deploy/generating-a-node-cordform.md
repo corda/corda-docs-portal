@@ -126,12 +126,12 @@ node {
 ```kotlin
 name "O=PartyA,L=London,C=GB"
 ```
-* `p2pAddress` &lt;string&gt; - use this configuration option to specify the address/port the node uses for inbound communication from other nodes. For more information, see [p2pAddress](../setup/corda-configuration-fields.html#p2paddress). **Required if `p2pPort` is not specified**. For example:
+* `p2pAddress` &lt;string&gt; - use this configuration option to specify the address/port the node uses for inbound communication from other nodes. For more information, see [p2pAddress]({{< relref "../setup/corda-configuration-fields.md#p2paddress" >}}). **Required if `p2pPort` is not specified**. For example:
 
 ```kotlin
 p2pAddress "example.com:10002"
 ```
-* `p2pPort` &lt;integer&gt; - use this configuration option to specify the port the node uses for inbound communication from other nodes. The assumed IP address is `localhost`. For more information, see [p2pAddress](../setup/corda-configuration-fields.html#p2paddress). For example:
+* `p2pPort` &lt;integer&gt; - use this configuration option to specify the port the node uses for inbound communication from other nodes. The assumed IP address is `localhost`. For more information, see [p2pAddress]({{< relref "../setup/corda-configuration-fields.md#p2paddress" >}}). For example:
 
 ```kotlin
 p2pPort 10006  // "localhost:10006"
