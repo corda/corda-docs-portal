@@ -45,6 +45,7 @@ The generated `ReceiverDistribution` record is then shared with all other peer s
 
 {{< note >}}
 A receiver cannot decrypt the actual contents of the distribution list within that record, but shares it back to a transaction initiating node upon recovery.
+The Corda X.500 name of all peers stored in a Ledger Recovery record use an undecipherable collision-free representation.
 {{< /note >}}
 
 Both sender and receiver distribution records use the same composite key type for uniquely storing records. The `PersistentKey` contains the following fields:
@@ -69,7 +70,8 @@ val useAllNetworkNodes: Boolean = false,
 val dryRun: Boolean = false,
 val useTimeWindowNarrowing: Boolean = true,
 val verboseLogging: Boolean = false,
-val recoveryBatchSize: Int = 1000
+val recoveryBatchSize: Int = 1000,
+val alsoFinalize: Boolean = false
 ```
 
 These parameters are described in the following section.
@@ -114,6 +116,11 @@ total counts of recovered records. It defaults to *false*.
 `recoveryBatchSize` is a performance tuning parameter that specifies how many records should be recovered in each interaction with
 a recovery peer. It has been fine-tuned to a value of 1000, and can be tweaked to take into account the amount of physical memory
 available on a node host.
+
+#### `alsoFinalize`
+
+`alsoFinalize` specifies whether to also attempt recovery of any `IN_FLIGHT` transactions recovered from a peer.
+It defaults to *false*. See also [Finality Flow Recovery](finality-flow-recovery.md).
 
 #### `LedgerRecoverFlow`
 
