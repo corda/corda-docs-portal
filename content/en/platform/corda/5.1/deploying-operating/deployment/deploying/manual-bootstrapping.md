@@ -15,6 +15,7 @@ By default, the Corda installation process automatically performs various setup 
 If you require additional control, you can disable these automatic setup processes and an administrator can manually perform the actions with the assistance of the [Corda CLI]({{< relref "../../tooling/installing-corda-cli.md" >}}).
 
 This section describes how to configure the following:
+
 * [Kafka]({{< relref "#kafka" >}})
 * [Database]({{< relref "#database" >}})
 * [RBAC Roles]({{< relref "#rbac-roles" >}})
@@ -25,6 +26,7 @@ When you have completed the manual configuration of the above, you can [Deploy C
 
 By default, a Corda installation automatically creates the Kafka topics it requires.
 To create the topics manually, do the following:
+
 1. Set the following override in the deployment configuration to disable the automatic creation:
 
    ```yaml
@@ -32,6 +34,7 @@ To create the topics manually, do the following:
      kafka:
        enabled: false
    ```
+
 2. Create a [Kafka client properties](https://kafka.apache.org/documentation/#configuration) file.
 The following is an example properties file for a Kafka cluster using {{< tooltip >}}TLS{{< /tooltip >}} and SASL authentication:
 
@@ -42,12 +45,13 @@ The following is an example properties file for a Kafka cluster using {{< toolti
    ssl.truststore.location=ca.crt
    ssl.truststore.type=PEM
    ```
+
    The examples that follow assume that this file is called `config.properties`.
 
 3. Use the {{< tooltip >}}Corda CLI{{< /tooltip >}} to assist in the creation of the topics prior to Corda installation in one of two ways:
     * [Topic Creation by Direct Connection](#topic-creation-by-direct-connection)
     * [Topic Creation by Scripting](#topic-creation-by-scripting)
-   
+
 ### Topic Creation by Direct Connection
 
 In the first option, the Corda CLI connects directly to the Kafka broker to create the topics.
@@ -176,7 +180,7 @@ For information about the Corda CLI `topic` command's arguments, see the [Corda 
 
 ## Database
 
-By default, a Corda installation automatically creates and populates the database schema it requires. 
+By default, a Corda installation automatically creates and populates the database schema it requires.
 
 {{< note >}}
 If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database, as described in this section. {{< enterprise-icon>}}
