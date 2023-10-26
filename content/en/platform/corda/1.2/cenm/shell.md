@@ -19,7 +19,7 @@ title: Embedded Shell
 
 
 The embedded shell allows an administrator to control and monitor the suite of CENM services being run (Network Map,
-Identity Manager and Signing service). It is based on the [CRaSH](http://www.crashub.org/) shell and provides certain functions such as viewing
+Identity Manager and Signing Service). It is based on the [CRaSH](http://www.crashub.org/) shell and provides certain functions such as viewing
 the current state of the network (via the Network Map shell), viewing the CSRs awaiting approval (via the Identity
 Manager shell) or executing signing tasks (via the Signing Service shell).
 
@@ -103,7 +103,7 @@ of commands:
 
 The list of available commands in each subsection can be viewed by executing either `view` or `run` from the shell.
 A shell command can by run by executing the type of the command followed by the command name
-(`[view|run] <COMMAND_NAME>`). For example, to view all notaries within the Network Map service:
+(`[view|run] <COMMAND_NAME>`). For example, to view all notaries within the Network Map Service:
 
 ```bash
 view notaries

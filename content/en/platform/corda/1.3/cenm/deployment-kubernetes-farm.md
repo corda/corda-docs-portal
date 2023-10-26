@@ -6,7 +6,7 @@ menu:
 tags:
 - config
 - kubernetes
-title: CENM Farm Service Helm chart
+title: CENM FARM Service Helm chart
 weight: 60
 ---
 
@@ -40,7 +40,7 @@ helm install cenm-farm farm --set prefix=cenm --set acceptLicense=Y --set volume
 | `volumeSizeFarmLogs`          | Volume size for the `h2/` directory | `5Gi` |
 | `sleepTimeAfterError`         | Sleep time (in seconds) after an error occurred | `120` |
 | `authPort`                    | Auth Service port | `8081` |
-| `farmPort`                    | Farm Service port | `8080` |
+| `farmPort`                    | FARM Service port | `8080` |
 | `zonePort`                    | Zone Service port | `12345` |
 | `logsContainersEnabled`       | Enable container displaying live logs | `true`
 {{< /table >}}

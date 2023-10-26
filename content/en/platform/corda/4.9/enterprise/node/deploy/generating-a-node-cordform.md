@@ -121,23 +121,23 @@ node {
 
 ## Required configuration
 
-* `name` &lt;string&gt; - use this configuration option to specify the legal identity name of the Corda node. For more information, see [myLegalName](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.html#mylegalname). For example:
+* `name` &lt;string&gt; - use this configuration option to specify the legal identity name of the Corda node. For more information, see [myLegalName]({{< relref "../setup/corda-configuration-fields.html#mylegalname" >}}). For example:
 
 ```kotlin
 name "O=PartyA,L=London,C=GB"
 ```
-* `p2pAddress` &lt;string&gt; - use this configuration option to specify the address/port the node uses for inbound communication from other nodes. For more information, see [p2pAddress](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.html#p2paddress). **Required if `p2pPort` is not specified**. For example:
+* `p2pAddress` &lt;string&gt; - use this configuration option to specify the address/port the node uses for inbound communication from other nodes. For more information, see [p2pAddress]({{< relref "../setup/corda-configuration-fields.md#p2paddress" >}}). **Required if `p2pPort` is not specified**. For example:
 
 ```kotlin
 p2pAddress "example.com:10002"
 ```
-* `p2pPort` &lt;integer&gt; - use this configuration option to specify the port the node uses for inbound communication from other nodes. The assumed IP address is `localhost`. For more information, see [p2pAddress](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.html#p2paddress). For example:
+* `p2pPort` &lt;integer&gt; - use this configuration option to specify the port the node uses for inbound communication from other nodes. The assumed IP address is `localhost`. For more information, see [p2pAddress]({{< relref "../setup/corda-configuration-fields.md#p2paddress" >}}). For example:
 
 ```kotlin
 p2pPort 10006  // "localhost:10006"
 ```
 
-* `rpcSettings` &lt;config&gt; - use this configuration option to specify RPC settings for the node. For more information, see [rpcSettings](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.html#rpcsettings). For example:
+* `rpcSettings` &lt;config&gt; - use this configuration option to specify RPC settings for the node. For more information, see [rpcSettings]({{< relref "../setup/corda-configuration-fields.md#rpcsettings" >}}). For example:
 
 ```kotlin
 rpcSettings {
@@ -148,15 +148,15 @@ rpcSettings {
 
 ## Optional configuration
 
-* `notary` &lt;config&gt; - use this configuration option to specify the node as a Notary node. **Required for Notary nodes.** For more information, see [notary](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.html#notary).
+* `notary` &lt;config&gt; - use this configuration option to specify the node as a Notary node. **Required for Notary nodes.** For more information, see [notary]({{< relref "../setup/corda-configuration-fields.md#notary" >}}).
 
-* `devMode` &lt;boolean&gt; - use this configuration option to enable development mode when you set its value to `true`. For more information, see [devMode](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.html#devmode). For example:
+* `devMode` &lt;boolean&gt; - use this configuration option to enable development mode when you set its value to `true`. For more information, see [devMode]({{< relref "../setup/corda-configuration-fields.md#devmode" >}}). For example:
 
 ```kotlin
 devMode true
 ```
 
-* `rpcUsers` &lt;list&gt; - use this configuration option to set the RPC users for the node. For more information, see [rpcUsers](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.html#rpcusers). You can use arbitrary values in this configuration block - "incorrect" settings will not cause a DSL error. An example follows below:
+* `rpcUsers` &lt;list&gt; - use this configuration option to set the RPC users for the node. For more information, see [rpcUsers]({{< relref "../setup/corda-configuration-fields.md#rpcusers" >}}). You can use arbitrary values in this configuration block - "incorrect" settings will not cause a DSL error. An example follows below:
 
 ```kotlin
 rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.corda.flows.MyFlow"]]]
@@ -168,7 +168,7 @@ rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.
 configFile = "samples/trader-demo/src/main/resources/node-b.conf"
 ```
 
-* `sshdPort` &lt;integer&gt; - use this configuration option to specify the SSH port for the Docker container. This will be mapped to the same port on the host.  If `sshdPort` is specified, then that port must be available on the host and not in use by some other service. If `sshdPort` is not specified, then a default value will be used for the SSH port on the container. Use the `docker port <container_name>` command to check which port has been allocated on the host for your container. For more information, see [sshd](../setup/corda-configuration-fields.html#sshd). For example:
+* `sshdPort` &lt;integer&gt; - use this configuration option to specify the SSH port for the Docker container. This will be mapped to the same port on the host.  If `sshdPort` is specified, then that port must be available on the host and not in use by some other service. If `sshdPort` is not specified, then a default value will be used for the SSH port on the container. Use the `docker port <container_name>` command to check which port has been allocated on the host for your container. For more information, see [sshd]({{< relref "../setup/corda-configuration-fields.md#sshd" >}}). For example:
 
 ```kotlin
 sshd {
@@ -248,7 +248,7 @@ The default Cordform behaviour is to deploy CorDapp JAR files “as built”.
 * As of Corda 4.0, CorDapp JAR files created by the gradle `cordapp` plug-in are signed by a Corda development certificate by default.
 
 You can use the Cordform `signing` entry to override and customise the signing of CorDapp JAR files.
-Signing a CorDapp enables its contract classes to use signature constraints instead of other types of constraints, such as [Contract Constraints]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-contract-constraints.md" >}}).
+Signing a CorDapp enables its contract classes to use signature constraints instead of other types of constraints, such as [Contract Constraints]({{< relref "../../cordapps/api-contract-constraints.md" >}}).
 
 The signing task may use an external keystore, or create a new one.
 You can use the following parameters in the `signing` entry:
