@@ -25,9 +25,17 @@ When you have completed the manual configuration of the above, you can [Deploy C
 ## Kafka
 
 By default, a Corda installation automatically creates the Kafka topics it requires.
-To create the topics manually, do the following:
+The following sections describe how to create the topics manually:
 
-1. Set the following override in the deployment configuration to disable the automatic creation:
+* [Enabling Manual Creation](#enabling-manual-creation)
+* [Creating the Topics](#creating-the-topics)
+* [Creating ACL Entries](#creating-acl-entries)
+
+### Enabling Manual Creation
+
+To disable the automatic creation of topics, do the following:
+
+1. Set the following override in the deployment configuration:
 
    ```yaml
    bootstrap:
@@ -48,25 +56,28 @@ The following is an example properties file for a Kafka cluster using {{< toolti
 
    The examples that follow assume that this file is called `config.properties`.
 
-3. Use the {{< tooltip >}}Corda CLI{{< /tooltip >}} to assist in the creation of the topics prior to Corda installation in one of two ways:
-    * [Topic Creation by Direct Connection](#topic-creation-by-direct-connection)
-    * [Topic Creation by Scripting](#topic-creation-by-scripting)
+### Creating the Topics
 
-### Topic Creation by Direct Connection
+Use the {{< tooltip >}}Corda CLI{{< /tooltip >}} to assist in the creation of the topics prior to Corda installation in one of two ways:
 
-In the first option, the Corda CLI connects directly to the Kafka broker to create the topics.
-The Corda CLI command to create the topics looks as follows:
+* Create the Default Topics
+* Modify the Topic Configuration Before Creating
+
+For information about the Corda CLI `topic` command's arguments, see the [Corda CLI reference]({{< relref"../../../reference/corda-cli/topic.md">}}).
+
+#### Create the Default Topics
+
+Use the `connect` sub-command of the Corda CLI `topic` command to connect to the Kafka broker and create any required topics:
 
 {{< tabs name="create-topics">}}
 {{% tab name="Bash" %}}
 ```sh
-corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
-  create -r <REPLICAS> -p <PARTITIONS> connect
-   ```
+corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k <CLIENT-PROPERTIES-FILE> create -r <REPLICAS> -p <PARTITIONS> connect
+```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties create -r <REPLICAS> -p <PARTITIONS> connect
+corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k <CLIENT-PROPERTIES-FILE> create -r <REPLICAS> -p <PARTITIONS> connect
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -86,6 +97,73 @@ corda-cli.cmd topic -b kafka-1.example.com -k config.properties create -r 3 -p 1
 {{% /tab %}}
 {{< /tabs >}}
 
+#### Modify the Topic Configuration Before Creating
+
+Alternatively, the Corda CLI can generate a preview of the required Kafka topic configuration in YAML. You can save, and if required modify, this content before using the Corda CLI to execute it, as follows:
+
+1. Use the `preview` sub-command of the Corda CLI `topic` command to generate a preview of the configuration:
+
+   {{< tabs name="">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k <CLIENT-PROPERTIES-FILE> create -r <REPLICAS> -p <PARTITIONS> preview
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k <CLIENT-PROPERTIES-FILE> create -r <REPLICAS> -p <PARTITIONS> preview
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+   For example:
+
+   {{< tabs name="">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh topic -b kafka-1.example.com -k config.properties create -p 1 -r 1 -u preview
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd topic -b kafka-1.example.com -k config.properties create -p 1 -r 1 -u preview
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+2. Review the output, make any necessary changes, and save the configuration to a file.
+3. Use the `connect` sub-command with the `-f` argument to connect to the Kafka broker and execute the configuration:
+
+   {{< tabs name="create-topics">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k <CLIENT-PROPERTIES-FILE> -f <YAML-TOPIC-FILE> create -r <REPLICAS> -p <PARTITIONS> connect
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k <CLIENT-PROPERTIES-FILE> -f <YAML-TOPIC-FILE> create -r <REPLICAS> -p <PARTITIONS> connect
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+   For example:
+
+   {{< tabs name="create-topics-example">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh topic -b kafka-1.example.com -k config.properties -f topics.yaml create -r 3 -p 10 connect
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd topic -b kafka-1.example.com -k config.properties -f topics.yaml create -r 3 -p 10 connect
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+### Creating ACL Entries
+
 If you are authenticating Kafka users, the Corda CLI can also create Access Control List (ACL) entries as appropriate for each Corda {{< tooltip >}}worker{{< /tooltip >}}.
 Specify a set of name-value pairs giving the Kafka username that will be used for each Corda worker:
 
@@ -93,90 +171,22 @@ Specify a set of name-value pairs giving the Kafka username that will be used fo
 {{% tab name="Bash" %}}
 ```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
-  create -r <REPLICAS> -p <PARTITIONS> \
-  -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
-  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> \
-  connect
+create -r <REPLICAS> -p <PARTITIONS> \
+-u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER>  -u flowMapper=<FLOWMAPPER_USER> -u membership=<MEMBERSHIP_USER> \
+-u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> \
+connect
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
 corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
-  create -r <REPLICAS> -p <PARTITIONS> `
-  -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> `
-  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> `
-  connect
+create -r <REPLICAS> -p <PARTITIONS> `
+-u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u flowMapper=<FLOWMAPPER_USER> -u membership=<MEMBERSHIP_USER> `
+-u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> 
+connect
 ```
 {{% /tab %}}
 {{< /tabs >}}
-
-For information about the Corda CLI `topic` command's arguments, see the [Corda CLI reference]({{< relref"../../../reference/corda-cli/topic.md">}}).
-### Topic Creation by Scripting
-
-Alternatively, the Corda CLI can generate a script which you should review before executing against the broker.
-The script makes use of the `kafka-topic.sh` script provided with a Kafka installation.
-
-Run the following Corda CLI command to generate the script:
-
-{{< tabs name="cli-script">}}
-{{% tab name="Bash" %}}
-```sh
-corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
-  create -r <REPLICAS> -p <PARTITIONS> script -f <FILE> -c <CONCURRENCY>
-```
-{{% /tab %}}
-{{% tab name="PowerShell" %}}
-```shell
-corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties create -r <REPLICAS> -p <PARTITIONS> script -f <FILE> -c <CONCURRENCY>
-```
-{{% /tab %}}
-{{< /tabs >}}
-
-Where `<FILE>` is the name of the file in which to save the script and `<CONCURRENCY>` is the number of topics to create in parallel to speed execution.
-
-For example:
-
-{{< tabs name="cli-script-example">}}
-{{% tab name="Bash" %}}
-```sh
-corda-cli.sh topic -b kafka-1.example.com -k config.properties \
-  create -r 3 -p 10 script -f create.sh -c 6
-```
-{{% /tab %}}
-{{% tab name="PowerShell" %}}
-```shell
-corda-cli.cmd topic -b kafka-1.example.com -k config.properties create -r 3 -p 10 script -f create.sh -c 6
-```
-{{% /tab %}}
-{{< /tabs >}}
-
-If you are authenticating Kafka users, the Corda CLI can also create Access Control List (ACL) entries as appropriate for each Corda worker.
-Specify a set of name-value pairs giving the Kafka username that will be used for each Corda worker:
-
-{{< tabs name="acl2">}}
-{{% tab name="Bash" %}}
-```sh
-corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
-  create -r <REPLICAS> -p <PARTITIONS> \
-  -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
-  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> \
-  connect
-```
-{{% /tab %}}
-{{% tab name="PowerShell" %}}
-```shell
-corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
-  create -r <REPLICAS> -p <PARTITIONS> `
-  -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> `
-  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> `
-  connect
-```
-{{% /tab %}}
-{{< /tabs >}}
-
-You can then execute the `create` script to create the topics.
-
-For information about the Corda CLI `topic` command's arguments, see the [Corda CLI reference]({{< relref"../../../reference/corda-cli/topic.md">}}).
 
 ## Database
 
@@ -205,6 +215,7 @@ Create and populate the database schema, as follows:
 7. [Populate the crypto configuration](#populate-the-crypto-configuration).
 
 {{< note >}}
+
 * If you are applying SQL to a schema using the `psql` command, you can specify which schema to apply it to using the `--dbname` parameter: `--dbname "dbname=cordacluster options=--search_path=<SCHEMA-NAME>"`.
 * If you are targeting schemas, database and crypto-generated SQL should be applied to the `CONFIG` schema, and `create-user-config` generated SQL should be applied to the `RBAC` schema. If you do not specify the schema, the installation process creates the tables in the default schema and you must update the next steps in this procedure to reflect this.
 {{< /note >}}
@@ -239,7 +250,7 @@ Depending on your installation, follow the steps in one of the following section
 * [RBAC Database Connection Configuration for Corda](#rbac-database-connection-configuration-for-corda)
 * [RBAC Database Connection Configuration for Corda Enterprise with HashiCorp Vault](#rbac-database-connection-configuration-for-corda-enterprise-with-hashicorp-vault) {{< enterprise-icon >}}
 
-#### RBAC Database Connection Configuration for Corda 
+#### RBAC Database Connection Configuration for Corda
 
 1. Execute the following Corda CLI command to generate DDL for populating the {{< tooltip >}}RBAC{{< /tooltip >}} database connection configuration:
 
@@ -335,7 +346,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% /tab %}}
    {{< /tabs >}}
 
-   For information about the Corda CLI `create-db-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config" >}}). 
+   For information about the Corda CLI `create-db-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config" >}}).
 
 2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
@@ -512,7 +523,7 @@ Depending on your installation, follow the steps in one of the following section
    {{< /tabs >}}
 
    {{< note >}}
-   There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration, not DML. 
+   There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration, not DML.
 
    For more information about the Corda CLI `create-db-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config">}}).
    {{< /note >}}
@@ -565,6 +576,7 @@ Depending on your installation, follow the steps in one of the following section
 ### Grant Access to the Cluster Database
 
 The cluster database user is the user specified in `db.cluster.username` in the [deployment configuration]({{< relref "./_index.md#configure-the-deployment" >}}). Grant access to this user as follows:
+
 ```sql
 GRANT USAGE ON SCHEMA CONFIG to <CLUSTER-DB-USER>;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CONFIG to <CLUSTER-DB-USER>;

@@ -10,7 +10,7 @@ section_menu: corda51
 title: "topic"
 ---
 # topic
-This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `topic` arguments. You can use these commands to manually create or delete topics in {{< tooltip >}}Kafka{{< /tooltip >}}, as described in the [Manual Bootstrapping]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md#kafka" >}}) section.
+This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `topic` sub-commands and arguments. You can use these commands to manually create topics in {{< tooltip >}}Kafka{{< /tooltip >}}, as described in the [Manual Bootstrapping]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md#kafka" >}}) section.
 
 <style>
 table th:first-of-type {
@@ -21,27 +21,30 @@ table th:nth-of-type(2) {
 }
 </style>
 
-| Argument                 | Description                                                                                                                                                                                              |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| -b, \-\-bootstrap-server | The address of the bootstrap server.                                                                                                                                                                     |
-| -k, \-\-kafka-config     | The path to the Kafka configuration file.                                                                                                                                                                |
-| -n, \-\-name-prefix      | The name prefix for topics.                                                                                                                                                                              |
-| -r                       | The number of replicas.                                                                                                                                                                                  |
-| -p                       | The number of partitions.                                                                                                                                                                                |
-| connect                  | Connects to the specified server; see [Topic Creation by Direct Connection]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md#topic-creation-by-direct-connection" >}}) |
-| -f                       | The name of the script file genrated; see [Topic Creation by Scripting]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md#topic-creation-by-scripting" >}}).            |
-| -c                       | The number of topics to create in parallel; see [Topic Creation by Scripting]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md#topic-creation-by-scripting" >}}).      |
-| create                   | Creates Kafka topics; see [create](#create).                                                                                                                                                             |
-| delete                   | Deletes Kafka topics; see [delete](#delete).                                                                                                                                                             |
-| preview                   |                                                                                                                                          |
+| Argument                 | Description                                               |
+| ------------------------ | --------------------------------------------------------- |
+| -b, \-\-bootstrap-server | The address of the bootstrap server.                      |
+| -k, \-\-kafka-config     | The path to the Kafka configuration file.                 |
+| -n, \-\-name-prefix      | The name prefix for topics.                               |
+| create                   | Creates the required Kafka topics; see [create](#create). |
 
 ## create
+
+The following table lists the `create` sub-commands and arguments:
+
+| Argument           | Description                                                                                                                                                                          |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| -r, \-\-replicas   | The number of replicas.                                                                                                                                                              |
+| -p, \-\-partitions | The number of partitions.                                                                                                                                                            |
+| -t, \-\-tag        | One or more tags associated with topics and their respective number of partitions. For example:<br> `-t t01=partitions:3 -t t02=partitions:599999`.         |
+| -u, \-\-user       | One or more Corda workers and their respective Kafka users. For example:<br> `-u crypto=Charlie -u rest=Rob99999`. For more information, see [Create the Default Topics]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.mdd#creating-acl-entries" >}}). |
+| connect            | Connects to the specified server to create the default topics; see [Create the Default Topics]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md#create-the-default-topics" >}}). |
+| preview            | Generates a preview of the required Kafka topic configuration in YAML; see [preview](#preview).                                                                                      |
 
 {{< tabs name="create-topics">}}
 {{% tab name="Bash" %}}
 ```sh
-corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
-  create -r <REPLICAS> -p <PARTITIONS> connect
+corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties create -r <REPLICAS> -p <PARTITIONS> connect
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -51,17 +54,23 @@ corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties create -r <REPLI
 {{% /tab %}}
 {{< /tabs >}}
 
-## delete
+## preview
 
-{{< tabs name="delete-topics">}}
+The following table lists the `preview` arguments:
+
+| Argument     | Description                                                                                                                                                                                                                                            |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| -f, \-\-file | The name of the configuration file to create the topics; see [Modify the Topic Configuration Before Creating]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md#modify-the-topic-configuration-before-creating" >}}). |
+
+{{< tabs name="">}}
 {{% tab name="Bash" %}}
 ```sh
-corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k client.properties delete connect
+corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k <CLIENT-PROPERTIES-FILE> create -r <REPLICAS> -p <PARTITIONS> preview
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k client.properties delete connect
+corda-cli.scmd topic -b <BOOTSTRAP-SERVERS> -k <CLIENT-PROPERTIES-FILE> create -r <REPLICAS> -p <PARTITIONS> preview
 ```
 {{% /tab %}}
 {{< /tabs >}}
