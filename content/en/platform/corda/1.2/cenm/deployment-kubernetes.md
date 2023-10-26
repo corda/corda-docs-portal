@@ -246,8 +246,8 @@ networkServices {
 }
 ```
 
-- the `doormanURL` property is the public IP address and port of the Identity Manager service.
-- the `networkMapURL` is the public IP address and port of the Network Map service.
+- the `doormanURL` property is the public IP address and port of the Identity Manager Service.
+- the `networkMapURL` is the public IP address and port of the Network Map Service.
 
 Note: to obtain public IPs of Identity Manager and Network Map use:
 

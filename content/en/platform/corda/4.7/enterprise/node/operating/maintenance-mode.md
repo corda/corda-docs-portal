@@ -27,13 +27,13 @@ The following maintenance tasks are currently supported:
 
 ## Configuration of Node Maintenance Mode
 
-Node Maintenance Mode is configured via a new, optional configuration sub-section named `maintenanceMode` within the `enterpriseConfiguration` top-level [configuration section](../../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration).
+Node Maintenance Mode is configured via a new, optional configuration sub-section named `maintenanceMode` within the `enterpriseConfiguration` top-level [configuration section]({{< relref "../setup/corda-configuration-fields.md#enterpriseconfiguration" >}}).
 
 By default, no maintenance activities will be performed if the `maintenanceMode` section is not provided. Without the new parameter, Corda will behave as if maintenance mode is not available.
 
 If the `maintenanceMode` configuration sub-section *is* present in the Corda configuration, then **ALL** `maintenanceMode` parameters must be supplied and must also pass configuration validation at start-up.
 
-In addition to the `maintenanceMode` configuration sub-section, the message ID cleanup maintenance task parameters are taken from the configuration sub-section `processedMessageCleanup`(also part of the `enterpriseConfiguration` top-level [configuration section](../../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration)). This configuration is used for running the message ID cleanup task (also called `NodeJanitor`) at shutdown. `NodeJanitor` is a background process that will clean up old entries from the `NODE_MESSAGE_IDS` [table](node-database-tables.html#node-state-machine). The size should be fairly constant. The same rules will apply for calculation of default values as when the activity runs at shutdown.
+In addition to the `maintenanceMode` configuration sub-section, the message ID cleanup maintenance task parameters are taken from the configuration sub-section `processedMessageCleanup`(also part of the `enterpriseConfiguration` top-level [configuration section]({{< relref "../setup/corda-configuration-fields.md#enterpriseconfiguration" >}})). This configuration is used for running the message ID cleanup task (also called `NodeJanitor`) at shutdown. `NodeJanitor` is a background process that will clean up old entries from the `NODE_MESSAGE_IDS` [table]({{< relref "node-database-tables.md#node-state-machine" >}}). The size should be fairly constant. The same rules will apply for calculation of default values as when the activity runs at shutdown.
 
 The following example shows a sample `maintenanceMode` configuration, including `processedMessageCleanup` parameters:
 
