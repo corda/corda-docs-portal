@@ -10,27 +10,27 @@ tags:
 - auth
 - login CENM
 
-title: Auth service
+title: Auth Service
 ---
 
-# Auth service
+# Auth Service
 
-The Auth service is the user authentication and authorization service for CENM. It stores and controls secure user-access to network services, such as:
+The Auth Service is the user authentication and authorization service for CENM. It stores and controls secure user-access to network services, such as:
 
 * Identity manager.
-* Zone service.
-* Signing service.
+* Zone Service.
+* Signing Service.
 * Network map (and associated network configurations and node info).
 
-Whenever you use the [User admin tool]({{< relref "../../../../../en/platform/corda/1.4/cenm/user-admin.md" >}}) to create new users, groups or roles, the Auth service is updated to authenticate those users and their permissions. If you use the [CENM Command Line Interface]({{< relref "../../../../../en/platform/corda/1.4/cenm/cenm-cli-tool.md" >}}), the auth service verifies your security clearance to operate on the required context of the service.
+Whenever you use the [User admin tool]({{< relref "../../../../../en/platform/corda/1.4/cenm/user-admin.md" >}}) to create new users, groups or roles, the Auth Service is updated to authenticate those users and their permissions. If you use the [CENM Command Line Interface]({{< relref "../../../../../en/platform/corda/1.4/cenm/cenm-cli-tool.md" >}}), the Auth Service verifies your security clearance to operate on the required context of the service.
 
-When you use any front end interface for CENM, the Auth service is activated and updated via a front-end gateway, called the [Gateway service]({{< relref "../../../../../en/platform/corda/1.4/cenm/gateway-service.md" >}}).
+When you use any front end interface for CENM, the Auth Service is activated and updated via a front-end gateway, called the [Gateway service]({{< relref "../../../../../en/platform/corda/1.4/cenm/gateway-service.md" >}}).
 
 You do not need to interact directly with the Auth Service once it has been installed and configured. To protect the integrity of this secure service, there is no direct API contact with the Auth Service - all front-end communications go via the Gateway service.
 
-## Install the Auth service
+## Install the Auth Service
 
-You can install the Auth service by either:
+You can install the Auth Service by either:
 
 * Installing the `accounts-application.jar`.
 * Installing the Docker image.
@@ -62,11 +62,11 @@ Environment variables:
 ### Install using the JAR file
 
 1. Add the file `accounts-application.jar` to your CENM working directory.
-2. Configure the Auth service using the command line.
+2. Configure the Auth Service using the command line.
 
 ### Prepare for configuration
 
-Before you can configure the Auth service, you need to prepare SSL certificates, create signing keys and add your baseline permissions JAR file so that new permissions can be added to the Auth service.
+Before you can configure the Auth Service, you need to prepare SSL certificates, create signing keys and add your baseline permissions JAR file so that new permissions can be added to the Auth Service.
 
 To do this:
 
@@ -77,9 +77,9 @@ To do this:
 
 3. Ensure you have a baseline JAR file that contains the set of permissions available in the deployment and optionally predefined roles. This is shipped as part of CENM via Artifcatory. For example, the file for CENM 1.4 is called `accounts-baseline-cenm-1.4.0.jar`. You can also copy this into a folder inside the working directory called `plugins` to avoid having to specify it in the config file.
 
-## Configure the auth service
+## Configure the Auth Service
 
-To deploy the Auth service, you need to create a configuration file.
+To deploy the Auth Service, you need to create a configuration file.
 
 When you create your config file, you establish its connection to your [Gateway Service]({{< relref "../../../../../en/platform/corda/1.4/cenm/gateway-service.md" >}}). Make sure you know:
 
@@ -88,7 +88,7 @@ When you create your config file, you establish its connection to your [Gateway 
 
 In the sample below, you can see the initial configuration process:
 
-1. [Database configuration]({{< relref "../../../../../en/platform/corda/1.4/cenm/database-set-up.md" >}}). Add the name, address and login credentials for the SQL database that supports the Auth service.
+1. [Database configuration]({{< relref "../../../../../en/platform/corda/1.4/cenm/database-set-up.md" >}}). Add the name, address and login credentials for the SQL database that supports the Auth Service.
 
 2. JSON Web Key configuration. Set the username, password, and location of the RSA keypair store for signing. The location must be the absolute path.
 
@@ -137,7 +137,7 @@ clientConfig = {
             ]
             # This is a list of services that will accept the token generated through
             # this Gateway instance, possible values (it is case sensitive):
-            #  - zone (zone service)
+            #  - zone (Zone Service)
             #  - identity-manager (doorman service)
             #  - signer (signer service)
             #  - network-map (network-map service)

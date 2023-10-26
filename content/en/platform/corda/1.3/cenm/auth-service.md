@@ -10,27 +10,27 @@ tags:
 - auth
 - login CENM
 
-title: Auth service
+title: Auth Service
 ---
 
-# Auth service
+# Auth Service
 
-The Auth service is the user authentication and authorization service for CENM. It stores and controls secure user-access to network services, such as:
+The Auth Service is the user authentication and authorization service for CENM. It stores and controls secure user-access to network services, such as:
 
-* Identity manager.
-* Zone service.
-* Signing service.
-* Network map (and associated network configurations and node info).
+* Identity Manager Service
+* Zone Service
+* Signing Service
+* Network map Service (and associated network configurations and node info).
 
-Whenever you use the [User admin tool](user-admin.md) to create new users, groups or roles, the Auth service is updated to authenticate those users and their permissions. If you use the [CENM Command Line Interface](cenm-cli-tool.md), the auth service verifies your security clearance to operate on the required context of the service.
+Whenever you use the [User admin tool](user-admin.md) to create new users, groups or roles, the Auth Service is updated to authenticate those users and their permissions. If you use the [CENM Command Line Interface](cenm-cli-tool.md), the Auth Service verifies your security clearance to operate on the required context of the service.
 
-When you use any front end interface for CENM, the Auth service is activated and updated via a front-end gateway, called the [FARM service](gateway-service.md).
+When you use any front end interface for CENM, the Auth Service is activated and updated via a front-end gateway, called the [FARM Service](gateway-service.md).
 
-You do not need to interact directly with the Auth Service once it has been installed and configured. To protect the integrity of this secure service, there is no direct API contact with the Auth Service - all front-end communications go via the FARM service.
+You do not need to interact directly with the Auth Service once it has been installed and configured. To protect the integrity of this secure service, there is no direct API contact with the Auth Service - all front-end communications go via the FARM Service.
 
-## Install the Auth service
+## Install the Auth Service
 
-You can install the Auth service by either:
+You can install the Auth Service by either:
 
 * Installing the `accounts-application.jar`.
 * Installing the Docker image.
@@ -62,11 +62,11 @@ Environment variables:
 ### Install using the JAR file
 
 1. Add the file `accounts-application.jar` to your CENM working directory.
-2. Configure the Auth service using the command line.  
+2. Configure the Auth Service using the command line.  
 
 ### Prepare for configuration
 
-Before you can configure the Auth service, you need to prepare SSL certificates, create signing keys and add your baseline permissions JAR file so that new permissions can be added to the Auth service.
+Before you can configure the Auth Service, you need to prepare SSL certificates, create signing keys and add your baseline permissions JAR file so that new permissions can be added to the Auth Service.
 
 To do this:
 
@@ -77,22 +77,22 @@ To do this:
 
 3. Ensure you have a baseline JAR file that contains the set of permissions available in the deployment and optionally predefined roles. This is shipped as part of CENM via Artifcatory. For example, the file for CENM 1.3 is called `accounts-baseline-cenm-1.3.0.jar`. You can also copy this into a folder inside the working directory called `plugins` to avoid having to specify it in the config file.
 
-## Configure the auth service
+## Configure the Auth Service
 
-To deploy the Auth service, you need to create a configuration file.
+To deploy the Auth Service, you need to create a configuration file.
 
 When you create your config file, you establish its connection to your [FARM Service](gateway-service.md). Make sure you know:
 
-* Your FARM service ID.
-* Your FARM service secret.
+* Your FARM Service ID
+* Your FARM Service secret
 
 In the sample below, you can see the initial configuration process:
 
-1. [Database configuration](database-set-up.md). Add the name, address and login credentials for the SQL database that supports the Auth service.
+1. [Database configuration](database-set-up.md). Add the name, address and login credentials for the SQL database that supports the Auth Service.
 
 2. JSON Web Key configuration. Set the username, password, and location of the RSA keypair store for signing. The location must be the absolute path.
 
-3. Configure the connection to the FARM service. Add the ID, secret, and scope of services that you use when setting up the FARM service.
+3. Configure the connection to the FARM Service. Add the ID, secret, and scope of services that you use when setting up the FARM Service.
 
 4. Configure the web server.
 
@@ -118,7 +118,7 @@ jwk {
     # Key alias for the RSA keypair, default value is 'cordaauthjwk'
     keyAlias = "oauth-test-jwt"
 }
-# Client configuration, this should contain credentials and config for FARM service instances
+# Client configuration, this should contain credentials and config for FARM Service instances
 clientConfig = {
     clients = [
         {
@@ -126,18 +126,18 @@ clientConfig = {
             clientId = "farm1"
             # Client secret, must be the same as configured for FARM
             clientSecret = "secret1"
-            # Available scopes for this FARM service instance, can be any of the below:
+            # Available scopes for this FARM Service instance, can be any of the below:
             #  - accounts:admin
-            #    - indicates access to user management from the FARM service
+            #    - indicates access to user management from the FARM Service
             #  - accounts:user
-            #    - indicates zone access from the FARM service
+            #    - indicates zone access from the FARM Service
             # default value is 'accounts:user'
             scopes = [
                 "accounts:admin"
             ]
             # This is a list of services that will accept the token generated through
             # this FARM instance, possible values (it is case sensitive):
-            #  - zone (zone service)
+            #  - zone (Zone Service)
             #  - identity-manager (doorman service)
             #  - signer (signer service)
             #  - network-map (network-map service)

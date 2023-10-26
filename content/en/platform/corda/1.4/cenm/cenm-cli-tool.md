@@ -61,7 +61,7 @@ Password: w34rfrt45g4y65EERTR5
 ### Quickstart - outline of steps to set up a new network with the CLI
 
 You must set up any new network in a specific order, as some services rely on information that must be in place before they can be created.
-Most importantly, you must set the **Signing service** configuration last - this is because you need to have configuration details for all the other services before you can access their signing requests.
+Most importantly, you must set the **Signing Service** configuration last - this is because you need to have configuration details for all the other services before you can access their signing requests.
 
 In the example below, you can see the steps to set up a new network with the CLI. When setting up your own network, you need to replace the sample parameters, usernames, passwords, service addresses and other information as applicable to your deployment.
 
@@ -223,7 +223,7 @@ URL for the targeted CENM API Gateway - the Gateway service.
 
 When you log in to a CENM session using the CLI, you do so by setting the required **Context** for your session. This ensures you are able to stay logged in to the correct server address for the duration of your work.
 
-For example, once you have accessed the correct server for the **Signing service**, making this address the fixed context means that you no longer need to specify the server address for your subsequent commands.
+For example, once you have accessed the correct server for the **Signing Service**, making this address the fixed context means that you no longer need to specify the server address for your subsequent commands.
 
 #### Options
 
@@ -257,7 +257,7 @@ If you leave the -p value blank, the CLI will ask you for your password in the n
 
 You can perform the following tasks:
 
-* Configure the Identity Manager service.
+* Configure the Identity Manager Service.
 * Manage certificate signing requests.
 * Display the certificate path for a legal name.
 * Manage certificate revocation requests.
@@ -268,7 +268,7 @@ You can perform the following tasks:
 
 ### Set external address and configure Identity Manager
 
-You can use the CLI to configure the following elements of the Identity Manager service for the context you are working on:
+You can use the CLI to configure the following elements of the Identity Manager Service for the context you are working on:
 
 * Update the Identity Manager's service address.
 * Retrieve the Identity Manager configuration.
@@ -277,7 +277,7 @@ You can use the CLI to configure the following elements of the Identity Manager 
 
 ### Update the Identity Manager's service address.
 
-To update the service address of the Identity Manager, use the `set-admin-address` command. Changing the address of the Identity Manager service also means you can update the Context of the current session to match the new address.
+To update the service address of the Identity Manager, use the `set-admin-address` command. Changing the address of the Identity Manager Service also means you can update the Context of the current session to match the new address.
 
 When entering the address, you must enter `<host>-<port>`. The `port` value must be the same as the value for `adminListener` in the services configuration file. **[PLEASE CHECK THIS]**
 
@@ -343,7 +343,7 @@ Indicates that the zone token should be printed instead of the config, when usin
 
 ### Manage Identity Manager certificate signing requests
 
-You can use the CLI to see the **approved** and **pending** certificate signing requests for the Identity Manager service.
+You can use the CLI to see the **approved** and **pending** certificate signing requests for the Identity Manager Service.
 
 To see the requests for a different context to the one you are on, you need to specify the context you require.
 
@@ -390,7 +390,7 @@ Specifies output format. Valid values are: json, pretty. Default value is `prett
  * Get the list of **approved** certificate revocation requests.
  * Get the list of **pending** certificate revocation requests.
 
- You can use the CLI to see the **approved** and **pending** certificate revocation requests for the Identity Manager service.
+ You can use the CLI to see the **approved** and **pending** certificate revocation requests for the Identity Manager Service.
 
  To see the requests for a different context to the one you are on, you need to specify the context you require.
 
@@ -532,11 +532,11 @@ Sets the context of the command - overrides the current context set.
 ``-o, <outputType>``
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### See Identity Manager service status and available plugins
+### See Identity Manager Service status and available plugins
 
-You can use the CLI to check your connection to the Identity Manager service, and see available plugins to the service.
+You can use the CLI to check your connection to the Identity Manager Service, and see available plugins to the service.
 
-### Check Identity Manager service status
+### Check Identity Manager Service status
 
 **Sample command structure**
 
@@ -550,7 +550,7 @@ Sets the context of the command - overrides the current context set.
 ``-o, <outputType>``
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### Check available plugins for the Identity Manager service
+### Check available plugins for the Identity Manager Service
 
 **Sample command structure**
 
@@ -621,7 +621,7 @@ Friendly name of the subzone.
 The label color for the subzone. Must be in hex format, like #FFFFFF.
 
 `--network-map-address=<networkMapAddress>`
-Sets the address of the Network Map service. Must be in a format of `<hostname>:<port>`
+Sets the address of the Network Map Service. Must be in a format of `<hostname>:<port>`
 The port should be the same as the one set for the adminListener in the network-map config.
 
 `--network-parameters=<networkParameters>`
@@ -951,7 +951,7 @@ Sets the context of the command - overrides the current context set.
 `-o, <outputType>`
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### Get zone material for the signing service
+### Get zone material for the Signing Service
 
 **Sample command structure**
 
@@ -965,9 +965,9 @@ Sets the context of the command - overrides the current context set.
 `-o, <outputType>`
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-## Network Map service commands
+## Network Map Service commands
 
-You can use the CLI to perform the following tasks on Network Map services:
+You can use the CLI to perform the following tasks on Network Map Services:
 
 * Get network parameters.
 * Update network parameters.
@@ -976,7 +976,7 @@ You can use the CLI to perform the following tasks on Network Map services:
 * Update the configuration of a Network Map.
 * Set the address of a Network Map.
 * Update the labels for a Network Map.
-* Check the connection status of the Network Map service.
+* Check the connection status of the Network Map Service.
 * Get the current Network Map data.
 * See a list of available node information.
 * Upload new node information to a Network Map.
@@ -1242,7 +1242,7 @@ Sets which subzone to operate on. If you are operating on just one subzone you d
 `--zone-token`
 Indicates that the zone token should be printed instead of the config, when using the `pretty` output type.
 
-### Check the connection status of the Network Map service
+### Check the connection status of the Network Map Service
 
 **Sample command structure**
 
