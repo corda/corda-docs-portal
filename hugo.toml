@@ -39,11 +39,11 @@ blog = "/blog/:section/:year/:month/:day/:slug/"
 
 # Any params set in here override the ones above for that particular site (one site = one lang)
 [languages]
-[languages.en]
-description  = "R3 Documentation"
-languageName = "English"
+#[languages.en]
+#description  = "R3 Documentation"
+#languageName = "English"
 # Weight used for sorting
-weight = 10
+#weight = 10
 #
 #[languages.fr]
 #contentDir = "content/fr"

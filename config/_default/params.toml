@@ -1,4 +1,5 @@
-# Meta Data for SEO
+# Version
+corda5versions = ["Corda 5.0", "Corda 5.1"]
 
 ## Homepage
 title = "R3 Documentation"
