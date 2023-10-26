@@ -14,7 +14,7 @@ uglyurls = true
 
 refLinksErrorLevel = "error"
 
-disableKinds = ["taxonomy", "taxonomyTerm"]
+disableKinds = ["taxonomy", "term"]
 
 # See https://help.farbox.com/pygments.html
 pygmentsCodeFences = true
