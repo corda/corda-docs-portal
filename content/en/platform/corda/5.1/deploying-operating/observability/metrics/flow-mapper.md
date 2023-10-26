@@ -1,19 +1,20 @@
 ---
-date: '2023-08-10'
+date: '2023-10-26'
 version: 'Corda 5.1'
-title: "Flow Mapper"
+title: "Task Manager"
 menu:
   corda51:
     parent: corda51-cluster-metrics
-    identifier: corda51-cluster-flow-mapper
+    identifier: corda51-cluster-task-manager
     weight: 500
 section_menu: corda51
 ---
 
-# Flow Mapper
+# Task Manager
 
-The flow mapper acts as a gateway component in the flow engine, to ensure that requests originating from outside the
-Corda {{< tooltip >}}cluster{{< /tooltip >}} are deduplicated correctly. Mapper metrics give an indication of the health and performance of this component.
+The task manager exposes metrics for underlying thread pools and jobs processing duration and count.
+
+Jobs processing duration and count.
 
 <style>
 table th:first-of-type {
@@ -30,14 +31,27 @@ table th:nth-of-type(4) {
 }
 </style>
 
-| Metric | Type | Tags | Description |
-| :----------- | :----------- | :----------- | :----------- |
-| `corda_flow_mapper_event_processing_time_seconds` | Timer | <ul><li>`flow_event`</li></ul> | The time it took to process a single message in the flow mapper. |
-| `corda_flow_mapper_deduplication_count` | Counter | <ul><li>`flow_event`</li></ul> | The number of events dropped due to deduplication of start events by the mapper. |
-| `corda_flow_mapper_creation_count` | Counter | <ul><li>`flow_event`</li></ul> | The number of new {{< tooltip >}}states{{< /tooltip >}} being created. |
-| `corda_flow_mapper_cleanup_count` | Counter | None | The number of states being cleaned up. |
-| `corda_flow_mapper_event_lag` | Counter | <ul><li>`flow_event`</li></ul> | The time between a mapper event being published and processed. |
-| `corda_flow_mapper_expired_session_event_count` | Counter | None | The number of expired session events dropped by the mapper. |
+| Metric                                                    | Type    | Tags                                                      | Description                                                          |
+| :-------------------------------------------------------- | :------ | :-------------------------------------------------------- | :------------------------------------------------------------------- |
+| `corda_taskmanager_executor_active_threads`               | Gauge   | `name`                                                    | The approximate number of threads that are actively executing tasks. |
+| `corda_taskmanager_executor_completed_tasks_total`        | Counter | `name`                                                    | The approximate number of tasks that have completed execution.       |
+| `corda_taskmanager_executor_idle_seconds_count`           | Counter | `name`                                                    | The number of events that have been observed for the base metric (). |
+| `corda_taskmanager_executor_idle_seconds_max`             | Gauge   | `name`                                                    |                                                                      |
+| `corda_taskmanager_executor_idle_seconds_sum`             | Counter | `name`                                                    |                                                                      |
+| `corda_taskmanager_executor_pool_core_threads`            | Gauge   | `name`                                                    |                                                                      |
+| `corda_taskmanager_executor_pool_max_threads`             | Gauge   | `name`                                                    |                                                                      |
+| `corda_taskmanager_executor_pool_size_threads`            | Gauge   | `name`                                                    |                                                                      |
+| `corda_taskmanager_executor_queue_remaining_tasks`        | Gauge   | `name`                                                    |                                                                      |
+| `corda_taskmanager_executor_queued_tasks`                 | Gauge   | `name`                                                    |                                                                      |
+| `corda_taskmanager_executor_scheduled_once_total`         | Counter | `name`                                                    |                                                                      |
+| `corda_taskmanager_executor_scheduled_repetitively_total` | Counter | `name`                                                    |                                                                      |
+| `corda_taskmanager_executor_seconds_count`                | Counter | `name`                                                    |                                                                      |
+| `corda_taskmanager_executor_seconds_max`                  | Gauge   | `name`                                                    |                                                                      |
+| `corda_taskmanager_executor_seconds_sum`                  | Counter | `name`                                                    |                                                                      |
+| `TaskCompletionTime`                                      |         | <ul><li>`task.manager.name`</li><li>`task.type`</li></ul> |                                                                      |
+| `LiveTasks `                                              |         | `name`                                                    | <ul><li>`task.manager.name`</li><li>`task.type`</li></ul>            |
 
 Tags:
-* `flow_event`: The type of event that was being processed for a given metric.
+* `name`: The name of the task manager.
+* `task.manager.name`: The name of the task manager.
+* `task.type`: The task type (`SHORT_RUNNING`, `LONG_RUNNING`, or `SCHEDULED`).
