@@ -387,9 +387,9 @@ Allows fine-grained controls of various features only available in the enterpris
 
       - The size of the in-memory Artemis buffer for messages, in bytes. Note that there is a lower bound to the buffer size, which is calculated based on the maximum message size of the network parameters to ensure messages of any allowed size can be stored successfully. As a result, any value lower than this bound will be ignored with the appropriate logging. This bound is also used as the default, if no value is specified.
 
-* `LedgerRecoveryConfiguration`
+* `ledgerRecoveryConfiguration`
 
-    * The `LedgerRecoveryConfiguration` class is a component of the Corda Enterprise configuration settings that allows you
+    * The `ledgerRecoveryConfiguration` class is a component of the Corda Enterprise configuration settings that allows you
     to tailor ledger recovery behavior for your Corda node. It offers flexibility in defining parameters related to key pair
     pre-generation, backup intervals, and confidential identity backup options.
 
@@ -408,7 +408,8 @@ Allows fine-grained controls of various features only available in the enterpris
     - `preGeneratedKeysTopUpInterval`
 
         * Defines the time interval (in milliseconds) at which the pre-generated keys are topped up or refreshed.
-        * Mandatory.
+        * Non-mandatory.
+        * * *Default:* 300 seconds
 
     - `recoveryMaximumBackupInterval`
 
@@ -438,7 +439,7 @@ Allows fine-grained controls of various features only available in the enterpris
         * By configuring this property, you can control the number of pre-generated keys with certificates that are readily available in memory.
         * Non-mandatory.
 
-    * To configure the `LedgerRecoveryConfiguration` for your Corda Enterprise node, modify the properties according to the
+    * To configure the `ledgerRecoveryConfiguration` for your Corda Enterprise node, modify the properties according to the
     requirements in your node's configuration file, for example:
 
     ```
