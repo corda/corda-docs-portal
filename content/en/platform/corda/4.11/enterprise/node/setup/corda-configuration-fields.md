@@ -387,6 +387,76 @@ Allows fine-grained controls of various features only available in the enterpris
 
       - The size of the in-memory Artemis buffer for messages, in bytes. Note that there is a lower bound to the buffer size, which is calculated based on the maximum message size of the network parameters to ensure messages of any allowed size can be stored successfully. As a result, any value lower than this bound will be ignored with the appropriate logging. This bound is also used as the default, if no value is specified.
 
+* `LedgerRecoveryConfiguration`
+
+    * The `LedgerRecoveryConfiguration` class is a component of the Corda Enterprise configuration settings that allows you
+    to tailor ledger recovery behavior for your Corda node. It offers flexibility in defining parameters related to key pair
+    pre-generation, backup intervals, and confidential identity backup options.
+
+    - `noOfPreGeneratedKeys`
+
+        * This property specifies the number of pre-generated keys used for confidential identities, indicating the count of keys that will be backed up in the database.
+        * Mandatory if `noOfPreGeneratedKeysWithCerts` is not defined.
+        * *Default:* 0
+
+    - `noOfPreGeneratedKeysWithCerts`
+
+        * This property specifies the number of pre-generated keys with certificates used for confidential identities, indicating the count of keys that will be backed up in the database.
+        * Mandatory if `noOfPreGeneratedKeys` is not defined.
+        * *Default:* 0
+
+    - `preGeneratedKeysTopUpInterval`
+
+        * Defines the time interval (in milliseconds) at which the pre-generated keys are topped up or refreshed.
+        * Mandatory.
+
+    - `recoveryMaximumBackupInterval`
+
+        * Specifies the maximum time duration for which ledger recovery can be done. It will be overridden if recovery time window is specified in ledger recovery.
+        * Non-mandatory.
+        * *Default:* null
+
+    - `confidentialIdentityMinimumBackupInterval`
+
+        * Defines the time interval within which automatic database backups occur, ensuring that all pre-generated keys created before the backup are marked as backed-up according to this interval.
+        * Non-mandatory.
+        * *Default:* null
+
+    - `canProvideNonBackedUpKeyPair`
+
+        * Determines whether the node can provide non-backed-up key pairs if backed-up keys pairs are exhausted.
+        * Non-mandatory.
+        * *Default:* false
+
+    - `bufferSizeForKeys`
+
+        * By configuring this property, you can control the number of pre-generated keys that are readily available in memory.
+        * Non-mandatory.
+
+    - `bufferSizeForKeys` with certificates
+
+        * By configuring this property, you can control the number of pre-generated keys with certificates that are readily available in memory.
+        * Non-mandatory.
+
+    * To configure the `LedgerRecoveryConfiguration` for your Corda Enterprise node, modify the properties according to the
+    requirements in your node's configuration file, for example:
+
+    ```
+    enterpriseConfiguration = {
+    # Ledger Recovery Configuration
+        ledgerRecoveryConfiguration {
+            noOfPreGeneratedKeys= 100
+            noOfPreGeneratedKeysWithCerts = 50
+            preGeneratedKeysTopUpInterval = 10 # 10 seconds
+            recoveryMaximumBackupInterval = "24h"
+            confidentialIdentityMinimumBackupInterval = "12h"
+            canProvideNonBackedUpKeyPair = false
+            bufferSizeForKeys = 100
+            bufferSizeForKeysWithCerts = 100
+        }
+    }
+    ```
+
 ## `extraNetworkMapKeys`
 
 An optional list of private network map UUIDs. Your node will fetch the public network and private network maps based on these keys.
