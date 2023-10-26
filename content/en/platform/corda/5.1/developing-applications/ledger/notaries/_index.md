@@ -32,7 +32,6 @@ The non-validating notary protocol maintains a degree of privacy by only reveali
 | Input states                      | References only [1]       |
 | Output states                     | Number of states only [2] |
 | Commands (with signer identities) | Hidden                    |
-| Attachments                       | Hidden                    |
 | Time window                       | Fully visible             |
 | Notary identity                   | Fully visible             |
 | Signatures                        | Hidden                    |
