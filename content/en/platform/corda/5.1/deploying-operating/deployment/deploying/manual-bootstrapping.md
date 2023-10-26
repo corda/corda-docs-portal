@@ -27,11 +27,11 @@ When you have completed the manual configuration of the above, you can [Deploy C
 By default, a Corda installation automatically creates the Kafka topics it requires.
 The following sections describe how to create the topics manually:
 
-* [Enabling Manual Creation](#enabling-manual-creation)
+* [Disabling Automatic Creation](#disabling-automatic-creation)
 * [Creating the Topics](#creating-the-topics)
 * [Creating ACL Entries](#creating-acl-entries)
 
-### Enabling Manual Creation
+### Disabling Automatic Creation
 
 To disable the automatic creation of topics, do the following:
 
@@ -54,20 +54,20 @@ The following is an example properties file for a Kafka cluster using {{< toolti
    ssl.truststore.type=PEM
    ```
 
-   The examples that follow assume that this file is called `config.properties`.
+   The examples that follow assume that this file is named `config.properties`.
 
 ### Creating the Topics
 
 Use the {{< tooltip >}}Corda CLI{{< /tooltip >}} to assist in the creation of the topics prior to Corda installation in one of two ways:
 
-* Create the Default Topics
-* Modify the Topic Configuration Before Creating
+* [Create the Default Topics](#create-the-default-topics)
+* [Modify the Topic Configuration Before Creating](#modify-the-topic-configuration-before-creating)
 
 For information about the Corda CLI `topic` command's arguments, see the [Corda CLI reference]({{< relref"../../../reference/corda-cli/topic.md">}}).
 
 #### Create the Default Topics
 
-Use the `connect` sub-command of the Corda CLI `topic` command to connect to the Kafka broker and create any required topics:
+Use the `connect` sub-command of the Corda CLI `create` sub-command to connect to the Kafka broker and create any required topics:
 
 {{< tabs name="create-topics">}}
 {{% tab name="Bash" %}}
@@ -101,7 +101,7 @@ corda-cli.cmd topic -b kafka-1.example.com -k config.properties create -r 3 -p 1
 
 Alternatively, the Corda CLI can generate a preview of the required Kafka topic configuration in YAML. You can save, and if required modify, this content before using the Corda CLI to execute it, as follows:
 
-1. Use the `preview` sub-command of the Corda CLI `topic` command to generate a preview of the configuration:
+1. Use the `preview` sub-command of the Corda CLI `create` sub-command to generate a preview of the configuration:
 
    {{< tabs name="">}}
    {{% tab name="Bash" %}}

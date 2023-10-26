@@ -41,6 +41,14 @@ The following table lists the `create` sub-commands and arguments:
 | connect            | Connects to the specified server to create the default topics; see [Create the Default Topics]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md#create-the-default-topics" >}}). |
 | preview            | Generates a preview of the required Kafka topic configuration in YAML; see [preview](#preview).                                                                                      |
 
+## connect
+
+The following table lists the `connect` arguments:
+
+| Argument     | Description                                                                                                                                                                                                                                            |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| -f, \-\-file | The name of the configuration file to create the topics; see [Modify the Topic Configuration Before Creating]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md#modify-the-topic-configuration-before-creating" >}}). |
+
 {{< tabs name="create-topics">}}
 {{% tab name="Bash" %}}
 ```sh
@@ -56,12 +64,6 @@ corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties create -r <REPLI
 
 ## preview
 
-The following table lists the `preview` arguments:
-
-| Argument     | Description                                                                                                                                                                                                                                            |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| -f, \-\-file | The name of the configuration file to create the topics; see [Modify the Topic Configuration Before Creating]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md#modify-the-topic-configuration-before-creating" >}}). |
-
 {{< tabs name="">}}
 {{% tab name="Bash" %}}
 ```sh
@@ -70,7 +72,7 @@ corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k <CLIENT-PROPERTIES-FILE> create -r 
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-corda-cli.scmd topic -b <BOOTSTRAP-SERVERS> -k <CLIENT-PROPERTIES-FILE> create -r <REPLICAS> -p <PARTITIONS> preview
+corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k <CLIENT-PROPERTIES-FILE> create -r <REPLICAS> -p <PARTITIONS> preview
 ```
 {{% /tab %}}
 {{< /tabs >}}
