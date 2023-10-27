@@ -13,14 +13,16 @@
                     {{ end }}
                 </ul>
             {{ end }}
-            {{ with $value.minimum }}
+            {{ if isset $value "minimum" }}
                 <br>Minimum value: {{ string ($value.minimum) }}.
             {{ end }}
-            {{ with $value.maximum }}
+            {{ if isset $value "maximum" }}
                 <br>Maximum value: {{ string ($value.maximum) }}.
             {{ end }}
-            {{ with $value.default }}
-                <br>Default value: {{ string ($value.default) }}.
+            {{ if isset $value "default" }}
+                {{ with $value.default }}
+                    <br>Default value: {{ string ($value.default) }}.
+                {{ end }}
             {{ end }}
         </li>
     {{ end }}

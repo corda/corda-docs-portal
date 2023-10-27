@@ -152,7 +152,7 @@ See [Kubernetes deployment documentation](deployment-kubernetes.md) for more det
 
 To satisfy clients who wish to use third party software or service providers to handle the supported lifecycle of certificates and network services signing events in a Corda network, the Signing Service has been separated into Signable Material Retriever Service (SMR) and CENM Signing Service in order to offer a pluggable interface.
 
-The new service (SMR) extracts signable material from the Identity Manager and Network Map services, and then delegates signing to a plugin. Customers can implement their own plugins to integrate with external signing infrastructure and return signed material back to SMR to pass to the relevant CENM service.
+The new service (SMR) extracts signable material from the Identity Manager and Network Map Services, and then delegates signing to a plugin. Customers can implement their own plugins to integrate with external signing infrastructure and return signed material back to SMR to pass to the relevant CENM service.
 
 See [Signing Services](signing-service.md) for more details. Also see [EJBCA Sample Plugin](ejbca-plugin.md) for a sample open source CA implementation.
 
@@ -207,7 +207,7 @@ which can help to monitor the procedure of [Updating the network parameters](upd
 * Add `run networkParametersRegistration`, `run flagDay` and `run cancelUpdate` commands to the Network Map
 service shell, to enable running flag days without restarting the service. See [Updating the network parameters](updating-network-parameters.md) for
 full details.
-* Add `view publicNetworkNodeInfos` command to Network Map service shell, to see all public network participants’ node
+* Add `view publicNetworkNodeInfos` command to Network Map Service shell, to see all public network participants’ node
 infos, including its’ platform version.
 * Bug fix: Certificate name rules are now enforced during issuance in accordance with Corda network rules,
 previously it was possible to register nodes with names which the node cannot use.
@@ -315,7 +315,7 @@ fresh to the product but also those who are upgrading from pre-release versions.
 The Signing Service is a new addition to the suite of CENM services, sitting alongside the Identity Manager and Network
 Map. It provides a network operator with full control over the signing of node identity data (CSRs and CRRs) and global
 network data (Network Map and Network Parameters) and includes features such as HSM integration, signing scheduling and
-support for multiple Network Map services. See [Signing Services](signing-service.md) to learn more about this service.
+support for multiple Network Map Services. See [Signing Services](signing-service.md) to learn more about this service.
 
 **Brand new PKI tooling**
 
@@ -354,7 +354,7 @@ versioned changes to the protocol without changing that which the Corda nodes de
 The Signing Service is a new addition to the suite of CENM services, sitting alongside the Identity Manager and Network
 Map. It provides a network operator with full control over the signing of node identity data (CSRs and CRRs) and global
 network data (Network Map and Network Parameters) and includes features such as HSM integration, signing scheduling and
-support for multiple Network Map services. See [Signing Services](signing-service.md) to learn more about this service.
+support for multiple Network Map Services. See [Signing Services](signing-service.md) to learn more about this service.
 
 **Epoch Control**
 
