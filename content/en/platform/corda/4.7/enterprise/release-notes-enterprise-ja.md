@@ -90,7 +90,7 @@ Corda Enterprise Edition 4.7では、ノード鍵（Legal Identity）とその�
 * **HSMにConfidential Identity鍵を保存する機能**Corda Enterpriseは、nCipher、FuturexとAzure Key VaultのHSMにおけるConfidential Identityに関する鍵の保管をサポートするようになりました。nCipherとAzure Key VaultのHSMではConfidential Identity鍵のネイティブでの利用をサポートし、FuturexのHSMではキーラップモードをサポートします。これらのHSMにおけるConfidential Identity鍵保管の設定については、[HSMに関する項](operations/deployment/hsm-deployment-confidential.html#using-an-hsm-with-confidential-identities/)をご覧ください。
 * **HSM API**Corda Enterprise Edition 4.7では、外部のツール開発者がCorda EnterpriseのHSMサポートを拡張するために使える独自のAPIを有するHSMライブラリーが導入されています。
 * ネットワークへの初期登録（`initial-registration`）時に、Nodeは`identity-private-key`のエイリアス作成を行うようになりました。詳細については、[Nodeのフォルダ構成](node/setup/node-structure.html#node-folder-structure)の項をご覧ください。これまでは、`cordaclientca`と`cordaclienttls`のエイリアスだけが`initial-registration`中に作成され、`identity-private-key`は初回のNode実行時に必要に応じて生成されていました。そのため、Corda Enterprise Edition 4.7では、`nodekeystore.jks`の内容は通常のNode実行中に変更されません（証明書ディレクトリを事前に設定したキー保管で埋められる`devMode = true`を除きます）。
-* Notaryの`batchTimeoutMs`[設定オプション](node/setup/corda-configuration-fields.html#notary)を調整することでパフォーマンス向上を得られる可能性について解説を追加しました。ただし、デフォルト設定は変更されていません。
+* Notaryの`batchTimeoutMs`[設定オプション]({{< relref "node/setup/corda-configuration-fields.md#notary" >}})を調整することでパフォーマンス向上を得られる可能性について解説を追加しました。ただし、デフォルト設定は変更されていません。
 
 ## プラットフォームバージョン変更
 

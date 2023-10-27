@@ -89,8 +89,8 @@ a.btn:focus {
 }
 
 .section {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 1rem;
+  padding-bottom: 2.5rem;
 }
 
 .section-md {
@@ -212,6 +212,7 @@ body {
   padding-bottom: 4rem;
   order: 1;
   word-break: break-word;
+  min-height: calc(100vh - 17.25rem);
 
   a {
     color: $gray-900;
@@ -318,7 +319,7 @@ body {
       background-color: $white;
 
       .card-body {
-        padding: 1rem 2.5rem 0;
+        padding: 0.1rem 2.5rem 0;
       }
 
       h5 {
@@ -424,7 +425,7 @@ main > nav[aria-label="breadcrumb"] {
 
   @include media-breakpoint-up(md) {
     position: sticky;
-    top: 150.5px;
+    top: 120px;
     background-color: var(--bs-body-bg);
     width: 100%;
     padding: 2px;

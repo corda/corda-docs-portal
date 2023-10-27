@@ -174,7 +174,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 ### Fixed issues
 
 * A security issue has been fixed that affects notary systems that use the JPA notary implementation in an HA configuration, and when the notary backing database has been set up using the Corda database management tool. The new version of the Corda database management tool must be re-run for the fix to take effect.
-* We have fixed several issues that caused memory leaks. As a result, we have added a new node configuration field - `enableURLConnectionCache` - and we have modified the `attachmentClassLoaderCacheSize` node configuration field. See the [node configuration fields page](../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration) for details.
+* We have fixed several issues that caused memory leaks. As a result, we have added a new node configuration field - `enableURLConnectionCache` - and we have modified the `attachmentClassLoaderCacheSize` node configuration field. See the [node configuration fields page]({{< relref "node/setup/corda-configuration-fields.md#enterpriseconfiguration" >}}) for details.
 * We have fixed an issue where the HA utilities tool does not write the correct log file.
 * We have fixed an issue that prevented the HA utilities tool loading third-party HSM JAR files from the `drivers` directory when the `generate-internal-tunnel-ssl-keystores` command is run.
 * The `startFlowWithClientId` now uses the same permissioning as the `startFlow` method.
@@ -265,17 +265,17 @@ For more information about this feature, contact your R3 account manager.
 * **Ability to store confidential identity keys in HSMs.** Corda Enterprise now provides support for storing the keys associated with confidential identities in nCipher, Futurex, and Azure Key Vault HSMs. nCipher and Azure Key Vault HSMs support native use of confidential identity keys, and Futurex HSMs support the wrapped key mode. For more information on configuring these HSMs to store confidential identity keys, see the [HSM documentation](../../../../../en/platform/corda/4.7/enterprise/operations/deployment/hsm-deployment-confidential.html#using-an-hsm-with-confidential-identities).
 * **HSM APIs.** Corda Enterprise Edition 4.7 introduces an HSM library with its own API that external tooling developers can use to expand Corda Enterprise HSM support.
 * Node `initial-registration` now includes the creation of the `identity-private-key` keystore alias. For more information, see the documentation about [node folder structure](node/setup/node-structure.html#node-folder-structure). Previously, only `cordaclientca` and `cordaclienttls` aliases were created during `initial-registration`, while `identity-private-key` was generated on demand on the first node run. Therefore in Corda Enterprise Edition 4.7 the content of `nodekeystore.jks` is never altered during a regular node run (except for `devMode = true`, where the certificates directory can be filled with pre-configured keystores).
-* We have added documentation clarifying some potential performance gains when adjusting the notary `batchTimeoutMs` [configuration option](../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-fields.html#notary), though the default has not been changed.
+* We have added documentation clarifying some potential performance gains when adjusting the notary `batchTimeoutMs` [configuration option]({{< relref "node/setup/corda-configuration-fields.md#notary" >}}), though the default has not been changed.
 
 ## Platform version change
 
 The platform version of Corda 4.7 has been bumped up from 8 to 9.
 
-For more information about platform versions, see [Versioning]({{< relref "../../../../../en/platform/corda/4.7/enterprise/cordapps/versioning.md" >}}).
+For more information about platform versions, see [Versioning]({{< relref "cordapps/versioning.md" >}}).
 
 ## Fixed issues
 
-* We have fixed a [Collaborative recovery]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/collaborative-recovery/introduction-cr.md" >}}) issue where, when using Accounts, [LedgerSync]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/collaborative-recovery/ledger-sync.md" >}}) returned no differences if the party that initiated the transaction wanted to recover against the receiving party.
+* We have fixed a [Collaborative recovery]({{< relref "node/collaborative-recovery/introduction-cr.md" >}}) issue where, when using Accounts, [LedgerSync]({{< relref "node/collaborative-recovery/ledger-sync.md" >}}) returned no differences if the party that initiated the transaction wanted to recover against the receiving party.
 * We have fixed an issue where the flow metadata finish time was set in a different time zone than the flow metadata start time.
 * We have fixed an issue where, in case of hot/cold node failover, ongoing flows would sometimes get stuck on a new hot node and/or counterparty nodes while waiting to receive messages from the counterparty.
 * We have fixed an issue where the Corda 4.6 RPC Client could not execute the method `NodeFlowStatusRpcOps::getFlowStatus` against a Corda 4.7 node due to failing to deserialize some enums when querying the node states.

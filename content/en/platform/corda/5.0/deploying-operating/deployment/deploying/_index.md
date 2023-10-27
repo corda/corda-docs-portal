@@ -475,7 +475,7 @@ The passwords for the `RBAC` and `CRYPTO` schemas and `VNODES` database must be 
 {{< note >}}
 These keys are not tied to the schema names. If the schema names change, the key names remain `rbac`, `crypto`, and `vnodes`.
 {{< /note >}}
-Additionally, a passphrase and salt for the Corda [wrapping keys]({{< relref "../../../key-concepts/cluster-admin/tech-stack/_index.md#key-management" >}}) must be added to the vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
+Additionally, a passphrase and salt for the Corda [wrapping keys]({{< relref "../../../key-concepts/cluster-admin/_index.md#key-management" >}}) must be added to the vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
 
 ### Bootstrapping
 
@@ -516,7 +516,7 @@ bootstrap:
 ```
 
 {{< note >}}
-If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database. For more information, see the [Database]({{< relref "./manual-bootstrapping.md#database" >}}) section in the [Manual Bootstrapping]({{< relref "./manual-bootstrapping.md" >}}) section.
+If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database. For more information, see the [Database]({{< relref "./manual-bootstrapping.md#database" >}}) section in the *Manual Bootstrapping* section.
 {{< /note >}}
 
 By default, the database bootstrapping uses the psql CLI from the Docker image `postgres:14.4` on Docker Hub.
@@ -636,9 +636,11 @@ For example, when running with Red Hat OpenShift Container Platform, you must us
 3. In the configuration YAML for the Corda deployment, specify the service account to be used:
 
    ```yaml
-   serviceAccount: "corda-privileged"
+   serviceAccount: 
+      name: "corda-privileged"
    bootstrap:
-     serviceAccount: "corda-privileged"
+     serviceAccount: 
+        name: "corda-privileged"
    ```
 
 ### Custom Annotations for Worker Pods
@@ -685,14 +687,18 @@ resources:
     memory: 512Mi
     cpu: 2000m
 
-serviceAccount: "corda-privileged"
+serviceAccount:
+  name: "corda-privileged"
+bootstrap:
+  serviceAccount:
+    name: "corda-privileged"
 
 db:
   cluster:
     host: "postgres.example.com"
     port: 5432
     database: "cordacluster"
-    user:
+    username:
       value: "user"
     password:
       valueFrom:
@@ -842,12 +848,7 @@ helm install -n corda corda <HELM-CHART-TGZ-FILE> -f values.yaml
 If you are using the Helm chart from Docker Hub, you can install directly from there rather than using `helm fetch` first. For example:
 
 ```shell
-helm install -n corda corda oci://corda-os-docker.software.r3.com/helm-charts/release-{{<version-num>}}.0.0/corda --version {{<version-num>}}.0 -f values.yaml
-```
-
-{{< enterprise-icon noMargin="true" >}}Alternatively, use the following command for Corda Enterprise:
-```shell
-helm install -n corda corda oci://corda-os-docker.software.r3.com/helm-charts/release-{{<version-num>}}.0.0/corda-enterprise --version {{<version-num>}}.0 -f values.yaml
+helm install -n corda corda oci://registry-1.docker.io/corda/corda --version {{<version-num>}}.0 -f values.yaml
 ```
 
 Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how

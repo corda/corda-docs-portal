@@ -10,11 +10,10 @@ menu:
 section_menu: corda5
 ---
 # Chat CorDapp Design
-## ChatState
 
 The foundation for the Chat app is the ChatState which is the data model for facts recorded to the ledger. It can be represented in the CDL [CorDapp Design Language]({{< relref "../../../../../../../../en/tools/cdl/cdl-overview.md" >}}) as follows:
 
-{{< figure src="chat-state.png" figcaption="Data model for facts recorded to the ledger" alt="Data model for facts recorded to the ledger" >}}
+{{< figure src="chat-state.png" width="40%" figcaption="Data model for facts recorded to the ledger" alt="Data model for facts recorded to the ledger" >}}
 
 Where:
 
@@ -34,11 +33,11 @@ The history of a chat will be recorded in the backchain of the chat.
 
 The {{< tooltip >}}Smart Contract{{< /tooltip >}} (combination of the ChatState and ChatContract) can be represented by a simple Smart Contract View diagram:
 
-{{< figure src="chat-smart-contract-view.png" figcaption="Smart Contract View diagram" alt="Smart Contract View diagram" >}}
+{{< figure src="chat-smart-contract-view.png" width="60%" figcaption="Smart Contract View diagram" alt="Smart Contract View diagram" >}}
 
  {{< note >}}
 
-* In CDL the arrows represent transactions with the indicated command type. The state at the beginning of the arrow represents the input state, the state at the end of the arrow represents the output state for the {{< tooltip >}}transaction{{< /tooltip >}}.
+* In CDL the arrows represent transactions with the indicated command type. The state at the beginning of the arrow represents the input state, the state at the end of the arrow represents the output state for the transaction.
 * There is no ChatState status in this simple design.
 
 * The multiplicities (numbers on the arrows) indicate that for the create command there should be no input state and one output ChatState.
@@ -82,40 +81,38 @@ There are six {{< tooltip >}}flows{{< /tooltip >}} in the Chat Application:
 <tr>
 <td><code>CreateNewChatFlow </code></td>
 <td><code>ClientStartableFlow </code></td>
-<td><code><li>chatName</li><li>otherMember</li><li>message</li></code></td>
+<td><li><code>chatName</code></li><li><code>otherMember</code></li><li><code>message</code></li></td>
 <td> <li>Forms a draft transaction using the transaction builder, which creates a new ChatState with the details provided.</li> <li> Signs the draft transaction with the virtual nodes first {{< tooltip >}}ledger key{{< /tooltip >}}.</li><li> Calls <code>FinalizeChatSubFlow</code> which finalizes the transaction.</li></td>
 </tr>
 <tr>
 <td><code>UpdateChatFlow </code></td>
 <td><code>ClientStartableFlow </code></td>
-<td><code> <li>id</li><li>message</li> </code></td>
+<td><li><code>id</code></li><li><code>message</code></li></td>
 <td> <li>Locates the last message in the backchain for the given <code>id</code>.</li><li> Creates a draft transaction which consumes the last message in the chain and creates a new ChatState with the latest message.</li> <li>Signs the draft transaction with the virtual nodes first Ledger Key.</li><li> Calls <code>FinalizeChatSubFlow</code> which finalises the transaction.</li></td>
 </tr>
 <tr>
 <td><code>ListChatsFlow </code></a></td>
 <td><code>ClientStartableFlow </code></td>
-<td><code><li>none</li></code></td>
+<td>None</td>
 <td><li>Finds and lists unconsumed states.</li></td>
 </tr>
 <tr>
 <td><code>GetChatsFlow </code></td>
 <td><code>ClientStartableFlow </code></td>
-<td><code><li>id</li><li>numberOfRecords</li> </code></td>
+<td><li><code>id</code></li><li><code>numberOfRecords</code></li></td>
 <td><li>Reads the backchain to a depth of <code>numberOfRecords</code> for a given <code>id</code>.</li><li> Returns the list of messages together with who sent them.</li></td>
 </tr>
 <tr>
 <td><code>FinalizeChatSubFlow</code></td>
 <td><code>SubFlow </code></td>
-<td><code><li>signedTransaction (to finalize)</li><li>otherMember</li> </code></td>
+<td><li><code>signedTransaction (to finalize)</code></li><li><code>otherMember</code></li></td>
 <td><li>The common subflow used by both <code>CreateNewChatFlow</code> and <code>UpdateChatFlow</code>.</li><li> This removes the need to duplicate the responder code.<li> Sets up a session with the <code>FinalizeChatResponderFlow</code> and calls the <code>finalize()</code> function that collects required signatures, notarizes the transaction, and stores the finalized transaction to the respective vaults.</li></td>
 </tr>
 <tr>
 <td><code>FinalizeChatResponderFlow</code></td>
 <td><code>ResponderFlow</code></td>
-<td><code><li>FlowSession</li></code></td>
+<td><li><code>FlowSession</code></li></td>
 <td><li>The <code>FinalizeChatResponderFlow</code> is initiated by the <code>FinalizeChatSubFlow</code>. It runs the <code>receiveFinality()</code> function which performs the responder side of the <code>finality()</code> function. <code>ReceiveFinality()</code> takes a Lambda verifier which runs validations on the transactions.</li><li> The validator checks for banned words and checks that the message comes from the same party as the <code>messageFrom</code> field.</li></td>
 </tr>
 </tbody>
 </table>
-
-
