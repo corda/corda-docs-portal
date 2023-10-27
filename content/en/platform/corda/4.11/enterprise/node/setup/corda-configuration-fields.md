@@ -409,7 +409,7 @@ Allows fine-grained controls of various features only available in the enterpris
 
         * Defines the time interval (in milliseconds) at which the pre-generated keys are topped up or refreshed.
         * Non-mandatory.
-        * * *Default:* 300 seconds
+        * *Default:* 300 seconds
 
     - `recoveryMaximumBackupInterval`
 
