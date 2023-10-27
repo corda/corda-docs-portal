@@ -114,6 +114,8 @@ See node migration scripts:
 - `node-core.changelog-v24.xml`: added transaction signatures.
 - `node-core.changelog-v24.xml`: added finality flow recovery metadata.
 
+The `vault_state` table now includes a `consuming_tx_id` column.
+
 ### Third party component upgrades
 
 The following table lists the dependency version changes between 4.9.5 and 4.10 Community Editions:
