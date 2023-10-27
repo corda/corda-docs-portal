@@ -442,21 +442,21 @@ Allows fine-grained controls of various features only available in the enterpris
     * To configure the `ledgerRecoveryConfiguration` for your Corda Enterprise node, modify the properties according to the
     requirements in your node's configuration file, for example:
 
-    ```
-    enterpriseConfiguration = {
-    # Ledger Recovery Configuration
-        ledgerRecoveryConfiguration {
-            noOfPreGeneratedKeys= 100
-            noOfPreGeneratedKeysWithCerts = 50
-            preGeneratedKeysTopUpInterval = 10 # 10 seconds
-            recoveryMaximumBackupInterval = "24h"
-            confidentialIdentityMinimumBackupInterval = "12h"
-            canProvideNonBackedUpKeyPair = false
-            bufferSizeForKeys = 100
-            bufferSizeForKeysWithCerts = 100
+        ```
+        enterpriseConfiguration = {
+        # Ledger Recovery Configuration
+            ledgerRecoveryConfiguration {
+                noOfPreGeneratedKeys= 100
+                noOfPreGeneratedKeysWithCerts = 50
+                preGeneratedKeysTopUpInterval = 10 # 10 seconds
+                recoveryMaximumBackupInterval = "24h"
+                confidentialIdentityMinimumBackupInterval = "12h"
+                canProvideNonBackedUpKeyPair = false
+                bufferSizeForKeys = 100
+                bufferSizeForKeysWithCerts = 100
+            }
         }
-    }
-    ```
+        ```
 
 ## `extraNetworkMapKeys`
 
