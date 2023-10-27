@@ -141,6 +141,7 @@ The following sections describe the minimal set of configuration options require
 * [Encryption]({{< relref "#encryption" >}})
 * [Bootstrapping]({{< relref "#bootstrapping" >}})
 * [Custom Annotations for Worker Pods]({{< relref "#custom-annotations-for-worker-pods" >}})
+* [Node Affinities]({{< relref "#node-affinities" >}})
 * [Pre-Install Checks]({{< relref "#pre-install-checks" >}})
 
 You can extract a README containing the full set of options from the Helm chart using the following command:
@@ -257,6 +258,7 @@ For an AWS topology, we recommend the following initial configuration:
 The following configuration options are available for the [REST API]({{< relref "../../../reference/rest-api/_index.md" >}}):
 * [Expose the REST API]({{< relref "#expose-the-rest-api" >}})
 * [Install the REST Worker Certificate]({{< relref "#install-the-rest-worker-certificate" >}})
+
 #### Expose the REST API
 
 By default, the REST API is exposed on an internal Kubernetes service.
@@ -695,6 +697,10 @@ workers:
     annotations:
       annotation-key-2: "some-value"
 ```
+
+### Node Affinities
+
+**
 
 ### Pre-Install Checks
 
