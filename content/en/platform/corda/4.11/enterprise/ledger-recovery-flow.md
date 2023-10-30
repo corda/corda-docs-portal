@@ -199,29 +199,29 @@ The following examples show the different ways to use the ledger recovery flow f
 Run ledger recovery for a given time window and using all available nodes in the network:
 
 ```bash
-flow start net.corda.node.internal.aliasing.flows.EnterpriseLedgerRecoveryFlow  timeWindow: { fromTime: "2023-07-19T09:00:00Z", untilTime: "2023-07-19T09:00:00Z" }, useAllNetworkNodes: true
+flow start EnterpriseLedgerRecoveryFlow timeWindow: { fromTime: "2023-07-19T09:00:00Z", untilTime: "2023-07-19T09:00:00Z" }, useAllNetworkNodes: true
 ```
 
 Run ledger recovery without actually performing reconciliation (e.g. `dryRun = true`) and with detailed record/transaction-level output (`verboseLogging = true`) for a given time window and using all available nodes in the network:
 
 ```bash
-flow start net.corda.node.internal.aliasing.flows.EnterpriseLedgerRecoveryFlow  timeWindow: { fromTime: "2023-07-19T09:00:00Z", untilTime: "2023-07-19T09:00:00Z" }, dryRun: true, verboseLogging: true, useAllNetworkNodes: true
+flow start EnterpriseLedgerRecoveryFlow timeWindow: { fromTime: "2023-07-19T09:00:00Z", untilTime: "2023-07-19T09:00:00Z" }, dryRun: true, verboseLogging: true, useAllNetworkNodes: true
 ```
 
 Run ledger recovery for a given time window and specifying a single specific peer recovery node:
 
 ```bash
-flow start net.corda.node.internal.aliasing.flows.EnterpriseLedgerRecoveryFlow  timeWindow: { fromTime: "2023-10-12T19:00:00Z", untilTime: "2023-12-12T22:00:00Z" }, recoveryPeer:  "O=Bank B, L=New York, C=US"
+flow start EnterpriseLedgerRecoveryFlow timeWindow: { fromTime: "2023-10-12T19:00:00Z", untilTime: "2023-12-12T22:00:00Z" }, recoveryPeer:  "O=Bank B, L=New York, C=US"
 ```
 
 Run ledger recovery for a given time window and specifying several peer recovery nodes:
 
 ```bash
-flow start net.corda.node.internal.aliasing.flows.EnterpriseLedgerRecoveryFlow  timeWindow: { fromTime: "2023-10-12T19:00:00Z", untilTime: "2023-12-12T22:00:00Z" }, recoveryPeers: ["O=Bank B, L=New York, C=US", "O=Bank C, L=Chicago, C=US"]
+flow start EnterpriseLedgerRecoveryFlow timeWindow: { fromTime: "2023-10-12T19:00:00Z", untilTime: "2023-12-12T22:00:00Z" }, recoveryPeers: ["O=Bank B, L=New York, C=US", "O=Bank C, L=Chicago, C=US"]
 ```
 
 Run ledger recovery for a given time window and single peer recovery node, and perform finality flow recovery of any encountered `IN_FLIGHT` transactions:
 
 ```bash
-flow start net.corda.node.internal.aliasing.flows.EnterpriseLedgerRecoveryFlow  timeWindow: { fromTime: "2023-10-12T19:00:00Z", untilTime: "2023-12-12T22:00:00Z" }, recoveryPeer:  "O=Bank B, L=New York, C=US", alsoFinalize: true
+flow start EnterpriseLedgerRecoveryFlow timeWindow: { fromTime: "2023-10-12T19:00:00Z", untilTime: "2023-12-12T22:00:00Z" }, recoveryPeer:  "O=Bank B, L=New York, C=US", alsoFinalize: true
 ```
