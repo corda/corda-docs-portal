@@ -34,7 +34,7 @@ table th:nth-of-type(4) {
 | `corda_taskmanager_executor_active_threads`               | Gauge   | `name`                                                    | The approximate number of threads that are actively executing tasks.                   |
 | `corda_taskmanager_executor_completed_tasks_total`        | Counter | `name`                                                    | The approximate number of tasks that have completed execution.                         |
 | `corda_taskmanager_executor_idle_seconds_count`           | Counter | `name`                                                    | The number of events that have been observed for the base metric.                   |
-| `corda_taskmanager_executor_idle_seconds_max`             | Gauge   | `name`                                                    |                                                                                        |
+| `corda_taskmanager_executor_idle_seconds_max`             | Gauge   | `name`                                                    | The maximum observed value for the base metric.                                                                                       |
 | `corda_taskmanager_executor_idle_seconds_sum`             | Counter | `name`                                                    | The total sum of all observed values for the base metric.                           |
 | `corda_taskmanager_executor_pool_core_threads`            | Gauge   | `name`                                                    | The core number of threads for the pool.                                               |
 | `corda_taskmanager_executor_pool_max_threads`             | Gauge   | `name`                                                    | The maximum allowed number of threads in the pool.                                     |
@@ -43,10 +43,10 @@ table th:nth-of-type(4) {
 | `corda_taskmanager_executor_queued_tasks`                 | Gauge   | `name`                                                    | The approximate number of tasks that are queued for execution.                         |
 | `corda_taskmanager_executor_scheduled_repetitively_total` | Counter | `name`                                                    |                                                                                        |
 | `corda_taskmanager_executor_seconds_count`                | Counter | `name`                                                    | The number of events that have been observed for the base metric.                   |
-| `corda_taskmanager_executor_seconds_max`                  | Gauge   | `name`                                                    |                                                                                        |
+| `corda_taskmanager_executor_seconds_max`                  | Gauge   | `name`                                                    | The maximum observed value for the base metric.                                                                                       |
 | `corda_taskmanager_executor_seconds_sum`                  | Counter | `name`                                                    | The total sum of all observed values for the base metric                            |
-| `TaskCompletionTime`                                      |         | <ul><li>`task.manager.name`</li><li>`task.type`</li></ul> | The time it took to execute a task, including time waiting to be scheduled.            |
-| `LiveTasks`                                               |         | <ul><li>`task.manager.name`</li><li>`task.type`</li></ul> | The number of live tasks running or scheduled in the task manager.                     |
+| `corda_taskmanager_completion_time_count`                  |  Counter  | <ul><li>`task.manager.name`</li><li>`task.type`</li></ul> | The time it took to execute a task, including time waiting to be scheduled.            |
+| `task_manager_live_tasks`                                               | Gauge  | <ul><li>`task.manager.name`</li><li>`task.type`</li></ul> | The number of live tasks running or scheduled in the task manager.                     |
 
 Tags:
 
