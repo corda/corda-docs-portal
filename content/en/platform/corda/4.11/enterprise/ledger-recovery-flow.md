@@ -122,8 +122,10 @@ available on a node host.
 
 `alsoFinalize` specifies whether to attempt recovery of any `IN_FLIGHT` transactions recovered from a peer.
 It defaults to *false*. See also [Finality Flow Recovery](finality-flow-recovery.md).
-Note this option will attempt to finalize any `FAILED` in-flight transactions (either recovered as part of the previous
-ledger recovery step or already existent within the local database) and within the recovery `timeWindow`.
+{{< note >}}
+This option will attempt to finalize any `FAILED` in-flight transactions (either recovered as part of the previous
+ledger recovery step or already existent within the local database) within the recovery `timeWindow`.
+{{< /note >}}
 
 #### `LedgerRecoverFlow`
 
@@ -178,50 +180,51 @@ and database transactional updates). Window narrowing uses a cryptographic hashi
 window for any given peer. Furthermore, internal state is kept to a minimum, thus enabling recovery to be resumed from the
 point it left off, should there be any interruption in service.
 
-# Usage
+## Usage
 
 You can perform ledger recovery by using one of the following methods:
 
-* Node Shell commands
-* Directly invoking the recovery flow, either from the Node Shell or programmatically within a CorDapp:
+* Node shell commands
+* Directly invoking the recovery flow, either from the node shell or programmatically within a CorDapp:
 
 ```kotlin
 net.corda.core.flows.LedgerRecoveryFlow
 ```
 
-All recovery operations return a `LedgerRecoveryResult` as described previously.
+All recovery operations return a `LedgerRecoveryResult`.
 Use `verboseLogging` to generate detailed information in the Corda node logs for individual records and transactions recovered.
 
-### Ledger Recovery from the shell
+### Ledger recovery using the shell
 
 The following examples show the different ways to use the ledger recovery flow from the Corda node shell.
 
-Run ledger recovery for a given time window and using all available nodes in the network:
+* Run ledger recovery for a given time window and using all available nodes in the network:
 
-```bash
-flow start EnterpriseLedgerRecoveryFlow timeWindow: { fromTime: "2023-07-19T09:00:00Z", untilTime: "2023-07-19T09:00:00Z" }, useAllNetworkNodes: true
-```
+  ```bash
+  flow start EnterpriseLedgerRecoveryFlow timeWindow: { fromTime: "2023-07-19T09:00:00Z", untilTime: "2023-07-19T09:00:00Z" }, useAllNetworkNodes: true
+  ```
 
-Run ledger recovery without actually performing reconciliation (e.g. `dryRun = true`) and with detailed record/transaction-level output (`verboseLogging = true`) for a given time window and using all available nodes in the network:
+* Run ledger recovery without actually performing reconciliation (for example, `dryRun = true`) with detailed
+  record/transaction-level output (`verboseLogging = true`) for a given time window and using all available nodes in the network:
 
-```bash
-flow start EnterpriseLedgerRecoveryFlow timeWindow: { fromTime: "2023-07-19T09:00:00Z", untilTime: "2023-07-19T09:00:00Z" }, dryRun: true, verboseLogging: true, useAllNetworkNodes: true
-```
+  ```bash
+  flow start EnterpriseLedgerRecoveryFlow timeWindow: { fromTime: "2023-07-19T09:00:00Z", untilTime: "2023-07-19T09:00:00Z" }, dryRun: true, verboseLogging: true, useAllNetworkNodes: true
+  ```
 
-Run ledger recovery for a given time window and specifying a single specific peer recovery node:
+* Run ledger recovery for a given time window and specifying a single specific peer recovery node:
 
-```bash
-flow start EnterpriseLedgerRecoveryFlow timeWindow: { fromTime: "2023-10-12T19:00:00Z", untilTime: "2023-12-12T22:00:00Z" }, recoveryPeer:  "O=Bank B, L=New York, C=US"
-```
+  ```bash
+  flow start EnterpriseLedgerRecoveryFlow timeWindow: { fromTime: "2023-10-12T19:00:00Z", untilTime: "2023-12-12T22:00:00Z" }, recoveryPeer:  "O=Bank B, L=New York, C=US"
+  ```
 
-Run ledger recovery for a given time window and specifying several peer recovery nodes:
+* Run ledger recovery for a given time window and specifying several peer recovery nodes:
 
-```bash
-flow start EnterpriseLedgerRecoveryFlow timeWindow: { fromTime: "2023-10-12T19:00:00Z", untilTime: "2023-12-12T22:00:00Z" }, recoveryPeers: ["O=Bank B, L=New York, C=US", "O=Bank C, L=Chicago, C=US"]
-```
+  ```bash
+  flow start EnterpriseLedgerRecoveryFlow timeWindow: { fromTime: "2023-10-12T19:00:00Z", untilTime: "2023-12-12T22:00:00Z" }, recoveryPeers: ["O=Bank B, L=New York, C=US", "O=Bank C, L=Chicago, C=US"]
+  ```
 
-Run ledger recovery for a given time window and single peer recovery node, and perform finality flow recovery of any encountered `IN_FLIGHT` transactions:
+* Run ledger recovery for a given time window and single peer recovery node, and perform finality flow recovery of any encountered `IN_FLIGHT` transactions:
 
-```bash
-flow start EnterpriseLedgerRecoveryFlow timeWindow: { fromTime: "2023-10-12T19:00:00Z", untilTime: "2023-12-12T22:00:00Z" }, recoveryPeer:  "O=Bank B, L=New York, C=US", alsoFinalize: true
-```
+  ```bash
+  flow start EnterpriseLedgerRecoveryFlow timeWindow: { fromTime: "2023-10-12T19:00:00Z", untilTime: "2023-12-12T22:00:00Z" }, recoveryPeer:  "O=Bank B, L=New York, C=US", alsoFinalize: true
+  ```
