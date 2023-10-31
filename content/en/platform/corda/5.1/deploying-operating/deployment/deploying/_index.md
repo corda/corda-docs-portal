@@ -53,7 +53,10 @@ To push the Corda images:
     "corda-os-rest-worker" "corda-os-flow-worker"
     "corda-os-member-worker" "corda-os-p2p-gateway-worker"
     "corda-os-p2p-link-manager-worker" "corda-os-db-worker"
-    "corda-os-crypto-worker" "corda-os-plugins" )
+    "corda-os-flowMapper-worker" "corda-os-verification-worker"
+    "corda-os-persistence-worker" "corda-os-tokenSelection-worker"
+    "corda-os-crypto-worker" "corda-os-uniqueness-worker"
+    "corda-os-plugins" )
    tag={{<version-num>}}.0.0
    target_registry=$1
 
@@ -92,7 +95,10 @@ To push the Corda Enterprise images:
     "corda-ent-rest-worker" "corda-ent-flow-worker"
     "corda-ent-member-worker" "corda-ent-p2p-gateway-worker"
     "corda-ent-p2p-link-manager-worker" "corda-ent-db-worker"
-    "corda-ent-crypto-worker" "corda-ent-plugins" )
+    "corda-ent-flowMapper-worker" "corda-ent-verification-worker"
+    "corda-ent-persistence-worker" "corda-ent-tokenSelection-worker"
+    "corda-ent-crypto-worker" "corda-ent-uniqueness-worker"
+    "corda-ent-plugins" )
    tag={{<version-num>}}.0.0
    target_registry=$1
 
