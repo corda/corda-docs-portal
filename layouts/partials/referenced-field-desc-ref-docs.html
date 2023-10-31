@@ -20,7 +20,9 @@
                 <br>Maximum value: {{ string ($value.maximum) }}.
             {{ end }}
             {{ if isset $value "default" }}
-                <br>Default value: {{ string ($value.default) }}.
+                {{ with $value.default }}
+                    <br>Default value: {{ string ($value.default) }}.
+                {{ end }}
             {{ end }}
         </li>
     {{ end }}
