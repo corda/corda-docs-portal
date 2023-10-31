@@ -68,12 +68,12 @@ Service is not constrained to a given network. For a given signing task, as long
 configured data source and access the configured signing key (or HSM) then the task can be executed. Therefore one
 Signing Service can be used to manage several networks/sub-zones.
 
-Due to security concerns, the signing service should be hosted on private premises, **not** in a cloud environment. As
+Due to security concerns, the Signing Service should be hosted on private premises, **not** in a cloud environment. As
 mentioned above, the only communication requirements are outgoing connections to the CENM services as data sources
 or outgoing connection to SMR service configured as data source which then connects to CENM services (Identity Manager and Network Maps), and outgoing connections to the HSMs
 for the configured signing keys. The overall flow of communication can be seen in the below diagram:
 
-![signing service communication](/en/images/signing-service-communication.png "signing service communication")
+![Signing Service communication](/en/images/signing-service-communication.png "Signing Service communication")
 {{< note >}}
 All inter-service communication can be configured with SSL support to ensure the connection is encrypted. See
 [Configuring the ENM services to use SSL](enm-with-ssl.md)
@@ -389,14 +389,14 @@ Listed below are the steps involved in signing an example Network Parameter upda
 data types are very similar.
 
 
-* A network operator issues a Network Parameter update via the appropriate Network Map service. At this point, as the
+* A network operator issues a Network Parameter update via the appropriate Network Map Service. At this point, as the
 update is unsigned, it will not be broadcast to the network.
 
 The parameter update is ready to be signed.
 
 
 * A privileged user accesses the Signing Service via ssh and runs the pre-configured Network Parameter signing task for
-the given Network Map service.
+the given Network Map Service.
 * A connection to the Network Map or Signable Material Retriever service is established and the unsigned Network Parameter update is
 fetched and displayed to the user.
 * The user confirms that the changes are correct and should be signed.
@@ -406,7 +406,7 @@ exact format of this authentication will depend on the configured signing key th
 commences using the configured signing key. If their privileges are not sufficient then the signing task will prompt
 for another user to be authenticated, repeating this process until the configured HSM authentication threshold has
 been exceeded.
-* The Network Parameter update is signed then persisted back to the appropriate Network Map service or Signable Material Retriever service. When the Network
+* The Network Parameter update is signed then persisted back to the appropriate Network Map Service or Signable Material Retriever service. When the Network
 Map is next updated and signed, the newly signed parameter update will be included and therefore broadcast to the
 network participants.
 
@@ -1389,7 +1389,7 @@ signers = {
 ## Signable Material Retriever
 
 The Signable Material Retriever service is an optional service which acts as a bridge between other CENM services and one or more
-signing services. It delegates signing to a plugin, which routes work either to the CENM Signing Service,
+Signing Services. It delegates signing to a plugin, which routes work either to the CENM Signing Service,
 or to a third party service. Third party integration plugins are not provided as part of CENM.
 
 

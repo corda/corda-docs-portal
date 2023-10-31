@@ -35,4 +35,4 @@ If you wish to delegate network signing to a third party software provider, this
 
 ## Using your own Certificate Authority software
 
-To set up a Corda network using your own Certificate Authority software, [use a signing plugin](signing-service.html#using-a-signing-plugin). A signing plugin acts as a bridge between CENM services and one or more signing services. See the [Developing Signing Plugins](signing-service.html#developing-signing-plugins) and the [EJBCA Sample Plugin](ejbca-plugin.md) documentation for guidance on creating a plugin that suits your needs.
+To set up a Corda network using your own Certificate Authority software, [use a signing plugin](signing-service.html#using-a-signing-plugin). A signing plugin acts as a bridge between CENM services and one or more Signing Services. See the [Developing Signing Plugins](signing-service.html#developing-signing-plugins) and the [EJBCA Sample Plugin](ejbca-plugin.md) documentation for guidance on creating a plugin that suits your needs.
