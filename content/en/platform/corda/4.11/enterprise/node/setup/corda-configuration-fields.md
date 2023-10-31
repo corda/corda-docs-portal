@@ -389,7 +389,7 @@ Allows fine-grained controls of various features only available in the enterpris
 
 * `ledgerRecoveryConfiguration`
 
-    * The `ledgerRecoveryConfiguration` class is a component of the Corda Enterprise configuration settings that allows you
+    * The `ledgerRecoveryConfiguration` is one of the Corda Enterprise configuration settings that allows you
     to tailor ledger recovery behavior for your Corda node. It offers flexibility in defining parameters related to key pair
     pre-generation, backup intervals, and confidential identity backup options.
 
