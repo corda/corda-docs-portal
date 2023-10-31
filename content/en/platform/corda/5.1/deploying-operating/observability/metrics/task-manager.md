@@ -46,7 +46,7 @@ table th:nth-of-type(4) {
 | `corda_taskmanager_executor_seconds_max`                  | Gauge   | `name`                                                    | The maximum observed value for the base metric.                                                                                       |
 | `corda_taskmanager_executor_seconds_sum`                  | Counter | `name`                                                    | The total sum of all observed values for the base metric                            |
 | `corda_taskmanager_completion_time_count`                  |  Counter  | <ul><li>`task.manager.name`</li><li>`task.type`</li></ul> | The number of tasks completed by a task manager..            |
-| `corda_taskmanager_completion_time_max`                  |  Gauge  | <ul><li>`task.manager.name`</li><li>`task.type`</li></ul> | The max time taken to complete a task by a task manager.           |
+| `corda_taskmanager_completion_time_max`                  |  Gauge  | <ul><li>`task.manager.name`</li><li>`task.type`</li></ul> | The maximum time taken to complete a task by a task manager.           |
 | `corda_taskmanager_completion_time_sum`                  |  Counter  | <ul><li>`task.manager.name`</li><li>`task.type`</li></ul> | The total sum of the time taken to execute all completed tasks by a task manager.           |
 | `task_manager_live_tasks`                                               | Gauge  | <ul><li>`task.manager.name`</li><li>`task.type`</li></ul> | The number of live tasks running or scheduled in the task manager.                     |
 
