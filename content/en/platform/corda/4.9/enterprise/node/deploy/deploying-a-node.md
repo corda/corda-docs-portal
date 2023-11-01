@@ -260,7 +260,7 @@ only visible to the permissioning service.
 Modify the batch file as follows:
 
 * If you are installing multiple nodes, use a different service name (`cordanode1`), and modify
-*AppDirectory*, *AppStdout* and *AppStderr* for each node accordingly
+*AppDirectory*, *AppStdout*, and *AppStderr* for each node accordingly
 * Set an informative description
 
 
