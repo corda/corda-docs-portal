@@ -639,8 +639,7 @@ For example, when running with Red Hat OpenShift Container Platform, you must us
    serviceAccount: 
       name: "corda-privileged"
    bootstrap:
-      serviceAccount: 
-        name: "corda-privileged"
+     serviceAccount: "corda-privileged"
    ```
 
 ### Custom Annotations for Worker Pods

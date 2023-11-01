@@ -36,7 +36,7 @@ Node Registration Tool.
 
 ## Linux: Installing and running Corda as a system service
 
-We recommend creating system services to run a node and the optional test webserver. This provides logging and service
+We recommend creating system services to run a node. This provides logging and service
 handling, and ensures the Corda service is run at boot.
 
 **Prerequisites**:
@@ -52,11 +52,9 @@ handling, and ensures the Corda service is run at boot.
 
 * Create a directory called `/opt/corda` and change its ownership to the user you want to use to run Corda:`mkdir /opt/corda; chown corda:corda /opt/corda`
 * Place the Enterprise Corda JAR `corda-4.9.jar` in `/opt/corda`
-* (Optional) Copy the Corda webserver JAR provided to your organization
-(under `/corda-webserver-4.9.jar`) and place it in `/opt/corda`
 * Create a directory called `cordapps` in `/opt/corda` and save your CorDapp jar file to it. Alternatively, download one of
 our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory
-* Save the below as `/opt/corda/node.conf`. See [Node configuration]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.md" >}}) for a description of these options:
+* Save the below as `/opt/corda/node.conf`. See [Node configuration]({{< relref "../setup/corda-configuration-file.md" >}}) for a description of these options:
 
 ```none
 p2pAddress = "example.com:10002"
@@ -155,82 +153,27 @@ not root**
 
 
 * **Upstart**: Make sure the `corda.conf` file is owned by root with the correct permissions:
->
-    * `sudo chown root:root /etc/init/corda.conf`
-    * `sudo chmod 644 /etc/init/corda.conf`
-
-
-
-
-
-
-
-{{< note >}}
-The Corda test webserver provides a simple interface for interacting with your installed CorDapps in a browser.
-Running the webserver is optional.
-
-{{< /note >}}
-
-* **SystemD**: Create a `corda-webserver.service` file based on the example below and save it in the `/etc/systemd/system/`
-directory
-
-```shell
-[Unit]
-Description=Webserver for Corda Node - Bank of Breakfast Tea
-Requires=network.target
-
-[Service]
-Type=simple
-User=corda
-WorkingDirectory=/opt/corda
-ExecStart=/usr/bin/java -jar /opt/corda/corda-webserver.jar
-Restart=on-failure
-
-[Install]
-WantedBy=multi-user.target
-```
-
-
-
-
-* **Upstart**: Create a `corda-webserver.conf` file based on the example below and save it in the `/etc/init/`
-directory
-
-```shell
-description "Webserver for Corda Node - Bank of Breakfast Tea"
-
-start on runlevel [2345]
-stop on runlevel [!2345]
-
-respawn
-setuid corda
-chdir /opt/corda
-exec java -jar /opt/corda/corda-webserver.jar
-```
-
+   
+   ```
+   sudo chown root:root /etc/init/corda.conf
+   sudo chmod 644 /etc/init/corda.conf
+   ```
 
 * Provision the required certificates to your node. Contact the network permissioning service or see
 permissioning
 * Depending on the versions of Corda and of the CorDapps used, database migration scripts might need to run before a node is able to start.
 For more information refer to database-management
-* **SystemD**: You can now start a node and its webserver and set the services to start on boot by running the
+* **SystemD**: You can now start a node and set the services to start on boot by running the
 following `systemctl` commands:
 
 
 
 * `sudo systemctl daemon-reload`
 * `sudo systemctl enable --now corda`
-* `sudo systemctl enable --now corda-webserver`
 
-
-
-* **Upstart**: You can now start a node and its webserver by running the following commands:
-
-
+* **Upstart**: You can now start a node by running the following commands:
 
 * `sudo start corda`
-* `sudo start corda-webserver`
-
 
 The Upstart configuration files created above tell Upstart to start the Corda services on boot so there is no need to explicitly enable them.
 
@@ -297,28 +240,27 @@ only visible to the permissioning service.
 * If required, add RPC users
 
 
-* Copy the required Java keystores to the node. See permissioning
-* Download the [NSSM service manager](https://nssm.cc/)
-* Unzip `nssm-2.24\win64\nssm.exe` to `C:\Corda`
+* Copy the required Java keystores to the node; see [Network Certificates]({{< relref "../../network/permissioning.md" >}}).
+* Download the [NSSM service manager](https://nssm.cc/).
+* Unzip `nssm-2.24\win64\nssm.exe` to `C:\Corda`.
 * Save the following as `C:\Corda\nssm.bat`:
 
-```batch
-nssm install cordanode1 java.exe
-nssm set cordanode1 AppParameters "-jar corda.jar"
-nssm set cordanode1 AppDirectory C:\Corda
-nssm set cordanode1 AppStdout C:\Corda\service.log
-nssm set cordanode1 AppStderr C:\Corda\service.log
-nssm set cordanode1 AppEnvironmentExtra CAPSULE_CACHE_DIR=./capsule
-nssm set cordanode1 Description Corda Node - Bank of Breakfast Tea
-nssm set cordanode1 Start SERVICE_AUTO_START
-sc start cordanode1
-```
+   ```batch
+   nssm install cordanode1 java.exe
+   nssm set cordanode1 AppParameters "-jar corda.jar"
+   nssm set cordanode1 AppDirectory C:\Corda
+   nssm set cordanode1 AppStdout C:\Corda\service.log
+   nssm set cordanode1 AppStderr C:\Corda\service.log
+   nssm set cordanode1 AppEnvironmentExtra CAPSULE_CACHE_DIR=./capsule
+   nssm set cordanode1 Description Corda Node - Bank of Breakfast Tea
+   nssm set cordanode1 Start SERVICE_AUTO_START
+   sc start cordanode1
+   ```
 
-
-* Modify the batch file:
+Modify the batch file as follows:
 
 * If you are installing multiple nodes, use a different service name (`cordanode1`), and modify
-*AppDirectory*, *AppStdout* and *AppStderr* for each node accordingly
+*AppDirectory*, *AppStdout*, and *AppStderr* for each node accordingly
 * Set an informative description
 
 
