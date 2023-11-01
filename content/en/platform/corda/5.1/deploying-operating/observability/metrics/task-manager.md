@@ -52,6 +52,6 @@ table th:nth-of-type(4) {
 
 Tags:
 
-* <ul><li>`name`</li></ul>: The name of the task manager.
+* `name`: The name of the task manager.
 * `task.manager.name`: The name of the task manager.
 * `task.type`: The task type (`SHORT_RUNNING`, `LONG_RUNNING`, or `SCHEDULED`).
