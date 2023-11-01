@@ -471,7 +471,7 @@ config:
 
 * `<vault-URL>` — the full URL including the port at which the Vault instance is reachable, not including any path.
 * `<vault-token>` — the token that Corda uses for accessing Vault. This must allow sufficient permissions to read from Vault at the Corda configured paths and also write to the `<path-to-corda-created-secrets>`. This requires your Vault administrator to grant more permissions than typically given to applications using Vault, but only for writing to one specific path. This is necessary to allow Corda to save encrypted database user passwords for the databases created for every new virtual node.
-* `createdSecretPath` — the path on Vault where Corda writes new secrets. Secrets should be created at a point in the hierarchy that is specific to that particular Corda deployment, keeping keys and their values from one Corda deployment separate to others.
+* `createdSecretPath` — the path on Vault where Corda writes new secrets. Secrets should be created at a point in the hierarchy that is specific to that particular Corda deployment, keeping keys for different Corda deployments separate.
 
 R3 recommends injecting Vault secrets into Kubernetes pods using a sidecar technique. For more information, see the HashiCorp Vault Developer documentation. This provides a private channel for Corda worker containers to another container which in turn securely authenticates with Vault.
 
