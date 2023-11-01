@@ -157,7 +157,7 @@ Alternatively, the Corda CLI can generate a preview of the required Kafka topic 
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   corda-cli.cmd topic -b kafka-1.example.com -k config.properties -f topics.yaml create -r 3 -p 10 connect
+   corda-cli.cmd topic -b kafka-1.example.com -k config.properties create -r 3 -p 10 connect -f topics.yaml
    ```
    {{% /tab %}}
    {{< /tabs >}}
