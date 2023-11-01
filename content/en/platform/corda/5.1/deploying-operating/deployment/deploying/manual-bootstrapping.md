@@ -137,7 +137,7 @@ Alternatively, the Corda CLI can generate a preview of the required Kafka topic 
    {{< tabs name="create-topics">}}
    {{% tab name="Bash" %}}
    ```sh
-   corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k <CLIENT-PROPERTIES-FILE> -f <YAML-TOPIC-FILE> create -r <REPLICAS> -p <PARTITIONS> connect
+   corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k <CLIENT-PROPERTIES-FILE> create -r <REPLICAS> -p <PARTITIONS> connect -f <YAML-TOPIC-FILE>
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
