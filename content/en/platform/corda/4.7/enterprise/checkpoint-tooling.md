@@ -623,7 +623,7 @@ The feature provides a way for flows to reload from checkpoints, even if no erro
 
 ### How to use this feature
 
-Add the `reloadCheckpointAfterSuspend` [node configuration option](node/setup/corda-configuration-fields.html#reloadCheckpointAfterSuspend) and set it to `true`, as shown below:
+Add the `reloadCheckpointAfterSuspend` [node configuration option]({{< relref "node/setup/corda-configuration-fields.md#reloadcheckpointaftersuspend" >}}) and set it to `true`, as shown below:
 
 ```
 reloadCheckpointAfterSuspend = true

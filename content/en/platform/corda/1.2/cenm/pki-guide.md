@@ -37,7 +37,7 @@ Certificates can become invalid due to different reasons (e.g. keys being compro
 
 To be able to know whether a certificate has been revoked, each CA maintains a Certificate Revocation List (CRL).
 That CRL needs to be published such that it can be accessed by anybody who may participate in the network. By
-default the CRL is exposed via the Identity Manager service, although it is recommended that this endpoint is
+default the CRL is exposed via the Identity Manager Service, although it is recommended that this endpoint is
 wrapped in a caching HTTP proxy. This proxy layer can be behind a load balancer, providing high availability for
 delivery of the CRL.
 

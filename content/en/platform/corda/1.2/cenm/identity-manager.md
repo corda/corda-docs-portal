@@ -107,7 +107,7 @@ Using a fixed IP address instead of a DNS address can prevent CRL endpoints in y
 
 ### Database
 
-The Identity Manager service is backed by a SQL database which it uses to store information such as Certificate Signing
+The Identity Manager Service is backed by a SQL database which it uses to store information such as Certificate Signing
 Requests (CSRs) and (optionally) Certificate Revocation Requests (CRRs). The connection settings must be included within
 the `database` configuration block in the config file. The main options that should be included here are:
 
@@ -121,10 +121,10 @@ the `database` configuration block in the config file. The main options that sho
 
 #### Database Setup
 
-The database can either be setup prior to running the Identity Manager service or, alternatively, it can be
+The database can either be setup prior to running the Identity Manager Service or, alternatively, it can be
 automatically prepared on startup via the built-in migrations. To enable the running of database migrations on startup
 the optional `runMigration` parameter within the `database` configuration should be set to true. Additionally, if
-the Identity Manager service is being run using the same DB instance as an accompanying Network Map service then the
+the Identity Manager Service is being run using the same DB instance as an accompanying Network Map Service then the
 Identity Manager schema name must be specified via the `schema` parameter within the `database` configuration block:
 
 ```guess
@@ -136,7 +136,7 @@ database {
 ```
 
 {{< note >}}
-Due to the way the migrations are defined, if the Identity Manager and Network Map services are using the same
+Due to the way the migrations are defined, if the Identity Manager and Network Map Services are using the same
 DB instance then they *must* use separate DB schemas. For more information regarding the supported databases
 along with the schema see [CENM Databases](database-set-up.md).
 
@@ -161,7 +161,7 @@ database {
 
 #### Example
 
-An example configuration for an Identity Manager service using a Microsoft SQL Server database, configured to run the
+An example configuration for an Identity Manager Service using a Microsoft SQL Server database, configured to run the
 migrations on startup is:
 
 ```guess
@@ -246,7 +246,7 @@ workflows {
 
 ##### JIRA Workflow
 
-The Identity Manager service can use JIRA to manage the certificate signing request approval work flow. This can be
+The Identity Manager Service can use JIRA to manage the certificate signing request approval work flow. This can be
 enabled by referencing the JIRA CSR workflow plugin within the config file along with the associated configuration
 parameters:
 
@@ -287,7 +287,7 @@ approval mechanism above, this can be achieved via one of two mechanisms:
 
 ##### Local Signing Service
 
-The local signing service is recommended for testing and toy environments. Given a local key store containing the
+The local Signing Service is recommended for testing and toy environments. Given a local key store containing the
 relevant signing keys, it provides the functionality to automatically sign all approved CSRs on a configured schedule.
 No human interaction is needed and the credentials for the key stores have to be provided upfront. The service is an
 integrated signer that is a cut-down version of the standalone [Signing Services](signing-service.md) and provides no HSM integration or
@@ -321,18 +321,18 @@ The production grade signing mechanism is the external [Signing Services](signin
 integrated local signer as well as HSM integration and the ability for a user to interactively verify and sign incoming
 CSRs. It should be used in all production environments where maximum security and validation checks are required.
 
-In order to retrieve the CSR information, the signing service will communicate with the Identity Manager via its
+In order to retrieve the CSR information, the Signing Service will communicate with the Identity Manager via its
 [Issuance internal server](#issuance-internal-server). This is the only configuration option that is needed if signing of CSRs is being done via the
-external signing service.
+external Signing Service.
 
 
 #### Issuance Internal Server
 
 Similarly to the other ENM services, the Identity Manager is designed to be able to communicate between other services
-such as the Network Map and Signing services. Both the Issuance and, optionally, the Revocation workflows have their own
+such as the Network Map and Signing Services. Both the Issuance and, optionally, the Revocation workflows have their own
 internal listening server that is created on startup which can receive and respond to messages from other ENM services.
 For example, the Revocation workflow’s ENM listener can respond to messages from the Network Map regarding certificate
-statuses of current participants which the Network Map service will then use when refreshing the latest Network Map.
+statuses of current participants which the Network Map Service will then use when refreshing the latest Network Map.
 
 To configure this internal server, the configuration block `enmListener` should be added within the Issuance
 workflow’s config:
@@ -372,7 +372,7 @@ have access to certain features.
 
 {{< note >}}
 This serves a similar purpose to the *minimumPlatformVersion* within the network parameters and also within
-the Network Map service configuration. However, unlike the other two options, as it prevents an outdated node
+the Network Map Service configuration. However, unlike the other two options, as it prevents an outdated node
 from successfully submitting a CSR in the first place it prevents any version related issues at the earliest
 possible step. Relying solely on the Network Parameters platform version gate can result in an outdated node
 successfully receiving a certificate to join the network despite not being able to (and thus needing to
@@ -401,7 +401,7 @@ with a minimum version less than this will not work unless the nodes are running
 
 ### Revocation Workflow (optional)
 
-The Revocation workflow is the second of the two main components in the Identity Manager service. It is an optional
+The Revocation workflow is the second of the two main components in the Identity Manager Service. It is an optional
 component that is responsible for handling incoming Certificate Revocation Requests (CRRs) to revoke a node’s
 certificate (acquired via a previously approved CSR) as well as hosting the Certificate Revocation Lists (CRLs) to
 enable the participants on the network to verify the validity of other’s certificates.
@@ -506,15 +506,15 @@ This has all the functionality of the integrated local signer as well as HSM int
 interactively verify and sign incoming CRRs. It should be used in all production environments where maximum security and
 validation checks are required.
 
-In order to retrieve the CRR information, the signing service will communicate with the Revocation Service via its
+In order to retrieve the CRR information, the Signing Service will communicate with the Revocation Service via its
 [Revocation internal server](#revocation-internal-server). This is the only configuration option that is needed if signing of CSRs is being done via the
-external signing service.
+external Signing Service.
 
 
 #### Revocation Internal Server
 
 Similarly to the Issuance workflow, the Revocation workflow is configured with an internal listening server to enable
-communication between other services such as the Network Map and Signing services.  To configure this, the configuration
+communication between other services such as the Network Map and Signing Services.  To configure this, the configuration
 block `enmListener` should be added within the Revocation workflow’s config:
 
 ```guess

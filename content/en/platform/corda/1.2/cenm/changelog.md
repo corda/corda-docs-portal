@@ -30,9 +30,9 @@ and saves signed material. SMR invokes plugin which handles communication with S
 provided to handle external signing infrastructures.
 * Oracle database needs to be configured with support for extended data types for VARCHAR2 and NVARCHAR2 column types.
 Refer to CENM database setup page.
-* Identity Manager service - new column `submission_token` added to database tables `certificate_signing_request`,
+* Identity Manager Service - new column `submission_token` added to database tables `certificate_signing_request`,
 `certificate_revocation_request`, `workflow_csr`, `workflow_crr`.
-* Network Map service - new column `platform_version` added to database tables `node_info` and `node_info_staging`.
+* Network Map Service - new column `platform_version` added to database tables `node_info` and `node_info_staging`.
 
 
 ## CENM 1.1.2
