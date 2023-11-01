@@ -43,9 +43,7 @@ They implement the `ContractState` interface
 
 But the CorDapp JAR can also include other class definitions. These may include:
 
-
-* APIs and static web content: These are served by Corda’s built-in webserver. This webserver is not
-production-ready, and should be used for testing purposes only
+* APIs
 * Utility classes
 
 
