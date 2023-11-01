@@ -190,7 +190,7 @@ See [Monitoring via Jolokia](node-administration.html#monitoring-jolokia) for fu
 
 ### Cordform
 
-The [Cordform](generating-a-node-cordform.md) gradle plugin (as used by the `deployNodes` gradle task)  generates a `runnodes` script. Executing
+The [Cordform](generating-a-node-cordform.md) gradle plugin (as used by the `deployNodes` gradle task) generates a `runnodes` script. Executing
 this allows you to quickly start up all nodes. Only use `runnodes` for testing purposes.
 
 
