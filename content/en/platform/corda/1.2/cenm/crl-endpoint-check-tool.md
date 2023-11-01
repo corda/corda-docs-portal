@@ -37,7 +37,7 @@ available in the log files.
 The CRL Endpoint Check tool resides in the `crlendpointchecktool.jar`. It is run by the following command:
 
 ```bash
-java -jar crlendpointchecktool.jar --keystore=<keystore-file> --password<keystore-password>
+java -jar crlendpointchecktool.jar --keystore=<keystore-file> --password=<keystore-password>
 ```
 
 On success you should see a console message similar to:
