@@ -211,6 +211,10 @@ Updating of the parameters by the zone operator is done in two phases:
 1. Advertise the proposed network parameter update to the entire network.
 2. Switching the network onto the new parameters - also known as a *flag day*.
 
+{{< note >}}
+When the flag day is run, all nodes (regardless of whether they have accepted or not) will shutdown. The nodes who have previously accepted the update can just be restarted. The nodes who did not accept will need to manually purge their network parameters file before being allowed to restart.
+{{< /note >}}
+
 The proposed parameter update will include, along with the new parameters, a human-readable description of the changes as well as the
 deadline for accepting the update. The acceptance deadline marks the date and time that the zone operator intends to switch the entire
 network onto the new parameters. This will be a reasonable amount of time in the future, giving the node operators time to inspect,
