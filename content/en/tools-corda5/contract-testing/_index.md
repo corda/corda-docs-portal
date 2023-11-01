@@ -116,4 +116,4 @@ The `apples` example tests the `AppleStampContract` and `BasketOfApplesContract`
 
 ### Chat
 
-The `utxoexample` example tests the `ChatContract` of the [UTXO chat application]({{< relref "../csde/utxo-ledger-example-cordapp/cordapp-chat/_index.md" >}}) delivered with the CSDE.[](../csde/utxo-ledger-example-cordapp/)
+The `utxoexample` example tests the `ChatContract` of the [UTXO chat application]({{< relref "../csde/utxo-ledger-example-cordapp/cordapp-chat/_index.md" >}}) delivered with the CSDE.
