@@ -10,6 +10,7 @@ menu:
 section_menu: corda51
 ---
 # Deploying
+
 This page describes how to deploy Corda 5. All the necessary [prerequisites]({{< relref "../prerequisites.md" >}}) must have been satisfied before Corda is deployed.
 In particular, PostgreSQL and {{< tooltip >}}Kafka{{< /tooltip >}} must be running. The mechanism to achieve that is up to you. For example, you can:
 
@@ -17,6 +18,7 @@ In particular, PostgreSQL and {{< tooltip >}}Kafka{{< /tooltip >}} must be runni
 * use a managed service such as Amazon RDS for PostgreSQL, Amazon Managed Streaming for Apache Kafka, or Confluent Cloud.
 
 This section contains the following:
+
 * [Download and Push Container Images to a Registry]({{< relref "#download-and-push-container-images-to-a-registry">}})
 * [Download the Corda Helm Chart]({{< relref "#download-the-corda-helm-chart">}})
 * [Configure the Deployment]({{< relref "#configure-the-deployment">}})
@@ -27,6 +29,7 @@ This section contains the following:
 The Corda container images must be in a registry that is accessible from the Kubernetes cluster in which Corda will run.
 By default, the Corda images are made available via Docker Hub.
 If your Kubernetes cluster can not pull images from Docker Hub, or if you are deploying Corda Enterprise, the following sections describe how to push the images from the provided `tar` file into a container registry that is accessible from the cluster:
+
 * [Container Images for Corda]({{< relref "#container-images-for-corda" >}})
 * [Container Images for Corda Enterprise]({{< relref "#container-images-for-corda-enterprise" >}})
 
@@ -37,11 +40,13 @@ To push the Corda images:
 1. Download `corda-os-worker-images-{{<version-num>}}.0.tar` from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
 
 2. Inflate and load the `corda-os-worker-images-{{<version-num>}}.0.tar` file into the local Docker engine with the following command:
+
    ```shell
    docker load -i corda-os-worker-images-{{<version-num>}}.0.tar
    ```
 
 3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target container registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
+
    ```shell
    #!/bin/bash
    if [ -z "$1" ]; then
@@ -79,11 +84,13 @@ To push the Corda Enterprise images:
 1. Download `corda-ent-worker-images-{{<version-num>}}.0.tar` from the [R3 Customer Hub](https://r3.force.com/).
 
 2. Inflate and load the `corda-ent-worker-images-{{<version-num>}}.0.tar` file into the local Docker engine with the following command:
+
    ```shell
    docker load -i corda-ent-worker-images-{{<version-num>}}.0.tar
    ```
 
 3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target container registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
+
    ```shell
    #!/bin/bash
    if [ -z "$1" ]; then
@@ -117,6 +124,7 @@ To push the Corda Enterprise images:
 ## Download the Corda Helm Chart
 
 The following sections describe how to download the Corda {{< tooltip >}}Helm{{< /tooltip >}} chart:
+
 * [Corda Helm chart]({{< relref "#corda-helm-chart" >}})
 * [Corda Enterprise Helm chart]({{< relref "#corda-enterprise-helm-chart" >}})
 
@@ -138,6 +146,7 @@ You can download the `corda-enterprise-{{<version-num>}}.0.tgz` file from the th
 
 For each deployment, you should create a YAML file to define a set of Helm overrides to be used for that environment.
 The following sections describe the minimal set of configuration options required for a deployment:
+
 * [Image Registry]({{< relref "#image-registry" >}})
 * [Replica Counts]({{< relref "#replica-counts" >}})
 * [Resource Requests and Limits]({{< relref "#resource-requests-and-limits" >}})
@@ -150,11 +159,13 @@ The following sections describe the minimal set of configuration options require
 * [Pre-Install Checks]({{< relref "#pre-install-checks" >}})
 
 You can extract a README containing the full set of options from the Helm chart using the following command:
+
 ```shell
 helm show readme <HELM-CHART-TGZ-FILE>
 ```
 
 You can extract a YAML file containing all of the default values using the following command:
+
 ```shell
 helm show values <HELM-CHART-TGZ-FILE>
 ```
@@ -162,6 +173,7 @@ helm show values <HELM-CHART-TGZ-FILE>
 ### Image Registry
 
 If you are not using the Corda container images from Docker Hub, define an override specifying the name of the container registry to which you pushed the images:
+
 ```yaml
 image:
   registry: <REGISTRY-NAME>
@@ -169,6 +181,7 @@ image:
 
 If the registry requires authentication, create a [Kubernetes secret](https://kubernetes.io/docs/concepts/configuration/secret/#docker-config-secrets)
 containing the container registry credentials, in the Kubernetes namespace where Corda is to be deployed. Specify an override with the name of the Kubernetes secret:
+
 ```yaml
 imagePullSecrets:
   - <IMAGE-PULL-SECRET-NAME>
@@ -177,6 +190,7 @@ imagePullSecrets:
 ### Replica Counts
 
 For high-availability, specify at least three replicas for each type of Corda worker:
+
 ```yaml
 workers:
   crypto:
@@ -212,6 +226,7 @@ Depending on your application workload, you may require additional replicas.
 ### Resource Requests and Limits
 
 Specify a default set of resource requests and limits for the Corda containers. The following are recommended as a starting point:
+
 ```yaml
 resources:
   requests:
@@ -227,6 +242,7 @@ It is particularly important to specify resource requests when using a Kubernete
 
 You can also override the default resource requests and limits separately for each type of Corda worker.
 For example, we recommend starting with higher memory limits for the database and flow workers:
+
 ```yaml
 workers:
   db:
@@ -242,6 +258,7 @@ workers:
       limits:
         memory: 2048Mi
 ```
+
 As with the number of replicas, you may need to adjust these values based on testing with your actual application workload.
 
 #### Recommended Infrastructure
@@ -261,8 +278,10 @@ For an AWS topology, we recommend the following initial configuration:
 ### REST API
 
 The following configuration options are available for the [REST API]({{< relref "../../../reference/rest-api/_index.md" >}}):
+
 * [Expose the REST API]({{< relref "#expose-the-rest-api" >}})
 * [Install the REST Worker Certificate]({{< relref "#install-the-rest-worker-certificate" >}})
+
 #### Expose the REST API
 
 By default, the REST API is exposed on an internal Kubernetes service.
@@ -275,6 +294,7 @@ To enable access from outside the Kubernetes cluster, use one of the following:
 
 We recommend configuring Kubernetes Ingress to provide the REST worker with HTTP load balancing.
 This also enables optional annotations for additional integration, such as External DNS or Cert Manager. For example:
+
 ```yaml
 workers:
   rest:
@@ -312,6 +332,7 @@ workers:
 The REST worker {{< tooltip >}}TLS{{< /tooltip >}} certificate is presented to a client any time a HTTPS connection is made.
 If no specific parameters are provided, a self-signed certificate is used and the connection to the {{< tooltip >}}REST Worker{{< /tooltip >}} is always HTTPS. However, a warning will be emitted into the REST worker log explaining how to provide parameters for custom TLS certificates.
 The following is required to install a valid TLS certificate:
+
 * The TLS certificate itself must be signed by a Certification Authority ({{< tooltip >}}CA{{< /tooltip >}}) or an intermediary.
 * A private key corresponding to the public key included in the TLS certificate.
 * The Certification Chain must lead up to the CA.
@@ -323,12 +344,14 @@ If you configure the REST worker to use a trusted certificate, `-k` should be re
 Custom certificate information can be provided in PEM format as a Kubernetes secret.
 You can either create a Kubernetes secret manually to hold the certificate information or allow Helm to generate a new secret.
 You can specify the secret name manually as follows:
+
 ```yaml
 workers:
   rest:
      tls:
       secretName: <PEM_TLS_CERT_SECRET_NAME>
 ```
+
 If this optional value is not provided, Helm generates the certificate data at installation time and automatically creates a Kubernetes secret for the REST worker to use.
 
 {{< note >}}
@@ -340,11 +363,13 @@ If the secret data is modified, the REST worker pod will not currently detect th
 You can configure Kubernetes Ingress to provide the P2P gateway worker with HTTP load balancing.
 
 {{< note >}}
-* Kubernetes Ingress makes the P2P gateway accessible from outside the Kubernetes cluster that the Corda cluster is deployed into. Your organization must own the domain name (`my-sub.mydomain.com` in the example below) and that must resolve to the IP address of the Ingress-managed load balancer. 
-* The gateway only supports TLS termination in the gateway and not inside the load balancer itself. 
+
+* Kubernetes Ingress makes the P2P gateway accessible from outside the Kubernetes cluster that the Corda cluster is deployed into. Your organization must own the domain name (`my-sub.mydomain.com` in the example below) and that must resolve to the IP address of the Ingress-managed load balancer.
+* The gateway only supports TLS termination in the gateway and not inside the load balancer itself.
 {{< /note >}}
 
 R3 recommends using an NGINX load balancer. For example:
+
 ```yaml
 workers:
   p2pGateway:
@@ -379,19 +404,24 @@ db:
     database: <POSTGRESQL_CLUSTER_DB>
 ```
 
-### Kafka
+### Kafka Bootstrap Servers
 
 Specify the Kafka bootstrap servers as a comma-separated list:
+
 ```yaml
 kafka:
   bootstrapServers: <KAFKA_BOOTSTRAP_SERVERS>
 ```
+
 If desired, a prefix can be applied to all of the Kafka topics used by the Corda deployment. This enables multiple Corda clusters to share a Kafka cluster. For example:
+
 ```yaml
 kafka:
   topicPrefix: <KAFKA_TOPIC_PREFIX>
 ```
+
 Enable TLS if required by the Kafka client protocol:
+
 ```yaml
 kafka:
   tls:
@@ -399,6 +429,7 @@ kafka:
 ```
 
 If the broker certificate is self-signed or cannot be trusted for some other reason, create a Kubernetes secret containing the client {{< tooltip >}}trust store{{< /tooltip >}}. The trust store can be in PEM or {{< tooltip >}}JKS{{< /tooltip >}} format. If JKS format is used, you can supply a password for the trust store. The following example is for a trust store in PEM format stored against the `ca.crt` key in the Kubernetes secret:
+
 ```yaml
 kafka
   tls:
@@ -527,7 +558,8 @@ If desired, each of these steps can be disabled and the necessary [configuration
 Bootstrap secrets are cleaned up automatically post-install with the exception of the `-rest-api-admin` secret. This secret should be manually deleted by the Administrator after retrieving the generated credentials.
 {{< /note >}}
 
-#### Kafka
+#### Kafka Topics
+
 The Kafka bootstrapping creates the topics required by Corda.
 If `kafka.topicPrefix` has been specified, the process uses this as a prefix for all of the topic names.
 The bootstrap configuration enables the default number of topic partitions to be overridden.
@@ -555,7 +587,6 @@ bootstrap:
   db:
     enabled: true
 ```
-
 {{< note >}}
 If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database. For more information, see the [Database]({{< relref "./manual-bootstrapping.md#database" >}}) section in the *Manual Bootstrapping* section.
 {{< /note >}}
@@ -571,9 +602,11 @@ db:
     repository: "postgres"
     tag: "14.4"
 ```
+
 Part of the database bootstrapping involves populating the initial credentials for the REST API admin. You can specify these in one of the following ways:
 
 * Pass the user name and password as Helm values:
+
   ```yaml
   bootstrap:
     restApiAdmin:
@@ -587,6 +620,7 @@ Part of the database bootstrapping involves populating the initial credentials f
 when the deployment completes contain instructions for how to retrieve this. This is the default behavior.
 
 * Create a Kubernetes secret containing the user credentials:
+
   ```yaml
   bootstrap:
     restApiAdmin:
@@ -621,6 +655,7 @@ bootstrap:
 #### RBAC
 
 The RBAC bootstrapping creates three default RBAC roles. It is enabled by default:
+
 ```yaml
 bootstrap:
   rbac:
@@ -972,9 +1007,11 @@ workers:
 ## Deployment
 
 Once the configuration for the environment has been defined in a YAML file, you can install the Helm chart:
+
 ```shell
 helm install -n <NAMESPACE> <HELM-RELEASE-NAME> <HELM-CHART-TGZ-FILE> -f <PATH-TO-YAML-FILE>
 ```
+
 For example, to create a Helm release called `corda` in the `corda` namespace using the overrides specified in a file called `values.yaml`, run the following:
 
 ```shell
@@ -988,6 +1025,7 @@ helm install -n corda corda oci://corda-os-docker.software.r3.com/helm-charts/re
 ```
 
 {{< enterprise-icon noMargin="true" >}}Alternatively, use the following command for Corda Enterprise:
+
 ```shell
 helm install -n corda corda oci://corda-os-docker.software.r3.com/helm-charts/release-{{<version-num>}}.0.0/corda-enterprise --version {{<version-num>}}.0 -f values.yaml
 ```
