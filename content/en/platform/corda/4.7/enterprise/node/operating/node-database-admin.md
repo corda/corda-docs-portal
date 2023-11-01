@@ -675,7 +675,7 @@ database = {
 * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
 It is the responsibility of the node administrator or a developer to install the appropriate JDBC driver.
 Corda will search for valid JDBC drivers under the `./drivers` subdirectory of the node base directory.
-Alternatively the path can be also specified by the `jarDirs` option in [the node configuration](../../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-fields.html#jardirs).
+Alternatively the path can be also specified by the `jarDirs` option in [the node configuration]({{< relref "../setup/corda-configuration-fields.md#jardirs" >}}).
 The `jarDirs` property is a list of paths, separated by commas and wrapped in single quotes e.g. `jarDirs = [ '/lib/jdbc/driver' ]`.
 * Corda uses [Hikari Pool](https://github.com/brettwooldridge/HikariCP) for creating connection pools.
 To configure a connection pool, the following custom properties can be set in the `dataSourceProperties` section, e.g.:

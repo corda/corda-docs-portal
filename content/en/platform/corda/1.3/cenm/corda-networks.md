@@ -96,4 +96,4 @@ Each Network Map Service requires:
 * A configuration file.
 * A starting set of network parameters.
 * One or more notaries for inclusion in the whitelist.
-* A signing service configured to sign the network map and network parameters.
+* A Signing Service configured to sign the network map and network parameters.

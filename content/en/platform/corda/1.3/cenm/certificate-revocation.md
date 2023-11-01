@@ -29,7 +29,7 @@ externally available REST endpoints:
 * one for certificate revocation request submission
 * one for certificate revocation list retrieval
 
-Since the certificate revocation list needs to be signed, the revocation process integrates with the HSM signing service.
+Since the certificate revocation list needs to be signed, the revocation process integrates with the HSM Signing Service.
 <!-- What does HSM stand for? Is it spelt out anywhere else in this doc? -->
 The certificate revocation list signing process requires human interaction for which there is a separate tool.
 Once signed, the certificate revocation list will replace the current one.
@@ -153,7 +153,7 @@ Corda AMQP serialization framework is used as the serialization framework.
 
 ## Internal protocol
 
-There is an internal communication protocol between the Signing service and the HSM signing service for producing the signed CRLs.
+There is an internal communication protocol between the Signing Service and the HSM Signing Service for producing the signed CRLs.
 This does not use HTTP to avoid exposing any web vulnerabilities to the signing process.
 
 

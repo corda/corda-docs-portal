@@ -61,7 +61,7 @@ Due to security concerns, the Signing Service should be hosted on private premis
 As mentioned above, the only communication requirements are outgoing connections to the CENM services as data sources, and outgoing connections to the HSMs
 for the configured signing keys. The overall flow of communication can be seen in the following diagram:
 
-![signing service communication](/en/images/signing-service-communication.png "signing service communication")
+![Signing Service communication](/en/images/signing-service-communication.png "Signing Service communication")
 
 {{< note >}}
 All inter-service communication can be configured with SSL support to ensure the connection is encrypted. See
@@ -1939,8 +1939,8 @@ however an example is provided below for reference:
 
 ```guess
 authServiceConfig {
-    host = <auth service host>
-    port = <auth service port>
+    host = <Auth Service host>
+    port = <Auth Service port>
     trustStore = {
         location = /path/to/trustroot.jks
         password = <key store password>

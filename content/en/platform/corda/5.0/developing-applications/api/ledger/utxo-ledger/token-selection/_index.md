@@ -1,7 +1,7 @@
 ---
 date: '2023-06-20'
 version: 'Corda 5.0'
-title: "net.corda.v5.ledger.utxo.token.selection"
+title: "ledger.utxo.token.selection"
 menu:
   corda5:
     identifier: corda5-api-ledger-utxo-token-selection
