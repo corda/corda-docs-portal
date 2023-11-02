@@ -14,9 +14,9 @@ section_menu: corda5
 
 You can configure a dynamic network to use session certificates when sending messages. This requires additional steps when onboarding an {{< tooltip >}}MGM{{< /tooltip >}} or {{< tooltip >}}member{{< /tooltip >}} into the dynamic network.
 
-## Generate a Certificate Signing Request (CSR)
+## Generate a CSR
 
-After creating the MGM or member session key pair, but before building the registration context, generate a CSR for the session certificate by running the following command, replacing `X500_NAME` with the {{< tooltip >}}X.500{{< /tooltip >}} name of the MGM or member:
+After creating the MGM or member session key pair, but before building the registration context, generate a {{< tooltip >}}CSR{{< /tooltip >}}: for the session certificate by running the following command, replacing `X500_NAME` with the {{< tooltip >}}X.500{{< /tooltip >}} name of the MGM or member:
 ```shell
 curl --fail-with-body -s -S -k -u $REST_API_USER:$REST_API_PASSWORD  -X POST -H "Content-Type: application/json" -d '{"x500Name": "'$X500_NAME'"}' $REST_API_URL"/certificates/"$HOLDING_ID/$SESSION_KEY_ID > $WORK_DIR/request.csr
 ```
