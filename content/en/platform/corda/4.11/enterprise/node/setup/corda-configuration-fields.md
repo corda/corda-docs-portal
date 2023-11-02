@@ -397,7 +397,7 @@ Allows fine-grained controls of various features only available in the enterpris
         * This property specifies the number of pre-generated keys used for confidential identities, indicating the count
         of keys that will be backed up in the database. This property represents the pre-generated count of so-called new
         confidential identities, that is, those that don’t have a certificate.
-        The default for this property is 0 which means that if you are using new confidential identities and have not changed
+        * The default for this property is 0 which means that if you are using new confidential identities and have not changed
         the default (and have not changed `canProvideNonBackedUpKeyPair` default), then you receive a confidential identity
         created on the fly, that is, not a pre-generated one. If you have changed `canProvideNonBackedUpKeyPair` to `false`
         and if there are no backed up keys to return, then an exception is raised.
@@ -408,7 +408,7 @@ Allows fine-grained controls of various features only available in the enterpris
         * This property specifies the number of pre-generated keys with certificates used for confidential identities,
         indicating the count of keys that will be backed up in the database. This property represents the pre-generated count
         of so-called old confidential identities, that is, those that have a certificate.
-        The default for this property is 0 which means if you are using new confidential identities and have not changed
+        * The default for this property is 0 which means if you are using new confidential identities and have not changed
         the default (and have not changed `canProvideNonBackedUpKeyPair` default), then you receive a confidential identity
         created on the fly, that is, not a pre-generated one. If you have changed `canProvideNonBackedUpKeyPair` to `false`
         and if there are no backed up keys to return, then an exception is raised.
@@ -427,12 +427,12 @@ Allows fine-grained controls of various features only available in the enterpris
           * Configuration parameter (this parameter)
           * Directly as a parameter on the recovery flow
 
-        If the parameter is specified in more than one place, then the recovery flow parameter overrides the configuration
+        * If the parameter is specified in more than one place, then the recovery flow parameter overrides the configuration
         parameter which overrides the network parameter. If the node is on a network not using CENM 1.6 and the parameter
         is not specified in either configuration or directly on the ledger recovery flow, then an exception is raised
         when starting the recovery flow. There is no default for this parameter. If it is not specified in any of the above
         ways, an exception is raised.
-        The duration is specified in the Human-Optimized Config Object Notation (HOCON) format with suffixes of `h` (hours),
+        * The duration is specified in the Human-Optimized Config Object Notation (HOCON) format with suffixes of `h` (hours),
         `m` (minutes) and `s` (seconds), for example, `1h` means one hour. For additional information on the HOCON duration
         format parsing, see the [HOCON duration format file](https://github.com/lightbend/config/blob/master/HOCON.md) on GitHub.
         * *Default:* null
@@ -445,12 +445,12 @@ Allows fine-grained controls of various features only available in the enterpris
           * Network parameters (if node is on a network using CENM 1.6 or later)
           * Configuration parameter (this parameter)
 
-        If the parameter is specified in more than one place, then the configuration parameter overrides the network parameter.
+        * If the parameter is specified in more than one place, then the configuration parameter overrides the network parameter.
         If the node is on a network not using CENM 1.6 and the parameter is not specified in configuration, then an exception
         is raised if either `noOfPreGeneratedKeys` or `noOfPreGeneratedKeysWithCerts` is greater than 0. In other words, if
         you want to regenerate keys, then you must have the `confidentialIdentityMinimumBackupInterval` defined. There is
         no default for this parameter.
-        The duration is specified in the Human-Optimized Config Object Notation (HOCON) format with suffixes of `h` (hours),
+        * The duration is specified in the Human-Optimized Config Object Notation (HOCON) format with suffixes of `h` (hours),
         `m` (minutes) and `s` (seconds), for example, `1h` means one hour. For additional information on the HOCON duration
         format parsing, see the [HOCON duration format file](https://github.com/lightbend/config/blob/master/HOCON.md) on GitHub.
         * *Default:* null
