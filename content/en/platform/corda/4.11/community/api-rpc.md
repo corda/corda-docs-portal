@@ -47,7 +47,10 @@ The key RPC operations exposed by the node are:
     * As above, but also returns a progress handle for the flow
 
 
-* `CordaRPCOps.nodeDiagnosticInfo`
+* `CordaRPCOps.nodeDiagnosticInfo`* `CordaRPCOps.killFlow()`
+    * Attempts to kill a flow. This is not a clean termination and should be reserved for exceptional cases such as stuck fibers. Returns whether the flow existed and was killed.
+
+
     * Returns diagnostic information about the node, including the version and CorDapp details
 
 
@@ -60,7 +63,6 @@ The key RPC operations exposed by the node are:
 
 * `CordaRPCOps.partyFromKey/CordaRPCOps.wellKnownPartyFromX500Name`
     * Retrieves a party on the network based on a public key or X500 name
-
 
 * `CordaRPCOps.uploadAttachment`/`CordaRPCOps.openAttachment`/`CordaRPCOps.attachmentExists`
     * Uploads, opens and checks for the existence of attachments
