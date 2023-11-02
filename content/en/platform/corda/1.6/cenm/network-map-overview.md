@@ -3,9 +3,9 @@ aliases:
 - /network-map-overview.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  cenm-1-5:
-    identifier: cenm-1-5-network-map-overview
-    parent: cenm-1-5-concepts-and-overview
+  cenm-1-6:
+    identifier: cenm-1-6-network-map-overview
+    parent: cenm-1-6-concepts-and-overview
     weight: 50
 tags:
 - network
@@ -201,7 +201,7 @@ parameters change.
 List of whitelisted versions of contract code. For each contract class there is a
 list of hashes of the approved CorDapp JAR versions containing that contract. Read
 more about *contract constraints* in the [contract constraints documentation]({{< relref "../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contract-constraints.md" >}}). See
-[Contract Whitelist Generation]({{< relref "../../../../../en/platform/corda/1.5/cenm/contract-whitelisting.md" >}}) for how to configure this in the network parameters
+[Contract Whitelist Generation]({{< relref "../../../../../en/platform/corda/1.6/cenm/contract-whitelisting.md" >}}) for how to configure this in the network parameters
 configuration file.
 
 

@@ -3,9 +3,9 @@ aliases:
 - /setting-up-notary.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  cenm-1-5:
-    identifier: cenm-1-5-setting-up-notary
-    parent: cenm-1-5-tools-index
+  cenm-1-6:
+    identifier: cenm-1-6-setting-up-notary
+    parent: cenm-1-6-tools-index
     weight: 1010
 tags:
 - setting
@@ -94,7 +94,7 @@ java -jar corda.jar --config-file <NODE_CONF_FILE> --just-generate-node-info
 
 ### Setup Network Map Service
 
-Follow instructions here [Network Map Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/network-map.md" >}})
+Follow instructions here [Network Map Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/network-map.md" >}})
 
 
 ### Run The Notary

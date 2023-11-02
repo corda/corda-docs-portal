@@ -3,9 +3,9 @@ aliases:
 - /ejbca-plugin.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  cenm-1-5:
-    identifier: cenm-1-5-ejbca-plugin
-    parent: cenm-1-5-signing-plugin-samples
+  cenm-1-6:
+    identifier: cenm-1-6-ejbca-plugin
+    parent: cenm-1-6-signing-plugin-samples
     weight: 340
 tags:
 - ejbca
@@ -20,7 +20,7 @@ title: EJBCA Sample Plugin
 
 ## Overview
 
-In CENM 1.5, the Signing Service ships with default CA and non-CA plug-ins.
+In CENM 1.6, the Signing Service ships with default CA and non-CA plug-ins.
 These plug-ins demonstrate the connectivity to the CENM Signing Service which doesn’t persist the signable materials
 requests, and the data needs to be stored on the plug-in’s side. To illustrate the reverse setup, where a
 signing infrastructure (the replacement of the CENM Signing Service) stores internally signable material requests, we
@@ -428,7 +428,7 @@ From CENM 1.4, each signing task has a new property called `plugin`, which consi
 
 To run the EJBCA plug-in, you need to:
 
-1. Specify its JAR path for CSR and CRL signing tasks in the Signing Service configuration (see [Signing Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/signing-service.md" >}}) for details).
+1. Specify its JAR path for CSR and CRL signing tasks in the Signing Service configuration (see [Signing Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/signing-service.md" >}}) for details).
 2. Run the Signing Service in the standard way:
 
 ```bash

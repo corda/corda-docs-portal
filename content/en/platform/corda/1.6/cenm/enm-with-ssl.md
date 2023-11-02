@@ -3,9 +3,9 @@ aliases:
 - /enm-with-ssl.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  cenm-1-5:
-    identifier: cenm-1-5-enm-with-ssl
-    parent: cenm-1-5-configuration
+  cenm-1-6:
+    identifier: cenm-1-6-enm-with-ssl
+    parent: cenm-1-6-configuration
     weight: 250
 tags:
 - enm
@@ -83,7 +83,7 @@ acting as clients of the network.
 ### SSL Certificate Configuring
 
 All components should be configured to use SSL with the following configuration block. More details can be found in
-[Identity Manager Configuration Parameters]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-identity-manager-parameters.md" >}}) and [Network Map Configuration Parameters]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-network-map-parameters.md" >}}).
+[Identity Manager Configuration Parameters]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-identity-manager-parameters.md" >}}) and [Network Map Configuration Parameters]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-network-map-parameters.md" >}}).
 
 ```docker
 ssl = {

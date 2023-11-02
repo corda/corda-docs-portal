@@ -1,9 +1,9 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  cenm-1-5:
-    identifier: cenm-1-5-cenm-support-matrix
-    parent: cenm-1-5-cenm-releases
+  cenm-1-6:
+    identifier: cenm-1-6-cenm-support-matrix
+    parent: cenm-1-6-cenm-releases
     weight: 90
 tags:
 - cenm

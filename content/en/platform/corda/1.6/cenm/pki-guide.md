@@ -3,9 +3,9 @@ aliases:
 - /pki-guide.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  cenm-1-5:
-    identifier: cenm-1-5-pki-guide
-    parent: cenm-1-5-public-key-infrastructure
+  cenm-1-6:
+    identifier: cenm-1-6-pki-guide
+    parent: cenm-1-6-public-key-infrastructure
     weight: 320
 tags:
 - pki
@@ -129,9 +129,9 @@ Certificate revocation is typically required if a certificate was incorrectly is
 **What is the recommended configuration for the CRL?*
 
 You should use a High Availability deployment in order to avoid any impact caused by temporary downtimes.
-See [Identity Manager Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/identity-manager.md" >}}) for an example configuration of such a deployment.
+See [Identity Manager Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/identity-manager.md" >}}) for an example configuration of such a deployment.
 
-See [Certificate Revocation List]({{< relref "../../../../../en/platform/corda/1.5/cenm/certificate-revocation.md" >}}) for instructions on revoking certificates, and [Signing Services]({{< relref "../../../../../en/platform/corda/1.5/cenm/signing-service.md" >}}) for
+See [Certificate Revocation List]({{< relref "../../../../../en/platform/corda/1.6/cenm/certificate-revocation.md" >}}) for instructions on revoking certificates, and [Signing Services]({{< relref "../../../../../en/platform/corda/1.6/cenm/signing-service.md" >}}) for
 configuration of the Signing Service for CRLs (especially the `updatePeriod` option).
 
 
@@ -274,6 +274,6 @@ is only required to provide only essential information to the tool. At the same 
 defaults and have the configuration adjusted to the specific needs of different scenarios.
 
 {{< note >}}
-To learn more about running the tool, see [Public Key Infrastructure (PKI) Tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/pki-tool.md" >}}).
+To learn more about running the tool, see [Public Key Infrastructure (PKI) Tool]({{< relref "../../../../../en/platform/corda/1.6/cenm/pki-tool.md" >}}).
 
 {{< /note >}}

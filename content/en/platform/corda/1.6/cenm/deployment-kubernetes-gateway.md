@@ -1,8 +1,8 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  cenm-1-5:
-    parent: cenm-1-5-deployment-kubernetes
+  cenm-1-6:
+    parent: cenm-1-6-deployment-kubernetes
 tags:
 - config
 - kubernetes
@@ -44,4 +44,4 @@ helm install cenm-gateway gateway --set prefix=cenm --set acceptLicense=Y --set 
 | `zonePort`                    | Zone Service port | `12345` |
 | `logsContainersEnabled`       | Enable container displaying live logs | `true`
 {{< /table >}}
-For additional information on database connection details refer to the official documentation: [database documentation]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-database.md" >}}).
+For additional information on database connection details refer to the official documentation: [database documentation]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-database.md" >}}).

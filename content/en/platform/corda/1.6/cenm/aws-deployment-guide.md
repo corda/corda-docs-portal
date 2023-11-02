@@ -1,8 +1,8 @@
 ---
 menu:
-  cenm-1-5:
-    identifier: cenm-1-5-aws-deployment-guide
-    parent: cenm-1-5-operations
+  cenm-1-6:
+    identifier: cenm-1-6-aws-deployment-guide
+    parent: cenm-1-6-operations
 tags:
 - config
 - kubernetes
@@ -14,6 +14,6 @@ weight: 22
 
 You can deploy CENM on AWS with PostgreSQL. Use the guides in this section to get started with CENM on AWS, create a new HSM, and set up a reference environment using AWS and PostgreSQL.
 
-* [Deploy CENM 1.5 in AWS with EKS]({{< relref "../../../../../en/platform/corda/1.5/cenm/aws-deployment-eks.md" >}})
-* [Create a new HSM using the AWS Console]({{< relref "../../../../../en/platform/corda/1.5/cenm/aws-deployment-hsm-aws-console.md" >}})
-* [Create a reference or test CENM environment using AWS and PostgreSQL]({{< relref "../../../../../en/platform/corda/1.5/cenm/aws-deployment-postgressql.md" >}})
+* [Deploy CENM 1.6 in AWS with EKS]({{< relref "../../../../../en/platform/corda/1.6/cenm/aws-deployment-eks.md" >}})
+* [Create a new HSM using the AWS Console]({{< relref "../../../../../en/platform/corda/1.6/cenm/aws-deployment-hsm-aws-console.md" >}})
+* [Create a reference or test CENM environment using AWS and PostgreSQL]({{< relref "../../../../../en/platform/corda/1.6/cenm/aws-deployment-postgressql.md" >}})

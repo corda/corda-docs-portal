@@ -3,9 +3,9 @@ aliases:
 - /config-database.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  cenm-1-5:
-    identifier: cenm-1-5-config-database
-    parent: cenm-1-5-configuration
+  cenm-1-6:
+    identifier: cenm-1-6-config-database
+    parent: cenm-1-6-configuration
     weight: 210
 tags:
 - config
@@ -19,7 +19,7 @@ A persistent layer must be available for the Identity Manager and Network Map Co
 their respective configs with the following configuration states.
 
 * **database**:
-Database configuration. 
+Database configuration.
 
 * **runMigration**:
 Create or upgrade the database schema (database objects like tables, indices) to the current version of the service. If it is set to false, and the database schema is up to date, the service will validate.

@@ -2,13 +2,13 @@
 title: Release packs and checksums
 date: '2023-01-27'
 menu:
-  cenm-1-5:
-    identifier: cenm-1-5-release-checksum-cenm
-    parent: cenm-1-5-cenm-releases
+  cenm-1-6:
+    identifier: cenm-1-6-release-checksum-cenm
+    parent: cenm-1-6-cenm-releases
     weight: 85
 ---
 
-# Corda Enterprise Network Manager release packs and checksums 
+# Corda Enterprise Network Manager release packs and checksums
 
 You can download the Corda Enterprise Network Manager release packs and their respective checksum files from the Customer Hub.
 

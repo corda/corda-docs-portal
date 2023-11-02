@@ -1,8 +1,8 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  cenm-1-5:
-    parent: cenm-1-5-aws-deployment-guide
+  cenm-1-6:
+    parent: cenm-1-6-aws-deployment-guide
 tags:
 - config
 - AWS
@@ -12,7 +12,7 @@ weight: 100
 
 # CENM Deployment with AWS/EKS
 
-You can use the [PKI tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/pki-tool.md" >}}) to create a set of keys and certificates, which must be shared between all CENM services through the use of a shared file system.
+You can use the [PKI tool]({{< relref "../../../../../en/platform/corda/1.6/cenm/pki-tool.md" >}}) to create a set of keys and certificates, which must be shared between all CENM services through the use of a shared file system.
 
 In AWS this is achieved via the AWS Elastic Filesystem (EFS).
 
@@ -133,4 +133,4 @@ kubectl create -f storage-class-aws.yaml
 
 ## Complete CENM deployment
 
-Your AWS deployment is complete. You can now [complete the rest of your CENM deployment process]({{< relref "../../1.5/cenm/_index.md" >}}).
+Your AWS deployment is complete. You can now [complete the rest of your CENM deployment process]({{< relref "../../1.6/cenm/_index.md" >}}).

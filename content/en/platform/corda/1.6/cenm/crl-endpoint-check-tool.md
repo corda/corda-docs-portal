@@ -3,9 +3,9 @@ aliases:
 - /crl-endpoint-check-tool.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  cenm-1-5:
-    identifier: cenm-1-5-crl-endpoint-check-tool
-    parent: cenm-1-5-tools-index
+  cenm-1-6:
+    identifier: cenm-1-6-crl-endpoint-check-tool
+    parent: cenm-1-6-tools-index
     weight: 1060
 tags:
 - crl
