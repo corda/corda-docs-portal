@@ -389,55 +389,89 @@ Allows fine-grained controls of various features only available in the enterpris
 
 * `ledgerRecoveryConfiguration`
 
-    * The `ledgerRecoveryConfiguration` is one of the Corda Enterprise configuration settings that allows you
-    to tailor ledger recovery behavior for your Corda node. It offers flexibility in defining parameters related to key pair
-    pre-generation, backup intervals, and confidential identity backup options.
+    * This configuration allows you to tailor ledger recovery behavior for your Corda node. It offers flexibility in defining
+    parameters related to key pair pre-generation, backup intervals, and confidential identity backup options.
 
     - `noOfPreGeneratedKeys`
 
-        * This property specifies the number of pre-generated keys used for confidential identities, indicating the count of keys that will be backed up in the database.
-        * Mandatory if `noOfPreGeneratedKeysWithCerts` is not defined.
+        * This property specifies the number of pre-generated keys used for confidential identities, indicating the count
+        of keys that will be backed up in the database. This property represents the pre-generated count of so-called new
+        confidential identities, that is, those that don’t have a certificate.
+
+        The default for this property is 0 which means that if you are using new confidential identities and have not changed
+        the default (and have not changed `canProvideNonBackedUpKeyPair` default), then you receive a confidential identity
+        created on the fly, that is, not a pre-generated one. If you have changed `canProvideNonBackedUpKeyPair` to `false`
+        and if there are no backed up keys to return, then an exception is raised.
         * *Default:* 0
 
     - `noOfPreGeneratedKeysWithCerts`
 
-        * This property specifies the number of pre-generated keys with certificates used for confidential identities, indicating the count of keys that will be backed up in the database.
-        * Mandatory if `noOfPreGeneratedKeys` is not defined.
+        * This property specifies the number of pre-generated keys with certificates used for confidential identities,
+        indicating the count of keys that will be backed up in the database. This property represents the pre-generated count
+        of so-called old confidential identities, that is, those that have a certificate.
+
+        The default for this property is 0 which means if you are using new confidential identities and have not changed
+        the default (and have not changed `canProvideNonBackedUpKeyPair` default), then you receive a confidential identity
+        created on the fly, that is, not a pre-generated one. If you have changed `canProvideNonBackedUpKeyPair` to `false`
+        and if there are no backed up keys to return, then an exception is raised.
         * *Default:* 0
 
     - `preGeneratedKeysTopUpInterval`
 
-        * Defines the time interval (in milliseconds) at which the pre-generated keys are topped up or refreshed.
-        * Non-mandatory.
+        * Defines the time interval (in seconds) at which the pre-generated keys are topped up or refreshed.
         * *Default:* 300 seconds
 
     - `recoveryMaximumBackupInterval`
 
-        * Specifies the maximum time duration for which ledger recovery can be done. It will be overridden if recovery time window is specified in ledger recovery.
-        * Non-mandatory.
+        * Specifies the maximum time duration for which ledger recovery can be done. This parameter can be specified in
+        three different ways:
+          * Network parameters (if node is on a network using CENM 1.6 or later)
+          * Configuration parameter (this parameter)
+          * Directly as a parameter on the recovery flow
+
+        If the parameter is specified in more than one place, then the recovery flow parameter overrides the configuration
+        parameter which overrides the network parameter. If the node is on a network not using CENM 1.6 and the parameter
+        is not specified in either configuration or directly on the ledger recovery flow, then an exception is raised
+        when starting the recovery flow. There is no default for this parameter. If it is not specified in any of the above
+        ways, an exception is raised.
+
+        The duration is specified in the Human-Optimized Config Object Notation (HOCON) format with suffixes of `h` (hours),
+        `m` (minutes) and `s` (seconds), for example, `1h` means one hour. For additional information on the HOCON duration
+        format parsing, see the [HOCON duration format file](https://github.com/lightbend/config/blob/master/HOCON.md) on GitHub.
         * *Default:* null
 
     - `confidentialIdentityMinimumBackupInterval`
 
-        * Defines the time interval within which automatic database backups occur, ensuring that all pre-generated keys created before the backup are marked as backed-up according to this interval.
-        * Non-mandatory.
+        * Defines the time interval (duration) within which automatic database backups occur, ensuring that all pre-generated
+        keys created before the backup are marked as backed-up according to this interval. This parameter can be specified
+        in two different ways:
+          * Network parameters (if node is on a network using CENM 1.6 or later)
+          * Configuration parameter (this parameter)
+
+        If the parameter is specified in more than one place, then the configuration parameter overrides the network parameter.
+        If the node is on a network not using CENM 1.6 and the parameter is not specified in configuration, then an exception
+        is raised if either `noOfPreGeneratedKeys` or `noOfPreGeneratedKeysWithCerts` is greater than 0. In other words, if
+        you want to regenerate keys, then you must have the `confidentialIdentityMinimumBackupInterval` defined. There is
+        no default for this parameter.
+
+        The duration is specified in the Human-Optimized Config Object Notation (HOCON) format with suffixes of `h` (hours),
+        `m` (minutes) and `s` (seconds), for example, `1h` means one hour. For additional information on the HOCON duration
+        format parsing, see the [HOCON duration format file](https://github.com/lightbend/config/blob/master/HOCON.md) on GitHub.
         * *Default:* null
 
     - `canProvideNonBackedUpKeyPair`
 
-        * Determines whether the node can provide non-backed-up key pairs if backed-up keys pairs are exhausted.
-        * Non-mandatory.
-        * *Default:* false
+        * Determines whether the node can provide non-backed-up key pairs if backed-up keys pairs are exhausted, or if CIs
+        are used but both `noOfPreGeneratedKeys` and `noOfPreGeneratedKeysWithCerts` are zero.
+        * *Default:* true
 
     - `bufferSizeForKeys`
 
         * By configuring this property, you can control the number of pre-generated keys that are readily available in memory.
-        * Non-mandatory.
 
     - `bufferSizeForKeys` with certificates
 
         * By configuring this property, you can control the number of pre-generated keys with certificates that are readily available in memory.
-        * Non-mandatory.
 
     * To configure the `ledgerRecoveryConfiguration` for your Corda Enterprise node, modify the properties according to the
     requirements in your node's configuration file, for example:
@@ -447,7 +481,7 @@ Allows fine-grained controls of various features only available in the enterpris
         # Ledger Recovery Configuration
             ledgerRecoveryConfiguration {
                 noOfPreGeneratedKeys= 100
-                noOfPreGeneratedKeysWithCerts = 50
+                noOfPreGeneratedKeysWithCerts = 0
                 preGeneratedKeysTopUpInterval = 10 # 10 seconds
                 recoveryMaximumBackupInterval = "24h"
                 confidentialIdentityMinimumBackupInterval = "12h"
