@@ -453,7 +453,7 @@ Allows fine-grained controls of various features only available in the enterpris
         * The duration is specified in the Human-Optimized Config Object Notation (HOCON) format with suffixes of `h` (hours),
         `m` (minutes) and `s` (seconds), for example, `1h` means one hour. For additional information on the HOCON duration
         format parsing, see the [HOCON duration format file](https://github.com/lightbend/config/blob/master/HOCON.md) on GitHub.
-        * If either `noOfPreGeneratedKeys` or `noOfPreGeneratedKeysWithCerts` is greater than zero, then you must set
+        * *Default:* If either `noOfPreGeneratedKeys` or `noOfPreGeneratedKeysWithCerts` is greater than zero, then you must set
         `confidentialIdentityMinimumBackupInterval` using one of the ways described above.
 
     - `canProvideNonBackedUpKeyPair`
