@@ -33,10 +33,9 @@ Once a network has started, the only supported changes to notaries are to add ne
 {{< /note >}}  
 
 
-Notaries must be added
-to the end as Flows often use the ordering of notaries during selection ("pick the first" approach),
+Notaries must be added to the end, as flows often use the ordering of notaries during selection ("pick the first" approach),
 and therefore changing the order could cause errors elsewhere.
-Also note you can provide only file path to the node info file or X500 name of the notary, not both.
+Also note you can provide the file path only to the node info file or to the X.500 name of the notary, not both.
 For guidance on using notaries in flows, see [the API Flows page](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.5/api-flows.md).
 
 ## Configuration parameters
