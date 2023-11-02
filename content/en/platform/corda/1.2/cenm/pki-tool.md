@@ -186,7 +186,7 @@ The following certificate templates are available:
 | `CORDA_SSL_IDENTITY_MANAGER` | Corda SSL Identity Manager certificate                                     | cordasslidentitymanager |
 | `CORDA_SSL_NETWORK_MAP`      | Corda SSL Network Map certificate                                          | cordasslnetworkmap      |
 | `CORDA_SSL_SIGNER`           | Corda SSL Signer certificate                                               | cordasslsigner          |
-| `CORDA_NETWORK_PARAMETERS`   | Corda Network Parameters Service Certificate                               | cordanetworkparameters  |
+| `CORDA_NETWORK_PARAMETERS`   | Corda Network Parameters Service certificate                               | cordanetworkparameters  |
 
 {{< /table >}}
 
