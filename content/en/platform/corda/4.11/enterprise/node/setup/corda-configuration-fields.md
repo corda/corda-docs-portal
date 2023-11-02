@@ -426,6 +426,7 @@ Allows fine-grained controls of various features only available in the enterpris
           * Network parameters (if node is on a network using CENM 1.6 or later)
           * Configuration parameter (this parameter)
           * Directly as a parameter on the recovery flow
+
         If the parameter is specified in more than one place, then the recovery flow parameter overrides the configuration
         parameter which overrides the network parameter. If the node is on a network not using CENM 1.6 and the parameter
         is not specified in either configuration or directly on the ledger recovery flow, then an exception is raised
@@ -443,6 +444,7 @@ Allows fine-grained controls of various features only available in the enterpris
         in two different ways:
           * Network parameters (if node is on a network using CENM 1.6 or later)
           * Configuration parameter (this parameter)
+
         If the parameter is specified in more than one place, then the configuration parameter overrides the network parameter.
         If the node is on a network not using CENM 1.6 and the parameter is not specified in configuration, then an exception
         is raised if either `noOfPreGeneratedKeys` or `noOfPreGeneratedKeysWithCerts` is greater than 0. In other words, if
