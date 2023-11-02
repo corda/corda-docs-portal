@@ -47,9 +47,7 @@ The key RPC operations exposed by the node are:
     * As above, but also returns a progress handle for the flow
 
 
-* `CordaRPCOps.nodeDiagnosticInfo`* `CordaRPCOps.killFlow()`
-    * Attempts to kill a flow. This is not a clean termination and should be reserved for exceptional cases such as stuck fibers. Returns whether the flow existed and was killed.
-
+* `CordaRPCOps.nodeDiagnosticInfo`
 
     * Returns diagnostic information about the node, including the version and CorDapp details
 
