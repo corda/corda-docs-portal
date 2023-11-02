@@ -65,7 +65,7 @@
     },
     "CSDE": {
         "definition": "CorDapp Standard Development Environment. The recommended developer environment setup for developers wishing to write Corda 5 CorDapps.",
-        "more": "For more information see <a href=\"../developing-applications/getting-started.html\">Getting Started Using the CSDE</a>."
+        "more": "For more information see <a href=\"../../../../tools-corda5/csde.html\">Getting Started Using the CSDE</a>."
     },
     "Database worker": {
         "definition": "A worker that connects to, manages, and operates upon the database(s) used by the Corda cluster. This includes the cluster-level database schemas needed to store configuration data for the cluster, but also the separate databases/schemas used by each virtual node. ",
