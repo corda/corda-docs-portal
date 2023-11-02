@@ -395,22 +395,22 @@ Allows fine-grained controls of various features only available in the enterpris
     - `noOfPreGeneratedKeys`
 
         * This property specifies the number of pre-generated keys used for confidential identities, indicating the count
-        of keys that will be backed up in the database. This property represents the pre-generated count of so-called new
+        of keys that will be backed up in the database. It represents the pre-generated count of so-called new
         confidential identities, that is, those that don’t have a certificate.
         * The default for this property is 0 which means that if you are using new confidential identities and have not changed
         the default (and have not changed `canProvideNonBackedUpKeyPair` default), then you receive a confidential identity
-        created on the fly, that is, not a pre-generated one. If you have changed `canProvideNonBackedUpKeyPair` to `false`
+        created on the fly, not a pre-generated one. If you have changed `canProvideNonBackedUpKeyPair` to `false`
         and if there are no backed up keys to return, then an exception is raised.
         * *Default:* 0
 
     - `noOfPreGeneratedKeysWithCerts`
 
         * This property specifies the number of pre-generated keys with certificates used for confidential identities,
-        indicating the count of keys that will be backed up in the database. This property represents the pre-generated count
+        indicating the count of keys that will be backed up in the database. It represents the pre-generated count
         of so-called old confidential identities, that is, those that have a certificate.
         * The default for this property is 0 which means if you are using new confidential identities and have not changed
         the default (and have not changed `canProvideNonBackedUpKeyPair` default), then you receive a confidential identity
-        created on the fly, that is, not a pre-generated one. If you have changed `canProvideNonBackedUpKeyPair` to `false`
+        created on the fly, not a pre-generated one. If you have changed `canProvideNonBackedUpKeyPair` to `false`
         and if there are no backed up keys to return, then an exception is raised.
         * *Default:* 0
 
@@ -430,7 +430,8 @@ Allows fine-grained controls of various features only available in the enterpris
         * If the parameter is specified in more than one place, then the recovery flow parameter overrides the configuration
         parameter which overrides the network parameter. If the node is on a network not using CENM 1.6 and the parameter
         is not specified in either configuration or directly on the ledger recovery flow, then an exception is raised
-        when starting the recovery flow. There is no default for this parameter. If it is not specified in any of the above
+        when starting the recovery flow.
+        * There is no default for this parameter. If it is not specified in any of the above
         ways, an exception is raised.
         * The duration is specified in the Human-Optimized Config Object Notation (HOCON) format with suffixes of `h` (hours),
         `m` (minutes) and `s` (seconds), for example, `1h` means one hour. For additional information on the HOCON duration
@@ -446,7 +447,7 @@ Allows fine-grained controls of various features only available in the enterpris
           * Configuration parameter (this parameter)
 
         * If the parameter is specified in more than one place, then the configuration parameter overrides the network parameter.
-        If the node is on a network not using CENM 1.6 and the parameter is not specified in configuration, then an exception
+        * If the node is on a network not using CENM 1.6 and the parameter is not specified in configuration, then an exception
         is raised if either `noOfPreGeneratedKeys` or `noOfPreGeneratedKeysWithCerts` is greater than 0. In other words, if
         you want to regenerate keys, then you must have the `confidentialIdentityMinimumBackupInterval` defined. There is
         no default for this parameter.
@@ -464,10 +465,12 @@ Allows fine-grained controls of various features only available in the enterpris
     - `bufferSizeForKeys`
 
         * By configuring this property, you can control the number of pre-generated keys that are readily available in memory.
+        * *Default:* null
 
     - `bufferSizeForKeys` with certificates
 
         * By configuring this property, you can control the number of pre-generated keys with certificates that are readily available in memory.
+        * *Default:* null
 
     * To configure the `ledgerRecoveryConfiguration` for your Corda Enterprise node, modify the properties according to the
     requirements in your node's configuration file, for example:
