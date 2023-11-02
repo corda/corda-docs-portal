@@ -3,11 +3,11 @@ date: '2023-06-21'
 title: "CSDE Overview"
 version: 'Corda 5.0'
 menu:
-  corda5:
+  corda5-tools:
     parent: corda5-develop-get-started
     identifier: corda5-csde-overview
     weight: 2050
-section_menu: corda5
+section_menu: corda5-tools
 ---
 # CSDE Overview
 

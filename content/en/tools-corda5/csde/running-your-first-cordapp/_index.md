@@ -1,13 +1,12 @@
 ---
-date: '2022-09-19'
-version: 'Corda 5.0'
+date: '2023-11-01'
 title: "Running Your First CorDapp"
 menu:
-  corda5:
+  corda5-tools:
     parent: corda5-develop-get-started
     identifier: corda5-run-first-cordapp
     weight: 3000
-section_menu: corda5
+section_menu: corda5-tools
 ---
 # Running Your First CorDapp
 
