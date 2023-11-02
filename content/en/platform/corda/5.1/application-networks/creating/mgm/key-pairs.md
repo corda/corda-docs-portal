@@ -13,10 +13,12 @@ section_menu: corda51
 # Configure Key Pairs and Certificates for the MGM
 
 This section describes how to configure key pairs and certificates for the MGM. It contains the following:
+
 1. [Generate a Session Initiation Key Pair]({{< relref "#generate-a-session-initiation-key-pair">}})
 2. [Generate ECDH Key Pair]({{< relref "#generate-ecdh-key-pair">}})
-2. [Configure the Cluster TLS Key Pair]({{< relref "#configure-the-cluster-tls-key-pair">}})
+3. [Configure the Cluster TLS Key Pair]({{< relref "#configure-the-cluster-tls-key-pair">}})
 4. [Disable Revocation Checks]({{< relref "#disable-revocation-checks">}})
+
 ## Generate a Session Initiation Key Pair
 
 To assign a soft hardware security module (HSM) and generate a {{< tooltip >}}session initiation key{{< /tooltip >}} pair:
@@ -68,6 +70,7 @@ export ECDH_KEY_ID=<ECDH-key-ID>
 ```
 
 You can use the following schemes for ECDH key derivation:
+
 * ECDSA_SECP256R1
 * ECDSA_SECP256K1
 * X25519
@@ -184,6 +187,7 @@ You only need to disable revocation checks once per cluster.
 #### Disable Revocation Checks Using Bash
 
 If using Bash, to disable revocation checks, do the following:
+
 1. Retrieve the current gateway configuration version:
    ```shell
    curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/config/corda.p2p.gateway

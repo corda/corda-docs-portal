@@ -14,6 +14,7 @@ section_menu: corda51
 # Configure Key Pairs and Certificates for the Member
 
 This section describes how to configure key pairs and certificates for members. It contains the following:
+
 1. [Generate a Session Initiation Key Pair]({{< relref "#generate-a-session-initiation-key-pair">}})
 2. [Generate a Ledger Key Pair]({{< relref "#generate-a-ledger-key-pair">}})
 3. [Generate a TLS Key Pair]({{< relref "#generate-a-tls-key-pair">}})
@@ -100,7 +101,7 @@ If using mutual {{< tooltip >}}TLS{{< /tooltip >}}, you must add the certificate
    export TLS_KEY_ID=<TLS-key-ID_>
    ```
 
-2. Create a certificate for the TLS key pair by running the following command to generate a certificate signing request (CSR):
+2. Create a certificate for the TLS key pair by running the following command to generate a {{< tooltip >}}CSR{{< /tooltip >}}:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -175,6 +176,7 @@ If using mutual {{< tooltip >}}TLS{{< /tooltip >}}, you must add the certificate
 ### Disable Revocation Checks
 
 If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable {{< tooltip >}}revocation checks{{< /tooltip >}}.
+
 * [Disable Revocation Checks Using Bash]({{< relref "#disable-revocation-checks-using-bash">}})
 * [Disable Revocation Checks Using PowerShell]({{< relref "#disable-revocation-checks-using-powershell">}})
 
@@ -184,6 +186,7 @@ You only need to disable revocation checks once per cluster.
 #### Disable Revocation Checks Using Bash
 
 If using Bash, to disable revocation checks, do the following:
+
 1. Retrieve the current gateway configuration version:
    ```bash
    curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/config/corda.p2p.gateway

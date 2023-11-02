@@ -341,7 +341,7 @@ The following is required to install a valid TLS certificate:
 If you configure the REST worker to use a trusted certificate, `-k` should be removed from the example curl commands given throughout this documentation.
 {{< /note >}}
 
-Custom certificate information can be provided in PEM format as a Kubernetes secret.
+Custom certificate information can be provided in {{< tooltip >}}PEM{{< /tooltip >}} format as a Kubernetes secret.
 You can either create a Kubernetes secret manually to hold the certificate information or allow Helm to generate a new secret.
 You can specify the secret name manually as follows:
 
