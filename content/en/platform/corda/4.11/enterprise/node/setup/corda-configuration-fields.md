@@ -436,7 +436,6 @@ Allows fine-grained controls of various features only available in the enterpris
         * The duration is specified in the Human-Optimized Config Object Notation (HOCON) format with suffixes of `h` (hours),
         `m` (minutes) and `s` (seconds), for example, `1h` means one hour. For additional information on the HOCON duration
         format parsing, see the [HOCON duration format file](https://github.com/lightbend/config/blob/master/HOCON.md) on GitHub.
-        * *Default:* null
 
     - `confidentialIdentityMinimumBackupInterval`
 
@@ -454,23 +453,24 @@ Allows fine-grained controls of various features only available in the enterpris
         * The duration is specified in the Human-Optimized Config Object Notation (HOCON) format with suffixes of `h` (hours),
         `m` (minutes) and `s` (seconds), for example, `1h` means one hour. For additional information on the HOCON duration
         format parsing, see the [HOCON duration format file](https://github.com/lightbend/config/blob/master/HOCON.md) on GitHub.
-        * *Default:* null
+        * If either `noOfPreGeneratedKeys` or `noOfPreGeneratedKeysWithCerts` is greater than zero, then you must set
+        `confidentialIdentityMinimumBackupInterval` using one of the ways described above.
 
     - `canProvideNonBackedUpKeyPair`
 
         * Determines whether the node can provide non-backed-up key pairs if backed-up keys pairs are exhausted, or if CIs
-        are used but both `noOfPreGeneratedKeys` and `noOfPreGeneratedKeysWithCerts` are zero.
+        are used and both `noOfPreGeneratedKeys` and `noOfPreGeneratedKeysWithCerts` are zero.
         * *Default:* true
 
     - `bufferSizeForKeys`
 
         * By configuring this property, you can control the number of pre-generated keys that are readily available in memory.
-        * *Default:* null
+        * *Default:* 0
 
     - `bufferSizeForKeys` with certificates
 
         * By configuring this property, you can control the number of pre-generated keys with certificates that are readily available in memory.
-        * *Default:* null
+        * *Default:* 0
 
     * To configure the `ledgerRecoveryConfiguration` for your Corda Enterprise node, modify the properties according to the
     requirements in your node's configuration file, for example:
