@@ -3,7 +3,7 @@ date: '2020-01-08T09:59:25Z'
 description: "Documentation for the 1.6 release of Corda Enterprise Network Manager (CENM)"
 menu:
   versions:
-    weight: 290
+    weight: 280
   cenm-1-6:
     weight: 1
     name: CENM 1.6
