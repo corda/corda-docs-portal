@@ -105,9 +105,7 @@ This release includes the following fixes:
 
 The following database changes have been applied:
 
-* Two Phase Finality introduces additional data fields within the main `DbTransaction` table:
-
-Two Phase Finality introduces two new database tables for storage of recovery metadata distribution records:
+* Two Phase Finality introduces two new database tables for storage of recovery metadata distribution records:
 
 ```bash
 @Entity
@@ -191,9 +189,9 @@ class EncryptionKeyRecord(
 ```
 
 See node migration scripts:
-
-* `node-core.changelog-v25.xml`: Adds Sender and Receiver recovery distribution record tables, plus the PartyInfo table.
-* `node-core.changelog-v26.xml`: Adds AES encryption keys table.
+ * `node-core.changelog-v25.xml`: Adds Sender and Receiver recovery distribution record tables, plus the PartyInfo table.
+ * `node-core.changelog-v26.xml`: Adds AES encryption keys table.
+* The `vault_state` table now includes a `consuming_tx_id` column.
 
 ### Third party component upgrades
 
