@@ -17,6 +17,7 @@ In particular, PostgreSQL and {{< tooltip >}}Kafka{{< /tooltip >}} must be runni
 * use a managed service such as Amazon RDS for PostgreSQL, Amazon Managed Streaming for Apache Kafka, or Confluent Cloud.
 
 This section contains the following:
+
 * [Download and Push Container Images to a Registry]({{< relref "#download-and-push-container-images-to-a-registry">}})
 * [Download the Corda Helm Chart]({{< relref "#download-the-corda-helm-chart">}})
 * [Configure the Deployment]({{< relref "#configure-the-deployment">}})
@@ -27,6 +28,7 @@ This section contains the following:
 The Corda container images must be in a registry that is accessible from the Kubernetes cluster in which Corda will run.
 By default, the Corda images are made available via Docker Hub.
 If your Kubernetes cluster can not pull images from Docker Hub, or if you are deploying Corda Enterprise, the following sections describe how to push the images from the provided `tar` file into a container registry that is accessible from the cluster:
+
 * [Container Images for Corda]({{< relref "#container-images-for-corda" >}})
 * [Container Images for Corda Enterprise]({{< relref "#container-images-for-corda-enterprise" >}})
 
@@ -111,6 +113,7 @@ To push the Corda Enterprise images:
 ## Download the Corda Helm Chart
 
 The following sections describe how to download the Corda {{< tooltip >}}Helm{{< /tooltip >}} chart:
+
 * [Corda Helm chart]({{< relref "#corda-helm-chart" >}})
 * [Corda Enterprise Helm chart]({{< relref "#corda-enterprise-helm-chart" >}})
 
@@ -132,6 +135,7 @@ You can download the `corda-enterprise-{{<version-num>}}.0.tgz` file from the th
 
 For each deployment, you should create a YAML file to define a set of Helm overrides to be used for that environment.
 The following sections describe the minimal set of configuration options required for a deployment:
+
 * [Image Registry]({{< relref "#image-registry" >}})
 * [Replica Counts]({{< relref "#replica-counts" >}})
 * [Resource Requests and Limits]({{< relref "#resource-requests-and-limits" >}})
@@ -243,8 +247,10 @@ For an AWS topology, we recommend the following initial configuration:
 ### REST API
 
 The following configuration options are available for the [REST API]({{< relref "../../../reference/rest-api/_index.md" >}}):
+
 * [Expose the REST API]({{< relref "#expose-the-rest-api" >}})
 * [Install the REST Worker Certificate]({{< relref "#install-the-rest-worker-certificate" >}})
+
 #### Expose the REST API
 
 By default, the REST API is exposed on an internal Kubernetes service.
@@ -294,6 +300,7 @@ workers:
 The REST worker {{< tooltip >}}TLS{{< /tooltip >}} certificate is presented to a client any time a HTTPS connection is made.
 If no specific parameters are provided, a self-signed certificate is used and the connection to the {{< tooltip >}}REST Worker{{< /tooltip >}} is always HTTPS. However, a warning will be emitted into the REST worker log explaining how to provide parameters for custom TLS certificates.
 The following is required to install a valid TLS certificate:
+
 * The TLS certificate itself must be signed by a Certification Authority ({{< tooltip >}}CA{{< /tooltip >}}) or an intermediary.
 * A private key corresponding to the public key included in the TLS certificate.
 * The Certification Chain must lead up to the CA.
@@ -302,7 +309,7 @@ The following is required to install a valid TLS certificate:
 If you configure the REST worker to use a trusted certificate, `-k` should be removed from the example curl commands given throughout this documentation.
 {{< /note >}}
 
-Custom certificate information can be provided in PEM format as a Kubernetes secret.
+Custom certificate information can be provided in {{< tooltip >}}PEM{{< /tooltip >}} format as a Kubernetes secret.
 You can either create a Kubernetes secret manually to hold the certificate information or allow Helm to generate a new secret.
 You can specify the secret name manually as follows:
 ```yaml
