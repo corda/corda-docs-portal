@@ -6,7 +6,7 @@ menu:
   corda51:
     parent: corda51-cluster-deploy
     identifier: corda51-cluster-deploying
-    weight: 4000
+    weight: 2000
 section_menu: corda51
 ---
 # Deploying
