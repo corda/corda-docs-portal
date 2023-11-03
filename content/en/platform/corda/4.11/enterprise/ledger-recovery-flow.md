@@ -7,8 +7,8 @@ tags:
 - flow
 - ledger
 - recovery
-  title: Ledger Recovery
-  weight: 45
+title: Ledger Recovery
+weight: 45
 ---
 
 Ledger Recovery builds on the foundations established in [Two Phase Finality](two-phase-finality.md),
@@ -182,9 +182,10 @@ point it left off, should there be any interruption in service.
 
 ## Usage
 
-> [!IMPORTANT]
-> It is imperative that the recovering node is re-started before calling the `LedgerRecoveryFlow.`
+{{< important >}}
+It is imperative that the recovering node is re-started before calling the `LedgerRecoveryFlow.`
 This is to ensure that in-memory state, such as transaction caches, does not interfere with the recovery process.
+{{</ important >}}
 
 You can perform ledger recovery by using one of the following methods:
 
