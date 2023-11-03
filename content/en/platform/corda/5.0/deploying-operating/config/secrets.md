@@ -19,7 +19,7 @@ The Corda configuration system allows for any string configuration value to be m
 
 {{< note >}}
 
-* Any configuration items can be configured as sensitive or not. It is up to you to decide if a particular configuration item should be treated as sensitive.
+* Any configuration items can be configured as secret or not. It is up to you to decide if a particular configuration item should be treated as secret.
 * You can not use both Default Secrets Service encrypted secrets and Vault secret references in the same Corda configuration.
 
 {{< /note >}}
