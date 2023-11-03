@@ -182,6 +182,10 @@ point it left off, should there be any interruption in service.
 
 ## Usage
 
+> [!IMPORTANT]
+> It is imperative that the recovering node is re-started before calling the `LedgerRecoveryFlow.`
+This is to ensure that in-memory state, such as transaction caches, does not interfere with the recovery process.
+
 You can perform ledger recovery by using one of the following methods:
 
 * Node shell commands
@@ -228,3 +232,16 @@ The following examples show the different ways to use the ledger recovery flow f
   ```bash
   flow start EnterpriseLedgerRecoveryFlow timeWindow: { fromTime: "2023-10-12T19:00:00Z", untilTime: "2023-12-12T22:00:00Z" }, recoveryPeer:  "O=Bank B, L=New York, C=US", alsoFinalize: true
   ```
+
+# Sample outputs:
+
+```bash
+>>> flow start EnterpriseLedgerRecoveryFlow  recoveryPeer: "O=Bob Plc, L=Rome, C=IT", timeWindow: {  fromTime:  "2023-10-30T12:00:00Z",  untilTime:  "2023-10-30T19:45:00Z" }, dryRun: false
+
+ ✅   Starting
+ ✅   Validating recovery peers
+ ✅   Performing window narrowing with peers
+ ✅   Performing reconciliation with peers
+➡️   Done
+Flow completed with result: LedgerRecoveryResult(totalRecoveredRecords=2, totalRecoveredTransactions=-1, totalErrors=-1)
+```
