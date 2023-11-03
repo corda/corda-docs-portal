@@ -16,11 +16,4 @@ Before you install the downloaded packs, verify the integrity of each pack using
 
 ## Release pack and checksums for Corda Enterprise Network Manager 1.6
 
-The release pack and checksum file for CENM 1.6 can be downloaded from the [Customer Hub](https://customerhub.r3.com/s/).
-
-## Release pack and checksums for Corda Enterprise Network Manager 1.6
-
-The release pack and checksum file for CENM 1.6 can be downloaded from the [Customer Hub](https://customerhub.r3.com/s/).
-
-## Checksums of Corda Enterprise Network Manager 1.6 release files
 
