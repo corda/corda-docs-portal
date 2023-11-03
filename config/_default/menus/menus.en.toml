@@ -365,7 +365,7 @@ weight = 200
 [[homepage]]
 identifier = "platform-corda-cenm"
 parent = "platform-corda-4"
-url = "/en/platform/corda/1.5/cenm.html"
+url = "/en/platform/corda/1.6/cenm.html"
 name = "Corda Enterprise Network Manager"
 weight = 300
 
