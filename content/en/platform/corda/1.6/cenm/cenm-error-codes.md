@@ -1,9 +1,9 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  cenm-1-5:
-    identifier: cenm-1-5-cenm-error-codes
-    parent: cenm-1-5-operations
+  cenm-1-6:
+    identifier: cenm-1-6-cenm-error-codes
+    parent: cenm-1-6-operations
     weight: 350
 tags:
 - CENM
@@ -41,11 +41,11 @@ corresponding codes will contain a message with the error code and a link pointi
 
 | Error code                            | Description                                                                              | Actions to fix                                                                                                                                                                 |
 |:------------------------------------- |:---------------------------------------------------------------------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `config-parsing-and-validation-error` | This error indicates that there were both parsing and validating issues with the config. | Check the additional details and double check that your configs are lining up with the [most recent CENM documentation]({{< relref "../../1.5/cenm/_index.md" >}}).       |
-| `config-parse-error`                  | This error indicates that an error has occurred during configuration parsing.            | Check the additional details and double check that your configs are lining up with the [most recent CENM documentation]({{< relref "../../1.5/cenm/_index.md" >}}).       |
+| `config-parsing-and-validation-error` | This error indicates that there were both parsing and validating issues with the config. | Check the additional details and double check that your configs are lining up with the [most recent CENM documentation]({{< relref "../../1.6/cenm/_index.md" >}}).       |
+| `config-parse-error`                  | This error indicates that an error has occurred during configuration parsing.            | Check the additional details and double check that your configs are lining up with the [most recent CENM documentation]({{< relref "../../1.6/cenm/_index.md" >}}).       |
 | `config-file-doesnt-exist`            | This error indicates that the configuration file that was provided does not exist.       | Check that the provided path is correct and that the file is actually there.                                                                                                   |
 | `config-file-not-readable`            | This error indicates that the configuration file could not be read.                      | Make sure you have the rights to read the configuration file.                                                                                                                  |
-| `config-validation-error`             | This error indicates that there were validating issues with the configuration            | Check the additional details and double check that your configurations are lined up with the [most recent CENM documentation]({{< relref "../../1.5/cenm/_index.md" >}}). |
+| `config-validation-error`             | This error indicates that there were validating issues with the configuration            | Check the additional details and double check that your configurations are lined up with the [most recent CENM documentation]({{< relref "../../1.6/cenm/_index.md" >}}). |
 
 {{< /table >}}
 

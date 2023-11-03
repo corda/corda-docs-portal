@@ -1,12 +1,12 @@
 ---
 aliases:
 - /cenm-cli-tool.html
-- /releases/release-1.5/cenm-cli-tool.html
+- /releases/release-1.6/cenm-cli-tool.html
 date: '2020-05-28T17:40:25Z'
 menu:
-  cenm-1-5:
-    identifier: cenm-1-5-cli-tool
-    parent: cenm-1-5-tools-index
+  cenm-1-6:
+    identifier: cenm-1-6-cli-tool
+    parent: cenm-1-6-tools-index
     weight: 1013
 tags:
 - CLI
@@ -29,7 +29,7 @@ Once you have the required permissions to access the CENM service you require, y
 
 ## Install the CENM CLI Tool
 
-The CLI Tool comes as a part of CENM 1.5 as a JAR file. If you cannot access the JAR file, you can install via Docker image.
+The CLI Tool comes as a part of CENM 1.6 as a JAR file. If you cannot access the JAR file, you can install via Docker image.
 
 To install using Docker:
 
@@ -47,13 +47,13 @@ Note the `.0`.
 
 You have installed the Docker image with CENM CLI tool.
 
-To get the tool ready to use from within the Docker container, check the [Kubernetes deployment guide](../../../../../en/platform/corda/1.5/cenm/deployment-kubernetes.html#network-operations).
+To get the tool ready to use from within the Docker container, check the [Kubernetes deployment guide](../../../../../en/platform/corda/1.6/cenm/deployment-kubernetes.html#network-operations).
 
 ## Set up the CENM CLI Tool
 
 In order to use the CLI, you must have permission to access the CENM services you plan to use.
 
-You should have an account that has been set up by a user administrator using the [User Admin application]({{< relref "../../../../../en/platform/corda/1.5/cenm/user-admin.md" >}}). This account gives you the credentials, roles, and permissions you need to access CENM services via the CLI.
+You should have an account that has been set up by a user administrator using the [User Admin application]({{< relref "../../../../../en/platform/corda/1.6/cenm/user-admin.md" >}}). This account gives you the credentials, roles, and permissions you need to access CENM services via the CLI.
 
 For the below example, the credentials of a sample CENM user are shown:
 
@@ -198,7 +198,7 @@ This command allows you to change the password you use to access your CENM servi
 
 {{< attention >}}
 
-If you have been allocated a new password by an administrator using the [User admin tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/user-admin.md" >}}), you must change it to something only you know. You must do this before you continue to use CENM services.
+If you have been allocated a new password by an administrator using the [User admin tool]({{< relref "../../../../../en/platform/corda/1.6/cenm/user-admin.md" >}}), you must change it to something only you know. You must do this before you continue to use CENM services.
 
 {{< /attention >}}
 

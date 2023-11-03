@@ -3,9 +3,9 @@ aliases:
 - /zone-service.html
 date: '2020-06-04T13:44:00Z'
 menu:
-  cenm-1-5:
-    identifier: cenm-1-5-zone-service
-    parent: cenm-1-5-operations
+  cenm-1-6:
+    identifier: cenm-1-6-zone-service
+    parent: cenm-1-6-operations
     weight: 155
 tags:
 - zone
@@ -30,7 +30,7 @@ The Zone Service stores relevant configurations for the following services:
 * Network Map Service
 * Signing Services
 
-It uses the associated [Angel Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/angel-service.md" >}}) to deploy those configurations as needed.
+It uses the associated [Angel Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/angel-service.md" >}}) to deploy those configurations as needed.
 Each Angel Service identifies itself to the Zone Service via an authentication
 token, referred to as the "zone token". The Zone Service also coordinates actions
 needed on Sub Zones (for example, new network parameters), which are executed
@@ -54,7 +54,7 @@ The full list of configuration options follows below:
 - `--tls-keystore-password`: The password for the TLS keystore. Required if `--tls` is set to `true`.
 - `--tls-truststore`: The path for the TLS truststore. Required if `--tls` is set to `true`.
 - `--tls-truststore-password`: The password for the TLS truststore. Required if `--tls` is set to `true`.
-- `--run-migration`:  Defines whether schema migration is enabled on the database. Defaults to `false` if no value is provided. **Important:** if you are upgrading to CENM 1.5 from CENM 1.3, you **must** set this option to `true` due to a change in the Zone Service database schema - see the [CENM upgrade guide]({{< relref "../../../../../en/platform/corda/1.5/cenm/upgrade-notes.md" >}}) for more information.
+- `--run-migration`:  Defines whether schema migration is enabled on the database. Defaults to `false` if no value is provided. **Important:** if you are upgrading to CENM 1.5 from CENM 1.3, you **must** set this option to `true` due to a change in the Zone Service database schema - see the [CENM upgrade guide]({{< relref "../../../../../en/platform/corda/1.6/cenm/upgrade-notes.md" >}}) for more information.
 - `--jdbc-driver`:  The path for the JAR file containing the JDBC driver for the database.
 - `--driver-class-name`: The name of the JDBC driver class within the JAR file specified by `--jdbc-driver`.
 - `--url`: The URL for the Zone Service's database.
@@ -170,7 +170,7 @@ serviceLocations = {
 ```
 
 {{< note >}}
-The `timeout` parameter used in the example above is optional. It allows to set a Signing Service timeout for communication to each of the services used within the signing processes defined in the [signers map](../../../../../en/platform/corda/1.5/cenm/signing-service.html#signers-map-entry-example), in a way that allows high node count network maps to get signed and to operate at reliable performance levels. The `timeout` value is set in milliseconds and the default value is 10000 milliseconds. The `timeout` parameter's value is stored in a column in the [Zone Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/zone-service.md" >}})'s database tables `socket_config` and `signer_config` called `timeout`. This value can remain `null` (for example, if `timeout` is not defined in `serviceLocations`), in which case the default 10000 milliseconds value (`timeout = 10000`) will be used wherever applicable. Please note that currently, due to a known issue with `serviceLocations`, when the `timeout` parameter is passed to the Zone Service via the Signing Service's `serviceLocations` configuration block, only the `timeout` value of the first `serviceLocations` location will be taken into account and used for all other service locations.
+The `timeout` parameter used in the example above is optional. It allows to set a Signing Service timeout for communication to each of the services used within the signing processes defined in the [signers map](../../../../../en/platform/corda/1.6/cenm/signing-service.html#signers-map-entry-example), in a way that allows high node count network maps to get signed and to operate at reliable performance levels. The `timeout` value is set in milliseconds and the default value is 10000 milliseconds. The `timeout` parameter's value is stored in a column in the [Zone Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/zone-service.md" >}})'s database tables `socket_config` and `signer_config` called `timeout`. This value can remain `null` (for example, if `timeout` is not defined in `serviceLocations`), in which case the default 10000 milliseconds value (`timeout = 10000`) will be used wherever applicable. Please note that currently, due to a known issue with `serviceLocations`, when the `timeout` parameter is passed to the Zone Service via the Signing Service's `serviceLocations` configuration block, only the `timeout` value of the first `serviceLocations` location will be taken into account and used for all other service locations.
 {{< /note >}}
 
 ## Interaction with Angel Services

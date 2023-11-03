@@ -3,9 +3,9 @@ aliases:
 - /jira-setup.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  cenm-1-5:
-    identifier: cenm-1-5-jira-setup
-    parent: cenm-1-5-configuration
+  cenm-1-6:
+    identifier: cenm-1-6-jira-setup
+    parent: cenm-1-6-configuration
     weight: 300
 tags:
 - jira

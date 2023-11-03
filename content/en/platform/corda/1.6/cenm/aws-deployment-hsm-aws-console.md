@@ -1,8 +1,8 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  cenm-1-5:
-    parent: cenm-1-5-aws-deployment-guide
+  cenm-1-6:
+    parent: cenm-1-6-aws-deployment-guide
 tags:
 - config
 - AWS

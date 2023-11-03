@@ -1,9 +1,9 @@
 ---
 date: '2020-06-06T18:19:00Z'
 menu:
-  cenm-1-5:
-    identifier: cenm-1-5-angel
-    parent: cenm-1-5-operations
+  cenm-1-6:
+    identifier: cenm-1-6-angel
+    parent: cenm-1-6-operations
     weight: 25
 tags:
 - angel
@@ -71,7 +71,7 @@ The Angel Service is configured via the command-line and it downloads the config
     3. It writes the new configuration.
     4. It starts the managed service.
 
-If the managed service is Network Map, the Zone Service can reply with a lifecycle event (Flag Day). This is because only the Network Map Service holds the network parameters that Flag Days update. In this case, the Angel Service will automatically perform the [required steps]({{< relref "../../../../../en/platform/corda/1.5/cenm/updating-network-parameters.md" >}}) on the managed Network Map Service.
+If the managed service is Network Map, the Zone Service can reply with a lifecycle event (Flag Day). This is because only the Network Map Service holds the network parameters that Flag Days update. In this case, the Angel Service will automatically perform the [required steps]({{< relref "../../../../../en/platform/corda/1.6/cenm/updating-network-parameters.md" >}}) on the managed Network Map Service.
 
 ## Service health checking via API
 

@@ -3,9 +3,9 @@ aliases:
 - /database-set-up.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  cenm-1-5:
-    identifier: cenm-1-5-database-set-up
-    parent: cenm-1-5-operations
+  cenm-1-6:
+    identifier: cenm-1-6-database-set-up
+    parent: cenm-1-6-operations
     weight: 180
 tags:
 - database
@@ -18,16 +18,16 @@ title: CENM Databases
 
 There are currently four types of CENM database schemas:
 
-*  The **Identity Manager** database schema is used by the [Identity Manager Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/identity-manager.md" >}}). It contains information relating to:
+*  The **Identity Manager** database schema is used by the [Identity Manager Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/identity-manager.md" >}}). It contains information relating to:
     * Certificate signing requests of nodes wanting to join the network.
     * Requests to revocation of nodes on the network.
 
-*  The **Network Map** database schema is used by the [Network Map Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/network-map.md" >}}). It contains information relating to:
+*  The **Network Map** database schema is used by the [Network Map Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/network-map.md" >}}). It contains information relating to:
     * The current participants on the network.
     * The current network parameters.
     * Any pending network parameter updates.
 
-*  The **Zone** database schema is used by the [Zone Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/zone-service.md" >}}). It contains information relating to:
+*  The **Zone** database schema is used by the [Zone Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/zone-service.md" >}}). It contains information relating to:
     * External addresses of services on the network.
     * Configurations of other services on the network.
 
@@ -261,7 +261,7 @@ GRANT USAGE, SELECT ON ALL sequences IN SCHEMA "my_schema" TO "my_user";
 ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences TO "my_user";
 ALTER ROLE "my_user" SET search_path = "my_schema";
 ```
-If you are creating a CENM service instance user in PostgreSQL using a custom schema name (different from the user name), connect to the database as an administrator and run the script above. The last statement in the script - setting the `search_path` - prevents querying the differing [default schema search path](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH). If you don't have the privileges required to run the script, set the custom schema in the URL in the database configuration section of the `node.conf` file: 
+If you are creating a CENM service instance user in PostgreSQL using a custom schema name (different from the user name), connect to the database as an administrator and run the script above. The last statement in the script - setting the `search_path` - prevents querying the differing [default schema search path](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH). If you don't have the privileges required to run the script, set the custom schema in the URL in the database configuration section of the `node.conf` file:
 
 ```groovy
 database = {
@@ -422,7 +422,7 @@ database = {
     }
 ```
 
-`runMigration` is set to `false` because the restricted CENM service instance database user does not have permissions to alter a database schema. See [CENM Database Configuration]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-database.md" >}}) for a complete list of database-specific properties.
+`runMigration` is set to `false` because the restricted CENM service instance database user does not have permissions to alter a database schema. See [CENM Database Configuration]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-database.md" >}}) for a complete list of database-specific properties.
 
 
 
@@ -948,9 +948,9 @@ To migrate as service:
    schema migration permissions, and to set `runMigration = false` in the
    database configuration.
 
-### 6.1. Zone Service database migration in CENM 1.5
+### 6.1. Zone Service database migration in CENM 1.6
 
-If you are upgrading to CENM 1.5 from CENM 1.3, you **must** set `runMigration = true` in the database configuration. This is required due to a change in the Zone Service database schema - a new column in the database tables `socket_config` and `signer_config` called `timeout` is used to record the new optional `timeout` parameter values used in `serviceLocations` configuration blocks (Signing Services) and `identityManager` and `revocation` configuration blocks (Network Map Service). This value can remain `null`,
+If you are upgrading to CENM 1.6 from CENM 1.3, you **must** set `runMigration = true` in the database configuration. This is required due to a change in the Zone Service database schema - a new column in the database tables `socket_config` and `signer_config` called `timeout` is used to record the new optional `timeout` parameter values used in `serviceLocations` configuration blocks (Signing Services) and `identityManager` and `revocation` configuration blocks (Network Map Service). This value can remain `null`,
 in which case the default 30 seconds timeout will be used wherever applicable.
 
 An example follows below:

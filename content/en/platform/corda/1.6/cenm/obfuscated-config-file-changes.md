@@ -1,9 +1,9 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  cenm-1-5:
-    identifier: cenm-1-5-obfuscated-config-file-changes
-    parent: cenm-1-5-operations
+  cenm-1-6:
+    identifier: cenm-1-6-obfuscated-config-file-changes
+    parent: cenm-1-6-operations
     weight: 165
 tags:
 - obfuscated
