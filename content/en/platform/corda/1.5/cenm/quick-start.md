@@ -22,8 +22,8 @@ title: CENM test environment quick start guide
 This guide provides a set of simple steps for creating a permissioned Corda network
 consisting of the following:
 
-* Identity Manager service
-* Network Map service
+* Identity Manager Service
+* Network Map Service
 * [Notary Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/notary/notary-operate.md" >}})
 
 {{% important %}}
@@ -72,7 +72,7 @@ To create your permissioned network takes several steps:
 3. Register the Notary with the Identity Manager Service
 4. Sign the notary's identity
 5. Set initial network parameters
-6. Start the Network Map service
+6. Start the Network Map Service
 7. Start the Notary
 
 These are described in detail below:
@@ -286,7 +286,7 @@ java -jar corda.jar --initial-registration --network-root-truststore-password tr
 ```
 
 This will result in the node registering with the Identity Manager, creating a node info file in the
-process. In a production environment we would typically use a separate Signing service
+process. In a production environment we would typically use a separate Signing Service
 and manually sign CSRs, however for this quick start the Identity Manager is
 configured to use a local signer.
 
@@ -425,7 +425,7 @@ similar to the example Notary configuration above (including the correct Network
 well as a copy of the `network-root-truststore.jks` file.
 
 You can inspect each service via its interactive shell. For example, for the above configurations, the
-Network Map shell can be accessed by connecting to the Network Map service via `ssh`, using the following:
+Network Map shell can be accessed by connecting to the Network Map Service via `ssh`, using the following:
 * username
 * password
 * port

@@ -1,7 +1,7 @@
 ---
 date: '2022-09-06'
 version: 'Corda 5.0'
-title: "net.corda.v5.membership"
+title: "membership"
 menu:
   corda5:
     identifier: corda5-api-membership

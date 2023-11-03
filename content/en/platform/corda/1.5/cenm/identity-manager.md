@@ -288,7 +288,7 @@ approval mechanism above, this can be achieved via one of two mechanisms:
 
 ##### Local Signing Service
 
-The local signing service is recommended for testing and toy environments. Given a local key store containing the
+The local Signing Service is recommended for testing and toy environments. Given a local key store containing the
 relevant signing keys, it provides the functionality to automatically sign all approved CSRs on a configured schedule.
 No human interaction is needed and the credentials for the key stores have to be provided upfront. The service is an
 integrated signer that is a cut-down version of the standalone [Signing Services]({{< relref "../../../../../en/platform/corda/1.5/cenm/signing-service.md" >}}) and provides no HSM integration or
@@ -322,15 +322,15 @@ The production grade signing mechanism is the external [Signing Services]({{< re
 integrated local signer as well as HSM integration and the ability for a user to interactively verify and sign incoming
 CSRs. It should be used in all production environments where maximum security and validation checks are required.
 
-In order to retrieve the CSR information, the signing service will communicate with the Identity Manager via its
+In order to retrieve the CSR information, the Signing Service will communicate with the Identity Manager via its
 [Issuance internal server](#issuance-internal-server). This is the only configuration option that is needed if signing of CSRs is being done via the
-external signing service.
+external Signing Service.
 
 
 #### Issuance Internal Interface
 
 Similarly to the other Corda Enterprise Network Manager (CENM) services, the Identity Manager is designed to be able to communicate between other services
-such as the Network Map and Signing services. Both the Issuance and, optionally, the Revocation workflows have their own
+such as the Network Map and Signing Services. Both the Issuance and, optionally, the Revocation workflows have their own
 internal listening socket interface that is created on start-up which can receive and respond to messages from other CENM services.
 For example, the Revocation workflow’s CENM listener can respond to messages from the Network Map regarding certificate
 statuses of current participants which the Network Map Service will then use when refreshing the latest Network Map.
@@ -507,15 +507,15 @@ This has all the functionality of the integrated local signer as well as HSM int
 interactively verify and sign incoming CRRs. It should be used in all production environments where maximum security and
 validation checks are required.
 
-In order to retrieve the CRR information, the signing service will communicate with the Revocation Service via its
+In order to retrieve the CRR information, the Signing Service will communicate with the Revocation Service via its
 [Revocation internal server](#revocation-internal-server). This is the only configuration option that is needed if signing of CSRs is being done via the
-external signing service.
+external Signing Service.
 
 
 #### Revocation Internal Server
 
 Similarly to the Issuance workflow, the Revocation workflow is configured with an internal listening server to enable
-communication between other services such as the Network Map and Signing services.  To configure this, the configuration
+communication between other services such as the Network Map and Signing Services.  To configure this, the configuration
 block `enmListener` should be added within the Revocation workflow’s configuration:
 
 ```guess
@@ -585,8 +585,8 @@ however an example is provided below for reference:
 
 ```guess
 authServiceConfig {
-    host = <auth service host>
-    port = <auth service port>
+    host = <Auth Service host>
+    port = <Auth Service port>
     trustStore = {
         location = /path/to/trustroot.jks
         password = <key store password>
