@@ -140,33 +140,33 @@ identifier = "cenm-1-4-signing-plugin-samples"
 name = "Signing Plugin Samples"
 weight = 330
 
-[[cenm-1-5]]
-identifier = "cenm-1-5-cenm-releases"
+[[cenm-1-6]]
+identifier = "cenm-1-6-cenm-releases"
 name = "CENM Releases"
 weight = 70
 
-[[cenm-1-5]]
-identifier = "cenm-1-5-concepts-and-overview"
+[[cenm-1-6]]
+identifier = "cenm-1-6-concepts-and-overview"
 name = "Concepts and Overview"
 weight = 10
 
-[[cenm-1-5]]
-identifier = "cenm-1-5-configuration"
+[[cenm-1-6]]
+identifier = "cenm-1-6-configuration"
 name = "Configuration"
 weight = 210
 
-[[cenm-1-5]]
-identifier = "cenm-1-5-operations"
+[[cenm-1-6]]
+identifier = "cenm-1-6-operations"
 name = "Operations"
 weight = 110
 
-[[cenm-1-5]]
-identifier = "cenm-1-5-public-key-infrastructure"
+[[cenm-1-6]]
+identifier = "cenm-1-6-public-key-infrastructure"
 name = "Public Key Infrastructure"
 weight = 300
 
-[[cenm-1-5]]
-identifier = "cenm-1-5-signing-plugin-samples"
+[[cenm-1-6]]
+identifier = "cenm-1-6-signing-plugin-samples"
 name = "Signing Plugin Samples"
 weight = 330
 
