@@ -212,10 +212,10 @@ The following database changes have been applied:
   @Column(name = "states_to_record")
   val statesToRecord: StatesToRecord? = null
   ```
-  See the following node migration scripts:
-  * `node-core.changelog-v24.xml`: added transaction signatures.
-  * `node-core.changelog-v24.xml`: added finality flow recovery metadata.
-* The `vault_state` table now includes a `consuming_tx_id` column.
+  See node migration scripts:
+  * `node-core.changelog-v25.xml`: Adds Sender and Receiver recovery distribution record tables, plus the `PartyInfo` table.
+  * `node-core.changelog-v26.xml`: Adds AES encryption keys table.
+  * The `vault_state` table now includes a `consuming_tx_id` column.
 
 ### Third party component upgrades
 
