@@ -183,7 +183,7 @@ point it left off, should there be any interruption in service.
 ## Usage
 
 {{< important >}}
-It is imperative that the recovering node is re-started before calling the `LedgerRecoveryFlow.`
+You must restart the recovering node before calling the `LedgerRecoveryFlow.`
 This is to ensure that in-memory state, such as transaction caches, does not interfere with the recovery process.
 {{</ important >}}
 
