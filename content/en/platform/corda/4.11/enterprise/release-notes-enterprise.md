@@ -187,35 +187,102 @@ This release includes the following fixes:
 
 The following database changes have been applied:
 
+* The `vault_state` table now includes a `consuming_tx_id` column. The new column was added in the following migration script: `vault-schema.changelog-v14.xml`.
+
 * Two Phase Finality introduces additional data fields within the main `DbTransaction` table:
 
-  ```kotlin
-  @Column(name = "signatures")
-  val signatures: ByteArray?,
+```kotlin
+@Column(name = "signatures")
+val signatures: ByteArray?
+```
 
-  /**
-  * Flow finality metadata used for recovery
-  * TODO: create association table solely for Flow metadata and recovery purposes.
-  * See https://r3-cev.atlassian.net/browse/ENT-9521
-  */
+* Two Phase Finality introduces two new database tables for storage of recovery metadata distribution records:
 
-  /** X500Name of flow initiator **/
-  @Column(name = "initiator")
-  val initiator: String? = null,
+```bash
+@Entity
+@Table(name = "${NODE_DATABASE_PREFIX}sender_distribution_records")
+data class DBSenderDistributionRecord(
+        @EmbeddedId
+        var compositeKey: PersistentKey,
 
-  /** X500Name of flow participant parties **/
-  @Column(name = "participants")
-  @Convert(converter = StringListConverter::class)
-  val participants: List<String>? = null,
+        /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
+        @Column(name = "sender_states_to_record", nullable = false)
+        var senderStatesToRecord: StatesToRecord,
 
-  /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
-  @Column(name = "states_to_record")
-  val statesToRecord: StatesToRecord? = null
-  ```
-  See node migration scripts:
-  * `node-core.changelog-v25.xml`: Adds Sender and Receiver recovery distribution record tables, plus the `PartyInfo` table.
-  * `node-core.changelog-v26.xml`: Adds AES encryption keys table.
-  * The `vault_state` table now includes a `consuming_tx_id` column.
+        /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
+        @Column(name = "receiver_states_to_record", nullable = false)
+        var receiverStatesToRecord: StatesToRecord
+)
+
+@Entity
+@Table(name = "${NODE_DATABASE_PREFIX}receiver_distribution_records")
+data class DBReceiverDistributionRecord(
+        @EmbeddedId
+        var compositeKey: PersistentKey,
+
+        /** Encrypted recovery information for sole use by Sender **/
+        @Lob
+        @Column(name = "distribution_list", nullable = false)
+        val distributionList: ByteArray,
+
+        /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
+        @Column(name = "receiver_states_to_record", nullable = false)
+        val receiverStatesToRecord: StatesToRecord
+)
+```
+The above tables use the same persistent composite key type:
+
+```bash
+@Embeddable
+@Immutable
+data class PersistentKey(
+        @Column(name = "transaction_id", length = 144, nullable = false)
+        var txId: String,
+
+        @Column(name = "peer_party_id", nullable = false)
+        var peerPartyId: Long,
+
+        @Column(name = "timestamp", nullable = false)
+        var timestamp: Instant,
+
+        @Column(name = "timestamp_discriminator", nullable = false)
+        var timestampDiscriminator: Int
+)
+```
+
+There are two further tables to hold distribution list privacy information (including encryption keys):
+
+```bash
+@Entity
+@Table(name = "${NODE_DATABASE_PREFIX}recovery_party_info")
+data class DBRecoveryPartyInfo(
+        @Id
+        /** CordaX500Name hashCode() **/
+        @Column(name = "party_id", nullable = false)
+        var partyId: Long,
+
+        /** CordaX500Name of party **/
+        @Column(name = "party_name", nullable = false)
+        val partyName: String
+)
+
+@Entity
+@Table(name = "${NODE_DATABASE_PREFIX}aes_encryption_keys")
+class EncryptionKeyRecord(
+        @Id
+        @Type(type = "uuid-char")
+        @Column(name = "key_id", nullable = false)
+        val keyId: UUID,
+
+        @Column(name = "key_material", nullable = false)
+        val keyMaterial: ByteArray
+)
+```
+
+See node migration scripts:
+* `node-core.changelog-v23.xml`: Adds additional data fields within the main `DbTransaction` table.
+* `node-core.changelog-v25.xml`: Adds Sender and Receiver recovery distribution record tables, plus the `PartyInfo` table.
+* `node-core.changelog-v26.xml`: Adds AES encryption keys table.
 
 ### Third party component upgrades
 

@@ -105,6 +105,15 @@ This release includes the following fixes:
 
 The following database changes have been applied:
 
+* The `vault_state` table now includes a `consuming_tx_id` column. The new column was added in the following migration script: `vault-schema.changelog-v14.xml`.
+
+* Two Phase Finality introduces additional data fields within the main `DbTransaction` table:
+
+```kotlin
+@Column(name = "signatures")
+val signatures: ByteArray?
+```
+
 * Two Phase Finality introduces two new database tables for storage of recovery metadata distribution records:
 
 ```bash
@@ -189,9 +198,9 @@ class EncryptionKeyRecord(
 ```
 
 See node migration scripts:
+* `node-core.changelog-v23.xml`: Adds additional data fields within the main `DbTransaction` table.
 * `node-core.changelog-v25.xml`: Adds Sender and Receiver recovery distribution record tables, plus the `PartyInfo` table.
 * `node-core.changelog-v26.xml`: Adds AES encryption keys table.
-* The `vault_state` table now includes a `consuming_tx_id` column.
 
 ### Third party component upgrades
 
