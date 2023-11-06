@@ -107,7 +107,7 @@ The following database changes have been applied:
 
 * The `vault_state` table now includes a `consuming_tx_id` column. The new column was added in the following migration script: `vault-schema.changelog-v14.xml`.
 
-* Two Phase Finality introduces additional data fields within the main `DbTransaction` table:
+* Two Phase Finality introduces an additional data field within the main `DbTransaction` table:
 
 ```kotlin
 @Column(name = "signatures")
