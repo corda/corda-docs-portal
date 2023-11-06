@@ -23,19 +23,9 @@ title: Release notes
   * `recoveryMaximumBackupInterval`
   * `confidentialIdentityMinimumBackupInterval`
 
-### Third party component upgrades
-
-The following table lists the dependency version changes between CENM 1.5 and 1.6:
-
-{{< table >}}
-|Dependency| Name |CENM 1.5 version| CENM 1.6 version |
-|---------|-------|-------|-------|
-|org.bouncycastle|Bouncy Castle|1.70|1.75|
-{{< /table >}}
-
 ### Upgraded dependencies
 
-This release includes the following vulnerability fixes to third-party software:
+This release includes the following dependency version changes between CENM 1.5.9 and 1.6:
 * H2 has been upgraded from 1.4.197 to 2.1.214.
 * Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final.
 * Hibernate Validator has been upgraded to 6.2.5.Final.
