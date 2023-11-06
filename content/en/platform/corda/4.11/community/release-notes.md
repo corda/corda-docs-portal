@@ -198,7 +198,7 @@ class EncryptionKeyRecord(
 ```
 
 See node migration scripts:
-* `node-core.changelog-v23.xml`: Adds additional data fields within the main `DbTransaction` table.
+* `node-core.changelog-v23.xml`: Adds an additional data field within the main `DbTransaction` table.
 * `node-core.changelog-v25.xml`: Adds Sender and Receiver recovery distribution record tables, plus the `PartyInfo` table.
 * `node-core.changelog-v26.xml`: Adds AES encryption keys table.
 
