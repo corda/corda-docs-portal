@@ -31,7 +31,7 @@ This release includes the following dependency version changes between CENM 1.5.
 * Hibernate Validator has been upgraded to 6.2.5.Final.
 * Liquibase has been upgraded from 3.6.3 to 4.20.0.
 * Apache Tomcat has been upgraded from 9.0.80 to 9.0.81.
-* Bouncy Castle has been upgraded from 1.70 to 1.75.
+* Bouncy Castle has been upgraded from 1.68 to 1.75.
 
 ## Corda Enterprise Network Manager 1.5.9
 
