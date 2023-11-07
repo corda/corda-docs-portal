@@ -183,7 +183,7 @@ This release includes the following fixes:
 
 * Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
 
-### Database schema changes
+## Database schema changes
 
 The following database changes have been applied:
 
@@ -284,7 +284,7 @@ See node migration scripts:
 * `node-core.changelog-v25.xml`: Adds Sender and Receiver recovery distribution record tables, plus the `PartyInfo` table.
 * `node-core.changelog-v26.xml`: Adds AES encryption keys table.
 
-### Third party component upgrades
+## Third party component upgrades
 
 The following table lists the dependency version changes between 4.10.2 and 4.11 Enterprise Editions:
 
