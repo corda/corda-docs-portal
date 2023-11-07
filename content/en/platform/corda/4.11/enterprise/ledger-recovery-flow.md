@@ -26,9 +26,8 @@ A `SenderDistribution` record contains the following transaction metadata:
 
 {{< note >}}
 The `SendTransactionFlow` has been enhanced to infer the value for receiver `StatesToRecord` based on the type of sessions passed into its constructor:
-
-* val participantSessions: Set<FlowSession> => default to ONLY_RELEVANT
-* val observerSessions: Set<FlowSession> => default to ALL_VISIBLE
+* `val participantSessions: Set<FlowSession>` defaults to `ONLY_RELEVANT`
+* `val observerSessions: Set<FlowSession>` defaults to `ALL_VISIBLE`
   {{< /note >}}
 
 Upon storing the `SenderDistribution` records for a transaction, the sender node also generates a single `ReceiverDistribution` record.
@@ -61,6 +60,8 @@ The sender and receiver distribution records are subsequently used to enable Led
 
 ## Ledger Recovery flow
 
+### Ledger Recovery flow parameters
+
 The Ledger Recovery flow takes the following parameters:
 
 ```
@@ -73,11 +74,6 @@ val verboseLogging: Boolean = false,
 val recoveryBatchSize: Int = 1000,
 val alsoFinalize: Boolean = false
 ```
-
-These parameters are described in the following section.
-
-
-### Ledger Recovery flow parameters
 
 #### `recoveryPeers`
 
@@ -147,7 +143,7 @@ This flow only works with transactions that are persisted with recovery metadata
 
 ###  Recoverable transaction types
 
-All transactions types are recoverable with the exception of issuance transactions without observers (for example, where a node issues new states to itself only).
+All transactions types are recoverable except issuance transactions without observers (for example, where a node issues new states to itself only).
 
 ### Privacy
 
@@ -158,7 +154,7 @@ This is done purely to reduce the impact of an accidental data dump of the keys,
 
 The `senderRecordedTimestamp` has been moved to a separate header object, and is treated as the authenticated additional data in the AES-GCM encryption. This allows it to be public, which is necessary as the receiver node needs to be read it without having access to the encryption key, but also gives a guarantee to the original sender during recovery that it has not been tampered with.
 
-### Backup Policy and Confidential Identities
+### Backup policy and confidential identities
 
 Ledger Recovery is intended to be used in conjunction with a holistic Corda Network back-up policy. The `LedgerRecoveryFlow` will default to using the following ledger `transactionRecoveryPeriod` parameter value for its `TimeRecoveryWindow`.
 
@@ -168,7 +164,7 @@ Recovering transactions using Confidential Identities requires the successful ba
 
 For more information on the `confidentialIdentityPreGenerationPeriod` network parameter, see [Available Network Parameters]({{< relref "network/available-network-parameters.md" >}}).
 
-## Archiving
+### Archiving
 
 The [Archive Service](../../../../tools/archiving-service/archiving-service-index.md) archives Ledger Recovery distribution records associated with the archived transactions. (The tables `node_sender_distribution_records` and `node_receiver_distribution_records` are included in the archiving process.)
 
@@ -234,7 +230,7 @@ The following examples show the different ways to use the ledger recovery flow f
   flow start EnterpriseLedgerRecoveryFlow timeWindow: { fromTime: "2023-10-12T19:00:00Z", untilTime: "2023-12-12T22:00:00Z" }, recoveryPeer:  "O=Bank B, L=New York, C=US", alsoFinalize: true
   ```
 
-# Sample outputs:
+## Sample outputs:
 
 ```bash
 >>> flow start EnterpriseLedgerRecoveryFlow  recoveryPeer: "O=Bob Plc, L=Rome, C=IT", timeWindow: {  fromTime:  "2023-10-30T12:00:00Z",  untilTime:  "2023-10-30T19:45:00Z" }, dryRun: false
