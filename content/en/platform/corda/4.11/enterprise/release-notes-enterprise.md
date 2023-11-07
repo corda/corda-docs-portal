@@ -183,41 +183,108 @@ This release includes the following fixes:
 
 * Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
 
-### Database schema changes
+## Database schema changes
 
 The following database changes have been applied:
 
-* Two Phase Finality introduces additional data fields within the main `DbTransaction` table:
+* The `vault_state` table now includes a `consuming_tx_id` column. The new column was added in the following migration script: `vault-schema.changelog-v14.xml`.
+
+* Two Phase Finality introduces an additional data field within the main `DbTransaction` table:
 
   ```kotlin
   @Column(name = "signatures")
-  val signatures: ByteArray?,
-
-  /**
-  * Flow finality metadata used for recovery
-  * TODO: create association table solely for Flow metadata and recovery purposes.
-  * See https://r3-cev.atlassian.net/browse/ENT-9521
-  */
-
-  /** X500Name of flow initiator **/
-  @Column(name = "initiator")
-  val initiator: String? = null,
-
-  /** X500Name of flow participant parties **/
-  @Column(name = "participants")
-  @Convert(converter = StringListConverter::class)
-  val participants: List<String>? = null,
-
-  /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
-  @Column(name = "states_to_record")
-  val statesToRecord: StatesToRecord? = null
+  val signatures: ByteArray?
   ```
-  See the following node migration scripts:
-  * `node-core.changelog-v24.xml`: added transaction signatures.
-  * `node-core.changelog-v24.xml`: added finality flow recovery metadata.
-* The `vault_state` table now includes a `consuming_tx_id` column.
 
-### Third party component upgrades
+* Two Phase Finality introduces two new database tables for storage of recovery metadata distribution records:
+
+  ```bash
+  @Entity
+  @Table(name = "${NODE_DATABASE_PREFIX}sender_distribution_records")
+  data class DBSenderDistributionRecord(
+          @EmbeddedId
+          var compositeKey: PersistentKey,
+
+          /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
+          @Column(name = "sender_states_to_record", nullable = false)
+          var senderStatesToRecord: StatesToRecord,
+
+          /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
+          @Column(name = "receiver_states_to_record", nullable = false)
+          var receiverStatesToRecord: StatesToRecord
+  )
+
+  @Entity
+  @Table(name = "${NODE_DATABASE_PREFIX}receiver_distribution_records")
+  data class DBReceiverDistributionRecord(
+          @EmbeddedId
+          var compositeKey: PersistentKey,
+
+          /** Encrypted recovery information for sole use by Sender **/
+          @Lob
+          @Column(name = "distribution_list", nullable = false)
+          val distributionList: ByteArray,
+
+          /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
+          @Column(name = "receiver_states_to_record", nullable = false)
+          val receiverStatesToRecord: StatesToRecord
+  )
+  ```
+  The above tables use the same persistent composite key type:
+
+  ```bash
+  @Embeddable
+  @Immutable
+  data class PersistentKey(
+          @Column(name = "transaction_id", length = 144, nullable = false)
+          var txId: String,
+
+          @Column(name = "peer_party_id", nullable = false)
+          var peerPartyId: Long,
+
+          @Column(name = "timestamp", nullable = false)
+          var timestamp: Instant,
+
+          @Column(name = "timestamp_discriminator", nullable = false)
+          var timestampDiscriminator: Int
+  )
+  ```
+
+  There are two further tables to hold distribution list privacy information (including encryption keys):
+
+  ```bash
+  @Entity
+  @Table(name = "${NODE_DATABASE_PREFIX}recovery_party_info")
+  data class DBRecoveryPartyInfo(
+          @Id
+          /** CordaX500Name hashCode() **/
+          @Column(name = "party_id", nullable = false)
+          var partyId: Long,
+
+          /** CordaX500Name of party **/
+          @Column(name = "party_name", nullable = false)
+          val partyName: String
+  )
+
+  @Entity
+  @Table(name = "${NODE_DATABASE_PREFIX}aes_encryption_keys")
+  class EncryptionKeyRecord(
+          @Id
+          @Type(type = "uuid-char")
+          @Column(name = "key_id", nullable = false)
+          val keyId: UUID,
+
+          @Column(name = "key_material", nullable = false)
+          val keyMaterial: ByteArray
+  )
+  ```
+
+See node migration scripts:
+* `node-core.changelog-v23.xml`: Adds an additional data field within the main `DbTransaction` table.
+* `node-core.changelog-v25.xml`: Adds Sender and Receiver recovery distribution record tables, plus the `PartyInfo` table.
+* `node-core.changelog-v26.xml`: Adds AES encryption keys table.
+
+## Third party component upgrades
 
 The following table lists the dependency version changes between 4.10.2 and 4.11 Enterprise Editions:
 
