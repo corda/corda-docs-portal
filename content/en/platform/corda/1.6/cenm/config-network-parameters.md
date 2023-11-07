@@ -134,6 +134,6 @@ specified in the flow. The default value is `null` in the CENM network parameter
 
 * **confidentialIdentityMinimumBackupInterval**:
 A default value for the minimum age of the generated confidential identity key before it can be used. This value can be overridden
-in the node configuration or if a more recent database backup is indicated via RPC or shell commands. It is optional in both the network
+in the node configuration or, if a more recent database backup is indicated, via RPC or shell commands. It is optional in both the network
 parameters and the node configuration. If no value is set for either, then it is assumed to be zero. The default value is
 `null` in the CENM network parameters.
