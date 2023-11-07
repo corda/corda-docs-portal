@@ -109,93 +109,93 @@ The following database changes have been applied:
 
 * Two Phase Finality introduces an additional data field within the main `DbTransaction` table:
 
-```kotlin
-@Column(name = "signatures")
-val signatures: ByteArray?
-```
+  ```kotlin
+  @Column(name = "signatures")
+  val signatures: ByteArray?
+  ```
 
 * Two Phase Finality introduces two new database tables for storage of recovery metadata distribution records:
 
-```bash
-@Entity
-@Table(name = "${NODE_DATABASE_PREFIX}sender_distribution_records")
-data class DBSenderDistributionRecord(
-        @EmbeddedId
-        var compositeKey: PersistentKey,
+  ```bash
+  @Entity
+  @Table(name = "${NODE_DATABASE_PREFIX}sender_distribution_records")
+  data class DBSenderDistributionRecord(
+          @EmbeddedId
+          var compositeKey: PersistentKey,
 
-        /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
-        @Column(name = "sender_states_to_record", nullable = false)
-        var senderStatesToRecord: StatesToRecord,
+          /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
+          @Column(name = "sender_states_to_record", nullable = false)
+          var senderStatesToRecord: StatesToRecord,
 
-        /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
-        @Column(name = "receiver_states_to_record", nullable = false)
-        var receiverStatesToRecord: StatesToRecord
-)
+          /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
+          @Column(name = "receiver_states_to_record", nullable = false)
+          var receiverStatesToRecord: StatesToRecord
+  )
 
-@Entity
-@Table(name = "${NODE_DATABASE_PREFIX}receiver_distribution_records")
-data class DBReceiverDistributionRecord(
-        @EmbeddedId
-        var compositeKey: PersistentKey,
+  @Entity
+  @Table(name = "${NODE_DATABASE_PREFIX}receiver_distribution_records")
+  data class DBReceiverDistributionRecord(
+          @EmbeddedId
+          var compositeKey: PersistentKey,
 
-        /** Encrypted recovery information for sole use by Sender **/
-        @Lob
-        @Column(name = "distribution_list", nullable = false)
-        val distributionList: ByteArray,
+          /** Encrypted recovery information for sole use by Sender **/
+          @Lob
+          @Column(name = "distribution_list", nullable = false)
+          val distributionList: ByteArray,
 
-        /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
-        @Column(name = "receiver_states_to_record", nullable = false)
-        val receiverStatesToRecord: StatesToRecord
-)
-```
-The above tables use the same persistent composite key type:
+          /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
+          @Column(name = "receiver_states_to_record", nullable = false)
+          val receiverStatesToRecord: StatesToRecord
+  )
+  ```
+  The above tables use the same persistent composite key type:
 
-```bash
-@Embeddable
-@Immutable
-data class PersistentKey(
-        @Column(name = "transaction_id", length = 144, nullable = false)
-        var txId: String,
+  ```bash
+  @Embeddable
+  @Immutable
+  data class PersistentKey(
+          @Column(name = "transaction_id", length = 144, nullable = false)
+          var txId: String,
 
-        @Column(name = "peer_party_id", nullable = false)
-        var peerPartyId: Long,
+          @Column(name = "peer_party_id", nullable = false)
+          var peerPartyId: Long,
 
-        @Column(name = "timestamp", nullable = false)
-        var timestamp: Instant,
+          @Column(name = "timestamp", nullable = false)
+          var timestamp: Instant,
 
-        @Column(name = "timestamp_discriminator", nullable = false)
-        var timestampDiscriminator: Int
-)
-```
+          @Column(name = "timestamp_discriminator", nullable = false)
+          var timestampDiscriminator: Int
+  )
+  ```
 
-There are two further tables to hold distribution list privacy information (including encryption keys):
+  There are two further tables to hold distribution list privacy information (including encryption keys):
 
-```bash
-@Entity
-@Table(name = "${NODE_DATABASE_PREFIX}recovery_party_info")
-data class DBRecoveryPartyInfo(
-        @Id
-        /** CordaX500Name hashCode() **/
-        @Column(name = "party_id", nullable = false)
-        var partyId: Long,
+  ```bash
+  @Entity
+  @Table(name = "${NODE_DATABASE_PREFIX}recovery_party_info")
+  data class DBRecoveryPartyInfo(
+          @Id
+          /** CordaX500Name hashCode() **/
+          @Column(name = "party_id", nullable = false)
+          var partyId: Long,
 
-        /** CordaX500Name of party **/
-        @Column(name = "party_name", nullable = false)
-        val partyName: String
-)
+          /** CordaX500Name of party **/
+          @Column(name = "party_name", nullable = false)
+          val partyName: String
+  )
 
-@Entity
-@Table(name = "${NODE_DATABASE_PREFIX}aes_encryption_keys")
-class EncryptionKeyRecord(
-        @Id
-        @Type(type = "uuid-char")
-        @Column(name = "key_id", nullable = false)
-        val keyId: UUID,
+  @Entity
+  @Table(name = "${NODE_DATABASE_PREFIX}aes_encryption_keys")
+  class EncryptionKeyRecord(
+          @Id
+          @Type(type = "uuid-char")
+          @Column(name = "key_id", nullable = false)
+          val keyId: UUID,
 
-        @Column(name = "key_material", nullable = false)
-        val keyMaterial: ByteArray
-)
-```
+          @Column(name = "key_material", nullable = false)
+          val keyMaterial: ByteArray
+  )
+  ```
 
 See node migration scripts:
 * `node-core.changelog-v23.xml`: Adds an additional data field within the main `DbTransaction` table.
