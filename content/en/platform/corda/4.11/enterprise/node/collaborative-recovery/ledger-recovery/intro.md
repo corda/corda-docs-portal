@@ -10,7 +10,9 @@ tags:
 - collaborative recovery
 - install
 - node operator
+
 title: Ledger Recovery
+weight: 200
 ---
 
 # Ledger Recovery

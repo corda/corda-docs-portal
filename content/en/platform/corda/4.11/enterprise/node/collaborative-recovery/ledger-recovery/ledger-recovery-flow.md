@@ -10,8 +10,9 @@ tags:
 - collaborative recovery
 - install
 - node operator
+
 title: Ledger Recovery flow parameters
-weigth: 100
+weight: 200
 ---
 
 # Ledger Recovery flow parameters
