@@ -27,7 +27,7 @@ not start.
 * **notaries**:
 
 Either the ordered list of file paths to the node info files, or the X.500 names, of the notaries which are permitted in the
-network. Note that once a network has started, the only supported changes to notaries are to add new notaries at the end of the list.  
+network. Note that once a network has started, the only supported changes to notaries are to add new notaries at the end of the list.
 
 Notaries must be added to the end, as flows often use the ordering of notaries during selection ("pick the first" approach),
 and therefore changing the order could cause errors elsewhere. Also note that you can provide only the file path to the node info file or the X.500 name of the notary, not both.
@@ -123,3 +123,17 @@ List of the network-wide Java packages that have been claimed by their owners al
 previous epoch (if exists) and always strictly positive (> 0). If not set then the previous epoch value will be
 automatically incremented. This parameter is mainly used for ensuring uniqueness across multiple segregated
 sub-zones. If only one network map is being run then it is best practice to omit this option.
+
+* **recoveryMaximumBackupInterval**:
+A default value used by the Ledger Recovery flows to determine the time range considered for recovery.
+When attempting recovery, nodes restore to a database backup no older than this value by default.
+This value can be overridden by specifying an override to the flow. It can also be overridden if the same
+parameter is specified for every node in the node configuration. An override to the flow takes priority in terms of overrides.
+However, it is optional in both the network parameters and the node configuration. If no values are set, then it must be
+specified in the flow. The default value is `null` in the CENM network parameters.
+
+* **confidentialIdentityMinimumBackupInterval**:
+A default value for the minimum age of the generated confidential identity key before it can be used. This value can be overridden
+in the node configuration or, if a more recent database backup is indicated, via RPC or shell commands. It is optional in both the network
+parameters and the node configuration. If no value is set for either, then it is assumed to be zero. The default value is
+`null` in the CENM network parameters.
