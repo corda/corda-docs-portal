@@ -11,8 +11,6 @@ title: Ledger Recovery
 weight: 45
 ---
 
-# Ledger Recovery
-
 Ledger Recovery builds on the foundations established in [Two Phase Finality](two-phase-finality.md),
 where recovery metadata is stored for transactions at both the sender's and receiver's side of a transaction flow.
 
