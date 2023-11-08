@@ -5,7 +5,7 @@ menu:
     parent: corda-enterprise-4-11-ledger-recovery
 tags:
 - ledger recovery
-title: Ledger recovery using the shell
+title: Sample outputs
 weight: 900
 ---
 
