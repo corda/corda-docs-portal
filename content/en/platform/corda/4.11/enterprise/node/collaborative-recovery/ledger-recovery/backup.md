@@ -14,11 +14,12 @@ weight: 400
 Ledger Recovery is intended to be used in conjunction with a holistic Corda Network back-up policy. The `LedgerRecoveryFlow`
 will default to using the following ledger `transactionRecoveryPeriod` parameter value for its `TimeRecoveryWindow`.
 
-For more information on the `transactionRecoveryPeriod` network parameter, see [Available Network Parameters]({{< relref "network/available-network-parameters.md" >}}).
+For more information on the `transactionRecoveryPeriod` network parameter, see
+[Available Network Parameters]({{< relref "../../../network/available-network-parameters.md" >}}).
 
 Recovering transactions using Confidential Identities requires the successful backup of the previous window of auto-generated
 CIs.The `confidentialIdentityPreGenerationPeriod` network parameter must be configured to specify the cut-off time after
 which we assume keys have not been backed up.
 
 For more information on the `confidentialIdentityPreGenerationPeriod` network parameter, see
-[Available Network Parameters]({{< relref "network/available-network-parameters.md" >}}).
+[Available Network Parameters]({{< relref "../../../network/available-network-parameters.md" >}}).
