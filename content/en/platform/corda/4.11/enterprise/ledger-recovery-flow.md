@@ -187,6 +187,10 @@ The Ledger Recovery process utilises new recovery distribution records in conjun
 of recording corda transactions, which encompass recording the transaction to the `node_transactions` table, updating the
 vault states tables and, optionally, updating any other custom contract state tables associated with the transaction.
 
+{{< warning >}}
+Ledger Recovery is an Enterprise only feature and, as such, recovery with 4.11 Community Edition nodes is not supported.
+{{< /warning >}}
+
 {{< important >}}
 You must restart the recovering node before calling the `LedgerRecoveryFlow.`
 This is to ensure that in-memory state, such as transaction caches, does not interfere with the recovery process.
@@ -239,7 +243,7 @@ The following examples show the different ways to use the ledger recovery flow f
   flow start EnterpriseLedgerRecoveryFlow timeWindow: { fromTime: "2023-10-12T19:00:00Z", untilTime: "2023-12-12T22:00:00Z" }, recoveryPeer:  "O=Bank B, L=New York, C=US", alsoFinalize: true
   ```
 
-## Sample outputs
+## Corda Node shell sample output:
 
 ```bash
 >>> flow start EnterpriseLedgerRecoveryFlow  recoveryPeer: "O=Bob Plc, L=Rome, C=IT", timeWindow: {  fromTime:  "2023-10-30T12:00:00Z",  untilTime:  "2023-10-30T19:45:00Z" }, dryRun: false
@@ -248,6 +252,60 @@ The following examples show the different ways to use the ledger recovery flow f
  ✅   Validating recovery peers
  ✅   Performing window narrowing with peers
  ✅   Performing reconciliation with peers
+ ✅   Performing finality recovery of in flight transactions
 ➡️   Done
-Flow completed with result: LedgerRecoveryResult(totalRecoveredRecords=2, totalRecoveredTransactions=-1, totalErrors=-1)
+Flow completed with result: LedgerRecoveryResult(totalRecoveredRecords=2, totalRecoveredTransactions=2, totalRecoveredInFlightTransactions=0, totalErrors=0))
+```
+
+## Monitoring ledger recovery process
+
+The Corda node log files provide initial informational messages and incremental updates on the number of records recovered at a given moment in time:
+
+Initial start-up:
+```
+Ledger recovery for node O=Alice Corp, L=Madrid, C=ES synchronising with peers [O=Charlie Ltd, L=Athens, C=GR] over time window RecoveryTimeWindow(fromTime=2023-11-07T16:42:58Z, untilTime=2023-11-07T16:43:03Z).
+
+Ledger recovery parameters: LedgerRecoveryParameters(recoveryPeers=[O=Charlie Ltd, L=Athens, C=GR], timeWindow=RecoveryTimeWindow(fromTime=2023-11-07T16:42:58Z, untilTime=2023-11-07T16:43:03Z), useAllNetworkNodes=false, dryRun=false, useTimeWindowNarrowing=true, verboseLogging=false, recoveryBatchSize=1000, alsoFinalize=false)
+```
+
+Per peer time window narrowing:
+```
+Ledger reconciliation window flow for node O=Alice Corp, L=Madrid, C=ES synchronising with peer O=Charlie Ltd, L=Athens, C=GR over time window RecoveryTimeWindow(fromTime=2023-11-07T16:42:58Z, untilTime=2023-11-07T16:43:04Z)
+
+Performing time windowed hash reconciliation with peer: O=Charlie Ltd, L=Athens, C=GR
+
+Narrowest time window for O=Charlie Ltd, L=Athens, C=GR is RecoveryTimeWindow(fromTime=2023-11-07T16:42:58Z, untilTime=2023-11-07T16:43:04Z) [initial: RecoveryTimeWindow(fromTime=2023-11-07T16:42:58Z, untilTime=2023-11-07T16:43:04Z)]
+```
+
+Per peer reconciliation:
+```
+Performing reconciliation with peer O=Charlie Ltd, L=Athens, C=GR for SENDER records using recoveryBatchSize: 1000 and time window: ComparableRecoveryTimeWindow(fromTime=2023-11-07T16:42:58Z, fromTimestampDiscriminator=0, untilTime=2023-11-07T16:43:04Z, untilTimestampDiscriminator=2147483647) (dryRun = false)
+```
+
+Per recovery batch iteration:
+```
+Reconciliation flow received 2 SENDER recovery distribution record keys from peer O=Charlie Ltd, L=Athens, C=GR.
+
+Reconciliation flow has identified 2 missing SENDER records in local ledger for time window ComparableRecoveryTimeWindow(fromTime=2023-11-07T16:42:58Z, fromTimestampDiscriminator=0, untilTime=2023-11-07T16:43:04Z, untilTimestampDiscriminator=2147483647)
+
+Adjusting timestamp to ComparableRecoveryTimeWindow(fromTime=2023-11-07T16:43:01Z, fromTimestampDiscriminator=2, untilTime=2023-11-07T16:43:04Z, untilTimestampDiscriminator=2147483647) [latest batch record with latestTimestamp=2023-11-07T16:43:01Z]
+
+Reconciliation flow recovered 2 records so far.
+```
+
+Final summary:
+```
+Ledger recovery successfully recovered LedgerRecoveryResult(totalRecoveredRecords=2, totalRecoveredTransactions=2, totalRecoveredInFlightTransactions=0, totalErrors=0) records. {actor_id=mark, actor_owning_identity=O=Alice Corp, L=Madrid, C=ES
+```
+or
+```
+Ledger recovery completed without detecting any records missing within time window RecoveryTimeWindow(fromTime=2023-11-07T16:42:58Z, untilTime=2023-11-07T16:43:03Z)
+```
+
+Furthermore, if `verboseLogging = true` the reconciliation phase will include additional details of progress to include:
+
+```
+Peer returned distribution record keys: [List of distribution record keys]
+
+Recovery node identified missing distribution records: [List of distribution record keys]
 ```
