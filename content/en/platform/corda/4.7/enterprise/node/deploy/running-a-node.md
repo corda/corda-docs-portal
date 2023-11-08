@@ -221,7 +221,7 @@ See [Monitoring via Jolokia](../operating/node-administration.html#monitoring-vi
 ### Native
 
 If you created your nodes using `deployNodes`, a `runnodes` shell script (or batch file on Windows) will have been
-generated to allow you to quickly start up all nodes and their webservers. You should only use `runnodes` for testing
+generated to allow you to quickly start up all nodes. You should only use `runnodes` for testing
 purposes.
 
 Start the nodes with `runnodes` by running the following command from the root of the project:

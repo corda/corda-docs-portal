@@ -152,19 +152,17 @@ If you are running Ubuntu 14.04, follow the instructions for **Upstart**.
     ```
     
 13. Provision the required certificates to your node. Contact the network permissioning service or see [Network certificates]({{< relref "permissioning.md" >}}).
-14. **SystemD**: You can now start a node and its webserver and set the services to start on boot by running the following `systemctl` commands:
+14. **SystemD**: You can now start a node and set the services to start on boot by running the following `systemctl` commands:
 
     ```shell
     sudo systemctl daemon-reload
     sudo systemctl enable --now corda
-    sudo systemctl enable --now corda-webserver
     ```
 
-15. **Upstart**: You can now start a node and its webserver by running the following commands:
+15. **Upstart**: You can now start a node by running the following commands:
 
     ```shell
     sudo start corda
-    sudo start corda-webserver
     ```
 
 The Upstart configuration files created above tell Upstart to start the Corda services on boot so there is no need to explicitly enable them.
