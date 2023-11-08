@@ -103,11 +103,6 @@ As well as input states and output states, transactions contain:
 
 For example, suppose Alice uses $5 cash to pay off $5 of an IOU with Bob. This transaction contains a settlement command which reduces the amount outstanding on the IOU, and a payment command which changes the ownership of $5 from Alice to Bob. It is notarized by `NotaryClusterA` if the notary pool receives it within the specified time window:
 
-<<<<<<< HEAD
-=======
-For example, suppose Alice uses $5 cash to pay off $5 of an IOU with Bob. This transaction contains a settlement command which reduces the amount outstanding on the IOU, and a payment command which changes the ownership of $5 from Alice to Bob. It also has two supporting attachments, and is notarized by `NotaryClusterA` if the notary pool receives it within the specified time window:
-
->>>>>>> release/platform/4.11
 {{<
   figure
 	 width="50%"
