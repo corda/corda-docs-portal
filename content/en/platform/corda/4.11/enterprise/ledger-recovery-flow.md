@@ -187,6 +187,10 @@ The Ledger Recovery process utilises new recovery distribution records in conjun
 of recording corda transactions, which encompass recording the transaction to the `node_transactions` table, updating the
 vault states tables and, optionally, updating any other custom contract state tables associated with the transaction.
 
+{{< warning >}}
+Ledger Recovery is an Enterprise only feature and, as such, recovery with 4.11 Community Edition nodes is not supported.
+{{< /warning >}}
+
 {{< important >}}
 You must restart the recovering node before calling the `LedgerRecoveryFlow.`
 This is to ensure that in-memory state, such as transaction caches, does not interfere with the recovery process.
