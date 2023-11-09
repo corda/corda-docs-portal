@@ -61,7 +61,7 @@ We provide some [backup recommendations]({{< relref "node-administration.md#back
 
 ## Step 3: Download Corda Community Edition
 
-Download the required version of Corda Community Edition; for more information, see the "Release packs and checksums" topic for the relevant version.
+Download the required version of Corda Community Edition; for more information, see [Release packs and checksums]({{< relref "release-checksum-os.md" >}}).
 
 ## Step 4: Upgrade the node to Corda 4.0 or later
 
