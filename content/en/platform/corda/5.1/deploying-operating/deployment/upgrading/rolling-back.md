@@ -25,7 +25,7 @@ You can no longer roll back an upgrade after:
 To restart the Corda 5.0 workers, you can do one of the following:
 
 * Reverse the commands in [Scale Down the Running Corda Worker Instances]({{< relref "_index.md#scale-down-the-running-corda-worker-instances" >}}) that scaled the workers to zero replicas.
-* Issue a helm upgrade command that resets the values you installed Corda 5.0 with, which includes replica counts, for example:
+* Issue a helm upgrade command that resets the values you installed Corda 5.0 with, which includes replica counts. For example:
 
    ```
    helm upgrade corda -n corda \

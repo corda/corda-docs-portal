@@ -26,7 +26,7 @@ For information about how to roll back an upgrade, see [Rolling Back]({{< relref
 
 ## Prerequisites
 
-This documentation assumes you have full administrator access to {{< tooltip >}}Corda CLI{{< /tooltip >}} {{< version-num >}} and Kafka. You must ensure that you can create a connection to your Kafka deployment. You can check this by confirming you can list Kafka topics by running a command such as the following:
+This documentation assumes you have full administrator access to the {{< tooltip >}}Corda CLI{{< /tooltip >}} {{< version-num >}} and Kafka. You must ensure that you can create a connection to your Kafka deployment. You can check this by confirming you can list Kafka topics by running a command such as the following:
 
 ```shell
 kafka-topics --bootstrap-server=prereqs-kafka.test-namespace:9092 --list
@@ -55,7 +55,7 @@ For information about rolling back the Corda 5.0 to Corda {{< version-num >}} up
 ## Scale Down the Running Corda Worker Instances
 
 {{< important >}}
-Scaling down the Corda 5.0 workers results in Corda becoming unresponsive until you launch the Corda {{< version-num >}} workers. You must first test the database migration as described in [Test the Migration](#test-the-migration) and also ensure that you are familiar with the next set of steps to incur minimum Corda downtime.
+Scaling down the Corda 5.0 workers results in Corda becoming unresponsive until you launch the Corda {{< version-num >}} workers. You must first test the database migration as described in [Test the Migration](#test-the-migration) and also ensure that you are familiar with the rest of the upgrade process to incur minimum Corda downtime.
 {{< /important >}}
 
 You can scale down the workers using any tool of your choice. For example, the run the following commands if using `kubectl`:
@@ -162,7 +162,7 @@ To migrate the virtual node databases, do the following:
    psql -h localhost -p 5432 -f ./sql_updates/vnodes.sql -d cordacluster -U postgres
    ```
 
-4. Grant the required permissions for the user for each virtual node for the three database schemas. Corda creates these users when it creates the schemas and so you must extract the credentials from the database using the previously created file of holding IDs. R3 recommend that you script this stage, as follows:
+4. Grant the required permissions for the user for each virtual node for the three database schemas. Corda creates these users when it creates the schemas and so you must extract the credentials from the database using the previously created file of holding IDs. R3 recommends that you script this stage, as follows:
    ```sh
    while read HOLDING_ID; do
       # In Corda 5.0 all virtual node schemas and users are created by Corda, so we need to extract their names from the db
