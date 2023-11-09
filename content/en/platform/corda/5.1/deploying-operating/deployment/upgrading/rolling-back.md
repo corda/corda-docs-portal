@@ -11,7 +11,7 @@ section_menu: corda51
 ---
 # Rolling Back
 
-To roll back the Corda 5.0 to Corda {{< version-num >}} upgrade process, restore the [database backups]({{< relref "./index.md#back-up-the-corda-database" >}}) and restart the Corda 5.0 workers.
+To roll back the Corda 5.0 to Corda {{< version-num >}} upgrade process, restore the [database backups]({{< relref "_index.md#back-up-the-corda-database" >}}) and restart the Corda 5.0 workers.
 
 {{< note >}}
 
@@ -24,7 +24,7 @@ You can no longer roll back an upgrade after:
 
 To restart the Corda 5.0 workers, you can do one of the following:
 
-* Reverse the commands in [Scale Down the Running Corda Worker Instances]({{< relref "./index.md#scale-down-the-running-corda-worker-instances" >}}) that scaled the workers to zero replicas.
+* Reverse the commands in [Scale Down the Running Corda Worker Instances]({{< relref "_index.md#scale-down-the-running-corda-worker-instances" >}}) that scaled the workers to zero replicas.
 * Issue a helm upgrade command that resets the values you installed Corda 5.0 with, which includes replica counts, for example:
 
    ```
