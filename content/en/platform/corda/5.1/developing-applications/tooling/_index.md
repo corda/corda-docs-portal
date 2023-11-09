@@ -19,13 +19,15 @@ table th:nth-of-type(2) {
 }
 
 </style>
-# Application Developer Tooling
-{{< tooltip >}}CorDapp{{< /tooltip >}} Developers require the following:
 
+# Application Developer Tooling
+
+{{< tooltip >}}CorDapp{{< /tooltip >}} Developers require the following:
 
 | Tool                                            | Description                                                                                                                                                                                                                                                                                                |
 | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CorDapp Standard Development Environment (CSDE) | The [CSDE]({{< relref "../../../../../tools-corda5/csde/_index.md" >}}) guides Developers who are new to Corda 5 from setting up their development environment through to writing, compiling, and running their first basic CorDapp.                                                                                     |
-| {{< tooltip >}}Corda CLI{{< /tooltip >}}                                       | The CSDE uses the Corda CLI in the background. CorDapp Developers also require the Corda CLI to build {{< tooltip >}}CPB{{< /tooltip >}} files. For information about installation, see [Installing the Corda CLI]({{< relref "./installing-corda-cli.md" >}}).                                 |
+| CorDapp Standard Development Environment (CSDE) | The [CSDE]({{< relref "../../../../../tools-corda5/csde/_index.md" >}}) guides Developers who are new to Corda 5 from setting up their development environment through to writing, compiling, and running their first basic CorDapp.                                                                       |
+| {{< tooltip >}}Corda CLI{{< /tooltip >}}        | The CSDE uses the Corda CLI in the background. CorDapp Developers also require the Corda CLI to build {{< tooltip >}}CPB{{< /tooltip >}} files. For information about installation, see [Installing the Corda CLI]({{< relref "./installing-corda-cli.md" >}}).                                            |
 | curl                                            | Examples in this documentation for Linux and macOS use the curl CLI to interact with HTTP endpoints. See the [curl documentation](https://everything.curl.dev/get) for details on how to install curl. Alternatives may be used if desired. On Windows, PowerShell contains native support for HTTP calls. |
 | IDE                                             | R3 recommends IntelliJ as your development IDE.                                                                                                                                                                                                                                                            |
+| Java                                            | Azul Zulu JDK 17                                                                                                                                                                                                                                                                                           |
