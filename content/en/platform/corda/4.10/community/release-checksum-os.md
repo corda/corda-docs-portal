@@ -15,10 +15,10 @@ Before you install the downloaded release packs, verify the integrity of each fi
 
 ## Release packs and checksums for Corda Community Edition 4.10.3
 
-* Release pack: https://download.corda.net/corda-community-edition/4.10.3/community-4.10.3.tar.gz
-* MD5 checksum: https://download.corda.net/corda-community-edition/4.10.3/community-4.10.3.tar.md5sum
-* SHA-1 checksum: https://download.corda.net/corda-community-edition/4.10.3/community-4.10.3.tar.gz.sha1sum
-* SHA-256 checksum: https://download.corda.net/corda-community-edition/4.10.3/community-4.10.3.tar.gz.sha256sum
+* Release pack: https://download.corda.net/corda-community-edition/4.10.3/community-4.10.3.tar
+* MD5 checksum: https://download.corda.net/corda-community-edition/4.10.3/community-4.10.3.tar.md5
+* ASC: https://download.corda.net/corda-community-edition/4.10.3/community-4.10.3.tar.asc
+* SHA-256 checksum: https://download.corda.net/corda-community-edition/4.10.3/community-4.10.3.tar.sha256
 
 Checksums for expanded community-4.10.3.tar.gz:
 
