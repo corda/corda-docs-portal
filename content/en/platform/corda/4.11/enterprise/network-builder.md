@@ -30,7 +30,7 @@ Unlike the official image, a *node.conf* file and CorDapps are embedded into the
 More backends may be added in future. The tool is open source, so contributions to add more
 destinations for the containers are welcome!
 
-Download the Corda Network Builder from [here](https://download.corda.net/maven/corda-releases/net/corda/corda-tools-network-builder/4.11/corda-tools-network-builder-4.11-all.jar).
+Download the Corda Network Builder from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-tools-network-builder/4.11/corda-tools-network-builder-4.11-all.jar).
 
 ## Prerequisites
 
