@@ -132,6 +132,7 @@ Alternatively, the Corda CLI can generate a preview of the required Kafka topic 
    {{< /tabs >}}
 
 2. Review the output, make any necessary changes, and save the configuration to a file.
+
 3. Use the `connect` sub-command with the `-f` argument to connect to the Kafka broker and execute the configuration:
 
    {{< tabs name="create-topics">}}

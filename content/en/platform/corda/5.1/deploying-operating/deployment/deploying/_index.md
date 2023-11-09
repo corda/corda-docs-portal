@@ -1024,12 +1024,6 @@ If you are using the Helm chart from Docker Hub, you can install directly from t
 helm install -n corda corda oci://corda-os-docker.software.r3.com/helm-charts/release-{{<version-num>}}.0.0/corda --version {{<version-num>}}.0 -f values.yaml
 ```
 
-{{< enterprise-icon noMargin="true" >}}Alternatively, use the following command for Corda Enterprise:
-
-```shell
-helm install -n corda corda oci://corda-os-docker.software.r3.com/helm-charts/release-{{<version-num>}}.0.0/corda-enterprise --version {{<version-num>}}.0 -f values.yaml
-```
-
 Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how
 to access the [Corda REST API]({{< relref "../../../reference/rest-api/_index.md" >}}).
 If the Helm install fails, see the troubleshooting section on [observability]({{< relref "../../observability/_index.md" >}}).
