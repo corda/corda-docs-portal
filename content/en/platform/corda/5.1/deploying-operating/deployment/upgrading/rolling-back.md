@@ -31,6 +31,6 @@ To restart the Corda 5.0 workers, you can do one of the following:
    helm upgrade corda -n corda \
   oci://corda-os-docker.software.r3.com/helm-charts/release-5.0.0.0/corda \
   --version "5.0.0" \
-  --values artifactory_values.yaml \
+  --values values.yaml \
   --wait
    ```
