@@ -26,7 +26,7 @@ The {{< version >}} CSDE has been tested with the following:
 | Java                                     | Azul Zulu JDK 17                                                    |
 | Intellij                                 | ~v2021.x.y Community Edition                                        |
 | git                                      | ~v2.24.1                                                            |
-| Docker                                   | Docker Engine ~v20.X.Y or Docker Desktop ~v3.5.X                    |
+| Docker                                   | Docker Engine ~v20.x.y or Docker Desktop ~v3.5.x                    |
 | {{< tooltip >}}Corda CLI{{< /tooltip >}} |                                                                     |
 
 ## Required CSDE Ports
