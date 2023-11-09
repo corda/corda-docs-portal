@@ -58,10 +58,10 @@ In a Business Network, you can assign different roles to members of the network.
 
 This is an extension for Corda. If you have this version of Corda, you can access the required JAR files here:
 
-* [BNE contracts](https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-releases/net/corda/bn/business-networks-contracts/1.1/business-networks-contracts-1.1.jar).
-* [BNE workflows](https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-releases/net/corda/bn/business-networks-workflows/1.1/business-networks-workflows-1.1.jar).
-* [Sample CorDapp contracts](https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-releases/net/corda/bn/business-networks-demo-contracts/1.1/business-networks-demo-contracts-1.1.jar).
-* [Sample CorDapp workflows](https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-releases/net/corda/bn/business-networks-demo-workflows/1.1/business-networks-demo-workflows-1.1.jar).
+* [BNE contracts](https://download.corda.net/maven/corda-releases/net/corda/bn/business-networks-contracts/1.1/business-networks-contracts-1.1.jar).
+* [BNE workflows](https://download.corda.net/maven/corda-releases/net/corda/bn/business-networks-workflows/1.1/business-networks-workflows-1.1.jar).
+* [Sample CorDapp contracts](https://download.corda.net/maven/corda-releases/net/corda/bn/business-networks-demo-contracts/1.1/business-networks-demo-contracts-1.1.jar).
+* [Sample CorDapp workflows](https://download.corda.net/maven/corda-releases/net/corda/bn/business-networks-demo-workflows/1.1/business-networks-demo-workflows-1.1.jar).
 
 To install the extension:
 
