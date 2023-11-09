@@ -530,7 +530,8 @@ config:
 
 #### External Secrets Service {{< enterprise-icon >}}
 
-To configure Corda Enterprise to connect to a running [HashiCorp Vault instance]({{< relref "../../config/secrets.md#external-secrets-service" >}}), add the following:
+Corda Enterprise supports integration with HashiCorp Vault as an external secret management system. For more information, see [External Secrets Service]({{< relref "../../config/secrets.md#external-secrets-service" >}}) in the _Configuring Corda_ section.
+To configure a Corda Enterprise deployment to connect to a running HashiCorp Vault instance, add the following:
 
 ```yaml
 config:
@@ -540,14 +541,17 @@ config:
     createdSecretPath: "<path-to-corda-created-secrets>"
 ```
 
-* `<vault-URL>` is the full URL including port at which the Vault instance is reachable, not including any path.
-* `<vault-token>` must allow sufficient permissions to read from Vault at the Corda configured paths and write to the `<path-to-corda-created-secrets>`, where Corda writes secrets it creates.
+* `<vault-URL>` — the full URL including the port at which the Vault instance is reachable, not including any path.
+* `<vault-token>` — the token that Corda uses for accessing Vault. This must allow sufficient permissions to read from Vault at the Corda configured paths and also write to the `<path-to-corda-created-secrets>`. This requires your Vault administrator to grant more permissions than typically given to applications using Vault, but only for writing to one specific path. This is necessary to allow Corda to save encrypted database user passwords for the databases created for every new virtual node.
+* `createdSecretPath` — the path on Vault where Corda writes new secrets. Secrets should be created at a point in the hierarchy that is specific to that particular Corda deployment, keeping keys for different Corda deployments separate.
+
+R3 recommends injecting Vault secrets into Kubernetes pods using a sidecar technique. For more information, see the HashiCorp Vault Developer documentation. This provides a private channel for Corda worker containers to another container which in turn securely authenticates with Vault.
 
 The passwords for the `RBAC` and `CRYPTO` schemas and `VNODES` database must be available in Vault before Corda is deployed. These must be available in the Vault path specified by `createdSecretPath`, under the keys `rbac`, `crypto`, and `vnodes` respectively.
 {{< note >}}
 These keys are not tied to the schema names. If the schema names change, the key names remain `rbac`, `crypto`, and `vnodes`.
 {{< /note >}}
-Additionally, a passphrase and salt for the Corda [wrapping keys]({{< relref "../../../key-concepts/cluster-admin/_index.md#key-management" >}}) must be added to the vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
+Additionally, a passphrase and salt for the Corda [wrapping keys]({{< relref "../../../key-concepts/cluster-admin/_index.md#key-management" >}}) must be added to the Vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
 
 ### Bootstrapping
 
