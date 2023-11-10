@@ -86,7 +86,7 @@ these libraries while a fix is being developed. Add `corda-dependencies` to your
 ```groovy
 repositories {
     // ... other dependencies
-    maven { url "https://software.r3.com/artifactory/corda-dependencies" } // access to the patched Quasar and Caffeine version
+    maven { url "https://download.corda.net/maven/corda-dependencies" } // access to the patched Quasar and Caffeine version
 }
 ```
 
