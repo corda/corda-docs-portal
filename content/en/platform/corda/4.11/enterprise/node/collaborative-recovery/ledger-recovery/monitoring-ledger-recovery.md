@@ -4,12 +4,12 @@ menu:
   corda-enterprise-4-11:
     parent: corda-enterprise-4-11-ledger-recovery
 tags:
-- ledger recovery
+- monitoring ledger recovery
 title: Monitoring ledger Recovery process
 weight: 1000
 ---
 
-# Monitoring ledger Recovery process
+# Monitoring Ledger Recovery process
 
 The Corda node log files provide initial informational messages and incremental updates on the number of records recovered at a given moment in time:
 Initial start-up:

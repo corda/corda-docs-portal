@@ -4,9 +4,9 @@ menu:
   corda-enterprise-4-11:
     parent: corda-enterprise-4-11-ledger-recovery
 tags:
-- ledger recovery
+- ledger recovery performance
 title: Performance
-weight: 600
+weight: 1100
 ---
 
 # Performance

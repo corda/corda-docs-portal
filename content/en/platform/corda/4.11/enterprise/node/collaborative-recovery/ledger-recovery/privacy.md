@@ -4,7 +4,7 @@ menu:
   corda-enterprise-4-11:
     parent: corda-enterprise-4-11-ledger-recovery
 tags:
-- ledger recovery
+- ledger recovery privacy
 title: Privacy
 weight: 300
 ---
