@@ -23,7 +23,7 @@ vault states tables and, optionally, updating any other custom contract state ta
 All transactions types are recoverable except issuance transactions without observers (for example, where a node issues new states to itself only).
 {{< /note >}}
 
-Ledger Recovery builds on the foundations established in [Two Phase Finality](two-phase-finality.md),
+Ledger Recovery builds on the foundations established in ({{< relref "../../../two-phase-finality.md" >}}),
 where recovery metadata is stored for transactions at both the sender's and receiver's side of a transaction flow.
 
 For any given transaction, the sender's side stores one or more `SenderDistribution` records in its local
