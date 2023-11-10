@@ -15,6 +15,10 @@ weight: 5
 Ledger Recovery builds on the foundations established in [Two Phase Finality](two-phase-finality.md),
 where recovery metadata is stored for transactions at both the sender's and receiver's side of a transaction flow.
 
+{{< note >}}
+Ledger Recovery is an Enterprise only feature and, as such, recovery with Corda Community Edition 4.11 nodes is not supported.
+{{< /note >}}
+
 For any given transaction, the sender's side stores one or more `SenderDistribution` records in its local
 `sender_distribution_records` database table. There is one `SenderDistribution` record for each receiver peer of a transaction.
 Receiver peers include any participants and/or observers to the transaction.
@@ -28,7 +32,7 @@ A `SenderDistribution` record contains the following transaction metadata:
 The `SendTransactionFlow` has been enhanced to infer the value for receiver `StatesToRecord` based on the type of sessions passed into its constructor:
 * `val participantSessions: Set<FlowSession>` defaults to `ONLY_RELEVANT`
 * `val observerSessions: Set<FlowSession>` defaults to `ALL_VISIBLE`
-  {{< /note >}}
+{{< /note >}}
 
 Upon storing the `SenderDistribution` records for a transaction, the sender node also generates a single `ReceiverDistribution` record.
 
