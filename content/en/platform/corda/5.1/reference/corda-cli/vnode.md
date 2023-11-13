@@ -32,7 +32,7 @@ The following table lists the `reset` sub-commands and arguments:
 
 | Argument         | Description                                                                                                 |
 | ---------------- | ----------------------------------------------------------------------------------------------------------- |
-| -c, \-\-cpi      | The path to the CPI file to overwrite the virtual node with.                                                |
+| -c, \-\-cpi      | The path to the CPI file used to overwrite the virtual node.                                                |
 | -k, \-\-insecure | Allows insecure server connections with SSL. The default value is false.                                    |
 | -p, \-\-password | The REST API password.                                                                                      |
 | -r, \-\-resync   | The short hash holding IDs of the virtual nodes to reset.                                           |
