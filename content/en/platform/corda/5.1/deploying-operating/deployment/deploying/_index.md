@@ -6,7 +6,7 @@ menu:
   corda51:
     parent: corda51-cluster-deploy
     identifier: corda51-cluster-deploying
-    weight: 4000
+    weight: 2000
 section_menu: corda51
 ---
 # Deploying
@@ -1026,12 +1026,6 @@ If you are using the Helm chart from Docker Hub, you can install directly from t
 
 ```shell
 helm install -n corda corda oci://corda-os-docker.software.r3.com/helm-charts/release-{{<version-num>}}.0.0/corda --version {{<version-num>}}.0 -f values.yaml
-```
-
-{{< enterprise-icon noMargin="true" >}}Alternatively, use the following command for Corda Enterprise:
-
-```shell
-helm install -n corda corda oci://corda-os-docker.software.r3.com/helm-charts/release-{{<version-num>}}.0.0/corda-enterprise --version {{<version-num>}}.0 -f values.yaml
 ```
 
 Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how
