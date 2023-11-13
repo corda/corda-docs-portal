@@ -12,9 +12,9 @@ weight: 5
 
 # Ledger Recovery
 
-Ledger Recovery should be considered a tool to complement a standardised Corda Network operational backup and recovery process.
-It should be used to re-instate a Corda database from the point of a consistent back-up, and should not be considered
-a tool to recover a partially corrupt database (eg. where records may be missing from a subset of tables).
+Ledger Recovery complements a standardised Corda Network operational backup and recovery process.
+Use it to re-instate a Corda database from the point of a consistent backup, and do not use it
+to recover a partially corrupt database, for example, where records may be missing from a subset of tables.
 The Ledger Recovery process utilises new recovery distribution records in conjunction with the atomicity semantics
 of recording corda transactions, which encompass recording the transaction to the `node_transactions` table, updating the
 vault states tables and, optionally, updating any other custom contract state tables associated with the transaction.
