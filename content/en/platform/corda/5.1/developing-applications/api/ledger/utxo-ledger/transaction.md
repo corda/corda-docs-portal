@@ -11,7 +11,7 @@ section_menu: corda51
 ---
 # net.corda.v5.ledger.utxo.transaction
 
-The `net.corda.v5.ledger.utxo.transaction` packages contains the following interfaces:
+The `net.corda.v5.ledger.utxo.transaction` package contains the following interfaces:
 
 * [UtxoLedgerTransaction](#utxoledgertransaction)
 * [UtxoSignedTransaction](#utxosignedtransaction)
