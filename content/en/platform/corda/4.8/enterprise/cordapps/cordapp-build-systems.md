@@ -134,7 +134,7 @@ dependencies
 * `corda-test-common` - A common test library. Automatically included by other test libraries.
 * `corda-test-utils` - Used when writing tests against Corda/Cordapps.
 * `corda-tools-network-bootstrapper` - The Network Builder tool. Useful in build scripts.
-* `corda-tools-shell-cli` - The Shell CLI tool. Useful in build scripts.
+* `corda-tools-shell-cli-all` - The Shell CLI tool. Useful in build scripts.
 
 Any modules marked with (*) are part of the open core and must be pulled in from the matching Corda Open Source distribution (using
 `$corda_core_release_distribution` and `$corda_core_release_version`.
