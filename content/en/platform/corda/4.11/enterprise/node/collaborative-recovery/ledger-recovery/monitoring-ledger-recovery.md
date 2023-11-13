@@ -42,7 +42,7 @@ or
 ```
 Ledger recovery completed without detecting any records missing within time window RecoveryTimeWindow(fromTime=2023-11-07T16:42:58Z, untilTime=2023-11-07T16:43:03Z)
 ```
-Furthermore, if `verboseLogging = true` the reconciliation phase will include additional details of progress to include:
+Furthermore, if `verboseLogging = true`, the reconciliation phase will include additional details of the progress:
 ```
 Peer returned distribution record keys: [List of distribution record keys]
 Recovery node identified missing distribution records: [List of distribution record keys]
