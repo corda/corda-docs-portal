@@ -111,7 +111,7 @@ This release includes the following fixes:
 
 * PostgreSQL 9.6 and 10.10 have been removed from our support matrix as they are no longer supported by PostgreSQL themselves.
 
-* log4j2.xml is now deleting the correct file for diagnostic and checkpoint logs in the rollover strategy configuration.
+* log4j2.xml now deletes the correct file for diagnostic and checkpoint logs in the rollover strategy configuration.
 
 * Some log messages at the warning level, related to failed SSL handshakes, were inadvertently introduced during the improvements
   to SSL certificate handling in the previous patch release. These messages frequently appeared in the logs as part of
