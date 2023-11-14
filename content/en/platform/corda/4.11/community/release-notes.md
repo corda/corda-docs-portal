@@ -76,7 +76,7 @@ An AES-key implementation is used to encrypt and decrypt distribution record rec
 The DJVM component required that all updates to Corda core were compatible with
 the `core-deterministic` module. 
 To mitigate this issue, the experimental component DJVM has been removed from this and all future releases.
-* Because of the DJVM removal, the `DriverParameters` class has changed. The two constructor parameters `djvmBootstrapSource`
+* As a result of the DJVM removal, the `DriverParameters` class has changed. The two constructor parameters `djvmBootstrapSource`
 and `djvmCordaSource` have been removed from `DriverParameters`. Any client code using `DriverParameters` now needs at least recompiling.
 
 ## Fixed issues
