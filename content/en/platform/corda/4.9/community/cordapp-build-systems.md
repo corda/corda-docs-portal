@@ -90,7 +90,7 @@ these libraries while a fix is being developed. Add `corda-dependencies` to your
 ```groovy
 repositories {
     // ... other dependencies
-    maven { url "https://software.r3.com/artifactory/corda-dependencies" } // access to the patched Quasar and Caffeine version
+    maven { url "https://download.corda.net/maven/corda-dependencies" } // access to the patched Quasar and Caffeine version
 }
 ```
 
@@ -138,7 +138,6 @@ There are a few guidelines to keep in mind when you set Corda dependencies.
 * `corda-test-common` - A common test library. Automatically included by other test libraries.
 * `corda-test-utils` - Used when writing tests against Corda/Cordapps.
 * `corda-tools-network-bootstrapper` - The Network Builder tool. Useful in build scripts.
-* `corda-tools-shell-cli` - The Shell CLI tool. Useful in build scripts.
 
 Any modules marked with (*) are part of the open core and must be pulled in from the matching Corda Community Edition distribution (using
 `$corda_core_release_distribution` and `$corda_core_release_version`).
