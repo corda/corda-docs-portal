@@ -30,6 +30,10 @@ For more information about platform versions, see [Versioning]({{< relref "versi
 
 ## New features and enhancements
 
+### JDK Azul and Oracle JDK upgrade
+
+Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
+
 ### Two Phase Finality
 
 Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this new improved protocol.
@@ -106,8 +110,6 @@ This release includes the following fixes:
 * Delays when performing a SSL handshake with new nodes no longer impacts existing connections with other nodes.
 
 * PostgreSQL 9.6 and 10.10 have been removed from our support matrix as they are no longer supported by PostgreSQL themselves.
-
-* Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
 
 * log4j2.xml is now deleting the correct file for diagnostic and checkpoint logs in the rollover strategy configuration.
 
