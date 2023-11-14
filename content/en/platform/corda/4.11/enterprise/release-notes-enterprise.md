@@ -106,6 +106,13 @@ The following dependencies have been upgraded to address critical and high-sever
 
 When a state is consumed by a transaction, Corda now adds the ID of the consuming transaction in the `consuming_tx_id` column of the `vault_state` table. Corda only updates this database column for new transactions; for existing consumed states already in the ledger, the value of `consuming_tx_id` is null.
 
+### Node configuration change for better performance
+
+To reduce flow latency and improve throughput, we have changed the following defaults in the node configuration:
+* `enterpriseConfiguration.tuning.brokerConnectionTtlCheckIntervalMs` changed from 20 to 1 millisecond.
+* `enterpriseConfiguration.tuning.journalBufferTimeout` changed from 3333333 nanoseconds to 1000000 nanoseconds.
+* `notary.extraConfig.batchTimeoutMs` changes from 200 to 1.
+
 ## Fixed issues
 
 This release includes the following fixes:
