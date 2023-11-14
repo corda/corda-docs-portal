@@ -32,7 +32,7 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 A new ledger recovery flow (`LedgerRecoveryFlow`) enables a node to identify and recover transactions from
 peer recovery nodes to which it was a party (either initiator or receiver) and which are missing from its own ledger.
 
-For more information, see [Ledger Recovery Flow]({{< relref "ledger-recovery-flow.md" >}})
+For more information, see [Ledger Recovery Flow]({{< relref "ledger-recovery-flow.md" >}}).
 
 ### Confidential Identity key-pair generator
 
@@ -115,8 +115,8 @@ To reduce flow latency and improve throughput, we have changed the following def
 
 ### DJVM removal
 
-DJVM would create work when making changes to Corda core, in that updates to Corda core must have also been compatible with
-the `core-deterministic` module. The following changes have been made to mitigate this issue:
+With DJVM present, updates to Corda core must have also been compatible with
+the `core-deterministic` module. The following changes mitigate this issue:
 * The experimental component DJVM has been removed from this and all future releases.
 * Because of the DJVM removal, the `DriverParameters` class has changed. The two constructor parameters `djvmBootstrapSource`
   and `djvmCordaSource` have been removed from `DriverParameters`. Any client code using `DriverParameters` now needs at least recompiling.
