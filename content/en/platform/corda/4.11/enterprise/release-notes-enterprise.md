@@ -121,6 +121,11 @@ the `core-deterministic` module. The following changes have been made to mitigat
 * Because of the DJVM removal, the `DriverParameters` class has changed. The two constructor parameters `djvmBootstrapSource`
   and `djvmCordaSource` have been removed from `DriverParameters`. Any client code using `DriverParameters` now needs at least recompiling.
 
+### Additional signature verification
+
+Stricter signature verification when using public `ServiceHub` API function `recordTransactions()`. For more information,
+see [DBTransactionStorage]({{< relref "node-services.html#dbtransactionstorage" >}}).
+
 ## Fixed issues
 
 This release includes the following fixes:
