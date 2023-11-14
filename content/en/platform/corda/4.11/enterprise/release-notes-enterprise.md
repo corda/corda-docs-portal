@@ -192,6 +192,10 @@ This release includes the following fixes:
 
 * log4j2.xml is now deleting the correct file for diagnostic and checkpoint logs in the rollover strategy configuration.
 
+* Some log messages at the warning level, related to failed SSL handshakes, were inadvertently introduced during the improvements
+to SSL certificate handling in the previous patch release. These messages would frequently appear in the logs as part of
+connectivity tests for traffic load balancers and system monitoring. To reduce unnecessary noise in the logs, these specific log messages have been silenced.
+
 ## Database schema changes
 
 The following database changes have been applied:
