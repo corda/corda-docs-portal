@@ -48,7 +48,7 @@ The following network parameters, and associated node configuration parameters, 
 * `recoveryMaximumBackupInterval`
 * `transactionRecoveryPeriod`
 
-For more information, see [Available Network Parameters]({{< relref "network/available-network-parameters.md" >}})
+For more information, see [Available Network Parameters]({{< relref "network/available-network-parameters.md" >}}).
 
 ### Distribution record cleanup
 
@@ -295,6 +295,7 @@ The following table lists the dependency version changes between 4.10.2 and 4.11
 | io.opentelemetry                   | Open Telemetry      | -                        | 1.20.1                 |
 | org.apache.commons:commons-text    | Apache Commons-Text | 1.9                      | 1.10.0                 |
 | org.apache.shiro                   | Apache Shiro        | 1.9.1                    | 1.10.0                 |
+| io.netty                           | Netty               | 4.1.77.Final             | 4.1.100.Final          |
 
 ## Log4j patches
 
