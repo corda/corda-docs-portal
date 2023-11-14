@@ -77,7 +77,7 @@ The DJVM component required that all updates to Corda core were compatible with
 the `core-deterministic` module. 
 To mitigate this issue, the experimental component DJVM has been removed from this and all future releases.
 * As a result of the DJVM removal, the `DriverParameters` class has changed. The two constructor parameters `djvmBootstrapSource`
-and `djvmCordaSource` have been removed from `DriverParameters`. Any client code using `DriverParameters` now needs at least recompiling.
+and `djvmCordaSource` have been removed from `DriverParameters`. Any client code using `DriverParameters` must be recompiled.
 
 ## Fixed issues
 
