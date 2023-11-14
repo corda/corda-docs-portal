@@ -115,16 +115,16 @@ To reduce flow latency and improve throughput, the following default values in t
 
 ### DJVM removal
 
-With DJVM present, updates to Corda core must have also been compatible with
-the `core-deterministic` module. The following changes mitigate this issue:
-* The experimental component DJVM has been removed from this and all future releases.
-* Because of the DJVM removal, the `DriverParameters` class has changed. The two constructor parameters `djvmBootstrapSource`
-  and `djvmCordaSource` have been removed from `DriverParameters`. Any client code using `DriverParameters` now needs at least recompiling.
+The DJVM component required that all updates to Corda core were compatible with
+the `core-deterministic` module.
+To mitigate this issue, the experimental component DJVM has been removed from this and all future releases.
+As a result of the DJVM removal, the `DriverParameters` class has changed. The two constructor parameters `djvmBootstrapSource`
+and `djvmCordaSource` have been removed from `DriverParameters`. Any client code using `DriverParameters` now needs at least recompiling.
 
 ### Additional signature verification
 
-Stricter signature verification when using public `ServiceHub` API function `recordTransactions()`. For more information,
-see [DBTransactionStorage]({{< relref "node-services.html#dbtransactionstorage" >}}).
+The `recordTransactions()` function now performs stricter signature verification when using public `ServiceHub` API.
+For more information, see [DBTransactionStorage]({{< relref "node-services.html#dbtransactionstorage" >}}).
 
 ## Fixed issues
 
@@ -203,7 +203,7 @@ This release includes the following fixes:
 
 * Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
 
-* log4j2.xml is now deleting the correct file for diagnostic and checkpoint logs in the rollover strategy configuration.
+* log4j2.xml now deletes the correct file for diagnostic and checkpoint logs in the rollover strategy configuration.
 
 * Some log messages at the warning level, related to failed SSL handshakes, were inadvertently introduced during the improvements
 to SSL certificate handling in the previous patch release. These messages would frequently appear in the logs as part of
