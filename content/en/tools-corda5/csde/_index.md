@@ -9,7 +9,7 @@ menu:
   corda5-tools:
     weight: 1000
     identifier: corda5-develop-get-started
-aliases: platform/corda/5.0/developing-applications/getting-started.html
+aliases: ../platform/corda/5.0/developing-applications/getting-started.html
 ---
 # CSDE
 
