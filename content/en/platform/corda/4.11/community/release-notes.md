@@ -101,6 +101,8 @@ This release includes the following fixes:
 
 * Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
 
+* log4j2.xml is now deleting the correct file for diagnostic and checkpoint logs in the rollover strategy configuration.
+
 ## Database schema changes
 
 The following database changes have been applied:
