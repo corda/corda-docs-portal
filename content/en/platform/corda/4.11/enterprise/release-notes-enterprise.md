@@ -316,6 +316,7 @@ The following table lists the dependency version changes between 4.10.2 and 4.11
 | io.opentelemetry                   | Open Telemetry      | -                        | 1.20.1                 |
 | org.apache.commons:commons-text    | Apache Commons-Text | 1.9                      | 1.10.0                 |
 | org.apache.shiro                   | Apache Shiro        | 1.9.1                    | 1.10.0                 |
+| co.paralleluniverse:quasar-core    | Quasar              | 0.7.15_r3                | 0.7.16_r3              |
 
 ## Log4j patches
 

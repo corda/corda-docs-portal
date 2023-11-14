@@ -225,6 +225,7 @@ The following table lists the dependency version changes between 4.9.5 and 4.10 
 | com.squareup.okhttp3 | OKHttp         | 3.14.2                  | 3.14.9                 |
 | org.bouncycastle	   | Bouncy Castle  | 1.68                    | 1.70                   |
 | io.opentelemetry	   | Open Telemetry | -                       | 1.20.1                 |
+| co.paralleluniverse:quasar-core    | Quasar       | 0.7.15_r3   | 0.7.16_r3              |
 
 ## Log4j patches
 Click [here]({{< relref "./log4j-patches.md" >}}) to find all patches addressing the December 2021 Log4j vulnerability.
