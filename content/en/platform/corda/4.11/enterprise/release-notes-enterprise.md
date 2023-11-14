@@ -111,7 +111,7 @@ When a state is consumed by a transaction, Corda now adds the ID of the consumin
 To reduce flow latency and improve throughput, the following default values in the node configuration have changed:
 * `enterpriseConfiguration.tuning.brokerConnectionTtlCheckIntervalMs` changed from 20 to 1 millisecond.
 * `enterpriseConfiguration.tuning.journalBufferTimeout` changed from 3333333 nanoseconds to 1000000 nanoseconds.
-* `notary.extraConfig.batchTimeoutMs` changes from 200 to 1.
+* `notary.extraConfig.batchTimeoutMs` changed from 200 to 1.
 
 ### DJVM removal
 
