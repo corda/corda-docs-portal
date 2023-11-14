@@ -113,6 +113,14 @@ To reduce flow latency and improve throughput, we have changed the following def
 * `enterpriseConfiguration.tuning.journalBufferTimeout` changed from 3333333 nanoseconds to 1000000 nanoseconds.
 * `notary.extraConfig.batchTimeoutMs` changes from 200 to 1.
 
+### DJVM removal
+
+DJVM would create work when making changes to Corda core, in that updates to Corda core must have also been compatible with
+the `core-deterministic` module. The following changes have been made to mitigate this issue:
+* The experimental component DJVM has been removed from this and all future releases.
+* Because of the DJVM removal, the `DriverParameters` class has changed. The two constructor parameters `djvmBootstrapSource`
+  and `djvmCordaSource` have been removed from `DriverParameters`. Any client code using `DriverParameters` now needs at least recompiling.
+
 ## Fixed issues
 
 This release includes the following fixes:

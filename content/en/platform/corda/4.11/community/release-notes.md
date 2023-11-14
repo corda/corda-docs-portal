@@ -71,6 +71,14 @@ These parameters are also used to infer and construct the type of recovery metad
 
 An AES-key implementation is used to encrypt and decrypt distribution record recovery metadata for sharing and persistence amongst peers.
 
+### DJVM removal
+
+DJVM would create work when making changes to Corda core, in that updates to Corda core must have also been compatible with
+the `core-deterministic` module. The following changes have been made to mitigate this issue:
+* The experimental component DJVM has been removed from this and all future releases.
+* Because of the DJVM removal, the `DriverParameters` class has changed. The two constructor parameters `djvmBootstrapSource`
+and `djvmCordaSource` have been removed from `DriverParameters`. Any client code using `DriverParameters` now needs at least recompiling.
+
 ## Fixed issues
 
 This release includes the following fixes:
