@@ -1302,13 +1302,12 @@ wish to use. Set the Corda version to the one you have installed locally:
     }
 ```
 
-2.  Add the tokens development artifactory repository to the
-list of repositories for your project:
+2.  Add the tokens development repository to the list of repositories for your project:
 
 ```
     repositories {
-        maven { url 'https://software.r3.com/artifactory/corda-lib' }
-        maven { url 'https://software.r3.com/artifactory/corda-lib-dev' }
+        maven { url 'https://download.corda.net/maven/corda-lib' }
+        maven { url 'https://download.corda.net/maven/corda-lib-dev' }
     }
 ```
 
