@@ -73,7 +73,7 @@ An AES-key implementation is used to encrypt and decrypt distribution record rec
 
 ### DJVM removal
 
-With DJVM present, updates to Corda core must have also been compatible with
+The DJVM component required that all updates to Corda core were compatible with
 the `core-deterministic` module. The following changes mitigate this issue:
 * The experimental component DJVM has been removed from this and all future releases.
 * Because of the DJVM removal, the `DriverParameters` class has changed. The two constructor parameters `djvmBootstrapSource`
