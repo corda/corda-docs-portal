@@ -12,15 +12,17 @@ weight: 5
 
 # Ledger Recovery
 
-Ledger Recovery complements a standardised Corda Network operational backup and recovery process.
-Use it to re-instate a Corda database from the point of a consistent backup, and do not use it
+Ledger Recovery complements a standardised Corda network operational backup and recovery process.
+Use it to re-instate a Corda database from the point of a consistent backup. It is not intended to be used
 to recover a partially corrupt database, for example, where records may be missing from a subset of tables.
 The Ledger Recovery process utilises new recovery distribution records in conjunction with the atomicity semantics
-of recording corda transactions, which encompass recording the transaction to the `node_transactions` table, updating the
+of recording Corda transactions, which encompass recording the transaction to the `node_transactions` table, updating the
 vault states tables and, optionally, updating any other custom contract state tables associated with the transaction.
 
 {{< note >}}
-All transactions types are recoverable except issuance transactions without observers (for example, where a node issues new states to itself only).
+All transaction types are recoverable except transaction chains that have not been observed by other nodes.
+An example might be an issuance transaction that had no observers during finalisation and that has not been involved
+in subsequent transactions with other nodes in the network, yet.
 {{< /note >}}
 
 Ledger Recovery builds on the foundations established in [Two Phase Finality]({{< relref "../../../two-phase-finality.md" >}}),
@@ -47,25 +49,25 @@ A `ReceiverDistribution` record contains the following transaction metadata:
 * Transaction ID
 * Sender peer ID (the hashed value of `CordaX500Name`)
 * A distribution list comprising two sections:
-  * An AES-encrypted map of all peers and their associated `StatesToRecord` value.
+  * An AES-encrypted map of the peer IDs of all receiving peers for the transaction and their associated `StatesToRecord` value.
   * A tamper-proof cleartext `senderRecordedTimestamp`, indicating when the sender records were generated. The same
     timestamp will be used upon storing the `ReceiverDistribution` record at each of the receiving node peers. This is
     required to enable synchronized record comparisons across peers when performing transaction recovery.
 
-The generated `ReceiverDistribution` record is then shared with all other peer sessions (both participants and observers)
+The generated `ReceiverDistribution` record is then shared with all receiving peer sessions (both participants and observers)
 to the transaction, which stores it in their local `receiver_distribution_records` database table.
 
 {{< note >}}
-A receiver cannot decrypt the actual contents of the distribution list within that record but shares it back to a transaction initiating node upon recovery.
+A receiver cannot decrypt the actual contents of the distribution list within that record but can share it back to the sending node upon recovery.
 The Corda X.500 name of all peers stored in a Ledger Recovery record use an undecipherable collision-free representation.
 {{< /note >}}
 
 Both sender's and receiver's distribution records use the same composite key type for uniquely storing records. The `PersistentKey` contains the following fields:
-* Incremental sequence Number (Long)
+* The transaction ID
 * PartyId of flow peer (a secure hash stored as a String)
 * Timestamp (Instant)
 * Timestamp discriminator (Int)
 
-The timestamp discriminator allows for storing of records generated at the same time but within different transactions.
+The timestamp discriminator allows for storing of records generated at the same time even for the same transaction.
 
 The sender's and receiver's distribution records are subsequently used to enable Ledger Recovery.

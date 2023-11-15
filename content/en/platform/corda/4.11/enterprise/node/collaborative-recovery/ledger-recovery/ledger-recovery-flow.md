@@ -89,4 +89,6 @@ specified and no time window configuration is defined.
 
 {{< warning >}}
 This flow only works with transactions that are persisted with recovery metadata.
+This is everything that originated on Corda 4.11 onwards, involving peer nodes that are Corda 4.11 onwards.
+Transactions distributed prior to 4.11 are not included, and neither are distributions involving nodes prior to 4.11.
 {{< /warning >}}
