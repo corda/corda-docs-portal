@@ -77,11 +77,10 @@ An AES-key implementation is used to encrypt and decrypt distribution record rec
 
 ### DJVM removal
 
-The DJVM component required that all updates to Corda core were compatible with
-the `core-deterministic` module.
+The DJVM component required that all updates to Corda core were compatible with the `core-deterministic` module.
 To mitigate this issue, the experimental component DJVM has been removed from this and all future releases.
-As a result of the DJVM removal, the `DriverParameters` class has changed. The two constructor parameters `djvmBootstrapSource`
-and `djvmCordaSource` have been removed from `DriverParameters`. Any client code using `DriverParameters` now needs at least recompiling.
+As a result of the DJVM removal, the two constructor parameters `djvmBootstrapSource` and `djvmCordaSource` have been
+removed from the `DriverParameters` class. Any client code that utilizes `DriverParameters` now requires recompiling.
 
 ## Fixed issues
 
@@ -113,9 +112,9 @@ This release includes the following fixes:
 
 * log4j2.xml now deletes the correct file for diagnostic and checkpoint logs in the rollover strategy configuration.
 
-* Some log messages at the warning level, related to failed SSL handshakes, were inadvertently introduced during the improvements
-  to SSL certificate handling in the previous patch release. These messages frequently appeared in the logs as part of
-  connectivity tests for traffic load balancers and system monitoring. To reduce unnecessary noise in the logs, these specific log messages have been silenced.
+* In the previous patch release, while enhancing SSL certificate handling, certain log messages associated
+  with failed SSL handshakes were unintentionally added. These messages often appeared in the logs during connectivity tests
+  for traffic load balancers and system monitoring. To reduce log noise, we have now silenced these specific log messages.
 
 ## Database schema changes
 
