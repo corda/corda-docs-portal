@@ -420,7 +420,7 @@ Corda requires one or more PostgreSQL database instances for the persistence of 
 * Flow mapper workers
 * Token selection workers
 
-The configuration for these instances is defined in `stateManager` sections. At a minimum, the configuration section requires `host`, `username`, and `password`. By default, the installation expects databases named, as follows:  
+The configuration for these instances is defined in `stateManager` sections. At a minimum, the configuration section requires `host`, `username`, and `password`. By default, the installation expects databases named as follows:  
 
 * Flow worker: `flow_state_manager`
 * Flow mapper worker: `flow_mapper_state_manager`

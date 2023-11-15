@@ -9,5 +9,5 @@ menu:
     weight: 12000
 section_menu: corda51
 ---
-# corda.security
+# corda.stateManager
 {{< generate-ref-docs url="https://raw.githubusercontent.com/corda/corda-api/release/os/5.1/data/config-schema/src/main/resources/net/corda/schema/configuration/stateManager/1.0/corda.stateManager.json" >}}
