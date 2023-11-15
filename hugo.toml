@@ -22,7 +22,7 @@ pygmentsUseClasses = false
 pygmentsStyle = "emacs"
 
 # See https://gohugo.io/variables/git/
-enableGitInfo = false
+enableGitInfo = true
 
 # See https://gohugo.io/getting-started/configuration-markup#highlight
 [markup]

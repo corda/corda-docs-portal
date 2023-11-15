@@ -50,8 +50,7 @@ handling, and ensures the Corda service is run at boot.
    mkdir /opt/corda; chown corda:corda /opt/corda
    ```
 
-4. Download the [Corda jar](https://software.r3.com:443/artifactory/corda-releases/net/corda/corda/4.9)
-(under `/4.9/corda-4.9.jar`) and place it in `/opt/corda`.
+4. Download the [Corda JAR](https://download.corda.net/maven/corda-releases/net/corda/corda/4.9.8/corda-4.9.8.jar) and place it in `/opt/corda`.
 5. Create a directory called `cordapps` in `/opt/corda` and save your CorDapp jar file to it. Alternatively, download one of
 our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory.
 6. Save the following as `/opt/corda/node.conf`; see [Node configuration]({{< relref "corda-configuration-file.md" >}}) for a description of these options:
