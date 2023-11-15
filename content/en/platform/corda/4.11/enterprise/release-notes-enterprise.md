@@ -27,12 +27,16 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 ## New features and enhancements
 
+### JDK Azul and Oracle JDK upgrade
+
+Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
+
 ### Ledger Recovery
 
 A new ledger recovery flow (`LedgerRecoveryFlow`) enables a node to identify and recover transactions from
 peer recovery nodes to which it was a party (either initiator or receiver) and which are missing from its own ledger.
 
-For more information, see [Ledger Recovery Flow]({{< relref "ledger-recovery-flow.md" >}})
+For more information, see [Ledger Recovery Flow]({{< relref "ledger-recovery-flow.md" >}}).
 
 ### Confidential Identity key-pair generator
 
@@ -48,7 +52,7 @@ The following network parameters, and associated node configuration parameters, 
 * `recoveryMaximumBackupInterval`
 * `transactionRecoveryPeriod`
 
-For more information, see [Available Network Parameters]({{< relref "network/available-network-parameters.md" >}})
+For more information, see [Available Network Parameters]({{< relref "network/available-network-parameters.md" >}}).
 
 ### Distribution record cleanup
 
@@ -105,6 +109,25 @@ The following dependencies have been upgraded to address critical and high-sever
 ### Consuming transaction IDs added to `vault_state` table
 
 When a state is consumed by a transaction, Corda now adds the ID of the consuming transaction in the `consuming_tx_id` column of the `vault_state` table. Corda only updates this database column for new transactions; for existing consumed states already in the ledger, the value of `consuming_tx_id` is null.
+
+### Node configuration change for better performance
+
+To reduce flow latency and improve throughput, the following default values in the node configuration have changed:
+* `enterpriseConfiguration.tuning.brokerConnectionTtlCheckIntervalMs` changed from 20 to 1 millisecond.
+* `enterpriseConfiguration.tuning.journalBufferTimeout` changed from 3333333 nanoseconds to 1000000 nanoseconds.
+* `notary.extraConfig.batchTimeoutMs` changed from 200 to 1.
+
+### DJVM removal
+
+The DJVM component required that all updates to Corda core were compatible with the `core-deterministic` module.
+To mitigate this issue, the experimental component DJVM has been removed from this and all future releases.
+As a result of the DJVM removal, the two constructor parameters `djvmBootstrapSource` and `djvmCordaSource` have been
+removed from the `DriverParameters` class. Any client code that utilizes `DriverParameters` now requires recompiling.
+
+### Additional signature verification
+
+The `recordTransactions()` function now performs stricter signature verification when using public `ServiceHub` API.
+For more information, see [DBTransactionStorage]({{< relref "node-services.html#dbtransactionstorage" >}}).
 
 ## Fixed issues
 
@@ -181,7 +204,11 @@ This release includes the following fixes:
 
 * PostgreSQL 9.6 and 10.10 have been removed from our support matrix as they are no longer supported by PostgreSQL themselves.
 
-* Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
+* log4j2.xml now deletes the correct file for diagnostic and checkpoint logs in the rollover strategy configuration.
+
+* In the previous patch release, while enhancing SSL certificate handling, certain log messages associated
+with failed SSL handshakes were unintentionally added. These messages often appeared in the logs during connectivity tests
+for traffic load balancers and system monitoring. To reduce log noise, we have now silenced these specific log messages.
 
 ## Database schema changes
 
@@ -295,6 +322,7 @@ The following table lists the dependency version changes between 4.10.2 and 4.11
 | io.opentelemetry                   | Open Telemetry      | -                        | 1.20.1                 |
 | org.apache.commons:commons-text    | Apache Commons-Text | 1.9                      | 1.10.0                 |
 | org.apache.shiro                   | Apache Shiro        | 1.9.1                    | 1.10.0                 |
+| co.paralleluniverse:quasar-core    | Quasar              | 0.7.15_r3                | 0.7.16_r3              |
 
 ## Log4j patches
 
