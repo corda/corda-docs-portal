@@ -61,7 +61,7 @@ total counts of recovered records.
 #### `recoveryBatchSize`
 
 `recoveryBatchSize` is a performance-tuning parameter that specifies how many records should be recovered in each interaction with
-a recovery peer. It has been fine-tuned to a value of 1000 and can be tweaked to take into account the amount of physical memory
+a recovery peer. It has been fine-tuned to a value of 1,000 and can be tweaked to take into account the amount of physical memory
 available on a node host.
 
 #### `alsoFinalize`
