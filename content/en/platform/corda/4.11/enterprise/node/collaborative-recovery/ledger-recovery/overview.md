@@ -13,7 +13,7 @@ weight: 5
 # Ledger Recovery
 
 Ledger Recovery complements a standardised Corda network operational backup and recovery process.
-Use it to re-instate a Corda database from the point of a consistent backup. It is not intended to be used
+Its function is to re-instate a Corda database from the point of a consistent backup. It is not intended to be used
 to recover a partially corrupt database, for example, where records may be missing from a subset of tables.
 The Ledger Recovery process utilises new recovery distribution records in conjunction with the atomicity semantics
 of recording Corda transactions, which encompass recording the transaction to the `node_transactions` table, updating the
@@ -24,6 +24,8 @@ All transaction types are recoverable except transaction chains that have not be
 An example might be an issuance transaction that had no observers during finalisation and that has not been involved
 in subsequent transactions with other nodes in the network, yet.
 {{< /note >}}
+
+## Transaction distribution records
 
 Ledger Recovery builds on the foundations established in [Two Phase Finality]({{< relref "../../../two-phase-finality.md" >}}),
 where recovery metadata is stored for transactions at both the sender's and receiver's side of a transaction flow.
@@ -54,7 +56,7 @@ A `ReceiverDistribution` record contains the following transaction metadata:
     timestamp will be used upon storing the `ReceiverDistribution` record at each of the receiving node peers. This is
     required to enable synchronized record comparisons across peers when performing transaction recovery.
 
-The generated `ReceiverDistribution` record is then shared with all receiving peer sessions (both participants and observers)
+The generated `ReceiverDistribution` record is shared with all receiving peer sessions (both participants and observers)
 to the transaction, which stores it in their local `receiver_distribution_records` database table.
 
 {{< note >}}

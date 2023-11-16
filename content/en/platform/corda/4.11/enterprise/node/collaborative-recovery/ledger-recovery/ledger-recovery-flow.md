@@ -77,7 +77,7 @@ ledger recovery step or already existent within the local database) within the r
 
 `LedgerRecoverFlow` returns a `LedgerRecoveryResult` which includes the following information:
 
-* `totalRecoveredRecords`: Long; total number of recovered transaction Distribution Records. For the purpose of recovery counting,
+* `totalRecoveredRecords`: Long; total number of recovered transaction distribution records. For the purpose of recovery counting,
   there is a one-to-one association with a single transaction on a node.
 * `totalRecoveredTransactions`: Long; total number of recovered transactions. This may be less than the total number of distribution records
   if there are any transactions that already exist in the recovering node's database.

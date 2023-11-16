@@ -14,7 +14,9 @@ weight: 300
 The ledger recovery `DistributionList` is encrypted using AES keys stored in the node's database.
 Upon startup a node creates 10 random AES keys and stores them in the `node_aes_encryption_keys` table, if there are no keys already present.
 The keys themselves are obfuscated, by wrapping them with a deterministic AES key derived from the key's ID and the node's X.500 name.
+{{< note >}}
 This is done purely to reduce the impact of an accidental data dump of the keys, and is not meant to be secure.
+{{< /note >}}
 
 The `senderRecordedTimestamp` has been moved to a separate header object, and is treated as the authenticated additional
 data in the AES-GCM encryption. This allows it to be public, which is necessary as the receiver node needs to read it

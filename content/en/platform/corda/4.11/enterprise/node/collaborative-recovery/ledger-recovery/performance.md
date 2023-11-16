@@ -11,8 +11,7 @@ weight: 1100
 
 # Performance
 
-The Ledger Recovery flow has been optimised to support large-scale recovery of transactions (internal testing has been conducted
-using tens of thousands of transactions). This has been accomplished using a combination of:
+The Ledger Recovery flow has been optimised to support large-scale recovery of transactions. This has been accomplished using a combination of:
 * parallelism: when recovering against more than one peer.
 * batching at several layers: reconciliation window, across-the-wire transfer of records and transactions,
 and database transactional updates.
