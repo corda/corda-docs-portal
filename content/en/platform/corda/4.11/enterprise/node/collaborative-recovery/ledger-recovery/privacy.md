@@ -12,7 +12,7 @@ weight: 300
 # Privacy
 
 The ledger recovery `DistributionList` is encrypted using AES keys stored in the node's database.
-Upon startup a node creates 10 random AES keys and stores them in the `node_aes_encryption_keys` table, if there are no keys already present.
+Upon startup, a node creates ten random AES keys and stores them in the `node_aes_encryption_keys` table, if there are no keys already present.
 The keys themselves are obfuscated, by wrapping them with a deterministic AES key derived from the key's ID and the node's X.500 name.
 {{< note >}}
 This is done purely to reduce the impact of an accidental data dump of the keys, and is not meant to be secure.
