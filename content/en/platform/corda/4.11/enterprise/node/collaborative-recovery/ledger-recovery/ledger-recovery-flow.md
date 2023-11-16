@@ -49,7 +49,7 @@ This parameter is optional. The default value is `false`. If set to `true`, this
 #### `useTimeWindowNarrowing`
 
 `useTimeWindowNarrowing` specifies whether to use a window narrowing algorithm to determine the optimal time window of transactions
-that are recoverable from a peer. It defaults to *true*.
+that are recoverable from a peer. It defaults to `true`.
 For example, if the original time window specifies 30 days and there are only 3 consecutive days of missing transactions
 from day 10 to day 12, a narrowed time window will determine that reconciliation only needs to take place for that 3-day time period.
 
