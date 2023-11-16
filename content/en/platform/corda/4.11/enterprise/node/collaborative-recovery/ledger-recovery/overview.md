@@ -46,7 +46,6 @@ The `SendTransactionFlow` infers the value for receiver `StatesToRecord` based o
 {{< /note >}}
 
 Upon storing the `SenderDistribution` records for a transaction, the sender node also generates a single `ReceiverDistribution` record.
-
 A `ReceiverDistribution` record contains the following transaction metadata:
 * Transaction ID
 * Sender peer ID (the hashed value of `CordaX500Name`)
