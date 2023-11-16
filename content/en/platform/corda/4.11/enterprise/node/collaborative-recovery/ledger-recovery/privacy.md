@@ -18,6 +18,6 @@ The keys themselves are obfuscated, by wrapping them with a deterministic AES ke
 This obfuscatation only reduces the impact of an accidental data dump of the keys, and is not meant to be secure.
 {{< /note >}}
 
-The `senderRecordedTimestamp` has been moved to a separate header object, and is treated as the authenticated additional
+`senderRecordedTimestamp` is in a separate header object, and is treated as the authenticated additional
 data in the AES-GCM encryption. This allows it to be public, which is necessary as the receiver node needs to read it
 without having access to the encryption key. It also gives a guarantee to the original sender during recovery that it has not been tampered with.
