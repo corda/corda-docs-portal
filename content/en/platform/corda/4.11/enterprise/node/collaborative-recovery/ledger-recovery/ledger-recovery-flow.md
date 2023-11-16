@@ -56,7 +56,7 @@ from day 10 to day 12, a narrowed time window will determine that reconciliation
 #### `verboseLogging`
 
 `verboseLogging` specifies whether to log details of each recovered transaction. By default, the flow only reports
-total counts of recovered records. It defaults to *false*.
+total counts of recovered records. 
 
 #### `recoveryBatchSize`
 
