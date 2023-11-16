@@ -11,7 +11,7 @@ weight: 700
 
 # Usage
 
-You can perform Ledger Recovery by using one of the following methods:
+You can perform Ledger Recovery using one of the following methods:
 
 * Node shell commands
 * Directly invoking the recovery flow, either from the node shell or programmatically within a CorDapp:
