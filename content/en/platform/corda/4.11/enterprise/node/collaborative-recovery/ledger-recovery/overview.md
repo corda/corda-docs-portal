@@ -16,7 +16,7 @@ Ledger Recovery complements a standardised Corda network operational backup and 
 Its function is to re-instate a Corda database from the point of a consistent backup. It is not intended to be used
 to recover a partially corrupt database, for example, where records may be missing from a subset of tables.
 The Ledger Recovery process utilises new recovery distribution records in conjunction with the atomicity semantics
-of recording Corda transactions, which encompass recording the transaction to the `node_transactions` table, updating the
+of recording Corda transactions. The process encompasses recording the transaction to the `node_transactions` table, updating the
 vault states tables and, optionally, updating any other custom contract state tables associated with the transaction.
 
 {{< note >}}
@@ -59,7 +59,7 @@ The generated `ReceiverDistribution` record is shared with all receiving peer se
 to the transaction, which stores it in their local `receiver_distribution_records` database table.
 
 {{< note >}}
-A receiver cannot decrypt the actual contents of the distribution list within that record but can share it back to the sending node upon recovery.
+A receiver cannot decrypt the actual contents of the distribution list within the `ReceiverDistribution` record but can share it back to the sending node upon recovery.
 The Corda X.500 name of all peers stored in a Ledger Recovery record use an undecipherable collision-free representation.
 {{< /note >}}
 
@@ -68,7 +68,6 @@ Both sender's and receiver's distribution records use the same composite key typ
 * PartyId of flow peer (a secure hash stored as a String)
 * Timestamp (Instant)
 * Timestamp discriminator (Int)
-
-The timestamp discriminator allows for storing of records generated at the same time even for the same transaction.
+  The timestamp discriminator allows for storing of records generated at the same time even for the same transaction.
 
 The sender's and receiver's distribution records are subsequently used to enable Ledger Recovery.

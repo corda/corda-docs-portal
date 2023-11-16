@@ -17,7 +17,7 @@ For more information on the `transactionRecoveryPeriod` network parameter, see
 [Available Network Parameters]({{< relref "../../../network/available-network-parameters.md" >}}).
 
 Recovering transactions using confidential identities requires the successful backup of the previous window of auto-generated
-CIs. The `confidentialIdentityPreGenerationPeriod` network parameter must be configured to specify the cut-off time after
+confidential identities. The `confidentialIdentityPreGenerationPeriod` network parameter must be configured to specify the cut-off time after
 which we assume keys have not been backed up.
 
 For more information on the `confidentialIdentityPreGenerationPeriod` network parameter, see

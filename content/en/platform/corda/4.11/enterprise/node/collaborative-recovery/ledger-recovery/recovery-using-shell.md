@@ -5,11 +5,11 @@ menu:
     parent: corda-enterprise-4-11-ledger-recovery
 tags:
 - ledger recovery
-title: Ledger recovery using the shell
+title: Ledger Recovery using the shell
 weight: 800
 ---
 
-# Ledger recovery using the shell
+# Ledger Recovery using the shell
 
 The following examples show the different ways to use the Ledger Recovery flow from the Corda node shell.
 
