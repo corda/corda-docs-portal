@@ -312,7 +312,9 @@ This generates a file called `my-mapped-schema.changelog-master.sql` in a folder
 If no `MappedSchema` object is specified, the tool generates one SQL file for each schema defined in the CorDapp.
 4. Inspect the file(s) to ensure correctness. This is a standard SQL file with some Liquibase metadata as comments.
 5. Create a JAR containing the `migration` folder (`originalCorDappName-migration.jar`).
-6. Deploy the JAR in the node’s `cordapps` folder with the CorDapp by running `jar cvf /path/to/node/cordapps/MyCordapp-migration.jar migration` in the node’s base directory.
+6. Execute this command in the cordapps folder for each node requiring migration SQL to be applied:
+
+   jar cvf [cordapp name]-migration.jar ../migration
 
 Test the migration by running with the database management tool and inspecting the output file.
 
