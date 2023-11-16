@@ -191,39 +191,45 @@ imagePullSecrets:
 
 ### Replica Counts
 
-For high-availability, specify at least three replicas for each type of Corda worker:
+R3 suggest ten replicas for the following types of Corda worker:
+
+* Flow
+* Flow mapper
+* Token selection
+
+R3 suggest two replicas for the remaining types of Corda workers. For example:
 
 ```yaml
 workers:
   crypto:
-    replicaCount: 3
+    replicaCount: 2
   db:
-    replicaCount: 3
+    replicaCount: 2
   flow:
-    replicaCount: 3
+    replicaCount: 5
   flowMapper:
-    replicaCount: 3
+    replicaCount: 5
   verification:
-    replicaCount: 3
+    replicaCount: 2
   membership:
-    replicaCount: 3
+    replicaCount: 2
   rest:
-    replicaCount: 3
+    replicaCount: 2
   p2pGateway:
-    replicaCount: 3
+    replicaCount: 2
   p2pLinkManager:
-    replicaCount: 3
+    replicaCount: 2
   persistence:
-    replicaCount: 3
+    replicaCount: 2
   tokenSelection:
-    replicaCount: 3
+    replicaCount: 5
   uniqueness:
-    replicaCount: 3
+    replicaCount: 2
 ```
 
-{{< note >}}
-Depending on your application workload, you may require additional replicas.
-{{< /note >}}
+{{< important >}}
+These numbers are only suggestions and you should make your own decisions about scaling depending on your application workload.
+{{< /important >}}
 
 ### Resource Requests and Limits
 
@@ -992,7 +998,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "crypto"
-    replicaCount: 3
+    replicaCount: 2
 
   db:
     kafka:
@@ -1009,7 +1015,7 @@ workers:
         memory: 2048Mi
       limits:
         memory: 2048Mi
-    replicaCount: 3
+    replicaCount: 2
 
   flow:
     kafka:
@@ -1026,7 +1032,7 @@ workers:
         memory: 2048Mi
       limits:
         memory: 2048Mi
-    replicaCount: 3
+    replicaCount: 5
     stateManager:
       db:
         host: "flow-state-manager-db-postgresql"
@@ -1048,7 +1054,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "flowMapper"
-    replicaCount: 3
+    replicaCount: 5
     stateManager:
       db:
         host: "flow-mapper-state-manager-db-postgresql"
@@ -1070,7 +1076,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "verification"
-    replicaCount: 3
+    replicaCount: 2
 
   membership:
     kafka:
@@ -1082,7 +1088,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "membership"
-    replicaCount: 3
+    replicaCount: 2
 
   p2pGateway:
     kafka:
@@ -1094,7 +1100,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "p2pGateway"
-    replicaCount: 3
+    replicaCount: 2
 
   p2pLinkManager:
     kafka:
@@ -1106,7 +1112,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "p2pLinkManager"
-    replicaCount: 3
+    replicaCount: 2
 
   persistence:
     kafka:
@@ -1123,7 +1129,7 @@ workers:
         memory: 2048Mi
       limits:
         memory: 2048Mi
-    replicaCount: 3
+    replicaCount: 2
 
   tokenSelection:
     kafka:
@@ -1135,7 +1141,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "tokenSelection"
-    replicaCount: 3
+    replicaCount: 5
     stateManager:
       db:
         host: "token-selection-state-manager-db-postgresql"
@@ -1157,7 +1163,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "rest"
-    replicaCount: 3
+    replicaCount: 2
     service:
       type: "LoadBalancer"
       annotations:
@@ -1176,7 +1182,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "uniqueness"
-    replicaCount: 3
+    replicaCount: 2
 ```
 
 ## Deployment
