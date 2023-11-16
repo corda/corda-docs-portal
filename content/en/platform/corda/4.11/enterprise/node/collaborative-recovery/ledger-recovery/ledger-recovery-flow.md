@@ -44,7 +44,7 @@ This parameter is optional. The default value is `false`. If set to `true`, this
 
 #### `dryRun`
 
-`dryRun` can be used to identify missing transactions without performing actual recovery. This parameter is optional. It defaults to *false*.
+`dryRun` can be used to identify missing transactions without performing actual recovery. This parameter is optional. It defaults to `false`.
 
 #### `useTimeWindowNarrowing`
 
