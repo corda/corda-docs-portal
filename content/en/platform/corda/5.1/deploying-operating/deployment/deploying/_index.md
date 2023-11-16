@@ -191,7 +191,7 @@ imagePullSecrets:
 
 ### Replica Counts
 
-R3 suggest ten replicas for the following types of Corda worker:
+R3 suggest five replicas for the following types of Corda worker:
 
 * Flow
 * Flow mapper
