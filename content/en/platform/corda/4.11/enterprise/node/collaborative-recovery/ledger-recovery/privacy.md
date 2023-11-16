@@ -19,5 +19,5 @@ This obfuscatation only reduces the impact of an accidental data dump of the key
 {{< /note >}}
 
 `senderRecordedTimestamp` is in a separate header object, and is treated as the authenticated additional
-data in the AES-GCM encryption. This allows it to be public, which is necessary as the receiver node needs to read it
+data in the AES-GCM encryption. This allows it to be public, which is necessary to allow the receiver node to read it
 without having access to the encryption key. It also gives a guarantee to the original sender during recovery that it has not been tampered with.
