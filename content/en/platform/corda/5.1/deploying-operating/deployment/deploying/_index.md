@@ -420,7 +420,7 @@ db:
 
 #### State Manager Databases
 
-Corda requires one or more PostgreSQL database instances for the persistence of state between worker types. These are referred to as state manager databases. R3 recommends that you deploy separate isolated State Manager database instances for the following workers:
+Corda requires one or more PostgreSQL database instances for the persistence of state between worker types. These are referred to as state manager databases. R3 recommends that you deploy separate isolated state manager database instances for the following workers:
 
 * Flow workers
 * Flow mapper workers
