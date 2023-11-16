@@ -49,7 +49,7 @@ Upon storing the `SenderDistribution` records for a transaction, the sender node
 A `ReceiverDistribution` record contains the following transaction metadata:
 * Transaction ID
 * Sender peer ID (the hashed value of `CordaX500Name`)
-* A distribution list comprising two sections:
+* A distribution list comprised of two sections:
   * An AES-encrypted map of the peer IDs of all receiving peers for the transaction and their associated `StatesToRecord` value.
   * A tamper-proof cleartext `senderRecordedTimestamp`, indicating when the sender records were generated. The same
     timestamp will be used upon storing the `ReceiverDistribution` record at each of the receiving node peers. This is
