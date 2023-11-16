@@ -21,7 +21,7 @@ vault states tables and, optionally, updating any other custom contract state ta
 
 {{< note >}}
 All transaction types are recoverable except transaction chains that have not been observed by other nodes.
-An example might be an issuance transaction that had no observers during finalisation and that has not been involved
+For example, an issuance transaction that had no observers during finalization and that has not been involved
 in subsequent transactions with other nodes in the network, yet.
 {{< /note >}}
 
