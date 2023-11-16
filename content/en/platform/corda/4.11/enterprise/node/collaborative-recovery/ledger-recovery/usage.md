@@ -22,7 +22,7 @@ You can perform Ledger Recovery using one of the following methods:
 
 All recovery operations return a `LedgerRecoveryResult`.
 Use `verboseLogging` to generate detailed information in the Corda node logs for individual records and transactions recovered.
-Use with caution as it is indeed verbose.
+Enable verbose logging with caution as it will increase the size of your logs.
 
 {{< important >}}
 A Corda node maintains internal caches that could become out of synch with the database if a Corda node is not brought down during
