@@ -40,7 +40,7 @@ A `SenderDistribution` record contains the following transaction metadata:
 * Receiver `StatesToRecord` value
 
 {{< note >}}
-The `SendTransactionFlow` has been enhanced to infer the value for receiver `StatesToRecord` based on the type of sessions passed into its constructor:
+The `SendTransactionFlow` infers the value for receiver `StatesToRecord` based on the type of sessions passed into its constructor:
 * `val participantSessions: Set<FlowSession>` defaults to `ONLY_RELEVANT`
 * `val observerSessions: Set<FlowSession>` defaults to `ALL_VISIBLE`
 {{< /note >}}
