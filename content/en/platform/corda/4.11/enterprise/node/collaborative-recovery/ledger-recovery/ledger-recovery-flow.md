@@ -40,7 +40,7 @@ The precedence order for this parameter is user-specified first, then node confi
 #### `useAllNetworkNodes`
 
 `useAllNetworkNodes` specifies if all peer nodes in the network map (excluding notary nodes) are to be used for recovery.
-This parameter is optional. The default value is *false*. If set to *true*, this parameter overrides the `recoveryPeers` list.
+This parameter is optional. The default value is `false`. If set to `true`, this parameter overrides the `recoveryPeers` list.
 
 #### `dryRun`
 
