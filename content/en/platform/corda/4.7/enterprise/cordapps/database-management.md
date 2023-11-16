@@ -328,7 +328,7 @@ being applied as follows:
 This will generate a file called `my-mapped-schema.changelog-master.sql` in a folder called `migration` in the `base-directory`.
 If no `MappedSchema` object is specified, the tool will generate one SQL file for each schema defined in the CorDapp
 * Inspect the file(s) to make sure it is correct. This is a standard SQL file with some Liquibase metadata as comments
-* Execute this command in the cordapps folder for each node requiring migration SQL to be applied:
+* Execute this command in the `cordapps` folder for each node requiring migration SQL to be applied:
 
    `jar cvf [cordapp name]-migration.jar ../migration`
 
