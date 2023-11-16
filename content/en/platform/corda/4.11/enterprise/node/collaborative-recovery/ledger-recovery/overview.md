@@ -64,7 +64,7 @@ The Corda X.500 name of all peers stored in a Ledger Recovery record use an unde
 {{< /note >}}
 
 Both sender's and receiver's distribution records use the same composite key type for uniquely storing records. The `PersistentKey` contains the following fields:
-* The transaction ID
+* Transaction ID
 * PartyId of flow peer (a secure hash stored as a String)
 * Timestamp (Instant)
 * Timestamp discriminator (Int)
