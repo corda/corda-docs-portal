@@ -13,7 +13,6 @@ weight: 400
 
 Ledger Recovery is intended to be used in conjunction with a holistic Corda network backup policy. The `LedgerRecoveryFlow`
 defaults to using the ledger `transactionRecoveryPeriod` network parameter value for its `TimeRecoveryWindow`.
-
 For more information on the `transactionRecoveryPeriod` network parameter, see
 [Available Network Parameters]({{< relref "../../../network/available-network-parameters.md" >}}).
 
