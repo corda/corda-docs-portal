@@ -67,7 +67,7 @@ available on a node host.
 #### `alsoFinalize`
 
 `alsoFinalize` specifies whether to attempt recovery of any `IN_FLIGHT` transactions recovered from a peer.
-It defaults to *false*. See also [Finality Flow Recovery]({{< relref "../../../finality-flow-recovery.md" >}}).
+It defaults to `false`. See also [Finality Flow Recovery]({{< relref "../../../finality-flow-recovery.md" >}}).
 {{< note >}}
 This option attempts to finalize any `FAILED` in-flight transactions (either recovered as part of the previous
 ledger recovery step or already existent within the local database) within the recovery `timeWindow`.
