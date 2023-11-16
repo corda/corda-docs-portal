@@ -314,7 +314,7 @@ If no `MappedSchema` object is specified, the tool generates one SQL file for ea
 5. Create a JAR containing the `migration` folder (`originalCorDappName-migration.jar`).
 6. Execute this command in the `cordapps` folder for each node requiring migration SQL to be applied:
 
-   jar cvf [cordapp name]-migration.jar ../migration
+   `jar cvf [cordapp name]-migration.jar ../migration`
 
 Test the migration by running with the database management tool and inspecting the output file.
 
