@@ -9,7 +9,6 @@ tags:
 - install
 - node operator
 
-
 title: Implementing Collaborative Recovery
 weight: 200
 ---
