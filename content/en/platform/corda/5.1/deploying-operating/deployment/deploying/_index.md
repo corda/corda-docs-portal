@@ -679,7 +679,7 @@ consuming from the topics as appropriate for each worker.
 
 #### Database
 
-The database bootstrapping creates schemas in the cluster database and populates them with the initial configuration. It is enabled by default:
+The database bootstrapping creates schemas in the cluster and state manager databases and populates them with the initial configuration. It is enabled by default:
 
 ```yaml
 bootstrap:
