@@ -30,6 +30,10 @@ For more information about platform versions, see [Versioning]({{< relref "versi
 
 ## New features and enhancements
 
+### JDK Azul and Oracle JDK upgrade
+
+Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
+
 ### Two Phase Finality
 
 Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this new improved protocol.
@@ -71,6 +75,13 @@ These parameters are also used to infer and construct the type of recovery metad
 
 An AES-key implementation is used to encrypt and decrypt distribution record recovery metadata for sharing and persistence amongst peers.
 
+### DJVM removal
+
+The DJVM component required that all updates to Corda core were compatible with the `core-deterministic` module.
+To mitigate this issue, the experimental component DJVM has been removed from this and all future releases.
+As a result of the DJVM removal, the two constructor parameters `djvmBootstrapSource` and `djvmCordaSource` have been
+removed from the `DriverParameters` class. Any client code that utilizes `DriverParameters` now requires recompiling.
+
 ## Fixed issues
 
 This release includes the following fixes:
@@ -99,7 +110,11 @@ This release includes the following fixes:
 
 * PostgreSQL 9.6 and 10.10 have been removed from our support matrix as they are no longer supported by PostgreSQL themselves.
 
-* Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
+* log4j2.xml now deletes the correct file for diagnostic and checkpoint logs in the rollover strategy configuration.
+
+* In the previous patch release, while enhancing SSL certificate handling, certain log messages associated
+  with failed SSL handshakes were unintentionally added. These messages often appeared in the logs during connectivity tests
+  for traffic load balancers and system monitoring. To reduce log noise, we have now silenced these specific log messages.
 
 ## Database schema changes
 
@@ -211,6 +226,7 @@ The following table lists the dependency version changes between 4.9.5 and 4.10 
 | com.squareup.okhttp3 | OKHttp         | 3.14.2                  | 3.14.9                 |
 | org.bouncycastle	   | Bouncy Castle  | 1.68                    | 1.70                   |
 | io.opentelemetry	   | Open Telemetry | -                       | 1.20.1                 |
+| co.paralleluniverse:quasar-core    | Quasar       | 0.7.15_r3   | 0.7.16_r3              |
 
 ## Log4j patches
 Click [here]({{< relref "./log4j-patches.md" >}}) to find all patches addressing the December 2021 Log4j vulnerability.
