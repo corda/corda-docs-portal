@@ -1,10 +1,10 @@
 ---
-date: '2023-11-17'
+date: '2020-04-24T12:00:00Z'
 menu:
   corda-enterprise-4-11:
-    identifier: corda-enterprise-4-11-corda-nodes-collaborative-recovery-v121
-    name: "Collaborative Recovery V1.2.1"
-    parent: corda-enterprise-4-11-corda-nodes-collaborative-recovery
+    identifier: corda-enterprise-4-11-corda-nodes-collaborative-recovery
+    name: "Collaborative Recovery"
+    parent: corda-enterprise-4-11-corda-nodes
 tags:
 - disaster recovery
 - collaborative recovery
@@ -12,10 +12,10 @@ tags:
 - node operator
 
 title: Collaborative Recovery V1.2.1
-weight: 10
+weight: 100
 ---
 
-# Collaborative Recovery V1.2.1
+# Collaborative Recovery
 
 **Who this documentation is for:**
 * Node operators
@@ -51,11 +51,11 @@ This change does not remove the file size limit from a network, so if the export
 
 ### Changes in V1.2
 
-In Collaborative Recovery V1.2, LedgerSync has been modified to be compatible with the [Archive Service]({{< relref "../../archiving/archiving-setup.md" >}}).
+In Collaborative Recovery V1.2, LedgerSync has been modified to be compatible with the [Archive Service]({{< relref "../archiving/archiving-setup.md" >}}).
 
 ### Changes from V1.0 to V1.1
 
-Collaborative Recovery 1.1 now makes use of [LedgerGraph as a stand-alone CorDapp]({{< relref "../../operating/ledger-graph.md" >}}) to get in-memory access to transaction data. In V 1.0, this was bundled with the other Collaborative Recovery CorDapps. Support for **Confidential Identities** has been moved from **LedgerSync** to **LedgerGraph** CorDapps.
+Collaborative Recovery 1.1 now makes use of [LedgerGraph as a stand-alone CorDapp]({{< relref "../operating/ledger-graph.md" >}}) to get in-memory access to transaction data. In V 1.0, this was bundled with the other Collaborative Recovery CorDapps. Support for **Confidential Identities** has been moved from **LedgerSync** to **LedgerGraph** CorDapps.
 
 ## Main stages of Collaborative Recovery
 
@@ -88,7 +88,7 @@ If you find yourself in this position, or if your other disaster recovery proced
 
 ## Who can use Collaborative Recovery
 
-Collaborative Recovery applications have a minimum platform version of 6 and are compatible only with [Corda Enterprise]({{< relref "../../../about-corda/enterprise-vs-community.md" >}}) nodes.
+Collaborative Recovery applications have a minimum platform version of 6 and are compatible only with [Corda Enterprise]({{< relref "../../about-corda/enterprise-vs-community.md" >}}) nodes.
 
 Collaborative Recovery is an Enterprise, CorDapp-level solution and is not shipped as a part of Corda itself. Only nodes that have the Collaborative Recovery CorDapps installed can participate in Collaborative Recovery. In mixed networks that consist of both Open Source and Enterprise nodes, only the Enterprise nodes of the right version that have the Collaborative Recovery CorDapps installed will be able to participate in Collaborative Recovery.
 
@@ -132,7 +132,7 @@ Collaborative Recovery is made up of two CorDapps - **LedgerSync** and **LedgerR
 
 ### LedgerGraph
 
-[LedgerGraph]({{< relref "../../operating/ledger-graph.md" >}}) is a CorDapp used to get in-memory access to transaction data. Transaction information is kept in a graph structure on any node where **LedgerGraph** is installed. As not all transactions are related to all other transactions, it can actually contain multiple components (or sub-graphs): each a **directed acyclic graph** (DAG).
+[LedgerGraph]({{< relref "../operating/ledger-graph.md" >}}) is a CorDapp used to get in-memory access to transaction data. Transaction information is kept in a graph structure on any node where **LedgerGraph** is installed. As not all transactions are related to all other transactions, it can actually contain multiple components (or sub-graphs): each a **directed acyclic graph** (DAG).
 
 ### LedgerSync
 
@@ -211,7 +211,7 @@ If you are using other R3 Corda Enterprise libraries, you may need to take extra
 
 ### Tokens SDK - fully compatible
 
-Collaborative Recovery is fully compatible with the [Tokens]({{< relref "../../../cordapps/token-sdk-introduction.md" >}})
+Collaborative Recovery is fully compatible with the [Tokens]({{< relref "../../cordapps/token-sdk-introduction.md" >}})
 SDK.
 
 ### Accounts SDK - compatible with limitations
@@ -228,4 +228,4 @@ It is currently not possible to recover the issuance transaction containing an `
 
 Collaborative Recovery is *not* compatible with the legacy Corda Finance module. This is due to the way Confidential Identities are used as a part of the `CashPaymentFlow`.
 
-In general, it is recommended that you avoid the legacy Corda Finance module in favour of [Tokens]({{< relref "../../../cordapps/token-sdk-introduction.md" >}}) and Accounts SDKs.
+In general, it is recommended that you avoid the legacy Corda Finance module in favour of [Tokens]({{< relref "../../cordapps/token-sdk-introduction.md" >}}) and Accounts SDKs.

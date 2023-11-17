@@ -1,13 +1,14 @@
 ---
-date: '2023-11-17'
+date: '2020-04-24T12:00:00Z'
 menu:
   corda-enterprise-4-11:
-    parent: corda-enterprise-4-11-corda-nodes-collaborative-recovery-v121
+    parent: corda-enterprise-4-11-corda-nodes-collaborative-recovery
 tags:
 - disaster recovery
 - collaborative recovery
 - install
 - node operator
+
 
 title: Implementing Collaborative Recovery
 weight: 200

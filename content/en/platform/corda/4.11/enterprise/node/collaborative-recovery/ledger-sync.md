@@ -1,8 +1,8 @@
 ---
-date: '2023-11-17'
+date: '2020-04-24T12:00:00Z'
 menu:
   corda-enterprise-4-11:
-    parent: corda-enterprise-4-11-corda-nodes-collaborative-recovery-v121
+    parent: corda-enterprise-4-11-corda-nodes-collaborative-recovery
 tags:
 - disaster recovery
 - collaborative recovery
@@ -52,7 +52,7 @@ The **LedgerSync** CorDapp requires participating Corda nodes to
  - be using Corda Enterprise, not Corda Open Source (OS); and
  - be using Corda Minimum Platform Version (MPV) >= 6; and
  - have the matching version of the LedgerGraph CorDapp installed; and
- - running on top of a supported [database technology]({{< relref "../../../platform-support-matrix.md" >}}).
+ - running on top of a supported [database technology]({{< relref "../../platform-support-matrix.md" >}}).
 
 {{< note >}}
 This version of LedgerSync is compatible with Corda's Archiving functionality. If you or parties on your network use Archiving, you can find out [what to expect when running ledger sync here](#integration-with-archiving).
@@ -109,7 +109,7 @@ The flow will first check that the node is self-consistent - a check facilitated
 
 If the other party being reconciled with is too busy, the scheduler will make numerous attempts to perform the reconciliation with an appropriate fallback so as not to overwhelm the other party's node with repeated attempts. The number of attempts depends on the node's LedgerSync configuration - see the `maxReconciliationRetryAttemptTimeout` configuration parameter in the table above.
 
-Reconciliation is bound by the `maxMessageSize` [network parameter]({{< relref "../../../network/network-map.md#network-parameters" >}}). This means that if there is a very large number of differences between two nodes, it may not be possible to perform the reconciliation. In that event, the reconciliation would fail with `MaxMessageSizeExceededException`. You can see this in the logs, or by calling `GetReconciliationStatusForPartyFlow`.
+Reconciliation is bound by the `maxMessageSize` [network parameter]({{< relref "../../network/network-map.md#network-parameters" >}}). This means that if there is a very large number of differences between two nodes, it may not be possible to perform the reconciliation. In that event, the reconciliation would fail with `MaxMessageSizeExceededException`. You can see this in the logs, or by calling `GetReconciliationStatusForPartyFlow`.
 
 {{< attention >}}
 When you request a reconciliation to be performed with a party, if the execution pool is full, the reconciliation will be delayed until an open spot in the pool becomes available. If the node is restarted, and the reconciliation job has not entered the execution pool prior to the restart, the job will be lost and will need to be re-requested by calling this flow again.
