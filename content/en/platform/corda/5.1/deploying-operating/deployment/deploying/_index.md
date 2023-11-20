@@ -888,7 +888,7 @@ bootstrap:
     enabled: false
 ```
 
-If the pre-install checks fail, for example, if Kafka or PostgreSQL are not available, you can retrieve the logs for a single pod using `kubectl`. For more information on retrieving the logs, see the [Logs]({{< relref "../../observability/logs.md" >}}) section.
+If the pre-install checks fail (for example, if Kafka or PostgreSQL are not available), you can retrieve the logs for a single pod using `kubectl`. For more information on retrieving the logs, see the [Logs]({{< relref "../../observability/logs.md" >}}) section.
 
 ### Example Configuration
 
