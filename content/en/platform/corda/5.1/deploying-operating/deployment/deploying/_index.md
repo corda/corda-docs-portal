@@ -195,7 +195,7 @@ R3 suggest the following number of replicas for each type of worker:
 
 * Database: 2
 * Flow: 6
-* Remaining types of workers: 3
+* All other types of workers: 3
 
 For example:
 
@@ -216,7 +216,7 @@ workers:
   rest:
     replicaCount: 3
   p2pGateway:
-    replicaCount: 2
+    replicaCount: 3
   p2pLinkManager:
     replicaCount: 3
   persistence:
@@ -418,7 +418,7 @@ db:
 
 #### State Manager Databases
 
-Corda requires one or more PostgreSQL database instances for the persistence of state between worker types. These are referred to as state manager databases. R3 recommends that you deploy separate isolated state manager database instances for the following workers:
+Corda requires one or more PostgreSQL database instances for the persistence of state. These are referred to as state manager databases. R3 recommends that you deploy separate isolated state manager database instances for the following workers:
 
 * Flow workers
 * Flow mapper workers
