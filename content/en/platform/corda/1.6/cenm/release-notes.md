@@ -31,11 +31,11 @@ This release includes the following dependency version changes between CENM 1.5.
 * Apache Tomcat has been upgraded from 9.0.80 to 9.0.81
 * Bouncy Castle has been upgraded from 1.68 to 1.75
 
-* H2 has been upgraded from 1.4.197 to 2.1.214
+* H2 has been upgraded from 1.4.197 to 2.2.214
 
   H2 database has been upgraded to version 2.2.224 primarily to address vulnerabilities reported in earlier versions of H2.
   H2 is not a supported production database and should only be utilized for development and test purposes. For detailed information
-  regarding the differences between H2 version 1.4.197 used in 4.10 and below, and the new H2 version 2.2.224 implemented in 4.11,
+  regarding the differences between H2 version 1.4.197 used in CENM 1.5.9 and below, and the new H2 version 2.2.224 implemented in CENM 1.6,
   see the [H2 documentation](https://www.h2database.com/html/main.html). Although, a few noteworthy points are outlined below:
 
   * Entity naming
