@@ -26,10 +26,10 @@ title: Release notes
 ### Upgraded dependencies
 
 This release includes the following dependency version changes between CENM 1.5.9 and 1.6:
-* Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final.
-* Hibernate Validator has been upgraded to 6.2.5.Final.
-* Apache Tomcat has been upgraded from 9.0.80 to 9.0.81.
-* Bouncy Castle has been upgraded from 1.68 to 1.75.
+* Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final
+* Hibernate Validator has been upgraded to 6.2.5.Final
+* Apache Tomcat has been upgraded from 9.0.80 to 9.0.81
+* Bouncy Castle has been upgraded from 1.68 to 1.75
 
 * H2 has been upgraded from 1.4.197 to 2.1.214
 
