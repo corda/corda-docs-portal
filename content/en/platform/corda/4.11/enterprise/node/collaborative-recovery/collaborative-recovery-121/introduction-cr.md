@@ -12,7 +12,7 @@ tags:
 - node operator
 
 title: Collaborative Recovery V1.2.1
-weight: 100
+weight: 150
 ---
 
 # Collaborative Recovery
