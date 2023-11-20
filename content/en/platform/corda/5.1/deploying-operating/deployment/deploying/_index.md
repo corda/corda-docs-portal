@@ -191,40 +191,40 @@ imagePullSecrets:
 
 ### Replica Counts
 
-R3 suggest five replicas for the following types of Corda worker:
+R3 suggest the following number of replicas for each type of worker:
 
-* Flow
-* Flow mapper
-* Token selection
+* Database: 2
+* Flow: 6
+* Remaining types of workers: 3
 
-R3 suggest two replicas for the remaining types of Corda workers. For example:
+For example:
 
 ```yaml
 workers:
   crypto:
-    replicaCount: 2
+    replicaCount: 3
   db:
     replicaCount: 2
   flow:
-    replicaCount: 5
+    replicaCount: 6
   flowMapper:
-    replicaCount: 5
+    replicaCount: 3
   verification:
-    replicaCount: 2
+    replicaCount: 3
   membership:
-    replicaCount: 2
+    replicaCount: 3
   rest:
-    replicaCount: 2
+    replicaCount: 3
   p2pGateway:
     replicaCount: 2
   p2pLinkManager:
-    replicaCount: 2
+    replicaCount: 3
   persistence:
-    replicaCount: 2
+    replicaCount: 3
   tokenSelection:
-    replicaCount: 5
+    replicaCount: 3
   uniqueness:
-    replicaCount: 2
+    replicaCount: 3
 ```
 
 {{< important >}}
@@ -238,10 +238,10 @@ Specify a default set of resource requests and limits for the Corda containers. 
 ```yaml
 resources:
   requests:
-    memory: 512Mi
-    cpu: 250m
+    memory: 1500Mi
+    cpu: 1000m
   limits:
-    memory: 512Mi
+    memory: 3000Mi
     cpu: 2000m
 ```
 {{< note >}}
@@ -275,10 +275,8 @@ For an AWS topology, we recommend the following initial configuration:
 
 * Kubernetes: For a cluster with a single replica of each worker, a Kubernetes cluster with two `t3.2xlarge` nodes is
   a reasonable starting point. For a cluster with three replicas of each worker, extend that to four nodes.
-
 * RDS PostgreSQL: `db.r5.large` instance size is sufficient for both a Corda cluster with a single replica of each worker
   and three replicas of each worker, subject to the persistence requirements of any {{< tooltip >}}CorDapp{{< /tooltip >}} running in the cluster.
-
 * MSK: For a cluster with a single replica of each worker and a topic replica count of three, a Kafka cluster of three
   `kafka.t3.small` instances may suffice. In a high-availability topology with three replicas of each worker and a topic replica count
   of three, we recommend five brokers using at least `kafka.m5.large` instances.
@@ -998,7 +996,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "crypto"
-    replicaCount: 2
+    replicaCount: 3
 
   db:
     kafka:
@@ -1032,7 +1030,7 @@ workers:
         memory: 2048Mi
       limits:
         memory: 2048Mi
-    replicaCount: 5
+    replicaCount: 6
     stateManager:
       db:
         host: "flow-state-manager-db-postgresql"
@@ -1054,7 +1052,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "flowMapper"
-    replicaCount: 5
+    replicaCount: 3
     stateManager:
       db:
         host: "flow-mapper-state-manager-db-postgresql"
@@ -1076,7 +1074,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "verification"
-    replicaCount: 2
+    replicaCount: 3
 
   membership:
     kafka:
@@ -1088,7 +1086,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "membership"
-    replicaCount: 2
+    replicaCount: 3
 
   p2pGateway:
     kafka:
@@ -1100,7 +1098,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "p2pGateway"
-    replicaCount: 2
+    replicaCount: 3
 
   p2pLinkManager:
     kafka:
@@ -1112,7 +1110,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "p2pLinkManager"
-    replicaCount: 2
+    replicaCount: 3
 
   persistence:
     kafka:
@@ -1129,7 +1127,7 @@ workers:
         memory: 2048Mi
       limits:
         memory: 2048Mi
-    replicaCount: 2
+    replicaCount: 3
 
   tokenSelection:
     kafka:
@@ -1141,7 +1139,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "tokenSelection"
-    replicaCount: 5
+    replicaCount: 3
     stateManager:
       db:
         host: "token-selection-state-manager-db-postgresql"
@@ -1163,7 +1161,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "rest"
-    replicaCount: 2
+    replicaCount: 3
     service:
       type: "LoadBalancer"
       annotations:
@@ -1182,7 +1180,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "uniqueness"
-    replicaCount: 2
+    replicaCount: 3
 ```
 
 ## Deployment
