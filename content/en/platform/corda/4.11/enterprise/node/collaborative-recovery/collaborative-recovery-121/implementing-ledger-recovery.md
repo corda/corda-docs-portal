@@ -1,16 +1,17 @@
 ---
-date: '2020-04-24T12:00:00Z'
+date: '2023-11-20'
 menu:
   corda-enterprise-4-11:
     parent: corda-enterprise-4-11-corda-nodes-collaborative-recovery-121
 tags:
 - disaster recovery
 - collaborative recovery
-- install
+- implement
 - node operator
+- business network operator
 
-title: Implementing Collaborative Recovery
-weight: 200
+title: Implementing Collaborative Recovery V1.2.1
+weight: 250
 ---
 
 # Collaborative Recovery for Business Network operations
