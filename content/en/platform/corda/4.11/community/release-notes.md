@@ -44,7 +44,7 @@ See [Two Phase Finality]({{< relref "two-phase-finality.md" >}}).
 
 The following dependencies have been upgraded to address critical and high-severity security vulnerabilities:
 
-#### H2 upgraded from 1.4.199 to 2.1.214
+#### H2 upgraded from 1.4.199 to 2.2.214
 H2 database has been upgraded to version 2.2.224 primarily to address vulnerabilities reported in earlier versions of H2.
 H2 is not a supported production database and should only be utilized for development and test purposes. For detailed information
 regarding the differences between H2 version 1.4.199 used in 4.10 and below, and the new H2 version 2.2.224 implemented in 4.11,
