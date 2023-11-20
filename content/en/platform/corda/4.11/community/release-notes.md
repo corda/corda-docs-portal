@@ -51,6 +51,7 @@ regarding the differences between H2 version 1.4.199 used in 4.10 and below, and
 see the [H2 documentation](https://www.h2database.com/html/main.html). Although, a few noteworthy points are outlined below:
 
 * Entity naming
+
   In this version of H2, there are stricter rules regarding the naming of tables and columns within the database.
   The use of SQL keywords is no longer permitted. If a CorDapp schema uses a reserved name for a table or column,
   the CorDapp's flows will fail when attempting to interact with the table, resulting in an SQL-related exception.
@@ -59,6 +60,7 @@ see the [H2 documentation](https://www.h2database.com/html/main.html). Although,
   process should be implemented in the CorDapp's migration scripts and in the JPA entity definition within the CorDapp code.
 
 * Backwards compatibility
+
   H2 version 2.x is not backwards-compatible with older versions. Limited backwards compatibility can be achieved by adding
   `MODE=LEGACY` to the H2 database URL. For more information, go to the LEGACY Compatibility Mode section
   of the [H2 Features](https://www.h2database.com/html/features.html) page.
@@ -70,10 +72,12 @@ see the [H2 documentation](https://www.h2database.com/html/main.html). Although,
 #### Liquibase upgraded from 3.6.3 to 4.20.0
 
 * API
+
   This version of Liquibase features a slightly different API compared to the previous version. CorDapps that have implemented
   their own database migration code that uses Liquibase need to be updated to align with the new API.
 
 * Logging
+
   In this version of Liquibase, all informational logging is directed to stderr, while stdout is used for logging SQL queries.
   Utilities that have implemented their own database migration code that uses Liquibase can establish their custom logger
   to capture Liquibase's informational logging. The Liquibase API provides classes that can be used to integrate custom loggers.
