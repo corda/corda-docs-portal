@@ -14,7 +14,7 @@ title: Implementing Collaborative Recovery V1.2.1
 weight: 250
 ---
 
-# Collaborative Recovery for Business Network operations
+# Collaborative Recovery V1.2.1 for Business Network operations
 
 **Who this documentation is for:**
 * Node operators

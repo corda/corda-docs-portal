@@ -9,11 +9,11 @@ tags:
 - install
 - node operator
 
-title: Deploy and operate Collaborative Recovery
+title: Deploy and operate Collaborative Recovery V1.2.1
 weight: 300
 ---
 
-# Deploy and operate Collaborative Recovery
+# Deploy and operate Collaborative Recovery V1.2.1
 
 **Who this documentation is for:**
 * Node operators
