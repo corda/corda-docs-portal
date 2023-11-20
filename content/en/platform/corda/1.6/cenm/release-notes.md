@@ -40,23 +40,23 @@ This release includes the following dependency version changes between CENM 1.5.
 
   * Entity naming
 
-  In this version of H2, there are stricter rules regarding the naming of tables and columns within the database.
-  The use of SQL keywords is no longer permitted.
+    In this version of H2, there are stricter rules regarding the naming of tables and columns within the database.
+    The use of SQL keywords is no longer permitted.
 
   * Backwards compatibility
 
-  H2 version 2.x is not backwards-compatible with older versions. Limited backwards compatibility can be achieved by adding
-  `MODE=LEGACY` to the H2 database URL. For more information, go to the LEGACY Compatibility Mode section
-  of the [H2 Features](https://www.h2database.com/html/features.html) page.
+    H2 version 2.x is not backwards-compatible with older versions. Limited backwards compatibility can be achieved by adding
+    `MODE=LEGACY` to the H2 database URL. For more information, go to the LEGACY Compatibility Mode section
+    of the [H2 Features](https://www.h2database.com/html/features.html) page.
 
-  H2 2.x is unable to read database files created by older H2 versions. The recommended approach for upgrading an older database
-  involves exporting the data and subsequently re-importing it into a new version 2.x database. Further details on this
-  process are outlined on the [H2 Migration to 2.0](https://www.h2database.com/html/migration-to-v2.html) page.
+    H2 2.x is unable to read database files created by older H2 versions. The recommended approach for upgrading an older database
+    involves exporting the data and subsequently re-importing it into a new version 2.x database. Further details on this
+    process are outlined on the [H2 Migration to 2.0](https://www.h2database.com/html/migration-to-v2.html) page.
 
 * Liquibase has been upgraded from 3.6.3 to 4.20.0
 
   * Logging
 
-  In this version of Liquibase, all informational logging is directed to stderr, while stdout is used for logging SQL queries.
-  Utilities that have implemented their own database migration code that uses Liquibase can establish their custom logger
-  to capture Liquibase's informational logging. The Liquibase API provides classes that can be used to integrate custom loggers.
+    In this version of Liquibase, all informational logging is directed to stderr, while stdout is used for logging SQL queries.
+    Utilities that have implemented their own database migration code that uses Liquibase can establish their custom logger
+    to capture Liquibase's informational logging. The Liquibase API provides classes that can be used to integrate custom loggers.
