@@ -36,12 +36,10 @@ This release includes the following dependency version changes between CENM 1.5.
   H2 is not a supported production database and should only be used for development and test purposes. For detailed information
   regarding the differences between H2 version 1.4.197 used in previous versions of CENM, and the new H2 version 2.2.224 implemented in CENM 1.6,
   see the [H2 documentation](https://www.h2database.com/html/main.html). The most important differences are the following:
-
   * Entity naming
 
     H2 version 2.2.224 implements stricter rules regarding the naming of tables and columns within the database.
     The use of SQL keywords is no longer permitted.
-
   * Backwards compatibility
 
     H2 version 2.x is not backwards-compatible with older versions. Limited backwards compatibility can be achieved by adding
@@ -53,7 +51,6 @@ This release includes the following dependency version changes between CENM 1.5.
     process are outlined on the [H2 Migration to 2.0](https://www.h2database.com/html/migration-to-v2.html) page.
 
 * Liquibase has been upgraded from 3.6.3 to 4.20.0.
-
   * Logging
 
     In this version of Liquibase, all INFO-level logging is directed to STDERR, while STDOUT is used for logging SQL queries.
