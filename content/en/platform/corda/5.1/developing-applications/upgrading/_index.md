@@ -39,4 +39,4 @@ The following users are involved in upgrading a Corda-deployed CorDapp:
 
 {{< tooltip >}}CPKs{{< /tooltip >}} are identified across versions by the value of their `Corda CPK CorDapp Name` metadata field. Keeping the same value for `Corda CPK CorDapp Name` while making other changes to the CPK indicates to Corda that you consider the CPK to be a new version of the same CPK. As well as the value of  `Corda CPK CorDapp Name`, the set of CPK signers must also be kept the same across versions.
 
-Any data internally serialized by Corda is tagged with both `Corda CPK CorDapp Name` and the set of signers that signed the CPK. On deserialization, the tag will be checked against the current version of the CPK’s `Corda CPK CorDapp Name` and set of signers. If both of these match, Corda will consider this data as deserializable for the CPK.
+Any data internally serialized by Corda is tagged with both `Corda CPK CorDapp Name` and the set of signers that signed the CPK. On deserialization, the tag is checked against the current version of the CPK’s `Corda CPK CorDapp Name` and set of signers. If both of these match, Corda considers this data as deserializable for the CPK.
