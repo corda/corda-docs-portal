@@ -102,9 +102,45 @@ An example of how to use this property can be found in [Vault Queries]({{< relre
 ### Upgraded dependencies
 
 The following dependencies have been upgraded to address critical and high-severity security vulnerabilities:
-* H2 has been upgraded from 1.4.197 to 2.1.214.
-* Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final.
-* Liquibase has been upgraded from 3.6.3 to 4.20.0.
+
+#### Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final
+#### H2 upgraded from 1.4.197 to 2.2.214
+H2 database has been upgraded to version 2.2.224 primarily to address vulnerabilities reported in earlier versions of H2.
+H2 is not a supported production database and should only be used for development and test purposes. For detailed information
+regarding the differences between H2 version 1.4.197 used in previous versions of Corda, and the new H2 version 2.2.224 implemented in 4.11,
+see the [H2 documentation](https://www.h2database.com/html/main.html). The most important differences are the following:
+
+* Entity naming
+
+  H2 version 2.2.224 implements stricter rules regarding the naming of tables and columns within the database.
+  The use of SQL keywords is no longer permitted. If a CorDapp schema uses a reserved name for a table or column,
+  the CorDapp's flows will fail when attempting to interact with the table, resulting in an SQL-related exception.
+
+  The solution for this issue involves renaming the problematic table or column to a non-reserved name. This renaming
+  process should be implemented in the CorDapp's migration scripts and in the JPA entity definition within the CorDapp code.
+
+* Backwards compatibility
+
+  H2 version 2.x is not backwards-compatible with older versions. Limited backwards compatibility can be achieved by adding
+  `MODE=LEGACY` to the H2 database URL. For more information, go to the LEGACY Compatibility Mode section
+  of the [H2 Features](https://www.h2database.com/html/features.html) page.
+
+  H2 2.x is unable to read database files created by older H2 versions. The recommended approach for upgrading an older database
+  involves exporting the data and subsequently re-importing it into a new version 2.x database. Further details on this
+  process are outlined on the [H2 Migration to 2.0](https://www.h2database.com/html/migration-to-v2.html) page.
+
+#### Liquibase upgraded from 3.6.3 to 4.20.0
+
+* API
+
+  This version of Liquibase features a slightly different API compared to the previous version. CorDapps that have implemented
+  their own database migration code that uses Liquibase need to be updated to align with the new API.
+
+* Logging
+
+  In this version of Liquibase, all INFO-level logging is directed to STDERR, while STDOUT is used for logging SQL queries.
+  Utilities that have implemented their own database migration code that uses Liquibase can establish their custom logger
+  to capture Liquibase's informational logging. The Liquibase API provides classes that can be used to integrate custom loggers.
 
 ### Consuming transaction IDs added to `vault_state` table
 
