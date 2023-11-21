@@ -11,7 +11,7 @@ section_menu: corda51
 ---
 # Creating CPIs
 
-To ensure a trusted and shared model of the business, Network Operators are responsible for creating {{< tooltip >}}CPIs{{< /tooltip >}}. This is usually performed as part of [onboarding the MGM]({{< relref "../creating/mgm/cpi.md">}}) or [onboarding members]({{< relref "../creating/members/cpi.md">}}) to the application network. However, if a CorDapp Developer [creates a new CPB]({{< relref "../../developing-applications/upgrading/_index.md">}}) for a new version of a Corda-deployed {{< tooltip >}}CorDapp{{< /tooltip >}}, you must create the new CPI, incrementing the `--cpi-version`:
+To ensure a trusted and shared model of the business, Network Operators are responsible for creating {{< tooltip >}}CPIs{{< /tooltip >}}. This is usually performed as part of [onboarding the MGM]({{< relref "../creating/mgm/cpi.md">}}) or [onboarding members]({{< relref "../creating/members/cpi.md">}}) to the application network. However, if a CorDapp Developer [creates a new CPB]({{< relref "../../developing-applications/upgrading/_index.md">}}) for a new version of a Corda-deployed {{< tooltip >}}CorDapp{{< /tooltip >}}, you must create a new CPI, incrementing the `--cpi-version`:
 
 {{< tabs name="build-cpi">}}
 {{% tab name="Bash" %}}
