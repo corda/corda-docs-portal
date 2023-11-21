@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>DigestAlgorithm - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="./index.html">DigestAlgorithm</a><br/>
+<br/>
+<h1>DigestAlgorithm</h1>
+<code><span class="keyword">interface </span><span class="identifier">DigestAlgorithm</span></code>
+<p>Interface for injecting custom digest implementation bypassing JCA.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="algorithm.html">algorithm</a></h4>
+</td>
+<td>
+<p>Algorithm identifier.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">algorithm</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="digest-length.html">digestLength</a></h4>
+</td>
+<td>
+<p>The length of the digest in bytes.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">digestLength</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="component-digest.html">componentDigest</a></h4>
+</td>
+<td>
+<p>Computes the digest of the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> which is resistant to pre-image attacks. Only used to calculate the hash of the leaves of the
+ComponentGroup Merkle tree, starting from its serialized components.
+Default implementation provides double hashing, but can it be changed to single hashing or something else for better performance.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">componentDigest</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.DigestAlgorithm$componentDigest(kotlin.ByteArray)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="digest.html">digest</a></h4>
+</td>
+<td>
+<p>Computes the digest of the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">digest</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.DigestAlgorithm$digest(kotlin.ByteArray)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="nonce-digest.html">nonceDigest</a></h4>
+</td>
+<td>
+<p>Computes the digest of the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> which is resistant to pre-image attacks. Only used to calculate the nonces for the leaves of
+the ComponentGroup Merkle tree.
+Default implementation provides double hashing, but can it be changed to single hashing or something else for better performance.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">nonceDigest</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.DigestAlgorithm$nonceDigest(kotlin.ByteArray)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

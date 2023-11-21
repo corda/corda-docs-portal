@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Crypto.decodePrivateKey - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="index.html">Crypto</a>&nbsp;/&nbsp;<a href="./decode-private-key.html">decodePrivateKey</a><br/>
+<br/>
+<h1>decodePrivateKey</h1>
+<a name="net.corda.core.crypto.Crypto$decodePrivateKey(kotlin.ByteArray)"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">decodePrivateKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$decodePrivateKey(kotlin.ByteArray)/encodedKey">encodedKey</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a></code>
+<p>Decode a PKCS8 encoded key to its <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a> object.
+Use this method if the key type is a-priori unknown.</p>
+<h3>Parameters</h3>
+<p><a name="encodedKey"></a>
+<code>encodedKey</code> - a PKCS8 encoded private key.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - on not supported scheme or if the given key specification
+is inappropriate for this key factory to produce a private key.</p>
+<a name="net.corda.core.crypto.Crypto$decodePrivateKey(kotlin.String, kotlin.ByteArray)"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">decodePrivateKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$decodePrivateKey(kotlin.String, kotlin.ByteArray)/schemeCodeName">schemeCodeName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$decodePrivateKey(kotlin.String, kotlin.ByteArray)/encodedKey">encodedKey</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a></code>
+<p>Decode a PKCS8 encoded key to its <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a> object based on the input scheme code name.
+This should be used when the type key is known, e.g. during deserialisation or with key caches or key managers.</p>
+<h3>Parameters</h3>
+<p><a name="schemeCodeName"></a>
+<code>schemeCodeName</code> - a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> that should match a key in supportedSignatureSchemes map (e.g. ECDSA_SECP256K1_SHA256).</p>
+<p><a name="encodedKey"></a>
+<code>encodedKey</code> - a PKCS8 encoded private key.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - on not supported scheme or if the given key specification
+is inappropriate for this key factory to produce a private key.</p>
+<a name="net.corda.core.crypto.Crypto$decodePrivateKey(net.corda.core.crypto.SignatureScheme, kotlin.ByteArray)"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">decodePrivateKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$decodePrivateKey(net.corda.core.crypto.SignatureScheme, kotlin.ByteArray)/signatureScheme">signatureScheme</span><span class="symbol">:</span>&nbsp;<a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$decodePrivateKey(net.corda.core.crypto.SignatureScheme, kotlin.ByteArray)/encodedKey">encodedKey</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a></code>
+<p>Decode a PKCS8 encoded key to its <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a> object based on the input scheme code name.
+This should be used when the type key is known, e.g. during deserialisation or with key caches or key managers.</p>
+<h3>Parameters</h3>
+<p><a name="signatureScheme"></a>
+<code>signatureScheme</code> - a signature scheme (e.g. ECDSA_SECP256K1_SHA256).</p>
+<p><a name="encodedKey"></a>
+<code>encodedKey</code> - a PKCS8 encoded private key.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - on not supported scheme or if the given key specification
+is inappropriate for this key factory to produce a private key.</p>
+</BODY>
+</HTML>

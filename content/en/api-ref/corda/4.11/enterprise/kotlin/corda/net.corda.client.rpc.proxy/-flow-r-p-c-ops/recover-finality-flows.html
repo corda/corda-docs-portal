@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowRPCOps.recoverFinalityFlows - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc.proxy</a>&nbsp;/&nbsp;<a href="index.html">FlowRPCOps</a>&nbsp;/&nbsp;<a href="./recover-finality-flows.html">recoverFinalityFlows</a><br/>
+<br/>
+<h1>recoverFinalityFlows</h1>
+<a name="net.corda.client.rpc.proxy.FlowRPCOps$recoverFinalityFlows(kotlin.collections.Set((net.corda.core.flows.StateMachineRunId)), kotlin.Boolean)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">recoverFinalityFlows</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.FlowRPCOps$recoverFinalityFlows(kotlin.collections.Set((net.corda.core.flows.StateMachineRunId)), kotlin.Boolean)/ids">ids</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><span class="identifier">StateMachineRunId</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.proxy.FlowRPCOps$recoverFinalityFlows(kotlin.collections.Set((net.corda.core.flows.StateMachineRunId)), kotlin.Boolean)/forceRecover">forceRecover</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><span class="identifier">StateMachineRunId</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span></code>
+<p>Recover a specified set of failed finality flows by id.
+<a href="recover-finality-flows.html#net.corda.client.rpc.proxy.FlowRPCOps$recoverFinalityFlows(kotlin.collections.Set((net.corda.core.flows.StateMachineRunId)), kotlin.Boolean)/forceRecover">forceRecover</a> will attempt to recover flows which are in a RUNNABLE, PAUSED or HOSPITALIZED state.</p>
+<p><strong>Return</strong><br/>
+map of identified failed flows and whether they were successfully recovered.</p>
+</BODY>
+</HTML>

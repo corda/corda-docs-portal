@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowExternalAsyncOperation.execute - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="index.html">FlowExternalAsyncOperation</a>&nbsp;/&nbsp;<a href="./execute.html">execute</a><br/>
+<br/>
+<h1>execute</h1>
+<a name="net.corda.core.flows.FlowExternalAsyncOperation$execute(kotlin.String)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">execute</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowExternalAsyncOperation$execute(kotlin.String)/deduplicationId">deduplicationId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html"><span class="identifier">CompletableFuture</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span></code>
+<p>Executes a future.</p>
+<p>The future created and returned from <a href="./execute.html">execute</a> must handle its own threads. If a new thread is not spawned or taken from a thread
+pool, then the flow worker thread will be used. This removes any benefit from using an <a href="index.html">FlowExternalAsyncOperation</a>.</p>
+<h3>Parameters</h3>
+<p><a name="deduplicationId"></a>
+<code>deduplicationId</code> - If the flow restarts from a checkpoint (due to node restart, or via a visit to the flow
+hospital following an error) the execute method might be called more than once by the Corda flow state machine.
+For each duplicate call, the deduplicationId is guaranteed to be the same allowing duplicate requests to be
+de-duplicated if necessary inside the execute method.</p>
+</BODY>
+</HTML>
