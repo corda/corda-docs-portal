@@ -14,7 +14,7 @@ section_menu: corda51
 
 # Creating a New Version of a CorDapp
 
-This section describes how to create a new version of a Corda-deployed {{< tooltip >}}CorDapp{{< /tooltip >}}. This must be done in such a way that Corda can recognize the upgrade as a new version of the same application. Typically, you might want to upgrade your CorDapp to fix bugs, create new functionality, or change existing functionality.
+This section describes how to create a new version of a Corda-deployed {{< tooltip >}}CorDapp{{< /tooltip >}}. You must do this in such a way that Corda can recognize the upgrade as a new version of the same application. Typically, you might want to upgrade your CorDapp to fix bugs, create new functionality, or change existing functionality.
 
 Corda must be able to interpret that the two versions are considered the same application. This maintains continuity of any state it has preserved internally relating to that application's operation.
 
