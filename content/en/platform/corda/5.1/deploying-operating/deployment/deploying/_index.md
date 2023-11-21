@@ -425,7 +425,7 @@ Corda requires one or more PostgreSQL database instances for the persistence of 
 * Token selection workers
 
 {{< note >}}
-If you do not configure state manager databases, Corda deploys the state managers for the flow, flow mapper, and token selection workers on the cluster database. This is not safe for production deployments.
+If you do not configure state manager databases and auto-bootstrapping is enabled, Corda deploys the state managers for the flow, flow mapper, and token selection workers on the cluster database. This is not safe for production deployments.
 {{< /note >}}
 
 The configuration for these instances is defined in `stateManager` sections. At a minimum, the configuration section requires `host`, `username`, and `password`. By default, the installation expects databases named as follows:  
