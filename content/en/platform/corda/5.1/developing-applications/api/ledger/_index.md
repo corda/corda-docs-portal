@@ -15,4 +15,4 @@ This section describes the `ledger` modules and contains the following:
 
 {{< childpages >}}
 
-You can learn more about the concepts behind the Corda ledger in the [CorDapp API reference]({{< relref "../../ledger/_index.md">}}).
+You can learn more about the concepts behind the Corda ledger in the [Ledger]({{< relref "../../ledger/_index.md">}}) section.
