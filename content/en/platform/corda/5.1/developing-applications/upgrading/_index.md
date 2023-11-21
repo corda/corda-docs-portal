@@ -14,7 +14,7 @@ section_menu: corda51
 
 # Creating a New Version of a CorDapp
 
-This section describes how to create a new version of a Corda-deployed {{< tooltip >}}CorDapp{{< /tooltip >}}. This must be done in such a way that Corda can recognize the upgrade as a new version of the same application. Typically, you might want to upgrade your CorDapp to fix bugs, create new functionality, or change existing functionality.
+This section describes how to create a new version of a Corda-deployed {{< tooltip >}}CorDapp{{< /tooltip >}}. You must do this in such a way that Corda can recognize the upgrade as a new version of the same application. Typically, you might want to upgrade your CorDapp to fix bugs, create new functionality, or change existing functionality.
 
 Corda must be able to interpret that the two versions are considered the same application. This maintains continuity of any state it has preserved internally relating to that application's operation.
 
@@ -39,4 +39,4 @@ The following users are involved in upgrading a Corda-deployed CorDapp:
 
 {{< tooltip >}}CPKs{{< /tooltip >}} are identified across versions by the value of their `Corda CPK CorDapp Name` metadata field. Keeping the same value for `Corda CPK CorDapp Name` while making other changes to the CPK indicates to Corda that you consider the CPK to be a new version of the same CPK. As well as the value of  `Corda CPK CorDapp Name`, the set of CPK signers must also be kept the same across versions.
 
-Any data internally serialized by Corda is tagged with both `Corda CPK CorDapp Name` and the set of signers that signed the CPK. On deserialization, the tag will be checked against the current version of the CPK’s `Corda CPK CorDapp Name` and set of signers. If both of these match, Corda considers this data as deserializable for the CPK.
+Any data internally serialized by Corda is tagged with both `Corda CPK CorDapp Name` and the set of signers that signed the CPK. On deserialization, the tag is checked against the current version of the CPK’s `Corda CPK CorDapp Name` and set of signers. If both of these match, Corda considers this data as deserializable for the CPK.
