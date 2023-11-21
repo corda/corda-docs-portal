@@ -39,7 +39,7 @@ This release includes the following dependency version changes between CENM 1.5.
 
   * Entity naming
 
-     H2 version 2.2.224 implements stricter rules regarding the naming of tables and columns within the database.
+    H2 version 2.2.224 implements stricter rules regarding the naming of tables and columns within the database.
     The use of SQL keywords is no longer permitted.
 
   * Backwards compatibility
