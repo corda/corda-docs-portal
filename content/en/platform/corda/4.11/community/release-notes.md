@@ -44,15 +44,16 @@ See [Two Phase Finality]({{< relref "two-phase-finality.md" >}}).
 
 The following dependencies have been upgraded to address critical and high-severity security vulnerabilities:
 
+#### Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final
 #### H2 upgraded from 1.4.199 to 2.2.214
 H2 database has been upgraded to version 2.2.224 primarily to address vulnerabilities reported in earlier versions of H2.
-H2 is not a supported production database and should only be utilized for development and test purposes. For detailed information
-regarding the differences between H2 version 1.4.199 used in 4.10 and below, and the new H2 version 2.2.224 implemented in 4.11,
-see the [H2 documentation](https://www.h2database.com/html/main.html). Although, a few noteworthy points are outlined below:
+H2 is not a supported production database and should only be used for development and test purposes. For detailed information
+regarding the differences between H2 version 1.4.199 used in previous versions of Corda, and the new H2 version 2.2.224 implemented in 4.11,
+see the [H2 documentation](https://www.h2database.com/html/main.html). The most important differences are the following:
 
 * Entity naming
 
-  In this version of H2, there are stricter rules regarding the naming of tables and columns within the database.
+  H2 version 2.2.224 implements stricter rules regarding the naming of tables and columns within the database.
   The use of SQL keywords is no longer permitted. If a CorDapp schema uses a reserved name for a table or column,
   the CorDapp's flows will fail when attempting to interact with the table, resulting in an SQL-related exception.
 
@@ -78,11 +79,9 @@ see the [H2 documentation](https://www.h2database.com/html/main.html). Although,
 
 * Logging
 
-  In this version of Liquibase, all informational logging is directed to stderr, while stdout is used for logging SQL queries.
+  In this version of Liquibase, all INFO-level logging is directed to STDERR, while STDOUT is used for logging SQL queries.
   Utilities that have implemented their own database migration code that uses Liquibase can establish their custom logger
   to capture Liquibase's informational logging. The Liquibase API provides classes that can be used to integrate custom loggers.
-
-#### Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final
 
 ### Consuming transaction IDs added to `vault_state` table
 
