@@ -26,11 +26,11 @@ title: Release notes
 ### Upgraded dependencies
 
 This release includes the following dependency version changes between CENM 1.5.9 and 1.6:
-* Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final
-* Hibernate Validator has been upgraded to 6.2.5.Final
-* Apache Tomcat has been upgraded from 9.0.80 to 9.0.81
-* Bouncy Castle has been upgraded from 1.68 to 1.75
-* H2 has been upgraded from 1.4.197 to 2.2.214
+* Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final.
+* Hibernate Validator has been upgraded to 6.2.5.Final.
+* Apache Tomcat has been upgraded from 9.0.80 to 9.0.81.
+* Bouncy Castle has been upgraded from 1.68 to 1.75.
+* H2 has been upgraded from 1.4.197 to 2.2.214.
 
   H2 database has been upgraded to version 2.2.224 primarily to address vulnerabilities reported in earlier versions of H2.
   H2 is not a supported production database and should only be used for development and test purposes. For detailed information
@@ -52,10 +52,10 @@ This release includes the following dependency version changes between CENM 1.5.
     involves exporting the data and subsequently re-importing it into a new version 2.x database. Further details on this
     process are outlined on the [H2 Migration to 2.0](https://www.h2database.com/html/migration-to-v2.html) page.
 
-* Liquibase has been upgraded from 3.6.3 to 4.20.0
+* Liquibase has been upgraded from 3.6.3 to 4.20.0.
 
   * Logging
 
-    In this version of Liquibase, all informational logging is directed to stderr, while stdout is used for logging SQL queries.
+    In this version of Liquibase, all INFO-level logging is directed to STDERR, while STDOUT is used for logging SQL queries.
     Utilities that have implemented their own database migration code that uses Liquibase can establish their custom logger
     to capture Liquibase's informational logging. The Liquibase API provides classes that can be used to integrate custom loggers.
