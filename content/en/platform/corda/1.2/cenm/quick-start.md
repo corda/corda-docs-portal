@@ -22,8 +22,8 @@ title: Enterprise Network Manager Quick-Start Guide
 
 ## Overview
 
-The following is a simple step by step guide for creating a subzone, consisting of an **Identity Manager service**,
-**Network Map service** and **Notary node**.
+The following is a simple step by step guide for creating a subzone, consisting of an **Identity Manager Service**,
+**Network Map Service** and **Notary node**.
 
 
 ## Pre-Requisites
@@ -119,9 +119,9 @@ java -jar pkitool.jar --config-file pki-generation.conf
 This will produce a set of files, including the following:
 
 
-* `key-stores/corda-identity-manager-keys.jks` - Contains the key pairs for the Identity Manager service *(used for
+* `key-stores/corda-identity-manager-keys.jks` - Contains the key pairs for the Identity Manager Service *(used for
 signing CSRs and CRRs)*
-* `key-stores/corda-network-map-keys.jks` - Contains the key pairs for the Network Map service *(used for signing the
+* `key-stores/corda-network-map-keys.jks` - Contains the key pairs for the Network Map Service *(used for signing the
 Network Map and Network Parameters)*
 * `trust-stores/network-root-truststore.jks` - Contains the network root certificate and the TLS CRL signer
 certificate *(used by nodes to verify that responses from other participants on the network are valid)*
@@ -131,7 +131,7 @@ not needed to get a basic network up and running, these extra parts of the PKI c
 of more advanced features such as as certificate revocation support.
 
 
-### Start the Identity Manager service
+### Start the Identity Manager Service
 
 Before running the service, the Identity Manager jar along with the `corda-identity-manager-keys.jks` file should be
 copied over to the Identity Manager machine (or directory location if running locally).
@@ -139,7 +139,7 @@ copied over to the Identity Manager machine (or directory location if running lo
 
 #### Example Configuration
 
-The following is an example configuration (`identity-manager.conf`) for the Identity Manager service, using automatic
+The following is an example configuration (`identity-manager.conf`) for the Identity Manager Service, using automatic
 approval and local signing for CSRs:
 
 ```docker
@@ -191,7 +191,7 @@ information.
 
 #### Running The Service
 
-The Identity Manager service can then be ran via:
+The Identity Manager Service can then be ran via:
 
 ```bash
 java -jar identitymanager.jar --config-file identity-manager.conf
@@ -207,9 +207,9 @@ Network management web services started on <IDENTITY_MANAGER_ADDRESS> with [Regi
 
 ### Register your Notary with the Identity Manager
 
-Before the Network Map service can be initialised the Notary nodes first need to register with the Identity Manager.
+Before the Network Map Service can be initialised the Notary nodes first need to register with the Identity Manager.
 This is because the list of trusted notaries is stored within the Network Parameters, which in turn need to be passed to
-the Network Map service during initialisation.
+the Network Map Service during initialisation.
 
 The truststore containing the network root certificate (`network-root-truststore.jks`) should first be copied over to
 the Notary machine along with a valid Corda jar (e.g. Corda OS 4.0).
@@ -277,9 +277,9 @@ Before initialising the parameters, the `corda-network-map-keys.jks` and `networ
 be copied over to the Network Map machine, along with the Network Map distribution zip which should also be unpacked.
 
 The network parameters are a set of values that every node participating in the zone needs to agree on and use to
-correctly communicate with each other. Therefore they need to be set before the Network Map service can be started.
+correctly communicate with each other. Therefore they need to be set before the Network Map Service can be started.
 They are set via running the Network Map jar in a special “set network parameters” mode which requires a parameter
-configuration file to be passed. Therefore this step requires both a Network Map service configuration and a network
+configuration file to be passed. Therefore this step requires both a Network Map Service configuration and a network
 parameters configuration. See [Updating the network parameters](updating-network-parameters.md) for more information around the processing of setting
 and updating the parameters.
 
@@ -289,7 +289,7 @@ and updating the parameters.
 
 ##### Service
 
-The following is an example configuration (`network-map.conf`) for the Network Map service, using automatic approval
+The following is an example configuration (`network-map.conf`) for the Network Map Service, using automatic approval
 and local signing for updates to the network map and parameters:
 
 ```docker
@@ -376,9 +376,9 @@ NetworkParameters {
 ```
 
 
-### Start the Network Map service
+### Start the Network Map Service
 
-The Network Map service can then be ran via:
+The Network Map Service can then be ran via:
 
 ```bash
 java -jar networkmap.jar --config-file network-map.conf
@@ -408,7 +408,7 @@ similar to the example Notary configuration above (including the correct Network
 well as a copy of the `network-root-truststore.jks` file.
 
 Each service can be inspected by utilising the interactive shell. For example, given the above configurations, the
-Network Map shell can be accessed by connecting to the Network Map service via ssh, using the username, password and
+Network Map shell can be accessed by connecting to the Network Map Service via ssh, using the username, password and
 port configured in the example `network-map.conf`. For example, if running a network locally then the following can be
 used:
 
@@ -468,7 +468,7 @@ java -jar bundled.jar -f identity-manager.conf
 Upon successful startup the following should be printed to the console:
 
 ```guess
-Deduced Identity Manager service from provided config file...
+Deduced Identity Manager Service from provided config file...
 Binding Shell SSHD server on port <SHELL_PORT>
 Network management web services started on <IDENTITY_MANAGER_ADDRESS> with [RegistrationWebService, CertificateRevocationWebService, MonitoringWebService]
 ```

@@ -32,7 +32,7 @@ To work against a non-release branch:
 8. Publish Corda to your local Maven repository using the following commands:
 
 
-* Unix/Mac OSX: `./gradlew install`
+* Unix/macOS: `./gradlew install`
 * Windows: `gradlew.bat install`
 
 

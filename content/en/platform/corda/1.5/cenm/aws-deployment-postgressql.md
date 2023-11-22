@@ -40,8 +40,8 @@ You must ensure that each CENM service has it's own PostgreSQL database. Complet
 * [Identity Manager]({{< relref "../../../../../en/platform/corda/1.5/cenm/identity-manager.md" >}}).
 * [Network Map]({{< relref "../../../../../en/platform/corda/1.5/cenm/network-map.md" >}}).
 * [Signer Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/signing-service.md" >}}).
-* [Zone service]({{< relref "../../../../../en/platform/corda/1.5/cenm/zone-service.md" >}}).
-* [Angel service]({{< relref "../../../../../en/platform/corda/1.5/cenm/angel-service.md" >}}).
+* [Zone Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/zone-service.md" >}}).
+* [Angel Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/angel-service.md" >}}).
 
 To set up each database:
 

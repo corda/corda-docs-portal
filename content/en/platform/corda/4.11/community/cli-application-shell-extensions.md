@@ -51,7 +51,7 @@ You will now be able to run the command line application from anywhere by runnin
 For example, for the Corda node, install the shell extensions using
 
 ```shell
-java -jar corda-4.8.jar install-shell-extensions
+java -jar corda-4.11.jar install-shell-extensions
 ```
 
 And then run the node by running:
@@ -86,9 +86,9 @@ restart the shell or see [above](#installing-shell-extensions) for instructions 
 
 |Description|Alias|JAR Name|
 |---------------------------------------------------------|------------------------------|----------------------------------------------------------|
-|[Corda node](running-a-node.html#starting-an-individual-corda-node)|`corda --<option>`|`corda-4.8.jar`|
-|[Network bootstrapper]({{% ref "network-bootstrapper.md" %}})|`bootstrapper --<option>`|`corda-tools-network-bootstrapper-4.8.jar`|
-|[Standalone shell](shell.html#standalone-shell)|`corda-shell --<option>`|`corda-tools-shell-cli-4.8.jar`|
-|[Blob inspector]({{% ref "blob-inspector.md" %}})|`blob-inspector --<option>`|`corda-tools-blob-inspector-4.8.jar`|
+|[Corda node]({{< relref "running-a-node.md#starting-an-individual-corda-node" >}})|`corda --<option>`|`corda-4.11.jar`|
+|[Network bootstrapper]({{% ref "network-bootstrapper.md" %}})|`bootstrapper --<option>`|`corda-tools-network-bootstrapper-4.11.jar`|
+|[Standalone shell]({{< relref "shell.md#standalone-shell" >}})|`corda-shell --<option>`|`corda-shell-4.11.jar`|
+|[Blob inspector]({{% ref "blob-inspector.md" %}})|`blob-inspector --<option>`|`corda-tools-blob-inspector-4.11.jar`|
 
 {{< /table >}}

@@ -18,7 +18,7 @@ weight: 145
 ## Logging
 
 Corda's logging feature uses a [Log4j 2](https://logging.apache.org/log4j/2.x/) component and an [SLF4J ](https://www.slf4j.org/interface)
-interface as its abstraction layer. You can find the latest Corda logging configuration file on [GitHub](https://github.com/corda/corda/blob/release/os/4.10/config/dev/log4j2.xml).
+interface as its abstraction layer. You can find the latest Corda logging configuration file on [GitHub](https://github.com/corda/corda/blob/release/os/4.9/config/dev/log4j2.xml).
 
 * By default, node log files are stored to the `logs` subdirectory of the working directory and are rotated from time to time.
 * Passing the `--log-to-console` command line flag logs printing to the console.
@@ -236,7 +236,7 @@ To pass a security policy use `java -Dcapsule.jvm.args=-javaagent:./drivers/jolo
 
 When running in dev mode, Hibernate statistics are also available via the Jolokia interface. These are disabled otherwise
 due to expensive run-time costs. They can be turned on and off explicitly regardless of dev mode via the
-`exportHibernateJMXStatistics` flag on the [database configuration](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.html#database).
+`exportHibernateJMXStatistics` flag on the [database configuration]({{< relref "../setup/corda-configuration-fields.md#database" >}}).
 
 When starting Corda nodes using Cordformation runner (see [Running a node]({{< relref "../deploy/running-a-node.md" >}})), you should see a startup message similar to the following:
 **Jolokia: Agent started with URL http://127.0.0.1:7005/jolokia/**

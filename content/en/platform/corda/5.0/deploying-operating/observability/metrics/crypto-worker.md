@@ -2,7 +2,6 @@
 date: '2023-06-14'
 version: 'Corda 5.0'
 title: "Crypto Worker"
-version: 'Corda 5.0'
 menu:
   corda5:
     parent: corda5-cluster-metrics
@@ -13,11 +12,11 @@ section_menu: corda5
 
 # Crypto Worker
 
-The crypto worker is responsible for handling crypto operations in Corda, such as signing. It is the only worker that hosts keys owned by the Corda cluster, as well as keys owned by the virtual nodes required for crypto operations.
+The crypto worker is responsible for handling crypto operations in Corda, such as signing. It is the only worker that hosts keys owned by the Corda {{< tooltip >}}cluster{{< /tooltip >}}, as well as keys owned by the virtual nodes required for crypto operations.
 
-The keys of the virtual nodes are stored in dedicated databases per virtual node, while the keys of the Corda cluster are stored in a dedicated database for cluster keys. In addition to the database, there are caches universal to all virtual nodes that hold the keys in memory for faster lookup.
+The keys of the virtual nodes are stored in dedicated databases per {{< tooltip >}}virtual node{{< /tooltip >}}, while the keys of the Corda cluster are stored in a dedicated database for cluster keys. In addition to the database, there are caches universal to all virtual nodes that hold the keys in memory for faster lookup.
 
-The crypto requests can be categorized into flow requests and everything else. Flow requests to the crypto processor are of more importance in terms of metrics as they occur frequently and impact the time taken to complete flows. With the crypto worker metrics, you can measure the below crypto requests within the crypto worker:
+The crypto requests can be categorized into {{< tooltip >}}flow{{< /tooltip >}} requests and everything else. Flow requests to the crypto processor are of more importance in terms of metrics as they occur frequently and impact the time taken to complete flows. With the crypto worker metrics, you can measure the below crypto requests within the crypto worker:
 
 * Flow-crypto requests, which consist of the operations:
     * `SigningService.sign`: The `sign` operation is initiated on the flow side and is performed in the crypto processor. It sends the bytes to be signed, along with the public part of the signing key and the signature spec, to the crypto worker.
@@ -49,7 +48,7 @@ table th:nth-of-type(4) {
 | `corda_crypto_flow_processor_execution_time_seconds` | Timer | <ul><li>`operation_name`</li></ul> | The time taken by crypto worker to process operations requested by flow operations. |
 | `corda_crypto_processor_execution_time_seconds` | Timer | <ul><li>`operation_name`</li></ul> | The time taken by crypto worker to process operations requested from other endpoints. |
 | `corda_crypto_wrapping_key_creation_time_seconds` | Timer | <ul><li>`tenant`</li></ul> | The time taken for wrapping key creation in crypto operations. |
-| `corda_entity_manager_factory_creation_time_seconds` | Timer | <ul><li>`tenant`</li></ul> | The time taken to create entity manager factories. |
+| `corda_entity_manager_factory_creation_time_seconds` | Timer | <ul><li>`tenant`</li></ul> | The time taken to create {{< tooltip >}}entity{{< /tooltip >}} manager factories. |
 | `corda_crypto_sign_time_seconds` | Timer | <ul><li>`signature_spec`</li></ul> | The time taken for crypto signing. |
 | `corda_crypto_sigining_key_lookup_time_seconds` | Timer | <ul><li>`lookup_method`</li></ul> | The time taken for crypto signing key lookup. |
 | `corda_crypto_signing_repository_get_instance_time_seconds` | Timer | <ul><li>`tenant`</li></ul> | The time taken to get crypto signing repository instances. |
@@ -59,7 +58,7 @@ table th:nth-of-type(4) {
 
 Tags:
 * `operation_name`: The name of the operation that the metric is related to.
-* `tenant`: The identifier of a tenant: it's either a virtual node identifier or a category for cluster level keys, for example TLS.
+* `tenant`: The identifier of a tenant: it's either a virtual node identifier or a category for cluster level keys, for example {{< tooltip >}}TLS{{< /tooltip >}}.
 * `signature_spec`: The signature signing scheme name to create signatures during crypto signing operations.
 * `lookup_method`: The method used to look up signing key IDs, either public key IDs or public key short IDs.
 * `publickey_type`: The type of public key used in sign operations.

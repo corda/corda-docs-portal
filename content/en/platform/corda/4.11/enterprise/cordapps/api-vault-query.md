@@ -25,7 +25,7 @@ You can use several flexible query mechanisms to access the vault, including:
 
 
 * The vault query API.
-* A JDBC session (see [State Persistence](state-persistence.md)).
+* A JDBC session (see [State Persistence]({{< relref "state-persistence.md" >}})).
 * Custom [JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html)/[JPQL](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#hql) queries.
 * Custom third-party data access frameworks such as [Spring Data](http://projects.spring.io/spring-data).
 
@@ -168,7 +168,7 @@ There are four implementations of this interface. You can chain them together to
 
 
 * `VaultQueryCriteria` provides filterable criteria on attributes within the **VAULT_STATES** table. Filterable attributes include one or more of the following: status (`UNCONSUMED`,
-`CONSUMED`), state reference, contract state type, notary name, soft locked states, timestamps (`RECORDED`, `CONSUMED`), state constraints (see [Constraint Types](api-contract-constraints.html#implicit-constraint-types), relevancy (`ALL`, `RELEVANT`, `NON_RELEVANT`), and participants (exact or any match).
+`CONSUMED`), state reference, contract state type, notary name, soft locked states, timestamps (`RECORDED`, `CONSUMED`), state constraints (see [Constraint Types]({{< relref "api-contract-constraints.md#implicit-constraint-types" >}}), relevancy (`ALL`, `RELEVANT`, `NON_RELEVANT`), and participants (exact or any match).
 {{< note >}}
 Sensible defaults are defined for frequently used attributes (`status` = `UNCONSUMED`, always include soft
 locked states).{{< /note >}}
@@ -192,7 +192,7 @@ interfaces' common state attributes to the **VAULT_LINEAR_STATES** table.{{< /no
 
 
 * `VaultCustomQueryCriteria` provides the means to specify one or many arbitrary expressions on attributes defined
-by a custom contract state that implements its own schema as described in the [State Persistence](state-persistence.md)
+by a custom contract state that implements its own schema as described in the [State Persistence]({{< relref "state-persistence.md" >}})
 documentation. You can express custom criteria using one of these type-safe forms of
 `CriteriaExpression`: `BinaryLogical`, `Not`, `ColumnPredicateExpression`, and `AggregateFunctionExpression`. The
 `ColumnPredicateExpression` allows for the specification of arbitrary criteria using the previously enumerated operator
@@ -214,7 +214,7 @@ construction of custom criteria using any combination of `ColumnPredicate`. See 
 `QueryCriteriaUtils` for a complete specification of the DSL.
 {{< note >}}
 Custom contract schemas are automatically registered upon node startup for CorDapps. Please refer to
-[State Persistence](state-persistence.md) for mechanisms of registering custom schemas for different testing
+[State Persistence]({{< relref "state-persistence.md" >}}) for mechanisms of registering custom schemas for different testing
 purposes.{{< /note >}}
 
 
@@ -256,7 +256,7 @@ Custom contract states that implement the `Queryable` interface may now extend t
 When specifying the `ContractType` as a parameterised type to the `QueryCriteria` in Kotlin, queries now include all concrete implementations of that type if this is an interface. Previously, it was only possible to query on concrete types (or the universe of all `ContractState`).
 {{< /note >}}
 
-The Vault Query API leverages the rich semantics of the underlying JPA [Hibernate](https://docs.jboss.org/hibernate/jpa/2.1/api/)-based [State Persistence](state-persistence.md) framework adopted by Corda.
+The Vault Query API leverages the rich semantics of the underlying JPA [Hibernate](https://docs.jboss.org/hibernate/jpa/2.1/api/)-based [State Persistence]({{< relref "state-persistence.md" >}}) framework adopted by Corda.
 
 
 {{< note >}}
@@ -529,16 +529,25 @@ demonstrated in the following example.
 
 #### Query for all states using a pagination specification and iterate using the *totalStatesAvailable* field until no further pages available:
 
-```kotlin
-var pageNumber = DEFAULT_PAGE_NUM
-val states = mutableListOf<StateAndRef<ContractState>>()
-do {
-    val pageSpec = PageSpecification(pageNumber = pageNumber, pageSize = pageSize)
-    val results = vaultService.queryBy<ContractState>(VaultQueryCriteria(), pageSpec)
-    states.addAll(results.states)
-    pageNumber++
-} while ((pageSpec.pageSize * (pageNumber - 1)) <= results.totalStatesAvailable)
+The following code will also detect, using `previousPageAnchor`, if the vault has concurrently changed whilst querying and will try to get the latest up-to-date version.
 
+```kotlin
+retry@
+while (true) {
+    var pageNumber = DEFAULT_PAGE_NUM
+    val states = mutableListOf<StateAndRef<ContractState>>()
+    do {
+        val pageSpec = PageSpecification(pageNumber = pageNumber, pageSize = pageSize)
+        val results = vaultService.queryBy<ContractState>(VaultQueryCriteria(), pageSpec)
+        if (results.previousPageAnchor != states.lastOrNull()?.ref) {
+            // Start querying from the 1st page again if we find the vault has changed from underneath us.
+            continue@retry
+        }
+        states.addAll(results.states)
+        pageNumber++
+    } while ((pageSpec.pageSize * (pageNumber - 1)) <= results.totalStatesAvailable)
+    return states
+}
 ```
 
 [VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.11/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
@@ -838,19 +847,27 @@ Vault.Page<LinearState> results = vaultService.queryBy(LinearState.class, compos
 
 #### Query for all states using a pagination specification and iterate using the *totalStatesAvailable* field until no further pages available:
 
+The following code will also detect, using `previousPageAnchor`, if the vault has concurrently changed whilst querying and will try to get the latest up-to-date version.
+
 ```java
-int pageNumber = DEFAULT_PAGE_NUM;
-List<StateAndRef<Cash.State>> states = new ArrayList<>();
-long totalResults;
-do {
-    PageSpecification pageSpec = new PageSpecification(pageNumber, pageSize);
-    Vault.Page<Cash.State> results = vaultService.queryBy(Cash.State.class, new VaultQueryCriteria(), pageSpec);
-    totalResults = results.getTotalStatesAvailable();
-    List<StateAndRef<Cash.State>> newStates = results.getStates();
-    System.out.println(newStates.size());
-    states.addAll(results.getStates());
-    pageNumber++;
-} while ((pageSize * (pageNumber - 1) <= totalResults));
+retry:
+while (true) {
+    int pageNumber = DEFAULT_PAGE_NUM;
+    List<StateAndRef<Cash.State>> states = new ArrayList<>();
+    long totalResults;
+    do {
+        PageSpecification pageSpec = new PageSpecification(pageNumber, pageSize);
+        Vault.Page<Cash.State> results = vaultService.queryBy(Cash.State.class, new VaultQueryCriteria(), pageSpec);
+        if (!states.isEmpty() && !states.get(states.size() - 1).getRef().equals(results.getPreviousPageAnchor())) {
+            // Start querying from the 1st page again if we find the vault has changed from underneath us.
+            continue retry;
+        }
+        totalResults = results.getTotalStatesAvailable();
+        states.addAll(results.getStates());
+        pageNumber++;
+    } while ((pageSize * (pageNumber - 1L) <= totalResults));
+    return states;
+}
 
 ```
 

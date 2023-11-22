@@ -49,8 +49,8 @@ handling, and ensures the Corda service is run at boot.
    mkdir /opt/corda; chown corda:corda /opt/corda
    ```
 
-4. Download the [Corda jar](https://software.r3.com:443/artifactory/corda-releases/net/corda/corda/4.8)
-(under `/4.8/corda-4.8.jar`) and place it in `/opt/corda`.
+4. Download the [Corda jar](https://download.corda.net/maven/corda-releases/net/corda/corda/4.11/corda-4.11.jar)
+(under `/4.11/corda-4.11.jar`) and place it in `/opt/corda`.
 5. Create a directory called `cordapps` in `/opt/corda` and save your CorDapp jar file to it. Alternatively, download one of
 our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory.
 6. Save the following as `/opt/corda/node.conf`; see [Node configuration]({{< relref "corda-configuration-file.md" >}}) for a description of these options:
@@ -152,18 +152,16 @@ directory:
     ```
 
 13. Provision the required certificates to your node. Contact the network permissioning service or see [Network certificates]({{< relref "permissioning.md" >}}).
-14. **SystemD**: You can now start a node and its webserver and set the services to start on boot by running the following `systemctl` commands:
+14. **SystemD**: You can now start a node and set the services to start on boot by running the following `systemctl` commands:
 
     ```shell
     sudo systemctl daemon-reload
     sudo systemctl enable --now corda
-    sudo systemctl enable --now corda-webserver
     ```
-15. **Upstart**: You can now start a node and its webserver by running the following commands:
+15. **Upstart**: You can now start a node by running the following commands:
 
     ```shell
     sudo start corda
-    sudo start corda-webserver
     ```
 
 The Upstart configuration files created above tell Upstart to start the Corda services on boot so there is no need to explicitly enable them.
@@ -185,7 +183,7 @@ We recommend running Corda as a Windows service. This provides service handling,
 
 3. Download the following JAR file:
 
-   https://software.r3.com/ui/native/corda-releases/net/corda/corda/4.11/corda-4.11.jar
+   https://download.corda.net/maven/corda-releases/net/corda/corda/4.11/corda-4.11.jar
 
 4. Copy the file to the `Corda/cordapps` directory, and rename it `corda.jar`.
 5. Alternatively, download one of our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory.

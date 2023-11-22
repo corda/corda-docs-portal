@@ -12,7 +12,7 @@ section_menu: corda5
 # Managing Pre-Authentication Tokens
 ## Creating a Token
 
-To create a pre-auth token for a member, use the [mgm/{holdingidentityshorthash}/preauthtoken POST method](../../../../reference/rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__preauthtoken) of the REST API.
+To create a pre-auth token for a member, use the [mgm/{holdingidentityshorthash}/preauthtoken POST method](../../../../reference/rest-api/openapi.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__preauthtoken) of the REST API.
 
 For example, for the member `O=Alice, L=London, C=GB`:
 
@@ -20,19 +20,19 @@ For example, for the member `O=Alice, L=London, C=GB`:
 curl -k -u $REST_API_USER:$REST_API_PASSWORD -X POST -d '{"ownerX500Name": "O=Alice, L=London, C=GB"}' $REST_API_URL/mgm/$MGM_HOLDING_ID/preauthtoken
 ```
 
-This token is tied to the specified X.500 name and only a registering member with the same X.500 name can consume that token.
+This token is tied to the specified {{< tooltip >}}X.500{{< /tooltip >}} name and only a registering member with the same X.500 name can consume that token.
 
 You can also pass the following optional properties when creating a token:
-* time-to-live — specifies a duration after which the token will no longer be valid. 
-This duration is submitted in the ISO-8601 duration format (PnDTnHnMn.nS). 
-For example, PT15M (15 minutes), P4D (4 days), P1DT2H2M (1 day, 2 hours, and 2 minutes). 
-The specified duration is added to the current time when the request to create the token is submitted to calculate the time after which the token is no longer valid. 
-If no time-to-live value is submitted, the token only expires after it is consumed or revoked. 
+* time-to-live — specifies a duration after which the token will no longer be valid.
+This duration is submitted in the ISO-8601 duration format (PnDTnHnMn.nS).
+For example, PT15M (15 minutes), P4D (4 days), P1DT2H2M (1 day, 2 hours, and 2 minutes).
+The specified duration is added to the current time when the request to create the token is submitted to calculate the time after which the token is no longer valid.
+If no time-to-live value is submitted, the token only expires after it is consumed or revoked.
 * remark —  a user-defined string stored along with the token to provide additional information about the token creation.
 
 ## Viewing Tokens
 
-To retrieve all valid pre-auth tokens, use the [mgm/{holdingidentityshorthash}/preauthtoken GET method](../../../../reference/rest-api/C5_OpenAPI.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__preauthtoken). A valid token is one that has not been consumed, revoked, or expired.
+To retrieve all valid pre-auth tokens, use the [mgm/{holdingidentityshorthash}/preauthtoken GET method](../../../../reference/rest-api/openapi.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__preauthtoken). A valid token is one that has not been consumed, revoked, or expired.
 
 ```bash
 curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/mgm/$MGM_HOLDING_ID/preauthtoken
@@ -51,7 +51,7 @@ This method returns the rules in the following format:
 ```
 
 You can also pass the following optional properties to filter or expand the search results:
-* ownerX500Name — the X.500 name of the member who the token was issued for. 
+* ownerX500Name — the X.500 name of the member who the token was issued for.
 This is passed as a URL query parameter with the full URL encoded X.500 name.
 * preauthtokenid — the ID of a specific token to look up.
 * viewinactive — set this to `true` to include consumed, revoked, or expired tokens.
@@ -66,7 +66,7 @@ curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/mgm/$MGM_HOLDING_ID/r
 
 ## Revoking Tokens
 
-To revoke a pre-auth token, pass the ID of the token to the [mgm/{holdingidentityshorthash}/preauthtoken/revoke/{preauthtokenid} PUT method](../../../../reference/rest-api/C5_OpenAPI.html#tag/MGM-API/operation/put_mgm__holdingidentityshorthash__preauthtoken_revoke__preauthtokenid_). You can retrieve the ID of a token from the response of creating the token, or from the response of the GET method described in [Viewing Tokens]({{< relref "#viewing-tokens" >}}). This prevents the token from being used. Any registrations submitted with a revoked token are automatically declined.
+To revoke a pre-auth token, pass the ID of the token to the [mgm/{holdingidentityshorthash}/preauthtoken/revoke/{preauthtokenid} PUT method](../../../../reference/rest-api/openapi.html#tag/MGM-API/operation/put_mgm__holdingidentityshorthash__preauthtoken_revoke__preauthtokenid_). You can retrieve the ID of a token from the response of creating the token, or from the response of the GET method described in [Viewing Tokens]({{< relref "#viewing-tokens" >}}). This prevents the token from being used. Any registrations submitted with a revoked token are automatically declined.
 
 ```bash
 curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT $REST_API_URL/mgm/$MGM_HOLDING_ID/preauthtoken/revoke/<TOKEN-ID>

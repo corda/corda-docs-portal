@@ -20,11 +20,11 @@ title: Networks
 
 
 
-* [What is a compatibility zone?](compatibility-zones.md)
-* [Network certificates](permissioning.md)
-* [The network map](network-map.md)
-* [Cipher suites supported by Corda](cipher-suites.md)
-* [Joining an existing compatibility zone](joining-a-compatibility-zone.md)
-* [Setting up a dynamic compatibility zone](setting-up-a-dynamic-compatibility-zone.md)
-* [Setting up a notary service](running-a-notary.md)
-* [Managing membership of a business network](business-network-membership.md)
+* [What is a compatibility zone?]({{< relref "compatibility-zones.md" >}})
+* [Network certificates]({{< relref "permissioning.md" >}})
+* [The network map]({{< relref "network-map.md" >}})
+* [Cipher suites supported by Corda]({{< relref "cipher-suites.md" >}})
+* [Joining an existing compatibility zone]({{< relref "joining-a-compatibility-zone.md" >}})
+* [Setting up a dynamic compatibility zone]({{< relref "setting-up-a-dynamic-compatibility-zone.md" >}})
+* [Setting up a notary service]({{< relref "running-a-notary.md" >}})
+* [Managing membership of a business network]({{< relref "business-network-membership.md" >}})

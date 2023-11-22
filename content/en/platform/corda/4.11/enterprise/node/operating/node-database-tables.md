@@ -277,7 +277,7 @@ This table should be empty when no events are scheduled.
 {{< /table >}}
 
 The columns `PRIVATE_KEY_MATERIAL_WRAPPED` and `SCHEME_CODE_NAME` are populated, instead of the column `PRIVATE_KEY`,
-if an HSM is configured for anonymous identities. For more details about this feature, read [Using an HSM with confidential identities](confidential-identities-hsm.md).
+if an HSM is configured for anonymous identities. For more details about this feature, read [Using an HSM with confidential identities]({{< relref "confidential-identities-hsm.md" >}}).
 
 
 {{< table >}}
@@ -418,6 +418,7 @@ Note that the vault tables are guaranteed to remain backwards compatible and are
 |RELEVANCY_STATUS|`RELEVANT` or `NOT_RELEVANT`|
 |CONSTRAINT_TYPE|The contract constraint.|
 |CONSTRAINT_DATA|The hash or the composite key depending on the `CONSTRAINT_TYPE`|
+|CONSUMING_TX_ID| When a state is consumed by a transaction, the ID of the consuming transaction is added to this column.|
 
 {{< /table >}}
 

@@ -68,7 +68,7 @@ There are also operations that allow starting/killing the flows or even stopping
 * Starting flows requires `InvokeRpc.registeredFlows` and `InvokeRpc.wellKnownPartyFromX500Name`, as well as a permission for the flow being started.
 * Killing flows (`flow kill`) requires `InvokeRpc.killFlow`. This currently allows the user to kill *any* flow, so please be careful when granting it!
 
-Description of RPC operations can be found in the [RPC operations](api-rpc.md) documentation.
+Description of RPC operations can be found in the [RPC operations]({{< relref "../../api-rpc.md" >}}) documentation.
 
 {{< note >}}
 `InvokeRpc.startTrackedFlowDynamic` permission gives permission to run all existing flows.
@@ -147,8 +147,7 @@ Where:
 
 You can install the shell in your node in two different ways:
 
-* Download the `corda-shell` JAR from the [Artifactory](https://software.r3.com/ui/native/r3-corda-releases/com/r3/corda/corda-shell/) and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node.
-By default, a Corda node does not run the shell.
+* [Download](https://download.corda.net/maven/corda-releases/net/corda/corda-shell/4.11/corda-shell-4.11.jar) the `corda-shell` JAR from Maven and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node.
 
 * When using `cordaformation`, the shell can be included in the generated nodes by adding the following in the `dependencies` block. The `dependencies` block must be in the same `build.gradle` file as the `deployNodes` task:
 
@@ -507,7 +506,7 @@ Use the different flow commands available to make changes on the ledger. You can
 
 #### Query flow data
 
-The shell can be used to query flow data. For more information on the types of data that can be queried and instructions for doing so, see the documentation on [Querying flow data](querying-flow-data.html#querying-flow-data-via-the-node-shell).
+The shell can be used to query flow data. For more information on the types of data that can be queried and instructions for doing so, see the documentation on [Querying flow data]({{< relref "querying-flow-data.md#querying-flow-data-via-the-node-shell" >}}).
 
 
 #### Start a flow
@@ -699,7 +698,7 @@ class is referenced as `net.corda.finance.contracts.asset.Cash$State` (note the 
 
 {{< note >}}
 If your CorDapp is written in Java, named arguments won’t work unless you compiled the node using the
-`-parameters` argument to `javac`. See the documentation on [Creating nodes locally](generating-a-node.md) to learn how to specify it via Gradle.
+`-parameters` argument to `javac`. See the documentation on [Creating nodes locally]({{< relref "../deploy/generating-a-node.md" >}}) to learn how to specify it via Gradle.
 {{< /note >}}
 
 

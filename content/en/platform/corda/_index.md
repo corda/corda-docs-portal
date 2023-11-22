@@ -8,13 +8,13 @@ section_menu: corda-index
 identifier: corda-index
 menu:
   projects:
-    weight: -1050
+    weight: -5000
     project: corda
     identifier: corda-index
   versions:
     version: 'Corda Index'
     name: "Corda Index"
-    weight: -800
+    weight: -5000
 ---
 
 # Welcome to Corda
@@ -29,7 +29,7 @@ The Corda platform documentation covers the following current versions of the Co
 
 {{< table >}}
 
-| Product                 | Link to specific versions                                 | 
+| Product                 | Link to Specific Versions                                 | 
 |-------------------------------|-------------------------------------------------------|
 | **Corda 5**                   |[Corda 5.0](../platform/corda/5.0.html)                |
 | **Corda 4 Enterprise**        |[Corda Enterprise 4.11](../platform/corda/4.11/enterprise.html)|

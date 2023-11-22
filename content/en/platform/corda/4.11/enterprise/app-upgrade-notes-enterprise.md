@@ -68,10 +68,11 @@ been removed.
         }
 
         // Dependency on Corda Community Edition
-        maven { url "https://software.r3.com/artifactory/corda" }
-
+        maven { url 'https://download.corda.net/maven/corda-releases' }
+        maven { url 'https://download.corda.net/maven/corda-dependencies' }
+        
         // Corda dependencies for the patched Quasar version
-        maven { url "https://software.r3.com/artifactory/corda-dependencies" } // access to the patched Quasar version
+        maven { url "https://download.corda.net/maven/corda-dependencies" } // access to the patched Quasar version
     }
     ```
 

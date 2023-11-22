@@ -42,7 +42,7 @@ This document provides the information you need in order to understand what happ
 Corda transactions evolve input states into output states. A state is a data structure containing: the actual data fact (that is expressed as a
 strongly typed serialized java object) and a reference to the logic (contract) that needs to verify a transition to and from this state.
 Corda does not embed the actual verification bytecode in transactions. The logic is expressed as a Java class name and a contract constraint
-(read more in: [API: Contract Constraints](api-contract-constraints.md)), and the actual code lives in a JAR file that is referenced by the transaction.
+(read more in: [API: Contract Constraints]({{< relref "api-contract-constraints.md" >}})), and the actual code lives in a JAR file that is referenced by the transaction.
 
 
 ### The basic threat model and security requirement.
@@ -77,12 +77,12 @@ Behind the scenes, the matter is more complex. As can be seen in this illustrati
 
 {{< note >}}
 Corda’s design is based on the UTXO model. In a serialized transaction the input and reference states are *StateRefs* - only references
-to output states from previous transactions (see [API: Transactions](api-transactions.md)).
+to output states from previous transactions (see [API: Transactions]({{< relref "api-transactions.md" >}})).
 When building the `LedgerTransaction`, the `inputs` and `references` are resolved to Java objects created by deserialising blobs of data
 fetched from previous transactions that were in turn serialized in that context (within the classloader of that transaction - introduced here: [Contract execution in the AttachmentsClassloader and the no-overlap rule.](#contract-execution-in-the-attachmentsclassloader-and-the-no-overlap-rule)).
 This model has consequences when it comes to how states can be evolved. Removing a field from a newer version of a state would mean
 that when deserialising that state in the context of a transaction using the more recent code, that field could just disappear.
-In Corda 4 we implemented the no-data loss rule, which prevents this to happen. See [Default Class Evolution](serialization-default-evolution.md)
+In Corda 4 we implemented the no-data loss rule, which prevents this to happen. See [Default Class Evolution]({{< relref "serialization-default-evolution.md" >}})
 
 {{< /note >}}
 
@@ -120,7 +120,7 @@ Given that the input states are already agreed to be valid facts, the attached c
 {{< note >}}
 The output states created by this transaction must also specify constraints and, to prevent a malicious transaction creator specifying
 constraints that enable their malicious code to take control of a state in a future transaction, these constraints must be consistent
-with those of any input states of the same type. This is explained more fully as part of the platform’s ‘constraints propagation’ rules documentation [Constraints propagation](api-contract-constraints.html#constraints-propagation) .
+with those of any input states of the same type. This is explained more fully as part of the platform’s ‘constraints propagation’ rules documentation [Constraints propagation]({{< relref "api-contract-constraints.md#constraints-propagation" >}}) .
 
 {{< /note >}}
 The rule for contract code attachment validity checking is that for each state there must be one and only one attachment that contains the fully qualified contract class name.

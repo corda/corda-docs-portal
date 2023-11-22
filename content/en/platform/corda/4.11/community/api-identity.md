@@ -59,7 +59,7 @@ certificate path proving the certificate was issued by the doorman service.
 
 {{< warning >}}
 The `confidential-identities` module is still not stabilised, so this API may change in future releases.
-See [API stability guarantees](api-stability-guarantees.md).
+See [API stability guarantees]({{< relref "api-stability-guarantees.md" >}}).
 
 {{< /warning >}}
 
@@ -106,7 +106,7 @@ override fun call(): SignedTransaction {
 
 
 
-[TwoPartyDealFlow.kt](https://github.com/corda/corda/blob/release/os/4.8/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyDealFlow.kt](https://github.com/corda/corda/blob/release/os/4.11/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -161,7 +161,7 @@ val twiceSignedTx = partSignedTx + sellerSignature
 
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.8/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.11/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -201,7 +201,7 @@ subFlow(IdentitySyncFlow.Receive(otherSideSession))
 
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.8/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.11/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 

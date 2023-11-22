@@ -71,7 +71,7 @@ cenm netmap netparams update submit -p config/parameters.conf
 ```
 
 The Angel Service of the Network Map Service will pick up the new network parameters
-from the Zone service automatically.
+from the Zone Service automatically.
 
 ## Advertise network parameter update
 

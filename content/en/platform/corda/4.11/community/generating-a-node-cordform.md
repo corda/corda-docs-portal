@@ -16,7 +16,7 @@ title: Cordform task
 
 # Cordform task
 
-Corda's `cordformation` Gradle plugin provides the `Cordform` and `Dockerform` tasks. They both allow you to run tasks that automatically generate and configure a local set of nodes for testing and demonstration purposes. This page contains information about the operation of the Cordform task. Visit the [Dockerform](generating-a-node-dockerform.md) page for Dockerform configuration options.
+Corda's `cordformation` Gradle plugin provides the `Cordform` and `Dockerform` tasks. They both allow you to run tasks that automatically generate and configure a local set of nodes for testing and demonstration purposes. This page contains information about the operation of the Cordform task. Visit the [Dockerform]({{< relref "generating-a-node-dockerform.md" >}}) page for Dockerform configuration options.
 
 * A `Cordform` task creates nodes in the `build/nodes` directory. The example `Cordform` task used in this document creates three nodes: `Notary`, `PartyA`, and `PartyB`, however you are free to spin up more nodes, specify what nodes you need on the network, change node names, and update node configurations.
 * `Cordform` tasks require you to deploy each Corda node and database separately.
@@ -126,25 +126,25 @@ node {
 
 There are four mandatory fields that must be set for the Cordform plugin:
 
-1. `name` &lt;string&gt; is used to specify the legal identity name of the Corda node. For more information, see [myLegalName](corda-configuration-fields.html#mylegalname). For example:
+1. `name` &lt;string&gt; is used to specify the legal identity name of the Corda node. For more information, see [myLegalName]({{< relref "corda-configuration-fields.md#mylegalname" >}}). For example:
 
 ```kotlin
 name "O=PartyA,L=London,C=GB"
 ```
 
-2. `p2pAddress` &lt;string&gt; is used to specify the address/port the node uses for inbound communication from other nodes. For more information, see [p2pAddress](corda-configuration-fields.html#p2paddress). **Required if `p2pPort` is not specified**. For example:
+2. `p2pAddress` &lt;string&gt; is used to specify the address/port the node uses for inbound communication from other nodes. For more information, see [p2pAddress]({{< relref "corda-configuration-fields.md#p2paddress" >}}). **Required if `p2pPort` is not specified**. For example:
 
 ```kotlin
 p2pAddress "example.com:10002"
 ```
 
-3. `p2pPort` &lt;integer&gt; is used to specify the port the node uses for inbound communication from other nodes. The assumed IP address is `localhost`. For more information, see [p2pAddress](corda-configuration-fields.html#p2paddress). For example:
+3. `p2pPort` &lt;integer&gt; is used to specify the port the node uses for inbound communication from other nodes. The assumed IP address is `localhost`. For more information, see [p2pAddress]({{< relref "corda-configuration-fields.md#p2paddress" >}}). For example:
 
 ```kotlin
 p2pPort 10006  // "localhost:10006"
 ```
 
-4. `rpcSettings` &lt;config&gt; is used to specify RPC settings for the node. For more information, see [rpcSettings](corda-configuration-fields.html#rpcsettings). For example:
+4. `rpcSettings` &lt;config&gt; is used to specify RPC settings for the node. For more information, see [rpcSettings]({{< relref "corda-configuration-fields.md#rpcsettings" >}}). For example:
 
 ```kotlin
 rpcSettings {
@@ -157,15 +157,15 @@ rpcSettings {
 
 In addition to the four mandatory configuration fields, there are a number of optional configuration options to meet the needs of more specific plugin deployments:
 
-* `notary` &lt;config&gt; is used to specify the node as a Notary node. **Required**> for Notary nodes. For more information, see [Notary](corda-configuration-fields.html#notary).
+* `notary` &lt;config&gt; is used to specify the node as a Notary node. **Required**> for Notary nodes. For more information, see [Notary]({{< relref "corda-configuration-fields.md#notary" >}}).
 
-* `devMode` &lt;boolean&gt; is used to enable development mode when you set its value to `true`. For more information, see [devMode](corda-configuration-fields.html#devmode). For example:
+* `devMode` &lt;boolean&gt; is used to enable development mode when you set its value to `true`. For more information, see [devMode]({{< relref "corda-configuration-fields.md#devmode" >}}). For example:
 
 ```kotlin
 devMode true
 ```
 
-* `rpcUsers` &lt;list&gt; is used to set the RPC users for the node. For more information, see [rpcUsers](corda-configuration-fields.html#rpcusers). You can use arbitrary values in this configuration block - "incorrect" settings will not cause a DSL error. An example follows below:
+* `rpcUsers` &lt;list&gt; is used to set the RPC users for the node. For more information, see [rpcUsers]({{< relref "corda-configuration-fields.md#rpcusers" >}}). You can use arbitrary values in this configuration block - "incorrect" settings will not cause a DSL error. An example follows below:
 
 ```kotlin
 rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.corda.flows.MyFlow"]]]
@@ -177,7 +177,7 @@ rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.
 configFile = "samples/trader-demo/src/main/resources/node-b.conf"
 ```
 
-* `sshdPort` &lt;integer&gt; is used to specify the SSH port for the Docker container. This will be mapped to the same port on the host.  If `sshdPort` is specified, then that port must be available on the host and not in use by some other service. If `sshdPort` is not specified, then a default value will be used for the SSH port on the container. Use the `docker port <container_name>` command to check which port has been allocated on the host for your container. For more information, see [sshd](corda-configuration-fields.html#sshd). For example:
+* `sshdPort` &lt;integer&gt; is used to specify the SSH port for the Docker container. This will be mapped to the same port on the host.  If `sshdPort` is specified, then that port must be available on the host and not in use by some other service. If `sshdPort` is not specified, then a default value will be used for the SSH port on the container. Use the `docker port <container_name>` command to check which port has been allocated on the host for your container. For more information, see [sshd]({{< relref "corda-configuration-fields.md#sshd" >}}). For example:
 
 ```kotlin
 sshd {
@@ -191,7 +191,7 @@ You can extend the `deployNodes` task with more `node {}` blocks to generate as 
 When adding nodes, make sure that there are no port clashes.
 {{< /warning >}}
 
-To extend node configuration beyond the properties defined in the `deployNodes` task, use the `configFile` property with the file path (relative or absolute) set to an additional configuration file. This file should follow the standard [Node configuration](corda-configuration-file.md) format of `node.conf`. The properties set there will be appended to the generated node configuration.
+To extend node configuration beyond the properties defined in the `deployNodes` task, use the `configFile` property with the file path (relative or absolute) set to an additional configuration file. This file should follow the standard [Node configuration]({{< relref "corda-configuration-file.md" >}}) format of `node.conf`. The properties set there will be appended to the generated node configuration.
 
 {{< note >}}
 If you add a property to the additional configuration file that has already been created by the `deployNodes` task, both properties will be present in generated node configuration.
@@ -231,7 +231,7 @@ running the bootstrapper.
 
 ## Package namespace ownership
 
-To configure [package namespace ownership](../../4.8/enterprise/node/deploy/env-dev.html#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper](network-bootstrapper.md) tool. For example:
+To configure [package namespace ownership]({{< relref "../enterprise/node/deploy/env-dev.html#package-namespace-ownership ">}}), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper]({{< relref "network-bootstrapper.md" >}}) tool. For example:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
@@ -254,7 +254,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 CorDapp JAR files created by the gradle `cordapp` plug-in are signed by a Corda development certificate by default.
 
 You can use the Cordform `signing` entry to override and customise the signing of CorDapp JAR files.
-Signing a CorDapp enables its contract classes to use signature constraints instead of other types of constraints, such as [Contract Constraints](api-contract-constraints.md).
+Signing a CorDapp enables its contract classes to use signature constraints instead of other types of constraints, such as [Contract Constraints]({{< relref "api-contract-constraints.md" >}}).
 
 The signing task may use an external keystore, or create a new one.
 You can use the following parameters in the `signing` entry:
@@ -296,8 +296,8 @@ The example below shows the minimal set of `options` required to create a dummy 
   ```
 
 Contract classes from signed CorDapp JAR files are checked by signature constraints by default.
-You can force them to be checked by zone constraints by adding contract class names to the `includeWhitelist` entry - the list will generate an `include_whitelist.txt` file used internally by the [Network Bootstrapper](network-bootstrapper.md) tool.
-Before you add `includeWhitelist` to the `deployNodes` task, see [Contract Constraints](api-contract-constraints.md) to understand the implications of using different constraint types.
+You can force them to be checked by zone constraints by adding contract class names to the `includeWhitelist` entry - the list will generate an `include_whitelist.txt` file used internally by the [Network Bootstrapper]({{< relref "network-bootstrapper.md" >}}) tool.
+Before you add `includeWhitelist` to the `deployNodes` task, see [Contract Constraints]({{< relref "api-contract-constraints.md" >}}) to understand the implications of using different constraint types.
 The snippet below configures contracts classes from the Finance CorDapp to be verified using zone constraints instead of signature constraints:
 
   ```groovy
@@ -308,7 +308,7 @@ The snippet below configures contracts classes from the Finance CorDapp to be ve
 
 ## Optional migration step
 
-If you are migrating your database schema from an older Corda version to Corda 4.8, you must add the following parameter to the node section in the `build.gradle` and set it to `true`:
+If you are migrating your database schema from an older Corda version to Corda 4.11, you must add the following parameter to the node section in the `build.gradle` and set it to `true`:
 
   ```
           runSchemaMigration = true

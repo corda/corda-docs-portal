@@ -1,24 +1,25 @@
 ---
 date: '2023-04-07'
 version: 'Corda 5.0'
-title: "Configure Key Pairs and Certificates"
+title: "Configure Key Pairs and Certificates for the MGM"
 menu:
   corda5:
     parent: corda5-networks-mgm
     identifier: corda5-networks-mgm-key-pairs
     weight: 3000
+    name:  "Configure Key Pairs and Certificates"
 section_menu: corda5
 ---
-# Configure Key Pairs and Certificates
+# Configure Key Pairs and Certificates for the MGM
 
-This section describes how to configure key pairs and certificates. It contains the following:
+This section describes how to configure key pairs and certificates for the MGM. It contains the following:
 1. [Generate a Session Initiation Key Pair]({{< relref "#generate-a-session-initiation-key-pair">}})
 2. [Generate ECDH Key Pair]({{< relref "#generate-ecdh-key-pair">}})
 2. [Configure the Cluster TLS Key Pair]({{< relref "#configure-the-cluster-tls-key-pair">}})
 4. [Disable Revocation Checks]({{< relref "#disable-revocation-checks">}})
 ## Generate a Session Initiation Key Pair
 
-To assign a soft hardware security module (HSM) and generate a session initiation key pair:
+To assign a soft hardware security module (HSM) and generate a {{< tooltip >}}session initiation key{{< /tooltip >}} pair:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```bash
@@ -45,7 +46,7 @@ You can use a certificate in addition to the session initiation key pair. For mo
 
 ## Generate ECDH Key Pair
 
-To generate an Elliptic-Curve Diffie–Hellman (ECDH) key pair:
+To generate an Elliptic-Curve Diffie–Hellman ({{< tooltip >}}ECDH{{< /tooltip >}}) key pair:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```
@@ -78,7 +79,7 @@ This step is only necessary if setting up a new cluster.
 It is only required once per cluster, allowing you to re-use the same TLS key and certificate for the whole cluster.
 {{< /note >}}
 
-To set up the TLS key pair and certificate for the cluster:
+To set up the {{< tooltip >}}TLS{{< /tooltip >}} key pair and certificate for the cluster:
 
 1. Create a TLS key pair at the cluster level by running this command:
    {{< tabs >}}
@@ -146,13 +147,13 @@ To set up the TLS key pair and certificate for the cluster:
    -----END CERTIFICATE REQUEST-----
    ```
 
-3. Provide the chosen CA with this CSR and request for certificate issuance.
+3. Provide the chosen {{< tooltip >}}CA{{< /tooltip >}}with this CSR and request for certificate issuance.
 
 4. To upload the certificate chain to the Corda cluster, run this command, where `certificate-folder` is the path to the folder in which you saved the certificate received from the CA:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT  -F certificate=<certificate-folder>/certificate.pem -F alias=p2p-tls-cert $REST_API_URL/certificates/cluster/p2p-tls
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT  -F certificate=@<certificate-folder>/certificate.pem -F alias=p2p-tls-cert $REST_API_URL/certificates/cluster/p2p-tls
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
@@ -172,7 +173,8 @@ To set up the TLS key pair and certificate for the cluster:
 
 ### Disable Revocation Checks
 
-If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable revocation checks:
+If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable {{< tooltip >}}revocation checks{{< /tooltip >}} :
+
 * [Disable Revocation Checks Using Bash]({{< relref "#disable-revocation-checks-using-bash">}})
 * [Disable Revocation Checks Using PowerShell]({{< relref "#disable-revocation-checks-using-powershell">}})
 
@@ -190,7 +192,7 @@ If using Bash, to disable revocation checks, do the following:
    ```shell
    export CONFIG_VERSION=<configuration-version>
    ```
-3. Send the following request to disable revocation checks for the specified gateway worker:
+3. Send the following request to disable revocation checks for the specified {{< tooltip >}}gateway worker{{< /tooltip >}}:
    ```
    curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.p2p.gateway", "version":"'$CONFIG_VERSION'", "config":"{ \"sslConfig\": { \"revocationCheck\": { \"mode\": \"OFF\" }  }  }", "schemaVersion": {"major": 1, "minor": 0}}' $REST_API_URL"/config"
    ```

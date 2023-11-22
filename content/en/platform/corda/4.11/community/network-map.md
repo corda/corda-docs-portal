@@ -95,7 +95,7 @@ the network, along with the network parameters file and identity certificates. G
 online at once - an offline node that isn’t being interacted with doesn’t impact the network in any way. So a test
 cluster generated like this can be sized for the maximum size you may need, and then scaled up and down as necessary.
 
-More information can be found in [Network Bootstrapper](network-bootstrapper.md).
+More information can be found in [Network Bootstrapper]({{< relref "network-bootstrapper.md" >}}).
 
 
 
@@ -159,7 +159,7 @@ parameters change.
 * **whitelistedContractImplementations**:
 List of whitelisted versions of contract code.
 For each contract class there is a list of SHA-256 hashes of the approved CorDapp jar versions containing that contract.
-Read more about *Zone constraints* here [API: Contract Constraints](api-contract-constraints.md)
+Read more about *Zone constraints* here [API: Contract Constraints]({{< relref "api-contract-constraints.md" >}})
 
 
 * **eventHorizon**:
@@ -177,7 +177,7 @@ The transaction verification logic will throw an exception when this happens.
 
 
 {{< note >}}
-To determine which *minimumPlatformVersion* a zone must mandate in order to permit all the features of Corda, see [Corda Features and Versions](features-versions.md).
+To determine which *minimumPlatformVersion* a zone must mandate in order to permit all the features of Corda, see [Corda Features and Versions]({{< relref "features-versions.md" >}}).
 
 {{< /note >}}
 More parameters will be added in future releases to regulate things like allowed port numbers, whether or not IPv6
@@ -193,6 +193,10 @@ smooth network interoperability, or a change of the existing compatibility const
 Updating of the parameters by the zone operator is done in two phases:
 1. Advertise the proposed network parameter update to the entire network.
 2. Switching the network onto the new parameters - also known as a *flag day*.
+
+{{< note >}}
+When a flag day is run, all nodes (regardless of whether they have accepted or not) shut down. The nodes that previously accepted the update can be restarted. The nodes that did not accept must manually purge their network parameters file before restarting.
+{{< /note >}}
 
 The proposed parameter update will include, along with the new parameters, a human-readable description of the changes as well as the
 deadline for accepting the update. The acceptance deadline marks the date and time that the zone operator intends to switch the entire
@@ -229,7 +233,7 @@ data class ParametersUpdateInfo(
 
 ```
 
-[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.8/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
+[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.11/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
 
 
 ### Automatic Acceptance
@@ -273,7 +277,7 @@ data class NetworkParameters(
 
 ```
 
-[NetworkParameters.kt](https://github.com/corda/corda/blob/release/os/4.8/core/src/main/kotlin/net/corda/core/node/NetworkParameters.kt)
+[NetworkParameters.kt](https://github.com/corda/corda/blob/release/os/4.11/core/src/main/kotlin/net/corda/core/node/NetworkParameters.kt)
 
 This behaviour can be turned off by setting the optional node configuration property `networkParameterAcceptanceSettings.autoAcceptEnabled`
 to `false`. For example:
@@ -317,7 +321,7 @@ Only the latest update can be accepted.
 
 To send back parameters approval to the zone operator, the RPC method `fun acceptNewNetworkParameters(parametersHash: SecureHash)`
 has to be called with `parametersHash` from the update. Note that approval cannot be undone. You can do this via the Corda
-shell (see [Node shell](shell.md)):
+shell (see [Node shell]({{< relref "shell.md" >}})):
 
 `run acceptNewNetworkParameters parametersHash: "ba19fc1b9e9c1c7cbea712efda5f78b53ae4e5d123c89d02c9da44ec50e9c17d"`
 
@@ -341,5 +345,5 @@ java -jar corda.jar clear-network-cache
 ```
 
 or call RPC method *clearNetworkMapCache* (it can be invoked through the node’s shell as *run clearNetworkMapCache*, for more information on
-how to log into node’s shell see [Node shell](shell.md)). As we are testing and hardening the implementation this step shouldn’t be required.
+how to log into node’s shell see [Node shell]({{< relref "shell.md" >}})). As we are testing and hardening the implementation this step shouldn’t be required.
 After cleaning the cache, network map data is restored on the next poll from the server or filesystem.

@@ -1,0 +1,96 @@
+baseURL = "/"
+
+title = "R3 Documentation"
+
+theme = ['doks']
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+contentDir = "content/"
+
+pluralizeListTitles = false
+
+uglyurls = true
+
+refLinksErrorLevel = "error"
+
+disableKinds = ["taxonomy", "term"]
+
+# See https://help.farbox.com/pygments.html
+pygmentsCodeFences = true
+pygmentsUseClasses = false
+pygmentsStyle = "emacs"
+
+# See https://gohugo.io/variables/git/
+enableGitInfo = false
+
+# See https://gohugo.io/getting-started/configuration-markup#highlight
+[markup]
+[markup.highlight]
+style = "tango"
+
+[markup.goldmark]
+[markup.goldmark.renderer]
+
+unsafe = true
+
+[permalinks]
+blog = "/blog/:section/:year/:month/:day/:slug/"
+
+# Any params set in here override the ones above for that particular site (one site = one lang)
+[languages]
+#[languages.en]
+#description  = "R3 Documentation"
+#languageName = "English"
+# Weight used for sorting
+#weight = 10
+#
+#[languages.fr]
+#contentDir = "content/fr"
+#languageName = "Français"
+#weight = 20
+#language_alternatives = ["en"]
+#
+#[languages.de]
+#contentDir = "content/de"
+#languageName = "Deutsch"
+#weight = 30
+#language_alternatives = ["en"]
+
+[params]
+github_repository = "https://github.com/corda/corda-docs-portal/"
+
+twitter = "cordablockchain"
+slack = "https://slack.corda.net/"
+github = "corda"
+stackoverflow = "corda"
+
+default_tab = "java"
+
+ogimage = "/images/png/corda.png"
+
+algolia_appId = "UX2KMUWFAL"
+algolia_apiKey = "5235ffc2c4b9dc8c6707db684d4d11ff"
+algolia_index = "crawler_docs.r3.com_docsearch"
+
+# Google Tag Manager code setup
+googleTagManagerID = "G-NCYRYSGJ7C"
+
+# See https://gohugo.io/templates/internal/#google-analytics
+# googleAnalytics = "283616090"
+
+[module]
+  [[module.mounts]]
+    source = "node_modules/flexsearch"
+    target = "assets/js/vendor/flexsearch"
+  [[module.mounts]]
+    source = "node_modules/katex"
+    target = "assets/js/vendor/katex"
+  [[module.mounts]]
+    source = 'content/en'
+    target = 'content/en'
+    excludeFiles = ['archived-docs/**']
+  [[module.mounts]]
+    source = 'content/en'
+    target = 'content/en'
+    excludeFiles = ['interop-raw/**'] 

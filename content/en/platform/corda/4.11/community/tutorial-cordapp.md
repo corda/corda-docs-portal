@@ -21,7 +21,7 @@ title: Run a sample CorDapp
 
 Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try modifying a [Java](https://github.com/corda/cordapp-template-java) or [Kotlin](https://github.com/corda/cordapp-template-kotlin) template, [building your own]({{< relref "../enterprise/get-started/tutorials/build-basic-cordapp/basic-cordapp-intro.md" >}}), or using a [community CorDapp](https://www.corda.net/samples/).
 
-The local Corda network in the sample includes one notary and two nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation](key-concepts-node.md).
+The local Corda network in the sample includes one notary and two nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation]({{< relref "key-concepts-node.md" >}}).
 
 The sample CorDapp allows nodes to reach loan agreements with each other, as long as they obey the following contract rules:
 
@@ -37,8 +37,8 @@ You will deploy and run the sample CorDapp on the following test nodes:
 
 ## Before you start
 
-* Learn [what a CorDapp is](cordapp-overview.md).
-* Set up your [development environment](getting-set-up.md).
+* Learn [what a CorDapp is]({{< relref "cordapp-overview.md" >}}).
+* Set up your [development environment]({{< relref "getting-set-up.md" >}}).
 
 
 ## Step 1: Download the sample CorDapp
@@ -70,7 +70,7 @@ The sample project folders will appear in your chosen directory.
 {{< note >}}
 The `samples-java` and `samples-kotlin` repositories each contain a number of sample CorDapps. For details of all the sample CorDapps and their features and usage, see the README file in the `samples-java` or `samples-kotlin` folder. The sample CorDapp that you are going to run and deploy is the **Basic** CorDapp in the `Basic\cordapp-example` sub-folder.
 
-You can see the project structure in Appendix A.
+You can see the project structure in [Appendix A]({{< relref "#appendix-a-projects-structure" >}}).
 {{< /note >}}
 
 
@@ -88,7 +88,7 @@ The project containing the sample CorDapp opens.
 
 1. Open the command line from the `cordapp-example` directory.
 2. Run the `deployNodes` Gradle task:
-      * Unix/Mac OSX: `./gradlew deployNodes`
+      * Unix/macOS: `./gradlew deployNodes`
       * Windows: `gradlew.bat deployNodes`
 
    This builds three nodes with the CorDapp installed on them.
@@ -98,15 +98,15 @@ The project containing the sample CorDapp opens.
    You will see the following output:
 
       * A folder for each generated node
-      * A `runnodes` shell script for running all the nodes simultaneously on OSX
+      * A `runnodes` shell script for running all the nodes simultaneously on macOS
       * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows
 
-See **Appendix B** for the node structure.
+      See [Appendix B]({{< relref "#appendix-b-node-structure" >}}) for the node structure.
 
 
 {{< note >}}
-`deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would create a single node as described in [Creating nodes locally](generating-a-node.md) instead, and build your CorDapp JARs as described
-in [Building and installing a CorDapp](cordapp-build-systems.md).
+`deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would create a single node as described in [Creating nodes locally]({{< relref "generating-a-node.md" >}}) instead, and build your CorDapp JARs as described
+in [Building and installing a CorDapp]({{< relref "cordapp-build-systems.md" >}}).
 {{< /note >}}
 
 
@@ -116,23 +116,23 @@ To start the nodes and the sample CorDapp:
 
 1. Run the command that corresponds to your operating system:
 
-* Unix/Mac OSX: `./build/nodes/runnodes`
+* Unix/macOS: `./build/nodes/runnodes`
 * Windows: `.\build\nodes\runnodes.bat`
 
 2. Start a Spring Boot server for Party A. Run the command:
 
-* Unix/Mac OSX: `./gradlew runPartyAServer`
+* Unix/macOS: `./gradlew runPartyAServer`
 * Windows: `gradlew.bat runPartyAServer`
 
 Look for the `Started Server in X seconds` message &mdash; don’t rely on the % indicator.
 
 3. Repeat the command to start the server for Party B:
-* Unix/Mac OSX: `./gradlew runPartyBServer`
+* Unix/macOS: `./gradlew runPartyBServer`
 * Windows: `gradlew.bat runPartyBServer`
 
 
 {{< warning >}}
-On Unix/Mac OSX, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell](shell.md).
+On Unix/macOS, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell]({{< relref "shell.md" >}}).
 {{< /warning >}}
 
 
@@ -275,7 +275,7 @@ You can connect directly to your node’s database to see its stored states, tra
 
 ## Step 6: Test the CorDapp
 
-Corda provides several frameworks for writing unit and integration tests for CorDapps. To access test flows in IntelliJ, select an option from the ‘Run Configurations’ dropdown next to the **hammer icon**.  For a general guide, see [Running tests in IntelliJ](testing.html#tutorial-cordapp-alternative-test-runners).
+Corda provides several frameworks for writing unit and integration tests for CorDapps. To access test flows in IntelliJ, select an option from the ‘Run Configurations’ dropdown next to the **hammer icon**.  For a general guide, see [Running tests in IntelliJ]({{< relref "testing.md#tutorial-cordapp-alternative-test-runners" >}}).
 
 ### Integration tests
 
@@ -322,9 +322,9 @@ If your test fails, run a Gradle test instead of a unit test.
 
 ## Related Content
 
-* [Debugging a CorDapp](debugging-a-cordapp.md)
-* [Writing a CorDapp](writing-a-cordapp.md)
-* [Build a CorDapp](cordapp-build-systems.md)
+* [Debugging a CorDapp]({{< relref "debugging-a-cordapp.md" >}})
+* [Writing a CorDapp]({{< relref "writing-a-cordapp.md" >}})
+* [Build a CorDapp]({{< relref "cordapp-build-systems.md" >}})
 
 
 ## Appendix A: Projects' structure
@@ -570,7 +570,6 @@ Each node in the `nodes` folder is structured as follows:
 │   ├── config
 │   ├── corda-example-contracts-0.1.jar
 │   └── corda-example-workflows-0.1.jar
-├── djvm
 ├── drivers
 ├── logs
 ├── network-parameters

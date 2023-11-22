@@ -1,22 +1,26 @@
 ---
 date: '2023-06-21'
 version: 'Corda 5.0'
-title: "net.corda.v5.crypto"
+title: "crypto"
 menu:
   corda5:
     identifier: corda5-api-crypto
     parent: corda5-api
     weight: 5000
 section_menu: corda5
-draft: true
 ---
 # net.corda.v5.crypto
 
-The `corda-crypto` module 
+The `crypto` package provides types used by services in `net.corda.v5.application.crypto`. The following types are available:
+
+* `DigitalSignature` is used to identify the owner of the signing key used to create the signature.
+* `SecureHash` is a cryptographically secure hash value, computed by a specified digest algorithm.
+* `SignatureSpec` is a digital signature scheme.
 
 ## Implementing Signature Schemes
 
-Corda supports the following `SignatureSpecs` (signature schemes) for creating `java.security.Signature` objects:
+Corda supports the following `SignatureSpec`s (signature schemes) for creating the following objects:
+
 * SHA256withRSA
 * SHA384withRSA
 * SHA512withRSA
@@ -35,4 +39,4 @@ Corda supports the following `SignatureSpecs` (signature schemes) for creating `
 * SHA256withSM2
 * GOST3411withGOST3410
 
-Use `SignatureSpecService` to retrieve the `SignatureSpec`.
+SignatureSpecService ensures that you do not pass the wrong signature spec for a signing-key type. It takes in a key and, optionally, a digest algorithm, and returns the appropriate default signature spec.

@@ -16,7 +16,7 @@ Corda and your installed CorDapps store their data in a relational database. Whe
 but the existing data needs to be preserved or changed accordingly.
 
 In Corda Enterprise, CorDapps’ custom tables are created or upgraded automatically based on
-database management scripts written in [Liquibase](../node/operating/node-database.html#liquibase-ref) format and embedded in CorDapp JARs.
+database management scripts written in [Liquibase]({{< relref "../node/operating/node-database.md#liquibase-ref" >}}) format and embedded in CorDapp JARs.
 Any CorDapp with custom tables (`MappedSchema`)  must contain a matching database management script.
 
 
@@ -312,7 +312,9 @@ This generates a file called `my-mapped-schema.changelog-master.sql` in a folder
 If no `MappedSchema` object is specified, the tool generates one SQL file for each schema defined in the CorDapp.
 4. Inspect the file(s) to ensure correctness. This is a standard SQL file with some Liquibase metadata as comments.
 5. Create a JAR containing the `migration` folder (`originalCorDappName-migration.jar`).
-6. Deploy the JAR in the node’s `cordapps` folder with the CorDapp by running `jar cvf /path/to/node/cordapps/MyCordapp-migration.jar migration` in the node’s base directory.
+6. Execute this command in the `cordapps` folder for each node requiring migration SQL to be applied:
+
+   `jar cvf [cordapp name]-migration.jar ../migration`
 
 Test the migration by running with the database management tool and inspecting the output file.
 
@@ -324,7 +326,7 @@ Any custom tables (which are required by CorDapps) were created manually or by H
 Therefore, the database doesn’t contain an entry in the *DATABASECHANGELOG* table, which is created by the Liquibase runner.
 You need to create the entries and provide them to a node operator to run them manually.
 
-See the  [Liquibase Sql Format](http://www.liquibase.org/documentation/sql_format.html) documents and Corda's [upgrade procedure](../node-operations-upgrading-os-to-ent.html#upgrade-from-corda-open-source-to-corda-enterprise) to learn how to obtain SQL statements.
+See the  [Liquibase Sql Format](http://www.liquibase.org/documentation/sql_format.html) documents and Corda's [upgrade procedure]({{< relref "../node-operations-upgrading-os-to-ent.md#upgrade-from-corda-open-source-to-corda-enterprise" >}}) to learn how to obtain SQL statements.
 
 
 

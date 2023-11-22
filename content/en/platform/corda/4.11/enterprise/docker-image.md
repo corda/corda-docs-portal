@@ -19,7 +19,7 @@ The official Corda Docker image is found at the [Corda Docker hub](https://hub.d
 * Install and enable `Docker` and `docker-compose`. Docker CE (Community Edition) is sufficient. Docker, Inc. publish installation instructions for all major operating systems:
     * [Docker CE](https://www.docker.com/community-edition)
     * [Docker Compose](https://docs.docker.com/compose/install/).
-* Ensure you have a valid [node.conf file](node/operating/node-database-tables.md) and set of certificates.
+* Ensure you have a valid [node.conf file]({{< relref "node/operating/node-database-tables.md" >}}) and set of certificates.
 
 ## Getting started
 

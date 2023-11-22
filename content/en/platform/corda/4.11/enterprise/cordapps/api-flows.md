@@ -66,7 +66,7 @@ The `initiator`:
 
 The `initiator`:
 
-1. Runs the [contracts](api-contracts.md) contained in the CorDapp.
+1. Runs the [contracts]({{< relref "api-contracts.md" >}}) contained in the CorDapp.
 2. Verifies that the transaction is valid based on the contracts.
 
 
@@ -103,7 +103,7 @@ The `responder`:
 
 1. Receives the transaction from the counterparty.
 2. Verifies the transaction’s existing signatures.
-3. Runs the [contracts](api-contracts.md) contained in the CorDapp.
+3. Runs the [contracts]({{< relref "api-contracts.md" >}}) contained in the CorDapp.
 4. Verifies that the transaction is valid based on the contracts.
 
 
@@ -135,8 +135,8 @@ subclass’s constructor can take any number of arguments of any type. The gener
 
 ```kotlin
 class Initiator(val arg1: Boolean,
-                val arg2: Int,
-                val counterparty: Party): FlowLogic<SignedTransaction>() { }
+    val arg2: Int,
+    val counterparty: Party): FlowLogic<SignedTransaction>() { }
 
 class Responder(val otherParty: Party) : FlowLogic<Unit>() { }
 ```
@@ -268,14 +268,14 @@ public static class InitiatorFlow extends FlowLogic<Void> {
 ### Accessing the node's `ServiceHub`
 
 You can access the node's `ServiceHub` within `FlowLogic.call`. The `ServiceHub` provides access to the
-node's services. See [Accessing node services](api-service-hub.md) for more information.
+node's services. See [Accessing node services]({{< relref "api-service-hub.md" >}}) for more information.
 
 ### Common flow tasks
 
 To agree ledger updates, you need to perform a number of common tasks within `FlowLogic.call`:
 
-* **Transaction building:** The majority of the work performed during a flow is building, verifying, and signing a transaction. See [Understanding transactions](api-transactions.md).
-* **Extracting states from the vault:**: When building a transaction, you’ll often need to extract the states you wish to consume from the vault. See [Writing vault queries](api-vault-query.md).
+* **Transaction building:** The majority of the work performed during a flow is building, verifying, and signing a transaction. See [Understanding transactions]({{< relref "api-transactions.md" >}}).
+* **Extracting states from the vault:**: When building a transaction, you’ll often need to extract the states you wish to consume from the vault. See [Writing vault queries]({{< relref "api-vault-query.md" >}}).
 * **Retrieving information about other nodes:**: You can retrieve information about other nodes on the network and the services they offer using `ServiceHub.networkMapCache`.
 
 ### Notaries
@@ -292,9 +292,9 @@ You can retreive a notary from the network map:
 
 ```kotlin
 val notaryName: CordaX500Name = CordaX500Name(
-        organisation = "Notary Service",
-        locality = "London",
-        country = "GB")
+    organisation = "Notary Service",
+    locality = "London",
+    country = "GB")
 val specificNotary: Party = serviceHub.networkMapCache.getNotary(notaryName)!!
 // Alternatively, we can pick an arbitrary notary from the notary
 // list. However, it is always preferable to specify the notary
@@ -332,13 +332,13 @@ You can use the network map to retrieve a specific counterparty:
 
 ```kotlin
 val counterpartyName: CordaX500Name = CordaX500Name(
-        organisation = "NodeA",
-        locality = "London",
-        country = "GB")
+    organisation = "NodeA",
+    locality = "London",
+    country = "GB")
 val namedCounterparty: Party = serviceHub.identityService.wellKnownPartyFromX500Name(counterpartyName) ?:
-        throw IllegalArgumentException("Couldn't find counterparty for NodeA in identity service")
+    throw IllegalArgumentException("Couldn't find counterparty for NodeA in identity service")
 val keyedCounterparty: Party = serviceHub.identityService.partyFromKey(dummyPubKey) ?:
-        throw IllegalArgumentException("Couldn't find counterparty with key: $dummyPubKey in identity service")
+    throw IllegalArgumentException("Couldn't find counterparty with key: $dummyPubKey in identity service")
 
 ```
 
@@ -426,7 +426,6 @@ Once you have a `FlowSession` object, you can send arbitrary data to a counterpa
 
 ```kotlin
 counterpartySession.send(Any())
-
 ```
 
 {{% /tab %}}
@@ -435,7 +434,6 @@ counterpartySession.send(Any())
 
 ```java
 counterpartySession.send(new Object());
-
 ```
 
 {{% /tab %}}
@@ -513,7 +511,6 @@ val packet3: UntrustworthyData<Any> = regulatorSession.receive<Any>()
 FlowSession regulatorSession = initiateFlow(regulator);
 regulatorSession.send(new Object());
 UntrustworthyData<Object> packet3 = regulatorSession.receive(Object.class);
-
 ```
 
 {{% /tab %}}
@@ -545,7 +542,6 @@ val boolean: Boolean = packet2.unwrap { data ->
     // Return the object.
     data
 }
-
 ```
 
 {{% /tab %}}
@@ -660,7 +656,7 @@ counterparty.
 
 {{< warning >}}
 `SwapIdentitiesFlow` and `SwapIdentitiesHandler` are only installed if you include the `confidential-identities` module. The `confidential-identities` module is not yet stabilized, so the
-`SwapIdentitiesFlow`/`SwapIdentitiesHandler` API may change in future releases. See [API stability guarantees](api-stability-guarantees.md).
+`SwapIdentitiesFlow`/`SwapIdentitiesHandler` API may change in future releases. See [API stability guarantees]({{< relref "api-stability-guarantees.md" >}}).
 
 {{< /warning >}}
 
@@ -764,19 +760,37 @@ Once a transaction is notarized and its input states consumed by the flow initia
 transaction fail to verify it, or the receiving flow (the finality handler) fails due to some other error, then
 all parties will not have the up-to-date view of the ledger.
 
-To recover from this scenario, the receiver’s finality handler is automatically sent to the `node-flow-hospital`. There, it is suspended and retried from its last checkpoint
-
-upon node restart, or according to other conditional retry rules - see [flow hospital runtime behavior](../node/node-flow-hospital.html#run-time-behaviour).
+To recover from this scenario, the receiver’s finality handler is automatically sent to the `node-flow-hospital`. There, it is suspended and retried from its last checkpoint upon node restart, or according to other conditional retry rules. For more information, see [flow hospital runtime behavior]({{< relref "../node/node-flow-hospital.md#run-time-behaviour" >}}).
 
 This gives the node operator the opportunity to recover from the error. Until the issue is resolved, the node will continue to retry the flow
 on each startup. Upon successful completion by the receiver’s finality flow, the ledger will become fully consistent.
 
 {{< warning >}}
-It’s possible to forcibly terminate the erroring finality handler using the `killFlow` RPC. However, this risks an inconsistent view of the ledger.
-
+It is possible to forcibly terminate the error finality handler using the `killFlow` RPC. However, this risks an inconsistent view of the ledger.
 {{< /warning >}}
 
+#### Two Phase Finality
 
+The Two Phase Finality protocol was introduced to improve resilience and recoverability.
+
+With Two Phase Finality, `FinalityFlow` performs the following actions:
+
+* Records the transaction locally without a notary signature.
+* Broadcasts the unnotarized transaction to other participants (for recording).
+* Sends the transaction to the chosen notary, and obtains a signature if the transaction is valid.
+* Finalizes the transaction locally with the notary signature.
+* Broadcasts the notary signature to other participants for finalization.
+
+With Two Phase Finality, `ReceiveFinalityFlow` performs the following actions:
+
+* Receives and record the unnotarized transaction locally.
+* Awaits receipt of the notary signature.
+* Finalizes the transaction locally with the notary signature.
+
+Additional flow transaction recovery metadata is stored upon recording the unnotarized transaction, so that it can be
+recovered should anything go wrong after this point at either the flow initiator's or the receiver's side.
+
+For more information, see [Two Phase Finality]({{< relref "../two-phase-finality.md" >}}).
 
 ### CollectSignaturesFlow/SignTransactionFlow
 
@@ -1126,15 +1140,15 @@ private static final Step FINALISATION = new Step("Finalising a transaction.") {
 };
 
 private final ProgressTracker progressTracker = new ProgressTracker(
-        ID_OTHER_NODES,
-        SENDING_AND_RECEIVING_DATA,
-        EXTRACTING_VAULT_STATES,
-        OTHER_TX_COMPONENTS,
-        TX_BUILDING,
-        TX_SIGNING,
-        TX_VERIFICATION,
-        SIGS_GATHERING,
-        FINALISATION
+    ID_OTHER_NODES,
+    SENDING_AND_RECEIVING_DATA,
+    EXTRACTING_VAULT_STATES,
+    OTHER_TX_COMPONENTS,
+    TX_BUILDING,
+    TX_SIGNING,
+    TX_VERIFICATION,
+    SIGS_GATHERING,
+    FINALISATION
 );
 
 ```
@@ -1190,7 +1204,7 @@ Threading needs to be explicitly handled when using `FlowExternalAsyncOperation`
 thread pool.
 
 {{< note >}}
-The size of the external operation thread pool can be configured. See [the node configuration documentation](../node/setup/corda-configuration-file.html#corda-configuration-flow-external-operation-thread-pool-size).
+The size of the external operation thread pool can be configured. See [the node configuration documentation]({{< relref "../node/setup/corda-configuration-file.md#corda-configuration-flow-external-operation-thread-pool-size" >}}).
 
 {{< /note >}}
 You can call `FlowExternalOperation` from a flow to run an operation on a new thread, allowing the flow to suspend:
@@ -1310,11 +1324,11 @@ public class ExternalService extends SingletonSerializeAsToken {
         try {
             // [DeduplicationId] passed into the request so the external system can handle deduplication
             return client.newCall(
-                    new Request.Builder().url("https://externalsystem.com/endpoint/" + deduplicationId).post(
-                            RequestBody.create(
-                                    MediaType.parse("text/plain"), data.toString()
-                            )
-                    ).build()
+                new Request.Builder().url("https://externalsystem.com/endpoint/" + deduplicationId).post(
+                    RequestBody.create(
+                        MediaType.parse("text/plain"), data.toString()
+                    )
+                ).build()
             ).execute();
         } catch (IOException e) {
             // Must handle checked exception
@@ -1364,8 +1378,7 @@ Threading must be explicitly controlled when using `FlowExternalAsyncOperation`.
 
 Implementations of `FlowExternalAsyncOperation` must return a `CompletableFuture`. The developer decides how to create this future.
 The best practice is to use `CompletableFuture.supplyAsync` and supply an executor to run the future. You can use other libraries to
-generate futures, as long as a `CompletableFuture` is returned out of `FlowExternalAsyncOperation`. You can see an example of creating a future
-using [Guava’s ListenableFuture](#api-flows-guava-future-conversion) Below.
+generate futures, as long as a `CompletableFuture` is returned out of `FlowExternalAsyncOperation`. You can see an example of creating a future using [Guava’s ListenableFuture](#api-flows-guava-future-conversion) below.
 
 {{< note >}}
 You can chain the future to execute further operations that continue using the same thread the future started on. For example,
@@ -1463,11 +1476,11 @@ public class FlowUsingFlowExternalAsyncOperation extends FlowLogic<Void> {
         // Call [FlowLogic.await] to execute an external operation
         // The result of the operation is returned to the flow
         Response response = await(
-                // Pass in an implementation of [FlowExternalAsyncOperation]
-                new RetrieveDataFromExternalSystem(
-                        getServiceHub().cordaService(ExternalService.class),
-                        new Data("amount", 1)
-                )
+            // Pass in an implementation of [FlowExternalAsyncOperation]
+            new RetrieveDataFromExternalSystem(
+                getServiceHub().cordaService(ExternalService.class),
+                new Data("amount", 1)
+            )
         );
         // Other flow operations
         return null;
@@ -1498,8 +1511,8 @@ public class ExternalService extends SingletonSerializeAsToken {
 
     // [ExecutorService] created to provide a fixed number of threads to the futures created in this service
     private ExecutorService executor = Executors.newFixedThreadPool(
-            4,
-            new ThreadFactoryBuilder().setNameFormat("external-service-thread").build()
+        4,
+        new ThreadFactoryBuilder().setNameFormat("external-service-thread").build()
     );
 
     public ExternalService(AppServiceHub serviceHub) { }
@@ -1507,23 +1520,23 @@ public class ExternalService extends SingletonSerializeAsToken {
     public CompletableFuture<Response> retrieveDataFromExternalSystem(String deduplicationId, Data data) {
         // Create a [CompletableFuture] to be executed by the [FlowExternalAsyncOperation]
         return CompletableFuture.supplyAsync(
-                () -> {
-                    try {
-                        // [DeduplicationId] passed into the request so the external system can handle deduplication
-                        return client.newCall(
-                                new Request.Builder().url("https://externalsystem.com/endpoint/" + deduplicationId).post(
-                                        RequestBody.create(
-                                                MediaType.parse("text/plain"), data.toString()
-                                        )
-                                ).build()
-                        ).execute();
-                    } catch (IOException e) {
-                        // Must handle checked exception
-                        throw new HospitalizeFlowException("External API call failed", e);
-                    }
-                },
-                // The future must run on a new thread
-                executor
+            () -> {
+                try {
+                    // [DeduplicationId] passed into the request so the external system can handle deduplication
+                    return client.newCall(
+                        new Request.Builder().url("https://externalsystem.com/endpoint/" + deduplicationId).post(
+                            RequestBody.create(
+                                MediaType.parse("text/plain"), data.toString()
+                            )
+                        ).build()
+                    ).execute();
+                } catch (IOException e) {
+                    // Must handle checked exception
+                    throw new HospitalizeFlowException("External API call failed", e);
+                }
+            },
+            // The future must run on a new thread
+            executor
         );
     }
 }
@@ -1597,10 +1610,11 @@ Handling deduplication on the external system’s side is preferred compared to 
 {{< /note >}}
 
 {{< warning >}}
-You shouldn't use in-memory data structures to handle deduplication as their state will not survive node restarts.
+Do not use in-memory data structures to handle deduplication as their state will not survive node restarts.
 
 {{< /warning >}}
-
+<a name="api-flows-guava-future-conversion"></a>
+ 
 The code below demonstrates how to convert a `ListenableFuture` into a `CompletableFuture`, allowing the result to be executed using a
 `FlowExternalAsyncOperation`.
 
@@ -1676,10 +1690,10 @@ public class ExternalService extends SingletonSerializeAsToken {
     public ExternalService(AppServiceHub serviceHub) { }
 
     private ListeningExecutorService guavaExecutor = MoreExecutors.listeningDecorator(
-            Executors.newFixedThreadPool(
-                    4,
-                    new ThreadFactoryBuilder().setNameFormat("guava-thread").build()
-            )
+        Executors.newFixedThreadPool(
+            4,
+            new ThreadFactoryBuilder().setNameFormat("guava-thread").build()
+        )
     );
 
     public CompletableFuture<Response> retrieveDataFromExternalSystem(String deduplicationId, Data data) {
@@ -1688,11 +1702,11 @@ public class ExternalService extends SingletonSerializeAsToken {
             try {
                 // [DeduplicationId] passed into the request so the external system can handle deduplication
                 return client.newCall(
-                        new Request.Builder().url("https://externalsystem.com/endpoint/" + deduplicationId).post(
-                                RequestBody.create(
-                                        MediaType.parse("text/plain"), data.toString()
-                                )
-                        ).build()
+                    new Request.Builder().url("https://externalsystem.com/endpoint/" + deduplicationId).post(
+                        RequestBody.create(
+                            MediaType.parse("text/plain"), data.toString()
+                        )
+                    ).build()
                 ).execute();
             } catch (IOException e) {
                 // Must handle checked exception

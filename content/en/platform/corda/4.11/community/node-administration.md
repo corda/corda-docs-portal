@@ -37,7 +37,7 @@ The node is using log4j2 asynchronous logging by default (configured via log4j2 
 to ensure that log message flushing is not slowing down the actual processing.
 If you need to switch to synchronous logging (e.g. for debugging/testing purposes), you can override this behaviour
 by adding `-DLog4jContextSelector=org.apache.logging.log4j.core.selector.ClassLoaderContextSelector` to the node’s
-command line or to the `jvmArgs` section of the node configuration (see [Node configuration](corda-configuration-file.md)).
+command line or to the `jvmArgs` section of the node configuration (see [Node configuration]({{< relref "corda-configuration-file.md" >}})).
 
 
 {{< warning >}}
@@ -88,13 +88,13 @@ then determine the logging module name from the console output.
 
 ## SSH access
 
-Node can be configured to run SSH server. See [Node shell](shell.md) for details.
+Node can be configured to run SSH server. See [Node shell]({{< relref "shell.md" >}}) for details.
 
 
 ## Database access
 
 When running a node backed with a H2 database, the node can be configured to expose the database over a socket
-(see [Database access when running H2](node-database-access-h2.md)).
+(see [Database access when running H2]({{< relref "node-database-access-h2.md" >}})).
 
 Note that in production, exposing the database via the node is not recommended.
 
@@ -163,9 +163,9 @@ To pass a security policy use `java -Dcapsule.jvm.args=-javaagent:./drivers/jolo
 
 When running in dev mode, Hibernate statistics are also available via the Jolkia interface. These are disabled otherwise
 due to expensive run-time costs. They can be turned on and off explicitly regardless of dev mode via the
-`exportHibernateJMXStatistics` flag on the [database configuration](corda-configuration-file.md).
+`exportHibernateJMXStatistics` flag on the [database configuration]({{< relref "corda-configuration-file.md" >}}).
 
-When starting Corda nodes using Cordformation runner (see [Running nodes locally](running-a-node.md)), you should see a startup message similar to the following:
+When starting Corda nodes using Cordformation runner (see [Running nodes locally]({{< relref "running-a-node.md" >}})), you should see a startup message similar to the following:
 **Jolokia: Agent started with URL http://127.0.0.1:7005/jolokia/**
 
 When starting Corda nodes using the ‘driver DSL’, you should see a startup message in the logs similar to the following:
@@ -198,7 +198,7 @@ Unfortunately the JVM does not let you limit the total memory usage of Java prog
 A node which is running out of memory is expected to stop immediately to preserve ledger consistency and avoid flaws in operations.
 Note that it’s a responsibility of a client application to handle RPC reconnection in case this happens. It’s also advised to have
 necessary JVM monitoring and restart infrastructure in place.
-See [Setting JVM arguments](running-a-node.md) for further details on JVM out-of-memory related parameters.
+See [Setting JVM arguments]({{< relref "running-a-node.md" >}}) for further details on JVM out-of-memory related parameters.
 
 
 
@@ -313,13 +313,13 @@ The RPC call is also available as the `run nodeDiagnosticInfo` command executabl
 Here is a sample output displayed by the `run nodeDiagnosticInfo` command executed from the Corda shell:
 
 ```none
-version: "4.8"
+version: "4.11"
 revision: "d7e4a0050049be357999f57f69d8bca41a2b8274"
 platformVersion: 7
 vendor: "Corda Open Source"
 cordapps:
 - type: "Contract CorDapp"
-  name: "corda-finance-contracts-4.8"
+  name: "corda-finance-contracts-4.11"
   shortName: "Corda Finance Demo"
   minimumPlatformVersion: 1
   targetPlatformVersion: 4
@@ -328,7 +328,7 @@ cordapps:
   licence: "Open Source (Apache 2)"
   jarHash: "570EEB9DF4B43680586F3BE663F9C5844518BC2E410EAF9904E8DEE930B7E45C"
 - type: "Workflow CorDapp"
-  name: "corda-finance-workflows-4.8"
+  name: "corda-finance-workflows-4.11"
   shortName: "Corda Finance Demo"
   minimumPlatformVersion: 1
   targetPlatformVersion: 4
@@ -348,8 +348,8 @@ that were received over the network.
 A Contract CorDapp (an attachment) received over the network, is only allowed to be evaluated if there are other Contract
 CorDapps installed in the node that have been signed by at least one of the received CorDapp’s keys.
 
-See [Signature Constraints](api-contract-constraints.html#signature-constraints) and
-[Signing CorDapps for use with Signature Constraints](api-contract-constraints.html#signing-cordapps) for more information
+See [Signature Constraints]({{< relref "api-contract-constraints.md#signature-constraints" >}}) and
+[Signing CorDapps for use with Signature Constraints]({{< relref "api-contract-constraints.md#signing-cordapps" >}}) for more information
 
 {{< /note >}}
 

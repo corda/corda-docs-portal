@@ -172,6 +172,11 @@ Storage of new transactions must be made via the `recordTransactions`
 method on the `ServiceHub`, not via a direct call to this service, so
 that the various event notifications can occur.
 
+The `ServiceHub` API function `recordTransactions` performs signature verification prior to storing any passed in
+transaction(s). Should any signature verification operations fail (for example, missing signatures), a runtime
+`IllegalStateException` is thrown. You can disable the default signature checking behaviour by setting the system
+property `net.corda.recordtransaction.signature.verification.disabled` to true.
+
 
 ### NodeAttachmentService
 

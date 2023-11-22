@@ -7,8 +7,8 @@ date: '2023-01-10'
 menu:
   corda-community-4-10:
     identifier: corda-community-4-10-docker-image
-    parent: corda-community-4-10-operations
-    weight: 350
+    parent: corda-community-4-10-release-notes
+    weight: 445
 tags:
 - docker
 - image
@@ -16,23 +16,21 @@ title: Official Corda Docker Image
 ---
 # Official Corda Docker image
 
-The official Corda Docker image is found at the [Corda Docker hub](https://hub.docker.com/u/corda). The [latest version](https://hub.docker.com/layers/corda/community/4.10-zulu-openjdk8/images/sha256-3d94ee8ab9e3ca91c40c0543291c4ac66c1787ed5b5b7c90c3ceadd1e4714168)
-is `corda/community:4.10-zulu-openjdk8`.
+The official Corda Docker image is found at the [Corda Docker hub](https://hub.docker.com/u/corda). The [latest version](https://hub.docker.com/layers/corda/community/4.10.3-zulu-openjdk8/images/sha256-a95fa418a5cffad60e79aa9bd4b6694e069acfa8242fc60a0825be189725c461?context=explore) is `corda/community:4.10.3-zulu-openjdk8`.
 
 ## Prerequisites
 
-* Install and enable `Docker` and `docker-compose`. Docker CE (Community Edition) is sufficient. Docker, Inc. publish installation instructions for all major operating systems:
+* Install and enable Docker CE (Community Edition) and, optionally, Docker Compose. Docker CE is sufficient. Docker, Inc. publish installation instructions for all major operating systems:
   * [Docker CE](https://www.docker.com/community-edition)
-  * [Docker Compose](https://docs.docker.com/compose/install/).
-* Ensure you have a valid [node.conf file](node-database-tables.md) and set of certificates.
+  * [Docker Compose](https://docs.docker.com/compose/install/)
+* Ensure you have a valid [node.conf file]({{< relref "corda-configuration-file.md" >}}) and set of certificates.
 
 ## Getting started
 
-Use `docker run` to create a writeable container layer over the Docker image, and then start it. The container process that runs is isolated, it has its own file system, its own networking,
-and its own isolated process tree, separate from the host.
+Use `docker run` to create a writable container layer over the Docker image, and then start it. The container process that runs is isolated: it has its own file system, its own networking, and its own isolated process tree, separate from the host.
 
-* [Docker run](https://docs.docker.com/engine/reference/commandline/run/) is explained in full detail in the documentation published by Docker, Inc.
-* For information on using docker for development purposes, visit the [creating a node](generating-a-node.md) page.
-* If you have already set up your node and want to learn how to use your code using Docker, go to the [running a node locally](running-a-node.md) page.
-* If you want to learn more about Docker deployments and how to deploy to a compatibility zone, go to the [Docker deployments](node-docker-deployments.md) page.
+* `docker run` is explained in full detail [in the documentation published by Docker, Inc.](https://docs.docker.com/engine/reference/commandline/run/)
+* For information on using Docker for development purposes, see [Creating nodes locally]({{< relref "generating-a-node.md" >}})
+* If you have already set up your node and want to learn how to use your code using Docker, see [Running nodes locally]({{< relref "running-a-node.md" >}}).
+* To learn more about Docker deployments and how to deploy to a compatibility zone, see [Docker deployments]({{< relref "node-docker-deployments.md" >}}).
 

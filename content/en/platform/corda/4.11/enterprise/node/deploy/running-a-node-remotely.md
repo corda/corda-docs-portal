@@ -15,13 +15,13 @@ weight: 6
 {{< note >}}
 The remote node running method described in this page is designed for testing use. For production-grade deployments visit the [node deployments page]({{< relref "../../node-docker-deployments.md" >}}).
 {{< /note >}}
-By default, a [Cordform](generating-a-node-cordform.md) task will run all the generated nodes on the same host machine.
+By default, a [Cordform]({{< relref "generating-a-node-cordform.md" >}}) task will run all the generated nodes on the same host machine.
 In order to run the nodes remotely, you can deploy them locally and then copy them to a remote server.
 If after copying the nodes to the remote machine you encounter errors related to a `localhost` resolution, you should follow the additional steps below.
 
 To create nodes locally and run on a remote machine, perform the following steps:
 
-* Configure a Cordform task and deploy the nodes locally as described in [Creating nodes locally](generating-a-node.md) and [Cordform](generating-a-node-cordform.md) pages.
+* Configure a Cordform task and deploy the nodes locally as described in [Creating nodes locally]({{< relref "generating-a-node.md" >}}) and [Cordform]({{< relref "generating-a-node-cordform.md" >}}) pages.
 * Copy the generated directory structure to a remote machine, for example using Secure Copy.
 * Optionally, add database configuration settings if they could not be configured in the first step and the local machine does not have access to the remote database.
   * In each top-level `[NODE NAME]_node.conf` configuration file, add the database settings and copy the JDBC driver JAR file (if required).

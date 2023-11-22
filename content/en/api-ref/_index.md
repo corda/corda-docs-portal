@@ -2,13 +2,6 @@
 date: '2021-04-24T00:00:00Z'
 description: "API reference documentation for all versions of Corda"
 section_menu: api-ref
-menu:
-  projects:
-    weight: 60000
-  api-ref:
-    name: API Reference
-    weight: 450
-    identifier: homepage-api-ref
 project: api-ref
 version: 'api-ref'
 title: API Reference
@@ -19,7 +12,7 @@ title: API Reference
 
 ## Corda 5 API reference
 
-See the [Corda 5.0 Beta](../../en/api-ref/corda/5.0/index.html) page to access the API reference documentation for all API modules publicly exposed in the Corda 5 beta release.
+See the [Corda 5.0](../../en/api-ref/corda/5.0/index.html) page to access the API reference documentation for all API modules publicly exposed in Corda 5.0.
 
 ## Corda 4 API Reference
 

@@ -49,7 +49,7 @@ This can be thought of as the Registration Authority for the Corda network repre
 
 ## The Signing Service
 
-The signing service is responsible for the actual signing of various materials within a Zone. These include
+The Signing Service is responsible for the actual signing of various materials within a Zone. These include
 
 
 * Identity Certificates

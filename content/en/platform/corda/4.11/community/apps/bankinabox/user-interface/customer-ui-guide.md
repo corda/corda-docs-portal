@@ -14,7 +14,7 @@ section_menu: corda-community-4-11
 
 # Customer and guest user interface
 
-The customer user interface of Bank in a Box allows a customer user to perform all of their daily banking activities with ease. Read on to familiarise yourself with the elements of the user interface. To learn how to perform tasks as a customer user, see the [How to guide](./how-to.html#customer-tasks).
+The customer user interface of Bank in a Box allows a customer user to perform all of their daily banking activities with ease. Read on to familiarise yourself with the elements of the user interface. To learn how to perform tasks as a customer user, see the [How to guide]({{< relref "./how-to.md#customer-tasks" >}}).
 
 ## Log in and home screen
 
@@ -38,7 +38,7 @@ The guest user interface has the same log in screen and navigation menu as the c
 
 ## Update My Profile screen
 
-When you access the **Update My Profile** screen, you will see your customer information displayed. Here you can [make changes to your customer profile](./how-to.html#update-a-customer-profile) as necessary in the following fields:
+When you access the **Update My Profile** screen, you will see your customer information displayed. Here you can [make changes to your customer profile]({{< relref "./how-to.md#update-a-customer-profile" >}}) as necessary in the following fields:
 
 * **Customer name** - The customer's name.
 * **Contact number** - The customer's phone number.
@@ -97,7 +97,7 @@ On this tab you can view the following information:
 * **Overdraft limit** - The overdraft limit that has been approved for the account.
 * **Overdraft balance** - The amount of money currently remaining in overdraft.
 
-On this tab you also have the option to [set withdrawal and transfer daily limits on a customer account](./how-to.html#set-withdrawal-and-transfer-limits).
+On this tab you also have the option to [set withdrawal and transfer daily limits on a customer account]({{< relref "./how-to.md#set-withdrawal-and-transfer-limits" >}}).
 
 
 #### Customer tab
@@ -194,11 +194,11 @@ Under the **Accounts** tab, you can view:
 
 On this screen you can create a new intrabank payment. This is a transfer that can be made between a customer's accounts or to another bank client's account.
 
-See the documentation on [creating an intrabank payment](./how-to.html#create-an-intrabank-payment) to learn more.
+See the documentation on [creating an intrabank payment]({{< relref "./how-to.md#create-an-intrabank-payment" >}}) to learn more.
 
 
 ## Recurring payments screen
 
 On this screen you can create a new recurring payment. Recurring payments can be used for any payment that a customer makes periodically - for example, bills or loan payments.
 
-See the documentation on [creating a recurring payment](./how-to.html#create-a-recurring-payment) to learn more.
+See the documentation on [creating a recurring payment]({{< relref "./how-to.md#create-a-recurring-payment" >}}) to learn more.

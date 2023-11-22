@@ -2,12 +2,15 @@
 {{/*The "definition" field in glossaryitems.json should only be one sentence. This is the text displayed as the ToolTip throughout the content and also displayed by default on the Glossary page.*/}}
 {{/*The "more" field in glossaryitems.json displays any additional content displayed by expanding the paragraph on the Glossary page.*/}}
 
-{{ $glossarylist := getJSON "content/en/platform/corda/5.0/glossaryitems.json" }}
-
+{{ $versionfolder := replace (lower (.Page.Params.version)) " " "/" }}
+{{ $file := printf "%s" "/glossaryitems.json" | printf "%s%s" $versionfolder | printf "%s%s" "content/en/platform/" }}
+{{ $glossarylist := getJSON $file }}
     {{ range $term, $value := $glossarylist }}
+        {{ $termkebab := lower (replace $term " " "-") }}
+
         {{ with $value.more }}
-            <details><summary ><b>{{ $term }}</b><br>{{ $value.definition }}</summary>{{ safeHTML $value.more }}</details>
+           <details><summary><h4 id="{{ $termkebab }}">{{ $term }}</h4>{{ $value.definition }}</summary>{{ safeHTML $value.more }}</details>
         {{ else }}
-            <p style="margin-top: 1rem";><b>{{ $term }}</b><br>{{ $value.definition }}</p>
+            <p style="margin-top: 1rem";><h4 id="{{ $termkebab }}">{{ $term }}</h4>{{ $value.definition }}</p>
         {{ end }}
     {{ end }}

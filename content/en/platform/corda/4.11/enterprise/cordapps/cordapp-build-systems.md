@@ -29,9 +29,9 @@ Code samples guide you at every step.
 
 You will need to:
 
-* Know [what a CorDapp is](cordapp-overview.md).
-* Set up your [development environment](getting-set-up.md).
-* Run a [sample CorDapp](tutorial-cordapp.md) to see Corda in action (optional).
+* Know [what a CorDapp is]({{< relref "cordapp-overview.md" >}}).
+* Set up your [development environment]({{< relref "getting-set-up.md" >}}).
+* Run a [sample CorDapp]({{< relref "tutorial-cordapp.md" >}}) to see Corda in action (optional).
 * Install the [CorDapp gradle plugin](https://plugins.gradle.org/plugin/net.corda.plugins.cordapp). To ensure you are using the correct version of Gradle, use the Gradle wrapper provided. Copy across
 the following folder and files from the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin) or the [Java CorDapp Template](https://github.com/corda/cordapp-template-java) to your project's root directory:
 
@@ -86,7 +86,7 @@ these libraries while a fix is being developed. Add `corda-dependencies` to your
 ```groovy
 repositories {
     // ... other dependencies
-    maven { url "https://software.r3.com/artifactory/corda-dependencies" } // access to the patched Quasar and Caffeine version
+    maven { url "https://download.corda.net/maven/corda-dependencies" } // access to the patched Quasar and Caffeine version
 }
 ```
 
@@ -115,8 +115,6 @@ using `Cordformation`.
 * `corda-confidential-identities` - A part of the core Corda libraries. Automatically pulled in by other libraries.
 * `corda-core` (*) - Usually automatically included by another dependency. Contains core Corda utilities, model, and
 functionality. Include manually if the utilities are useful or you are writing a library for Corda.
-* `corda-core-deterministic` (*) - Used by the Corda node for deterministic contracts. Not likely to be used externally.
-* `corda-djvm` (*) - Used by the Corda node for deterministic contracts. Not likely to be used externally.
 * `corda-finance-contracts` (*), `corda-finance-workflows` and deprecated `corda-finance`. Corda finance CorDapp, use contracts and flows parts respectively. Only include as a `cordaCompile` dependency if using as a dependent Cordapp or if you need access to the Corda finance types. Use as a `cordapp` dependency if using as a CorDapp dependency (see below).
 * `corda-jackson` - Corda Jackson support. Use if you plan to serialise Corda objects to and/or from JSON.
 * `corda-jfx` - JavaFX utilities with some Corda-specific models and utilities. Only use with JavaFX apps.
@@ -128,13 +126,10 @@ configuration here - however, this is not best practice).
 * `corda-node-driver` - Testing utility for programmatically starting nodes from JVM languages. Use for tests
 * `corda-rpc` - The Corda RPC client library. Used when writing an RPC client.
 * `corda-serialization` (*) - The Corda core serialization library. Automatically included by other dependencies
-* `corda-serialization-deterministic` (*) - The Corda core serialization library. Automatically included by other
-dependencies
 * `corda-shell` - Used by the Corda node. Never depend on this directly.
 * `corda-test-common` - A common test library. Automatically included by other test libraries.
 * `corda-test-utils` - Used when writing tests against Corda/Cordapps.
 * `corda-tools-network-bootstrapper` - The Network Builder tool. Useful in build scripts.
-* `corda-tools-shell-cli` - The Shell CLI tool. Useful in build scripts.
 
 Any modules marked with (*) are part of the open core and must be pulled in from the matching Corda Community Edition distribution (using
 `$corda_core_release_distribution` and `$corda_core_release_version`.
@@ -195,7 +190,6 @@ dependencies {
     cordaCompile "$corda_release_distribution:corda-jackson:$corda_release_version"
     cordaCompile "$corda_release_distribution:corda-rpc:$corda_release_version"
     cordaCompile "$corda_release_distribution:corda-node-api:$corda_release_version"
-    cordaCompile "$corda_release_distribution:corda-webserver-impl:$corda_release_version"
     cordaRuntime "$corda_release_distribution:corda:$corda_release_version"
     cordaRuntime "$corda_release_distribution:corda-testserver:$corda_release_version"
     testCompile "$corda_release_distribution:corda-test-utils:$corda_release_version"
@@ -224,7 +218,7 @@ dependencies {
 
 After you have set your dependencies, build your CorDapp JAR(s) using the Gradle `jar` task:
 
-* Unix/Mac OSX: `./gradlew jar`
+* Unix/macOS: `./gradlew jar`
 * Windows: `gradlew.bat jar`
 
 Each of the project’s modules is compiled into its own CorDapp JAR. You can find these CorDapp JARs in the `build/libs` folders of each of the project’s modules.
@@ -241,7 +235,7 @@ JAR, and not different versions of the JAR created from identical sources.
 The filename of the JAR must include a unique identifier to deduplicate it from other releases of the same CorDapp.
 This is typically done by appending the version string to the CorDapp’s name. This unique identifier should not change
 once the JAR has been deployed on a node. If it does, make sure no one is relying on `FlowContext.appName` in their
-flows (see [Versioning](versioning.md)).
+flows (see [Versioning]({{< relref "versioning.md" >}})).
 
 
 
@@ -249,7 +243,7 @@ flows (see [Versioning](versioning.md)).
 
 The `cordapp` plugin can sign the generated CorDapp JAR file using the [JAR signing and verification tool](https://docs.oracle.com/javase/tutorial/deployment/jar/signing.html).
 Signing the CorDapp enables its contract classes to use signature constraints instead of other types of constraints.
-See [Contract Constraints](api-contract-constraints.md) for more information.
+See [Contract Constraints]({{< relref "api-contract-constraints.md" >}}) for more information.
 The JAR file is signed by the Corda development certificate by default.
 
 {{< warning >}}
@@ -317,7 +311,7 @@ You could sign the CorDapp automatically by:
 * Disabling signing in the `cordapp` plugin and signing the CorDapp JAR downstream in your build pipeline.
 
 ### Run development and production modes
-Nodes only accept CorDapps signed by Corda development certificates when running in development mode. If you need to run a CorDapp signed by the (default) development key in the production mode (for example, for testing), add the `cordappSignerKeyFingerprintBlacklist = []` property set to an empty list. See [Configuring a node](../node/setup/corda-configuration-file.html#limitations)).
+Nodes only accept CorDapps signed by Corda development certificates when running in development mode. If you need to run a CorDapp signed by the (default) development key in the production mode (for example, for testing), add the `cordappSignerKeyFingerprintBlacklist = []` property set to an empty list. See [Configuring a node]({{< relref "../node/setup/corda-configuration-file.md#limitations" >}})).
 
 
 You can use one `build.gradle` file for both a development build (defaulting to the Corda development keystore) and for a production build (using an external keystore) by contexually overwriting signing options using system properties.
@@ -589,7 +583,7 @@ CorDapp Contract JARs must be installed on a node by a trusted uploader, either 
 
 
 * Installing manually as per [Installing the CorDapp JAR](#install-the-cordapp) and re-starting the node.
-* Uploading the attachment JAR to the node via RPC, either programmatically (see [Connecting to a node via RPC](../node/operating/clientrpc.html#clientrpc-connect-ref))
+* Uploading the attachment JAR to the node via RPC, either programmatically (see [Connecting to a node via RPC]({{< relref "../node/operating/clientrpc.md#clientrpc-connect-ref" >}}))
 or via the shell using the command: `>>> run uploadAttachment jar: path/to/the/file.jar`.
 
 Contract attachments received over the p2p network are **untrusted** and throw a *UntrustedAttachmentsException* exception if they are processed by a listening flow that cannot resolve the attachment with its local attachment storage. The flow will be suspended and sent to the node's `node-flow-hospital` for recovery and retry.

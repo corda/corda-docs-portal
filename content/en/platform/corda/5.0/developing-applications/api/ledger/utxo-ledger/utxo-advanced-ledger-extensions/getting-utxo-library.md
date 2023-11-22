@@ -13,7 +13,7 @@ section_menu: corda5
 
 # Getting the UTXO Library
 
-The Corda 5 Advanced UTXO Ledger Extensions library is an external library and not part of Corda 5. It needs to be sourced
+The Corda 5 Advanced {{< tooltip >}}UTXO{{< /tooltip >}} Ledger Extensions library is an external library and not part of Corda 5. It needs to be sourced
 from Maven Central Repository or similar.
 
 1. Ensure that the repositories block of the project has `mavenCentral()` declared in the following way:
