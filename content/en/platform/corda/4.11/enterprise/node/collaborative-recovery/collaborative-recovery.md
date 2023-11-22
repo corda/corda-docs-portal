@@ -17,7 +17,7 @@ weight: 100
 
 # Collaborative Recovery
 
-The [Ledger Recovery flow]({{< relref "ledger-recovery/ledger-recovery-flow.md" >}}) (`LedgerRecoveryFlow`) was introduced
+[Ledger Recovery flow]({{< relref "ledger-recovery/ledger-recovery-flow.md" >}}) (`LedgerRecoveryFlow`) was introduced
 as part of the Corda 4.11 release. It enables a node to identify and recover transactions from peer recovery nodes to which
 it was a party and which are missing from its own ledger. Use it to re-instate a Corda database if your version of Corda is 4.11 and above.
 
