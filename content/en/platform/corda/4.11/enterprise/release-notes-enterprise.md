@@ -36,7 +36,7 @@ Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
 A new ledger recovery flow (`LedgerRecoveryFlow`) enables a node to identify and recover transactions from
 peer recovery nodes to which it was a party (either initiator or receiver) and which are missing from its own ledger.
 
-For more information, see [Ledger Recovery Flow]({{< relref "ledger-recovery-flow.md" >}}).
+For more information, see [Ledger Recovery Flow]({{< relref "node/collaborative-recovery/ledger-recovery/ledger-recovery-flow.md" >}}).
 
 ### Confidential Identity key-pair generator
 
