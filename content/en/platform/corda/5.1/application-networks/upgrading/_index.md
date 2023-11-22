@@ -13,9 +13,7 @@ section_menu: corda51
 
 # Upgrading an Application Network
 
-After an administrator [upgrades a Corda cluster from 5.0 to 5.1]({{< relref "../../deploying-operating/deployment/upgrading/_index.md" >}}), you should upgrade the member {{< tooltip >}}CPIs{{< /tooltip >}} of your application network. The `MemberInfo` platform version is set at member registration time when the virtual node is first created and registered. It cannot be set via a platform upgrade alone.
-
-Upgrading members has the following benefits:
+After an administrator [upgrades a Corda cluster from 5.0 to 5.1]({{< relref "../../deploying-operating/deployment/upgrading/_index.md" >}}), you should upgrade the member {{< tooltip >}}CPIs{{< /tooltip >}} of your application network. The `MemberInfo` platform version is set at member registration time and so upgrading members ensures that their platform version reflects the current version. Upgrading members enables the correct implementation of the following:
 
 * The MGM can make decisions about members based on their platform version. For example, excluding them from the network if they do not upgrade.
 * Platform gating logic may be based on platform version.
@@ -24,6 +22,8 @@ Upgrading members has the following benefits:
 {{< note >}}
 There are no other technical limitations to running CorDapps built against Corda 5.0 after a platform upgrade to 5.1. Corda supports backwards compatibility but does not support forwards compatibility; 5.1 applications will not run on 5.0 Corda.
 {{< /note >}}
+
+The following sections describe how to upgrade your application network:
 
 1. [Re-export the Group Policy from the MGM](#re-export-the-group-policy-from-the-mgm)
 2. [Repackage the Member CPB](#repackage-the-member-cpb)
@@ -94,6 +94,7 @@ corda-cli.cmd package create-cpi `
 ## Upload the CPI
 
 To upload the upgraded CPI to the network, run the following:
+
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
@@ -113,6 +114,7 @@ $CPI_UPLOAD_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Autho
 
 The returned identifier (for example `f0a0f381-e0d6-49d2-abba-6094992cef02`) is the `CPI ID`.
 Use this identifier to get the checksum of the CPI:
+
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
