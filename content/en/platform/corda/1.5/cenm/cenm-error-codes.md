@@ -10,6 +10,8 @@ tags:
 - error
 - codes
 title: CENM error codes
+aliases: 
+- /en/platform/corda/1.5/cenm/error-codes.html
 ---
 
 
