@@ -8,13 +8,13 @@ section_menu: corda-index
 identifier: corda-index
 menu:
   projects:
-    weight: -1050
+    weight: -5000
     project: corda
     identifier: corda-index
   versions:
     version: 'Corda Index'
     name: "Corda Index"
-    weight: -800
+    weight: -5000
 ---
 
 # Welcome to Corda
