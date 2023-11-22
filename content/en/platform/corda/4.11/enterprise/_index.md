@@ -16,7 +16,7 @@ version: 'Enterprise 4.11'
 
 # Corda Enterprise 4.11
 
-Corda 4 is the world’s first private, permissioned distributed ledger technology (DLT) platform designed to work with today’s financial services industry. While regulated companies may start on public blockchains, they soon realize when they get to production, that they require capabilities native to Corda such as privacy, security, scalability, and ease-of-integration with existing systems. That’s why R3 is also exploring interoperability with assets that originate on a non-Corda network.
+Corda is the world’s first private, permissioned distributed ledger technology (DLT) platform designed to work with today’s financial services industry. While regulated companies may start on public blockchains, they soon realize when they get to production, that they require capabilities native to Corda such as privacy, security, scalability, and ease-of-integration with existing systems. That’s why R3 is also exploring interoperability with assets that originate on a non-Corda network.
 
 Corda Enterprise is a commercial edition of the Corda platform, specifically optimised to meet the privacy, security, and
 throughput demands of modern day business. Corda Enterprise is interoperable and compatible with Corda Community Edition and
