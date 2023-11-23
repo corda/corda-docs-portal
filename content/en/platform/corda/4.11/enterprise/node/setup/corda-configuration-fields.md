@@ -267,7 +267,7 @@ Allows fine-grained controls of various features only available in the enterpris
     * The password for TLS TrustStore.
     * *Default:* not defined
 * `messagingServerConnectionConfiguration`
-  * Mode used when setting up the Artemis client. Supported modes are: 
+  * Mode used when setting up the Artemis client. Supported modes are:
     * **DEFAULT:** Five initial connect attempts, five reconnect attempts in case of failure, starting retry interval of five seconds with an exponential back-off multiplier of one and a half for up to three minutes retry interval.
     * **FAIL_FAST**: No initial attempts, no reconnect attempts.
     * **CONTINUOUS_RETRY**: Infinite initial and reconnect attempts, starting retry interval of five seconds with an exponential back-of multiplier of one and a half up for up to five minutes retry interval. Using 'CONTINUOUS_RETRY' does not mean that a node will keep retrying until it connects to the destination node. Rather, this is about connections to - and only for - an external HA Artemis client. Connected to an internal Artemis client will work. Note that an embedded Artemis client runs with node's TLS key, not with a shareable key like external Artemis. Also, CONTINUOUS_RETRY does not work for other Artemis bug reasons so the node disconnects from the external Artemis client and the node dies. We do guarantee trying to connect to an external Artemis client repeatedly on a fresh start.
@@ -390,18 +390,14 @@ Allows fine-grained controls of various features only available in the enterpris
 
 * `ledgerRecoveryConfiguration`
 
-    * This configuration allows you to tailor ledger recovery behavior for your Corda node. It offers flexibility in defining
-    parameters related to key pair pre-generation, backup intervals, and confidential identity backup options.
+    * This configuration allows you to tailor Ledger Recovery behavior for your Corda node. It offers flexibility in defining parameters related to key pair pre-generation, backup intervals, and confidential identity backup options. For a detailed description of Ledger Recovery that uses this configuration, see [Ledger Recovery]({{< relref "../collaborative-recovery/ledger-recovery/overview.md" >}}).
 
     - `noOfPreGeneratedKeys`
 
         * This property specifies the number of pre-generated keys used for confidential identities, indicating the count
         of keys that will be backed up in the database. It represents the pre-generated count of so-called new
         confidential identities, that is, those that don’t have a certificate.
-        * The default for this property is 0 which means that if you are using new confidential identities and have not changed
-        the default (and have not changed `canProvideNonBackedUpKeyPair` default), then you receive a confidential identity
-        created on the fly, not a pre-generated one. If you have changed `canProvideNonBackedUpKeyPair` to `false`
-        and if there are no backed up keys to return, then an exception is raised.
+        * The default for this property is 0 which means that if you have not changes it and if you are using new confidential identities and  (and have not changed `canProvideNonBackedUpKeyPair` default), then you receive a confidential identity created on the fly, not a pre-generated one. If you have changed `canProvideNonBackedUpKeyPair` to `false` and if there are no backed up keys to return, then an exception is raised.
         * *Default:* 0
 
     - `noOfPreGeneratedKeysWithCerts`
@@ -409,10 +405,7 @@ Allows fine-grained controls of various features only available in the enterpris
         * This property specifies the number of pre-generated keys with certificates used for confidential identities,
         indicating the count of keys that will be backed up in the database. It represents the pre-generated count
         of so-called old confidential identities, that is, those that have a certificate.
-        * The default for this property is 0 which means if you are using new confidential identities and have not changed
-        the default (and have not changed `canProvideNonBackedUpKeyPair` default), then you receive a confidential identity
-        created on the fly, not a pre-generated one. If you have changed `canProvideNonBackedUpKeyPair` to `false`
-        and if there are no backed up keys to return, then an exception is raised.
+        * The default for this property is 0 which means if you have not changed it and if you are using new confidential identities (and have not changed `canProvideNonBackedUpKeyPair` default), then you receive a confidential identity created on the fly, not a pre-generated one. If you have changed `canProvideNonBackedUpKeyPair` to `false` and if there are no backed up keys to return, then an exception is raised.
         * *Default:* 0
 
     - `preGeneratedKeysTopUpInterval`
