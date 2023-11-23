@@ -1,6 +1,6 @@
 ---
 title: "Workers"
-date: 2023-07-24
+date: 2023-11-14
 version: 'Corda 5.1'
 menu:
   corda51:
@@ -10,7 +10,7 @@ menu:
 section_menu: corda51
 ---
 
-# Workers 
+# Workers
 
 Corda 5 introduces a distributed architecture for the Corda runtime that is based on worker processes. There are different types of worker processors which each have their own operational responsibility and, because each worker is stateless, it is possible to scale horizontally.
 
@@ -34,8 +34,8 @@ Currently, Corda uses the following types of workers:
 * {{< tooltip >}}Gateway workers{{< /tooltip >}} — responsible for establishing {{< tooltip >}}TLS{{< /tooltip >}} connections with the gateways from other clusters and sending or receiving messages via HTTPS; this is typically internet facing.
 * {{< tooltip >}}P2P Link Manager workers{{< /tooltip >}} — responsible for delivering messages between two virtual nodes in a secure and reliable way.
 * {{< tooltip >}}REST workers{{< /tooltip >}} — expose the Corda REST API used for administration and flow execution.
-* Token selection worker — selects the set of states to use as input states in a UTXO transaction. 
+* Token selection workers — selects the set of states to use as input states in a UTXO transaction.
 
 Workers are typically referred to in the plural form because they are designed to be deployed with multiple replicas (for example, [Kubernetes replica sets](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/)) to achieve high availability.
 Each worker instance is stateless, and work in the cluster is distributed to all available workers of a particular type. The number of replica workers needed is a function of the desired throughput and availability.
-Workers are made available as [docker images]({{< relref "../../../deploying-operating/deployment/deploying/_index.md#download-and-push-container-images-to-a-registry" >}}), one for each type and we recommend they are deployed to {{< tooltip >}}Kubernetes{{< /tooltip >}} via a [Helm chart]({{< relref "../../../deploying-operating/deployment/deploying/_index.md#download-the-corda-helm-chart" >}}).
+Workers are made available as [container images]({{< relref "../../../deploying-operating/deployment/deploying/_index.md#download-and-push-container-images-to-a-registry" >}}) and R3 recommend deploying them to {{< tooltip >}}Kubernetes{{< /tooltip >}} via a [Helm chart]({{< relref "../../../deploying-operating/deployment/deploying/_index.md#download-the-corda-helm-chart" >}}).

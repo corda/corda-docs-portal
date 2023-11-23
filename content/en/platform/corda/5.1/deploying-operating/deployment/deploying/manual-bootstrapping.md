@@ -244,6 +244,23 @@ Create and populate the database schema, as follows:
 
 2. Review the DML files generated and then execute against the database.
 
+3. Generate the DML file for creating the state manager database table. The following command specifies that the `STATE_MANAGER` schema should be used for the state manager and generates the file in the `/tmp/statemanager` directory:
+
+   {{< tabs name="DML-state-manager">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh database spec -s "statemanager" -g "statemanager:state_manager" -c -l /tmp/state-manager
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd database spec -s "statemanager" -g "statemanager:state_manager" -c -l /tmp/state-manager
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+4. Review the DML file generated and execute it against each of the State Manager databases.
+
 ### Populate the RBAC Database Connection Configuration
 
 Depending on your installation, follow the steps in one of the following sections to generate DDL for populating the RBAC database connection configuration:
@@ -595,6 +612,16 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA RBAC to <RBAC-USERN
 CREATE USER <CRYPTO-USERNAME> WITH ENCRYPTED PASSWORD '<CRYPTO-PASSWORD>';
 GRANT USAGE ON SCHEMA CRYPTO to <CRYPTO-USERNAME>;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CRYPTO to <CRYPTO-USERNAME>;
+```
+
+### Grant Access to the State Manager Databases
+
+The state manager database users are configured by the username specified in the `stateManager` configurations for each worker type. Grant access to this user as follows:
+
+```sql
+GRANT USAGE ON SCHEMA STATE_MANAGER TO <STATE_MANAGER_USERNAME>;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA STATE_MANAGER TO <STATE_MANAGER_USERNAME>;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA STATE_MANAGER TO <STATE_MANAGER_USERNAME>;
 ```
 
 ### Populate the Crypto Configuration

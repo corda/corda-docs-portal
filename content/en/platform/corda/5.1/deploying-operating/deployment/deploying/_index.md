@@ -170,6 +170,8 @@ You can extract a YAML file containing all of the default values using the follo
 helm show values <HELM-CHART-TGZ-FILE>
 ```
 
+You can also view an [example configuration](#example-configuration).
+
 ### Image Registry
 
 If you are not using the Corda container images from Docker Hub, define an override specifying the name of the container registry to which you pushed the images:
@@ -189,16 +191,22 @@ imagePullSecrets:
 
 ### Replica Counts
 
-For high-availability, specify at least three replicas for each type of Corda worker:
+R3 suggest the following number of replicas for each type of worker:
+
+* Database: 2
+* Flow: 6
+* All other types of workers: 3
+
+For example:
 
 ```yaml
 workers:
   crypto:
     replicaCount: 3
   db:
-    replicaCount: 3
+    replicaCount: 2
   flow:
-    replicaCount: 3
+    replicaCount: 6
   flowMapper:
     replicaCount: 3
   verification:
@@ -219,9 +227,9 @@ workers:
     replicaCount: 3
 ```
 
-{{< note >}}
-Depending on your application workload, you may require additional replicas.
-{{< /note >}}
+{{< important >}}
+These numbers are only suggestions and you should make your own decisions about scaling depending on your application workload.
+{{< /important >}}
 
 ### Resource Requests and Limits
 
@@ -230,10 +238,10 @@ Specify a default set of resource requests and limits for the Corda containers. 
 ```yaml
 resources:
   requests:
-    memory: 512Mi
-    cpu: 250m
+    memory: 1500Mi
+    cpu: 1000m
   limits:
-    memory: 512Mi
+    memory: 3000Mi
     cpu: 2000m
 ```
 {{< note >}}
@@ -267,10 +275,8 @@ For an AWS topology, we recommend the following initial configuration:
 
 * Kubernetes: For a cluster with a single replica of each worker, a Kubernetes cluster with two `t3.2xlarge` nodes is
   a reasonable starting point. For a cluster with three replicas of each worker, extend that to four nodes.
-
 * RDS PostgreSQL: `db.r5.large` instance size is sufficient for both a Corda cluster with a single replica of each worker
   and three replicas of each worker, subject to the persistence requirements of any {{< tooltip >}}CorDapp{{< /tooltip >}} running in the cluster.
-
 * MSK: For a cluster with a single replica of each worker and a topic replica count of three, a Kafka cluster of three
   `kafka.t3.small` instances may suffice. In a high-availability topology with three replicas of each worker and a topic replica count
   of three, we recommend five brokers using at least `kafka.m5.large` instances.
@@ -385,9 +391,15 @@ workers:
 
 ### PostgreSQL
 
+The following configuration is required for the Corda databases:
+
+* [Cluster Database](#cluster-database)
+* [State Manager Databases](#state-manager-databases)
+
+#### Cluster Database
+
 The password for PostgreSQL can be specified directly as a Helm override, but this is not recommended.
-Instead, create a Kubernetes secret containing the password with a key of `password`. By default, the installation
-expects a database called `cordacluster`, but this can be overridden. You can then define the PostgreSQL configuration as follows:
+Instead, create a Kubernetes secret containing the password with a key of `password`. By default, the installation expects a database named `cordacluster`, but this can be overridden. You can then define the PostgreSQL configuration as follows:
 
 ```yaml
 db:
@@ -402,6 +414,87 @@ db:
           name: <POSTGRESQL_PASSWORD_SECRET_NAME>
           key: <POSTGRESQL_PASSWORD_SECRET_KEY>
     database: <POSTGRESQL_CLUSTER_DB>
+```
+
+#### State Manager Databases
+
+Corda requires one or more PostgreSQL database instances for the persistence of state. These are referred to as state manager databases. R3 recommends that you deploy separate isolated state manager database instances for the following workers:
+
+* Flow workers
+* Flow mapper workers
+* Token selection workers
+
+{{< note >}}
+If you do not configure state manager databases, Corda deploys the state managers for the flow, flow mapper, and token selection workers on the cluster database. This is not safe for production deployments.
+{{< /note >}}
+
+The configuration for these instances is defined in `stateManager` sections. At a minimum, the configuration section requires `host`, `username`, and `password`. By default, the installation expects databases named as follows:  
+
+* Flow worker: `flow_state_manager`
+* Flow mapper worker: `flow_mapper_state_manager`
+* Token selection worker: `token_selection_state_manager`
+
+These names and the port values can be overridden. You can define the state manager configuration as follows:
+
+```yaml
+workers:
+  flow:
+    stateManager:
+      db:
+        host: <FLOW_STATE_MANAGER_HOST>
+        port: <FLOW_STATE_MANAGER_PORT>
+        name: <FLOW_STATE_MANAGER_DATABASE_NAME>
+        username:
+          value: <FLOW_STATE_MANAGER_USER>
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: <FLOW_STATE_MANAGER_PASSWORD_SECRET_NAME>
+              key: <FLOW_STATE_MANAGER_PASSWORD_SECRET_KEY>
+  
+  flowMapper:
+    stateManager:
+      db:
+        host: <FLOW_MAPPER_STATE_MANAGER_HOST>
+        port: <FLOW_MAPPER_STATE_MANAGER_PORT>
+        name: <FLOW_MAPPER_STATE_MANAGER_DATABASE_NAME>
+        username:
+          value: <FLOW_MAPPER_STATE_MANAGER_USER>
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: <FLOW_MAPPER_STATE_MANAGER_PASSWORD_SECRET_NAME>
+              key: <FLOW_MAPPER_STATE_MANAGER_PASSWORD_SECRET_KEY>
+
+  tokenSelection:
+    stateManager:
+      db:
+        host: <TOKEN_SELECTION_STATE_MANAGER_HOST>
+        port: <TOKEN_SELECTION_STATE_MANAGER_PORT>
+        name: <TOKEN_SELECTION_STATE_MANAGER_DATABASE_NAME>
+        username:
+          value: <TOKEN_SELECTION_STATE_MANAGER_USER>
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: <TOKEN_SELECTION_STATE_MANAGER_PASSWORD_SECRET_NAME>
+              key: <TOKEN_SELECTION_STATE_MANAGER_PASSWORD_SECRET_KEY>
+```
+
+You can also override the default JDBC connection pool configurations for each worker type, for example:
+
+```yaml
+workers:
+  flow:
+    stateManager:
+      db:
+        connectionPool:
+          maxSize: <MAX_JDBC_CONNECTION_POOL_SIZE_PER_WORKER>
+          minSize: <MIN_JDBC_CONNECTION_POOL_SIZE_PER_WORKER>
+          idleTimeoutSeconds: <MAX_TIME_SECONDS_CONNECTION_IDLE_IN_POOL>
+          maxLifetimeSeconds: <MAX_TIME_SECONDS_CONNECTION_STAYS_IN_POOL>
+          keepAliveTimeSeconds: <INTERVAL_TIME_SECONDS_CONNECTIONS_TESTED_FOR_ALIVENESS>
+          validationTimeoutSeconds: <MAX_TIME_SECONDS_POOL_WAITS_FOR_CONNECTION_TO_BE_VALIDATED>
 ```
 
 ### Kafka Bootstrap Servers
@@ -584,7 +677,7 @@ consuming from the topics as appropriate for each worker.
 
 #### Database
 
-The database bootstrapping creates schemas in the cluster database and populates them with the initial configuration. It is enabled by default:
+The database bootstrapping creates schemas in the cluster and state manager databases and populates them with the initial configuration. It is enabled by default:
 
 ```yaml
 bootstrap:
@@ -654,6 +747,39 @@ bootstrap:
           secretKeyRef:
             name: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_NAME>
             key: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_KEY>
+```
+
+R3 also recommends configuring a separate bootstrap user for each state manager database, for example:
+
+```yaml
+bootstrap:
+  db:
+    enabled: true
+    stateManager:
+      flow:
+        username:
+          value: <FLOW_STATE_MANAGER_BOOTSTRAP_USER>
+         password:
+           valueFrom:
+             secretKeyRef:
+               name: <FLOW_STATE_MANAGER_BOOTSTRAP_PASSWORD_SECRET_NAME>
+               key: <FLOW_STATE_MANAGER_BOOTSTRAP_PASSWORD_SECRET_KEY>
+      flowMapper:
+        username:
+          value: <FLOW_MAPPER_STATE_MANAGER_BOOTSTRAP_USER>
+          password:
+           valueFrom:
+             secretKeyRef:
+               name: <FLOW_MAPPER_STATE_MANAGER_BOOTSTRAP_PASSWORD_SECRET_NAME>
+               key: <FLOW_MAPPER_STATE_MANAGER_BOOTSTRAP_PASSWORD_SECRET_KEY>
+      tokenSelection:
+        username:
+          value: <TOKEN_SELECTION_STATE_MANAGER_BOOTSTRAP_USER>
+          password:
+           valueFrom:
+             secretKeyRef:
+               name: <TOKEN_SELECTION_STATE_MANAGER_BOOTSTRAP_PASSWORD_SECRET_NAME>
+               key: <TOKEN_SELECTION_STATE_MANAGER_BOOTSTRAP_PASSWORD_SECRET_KEY>
 ```
 
 #### RBAC
@@ -743,9 +869,7 @@ workers:
 
 ### Pre-Install Checks
 
-When deploying Corda, pre-install checks are performed automatically to check the configuration of Corda, to confirm
-that all the [prerequisites]({{< relref "../prerequisites.md" >}}) are running and that the correct credentials and permissions
-are provided to install a running Corda cluster. The pre-install checks verify if:
+When deploying Corda, pre-install checks are performed automatically to check the configuration of Corda, to confirm that all of the [prerequisites]({{< relref "../prerequisites.md" >}}) are running and that the correct credentials and permissions are provided to install a running Corda cluster. The pre-install checks verify if:
 
 * the resource limits have been assigned correctly.
 * the PostgreSQL database is up and if the credentials work.
@@ -762,19 +886,15 @@ bootstrap:
     enabled: false
 ```
 
-If the pre-install checks fail, for example, if Kafka or PostgreSQL are not available, you can retrieve the logs for a
-single pod using `kubectl`. For more information on retrieving the logs, see the [Logs]({{< relref "../../observability/logs.md" >}}) section.
+If the pre-install checks fail (for example, if Kafka or PostgreSQL are not available), you can retrieve the logs for a single pod using `kubectl`. For more information on retrieving the logs, see the [Logs]({{< relref "../../observability/logs.md" >}}) section.
 
 ### Example Configuration
 
 {{< warning >}}
-The example in this section is included only for illustrative purposes. You must use the information provided to determine
-the correct configuration file for your environment.
+The example in this section is included only for illustrative purposes. You must use the information provided to determine the correct configuration file for your environment.
 {{< /warning >}}
 
-The following example shows a complete configuration file for Corda deployment in an environment in which Kafka is using
-a trusted TLS certificate, SASL authentication is enabled, the REST API is exposed via an AWS Network Load Balancer,
-and the generated password for the initial admin user is retrieved from a secret.
+The following example shows a complete configuration file for Corda deployment in an environment in which Kafka is using a trusted TLS certificate, SASL authentication is enabled, the REST API is exposed via an AWS Network Load Balancer, and the generated password for the initial admin user is retrieved from a secret.
 
 ```yaml
 image:
@@ -829,6 +949,31 @@ bootstrap:
         valueFrom:
           secretKeyRef:
             key: "bootstrap-password"
+    stateManager:
+      flow:
+        username:
+          value: "postgres"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "flow-state-manager-db-postgresql"
+              key: "postgres-password"
+      flowMapper:
+        username:
+          value: "postgres"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "flow-mapper-state-manager-db-postgresql"
+              key: "postgres-password"
+      tokenSelection:
+        username:
+          value: "postgres"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "token-selection-state-manager-db-postgresql"
+              key: "postgres-password"
   kafka:
     sasl:
       username:
@@ -868,7 +1013,7 @@ workers:
         memory: 2048Mi
       limits:
         memory: 2048Mi
-    replicaCount: 3
+    replicaCount: 2
 
   flow:
     kafka:
@@ -885,7 +1030,17 @@ workers:
         memory: 2048Mi
       limits:
         memory: 2048Mi
-    replicaCount: 3
+    replicaCount: 6
+    stateManager:
+      db:
+        host: "flow-state-manager-db-postgresql"
+        username:
+          value: "statemanager-user"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "flow-state-manager-db-postgresql"
+              key: "password"
 
   flowMapper:
     kafka:
@@ -898,6 +1053,16 @@ workers:
               name: "kafka-credentials"
               key: "flowMapper"
     replicaCount: 3
+    stateManager:
+      db:
+        host: "flow-mapper-state-manager-db-postgresql"
+        username:
+          value: "statemanager-user"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "flow-mapper-state-manager-db-postgresql"
+              key: "password"
 
   verification:
     kafka:
@@ -975,6 +1140,16 @@ workers:
               name: "kafka-credentials"
               key: "tokenSelection"
     replicaCount: 3
+    stateManager:
+      db:
+        host: "token-selection-state-manager-db-postgresql"
+        username:
+          value: "statemanager-user"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "token-selection-state-manager-db-postgresql"
+              key: "password"
 
   rest:
     kafka:
