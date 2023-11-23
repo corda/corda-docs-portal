@@ -13,7 +13,7 @@ section_menu: corda51
 
 # Upgrading an Application Network
 
-After an administrator [upgrades a Corda cluster from 5.0 to 5.1]({{< relref "../../deploying-operating/deployment/upgrading/_index.md" >}}), you should upgrade the member {{< tooltip >}}CPIs{{< /tooltip >}} of your application network. The `MemberInfo` platform version is set at member registration time and so upgrading members ensures that their platform version reflects the current version. Upgrading members enables the correct implementation of the following:
+After an administrator [upgrades a Corda cluster from 5.0 to 5.1]({{< relref "../../deploying-operating/deployment/upgrading/_index.md" >}}), you should upgrade the member {{< tooltip >}}CPIs{{< /tooltip >}} of your application network. The `MemberInfo` platform version is set at member registration time and so upgrading members ensures that this value reflects the current version. Upgrading members enables the correct implementation of the following:
 
 * The MGM can make decisions about members based on their platform version. For example, excluding them from the network if they do not upgrade.
 * Platform gating logic may be based on platform version.
