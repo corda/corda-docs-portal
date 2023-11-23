@@ -870,18 +870,21 @@ workers:
 
 ### Node Affinities
 
-Corda uses node affinity to assign worker replicas across nodes. You can modify the default behavior by setting the following parameters in the deployment configuration:
+Corda uses node affinity to assign worker replicas across nodes. By default, for high-availability, Corda attempts to deploy multiple replicas on different nodes. The following shows the default values:
 
 ```yaml
   affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: disktype
-            operator: In
-            values:
-            - ssd  
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: app.kubernetes.io/component
+              operator: In
+              values:
+              - membership-worker
+          topologyKey: kubernetes.io/hostname
+        weight: 1
 ```
 
 ### Pre-Install Checks
