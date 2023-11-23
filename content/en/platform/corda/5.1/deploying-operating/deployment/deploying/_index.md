@@ -870,7 +870,7 @@ workers:
 
 ### Node Affinities
 
-Corda uses node affinity to assign worker replicas across nodes. By default, for high-availability, Corda attempts to deploy multiple replicas on different nodes. The following shows the default values:
+Corda uses node affinity to assign worker replicas across nodes. By default, for high availability, Corda attempts to deploy multiple replicas on different nodes. The following shows the default values:
 
 ```yaml
   affinity:
