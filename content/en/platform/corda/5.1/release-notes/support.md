@@ -1,7 +1,7 @@
 ---
 title: "Platform Support"
 date: 2023-08-17
-version: 'Corda 5.0'
+version: 'Corda 5.1'
 menu:
   corda51:
     parent: corda51-release-notes
