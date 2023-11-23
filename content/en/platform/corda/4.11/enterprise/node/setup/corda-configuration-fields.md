@@ -428,7 +428,7 @@ Allows fine-grained controls of various features only available in the enterpris
         * There is no default for this parameter. If it is not specified in any of the above
         ways, an exception is raised.
         * The duration is specified in the Human-Optimized Config Object Notation (HOCON) format with suffixes of `h` (hours),
-        `m` (minutes) and `s` (seconds), for example, `1h` means one hour. For additional information on the HOCON duration
+        `m` (minutes) and `s` (seconds); for example, `1h` means one hour. For additional information on the HOCON duration
         format parsing, see the [HOCON duration format file](https://github.com/lightbend/config/blob/master/HOCON.md) on GitHub.
         * *Default:* If the recovery flow is run, you must set `recoveryMaximumBackupInterval` using one of the ways described above.
 
