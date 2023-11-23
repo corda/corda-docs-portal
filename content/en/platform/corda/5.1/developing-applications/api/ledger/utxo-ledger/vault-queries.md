@@ -1,5 +1,5 @@
 ---
-date: '2023-08-10'
+date: '2023-11-23'
 version: 'Corda 5.1'
 title: "Vault-Named Queries"
 menu:
@@ -20,7 +20,7 @@ A vault-named query is a database query that can be defined by Corda users. The 
 * Optional transformation logic of the result set
 * Optional collection logic of the result set
 
- The query creator must follow a few pre-defined steps so that the query is registered and usable.
+The query creator must follow a few pre-defined steps so that the query is registered and usable.
 
 ## Representing a State in the Database
 
@@ -31,14 +31,11 @@ For example, a state type called `TestState` and a simple contract called `TestC
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="Kotlin" %}}
-
 ```kotlin
 package com.r3.corda.demo.contract
-
 class TestContract : Contract {
     override fun verify(transaction: UtxoLedgerTransaction) {}
 }
-
 @BelongsToContract(TestContract::class)
 class TestState(
     val testField: String,
@@ -47,58 +44,44 @@ class TestState(
     override fun getParticipants(): List<PublicKey> = participants
 }
 ```
-
 {{% /tab %}}
 {{% tab name="Java" %}}
-
 ```java
 package com.r3.corda.demo.contract;
-
 class TestContract implements Contract {
     @Override
     public void verify(@NotNull UtxoLedgerTransaction transaction) {}
 }
-
 @BelongsToContract(TestContract.class)
 public class TestState implements ContractState {
-
     private final List<PublicKey> participants;
     private final String testField;
-
     public TestState(@NotNull String testField, @NotNull List<PublicKey> participants) {
         this.testField = testField;
         this.participants = participants;
     }
-
     @NotNull
     @Override
     public List<PublicKey> getParticipants() {
         return new LinkedList<>(this.participants);
     }
-
     @NotNull
     public String getTestField() {
         return testField;
     }
 }
 ```
-
 {{% /tab %}}
 {{< /tabs >}}
-
 {{< note >}}
 This contract has no verification logic and should only be used for testing purposes. The state itself has a `testField` property defined for JSON representation and constructing queries.
 {{</ note >}}
-
 To represent a state as a JSON string, use `ContractStateVaultJsonFactory` as follows:
-
 {{< tabs name="tabs-2" >}}
 {{% tab name="Kotlin" %}}
-
 ```kotlin
 class TestStateJsonFactory : ContractStateVaultJsonFactory<TestState> {
     override fun getStateType(): Class<TestState> = TestState::class.java
-
     override fun create(state: TestState, jsonMarshallingService: JsonMarshallingService): String {
         return jsonMarshallingService.format(state)
     }
@@ -106,7 +89,6 @@ class TestStateJsonFactory : ContractStateVaultJsonFactory<TestState> {
 ```
 {{% /tab %}}
 {{% tab name="Java" %}}
-
 ```java
 class TestUtxoStateJsonFactory implements ContractStateVaultJsonFactory<TestUtxoState> {
     @NotNull
@@ -114,7 +96,6 @@ class TestUtxoStateJsonFactory implements ContractStateVaultJsonFactory<TestUtxo
     public Class<TestUtxoState> getStateType() {
         return TestUtxoState.class;
     }
-
     @Override
     @NotNull
     public String create(@NotNull TestUtxoState state, @NotNull JsonMarshallingService jsonMarshallingService) {
@@ -122,13 +103,11 @@ class TestUtxoStateJsonFactory implements ContractStateVaultJsonFactory<TestUtxo
     }
 }
 ```
-
 {{% /tab %}}
 {{< /tabs >}}
 
-After the output state finalizes, it is represented as the following in the database (`custom_representation column`)
+state finalizes, it is represented as the following in the database (`custom_representation column`)
 with a `stateRef` field stored under the `ContractState` JSON object:
-
 ```json
 {
   "net.corda.v5.ledger.utxo.ContractState" : {
@@ -139,8 +118,8 @@ with a `stateRef` field stored under the `ContractState` JSON object:
   }
 }
 ```
-
 {{< note >}}
+
 * The `net.corda.v5.ledger.utxo.ContractState` field is a part of the JSON representation for all state types.
 * The implementation of the JSON factory must be defined in the same CPK as the state that it is working on, so that the platform can get hold of it when persisting a state to the database.
 {{< /note >}}
@@ -163,7 +142,6 @@ This example has no filtering, mapping, or collecting logic.
 
 {{< tabs name="tabs-3" >}}
 {{% tab name="Kotlin" %}}
-
 ```kotlin
 class DummyCustomQueryFactory : VaultNamedQueryFactory {
     override fun create(vaultNamedQueryBuilderFactory: VaultNamedQueryBuilderFactory) {
@@ -176,11 +154,8 @@ class DummyCustomQueryFactory : VaultNamedQueryFactory {
     }
 }
 ```
-
 {{% /tab %}}
 {{% tab name="Java" %}}
-
-
 ```java
 public class DummyCustomQueryFactory implements VaultNamedQueryFactory {
     @Override
@@ -194,15 +169,13 @@ public class DummyCustomQueryFactory implements VaultNamedQueryFactory {
     }
 }
 ```
-
 {{% /tab %}}
 {{< /tabs >}}
 
 The interface called `VaultNamesQueryFactory` has one method:
-
 `void create(@NotNull VaultNamedQueryBuilderFactory vaultNamedQueryBuilderFactory);`
 
-This function is called during start-up and it defines how a query will operate in it with the following steps:
+This function is called during start-up and it defines how a query operates in it with the following steps:
 
 * To create a vault-named query with a given name, in this case it is `DUMMY_CUSTOM_QUERY`, call `vaultNamedQueryBuilderFactory.create()`.
 * To define how a query's `WHERE` clause will work, call `whereJson()`.
@@ -210,6 +183,7 @@ This function is called during start-up and it defines how a query will operate 
   Always start with the actual `WHERE` statement and then write the rest of the clause. Fields need to be prefixed with the `visible_states.` qualifier. Since `visible_states.custom_representation` is a JSON column, we can use some JSON specific  operations.
   * Parameters can be used in the query in a `:parameter` format. In this example, use a parameter called `:testField` which can be set when executing this query. This works similarly to popular Java SQL libraries such as Hibernate.
   {{< /note >}}
+
 * To finalize query creation and to store the created query in the registry to be executed later, call `register()`. This call must be the last step when defining a query.
 
 ### Complex Query Example
@@ -232,16 +206,12 @@ The query `whereJson` returns `StateAndRef` objects and the data going into the 
 
 #### Filtering
 
-To create a filtering logic, implement the `net.corda.v5.ledger.utxo.query.VaultNamedQueryStateAndRefFilter<T>` interface. The `<T>` type here is the state type that will be returned from the database, which in this case is `TestState`. This interface has only one function:
-
-
+To create a filtering logic, implement the `net.corda.v5.ledger.utxo.query.VaultNamedQueryStateAndRefFilter<T>` interface. The `<T>` type here is the state type that will be returned from the database, which in this case is `TestState`. This interface has only one function.
 This defines whether or not to keep the given element (`row`) from the result set. Elements returning true are kept and the rest are discarded.
 
 In this example, keep the elements that have “Alice” in their participant list. This filter would look like this:
-
 {{< tabs name="tabs-4" >}}
 {{% tab name="Kotlin" %}}
-
 ```kotlin
 class DummyCustomQueryFilter : VaultNamedQueryStateAndRefFilter<TestState> {
     override fun filter(data: StateAndRef<TestUtxoState>, parameters: MutableMap<String, Any>): Boolean {
@@ -249,13 +219,10 @@ class DummyCustomQueryFilter : VaultNamedQueryStateAndRefFilter<TestState> {
     }
 }
 ```
-
 {{% /tab %}}
 {{% tab name="Java" %}}
-
 ```java
 class DummyCustomQueryFilter implements VaultNamedQueryStateAndRefFilter<TestUtxoState> {
-
     @NotNull
     @Override
     public Boolean filter(@NotNull StateAndRef<TestUtxoState> data, @NotNull Map<String, Object> parameters) {
@@ -263,7 +230,6 @@ class DummyCustomQueryFilter implements VaultNamedQueryStateAndRefFilter<TestUtx
     }
 }
 ```
-
 {{% /tab %}}
 {{< /tabs >}}
 
@@ -282,7 +248,6 @@ This defines how each record (“row”) will be transformed (mapped):
 
 {{< tabs name="tabs-5" >}}
 {{% tab name="Kotlin" %}}
-
 ```kotlin
 class DummyCustomQueryTransformer : VaultNamedQueryStateAndRefTransformer<TestState, String> {
     override fun transform(data: StateAndRef<TestState>, parameters: MutableMap<String, Any>): String {
@@ -290,12 +255,9 @@ class DummyCustomQueryTransformer : VaultNamedQueryStateAndRefTransformer<TestSt
     }
 }
 ```
-
 {{% /tab %}}
 {{% tab name="Java" %}}
-
 ```java
-
 class DummyCustomQueryMapper implements VaultNamedQueryStateAndRefTransformer<TestUtxoState, String> {
     @NotNull
     @Override
@@ -304,16 +266,13 @@ class DummyCustomQueryMapper implements VaultNamedQueryStateAndRefTransformer<Te
     }
 }
 ```
-
 {{% /tab %}}
 {{< /tabs >}}
-
 This transforms each element to a `String` object, which is the given state’s transaction ID.
 
 #### Collecting
 
 Collecting is used to collect results set into one single integer.
-
 For this, implement the `net.corda.v5.ledger.utxo.query.VaultNamedQueryCollector<R, T>` interface. The `<R>` parameter is the type of the original result set (in this case `String` because of transformation) and `<T>` is the type collected into (in this can an `Int`).
 
 This interface has only one method:
@@ -322,12 +281,9 @@ This interface has only one method:
 @NotNull
 Result<T> collect(@NotNull List<R> resultSet, @NotNull Map<String, Object> parameters);
 ```
-
 This defines how to collect the result set. The collector class should look like the following:
-
 {{< tabs name="tabs-6" >}}
 {{% tab name="Kotlin" %}}
-
 ```kotlin
 class DummyCustomQueryCollector : VaultNamedQueryCollector<String, Int> {
     override fun collect(
@@ -341,10 +297,8 @@ class DummyCustomQueryCollector : VaultNamedQueryCollector<String, Int> {
     }
 }
 ```
-
 {{% /tab %}}
 {{% tab name="Java" %}}
-
 ```java
 class DummyCustomQueryCollector implements VaultNamedQueryCollector<String, Integer> {
     @NotNull
@@ -357,21 +311,17 @@ class DummyCustomQueryCollector implements VaultNamedQueryCollector<String, Inte
     }
 }
 ```
-
 {{% /tab %}}
 {{< /tabs >}}
-
 {{< note >}}
  The query `isDone` should only be set to 'true' if the result set is complete.
 {{< /note >}}
 
 #### Registering our Complex Query
 
- Register a complex query with a filter, a transformer, and a collector with the following example:
-
+Register a complex query with a filter, a transformer, and a collector with the following example:
 {{< tabs name="tabs-7" >}}
 {{% tab name="Kotlin" %}}
-
 ```kotlin
 class DummyCustomQueryFactory : VaultNamedQueryFactory {
     override fun create(vaultNamedQueryBuilderFactory: VaultNamedQueryBuilderFactory) {
@@ -387,10 +337,8 @@ class DummyCustomQueryFactory : VaultNamedQueryFactory {
     }
 }
 ```
-
 {{% /tab %}}
 {{% tab name="Java" %}}
-
 ```java
 public class JsonQueryFactory implements VaultNamedQueryFactory {
     @Override
@@ -407,7 +355,6 @@ public class JsonQueryFactory implements VaultNamedQueryFactory {
     }
 }
 ```
-
 {{% /tab %}}
 {{< /tabs >}}
 
@@ -422,56 +369,43 @@ To instantiate a query call the following:
 
 {{< tabs name="tabs-8" >}}
 {{% tab name="Kotlin" %}}
-
 ```kotlin
 utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Int::class.java)
 ```
-
 {{% /tab %}}
 {{% tab name="Java" %}}
-
 ```java
 utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class)
 ```
-
 {{% /tab %}}
 {{< /tabs >}}
-
 Provide the name of the query (in this case `DUMMY_CUSTOM_QUERY`) and the return type. Since the result set is collected into an integer in the complex query example, use `Int` (or `Integer` in Java).
-
 Before executing, define the following:
 
-* Which index the result set should start (`setOffset`), default 0.
-* How many results should the query return (`setLimit`), default Int.MAX (2,147,483,647).
+* How many results each page of the query should return (`setLimit`), default Int.MAX (2,147,483,647).
 * Define named parameters that are in the query and the actual value for them. {{< note >}} All parameters must be defined, otherwise the execution will fail. (`setParameter` or `setParameters`) {{</ note >}}
 * Each state in the database has a timestamp value for when it was inserted. Set an * upper limit to only return states that were inserted before a given time. (`setTimestampLimit`)
 
+It is not necessary to call `ParameterizedQuery.setOffset` as the query pages the results based on each state's created timestamp.
 In this case it would look like this:
-
 {{< tabs name="tabs-9" >}}
 {{% tab name="Kotlin" %}}
-
 ```kotlin
-    val resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Int::class.java) // Instantiate the query
-                .setOffset(0) // Start from the beginning
-                .setLimit(1000) // Only return 1000 records
-                .setParameter("testField", "dummy") // Set the parameter to a dummy value
-                .setCreatedTimestampLimit(Instant.now()) // Set the timestamp limit to the current time
-                .execute() // execute the query
+val resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Int::class.java) // Instantiate the query
+            .setLimit(1000) // Only return 1000 records per page
+            .setParameter("testField", "dummy") // Set the parameter to a dummy value
+            .setCreatedTimestampLimit(Instant.now()) // Set the timestamp limit to the current time
+            .execute() // execute the query
 ```
-
 {{% /tab %}}
 {{% tab name="Java" %}}
-
 ```java
-    PagedQuery.ResultSet<Integer> resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // Instantiate the query
-                    .setOffset(0) // Start from the beginning
-                    .setLimit(1000) // Only return 1000 records
-                    .setParameter("testField", "dummy") // Set the parameter to a dummy value
-                    .setCreatedTimestampLimit(Instant.now()) // Set the timestamp limit to the current time
-                    .execute(); // execute the query
+PagedQuery.ResultSet<Integer> resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // Instantiate the query
+                .setLimit(1000) // Only return 1000 records per page
+                .setParameter("testField", "dummy") // Set the parameter to a dummy value
+                .setCreatedTimestampLimit(Instant.now()) // Set the timestamp limit to the current time
+                .execute(); // execute the query
 ```
-
 {{% /tab %}}
 {{< /tabs >}}
 
@@ -479,80 +413,29 @@ In this case it would look like this:
 A dummy value is assigned for the `testField` parameter in this query, but it can be replaced. There is only one parameter in this example query which is `:testField`.
 {{</ note >}}
 
-Results can be acquired by calling `getResults()` on the `ResultSet`.
-Paging can be achieved by increasing the offset until the result set has elements:
-
-{{< tabs name="tabs-10" >}}
-{{% tab name="Kotlin" %}}
-```kotlin
-var currentOffset = 0;
-
-val resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // instantiate the query
-                .setOffset(0) // Start from the beginning
-                .setLimit(1000) // Only return 1000 records
-                .setParameter("testField", "dummy") // Set the parameter to a dummy value
-                .setCreatedTimestampLimit(Instant.now()) // Set the timestamp limit to the current time
-                .execute()
-
-while (resultSet.results.isNotEmpty()) {
-    currentOffset += 1000
-    query.setOffset(currentOffset)
-    resultSet = query.execute()
-}
-```
-{{% /tab %}}
-{{% tab name="Java" %}}
-```java
-int currentOffset = 0;
-
-ResultSet<Integer> resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // instantiate the query
-                .setOffset(0) // Start from the beginning
-                .setLimit(1000) // Only return 1000 records
-                .setParameter("testField", "dummy") // Set the parameter to a dummy value
-                .setCreatedTimestampLimit(Instant.now()) // Set the timestamp limit to the current time
-                .execute();
-
-while (resultSet.results.isNotEmpty()) {
-    currentOffset += 1000;
-    query.setOffset(currentOffset);
-    resultSet = query.execute();
-}
-```
-
-{{% /tab %}}
-{{< /tabs >}}
-
-Or just calling the `hasNext()` and `next()` functionality:
-
+Results can be acquired by calling `getResults()` on the `ResultSet`.  Call `hasNext()` to check if there are more results to retrieve and `next()` to move onto the next page:
 {{< tabs name="tabs-11" >}}
 {{% tab name="Kotlin" %}}
 ```kotlin
-val resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // instantiate the query
-                .setOffset(0) // Start from the beginning
-                .setLimit(1000) // Only return 1000 records
-                .setParameter("testField", "dummy") // Set the parameter to a dummy value
-                .setCreatedTimestampLimit(Instant.now()) // Set the timestamp limit to the current time
-                .execute()
-
+val resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Int::class.java) // Instantiate the query
+            .setLimit(1000) // Only return 1000 records
+            .setParameter("testField", "dummy") // Set the parameter to a dummy value
+            .setCreatedTimestampLimit(Instant.now()) // Set the timestamp limit to the current time
+            .execute()
 var results = resultSet.results
-
 while (resultSet.hasNext()) {
     results = resultSet.next()
 }
 ```
-
 {{% /tab %}}
 {{% tab name="Java" %}}
 ```java
-ResultSet<Integer> resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // instantiate the query
-                .setOffset(0) // Start from the beginning
+ResultSet<Integer> resultSet = utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class) // Instantiate the query
                 .setLimit(1000) // Only return 1000 records
                 .setParameter("testField", "dummy") // Set the parameter to a dummy value
                 .setCreatedTimestampLimit(Instant.now()) // Set the timestamp limit to the current time
                 .execute();
-
 List<Integer> results = resultSet.getResults();
-
 while (resultSet.hasNext()) {
     results = resultSet.next();
 }
@@ -580,27 +463,15 @@ The following is the list of the standard operators for the vault-named query sy
 * `->>`
 * `?`
 * `::`
-
-Where the behaviour is not standard, the operators are explained in detail in the following sections.
-
+Where the behavior is not standard, the operators are explained in detail in the following sections.
 **Name:** `->`
-
 **Right Operand Type:** `Int`
-
 **Description:**  Gets JSON array element.
-
 **Example:**
-
-`custom_representation`
-`->`
-`com.r3.corda.demo.ArrayObjState`
-`->`
-`0`
+`custom_representation -> 'com.r3.corda.demo.ArrayObjState' -> 0`
 
 Example JSON:
-
 ```java
-
 {
   "com.r3.corda.demo.ArrayObjState": [
     {"A": 1},
@@ -608,30 +479,19 @@ Example JSON:
   ]
 }
 ```
-
 This example returns:
-
 ```java
 {
   "A": 1
 }
 ```
-
 **Name:** `->`
-
 **Right Operand Type:** </b> `Text`
-
 **Description:** Get JSON object field.
-
 **Example:**
-
-`custom_representation`
-`-> 'com.r3.corda.demo.TestState'`
-
+`custom_representation -> 'com.r3.corda.demo.TestState'`
 Selects the top-level JSON field called `com.r3.corda.demo.TestState` from the JSON object in the `custom_representation` database column.
-
 Example JSON:
-
 ```java
 {
   "com.r3.corda.demo.TestState": {
@@ -639,60 +499,34 @@ Example JSON:
   }
 }
 ```
-
 This example returns:
-
 ```java
 {
   "testField": "ABC"
 }
-
 ```
-
 **Name:** `->>`
-
 **Right Operand Type:** `Int`
-
 **Description:** Get JSON array element as text.
-
 **Example:**
-
-`custom_representation`
-`-> 'com.r3.corda.demo.ArrayState'`
-`->> 2`
-
+`custom_representation -> 'com.r3.corda.demo.ArrayState' ->> 2`
 Selects the third element (indexing from 0)  of the array type top-level JSON field called `com.r3.corda.demo.ArrayState` from the JSON object in the `custom_representation` database column.
-
 Example JSON:
-
 ```java
-
 {
   "com.r3.corda.demo.ArrayState": [
     5, 6, 7
   ]
 }
-
 ```
-
 This example returns: `7`.
-
 **Name:** `->>`
-
 **Right Operand Type:** `Text`
-
 **Description:** Get JSON object field as text.
-
 **Example:**
-
-`custom_representation`
-`-> 'com.r3.corda.demo.TestState'`
-`->> 'testField'`
-
+`custom_representation -> 'com.r3.corda.demo.TestState' ->> 'testField'`
 Selects the `testField` JSON field from the top-level JSON object called `com.r3.corda.demo.TestState` in the `custom_representation` database column.
-
 Example JSON:
-
 ```java
 {
   "com.r3.corda.demo.TestState": {
@@ -700,41 +534,24 @@ Example JSON:
   }
 }
 ```
-
 This example returns: `ABC`.
-
 **Name:** `?`
-
 **Right Operand Type:** `Text`
-
 **Description:** Checks if JSON object field exists.
-
 **Example:**
-
-`custom_representation ?`
-`'com.r3.corda.demo.TestState'`
-
+`custom_representation ? 'com.r3.corda.demo.TestState'`
 Checks if the object in the `custom_representation` database column has a top-level field called `com.r3.corda.demo.TestState`.
-
 Example JSON:
-
 ```java
 {
   "com.r3.corda.demo.TestState": {
     "testField": "ABC"
   }
 }
-
 ```
-
 This example returns: `true`.
-
 **Name:** `::`
-
 **Right Operand Type:** A type, for example, `Int`
-
 **Description:** Casts the element/object field to the specified type.
-
 **Example:**
-
 `(visible_states.field ->> property)::int = 1234`
