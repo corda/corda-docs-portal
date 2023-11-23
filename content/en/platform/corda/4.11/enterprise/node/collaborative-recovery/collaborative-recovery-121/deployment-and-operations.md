@@ -2,18 +2,18 @@
 date: '2020-04-24T12:00:00Z'
 menu:
   corda-enterprise-4-11:
-    parent: corda-enterprise-4-11-corda-nodes-collaborative-recovery
+    parent: corda-enterprise-4-11-corda-nodes-collaborative-recovery-121
 tags:
 - disaster recovery
 - collaborative recovery
 - install
 - node operator
 
-title: Deploy and operate Collaborative Recovery
+title: Deploy and operate Collaborative Recovery V1.2.1
 weight: 300
 ---
 
-# Deploy and operate Collaborative Recovery
+# Deploy and operate Collaborative Recovery V1.2.1
 
 **Who this documentation is for:**
 * Node operators
@@ -35,7 +35,7 @@ Since some recovery flows have been designed to be run manually, you can set ale
 
 The Collaborative Recovery CorDapps expose a number of JMX metrics via Jolokia. You can see the full list of the exposed metrics for
 [LedgerSync here]({{< relref "ledger-sync.md#jmx-metrics" >}}), and [LedgerRecover here]({{< relref "ledger-recovery-automatic.md" >}}). These are exposed alongside metrics from the node.
-You can also [monitor via Jolokia]({{< relref "../operating/node-administration.md#monitoring-via-jolokia" >}}).
+You can also [monitor via Jolokia]({{< relref "../../operating/node-administration.md#monitoring-via-jolokia" >}}).
 
 
 As part of your disaster recovery strategy, you can set up alerts for LedgerSync's `NumberOfFailedReconciliations` and `NumberOfReconciliationsWithDifferences` metrics.
@@ -74,10 +74,10 @@ The database tables are managed via Liquibase migration scripts that are shipped
 {{< note >}}
 No manual schema alterations should be performed at any time.
 {{< /note >}}
-[Database Management Tool]({{< relref "../operating/node-database.md#database-management-tool" >}})
+[Database Management Tool]({{< relref "../../operating/node-database.md#database-management-tool" >}})
 that is shipped as a part of Corda Enterprise.
 
-Collaborative Recovery CorDapps are compatible with the full range of the [databases supported by Corda Enterprise]({{< relref "../../platform-support-matrix.md#node-databases" >}}).
+Collaborative Recovery CorDapps are compatible with the full range of the [databases supported by Corda Enterprise]({{< relref "../../../platform-support-matrix.md#node-databases" >}}).
 
 The contents of the Collaborative Recovery tables should *not* be altered manually. The tables are not envisioned to grow large in size.
 The space complexities are outlined below:
@@ -90,7 +90,7 @@ The space complexities are outlined below:
 
 You can see a suggested high-level, disaster recovery setup in the diagram below.
 
-{{< figure alt="Suggested Disaster Recovery Setup" width=80% zoom="../../resources/collaborative-recovery/dr-setup.png" >}}
+{{< figure alt="Suggested Disaster Recovery Setup" width=80% zoom="../../../resources/collaborative-recovery/dr-setup.png" >}}
 
 The exact setup you choose is likely to be influenced by your organisation and business requirements, but the key points are:
 
@@ -109,7 +109,7 @@ The exact procedure you follow is likely to be unique to your organisation. This
 If you have not been able to use synchronous replication:
 
 * After recovering from a backup/asynchronous replica, some of the flow checkpoints may be stale, and resuming them might cause disruption.
-* In an ideal scenario, all flow checkpoints should be cleaned out manually before starting the node. You can do this using [Corda checkpoint tooling]({{< relref "../operating/monitoring-and-logging/checkpoint-tooling.md" >}}).
+* In an ideal scenario, all flow checkpoints should be cleaned out manually before starting the node. You can do this using [Corda checkpoint tooling]({{< relref "../../operating/monitoring-and-logging/checkpoint-tooling.md" >}}).
 * Message queue files should also be cleaned manually, as they are unlikely to match the contents of the database anymore, especially when restoring from a backup.
 * After the node has been started, you should run [LedgerSync]({{< relref "ledger-sync.md" >}}) to check whether the ledger is missing any transactions.
 
@@ -134,7 +134,7 @@ Inconsistencies in the ledger can indicate some serious underlying issues. If th
 
 6. Once the issue has been debugged and understood, you can recover the missing transactions from other parties on a peer-to-peer basis.
 The list of missing transaction IDs can be obtained from the `lastSuccessfulReconciliationStatus` field of a reconciliation status.
-`lastSuccessfulReconciliationStatus` is a binary field and can be decoded using [Corda Blob Inspector]({{< relref "../../blob-inspector.md" >}}).
+`lastSuccessfulReconciliationStatus` is a binary field and can be decoded using [Corda Blob Inspector]({{< relref "../../../blob-inspector.md" >}}).
 
 7. Depending on the size of the difference, either [manual]({{< relref "ledger-recovery-manual.md" >}}) or [automatic]({{< relref "ledger-recovery-automatic.md" >}}) recovery can be used. Consider using automatic LedgerRecover and switch to manual if automatic fails because there have been too many transactions or too frequent recovery requests.
 
