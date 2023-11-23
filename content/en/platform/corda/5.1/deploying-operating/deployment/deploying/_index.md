@@ -744,7 +744,19 @@ workers:
 
 ### Node Affinities
 
-**
+Corda uses node affinity to assign worker replicas across nodes. You can modify the default behavior by setting the following parameters in the deployment configuration:
+
+```yaml
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: disktype
+            operator: In
+            values:
+            - ssd  
+```
 
 ### Pre-Install Checks
 
