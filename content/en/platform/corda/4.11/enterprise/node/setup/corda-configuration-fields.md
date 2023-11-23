@@ -468,7 +468,7 @@ Allows fine-grained controls of various features only available in the enterpris
         * *Default:* 0
 
     * To configure the `ledgerRecoveryConfiguration` for your Corda Enterprise node, modify the properties according to the
-    requirements in your node's configuration file, for example:
+    requirements in your node's configuration file; for example:
 
         ```
         enterpriseConfiguration = {
