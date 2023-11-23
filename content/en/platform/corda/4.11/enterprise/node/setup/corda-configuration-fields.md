@@ -396,7 +396,7 @@ Allows fine-grained controls of various features only available in the enterpris
 
         * This property specifies the number of pre-generated keys used for confidential identities, indicating the count
         of keys that will be backed up in the database. It represents the pre-generated count of so-called new
-        confidential identities, that is, those that don’t have a certificate.
+        confidential identities; that is, those that don’t have a certificate.
         * The default for this property is 0 which means that if you have not changes it and if you are using new confidential identities and  (and have not changed `canProvideNonBackedUpKeyPair` default), then you receive a confidential identity created on the fly, not a pre-generated one. If you have changed `canProvideNonBackedUpKeyPair` to `false` and if there are no backed up keys to return, then an exception is raised.
         * *Default:* 0
 
