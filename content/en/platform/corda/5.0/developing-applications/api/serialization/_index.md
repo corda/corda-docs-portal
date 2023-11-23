@@ -94,10 +94,6 @@ Corda uses an extended form of AMQP 1.0 as its binary wire protocol.
 Corda serialisation is currently used for:
 
 * Passing objects between the {{< tooltip >}}flow worker{{< /tooltip >}} and {{< tooltip >}}database worker{{< /tooltip >}}
-<<<<<<< HEAD:content/en/platform/corda/5.0/developing-applications/api/serialization/_index.md
-=======
-
->>>>>>> release/platform/4.11:content/en/platform/corda/5.0/developing-applications/api/api-serialisation.md
 
 For the checkpointing of flows Corda uses a private scheme that is subject to change. It is currently based on the Kryo
 framework, but this may not be true in future.

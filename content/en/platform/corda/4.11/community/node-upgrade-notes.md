@@ -61,7 +61,7 @@ We provide some [backup recommendations]({{< relref "node-administration.md#back
 
 ## Step 3: Download Corda Community Edition
 
-Download the required version of Corda Community Edition from [software.r3.com](https://software.r3.com).
+Download the required version of Corda Community Edition; for more information, see [Release packs and checksums]({{< relref "release-checksum-os.md" >}}).
 
 ## Step 4: Upgrade the node to Corda 4.0 or later
 
@@ -69,7 +69,7 @@ Ensure your node is running Corda 4.0 or later.
 
 ## Step 5: Replace `corda.jar` with the new version
 
-Download the latest version of Corda from [our Artifactory site](https://software.r3.com/artifactory/webapp/#/artifacts/browse/simple/General/corda/net/corda/corda-node).
+Download the latest version of Corda from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-node/4.11/corda-node-4.11.jar).
 Make sure it’s available on your path, and that you’ve read the [Release notes]({{< relref "release-notes.md" >}}), in particular to discover what version of Java this
 node requires.
 
