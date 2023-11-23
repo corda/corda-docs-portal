@@ -73,10 +73,13 @@ public class TestState implements ContractState {
 ```
 {{% /tab %}}
 {{< /tabs >}}
+
 {{< note >}}
 This contract has no verification logic and should only be used for testing purposes. The state itself has a `testField` property defined for JSON representation and constructing queries.
 {{</ note >}}
+
 To represent a state as a JSON string, use `ContractStateVaultJsonFactory` as follows:
+
 {{< tabs name="tabs-2" >}}
 {{% tab name="Kotlin" %}}
 ```kotlin
@@ -106,8 +109,9 @@ class TestUtxoStateJsonFactory implements ContractStateVaultJsonFactory<TestUtxo
 {{% /tab %}}
 {{< /tabs >}}
 
-state finalizes, it is represented as the following in the database (`custom_representation column`)
+After the output state finalizes, it is represented as the following in the database (`custom_representation column`)
 with a `stateRef` field stored under the `ContractState` JSON object:
+
 ```json
 {
   "net.corda.v5.ledger.utxo.ContractState" : {
@@ -118,6 +122,7 @@ with a `stateRef` field stored under the `ContractState` JSON object:
   }
 }
 ```
+
 {{< note >}}
 
 * The `net.corda.v5.ledger.utxo.ContractState` field is a part of the JSON representation for all state types.
@@ -313,8 +318,9 @@ class DummyCustomQueryCollector implements VaultNamedQueryCollector<String, Inte
 ```
 {{% /tab %}}
 {{< /tabs >}}
+
 {{< note >}}
- The query `isDone` should only be set to 'true' if the result set is complete.
+The query `isDone` should only be set to 'true' if the result set is complete.
 {{< /note >}}
 
 #### Registering our Complex Query
@@ -379,6 +385,7 @@ utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class)
 ```
 {{% /tab %}}
 {{< /tabs >}}
+
 Provide the name of the query (in this case `DUMMY_CUSTOM_QUERY`) and the return type. Since the result set is collected into an integer in the complex query example, use `Int` (or `Integer` in Java).
 Before executing, define the following:
 
@@ -414,6 +421,7 @@ A dummy value is assigned for the `testField` parameter in this query, but it ca
 {{</ note >}}
 
 Results can be acquired by calling `getResults()` on the `ResultSet`.  Call `hasNext()` to check if there are more results to retrieve and `next()` to move onto the next page:
+
 {{< tabs name="tabs-11" >}}
 {{% tab name="Kotlin" %}}
 ```kotlin
