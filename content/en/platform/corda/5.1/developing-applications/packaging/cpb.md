@@ -11,7 +11,9 @@ menu:
 section_menu: corda51
 ---
 # Build a CPB
+
 You can build a CPB from your CPK files using one of the following:
+
 * [Gradle]({{< relref "#build-a-cpb-using-gradle" >}})
 * [Corda CLI]({{< relref "#build-a-cpb-using-the-corda-cli" >}})
 
@@ -29,11 +31,10 @@ To build a CPB using Gradle:
 2. To sign your CPB, add a `cordapp/signing` section to the project `settings.gradle` file.
 
    {{< note >}}
-By default, the CPB plugin signs with a default key. This key should only be used for local testing. For more information about deploying locally on a static network, see [Getting Started Using the CSDE]({{< relref "../getting-started/_index.md">}}).
+By default, the CPB plugin signs with a default key. This key should only be used for local testing. You can deploy locally on a static network, using the [CSDE]({{< relref "../../../../../tools-corda5/csde/_index.md">}}).
 CPBs for deployment on a dynamic network must be signed with a key that you can share with the Network Operator responsible for building the CPI from the CPB. 
 You should always sign test CPBs with a different key used only for testing. The final key that the Network Operator uses should not be used for signing until you are ready to release. You can re-sign a CPB without building the project from source, using the [Corda CLI]({{< relref "#build-a-cpb-using-the-corda-cli" >}}).
    {{< /note >}}
-
 
 3. Run the `cbp` Gradle task:
    ```
@@ -88,3 +89,4 @@ You should always sign test CPBs with a different key used only for testing. The
    {{< /tabs >}}
 
    For more information about the Corda CLI `package` command, see the [Corda CLI Reference]({{< relref "../../reference/corda-cli/package.md" >}}) section.
+   

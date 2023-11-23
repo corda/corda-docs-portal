@@ -22,7 +22,7 @@ pygmentsUseClasses = false
 pygmentsStyle = "emacs"
 
 # See https://gohugo.io/variables/git/
-enableGitInfo = false
+enableGitInfo = true
 
 # See https://gohugo.io/getting-started/configuration-markup#highlight
 [markup]
@@ -70,7 +70,7 @@ default_tab = "java"
 ogimage = "/images/png/corda.png"
 
 algolia_appId = "UX2KMUWFAL"
-algolia_apiKey = "5235ffc2c4b9dc8c6707db684d4d11ff"
+algolia_apiKey = "13899c736a29194607e3e62b88fa6460"
 algolia_index = "crawler_docs.r3.com_docsearch"
 
 # Google Tag Manager code setup

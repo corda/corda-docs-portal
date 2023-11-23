@@ -65,7 +65,7 @@
     },
     "CSDE": {
         "definition": "CorDapp Standard Development Environment. The recommended developer environment setup for developers wishing to write Corda 5 CorDapps.",
-        "more": "For more information see <a href=\"../developing-applications/getting-started.html\">Getting Started Using the CSDE</a>."
+        "more": "For more information see <a href=\"../../../../tools-corda5/csde.html\">Getting Started Using the CSDE</a>."
     },
     "Database worker": {
         "definition": "A worker that connects to, manages, and operates upon the database(s) used by the Corda cluster. This includes the cluster-level database schemas needed to store configuration data for the cluster, but also the separate databases/schemas used by each virtual node. ",
@@ -266,5 +266,13 @@
     "X.509": {
         "definition": "A widely used standard for digital certificates in public key infrastructure (PKI) systems. An X.509 certificate contains an identity (such as an individual or hostname) and a public key. ",
         "more": "It binds the identity to the public key using a digital signature. These certificates are typically issued and signed by trusted Certificate Authorities (CAs) and include information about the certificate owner, the public key, the CA's digital signature, and other relevant details. X.509 certificates are commonly employed in various security protocols, such as SSL/TLS, to establish secure connections and authenticate the parties involved in online transactions or data exchanges."
+    },
+    "CSR": {
+        "definition": "Certificate Signing Request. This is a specially formatted encrypted message sent from a Secure Sockets Layer (SSL) digital certificate applicant to a certificate authority (CA). The CSR validates the information the CA requires to issue a certificate.",
+        "more": "A CSR must be generated for each cluster when setting up the TLS key pair or session certificates."
+    },
+    "PEM": {
+        "definition": "A container format for the CA certificate. This is the format of the TLS certificate specified when onboarding members and is used to validate member certificates.",
+        "more": ""
     }
 }
