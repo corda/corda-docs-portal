@@ -156,6 +156,7 @@ The following sections describe the minimal set of configuration options require
 * [Encryption]({{< relref "#encryption" >}})
 * [Bootstrapping]({{< relref "#bootstrapping" >}})
 * [Custom Annotations for Worker Pods]({{< relref "#custom-annotations-for-worker-pods" >}})
+* [Node Affinities]({{< relref "#node-affinities" >}})
 * [Pre-Install Checks]({{< relref "#pre-install-checks" >}})
 
 You can extract a README containing the full set of options from the Helm chart using the following command:
@@ -865,6 +866,25 @@ workers:
   crypto:
     annotations:
       annotation-key-2: "some-value"
+```
+
+### Node Affinities
+
+Corda uses node affinity to assign worker replicas across nodes. By default, for high availability, Corda attempts to deploy multiple replicas on different nodes. The following shows the default values:
+
+```yaml
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: app.kubernetes.io/component
+              operator: In
+              values:
+              - membership-worker
+          topologyKey: kubernetes.io/hostname
+        weight: 1
 ```
 
 ### Pre-Install Checks
