@@ -46,7 +46,12 @@ export SESSION_KEY_ID=<session-key-ID>
 
 ## Generate a Ledger Key Pair
 
+{{< note >}}
+If you are onboarding a notary, you do not need to generate ledger keys.
+{{< /note >}}
+
 To assign a soft hardware security module (HSM) and generate a {{< tooltip >}}ledger key{{< /tooltip >}} pair:
+
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
