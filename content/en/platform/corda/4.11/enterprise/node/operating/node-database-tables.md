@@ -399,7 +399,7 @@ The size should be fairly constant.
 
 {{< /table >}}
 
-### Node distribution records
+### Transaction recovery
 
 {{< table >}}
 
