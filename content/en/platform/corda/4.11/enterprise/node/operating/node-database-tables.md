@@ -403,45 +403,45 @@ The size should be fairly constant.
 
 {{< table >}}
 
-| node_sender_distr_recs | When a node sends a transaction to a peer, the node creates and stores a sender's distribution record in the local database. This is used to aid in recovery of transactions at the peer. |
+| NODE_SENDER_DISTR_RECS | When a node sends a transaction to a peer, the node creates and stores a sender's distribution record in the local database. This is used to aid in recovery of transactions at the peer. |
 |------------------------------|------------------------------------------------------------------------------------------|
-| timestamp | Record's timestamp. |
-| timestamp_discriminator | Used to discriminate records occurring in the same timestamp entry. |
-| transaction_id | The sent transaction ID. |
-| peer_party_id | The peer the transaction was sent to. |
-| sender_states_to_record |  The states to record the value of the sender. |
-| receiver_states_to_record |  The states to record the value of the receiver. |
+| TIMESTAMP | Record's timestamp. |
+| TIMESTAMP_DISCRIMINATOR | Used to discriminate records occurring in the same timestamp entry. |
+| TRANSACTION_ID | The sent transaction ID. |
+| PEER_PARTY_ID | The peer the transaction was sent to. |
+| SENDER_STATES_TO_RECORD |  The states to record the value of the sender. |
+| RECEIVER_STATES_TO_RECORD |  The states to record the value of the receiver. |
 
 {{< /table >}}
 
 {{< table >}}
 
-| node_receiver_distr_recs | When a node sends a transaction to a peer, the node sends along with the transaction a receiver's distribution record. This is used to aid in recovery of transactions at the sender. |
+| NODE_RECEIVER_DISTR_RECS | When a node sends a transaction to a peer, the node sends along with the transaction a receiver's distribution record. This is used to aid in recovery of transactions at the sender. |
 |------------------------------|------------------------------------------------------------------------------------------|
-| timestamp | Record's timestamp. |
-| timestamp_discriminator | Used to discriminate records occurring in the same timestamp entry. |
-| transaction_id | The received transaction ID. |
-| peer_party_id | The peer who sent the transaction. |
-| distribution_list | Encrypted recovery information for sole use by the sender. |
-| receiver_states_to_record | The states to record the value of the receiver. |
+| TIMESTAMP | Record's timestamp. |
+| TIMESTAMP_DISCRIMINATOR | Used to discriminate records occurring in the same timestamp entry. |
+| TRANSACTION_ID | The received transaction ID. |
+| PEER_PARTY_ID | The peer who sent the transaction. |
+| DISTRIBUTION_LIST | Encrypted recovery information for sole use by the sender. |
+| RECEIVER_STATES_TO_RECORD | The states to record the value of the receiver. |
 
 {{< /table >}}
 
 {{< table >}}
 
-| node_recovery_party_info | A lookup table storing the Corda X500 name of a party and its SHA256 hash. |
+| NODE_RECOVERY_PARTY_INFO | A lookup table storing the Corda X500 name of a party and its SHA256 hash. |
 |------------------------------|------------------------------------------------------------------------------------------|
-| party_id | Party's unique ID. |
-| party_name | Party's name. |
+| PARTY_ID | Party's unique ID. |
+| PARTY_NAME | Party's name. |
 
 {{< /table >}}
 
 {{< table >}}
 
-| node_aes_encryption_keys | Encryption key table used to encrypt data in the receiver's distribution records. |
+| NODE_AES_ENCRYPTION_KEYS | Encryption key table used to encrypt data in the receiver's distribution records. |
 |------------------------------|------------------------------------------------------------------------------------------|
-| key_id | Encryption key's unique ID. |
-| key_material | Encrypted key's data. |
+| KEY_ID | Encryption key's unique ID. |
+| KEY_MATERIAL | Encrypted key's data. |
 
 {{< /table >}}
 
