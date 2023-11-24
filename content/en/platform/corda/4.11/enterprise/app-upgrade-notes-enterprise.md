@@ -43,7 +43,7 @@ corda_release_version = '4.11'
 corda_core_release_version = '4.11'
 corda_gradle_plugins_version = '5.0.12'
 kotlin_version = '1.2.71'
-quasar_version = '0.7.15_r3'
+quasar_version = '0.7.16_r3'
 ```
 
 2. Specify an additional repository entry pointing to the location of the Corda Enterprise distribution and Corda dependencies. Any
