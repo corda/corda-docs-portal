@@ -429,7 +429,7 @@ The size should be fairly constant.
 
 {{< table >}}
 
-| NODE_RECOVERY_PARTY_INFO | A lookup table storing the Corda X500 name of a party and its SHA256 hash. |
+| NODE_RECOVERY_PARTY_INFO | A lookup table storing the Corda X.500 name of a party and its SHA-256 hash. |
 |------------------------------|------------------------------------------------------------------------------------------|
 | PARTY_ID | Party's unique ID. |
 | PARTY_NAME | Party's name. |
