@@ -10,15 +10,12 @@ tags:
 title: Writing oracle services
 ---
 
-
-
-
 # Writing oracle services
 
 This tutorial covers *oracles*: network services that link the ledger to the outside world by providing facts that
 affect the validity of transactions.
 
-The [IRS trading demo app](https://github.com/corda/corda/tree/release/os/4.9/samples/irs-demo/cordapp) includes an example oracle that provides an interest rate fixing service.
+The [IRS trading demo app](https://github.com/corda/corda/tree/release/os/4.11/samples/irs-demo/cordapp) includes an example oracle that provides an interest rate fixing service.
 
 ## Introduction
 
@@ -72,13 +69,13 @@ Here’s a quick way to decide which approach makes more sense for your data sou
 
 * Is your data *continuously changing*, like a stock price, the current time, etc? If yes, use a command.
 * Is your data *commercially valuable*, like a feed which you are not allowed to resell unless it’s incorporated into
-a business deal? If yes, use a command, so you can charge money for signing the same fact in each unique business
-context.
+  a business deal? If yes, use a command, so you can charge money for signing the same fact in each unique business
+  context.
 * Is your data *very small*, like a single number? If yes, use a command.
 * Is your data *large*, *static* and *commercially worthless*, for instance, a holiday calendar? If yes, use an
-attachment.
+  attachment.
 * Is your data *intended for human consumption*, like a PDF of legal prose, or an Excel spreadsheet? If yes, use an
-attachment.
+  attachment.
 
 
 ### Asserting continuously varying data
@@ -98,10 +95,10 @@ So the way we actually implement it is like this:
 
 
 * The creator of the transaction that depends on the interest rate asks for the current rate. They can abort at this point
-if they want to.
+  if they want to.
 * They insert a command with that rate and the time it was obtained into the transaction.
 * They then send it to the oracle for signing, along with everyone else, potentially in parallel. The oracle checks that
-the command has the correct data for the asserted time, and signs if so.
+  the command has the correct data for the asserted time, and signs if so.
 
 This same technique can be adapted to other types of oracle.
 
@@ -117,7 +114,7 @@ data class FixOf(val name: String, val forDay: LocalDate, val ofTenor: Tenor)
 
 ```
 
-[FinanceTypes.kt](https://github.com/corda/corda/blob/release/os/4.9/finance/contracts/src/main/kotlin/net/corda/finance/contracts/FinanceTypes.kt)
+[FinanceTypes.kt](https://github.com/corda/corda/blob/release/os/4.11/finance/contracts/src/main/kotlin/net/corda/finance/contracts/FinanceTypes.kt)
 
 ```kotlin
 /** A [Fix] represents a named interest rate, on a given day, for a given duration. It can be embedded in a tx. */
@@ -125,7 +122,7 @@ data class Fix(val of: FixOf, val value: BigDecimal) : CommandData
 
 ```
 
-[FinanceTypes.kt](https://github.com/corda/corda/blob/release/os/4.9/finance/contracts/src/main/kotlin/net/corda/finance/contracts/FinanceTypes.kt)
+[FinanceTypes.kt](https://github.com/corda/corda/blob/release/os/4.11/finance/contracts/src/main/kotlin/net/corda/finance/contracts/FinanceTypes.kt)
 
 ```kotlin
 class Oracle {
@@ -221,17 +218,17 @@ fun sign(ftx: FilteredTransaction): TransactionSignature {
 
 ```
 
-[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/4.9/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)
+[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/4.11/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)
 
 Here you can see that there are several steps:
 
 * Ensure that the transaction we have been sent is indeed valid and passes verification, even though we cannot see all
-of it.
+  of it.
 * Check that we only received commands as expected, and each of those commands expects us to sign for them and is of
-the expected type (`Fix` here).
+  the expected type (`Fix` here).
 * Iterate over each of the commands we identified in the last step and check that the data they represent matches
-exactly our data source. The final step, assuming we have got this far, is to generate a signature for the
-transaction and return it.
+  exactly our data source. The final step, assuming we have got this far, is to generate a signature for the
+  transaction and return it.
 
 
 ### Binding to the network
@@ -259,7 +256,7 @@ class Oracle(private val services: AppServiceHub) : SingletonSerializeAsToken() 
 
 ```
 
-[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/4.9/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)
+[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/4.11/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)
 
 The Corda node scans for any class with this annotation and initialises them. The only requirement is that the class provide
 a constructor with a single parameter of type `ServiceHub`.
@@ -295,7 +292,7 @@ class FixQueryHandler(private val otherPartySession: FlowSession) : FlowLogic<Un
 
 ```
 
-[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/4.9/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)
+[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/4.11/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)
 
 These two flows leverage the oracle to provide the querying and signing operations. They get reference to the oracle,
 which will have already been initialised by the node, using `ServiceHub.cordaService`. Both flows are annotated with
@@ -344,7 +341,7 @@ class FixSignFlow(val tx: TransactionBuilder, val oracle: Party,
 
 ```
 
-[RatesFixFlow.kt](https://github.com/corda/corda/blob/release/os/4.9/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/RatesFixFlow.kt)
+[RatesFixFlow.kt](https://github.com/corda/corda/blob/release/os/4.11/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/RatesFixFlow.kt)
 
 You’ll note that the `FixSignFlow` requires a `FilterTransaction` instance which includes only `Fix` commands.
 You can find a further explanation of this in [Oracles]({{< relref "../../../key-concepts-oracles.md" >}}). Below you will see how to build such a
@@ -373,7 +370,7 @@ override fun call(): TransactionSignature {
 
 ```
 
-[RatesFixFlow.kt](https://github.com/corda/corda/blob/release/os/4.9/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/RatesFixFlow.kt)
+[RatesFixFlow.kt](https://github.com/corda/corda/blob/release/os/4.11/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/RatesFixFlow.kt)
 
 As you can see, this:
 
@@ -412,7 +409,7 @@ Here’s an example of it in action from `FixingFlow.Fixer`.
 
 ```
 
-[FixingFlow.kt](https://github.com/corda/corda/blob/release/os/4.9/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/FixingFlow.kt)
+[FixingFlow.kt](https://github.com/corda/corda/blob/release/os/4.11/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/FixingFlow.kt)
 
 {{< note >}}
 When overriding be careful when making the sub-class an anonymous or inner class (object declarations in Kotlin),
@@ -458,4 +455,4 @@ You can then write tests on your mock network to verify the nodes interact with 
 
 ```
 
-For more examples, see [OracleNodeTearOffTests.kt](https://github.com/corda/corda/tree/release/os/4.9/samples/irs-demo/cordapp/workflows-irs/src/test/kotlin/net/corda/irs/api/OracleNodeTearOffTests.kt).
+For more examples, see [OracleNodeTearOffTests.kt](https://github.com/corda/corda/tree/release/os/4.11/samples/irs-demo/cordapp/workflows-irs/src/test/kotlin/net/corda/irs/api/OracleNodeTearOffTests.kt).
