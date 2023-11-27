@@ -45,9 +45,9 @@ metrics:
       release: [RELEASE_NAME]
 ```
 
-You can also configure filters in the PodMonitor to reduce the metrics recorded using the following fields:
+You can also configure filters in the PodMonitor to reduce the metrics recorded by setting the following fields:
 
-* `keepNames` — a list of regular expressions for the names of metrics that Prometheus records. If empty, all metrics are recorded. Prometheus records the following metrics by default:
+* `keepNames` — a list of regular expressions for the names of the metrics that Prometheus records. If empty, all metrics are recorded. Prometheus records the following metrics by default:
   * corda_flow_execution_time_seconds_(count|sum|max)
   * corda_http_server_request_time_seconds_(count|sum|max)
   * corda_p2p_gateway_inbound_request_time_seconds_(count|sum|max)
@@ -62,7 +62,7 @@ You can also configure filters in the PodMonitor to reduce the metrics recorded 
   * corda_membership_actions_handler_time_seconds_(count|sum|max)
   * jvm_.*
   * process_cpu_usag
-* `dropLabels` — a list of regular expressions for labels that Prometheus drops for all metrics. If empty, all labels are recorded. Prometheus drops the following metrics by default:
+* `dropLabels` — a list of regular expressions for the labels that Prometheus drops for all metrics. If empty, all labels are recorded. Prometheus drops the following metrics by default:
   * virtualnode_destination
   * virtualnode_source
 
