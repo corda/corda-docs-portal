@@ -1,13 +1,12 @@
 ---
-date: '2022-09-20'
-version: 'Corda 5.0'
+date: '2023-11-01'
 title: "Debugging Against Local Corda"
 menu:
-  corda5:
+  corda5-tools:
     parent: corda5-develop-get-started
     identifier: corda5-debugging
     weight: 6000
-section_menu: corda5
+section_menu: corda5-tools
 ---
 # Debugging Against Local Corda
 
