@@ -44,7 +44,7 @@ Command line utilities should use picocli ([http://picocli.info](http://picocli.
     * Short options should not be used for commands that would be used just once, for example initialising/registration type tasks.
 
 
-* The picocli interface allows combinations of options without parameters, for example, ``-v` and ``-d` can be combined as `-vd`.
+* The picocli interface allows combinations of options without parameters; for example, `-v` and `-d` can be combined as `-vd`.
 
 
 ### Positional parameters
@@ -81,7 +81,7 @@ A `-v` short option should also be provided.
 
 
 * Flags should have sensible defaults.
-* Boolean flags should always default to false. Specifying the flag without a parameter should set it to true. For example `--use-something` should be equal to ``--use-something=true` and no option should be equal to `--my-flag=false`.
+* Boolean flags should always default to false. Specifying the flag without a parameter should set it to true. For example `--use-something` should be equal to `--use-something=true` and no option should be equal to `--my-flag=false`.
 * Do a bit of work to figure out reasonable defaults. Nobody likes having to set a dozen flags before the tool will cooperate.
 
 
@@ -176,9 +176,9 @@ fun main(args: Array<String>) {
 
 
 
-## Backwards Compatibility
+## Backwards compatibility
 
-Our commitment to API stability (See [Checking API stability](api-scanner.md) for more information) extends to new versions of our CLI tools. Removing and renaming
+Our commitment to API stability (see [Checking API stability](api-scanner.md) for more information) extends to new versions of our CLI tools. Removing and renaming
 parameters may cause existing scripts users may have written to fail, and should be avoided unless absolutely necessary.
 
 
