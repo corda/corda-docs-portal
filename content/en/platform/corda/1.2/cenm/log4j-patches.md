@@ -4,7 +4,7 @@ menu:
   cenm-1-2:
     identifier: cenm-1-2-log4j-patch-releases
     parent: cenm-1-2-cenm-releases
-    weight: 90
+    weight: 110
 tags:
 - log4j
 - release
