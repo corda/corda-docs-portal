@@ -20,116 +20,76 @@ table th:first-of-type {
     width: 25%;
 }
 table th:nth-of-type(2) {
-    width: 10%;
-}
-table th:nth-of-type(3) {
     width: 20%;
 }
+table th:nth-of-type(3) {
+    width: 40%;
+}
 table th:nth-of-type(4) {
-    width: 45%;
+    width: 2545%;
 }
 </style>
 
-## List of Keys
+## Keys
 
-| Key Name                                | Use with Certificate | Description                                                                                                                                                                                                                                                                  | Key Type/Algorithm  |
+Corda uses the following types of keys:
+
+| Key                                     | Use with Certificate | Description                                                                                                                                                                                                                                                                  | Key Type/Algorithm  |
 | --------------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
 | P2P TLS key                             | Yes                  | Part of TLS encryption at Corda cluster gateway level.                                                                                                                                                                                                                       |                     |
-|                                         |                      |                                                                                                                                                                                                                                                                              |                     |
-| ---                                     | ---                  | ---                                                                                                                                                                                                                                                                          | ---                 |
 | Session initiation key                  | Yes                  | Used during end-to-end session handshake between 2 clusters, used to sign group parameters.                                                                                                                                                                                  |                     |
-|                                         |                      |                                                                                                                                                                                                                                                                              |                     |
 | ECDH (MGM)                              | No                   | Used for encryption/decryption of registration requests sent to MGM by members.                                                                                                                                                                                              |                     |
-|                                         |                      |                                                                                                                                                                                                                                                                              |                     |
-| Notary key                              | No                   | Combination of Notary Key + X500 Name,at Notarisation stage of Finality, the Notary Key is used to sign a transaction. Once a transaction is signed using the Notary Key, a transaction is deemed Notarised.                                                                 | ECDSA key pair      |
+| Notary key                              | No                   | Combination of Notary Key and X500 Name, at Notarisation stage of Finality, the Notary Key is used to sign a transaction. Once a transaction is signed using the Notary Key, a transaction is deemed Notarised.                                                              | ECDSA key pair      |
 | REST TLS key                            | Yes                  | Stored on local files, supplied via command line arguments to the REST worker.                                                                                                                                                                                               |                     |
-|                                         |                      |                                                                                                                                                                                                                                                                              |                     |
 | REST SSO keys                           | TBD                  | AzueAD OIDC/OAuth2                                                                                                                                                                                                                                                           |                     |
-|                                         |                      |                                                                                                                                                                                                                                                                              |                     |
 | Master wrapping key                     | No                   | A set of master wrapping keys are specified in the configuration of the crypto processor, as SALT and passphrase parameters for key derivation function. This produces a symmetric key which is used for wrapping (i.e. encrypting at rest) all corda managed wrapping keys. | AES                 |
 | Corda managed wrapping key              | No                   | These are symmetric keys used to wrap higher level asymmetric private keys. They are stored, wrapped by a master wrapping key, in Crypto databases in both the cluster and per vnode.                                                                                        | AES                 |
 | CPI publisher key                       | TBD                  | In some cases this will be managed by the clients, but in some cases it could be managed by R3,for example, Notary CPI.                                                                                                                                                      | Asymmetric key pair |
 | Ledger Key                              | TBD                  | Also known as VNode private ledger signing key public and private VNode ledger keys. Key is used to sign flows and consume Corda network ledger states. This key is critical for availability                                                                                | Asymmetric key pair |
 | Encryption secrets service wrapping key | No                   | This is a single master wrapping key specified via a salt and passphrase in the environment of the Corda workers, which are used to derive a symmetric key.                                                                                                                  |                     |
-|                                         |                      |                                                                                                                                                                                                                                                                              |                     |
 | HTTP Gateway TLS key                    | No                   | TLS key for HTTP Gateway / REST API connections                                                                                                                                                                                                                              | ECDSA private key   |
+
+<style>
+table th:first-of-type {
+    width: 30%;
+}
+table th:nth-of-type(2) {
+    width: 50%;
+}
+table th:nth-of-type(2) {
+    width: 20%;
+}
+</style>
 
 ## PKI assets
 
-A list of PKI assest supported by Corda 5.
+Corda supports the following PKI assets:
 
-<table>
-<col style="width:20%">
-<col style="width:15%">
-<col style="width:50%">
-<col style="width:15%">
-<thead>
-<tr>
-<th>PKI name</th>
-<th>Description</th>
-<th>Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Client Kafka credentials for a specific worker</td>
-<td> Kafka credentials (username and password) Kafka client credentials are created at deployment time and stored by default in Kubernetes ETCD as secret configuration. This value is passed to worker pods memory at runtime. </td>
-<td> Unencrypted string </td>
-</tr>
-<tr>
-<td>Cluster DB credentials</td>
-<td> Cluster DB credentials </td>
-<td> Unencrypted string </td>
-</tr>
-<tr>
-<td>Kafka truststore</td>
-<td> Kafka truststore for server authentication (TLS) </td>
-<td> PEM </td>
-</tr>
-</tbody>
-</table>
+| PKI name                                       | Description                                                                                                                                                                                                                | Type               |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| Client Kafka credentials for a specific worker | Kafka credentials (username and password) Kafka client credentials are created at deployment time and stored by default in Kubernetes ETCD as secret configuration. This value is passed to worker pods memory at runtime. | Unencrypted string |
+| Cluster DB credentials                         | Cluster DB credentials                                                                                                                                                                                                     | Unencrypted string |
+| Kafka truststore                               | Kafka truststore for server authentication (TLS)                                                                                                                                                                           | PEM                |
 
 ## List of Credentials
 
-<table>
-<col style="width:20%">
-<col style="width:15%">
-<col style="width:50%">
-<col style="width:15%">
-<thead>
-<tr>
-<th>Credential name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SSO config credentials</td>
-<td> SSO credentials living inside the HTTP Gateway process. The credential is currently an API_ID (long randon string) provided by Azure AD. </td>
-</tr>
-<tr>
-<td>Installation credentials creation</td>
-<td>Creation of the installation credentials with enough entropy </td>
-</tr>
-<tr>
-<td>Client Kafka credentials for a specific worker</td>
-<td> Kafka credentials (username and password) Kafka client credentials are created at deployment time and stored by default in Kubernetes ETCD as secret configuration. This value is passed to worker pods memory at runtime. </td>
-</tr>
-<tr>
-<td>Kubernetes secrets creation via API</td>
-<td> The Infrastructure operator creates the secrets in the Kubernetes (etcd) to be used by the installation scripts (helm charts). This is executed optionally when Helm charts overrides are not used in alternative. </td>
-</tr>
-<tr>
-<td>Kubernetes secrets configured in Helm charts</td>
-<td> Secrets are configured (overrides) inside helm charts; using this as an alternate option to DF_K8S_SECRET_CONFIG. </td>
-</tr>
-<tr>
-<td>HELM chart execution</td>
-<td> Corda cluster installation HELM chart execution targeting a Kubernetes environment</td>
-</tr>
-<tr>
-<td>CLUSTER_OPERATOR user credentials</td>
-<td> Cluster operator user credentials</td>
-</tr>
-</tbody>
-</table>
+<style>
+table th:first-of-type {
+    width: 30%;
+}
+table th:nth-of-type(2) {
+    width: 70%;
+}
+</style>
+
+Corda uses the following credentials:
+
+| Credential name                                | Description                                                                                                                                                                                                                |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SSO config credentials                         | SSO credentials living inside the HTTP Gateway process. The credential is currently an API\_ID (long randon string) provided by Azure AD.                                                                                  |
+| Installation credentials creation              | Creation of the installation credentials with enough entropy                                                                                                                                                               |
+| Client Kafka credentials for a specific worker | Kafka credentials (username and password) Kafka client credentials are created at deployment time and stored by default in Kubernetes ETCD as secret configuration. This value is passed to worker pods memory at runtime. |
+| Kubernetes secrets creation via API            | The Infrastructure operator creates the secrets in the Kubernetes (etcd) to be used by the installation scripts (helm charts). This is executed optionally when Helm charts overrides are not used in alternative.         |
+| Kubernetes secrets configured in Helm charts   | Secrets are configured (overrides) inside helm charts; using this as an alternate option to DF\_K8S\_SECRET\_CONFIG.                                                                                                       |
+| HELM chart execution                           | Corda cluster installation HELM chart execution targeting a Kubernetes environment                                                                                                                                         |
+| CLUSTER\_OPERATOR user credentials             | Cluster operator user credentials                                                                                                                                                                                          |
