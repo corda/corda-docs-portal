@@ -61,7 +61,7 @@ You can also configure filters in the PodMonitor to reduce the metrics recorded 
   * corda_p2p_session_inbound_total
   * corda_membership_actions_handler_time_seconds_(count|sum|max)
   * jvm_.*
-  * process_cpu_usag
+  * process_cpu_usage
 * `dropLabels` — a list of regular expressions for the labels that Prometheus drops for all metrics. If empty, all labels are recorded. Prometheus drops the following metrics by default:
   * virtualnode_destination
   * virtualnode_source
