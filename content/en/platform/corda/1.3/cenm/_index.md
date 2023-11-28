@@ -57,7 +57,7 @@ Operations
 
 * [Deployment with Kubernetes]({{< relref "../../../../../en/platform/corda/1.3/cenm/deployment-kubernetes.md" >}})
   * [CENM Auth Service Helm Chart]({{< relref "../../../../../en/platform/corda/1.3/cenm/deployment-kubernetes-auth.md" >}})
-  * [CENM Farm Service Helm Chart]({{< relref "../../../../../en/platform/corda/1.3/cenm/deployment-kubernetes-farm.md" >}})
+  * [CENM FARM Service Helm Chart]({{< relref "../../../../../en/platform/corda/1.3/cenm/deployment-kubernetes-farm.md" >}})
   * [CENM Identity Manager Helm Chart]({{< relref "../../../../../en/platform/corda/1.3/cenm/deployment-kubernetes-idman.md" >}})
   * [CENM Network Map Helm Chart]({{< relref "../../../../../en/platform/corda/1.3/cenm/deployment-kubernetes-nmap.md" >}})
   * [CENM Notary Helm Chart]({{< relref "../../../../../en/platform/corda/1.3/cenm/deployment-kubernetes-notary.md" >}})
@@ -70,7 +70,7 @@ Operations
 * [Network Map Service]({{< relref "../../../../../en/platform/corda/1.3/cenm/network-map.md" >}})
 * [Signing Service]({{< relref "../../../../../en/platform/corda/1.3/cenm/signing-service.md" >}})
 * [Auth Service]({{< relref "../../../../../en/platform/corda/1.3/cenm/auth-service.md" >}})
-* [FARM service]({{< relref "../../../../../en/platform/corda/1.3/cenm/gateway-service.md" >}})
+* [FARM Service]({{< relref "../../../../../en/platform/corda/1.3/cenm/gateway-service.md" >}})
 * [CENM Command-line Interface (CLI) tool]({{< relref "../../../../../en/platform/corda/1.3/cenm/cenm-cli-tool.md" >}})
 * [Updating the network parameters]({{< relref "../../../../../en/platform/corda/1.3/cenm/updating-network-parameters.md" >}})
 * [Upgrading Corda Enterprise Network Manager]({{< relref "../../../../../en/platform/corda/1.3/cenm/upgrade-notes.md" >}})

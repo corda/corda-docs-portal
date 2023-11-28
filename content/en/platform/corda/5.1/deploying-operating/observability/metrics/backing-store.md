@@ -6,7 +6,7 @@ menu:
   corda51:
     parent: corda51-cluster-metrics
     identifier: corda51-cluster-backing-store
-    weight: 9000
+    weight: 100
 section_menu: corda51
 ---
 

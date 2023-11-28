@@ -49,8 +49,7 @@ handling, and ensures the Corda service is run at boot.
    mkdir /opt/corda; chown corda:corda /opt/corda
    ```
 
-4. Download the [Corda jar](https://software.r3.com:443/artifactory/corda-releases/net/corda/corda/4.10)
-(under `/4.10/corda-4.10.jar`) and place it in `/opt/corda`.
+4. Download the [Corda JAR](https://download.corda.net/maven/corda-releases/net/corda/corda/4.10/corda-4.10.jar) and place it in `/opt/corda`.
 5. Create a directory called `cordapps` in `/opt/corda` and save your CorDapp jar file to it. Alternatively, download one of
 our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory.
 6. Save the following as `/opt/corda/node.conf`; see [Node configuration]({{< relref "corda-configuration-file.md" >}}) for a description of these options:
@@ -152,18 +151,16 @@ directory:
     ```
 
 13. Provision the required certificates to your node. Contact the network permissioning service or see [Network certificates]({{< relref "permissioning.md" >}}).
-14. **SystemD**: You can now start a node and its webserver and set the services to start on boot by running the following `systemctl` commands:
+14. **SystemD**: You can now start a node and set the services to start on boot by running the following `systemctl` commands:
 
     ```shell
     sudo systemctl daemon-reload
     sudo systemctl enable --now corda
-    sudo systemctl enable --now corda-webserver
     ```
-15. **Upstart**: You can now start a node and its webserver by running the following commands:
+15. **Upstart**: You can now start a node by running the following commands:
 
     ```shell
     sudo start corda
-    sudo start corda-webserver
     ```
 
 The Upstart configuration files created above tell Upstart to start the Corda services on boot so there is no need to explicitly enable them.

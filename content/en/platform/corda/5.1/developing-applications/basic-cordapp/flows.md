@@ -48,7 +48,7 @@ The `CreateAndIssueAppleStampFlow` action requires interaction between the issue
 #### Make the `CreateAndIssueAppleStampFlow` Startable by REST
 
 Add the `ClientStartableFlow` to the `CreateAndIssueAppleStampFlow`. This allows the flow to be started by REST.
-You must implement this interface if you want to trigger the flow with REST via Corda’s HTTP endpoints. So far your code should look like this:
+You must implement this interface if you want to trigger the flow with REST via Corda’s HTTP endpoints. Your code should now look like this:
 
 ```kotlin
 class CreateAndIssueAppleStampFlow : ClientStartableFlow
@@ -57,12 +57,11 @@ class CreateAndIssueAppleStampFlow : ClientStartableFlow
 #### Allow `CreateAndIssueAppleStampFlow` to Initiate Flows with Peers
 
 1. Add the `@InitiatingFlow` annotation to `CreateAndIssueAppleStampFlow`.
-
    This indicates that this flow is the initiating flow in an initiating and initiated flow pair.
-2. 2.	Define a protocol for the initiating flow as a parameter to the annotation.
-This will also be added to the initiated (responder) flow later. The protocol is a string name of your choice.
+2. Define a protocol for the initiating flow as a parameter to the annotation.
+   This will also be added to the initiated (responder) flow later. The protocol is a string name of your choice.
 
-So far your code should look similar to this:
+Your code should now look similar to this:
 
 ```kotlin
 @InitiatingFlow(protocol = "create-and-issue-apple-stamp")
@@ -331,12 +330,11 @@ This allows the flow to be initiated when an initiating flow starts a session. Y
 you want a flow to respond to initiation requests with an initiating flow.
 5. Add the `@InitiatiedBy` annotation to `CreateAndIssueAppleStampResponderFlow`.
 
-
 This indicates that this flow is the initiated flow in an initiating and initiated flow pair. A `protocol` must be
 defined that both the initiating and initiated flow reference. You should use the same protocol name that you used
 when creating the initiator flow earlier.
 
-So far, your code should look like this:
+Your code should now look as follows:
 
 ```kotlin
 @InitiatedBy(protocol = "create-and-issue-apple-stamp")
@@ -533,7 +531,7 @@ Since the flow only involves one party (Farmer Bob), there is no need to initiat
 Include these variables in the flow:
 
 * `appleDescription` - any relevant information, such as the type of apple. Use type `String`.
-* `weight` - the weight of the apples. Use type `int`.
+* `weight` - the weight of the apples. Use type `Int`.
 
 
 #### Check Your Work

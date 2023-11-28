@@ -25,10 +25,7 @@ Corda supports two types of RPC client:
 * **Corda RPC Client**, which is used if you want to interact with your node via the `CordaRPCOps` remote interface.
 * **Multi RPC Client**, which is used if you want to interact with your node via the `CordaRPCOps` remote interface, as an alternative to the Corda RPC Client. Compared to the Corda RPC Client, the Multi RPC Client is more flexible with handling connection speed variations when started in HA mode, through the use of the [RPCConnectionListener interface](#adding-rpc-connection-listeners).
 
-{{< warning >}}
-The built-in Corda test webserver is deprecated and unsuitable for production use. If you want to interact with your node via HTTP, you will need to stand up your own webserver that connects to your node using the [CordaRPCClient](https://api.corda.net/api/corda-os/4.10/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) class. You can find an example of how to do this using the popular Spring Boot server [here](https://github.com/corda/spring-webserver).
-{{< /warning >}}
-
+To interact with your node via HTTP, you need to start up your own webserver that connects to your node using the [CordaRPCClient](../../../../../en/api-ref/corda/4.10/community/javadoc/net/corda/client/rpc/CordaRPCClient.html) [(Kotlin)](../../../../../en/api-ref/corda/4.10/community/kotlin/corda/net.corda.client.rpc/-corda-r-p-c-client/index.html) class. You can find an example of how to do this using the popular Spring Boot server [here](https://github.com/corda/samples-java/tree/master/Advanced/obligation-cordapp/clients).
 
 ## Building the Corda RPC Client
 
@@ -635,7 +632,7 @@ side as if it were thrown from inside the called RPC method. These exceptions ca
 
 ## Configuring wire security
 
-If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [rpcSettings](corda-configuration-fields.html#rpcsettings)).
+If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [rpcSettings]({{< relref "corda-configuration-fields.md#rpcsettings" >}})).
 The node admin must then create a node-specific RPC certificate and key, by running the node once with the `generate-rpc-ssl-settings` command specified (see [Node command-line options](node-commandline.md)).
 
 The generated RPC TLS trust root certificate is exported to a `certificates/export/rpcssltruststore.jks` file, which should be distributed to the authorised RPC clients.

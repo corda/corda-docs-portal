@@ -10,9 +10,10 @@ menu:
 section_menu: corda51
 ---
 # net.corda.v5.membership
-The `corda-membership` module defines interfaces that provide information about a {{< tooltip >}}member{{< /tooltip >}} and a {{< tooltip >}}membership group{{< /tooltip >}}. The interfaces in this module should not be implemented by {{< tooltip >}}CorDapp{{< /tooltip >}} Developers. Instead, instances can be retrieved through lookup services.
+The `corda-membership` package defines interfaces that provide information about a {{< tooltip >}}member{{< /tooltip >}} and a {{< tooltip >}}membership group{{< /tooltip >}}. The interfaces in this module should not be implemented by {{< tooltip >}}CorDapp{{< /tooltip >}} Developers. Instead, instances can be retrieved through lookup services.
+For more information, see the documentation for the package in the <a href="/en/api-ref/corda/{{<version-num>}}/net/corda/v5/membership/package-summary.html" target=" blank">Java API documentation</a>.
 
-This module consists primarily of the following two root classes:
+This package consists primarily of the following two root classes:
 * [MemberInfo](#memberinfo)
 * [GroupParameters](#groupparameters)
 
@@ -28,6 +29,6 @@ The `MemberInfo` interface extends the `LayeredPropertyMap` interface, which mea
 
 ## `GroupParameters`
 
-The `GroupParameters` interface is also a type of `LayerPropertyMap` which exposes properties of the group as distributed by the network manager (MGM). These properties define the parameters under which all members must operate during transactions.
+The `GroupParameters` interface is also a type of `LayeredPropertyMap` which exposes properties of the group as distributed by the network manager (MGM). These properties define the parameters under which all members must operate during transactions and are exposed for Network Operators by GET methods. For more information, see [Updating Group Parameters]({{< relref "../../application-networks/managing/group-parameters/_index.md">}}).
 
-The current implementation is largely present purely for backwards compatibility in the ledger layer. This is why there is currently no API to expose these group parameters. This feature is to be implemented in the next stage of development, so it is not currently possible to interact with the parameters at this stage.
+The `GroupParametersLookup` interface allows flows to access `GroupParameters` for further verification.

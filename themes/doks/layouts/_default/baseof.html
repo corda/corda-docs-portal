@@ -19,7 +19,7 @@
 </div>
 {{ block "sidebar-prefooter" . }}{{ end }}
 {{ block "sidebar-footer" . }}{{ end }}
-{{ partial "footer/footer.html" . }}
+{{ partialCached "footer/footer.html" . }}
 {{ partial "footer/cookie-banner.html" . }}
 {{ if and .IsHome .Site.Params.alert }}
 {{ partial "footer/alert.html" . }}

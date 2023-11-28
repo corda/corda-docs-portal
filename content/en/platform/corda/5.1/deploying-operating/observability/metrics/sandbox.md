@@ -6,7 +6,7 @@ menu:
   corda51:
     parent: corda51-cluster-metrics
     identifier: corda51-cluster-sandbox
-    weight: 2000
+    weight: 1400
 section_menu: corda51
 ---
 

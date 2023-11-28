@@ -13,14 +13,16 @@ section_menu: corda51
 # Build the MGM CPI
 
 This section describes how to build an {{< tooltip >}}MGM{{< /tooltip >}} {{< tooltip >}}CPI{{< /tooltip >}} and upload it to the network. It contains the following:
+
 1. [Set Variables]({{< relref "#set-variables" >}})
 2. [Select a Certificate Authority]({{< relref "#select-a-certificate-authority" >}})
 3. [Create the Group Policy File]({{< relref "#create-the-group-policy-file" >}})
-3. [Create the CPI File]({{< relref "#create-the-cpi-file" >}})
-4. [Import Code Signing Certificates]({{< relref "#import-code-signing-certificates" >}})
-5. [Upload the CPI]({{< relref "#upload-the-cpi" >}})
+4. [Create the CPI File]({{< relref "#create-the-cpi-file" >}})
+5. [Import Code Signing Certificates]({{< relref "#import-code-signing-certificates" >}})
+6. [Upload the CPI]({{< relref "#upload-the-cpi" >}})
 
 ## Set Variables
+
 Set the values of variables for use in later commands:
 
 1. Set the P2P gateway host and port and the REST API host and port. For example:
@@ -43,23 +45,23 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{< /tabs >}}
 
-    These values vary depending on where you have deployed your {{< tooltip >}}cluster{{< /tooltip >}} and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway {{< tooltip >}}Kubernetes{{< /tooltip >}} service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`. Alternatively, you can specify the IP address of the gateway, instead of the hostname. For example, `192.168.0.1`.
+    These values vary depending on where you have deployed your {{< tooltip >}}cluster{{< /tooltip >}} and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway {{< tooltip >}}Kubernetes{{< /tooltip >}} service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`. Alternatively, you can specify the IP address of the gateway, instead of the hostname. For example, `192.168.0.1`. If you are using an [Ingress service in front of the P2P gateway]({{< relref "../../../deploying-operating/deployment/deploying/_index.md#p2p-gateway">}}), the hostname should be one of the values under `hosts` and the port set to 443 (the default port for HTTPS).
 
 2. Set the REST API URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export REST_API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v1"
+   export REST_API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v5_1"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $REST_API_URL="https://${REST_API_HOST}:${REST_API_PORT}/api/v1"
+   $REST_API_URL="https://${REST_API_HOST}:${REST_API_PORT}/api/v5_1"
    ```
    {{% /tab %}}
    {{< /tabs >}}
 
-2. Set the authentication information for the REST API:
+3. Set the authentication information for the REST API:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -76,7 +78,7 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{< /tabs >}}
 
-3. Set the working directory for storing temporary files:
+4. Set the working directory for storing temporary files:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -94,9 +96,9 @@ Set the values of variables for use in later commands:
 
 ## Select a Certificate Authority
 
-Corda uses an external Certificate Authority ({{< tooltip >}}CA{{< /tooltip >}}) for the keys it generates.
+Corda uses an external {{< tooltip >}}CA{{< /tooltip >}} for the keys it generates.
 This is mandatory for P2P {{< tooltip >}}TLS{{< /tooltip >}} certificates, and optionally, they may also be used for [session certificates]({{< relref "../optional/session-certificates.md">}}), depending on the network configuration defined by the {{< tooltip >}}MGM{{< /tooltip >}} operator.
-This root CA certificate in PEM format must be included later when onboarding the MGM.
+This root CA certificate in {{< tooltip >}}PEM{{< /tooltip >}} format must be included later when onboarding the MGM.
 
 ## Create the Group Policy File
 

@@ -13,6 +13,7 @@ section_menu: corda51
 # Register the MGM
 
 This section describes how to register the {{< tooltip >}}MGM{{< /tooltip >}} on a network. It contains the following:
+
 1. [Build Registration Context]({{< relref "#build-registration-context" >}})
 2. [Register the MGM]({{< relref "#register-the-mgm" >}})
 3. [Confirm Registration]({{< relref "#confirm-registration" >}})
@@ -20,6 +21,7 @@ This section describes how to register the {{< tooltip >}}MGM{{< /tooltip >}} on
 ## Build Registration Context
 
 To register the MGM, you must first generate the registration context:
+
 * [Build Registration Context Using Bash]({{< relref "#build-registration-context-using-bash">}})
 * [Build Registration Context Using PowerShell]({{< relref "#build-registration-context-using-powershell">}})
 
@@ -27,8 +29,9 @@ The examples in this section set `corda.group.key.session.policy` to `Distinct`,
 initiation key must not be the same key. This is the only supported mode at the moment.
 
 {{< note >}}
+
 * If you want to use certificates for session initiation keys for peer-to-peer communication, see [Configuring Optional Session Certificates]({{< relref "../optional/session-certificates.html#build-registration-context-for-mgm-registration" >}}) for information about the additional JSON fields required in the registration context.
-* If you want to use mutual TLS, see [Configuring Mutual TLS]({{< relref "../optional/mutual-tls-connections.md#set-the-tls-type-in-the-mgm-context" >}}) for additonal configuration steps.
+* If you want to use mutual TLS, see [Configuring Mutual TLS]({{< relref "../optional/mutual-tls-connections.md#set-the-tls-type-in-the-mgm-context" >}}) for additional configuration steps.
 {{< /note >}}
 
 ### Build Registration Context Using Bash
@@ -53,6 +56,7 @@ export REGISTRATION_CONTEXT='{
   "corda.group.trustroot.tls.0" : "'$TLS_CA_CERT'"
 }'
 ```
+
 ### Build Registration Context Using PowerShell
 
 To build the registration context using PowerShell, run the following command, setting `TLS_CA_CERT_PATH` to the certificate path:
@@ -73,9 +77,11 @@ $REGISTRATION_CONTEXT = @{
   'corda.group.trustroot.tls.0'  =  [IO.File]::ReadAllText($TLS_CA_CERT_PATH)
 }
 ```
+
 ## Register the MGM
 
 You can now use the registration context to register the MGM on the network:
+
 * [Register the MGM using Bash]({{< relref "#register-the-mgm-using-bash">}})
 * [Register the MGM using PowerShell]({{< relref "#register-the-mgm-using-powershell">}})
 
@@ -102,7 +108,7 @@ curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": 
   "corda.endpoints.0.connectionURL": "https://localhost:8080",
   "corda.endpoints.0.protocolVersion": "1",
   "corda.group.trustroot.tls.0" : "-----BEGIN CERTIFICATE-----\nMIIBLjCB1aADAgECAgECMAoGCCqGSM49BAMCMBAxDjAMBgNVBAYTBVVLIENOMB4X\nDTIyMDgyMzA4MDUzN1oXDTIyMDkyMjA4MDUzN1owEDEOMAwGA1UEBhMFVUsgQ04w\nWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASG6ijAvbmaIaIwKpZZqTeKmMKfoOPb\ncCK/BqdtKXVTt5AjJtiP/Uoq+481UEQyaUZYXGf5rC1owjT40U2B71qdoyAwHjAP\nBgNVHRMBAf8EBTADAQH/MAsGA1UdDwQEAwIBrjAKBggqhkjOPQQDAgNIADBFAiEA\n1h6WEfdWUXSjBcenf5ycXPkYQQzI92I54q2WaVVjQHwCIEBk1ov/hYp9RCCDPnJx\nk8WgCZIyhFe0pEmow7MuI/Zk\n-----END CERTIFICATE-----"
-} } }' https://localhost:8888/api/v1/membership/EF19BF67E77C
+} } }' https://localhost:8888/api/v5_1/membership/EF19BF67E77C
 ```
 
 Alternatively, using jq:
@@ -135,6 +141,7 @@ $REGISTER_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authori
 })
 $REGISTER_RESPONSE.registrationStatus
 ```
+
 ### Confirm Registration
 
 Registration should return a successful response with the status `SUBMITTED`.
