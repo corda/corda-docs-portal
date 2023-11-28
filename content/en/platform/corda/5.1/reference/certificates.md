@@ -15,24 +15,24 @@ section_menu: corda51
 This section describes the different types of keys and certificates in Corda 5. It contains the following:
 {{< toc >}}
 
+## Keys
+
+Corda uses the following types of keys:
+
 <style>
 table th:first-of-type {
     width: 25%;
 }
 table th:nth-of-type(2) {
-    width: 20%;
+    width: 15%;
 }
 table th:nth-of-type(3) {
     width: 40%;
 }
 table th:nth-of-type(4) {
-    width: 2545%;
+    width: 20%;
 }
 </style>
-
-## Keys
-
-Corda uses the following types of keys:
 
 | Key                                     | Use with Certificate | Description                                                                                                                                                                                                                                                                  | Key Type/Algorithm  |
 | --------------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
@@ -49,6 +49,10 @@ Corda uses the following types of keys:
 | Encryption secrets service wrapping key | No                   | This is a single master wrapping key specified via a salt and passphrase in the environment of the Corda workers, which are used to derive a symmetric key.                                                                                                                  |                     |
 | HTTP Gateway TLS key                    | No                   | TLS key for HTTP Gateway / REST API connections                                                                                                                                                                                                                              | ECDSA private key   |
 
+## PKI assets
+
+Corda supports the following PKI assets:
+
 <style>
 table th:first-of-type {
     width: 30%;
@@ -61,10 +65,6 @@ table th:nth-of-type(2) {
 }
 </style>
 
-## PKI assets
-
-Corda supports the following PKI assets:
-
 | PKI name                                       | Description                                                                                                                                                                                                                | Type               |
 | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | Client Kafka credentials for a specific worker | Kafka credentials (username and password) Kafka client credentials are created at deployment time and stored by default in Kubernetes ETCD as secret configuration. This value is passed to worker pods memory at runtime. | Unencrypted string |
@@ -72,6 +72,8 @@ Corda supports the following PKI assets:
 | Kafka truststore                               | Kafka truststore for server authentication (TLS)                                                                                                                                                                           | PEM                |
 
 ## List of Credentials
+
+Corda uses the following credentials:
 
 <style>
 table th:first-of-type {
@@ -81,8 +83,6 @@ table th:nth-of-type(2) {
     width: 70%;
 }
 </style>
-
-Corda uses the following credentials:
 
 | Credential name                                | Description                                                                                                                                                                                                                |
 | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
