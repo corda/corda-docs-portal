@@ -1,16 +1,17 @@
 ---
 title: "Certificates Keys and Certificates in Corda 5.1"
-date: 2023-04-21
+date: '2023-11-28'
 version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-certficates
-    parent: corda51-intro
-    weight: 5000
+    parent: corda51-references
+    weight: 4000
 section_menu: corda51
 ---
 
-This page is to document different types of keys and certificates in Corda 5 and their purpose.
+This section describes the different types of keys and certificates in Corda 5. It contains the following:
+{{< toc >}}
 
 ## List of Keys
 
