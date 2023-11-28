@@ -1,9 +1,15 @@
 ---
 date: '2021-04-24T00:00:00Z'
-menu: []
+menu:
+  cenm-1-2:
+    identifier: cenm-1-2-log4j-patch-releases
+    parent: cenm-1-2-cenm-releases
+    weight: 90
 tags:
-- legal
-- info
+- log4j
+- release
+- notes
+title: Log4j patch releases
 ---
 
 # Log4j patch releases
