@@ -10,7 +10,7 @@ menu:
 section_menu: corda51
 ---
 # net.corda.v5.application.persistence
-The `persistence` package provides services for performing persistence operations; mainly reading and writing data to and from the database. The `PersistenceService` is the main service for providing this functionality.
+The `persistence` package provides services for performing persistence operations; mainly reading and writing data to and from the database. The <a href="/en/api-ref/corda/{{<version-num>}}/net/corda/v5/application/persistence/PersistenceService.html" target=" blank">`PersistenceService`</a>. is the main service for providing this functionality. For more information, see the documentation for the package in the <a href="/en/api-ref/corda/{{<version-num>}}/net/corda/v5/application/persistence/package-summary.html" target=" blank">Java API documentation</a>.
 
 Corda supports CRUD (Create, Read, Update, Delete) operations for user-defined types. This is achieved using JPA-annotated entities and, to manage database migrations, Liquibase.
 
@@ -174,7 +174,7 @@ To use the Persistence API from a {{< tooltip >}}flow{{< /tooltip >}}:
    val newDogName = input.getValue("name")
    persistenceService.merge(Dog(dogId, newDogName, Instant.now(), "none"))
    ```
-   All of the operations available are defined in the public interface: <a href="../../../../../../api-ref/corda/5.0/net/corda/v5/application/persistence/PersistenceService.html" target="_blank">`PersistenceService`</a>.
+   All of the operations available are defined in the public interface: <a href="/en/api-ref/corda/{{<version-num>}}/net/corda/v5/application/persistence/PersistenceService.html" target="_blank">`PersistenceService`</a>.
 
 
 {{< note >}}

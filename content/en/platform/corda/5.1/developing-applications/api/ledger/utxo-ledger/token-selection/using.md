@@ -36,21 +36,22 @@ The following example outlines the basic building blocks to consider when using 
       }
 2. Create an observer to convert the state to a token:
    ```java
-   class CoinStateObserver : UtxoLedgerTokenStateObserver<CoinState> {
+   class CoinStateObserver : UtxoTokenTransactionStateObserver<CoinState> {
       override val stateType = CoinState::class.java
 
-      override fun onCommit(state: CoinState): UtxoToken {
+      override fun onCommit(context: TokenStateObserverContext<CoinState>): UtxoToken {
          return UtxoToken(
             poolKey = UtxoTokenPoolKey(
                tokenType = CoinState.tokenType,
-               issuerHash = state.issuer,
-               symbol = state.currency
+               issuerHash = context.stateAndRef.state.contractState.issuer,
+               symbol = context.stateAndRef.state.contractState.currency
             ),
-            state.value,
-            filterFields = UtxoTokenFilterFields(state.tag, state.ownerHash)
+            context.stateAndRef.state.contractState.value,
+            filterFields = UtxoTokenFilterFields((context.stateAndRef.state.contractState.tag, context.stateAndRef.state.contractState.ownerHash)
          )
       }
    }
+   ```
 
    Corda can now create pools of tokens for the unconsumed `CoinStates`.
 
@@ -61,13 +62,14 @@ The following example outlines the basic building blocks to consider when using 
    ```
 
    a. Create the criteria for the type of tokens you need and set a target amount:
+
       ```java
-      // Assume there is an issuer who has created some coin states
+      // Assume we have an issuer who has created some coin states
       val bankX500 = MemberX500Name.parse(ISSUING_BANK_X500)
-      // Assume you are using a single notary
+      // Assume we are using a single notrary
       val notary = notaryLookup.notaryServices.single()
 
-      // Create your selection criteria to select a minimum of 100 GBP worth of coins
+      // Create our selection criteria to select a minimum of 100 GBP worth of coins
       val selectionCriteria = TokenClaimCriteria(
         tokenType = CoinState.tokenType,
         issuerHash = bankX500.toSecureHash(),
@@ -78,6 +80,7 @@ The following example outlines the basic building blocks to consider when using 
       ```
 
    b. Issue the query, handle the response, and clean-up any claim you make:
+
       ```java
        // Query for required tokens
       val tokenClaim = tokenSelection.tryClaim(selectionCriteria)
@@ -87,16 +90,8 @@ The following example outlines the basic building blocks to consider when using 
        return "FAILED TO FIND ENOUGH TOKENS"
       }
 
-      // You've claimed some tokens you can now try and spend them,
-      // you must release the claim regardless of the outcome, indicating
-      // how many tokens were used
-      var spentCoins = listOf<StateRef>()
-
-      try {
-         spentCoins = aSpendFunction(tokenClaim.claimedTokens)
-      } finally {
-        tokenClaim.useAndRelease(spentCoins)
-      }
+      // You've claimed some tokens you can now try and spend them
+      aSpendFunction(tokenClaim.claimedTokens)
       ```
 
 ## Using the Balance Query API

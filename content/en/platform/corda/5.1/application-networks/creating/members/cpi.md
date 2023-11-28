@@ -13,6 +13,7 @@ section_menu: corda51
 # Build and Upload the Member CPI
 
 This section describes how to build a {{< tooltip >}}member{{< /tooltip >}} {{< tooltip >}}CPI{{< /tooltip >}} and upload it to the network. It contains the following:
+
 1. [Set Variables]({{< relref "#set-variables" >}})
 2. [Generate the Group Policy File]({{< relref "#generate-the-group-policy-file" >}})
 3. [Create the CPI File]({{< relref "#create-the-cpi-file" >}})
@@ -24,6 +25,7 @@ If you want to use mutual TLS, see [Configuring Mutual TLS]({{< relref "../optio
 {{< /note >}}
 
 ## Set Variables
+
 Set the values of variables for use in later commands:
 
 1. Set the P2P gateway host and port and the REST API host and port. For example:
@@ -46,23 +48,25 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{< /tabs >}}
 
-   These values vary depending on where you have deployed your {{< tooltip >}}clusters{{< /tooltip >}} and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway {{< tooltip >}}Kubernetes{{< /tooltip >}} service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`. Alternatively, you can specify the IP address of the gateway, instead of the hostname. For example, `192.168.0.1`.
+   These values vary depending on where you have deployed your {{< tooltip >}}clusters{{< /tooltip >}} and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway {{< tooltip >}}Kubernetes{{< /tooltip >}} service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`. Alternatively, you can specify the IP address of the gateway, instead of the hostname; for example, `192.168.0.1`. 
+
+   If you are using an [Ingress service in front of the P2P gateway]({{< relref "../../../deploying-operating/deployment/deploying/_index.md#p2p-gateway">}}), the hostname should be one of the values under `hosts` and the port set to 443 (the default port for HTTPS).
 
 2. Set the REST API URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export REST_API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v1"
+   export REST_API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v5_1"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $REST_API_URL = "https://${REST_API_HOST}:${REST_API_PORT}/api/v1"
+   $REST_API_URL = "https://${REST_API_HOST}:${REST_API_PORT}/api/v5_1"
    ```
    {{% /tab %}}
    {{< /tabs >}}
 
-2. Set the authentication information for the REST API:
+3. Set the authentication information for the REST API:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -79,7 +83,7 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{< /tabs >}}
 
-3. Set the working directory for storing temporary files.
+4. Set the working directory for storing temporary files.
 
    {{< tabs >}}
    {{% tab name="Bash"%}}
@@ -105,7 +109,7 @@ To join a group, members must use a {{< tooltip >}}group policy{{< /tooltip >}} 
    ```shell
    export MGM_REST_HOST=localhost
    export MGM_REST_PORT=8888
-   export MGM_REST_URL="https://$MGM_REST_HOST:$MGM_REST_PORT/api/v1"
+   export MGM_REST_URL="https://$MGM_REST_HOST:$MGM_REST_PORT/api/v5_1"
    export MGM_HOLDING_ID=<MGM-holding-ID>
    ```
    {{% /tab %}}
@@ -113,7 +117,7 @@ To join a group, members must use a {{< tooltip >}}group policy{{< /tooltip >}} 
    ```shell
    $MGM_REST_HOST = "localhost"
    $MGM_REST_PORT = "8888"
-   $MGM_REST_URL = "https://$MGM_REST_HOST:$MGM_REST_PORT/api/v1"
+   $MGM_REST_URL = "https://$MGM_REST_HOST:$MGM_REST_PORT/api/v5_1"
    $MGM_HOLDING_ID = <MGM-holding-ID>
    Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$MGM_REST_URL/mgm/$MGM_HOLDING_ID/info" | ConvertTo-Json -Depth 4 > $WORK_DIR/GroupPolicy.json
    ```
@@ -123,17 +127,18 @@ To join a group, members must use a {{< tooltip >}}group policy{{< /tooltip >}} 
    ```shell
    curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $MGM_REST_URL/mgm/$MGM_HOLDING_ID/info > "$WORK_DIR/GroupPolicy.json"
    ```
+
 ## Create the CPI File
 
 {{< note >}}
 If you are onboarding a notary, you need to import the [notary CPB code signing certificate]({{< relref "../notaries.md#import-notary-cpb-code-signing-certificate" >}}) before you create the notary CPI.
 {{< /note >}}
 
-Build a CPI using the {{< tooltip >}}Corda CLI{{< /tooltip >}}, passing in the member CPB, the `GroupPolicy.json` file exported from the MGM, and the details of the keystore certificate used to sign the CPB. 
+Build a CPI using the {{< tooltip >}}Corda CLI{{< /tooltip >}}, passing in the member CPB, the `GroupPolicy.json` file exported from the MGM, and the details of the keystore certificate used to sign the CPB.
 
    {{< tabs name="build-cpi">}}
    {{% tab name="Bash" %}}
-   ```shell 
+   ```shell
    ./corda-cli.sh package create-cpi \
     --cpb <CPB_FILE> \
     --group-policy <GROUP_POLICY_FILE_> \
@@ -193,6 +198,7 @@ Corda validates that uploaded CPIs are signed with a trusted key. To trust your 
 {{< note >}}
 Use an alias that will remain unique over time, taking into account that certificate expiry will require new certificates with the same X.500 name as existing certificates.
 {{< /note >}}
+
 ## Upload the CPI
 
 To upload the CPI to the network, run the following:

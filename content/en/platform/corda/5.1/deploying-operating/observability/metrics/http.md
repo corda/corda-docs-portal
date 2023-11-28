@@ -6,7 +6,7 @@ menu:
   corda51:
     parent: corda51-cluster-metrics
     identifier: corda51-cluster-http
-    weight: 1000
+    weight: 800
 section_menu: corda51
 ---
 

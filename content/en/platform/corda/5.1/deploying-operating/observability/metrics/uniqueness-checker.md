@@ -6,7 +6,7 @@ menu:
   corda51:
     parent: corda51-cluster-metrics
     identifier: corda51-cluster-uniqueness-checker
-    weight: 8000
+    weight: 1500
 section_menu: corda51
 ---
 

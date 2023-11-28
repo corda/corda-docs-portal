@@ -10,6 +10,7 @@ menu:
 section_menu: corda51
 ---
 # Onboarding Notaries
+
 This section describes how to onboard a new {{< tooltip >}}member{{< /tooltip >}} as a {{< tooltip >}}notary{{< /tooltip >}} service representative. It assumes that you have configured the [MGM for the network]({{< relref "./mgm/_index.md" >}}). Onboarding a notary member is similar to any other member, but with the exceptions outlined on this page.
 
 {{< note >}}
@@ -115,8 +116,6 @@ Run the following command to build the registration context for a notary member:
 export REGISTRATION_CONTEXT='{
   "corda.session.keys.0.id": "'$SESSION_KEY_ID'",
   "corda.session.keys.0.signature.spec": "SHA256withECDSA",
-  "corda.ledger.keys.0.id": "'$LEDGER_KEY_ID'",
-  "corda.ledger.keys.0.signature.spec": "SHA256withECDSA",
   "corda.notary.keys.0.id": "'$NOTARY_KEY_ID'",
   "corda.notary.keys.0.signature.spec": "SHA256withECDSA",
   "corda.endpoints.0.connectionURL": "https://'$P2P_GATEWAY_HOST':'$P2P_GATEWAY_PORT'",

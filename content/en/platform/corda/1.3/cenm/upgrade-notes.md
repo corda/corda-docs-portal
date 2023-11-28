@@ -320,7 +320,7 @@ of the [Network Map Service](network-map.md) document for more information.
 
 
 
-#### The Network Map signing service requires a configuration update to specify communication with the Network Map Service
+#### The Network Map Signing Service requires a configuration update to specify communication with the Network Map Service
 
 The release modifies the Network Map Signing Service to request data through the Network Map Service rather than going
 directly to the database. Therefore the configuration needs to change to remove the redundant database configuration and
@@ -344,7 +344,7 @@ See the “Setting the Network Parameters” section of the [Network Map Service
 ## 0.1 to 0.2.1
 
 The major change from 0.1 to 0.2+ was the support of an arbitrary length PKI hierarchy. As a result, many of the
-configuration parameters for the network management and signing service were changed. 0.2.1 is very similar to 0.2,
+configuration parameters for the network management and Signing Service were changed. 0.2.1 is very similar to 0.2,
 but comes with backward compatibility along with a configuration upgrade tool.
 
 There are two ways to upgrade your old 0.1 network services environment:

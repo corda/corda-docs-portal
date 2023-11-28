@@ -6,7 +6,7 @@ menu:
   corda51:
     parent: corda51-cluster-metrics
     identifier: corda51-cluster-db-worker
-    weight: 10000
+    weight: 300
 section_menu: corda51
 ---
 

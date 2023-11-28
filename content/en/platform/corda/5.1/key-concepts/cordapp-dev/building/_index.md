@@ -12,7 +12,7 @@ section_menu: corda51
 
 # Tech Stack
 
-CorDapps, consisting of {{< tooltip >}}flows{{< /tooltip >}}, and optionally {{< tooltip >}}states{{< /tooltip >}} and contracts, are “pieces of code” hosted by the Corda runtime. This code can be written in a JVM compatible language. Java and Kotlin are officially supported. Currently, Corda 5 supports CorDapps compiled using Azul Zulu JDK 17. Other OpenJDK compatible Java 11 SDKs may also work but have not been fully tested.
+CorDapps, consisting of {{< tooltip >}}flows{{< /tooltip >}}, and optionally {{< tooltip >}}states{{< /tooltip >}} and contracts, are “pieces of code” hosted by the Corda runtime. This code can be written in a JVM compatible language. Java and Kotlin are officially supported. Currently, Corda 5 supports CorDapps compiled using Azul Zulu JDK 17.
 
 CorDapps are simply code, written in a JVM compatible language, compiled into a special type of JAR called a {{< tooltip >}}CPK{{< /tooltip >}}. These CPKs are compiled using the [Gradle plugin]({{< relref "../../../developing-applications/packaging/cpk-plugin.md" >}}). See the [Corda 5 Samples repository](https://github.com/corda/corda5-samples) for an example of a typical CorDapp.
 
@@ -35,7 +35,7 @@ The CPB must then be combined with network metadata into a {{< tooltip >}}CPI{{<
 
 While CPBs and CPIs use the `.cpb` and `.cpi` file extension, the files conform to the JAR file specification, and therefore JAR tools can be used to inspect them. For example:
 
-```
+```shell
 ❯ jar tf iou-app.cpb
 META-INF/MANIFEST.MF
 META-INF/CORDAPP.SF

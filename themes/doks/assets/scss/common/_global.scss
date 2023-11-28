@@ -212,7 +212,7 @@ body {
   padding-bottom: 4rem;
   order: 1;
   word-break: break-word;
-  min-height: 100vh;
+  min-height: calc(100vh - 17.25rem);
 
   a {
     color: $gray-900;
@@ -425,7 +425,7 @@ main > nav[aria-label="breadcrumb"] {
 
   @include media-breakpoint-up(md) {
     position: sticky;
-    top: 150.5px;
+    top: 120px;
     background-color: var(--bs-body-bg);
     width: 100%;
     padding: 2px;
@@ -463,3 +463,7 @@ summary::after {
 details[open] summary:after {
   content: url("/icons/icon-arrow-up.svg");
 }
+
+li p{
+  margin-bottom: 0;
+};

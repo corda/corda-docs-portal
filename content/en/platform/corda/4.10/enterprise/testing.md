@@ -49,7 +49,7 @@ as follows:
 
 
 * **Node startup** - changes in the `node` or `node:capsule` project in both the Kotlin or gradle or the `cordformation` gradle plugin.
-* **Sample project** - changes in the `samples` project. eg; changing the IRS demo means you should manually test the IRS demo.
+* **Sample project** - changes in the `samples` project. 
 * **Explorer** - changes to the `tools/explorer` project.
 
 How to manually test each of these areas differs and is currently not fully specified. For now the best thing to do is to ensure the
