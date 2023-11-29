@@ -24,7 +24,7 @@ If you are upgrading from Corda Enterprise 3.x, you must first:
 3. Upgrade from Corda 4.5 to Corda Enterprise Edition 4.11.
 
 {{< warning >}}
-Before upgrading to Corda Enterprise Edition 4.10, read the guidance on [upgrading your notary service (notary/upgrading-the-ha-notary-service.md).
+Before upgrading to Corda Enterprise Edition 4.11, read the guidance on [upgrading your notary service]({{< relref "notary/upgrading-the-ha-notary-service.md" >}}).
 {{< /warning >}}
 
 Most of the Corda 4 public, non-experimental APIs are stable. See the [full list of stable APIs]({{< relref "../../../../api-ref/api-ref-corda-4.md" >}}). If you are working with a stable API, you don't need to update your CorDapps. To upgrade:
@@ -69,7 +69,7 @@ For a detailed explanation of Corda backup and recovery guarantees, see [Backup 
 
 ## Step 3: Update the database
 
-The database update can be performed automatically or manually and must be performed incrementally for each major version. For example, if you are upgrading from version 4.8 to 4.11, you must first apply the database update from 4.8 to 4.9, and then apply the database update from 4.9 to 4.11. The minor version does not matter since there are no database updates contained in minor version releases.
+The database update can be performed automatically or manually and must be performed incrementally for each major version. For example, if you are upgrading from version 4.8 to 4.11, you must first apply the database update from 4.8 to 4.9, and then apply the database update from 4.9 to 4.10, and then from 4.10 to 4.11. The minor version does not matter since there are no database updates contained in minor version releases.
 
 You can perform an automatic database update when:
 
@@ -264,7 +264,7 @@ You only need to perform this step for the H2 database.
 
 {{< /note >}}
 
-The schema structure changes in Corda 4.0 require data to be propagated to new tables and columns based on the existing rows and specific node configuration, for example, node legal name. Such migrations cannot be expressed by the DDL script, so they need to be performed by the Database Management Tool or a node. These updates are required any time you are upgrading either from an earlier version to 4.0 or from 4.x to 4.x. For example, if you're upgrading from 4.5 to 4.10.
+The schema structure changes in Corda 4.0 require data to be propagated to new tables and columns based on the existing rows and specific node configuration, for example, node legal name. Such migrations cannot be expressed by the DDL script, so they need to be performed by the Database Management Tool or a node. These updates are required any time you are upgrading either from an earlier version to 4.0 or from 4.x to 4.x. For example, if you're upgrading from 4.5 to 4.11.
 
 The Database Management Tool can execute the remaining data upgrade.
 The tool can connect with *restricted* database permissions as the schema structure was created in step three.
