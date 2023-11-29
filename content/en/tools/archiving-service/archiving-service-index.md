@@ -29,7 +29,7 @@ Due to its in-memory design, the Archive Service is most effective and efficient
 
 The Archive Service consists of the following:
 
-* [Archive Service CorDapp](#archive-service-cordapp)- which contains the necessary flows to mark and archive transactions.
+* [Archive Service CorDapp](#archive-service-cordapp) - contains the necessary flows to mark and archive transactions.
 * [Archive Service Client Library](archive-library.md) - which provides programmatic access to the archive service, and [exposes relevant APIs](archiving-apis.md).
 * [Archive Service Command Line Interface](archiving-cli.md) - which allows you to perform archiving tasks from the command line.
 
