@@ -46,17 +46,17 @@ Corda uses the following types of infrastructure keys:
 
 Corda supports the following PKI assets:
 
-| PKI name                                       | Description                                                                                                                                                                                                                | Type               |
+| PKI Name                                       | Description                                                                                                                                                                                                                | Type               |
 | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | Client Kafka credentials for a specific worker | Kafka credentials (username and password) Kafka client credentials are created at deployment time and stored by default in Kubernetes ETCD as secret configuration. This value is passed to worker pods memory at runtime. | Unencrypted string |
 | Cluster DB credentials                         | Cluster DB credentials                                                                                                                                                                                                     | Unencrypted string |
 | Kafka truststore                               | Kafka truststore for server authentication (TLS)                                                                                                                                                                           | PEM                |
 
-## List of Credentials
+## Credentials
 
 Corda uses the following credentials:
 
-| Credential name                                | Description                                                                                                                                                                                                                |
+| Credential Name                                | Description                                                                                                                                                                                                                |
 | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SSO config credentials                         | SSO credentials living inside the HTTP Gateway process. The credential is currently an API\_ID (long randon string) provided by Azure AD.                                                                                  |
 | Installation credentials creation              | Creation of the installation credentials with enough entropy                                                                                                                                                               |
