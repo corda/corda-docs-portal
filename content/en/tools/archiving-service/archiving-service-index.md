@@ -52,21 +52,6 @@ In order to improve speed and memory usage when using the Archiving Service, JVM
 
 {{< /note >}}
 
-
-## New in V1.0.3
-
-A new configuration option has been added which allows the Archive Service to skip transactions that have legacy contract states that cause exceptions during a snapshot export. This configuration option is: `ignoreSnapshotExportFailures: true`.
-
-By default, this value is false and the behaviour of the Archive Service is unchanged. However, if you are experiencing a `TransactionDeserializationException` or a `JsonMappingException` during the export of a JSON snapshot, this configuration option can be added to skip these transactions for a successful export. These transactions won’t be included in the export, but if a binary export is also created, all transactions can be preserved.
-
-## New in V1.0.2
-
-For details of the V1.0.2 release, see the [V1.0.2 release notes](archiving-release-notes.md).
-
-## New in V1.0.1
-
-The Archive Service is compatible with [Ledger Graph V1.2.1 On Demand function](#archiving-and-ondemand-ledgergraph).
-
 ## What can be archived
 
 The Archive Service has commands you can use to identify which transactions can be archived in your vault. A fully consumed transaction or attachment will be marked as archivable when:
