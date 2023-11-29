@@ -31,13 +31,6 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
 
-### Ledger Recovery
-
-A new ledger recovery flow (`LedgerRecoveryFlow`) enables a node to identify and recover transactions from
-peer recovery nodes to which it was a party (either initiator or receiver) and which are missing from its own ledger.
-
-For more information, see [Ledger Recovery flow]({{< relref "node/collaborative-recovery/ledger-recovery/ledger-recovery-flow.md" >}}).
-
 ### Confidential Identity key-pair generator
 
 A new service has been added that pregenerates Confidential Identity keys to be used when using CIs in transactions.
@@ -81,6 +74,13 @@ Additionally, if the new optional `ReceiveFinalityFlow` `handlePropagatedNotaryE
 then the double spend error (`NotaryError.Conflict`) propagates back to the 2PF initiator. This enables the initiator to automatically remove the associated unnotarized transaction from its `DBTransaction` table.
 
 If a CorDapp is compiled against Corda 4.11 (that is, its target platform version = 13) then double spend handling is enabled by default. For more information, see [Versioning]({{< relref "cordapps/versioning.md" >}}).
+
+### Ledger Recovery
+
+A new ledger recovery flow (`LedgerRecoveryFlow`) enables a node to identify and recover transactions from
+peer recovery nodes to which it was a party (either initiator or receiver) and which are missing from its own ledger.
+
+For more information, see [Ledger Recovery]({{< relref "node/collaborative-recovery/ledger-recovery/overview.md" >}}).
 
 ### Finality Recovery Tooling
 

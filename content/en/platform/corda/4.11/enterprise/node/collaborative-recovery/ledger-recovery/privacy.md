@@ -15,7 +15,7 @@ The ledger recovery `DistributionList` is encrypted using AES keys stored in the
 Upon startup, a node creates ten random AES keys and stores them in the `node_aes_encryption_keys` table, if there are no keys already present.
 The keys themselves are obfuscated, by wrapping them with a deterministic AES key derived from the key's ID and the node's X.500 name.
 {{< note >}}
-This obfuscatation only reduces the impact of an accidental data dump of the keys, and is not meant to be secure.
+This obfuscation only reduces the impact of an accidental data dump of the keys, and is not meant to be secure.
 {{< /note >}}
 
 `senderRecordedTimestamp` is in a separate header object, and is treated as the authenticated additional
