@@ -83,15 +83,13 @@ To push the Corda Enterprise images:
 
 1. Download `corda-ent-worker-images-{{<version-num>}}.0.tar.gz` from the [R3 Customer Hub](https://r3.force.com/).
 
-2. Extract `corda-ent-worker-images-{{<version-num>}}.0.tar` from `corda-ent-worker-images-{{<version-num>}}.0.tar.gz`.
-
-3. Inflate and load the `corda-ent-worker-images-{{<version-num>}}.0.tar` file into the local Docker engine with the following command:
+2. Inflate and load the `corda-ent-worker-images-{{<version-num>}}.0.tar.gz` file into the local Docker engine with the following command:
 
    ```shell
-   docker load -i corda-ent-worker-images-{{<version-num>}}.0.tar
+   docker load -i corda-ent-worker-images-{{<version-num>}}.0.tar.gz
    ```
 
-4. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target container registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
+3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target container registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
 
    ```shell
    #!/bin/bash
