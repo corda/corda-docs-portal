@@ -43,7 +43,7 @@ To re-compile your CorDapp for Corda Enterprise Edition 4.11, you need to:
     corda_core_release_version = '4.11'
     corda_gradle_plugins_version = '5.0.12'
     kotlin_version = '1.2.71'
-    quasar_version = '0.7.15_r3'
+    quasar_version = '0.7.16_r3'
     ```
 
 2. Specify an additional repository entry pointing to the location of the Corda Enterprise distribution and Corda dependencies. Any
@@ -54,7 +54,7 @@ be imported from there. Therefore, a repository entry pointing to a matching Cor
 3. Update your `quasar.jar` file. If your project is based on one of the official CordApp templates, you'll likely have a `lib/quasar.jar` file checked in. You'll only use this if you use the JUnit runner in IntelliJ. In the latest release of the CorDapp templates, this directory has
 been removed.
 
-   For example:
+    For example:
 
     ```shell
     repositories {
@@ -85,14 +85,16 @@ been removed.
 
 4. Check you're using Corda Gradle plugins version 5.0.12, and that Corda Enterprise dependencies are referenced with the right distribution.
 
-   For example:
+
+    For example:
 
     ```shell
     cordaCompile "net.corda:corda-core:$corda_release_version"
     testCompile "net.corda:corda-node-driver:$corda_release_version"
     ```
 
-   Becomes:
+
+    Becomes:
 
     ```shell
     cordaCompile "$corda_core_release_distribution:corda-core:$corda_core_release_version" // core depends on open source
@@ -135,7 +137,7 @@ Where:
 
 ## Upgrading from Enterprise 4.3 or earlier
 
-Corda Enterprise Edition 4.4 moves towards an open core strategy. Therefore, the common APIs are only available in Corda
+Corda Enterprise Edition 4.4 moved towards an open core strategy. Therefore, the common APIs are only available in Corda
 open source, and Corda Enterprise has a binary dependency on the matching open source version. As a result, any CorDapps written against
 Corda Enterprise Edition 4.4 or later will have to depend on the open source version of `corda-core`.
 
