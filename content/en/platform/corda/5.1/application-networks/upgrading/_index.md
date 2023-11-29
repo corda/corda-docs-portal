@@ -28,7 +28,7 @@ The following sections describe how to upgrade your application network:
 1. [Re-export the Group Policy from the MGM](#re-export-the-group-policy-from-the-mgm)
 2. [Repackage the Member CPB](#repackage-the-member-cpb)
 3. [Upload the CPI](#upload-the-cpi)
-4. [Apply the new CPI to each Virtual Node](#apply-the-new-cpi-to-each-virtual-node)
+4. [Apply the New CPI to Each Virtual Node](#apply-the-new-cpi-to-each-virtual-node)
 
 ## Re-export the Group Policy from the MGM
 
