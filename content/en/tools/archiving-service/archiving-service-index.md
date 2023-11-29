@@ -177,7 +177,7 @@ To create a copy of the vault on the backup schema the backup schema owner must 
 `SELECT` rights to the vault schema.
 
 To restore the vault from a copy on the backup schema the backup schema owner must
-either have `INSERT` rights to the vault schema or the `restore-snapshot` command has to be executed with the
+either have `INSERT` rights to the vault schema or the `restore-snapshot` command must be executed with the
 `--record` option.
 
 The `--record` option allows the user to capture the SQL to a file so that it can be
