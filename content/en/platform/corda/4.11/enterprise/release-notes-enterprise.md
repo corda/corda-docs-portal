@@ -31,6 +31,28 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
 
+### Two Phase Finality
+
+Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and
+recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this
+new improved protocol.
+
+For more information, see [Two Phase Finality]({{< relref "two-phase-finality.md" >}}).
+
+### Finality Recovery Tooling
+
+RPC extension operations (additions to the FlowRPCOps interface) which allow for Finality Flow recovery by both the initiator and the receiver(s).
+Also, Node Shell commands now allow operations teams to perform Finality Flow recovery.
+
+For more information, see [Finality Flow Recovery]({{< relref "finality-flow-recovery.md" >}})
+
+### Ledger Recovery
+
+A new ledger recovery flow (`LedgerRecoveryFlow`) enables a node to identify and recover transactions from
+peer recovery nodes to which it was a party (either initiator or receiver) and which are missing from its own ledger.
+
+For more information, see [Ledger Recovery]({{< relref "node/collaborative-recovery/ledger-recovery/overview.md" >}}).
+
 ### Confidential Identity key-pair generator
 
 A new service has been added that pregenerates Confidential Identity keys to be used when using CIs in transactions.
@@ -57,14 +79,6 @@ If neither parameter is defined, then the distribution record maintenance job is
 
 For more information, see [Ledger Recovery distribution record cleanup]({{< relref "node/operating/maintenance-mode.md#ledger-recovery-distribution-record-cleanup" >}}).
 
-### Two Phase Finality
-
-Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and
-recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this
-new improved protocol.
-
-For more information, see [Two Phase Finality]({{< relref "two-phase-finality.md" >}}).
-
 ### Improved double-spend exception handling
 
 Two Phase Finality automatically deletes an unnotarized transaction from the `DBTransaction` table if a double spend
@@ -74,20 +88,6 @@ Additionally, if the new optional `ReceiveFinalityFlow` `handlePropagatedNotaryE
 then the double spend error (`NotaryError.Conflict`) propagates back to the 2PF initiator. This enables the initiator to automatically remove the associated unnotarized transaction from its `DBTransaction` table.
 
 If a CorDapp is compiled against Corda 4.11 (that is, its target platform version = 13) then double spend handling is enabled by default. For more information, see [Versioning]({{< relref "cordapps/versioning.md" >}}).
-
-### Ledger Recovery
-
-A new ledger recovery flow (`LedgerRecoveryFlow`) enables a node to identify and recover transactions from
-peer recovery nodes to which it was a party (either initiator or receiver) and which are missing from its own ledger.
-
-For more information, see [Ledger Recovery]({{< relref "node/collaborative-recovery/ledger-recovery/overview.md" >}}).
-
-### Finality Recovery Tooling
-
-RPC extension operations (additions to the FlowRPCOps interface) which allow for Finality Flow recovery by both the initiator and the receiver(s).
-Also, Node Shell commands now allow operations teams to perform Finality Flow recovery.
-
-For more information, see [Finality Flow Recovery]({{< relref "finality-flow-recovery.md" >}})
 
 ### Deserializing AMQP data performance improvement
 
