@@ -389,7 +389,7 @@ Archive Service automatically detects transaction and attachment tables that use
 `TRANSACTION_ID` or `ATT_ID` within the vault schema and include them in the archive process.
 
 Additional transaction and attachment tables which use different column names can be registered using the
-properties `additionalTransactionTables` and `additionalAttachmentTables` with the following format.
+properties `additionalTransactionTables` and `additionalAttachmentTables` with the following format:
 
 ```text
 additionalTransactionTables: [
