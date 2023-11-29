@@ -30,7 +30,7 @@ Here you can find [troubleshooting solutions]({{< relref "../../../../1.5/cenm/t
 
 ## Ledger sync
 
-Part of [Collaborative Recovery]({{< relref "../../node/collaborative-recovery/introduction-cr.md" >}}), LedgerSync is a CorDapp used to discover any differences between the common ledger data held by two nodes that exist on the same Business Network. This is called the **Reconciliation** stage of collaborative recovery. It uses an efficient set reconciliation algorithm to minimise the amount of network communication required. Reconciliations can be configured to run both on-demand, and at a given time (through the use of scheduled states).
+Part of [Collaborative Recovery]({{< relref "../../node/collaborative-recovery/collaborative-recovery-121/introduction-cr.md" >}}), LedgerSync is a CorDapp used to discover any differences between the common ledger data held by two nodes that exist on the same Business Network. This is called the **Reconciliation** stage of collaborative recovery. It uses an efficient set reconciliation algorithm to minimise the amount of network communication required. Reconciliations can be configured to run both on-demand, and at a given time (through the use of scheduled states).
 
 All reconciliations are added to a bounded execution pool, which is configurable, for eventual execution by the internal job scheduler. Results of reconciliations are stored in the database of the node that requested the reconciliation, and work only in one direction.
 

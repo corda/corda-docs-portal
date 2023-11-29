@@ -36,7 +36,7 @@ Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
 A new ledger recovery flow (`LedgerRecoveryFlow`) enables a node to identify and recover transactions from
 peer recovery nodes to which it was a party (either initiator or receiver) and which are missing from its own ledger.
 
-For more information, see [Ledger Recovery Flow]({{< relref "ledger-recovery-flow.md" >}}).
+For more information, see [Ledger Recovery flow]({{< relref "node/collaborative-recovery/ledger-recovery/ledger-recovery-flow.md" >}}).
 
 ### Confidential Identity key-pair generator
 
@@ -189,7 +189,7 @@ This release includes the following fixes:
 
   On applying this update the PrimusX JCE should be upgraded to version 2.3.4 or later.
 
-  There is no need to upgrade the HSM firmware version for this update but it is recommended to keep the firmware up to date as a matter of course. Currently, the latest firmware version if 2.8.50.
+  There is no need to upgrade the HSM firmware version for this update but it is recommended to keep the firmware up to date as a matter of course.
 
 * Previously, where nodes had invoked a very large number of flows, the cache of client IDs that had not been removed were taking up significant heap space. A solution has been implemented where the space taken up has been reduced by 170 bytes per entry. For example, 1 million unremoved client IDs now take up 170,000,000 bytes less heap space than before.
 
@@ -263,7 +263,7 @@ The following database changes have been applied:
 
   ```bash
   @Entity
-  @Table(name = "${NODE_DATABASE_PREFIX}sender_distribution_records")
+  @Table(name = "${NODE_DATABASE_PREFIX}sender_distr_recs")
   data class DBSenderDistributionRecord(
           @EmbeddedId
           var compositeKey: PersistentKey,
@@ -278,7 +278,7 @@ The following database changes have been applied:
   )
 
   @Entity
-  @Table(name = "${NODE_DATABASE_PREFIX}receiver_distribution_records")
+  @Table(name = "${NODE_DATABASE_PREFIX}receiver_distr_recs")
   data class DBReceiverDistributionRecord(
           @EmbeddedId
           var compositeKey: PersistentKey,

@@ -1,5 +1,5 @@
 ---
-date: '2020-04-07T12:00:00Z'
+date: '2023-11-24'
 menu:
   corda-enterprise-4-11:
     parent: corda-enterprise-4-11-corda-nodes-operating-db
@@ -223,6 +223,7 @@ This is the key ledger table used as a source of truth. In the future the conten
 |STATE_MACHINE_RUN_ID|The flow id associated with this transaction.|
 |STATUS|`VERIFIED` or `UNVERIFIED`|
 |TIMESTAMP|The insert or status update time of this transaction, as measured by the local node, in UTC.|
+|SIGNATURES| Records any additional signatures on the transaction. |
 
 {{< /table >}}
 
@@ -273,6 +274,10 @@ This table should be empty when no events are scheduled.
 |PRIVATE_KEY|Binary private key|
 |PRIVATE_KEY_MATERIAL_WRAPPED|Binary (encrypted) private key|
 |SCHEME_CODE_NAME|String code representing the key algorithm|
+| KEY_TYPE | Used to distinguish between old-style confidential identities with certificate and new-style ones without certificate. |
+| CRYPTO_CONFIG_HASH | Hash of the node configuration used by the key pair pre-generator to determine if configuration has changed. |
+| STATUS | The key pair status. |
+| GENERATE_TM | Timestamp of the pre-generated key. |
 
 {{< /table >}}
 
@@ -391,6 +396,52 @@ The size should be fairly constant.
 |------------------------------|------------------------------------------------------------------------------------------|
 |PROPERTY_KEY|The key|
 |PROPERTY_VALUE|The value|
+
+{{< /table >}}
+
+### Transaction recovery
+
+{{< table >}}
+
+| NODE_SENDER_DISTR_RECS | When a node sends a transaction to a peer, the node creates and stores a sender's distribution record in the local database. This is used to aid in recovery of transactions at the peer. |
+|------------------------------|------------------------------------------------------------------------------------------|
+| TIMESTAMP | Record's timestamp. |
+| TIMESTAMP_DISCRIMINATOR | Used to discriminate records occurring in the same timestamp entry. |
+| TRANSACTION_ID | The sent transaction ID. |
+| PEER_PARTY_ID | The peer the transaction was sent to. |
+| SENDER_STATES_TO_RECORD |  The states to record the value of the sender. |
+| RECEIVER_STATES_TO_RECORD |  The states to record the value of the receiver. |
+
+{{< /table >}}
+
+{{< table >}}
+
+| NODE_RECEIVER_DISTR_RECS | When a node sends a transaction to a peer, the node sends along with the transaction a receiver's distribution record. This is used to aid in recovery of transactions at the sender. |
+|------------------------------|------------------------------------------------------------------------------------------|
+| TIMESTAMP | Record's timestamp. |
+| TIMESTAMP_DISCRIMINATOR | Used to discriminate records occurring in the same timestamp entry. |
+| TRANSACTION_ID | The received transaction ID. |
+| PEER_PARTY_ID | The peer who sent the transaction. |
+| DISTRIBUTION_LIST | Encrypted recovery information for sole use by the sender. |
+| RECEIVER_STATES_TO_RECORD | The states to record the value of the receiver. |
+
+{{< /table >}}
+
+{{< table >}}
+
+| NODE_RECOVERY_PARTY_INFO | A lookup table storing the Corda X.500 name of a party and its SHA-256 hash. |
+|------------------------------|------------------------------------------------------------------------------------------|
+| PARTY_ID | Party's unique ID. |
+| PARTY_NAME | Party's name. |
+
+{{< /table >}}
+
+{{< table >}}
+
+| NODE_AES_ENCRYPTION_KEYS | Encryption key table used to encrypt data in the receiver's distribution records. |
+|------------------------------|------------------------------------------------------------------------------------------|
+| KEY_ID | Encryption key's unique ID. |
+| KEY_MATERIAL | Encrypted key's data. |
 
 {{< /table >}}
 
