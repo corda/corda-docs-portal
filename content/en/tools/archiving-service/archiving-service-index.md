@@ -63,7 +63,9 @@ The Archive Service has commands you can use to identify which transactions can 
 
 Archivable and non-archivable LedgerGraph components:
 
-![Archivable and non-archivable LG components](archivable-dags.png)
+
+* ![Archivable and non-archivable LG components](archivable-dags.png)
+
 
 ## When you can archive
 
