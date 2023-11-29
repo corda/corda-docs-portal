@@ -12,27 +12,13 @@ section_menu: corda51
 
 # Corda Keys and Certificates
 
-This section describes the different types of keys and certificates in Corda 5. It contains the following:
+This section describes the different types of keys and certificates used by Corda 5. It contains the following:
+
 {{< toc >}}
 
 ## Keys
 
 Corda uses the following types of keys:
-
-<style>
-table th:first-of-type {
-    width: 25%;
-}
-table th:nth-of-type(2) {
-    width: 15%;
-}
-table th:nth-of-type(3) {
-    width: 40%;
-}
-table th:nth-of-type(4) {
-    width: 20%;
-}
-</style>
 
 | Key                                     | Use with Certificate | Description                                                                                                                                                                                                                                                                  | Key Type/Algorithm  |
 | --------------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
@@ -53,18 +39,6 @@ table th:nth-of-type(4) {
 
 Corda supports the following PKI assets:
 
-<style>
-table th:first-of-type {
-    width: 30%;
-}
-table th:nth-of-type(2) {
-    width: 50%;
-}
-table th:nth-of-type(2) {
-    width: 20%;
-}
-</style>
-
 | PKI name                                       | Description                                                                                                                                                                                                                | Type               |
 | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | Client Kafka credentials for a specific worker | Kafka credentials (username and password) Kafka client credentials are created at deployment time and stored by default in Kubernetes ETCD as secret configuration. This value is passed to worker pods memory at runtime. | Unencrypted string |
@@ -74,15 +48,6 @@ table th:nth-of-type(2) {
 ## List of Credentials
 
 Corda uses the following credentials:
-
-<style>
-table th:first-of-type {
-    width: 30%;
-}
-table th:nth-of-type(2) {
-    width: 70%;
-}
-</style>
 
 | Credential name                                | Description                                                                                                                                                                                                                |
 | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
