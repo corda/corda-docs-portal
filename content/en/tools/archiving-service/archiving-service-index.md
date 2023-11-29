@@ -232,7 +232,7 @@ grant INSERT on schema ::corda to archive;
 
 It is sometimes necessary to restart the node when carrying out an archiving job.
 
-You need to restart the node:
+You need to restart the node in the following circumstances:
 
 * Before running import-snapshot, having run 'delete-snapshot' (archive schema has been deleted, and now the vault is to be restored from file archive).
 * After 'delete-vault' has been run using the '--record' option.
