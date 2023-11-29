@@ -17,11 +17,11 @@ The Archive Service compatibility with Corda Enterprise:
 
 | Archive Service version      | Corda Enterprise version    |
 |------------------------------|-----------------------------|
-| 1.0.x                        | 4.10 and below              |
-| 1.1.x                        | 4.11 and above              |
+| 1.0.x                        | 4.10.x and below              |
+| 1.1.x                        | 4.11.x and above              |
 
 {{< note >}}
-If you deviate from the above compatibility guidelines, for example, using the Archive Service 1.1.x with Corda Enterprise 4.10, the Archive Service will not work.
+If you deviate from the above compatibility guidelines, for example, using the Archive Service 1.1.x with Corda Enterprise 4.10.x, the Archive Service will not work.
 {{< /note >}}
 
 ## Corda Enterprise 4.11 and above
@@ -30,7 +30,7 @@ If you deviate from the above compatibility guidelines, for example, using the A
 
 In this release:
 
-* Version 1.1 is a compatibility release of the Archive Service. This and all future 1.1.x releases will only work with Corda 4.11 and above and will not be compatible with Corda Enterprise 4.10.x and below. Use the latest Archive Service 1.0.x for Corda Enterprise 4.10.x and below.
+* Version 1.1 is a compatibility release of the Archive Service. This and all future 1.1.x releases will only work with Corda 4.11.x and above and will not be compatible with Corda Enterprise 4.10.x and below. Use the latest Archive Service 1.0.x for Corda Enterprise 4.10.x and below.
 * In Corda Enterprise 4.11 a new column has been added to the node transactions table for additional signatures. The new Archive Service release includes this new column in its snapshot data.
 
 ## Corda Enterprise 4.10 and below
