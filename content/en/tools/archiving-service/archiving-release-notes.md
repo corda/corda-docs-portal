@@ -37,7 +37,6 @@ In this release:
 
 ### Archive Service 1.0.5
 
-In this release:
 
 * Previously, an issue occurred where the Archive Service misunderstood reference states. This would prevent a transaction from being archivable if it referenced an unconsumed transaction and did not have any unconsumed transactions that referenced it.
 
