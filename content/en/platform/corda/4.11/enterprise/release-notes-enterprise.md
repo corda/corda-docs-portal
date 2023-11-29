@@ -63,9 +63,7 @@ These pre-generated CIs are subsequently used for backup recovery purposes.
 The following network parameters, and associated node configuration parameters, have been added:
 
 * `confidentialIdentityMinimumBackupInterval`
-* `confidentialIdentityPreGenerationPeriod`
 * `recoveryMaximumBackupInterval`
-* `transactionRecoveryPeriod`
 
 For more information, see [Available Network Parameters]({{< relref "network/available-network-parameters.md" >}}).
 
@@ -168,75 +166,6 @@ For more information, see [DBTransactionStorage]({{< relref "node-services.html#
 ## Fixed issues
 
 This release includes the following fixes:
-
-* An issue has been resolved where, previously, an incorrect value for `Page.totalStatesAvailable` was returned for queries on `externalIds`, when there were external IDs mapped to multiple keys.
-
-* Vault queries have been optimised to avoid the extra SQL query for the total state count where possible.
-
-* Updated documentation for both `.startNodes()` and `.stopNodes()` of `MockNetwork` to indicate that restarting nodes is not supported.
-
-* A fix for cache eviction has been applied where an issue resulted in an incorrect contract verification status while a database transaction was in progress during contract verification.
-
-* When a notary worker is shut down, message ID cleanup is now performed as the last shutdown activity, rather than the first; this prevents a situation where the notary worker might still appear to be part of the notary cluster and receiving client traffic while shutting down.
-
-* Previously, when configured to use confidential identities and the Securosys PrimusX HSM, it was possible for Corda to fail to generate a wrapped key-pair for a new confidential identity. This would cause a temporary key-pair to be leaked, consuming resource in the HSM. This issue occurred when:
-
-  * The Securosys HSM was configured in a master-clone cluster
-  * The master HSM had failed and Corda had failed-over to use the clone HSM
-  * There was an attempt to create a transaction using confidential identities
-
-  The issue is now resolved. When generating a wrapped key-pair the temporary key-pair is not persisted in the HSM and thus cannot be leaked.
-
-  On applying this update the PrimusX JCE should be upgraded to version 2.3.4 or later.
-
-  There is no need to upgrade the HSM firmware version for this update but it is recommended to keep the firmware up to date as a matter of course.
-
-* Previously, where nodes had invoked a very large number of flows, the cache of client IDs that had not been removed were taking up significant heap space. A solution has been implemented where the space taken up has been reduced by 170 bytes per entry. For example, 1 million unremoved client IDs now take up 170,000,000 bytes less heap space than before.
-
-* A new or restarted peer node coming online and connecting to a node for the first time can significantly slow message processing from other peers on the node to which it connects.  With this improvement, new peers coming online get a dedicated thread on the node they connect to and do not delay message processing for existing peer-to-peer connections on the receiving node.
-
-* Improved compatibility when using the performance test suite from Apple silicon Macs.
-
-* Previously, when loading checkpoints, the only log messages recorded were at the end of the process, recording the total number of checkpoints loaded.
-
-  Now, the following additional logging has been added:
-
-  * Checkpoints: Logging has been added for the two types of checkpoints - runnable and paused flows - being loaded; log messages show the number of checkpoints loaded every 30 seconds until all checkpoints have been loaded.
-
-  * Finished flows: Log messages now show the number of finished flows.
-
-  For example:
-
-  ```
-  [INFO ] 2023-02-03T17:00:12,767Z [main] statemachine.MultiThreadedStateMachineManager. - Loading checkPoints flows {}
-  [INFO ] 2023-02-03T17:00:12,903Z [main] statemachine.MultiThreadedStateMachineManager. - Number of runnable flows: 0. Number of paused flows: 0 {}
-  [INFO ] 2023-02-03T17:00:12,911Z [main] statemachine.MultiThreadedStateMachineManager. - Started loading finished flows {}
-  [INFO ] 2023-02-03T17:00:28,437Z [main] statemachine.MultiThreadedStateMachineManager. - Loaded 9001 finished flows {}
-  [INFO ] 2023-02-03T17:00:43,606Z [main] statemachine.MultiThreadedStateMachineManager. - Loaded 24001 finished flows {}
-  [INFO ] 2023-02-03T17:00:46,650Z [main] statemachine.MultiThreadedStateMachineManager. - Number of finished flows : 27485 {}
-  ```
-
-* Previously, if a node was configured to use two different slots on the Luna HSM (for example using one slot for node identities and a separate slot for the confidential identities), this failed. This issue has now been resolved.
-
-  {{< warning >}}
-  However, as a result of this fix, you need to make sure the Luna client your are using is version 10.4.0 or later.
-  {{</ warning >}}
-
-* The default value for the node configuration value `cryptoServiceTimeout` has been increased from 1 second to 10 seconds.
-
-* Flow checkpoint dumps now include a `status` field which shows the status of the flow; in particular, whether it is hospitalized or not.
-
-* Debug logging of the Artemis server has been added.
-
-* A `StackOverflowException` was thrown when an attempt was made to store a deleted party in the vault. This issue has been resolved.
-
-* The certificate revocation checking has been improved with the introduction of a read timeout on the download of the certificate revocation lists (CRLs). The default CRL connect timeout has also been adjusted to better suit Corda nodes. The caching of CRLs has been increased from 30 seconds to 5 minutes.
-
-* Added improvements to node thread names to make logging and debugging clearer.
-
-* Previously, the order of the states in vault query results would sometimes be incorrect if they belonged to the same transaction. This issue has been resolved.
-
-* Delays when performing a SSL handshake with new nodes no longer impacts existing connections with other nodes.
 
 * PostgreSQL 9.6 and 10.10 have been removed from our support matrix as they are no longer supported by PostgreSQL themselves.
 

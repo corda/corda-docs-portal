@@ -31,11 +31,6 @@ or
 confidentialIdentityMinimumBackupInterval = 30d
 ```
 
-
-## `confidentialIdentityPreGenerationPeriod`
-
-When a key is requested for a Confidential Identity, we only hand out previously backed-up keys. This configuration value is used to calculate the cut-off time after which we assume keys have not been backed up. Therefore, the cut-off time is calculated as *current time - confidentialIdentityPreGenerationPeriod*.
-
 ## `epoch`
 
 The version number of the network parameters. Starting from 1, this will always increment whenever any of the
@@ -97,16 +92,6 @@ This ensures that when a node encounters an owned contract, it can uniquely iden
 Encountering an owned contract in a JAR that is not signed by the rightful owner is most likely a sign of malicious behavior, and should be reported.
 The transaction verification logic will throw an exception when this happens.
 Read more about package ownership in the [Package namespace ownership]({{< relref "../node/deploy/env-dev.md#package-namespace-ownership" >}}) section.
-
-## `transactionRecoveryPeriod`
-
-When performing [Ledger Recovery]({{< relref "../node/collaborative-recovery/ledger-recovery/overview.md" >}}), this value specifies how far back in days transactions are recovered. The assumption is that any transactions prior to this time have already been backed up.
-
-For example:
-
-```
-tranasctionRecoveryPeriod = 10m
-```
 
 ## `whitelistedContractImplementations`
 
