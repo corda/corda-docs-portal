@@ -67,6 +67,5 @@ In this release:
 
 ### Archive Service 1.0.1
 
-In this release:
 
 * The Archive Service is compatible with [Ledger Graph V1.2.1 On Demand function]({{< relref "archiving-service-index.html#archiving-and-ondemand-ledgergraph" >}}).
