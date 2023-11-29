@@ -13,7 +13,7 @@ weight: 705
 
 The Archive Service is a standalone service that operates on a different release cadence to the Corda platform.
 
-The Archive Service compatibility with Corda Enterprise:
+The following table shows the compatibility of the Archive Service versions with Corda Enterprise:
 
 | Archive Service version      | Corda Enterprise version    |
 |------------------------------|-----------------------------|
