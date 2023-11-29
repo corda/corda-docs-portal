@@ -60,7 +60,7 @@ By default, this value is false and the behaviour of the Archive Service is unch
 
 In this release:
 
-* Improved Archiving support of tokens when they are moved between more than one party and then redeemed.
+* The archiving support of tokens when they are moved between more than one party and then redeemed has been improved.
 * Logging of the Archiving tool has been increased to aid in troubleshooting.
 * The Archiving client can now connect to nodes which are set up to use RPC SSL connection settings.
 * Tables are now ordered by table name length in descending order to prevent foreign key constraints from being violated when deleting rows.
