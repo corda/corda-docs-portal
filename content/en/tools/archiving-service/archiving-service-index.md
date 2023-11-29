@@ -385,7 +385,7 @@ A suitable exporter, such as `QueryableStateFileExporter`, must also be listed o
 
 ## Additional tables
 
-Archive Service will automatically detect transaction and attachment tables which use the columns
+Archive Service automatically detects transaction and attachment tables that use the columns
 `TRANSACTION_ID` or `ATT_ID` within the vault schema and include them in the archive process.
 
 Additional transaction and attachment tables which use different column names can be registered using the
