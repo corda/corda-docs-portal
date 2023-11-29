@@ -83,7 +83,7 @@ We recommend a minimum network platform version of 5 for Corda 4.5 onwards.
 
 Set your CorDapp's `minimumPlatformVersion` to indicate the oldest compatible platform version.
 For example, if your CorDapp uses APIs that were added in Corda 4.3, you should specify a `minimumPlatformVersion` of 5.
-This prevents nodes that use an older platform version from running your CorDapp. Nodes that support newer platform versions may also use this field to trigger code paths that emulate behaviors of older platform versions to maximise compatibility.
+This prevents nodes that use an older platform version from running your CorDapp. Nodes that support newer platform versions may also use this field to trigger code paths that emulate behaviors of older platform versions to maximize compatibility.
 If your CorDapp can use the new APIs as well as older ones, you can set your CorDapp's `minimumPlatformVersion` to an older version.
 Attempting to use new APIs on older nodes can cause `NoSuchMethodError` exceptions and similar problems, so you’d want to check the node version using `ServiceHub.myInfo`.
 
@@ -102,7 +102,6 @@ correctly across a network of nodes running the same target version.
 We use target versioning as one of the mechanisms to keep evolving and improving the platform, without being permanently constrained to
 being bug-for-bug compatible with old versions. When no CorDapps are loaded that target old versions, any emulations of older bugs or problems
 can be disabled.
-
 
 ## Publishing versions in your JAR manifest files
 

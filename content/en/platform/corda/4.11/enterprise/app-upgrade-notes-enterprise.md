@@ -21,7 +21,7 @@ Before upgrading to Corda Enterprise Edition 4.11, upgrade your CorDapp to Corda
 
 You don't need to re-compile your CorDapp to Corda Enterprise for it to run on Corda Enterprise. If you want your CorDapp to
 be compatible with nodes running open source, then compile it against Corda Community Edition (formerly Open Source) 4.x.
-However, if you want to leverage specific features of Corda Enterprise, such as third-party commercial database support, and don't envisage your CorDapp being run in an open source production environment, then follow the [re-compiling for Corda Enterprise Edition 4.11](#re-compiling-for-corda-enterprise-411) guide.
+However, if you want to leverage specific features of Corda Enterprise, such as third-party commercial database support, and don't envisage your CorDapp being run in an open source production environment, then follow the [re-compiling for Corda Enterprise Edition 4.11]({{< relref "#re-compiling-for-corda-enterprise-edition-411" >}}) guide.
 
 {{< note >}}
 Corda Enterprise and Corda Community Edition public APIs are currently identical. However, this may change for future releases.
@@ -75,14 +75,16 @@ been removed.
         maven { url "https://download.corda.net/maven/corda-dependencies" } // access to the patched Quasar version
     }
     ```
-    You can do either of the following:
 
-    * Upgrade your `quasar.jar` file to the version consistent with your Corda version.
-    * Delete your `lib` directory and switch to using the Gradle test runner.
+   You can do either of the following:
 
-    You can find instructions for both options in [Running tests in IntelliJ]({{< relref "testing.md#running-tests-in-intellij" >}}).
+   * Upgrade your `quasar.jar` file to the version consistent with your Corda version.
+   * Delete your `lib` directory and switch to using the Gradle test runner.
+
+   You can find instructions for both options in [Running tests in IntelliJ]({{< relref "testing.md#running-tests-in-intellij" >}}).
 
 4. Check you're using Corda Gradle plugins version 5.0.12, and that Corda Enterprise dependencies are referenced with the right distribution.
+
 
     For example:
 
@@ -90,6 +92,7 @@ been removed.
     cordaCompile "net.corda:corda-core:$corda_release_version"
     testCompile "net.corda:corda-node-driver:$corda_release_version"
     ```
+
 
     Becomes:
 
@@ -113,6 +116,7 @@ Version 4 of the finance CorDapp is split into the following two signed JAR file
 
  * `corda-finance-contracts.jar`
  * `corda-finance-workflows.jar`
+
 As there should only be one unique hashed version of `corda-finance-contracts.jar` (the hash of a contract JAR file undergoes strict
 security checking upon transaction resolution), only a single instance of `corda-finance-contracts.jar` is published, and this is from the open source repository.
 
