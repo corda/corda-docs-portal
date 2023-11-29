@@ -14,6 +14,7 @@ section_menu: corda5
 # Configure Key Pairs and Certificates for the Member
 
 This section describes how to configure key pairs and certificates for members. It contains the following:
+
 1. [Generate a Session Initiation Key Pair]({{< relref "#generate-a-session-initiation-key-pair">}})
 2. [Generate a Ledger Key Pair]({{< relref "#generate-a-ledger-key-pair">}})
 3. [Generate a TLS Key Pair]({{< relref "#generate-a-tls-key-pair">}})
@@ -100,7 +101,7 @@ If using mutual {{< tooltip >}}TLS{{< /tooltip >}}, you must add the certificate
    export TLS_KEY_ID=<TLS-key-ID_>
    ```
 
-2. Create a certificate for the TLS key pair by running the following command to generate a certificate signing request (CSR):
+2. Create a certificate for the TLS key pair by running the following command to generate a {{< tooltip >}}CSR{{< /tooltip >}}:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell

@@ -1,13 +1,12 @@
 ---
-date: '2023-01-27'
-version: 'Corda 5.0'
+date: '2023-11-01'
 title: "UTXO Ledger Example CorDapp"
 menu:
-  corda5:
+  corda5-tools:
     parent: "corda5-develop-get-started"
     identifier: corda5-utxo-example
     weight: 7000
-section_menu: corda5
+section_menu: corda5-tools
 ---
 # UTXO Ledger Example CorDapp
 The CSDE template includes example {{< tooltip >}}CorDapp{{< /tooltip >}} code for a simple {{< tooltip >}}UTXO{{< /tooltip >}} chat application. The chat CorDapp enables pairs of participants on an {{< tooltip >}}application network{{< /tooltip >}} to do the following:

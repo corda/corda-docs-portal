@@ -10,9 +10,6 @@ tags:
 title: Writing oracle services
 ---
 
-
-
-
 # Writing oracle services
 
 This tutorial covers *oracles*: network services that link the ledger to the outside world by providing facts that
@@ -72,13 +69,13 @@ Here’s a quick way to decide which approach makes more sense for your data sou
 
 * Is your data *continuously changing*, like a stock price, the current time, etc? If yes, use a command.
 * Is your data *commercially valuable*, like a feed which you are not allowed to resell unless it’s incorporated into
-a business deal? If yes, use a command, so you can charge money for signing the same fact in each unique business
-context.
+  a business deal? If yes, use a command, so you can charge money for signing the same fact in each unique business
+  context.
 * Is your data *very small*, like a single number? If yes, use a command.
 * Is your data *large*, *static* and *commercially worthless*, for instance, a holiday calendar? If yes, use an
-attachment.
+  attachment.
 * Is your data *intended for human consumption*, like a PDF of legal prose, or an Excel spreadsheet? If yes, use an
-attachment.
+  attachment.
 
 
 ### Asserting continuously varying data
@@ -98,10 +95,10 @@ So the way we actually implement it is like this:
 
 
 * The creator of the transaction that depends on the interest rate asks for the current rate. They can abort at this point
-if they want to.
+  if they want to.
 * They insert a command with that rate and the time it was obtained into the transaction.
 * They then send it to the oracle for signing, along with everyone else, potentially in parallel. The oracle checks that
-the command has the correct data for the asserted time, and signs if so.
+  the command has the correct data for the asserted time, and signs if so.
 
 This same technique can be adapted to other types of oracle.
 
@@ -226,12 +223,12 @@ fun sign(ftx: FilteredTransaction): TransactionSignature {
 Here you can see that there are several steps:
 
 * Ensure that the transaction we have been sent is indeed valid and passes verification, even though we cannot see all
-of it.
+  of it.
 * Check that we only received commands as expected, and each of those commands expects us to sign for them and is of
-the expected type (`Fix` here).
+  the expected type (`Fix` here).
 * Iterate over each of the commands we identified in the last step and check that the data they represent matches
-exactly our data source. The final step, assuming we have got this far, is to generate a signature for the
-transaction and return it.
+  exactly our data source. The final step, assuming we have got this far, is to generate a signature for the
+  transaction and return it.
 
 
 ### Binding to the network

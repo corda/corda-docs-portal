@@ -36,7 +36,7 @@ Node Registration Tool.
 
 ## Linux: Installing and running Corda as a system service
 
-We recommend creating system services to run a node and the optional test webserver. This provides logging and service
+We recommend creating system services to run a node. This provides logging and service
 handling, and ensures the Corda service is run at boot.
 
 **Prerequisites**:
@@ -52,8 +52,6 @@ handling, and ensures the Corda service is run at boot.
 
 * Create a directory called `/opt/corda` and change its ownership to the user you want to use to run Corda:`mkdir /opt/corda; chown corda:corda /opt/corda`
 * Place the Enterprise Corda JAR `corda-4.7.jar` in `/opt/corda`
-* (Optional) Copy the Corda webserver JAR provided to your organization
-(under `/corda-webserver-4.7.jar`) and place it in `/opt/corda`
 * Create a directory called `cordapps` in `/opt/corda` and save your CorDapp jar file to it. Alternatively, download one of
 our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory
 * Save the below as `/opt/corda/node.conf`. See corda-configuration-file for a description of these options:
@@ -159,78 +157,24 @@ not root**
     * `sudo chown root:root /etc/init/corda.conf`
     * `sudo chmod 644 /etc/init/corda.conf`
 
-
-
-
-
-
-
-{{< note >}}
-The Corda test webserver provides a simple interface for interacting with your installed CorDapps in a browser.
-Running the webserver is optional.
-
-{{< /note >}}
-
-* **SystemD**: Create a `corda-webserver.service` file based on the example below and save it in the `/etc/systemd/system/`
-directory
-
-```shell
-[Unit]
-Description=Webserver for Corda Node - Bank of Breakfast Tea
-Requires=network.target
-
-[Service]
-Type=simple
-User=corda
-WorkingDirectory=/opt/corda
-ExecStart=/usr/bin/java -jar /opt/corda/corda-webserver.jar
-Restart=on-failure
-
-[Install]
-WantedBy=multi-user.target
-```
-
-
-
-
-* **Upstart**: Create a `corda-webserver.conf` file based on the example below and save it in the `/etc/init/`
-directory
-
-```shell
-description "Webserver for Corda Node - Bank of Breakfast Tea"
-
-start on runlevel [2345]
-stop on runlevel [!2345]
-
-respawn
-setuid corda
-chdir /opt/corda
-exec java -jar /opt/corda/corda-webserver.jar
-```
-
-
 * Provision the required certificates to your node. Contact the network permissioning service or see
 permissioning
 * Depending on the versions of Corda and of the CorDapps used, database migration scripts might need to run before a node is able to start.
 For more information refer to database-management
-* **SystemD**: You can now start a node and its webserver and set the services to start on boot by running the
+* **SystemD**: You can now start a node and set the services to start on boot by running the
 following `systemctl` commands:
 
 
 
 * `sudo systemctl daemon-reload`
 * `sudo systemctl enable --now corda`
-* `sudo systemctl enable --now corda-webserver`
 
 
-
-* **Upstart**: You can now start a node and its webserver by running the following commands:
+* **Upstart**: You can now start a node by running the following commands:
 
 
 
 * `sudo start corda`
-* `sudo start corda-webserver`
-
 
 The Upstart configuration files created above tell Upstart to start the Corda services on boot so there is no need to explicitly enable them.
 
