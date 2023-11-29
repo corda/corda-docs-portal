@@ -200,7 +200,7 @@ grant insert on all tables in schema corda to archive;
 
 ### Oracle
 
-The following DDL statements can be used to create a backup schema user `archive`:
+You can use the following DDL statements to create a backup schema user `archive`:
 
 ```
 create user archive identified by archive2 DEFAULT TABLESPACE users QUOTA unlimited ON users;
