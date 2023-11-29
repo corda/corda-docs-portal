@@ -163,7 +163,7 @@ target: {
 
 ## Using the backup schema
 
-you can configure the archiving process to create a temporary snapshot image of the archivable transactions
+You can configure the archiving process to create a temporary snapshot image of the archivable transactions
 and attachments from your Corda vault on a backup schema within the same database. This snapshot can then be used
 to restore the vault should the database fail during the archiving operation.
 
