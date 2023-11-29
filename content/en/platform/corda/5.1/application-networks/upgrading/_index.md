@@ -132,6 +132,6 @@ $CPI_STATUS_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Autho
 
 The result contains the `cpiFileChecksum`.
 
-## Apply the new CPI to each Virtual Node
+## Apply the New CPI to Each Virtual Node
 
 The Cluster Administrator can [apply the new version of the CPI]({{< relref "../../deploying-operating/vnodes/upgrade-cpi.md">}}) using the CPI checksum.
