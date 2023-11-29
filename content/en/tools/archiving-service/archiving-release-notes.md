@@ -51,7 +51,6 @@ When using a Microsoft SQL Server database, an error was generated when using th
 
 ### Archive Service 1.0.3
 
-In this release:
 
 * A new configuration option has been added which allows the Archive Service to skip transactions that have legacy contract states that cause exceptions during a JSON snapshot export. This configuration option is: `ignoreSnapshotExportFailures: true`.
 
