@@ -73,7 +73,7 @@ Once the Archive Service has marked a transaction or attachment as archivable, y
 
 ### Archiving and Collaborative Recovery
 
-The [Collaborative Recovery CorDapp LedgerSync V1.2.1]({{< relref "../../platform/corda/4.9/enterprise/node/collaborative-recovery/ledger-sync.md" >}}) has been introduced for compatibility with the Archive Service. If you or anyone on your network uses Collaborative Recovery to recover data after a disaster scenario, archived transactions in any nodes on the network are marked as such. This means they do not appear to be 'lost' or 'missing' data and will not be recovered automatically in the recovery process.
+The [Collaborative Recovery CorDapp LedgerSync V1.2.1]({{< relref "../../platform/corda/4.9/enterprise/node/collaborative-recovery/ledger-sync.md" >}}) has been introduced for compatibility with the Archive Service. If you or anyone on your network uses Collaborative Recovery to recover data after a disaster scenario, archived transactions in any nodes on the network are marked as such. This means that they do not appear to be 'lost' or 'missing' data and will not be recovered automatically in the recovery process.
 
 ### Archiving and onDemand LedgerGraph
 
