@@ -45,7 +45,6 @@ As of this release, the Archive Service marks a transaction, that only has outbo
 
 ### Archive Service 1.0.4
 
-In this release:
 
 * Previously, when using a Microsoft SQL Server database, an error was generated when using the `vault-states` filter with a positive value specified for the `retentionDays` parameter; this issue has been resolved.
 
