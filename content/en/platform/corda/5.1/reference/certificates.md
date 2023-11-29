@@ -16,17 +16,15 @@ This section describes the different types of keys and certificates used by Cord
 
 {{< toc >}}
 
-## Keys
+## Application Keys
 
 Corda uses the following types of keys:
 
 | Key                                     | Use with Certificate | Description                                                                                                                                                                                                                                                                  | Key Type/Algorithm  |
 | --------------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| P2P TLS key                             | Yes                  | Part of TLS encryption at Corda cluster gateway level.                                                                                                                                                                                                                       |                     |
 | Session initiation key                  | Yes                  | Used during end-to-end session handshake between 2 clusters, used to sign group parameters.                                                                                                                                                                                  |                     |
 | ECDH (MGM)                              | No                   | Used for encryption/decryption of registration requests sent to MGM by members.                                                                                                                                                                                              |                     |
 | Notary key                              | No                   | Combination of Notary Key and X500 Name, at Notarisation stage of Finality, the Notary Key is used to sign a transaction. Once a transaction is signed using the Notary Key, a transaction is deemed Notarised.                                                              | ECDSA key pair      |
-| REST TLS key                            | Yes                  | Stored on local files, supplied via command line arguments to the REST worker.                                                                                                                                                                                               |                     |
 | REST SSO keys                           | TBD                  | AzueAD OIDC/OAuth2                                                                                                                                                                                                                                                           |                     |
 | Master wrapping key                     | No                   | A set of master wrapping keys are specified in the configuration of the crypto processor, as SALT and passphrase parameters for key derivation function. This produces a symmetric key which is used for wrapping (i.e. encrypting at rest) all corda managed wrapping keys. | AES                 |
 | Corda managed wrapping key              | No                   | These are symmetric keys used to wrap higher level asymmetric private keys. They are stored, wrapped by a master wrapping key, in Crypto databases in both the cluster and per vnode.                                                                                        | AES                 |
@@ -34,6 +32,15 @@ Corda uses the following types of keys:
 | Ledger Key                              | TBD                  | Also known as VNode private ledger signing key public and private VNode ledger keys. Key is used to sign flows and consume Corda network ledger states. This key is critical for availability                                                                                | Asymmetric key pair |
 | Encryption secrets service wrapping key | No                   | This is a single master wrapping key specified via a salt and passphrase in the environment of the Corda workers, which are used to derive a symmetric key.                                                                                                                  |                     |
 | HTTP Gateway TLS key                    | No                   | TLS key for HTTP Gateway / REST API connections                                                                                                                                                                                                                              | ECDSA private key   |
+
+## Infrastructure Keys
+
+Corda uses the following types of infrastructure keys:
+
+| Key          | Use with Certificate | Description                                                                    | Key Type/Algorithm |
+| ------------ | -------------------- | ------------------------------------------------------------------------------ | ------------------ |
+| P2P TLS key  | Yes                  | Part of TLS encryption at Corda cluster gateway level.                         |                    |
+| REST TLS key | Yes                  | Stored on local files, supplied via command line arguments to the REST worker. |                    |
 
 ## PKI assets
 
