@@ -34,7 +34,7 @@ The Archive Service consists of the following:
 * ```
 * [Archive Service Command Line Interface](archiving-cli.md) - allows you to perform archiving tasks from the command line.
 
-It also makes use of the [Application Entity Manager](app-entity-manager.md) - which allows CorDapps to access off-ledger databases using JPA APIs.
+It also makes use of the [Application Entity Manager](app-entity-manager.md), which allows CorDapps to access off-ledger databases using JPA APIs.
 
 The Archive Service archives [Ledger Recovery](../../platform/corda/4.11/enterprise/ledger-recovery-flow.md) distribution records associated with the archived transactions. (The tables `node_sender_distribution_records` and `node_receiver_distribution_records` are included in the archiving process.)
 
