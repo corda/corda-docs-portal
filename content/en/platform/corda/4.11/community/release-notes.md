@@ -120,7 +120,7 @@ removed from the `DriverParameters` class. Any client code that utilizes `Driver
 
 ## Fixed issues
 
-This release includes the following fixes:
+This release includes the following fixes since 4.10.3:
 
 * PostgreSQL 9.6 and 10.10 have been removed from our support matrix as they are no longer supported by PostgreSQL themselves.
 
@@ -131,6 +131,8 @@ This release includes the following fixes:
   for traffic load balancers and system monitoring. To reduce log noise, we have now silenced these specific log messages.
 
 ## Database schema changes
+
+For a complete description of all database tables, see [Database tables]({{< relref "node/operating/node-database-tables.html" >}}).
 
 The following database changes have been applied:
 
@@ -194,6 +196,20 @@ The following database changes have been applied:
 
           @Column(name = "timestamp_discriminator", nullable = false)
           var timestampDiscriminator: Int
+
+          @Enumerated(EnumType.ORDINAL)
+          @Column(name = "key_type", nullable = false)
+          var keyType: KeyType = CI,
+
+          @Column(name = "crypto_config_hash", length = MAX_HASH_HEX_SIZE, nullable = true)
+          var cryptoConfigHash: String? = null,
+
+          @Enumerated(EnumType.ORDINAL)
+          @Column(name = "status", nullable = false)
+          var status: Status = CREATED,
+
+          @Column(name = "generate_tm", nullable = false)
+          var insertionDate: Instant = Instant.now()
   )
   ```
 
@@ -226,6 +242,10 @@ The following database changes have been applied:
   )
   ```
 
+{{< note >}}
+The recovery flows that take advantage of this new protocol are present only in the Corda Enterprise edition.
+{{< note >}}
+
 See node migration scripts:
 * `node-core.changelog-v23.xml`: Adds an additional data field within the main `DbTransaction` table.
 * `node-core.changelog-v25.xml`: Adds Sender and Receiver recovery distribution record tables, plus the `PartyInfo` table.
@@ -233,14 +253,15 @@ See node migration scripts:
 
 ## Third party component upgrades
 
-The following table lists the dependency version changes between 4.9.5 and 4.10 Community Editions:
+The following table lists the dependency version changes between 4.10.3 and 4.11 Enterprise Editions:
 
-| Dependency           | Name           | Version 4.9.5 Community | Version 4.10 Community |
-|----------------------|----------------|-------------------------|------------------------|
-| com.squareup.okhttp3 | OKHttp         | 3.14.2                  | 3.14.9                 |
-| org.bouncycastle	   | Bouncy Castle  | 1.68                    | 1.70                   |
-| io.opentelemetry	   | Open Telemetry | -                       | 1.20.1                 |
-| co.paralleluniverse:quasar-core    | Quasar       | 0.7.15_r3   | 0.7.16_r3              |
+| Dependency                         | Name                | Version 4.1.2 Enterprise | Version 4.11 Enterprise|
+|------------------------------------|---------------------|--------------------------|------------------------|
+| org.bouncycastle                   | Bouncy Castle       | 1.70                     | 1.75                   |
+| co.paralleluniverse:quasar-core    | Quasar              | 0.7.15_r3                | 0.7.16_r3              |
+| org.hibernate                      | Hibernate           | 5.4.32.Final             | 5.6.14.Final           |
+| com.h2database                     | H2                  | 1.4.197                  | 2.2.2241               |
+| org.liquibase                      | Liquibase           | 3.6.3                    | 4.20.0                 |
 
 ## Log4j patches
 Click [here]({{< relref "./log4j-patches.md" >}}) to find all patches addressing the December 2021 Log4j vulnerability.
