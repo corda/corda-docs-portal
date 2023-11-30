@@ -48,7 +48,7 @@ You can use the Network Bootstrapper to scan all the node configurations in a co
 
 To bootstrap a test network:
 
-1. Download the [Corda Network Boostrapper](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-network-bootstrapper) for the version of Corda you want the nodes to run.
+1. Download the [Corda Network Bootstrapper](https://download.corda.net/maven/corda-releases/net/corda/corda-tools-network-bootstrapper/4.8.11/corda-tools-network-bootstrapper-4.8.11.jar) for the version of Corda you want the nodes to run.
 2. Create a directory containing a node config file (ending in “_node.conf”) for each node you want to create.
 3. Set “devMode” to `true`.
 4. Run the command `java -jar network-bootstrapper-4.8.jar --dir <nodes-root-dir>`.

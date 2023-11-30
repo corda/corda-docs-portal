@@ -111,11 +111,10 @@ Connect to one of your Corda nodes (make sure this is not the Notary node) using
 
 Build the yo cordapp sample which you can find here: [https://github.com/corda/samples/blob/release-V4/yo-cordapp](https://github.com/corda/samples/blob/release-V4/yo-cordapp) and install it in the cordapp directory.
 
-Now restart Corda and the Corda test webserver using the following commands or restart your Corda VM from the Azure portal:
+Now restart Corda using the following commands or restart your Corda VM from the Azure portal:
 
 ```shell
 sudo systemctl restart corda
-sudo systemctl restart corda-webserver
 ```
 
 Repeat these steps on other Corda nodes on your network which you want to send or receive Yo messages.

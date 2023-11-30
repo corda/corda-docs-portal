@@ -36,7 +36,7 @@ You can find out more about network maps and network parameters from [Network ma
 
 ## Bootstrap a test network
 
-The Corda Network Bootstrapper can be downloaded from [here](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-network-bootstrapper).
+The Corda Network Bootstrapper can be downloaded from [here](https://download.corda.net/maven/corda-releases/net/corda/corda-tools-network-bootstrapper/4.7.10/corda-tools-network-bootstrapper-4.7.10.jar).
 
 Create a directory containing a node config file, ending in “_node.conf”, for each node you want to create. “devMode” must be set to true. Then run the
 following command:

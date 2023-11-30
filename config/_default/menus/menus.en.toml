@@ -398,34 +398,6 @@ url = "/en/platform/corda/5.0/reference/rest-api/openapi.html"
 #name = "CorDapp Design Language (CDL)"
 #weight = 100
 
-#new platform section here
-#the homepage menu creates a left hand side menu inside all the landing pages
-#if an entry has a URL property, it is to artificially add the document into a second menu
-
-#this entry is required to create a link to the corda docs in the homepage menu
-[[homepage]]
-identifier = "platform-corda-comm"
-parent = "platform-corda-4"
-url = "/en/platform/corda/4.10/community.html"
-name = "Corda Community "
-weight = 100
-
-#this entry is required to create a link to the corda ent docs in the homepage menu
-[[homepage]]
-identifier = "platform-corda-ent"
-parent = "platform-corda-4"
-url = "/en/platform/corda/4.10/enterprise.html"
-name = "Corda Enterprise"
-weight = 200
-
-#this entry is required to create a link to the cenm docs in the homepage menu
-[[homepage]]
-identifier = "platform-corda-cenm"
-parent = "platform-corda-4"
-url = "/en/platform/corda/1.5/cenm.html"
-name = "Corda Enterprise Network Manager"
-weight = 300
-
 #the following samples entries are for visual/demo purposes only and serve as links to github samples in the homepage menu
 [[homepage]]
 identifier = "sample-1"
