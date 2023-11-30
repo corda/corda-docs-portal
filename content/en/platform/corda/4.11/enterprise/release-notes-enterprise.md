@@ -278,11 +278,6 @@ The following database changes have been applied:
   )
   ```
 
-See node migration scripts:
-* `node-core.changelog-v23.xml`: Adds an additional data field within the main `DbTransaction` table.
-* `node-core.changelog-v25.xml`: Adds Sender and Receiver recovery distribution record tables, plus the `PartyInfo` table.
-* `node-core.changelog-v26.xml`: Adds AES encryption keys table.
-
 ## Third party component upgrades
 
 The following table lists the dependency version changes between 4.10.3 and 4.11 Enterprise Editions:
