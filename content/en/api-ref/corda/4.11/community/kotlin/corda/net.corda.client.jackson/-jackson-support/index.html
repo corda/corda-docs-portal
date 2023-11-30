@@ -1,0 +1,223 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>JacksonSupport - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.jackson</a>&nbsp;/&nbsp;<a href="./index.html">JacksonSupport</a><br/>
+<br/>
+<h1>JacksonSupport</h1>
+<code><span class="keyword">object </span><span class="identifier">JacksonSupport</span></code>
+<p>Utilities and serialisers for working with JSON representations of basic types. This adds Jackson support for
+the java.time API, some core types, and Kotlin data classes.</p>
+<p>Note that Jackson can also be used to serialise/deserialise other formats such as Yaml and XML.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-amount-deserializer/index.html">AmountDeserializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><s><span class="identifier">AmountDeserializer</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JsonDeserializer</span><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-amount-serializer/index.html">AmountSerializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><s><span class="identifier">AmountSerializer</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JsonSerializer</span><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-anonymous-party-deserializer/index.html">AnonymousPartyDeserializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><s><span class="identifier">AnonymousPartyDeserializer</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JsonDeserializer</span><span class="symbol">&lt;</span><a href="../../net.corda.core.identity/-anonymous-party/index.html"><span class="identifier">AnonymousParty</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-anonymous-party-serializer/index.html">AnonymousPartySerializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><s><span class="identifier">AnonymousPartySerializer</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JsonSerializer</span><span class="symbol">&lt;</span><a href="../../net.corda.core.identity/-anonymous-party/index.html"><span class="identifier">AnonymousParty</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-corda-x500-name-deserializer/index.html">CordaX500NameDeserializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><s><span class="identifier">CordaX500NameDeserializer</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JsonDeserializer</span><span class="symbol">&lt;</span><a href="../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-corda-x500-name-serializer/index.html">CordaX500NameSerializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><s><span class="identifier">CordaX500NameSerializer</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JsonSerializer</span><span class="symbol">&lt;</span><a href="../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-identity-object-mapper/index.html">IdentityObjectMapper</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><s><span class="identifier">IdentityObjectMapper</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">PartyObjectMapper</span><span class="symbol">, </span><span class="identifier">ObjectMapper</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-node-info-deserializer/index.html">NodeInfoDeserializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><s><span class="identifier">NodeInfoDeserializer</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JsonDeserializer</span><span class="symbol">&lt;</span><a href="../../net.corda.core.node/-node-info/index.html"><span class="identifier">NodeInfo</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-node-info-serializer/index.html">NodeInfoSerializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><s><span class="identifier">NodeInfoSerializer</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JsonSerializer</span><span class="symbol">&lt;</span><a href="../../net.corda.core.node/-node-info/index.html"><span class="identifier">NodeInfo</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-no-party-object-mapper/index.html">NoPartyObjectMapper</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><s><span class="identifier">NoPartyObjectMapper</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">PartyObjectMapper</span><span class="symbol">, </span><span class="identifier">ObjectMapper</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-opaque-bytes-deserializer/index.html">OpaqueBytesDeserializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><s><span class="identifier">OpaqueBytesDeserializer</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JsonDeserializer</span><span class="symbol">&lt;</span><a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-opaque-bytes-serializer/index.html">OpaqueBytesSerializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><s><span class="identifier">OpaqueBytesSerializer</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JsonSerializer</span><span class="symbol">&lt;</span><a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-party-deserializer/index.html">PartyDeserializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><s><span class="identifier">PartyDeserializer</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JsonDeserializer</span><span class="symbol">&lt;</span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-party-object-mapper/index.html">PartyObjectMapper</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">PartyObjectMapper</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-party-serializer/index.html">PartySerializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><s><span class="identifier">PartySerializer</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JsonSerializer</span><span class="symbol">&lt;</span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-public-key-deserializer/index.html">PublicKeyDeserializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><s><span class="identifier">PublicKeyDeserializer</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JsonDeserializer</span><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-public-key-serializer/index.html">PublicKeySerializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><s><span class="identifier">PublicKeySerializer</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JsonSerializer</span><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-rpc-object-mapper/index.html">RpcObjectMapper</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><s><span class="identifier">RpcObjectMapper</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">PartyObjectMapper</span><span class="symbol">, </span><span class="identifier">ObjectMapper</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-secure-hash-deserializer/index.html">SecureHashDeserializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><s><span class="identifier">SecureHashDeserializer</span></s><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JsonDeserializer</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-secure-hash-serializer/index.html">SecureHashSerializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><s><span class="identifier">SecureHashSerializer</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JsonSerializer</span><span class="symbol">&lt;</span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signed-transaction-mixin/index.html">SignedTransactionMixin</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><s><span class="identifier">SignedTransactionMixin</span></s></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-to-string-serializer/index.html">ToStringSerializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><s><span class="identifier">ToStringSerializer</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JsonSerializer</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-wire-transaction-mixin/index.html">WireTransactionMixin</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><s><span class="identifier">WireTransactionMixin</span></s></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="corda-module.html">cordaModule</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><s><span class="identifier">cordaModule</span></s><span class="symbol">: </span><span class="identifier">Module</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="create-default-mapper.html">createDefaultMapper</a></h4>
+</td>
+<td>
+<p>Creates a Jackson ObjectMapper that uses RPC to deserialise parties from string names.</p>
+<code><span class="keyword">fun </span><span class="identifier">createDefaultMapper</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.jackson.JacksonSupport$createDefaultMapper(net.corda.core.messaging.CordaRPCOps, com.fasterxml.jackson.core.JsonFactory, kotlin.Boolean, kotlin.Boolean)/rpc">rpc</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.messaging/-corda-r-p-c-ops/index.html"><span class="identifier">CordaRPCOps</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.jackson.JacksonSupport$createDefaultMapper(net.corda.core.messaging.CordaRPCOps, com.fasterxml.jackson.core.JsonFactory, kotlin.Boolean, kotlin.Boolean)/factory">factory</span><span class="symbol">:</span>&nbsp;<a href="https://fasterxml.github.io/jackson-core/javadoc/2.9/com/fasterxml/jackson/core/JsonFactory.html"><span class="identifier">JsonFactory</span></a>&nbsp;<span class="symbol">=</span>&nbsp;JsonFactory()<span class="symbol">, </span><span class="identifier" id="net.corda.client.jackson.JacksonSupport$createDefaultMapper(net.corda.core.messaging.CordaRPCOps, com.fasterxml.jackson.core.JsonFactory, kotlin.Boolean, kotlin.Boolean)/fuzzyIdentityMatch">fuzzyIdentityMatch</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="net.corda.client.jackson.JacksonSupport$createDefaultMapper(net.corda.core.messaging.CordaRPCOps, com.fasterxml.jackson.core.JsonFactory, kotlin.Boolean, kotlin.Boolean)/fullParties">fullParties</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectMapper</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="create-in-memory-mapper.html">createInMemoryMapper</a></h4>
+</td>
+<td>
+<p>Creates a Jackson ObjectMapper that uses an <a href="../../net.corda.core.node.services/-identity-service/index.html">IdentityService</a> directly inside the node to deserialise parties from string names.</p>
+<code><span class="keyword">fun </span><span class="identifier">createInMemoryMapper</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.jackson.JacksonSupport$createInMemoryMapper(net.corda.core.node.services.IdentityService, com.fasterxml.jackson.core.JsonFactory, kotlin.Boolean, kotlin.Boolean)/identityService">identityService</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node.services/-identity-service/index.html"><span class="identifier">IdentityService</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.jackson.JacksonSupport$createInMemoryMapper(net.corda.core.node.services.IdentityService, com.fasterxml.jackson.core.JsonFactory, kotlin.Boolean, kotlin.Boolean)/factory">factory</span><span class="symbol">:</span>&nbsp;<a href="https://fasterxml.github.io/jackson-core/javadoc/2.9/com/fasterxml/jackson/core/JsonFactory.html"><span class="identifier">JsonFactory</span></a>&nbsp;<span class="symbol">=</span>&nbsp;JsonFactory()<span class="symbol">, </span><span class="identifier" id="net.corda.client.jackson.JacksonSupport$createInMemoryMapper(net.corda.core.node.services.IdentityService, com.fasterxml.jackson.core.JsonFactory, kotlin.Boolean, kotlin.Boolean)/fuzzyIdentityMatch">fuzzyIdentityMatch</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="net.corda.client.jackson.JacksonSupport$createInMemoryMapper(net.corda.core.node.services.IdentityService, com.fasterxml.jackson.core.JsonFactory, kotlin.Boolean, kotlin.Boolean)/fullParties">fullParties</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectMapper</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="create-non-rpc-mapper.html">createNonRpcMapper</a></h4>
+</td>
+<td>
+<p>For testing or situations where deserialising parties is not required</p>
+<code><span class="keyword">fun </span><span class="identifier">createNonRpcMapper</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.jackson.JacksonSupport$createNonRpcMapper(com.fasterxml.jackson.core.JsonFactory, kotlin.Boolean)/factory">factory</span><span class="symbol">:</span>&nbsp;<a href="https://fasterxml.github.io/jackson-core/javadoc/2.9/com/fasterxml/jackson/core/JsonFactory.html"><span class="identifier">JsonFactory</span></a>&nbsp;<span class="symbol">=</span>&nbsp;JsonFactory()<span class="symbol">, </span><span class="identifier" id="net.corda.client.jackson.JacksonSupport$createNonRpcMapper(com.fasterxml.jackson.core.JsonFactory, kotlin.Boolean)/fullParties">fullParties</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectMapper</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

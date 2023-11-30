@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>PartyInfo - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node.services</a>&nbsp;/&nbsp;<a href="./index.html">PartyInfo</a><br/>
+<br/>
+<h1>PartyInfo</h1>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">PartyInfo</span></code>
+<p>Holds information about a <a href="../../net.corda.core.identity/-party/index.html">Party</a>, which may refer to either a specific node or a service.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-distributed-node/index.html">DistributedNode</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">DistributedNode</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">PartyInfo</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-single-node/index.html">SingleNode</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">SingleNode</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">PartyInfo</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="party.html">party</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">party</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
