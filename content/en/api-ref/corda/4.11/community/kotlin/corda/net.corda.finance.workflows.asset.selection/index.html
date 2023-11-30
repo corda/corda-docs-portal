@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.finance.workflows.asset.selection - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.finance.workflows.asset.selection</a><br/>
+<br/>
+<h2>Package net.corda.finance.workflows.asset.selection</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-abstract-cash-selection/index.html">AbstractCashSelection</a></h4>
+</td>
+<td>
+<p>Pluggable interface to allow for different cash selection provider implementations
+Default implementation in finance workflow module uses H2 database and a custom function within H2 to perform aggregation.
+Custom implementations must implement this interface and declare their implementation in
+<code>META-INF/services/net.corda.finance.workflows.asset.selection.AbstractCashSelection</code>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">AbstractCashSelection</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-cash-selection-h2-impl/index.html">CashSelectionH2Impl</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CashSelectionH2Impl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-abstract-cash-selection/index.html"><span class="identifier">AbstractCashSelection</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-cash-selection-postgre-s-q-l-impl/index.html">CashSelectionPostgreSQLImpl</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CashSelectionPostgreSQLImpl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-abstract-cash-selection/index.html"><span class="identifier">AbstractCashSelection</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-cash-selection-s-q-l-server-impl/index.html">CashSelectionSQLServerImpl</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CashSelectionSQLServerImpl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-abstract-cash-selection/index.html"><span class="identifier">AbstractCashSelection</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

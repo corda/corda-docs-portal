@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SignedTransaction.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.transactions</a>&nbsp;/&nbsp;<a href="index.html">SignedTransaction</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.core.transactions.SignedTransaction$&lt;init&gt;(net.corda.core.transactions.CoreTransaction, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)))"></a>
+<code><span class="identifier">SignedTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$<init>(net.corda.core.transactions.CoreTransaction, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)))/ctx">ctx</span><span class="symbol">:</span>&nbsp;<a href="../-core-transaction/index.html"><span class="identifier">CoreTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$<init>(net.corda.core.transactions.CoreTransaction, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)))/sigs">sigs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code><a name="net.corda.core.transactions.SignedTransaction$&lt;init&gt;(net.corda.core.serialization.SerializedBytes((net.corda.core.transactions.CoreTransaction)), kotlin.collections.List((net.corda.core.crypto.TransactionSignature)))"></a>
+<code><span class="identifier">SignedTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$<init>(net.corda.core.serialization.SerializedBytes((net.corda.core.transactions.CoreTransaction)), kotlin.collections.List((net.corda.core.crypto.TransactionSignature)))/txBits">txBits</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.serialization/-serialized-bytes/index.html"><span class="identifier">SerializedBytes</span></a><span class="symbol">&lt;</span><a href="../-core-transaction/index.html"><span class="identifier">CoreTransaction</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$<init>(net.corda.core.serialization.SerializedBytes((net.corda.core.transactions.CoreTransaction)), kotlin.collections.List((net.corda.core.crypto.TransactionSignature)))/sigs">sigs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>SignedTransaction wraps a serialized WireTransaction. It contains one or more signatures, each one for
+a public key (including composite keys) that is mentioned inside a transaction command. SignedTransaction is the top level transaction type
+and the type most frequently passed around the network and stored. The identity of a transaction is the hash of Merkle root
+of a WireTransaction, therefore if you are storing data keyed by WT hash be aware that multiple different STs may
+map to the same key (and they could be different in important ways, like validity!). The signatures on a
+SignedTransaction might be invalid or missing: the type does not imply validity.
+A transaction ID should be the hash of the <a href="../-wire-transaction/index.html">WireTransaction</a> Merkle tree root. Thus adding or removing a signature does not change it.</p>
+<h3>Parameters</h3>
+<p><a name="sigs"></a>
+<code>sigs</code> - a list of signatures from individual (non-composite) public keys. This is passed as a list of signatures
+when verifying composite key signatures, but may be used as individual signatures where a single key is expected to
+sign.</p>
+</BODY>
+</HTML>

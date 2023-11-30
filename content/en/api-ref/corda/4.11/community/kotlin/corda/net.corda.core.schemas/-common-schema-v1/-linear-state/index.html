@@ -1,0 +1,54 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CommonSchemaV1.LinearState - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.core.schemas</a>&nbsp;/&nbsp;<a href="../index.html">CommonSchemaV1</a>&nbsp;/&nbsp;<a href="./index.html">LinearState</a><br/>
+<br/>
+<h1>LinearState</h1>
+<code><span class="identifier">@MappedSuperclass</span> <span class="keyword">class </span><span class="identifier">LinearState</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../-persistent-state/index.html"><span class="identifier">PersistentState</span></a></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">LinearState</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.schemas.CommonSchemaV1.LinearState$<init>(net.corda.core.contracts.UniqueIdentifier, kotlin.collections.Set((net.corda.core.identity.AbstractParty)))/uid">uid</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.contracts/-unique-identifier/index.html"><span class="identifier">UniqueIdentifier</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.schemas.CommonSchemaV1.LinearState$<init>(net.corda.core.contracts.UniqueIdentifier, kotlin.collections.Set((net.corda.core.identity.AbstractParty)))/_participants">_participants</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code><br/>
+<code><span class="identifier">LinearState</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.schemas.CommonSchemaV1.LinearState$<init>(kotlin.collections.MutableSet((net.corda.core.identity.AbstractParty)), kotlin.String, java.util.UUID)/participants">participants</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-set/index.html"><span class="identifier">MutableSet</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.core.schemas.CommonSchemaV1.LinearState$<init>(kotlin.collections.MutableSet((net.corda.core.identity.AbstractParty)), kotlin.String, java.util.UUID)/externalId">externalId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.schemas.CommonSchemaV1.LinearState$<init>(kotlin.collections.MutableSet((net.corda.core.identity.AbstractParty)), kotlin.String, java.util.UUID)/uuid">uuid</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="external-id.html">externalId</a></h4>
+</td>
+<td>
+<p>Represents a <a href="../../../net.corda.core.contracts/-unique-identifier/index.html">LinearState</a></p>
+<code><span class="keyword">var </span><span class="identifier">externalId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="participants.html">participants</a></h4>
+</td>
+<td>
+<p>X500Name of participant parties</p>
+<code><span class="keyword">var </span><span class="identifier">participants</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-set/index.html"><span class="identifier">MutableSet</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="uuid.html">uuid</a></h4>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">uuid</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

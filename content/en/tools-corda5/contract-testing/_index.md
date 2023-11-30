@@ -95,18 +95,17 @@ public void negativePath() {
         .addCommand(new MyContract.MyCommand())
         .addSignatories(List.of(bankAKey, bankBKey, notaryKey))
         .toSignedTransaction();
-    // Validate that the output transaction fails with a specific validation error message 
+    // Validate that the output transaction fails with a specific validation error message
     assertFailsWith(transaction, "Validation message here");
 }
 ```
 
-The `assertFailsWith` function tests for unhappy-path contract tests. The `assertFailsWith` method tests if the 
+The `assertFailsWith` function tests for unhappy-path contract tests. The `assertFailsWith` method tests if the
 exact string of the error message matches the expected message. To test if the string of the error message contains a substring, use the `assertFailsWithMessageContaining` function using the same arguments.
 
 ## Examples
 
 The CSDE contains Contract Testing examples in the following locations:
-
 * [CSDE-cordapp-template-kotlin repository](https://github.com/corda/CSDE-cordapp-template-kotlin/tree/release/corda-5-0) - `contracts/src/test/kotlin/com/r3/developers`
 * [CSDE-cordapp-template-java repository](https://github.com/corda/CSDE-cordapp-template-java/tree/release/corda-5-0) - `contracts/src/test/java/com/r3/developers`
 

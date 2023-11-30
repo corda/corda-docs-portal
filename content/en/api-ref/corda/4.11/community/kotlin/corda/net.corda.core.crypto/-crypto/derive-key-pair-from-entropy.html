@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Crypto.deriveKeyPairFromEntropy - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="index.html">Crypto</a>&nbsp;/&nbsp;<a href="./derive-key-pair-from-entropy.html">deriveKeyPairFromEntropy</a><br/>
+<br/>
+<h1>deriveKeyPairFromEntropy</h1>
+<a name="net.corda.core.crypto.Crypto$deriveKeyPairFromEntropy(net.corda.core.crypto.SignatureScheme, java.math.BigInteger)"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">deriveKeyPairFromEntropy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$deriveKeyPairFromEntropy(net.corda.core.crypto.SignatureScheme, java.math.BigInteger)/signatureScheme">signatureScheme</span><span class="symbol">:</span>&nbsp;<a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$deriveKeyPairFromEntropy(net.corda.core.crypto.SignatureScheme, java.math.BigInteger)/entropy">entropy</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html"><span class="identifier">BigInteger</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a></code>
+<p>Returns a key pair derived from the given <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">BigInteger</a> entropy. This is useful for unit tests
+and other cases where you want hard-coded private keys.
+Currently, the following schemes are supported: <a href="-e-d-d-s-a_-e-d25519_-s-h-a512.html">EDDSA_ED25519_SHA512</a>, <a href="-e-c-d-s-a_-s-e-c-p256-r1_-s-h-a256.html">ECDSA_SECP256R1_SHA256</a> and <a href="-e-c-d-s-a_-s-e-c-p256-k1_-s-h-a256.html">ECDSA_SECP256K1_SHA256</a>.</p>
+<h3>Parameters</h3>
+<p><a name="signatureScheme"></a>
+<code>signatureScheme</code> - a supported <a href="../-signature-scheme/index.html">SignatureScheme</a>, see <a href="index.html">Crypto</a>.</p>
+<p><a name="entropy"></a>
+<code>entropy</code> - a <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">BigInteger</a> value.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - if the requested signature scheme is not supported for KeyPair generation using an entropy input.</p>
+<p><strong>Return</strong><br/>
+a new <a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a> from an entropy input.</p>
+<a name="net.corda.core.crypto.Crypto$deriveKeyPairFromEntropy(java.math.BigInteger)"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">deriveKeyPairFromEntropy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$deriveKeyPairFromEntropy(java.math.BigInteger)/entropy">entropy</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html"><span class="identifier">BigInteger</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a></code>
+<p>Returns a <a href="-d-e-f-a-u-l-t_-s-i-g-n-a-t-u-r-e_-s-c-h-e-m-e.html">DEFAULT_SIGNATURE_SCHEME</a> key pair derived from the given <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">BigInteger</a> entropy.</p>
+<h3>Parameters</h3>
+<p><a name="entropy"></a>
+<code>entropy</code> - a <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">BigInteger</a> value.</p>
+<p><strong>Return</strong><br/>
+a new <a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a> from an entropy input.</p>
+</BODY>
+</HTML>

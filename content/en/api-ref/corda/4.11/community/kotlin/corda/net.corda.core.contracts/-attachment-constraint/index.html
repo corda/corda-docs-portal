@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AttachmentConstraint - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="./index.html">AttachmentConstraint</a><br/>
+<br/>
+<h1>AttachmentConstraint</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">AttachmentConstraint</span></code>
+<p>Constrain which contract-code-containing attachment can be used with a <a href="../-contract/index.html">Contract</a>.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="is-satisfied-by.html">isSatisfiedBy</a></h4>
+</td>
+<td>
+<p>Returns whether the given contract attachment can be used with the <a href="../-contract-state/index.html">ContractState</a> associated with this constraint object.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">isSatisfiedBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.AttachmentConstraint$isSatisfiedBy(net.corda.core.contracts.Attachment)/attachment">attachment</span><span class="symbol">:</span>&nbsp;<a href="../-attachment/index.html"><span class="identifier">Attachment</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-always-accept-attachment-constraint/index.html">AlwaysAcceptAttachmentConstraint</a></h4>
+</td>
+<td>
+<p>An <a href="./index.html">AttachmentConstraint</a> where <a href="../-always-accept-attachment-constraint/is-satisfied-by.html">isSatisfiedBy</a> always returns true.</p>
+<code><span class="keyword">object </span><span class="identifier">AlwaysAcceptAttachmentConstraint</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AttachmentConstraint</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-automatic-hash-constraint/index.html">AutomaticHashConstraint</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><s><span class="identifier">AutomaticHashConstraint</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AttachmentConstraint</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-automatic-placeholder-constraint/index.html">AutomaticPlaceholderConstraint</a></h4>
+</td>
+<td>
+<p>This <a href="./index.html">AttachmentConstraint</a> is a convenience class that acts as a placeholder and will be automatically resolved by the platform when set
+on an output state. It is the default constraint of all output states.</p>
+<code><span class="keyword">object </span><span class="identifier">AutomaticPlaceholderConstraint</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AttachmentConstraint</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-hash-attachment-constraint/index.html">HashAttachmentConstraint</a></h4>
+</td>
+<td>
+<p>An <a href="./index.html">AttachmentConstraint</a> that verifies by hash.
+The state protected by this constraint can only be used in a transaction created with that version of the jar.
+And a receiving node will only accept it if a cordapp with that hash has (is) been deployed on the node.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">HashAttachmentConstraint</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AttachmentConstraint</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-signature-attachment-constraint/index.html">SignatureAttachmentConstraint</a></h4>
+</td>
+<td>
+<p>An <a href="./index.html">AttachmentConstraint</a> that verifies that the attachment has signers that fulfil the provided <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a>.
+See: <a href="https://docs.corda.net/api-contract-constraints.html#signature-constraints">Signature Constraints</a></p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">SignatureAttachmentConstraint</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AttachmentConstraint</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-whitelisted-by-zone-attachment-constraint/index.html">WhitelistedByZoneAttachmentConstraint</a></h4>
+</td>
+<td>
+<p>An <a href="./index.html">AttachmentConstraint</a> that verifies that the hash of the attachment is in the network parameters whitelist.
+See: <a href="../../net.corda.core.node/-network-parameters/whitelisted-contract-implementations.html">net.corda.core.node.NetworkParameters.whitelistedContractImplementations</a>
+It allows for centralized control over the cordapps that can be used.</p>
+<code><span class="keyword">object </span><span class="identifier">WhitelistedByZoneAttachmentConstraint</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AttachmentConstraint</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

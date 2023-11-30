@@ -3,7 +3,7 @@ date: '2020-04-07T12:00:00Z'
 description: "Documentation for the 4.10 Enterprise Edition release of Corda"
 menu:
   versions:
-    weight: -648
+    weight: -700
   corda-enterprise-4-10:
     identifier: about-corda-landing-4-10-enterprise
     weight: -30
