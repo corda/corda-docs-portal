@@ -4,27 +4,27 @@
 <ul>
     {{ range $key, $value := $refjson.properties }}
     {{ with $value }}
-    <ul>
-        {{ partial "field-desc-ref-docs" (dict "value" $value "key" $key "url" $.Params.url) }}
         <ul>
+            {{ partial "field-desc-ref-docs" (dict "value" $value "key" $key "url" $.Params.url) }}
+            <ul>
             {{/*Check if there is a value at a second level*/}}
             {{ range $childk, $childv := $value.properties }}
-            {{ with $childv }}
-            {{ partial "field-desc-ref-docs" (dict "value" $childv "key" $childk "url" $.Params.url) }}
-            {{/*Check if there is a value at a third level*/}}
-            {{ range $childk2, $childv2 := $childv.properties }}
-            {{ with $childv2 }}
-            <ul>{{ partial "field-desc-ref-docs" (dict "value" $childv2 "key" $childk2 "url" $.Params.url) }}</ul>
-            {{ end }}
-            {{ end }}
-            {{ end }}
+                {{ with $childv }}
+                    {{ partial "field-desc-ref-docs" (dict "value" $childv "key" $childk "url" $.Params.url) }}
+                    {{/*Check if there is a value at a third level*/}}
+                    {{ range $childk2, $childv2 := $childv.properties }}
+                    {{ with $childv2 }}
+                        <ul>{{ partial "field-desc-ref-docs" (dict "value" $childv2 "key" $childk2 "url" $.Params.url) }}</ul>
+                        {{ end }}
+                    {{ end }}   
+                {{ end }}
             {{ end }}
             {{/*Check if there is a conditional set of values at the top level of values*/}}
             {{ with $value.allOf }}
-            {{ partial "conditional-field-desc-ref-docs" (dict "value" $value "url" $.Params.url) }}
+                {{ partial "conditional-field-desc-ref-docs" (dict "value" $value "url" $.Params.url) }}
             {{ end }}
+            </ul>      
         </ul>
-    </ul>
     {{ end }}
     {{ end }}
 </ul>

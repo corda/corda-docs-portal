@@ -34,7 +34,7 @@ The Corda platform documentation covers the following current versions of the Co
 | **Corda 5**                                 | [Corda 5.1](../platform/corda/5.1.html)                                               |
 |                                             | [Corda 5.0](../platform/corda/5.0.html)                                               |
 | **Corda 4 Enterprise**                      | [Corda Enterprise 4.11](../platform/corda/4.11/enterprise.html)                        |
-|                                             | [Corda Enterprise 4.10](../platform/corda/4.10/enterprise.html)                        |
+| **Corda 4 Enterprise**                      | [Corda Enterprise 4.10](../platform/corda/4.10/enterprise.html)                       |
 |                                             | [Corda Enterprise 4.9](../platform/corda/4.9/enterprise.html)                         |
 |                                             | [Corda Enterprise 4.8](../platform/corda/4.8/enterprise.html)                         |
 |                                             | [Corda Enterprise 4.7](../platform/corda/4.7/enterprise.html)                         |

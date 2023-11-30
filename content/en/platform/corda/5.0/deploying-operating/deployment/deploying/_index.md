@@ -480,29 +480,14 @@ config:
 * `<vault-token>` — the token that Corda uses for accessing Vault. This must allow sufficient permissions to read from Vault at the Corda configured paths and also write to the `<path-to-corda-created-secrets>`. This requires your Vault administrator to grant more permissions than typically given to applications using Vault, but only for writing to one specific path. This is necessary to allow Corda to save encrypted database user passwords for the databases created for every new virtual node.
 * `createdSecretPath` — the path on Vault where Corda writes new secrets. Secrets should be created at a point in the hierarchy that is specific to that particular Corda deployment, keeping keys for different Corda deployments separate.
 
-<<<<<<< HEAD
 R3 recommends injecting Vault secrets into Kubernetes pods using a sidecar technique. For more information, see the HashiCorp Vault Developer documentation. This provides a private channel for Corda worker containers to another container which in turn securely authenticates with Vault.
 
-=======
-<<<<<<< HEAD
-=======
-R3 recommends injecting Vault secrets into Kubernetes pods using a sidecar technique. For more information, see the HashiCorp Vault Developer documentation. This provides a private channel for Corda worker containers to another container which in turn securely authenticates with Vault.
-
->>>>>>> 142f08943037c8bd5fa80277e548a93bbf23532a
->>>>>>> release/platform/4.11
 The passwords for the `RBAC` and `CRYPTO` schemas and `VNODES` database must be available in Vault before Corda is deployed. These must be available in the Vault path specified by `createdSecretPath`, under the keys `rbac`, `crypto`, and `vnodes` respectively.
 {{< note >}}
 These keys are not tied to the schema names. If the schema names change, the key names remain `rbac`, `crypto`, and `vnodes`.
 {{< /note >}}
-<<<<<<< HEAD
-Additionally, a passphrase and salt for the Corda [wrapping keys]({{< relref "../../../key-concepts/cluster-admin/_index.md#key-management" >}}) must be added to the Vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
-=======
-<<<<<<< HEAD
+
 Additionally, a passphrase and salt for the Corda [wrapping keys]({{< relref "../../../key-concepts/cluster-admin/_index.md#key-management" >}}) must be added to the vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
-=======
-Additionally, a passphrase and salt for the Corda [wrapping keys]({{< relref "../../../key-concepts/cluster-admin/_index.md#key-management" >}}) must be added to the Vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
->>>>>>> 142f08943037c8bd5fa80277e548a93bbf23532a
->>>>>>> release/platform/4.11
 
 ### Bootstrapping
 
@@ -663,17 +648,10 @@ For example, when running with Red Hat OpenShift Container Platform, you must us
 3. In the configuration YAML for the Corda deployment, specify the service account to be used:
 
    ```yaml
-<<<<<<< HEAD
    serviceAccount:
       name: "corda-privileged"
    bootstrap:
      serviceAccount:
-=======
-   serviceAccount:
-      name: "corda-privileged"
-   bootstrap:
-     serviceAccount:
->>>>>>> release/platform/4.11
         name: "corda-privileged"
    ```
 
