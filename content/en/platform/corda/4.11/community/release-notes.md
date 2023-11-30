@@ -132,8 +132,6 @@ This release includes the following fixes since 4.10.3:
 
 ## Database schema changes
 
-For a complete description of all database tables, see [Database tables]({{< relref "node/operating/node-database-tables.html" >}}).
-
 The following database changes have been applied:
 
 * The `vault_state` table now includes a `consuming_tx_id` column. The new column was added in the following migration script: `vault-schema.changelog-v14.xml`.
@@ -196,20 +194,6 @@ The following database changes have been applied:
 
           @Column(name = "timestamp_discriminator", nullable = false)
           var timestampDiscriminator: Int
-
-          @Enumerated(EnumType.ORDINAL)
-          @Column(name = "key_type", nullable = false)
-          var keyType: KeyType = CI,
-
-          @Column(name = "crypto_config_hash", length = MAX_HASH_HEX_SIZE, nullable = true)
-          var cryptoConfigHash: String? = null,
-
-          @Enumerated(EnumType.ORDINAL)
-          @Column(name = "status", nullable = false)
-          var status: Status = CREATED,
-
-          @Column(name = "generate_tm", nullable = false)
-          var insertionDate: Instant = Instant.now()
   )
   ```
 

@@ -177,6 +177,8 @@ for traffic load balancers and system monitoring. To reduce log noise, we have n
 
 ## Database schema changes
 
+For a complete description of all database tables, see [Database tables]({{< relref "node/operating/node-database-tables.html" >}}).
+
 The following database changes have been applied:
 
 * The `vault_state` table now includes a `consuming_tx_id` column. The new column was added in the following migration script: `vault-schema.changelog-v14.xml`.
@@ -228,17 +230,8 @@ The following database changes have been applied:
   @Embeddable
   @Immutable
   data class PersistentKey(
-          @Column(name = "transaction_id", length = 144, nullable = false)
-          var txId: String,
 
-          @Column(name = "peer_party_id", nullable = false)
-          var peerPartyId: Long,
-
-          @Column(name = "timestamp", nullable = false)
-          var timestamp: Instant,
-
-          @Column(name = "timestamp_discriminator", nullable = false)
-          var timestampDiscriminator: Int
+          <.... existing fields not shown .... >
 
           @Enumerated(EnumType.ORDINAL)
           @Column(name = "key_type", nullable = false)
