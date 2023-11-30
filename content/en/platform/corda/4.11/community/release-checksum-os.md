@@ -15,13 +15,10 @@ Before you install the downloaded release packs, verify the integrity of each fi
 
 ## Release packs and checksums for Corda Community Edition 4.11
 
-Release pack: https://download.corda.net/corda-community-edition/4.11/community-4.11.tar
-
-MD5 checksum: https://download.corda.net/corda-community-edition/4.11/community-4.11.tar.md5
-
-ASC: https://download.corda.net/corda-community-edition/4.11/community-4.11.tar.asc
-
-SHA-256 checksum: https://download.corda.net/corda-community-edition/4.11/community-4.11.tar.sha256
+* Release pack: https://download.corda.net/corda-community-edition/4.11/community-4.11.tar
+* MD5 checksum: https://download.corda.net/corda-community-edition/4.11/community-4.11.tar.md5
+* ASC: https://download.corda.net/corda-community-edition/4.11/community-4.11.tar.asc
+* SHA-256 checksum: https://download.corda.net/corda-community-edition/4.11/community-4.11.tar.sha256
 
 ## Checksums for expanded community-4.11.tar.gz
 
