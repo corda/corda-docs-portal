@@ -22,7 +22,7 @@ Before you install the downloaded release packs, verify the integrity of each fi
 
 ## Checksums for expanded community-4.11.tar.gz
 
-### Downloads for runtime-4.11
+### Checksums for runtime-4.11
 
 * corda-4.11.jar (73 Mb / 77463253 bytes)
   * `acd58a5f1dc277d2d067588d24e7e596d4be483f` (sha1)
