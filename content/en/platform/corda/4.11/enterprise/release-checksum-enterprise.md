@@ -25,19 +25,11 @@ Before you install the downloaded packs, verify the integrity of each pack using
 The release packs and checksum files for Corda Enterprise 4.11 can be downloaded from the Customer Hub.
 
 The following release packs are available, along with their respective checksum files:
-
-* devtest-4.11.tar.gz
-
-  Required for building, developing and testing CorDapps.
-
-* runtime-4.11.tar.gz
-
-  Required to run Corda.
+* devtest-4.11.tar.gz: required for building, developing, and testing CorDapps.
+* runtime-4.11.tar.gz: required to run Corda.
 
 The following release packs are provided as optionals for external tools, SDKs, and CorDapps:
-
 * optional-sdk-4.11.tar.gz
-
 * optional-gateway-plugins-4.11.tar.gz
-
 * optional-tools-4.11.tar.gz
+
