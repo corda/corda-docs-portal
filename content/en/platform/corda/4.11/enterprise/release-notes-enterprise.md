@@ -278,7 +278,7 @@ The following database changes have been applied:
   )
   ```
 
-Pre-generation of confidential identities for Ledger Recovery introduces four new fields within the `node_our_key_pairs` table:
+  Pre-generation of confidential identities for Ledger Recovery introduces four new fields within the `node_our_key_pairs` table:
 
   ```bash
   @Entity
