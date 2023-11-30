@@ -27,7 +27,7 @@ table th:nth-of-type(5) {
 | **Corda Enterprise Edition 4.9**  | 03/2022             | 03/2024                | 03/2025             | 03/2025            |
 | **Corda Community Edition 4.9**   | 03/2022             | 03/2024                | 03/2025             | 03/2025            |
 | **Corda Enterprise Edition 4.10** | 01/2023             | 01/2025                | 01/2026             | 01/2026            |
-| **Corda Enterprise Edition 4.11** | 11/2023             | 01/2024                | 11/2026             | 11/2026            |
+| **Corda Enterprise Edition 4.11** | 11/2023             | 11/2025                | 11/2026             | 11/2026            |
 | **Corda Community Edition 4.10**  | 01/2023             | 01/2025                | 01/2026             | 01/2026            |
-| **Corda Community Edition 4.11**  | 11/2023             | 11/2024                | 11/2026             | 11/2026            |
+| **Corda Community Edition 4.11**  | 11/2023             | 11/2025                | 11/2026             | 11/2026            |
 
