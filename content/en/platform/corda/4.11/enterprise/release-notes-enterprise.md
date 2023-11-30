@@ -33,6 +33,10 @@ Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
 
 ### Ledger Recovery
 
+Ledger Recovery was introduced as part of the Corda 4.11 release. It complements a standardised Corda network operational backup and recovery process.
+
+For more information, see [Ledger Recovery]({{< relref "node/collaborative-recovery/ledger-recovery/overview.md" >}}).
+
 #### Two Phase Finality
 
 Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and
@@ -53,7 +57,7 @@ For more information, see [Finality Flow Recovery]({{< relref "finality-flow-rec
 A new ledger recovery flow (`LedgerRecoveryFlow`) enables a node to identify and recover transactions from
 peer recovery nodes to which it was a party (either initiator or receiver) and which are missing from its own ledger.
 
-For more information, see [Ledger Recovery]({{< relref "node/collaborative-recovery/ledger-recovery/overview.md" >}}).
+For more information, see [Ledger Recovery flow parameters]({{< relref "node/collaborative-recovery/ledger-recovery/ledger-recovery-flow.md" >}}).
 
 #### Confidential Identity key-pair generator
 
