@@ -20,9 +20,11 @@ This section describes how to upgrade a Corda cluster from 5.0 to {{< version-nu
 5. [Update the Database Connection Configuration Table](#update-the-database-connection-configuration-table)
 6. [Migrate the Virtual Node Databases](#migrate-the-virtual-node-databases)
 7. [Update Kafka Topics](#update-kafka-topics)
-8. [Launch the Corda {{< version-num >}} Workers](#launch-the-corda-workers) 
+8. [Launch the Corda {{< version-num >}} Workers](#launch-the-corda-workers)
 
 For information about how to roll back an upgrade, see [Rolling Back]({{< relref "rolling-back.md" >}}).
+
+Following a platform upgrade, Network Operators should upgrade their networks. For more information, see [Upgrading an Application Network]({{< relref "../../../application-networks/upgrading/_index.md" >}}).
 
 ## Prerequisites
 
