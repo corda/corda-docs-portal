@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>JacksonSupport.IdentityObjectMapper - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.client.jackson</a>&nbsp;/&nbsp;<a href="../index.html">JacksonSupport</a>&nbsp;/&nbsp;<a href="./index.html">IdentityObjectMapper</a><br/>
+<br/>
+<h1>IdentityObjectMapper</h1>
+<code><span class="keyword">class </span><s><span class="identifier">IdentityObjectMapper</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">PartyObjectMapper</span><span class="symbol">, </span><span class="identifier">ObjectMapper</span></code><br/>
+<strong>Deprecated:</strong> This is an internal class, do not use<br/>
+<br/>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">IdentityObjectMapper</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.jackson.JacksonSupport.IdentityObjectMapper$<init>(net.corda.core.node.services.IdentityService, com.fasterxml.jackson.core.JsonFactory, kotlin.Boolean, kotlin.Boolean)/identityService">identityService</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.node.services/-identity-service/index.html"><span class="identifier">IdentityService</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.jackson.JacksonSupport.IdentityObjectMapper$<init>(net.corda.core.node.services.IdentityService, com.fasterxml.jackson.core.JsonFactory, kotlin.Boolean, kotlin.Boolean)/factory">factory</span><span class="symbol">:</span>&nbsp;<a href="https://fasterxml.github.io/jackson-core/javadoc/2.9/com/fasterxml/jackson/core/JsonFactory.html"><span class="identifier">JsonFactory</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.jackson.JacksonSupport.IdentityObjectMapper$<init>(net.corda.core.node.services.IdentityService, com.fasterxml.jackson.core.JsonFactory, kotlin.Boolean, kotlin.Boolean)/fuzzyIdentityMatch">fuzzyIdentityMatch</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.jackson.JacksonSupport.IdentityObjectMapper$<init>(net.corda.core.node.services.IdentityService, com.fasterxml.jackson.core.JsonFactory, kotlin.Boolean, kotlin.Boolean)/isFullParties">isFullParties</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="fuzzy-identity-match.html">fuzzyIdentityMatch</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">fuzzyIdentityMatch</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="identity-service.html">identityService</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">identityService</span><span class="symbol">: </span><a href="../../../net.corda.core.node.services/-identity-service/index.html"><span class="identifier">IdentityService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-full-parties.html">isFullParties</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">isFullParties</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="node-info-from-party.html">nodeInfoFromParty</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">nodeInfoFromParty</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.jackson.JacksonSupport.IdentityObjectMapper$nodeInfoFromParty(net.corda.core.identity.AbstractParty)/party">party</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../../net.corda.core.node/-node-info/index.html"><span class="identifier">NodeInfo</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="parties-from-name.html">partiesFromName</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">partiesFromName</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.jackson.JacksonSupport.IdentityObjectMapper$partiesFromName(kotlin.String)/query">query</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="party-from-key.html">partyFromKey</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">partyFromKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.jackson.JacksonSupport.IdentityObjectMapper$partyFromKey(java.security.PublicKey)/owningKey">owningKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="well-known-party-from-x500-name.html">wellKnownPartyFromX500Name</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">wellKnownPartyFromX500Name</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.jackson.JacksonSupport.IdentityObjectMapper$wellKnownPartyFromX500Name(net.corda.core.identity.CordaX500Name)/name">name</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowRPCOps.recoverAllFinalityFlows - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc.proxy</a>&nbsp;/&nbsp;<a href="index.html">FlowRPCOps</a>&nbsp;/&nbsp;<a href="./recover-all-finality-flows.html">recoverAllFinalityFlows</a><br/>
+<br/>
+<h1>recoverAllFinalityFlows</h1>
+<a name="net.corda.client.rpc.proxy.FlowRPCOps$recoverAllFinalityFlows(kotlin.Boolean)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">recoverAllFinalityFlows</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.FlowRPCOps$recoverAllFinalityFlows(kotlin.Boolean)/forceRecover">forceRecover</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><span class="identifier">StateMachineRunId</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span></code>
+<p>Recover all failed finality flows as determined by associated status.
+Specifically,
+FlowState.FAILED
+TransactionStatus.IN_FLIGHT
+<a href="recover-all-finality-flows.html#net.corda.client.rpc.proxy.FlowRPCOps$recoverAllFinalityFlows(kotlin.Boolean)/forceRecover">forceRecover</a> will also attempt to</p>
+<ul><li>recover flows which are in a RUNNABLE, PAUSED or HOSPITALIZED state.</li>
+<li>recover issuance transactions which finalised locally but failed to propagate to observer peers.</li>
+</ul>
+<p><strong>Return</strong><br/>
+map of identified failed flows and whether they were successfully recovered.</p>
+</BODY>
+</HTML>

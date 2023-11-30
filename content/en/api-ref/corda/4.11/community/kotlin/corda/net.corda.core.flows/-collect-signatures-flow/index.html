@@ -1,0 +1,173 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CollectSignaturesFlow - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="./index.html">CollectSignaturesFlow</a><br/>
+<br/>
+<h1>CollectSignaturesFlow</h1>
+<code><span class="keyword">class </span><span class="identifier">CollectSignaturesFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">&gt;</span></code>
+<p>The <a href="./index.html">CollectSignaturesFlow</a> is used to automate the collection of counterparty signatures for a given transaction.</p>
+<p>You would typically use this flow after you have built a transaction with the TransactionBuilder and signed it with
+your key pair. If there are additional signatures to collect then they can be collected using this flow. Signatures
+are collected based upon the <a href="../../net.corda.core.transactions/-wire-transaction/required-signing-keys.html">WireTransaction.requiredSigningKeys</a> property which contains the union of all the PublicKeys
+listed in the transaction's commands as well as a notary's public key, if required. This flow returns a
+<a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a> which can then be passed to the <a href="../-finality-flow/index.html">FinalityFlow</a> for notarisation. The other side of this flow is
+the <a href="../-sign-transaction-flow/index.html">SignTransactionFlow</a>.</p>
+<p><strong>WARNING</strong>: This flow ONLY works with <a href="#">ServiceHub.legalIdentityKey</a>s and WILL break if used with randomly generated
+keys by the <a href="../../net.corda.core.node/-service-hub/key-management-service.html">ServiceHub.keyManagementService</a>.</p>
+<p>Usage:</p>
+<ul><li>Call the <a href="./index.html">CollectSignaturesFlow</a> flow as a <a href="../-flow-logic/sub-flow.html">subFlow</a> and pass it a <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a> which has at least been
+signed by the transaction creator (and possibly an oracle, if required)</li>
+<li>The flow expects that the calling node has signed the provided transaction, if not the flow will fail</li>
+<li>The flow will also fail if:</li>
+</ul>
+<ol><li>The provided transaction is invalid</li>
+<li>Any of the required signing parties cannot be found in the <a href="../../net.corda.core.node/-service-hub/network-map-cache.html">ServiceHub.networkMapCache</a> of the initiator</li>
+<li>If the wrong key has been used by a counterparty to sign the transaction</li>
+<li>The counterparty rejects the provided transaction</li>
+</ol>
+<ul><li>The flow will return a <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a> with all the counterparty signatures (but not the notary's!)</li>
+<li>If the provided transaction has already been signed by all counterparties then this flow simply returns the
+provided transaction without contacting any counterparties</li>
+<li>Call the <a href="../-finality-flow/index.html">FinalityFlow</a> with the return value of this flow</li>
+</ul>
+<p>Example - issuing a multi-lateral agreement which requires N signatures:</p>
+<pre><code>    val builder = TransactionBuilder(notaryRef)
+    val issueCommand = Command(Agreement.Commands.Issue(), state.participants)
+
+    builder.withItems(state, issueCommand)
+    builder.toWireTransaction().toLedgerTransaction(serviceHub).verify()
+
+    // Transaction creator signs transaction.
+    val ptx = serviceHub.signInitialTransaction(builder)
+
+    // Call to CollectSignaturesFlow.
+    // The returned signed transaction will have all signatures appended apart from the notary's.
+    val stx = subFlow(CollectSignaturesFlow(ptx))</code></pre>
+<h3>Parameters</h3>
+<p><a name="partiallySignedTx"></a>
+<code>partiallySignedTx</code> - Transaction to collect the remaining signatures for</p>
+<p><a name="sessionsToCollectFrom"></a>
+<code>sessionsToCollectFrom</code> - A session for every party we need to collect a signature from.  Must be an exact match.</p>
+<p><a name="myOptionalKeys"></a>
+<code>myOptionalKeys</code> - set of keys in the transaction which are owned by this node. This includes keys used on commands, not
+just in the states. If null, the default well known identity of the node is used.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-c-o-l-l-e-c-t-i-n-g.html">COLLECTING</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">COLLECTING</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-v-e-r-i-f-y-i-n-g.html">VERIFYING</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">VERIFYING</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">CollectSignaturesFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.CollectSignaturesFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), net.corda.core.utilities.ProgressTracker)/partiallySignedTx">partiallySignedTx</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.CollectSignaturesFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), net.corda.core.utilities.ProgressTracker)/sessionsToCollectFrom">sessionsToCollectFrom</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.CollectSignaturesFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), net.corda.core.utilities.ProgressTracker)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a>&nbsp;<span class="symbol">=</span>&nbsp;CollectSignaturesFlow.tracker()<span class="symbol">)</span></code>
+<p>The <a href="./index.html">CollectSignaturesFlow</a> is used to automate the collection of counterparty signatures for a given transaction.</p>
+<code><span class="identifier">CollectSignaturesFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.CollectSignaturesFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), kotlin.collections.Iterable((java.security.PublicKey)), net.corda.core.utilities.ProgressTracker)/partiallySignedTx">partiallySignedTx</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.CollectSignaturesFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), kotlin.collections.Iterable((java.security.PublicKey)), net.corda.core.utilities.ProgressTracker)/sessionsToCollectFrom">sessionsToCollectFrom</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.CollectSignaturesFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), kotlin.collections.Iterable((java.security.PublicKey)), net.corda.core.utilities.ProgressTracker)/myOptionalKeys">myOptionalKeys</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.CollectSignaturesFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), kotlin.collections.Iterable((java.security.PublicKey)), net.corda.core.utilities.ProgressTracker)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a>&nbsp;<span class="symbol">=</span>&nbsp;CollectSignaturesFlow.tracker()<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="my-optional-keys.html">myOptionalKeys</a></h4>
+</td>
+<td>
+<p>set of keys in the transaction which are owned by this node. This includes keys used on commands, not
+just in the states. If null, the default well known identity of the node is used.</p>
+<code><span class="keyword">val </span><span class="identifier">myOptionalKeys</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="partially-signed-tx.html">partiallySignedTx</a></h4>
+</td>
+<td>
+<p>Transaction to collect the remaining signatures for</p>
+<code><span class="keyword">val </span><span class="identifier">partiallySignedTx</span><span class="symbol">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="progress-tracker.html">progressTracker</a></h4>
+</td>
+<td>
+<p>Override this to provide a <a href="../../net.corda.core.utilities/-progress-tracker/index.html">ProgressTracker</a>. If one is provided and stepped, the framework will do something
+helpful with the progress reports e.g record to the audit service. If this flow is invoked as a subflow of another,
+then the tracker will be made a child of the current step in the parent. If it's null, this flow doesn't track
+progress.</p>
+<code><span class="keyword">val </span><span class="identifier">progressTracker</span><span class="symbol">: </span><a href="../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="sessions-to-collect-from.html">sessionsToCollectFrom</a></h4>
+</td>
+<td>
+<p>A session for every party we need to collect a signature from.  Must be an exact match.</p>
+<code><span class="keyword">val </span><span class="identifier">sessionsToCollectFrom</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="call.html">call</a></h4>
+</td>
+<td>
+<p>This is where you fill out your business logic.</p>
+<code><span class="keyword">fun </span><span class="identifier">call</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="tracker.html">tracker</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">tracker</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.testing.flows/receive-all.html">receiveAll</a></h4>
+</td>
+<td>
+<p>Suspends until a message has been received for each session in the specified <a href="../../net.corda.testing.flows/receive-all.html#net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))), kotlin.Array((kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))))))/sessions">sessions</a>.</p>
+<code><span class="keyword">fun </span><a href="../-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">receiveAll</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))), kotlin.Array((kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))))))/session">session</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">,</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))), kotlin.Array((kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))))))/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">,</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">,</span>&nbsp;<a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="../-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">receiveAll</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), java.lang.Class((net.corda.testing.flows.receiveAll.R)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/receiveType">receiveType</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), java.lang.Class((net.corda.testing.flows.receiveAll.R)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/session">session</span><span class="symbol">:</span>&nbsp;<a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), java.lang.Class((net.corda.testing.flows.receiveAll.R)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="../-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">receiveAll</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/session">session</span><span class="symbol">:</span>&nbsp;<a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

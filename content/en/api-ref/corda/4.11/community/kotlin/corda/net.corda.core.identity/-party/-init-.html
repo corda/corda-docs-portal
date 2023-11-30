@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Party.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.identity</a>&nbsp;/&nbsp;<a href="index.html">Party</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.core.identity.Party$&lt;init&gt;(java.security.cert.X509Certificate)"></a>
+<code><span class="identifier">Party</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity.Party$<init>(java.security.cert.X509Certificate)/certificate">certificate</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">)</span></code><a name="net.corda.core.identity.Party$&lt;init&gt;(net.corda.core.identity.CordaX500Name, java.security.PublicKey)"></a>
+<code><span class="identifier">Party</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity.Party$<init>(net.corda.core.identity.CordaX500Name, java.security.PublicKey)/name">name</span><span class="symbol">:</span>&nbsp;<a href="../-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.identity.Party$<init>(net.corda.core.identity.CordaX500Name, java.security.PublicKey)/owningKey">owningKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span></code>
+<p>The <a href="index.html">Party</a> class represents an entity on the network, which is typically identified by a legal <a href="name.html">name</a> and public key
+that it can sign transactions under. As parties may use multiple keys for signing and, for example, have offline backup
+keys, the "public key" of a party can be represented by a composite construct – a <a href="../../net.corda.core.crypto/-composite-key/index.html">CompositeKey</a>, which combines multiple
+cryptographic public key primitives into a tree structure.</p>
+<p>For example: Alice has two key pairs (pub1/priv1 and pub2/priv2), and wants to be able to sign transactions with either of them.
+Her advertised <a href="index.html">Party</a> then has a legal X.500 <a href="name.html">name</a> "CN=Alice Corp,O=Alice Corp,L=London,C=GB" and an <a href="../-abstract-party/owning-key.html">owningKey</a>
+"pub1 or pub2".</p>
+<p><a href="index.html">Party</a> is also used for service identities. E.g. Alice may also be running an interest rate oracle on her Corda node,
+which requires a separate signing key (and an identifying name). Services can also be distributed – run by a coordinated
+cluster of Corda nodes. A <a href="index.html">Party</a> representing a distributed service will use a composite key containing all
+individual cluster nodes' public keys. Each of the nodes in the cluster will advertise the same group <a href="index.html">Party</a>.</p>
+<p>Note that equality is based solely on the owning key.</p>
+<h3>Flow sessions</h3>
+<p>Communication with other parties is done using the flow framework with the <a href="../../net.corda.core.flows/-flow-logic/initiate-flow.html">FlowLogic.initiateFlow</a> method. Message routing is done by
+using the network map to look up the connectivity details pertaining to the <a href="index.html">Party</a>.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="../../net.corda.core.crypto/-composite-key/index.html">CompositeKey</a></p>
+</p>
+</BODY>
+</HTML>
