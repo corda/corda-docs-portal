@@ -228,7 +228,7 @@ The following database changes have been applied:
 
 {{< note >}}
 The recovery flows that take advantage of this new protocol are present only in the Corda Enterprise edition.
-{{< note >}}
+{{< /note >}}
 
 ## Third party component upgrades
 
