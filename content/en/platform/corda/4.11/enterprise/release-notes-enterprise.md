@@ -31,7 +31,9 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
 
-### Two Phase Finality
+### Ledger Recovery
+
+#### Two Phase Finality
 
 Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and
 recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this
@@ -39,26 +41,26 @@ new improved protocol.
 
 For more information, see [Two Phase Finality]({{< relref "two-phase-finality.md" >}}).
 
-### Finality Recovery Tooling
+#### Finality Recovery Tooling
 
 RPC extension operations (additions to the FlowRPCOps interface) which allow for Finality Flow recovery by both the initiator and the receiver(s).
 Also, Node Shell commands now allow operations teams to perform Finality Flow recovery.
 
 For more information, see [Finality Flow Recovery]({{< relref "finality-flow-recovery.md" >}})
 
-### Ledger Recovery
+#### Ledger Recovery flow
 
 A new ledger recovery flow (`LedgerRecoveryFlow`) enables a node to identify and recover transactions from
 peer recovery nodes to which it was a party (either initiator or receiver) and which are missing from its own ledger.
 
 For more information, see [Ledger Recovery]({{< relref "node/collaborative-recovery/ledger-recovery/overview.md" >}}).
 
-### Confidential Identity key-pair generator
+#### Confidential Identity key-pair generator
 
 A new service has been added that pregenerates Confidential Identity keys to be used when using CIs in transactions.
 These pre-generated CIs are subsequently used for backup recovery purposes.
 
-### Additional Network Parameters
+#### Additional Network Parameters
 
 The following network parameters, and associated node configuration parameters, have been added:
 
@@ -67,7 +69,7 @@ The following network parameters, and associated node configuration parameters, 
 
 For more information, see [Available Network Parameters]({{< relref "network/available-network-parameters.md" >}}).
 
-### Distribution record cleanup
+#### Distribution record cleanup
 
 A new maintenance job `DistributionRecordCleanupTask` has been added. This removes ledger recovery distribution records that are older than the `recoveryMaximumBackupInterval` network parameter, and which are no longer needed.
 
