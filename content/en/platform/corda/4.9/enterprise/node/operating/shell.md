@@ -147,7 +147,7 @@ Where:
 
 You can install the shell in your node in two different ways:
 
-* Download the `corda-shell` JAR from the [Artifactory](https://software.r3.com/ui/native/r3-corda-releases/com/r3/corda/corda-shell/) and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node.
+* [Download](https://download.corda.net/maven/corda-releases/net/corda/corda-shell/4.9/corda-shell-4.9.jar) the `corda-shell` JAR from Maven and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node.
 By default, a Corda node does not run the shell.
 
 * When using `cordaformation`, the shell can be included in the generated nodes by adding the following in the `dependencies` block. The `dependencies` block must be in the same `build.gradle` file as the `deployNodes` task:

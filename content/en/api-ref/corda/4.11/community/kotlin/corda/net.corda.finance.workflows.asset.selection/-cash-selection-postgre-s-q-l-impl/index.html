@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CashSelectionPostgreSQLImpl - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.finance.workflows.asset.selection</a>&nbsp;/&nbsp;<a href="./index.html">CashSelectionPostgreSQLImpl</a><br/>
+<br/>
+<h1>CashSelectionPostgreSQLImpl</h1>
+<code><span class="keyword">class </span><span class="identifier">CashSelectionPostgreSQLImpl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-abstract-cash-selection/index.html"><span class="identifier">AbstractCashSelection</span></a></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">CashSelectionPostgreSQLImpl</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="execute-query.html">executeQuery</a></h4>
+</td>
+<td>
+<p>A vendor specific query(ies) to gather Cash states that are available.</p>
+<code><span class="keyword">fun </span><span class="identifier">executeQuery</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.workflows.asset.selection.CashSelectionPostgreSQLImpl$executeQuery(java.sql.Connection, net.corda.core.contracts.Amount((java.util.Currency)), java.util.UUID, net.corda.core.identity.Party, kotlin.collections.Set((net.corda.core.identity.AbstractParty)), kotlin.collections.Set((net.corda.core.utilities.OpaqueBytes)), kotlin.Function1((java.sql.ResultSet, kotlin.Boolean)))/connection">connection</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/sql/Connection.html"><span class="identifier">Connection</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.asset.selection.CashSelectionPostgreSQLImpl$executeQuery(java.sql.Connection, net.corda.core.contracts.Amount((java.util.Currency)), java.util.UUID, net.corda.core.identity.Party, kotlin.collections.Set((net.corda.core.identity.AbstractParty)), kotlin.collections.Set((net.corda.core.utilities.OpaqueBytes)), kotlin.Function1((java.sql.ResultSet, kotlin.Boolean)))/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.asset.selection.CashSelectionPostgreSQLImpl$executeQuery(java.sql.Connection, net.corda.core.contracts.Amount((java.util.Currency)), java.util.UUID, net.corda.core.identity.Party, kotlin.collections.Set((net.corda.core.identity.AbstractParty)), kotlin.collections.Set((net.corda.core.utilities.OpaqueBytes)), kotlin.Function1((java.sql.ResultSet, kotlin.Boolean)))/lockId">lockId</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.asset.selection.CashSelectionPostgreSQLImpl$executeQuery(java.sql.Connection, net.corda.core.contracts.Amount((java.util.Currency)), java.util.UUID, net.corda.core.identity.Party, kotlin.collections.Set((net.corda.core.identity.AbstractParty)), kotlin.collections.Set((net.corda.core.utilities.OpaqueBytes)), kotlin.Function1((java.sql.ResultSet, kotlin.Boolean)))/notary">notary</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.asset.selection.CashSelectionPostgreSQLImpl$executeQuery(java.sql.Connection, net.corda.core.contracts.Amount((java.util.Currency)), java.util.UUID, net.corda.core.identity.Party, kotlin.collections.Set((net.corda.core.identity.AbstractParty)), kotlin.collections.Set((net.corda.core.utilities.OpaqueBytes)), kotlin.Function1((java.sql.ResultSet, kotlin.Boolean)))/onlyFromIssuerParties">onlyFromIssuerParties</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.asset.selection.CashSelectionPostgreSQLImpl$executeQuery(java.sql.Connection, net.corda.core.contracts.Amount((java.util.Currency)), java.util.UUID, net.corda.core.identity.Party, kotlin.collections.Set((net.corda.core.identity.AbstractParty)), kotlin.collections.Set((net.corda.core.utilities.OpaqueBytes)), kotlin.Function1((java.sql.ResultSet, kotlin.Boolean)))/withIssuerRefs">withIssuerRefs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.asset.selection.CashSelectionPostgreSQLImpl$executeQuery(java.sql.Connection, net.corda.core.contracts.Amount((java.util.Currency)), java.util.UUID, net.corda.core.identity.Party, kotlin.collections.Set((net.corda.core.identity.AbstractParty)), kotlin.collections.Set((net.corda.core.utilities.OpaqueBytes)), kotlin.Function1((java.sql.ResultSet, kotlin.Boolean)))/withResultSet">withResultSet</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://docs.oracle.com/javase/8/docs/api/java/sql/ResultSet.html"><span class="identifier">ResultSet</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-compatible.html">isCompatible</a></h4>
+</td>
+<td>
+<p>Upon dynamically loading configured Cash Selection algorithms declared in META-INF/services
+this method determines whether the loaded implementation is compatible and usable with the currently
+loaded JDBC driver.
+Note: the first loaded implementation to pass this check will be used at run-time.</p>
+<code><span class="keyword">fun </span><span class="identifier">isCompatible</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.workflows.asset.selection.CashSelectionPostgreSQLImpl$isCompatible(java.sql.DatabaseMetaData)/metadata">metadata</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/sql/DatabaseMetaData.html"><span class="identifier">DatabaseMetaData</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-j-d-b-c_-d-r-i-v-e-r_-n-a-m-e.html">JDBC_DRIVER_NAME</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">JDBC_DRIVER_NAME</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

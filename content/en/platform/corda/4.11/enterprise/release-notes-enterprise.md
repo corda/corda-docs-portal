@@ -33,28 +33,49 @@ Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
 
 ### Ledger Recovery
 
+Ledger Recovery was introduced as part of the Corda 4.11 release. It complements a standardised Corda network operational backup and recovery process.
+
+For more information, see [Ledger Recovery]({{< relref "node/collaborative-recovery/ledger-recovery/overview.md" >}}).
+
+#### Two Phase Finality
+
+Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and
+recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this
+new improved protocol.
+
+For more information, see [Two Phase Finality]({{< relref "two-phase-finality.md" >}}).
+
+#### Finality Recovery Tooling
+
+RPC extension operations (additions to the FlowRPCOps interface) that allow for Finality Flow recovery by both the initiator and the receiver(s) have been added.
+Also, Node Shell commands now allow operations teams to perform Finality Flow recovery.
+
+For more information, see [Finality Flow Recovery]({{< relref "finality-flow-recovery.md" >}})
+
+#### Ledger Recovery flow
+
 A new ledger recovery flow (`LedgerRecoveryFlow`) enables a node to identify and recover transactions from
 peer recovery nodes to which it was a party (either initiator or receiver) and which are missing from its own ledger.
 
-For more information, see [Ledger Recovery Flow]({{< relref "ledger-recovery-flow.md" >}}).
+For more information, see [Ledger Recovery flow parameters]({{< relref "node/collaborative-recovery/ledger-recovery/ledger-recovery-flow.md" >}}).
 
-### Confidential Identity key-pair generator
+#### Confidential Identity key-pair generator
 
 A new service has been added that pregenerates Confidential Identity keys to be used when using CIs in transactions.
 These pre-generated CIs are subsequently used for backup recovery purposes.
 
-### Additional Network Parameters
+#### Additional Network Parameters
 
 The following network parameters, and associated node configuration parameters, have been added:
 
 * `confidentialIdentityMinimumBackupInterval`
-* `confidentialIdentityPreGenerationPeriod`
 * `recoveryMaximumBackupInterval`
-* `transactionRecoveryPeriod`
+
+These network parameters require CENM 1.6 or later.
 
 For more information, see [Available Network Parameters]({{< relref "network/available-network-parameters.md" >}}).
 
-### Distribution record cleanup
+#### Distribution record cleanup
 
 A new maintenance job `DistributionRecordCleanupTask` has been added. This removes ledger recovery distribution records that are older than the `recoveryMaximumBackupInterval` network parameter, and which are no longer needed.
 
@@ -63,14 +84,6 @@ If the network parameter `recoveryMaximumBackupInterval` is not defined, then th
 If neither parameter is defined, then the distribution record maintenance job is disabled.
 
 For more information, see [Ledger Recovery distribution record cleanup]({{< relref "node/operating/maintenance-mode.md#ledger-recovery-distribution-record-cleanup" >}}).
-
-### Two Phase Finality
-
-Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and
-recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this
-new improved protocol.
-
-For more information, see [Two Phase Finality]({{< relref "two-phase-finality.md" >}}).
 
 ### Improved double-spend exception handling
 
@@ -81,13 +94,6 @@ Additionally, if the new optional `ReceiveFinalityFlow` `handlePropagatedNotaryE
 then the double spend error (`NotaryError.Conflict`) propagates back to the 2PF initiator. This enables the initiator to automatically remove the associated unnotarized transaction from its `DBTransaction` table.
 
 If a CorDapp is compiled against Corda 4.11 (that is, its target platform version = 13) then double spend handling is enabled by default. For more information, see [Versioning]({{< relref "cordapps/versioning.md" >}}).
-
-### Finality Recovery Tooling
-
-RPC extension operations (additions to the FlowRPCOps interface) which allow for Finality Flow recovery by both the initiator and the receiver(s).
-Also, Node Shell commands now allow operations teams to perform Finality Flow recovery.
-
-For more information, see [Finality Flow Recovery]({{< relref "finality-flow-recovery.md" >}})
 
 ### Deserializing AMQP data performance improvement
 
@@ -155,10 +161,7 @@ To reduce flow latency and improve throughput, the following default values in t
 
 ### DJVM removal
 
-The DJVM component required that all updates to Corda core were compatible with the `core-deterministic` module.
-To mitigate this issue, the experimental component DJVM has been removed from this and all future releases.
-As a result of the DJVM removal, the two constructor parameters `djvmBootstrapSource` and `djvmCordaSource` have been
-removed from the `DriverParameters` class. Any client code that utilizes `DriverParameters` now requires recompiling.
+Beta feature of the DJVM has been removed. As a result of the DJVM removal, the two constructor parameters `djvmBootstrapSource` and `djvmCordaSource` have been removed from the `DriverParameters` class. Any client code that utilizes `DriverParameters` now requires recompiling.
 
 ### Additional signature verification
 
@@ -167,76 +170,7 @@ For more information, see [DBTransactionStorage]({{< relref "node-services.html#
 
 ## Fixed issues
 
-This release includes the following fixes:
-
-* An issue has been resolved where, previously, an incorrect value for `Page.totalStatesAvailable` was returned for queries on `externalIds`, when there were external IDs mapped to multiple keys.
-
-* Vault queries have been optimised to avoid the extra SQL query for the total state count where possible.
-
-* Updated documentation for both `.startNodes()` and `.stopNodes()` of `MockNetwork` to indicate that restarting nodes is not supported.
-
-* A fix for cache eviction has been applied where an issue resulted in an incorrect contract verification status while a database transaction was in progress during contract verification.
-
-* When a notary worker is shut down, message ID cleanup is now performed as the last shutdown activity, rather than the first; this prevents a situation where the notary worker might still appear to be part of the notary cluster and receiving client traffic while shutting down.
-
-* Previously, when configured to use confidential identities and the Securosys PrimusX HSM, it was possible for Corda to fail to generate a wrapped key-pair for a new confidential identity. This would cause a temporary key-pair to be leaked, consuming resource in the HSM. This issue occurred when:
-
-  * The Securosys HSM was configured in a master-clone cluster
-  * The master HSM had failed and Corda had failed-over to use the clone HSM
-  * There was an attempt to create a transaction using confidential identities
-
-  The issue is now resolved. When generating a wrapped key-pair the temporary key-pair is not persisted in the HSM and thus cannot be leaked.
-
-  On applying this update the PrimusX JCE should be upgraded to version 2.3.4 or later.
-
-  There is no need to upgrade the HSM firmware version for this update but it is recommended to keep the firmware up to date as a matter of course. Currently, the latest firmware version if 2.8.50.
-
-* Previously, where nodes had invoked a very large number of flows, the cache of client IDs that had not been removed were taking up significant heap space. A solution has been implemented where the space taken up has been reduced by 170 bytes per entry. For example, 1 million unremoved client IDs now take up 170,000,000 bytes less heap space than before.
-
-* A new or restarted peer node coming online and connecting to a node for the first time can significantly slow message processing from other peers on the node to which it connects.  With this improvement, new peers coming online get a dedicated thread on the node they connect to and do not delay message processing for existing peer-to-peer connections on the receiving node.
-
-* Improved compatibility when using the performance test suite from Apple silicon Macs.
-
-* Previously, when loading checkpoints, the only log messages recorded were at the end of the process, recording the total number of checkpoints loaded.
-
-  Now, the following additional logging has been added:
-
-  * Checkpoints: Logging has been added for the two types of checkpoints - runnable and paused flows - being loaded; log messages show the number of checkpoints loaded every 30 seconds until all checkpoints have been loaded.
-
-  * Finished flows: Log messages now show the number of finished flows.
-
-  For example:
-
-  ```
-  [INFO ] 2023-02-03T17:00:12,767Z [main] statemachine.MultiThreadedStateMachineManager. - Loading checkPoints flows {}
-  [INFO ] 2023-02-03T17:00:12,903Z [main] statemachine.MultiThreadedStateMachineManager. - Number of runnable flows: 0. Number of paused flows: 0 {}
-  [INFO ] 2023-02-03T17:00:12,911Z [main] statemachine.MultiThreadedStateMachineManager. - Started loading finished flows {}
-  [INFO ] 2023-02-03T17:00:28,437Z [main] statemachine.MultiThreadedStateMachineManager. - Loaded 9001 finished flows {}
-  [INFO ] 2023-02-03T17:00:43,606Z [main] statemachine.MultiThreadedStateMachineManager. - Loaded 24001 finished flows {}
-  [INFO ] 2023-02-03T17:00:46,650Z [main] statemachine.MultiThreadedStateMachineManager. - Number of finished flows : 27485 {}
-  ```
-
-* Previously, if a node was configured to use two different slots on the Luna HSM (for example using one slot for node identities and a separate slot for the confidential identities), this failed. This issue has now been resolved.
-
-  {{< warning >}}
-  However, as a result of this fix, you need to make sure the Luna client your are using is version 10.4.0 or later.
-  {{</ warning >}}
-
-* The default value for the node configuration value `cryptoServiceTimeout` has been increased from 1 second to 10 seconds.
-
-* Flow checkpoint dumps now include a `status` field which shows the status of the flow; in particular, whether it is hospitalized or not.
-
-* Debug logging of the Artemis server has been added.
-
-* A `StackOverflowException` was thrown when an attempt was made to store a deleted party in the vault. This issue has been resolved.
-
-* The certificate revocation checking has been improved with the introduction of a read timeout on the download of the certificate revocation lists (CRLs). The default CRL connect timeout has also been adjusted to better suit Corda nodes. The caching of CRLs has been increased from 30 seconds to 5 minutes.
-
-* Added improvements to node thread names to make logging and debugging clearer.
-
-* Previously, the order of the states in vault query results would sometimes be incorrect if they belonged to the same transaction. This issue has been resolved.
-
-* Delays when performing a SSL handshake with new nodes no longer impacts existing connections with other nodes.
+This release includes the following fixes since 4.10.3:
 
 * PostgreSQL 9.6 and 10.10 have been removed from our support matrix as they are no longer supported by PostgreSQL themselves.
 
@@ -247,6 +181,8 @@ with failed SSL handshakes were unintentionally added. These messages often appe
 for traffic load balancers and system monitoring. To reduce log noise, we have now silenced these specific log messages.
 
 ## Database schema changes
+
+For a complete description of all database tables, see [Database tables]({{< relref "node/operating/node-database-tables.html" >}}).
 
 The following database changes have been applied:
 
@@ -263,7 +199,7 @@ The following database changes have been applied:
 
   ```bash
   @Entity
-  @Table(name = "${NODE_DATABASE_PREFIX}sender_distribution_records")
+  @Table(name = "${NODE_DATABASE_PREFIX}sender_distr_recs")
   data class DBSenderDistributionRecord(
           @EmbeddedId
           var compositeKey: PersistentKey,
@@ -278,7 +214,7 @@ The following database changes have been applied:
   )
 
   @Entity
-  @Table(name = "${NODE_DATABASE_PREFIX}receiver_distribution_records")
+  @Table(name = "${NODE_DATABASE_PREFIX}receiver_distr_recs")
   data class DBReceiverDistributionRecord(
           @EmbeddedId
           var compositeKey: PersistentKey,
@@ -342,23 +278,42 @@ The following database changes have been applied:
   )
   ```
 
-See node migration scripts:
-* `node-core.changelog-v23.xml`: Adds an additional data field within the main `DbTransaction` table.
-* `node-core.changelog-v25.xml`: Adds Sender and Receiver recovery distribution record tables, plus the `PartyInfo` table.
-* `node-core.changelog-v26.xml`: Adds AES encryption keys table.
+Pre-generation of confidential identities for Ledger Recovery introduces four new fields within the `node_our_key_pairs` table:
+
+  ```bash
+  @Entity
+  @Table(name = "${NODE_DATABASE_PREFIX}our_key_pairs")
+  class PersistentKey(
+
+        <.... existing fields not shown .... >
+
+        @Enumerated(EnumType.ORDINAL)
+        @Column(name = "key_type", nullable = false)
+        var keyType: KeyType = CI,
+
+        @Column(name = "crypto_config_hash", length = MAX_HASH_HEX_SIZE, nullable = true)
+        var cryptoConfigHash: String? = null,
+
+        @Enumerated(EnumType.ORDINAL)
+        @Column(name = "status", nullable = false)
+        var status: Status = CREATED,
+
+        @Column(name = "generate_tm", nullable = false)
+        var insertionDate: Instant = Instant.now()
+  )
+  ```
 
 ## Third party component upgrades
 
-The following table lists the dependency version changes between 4.10.2 and 4.11 Enterprise Editions:
+The following table lists the dependency version changes between 4.10.3 and 4.11 Enterprise Editions:
 
 | Dependency                         | Name                | Version 4.1.2 Enterprise | Version 4.11 Enterprise|
 |------------------------------------|---------------------|--------------------------|------------------------|
-| com.squareup.okhttp3               | OKHttp              | 3.14.2                   | 3.14.9                 |
-| org.bouncycastle                   | Bouncy Castle       | 1.68                     | 1.70                   |
-| io.opentelemetry                   | Open Telemetry      | -                        | 1.20.1                 |
-| org.apache.commons:commons-text    | Apache Commons-Text | 1.9                      | 1.10.0                 |
-| org.apache.shiro                   | Apache Shiro        | 1.9.1                    | 1.10.0                 |
+| org.bouncycastle                   | Bouncy Castle       | 1.70                     | 1.75                   |
 | co.paralleluniverse:quasar-core    | Quasar              | 0.7.15_r3                | 0.7.16_r3              |
+| org.hibernate                      | Hibernate           | 5.4.32.Final             | 5.6.14.Final           |
+| com.h2database                     | H2                  | 1.4.197                  | 2.2.2241               |
+| org.liquibase                      | Liquibase           | 3.6.3                    | 4.20.0                 |
 
 ## Log4j patches
 

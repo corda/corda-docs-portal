@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowSession.send - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="index.html">FlowSession</a>&nbsp;/&nbsp;<a href="./send.html">send</a><br/>
+<br/>
+<h1>send</h1>
+<a name="net.corda.core.flows.FlowSession$send(kotlin.Any, kotlin.Boolean)"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">send</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowSession$send(kotlin.Any, kotlin.Boolean)/payload">payload</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowSession$send(kotlin.Any, kotlin.Boolean)/maySkipCheckpoint">maySkipCheckpoint</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Queues the given <a href="send.html#net.corda.core.flows.FlowSession$send(kotlin.Any, kotlin.Boolean)/payload">payload</a> for sending to the <a href="counterparty.html">counterparty</a> and continues without suspending.</p>
+<p>Note that the other party may receive the message at some arbitrary later point or not at all: if <a href="counterparty.html">counterparty</a>
+is offline then message delivery will be retried until it comes back or until the message is older than the
+network's event horizon time.</p>
+<h3>Parameters</h3>
+<p><a name="maySkipCheckpoint"></a>
+<code>maySkipCheckpoint</code> - setting it to true indicates to the platform that it may optimise away the checkpoint.</p>
+<a name="net.corda.core.flows.FlowSession$send(kotlin.Any)"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">send</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowSession$send(kotlin.Any)/payload">payload</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Queues the given <a href="send.html#net.corda.core.flows.FlowSession$send(kotlin.Any)/payload">payload</a> for sending to the <a href="counterparty.html">counterparty</a> and continues without suspending.</p>
+<p>Note that the other party may receive the message at some arbitrary later point or not at all: if <a href="counterparty.html">counterparty</a>
+is offline then message delivery will be retried until it comes back or until the message is older than the
+network's event horizon time.</p>
+</BODY>
+</HTML>

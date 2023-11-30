@@ -1,0 +1,139 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SignatureScheme - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="./index.html">SignatureScheme</a><br/>
+<br/>
+<h1>SignatureScheme</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">SignatureScheme</span></code>
+<p>This class is used to define a digital signature scheme.</p>
+<h3>Parameters</h3>
+<p><a name="schemeNumberID"></a>
+<code>schemeNumberID</code> - unique number ID for better efficiency on-wire serialisation.</p>
+<p><a name="schemeCodeName"></a>
+<code>schemeCodeName</code> - unique code name for this signature scheme (e.g. RSA_SHA256, ECDSA_SECP256K1_SHA256, ECDSA_SECP256R1_SHA256,
+EDDSA_ED25519_SHA512, SPHINCS-256_SHA512).</p>
+<p><a name="signatureOID"></a>
+<code>signatureOID</code> - ASN.1 algorithm identifier of the signature algorithm (e.g 1.3.101.112 for EdDSA)</p>
+<p><a name="alternativeOIDs"></a>
+<code>alternativeOIDs</code> - ASN.1 algorithm identifiers for keys of the signature, where we want to map multiple keys to
+the same signature scheme.</p>
+<p><a name="providerName"></a>
+<code>providerName</code> - the provider's name (e.g. "BC").</p>
+<p><a name="algorithmName"></a>
+<code>algorithmName</code> - which signature algorithm is used (e.g. RSA, ECDSA. EdDSA, SPHINCS-256).</p>
+<p><a name="signatureName"></a>
+<code>signatureName</code> - a signature-scheme name as required to create <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Signature.html">Signature</a> objects (e.g. "SHA256withECDSA")</p>
+<p><a name="algSpec"></a>
+<code>algSpec</code> - parameter specs for the underlying algorithm. Note that RSA is defined by the key size rather than algSpec.
+eg. ECGenParameterSpec("secp256k1").</p>
+<p><a name="keySize"></a>
+<code>keySize</code> - the private key size (currently used for RSA only).</p>
+<p><a name="desc"></a>
+<code>desc</code> - a human-readable description for this scheme.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>This class is used to define a digital signature scheme.</p>
+<code><span class="identifier">SignatureScheme</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.SignatureScheme$<init>(kotlin.Int, kotlin.String, org.bouncycastle.asn1.x509.AlgorithmIdentifier, kotlin.collections.List((org.bouncycastle.asn1.x509.AlgorithmIdentifier)), kotlin.String, kotlin.String, kotlin.String, java.security.spec.AlgorithmParameterSpec, kotlin.Int, kotlin.String)/schemeNumberID">schemeNumberID</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.SignatureScheme$<init>(kotlin.Int, kotlin.String, org.bouncycastle.asn1.x509.AlgorithmIdentifier, kotlin.collections.List((org.bouncycastle.asn1.x509.AlgorithmIdentifier)), kotlin.String, kotlin.String, kotlin.String, java.security.spec.AlgorithmParameterSpec, kotlin.Int, kotlin.String)/schemeCodeName">schemeCodeName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.SignatureScheme$<init>(kotlin.Int, kotlin.String, org.bouncycastle.asn1.x509.AlgorithmIdentifier, kotlin.collections.List((org.bouncycastle.asn1.x509.AlgorithmIdentifier)), kotlin.String, kotlin.String, kotlin.String, java.security.spec.AlgorithmParameterSpec, kotlin.Int, kotlin.String)/signatureOID">signatureOID</span><span class="symbol">:</span>&nbsp;<a href="https://www.bouncycastle.org/docs/docs1.5on/org/bouncycastle/asn1/x509/AlgorithmIdentifier.html"><span class="identifier">AlgorithmIdentifier</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.SignatureScheme$<init>(kotlin.Int, kotlin.String, org.bouncycastle.asn1.x509.AlgorithmIdentifier, kotlin.collections.List((org.bouncycastle.asn1.x509.AlgorithmIdentifier)), kotlin.String, kotlin.String, kotlin.String, java.security.spec.AlgorithmParameterSpec, kotlin.Int, kotlin.String)/alternativeOIDs">alternativeOIDs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://www.bouncycastle.org/docs/docs1.5on/org/bouncycastle/asn1/x509/AlgorithmIdentifier.html"><span class="identifier">AlgorithmIdentifier</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.SignatureScheme$<init>(kotlin.Int, kotlin.String, org.bouncycastle.asn1.x509.AlgorithmIdentifier, kotlin.collections.List((org.bouncycastle.asn1.x509.AlgorithmIdentifier)), kotlin.String, kotlin.String, kotlin.String, java.security.spec.AlgorithmParameterSpec, kotlin.Int, kotlin.String)/providerName">providerName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.SignatureScheme$<init>(kotlin.Int, kotlin.String, org.bouncycastle.asn1.x509.AlgorithmIdentifier, kotlin.collections.List((org.bouncycastle.asn1.x509.AlgorithmIdentifier)), kotlin.String, kotlin.String, kotlin.String, java.security.spec.AlgorithmParameterSpec, kotlin.Int, kotlin.String)/algorithmName">algorithmName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.SignatureScheme$<init>(kotlin.Int, kotlin.String, org.bouncycastle.asn1.x509.AlgorithmIdentifier, kotlin.collections.List((org.bouncycastle.asn1.x509.AlgorithmIdentifier)), kotlin.String, kotlin.String, kotlin.String, java.security.spec.AlgorithmParameterSpec, kotlin.Int, kotlin.String)/signatureName">signatureName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.SignatureScheme$<init>(kotlin.Int, kotlin.String, org.bouncycastle.asn1.x509.AlgorithmIdentifier, kotlin.collections.List((org.bouncycastle.asn1.x509.AlgorithmIdentifier)), kotlin.String, kotlin.String, kotlin.String, java.security.spec.AlgorithmParameterSpec, kotlin.Int, kotlin.String)/algSpec">algSpec</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/spec/AlgorithmParameterSpec.html"><span class="identifier">AlgorithmParameterSpec</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.SignatureScheme$<init>(kotlin.Int, kotlin.String, org.bouncycastle.asn1.x509.AlgorithmIdentifier, kotlin.collections.List((org.bouncycastle.asn1.x509.AlgorithmIdentifier)), kotlin.String, kotlin.String, kotlin.String, java.security.spec.AlgorithmParameterSpec, kotlin.Int, kotlin.String)/keySize">keySize</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.SignatureScheme$<init>(kotlin.Int, kotlin.String, org.bouncycastle.asn1.x509.AlgorithmIdentifier, kotlin.collections.List((org.bouncycastle.asn1.x509.AlgorithmIdentifier)), kotlin.String, kotlin.String, kotlin.String, java.security.spec.AlgorithmParameterSpec, kotlin.Int, kotlin.String)/desc">desc</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="algorithm-name.html">algorithmName</a></h4>
+</td>
+<td>
+<p>which signature algorithm is used (e.g. RSA, ECDSA. EdDSA, SPHINCS-256).</p>
+<code><span class="keyword">val </span><span class="identifier">algorithmName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="alg-spec.html">algSpec</a></h4>
+</td>
+<td>
+<p>parameter specs for the underlying algorithm. Note that RSA is defined by the key size rather than algSpec.
+eg. ECGenParameterSpec("secp256k1").</p>
+<code><span class="keyword">val </span><span class="identifier">algSpec</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/spec/AlgorithmParameterSpec.html"><span class="identifier">AlgorithmParameterSpec</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="alternative-o-i-ds.html">alternativeOIDs</a></h4>
+</td>
+<td>
+<p>ASN.1 algorithm identifiers for keys of the signature, where we want to map multiple keys to
+the same signature scheme.</p>
+<code><span class="keyword">val </span><span class="identifier">alternativeOIDs</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://www.bouncycastle.org/docs/docs1.5on/org/bouncycastle/asn1/x509/AlgorithmIdentifier.html"><span class="identifier">AlgorithmIdentifier</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="desc.html">desc</a></h4>
+</td>
+<td>
+<p>a human-readable description for this scheme.</p>
+<code><span class="keyword">val </span><span class="identifier">desc</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="key-size.html">keySize</a></h4>
+</td>
+<td>
+<p>the private key size (currently used for RSA only).</p>
+<code><span class="keyword">val </span><span class="identifier">keySize</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="provider-name.html">providerName</a></h4>
+</td>
+<td>
+<p>the provider's name (e.g. "BC").</p>
+<code><span class="keyword">val </span><span class="identifier">providerName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="scheme-code-name.html">schemeCodeName</a></h4>
+</td>
+<td>
+<p>unique code name for this signature scheme (e.g. RSA_SHA256, ECDSA_SECP256K1_SHA256, ECDSA_SECP256R1_SHA256,
+EDDSA_ED25519_SHA512, SPHINCS-256_SHA512).</p>
+<code><span class="keyword">val </span><span class="identifier">schemeCodeName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="scheme-number-i-d.html">schemeNumberID</a></h4>
+</td>
+<td>
+<p>unique number ID for better efficiency on-wire serialisation.</p>
+<code><span class="keyword">val </span><span class="identifier">schemeNumberID</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="signature-name.html">signatureName</a></h4>
+</td>
+<td>
+<p>a signature-scheme name as required to create <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Signature.html">Signature</a> objects (e.g. "SHA256withECDSA")</p>
+<code><span class="keyword">val </span><span class="identifier">signatureName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="signature-o-i-d.html">signatureOID</a></h4>
+</td>
+<td>
+<p>ASN.1 algorithm identifier of the signature algorithm (e.g 1.3.101.112 for EdDSA)</p>
+<code><span class="keyword">val </span><span class="identifier">signatureOID</span><span class="symbol">: </span><a href="https://www.bouncycastle.org/docs/docs1.5on/org/bouncycastle/asn1/x509/AlgorithmIdentifier.html"><span class="identifier">AlgorithmIdentifier</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

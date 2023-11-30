@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>QueryCriteria.SoftLockingCondition - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.core.node.services.vault</a>&nbsp;/&nbsp;<a href="../index.html">QueryCriteria</a>&nbsp;/&nbsp;<a href="./index.html">SoftLockingCondition</a><br/>
+<br/>
+<h1>SoftLockingCondition</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">SoftLockingCondition</span></code>
+<p>Select states based on their locks.</p>
+<h3>Parameters</h3>
+<p><a name="type"></a>
+<code>type</code> - Whether to select all locked states, all unlocked states,
+specific locked states, or all unlocked states plus specific locked states.</p>
+<p><a name="lockIds"></a>
+<code>lockIds</code> - The specific locked states to select (if applicable).</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Select states based on their locks.</p>
+<code><span class="identifier">SoftLockingCondition</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.vault.QueryCriteria.SoftLockingCondition$<init>(net.corda.core.node.services.vault.QueryCriteria.SoftLockingType, kotlin.collections.List((java.util.UUID)))/type">type</span><span class="symbol">:</span>&nbsp;<span class="identifier">SoftLockingType</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.vault.QueryCriteria.SoftLockingCondition$<init>(net.corda.core.node.services.vault.QueryCriteria.SoftLockingType, kotlin.collections.List((java.util.UUID)))/lockIds">lockIds</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;emptyList()<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="lock-ids.html">lockIds</a></h4>
+</td>
+<td>
+<p>The specific locked states to select (if applicable).</p>
+<code><span class="keyword">val </span><span class="identifier">lockIds</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="type.html">type</a></h4>
+</td>
+<td>
+<p>Whether to select all locked states, all unlocked states,
+specific locked states, or all unlocked states plus specific locked states.</p>
+<code><span class="keyword">val </span><span class="identifier">type</span><span class="symbol">: </span><span class="identifier">SoftLockingType</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

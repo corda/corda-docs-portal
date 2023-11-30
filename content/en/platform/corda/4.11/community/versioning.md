@@ -39,21 +39,12 @@ The platform version is part of the node’s `NodeInfo` object, which is availab
 a CorDapp to find out which version it’s running on and determine whether a desired feature is available. When a node
 registers with the network map it will check its own version against the minimum version requirement for the network.
 
-### Platform version matrix
-
-{{< table >}}
-| Corda release  | Platform version |
-| :------------- | :------------- |
-| 4.11 Community Edition | 13 |
-{{< /table >}}
-
 ## Minimum platform version
 
 Applications can advertise a *minimum platform version* they require. If your app uses new APIs that were added in (for example) Corda 5,
 you should specify a minimum version of 5. This will ensure the app won’t be loaded by older nodes. If you can *optionally* use the new
 APIs, you can keep the minimum set to a lower number. Attempting to use new APIs on older nodes can cause `NoSuchMethodError` exceptions
 and similar problems, so you’d want to check the node version using `ServiceHub.myInfo`.
-
 
 ## Target version
 

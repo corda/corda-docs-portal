@@ -17,6 +17,7 @@ In particular, PostgreSQL and {{< tooltip >}}Kafka{{< /tooltip >}} must be runni
 * use a managed service such as Amazon RDS for PostgreSQL, Amazon Managed Streaming for Apache Kafka, or Confluent Cloud.
 
 This section contains the following:
+
 * [Download and Push Container Images to a Registry]({{< relref "#download-and-push-container-images-to-a-registry">}})
 * [Download the Corda Helm Chart]({{< relref "#download-the-corda-helm-chart">}})
 * [Configure the Deployment]({{< relref "#configure-the-deployment">}})
@@ -27,6 +28,7 @@ This section contains the following:
 The Corda container images must be in a registry that is accessible from the Kubernetes cluster in which Corda will run.
 By default, the Corda images are made available via Docker Hub.
 If your Kubernetes cluster can not pull images from Docker Hub, or if you are deploying Corda Enterprise, the following sections describe how to push the images from the provided `tar` file into a container registry that is accessible from the cluster:
+
 * [Container Images for Corda]({{< relref "#container-images-for-corda" >}})
 * [Container Images for Corda Enterprise]({{< relref "#container-images-for-corda-enterprise" >}})
 
@@ -111,6 +113,7 @@ To push the Corda Enterprise images:
 ## Download the Corda Helm Chart
 
 The following sections describe how to download the Corda {{< tooltip >}}Helm{{< /tooltip >}} chart:
+
 * [Corda Helm chart]({{< relref "#corda-helm-chart" >}})
 * [Corda Enterprise Helm chart]({{< relref "#corda-enterprise-helm-chart" >}})
 
@@ -132,6 +135,7 @@ You can download the `corda-enterprise-{{<version-num>}}.0.tgz` file from the th
 
 For each deployment, you should create a YAML file to define a set of Helm overrides to be used for that environment.
 The following sections describe the minimal set of configuration options required for a deployment:
+
 * [Image Registry]({{< relref "#image-registry" >}})
 * [Replica Counts]({{< relref "#replica-counts" >}})
 * [Resource Requests and Limits]({{< relref "#resource-requests-and-limits" >}})
@@ -243,8 +247,10 @@ For an AWS topology, we recommend the following initial configuration:
 ### REST API
 
 The following configuration options are available for the [REST API]({{< relref "../../../reference/rest-api/_index.md" >}}):
+
 * [Expose the REST API]({{< relref "#expose-the-rest-api" >}})
 * [Install the REST Worker Certificate]({{< relref "#install-the-rest-worker-certificate" >}})
+
 #### Expose the REST API
 
 By default, the REST API is exposed on an internal Kubernetes service.
@@ -294,6 +300,7 @@ workers:
 The REST worker {{< tooltip >}}TLS{{< /tooltip >}} certificate is presented to a client any time a HTTPS connection is made.
 If no specific parameters are provided, a self-signed certificate is used and the connection to the {{< tooltip >}}REST Worker{{< /tooltip >}} is always HTTPS. However, a warning will be emitted into the REST worker log explaining how to provide parameters for custom TLS certificates.
 The following is required to install a valid TLS certificate:
+
 * The TLS certificate itself must be signed by a Certification Authority ({{< tooltip >}}CA{{< /tooltip >}}) or an intermediary.
 * A private key corresponding to the public key included in the TLS certificate.
 * The Certification Chain must lead up to the CA.
@@ -302,7 +309,11 @@ The following is required to install a valid TLS certificate:
 If you configure the REST worker to use a trusted certificate, `-k` should be removed from the example curl commands given throughout this documentation.
 {{< /note >}}
 
+<<<<<<< HEAD
 Custom certificate information can be provided in PEM format as a Kubernetes secret.
+=======
+Custom certificate information can be provided in {{< tooltip >}}PEM{{< /tooltip >}} format as a Kubernetes secret.
+>>>>>>> 142f08943037c8bd5fa80277e548a93bbf23532a
 You can either create a Kubernetes secret manually to hold the certificate information or allow Helm to generate a new secret.
 You can specify the secret name manually as follows:
 ```yaml
@@ -458,7 +469,8 @@ config:
 
 #### External Secrets Service {{< enterprise-icon >}}
 
-To configure Corda Enterprise to connect to a running [HashiCorp Vault instance]({{< relref "../../config/secrets.md#external-secrets-service" >}}), add the following:
+Corda Enterprise supports integration with HashiCorp Vault as an external secret management system. For more information, see [External Secrets Service]({{< relref "../../config/secrets.md#external-secrets-service" >}}) in the _Configuring Corda_ section.
+To configure a Corda Enterprise deployment to connect to a running HashiCorp Vault instance, add the following:
 
 ```yaml
 config:
@@ -468,14 +480,24 @@ config:
     createdSecretPath: "<path-to-corda-created-secrets>"
 ```
 
-* `<vault-URL>` is the full URL including port at which the Vault instance is reachable, not including any path.
-* `<vault-token>` must allow sufficient permissions to read from Vault at the Corda configured paths and write to the `<path-to-corda-created-secrets>`, where Corda writes secrets it creates.
+* `<vault-URL>` — the full URL including the port at which the Vault instance is reachable, not including any path.
+* `<vault-token>` — the token that Corda uses for accessing Vault. This must allow sufficient permissions to read from Vault at the Corda configured paths and also write to the `<path-to-corda-created-secrets>`. This requires your Vault administrator to grant more permissions than typically given to applications using Vault, but only for writing to one specific path. This is necessary to allow Corda to save encrypted database user passwords for the databases created for every new virtual node.
+* `createdSecretPath` — the path on Vault where Corda writes new secrets. Secrets should be created at a point in the hierarchy that is specific to that particular Corda deployment, keeping keys for different Corda deployments separate.
 
+<<<<<<< HEAD
+=======
+R3 recommends injecting Vault secrets into Kubernetes pods using a sidecar technique. For more information, see the HashiCorp Vault Developer documentation. This provides a private channel for Corda worker containers to another container which in turn securely authenticates with Vault.
+
+>>>>>>> 142f08943037c8bd5fa80277e548a93bbf23532a
 The passwords for the `RBAC` and `CRYPTO` schemas and `VNODES` database must be available in Vault before Corda is deployed. These must be available in the Vault path specified by `createdSecretPath`, under the keys `rbac`, `crypto`, and `vnodes` respectively.
 {{< note >}}
 These keys are not tied to the schema names. If the schema names change, the key names remain `rbac`, `crypto`, and `vnodes`.
 {{< /note >}}
+<<<<<<< HEAD
 Additionally, a passphrase and salt for the Corda [wrapping keys]({{< relref "../../../key-concepts/cluster-admin/_index.md#key-management" >}}) must be added to the vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
+=======
+Additionally, a passphrase and salt for the Corda [wrapping keys]({{< relref "../../../key-concepts/cluster-admin/_index.md#key-management" >}}) must be added to the Vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
+>>>>>>> 142f08943037c8bd5fa80277e548a93bbf23532a
 
 ### Bootstrapping
 
@@ -636,10 +658,10 @@ For example, when running with Red Hat OpenShift Container Platform, you must us
 3. In the configuration YAML for the Corda deployment, specify the service account to be used:
 
    ```yaml
-   serviceAccount: 
+   serviceAccount:
       name: "corda-privileged"
    bootstrap:
-     serviceAccount: 
+     serviceAccount:
         name: "corda-privileged"
    ```
 

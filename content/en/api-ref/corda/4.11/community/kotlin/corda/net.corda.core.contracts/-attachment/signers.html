@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Attachment.signers - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="index.html">Attachment</a>&nbsp;/&nbsp;<a href="./signers.html">signers</a><br/>
+<br/>
+<h1>signers</h1>
+<a name="net.corda.core.contracts.Attachment$signers"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><s><span class="identifier">signers</span></s><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">&gt;</span></code><br/>
+<strong>Deprecated:</strong> Use signerKeys. There is no requirement that attachment signers are Corda parties.<br/>
+<br/>
+<p>The parties that have correctly signed the whole attachment.
+Even though this returns a list of party objects, it is not required that these parties exist on the network, but rather they are a mapping from the signing key to the X.500 name.</p>
+<p>Note: Anyone can sign attachments, not only Corda parties. It's recommended to use <a href="signer-keys.html">signerKeys</a>.</p>
+</BODY>
+</HTML>
