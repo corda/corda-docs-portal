@@ -41,15 +41,6 @@ table th:nth-of-type(2) {
 }
 </style>
 
-<<<<<<< HEAD
-| Argument | Description                                                                                                                                                                                                                                                                                                                                                                      |
-| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| \-p, \-\-passphrase                     | The passphrase for the default secrets lookup service. This must be the same value in the [deployment configuration]({{< relref "../../deploying-operating/deployment/deploying/_index.md#default-secrets-service" >}}).                                                                                                                                                                 |
-| \-s, \-\-salt                           | The salt for the default secrets lookup service. This must be the same value in the [deployment configuration]({{< relref "../../deploying-operating/deployment/deploying/_index.md#default-secrets-service" >}}).                                                                                                                                                                       |
-| \-t, \-\-type                           | The secrets lookup service type. This can be one of the following: <ul><li>`corda` — encrypts the specified value using the specified salt and passphrase and generates the configuration to use that value.</li><li>`vault` —  generates the configuration to use a value from the HashiCorp Vault based on the specified key and Vault path. {{< enterprise-icon >}}</li></ul> |
-| \-v, \-\-vault-path                     | The path in the HashiCorp Vault that stores the configuration value.                                                                                                                                                                                                                                                                                                             |
-| \<value\>                                 | The configuration value to encrypt for the default secrets lookup service or the key of the secret for the HashiCorp Vault.                                                                                                                                                                                                                                                      |
-=======
 | Argument            | Description                                                                                                                                                                                                                                                                                                                                                                      |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | \-p, \-\-passphrase | The passphrase for the default secrets lookup service. This must be the same value in the [deployment configuration]({{< relref "../../deploying-operating/deployment/deploying/_index.md#default-secrets-service" >}}).                                                                                                                                                         |
@@ -57,7 +48,6 @@ table th:nth-of-type(2) {
 | \-t, \-\-type       | The secrets lookup service type. This can be one of the following: <ul><li>`corda` — encrypts the specified value using the specified salt and passphrase and generates the configuration to use that value.</li><li>`vault` —  generates the configuration to use a value from the HashiCorp Vault based on the specified key and Vault path. {{< enterprise-icon >}}</li></ul> |
 | \-v, \-\-vault-path | The path in the HashiCorp Vault that stores the configuration value.                                                                                                                                                                                                                                                                                                             |
 | \<value\>           | The configuration value to encrypt for the default secrets lookup service or the key of the secret for the HashiCorp Vault.                                                                                                                                                                                                                                                      |
->>>>>>> 142f08943037c8bd5fa80277e548a93bbf23532a
 
 For example, to generate the configuration to use to specify a value encrypted using the default Corda secrets service:
 
@@ -102,19 +92,11 @@ table th:nth-of-type(2) {
 }
 </style>
 
-<<<<<<< HEAD
-| Argument | Description                                                                                                                                                                                                      |
-| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| \-p, \-\-passphrase                     | The passphrase for the default secrets lookup service. This must be the same value in the [deployment configuration]({{< relref "../../deploying-operating/deployment/deploying/_index.md#default-secrets-service" >}}). |
-| \-s, \-\-salt                           | The salt for the default secrets lookup service. This must be the same value in the [deployment configuration]({{< relref "../../deploying-operating/deployment/deploying/_index.md#default-secrets-service" >}}).       |
-| \<value\>                                 | The configuration value to decrypt using the default secrets lookup.                                                                                      |
-=======
 | Argument            | Description                                                                                                                                                                                                              |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | \-p, \-\-passphrase | The passphrase for the default secrets lookup service. This must be the same value in the [deployment configuration]({{< relref "../../deploying-operating/deployment/deploying/_index.md#default-secrets-service" >}}). |
 | \-s, \-\-salt       | The salt for the default secrets lookup service. This must be the same value in the [deployment configuration]({{< relref "../../deploying-operating/deployment/deploying/_index.md#default-secrets-service" >}}).       |
 | \<value\>           | The configuration value to decrypt using the default secrets lookup.                                                                                                                                                     |
->>>>>>> 142f08943037c8bd5fa80277e548a93bbf23532a
 
 For example:
 

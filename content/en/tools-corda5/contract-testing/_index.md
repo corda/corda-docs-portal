@@ -106,10 +106,6 @@ exact string of the error message matches the expected message. To test if the s
 ## Examples
 
 The CSDE contains Contract Testing examples in the following locations:
-<<<<<<< HEAD
-=======
-
->>>>>>> 142f08943037c8bd5fa80277e548a93bbf23532a
 * [CSDE-cordapp-template-kotlin repository](https://github.com/corda/CSDE-cordapp-template-kotlin/tree/release/corda-5-0) - `contracts/src/test/kotlin/com/r3/developers`
 * [CSDE-cordapp-template-java repository](https://github.com/corda/CSDE-cordapp-template-java/tree/release/corda-5-0) - `contracts/src/test/java/com/r3/developers`
 
@@ -119,8 +115,4 @@ The `apples` example tests the `AppleStampContract` and `BasketOfApplesContract`
 
 ### Chat
 
-<<<<<<< HEAD
-The `utxoexample` example tests the `ChatContract` of the [UTXO chat application]({{< relref "../../platform/corda/5.0/developing-applications/getting-started/utxo-ledger-example-cordapp/cordapp-chat/_index.md" >}}) delivered with the CSDE.
-=======
 The `utxoexample` example tests the `ChatContract` of the [UTXO chat application]({{< relref "../csde/utxo-ledger-example-cordapp/cordapp-chat/_index.md" >}}) delivered with the CSDE.
->>>>>>> 142f08943037c8bd5fa80277e548a93bbf23532a

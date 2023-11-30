@@ -23,7 +23,7 @@
         position: relative;
         display: inline;
         border-bottom: 1px dotted black;
-        text-decoration: none !important;  
+        text-decoration: none !important;
     }
     .term:hover .definition {
         visibility: visible;
@@ -39,7 +39,7 @@
     border-width: 5px;
     border-style: solid;
     border-color: #555 transparent transparent transparent;
-    }    
+    }
 
 </style>
 
@@ -47,8 +47,8 @@
 {{ $searchtermlower := lower $searchterm }}
 {{ $searchtermkebab := replace $searchtermlower " " "-" }}
 
-{{- /* If no version set for file, point to glossary of latest C5 version. For example, "about the docs" and tools */}}    
-{{ $versionfolder := "corda/5.0" }}
+{{- /* If no version set for file, point to glossary of latest C5 version. For example, "about the docs" and tools */}}
+{{ $versionfolder := "corda/5.1" }}
 {{ $version := string (.Page.Params.version) }}
 {{ with $version }}
     {{ if ne $version "tools" }}
@@ -63,7 +63,7 @@
 {{ $glossarylist := getJSON $file }}
 {{ range $term, $value := $glossarylist }}
     {{ $term := lower $term }}
-    {{ if eq $term $searchtermlower }} 
+    {{ if eq $term $searchtermlower }}
         {{ $termlink := printf "%s" $searchtermkebab | printf "%s%s" $termlink }}
         <a class="term" href ='{{ $termlink }}' >&nbsp{{ $searchterm }}
         <span class="definition" >{{ $value.definition }}</span>
