@@ -578,7 +578,7 @@ Before you install the downloaded release packs, verify the integrity of each fi
   * `f734a652ef90aa975b3fac018963837ba50ae13c874a3daeeb9282f062c404c3` (sha256)
   * `f63d3ba57ef6bec69271cf4f14ea308b` (md5)
 
-### Downloads for optional-gateway-plugins-4.11
+### Checksums for optional-gateway-plugins-4.11
 
 * auth-baseline-flow-management-plugin-1.0.5-GA.jar (11 Kb / 11469 bytes)
   * `7a8958b53a734c0a25ed7c7d28afc09fac28651c` (sha1)
