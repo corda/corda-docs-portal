@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>LinearPointer.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="index.html">LinearPointer</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.core.contracts.LinearPointer$&lt;init&gt;(net.corda.core.contracts.UniqueIdentifier, java.lang.Class((net.corda.core.contracts.LinearPointer.T)))"></a>
+<code><span class="identifier">LinearPointer</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.LinearPointer$<init>(net.corda.core.contracts.UniqueIdentifier, java.lang.Class((net.corda.core.contracts.LinearPointer.T)))/pointer">pointer</span><span class="symbol">:</span>&nbsp;<a href="../-unique-identifier/index.html"><span class="identifier">UniqueIdentifier</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.LinearPointer$<init>(net.corda.core.contracts.UniqueIdentifier, java.lang.Class((net.corda.core.contracts.LinearPointer.T)))/type">type</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>Allows this class to be evolved through backwards compatibility with version 1 of this class.</p>
+<h3>Parameters</h3>
+<p><a name="pointer"></a>
+<code>pointer</code> - The unique identifier that this points to.</p>
+<p><a name="type"></a>
+<code>type</code> - The underlying <a href="../-linear-state/index.html">LinearState</a> type that this points to.</p>
+<a name="net.corda.core.contracts.LinearPointer$&lt;init&gt;(net.corda.core.contracts.UniqueIdentifier, java.lang.Class((net.corda.core.contracts.LinearPointer.T)), kotlin.Boolean)"></a>
+<code><span class="identifier">LinearPointer</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.LinearPointer$<init>(net.corda.core.contracts.UniqueIdentifier, java.lang.Class((net.corda.core.contracts.LinearPointer.T)), kotlin.Boolean)/pointer">pointer</span><span class="symbol">:</span>&nbsp;<a href="../-unique-identifier/index.html"><span class="identifier">UniqueIdentifier</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.LinearPointer$<init>(net.corda.core.contracts.UniqueIdentifier, java.lang.Class((net.corda.core.contracts.LinearPointer.T)), kotlin.Boolean)/type">type</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.LinearPointer$<init>(net.corda.core.contracts.UniqueIdentifier, java.lang.Class((net.corda.core.contracts.LinearPointer.T)), kotlin.Boolean)/isResolved">isResolved</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span></code>
+<p><a href="index.html">LinearPointer</a> allows a <a href="../-contract-state/index.html">ContractState</a> to "point" to another <a href="../-linear-state/index.html">LinearState</a> creating a "many-to-one" relationship
+between all the states containing the pointer to a particular <a href="../-linear-state/index.html">LinearState</a> and the <a href="../-linear-state/index.html">LinearState</a> being pointed to.
+Using the <a href="index.html">LinearPointer</a> is useful when one state depends on the data contained within another state that evolves
+independently. When using <a href="index.html">LinearPointer</a> it is worth noting:</p>
+<ul><li>The node performing the resolution may not have seen any <a href="../-linear-state/index.html">LinearState</a>s with the specified <a href="#">linearId</a>, as such the
+vault query in <a href="resolve.html">resolve</a> will return null and <a href="resolve.html">resolve</a> will throw an exception</li>
+<li>The node performing the resolution may not have the latest version of the <a href="../-linear-state/index.html">LinearState</a> and therefore will return
+an older version of the <a href="../-linear-state/index.html">LinearState</a>. As the pointed-to state will be added as a reference state to the transaction
+then the transaction with such a reference state cannot be committed to the ledger until the most up-to-date version
+of the <a href="../-linear-state/index.html">LinearState</a> is available. See reference states documentation on docs.corda.net for more info.</li>
+</ul>
+</BODY>
+</HTML>

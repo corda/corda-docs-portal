@@ -1,0 +1,65 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TwoPartyDealFlow.Acceptor - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.finance.flows</a>&nbsp;/&nbsp;<a href="../index.html">TwoPartyDealFlow</a>&nbsp;/&nbsp;<a href="./index.html">Acceptor</a><br/>
+<br/>
+<h1>Acceptor</h1>
+<code><span class="keyword">class </span><span class="identifier">Acceptor</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Secondary</span><span class="symbol">&lt;</span><span class="identifier">AutoOffer</span><span class="symbol">&gt;</span></code>
+<p>One side of the flow for inserting a pre-agreed deal.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>One side of the flow for inserting a pre-agreed deal.</p>
+<code><span class="identifier">Acceptor</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.TwoPartyDealFlow.Acceptor$<init>(net.corda.core.flows.FlowSession, net.corda.core.utilities.ProgressTracker)/otherSideSession">otherSideSession</span><span class="symbol">:</span>&nbsp;<span class="identifier">FlowSession</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.TwoPartyDealFlow.Acceptor$<init>(net.corda.core.flows.FlowSession, net.corda.core.utilities.ProgressTracker)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<span class="identifier">ProgressTracker</span>&nbsp;<span class="symbol">=</span>&nbsp;Secondary.tracker()<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="other-side-session.html">otherSideSession</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">otherSideSession</span><span class="symbol">: </span><span class="identifier">FlowSession</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="progress-tracker.html">progressTracker</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">progressTracker</span><span class="symbol">: </span><span class="identifier">ProgressTracker</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="assemble-shared-t-x.html">assembleSharedTX</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">assembleSharedTX</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.TwoPartyDealFlow.Acceptor$assembleSharedTX(net.corda.finance.flows.TwoPartyDealFlow.Handshake((net.corda.finance.flows.TwoPartyDealFlow.AutoOffer)))/handshake">handshake</span><span class="symbol">:</span>&nbsp;<span class="identifier">Handshake</span><span class="symbol">&lt;</span><span class="identifier">AutoOffer</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-triple/index.html"><span class="identifier">Triple</span></a><span class="symbol">&lt;</span><span class="identifier">TransactionBuilder</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">TransactionSignature</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="validate-handshake.html">validateHandshake</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">validateHandshake</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.TwoPartyDealFlow.Acceptor$validateHandshake(net.corda.finance.flows.TwoPartyDealFlow.Handshake((net.corda.finance.flows.TwoPartyDealFlow.AutoOffer)))/handshake">handshake</span><span class="symbol">:</span>&nbsp;<span class="identifier">Handshake</span><span class="symbol">&lt;</span><span class="identifier">AutoOffer</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Handshake</span><span class="symbol">&lt;</span><span class="identifier">AutoOffer</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

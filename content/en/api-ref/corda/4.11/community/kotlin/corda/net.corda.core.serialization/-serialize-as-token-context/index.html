@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SerializeAsTokenContext - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.serialization</a>&nbsp;/&nbsp;<a href="./index.html">SerializeAsTokenContext</a><br/>
+<br/>
+<h1>SerializeAsTokenContext</h1>
+<code><span class="keyword">interface </span><span class="identifier">SerializeAsTokenContext</span></code>
+<p>A context for mapping SerializationTokens to/from SerializeAsTokens.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="service-hub.html">serviceHub</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">serviceHub</span><span class="symbol">: </span><a href="../../net.corda.core.node/-service-hub/index.html"><span class="identifier">ServiceHub</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-singleton.html">getSingleton</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getSingleton</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.serialization.SerializeAsTokenContext$getSingleton(kotlin.String)/className">className</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-serialize-as-token/index.html"><span class="identifier">SerializeAsToken</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="put-singleton.html">putSingleton</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">putSingleton</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.serialization.SerializeAsTokenContext$putSingleton(net.corda.core.serialization.SerializeAsToken)/toBeTokenized">toBeTokenized</span><span class="symbol">:</span>&nbsp;<a href="../-serialize-as-token/index.html"><span class="identifier">SerializeAsToken</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

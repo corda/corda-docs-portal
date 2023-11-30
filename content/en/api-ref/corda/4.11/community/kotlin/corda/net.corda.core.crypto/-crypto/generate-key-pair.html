@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Crypto.generateKeyPair - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="index.html">Crypto</a>&nbsp;/&nbsp;<a href="./generate-key-pair.html">generateKeyPair</a><br/>
+<br/>
+<h1>generateKeyPair</h1>
+<a name="net.corda.core.crypto.Crypto$generateKeyPair(kotlin.String)"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">generateKeyPair</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$generateKeyPair(kotlin.String)/schemeCodeName">schemeCodeName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a></code>
+<p>Utility to simplify the act of generating keys.
+Normally, we don't expect other errors here, assuming that key generation parameters for every supported signature scheme have been unit-tested.</p>
+<h3>Parameters</h3>
+<p><a name="schemeCodeName"></a>
+<code>schemeCodeName</code> - a signature scheme's code name (e.g. ECDSA_SECP256K1_SHA256).</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - if the requested signature scheme is not supported.</p>
+<p><strong>Return</strong><br/>
+a KeyPair for the requested signature scheme code name.</p>
+<a name="net.corda.core.crypto.Crypto$generateKeyPair(net.corda.core.crypto.SignatureScheme)"></a>
+<code><span class="identifier">@JvmOverloads</span> <span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">generateKeyPair</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$generateKeyPair(net.corda.core.crypto.SignatureScheme)/signatureScheme">signatureScheme</span><span class="symbol">:</span>&nbsp;<a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DEFAULT_SIGNATURE_SCHEME<span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a></code>
+<p>Generate a <a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a> for the selected <a href="../-signature-scheme/index.html">SignatureScheme</a>.
+Note that RSA is the sole algorithm initialized specifically by its supported keySize.</p>
+<h3>Parameters</h3>
+<p><a name="signatureScheme"></a>
+<code>signatureScheme</code> - a supported <a href="../-signature-scheme/index.html">SignatureScheme</a>, see <a href="index.html">Crypto</a>, default to <a href="-d-e-f-a-u-l-t_-s-i-g-n-a-t-u-r-e_-s-c-h-e-m-e.html">DEFAULT_SIGNATURE_SCHEME</a> if not provided.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - if the requested signature scheme is not supported.</p>
+<p><strong>Return</strong><br/>
+a new <a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a> for the requested <a href="../-signature-scheme/index.html">SignatureScheme</a>.</p>
+</BODY>
+</HTML>

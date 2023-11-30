@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionSignature.verify - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="index.html">TransactionSignature</a>&nbsp;/&nbsp;<a href="./verify.html">verify</a><br/>
+<br/>
+<h1>verify</h1>
+<a name="net.corda.core.crypto.TransactionSignature$verify(net.corda.core.crypto.SecureHash)"></a>
+<code><span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.TransactionSignature$verify(net.corda.core.crypto.SecureHash)/txId">txId</span><span class="symbol">:</span>&nbsp;<a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Function to verify a <a href="../-signable-data/index.html">SignableData</a> object's signature.
+Note that <a href="../-signable-data/index.html">SignableData</a> contains the id of the transaction and extra metadata, such as DLT's platform version.
+A non-null <a href="partial-merkle-tree.html">partialMerkleTree</a> implies multi-transaction signing and the signature is over the root of this tree.</p>
+<h3>Parameters</h3>
+<p><a name="txId"></a>
+<code>txId</code> - transaction's id (Merkle root), which along with <a href="signature-metadata.html">signatureMetadata</a> will be used to construct the <a href="../-signable-data/index.html">SignableData</a> object to be signed.</p>
+<h3>Exceptions</h3>
+<p><a name="InvalidKeyException"></a>
+<code>InvalidKeyException</code> - if the key is invalid.</p>
+<p><a name="SignatureException"></a>
+<code>SignatureException</code> - if this signatureData object is not initialized properly,
+the passed-in signatureData is improperly encoded or of the wrong type,
+if this signatureData algorithm is unable to process the input data provided, etc.</p>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - if the signature scheme is not supported for this private key or if any of the clear or signature data is empty.</p>
+</BODY>
+</HTML>

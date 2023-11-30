@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FilteredTransaction.checkCommandVisibility - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.transactions</a>&nbsp;/&nbsp;<a href="index.html">FilteredTransaction</a>&nbsp;/&nbsp;<a href="./check-command-visibility.html">checkCommandVisibility</a><br/>
+<br/>
+<h1>checkCommandVisibility</h1>
+<a name="net.corda.core.transactions.FilteredTransaction$checkCommandVisibility(java.security.PublicKey)"></a>
+<code><span class="keyword">fun </span><span class="identifier">checkCommandVisibility</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.FilteredTransaction$checkCommandVisibility(java.security.PublicKey)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Function that checks if all of the commands that should be signed by the input public key are visible.
+This functionality is required from Oracles to check that all of the commands they should sign are visible.
+This algorithm uses the <a href="../../net.corda.core.contracts/-component-group-enum/-s-i-g-n-e-r-s_-g-r-o-u-p.html">ComponentGroupEnum.SIGNERS_GROUP</a> to count how many commands should be signed by the
+input <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> and it then matches it with the size of received <a href="../-traversable-transaction/commands.html">commands</a>.
+Note that this method does not throw if there are no commands for this key to sign in the original <a href="../-wire-transaction/index.html">WireTransaction</a>.</p>
+<h3>Parameters</h3>
+<p><a name="publicKey"></a>
+<code>publicKey</code> - signer's <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a></p>
+<h3>Exceptions</h3>
+<p><a name="ComponentVisibilityException"></a>
+<code>ComponentVisibilityException</code> - if not all of the related commands are visible.</p>
+</BODY>
+</HTML>

@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ReceiveStateAndRefFlow.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="index.html">ReceiveStateAndRefFlow</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.core.flows.ReceiveStateAndRefFlow$&lt;init&gt;(net.corda.core.flows.FlowSession)"></a>
+<code><span class="identifier">ReceiveStateAndRefFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.ReceiveStateAndRefFlow$<init>(net.corda.core.flows.FlowSession)/otherSideSession">otherSideSession</span><span class="symbol">:</span>&nbsp;<a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">)</span></code>
+<p>The <a href="index.html">ReceiveStateAndRefFlow</a> should be called in response to the <a href="../-send-state-and-ref-flow/index.html">SendStateAndRefFlow</a>.</p>
+<p>This flow is a combination of <a href="../-flow-session/receive.html">FlowSession.receive</a> and resolve. This flow will receive a list of <a href="../../net.corda.core.contracts/-state-and-ref/index.html">StateAndRef</a>
+and perform the resolution back-and-forth required to check the dependencies.
+The flow will return the list of <a href="../../net.corda.core.contracts/-state-and-ref/index.html">StateAndRef</a> after it is resolved.</p>
+</BODY>
+</HTML>

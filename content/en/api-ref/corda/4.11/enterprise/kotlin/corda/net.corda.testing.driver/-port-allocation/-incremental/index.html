@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>PortAllocation.Incremental - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.testing.driver</a>&nbsp;/&nbsp;<a href="../index.html">PortAllocation</a>&nbsp;/&nbsp;<a href="./index.html">Incremental</a><br/>
+<br/>
+<h1>Incremental</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">open</span> <span class="keyword">class </span><s><span class="identifier">Incremental</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../index.html"><span class="identifier">PortAllocation</span></a></code><br/>
+<strong>Deprecated:</strong> This has been superseded by net.corda.testing.driver.SharedMemoryIncremental.INSTANCE<br/>
+<br/>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">Incremental</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.driver.PortAllocation.Incremental$<init>(kotlin.Int)/startingPort">startingPort</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="port-counter.html">portCounter</a></h4>
+</td>
+<td>
+<p>The backing <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html">AtomicInteger</a> used to keep track of the currently allocated port</p>
+<code><span class="keyword">val </span><s><span class="identifier">portCounter</span></s><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html"><span class="identifier">AtomicInteger</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="next-port.html">nextPort</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><s><span class="identifier">nextPort</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
