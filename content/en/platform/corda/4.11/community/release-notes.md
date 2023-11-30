@@ -36,7 +36,7 @@ Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
 
 ### Two Phase Finality
 
-Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this new improved protocol.
+Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this new improved protocol. The recovery flows that take advantage of this new protocol are present only in the Corda Enterprise edition.
 
 See [Two Phase Finality]({{< relref "two-phase-finality.md" >}}).
 
@@ -120,29 +120,7 @@ removed from the `DriverParameters` class. Any client code that utilizes `Driver
 
 ## Fixed issues
 
-This release includes the following fixes:
-
-* An issue has been resolved where, previously, an incorrect value for `Page.totalStatesAvailable` was returned for queries on `externalIds`, when there were external IDs mapped to multiple keys.
-
-* Vault queries have been optimised to avoid the extra SQL query for the total state count where possible.
-
-* When a notary worker is shut down, message ID cleanup is now performed as the last shutdown activity, rather than the first; this prevents a situation where the notary worker might still appear to be part of the notary cluster and receiving client traffic while shutting down.
-
-* Flow checkpoint dumps now include a `status` field which shows the status of the flow; in particular, whether it is hospitalized or not.
-* Debug logging of the Artemis server has been added.
-* A new property, `previousPageAnchor`, has been added to `Vault.Page`. It is used to detect if the vault has changed while pages of a vault query have been loaded. If such a scenario is important to detect, then the property can be used to restart querying.
-
-  An example of how to use this property can be found in [Vault Queries]({{< relref "api-vault-query.md#query-for-all-states-using-a-pagination-specification-and-iterate-using-the-totalstatesavailable-field-until-no-further-pages-available-1" >}}).
-
-* A `StackOverflowException` was thrown when an attempt was made to store a deleted party in the vault. This issue has been resolved.
-
-* The certificate revocation checking has been improved with the introduction of a read timeout on the download of the certificate revocation lists (CRLs). The default CRL connect timeout has also been adjusted to better suit Corda nodes. The caching of CRLs has been increased from 30 seconds to 5 minutes.
-
-* Added improvements to node thread names to make logging and debugging clearer.
-
-* Previously, the order of the states in vault query results would sometimes be incorrect if they belonged to the same transaction. This issue has been resolved.
-
-* Delays when performing a SSL handshake with new nodes no longer impacts existing connections with other nodes.
+This release includes the following fixes since 4.10.3:
 
 * PostgreSQL 9.6 and 10.10 have been removed from our support matrix as they are no longer supported by PostgreSQL themselves.
 
@@ -248,21 +226,17 @@ The following database changes have been applied:
   )
   ```
 
-See node migration scripts:
-* `node-core.changelog-v23.xml`: Adds an additional data field within the main `DbTransaction` table.
-* `node-core.changelog-v25.xml`: Adds Sender and Receiver recovery distribution record tables, plus the `PartyInfo` table.
-* `node-core.changelog-v26.xml`: Adds AES encryption keys table.
-
 ## Third party component upgrades
 
-The following table lists the dependency version changes between 4.9.5 and 4.10 Community Editions:
+The following table lists the dependency version changes between 4.10.3 and 4.11 Enterprise Editions:
 
-| Dependency           | Name           | Version 4.9.5 Community | Version 4.10 Community |
-|----------------------|----------------|-------------------------|------------------------|
-| com.squareup.okhttp3 | OKHttp         | 3.14.2                  | 3.14.9                 |
-| org.bouncycastle	   | Bouncy Castle  | 1.68                    | 1.70                   |
-| io.opentelemetry	   | Open Telemetry | -                       | 1.20.1                 |
-| co.paralleluniverse:quasar-core    | Quasar       | 0.7.15_r3   | 0.7.16_r3              |
+| Dependency                         | Name                | Version 4.1.2 Enterprise | Version 4.11 Enterprise|
+|------------------------------------|---------------------|--------------------------|------------------------|
+| org.bouncycastle                   | Bouncy Castle       | 1.70                     | 1.75                   |
+| co.paralleluniverse:quasar-core    | Quasar              | 0.7.15_r3                | 0.7.16_r3              |
+| org.hibernate                      | Hibernate           | 5.4.32.Final             | 5.6.14.Final           |
+| com.h2database                     | H2                  | 1.4.197                  | 2.2.2241               |
+| org.liquibase                      | Liquibase           | 3.6.3                    | 4.20.0                 |
 
 ## Log4j patches
 Click [here]({{< relref "./log4j-patches.md" >}}) to find all patches addressing the December 2021 Log4j vulnerability.

@@ -48,7 +48,7 @@ The `SendTransactionFlow` infers the value for receiver `StatesToRecord` based o
 Upon storing the `SenderDistribution` records for a transaction, the sender node also generates a single `ReceiverDistribution` record.
 A `ReceiverDistribution` record contains the following transaction metadata:
 * Transaction ID
-* Sender peer ID (the hashed value of `CordaX500Name`)
+* Sender peer ID (the secure hashed value of `CordaX500Name` using SHA256)
 * A distribution list comprised of two sections:
   * An AES-encrypted map of the peer IDs of all receiving peers for the transaction and their associated `StatesToRecord` value.
   * A tamper-proof cleartext `senderRecordedTimestamp`, indicating when the sender records were generated. Corda uses the same
@@ -65,7 +65,7 @@ The Corda X.500 name of all peers stored in a Ledger Recovery record use an unde
 
 Both sender's and receiver's distribution records use the same composite key type for uniquely storing records. The `PersistentKey` contains the following fields:
 * Transaction ID
-* PartyId of flow peer (a secure hash stored as a String)
+* PartyId of flow peer (the secure hashed value of `CordaX500Name` using SHA256)
 * Timestamp (Instant)
 * Timestamp discriminator (Int)
   The timestamp discriminator allows for storing of records generated at the same time even for the same transaction.
