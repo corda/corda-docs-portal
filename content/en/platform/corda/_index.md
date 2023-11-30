@@ -8,13 +8,13 @@ section_menu: corda-index
 identifier: corda-index
 menu:
   projects:
-    weight: -1050
+    weight: -5000
     project: corda
     identifier: corda-index
   versions:
     version: 'Corda Index'
     name: "Corda Index"
-    weight: -800
+    weight: -5000
 ---
 
 # Welcome to Corda
@@ -33,6 +33,7 @@ The Corda platform documentation covers the following current versions of the Co
 | ------------------------------------------- | ------------------------------------------------------------------------------------- |
 | **Corda 5**                                 | [Corda 5.1](../platform/corda/5.1.html)                                               |
 |                                             | [Corda 5.0](../platform/corda/5.0.html)                                               |
+| **Corda 4 Enterprise**                      | [Corda Enterprise 4.11](../platform/corda/4.11/enterprise.html)                        |
 | **Corda 4 Enterprise**                      | [Corda Enterprise 4.10](../platform/corda/4.10/enterprise.html)                       |
 |                                             | [Corda Enterprise 4.9](../platform/corda/4.9/enterprise.html)                         |
 |                                             | [Corda Enterprise 4.8](../platform/corda/4.8/enterprise.html)                         |
@@ -47,5 +48,5 @@ The Corda platform documentation covers the following current versions of the Co
 {{< /table >}}
 
 {{< note >}}
-Refer to the [End of Life Schedule]({{< relref "./eol-schedule.md" >}}) to know when particular versions will be archived. A list of archived documentation for non-supported versions of Corda Open Source, Corda Enterprise, and CENM, is accessible in [Archived Versions]({{< relref "./archived-versions.md" >}}). 
+Refer to the [End of Life Schedule]({{< relref "./eol-schedule.md" >}}) to know when particular versions will be archived. A list of archived documentation for non-supported versions of Corda Open Source, Corda Enterprise, and CENM, is accessible in [Archived Versions]({{< relref "./archived-versions.md" >}}).
 {{< /note >}}

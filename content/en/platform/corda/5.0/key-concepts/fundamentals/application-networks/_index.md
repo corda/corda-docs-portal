@@ -23,7 +23,9 @@ The severity and extent of that attestation are, as previously mentioned, left t
 
 The following diagram shows the application network architecture:
 
-{{< 
+The following diagram shows the application network architecture:
+
+{{<
   figure
 	 src="application-network.png"
    width=40%
@@ -35,7 +37,7 @@ The following diagram shows the application network architecture:
 The Membership Group Manager ({{< tooltip >}}MGM{{< /tooltip >}}) permits identities into an application network. 
 Identities wishing to join present a request containing various metadata describing them but, most importantly, their unique name and their location as an IP address.
 
-Whilst not strictly required, it is encouraged that alongside their name, identities submit a {{< tooltip >}}PKI{{< /tooltip >}} certificate issued by a trusted authority, alongside the public key whose signature represents the identity's affirmation of acceptance. 
+Whilst not strictly required, it is encouraged that alongside their name, identities submit a {{< tooltip >}}PKI{{< /tooltip >}} certificate issued by a trusted authority, alongside the public key whose signature represents the identity's affirmation of acceptance.
 
 The process of attestation is simple: identities submit their request, additionally request an escalated role, and the Network Operator either [approves or declines the request]({{< relref "../../../application-networks/managing/registration-requests/_index.md" >}}).
 
@@ -52,7 +54,7 @@ As shown below, Corda is different from other {{< tooltip >}}distributed ledger{
 There are no global broadcasts to all nodes on a network, but all nodes in a network can send messages directly to each other. 
 If the recipient is offline, the message waits in an outbound queue until they are online again, just like an e-mail.
 
-{{< 
+{{<
   figure
 	 src="point-to-point-communication.png"
    width=25%

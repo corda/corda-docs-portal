@@ -1,0 +1,236 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ProgressTracker - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.utilities</a>&nbsp;/&nbsp;<a href="./index.html">ProgressTracker</a><br/>
+<br/>
+<h1>ProgressTracker</h1>
+<code><span class="keyword">class </span><span class="identifier">ProgressTracker</span></code>
+<p>A progress tracker helps surface information about the progress of an operation to a user interface or API of some
+kind. It lets you define a set of <em>steps</em> that represent an operation. A step is represented by an object (typically
+a singleton).</p>
+<p>Steps may logically be children of other steps, which models the case where a large top level operation involves
+sub-operations which may also have a notion of progress. If a step has children, then the tracker will report the
+steps children as the "next step" after the parent. In other words, a parent step is considered to involve actual
+reportable work and is a thing. If the parent step simply groups other steps, then you'll have to step over it
+manually.</p>
+<p>Each step has a label. It is assumed by default that the label does not change. If you want a label to change, then
+you can emit a <a href="-change/-rendering/index.html">ProgressTracker.Change.Rendering</a> object on the <a href="-step/changes.html">ProgressTracker.Step.changes</a> observable stream
+after it changes. That object will propagate through to the top level trackers <a href="changes.html">changes</a> stream, which renderers can
+subscribe to in order to learn about progress.</p>
+<p>An operation can move both forwards and backwards through steps, thus, a <a href="./index.html">ProgressTracker</a> can represent operations
+that include loops.</p>
+<p>A progress tracker is <em>not</em> thread safe. You may move events from the thread making progress to another thread by
+using the <a href="#">Observable</a> subscribeOn call.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-change/index.html">Change</a></h4>
+</td>
+<td>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">Change</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-d-o-n-e/index.html">DONE</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">DONE</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-s-t-a-r-t-i-n-g/index.html">STARTING</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">STARTING</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-step/index.html">Step</a></h4>
+</td>
+<td>
+<p>The superclass of all step objects.</p>
+<code><span class="keyword">class </span><span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-u-n-s-t-a-r-t-e-d/index.html">UNSTARTED</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">UNSTARTED</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>A progress tracker helps surface information about the progress of an operation to a user interface or API of some
+kind. It lets you define a set of <em>steps</em> that represent an operation. A step is represented by an object (typically
+a singleton).</p>
+<code><span class="identifier">ProgressTracker</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.core.utilities.ProgressTracker$<init>(kotlin.Array((net.corda.core.utilities.ProgressTracker.Step)))/inputSteps">inputSteps</span><span class="symbol">:</span>&nbsp;<span class="identifier">Step</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="all-steps.html">allSteps</a></h4>
+</td>
+<td>
+<p>A list of all steps in this ProgressTracker and the children, with the indent level provided starting at zero.
+Note that UNSTARTED is never counted, and DONE is only counted at the calling level.</p>
+<code><span class="keyword">val </span><span class="identifier">allSteps</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">Step</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="all-steps-labels.html">allStepsLabels</a></h4>
+</td>
+<td>
+<p>A list of all steps label in this ProgressTracker and the children, with the indent level provided starting at zero.
+Note that UNSTARTED is never counted, and DONE is only counted at the calling level.</p>
+<code><span class="keyword">val </span><span class="identifier">allStepsLabels</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="changes.html">changes</a></h4>
+</td>
+<td>
+<p>An observable stream of changes: includes child steps, resets and any changes emitted by individual steps (e.g.
+if a step changed its label or rendering).</p>
+<code><span class="keyword">val </span><span class="identifier">changes</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">Change</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="current-step.html">currentStep</a></h4>
+</td>
+<td>
+<p>Reading returns the value of steps<a href="step-index.html">stepIndex</a>, writing moves the position of the current tracker. Once moved to
+the <a href="-d-o-n-e/index.html">DONE</a> state, this tracker is finished and the current step cannot be moved again.</p>
+<code><span class="keyword">var </span><span class="identifier">currentStep</span><span class="symbol">: </span><span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="current-step-recursive.html">currentStepRecursive</a></h4>
+</td>
+<td>
+<p>Returns the current step, descending into children to find the deepest step we are up to.</p>
+<code><span class="keyword">val </span><span class="identifier">currentStepRecursive</span><span class="symbol">: </span><span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="has-ended.html">hasEnded</a></h4>
+</td>
+<td>
+<p>Returns true if the progress tracker has ended, either by reaching the <a href="-d-o-n-e/index.html">DONE</a> step or prematurely with an error</p>
+<code><span class="keyword">val </span><span class="identifier">hasEnded</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="parent.html">parent</a></h4>
+</td>
+<td>
+<p>The parent of this tracker: set automatically by the parent when a tracker is added as a child</p>
+<code><span class="keyword">var </span><span class="identifier">parent</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ProgressTracker</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="step-index.html">stepIndex</a></h4>
+</td>
+<td>
+<p>The zero-based index of the current step in the <a href="steps.html">steps</a> array (i.e. with UNSTARTED and DONE)</p>
+<code><span class="keyword">var </span><span class="identifier">stepIndex</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="steps.html">steps</a></h4>
+</td>
+<td>
+<p>The steps in this tracker, same as the steps passed to the constructor but with UNSTARTED and DONE inserted.</p>
+<code><span class="keyword">val </span><span class="identifier">steps</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><span class="identifier">Step</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="steps-tree-changes.html">stepsTreeChanges</a></h4>
+</td>
+<td>
+<p>An observable stream of changes to the <a href="all-steps-labels.html">allStepsLabels</a></p>
+<code><span class="keyword">val </span><span class="identifier">stepsTreeChanges</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="steps-tree-index.html">stepsTreeIndex</a></h4>
+</td>
+<td>
+<p>The zero-bases index of the current step in a <a href="all-steps-labels.html">allStepsLabels</a> list</p>
+<code><span class="keyword">var </span><span class="identifier">stepsTreeIndex</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="steps-tree-index-changes.html">stepsTreeIndexChanges</a></h4>
+</td>
+<td>
+<p>An observable stream of changes to the <a href="steps-tree-index.html">stepsTreeIndex</a></p>
+<code><span class="keyword">val </span><span class="identifier">stepsTreeIndexChanges</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="top-level-tracker.html">topLevelTracker</a></h4>
+</td>
+<td>
+<p>Walks up the tree to find the top level tracker. If this is the top level tracker, returns 'this'.
+Required for API compatibility.</p>
+<code><span class="keyword">val </span><span class="identifier">topLevelTracker</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ProgressTracker</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="end-with-error.html">endWithError</a></h4>
+</td>
+<td>
+<p>Ends the progress tracker with the given error, bypassing any remaining steps. <a href="changes.html">changes</a> will emit the exception
+as an error.</p>
+<code><span class="keyword">fun </span><span class="identifier">endWithError</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.utilities.ProgressTracker$endWithError(kotlin.Throwable)/error">error</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html"><span class="identifier">Throwable</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-child-progress-tracker.html">getChildProgressTracker</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getChildProgressTracker</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.utilities.ProgressTracker$getChildProgressTracker(net.corda.core.utilities.ProgressTracker.Step)/step">step</span><span class="symbol">:</span>&nbsp;<span class="identifier">Step</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ProgressTracker</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="next-step.html">nextStep</a></h4>
+</td>
+<td>
+<p>Iterates the progress tracker. If the current step has a child, the child is iterated instead (recursively).
+Returns the latest step at the bottom of the step tree.</p>
+<code><span class="keyword">fun </span><span class="identifier">nextStep</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-child-progress-tracker.html">setChildProgressTracker</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setChildProgressTracker</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.utilities.ProgressTracker$setChildProgressTracker(net.corda.core.utilities.ProgressTracker.Step, net.corda.core.utilities.ProgressTracker)/step">step</span><span class="symbol">:</span>&nbsp;<span class="identifier">Step</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.utilities.ProgressTracker$setChildProgressTracker(net.corda.core.utilities.ProgressTracker.Step, net.corda.core.utilities.ProgressTracker)/childProgressTracker">childProgressTracker</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">ProgressTracker</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

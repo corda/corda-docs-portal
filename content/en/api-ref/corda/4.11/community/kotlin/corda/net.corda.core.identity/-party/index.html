@@ -1,0 +1,116 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Party - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.identity</a>&nbsp;/&nbsp;<a href="./index.html">Party</a><br/>
+<br/>
+<h1>Party</h1>
+<code><span class="keyword">class </span><span class="identifier">Party</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-destination.html"><span class="identifier">Destination</span></a><span class="symbol">, </span><a href="../-abstract-party/index.html"><span class="identifier">AbstractParty</span></a></code>
+<p>The <a href="./index.html">Party</a> class represents an entity on the network, which is typically identified by a legal <a href="name.html">name</a> and public key
+that it can sign transactions under. As parties may use multiple keys for signing and, for example, have offline backup
+keys, the "public key" of a party can be represented by a composite construct – a <a href="../../net.corda.core.crypto/-composite-key/index.html">CompositeKey</a>, which combines multiple
+cryptographic public key primitives into a tree structure.</p>
+<p>For example: Alice has two key pairs (pub1/priv1 and pub2/priv2), and wants to be able to sign transactions with either of them.
+Her advertised <a href="./index.html">Party</a> then has a legal X.500 <a href="name.html">name</a> "CN=Alice Corp,O=Alice Corp,L=London,C=GB" and an <a href="../-abstract-party/owning-key.html">owningKey</a>
+"pub1 or pub2".</p>
+<p><a href="./index.html">Party</a> is also used for service identities. E.g. Alice may also be running an interest rate oracle on her Corda node,
+which requires a separate signing key (and an identifying name). Services can also be distributed – run by a coordinated
+cluster of Corda nodes. A <a href="./index.html">Party</a> representing a distributed service will use a composite key containing all
+individual cluster nodes' public keys. Each of the nodes in the cluster will advertise the same group <a href="./index.html">Party</a>.</p>
+<p>Note that equality is based solely on the owning key.</p>
+<h3>Flow sessions</h3>
+<p>Communication with other parties is done using the flow framework with the <a href="../../net.corda.core.flows/-flow-logic/initiate-flow.html">FlowLogic.initiateFlow</a> method. Message routing is done by
+using the network map to look up the connectivity details pertaining to the <a href="./index.html">Party</a>.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="../../net.corda.core.crypto/-composite-key/index.html">CompositeKey</a></p>
+</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">Party</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity.Party$<init>(java.security.cert.X509Certificate)/certificate">certificate</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">)</span></code>
+<p>The <a href="./index.html">Party</a> class represents an entity on the network, which is typically identified by a legal <a href="name.html">name</a> and public key
+that it can sign transactions under. As parties may use multiple keys for signing and, for example, have offline backup
+keys, the "public key" of a party can be represented by a composite construct – a <a href="../../net.corda.core.crypto/-composite-key/index.html">CompositeKey</a>, which combines multiple
+cryptographic public key primitives into a tree structure.</p>
+<code><span class="identifier">Party</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity.Party$<init>(net.corda.core.identity.CordaX500Name, java.security.PublicKey)/name">name</span><span class="symbol">:</span>&nbsp;<a href="../-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.identity.Party$<init>(net.corda.core.identity.CordaX500Name, java.security.PublicKey)/owningKey">owningKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="name.html">name</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">name</span><span class="symbol">: </span><a href="../-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="anonymise.html">anonymise</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">anonymise</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-anonymous-party/index.html"><span class="identifier">AnonymousParty</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="description.html">description</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">description</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="name-or-null.html">nameOrNull</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">nameOrNull</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="ref.html">ref</a></h4>
+</td>
+<td>
+<p>Build a reference to something being stored or issued by a party e.g. in a vault or (more likely) on their normal
+ledger.</p>
+<code><span class="keyword">fun </span><span class="identifier">ref</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity.Party$ref(net.corda.core.utilities.OpaqueBytes)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-party-and-reference/index.html"><span class="identifier">PartyAndReference</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="create.html">create</a></h4>
+</td>
+<td>
+<p>Factory method to be used in preference to the constructor.</p>
+<code><span class="keyword">fun </span><span class="identifier">create</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity.Party.Companion$create(net.corda.core.identity.CordaX500Name, java.security.PublicKey)/name">name</span><span class="symbol">:</span>&nbsp;<a href="../-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.identity.Party.Companion$create(net.corda.core.identity.CordaX500Name, java.security.PublicKey)/owningKey">owningKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Party</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">create</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity.Party.Companion$create(java.security.cert.X509Certificate)/certificate">certificate</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Party</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

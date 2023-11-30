@@ -3,7 +3,7 @@ date: '2023-02-28'
 description: "Documentation for the 4.9 Enterprise Edition release of Corda"
 menu:
   versions:
-    weight: -648
+    weight: -650
   corda-enterprise-4-9:
     identifier: about-corda-landing-4-9-enterprise
     weight: -30

@@ -1,0 +1,149 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AbstractCashFlow - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.finance.flows</a>&nbsp;/&nbsp;<a href="./index.html">AbstractCashFlow</a><br/>
+<br/>
+<h1>AbstractCashFlow</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">AbstractCashFlow</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">FlowLogic</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Initiates a flow that produces an Issue/Move or Exit Cash transaction.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-abstract-request/index.html">AbstractRequest</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">AbstractRequest</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-f-i-n-a-l-i-s-i-n-g_-t-x.html">FINALISING_TX</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">FINALISING_TX</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-g-e-n-e-r-a-t-i-n-g_-i-d.html">GENERATING_ID</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">GENERATING_ID</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-g-e-n-e-r-a-t-i-n-g_-t-x.html">GENERATING_TX</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">GENERATING_TX</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-result/index.html">Result</a></h4>
+</td>
+<td>
+<p>Combined signed transaction and identity lookup map, which is the resulting data from regular cash flows.
+Specialised flows for unit tests differ from this.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Result</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-s-i-g-n-i-n-g_-t-x.html">SIGNING_TX</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">SIGNING_TX</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Initiates a flow that produces an Issue/Move or Exit Cash transaction.</p>
+<code><span class="identifier">AbstractCashFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.AbstractCashFlow$<init>(net.corda.core.utilities.ProgressTracker)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<span class="identifier">ProgressTracker</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="progress-tracker.html">progressTracker</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">progressTracker</span><span class="symbol">: </span><span class="identifier">ProgressTracker</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="finalise-tx.html">finaliseTx</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">finaliseTx</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.AbstractCashFlow$finaliseTx(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), kotlin.String)/tx">tx</span><span class="symbol">:</span>&nbsp;<span class="identifier">SignedTransaction</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.AbstractCashFlow$finaliseTx(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), kotlin.String)/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><span class="identifier">FlowSession</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.AbstractCashFlow$finaliseTx(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), kotlin.String)/message">message</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SignedTransaction</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="tracker.html">tracker</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">tracker</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ProgressTracker</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-cash-exit-flow/index.html">CashExitFlow</a></h4>
+</td>
+<td>
+<p>Initiates a flow that produces an cash exit transaction.</p>
+<code><span class="keyword">class </span><span class="identifier">CashExitFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AbstractCashFlow</span></a><span class="symbol">&lt;</span><span class="identifier">Result</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-cash-issue-and-payment-flow/index.html">CashIssueAndPaymentFlow</a></h4>
+</td>
+<td>
+<p>Initiates a flow that self-issues cash and then send this to a recipient.</p>
+<code><span class="keyword">class </span><span class="identifier">CashIssueAndPaymentFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AbstractCashFlow</span></a><span class="symbol">&lt;</span><span class="identifier">Result</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-cash-issue-flow/index.html">CashIssueFlow</a></h4>
+</td>
+<td>
+<p>Initiates a flow that self-issues cash (which should then be sent to recipient(s) using a payment transaction).</p>
+<code><span class="keyword">class </span><span class="identifier">CashIssueFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AbstractCashFlow</span></a><span class="symbol">&lt;</span><span class="identifier">Result</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-cash-payment-flow/index.html">CashPaymentFlow</a></h4>
+</td>
+<td>
+<p>Initiates a flow that sends cash to a recipient.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">CashPaymentFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AbstractCashFlow</span></a><span class="symbol">&lt;</span><span class="identifier">Result</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

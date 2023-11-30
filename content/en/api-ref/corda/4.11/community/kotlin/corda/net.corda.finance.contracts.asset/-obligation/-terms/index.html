@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Obligation.Terms - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.finance.contracts.asset</a>&nbsp;/&nbsp;<a href="../index.html">Obligation</a>&nbsp;/&nbsp;<a href="./index.html">Terms</a><br/>
+<br/>
+<h1>Terms</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Terms</span><span class="symbol">&lt;</span><span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code>
+<p>Subset of state, containing the elements specified when issuing a new settlement contract.</p>
+<h3>Parameters</h3>
+<p><a name="P"></a>
+<code>P</code> - the product the obligation is for payment of.</p>
+<p><a name="acceptableContracts"></a>
+<code>acceptableContracts</code> - is the contract types that can be accepted, such as cash.</p>
+<p><a name="acceptableIssuedProducts"></a>
+<code>acceptableIssuedProducts</code> - is the assets which are acceptable forms of payment (i.e. GBP issued by the Bank
+of England).</p>
+<p><a name="dueBefore"></a>
+<code>dueBefore</code> - when payment is due by.</p>
+<p><a name="timeTolerance"></a>
+<code>timeTolerance</code> - tolerance value on <a href="due-before.html">dueBefore</a>, to handle clock skew between distributed systems. Generally
+this would be about 30 seconds.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Subset of state, containing the elements specified when issuing a new settlement contract.</p>
+<code><span class="identifier">Terms</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.asset.Obligation.Terms$<init>(net.corda.core.utilities.NonEmptySet((net.corda.core.crypto.SecureHash)), net.corda.core.utilities.NonEmptySet((net.corda.core.contracts.Issued((net.corda.finance.contracts.asset.Obligation.Terms.P)))), java.time.Instant, java.time.Duration)/acceptableContracts">acceptableContracts</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.utilities/-non-empty-set/index.html"><span class="identifier">NonEmptySet</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.asset.Obligation.Terms$<init>(net.corda.core.utilities.NonEmptySet((net.corda.core.crypto.SecureHash)), net.corda.core.utilities.NonEmptySet((net.corda.core.contracts.Issued((net.corda.finance.contracts.asset.Obligation.Terms.P)))), java.time.Instant, java.time.Duration)/acceptableIssuedProducts">acceptableIssuedProducts</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.utilities/-non-empty-set/index.html"><span class="identifier">NonEmptySet</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.contracts/-issued/index.html"><span class="identifier">Issued</span></a><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.asset.Obligation.Terms$<init>(net.corda.core.utilities.NonEmptySet((net.corda.core.crypto.SecureHash)), net.corda.core.utilities.NonEmptySet((net.corda.core.contracts.Issued((net.corda.finance.contracts.asset.Obligation.Terms.P)))), java.time.Instant, java.time.Duration)/dueBefore">dueBefore</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html"><span class="identifier">Instant</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.asset.Obligation.Terms$<init>(net.corda.core.utilities.NonEmptySet((net.corda.core.crypto.SecureHash)), net.corda.core.utilities.NonEmptySet((net.corda.core.contracts.Issued((net.corda.finance.contracts.asset.Obligation.Terms.P)))), java.time.Instant, java.time.Duration)/timeTolerance">timeTolerance</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html"><span class="identifier">Duration</span></a>&nbsp;<span class="symbol">=</span>&nbsp;30.seconds<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="acceptable-contracts.html">acceptableContracts</a></h4>
+</td>
+<td>
+<p>The hash of the asset contract we're willing to accept in payment for this debt.</p>
+<code><span class="keyword">val </span><span class="identifier">acceptableContracts</span><span class="symbol">: </span><a href="../../../net.corda.core.utilities/-non-empty-set/index.html"><span class="identifier">NonEmptySet</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="acceptable-issued-products.html">acceptableIssuedProducts</a></h4>
+</td>
+<td>
+<p>The parties whose assets we are willing to accept in payment for this debt.</p>
+<code><span class="keyword">val </span><span class="identifier">acceptableIssuedProducts</span><span class="symbol">: </span><a href="../../../net.corda.core.utilities/-non-empty-set/index.html"><span class="identifier">NonEmptySet</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.contracts/-issued/index.html"><span class="identifier">Issued</span></a><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="due-before.html">dueBefore</a></h4>
+</td>
+<td>
+<p>When the contract must be settled by.</p>
+<code><span class="keyword">val </span><span class="identifier">dueBefore</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html"><span class="identifier">Instant</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="product.html">product</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">product</span><span class="symbol">: </span><span class="identifier">P</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="time-tolerance.html">timeTolerance</a></h4>
+</td>
+<td>
+<p>tolerance value on <a href="due-before.html">dueBefore</a>, to handle clock skew between distributed systems. Generally
+this would be about 30 seconds.</p>
+<code><span class="keyword">val </span><span class="identifier">timeTolerance</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html"><span class="identifier">Duration</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

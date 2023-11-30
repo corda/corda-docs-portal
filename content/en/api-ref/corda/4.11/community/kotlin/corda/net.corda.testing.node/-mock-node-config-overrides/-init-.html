@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MockNodeConfigOverrides.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.node</a>&nbsp;/&nbsp;<a href="index.html">MockNodeConfigOverrides</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.testing.node.MockNodeConfigOverrides$&lt;init&gt;(kotlin.collections.Map((kotlin.String, )), net.corda.testing.node.MockNetNotaryConfig, net.corda.testing.node.MockNetFlowTimeOut)"></a>
+<code><span class="identifier">MockNodeConfigOverrides</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNodeConfigOverrides$<init>(kotlin.collections.Map((kotlin.String, )), net.corda.testing.node.MockNetNotaryConfig, net.corda.testing.node.MockNetFlowTimeOut)/extraDataSourceProperties">extraDataSourceProperties</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNodeConfigOverrides$<init>(kotlin.collections.Map((kotlin.String, )), net.corda.testing.node.MockNetNotaryConfig, net.corda.testing.node.MockNetFlowTimeOut)/notary">notary</span><span class="symbol">:</span>&nbsp;<a href="../-mock-net-notary-config/index.html"><span class="identifier">MockNetNotaryConfig</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNodeConfigOverrides$<init>(kotlin.collections.Map((kotlin.String, )), net.corda.testing.node.MockNetNotaryConfig, net.corda.testing.node.MockNetFlowTimeOut)/flowTimeout">flowTimeout</span><span class="symbol">:</span>&nbsp;<a href="../-mock-net-flow-time-out/index.html"><span class="identifier">MockNetFlowTimeOut</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span></code>
+<p>This is a data class to configure overrides to the node configuration used in the mock network
+without having to expose/use the actual (internal) node configuration interface on the API.
+When passing one of these to <a href="#">createNode</a> or <a href="#">createUnstartedNode</a> functions, the bits that are
+set will be injected into the node configuration for the node to be created.</p>
+</BODY>
+</HTML>
