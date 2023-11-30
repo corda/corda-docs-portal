@@ -20,7 +20,7 @@ Before you install the downloaded release packs, verify the integrity of each fi
 * ASC: https://download.corda.net/corda-community-edition/4.11/community-4.11.tar.asc
 * SHA-256 checksum: https://download.corda.net/corda-community-edition/4.11/community-4.11.tar.sha256
 
-## Checksums for expanded community-4.11.tar.gz
+## Checksums for expanded community-4.11.tar
 
 ### Checksums for runtime-4.11
 
