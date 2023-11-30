@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RPCConnection.forceClose - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc</a>&nbsp;/&nbsp;<a href="index.html">RPCConnection</a>&nbsp;/&nbsp;<a href="./force-close.html">forceClose</a><br/>
+<br/>
+<h1>forceClose</h1>
+<a name="net.corda.client.rpc.RPCConnection$forceClose()"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">forceClose</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Closes this client without notifying the server.</p>
+<p>The server will eventually clear out the RPC message queue and disconnect subscribed observers,
+but this may take longer than desired, so to conserve resources you should normally use <a href="notify-server-and-close.html">notifyServerAndClose</a>.
+This method is helpful when the node may be shutting down or have already shut down and you don't want to
+block waiting for it to come back, which typically happens in integration tests and demos rather than production.</p>
+</BODY>
+</HTML>

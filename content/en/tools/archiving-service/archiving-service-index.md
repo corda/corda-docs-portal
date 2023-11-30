@@ -29,11 +29,12 @@ Due to its in-memory design, the Archive Service is most effective and efficient
 
 The Archive Service consists of the following:
 
-* [Archive Service CorDapp](#archive-service-cordapp)- which contains the necessary flows to mark and archive transactions.
-* [Archive Service Client Library](archive-library.md) - which provides programmatic access to the archive service, and [exposes relevant APIs](archiving-apis.md).
-* [Archive Service Command Line Interface](archiving-cli.md) - which allows you to perform archiving tasks from the command line.
+* [Archive Service CorDapp](#archive-service-cordapp) - contains the necessary flows to mark and archive transactions.
+* [Archive Service Client Library](archive-library.md) - provides programmatic access to the archive service, and [exposes relevant APIs](archiving-apis.md).
+* ```
+* [Archive Service Command Line Interface](archiving-cli.md) - allows you to perform archiving tasks from the command line.
 
-It also makes use of the [Application Entity Manager](app-entity-manager.md) - which allows CorDapps to access off-ledger databases using JPA APIs.
+It also makes use of the [Application Entity Manager](app-entity-manager.md), which allows CorDapps to access off-ledger databases using JPA APIs.
 
 The Archive Service archives [Ledger Recovery](../../platform/corda/4.11/enterprise/ledger-recovery-flow.md) distribution records associated with the archived transactions. (The tables `node_sender_distribution_records` and `node_receiver_distribution_records` are included in the archiving process.)
 
@@ -52,21 +53,6 @@ In order to improve speed and memory usage when using the Archiving Service, JVM
 
 {{< /note >}}
 
-
-## New in V1.0.3
-
-A new configuration option has been added which allows the Archive Service to skip transactions that have legacy contract states that cause exceptions during a snapshot export. This configuration option is: `ignoreSnapshotExportFailures: true`.
-
-By default, this value is false and the behaviour of the Archive Service is unchanged. However, if you are experiencing a `TransactionDeserializationException` or a `JsonMappingException` during the export of a JSON snapshot, this configuration option can be added to skip these transactions for a successful export. These transactions won’t be included in the export, but if a binary export is also created, all transactions can be preserved.
-
-## New in V1.0.2
-
-For details of the V1.0.2 release, see the [V1.0.2 release notes](archiving-release-notes.md).
-
-## New in V1.0.1
-
-The Archive Service is compatible with [Ledger Graph V1.2.1 On Demand function](#archiving-and-ondemand-ledgergraph).
-
 ## What can be archived
 
 The Archive Service has commands you can use to identify which transactions can be archived in your vault. A fully consumed transaction or attachment will be marked as archivable when:
@@ -77,7 +63,9 @@ The Archive Service has commands you can use to identify which transactions can 
 
 Archivable and non-archivable LedgerGraph components:
 
-![Archivable and non-archivable LG components](archivable-dags.png)
+
+* ![Archivable and non-archivable LG components](archivable-dags.png)
+
 
 ## When you can archive
 
@@ -85,7 +73,7 @@ Once the Archive Service has marked a transaction or attachment as archivable, y
 
 ### Archiving and Collaborative Recovery
 
-The [Collaborative Recovery CorDapp LedgerSync V1.2.1]({{< relref "../../platform/corda/4.9/enterprise/node/collaborative-recovery/ledger-sync.md" >}}) has been introduced for compatibility with the Archive Service. If you or anyone on your network uses Collaborative Recovery to recover data after a disaster scenario, archived transactions in any nodes on the network are marked as such. This means they do not appear to be 'lost' or 'missing' data and will not be recovered automatically in the recovery process.
+The [Collaborative Recovery CorDapp LedgerSync V1.2.1]({{< relref "../../platform/corda/4.9/enterprise/node/collaborative-recovery/ledger-sync.md" >}}) has been introduced for compatibility with the Archive Service. If you or anyone on your network uses Collaborative Recovery to recover data after a disaster scenario, archived transactions in any nodes on the network are marked as such. This means that they do not appear to be 'lost' or 'missing' data and will not be recovered automatically in the recovery process.
 
 ### Archiving and onDemand LedgerGraph
 
@@ -175,7 +163,7 @@ target: {
 
 ## Using the backup schema
 
-you can configure the archiving process to create a temporary snapshot image of the archivable transactions
+You can configure the archiving process to create a temporary snapshot image of the archivable transactions
 and attachments from your Corda vault on a backup schema within the same database. This snapshot can then be used
 to restore the vault should the database fail during the archiving operation.
 
@@ -189,7 +177,7 @@ To create a copy of the vault on the backup schema the backup schema owner must 
 `SELECT` rights to the vault schema.
 
 To restore the vault from a copy on the backup schema the backup schema owner must
-either have `INSERT` rights to the vault schema or the `restore-snapshot` command has to be executed with the
+either have `INSERT` rights to the vault schema or the `restore-snapshot` command must be executed with the
 `--record` option.
 
 The `--record` option allows the user to capture the SQL to a file so that it can be
@@ -212,7 +200,7 @@ grant insert on all tables in schema corda to archive;
 
 ### Oracle
 
-The following DDL statements can be used to create a backup schema user `archive`:
+You can use the following DDL statements to create a backup schema user `archive`:
 
 ```
 create user archive identified by archive2 DEFAULT TABLESPACE users QUOTA unlimited ON users;
@@ -244,7 +232,7 @@ grant INSERT on schema ::corda to archive;
 
 It is sometimes necessary to restart the node when carrying out an archiving job.
 
-You need to restart the node:
+You need to restart the node in the following circumstances:
 
 * Before running import-snapshot, having run 'delete-snapshot' (archive schema has been deleted, and now the vault is to be restored from file archive).
 * After 'delete-vault' has been run using the '--record' option.
@@ -397,11 +385,11 @@ A suitable exporter, such as `QueryableStateFileExporter`, must also be listed o
 
 ## Additional tables
 
-Archive Service will automatically detect transaction and attachment tables which use the columns
+Archive Service automatically detects transaction and attachment tables that use the columns
 `TRANSACTION_ID` or `ATT_ID` within the vault schema and include them in the archive process.
 
 Additional transaction and attachment tables which use different column names can be registered using the
-properties `additionalTransactionTables` and `additionalAttachmentTables` with the following format.
+properties `additionalTransactionTables` and `additionalAttachmentTables` with the following format:
 
 ```text
 additionalTransactionTables: [
