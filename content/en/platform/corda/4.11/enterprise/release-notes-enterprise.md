@@ -47,7 +47,7 @@ For more information, see [Two Phase Finality]({{< relref "two-phase-finality.md
 
 #### Finality Recovery Tooling
 
-RPC extension operations (additions to the FlowRPCOps interface) which allow for Finality Flow recovery by both the initiator and the receiver(s).
+RPC extension operations (additions to the FlowRPCOps interface) that allow for Finality Flow recovery by both the initiator and the receiver(s) have been added.
 Also, Node Shell commands now allow operations teams to perform Finality Flow recovery.
 
 For more information, see [Finality Flow Recovery]({{< relref "finality-flow-recovery.md" >}})
