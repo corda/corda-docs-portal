@@ -71,6 +71,8 @@ The following network parameters, and associated node configuration parameters, 
 * `confidentialIdentityMinimumBackupInterval`
 * `recoveryMaximumBackupInterval`
 
+These network parameters require CENM 1.6 or later.
+
 For more information, see [Available Network Parameters]({{< relref "network/available-network-parameters.md" >}}).
 
 #### Distribution record cleanup
@@ -159,10 +161,7 @@ To reduce flow latency and improve throughput, the following default values in t
 
 ### DJVM removal
 
-The DJVM component required that all updates to Corda core were compatible with the `core-deterministic` module.
-To mitigate this issue, the experimental component DJVM has been removed from this and all future releases.
-As a result of the DJVM removal, the two constructor parameters `djvmBootstrapSource` and `djvmCordaSource` have been
-removed from the `DriverParameters` class. Any client code that utilizes `DriverParameters` now requires recompiling.
+Beta feature of the DJVM has been removed. As a result of the DJVM removal, the two constructor parameters `djvmBootstrapSource` and `djvmCordaSource` have been removed from the `DriverParameters` class. Any client code that utilizes `DriverParameters` now requires recompiling.
 
 ### Additional signature verification
 
@@ -236,22 +235,17 @@ The following database changes have been applied:
   @Embeddable
   @Immutable
   data class PersistentKey(
+          @Column(name = "transaction_id", length = 144, nullable = false)
+          var txId: String,
 
-          <.... existing fields not shown .... >
+          @Column(name = "peer_party_id", nullable = false)
+          var peerPartyId: Long,
 
-          @Enumerated(EnumType.ORDINAL)
-          @Column(name = "key_type", nullable = false)
-          var keyType: KeyType = CI,
+          @Column(name = "timestamp", nullable = false)
+          var timestamp: Instant,
 
-          @Column(name = "crypto_config_hash", length = MAX_HASH_HEX_SIZE, nullable = true)
-          var cryptoConfigHash: String? = null,
-
-          @Enumerated(EnumType.ORDINAL)
-          @Column(name = "status", nullable = false)
-          var status: Status = CREATED,
-
-          @Column(name = "generate_tm", nullable = false)
-          var insertionDate: Instant = Instant.now()
+          @Column(name = "timestamp_discriminator", nullable = false)
+          var timestampDiscriminator: Int
   )
   ```
 
@@ -281,6 +275,31 @@ The following database changes have been applied:
 
           @Column(name = "key_material", nullable = false)
           val keyMaterial: ByteArray
+  )
+  ```
+
+Pre-generation of confidential identities for Ledger Recovery introduces four new fields within the `node_our_key_pairs` table:
+
+  ```bash
+  @Entity
+  @Table(name = "${NODE_DATABASE_PREFIX}our_key_pairs")
+  class PersistentKey(
+
+        <.... existing fields not shown .... >
+
+        @Enumerated(EnumType.ORDINAL)
+        @Column(name = "key_type", nullable = false)
+        var keyType: KeyType = CI,
+
+        @Column(name = "crypto_config_hash", length = MAX_HASH_HEX_SIZE, nullable = true)
+        var cryptoConfigHash: String? = null,
+
+        @Enumerated(EnumType.ORDINAL)
+        @Column(name = "status", nullable = false)
+        var status: Status = CREATED,
+
+        @Column(name = "generate_tm", nullable = false)
+        var insertionDate: Instant = Instant.now()
   )
   ```
 
