@@ -22,7 +22,11 @@ tags:
 
 ## Corda Community Edition 4.11.1 release notes
 
-Interoperability fix between 4.11 and pre-4.11 nodes when sending/fetching transactions for new data type: `TRANSACTION_RECOVERY`.
+Corda Community Edition 4.11.1 is a patch release of Corda Community Edition focused on resolving issues.
+
+### Fixed issues
+
+* Interoperability fix between 4.11 and pre-4.11 nodes when sending/fetching transactions for new data type: `TRANSACTION_RECOVERY`.
 
 ## Corda Community Edition 4.11 release notes
 
