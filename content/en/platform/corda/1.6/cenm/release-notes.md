@@ -22,6 +22,12 @@ title: Release notes
 * Two network parameters for ledger recovery with Corda 4.11 have been added:
   * `recoveryMaximumBackupInterval`
   * `confidentialIdentityMinimumBackupInterval`
+* The JDK version used by CENM has been upgraded from JDK 8.0.382 to JDK 8.0.392.
+
+### Fixed issues
+
+* When deploying CENM with Kubernetes, the notary configuration file now requires the `serviceLegalName` to be set in the notary configuration block.
+* Updated Typesafe Config version from 1.3.1 to 1.4.0 for the CENM CLI tool, enabling the resolution of environment variables in configuration files.
 
 ### Upgraded dependencies
 
