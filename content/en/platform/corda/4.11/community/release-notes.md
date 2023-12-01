@@ -20,6 +20,16 @@ tags:
 
 # Corda Community Edition 4.11 release notes
 
+## Corda Community Edition 4.11.1 release notes
+
+Corda Community Edition 4.11.1 is a patch release of Corda Community Edition focused on resolving issues.
+
+### Fixed issues
+
+* Interoperability fix between 4.11 and pre-4.11 nodes when sending/fetching transactions for new data type: `TRANSACTION_RECOVERY`.
+
+## Corda Community Edition 4.11 release notes
+
 Corda Community Edition 4.11 includes several new features, enhancements, and fixes.
 
 ## Platform version change
@@ -228,9 +238,9 @@ The following database changes have been applied:
 
 ## Third party component upgrades
 
-The following table lists the dependency version changes between 4.10.3 and 4.11 Enterprise Editions:
+The following table lists the dependency version changes between 4.10.3 and 4.11 Community Editions:
 
-| Dependency                         | Name                | Version 4.1.2 Enterprise | Version 4.11 Enterprise|
+| Dependency                         | Name                | Version 4.10.3 Community | Version 4.11 Community |
 |------------------------------------|---------------------|--------------------------|------------------------|
 | org.bouncycastle                   | Bouncy Castle       | 1.70                     | 1.75                   |
 | co.paralleluniverse:quasar-core    | Quasar              | 0.7.15_r3                | 0.7.16_r3              |
