@@ -1,5 +1,5 @@
 ---
-title: "Corda Enterprise Edition 4.11s release packs and checksums"
+title: "Corda Enterprise Edition 4.11 release packs and checksums"
 date: '2023-03-29'
 menu:
   corda-enterprise-4-11:
