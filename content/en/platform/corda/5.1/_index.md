@@ -6,7 +6,7 @@ version: 'Corda 5.1'
 section_menu: corda51
 menu:
   versions:
-    weight: -655
+    weight: -4000
   corda51:
     weight: -100    
 ---
@@ -17,8 +17,10 @@ These applications are created using standard Java development tools and package
 Once packaged, applications are deployed onto Corda, which executes both applications and ledger update workflows on behalf of organizational entities.
 
 ## Why DLT?
+
 DLT is a digital system for recording, storing, and processing digital data in a decentralized way across a network of computers, perhaps in different locations and involving multiple organizations.
 Some of the many benefits of DLT are:
+
 * **Decentralization** - There is no centralized authority of control dictating what {{< tooltip >}}state{{< /tooltip >}} changes can and cannot occur. Instead, parties come to a consensus about changes to the global state and this is controlled by consensus rules.
 * **Security** - State changes are attested via signature to prevent unauthorized access and protect against tampering. Three foundational principles apply:
   * **Confidentiality**, which is the ability of two actors to keep the data that they share with each other private from others on a network.
@@ -34,6 +36,7 @@ More importantly, once applied and accepted, no parties within that domain can r
 ## Why Corda?
 
 There are several approaches that differentiate Corda from other DLTs:
+
 * **Identity** - Knowing who you are transacting with and knowing that their identity was attested to a given level of assurance is important for establishing trust.
 Many other DLT and blockchain systems offer anonymity as a feature.
 However, for use cases where trust is absolutely critical, Corda layers its platform with the concept of granting permissions to identities.
@@ -58,6 +61,7 @@ This evolution focuses on scaling, throughput, and availability, whilst retainin
 ## Learn More
 
 The {{< version >}} documentation addresses the following collections of people:
+
 * **Architects** — As an Architect working with Corda, all sections of the Corda documentation are of interest to you, but particularly the [Key Concepts]({{< relref "./key-concepts/_index.md" >}}).
 * **CorDapp Developers** — To get started developing CorDapps, see the [Developing Applications]({{< relref "./developing-applications/_index.md">}}) section.
 * **Cluster Administrators** — To learn how to deploy and configure Corda, see the [Administering Corda Clusters]({{< relref "./deploying-operating/_index.md">}}) section.
