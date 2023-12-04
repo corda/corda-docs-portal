@@ -1,0 +1,112 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FullTransaction - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.transactions</a>&nbsp;/&nbsp;<a href="./index.html">FullTransaction</a><br/>
+<br/>
+<h1>FullTransaction</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">FullTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-base-transaction/index.html"><span class="identifier">BaseTransaction</span></a></code>
+<p>A transaction with fully resolved components, such as input states.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>A transaction with fully resolved components, such as input states.</p>
+<code><span class="identifier">FullTransaction</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="inputs.html">inputs</a></h4>
+</td>
+<td>
+<p>The inputs of this transaction. Note that in BaseTransaction subclasses the type of this list may change!</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">inputs</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="network-parameters.html">networkParameters</a></h4>
+</td>
+<td>
+<p>Network parameters that were in force when this transaction was created. Resolved from the hash of network parameters on the corresponding
+wire transaction.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">networkParameters</span><span class="symbol">: </span><a href="../../net.corda.core.node/-network-parameters/index.html"><span class="identifier">NetworkParameters</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="references.html">references</a></h4>
+</td>
+<td>
+<p>A list of reusable reference data states which can be referred to by other contracts in this transaction.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">references</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="check-base-invariants.html">checkBaseInvariants</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">checkBaseInvariants</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="check-notary-whitelisted.html">checkNotaryWhitelisted</a></h4>
+</td>
+<td>
+<p>Make sure the assigned notary is part of the network parameter whitelist.</p>
+<code><span class="keyword">fun </span><span class="identifier">checkNotaryWhitelisted</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-contract-upgrade-ledger-transaction/index.html">ContractUpgradeLedgerTransaction</a></h4>
+</td>
+<td>
+<p>A contract upgrade transaction with fully resolved inputs and signatures. Contract upgrade transactions are separate
+to regular transactions because their validation logic is specialised; the original contract by definition cannot be
+aware of the upgraded contract (it was written after the original contract was developed), so its validation logic
+cannot succeed. Instead alternative verification logic is used which verifies that the outputs correspond to the
+inputs after upgrading.</p>
+<code><span class="keyword">class </span><span class="identifier">ContractUpgradeLedgerTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FullTransaction</span></a><span class="symbol">, </span><a href="../-transaction-with-signatures/index.html"><span class="identifier">TransactionWithSignatures</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-ledger-transaction/index.html">LedgerTransaction</a></h4>
+</td>
+<td>
+<p>A LedgerTransaction is derived from a <a href="../-wire-transaction/index.html">WireTransaction</a>. It is the result of doing the following operations:</p>
+<code><span class="keyword">class </span><span class="identifier">LedgerTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FullTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-notary-change-ledger-transaction/index.html">NotaryChangeLedgerTransaction</a></h4>
+</td>
+<td>
+<p>A notary change transaction with fully resolved inputs and signatures. In contrast with a regular transaction,
+signatures are checked against the signers specified by input states' <em>participants</em> fields, so full resolution is
+needed for signature verification.</p>
+<code><span class="keyword">class </span><span class="identifier">NotaryChangeLedgerTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FullTransaction</span></a><span class="symbol">, </span><a href="../-transaction-with-signatures/index.html"><span class="identifier">TransactionWithSignatures</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

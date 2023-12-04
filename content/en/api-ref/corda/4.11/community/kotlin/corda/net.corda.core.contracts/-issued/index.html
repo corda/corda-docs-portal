@@ -1,0 +1,78 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Issued - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="./index.html">Issued</a><br/>
+<br/>
+<h1>Issued</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Issued</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code>
+<p>The <a href="./index.html">Issued</a> data class holds the details of an on ledger digital asset.
+In particular it gives the public credentials of the entity that created these digital tokens
+and the particular product represented.</p>
+<h3>Parameters</h3>
+<p><a name="P"></a>
+<code>P</code> - the class type of product underlying the definition, for example <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html">java.util.Currency</a>.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>The <a href="./index.html">Issued</a> data class holds the details of an on ledger digital asset.
+In particular it gives the public credentials of the entity that created these digital tokens
+and the particular product represented.</p>
+<code><span class="identifier">Issued</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.Issued$<init>(net.corda.core.contracts.PartyAndReference, net.corda.core.contracts.Issued.P)/issuer">issuer</span><span class="symbol">:</span>&nbsp;<a href="../-party-and-reference/index.html"><span class="identifier">PartyAndReference</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.Issued$<init>(net.corda.core.contracts.PartyAndReference, net.corda.core.contracts.Issued.P)/product">product</span><span class="symbol">:</span>&nbsp;<span class="identifier">P</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="issuer.html">issuer</a></h4>
+</td>
+<td>
+<p>The <a href="../../net.corda.core.identity/-abstract-party/index.html">AbstractParty</a> details of the entity which issued the asset
+and a reference blob, which can contain other details related to the token creation e.g. serial number,
+warehouse location, etc.
+The issuer is the gatekeeper for creating, or destroying the tokens on the digital ledger and
+only their <a href="#">PrivateKey</a> signature can authorise transactions that do not conserve the total number
+of tokens on the ledger.
+Other identities may own the tokens, but they can only create transactions that conserve the total token count.
+Typically the issuer is also a well know organisation that can convert digital tokens to external assets
+and thus underwrites the digital tokens.
+Different issuer values may coexist for a particular product, but these cannot be merged.</p>
+<code><span class="keyword">val </span><span class="identifier">issuer</span><span class="symbol">: </span><a href="../-party-and-reference/index.html"><span class="identifier">PartyAndReference</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="product.html">product</a></h4>
+</td>
+<td>
+<p>The details of the specific product represented by these digital tokens. The value
+of product may differentiate different kinds of asset within the same logical class e.g the currency, or
+it may just be a type marker for a single custom asset.</p>
+<code><span class="keyword">val </span><span class="identifier">product</span><span class="symbol">: </span><span class="identifier">P</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

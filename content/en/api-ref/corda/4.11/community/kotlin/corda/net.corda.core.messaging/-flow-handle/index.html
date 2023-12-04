@@ -1,0 +1,75 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowHandle - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.messaging</a>&nbsp;/&nbsp;<a href="./index.html">FlowHandle</a><br/>
+<br/>
+<h1>FlowHandle</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">FlowHandle</span><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/AutoCloseable.html"><span class="identifier">AutoCloseable</span></a></code>
+<p><a href="./index.html">FlowHandle</a> is a serialisable handle for the started flow, parameterised by the type of the flow's return value.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="id.html">id</a></h4>
+</td>
+<td>
+<p>The started state machine's ID.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">id</span><span class="symbol">: </span><a href="../../net.corda.core.flows/-state-machine-run-id/index.html"><span class="identifier">StateMachineRunId</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="return-value.html">returnValue</a></h4>
+</td>
+<td>
+<p>A <a href="../../net.corda.core.concurrent/-corda-future/index.html">CordaFuture</a> of the flow's return value.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">returnValue</span><span class="symbol">: </span><a href="../../net.corda.core.concurrent/-corda-future/index.html"><span class="identifier">CordaFuture</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="close.html">close</a></h4>
+</td>
+<td>
+<p>Use this function for flows whose returnValue is not going to be used, so as to free up server resources.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-flow-handle-impl/index.html">FlowHandleImpl</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">FlowHandleImpl</span><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowHandle</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-flow-handle-with-client-id/index.html">FlowHandleWithClientId</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">FlowHandleWithClientId</span><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowHandle</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-flow-progress-handle/index.html">FlowProgressHandle</a></h4>
+</td>
+<td>
+<p><a href="../-flow-progress-handle/index.html">FlowProgressHandle</a> is a serialisable handle for the started flow, parameterised by the type of the flow's return value.</p>
+<code><span class="keyword">interface </span><span class="identifier">FlowProgressHandle</span><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowHandle</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,80 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Trace - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.context</a>&nbsp;/&nbsp;<a href="./index.html">Trace</a><br/>
+<br/>
+<h1>Trace</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Trace</span></code>
+<p>Contextual tracing information, including invocation and session id.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-invocation-id/index.html">InvocationId</a></h4>
+</td>
+<td>
+<p>Represents id and timestamp of an invocation.</p>
+<code><span class="keyword">class </span><span class="identifier">InvocationId</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-id/index.html"><span class="identifier">Id</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-session-id/index.html">SessionId</a></h4>
+</td>
+<td>
+<p>Represents id and timestamp of a session.</p>
+<code><span class="keyword">class </span><span class="identifier">SessionId</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-id/index.html"><span class="identifier">Id</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Contextual tracing information, including invocation and session id.</p>
+<code><span class="identifier">Trace</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.context.Trace$<init>(net.corda.core.context.Trace.InvocationId, net.corda.core.context.Trace.SessionId)/invocationId">invocationId</span><span class="symbol">:</span>&nbsp;<span class="identifier">InvocationId</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.context.Trace$<init>(net.corda.core.context.Trace.InvocationId, net.corda.core.context.Trace.SessionId)/sessionId">sessionId</span><span class="symbol">:</span>&nbsp;<span class="identifier">SessionId</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="invocation-id.html">invocationId</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">invocationId</span><span class="symbol">: </span><span class="identifier">InvocationId</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="session-id.html">sessionId</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">sessionId</span><span class="symbol">: </span><span class="identifier">SessionId</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="new-instance.html">newInstance</a></h4>
+</td>
+<td>
+<p>Creates a trace using a <a href="-invocation-id/new-instance.html">InvocationId.newInstance</a> with default arguments and a <a href="-session-id/index.html">SessionId</a> matching the value and timestamp from the invocation id..</p>
+<code><span class="keyword">fun </span><span class="identifier">newInstance</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.context.Trace.Companion$newInstance(net.corda.core.context.Trace.InvocationId, net.corda.core.context.Trace.SessionId)/invocationId">invocationId</span><span class="symbol">:</span>&nbsp;<span class="identifier">InvocationId</span>&nbsp;<span class="symbol">=</span>&nbsp;InvocationId.newInstance()<span class="symbol">, </span><span class="identifier" id="net.corda.core.context.Trace.Companion$newInstance(net.corda.core.context.Trace.InvocationId, net.corda.core.context.Trace.SessionId)/sessionId">sessionId</span><span class="symbol">:</span>&nbsp;<span class="identifier">SessionId</span>&nbsp;<span class="symbol">=</span>&nbsp;SessionId(invocationId.value, invocationId.timestamp)<span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Trace</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

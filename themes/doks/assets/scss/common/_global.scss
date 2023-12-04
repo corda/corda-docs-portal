@@ -463,3 +463,7 @@ summary::after {
 details[open] summary:after {
   content: url("/icons/icon-arrow-up.svg");
 }
+
+li p{
+  margin-bottom: 0;
+};

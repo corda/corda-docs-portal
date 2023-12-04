@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>StringToMethodCallParser.validateIsMatchingCtor - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.jackson</a>&nbsp;/&nbsp;<a href="index.html">StringToMethodCallParser</a>&nbsp;/&nbsp;<a href="./validate-is-matching-ctor.html">validateIsMatchingCtor</a><br/>
+<br/>
+<h1>validateIsMatchingCtor</h1>
+<a name="net.corda.client.jackson.StringToMethodCallParser$validateIsMatchingCtor(kotlin.String, kotlin.collections.List((kotlin.Pair((kotlin.String, java.lang.reflect.Type)))), kotlin.String)"></a>
+<code><span class="keyword">fun </span><span class="identifier">validateIsMatchingCtor</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.jackson.StringToMethodCallParser$validateIsMatchingCtor(kotlin.String, kotlin.collections.List((kotlin.Pair((kotlin.String, java.lang.reflect.Type)))), kotlin.String)/methodNameHint">methodNameHint</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.jackson.StringToMethodCallParser$validateIsMatchingCtor(kotlin.String, kotlin.collections.List((kotlin.Pair((kotlin.String, java.lang.reflect.Type)))), kotlin.String)/parameters">parameters</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Type.html"><span class="identifier">Type</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.client.jackson.StringToMethodCallParser$validateIsMatchingCtor(kotlin.String, kotlin.collections.List((kotlin.Pair((kotlin.String, java.lang.reflect.Type)))), kotlin.String)/args">args</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Validates that the argument string matches the constructor parameters, i.e. this is a matching constructor
+for the argument string. Exception is thrown if not a match</p>
+<h3>Parameters</h3>
+<p><a name="methodNameHint"></a>
+<code>methodNameHint</code> - A name that will be used in exceptions if thrown; not used for any other purpose.</p>
+<h3>Exceptions</h3>
+<p><a name="UnparseableCallException"></a>
+<code>UnparseableCallException</code> - If no match is found between constructor parameters and passed string.</p>
+</BODY>
+</HTML>

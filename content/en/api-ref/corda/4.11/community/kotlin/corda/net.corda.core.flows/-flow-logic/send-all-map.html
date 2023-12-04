@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowLogic.sendAllMap - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="index.html">FlowLogic</a>&nbsp;/&nbsp;<a href="./send-all-map.html">sendAllMap</a><br/>
+<br/>
+<h1>sendAllMap</h1>
+<a name="net.corda.core.flows.FlowLogic$sendAllMap(kotlin.collections.Map((net.corda.core.flows.FlowSession, kotlin.Any)), kotlin.Boolean)"></a>
+<code><span class="identifier">@Suspendable</span> <span class="identifier">@JvmOverloads</span> <span class="keyword">fun </span><span class="identifier">sendAllMap</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$sendAllMap(kotlin.collections.Map((net.corda.core.flows.FlowSession, kotlin.Any)), kotlin.Boolean)/payloadsPerSession">payloadsPerSession</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowLogic$sendAllMap(kotlin.collections.Map((net.corda.core.flows.FlowSession, kotlin.Any)), kotlin.Boolean)/maySkipCheckpoint">maySkipCheckpoint</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Queues the given payloads for sending to the provided sessions and continues without suspending.</p>
+<p>Note that the other parties may receive the message at some arbitrary later point or not at all: if one of the provided <a href="#">sessions</a>
+is offline then message delivery will be retried until the corresponding node comes back or until the message is older than the
+network's event horizon time.</p>
+<h3>Parameters</h3>
+<p><a name="payloadsPerSession"></a>
+<code>payloadsPerSession</code> - a mapping that contains the payload to be sent to each session.</p>
+<p><a name="maySkipCheckpoint"></a>
+<code>maySkipCheckpoint</code> - whether checkpointing should be skipped.</p>
+</BODY>
+</HTML>

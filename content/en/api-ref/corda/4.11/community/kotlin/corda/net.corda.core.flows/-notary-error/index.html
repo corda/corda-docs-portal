@@ -1,0 +1,79 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NotaryError - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="./index.html">NotaryError</a><br/>
+<br/>
+<h1>NotaryError</h1>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">NotaryError</span></code>
+<p>Specifies the cause for notarisation request failure.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-conflict/index.html">Conflict</a></h4>
+</td>
+<td>
+<p>Occurs when one or more input states have already been consumed by another transaction.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Conflict</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NotaryError</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-general/index.html">General</a></h4>
+</td>
+<td>
+<p>Occurs when the notary service encounters an unexpected issue or becomes temporarily unavailable.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">General</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NotaryError</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-request-signature-invalid/index.html">RequestSignatureInvalid</a></h4>
+</td>
+<td>
+<p>Occurs when the notarisation request signature does not verify for the provided transaction.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">RequestSignatureInvalid</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NotaryError</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-time-window-invalid/index.html">TimeWindowInvalid</a></h4>
+</td>
+<td>
+<p>Occurs when time specified in the <a href="../../net.corda.core.contracts/-time-window/index.html">TimeWindow</a> command is outside the allowed tolerance.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">TimeWindowInvalid</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NotaryError</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-invalid/index.html">TransactionInvalid</a></h4>
+</td>
+<td>
+<p>Occurs when the provided transaction fails to verify.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">TransactionInvalid</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NotaryError</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-wrong-notary.html">WrongNotary</a></h4>
+</td>
+<td>
+<p>Occurs when the transaction sent for notarisation is assigned to a different notary identity.</p>
+<code><span class="keyword">object </span><s><span class="identifier">WrongNotary</span></s>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NotaryError</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-n-u-m_-s-t-a-t-e-s.html">NUM_STATES</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">NUM_STATES</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
