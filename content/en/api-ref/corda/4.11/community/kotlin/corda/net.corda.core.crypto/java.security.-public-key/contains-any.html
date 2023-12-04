@@ -1,0 +1,17 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>containsAny - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="index.html">java.security.PublicKey</a>&nbsp;/&nbsp;<a href="./contains-any.html">containsAny</a><br/>
+<br/>
+<h1>containsAny</h1>
+<a name="net.corda.core.crypto$containsAny(java.security.PublicKey, kotlin.collections.Iterable((java.security.PublicKey)))"></a>
+<code><span class="keyword">fun </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">.</span><span class="identifier">containsAny</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto$containsAny(java.security.PublicKey, kotlin.collections.Iterable((java.security.PublicKey)))/otherKeys">otherKeys</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Checks whether any of the given <a href="keys.html">keys</a> matches a leaf on the <a href="../-composite-key/index.html">CompositeKey</a> tree or a single <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a>.</p>
+<p>Note that this function checks against leaves, which cannot be of type <a href="../-composite-key/index.html">CompositeKey</a>. Due to that, if any of the
+<a href="contains-any.html#net.corda.core.crypto$containsAny(java.security.PublicKey, kotlin.collections.Iterable((java.security.PublicKey)))/otherKeys">otherKeys</a> is a <a href="../-composite-key/index.html">CompositeKey</a>, this function will not find a match.</p>
+</BODY>
+</HTML>

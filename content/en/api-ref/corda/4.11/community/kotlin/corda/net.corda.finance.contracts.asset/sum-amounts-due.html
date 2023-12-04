@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>sumAmountsDue - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="index.html">net.corda.finance.contracts.asset</a>&nbsp;/&nbsp;<a href="./sum-amounts-due.html">sumAmountsDue</a><br/>
+<br/>
+<h1>sumAmountsDue</h1>
+<a name="net.corda.finance.contracts.asset$sumAmountsDue(kotlin.collections.Map((kotlin.Pair((net.corda.finance.contracts.asset.sumAmountsDue.P, )), net.corda.core.contracts.Amount((net.corda.finance.contracts.asset.sumAmountsDue.T)))))"></a>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">, </span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">sumAmountsDue</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.asset$sumAmountsDue(kotlin.collections.Map((kotlin.Pair((net.corda.finance.contracts.asset.sumAmountsDue.P, )), net.corda.core.contracts.Amount((net.corda.finance.contracts.asset.sumAmountsDue.T)))))/balances">balances</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">,</span>&nbsp;<span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<a href="../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">&gt;</span></code>
+<p>Calculate the total balance movement for each party in the transaction, based off a summary of balances between
+each obligor and beneficiary.</p>
+<h3>Parameters</h3>
+<p><a name="balances"></a>
+<code>balances</code> - payments due, indexed by obligor and beneficiary. Zero balances are stripped from the map before being
+returned.</p>
+<p><a name="P"></a>
+<code>P</code> - type of party to operate on.</p>
+<p><a name="T"></a>
+<code>T</code> - token that balances represent</p>
+</BODY>
+</HTML>

@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MockNodeConfigOverrides - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.node</a>&nbsp;/&nbsp;<a href="./index.html">MockNodeConfigOverrides</a><br/>
+<br/>
+<h1>MockNodeConfigOverrides</h1>
+<code><span class="keyword">class </span><span class="identifier">MockNodeConfigOverrides</span></code>
+<p>This is a data class to configure overrides to the node configuration used in the mock network
+without having to expose/use the actual (internal) node configuration interface on the API.
+When passing one of these to <a href="#">createNode</a> or <a href="#">createUnstartedNode</a> functions, the bits that are
+set will be injected into the node configuration for the node to be created.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>This is a data class to configure overrides to the node configuration used in the mock network
+without having to expose/use the actual (internal) node configuration interface on the API.
+When passing one of these to <a href="#">createNode</a> or <a href="#">createUnstartedNode</a> functions, the bits that are
+set will be injected into the node configuration for the node to be created.</p>
+<code><span class="identifier">MockNodeConfigOverrides</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNodeConfigOverrides$<init>(kotlin.collections.Map((kotlin.String, )), net.corda.testing.node.MockNetNotaryConfig, net.corda.testing.node.MockNetFlowTimeOut)/extraDataSourceProperties">extraDataSourceProperties</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNodeConfigOverrides$<init>(kotlin.collections.Map((kotlin.String, )), net.corda.testing.node.MockNetNotaryConfig, net.corda.testing.node.MockNetFlowTimeOut)/notary">notary</span><span class="symbol">:</span>&nbsp;<a href="../-mock-net-notary-config/index.html"><span class="identifier">MockNetNotaryConfig</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNodeConfigOverrides$<init>(kotlin.collections.Map((kotlin.String, )), net.corda.testing.node.MockNetNotaryConfig, net.corda.testing.node.MockNetFlowTimeOut)/flowTimeout">flowTimeout</span><span class="symbol">:</span>&nbsp;<a href="../-mock-net-flow-time-out/index.html"><span class="identifier">MockNetFlowTimeOut</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="extra-data-source-properties.html">extraDataSourceProperties</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">extraDataSourceProperties</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="flow-timeout.html">flowTimeout</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">flowTimeout</span><span class="symbol">: </span><a href="../-mock-net-flow-time-out/index.html"><span class="identifier">MockNetFlowTimeOut</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notary.html">notary</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">notary</span><span class="symbol">: </span><a href="../-mock-net-notary-config/index.html"><span class="identifier">MockNetNotaryConfig</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

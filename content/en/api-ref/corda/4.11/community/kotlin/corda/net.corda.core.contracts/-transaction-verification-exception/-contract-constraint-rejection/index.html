@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionVerificationException.ContractConstraintRejection - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="../index.html">TransactionVerificationException</a>&nbsp;/&nbsp;<a href="./index.html">ContractConstraintRejection</a><br/>
+<br/>
+<h1>ContractConstraintRejection</h1>
+<code><span class="keyword">class </span><span class="identifier">ContractConstraintRejection</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../index.html"><span class="identifier">TransactionVerificationException</span></a></code>
+<p>The transaction attachment that contains the <a href="contract-class.html">contractClass</a> class didn't meet the constraints specified by
+the <a href="../../-transaction-state/constraint.html">TransactionState.constraint</a> object. This usually implies a version mismatch of some kind.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>The transaction attachment that contains the <a href="contract-class.html">contractClass</a> class didn't meet the constraints specified by
+the <a href="../../-transaction-state/constraint.html">TransactionState.constraint</a> object. This usually implies a version mismatch of some kind.</p>
+<code><span class="identifier">ContractConstraintRejection</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.TransactionVerificationException.ContractConstraintRejection$<init>(net.corda.core.crypto.SecureHash, kotlin.String)/txId">txId</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.TransactionVerificationException.ContractConstraintRejection$<init>(net.corda.core.crypto.SecureHash, kotlin.String)/contractClass">contractClass</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="contract-class.html">contractClass</a></h4>
+</td>
+<td>
+<p>The fully qualified class name of the failing contract.</p>
+<code><span class="keyword">val </span><span class="identifier">contractClass</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

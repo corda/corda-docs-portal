@@ -1,0 +1,223 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.testing.node - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.testing.node</a><br/>
+<br/>
+<h2>Package net.corda.testing.node</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-cluster-spec/index.html">ClusterSpec</a></h4>
+</td>
+<td>
+<p>Abstract class specifying information about the consensus algorithm used for a cluster of nodes.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">ClusterSpec</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-database-snapshot/index.html">DatabaseSnapshot</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">DatabaseSnapshot</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-in-memory-messaging-network/index.html">InMemoryMessagingNetwork</a></h4>
+</td>
+<td>
+<p>An in-memory network allows you to manufacture <a href="#">MockNodeMessagingService</a>s for a set of participants. Each
+<a href="#">MockNodeMessagingService</a> maintains a queue of messages it has received, and a background thread that dispatches
+messages one by one to registered handlers. Alternatively, a messaging system may be manually pumped, in which
+case no thread is created and a caller is expected to force delivery one at a time (this is useful for unit
+testing).</p>
+<code><span class="keyword">class </span><span class="identifier">InMemoryMessagingNetwork</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.serialization/-singleton-serialize-as-token/index.html"><span class="identifier">SingletonSerializeAsToken</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-mock-net-flow-time-out/index.html">MockNetFlowTimeOut</a></h4>
+</td>
+<td>
+<p>MockNetFlowTimeOut can be used to configure flow time out settings for a node via the mock network API.</p>
+<code><span class="keyword">class </span><span class="identifier">MockNetFlowTimeOut</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-mock-net-notary-config/index.html">MockNetNotaryConfig</a></h4>
+</td>
+<td>
+<p>MockNetNotaryConfig can be used to configure a node to be a notary via the mock network API. Internally
+this will be translated into a NotaryConfiguration and passed to the respective node.</p>
+<code><span class="keyword">class </span><span class="identifier">MockNetNotaryConfig</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-mock-network/index.html">MockNetwork</a></h4>
+</td>
+<td>
+<p>A mock node brings up a suite of in-memory services in a fast manner suitable for unit testing.
+Components that do IO are either swapped out for mocks, or pointed to a <a href="#">Jimfs</a> in memory filesystem or an in
+memory H2 database instance.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">MockNetwork</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-mock-network-notary-spec/index.html">MockNetworkNotarySpec</a></h4>
+</td>
+<td>
+<p>The spec for a notary which will used by the <a href="-mock-network/index.html">MockNetwork</a> to automatically start a notary node. This notary will
+become part of the network parameters used by all the nodes.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">MockNetworkNotarySpec</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-mock-network-parameters/index.html">MockNetworkParameters</a></h4>
+</td>
+<td>
+<p>Immutable builder for configuring a <a href="-mock-network/index.html">MockNetwork</a>.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">MockNetworkParameters</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-mock-node-config-overrides/index.html">MockNodeConfigOverrides</a></h4>
+</td>
+<td>
+<p>This is a data class to configure overrides to the node configuration used in the mock network
+without having to expose/use the actual (internal) node configuration interface on the API.
+When passing one of these to <a href="#">createNode</a> or <a href="#">createUnstartedNode</a> functions, the bits that are
+set will be injected into the node configuration for the node to be created.</p>
+<code><span class="keyword">class </span><span class="identifier">MockNodeConfigOverrides</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-mock-node-parameters/index.html">MockNodeParameters</a></h4>
+</td>
+<td>
+<p>Immutable builder for configuring a <a href="-started-mock-node/index.html">StartedMockNode</a> or an <a href="-unstarted-mock-node/index.html">UnstartedMockNode</a> via <a href="-mock-network/create-node.html">MockNetwork.createNode</a> and
+<a href="-mock-network/create-unstarted-node.html">MockNetwork.createUnstartedNode</a>. Kotlin users can also use the named parameters overloads of those methods which
+are more convenient.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">MockNodeParameters</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-mock-services/index.html">MockServices</a></h4>
+</td>
+<td>
+<p>An implementation of <a href="../net.corda.core.node/-service-hub/index.html">ServiceHub</a> that is designed for in-memory unit tests of contract validation logic. It has
+enough functionality to do tests of code that queries the vault, inserts to the vault, and constructs/checks
+transactions. However it isn't enough to test flows and other aspects of an app that require a network. For that
+you should investigate <a href="-mock-network/index.html">MockNetwork</a>.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">MockServices</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node/-service-hub/index.html"><span class="identifier">ServiceHub</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-notary-spec/index.html">NotarySpec</a></h4>
+</td>
+<td>
+<p>A notary spec for describing a notary which will be started automatically by the driver and which will be part of
+the network parameters used by all the nodes.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">NotarySpec</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-started-mock-node/index.html">StartedMockNode</a></h4>
+</td>
+<td>
+<p>A class that represents a started mock node for testing.</p>
+<code><span class="keyword">class </span><span class="identifier">StartedMockNode</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-test-clock/index.html">TestClock</a></h4>
+</td>
+<td>
+<p>A <a href="https://docs.oracle.com/javase/8/docs/api/java/time/Clock.html">Clock</a> that can have the time advanced for use in testing.</p>
+<code><span class="keyword">class </span><span class="identifier">TestClock</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">MutableClock</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-test-cordapp/index.html">TestCordapp</a></h4>
+</td>
+<td>
+<p>Encapsulates a CorDapp that exists on the current classpath, which can be pulled in for testing. Use <a href="-test-cordapp/find-cordapp.html">TestCordapp.findCordapp</a>
+to locate an existing CorDapp.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">TestCordapp</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-unstarted-mock-node/index.html">UnstartedMockNode</a></h4>
+</td>
+<td>
+<p>A class that represents an unstarted mock node for testing.</p>
+<code><span class="keyword">class </span><span class="identifier">UnstartedMockNode</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-user/index.html">User</a></h4>
+</td>
+<td>
+<p>Object encapsulating a node rpc user and their associated permissions for use when testing using the <a href="#">driver</a></p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">User</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="create-mock-corda-service.html">createMockCordaService</a></h4>
+</td>
+<td>
+<p>Function which can be used to create a mock <a href="../net.corda.core.node.services/-corda-service/index.html">CordaService</a> for use within testing, such as an Oracle.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.serialization/-serialize-as-token/index.html"><span class="identifier">SerializeAsToken</span></a><span class="symbol">&gt;</span> <span class="identifier">createMockCordaService</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node$createMockCordaService(net.corda.testing.node.MockServices, kotlin.Function1((net.corda.core.node.AppServiceHub, net.corda.testing.node.createMockCordaService.T)))/serviceHub">serviceHub</span><span class="symbol">:</span>&nbsp;<a href="-mock-services/index.html"><span class="identifier">MockServices</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.testing.node$createMockCordaService(net.corda.testing.node.MockServices, kotlin.Function1((net.corda.core.node.AppServiceHub, net.corda.testing.node.createMockCordaService.T)))/serviceConstructor">serviceConstructor</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="../net.corda.core.node/-app-service-hub/index.html"><span class="identifier">AppServiceHub</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="ledger.html">ledger</a></h4>
+</td>
+<td>
+<p>Creates and tests a ledger built by the passed in dsl.</p>
+<code><span class="keyword">fun </span><a href="../net.corda.core.node/-service-hub/index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">.</span><span class="identifier">ledger</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node$ledger(net.corda.core.node.ServiceHub, net.corda.core.identity.Party, kotlin.Function1((net.corda.testing.dsl.LedgerDSL((net.corda.testing.dsl.TestTransactionDSLInterpreter, net.corda.testing.dsl.TestLedgerDSLInterpreter)), kotlin.Unit)))/notary">notary</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a>&nbsp;<span class="symbol">=</span>&nbsp;TestIdentity.fresh("ledger notary").party<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node$ledger(net.corda.core.node.ServiceHub, net.corda.core.identity.Party, kotlin.Function1((net.corda.testing.dsl.LedgerDSL((net.corda.testing.dsl.TestTransactionDSLInterpreter, net.corda.testing.dsl.TestLedgerDSLInterpreter)), kotlin.Unit)))/script">script</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.testing.dsl/-ledger-d-s-l/index.html"><span class="identifier">LedgerDSL</span></a><span class="symbol">&lt;</span><a href="../net.corda.testing.dsl/-test-transaction-d-s-l-interpreter/index.html"><span class="identifier">TestTransactionDSLInterpreter</span></a><span class="symbol">,</span>&nbsp;<a href="../net.corda.testing.dsl/-test-ledger-d-s-l-interpreter/index.html"><span class="identifier">TestLedgerDSLInterpreter</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../net.corda.testing.dsl/-ledger-d-s-l/index.html"><span class="identifier">LedgerDSL</span></a><span class="symbol">&lt;</span><a href="../net.corda.testing.dsl/-test-transaction-d-s-l-interpreter/index.html"><span class="identifier">TestTransactionDSLInterpreter</span></a><span class="symbol">,</span>&nbsp;<a href="../net.corda.testing.dsl/-test-ledger-d-s-l-interpreter/index.html"><span class="identifier">TestLedgerDSLInterpreter</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="make-test-identity-service.html">makeTestIdentityService</a></h4>
+</td>
+<td>
+<p>Returns a simple <a href="../net.corda.core.node.services/-identity-service/index.html">IdentityService</a> containing the supplied <a href="make-test-identity-service.html#net.corda.testing.node$makeTestIdentityService(kotlin.Array((net.corda.core.identity.PartyAndCertificate)))/identities">identities</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">makeTestIdentityService</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.testing.node$makeTestIdentityService(kotlin.Array((net.corda.core.identity.PartyAndCertificate)))/identities">identities</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.identity/-party-and-certificate/index.html"><span class="identifier">PartyAndCertificate</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../net.corda.core.node.services/-identity-service/index.html"><span class="identifier">IdentityService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="test-actor.html">testActor</a></h4>
+</td>
+<td>
+<p>Creates a new <a href="../net.corda.core.context/-actor/index.html">Actor</a> for use in testing with the given <a href="test-actor.html#net.corda.testing.node$testActor(net.corda.core.identity.CordaX500Name)/owningLegalIdentity">owningLegalIdentity</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">testActor</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node$testActor(net.corda.core.identity.CordaX500Name)/owningLegalIdentity">owningLegalIdentity</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a>&nbsp;<span class="symbol">=</span>&nbsp;CordaX500Name("Test Company Inc.", "London", "GB")<span class="symbol">)</span><span class="symbol">: </span><a href="../net.corda.core.context/-actor/index.html"><span class="identifier">Actor</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="test-context.html">testContext</a></h4>
+</td>
+<td>
+<p>Creates a new <a href="../net.corda.core.context/-invocation-context/index.html">InvocationContext</a> for use in testing with the given <a href="test-context.html#net.corda.testing.node$testContext(net.corda.core.identity.CordaX500Name)/owningLegalIdentity">owningLegalIdentity</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">testContext</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node$testContext(net.corda.core.identity.CordaX500Name)/owningLegalIdentity">owningLegalIdentity</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a>&nbsp;<span class="symbol">=</span>&nbsp;CordaX500Name("Test Company Inc.", "London", "GB")<span class="symbol">)</span><span class="symbol">: </span><a href="../net.corda.core.context/-invocation-context/index.html"><span class="identifier">InvocationContext</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="transaction.html">transaction</a></h4>
+</td>
+<td>
+<p>Creates a ledger with a single transaction, built by the passed in dsl.</p>
+<code><span class="keyword">fun </span><a href="../net.corda.core.node/-service-hub/index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">.</span><span class="identifier">transaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node$transaction(net.corda.core.node.ServiceHub, net.corda.core.identity.Party, kotlin.Function1((net.corda.testing.dsl.TransactionDSL((net.corda.testing.dsl.TransactionDSLInterpreter)), net.corda.testing.dsl.EnforceVerifyOrFail)))/notary">notary</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a>&nbsp;<span class="symbol">=</span>&nbsp;TestIdentity.fresh("transaction notary").party<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node$transaction(net.corda.core.node.ServiceHub, net.corda.core.identity.Party, kotlin.Function1((net.corda.testing.dsl.TransactionDSL((net.corda.testing.dsl.TransactionDSLInterpreter)), net.corda.testing.dsl.EnforceVerifyOrFail)))/script">script</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.testing.dsl/-transaction-d-s-l/index.html"><span class="identifier">TransactionDSL</span></a><span class="symbol">&lt;</span><a href="../net.corda.testing.dsl/-transaction-d-s-l-interpreter/index.html"><span class="identifier">TransactionDSLInterpreter</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="../net.corda.testing.dsl/-enforce-verify-or-fail.html"><span class="identifier">EnforceVerifyOrFail</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../net.corda.testing.dsl/-ledger-d-s-l/index.html"><span class="identifier">LedgerDSL</span></a><span class="symbol">&lt;</span><a href="../net.corda.testing.dsl/-test-transaction-d-s-l-interpreter/index.html"><span class="identifier">TestTransactionDSLInterpreter</span></a><span class="symbol">,</span>&nbsp;<a href="../net.corda.testing.dsl/-test-ledger-d-s-l-interpreter/index.html"><span class="identifier">TestLedgerDSLInterpreter</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

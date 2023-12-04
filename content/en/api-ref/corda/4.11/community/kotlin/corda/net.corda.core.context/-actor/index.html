@@ -1,0 +1,78 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Actor - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.context</a>&nbsp;/&nbsp;<a href="./index.html">Actor</a><br/>
+<br/>
+<h1>Actor</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Actor</span></code>
+<p>Models an initiator in Corda, can be a user, a service, etc.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-id/index.html">Id</a></h4>
+</td>
+<td>
+<p>Actor id.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Id</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Models an initiator in Corda, can be a user, a service, etc.</p>
+<code><span class="identifier">Actor</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.context.Actor$<init>(net.corda.core.context.Actor.Id, net.corda.core.context.AuthServiceId, net.corda.core.identity.CordaX500Name)/id">id</span><span class="symbol">:</span>&nbsp;<span class="identifier">Id</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.context.Actor$<init>(net.corda.core.context.Actor.Id, net.corda.core.context.AuthServiceId, net.corda.core.identity.CordaX500Name)/serviceId">serviceId</span><span class="symbol">:</span>&nbsp;<a href="../-auth-service-id/index.html"><span class="identifier">AuthServiceId</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.context.Actor$<init>(net.corda.core.context.Actor.Id, net.corda.core.context.AuthServiceId, net.corda.core.identity.CordaX500Name)/owningLegalIdentity">owningLegalIdentity</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="id.html">id</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">id</span><span class="symbol">: </span><span class="identifier">Id</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="owning-legal-identity.html">owningLegalIdentity</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">owningLegalIdentity</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="service-id.html">serviceId</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">serviceId</span><span class="symbol">: </span><a href="../-auth-service-id/index.html"><span class="identifier">AuthServiceId</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="service.html">service</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">service</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.context.Actor.Companion$service(kotlin.String, net.corda.core.identity.CordaX500Name)/serviceClassName">serviceClassName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.context.Actor.Companion$service(kotlin.String, net.corda.core.identity.CordaX500Name)/owningLegalIdentity">owningLegalIdentity</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Actor</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowRPCOps.recoverFinalityFlowByTxnId - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc.proxy</a>&nbsp;/&nbsp;<a href="index.html">FlowRPCOps</a>&nbsp;/&nbsp;<a href="./recover-finality-flow-by-txn-id.html">recoverFinalityFlowByTxnId</a><br/>
+<br/>
+<h1>recoverFinalityFlowByTxnId</h1>
+<a name="net.corda.client.rpc.proxy.FlowRPCOps$recoverFinalityFlowByTxnId(net.corda.core.crypto.SecureHash, kotlin.Boolean)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">recoverFinalityFlowByTxnId</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.FlowRPCOps$recoverFinalityFlowByTxnId(net.corda.core.crypto.SecureHash, kotlin.Boolean)/txnId">txnId</span><span class="symbol">:</span>&nbsp;<span class="identifier">SecureHash</span><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.proxy.FlowRPCOps$recoverFinalityFlowByTxnId(net.corda.core.crypto.SecureHash, kotlin.Boolean)/forceRecover">forceRecover</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Recover a failed finality flow by transaction id.
+<a href="recover-finality-flow-by-txn-id.html#net.corda.client.rpc.proxy.FlowRPCOps$recoverFinalityFlowByTxnId(net.corda.core.crypto.SecureHash, kotlin.Boolean)/forceRecover">forceRecover</a> will also attempt to recover flows which are in a RUNNABLE, PAUSED or HOSPITALIZED state.
+This operation will attempt to recovery failed peers if the initiator-side of the transaction completed successfully.</p>
+<h3>Exceptions</h3>
+<p><a name="FlowRecoveryException"></a>
+<code>FlowRecoveryException</code> - if there is an error whilst performing recovery</p>
+<p><strong>Return</strong><br/>
+true if a transaction is successfully recovered
+false if a transaction does not require recovery</p>
+</BODY>
+</HTML>

@@ -100,7 +100,7 @@ To set up the {{< tooltip >}}TLS{{< /tooltip >}} key pair and certificate for th
    ```shell
    export TLS_KEY_ID=<TLS-key-ID>
    ```
-2. Create a certificate for the TLS key pair. In order to do so, you must create a certificate signing request (CSR). To generate a CSR, run this command:
+2. Create a certificate for the TLS key pair by running the following command to generate a {{< tooltip >}}CSR{{< /tooltip >}}:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell

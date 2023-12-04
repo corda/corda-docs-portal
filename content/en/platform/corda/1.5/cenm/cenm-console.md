@@ -44,8 +44,8 @@ Apache Log4j dependency has been updated to version 2.16.0. This is to prevent e
 
 To install the CENM management console:
 
-1. Download the latest Gateway Service binaries from [Artifactory](https://software.r3.com).
-2. Download the CENM management console Gateway Plugin binaries from Artifactory.
+1. Download the latest Gateway Service binaries from [the Customer Hub](https://customerhub.r3.com/s/).
+2. Download the CENM management console Gateway Plugin binaries from the Customer Hub.
 3. Create a directory called `plugins` in the same directory as the Gateway Service JAR file (if you do not already have this directory for other plug-ins).
 4. Copy the CENM Gateway Plugin JAR file to the `plugins` directory.
 5. Configure the Gateway Service using the `auth { }` and `cenm { }` properties.

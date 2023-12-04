@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Amount.times - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="index.html">Amount</a>&nbsp;/&nbsp;<a href="./times.html">times</a><br/>
+<br/>
+<h1>times</h1>
+<a name="net.corda.core.contracts.Amount$times(kotlin.Long)"></a>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">times</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.Amount$times(kotlin.Long)/other">other</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code><br/>
+<a name="net.corda.core.contracts.Amount$times(kotlin.Int)"></a>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">times</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.Amount$times(kotlin.Int)/other">other</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>The multiplication operator is supported to allow easy calculation for multiples of a primitive Amount.
+Note this is not a conserving operation, so it may not always be correct modelling of proper token behaviour.
+N.B. Division is not supported as fractional tokens are not representable by an Amount.</p>
+<h3>Exceptions</h3>
+<p><a name="ArithmeticException"></a>
+<code>ArithmeticException</code> - if there is overflow of Amount tokens during the multiplication.</p>
+</BODY>
+</HTML>

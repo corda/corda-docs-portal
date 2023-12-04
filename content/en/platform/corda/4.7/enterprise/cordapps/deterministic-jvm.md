@@ -324,7 +324,7 @@ transaction verification will fail.
 
 ### Using the Command-line Tool
 
-You can download and unpack `corda-djvm-cli.zip` from the R3 Artifactory.
+You can download and unpack `corda-djvm-cli.zip` from the R3 Maven.
 Alternatively, you can build it yourself from the source as follows.
 
 Open your terminal and clone the DJVM repository from GitHub:
