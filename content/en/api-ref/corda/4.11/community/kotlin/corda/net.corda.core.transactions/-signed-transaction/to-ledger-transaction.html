@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SignedTransaction.toLedgerTransaction - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.transactions</a>&nbsp;/&nbsp;<a href="index.html">SignedTransaction</a>&nbsp;/&nbsp;<a href="./to-ledger-transaction.html">toLedgerTransaction</a><br/>
+<br/>
+<h1>toLedgerTransaction</h1>
+<a name="net.corda.core.transactions.SignedTransaction$toLedgerTransaction(net.corda.core.node.ServiceHub, kotlin.Boolean)"></a>
+<code><span class="identifier">@JvmOverloads</span> <span class="keyword">fun </span><span class="identifier">toLedgerTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$toLedgerTransaction(net.corda.core.node.ServiceHub, kotlin.Boolean)/services">services</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-service-hub/index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$toLedgerTransaction(net.corda.core.node.ServiceHub, kotlin.Boolean)/checkSufficientSignatures">checkSufficientSignatures</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span><span class="symbol">: </span><a href="../-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a></code>
+<p>Checks the transaction's signatures are valid, optionally calls <a href="../-transaction-with-signatures/verify-required-signatures.html">verifyRequiredSignatures</a> to
+check all required signatures are present, and then calls <a href="../-wire-transaction/to-ledger-transaction.html">WireTransaction.toLedgerTransaction</a>
+with the passed in <a href="../../net.corda.core.node/-service-hub/index.html">ServiceHub</a> to resolve the dependencies, returning an unverified
+LedgerTransaction.</p>
+<p>This allows us to perform validation over the entirety of the transaction's contents.
+WireTransaction only contains StateRef for the inputs and hashes for the attachments,
+rather than ContractState instances for the inputs and Attachment instances for the attachments.</p>
+<h3>Exceptions</h3>
+<p><a name="AttachmentResolutionException"></a>
+<code>AttachmentResolutionException</code> - if a required attachment was not found in storage.</p>
+<p><a name="TransactionResolutionException"></a>
+<code>TransactionResolutionException</code> - if an input points to a transaction not found in storage.</p>
+<p><a name="SignatureException"></a>
+<code>SignatureException</code> - if any signatures were invalid or unrecognised</p>
+<p><a name="SignaturesMissingException"></a>
+<code>SignaturesMissingException</code> - if any signatures that should have been present are missing.</p>
+</BODY>
+</HTML>

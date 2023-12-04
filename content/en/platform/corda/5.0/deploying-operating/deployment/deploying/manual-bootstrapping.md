@@ -173,7 +173,7 @@ You can then execute the `create` script to create the topics.
 
 ## Database
 
-By default, a Corda installation automatically creates and populates the database schema it requires. 
+By default, a Corda installation automatically creates and populates the database schema it requires.
 
 {{< note >}}
 If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database, as described in this section.
@@ -229,7 +229,7 @@ Depending on your installation, follow the steps in one of the following section
 * [RBAC Database Connection Configuration for Corda](#rbac-database-connection-configuration-for-corda)
 * [RBAC Database Connection Configuration for Corda Enterprise with HashiCorp Vault](#rbac-database-connection-configuration-for-corda-enterprise-with-hashicorp-vault) {{< enterprise-icon >}}
 
-#### RBAC Database Connection Configuration for Corda 
+#### RBAC Database Connection Configuration for Corda
 
 1. Execute the following Corda CLI command to generate DDL for populating the {{< tooltip >}}RBAC{{< /tooltip >}} database connection configuration:
 
@@ -427,7 +427,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
-     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \ 
+     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \
      --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \
      --is-admin
    ```
@@ -435,8 +435,8 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> `
-     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> ` 
-     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db ` 
+     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> `
+     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db `
      --is-admin
    ```
    {{% /tab %}}
@@ -456,7 +456,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> \
-     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \ 
+     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \
      --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key vnodes -l /tmp/db \
      --is-admin
    ```
@@ -464,7 +464,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> `
-     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> ` 
+     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> `
      --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key vnodes -l /tmp/db `
      --is-admin
    ```
@@ -473,6 +473,7 @@ Depending on your installation, follow the steps in one of the following section
 
    {{< note >}}
    There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
+
    {{< /note >}}
 
    For example:
@@ -480,7 +481,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> \
-     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://prereqs-postgres:5432/cordacluster' \ 
+     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://prereqs-postgres:5432/cordacluster' \
      --jdbc-pool-max-size  5 -t VAULT --vault-path dbsecrets --key vnodes -l /tmp/db \
      --is-admin
    ```
@@ -488,7 +489,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> `
-     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://prereqs-postgres:5432/cordacluster ` 
+     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://prereqs-postgres:5432/cordacluster `
      --jdbc-pool-max-size  5 -t VAULT --vault-path dbsecrets --key vnodes -l /tmp/db `
      --is-admin
    ```

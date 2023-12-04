@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>GenericQueryCriteria - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node.services.vault</a>&nbsp;/&nbsp;<a href="./index.html">GenericQueryCriteria</a><br/>
+<br/>
+<h1>GenericQueryCriteria</h1>
+<code><span class="keyword">interface </span><span class="identifier">GenericQueryCriteria</span><span class="symbol">&lt;</span><span class="identifier">Q</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">GenericQueryCriteria</span></a><span class="symbol">&lt;</span><span class="identifier">Q</span><span class="symbol">,</span>&nbsp;<span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">in</span>&nbsp;<span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-base-query-criteria-parser/index.html"><span class="identifier">BaseQueryCriteriaParser</span></a><span class="symbol">&lt;</span><span class="identifier">Q</span><span class="symbol">,</span>&nbsp;<span class="identifier">*</span><span class="symbol">,</span>&nbsp;<span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-chainable-query-criteria/index.html">ChainableQueryCriteria</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">ChainableQueryCriteria</span><span class="symbol">&lt;</span><span class="identifier">Q</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">GenericQueryCriteria</span></a><span class="symbol">&lt;</span><span class="identifier">Q</span><span class="symbol">,</span>&nbsp;<span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">in</span>&nbsp;<span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-base-query-criteria-parser/index.html"><span class="identifier">BaseQueryCriteriaParser</span></a><span class="symbol">&lt;</span><span class="identifier">Q</span><span class="symbol">,</span>&nbsp;<span class="identifier">P</span><span class="symbol">,</span>&nbsp;<span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="visit.html">visit</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">visit</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.vault.GenericQueryCriteria$visit(net.corda.core.node.services.vault.GenericQueryCriteria.P)/parser">parser</span><span class="symbol">:</span>&nbsp;<span class="identifier">P</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><span class="identifier">Predicate</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-attachment-query-criteria/index.html">AttachmentQueryCriteria</a></h4>
+</td>
+<td>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">AttachmentQueryCriteria</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">GenericQueryCriteria</span></a><span class="symbol">&lt;</span><a href="../-attachment-query-criteria/index.html"><span class="identifier">AttachmentQueryCriteria</span></a><span class="symbol">,</span>&nbsp;<a href="../-attachments-query-criteria-parser/index.html"><span class="identifier">AttachmentsQueryCriteriaParser</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">ChainableQueryCriteria</span><span class="symbol">&lt;</span><a href="../-attachment-query-criteria/index.html"><span class="identifier">AttachmentQueryCriteria</span></a><span class="symbol">,</span>&nbsp;<a href="../-attachments-query-criteria-parser/index.html"><span class="identifier">AttachmentsQueryCriteriaParser</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-query-criteria/index.html">QueryCriteria</a></h4>
+</td>
+<td>
+<p>Indexing assumptions:
+QueryCriteria assumes underlying schema tables are correctly indexed for performance.</p>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">QueryCriteria</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">GenericQueryCriteria</span></a><span class="symbol">&lt;</span><a href="../-query-criteria/index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">,</span>&nbsp;<a href="../-i-query-criteria-parser/index.html"><span class="identifier">IQueryCriteriaParser</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">ChainableQueryCriteria</span><span class="symbol">&lt;</span><a href="../-query-criteria/index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">,</span>&nbsp;<a href="../-i-query-criteria-parser/index.html"><span class="identifier">IQueryCriteriaParser</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

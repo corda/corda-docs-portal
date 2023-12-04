@@ -1,0 +1,54 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CommandWithParties - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="./index.html">CommandWithParties</a><br/>
+<br/>
+<h1>CommandWithParties</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">CommandWithParties</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-command-data.html"><span class="identifier">CommandData</span></a><span class="symbol">&gt;</span></code>
+<p>A <a href="../-command/index.html">Command</a> where the signing parties have been looked up if they have a well known/recognised institutional key.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>A <a href="../-command/index.html">Command</a> where the signing parties have been looked up if they have a well known/recognised institutional key.</p>
+<code><span class="identifier">CommandWithParties</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.CommandWithParties$<init>(kotlin.collections.List((java.security.PublicKey)), kotlin.collections.List((net.corda.core.identity.Party)), net.corda.core.contracts.CommandWithParties.T)/signers">signers</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.CommandWithParties$<init>(kotlin.collections.List((java.security.PublicKey)), kotlin.collections.List((net.corda.core.identity.Party)), net.corda.core.contracts.CommandWithParties.T)/signingParties">signingParties</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.CommandWithParties$<init>(kotlin.collections.List((java.security.PublicKey)), kotlin.collections.List((net.corda.core.identity.Party)), net.corda.core.contracts.CommandWithParties.T)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="signers.html">signers</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">signers</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="signing-parties.html">signingParties</a></h4>
+</td>
+<td>
+<p>If any public keys were recognised, the looked up institutions are available here</p>
+<code><span class="keyword">val </span><s><span class="identifier">signingParties</span></s><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="value.html">value</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">value</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

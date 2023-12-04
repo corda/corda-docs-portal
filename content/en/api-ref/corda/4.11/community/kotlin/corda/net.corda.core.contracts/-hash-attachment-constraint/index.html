@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>HashAttachmentConstraint - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="./index.html">HashAttachmentConstraint</a><br/>
+<br/>
+<h1>HashAttachmentConstraint</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">HashAttachmentConstraint</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-attachment-constraint/index.html"><span class="identifier">AttachmentConstraint</span></a></code>
+<p>An <a href="../-attachment-constraint/index.html">AttachmentConstraint</a> that verifies by hash.
+The state protected by this constraint can only be used in a transaction created with that version of the jar.
+And a receiving node will only accept it if a cordapp with that hash has (is) been deployed on the node.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>An <a href="../-attachment-constraint/index.html">AttachmentConstraint</a> that verifies by hash.
+The state protected by this constraint can only be used in a transaction created with that version of the jar.
+And a receiving node will only accept it if a cordapp with that hash has (is) been deployed on the node.</p>
+<code><span class="identifier">HashAttachmentConstraint</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.HashAttachmentConstraint$<init>(net.corda.core.crypto.SecureHash)/attachmentId">attachmentId</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="attachment-id.html">attachmentId</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">attachmentId</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="is-satisfied-by.html">isSatisfiedBy</a></h4>
+</td>
+<td>
+<p>Returns whether the given contract attachment can be used with the <a href="../-contract-state/index.html">ContractState</a> associated with this constraint object.</p>
+<code><span class="keyword">fun </span><span class="identifier">isSatisfiedBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.HashAttachmentConstraint$isSatisfiedBy(net.corda.core.contracts.Attachment)/attachment">attachment</span><span class="symbol">:</span>&nbsp;<a href="../-attachment/index.html"><span class="identifier">Attachment</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="disable-hash-constraints.html">disableHashConstraints</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">disableHashConstraints</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

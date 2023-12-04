@@ -185,7 +185,7 @@ Diagnostics information is written to standard log files (eg. log4j2 configured 
 This tool is particularly useful when used in conjunction with the `checkpoints dump` CRaSH shell command to troubleshoot and identify potential
 problems associated with checkpoints for flows that appear to not be completing.
 
-The checkpoint agent can be downloaded from [here](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-checkpoint-agent/).
+The checkpoint agent can be downloaded from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-tools-checkpoint-agent/4.10.3/corda-tools-checkpoint-agent-4.10.3.jar).
 
 To run simply pass in the following jar to the JVM used to start a Corda node: `-Dcapsule.jvm.args=-javaagent:<PATH>/checkpoint-agent.jar[=arg=value,...]`
 

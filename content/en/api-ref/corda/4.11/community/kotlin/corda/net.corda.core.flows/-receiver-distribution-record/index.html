@@ -1,0 +1,91 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ReceiverDistributionRecord - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="./index.html">ReceiverDistributionRecord</a><br/>
+<br/>
+<h1>ReceiverDistributionRecord</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ReceiverDistributionRecord</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-distribution-record/index.html"><span class="identifier">DistributionRecord</span></a></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">ReceiverDistributionRecord</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.ReceiverDistributionRecord$<init>(net.corda.core.crypto.SecureHash, net.corda.core.crypto.SecureHash, java.time.Instant, kotlin.Int, net.corda.core.utilities.OpaqueBytes, net.corda.core.node.StatesToRecord)/txId">txId</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.ReceiverDistributionRecord$<init>(net.corda.core.crypto.SecureHash, net.corda.core.crypto.SecureHash, java.time.Instant, kotlin.Int, net.corda.core.utilities.OpaqueBytes, net.corda.core.node.StatesToRecord)/peerPartyId">peerPartyId</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.ReceiverDistributionRecord$<init>(net.corda.core.crypto.SecureHash, net.corda.core.crypto.SecureHash, java.time.Instant, kotlin.Int, net.corda.core.utilities.OpaqueBytes, net.corda.core.node.StatesToRecord)/timestamp">timestamp</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html"><span class="identifier">Instant</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.ReceiverDistributionRecord$<init>(net.corda.core.crypto.SecureHash, net.corda.core.crypto.SecureHash, java.time.Instant, kotlin.Int, net.corda.core.utilities.OpaqueBytes, net.corda.core.node.StatesToRecord)/timestampDiscriminator">timestampDiscriminator</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.ReceiverDistributionRecord$<init>(net.corda.core.crypto.SecureHash, net.corda.core.crypto.SecureHash, java.time.Instant, kotlin.Int, net.corda.core.utilities.OpaqueBytes, net.corda.core.node.StatesToRecord)/encryptedDistributionList">encryptedDistributionList</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.ReceiverDistributionRecord$<init>(net.corda.core.crypto.SecureHash, net.corda.core.crypto.SecureHash, java.time.Instant, kotlin.Int, net.corda.core.utilities.OpaqueBytes, net.corda.core.node.StatesToRecord)/receiverStatesToRecord">receiverStatesToRecord</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-states-to-record/index.html"><span class="identifier">StatesToRecord</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="encrypted-distribution-list.html">encryptedDistributionList</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">encryptedDistributionList</span><span class="symbol">: </span><a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="id.html">id</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">id</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="peer-party-id.html">peerPartyId</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">peerPartyId</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="receiver-states-to-record.html">receiverStatesToRecord</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">receiverStatesToRecord</span><span class="symbol">: </span><a href="../../net.corda.core.node/-states-to-record/index.html"><span class="identifier">StatesToRecord</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="timestamp.html">timestamp</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">timestamp</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html"><span class="identifier">Instant</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="timestamp-discriminator.html">timestampDiscriminator</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">timestampDiscriminator</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="tx-id.html">txId</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">txId</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

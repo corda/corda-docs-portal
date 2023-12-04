@@ -25,17 +25,13 @@ The minimum platform version that the nodes must be running on. Any node running
 not start.
 
 * **notaries**:
-Ordered list of file paths to the node info files, or X500 names, of the notaries which are permitted in the
-network.
 
-{{< note >}}
-Once a network has started, the only supported changes to notaries are to add new notaries at the end of the list or to remove existing ones as part of a decommissioning process.
-{{< /note >}}
-Notaries can be removed from the list, in which case no new states can be created and reference it. The existing states which reference
-the removed Notary have to be moved to a new Notary before the pointed one is decommissioned. Notaries must be added
-to the end as Flows often use the ordering of notaries during selection (i.e. pick the first),
-and therefore changing the order could cause errors elsewhere.
-Also note you can provide only file path to the node info file or X500 name of the notary, not both.
+Either the ordered list of file paths to the node info files, or the X.500 names, of the notaries which are permitted in the
+network. Note that once a network has started, the only supported changes to notaries are to add new notaries at the end of the list.  
+
+Notaries must be added to the end, as flows often use the ordering of notaries during selection ("pick the first" approach),
+and therefore changing the order could cause errors elsewhere. Also note that you can provide only the file path to the node info file or the X.500 name of the notary, not both.
+
 For guidance on using notaries in flows, see [the API Flows page](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.6/api-flows.md).
 
 ## Configuration parameters

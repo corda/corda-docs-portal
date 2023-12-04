@@ -1,0 +1,226 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.core.transactions - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.core.transactions</a><br/>
+<br/>
+<h2>Package net.corda.core.transactions</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-base-transaction/index.html">BaseTransaction</a></h4>
+</td>
+<td>
+<p>An abstract class defining fields shared by all transaction types in the system.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">BaseTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-named-by-hash/index.html"><span class="identifier">NamedByHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-component-group/index.html">ComponentGroup</a></h4>
+</td>
+<td>
+<p>A ComponentGroup is used to store the full list of transaction components of the same type in serialised form.
+Practically, a group per component type of a transaction is required; thus, there will be a group for input states,
+a group for all attachments (if there are any) etc.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">ComponentGroup</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-contract-upgrade-filtered-transaction/index.html">ContractUpgradeFilteredTransaction</a></h4>
+</td>
+<td>
+<p>A filtered version of the <a href="-contract-upgrade-wire-transaction/index.html">ContractUpgradeWireTransaction</a>. In comparison with a regular <a href="-filtered-transaction/index.html">FilteredTransaction</a>, there
+is no flexibility on what parts of the transaction to reveal – the inputs, notary and network parameters hash fields are always visible and the
+rest of the transaction is always hidden. Its only purpose is to hide transaction data when using a non-validating notary.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ContractUpgradeFilteredTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-core-transaction/index.html"><span class="identifier">CoreTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-contract-upgrade-ledger-transaction/index.html">ContractUpgradeLedgerTransaction</a></h4>
+</td>
+<td>
+<p>A contract upgrade transaction with fully resolved inputs and signatures. Contract upgrade transactions are separate
+to regular transactions because their validation logic is specialised; the original contract by definition cannot be
+aware of the upgraded contract (it was written after the original contract was developed), so its validation logic
+cannot succeed. Instead alternative verification logic is used which verifies that the outputs correspond to the
+inputs after upgrading.</p>
+<code><span class="keyword">class </span><span class="identifier">ContractUpgradeLedgerTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-full-transaction/index.html"><span class="identifier">FullTransaction</span></a><span class="symbol">, </span><a href="-transaction-with-signatures/index.html"><span class="identifier">TransactionWithSignatures</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-contract-upgrade-wire-transaction/index.html">ContractUpgradeWireTransaction</a></h4>
+</td>
+<td>
+<p>A special transaction for upgrading the contract of a state.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ContractUpgradeWireTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-core-transaction/index.html"><span class="identifier">CoreTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-core-transaction/index.html">CoreTransaction</a></h4>
+</td>
+<td>
+<p>A transaction with the minimal amount of information required to compute the unique transaction <a href="#">id</a>, and
+resolve a <a href="-full-transaction/index.html">FullTransaction</a>. This type of transaction, wrapped in <a href="-signed-transaction/index.html">SignedTransaction</a>, gets transferred across the
+wire and recorded to storage.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">CoreTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-base-transaction/index.html"><span class="identifier">BaseTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-filtered-component-group/index.html">FilteredComponentGroup</a></h4>
+</td>
+<td>
+<p>A FilteredComponentGroup is used to store the filtered list of transaction components of the same type in serialised form.
+This is similar to <a href="-component-group/index.html">ComponentGroup</a>, but it also includes the corresponding nonce per component.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">FilteredComponentGroup</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-component-group/index.html"><span class="identifier">ComponentGroup</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-filtered-transaction/index.html">FilteredTransaction</a></h4>
+</td>
+<td>
+<p>Class representing merkleized filtered transaction.</p>
+<code><span class="keyword">class </span><span class="identifier">FilteredTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-traversable-transaction/index.html"><span class="identifier">TraversableTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-full-transaction/index.html">FullTransaction</a></h4>
+</td>
+<td>
+<p>A transaction with fully resolved components, such as input states.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">FullTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-base-transaction/index.html"><span class="identifier">BaseTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-ledger-transaction/index.html">LedgerTransaction</a></h4>
+</td>
+<td>
+<p>A LedgerTransaction is derived from a <a href="-wire-transaction/index.html">WireTransaction</a>. It is the result of doing the following operations:</p>
+<code><span class="keyword">class </span><span class="identifier">LedgerTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-full-transaction/index.html"><span class="identifier">FullTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-network-parameters-hash/index.html">NetworkParametersHash</a></h4>
+</td>
+<td>
+<p>Wrapper over <a href="../net.corda.core.crypto/-secure-hash/index.html">SecureHash</a> to be used when filtering network parameters hash.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">NetworkParametersHash</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-notary-change-ledger-transaction/index.html">NotaryChangeLedgerTransaction</a></h4>
+</td>
+<td>
+<p>A notary change transaction with fully resolved inputs and signatures. In contrast with a regular transaction,
+signatures are checked against the signers specified by input states' <em>participants</em> fields, so full resolution is
+needed for signature verification.</p>
+<code><span class="keyword">class </span><span class="identifier">NotaryChangeLedgerTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-full-transaction/index.html"><span class="identifier">FullTransaction</span></a><span class="symbol">, </span><a href="-transaction-with-signatures/index.html"><span class="identifier">TransactionWithSignatures</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-notary-change-wire-transaction/index.html">NotaryChangeWireTransaction</a></h4>
+</td>
+<td>
+<p>A special transaction for changing the notary of a state. It only needs specifying the state(s) as input(s),
+old and new notaries. Output states can be computed by applying the notary modification to corresponding inputs
+on the fly.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">NotaryChangeWireTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-core-transaction/index.html"><span class="identifier">CoreTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-reference-state-ref/index.html">ReferenceStateRef</a></h4>
+</td>
+<td>
+<p>Wrapper over <a href="../net.corda.core.contracts/-state-ref/index.html">StateRef</a> to be used when filtering reference states.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ReferenceStateRef</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signed-transaction/index.html">SignedTransaction</a></h4>
+</td>
+<td>
+<p>SignedTransaction wraps a serialized WireTransaction. It contains one or more signatures, each one for
+a public key (including composite keys) that is mentioned inside a transaction command. SignedTransaction is the top level transaction type
+and the type most frequently passed around the network and stored. The identity of a transaction is the hash of Merkle root
+of a WireTransaction, therefore if you are storing data keyed by WT hash be aware that multiple different STs may
+map to the same key (and they could be different in important ways, like validity!). The signatures on a
+SignedTransaction might be invalid or missing: the type does not imply validity.
+A transaction ID should be the hash of the <a href="-wire-transaction/index.html">WireTransaction</a> Merkle tree root. Thus adding or removing a signature does not change it.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">SignedTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-transaction-with-signatures/index.html"><span class="identifier">TransactionWithSignatures</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-builder/index.html">TransactionBuilder</a></h4>
+</td>
+<td>
+<p>A TransactionBuilder is a transaction class that's mutable (unlike the others which are all immutable). It is
+intended to be passed around contracts that may edit it by adding new states/commands. Then once the states
+and commands are right, this class can be used as a holding bucket to gather signatures from multiple parties.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">TransactionBuilder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-with-signatures/index.html">TransactionWithSignatures</a></h4>
+</td>
+<td>
+<p>An interface for transactions containing signatures, with logic for signature verification.</p>
+<code><span class="keyword">interface </span><span class="identifier">TransactionWithSignatures</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-named-by-hash/index.html"><span class="identifier">NamedByHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-traversable-transaction/index.html">TraversableTransaction</a></h4>
+</td>
+<td>
+<p>Implemented by <a href="-wire-transaction/index.html">WireTransaction</a> and <a href="-filtered-transaction/index.html">FilteredTransaction</a>. A TraversableTransaction allows you to iterate
+over the flattened components of the underlying transaction structure, taking into account that some
+may be missing in the case of this representing a "torn" transaction. Please see the user guide section
+"Transaction tear-offs" to learn more about this feature.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">TraversableTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-core-transaction/index.html"><span class="identifier">CoreTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-wire-transaction/index.html">WireTransaction</a></h4>
+</td>
+<td>
+<p>A transaction ready for serialisation, without any signatures attached. A WireTransaction is usually wrapped
+by a <a href="-signed-transaction/index.html">SignedTransaction</a> that carries the signatures over this payload.
+The identity of the transaction is the Merkle tree root of its components (see <a href="../net.corda.core.crypto/-merkle-tree/index.html">MerkleTree</a>).</p>
+<code><span class="keyword">class </span><span class="identifier">WireTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-traversable-transaction/index.html"><span class="identifier">TraversableTransaction</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-component-visibility-exception/index.html">ComponentVisibilityException</a></h4>
+</td>
+<td>
+<p>Thrown when checking for visibility of all-components in a group in <a href="-filtered-transaction/check-all-components-visible.html">FilteredTransaction.checkAllComponentsVisible</a>.</p>
+<code><span class="keyword">class </span><span class="identifier">ComponentVisibilityException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core/-corda-exception/index.html"><span class="identifier">CordaException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-filtered-transaction-verification-exception/index.html">FilteredTransactionVerificationException</a></h4>
+</td>
+<td>
+<p>Thrown when <a href="-filtered-transaction/verify.html">FilteredTransaction.verify</a> fails.</p>
+<code><span class="keyword">class </span><span class="identifier">FilteredTransactionVerificationException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core/-corda-exception/index.html"><span class="identifier">CordaException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-missing-contract-attachments/index.html">MissingContractAttachments</a></h4>
+</td>
+<td>
+<p>A contract attachment was missing when trying to automatically attach all known contract attachments</p>
+<code><span class="keyword">class </span><span class="identifier">MissingContractAttachments</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.flows/-flow-exception/index.html"><span class="identifier">FlowException</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
