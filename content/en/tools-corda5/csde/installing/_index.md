@@ -39,7 +39,7 @@ The images in this section show the `CSDE-cordapp-template-kotlin` repository in
 2. Change to the new folder and create a new branch from the corda-5-0 release tag: 
 
    ```sh
-    git checkout -b newbranch tags/release/corda-5-0
+   git checkout -b newbranch tags/release/corda-5-0
    ```
 
 3. Initialise the Git repository and change the remote so you do not inadvertently push your work back to the R3 repository:
