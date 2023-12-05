@@ -22,7 +22,7 @@ title: Release notes
 * Two network parameters for ledger recovery with Corda 4.11 have been added:
   * `recoveryMaximumBackupInterval`
   * `confidentialIdentityMinimumBackupInterval`
-* The JDK version used by CENM has been upgraded from JDK 8.0.382 to JDK 8.0.392.
+* Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
 
 ### Fixed issues
 
