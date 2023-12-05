@@ -116,7 +116,7 @@ The deployment steps are given below:
 - Download the Docker image with CENM [Command-Line Interface (CLI) tool]({{< relref "../../../../../en/platform/corda/1.6/cenm/cenm-cli-tool.md" >}}) so you can manage CENM services:
 
 ```bash
-  docker pull corda/enterprise-cenm-cli:1.5.6-zulu-openjdk8u242
+  docker pull corda/enterprise-cenm-cli:1.6-zulu-openjdk8u892
 ```
 
 #### 2. Set up the Kubernetes cluster
@@ -207,11 +207,11 @@ cd k8s/helm
 
 ## Network operations
 
-Use the CENM [Command Line Interface (CLI) Tool]({{< relref "../../../../../en/platform/corda/1.6/cenm/cenm-cli-tool.md" >}}) to access the [Gateway Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md" >}}) from your local machine.
+Use the CENM [Command Line Interface (CLI) Tool]({{< relref "../../../../../en/platform/corda/1.6/cenm/cenm-cli-tool.md" >}}) to access the [Gateway Service]({{< relref "../../../../../en/platform/corda/4.11/enterprise/node/gateway-service.md" >}}) from your local machine.
 To start the CENM CLI Tool, run Docker command starting a Docker container with the tool:
 
   ```bash
-  docker run  -it --env ACCEPT_LICENSE=Y --name=cenm-cli corda/enterprise-cenm-cli:1.5.6-zulu-openjdk8u242
+  docker run  -it --env ACCEPT_LICENSE=Y --name=cenm-cli corda/enterprise-cenm-cli:1.6-zulu-openjdk8u392
   ```
 
 The welcome message will appear:
@@ -230,7 +230,7 @@ You can now use `cemn` commands from within the running Docker container:
   ./cenm context login -s -u <USER> -p <PASSWORD> http://<GATEWAY-SERVICE-IP>:8080
   ```
 
-The [Gateway Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md" >}}) is a gateway between the [Auth Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md" >}}) and front end services in CENM. It allows you to perform all network operations on the [Identity Manager Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/identity-manager.md" >}}), the [Network Map Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/network-map.md" >}}), and the [Signing Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/signing-service.md" >}}).
+The [Gateway Service]({{< relref "../../../../../en/platform/corda/4.11/enterprise/node/gateway-service.md" >}}) is a gateway between the [Auth Service]({{< relref "../../../../../en/platform/corda/4.11/enterprise/node/auth-service.md" >}}) and front end services in CENM. It allows you to perform all network operations on the [Identity Manager Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/identity-manager.md" >}}), the [Network Map Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/network-map.md" >}}), and the [Signing Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/signing-service.md" >}}).
 The IP address is dynamically allocated for each deployment and can be found with `kubectl get svc`.
 Use the following command to ensure that you are pointing at the correct namespace:
 
@@ -294,7 +294,7 @@ kubectl get pods -o wide
 You will find the truststore password in the `signer/files/pki.conf`, where the default value used in this Helm chart is `trust-store-password`.
 
 {{< note >}} For more details about joining a CENM network, see:
-[Joining an existing compatibility zone]({{< relref "../../../../../en/platform/corda/4.8/enterprise/network/joining-a-compatibility-zone.md" >}}).
+[Joining an existing compatibility zone]({{< relref "../../../../../en/platform/corda/4.11/enterprise/network/joining-a-compatibility-zone.md" >}}).
 {{< /note >}}
 
 ### Display logs
@@ -523,7 +523,7 @@ Example settings for connection to a PostgreSQL database follow below:
 ```guess
 database:
   driverClassName: "org.postgresql.Driver"
-  jdbcDriver: "/opt/cenm/drivers/postgresql-42.2.12.jar"
+  jdbcDriver: "/opt/cenm/drivers/postgresql-42.5.2.jar"
   url: "jdbc:postgresql://<HOST>:<PORT>/<DATABASE>"
   user: "<USER>"
   password: "<PASSWORD>"
@@ -604,4 +604,4 @@ echo ${idmanPublicIP}
 
 ## Appendix A: Docker Images
 
-Visit the [platform support matrix](../../../../../en/platform/corda/4.8/enterprise/platform-support-matrix.html#docker-images) for information on Corda Docker Images for version 1.6.
+Visit the [platform support matrix](../../../../../en/platform/corda/4.11/enterprise/platform-support-matrix.html#docker-images) for information on Corda Docker Images for version 1.6.
