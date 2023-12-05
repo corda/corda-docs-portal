@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>VaultService._trackBy - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node.services</a>&nbsp;/&nbsp;<a href="index.html">VaultService</a>&nbsp;/&nbsp;<a href="./_track-by.html">_trackBy</a><br/>
+<br/>
+<h1>_trackBy</h1>
+<a name="net.corda.core.node.services.VaultService$_trackBy(net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification, net.corda.core.node.services.vault.Sort, java.lang.Class((net.corda.core.node.services.VaultService._trackBy.T)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <span class="identifier">_trackBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.VaultService$_trackBy(net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification, net.corda.core.node.services.vault.Sort, java.lang.Class((net.corda.core.node.services.VaultService._trackBy.T)))/criteria">criteria</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node.services.vault/-query-criteria/index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.VaultService$_trackBy(net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification, net.corda.core.node.services.vault.Sort, java.lang.Class((net.corda.core.node.services.VaultService._trackBy.T)))/paging">paging</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node.services.vault/-page-specification/index.html"><span class="identifier">PageSpecification</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.VaultService$_trackBy(net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification, net.corda.core.node.services.vault.Sort, java.lang.Class((net.corda.core.node.services.VaultService._trackBy.T)))/sorting">sorting</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node.services.vault/-sort/index.html"><span class="identifier">Sort</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.VaultService$_trackBy(net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification, net.corda.core.node.services.vault.Sort, java.lang.Class((net.corda.core.node.services.VaultService._trackBy.T)))/contractStateType">contractStateType</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.messaging/-data-feed/index.html"><span class="identifier">DataFeed</span></a><span class="symbol">&lt;</span><span class="identifier">Page</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<span class="identifier">Update</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Generic vault query function which takes a <a href="../../net.corda.core.node.services.vault/-query-criteria/index.html">QueryCriteria</a> object to define filters,
+optional <a href="../../net.corda.core.node.services.vault/-page-specification/index.html">PageSpecification</a> and optional <a href="../../net.corda.core.node.services.vault/-sort/index.html">Sort</a> modification criteria (default unsorted),
+and returns a <a href="../../net.corda.core.messaging/-data-feed/index.html">DataFeed</a> object containing:</p>
+<ol><li>a snapshot as a <a href="../-vault/-page/index.html">Vault.Page</a> (described previously in <a href="query-by.html">queryBy</a>).</li>
+<li>an <a href="#">Observable</a> of <a href="../-vault/-update/index.html">Vault.Update</a>.</li>
+</ol>
+<h3>Exceptions</h3>
+<p><a name="VaultQueryException"></a>
+<code>VaultQueryException</code> - 
+<p>if the query cannot be executed for any reason.</p>
+
+
+<p>Notes:
+    - The snapshot part of the query adheres to the same behaviour as the <a href="query-by.html">queryBy</a> function.
+    - The update part of the query currently only supports query criteria filtering by contract
+      type(s) and state status(es). CID-731 &lt;&gt; proposes
+      adding the complete set of <a href="../../net.corda.core.node.services.vault/-query-criteria/index.html">QueryCriteria</a> filtering.</p>
+</p>
+</BODY>
+</HTML>

@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.core.concurrent - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.core.concurrent</a><br/>
+<br/>
+<h2>Package net.corda.core.concurrent</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-corda-future/index.html">CordaFuture</a></h4>
+</td>
+<td>
+<p>Same as <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html">Future</a> with additional methods to provide some of the features of <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html">java.util.concurrent.CompletableFuture</a> while minimising the API surface area.
+In Kotlin, to avoid compile errors, whenever CordaFuture is used in a parameter or extension method receiver type, its type parameter should be specified with out variance.</p>
+<code><span class="keyword">interface </span><span class="identifier">CordaFuture</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html"><span class="identifier">Future</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extensions for External Classes</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="java.util.concurrent.-future/index.html">java.util.concurrent.Future</a></h4>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="first-of.html">firstOf</a></h4>
+</td>
+<td>
+<p>As soon as a given future becomes done, the handler is invoked with that future as its argument.
+The result of the handler is copied into the result future, and the handler isn't invoked again.
+If a given future errors after the result future is done, the error is automatically logged.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">, </span><span class="identifier">W</span><span class="symbol">&gt;</span> <span class="identifier">firstOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.core.concurrent$firstOf(kotlin.Array((net.corda.core.concurrent.CordaFuture((net.corda.core.concurrent.firstOf.V)))), kotlin.Function1((net.corda.core.concurrent.CordaFuture((net.corda.core.concurrent.firstOf.V)), net.corda.core.concurrent.firstOf.W)))/futures">futures</span><span class="symbol">:</span>&nbsp;<a href="-corda-future/index.html"><span class="identifier">CordaFuture</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.concurrent$firstOf(kotlin.Array((net.corda.core.concurrent.CordaFuture((net.corda.core.concurrent.firstOf.V)))), kotlin.Function1((net.corda.core.concurrent.CordaFuture((net.corda.core.concurrent.firstOf.V)), net.corda.core.concurrent.firstOf.W)))/handler">handler</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="-corda-future/index.html"><span class="identifier">CordaFuture</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">W</span><span class="symbol">)</span><span class="symbol">: </span><a href="-corda-future/index.html"><span class="identifier">CordaFuture</span></a><span class="symbol">&lt;</span><span class="identifier">W</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

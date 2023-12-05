@@ -1,5 +1,5 @@
+{{/*Renders conditional values indicated in the JSON by "if" */}}
 {{ $value := .value }}
-{{ $key := .key }}
 {{ $fullurl := .url}}
     {{ range $allofkey, $allofval := $value.allOf }}
         {{ range $ifkey, $ifval := $allofval }}

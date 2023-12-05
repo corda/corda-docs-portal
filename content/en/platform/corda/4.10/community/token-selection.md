@@ -122,13 +122,13 @@ Enter the following into your **CorDapp config**, choosing a single indexing str
 ```
 stateSelection {
     inMemory {
-           indexingStrategies: ["EXTERNAL_ID"|"PUBLIC_KEY"|"TOKEN_ONLY"]
+           indexingStrategies: ["EXTERNAL_ID"|"PUBLIC_KEY"]
            cacheSize: Int
     }
 }
 ```
 
-In this example, token selection is configured in the `deployNodes` with `TOKEN_ONLY` as the indexing strategy, added under task `deployNodes(type: net.corda.plugins.Cordform)`.
+In this example, token selection is configured in the `deployNodes` with `PUBLIC_KEY` as the indexing strategy, added under task `deployNodes(type: net.corda.plugins.Cordform)`.
 
 
 ```kotlin
@@ -137,7 +137,7 @@ nodeDefaults {
         config '''
             stateSelection {
                 inMemory {
-                       indexingStrategies: ["TOKEN_ONLY"]
+                       indexingStrategies: ["PUBLIC_KEY"]
                        cacheSize: 1024
                 }
             }

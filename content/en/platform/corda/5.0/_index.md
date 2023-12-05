@@ -7,7 +7,7 @@ version: 'Corda 5.0'
 section_menu: corda5
 menu:
   versions:
-    weight: -652
+    weight: -2000
   corda5:
     weight: -100
 aliases: 5.0-beta.html   

@@ -32,7 +32,7 @@ deterministic versions of all their dependent libraries, e.g. `kotlin-stdlib`.
 ## Generating the Deterministic Modules
 
 `jdk8u-deterministic` is a “pseudo JDK” image that we can point the Java and Kotlin compilers to. It downloads the
-`rt.jar` containing a deterministic subset of the Java 8 APIs from the Artifactory.To build a new version of this JAR and upload it to the Artifactory, see the `create-jdk8u` module. This is a
+`rt.jar` containing a deterministic subset of the Java 8 APIs from Maven.To build a new version of this JAR and upload it to Maven, see the `create-jdk8u` module. This is a
 standalone Gradle project within the Corda repository that will clone the `deterministic-jvm8` branch of Corda’s
 [OpenJDK repository](https://github.com/corda/openjdk) and then build it. (This currently requires a C++ compiler,
 GNU Make and a UNIX-like development environment.)`core-deterministic` and `serialization-deterministic` are generated from Corda’s `core` and `serialization`

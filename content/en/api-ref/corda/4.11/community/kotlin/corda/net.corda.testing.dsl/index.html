@@ -1,0 +1,122 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.testing.dsl - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.testing.dsl</a><br/>
+<br/>
+<h2>Package net.corda.testing.dsl</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-enforce-verify-or-fail.html">EnforceVerifyOrFail</a></h4>
+</td>
+<td>
+<p>If you jumped here from a compiler error make sure the last line of your test tests for a transaction verify or fail.
+This is a dummy type that can only be instantiated by functions in this module. This way we can ensure that all tests
+will have as the last line either an accept or a failure test. The name is deliberately long to help make sense of
+the triggered diagnostic.</p>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">EnforceVerifyOrFail</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-ledger-d-s-l/index.html">LedgerDSL</a></h4>
+</td>
+<td>
+<p>This is the class that defines the syntactic sugar of the ledger Test DSL and delegates to the contained interpreter,
+and what is actually used in <code>ledger { (...) }</code>. Add convenience functions here, or if you want to extend the DSL
+functionality then first add your primitive to <a href="-ledger-d-s-l-interpreter/index.html">LedgerDSLInterpreter</a> and then add the convenience defaults/extension
+methods here.</p>
+<code><span class="keyword">class </span><span class="identifier">LedgerDSL</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-transaction-d-s-l-interpreter/index.html"><span class="identifier">TransactionDSLInterpreter</span></a><span class="symbol">, </span><span class="keyword">out</span>&nbsp;<span class="identifier">L</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-ledger-d-s-l-interpreter/index.html"><span class="identifier">LedgerDSLInterpreter</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-ledger-d-s-l-interpreter/index.html"><span class="identifier">LedgerDSLInterpreter</span></a><span class="symbol">&lt;</span><a href="-transaction-d-s-l-interpreter/index.html"><span class="identifier">TransactionDSLInterpreter</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-ledger-d-s-l-interpreter/index.html">LedgerDSLInterpreter</a></h4>
+</td>
+<td>
+<p>This interface defines the bare bone functionality that a Ledger DSL interpreter should implement.</p>
+<code><span class="keyword">interface </span><span class="identifier">LedgerDSLInterpreter</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-transaction-d-s-l-interpreter/index.html"><span class="identifier">TransactionDSLInterpreter</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-verifies/index.html"><span class="identifier">Verifies</span></a><span class="symbol">, </span><a href="-output-state-lookup/index.html"><span class="identifier">OutputStateLookup</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-output-state-lookup/index.html">OutputStateLookup</a></h4>
+</td>
+<td>
+<p>This interface defines output state lookup by label. It is split from the interpreter interfaces so that outputs may
+be looked up both in ledger{..} and transaction{..} blocks.</p>
+<code><span class="keyword">interface </span><span class="identifier">OutputStateLookup</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-test-ledger-d-s-l-interpreter/index.html">TestLedgerDSLInterpreter</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">TestLedgerDSLInterpreter</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-ledger-d-s-l-interpreter/index.html"><span class="identifier">LedgerDSLInterpreter</span></a><span class="symbol">&lt;</span><a href="-test-transaction-d-s-l-interpreter/index.html"><span class="identifier">TestTransactionDSLInterpreter</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-test-transaction-d-s-l-interpreter/index.html">TestTransactionDSLInterpreter</a></h4>
+</td>
+<td>
+<p>This interpreter builds a transaction, and <a href="#">TransactionDSL.verifies</a> that the resolved transaction is correct. Note
+that transactions corresponding to input states are not verified. Use <a href="#">LedgerDSL.verifies</a> for that.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">TestTransactionDSLInterpreter</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-transaction-d-s-l-interpreter/index.html"><span class="identifier">TransactionDSLInterpreter</span></a><span class="symbol">, </span><a href="-output-state-lookup/index.html"><span class="identifier">OutputStateLookup</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-d-s-l/index.html">TransactionDSL</a></h4>
+</td>
+<td>
+<p>Underlying class for the transaction DSL. Do not instantiate directly, instead use the <a href="#">transaction</a> function.</p>
+<code><span class="keyword">class </span><span class="identifier">TransactionDSL</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-transaction-d-s-l-interpreter/index.html"><span class="identifier">TransactionDSLInterpreter</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-transaction-d-s-l-interpreter/index.html"><span class="identifier">TransactionDSLInterpreter</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-d-s-l-interpreter/index.html">TransactionDSLInterpreter</a></h4>
+</td>
+<td>
+<p>This interface defines the bare bone functionality that a Transaction DSL interpreter should implement.</p>
+<code><span class="keyword">interface </span><span class="identifier">TransactionDSLInterpreter</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-verifies/index.html"><span class="identifier">Verifies</span></a><span class="symbol">, </span><a href="-output-state-lookup/index.html"><span class="identifier">OutputStateLookup</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-verifies/index.html">Verifies</a></h4>
+</td>
+<td>
+<p>This interface asserts that the DSL at hand is capable of verifying its underlying construct(ledger/transaction).</p>
+<code><span class="keyword">interface </span><span class="identifier">Verifies</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-attachment-resolution-exception/index.html">AttachmentResolutionException</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">AttachmentResolutionException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.flows/-flow-exception/index.html"><span class="identifier">FlowException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-double-spent-inputs/index.html">DoubleSpentInputs</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">DoubleSpentInputs</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.flows/-flow-exception/index.html"><span class="identifier">FlowException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-duplicate-output-label/index.html">DuplicateOutputLabel</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">DuplicateOutputLabel</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.flows/-flow-exception/index.html"><span class="identifier">FlowException</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

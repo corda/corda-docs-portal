@@ -1,0 +1,187 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Cordapp - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.cordapp</a>&nbsp;/&nbsp;<a href="./index.html">Cordapp</a><br/>
+<br/>
+<h1>Cordapp</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">Cordapp</span></code>
+<p>Represents a cordapp by registering the JAR that contains it and all important classes for Corda.
+Instances of this class are generated automatically at startup of a node and can get retrieved from
+<a href="../-cordapp-provider/get-app-context.html">CordappProvider.getAppContext</a> from the <a href="../-cordapp-context/index.html">CordappContext</a> it returns.</p>
+<p>This will only need to be constructed manually for certain kinds of tests.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-info/index.html">Info</a></h4>
+</td>
+<td>
+<p>Further information about the CorDapp extracted from its MANIFEST. The sub-types <a href="-info/-default/index.html">Default</a>, <a href="-info/-contract/index.html">Contract</a> and <a href="-info/-workflow/index.html">Workflow</a> determine what
+type of CorDapp this is.</p>
+<code><span class="keyword">interface </span><span class="identifier">Info</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="all-flows.html">allFlows</a></h4>
+</td>
+<td>
+<p>List of all flow classes</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">allFlows</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="checkpoint-custom-serializers.html">checkpointCustomSerializers</a></h4>
+</td>
+<td>
+<p>List of serializers for checkpoints</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">checkpointCustomSerializers</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.serialization/-checkpoint-custom-serializer/index.html"><span class="identifier">CheckpointCustomSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">,</span>&nbsp;<span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="contract-class-names.html">contractClassNames</a></h4>
+</td>
+<td>
+<p>List of contracts</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">contractClassNames</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="cordapp-classes.html">cordappClasses</a></h4>
+</td>
+<td>
+<p>An exhaustive list of all classes relevant to the node within this CorDapp</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">cordappClasses</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="custom-schemas.html">customSchemas</a></h4>
+</td>
+<td>
+<p>List of custom schemas</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">customSchemas</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.schemas/-mapped-schema/index.html"><span class="identifier">MappedSchema</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="info.html">info</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">info</span><span class="symbol">: </span><span class="identifier">Info</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="initiated-flows.html">initiatedFlows</a></h4>
+</td>
+<td>
+<p>List of initiatable flow classes</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">initiatedFlows</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="jar-hash.html">jarHash</a></h4>
+</td>
+<td>
+<p>Hash of the jar</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">jarHash</span><span class="symbol">: </span><span class="identifier">SHA256</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="jar-path.html">jarPath</a></h4>
+</td>
+<td>
+<p>The path to the JAR for this CorDapp</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">jarPath</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/net/URL.html"><span class="identifier">URL</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="minimum-platform-version.html">minimumPlatformVersion</a></h4>
+</td>
+<td>
+<p>The minimum platform version this CorDapp will run on.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">minimumPlatformVersion</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="name.html">name</a></h4>
+</td>
+<td>
+<p>Cordapp name - derived from the base name of the Cordapp JAR (therefore may not be unique). This is different to
+<a href="-info/short-name.html">Cordapp.Info.shortName</a> which should be used instead.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">name</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="rpc-flows.html">rpcFlows</a></h4>
+</td>
+<td>
+<p>List of RPC initiable flows classes</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">rpcFlows</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="schedulable-flows.html">schedulableFlows</a></h4>
+</td>
+<td>
+<p>List of flows startable by the scheduler</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">schedulableFlows</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="serialization-custom-serializers.html">serializationCustomSerializers</a></h4>
+</td>
+<td>
+<p>List of serializers</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">serializationCustomSerializers</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.serialization/-serialization-custom-serializer/index.html"><span class="identifier">SerializationCustomSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">,</span>&nbsp;<span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="serialization-whitelists.html">serializationWhitelists</a></h4>
+</td>
+<td>
+<p>List of Corda plugin registries</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">serializationWhitelists</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.serialization/-serialization-whitelist/index.html"><span class="identifier">SerializationWhitelist</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="service-flows.html">serviceFlows</a></h4>
+</td>
+<td>
+<p>List of <a href="../../net.corda.core.node.services/-corda-service/index.html">net.corda.core.node.services.CordaService</a> initiable flows classes</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">serviceFlows</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="services.html">services</a></h4>
+</td>
+<td>
+<p>List of RPC services</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">services</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../../net.corda.core.serialization/-serialize-as-token/index.html"><span class="identifier">SerializeAsToken</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="target-platform-version.html">targetPlatformVersion</a></h4>
+</td>
+<td>
+<p>The target platform version this CorDapp was designed and tested on.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">targetPlatformVersion</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="telemetry-components.html">telemetryComponents</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">telemetryComponents</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">TelemetryComponent</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
