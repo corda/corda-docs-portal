@@ -12,7 +12,7 @@ weight: 60
 
 # CENM Gateway Service Helm Chart
 
-This Helm chart is to configure, deploy, and run the [Gateway Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md" >}}) on Kubernetes.
+This Helm chart is to configure, deploy, and run the [Gateway Service]({{< relref "../../../../../en/platform/corda/4.11/enterprise/node/gateway-service.md" >}}) on Kubernetes.
 
 ## Example usage
 
@@ -34,7 +34,7 @@ helm install cenm-gateway gateway --set prefix=cenm --set acceptLicense=Y --set 
 | ----------------------------- | -------------------------------------------------------- | --------------------- |
 | `bashDebug`                   | Display additional information while running bash scripts (useful while investigating issues) | `false` |
 | `gatewayPortImage.repository`        | URL to Gateway Docker image repository                      | `corda/enterprise-gateway` |
-| `gatewayImage.tag`               | Docker image tag | `1.5.6-zulu-openjdk8u242` |
+| `gatewayImage.tag`               | Docker image tag | `1.6-zulu-openjdk8u392` |
 | `gatewayImage.pullPolicy`        | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `volumeSizeGatewayEtc`           | Volume size for the `etc/` directory | `1Gi` |
 | `volumeSizeGatewayLogs`          | Volume size for the `h2/` directory | `5Gi` |
