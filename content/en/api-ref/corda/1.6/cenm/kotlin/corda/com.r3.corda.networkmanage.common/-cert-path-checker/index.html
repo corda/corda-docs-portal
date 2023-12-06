@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CertPathChecker - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common</a>&nbsp;/&nbsp;<a href="./index.html">CertPathChecker</a><br/>
+<br/>
+<h1>CertPathChecker</h1>
+<code><span class="keyword">class </span><span class="identifier">CertPathChecker</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-cert-checker/index.html"><span class="identifier">CertChecker</span></a></code>
+<p>This certificate path checkers validates the certificate path by checking whether at least one path consists of the
+certificate type from the set of valid ones and ends with the root certificate passed in <a href="#">rootCert</a>.
+Additionally, there is a support for the certificate revocation status validation that can be enabled by setting the
+<a href="#">checkRevocation</a> flag.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">CertPathChecker</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.CertPathChecker$<init>(java.security.cert.X509Certificate, kotlin.Boolean)/rootCert">rootCert</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.CertPathChecker$<init>(java.security.cert.X509Certificate, kotlin.Boolean)/checkRevocation">checkRevocation</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span></code>
+<p>This certificate path checkers validates the certificate path by checking whether at least one path consists of the
+certificate type from the set of valid ones and ends with the root certificate passed in <a href="#">rootCert</a>.
+Additionally, there is a support for the certificate revocation status validation that can be enabled by setting the
+<a href="#">checkRevocation</a> flag.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="check.html">check</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">check</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.CertPathChecker$check(kotlin.collections.List((java.security.cert.CertPath)), kotlin.Array(()))/legalIdentitiesCertPaths">legalIdentitiesCertPaths</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/CertPath.html"><span class="identifier">CertPath</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="com.r3.corda.networkmanage.common.CertPathChecker$check(kotlin.collections.List((java.security.cert.CertPath)), kotlin.Array(()))/validCertRoles">validCertRoles</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Walks through the provided certificate chain and asserts that at least one certificate in the chain has a role
+matching of the provided <a href="check.html#com.r3.corda.networkmanage.common.CertPathChecker$check(kotlin.collections.List((java.security.cert.CertPath)), kotlin.Array(()))/validCertRoles">validCertRoles</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="validate.html">validate</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/CertPath.html"><span class="identifier">CertPath</span></a><span class="symbol">.</span><span class="identifier">validate</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.CertPathChecker$validate(java.security.cert.CertPath, java.security.cert.TrustAnchor, kotlin.Boolean)/trustAnchor">trustAnchor</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/TrustAnchor.html"><span class="identifier">TrustAnchor</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.CertPathChecker$validate(java.security.cert.CertPath, java.security.cert.TrustAnchor, kotlin.Boolean)/checkRevocation">checkRevocation</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/PKIXCertPathValidatorResult.html"><span class="identifier">PKIXCertPathValidatorResult</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-cert-checker/check.html">check</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">check</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.CertChecker$check(kotlin.collections.List((java.security.cert.CertPath)), kotlin.Array(()))/legalIdentitiesCertPaths">legalIdentitiesCertPaths</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/CertPath.html"><span class="identifier">CertPath</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="com.r3.corda.networkmanage.common.CertChecker$check(kotlin.collections.List((java.security.cert.CertPath)), kotlin.Array(()))/validCertRoles">validCertRoles</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Walks through the provided certificate chain and asserts that at least one certificate in the chain has a role
+matching of the provided <a href="../-cert-checker/check.html#com.r3.corda.networkmanage.common.CertChecker$check(kotlin.collections.List((java.security.cert.CertPath)), kotlin.Array(()))/validCertRoles">validCertRoles</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

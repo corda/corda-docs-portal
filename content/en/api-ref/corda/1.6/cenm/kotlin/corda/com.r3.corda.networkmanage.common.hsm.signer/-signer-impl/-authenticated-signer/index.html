@@ -1,0 +1,98 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SignerImpl.AuthenticatedSigner - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">com.r3.corda.networkmanage.common.hsm.signer</a>&nbsp;/&nbsp;<a href="../index.html">SignerImpl</a>&nbsp;/&nbsp;<a href="./index.html">AuthenticatedSigner</a><br/>
+<br/>
+<h1>AuthenticatedSigner</h1>
+<code><span class="keyword">class </span><span class="identifier">AuthenticatedSigner</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../../com.r3.corda.networkmanage.common.signer/-signer/-authenticated-signer/index.html"><span class="identifier">AuthenticatedSigner</span></a></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">AuthenticatedSigner</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.hsm.signer.SignerImpl.AuthenticatedSigner$<init>(com.r3.corda.networkmanage.common.cryptoservice.CryptoService((com.r3.corda.networkmanage.common.cryptoservice.authentication.AuthenticationCredentials, com.r3.corda.networkmanage.common.cryptoservice.keygeneration.KeyConfig)), kotlin.String, kotlin.String, kotlin.collections.List((java.security.cert.X509Certificate)), )/cryptoService">cryptoService</span><span class="symbol">:</span>&nbsp;<a href="../../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service/index.html"><span class="identifier">CryptoService</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../../../com.r3.corda.networkmanage.common.cryptoservice.authentication/-authentication-credentials.html"><span class="identifier">AuthenticationCredentials</span></a><span class="symbol">,</span>&nbsp;<span class="keyword">out</span>&nbsp;<a href="../../../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-key-config/index.html"><span class="identifier">KeyConfig</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.hsm.signer.SignerImpl.AuthenticatedSigner$<init>(com.r3.corda.networkmanage.common.cryptoservice.CryptoService((com.r3.corda.networkmanage.common.cryptoservice.authentication.AuthenticationCredentials, com.r3.corda.networkmanage.common.cryptoservice.keygeneration.KeyConfig)), kotlin.String, kotlin.String, kotlin.collections.List((java.security.cert.X509Certificate)), )/keyAlias">keyAlias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.hsm.signer.SignerImpl.AuthenticatedSigner$<init>(com.r3.corda.networkmanage.common.cryptoservice.CryptoService((com.r3.corda.networkmanage.common.cryptoservice.authentication.AuthenticationCredentials, com.r3.corda.networkmanage.common.cryptoservice.keygeneration.KeyConfig)), kotlin.String, kotlin.String, kotlin.collections.List((java.security.cert.X509Certificate)), )/keyPassword">keyPassword</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.hsm.signer.SignerImpl.AuthenticatedSigner$<init>(com.r3.corda.networkmanage.common.cryptoservice.CryptoService((com.r3.corda.networkmanage.common.cryptoservice.authentication.AuthenticationCredentials, com.r3.corda.networkmanage.common.cryptoservice.keygeneration.KeyConfig)), kotlin.String, kotlin.String, kotlin.collections.List((java.security.cert.X509Certificate)), )/signerCertChain">signerCertChain</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.hsm.signer.SignerImpl.AuthenticatedSigner$<init>(com.r3.corda.networkmanage.common.cryptoservice.CryptoService((com.r3.corda.networkmanage.common.cryptoservice.authentication.AuthenticationCredentials, com.r3.corda.networkmanage.common.cryptoservice.keygeneration.KeyConfig)), kotlin.String, kotlin.String, kotlin.collections.List((java.security.cert.X509Certificate)), )/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="authenticated-users.html">authenticatedUsers</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">authenticatedUsers</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="crypto-service.html">cryptoService</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">cryptoService</span><span class="symbol">: </span><a href="../../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service/index.html"><span class="identifier">CryptoService</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../../../com.r3.corda.networkmanage.common.cryptoservice.authentication/-authentication-credentials.html"><span class="identifier">AuthenticationCredentials</span></a><span class="symbol">,</span>&nbsp;<span class="keyword">out</span>&nbsp;<a href="../../../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-key-config/index.html"><span class="identifier">KeyConfig</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="ctx.html">ctx</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">ctx</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="key-alias.html">keyAlias</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">keyAlias</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="key-password.html">keyPassword</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">keyPassword</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="signer-cert-chain.html">signerCertChain</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">signerCertChain</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="sign-bytes.html">signBytes</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">signBytes</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.hsm.signer.SignerImpl.AuthenticatedSigner$signBytes(kotlin.ByteArray)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code>
+<p>Signs given bytes. The signing key selection strategy is left to the implementing class.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../../com.r3.corda.networkmanage.common.signer/-signer/-authenticated-signer/sign-object.html">signObject</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">signObject</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.Signer.AuthenticatedSigner$signObject(com.r3.corda.networkmanage.common.signer.Signer.AuthenticatedSigner.signObject.T)/obj">obj</span><span class="symbol">:</span>&nbsp;<a href="../../../com.r3.corda.networkmanage.common.signer/-signer/-authenticated-signer/sign-object.html#T"><span class="identifier">T</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&lt;</span><a href="../../../com.r3.corda.networkmanage.common.signer/-signer/-authenticated-signer/sign-object.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

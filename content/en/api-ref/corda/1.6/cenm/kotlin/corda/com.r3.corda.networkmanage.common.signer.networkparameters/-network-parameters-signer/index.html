@@ -1,0 +1,106 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NetworkParametersSigner - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.signer.networkparameters</a>&nbsp;/&nbsp;<a href="./index.html">NetworkParametersSigner</a><br/>
+<br/>
+<h1>NetworkParametersSigner</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">NetworkParametersSigner</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">NetworkParametersSigner</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.networkparameters.NetworkParametersSigner$<init>(kotlin.Function0(()), )/networkMapRepository">networkMapRepository</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.networkparameters.NetworkParametersSigner$<init>(kotlin.Function0(()), )/ctx_">ctx_</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="async-requests.html">asyncRequests</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">asyncRequests</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentHashMap.html"><span class="identifier">ConcurrentHashMap</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="../-net-params-data/index.html"><span class="identifier">NetParamsData</span></a><span class="symbol">&gt;</span></code>
+<p>Stores the requests that has not been completed immediately
+Maps the Plugin's request id to the Network Map (needed for persisting)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="ctx.html">ctx</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">ctx</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="network-map-repository.html">networkMapRepository</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">networkMapRepository</span><span class="symbol">: </span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="get-request-status.html">getRequestStatus</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getRequestStatus</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.networkparameters.NetworkParametersSigner$getRequestStatus(kotlin.String)/requestId">requestId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="persist.html">persist</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">persist</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.networkparameters.NetworkParametersSigner$persist(com.r3.enm.servicesapi.networkmap.payload.UnsignedNetworkParametersData, , )/networkParameters">networkParameters</span><span class="symbol">:</span>&nbsp;<a href="../../com.r3.enm.servicesapi.networkmap.payload/-unsigned-network-parameters-data/index.html"><span class="identifier">UnsignedNetworkParametersData</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.networkparameters.NetworkParametersSigner$persist(com.r3.enm.servicesapi.networkmap.payload.UnsignedNetworkParametersData, , )/signedNetworkParameters">signedNetworkParameters</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.networkparameters.NetworkParametersSigner$persist(com.r3.enm.servicesapi.networkmap.payload.UnsignedNetworkParametersData, , )/userInfo">userInfo</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="sign.html">sign</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.networkparameters.NetworkParametersSigner$sign(com.r3.enm.servicesapi.networkmap.payload.UnsignedNetworkParametersData, kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/networkParametersData">networkParametersData</span><span class="symbol">:</span>&nbsp;<a href="../../com.r3.enm.servicesapi.networkmap.payload/-unsigned-network-parameters-data/index.html"><span class="identifier">UnsignedNetworkParametersData</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.networkparameters.NetworkParametersSigner$sign(com.r3.enm.servicesapi.networkmap.payload.UnsignedNetworkParametersData, kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/headless">headless</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.networkparameters.NetworkParametersSigner$sign(com.r3.enm.servicesapi.networkmap.payload.UnsignedNetworkParametersData, kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/renderer">renderer</span><span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common/-renderer/index.html"><span class="identifier">Renderer</span></a>&nbsp;<span class="symbol">=</span>&nbsp;LoggingRenderer(ctx)<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.networkparameters.NetworkParametersSigner$sign(com.r3.enm.servicesapi.networkmap.payload.UnsignedNetworkParametersData, kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/userInfo">userInfo</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="sign-and-persist.html">signAndPersist</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">signAndPersist</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.networkparameters.NetworkParametersSigner$signAndPersist(com.r3.enm.servicesapi.networkmap.payload.UnsignedNetworkParametersData, kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/networkParameters">networkParameters</span><span class="symbol">:</span>&nbsp;<a href="../../com.r3.enm.servicesapi.networkmap.payload/-unsigned-network-parameters-data/index.html"><span class="identifier">UnsignedNetworkParametersData</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.networkparameters.NetworkParametersSigner$signAndPersist(com.r3.enm.servicesapi.networkmap.payload.UnsignedNetworkParametersData, kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/headless">headless</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.networkparameters.NetworkParametersSigner$signAndPersist(com.r3.enm.servicesapi.networkmap.payload.UnsignedNetworkParametersData, kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/renderer">renderer</span><span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common/-renderer/index.html"><span class="identifier">Renderer</span></a>&nbsp;<span class="symbol">=</span>&nbsp;LoggingRenderer(ctx)<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.networkparameters.NetworkParametersSigner$signAndPersist(com.r3.enm.servicesapi.networkmap.payload.UnsignedNetworkParametersData, kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/userInfo">userInfo</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-default-network-parameters-signer/index.html">DefaultNetworkParametersSigner</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">DefaultNetworkParametersSigner</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NetworkParametersSigner</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-plugin-network-parameters-signer/index.html">PluginNetworkParametersSigner</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">PluginNetworkParametersSigner</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NetworkParametersSigner</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

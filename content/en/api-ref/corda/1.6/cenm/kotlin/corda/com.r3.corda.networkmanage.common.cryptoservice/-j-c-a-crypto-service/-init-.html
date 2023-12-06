@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>JCACryptoService.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.cryptoservice</a>&nbsp;/&nbsp;<a href="index.html">JCACryptoService</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService$&lt;init&gt;(java.security.KeyStore, java.security.Provider, )"></a>
+<code><span class="identifier">JCACryptoService</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService$<init>(java.security.KeyStore, java.security.Provider, )/keyStore">keyStore</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html"><span class="identifier">KeyStore</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService$<init>(java.security.KeyStore, java.security.Provider, )/provider">provider</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/security/Provider.html"><span class="identifier">Provider</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService$<init>(java.security.KeyStore, java.security.Provider, )/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;LoggingContext(pathName = "CryptoService")<span class="symbol">)</span></code>
+<p>This is the base class that facilitates easy integration of further HSM vendors that provide a JCA provider.
+For every vendor we want to support there has to be a new CryptoService that implements <a href="../-crypto-service/index.html">CryptoService</a>
+and optionally inherits from this class if it makes sense. Not all vendors fully implement the JCA API and
+some of the methods of this class will have to be overridden with vendor-specific implementations.</p>
+<p>It is required that @keyStore is initialized.</p>
+</BODY>
+</HTML>

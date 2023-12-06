@@ -1,0 +1,75 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>com.r3.corda.networkmanage.common.migration - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">com.r3.corda.networkmanage.common.migration</a><br/>
+<br/>
+<h2>Package com.r3.corda.networkmanage.common.migration</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-migration-manager/index.html">MigrationManager</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">MigrationManager</span></code>
+<p>Manages the migration status.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-a-u-t-h_-m-i-g-r-a-t-i-o-n_-v-e-r-s-i-o-n.html">AUTH_MIGRATION_VERSION</a></p>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">AUTH_MIGRATION_VERSION</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>This constant needs to be updated whenever there is a new set of the manual migrations expected to be executed for
+the Auth service. It is used at the service startup process to validate the current database state with
+the expected one - i.e. defined by the schema.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-d-o-o-r-m-a-n_-m-i-g-r-a-t-i-o-n_-v-e-r-s-i-o-n.html">DOORMAN_MIGRATION_VERSION</a></p>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">DOORMAN_MIGRATION_VERSION</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>This constant needs to be updated whenever there is a new set of the manual migrations expected to be executed for
+the Doorman service. It is used at the service startup process to validate the current database state with
+the expected one - i.e. defined by the schema.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-n-e-t-w-o-r-k_-m-a-p_-m-i-g-r-a-t-i-o-n_-v-e-r-s-i-o-n.html">NETWORK_MAP_MIGRATION_VERSION</a></p>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">NETWORK_MAP_MIGRATION_VERSION</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>This constant needs to be updated whenever there is a new set of the manual migrations expected to be executed for
+the Network Map service. It is used at the service startup process to validate the current database state with
+the expected one - i.e. defined by the schema.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-z-o-n-e_-m-i-g-r-a-t-i-o-n_-v-e-r-s-i-o-n.html">ZONE_MIGRATION_VERSION</a></p>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">ZONE_MIGRATION_VERSION</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>This constant needs to be updated whenever there is a new set of the manual migrations expected to be executed for
+the Zone service. It is used at the service startup process to validate the current database state with
+the expected one - i.e. defined by the schema.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
