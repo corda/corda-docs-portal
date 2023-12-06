@@ -1,0 +1,88 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RetrievePrivateNetworkMappingResponse - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.enm.servicesapi.identitymanager.handlers</a>&nbsp;/&nbsp;<a href="./index.html">RetrievePrivateNetworkMappingResponse</a><br/>
+<br/>
+<h1>RetrievePrivateNetworkMappingResponse</h1>
+<code><span class="keyword">class </span><s><span class="identifier">RetrievePrivateNetworkMappingResponse</span></s></code><br/>
+<strong>Deprecated:</strong> Private network maps are no longer supported<br/>
+<br/>
+<p>Retrieval message response for the private network mapping.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">RetrievePrivateNetworkMappingResponse</span><span class="symbol">(</span><span class="identifier" id="com.r3.enm.servicesapi.identitymanager.handlers.RetrievePrivateNetworkMappingResponse$<init>(, java.util.UUID, kotlin.String)/publicKeyHash">publicKeyHash</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.enm.servicesapi.identitymanager.handlers.RetrievePrivateNetworkMappingResponse$<init>(, java.util.UUID, kotlin.String)/privateNetworkId">privateNetworkId</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.r3.enm.servicesapi.identitymanager.handlers.RetrievePrivateNetworkMappingResponse$<init>(, java.util.UUID, kotlin.String)/errorMessage">errorMessage</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span></code>
+<p>Retrieval message response for the private network mapping.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="error-message.html">errorMessage</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">errorMessage</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code>
+<p>The error message relating to any issues whilst getting the private network mapping. Null
+    represents a successful execution.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="private-network-id.html">privateNetworkId</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">privateNetworkId</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/8/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">?</span></code>
+<p>The id of the private network that the node is mapped to. Null represents no membership
+    in any private network</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="public-key-hash.html">publicKeyHash</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">publicKeyHash</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code>
+<p>The hash of the public key of the node.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="to-stream.html">toStream</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toStream</span><span class="symbol">(</span><span class="identifier" id="com.r3.enm.servicesapi.identitymanager.handlers.RetrievePrivateNetworkMappingResponse$toStream()/b">b</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="from-stream.html">fromStream</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">fromStream</span><span class="symbol">(</span><span class="identifier" id="com.r3.enm.servicesapi.identitymanager.handlers.RetrievePrivateNetworkMappingResponse.Companion$fromStream()/b">b</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">RetrievePrivateNetworkMappingResponse</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MigrationManager.validate - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.migration</a>&nbsp;/&nbsp;<a href="index.html">MigrationManager</a>&nbsp;/&nbsp;<a href="./validate.html">validate</a><br/>
+<br/>
+<h1>validate</h1>
+<a name="com.r3.corda.networkmanage.common.migration.MigrationManager$validate(kotlin.Boolean)"></a>
+<code><span class="keyword">fun </span><span class="identifier">validate</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.migration.MigrationManager$validate(kotlin.Boolean)/ignoreAndUpdateVersion">ignoreAndUpdateVersion</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Validates the current migration version. If the version current migration version is different then the one
+stored in the database, it either updates the database version to the current one
+(<a href="validate.html#com.r3.corda.networkmanage.common.migration.MigrationManager$validate(kotlin.Boolean)/ignoreAndUpdateVersion">ignoreAndUpdateVersion</a> == true) or throws the <a href="#">MigrationException</a> (<a href="validate.html#com.r3.corda.networkmanage.common.migration.MigrationManager$validate(kotlin.Boolean)/ignoreAndUpdateVersion">ignoreAndUpdateVersion</a> == false).</p>
+<h3>Parameters</h3>
+<p><a name="ignoreAndUpdateVersion"></a>
+<code>ignoreAndUpdateVersion</code> - flag indicating whether the migration versions discrepancies
+    should be ignored or not. If true, then the DB version
+    is set to the current version.</p>
+</BODY>
+</HTML>

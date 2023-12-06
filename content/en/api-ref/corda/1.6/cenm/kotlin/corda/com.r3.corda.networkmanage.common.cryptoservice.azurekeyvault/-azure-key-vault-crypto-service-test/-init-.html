@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AzureKeyVaultCryptoServiceTest.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.cryptoservice.azurekeyvault</a>&nbsp;/&nbsp;<a href="index.html">AzureKeyVaultCryptoServiceTest</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="com.r3.corda.networkmanage.common.cryptoservice.azurekeyvault.AzureKeyVaultCryptoServiceTest$&lt;init&gt;()"></a>
+<code><span class="identifier">AzureKeyVaultCryptoServiceTest</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>These tests need to be run manually. They require an Amazon KeyVault (and the associated service principal) to be set
+up and will perform operations that are not free of charge.</p>
+<p>Refer to https://docs.microsoft.com/en-gb/azure/key-vault/</p>
+<p>This can be done using the scripts available under the resources folder. The only pre-requisites are:</p>
+<ul><li>Install the azure CLI and execute <code>az login</code> (See: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)</li>
+<li>Install jq (See: https://stedolan.github.io/jq)</li>
+</ul>
+<p>To execute the tests:</p>
+<ol><li>Navigate to <code>resources/hsm-setup/azure</code> and execute <code>setup_resources.sh</code>, which creates all the necessary Azure
+    resources and resource files for the tests below.</li>
+
+<li>Run the tests.</li>
+
+<li>Once finished, navigate to <code>resources/hsm-setup/azure</code> and execute <code>tear_down_resources.sh</code>, which removes all the
+    previously created Azure resources and local resource files.</li>
+</ol>
+</BODY>
+</HTML>

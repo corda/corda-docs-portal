@@ -1,0 +1,153 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>com.r3.enm.model - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">com.r3.enm.model</a><br/>
+<br/>
+<h2>Package com.r3.enm.model</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-certificate-data/index.html">CertificateData</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">CertificateData</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-certificate-revocation-request/index.html">CertificateRevocationRequest</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">CertificateRevocationRequest</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-request/index.html"><span class="identifier">Request</span></a></code>
+<p>This data class is intended to be used internally by certificate revocation request service.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-certificate-revocation-request-submission/index.html">CertificateRevocationRequestSubmission</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">CertificateRevocationRequestSubmission</span></code>
+<p>This data class is intended to be used by the certificate revocation request (CRR) service client to create a new
+CRR submission.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-certificate-signing-request/index.html">CertificateSigningRequest</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">CertificateSigningRequest</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-request/index.html"><span class="identifier">Request</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-certificate-signing-request-json/index.html">CertificateSigningRequestJson</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">CertificateSigningRequestJson</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-request/index.html"><span class="identifier">Request</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-certificate-signing-request-rejection-reason/index.html">CertificateSigningRequestRejectionReason</a></p>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">CertificateSigningRequestRejectionReason</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-rejection-reason/index.html"><span class="identifier">RejectionReason</span></a></code>
+<p>Certificate signing request rejection reason</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-certificate-signing-request-submission/index.html">CertificateSigningRequestSubmission</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">CertificateSigningRequestSubmission</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-submission/index.html"><span class="identifier">Submission</span></a></code>
+<p>Bundle the Certificate Signing Request with the private network map identifier.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-certificate-status/index.html">CertificateStatus</a></p>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">CertificateStatus</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-configuration-status/index.html">ConfigurationStatus</a></p>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">ConfigurationStatus</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-csr-request-type/index.html">CsrRequestType</a></p>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">CsrRequestType</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-private-network/index.html">PrivateNetwork</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">PrivateNetwork</span></code>
+<p>Encapsulates all the info about the private network.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-rejection-reason/index.html">RejectionReason</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">RejectionReason</span></code>
+<p>An interface defining rejection reason</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-request/index.html">Request</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">Request</span></code>
+<p>Interface that contains common properties for both certificate signing request and certificate revocation request.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-request-timestamp/index.html">RequestTimestamp</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">RequestTimestamp</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-submission/index.html">Submission</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Submission</span></code>
+<p>This is a super class for certificate signing request submission and certificate revocation request submission.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="rejection-reasons-with-unknown.html">rejectionReasonsWithUnknown</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">rejectionReasonsWithUnknown</span><span class="symbol">(</span><span class="identifier" id="com.r3.enm.model$rejectionReasonsWithUnknown(kotlin.Array((com.r3.enm.model.RejectionReason)))/otherReasons">otherReasons</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="-rejection-reason/index.html"><span class="identifier">RejectionReason</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="-rejection-reason/index.html"><span class="identifier">RejectionReason</span></a><span class="symbol">&gt;</span></code>
+<p>Adds the UNKNOWN rejection reason at the beginning of the array</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
