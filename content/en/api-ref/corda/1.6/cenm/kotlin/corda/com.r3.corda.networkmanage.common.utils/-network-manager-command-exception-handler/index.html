@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NetworkManagerCommandExceptionHandler - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.utils</a>&nbsp;/&nbsp;<a href="./index.html">NetworkManagerCommandExceptionHandler</a><br/>
+<br/>
+<h1>NetworkManagerCommandExceptionHandler</h1>
+<code><span class="keyword">class </span><span class="identifier">NetworkManagerCommandExceptionHandler</span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span></code>
+<p>This class inherits the core functionality of the DefaultExceptionHandler provided by picocli,
+with a few tweaks.
+When a return code on error is specified, the DefaultExceptionHandler has the exception's stacktrace
+printed to console instead of being rethrown, causing our NetworkServicesUncaughtExceptionHandler
+to not catch anything and the console output to be incorrect.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">NetworkManagerCommandExceptionHandler</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>This class inherits the core functionality of the DefaultExceptionHandler provided by picocli,
+with a few tweaks.
+When a return code on error is specified, the DefaultExceptionHandler has the exception's stacktrace
+printed to console instead of being rethrown, causing our NetworkServicesUncaughtExceptionHandler
+to not catch anything and the console output to be incorrect.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="handle-execution-exception.html">handleExecutionException</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">handleExecutionException</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils.NetworkManagerCommandExceptionHandler$handleExecutionException(, )/ex">ex</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils.NetworkManagerCommandExceptionHandler$handleExecutionException(, )/parseResult">parseResult</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="index.html#R"><span class="identifier">R</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="self.html">self</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">self</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">NetworkManagerCommandExceptionHandler</span></a><span class="symbol">&lt;</span><a href="index.html#R"><span class="identifier">R</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

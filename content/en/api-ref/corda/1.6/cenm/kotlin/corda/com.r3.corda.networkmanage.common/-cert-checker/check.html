@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CertChecker.check - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common</a>&nbsp;/&nbsp;<a href="index.html">CertChecker</a>&nbsp;/&nbsp;<a href="./check.html">check</a><br/>
+<br/>
+<h1>check</h1>
+<a name="com.r3.corda.networkmanage.common.CertChecker$check(kotlin.collections.List((java.security.cert.CertPath)), kotlin.Array(()))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">check</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.CertChecker$check(kotlin.collections.List((java.security.cert.CertPath)), kotlin.Array(()))/legalIdentitiesCertPaths">legalIdentitiesCertPaths</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/CertPath.html"><span class="identifier">CertPath</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="com.r3.corda.networkmanage.common.CertChecker$check(kotlin.collections.List((java.security.cert.CertPath)), kotlin.Array(()))/validCertRoles">validCertRoles</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Walks through the provided certificate chain and asserts that at least one certificate in the chain has a role
+matching of the provided <a href="check.html#com.r3.corda.networkmanage.common.CertChecker$check(kotlin.collections.List((java.security.cert.CertPath)), kotlin.Array(()))/validCertRoles">validCertRoles</a>.</p>
+<p>The QuarantiningCertChecker subclass, used in node publishing, will additionally quarantine the identity of any
+detected revoked certs. Quarantine is checked before passing through to the real checker in order to prevent
+network overload from revoked cert nodes which are still running.</p>
+<h3>Parameters</h3>
+<p><a name="legalIdentitiesCertPaths"></a>
+<code>legalIdentitiesCertPaths</code> - certificate paths of legal identities to be checked</p>
+<p><a name="validCertRoles"></a>
+<code>validCertRoles</code> - allowed certificate roles</p>
+<h3>Exceptions</h3>
+<p><a name="InvalidCertificateException"></a>
+<code>InvalidCertificateException</code> - whenever the certificate chain is not valid</p>
+</BODY>
+</HTML>
