@@ -26,4 +26,4 @@ Before you start the upgrade, you must consult the [CENM Release Notes](release-
 
 ### Database migration
 
-The Identity Manager Service, the Network Map Service, the Zone Service, and the Auth Service all require database migration. To enable database migration, set `runMigration = true` in the database configuration. If a service is connecting to a database with restricted user, you must temporarily change the service settings to connect with a privileged user (a user able to modify a database schema).
+The Identity Manager Service, the Network Map Service, the Zone Service, and the Auth Service all require database migration. To enable database migration, set `runMigration = true` in the database configuration. If a service is connecting to a database with a restricted user, you must temporarily change the service settings to connect with a privileged user (that is, a user able to modify a database schema).
