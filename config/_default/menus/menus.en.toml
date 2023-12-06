@@ -398,9 +398,3 @@ parent = "corda51-rest-api-reference"
 name = "REST API Reference"
 weight = 2000
 url = "/en/platform/corda/5.1/reference/rest-api/openapi.html"
-
-#keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
-#[[tools-cdl]]
-#identifier = "tools-cdl"
-#name = "CorDapp Design Language (CDL)"
-#weight = 100
