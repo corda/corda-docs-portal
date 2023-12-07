@@ -1,0 +1,135 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AzureKeyVaultCryptoServiceTest - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.cryptoservice.azurekeyvault</a>&nbsp;/&nbsp;<a href="./index.html">AzureKeyVaultCryptoServiceTest</a><br/>
+<br/>
+<h1>AzureKeyVaultCryptoServiceTest</h1>
+<code><span class="keyword">class </span><span class="identifier">AzureKeyVaultCryptoServiceTest</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service-spec/index.html"><span class="identifier">CryptoServiceSpec</span></a><span class="symbol">&lt;</span><a href="../../com.r3.corda.networkmanage.common.cryptoservice.authentication/-azure-key-vault-credentials/index.html"><span class="identifier">AzureKeyVaultCredentials</span></a><span class="symbol">,</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-azure-key-vault-key-config/index.html"><span class="identifier">AzureKeyVaultKeyConfig</span></a><span class="symbol">&gt;</span></code>
+<p>These tests need to be run manually. They require an Amazon KeyVault (and the associated service principal) to be set
+up and will perform operations that are not free of charge.</p>
+<p>Refer to https://docs.microsoft.com/en-gb/azure/key-vault/</p>
+<p>This can be done using the scripts available under the resources folder. The only pre-requisites are:</p>
+<ul><li>Install the azure CLI and execute <code>az login</code> (See: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)</li>
+<li>Install jq (See: https://stedolan.github.io/jq)</li>
+</ul>
+<p>To execute the tests:</p>
+<ol><li>Navigate to <code>resources/hsm-setup/azure</code> and execute <code>setup_resources.sh</code>, which creates all the necessary Azure
+    resources and resource files for the tests below.</li>
+
+<li>Run the tests.</li>
+
+<li>Once finished, navigate to <code>resources/hsm-setup/azure</code> and execute <code>tear_down_resources.sh</code>, which removes all the
+    previously created Azure resources and local resource files.</li>
+</ol>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">AzureKeyVaultCryptoServiceTest</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>These tests need to be run manually. They require an Amazon KeyVault (and the associated service principal) to be set
+up and will perform operations that are not free of charge.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service-spec/logging-context-rule.html">loggingContextRule</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">loggingContextRule</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-generate -p-256 -e-c-d-s-a -k1 key with hardware protection, sign and verify data.html">Generate P-256 ECDSA K1 key with hardware protection, sign and verify data</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Generate P-256 ECDSA K1 key with hardware protection, sign and verify data</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="create-key-config.html">createKeyConfig</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createKeyConfig</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.azurekeyvault.AzureKeyVaultCryptoServiceTest$createKeyConfig(kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-azure-key-vault-key-config/index.html"><span class="identifier">AzureKeyVaultKeyConfig</span></a></code>
+<p>Method used to create a basic key config for a given <a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service-spec/create-key-config.html#com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceSpec$createKeyConfig(kotlin.String)/alias">alias</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="delete.html">delete</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">delete</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.azurekeyvault.AzureKeyVaultCryptoServiceTest$delete(kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Method used to delete any keys created during the tests.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="generate-random-key-alias.html">generateRandomKeyAlias</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">generateRandomKeyAlias</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="get-crypto-service.html">getCryptoService</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getCryptoService</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service/index.html"><span class="identifier">CryptoService</span></a><span class="symbol">&lt;</span><a href="../../com.r3.corda.networkmanage.common.cryptoservice.authentication/-azure-key-vault-credentials/index.html"><span class="identifier">AzureKeyVaultCredentials</span></a><span class="symbol">,</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-azure-key-vault-key-config/index.html"><span class="identifier">AzureKeyVaultKeyConfig</span></a><span class="symbol">&gt;</span></code>
+<p>Method used to retrieve the <a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service/index.html">CryptoService</a> that will be tested.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service-spec/-content signer works with -hsm-x509-utilities.html">Content signer works with HsmX509Utilities</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Content signer works with HsmX509Utilities</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service-spec/-generate key, then sign and verify data.html">Generate key, then sign and verify data</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Generate key, then sign and verify data</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service-spec/-when key does not exist, get-content-signer should throw.html">When key does not exist, getContentSigner should throw</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">When key does not exist, getContentSigner should throw</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service-spec/-when key does not exist, signing should throw.html">When key does not exist, signing should throw</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">When key does not exist, signing should throw</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

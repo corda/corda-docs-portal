@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CertificateSigningRequestSigner.signRequests - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.signer.csr</a>&nbsp;/&nbsp;<a href="index.html">CertificateSigningRequestSigner</a>&nbsp;/&nbsp;<a href="./sign-requests.html">signRequests</a><br/>
+<br/>
+<h1>signRequests</h1>
+<a name="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$signRequests(kotlin.collections.Map((kotlin.String, com.r3.enm.model.CertificateSigningRequest)), kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )"></a>
+<code><span class="keyword">fun </span><span class="identifier">signRequests</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$signRequests(kotlin.collections.Map((kotlin.String, com.r3.enm.model.CertificateSigningRequest)), kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/toSign">toSign</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="../../com.r3.enm.model/-certificate-signing-request/index.html"><span class="identifier">CertificateSigningRequest</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$signRequests(kotlin.collections.Map((kotlin.String, com.r3.enm.model.CertificateSigningRequest)), kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/headless">headless</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$signRequests(kotlin.collections.Map((kotlin.String, com.r3.enm.model.CertificateSigningRequest)), kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/renderer">renderer</span><span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common/-renderer/index.html"><span class="identifier">Renderer</span></a>&nbsp;<span class="symbol">=</span>&nbsp;LoggingRenderer(ctx)<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$signRequests(kotlin.collections.Map((kotlin.String, com.r3.enm.model.CertificateSigningRequest)), kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/userInfo">userInfo</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="../../com.r3.enm.model/-certificate-signing-request/index.html"><span class="identifier">CertificateSigningRequest</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&gt;</span></code>
+<p>Signs the provided map of <a href="../../com.r3.enm.model/-certificate-signing-request/index.html">CertificateSigningRequest</a> with the key/certificate chosen by the implementing class.</p>
+<p>It will sign the requests first with the provided implementation (either plugin or default).
+If it is signed by plugin some of the requests might not be signed immediately.</p>
+<p>After that the COMPLETED requests will be persisted:</p>
+<ul><li>if the persisting failed, the request will be added to the <code>signedButFailedToPersist</code> collection</li>
+<li>if the persisting succeeds, the request will be added to the <code>signedAndPersisted</code> collection</li>
+</ul>
+<p>If the request is not signed yet (async, status is PENDING) in case of plugin usage,
+it will be added to the <code>notYetSigned</code> collection.</p>
+<p>After we have a complete view on each requests' status we log these to the user in the <code>logRequestStatus</code> method.</p>
+<p>This function will return a map of &lt;CertificateSigningRequest, CSRResponse&gt; where we associate the UNSIGNED (async)
+requests' CSR request to the async plugin request ID (using CSRResponse for clarity).</p>
+</BODY>
+</HTML>

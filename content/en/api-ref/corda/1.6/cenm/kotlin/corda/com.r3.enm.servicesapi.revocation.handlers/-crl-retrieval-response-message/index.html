@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CrlRetrievalResponseMessage - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.enm.servicesapi.revocation.handlers</a>&nbsp;/&nbsp;<a href="./index.html">CrlRetrievalResponseMessage</a><br/>
+<br/>
+<h1>CrlRetrievalResponseMessage</h1>
+<code><span class="keyword">class </span><span class="identifier">CrlRetrievalResponseMessage</span></code>
+<p>The response to a <a href="../-crl-retrieval-message/index.html">CrlRetrievalMessage</a></p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">CrlRetrievalResponseMessage</span><span class="symbol">(</span><span class="identifier" id="com.r3.enm.servicesapi.revocation.handlers.CrlRetrievalResponseMessage$<init>(java.security.cert.X509CRL)/crl">crl</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509CRL.html"><span class="identifier">X509CRL</span></a><span class="symbol">?</span><span class="symbol">)</span></code>
+<p>The response to a <a href="../-crl-retrieval-message/index.html">CrlRetrievalMessage</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="crl.html">crl</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">crl</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509CRL.html"><span class="identifier">X509CRL</span></a><span class="symbol">?</span></code>
+<p>The certificate revocation list for the issuer sent in the original request</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="to-stream.html">toStream</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toStream</span><span class="symbol">(</span><span class="identifier" id="com.r3.enm.servicesapi.revocation.handlers.CrlRetrievalResponseMessage$toStream()/b">b</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Serialize the object for transmission over the wire. Use Corda's native AMQP serializer
+to simplify serializing the actual CRL</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="from-stream.html">fromStream</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">fromStream</span><span class="symbol">(</span><span class="identifier" id="com.r3.enm.servicesapi.revocation.handlers.CrlRetrievalResponseMessage.Companion$fromStream()/b">b</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CrlRetrievalResponseMessage</span></a></code>
+<p>Converts a stream of bytes from the wire into an instance of the class</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

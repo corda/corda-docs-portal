@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>executeTaskWithBackOff - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="index.html">com.r3.corda.networkmanage.common.utils</a>&nbsp;/&nbsp;<a href="./execute-task-with-back-off.html">executeTaskWithBackOff</a><br/>
+<br/>
+<h1>executeTaskWithBackOff</h1>
+<a name="com.r3.corda.networkmanage.common.utils$executeTaskWithBackOff(java.util.concurrent.ScheduledExecutorService, kotlin.Int, kotlin.Long, kotlin.String, , kotlin.Function0((kotlin.Unit)))"></a>
+<code><span class="keyword">fun </span><span class="identifier">executeTaskWithBackOff</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$executeTaskWithBackOff(java.util.concurrent.ScheduledExecutorService, kotlin.Int, kotlin.Long, kotlin.String, , kotlin.Function0((kotlin.Unit)))/executor">executor</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ScheduledExecutorService.html"><span class="identifier">ScheduledExecutorService</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Executors.newScheduledThreadPool(1)<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$executeTaskWithBackOff(java.util.concurrent.ScheduledExecutorService, kotlin.Int, kotlin.Long, kotlin.String, , kotlin.Function0((kotlin.Unit)))/maxAttempts">maxAttempts</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$executeTaskWithBackOff(java.util.concurrent.ScheduledExecutorService, kotlin.Int, kotlin.Long, kotlin.String, , kotlin.Function0((kotlin.Unit)))/initialRetryDelayMillis">initialRetryDelayMillis</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$executeTaskWithBackOff(java.util.concurrent.ScheduledExecutorService, kotlin.Int, kotlin.Long, kotlin.String, , kotlin.Function0((kotlin.Unit)))/taskDescription">taskDescription</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$executeTaskWithBackOff(java.util.concurrent.ScheduledExecutorService, kotlin.Int, kotlin.Long, kotlin.String, , kotlin.Function0((kotlin.Unit)))/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$executeTaskWithBackOff(java.util.concurrent.ScheduledExecutorService, kotlin.Int, kotlin.Long, kotlin.String, , kotlin.Function0((kotlin.Unit)))/task">task</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Attempts a single execution of the given <a href="execute-task-with-back-off.html#com.r3.corda.networkmanage.common.utils$executeTaskWithBackOff(java.util.concurrent.ScheduledExecutorService, kotlin.Int, kotlin.Long, kotlin.String, , kotlin.Function0((kotlin.Unit)))/task">task</a>, and retrying with an exponential backoff strategy
+if execution fails. An error is logged upon every failure but no exceptions are thrown.</p>
+<h3>Parameters</h3>
+<p><a name="executor"></a>
+<code>executor</code> - Scheduled execution service used to invoke the <a href="execute-task-with-back-off.html#com.r3.corda.networkmanage.common.utils$executeTaskWithBackOff(java.util.concurrent.ScheduledExecutorService, kotlin.Int, kotlin.Long, kotlin.String, , kotlin.Function0((kotlin.Unit)))/task">task</a>.</p>
+<p><a name="maxAttempts"></a>
+<code>maxAttempts</code> - Maximum number of execution attempts of the <a href="execute-task-with-back-off.html#com.r3.corda.networkmanage.common.utils$executeTaskWithBackOff(java.util.concurrent.ScheduledExecutorService, kotlin.Int, kotlin.Long, kotlin.String, , kotlin.Function0((kotlin.Unit)))/task">task</a>. Set to null to run indefinitely.</p>
+<p><a name="initialRetryDelayMillis"></a>
+<code>initialRetryDelayMillis</code> - The initial delay between the first failed execution and second attempt.
+    This is doubled upon every subsequent failed attempt.</p>
+<p><a name="taskDescription"></a>
+<code>taskDescription</code> - Human-readable description of the task (for error logging).</p>
+<p><a name="task"></a>
+<code>task</code> - The task to invoke</p>
+</BODY>
+</HTML>

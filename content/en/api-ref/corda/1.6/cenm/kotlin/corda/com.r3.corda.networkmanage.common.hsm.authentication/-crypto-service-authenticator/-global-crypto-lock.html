@@ -1,0 +1,16 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CryptoServiceAuthenticator.GlobalCryptoLock - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.hsm.authentication</a>&nbsp;/&nbsp;<a href="index.html">CryptoServiceAuthenticator</a>&nbsp;/&nbsp;<a href="./-global-crypto-lock.html">GlobalCryptoLock</a><br/>
+<br/>
+<h1>GlobalCryptoLock</h1>
+<code><span class="keyword">object </span><span class="identifier">GlobalCryptoLock</span></code>
+<p>A global lock object so only one thread can connect and authenticate with a crypto service at a time.
+This allows the crypto service interaction to complete with logOut so the isAuthenticated method doesn't return
+true in a different thread before the first thread has called logOut.</p>
+</BODY>
+</HTML>

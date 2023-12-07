@@ -1,0 +1,198 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>JCACryptoService - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.cryptoservice</a>&nbsp;/&nbsp;<a href="./index.html">JCACryptoService</a><br/>
+<br/>
+<h1>JCACryptoService</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">JCACryptoService</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.authentication/-authentication-credentials.html"><span class="identifier">AuthenticationCredentials</span></a><span class="symbol">, </span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-key-config/index.html"><span class="identifier">KeyConfig</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-crypto-service/index.html"><span class="identifier">CryptoService</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#U"><span class="identifier">U</span></a><span class="symbol">&gt;</span></code>
+<p>This is the base class that facilitates easy integration of further HSM vendors that provide a JCA provider.
+For every vendor we want to support there has to be a new CryptoService that implements <a href="../-crypto-service/index.html">CryptoService</a>
+and optionally inherits from this class if it makes sense. Not all vendors fully implement the JCA API and
+some of the methods of this class will have to be overridden with vendor-specific implementations.</p>
+<p>It is required that @keyStore is initialized.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">JCACryptoService</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService$<init>(java.security.KeyStore, java.security.Provider, )/keyStore">keyStore</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html"><span class="identifier">KeyStore</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService$<init>(java.security.KeyStore, java.security.Provider, )/provider">provider</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/security/Provider.html"><span class="identifier">Provider</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService$<init>(java.security.KeyStore, java.security.Provider, )/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;LoggingContext(pathName = "CryptoService")<span class="symbol">)</span></code>
+<p>This is the base class that facilitates easy integration of further HSM vendors that provide a JCA provider.
+For every vendor we want to support there has to be a new CryptoService that implements <a href="../-crypto-service/index.html">CryptoService</a>
+and optionally inherits from this class if it makes sense. Not all vendors fully implement the JCA API and
+some of the methods of this class will have to be overridden with vendor-specific implementations.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="contains-key.html">containsKey</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">containsKey</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService$containsKey(kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Check if this <a href="../-crypto-service/index.html">CryptoService</a> contains an entry for the given alias.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="delete.html">delete</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">delete</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService$delete(kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="ensure-authenticated.html">ensureAuthenticated</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">ensureAuthenticated</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService$ensureAuthenticated(kotlin.Function0((com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService.ensureAuthenticated.T)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="ensure-authenticated.html#T"><span class="identifier">T</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="ensure-authenticated.html#T"><span class="identifier">T</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="generate-random-big-integer.html">generateRandomBigInteger</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">generateRandomBigInteger</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService$generateRandomBigInteger(kotlin.Int)/sizeInBytes">sizeInBytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html"><span class="identifier">BigInteger</span></a></code>
+<p>Generate a random BigInteger using the underlying <a href="http://docs.oracle.com/javase/8/docs/api/java/security/Provider.html">Provider</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-certificate.html">getCertificate</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getCertificate</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService$getCertificate(kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/Certificate.html"><span class="identifier">Certificate</span></a></code>
+<p>Returns the <a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/Certificate.html">Certificate</a> of the entry for the given alias.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-public-key.html">getPublicKey</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getPublicKey</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService$getPublicKey(kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code>
+<p>Returns the <a href="http://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> of the entry for the given alias.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-signer.html">getSigner</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getSigner</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService$getSigner(kotlin.String, kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService$getSigner(kotlin.String, kotlin.String)/password">password</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code>
+<p>Returns <a href="#">ContentSigner</a> for the key identified by the input alias.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="sign.html">sign</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService$sign(kotlin.String, kotlin.ByteArray, kotlin.String, kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService$sign(kotlin.String, kotlin.ByteArray, kotlin.String, kotlin.String)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService$sign(kotlin.String, kotlin.ByteArray, kotlin.String, kotlin.String)/signAlgorithm">signAlgorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.JCACryptoService$sign(kotlin.String, kotlin.ByteArray, kotlin.String, kotlin.String)/password">password</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code>
+<p>Sign a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> using the private key identified by the input alias.
+Returns the signature bytes formatted according to the signature scheme.
+The signAlgorithm if specified determines the signature scheme used for signing, if
+not specified then the signature scheme is based on the private key scheme.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-crypto-service/authenticate.html">authenticate</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">authenticate</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoService$authenticate(com.r3.corda.networkmanage.common.cryptoservice.CryptoService.T)/credentials">credentials</span><span class="symbol">:</span>&nbsp;<a href="../-crypto-service/index.html#T"><span class="identifier">T</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Authenticate a user against the underlying crypto provider using given <a href="../-crypto-service/authenticate.html#com.r3.corda.networkmanage.common.cryptoservice.CryptoService$authenticate(com.r3.corda.networkmanage.common.cryptoservice.CryptoService.T)/credentials">credentials</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-crypto-service/generate-and-store-key-pair.html">generateAndStoreKeyPair</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">generateAndStoreKeyPair</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoService$generateAndStoreKeyPair(com.r3.corda.networkmanage.common.cryptoservice.CryptoService.U)/keyConfig">keyConfig</span><span class="symbol">:</span>&nbsp;<a href="../-crypto-service/index.html#U"><span class="identifier">U</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code>
+<p>Generate a key pair and a basic self-signed certificate and store within the underlying key store.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-crypto-service/get-authenticated-users.html">getAuthenticatedUsers</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getAuthenticatedUsers</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code>
+<p>Return the list of users currently authenticated against the underlying crypto provider.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-crypto-service/is-authenticated.html">isAuthenticated</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">isAuthenticated</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Boolean flag indicating whether further authentication is needed to use stored keys.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-crypto-service/log-out.html">logOut</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">logOut</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Reset the authentication state for the underlying crypto provider.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-crypto-service/update-certificate.html">updateCertificate</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">updateCertificate</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoService$updateCertificate(com.r3.corda.networkmanage.common.cryptoservice.CryptoService.U, kotlin.collections.List((java.security.cert.X509Certificate)))/keyConfig">keyConfig</span><span class="symbol">:</span>&nbsp;<a href="../-crypto-service/index.html#U"><span class="identifier">U</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoService$updateCertificate(com.r3.corda.networkmanage.common.cryptoservice.CryptoService.U, kotlin.collections.List((java.security.cert.X509Certificate)))/certificateChain">certificateChain</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Update the certificate chain within the underlying key store.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../com.r3.corda.networkmanage.common.cryptoservice.cloudhsm/-amazon-cloud-hsm-crypto-service/index.html">AmazonCloudHsmCryptoService</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">AmazonCloudHsmCryptoService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">JCACryptoService</span></a><span class="symbol">&lt;</span><a href="../../com.r3.corda.networkmanage.common.cryptoservice.authentication/-cloud-hsm-password-credentials/index.html"><span class="identifier">CloudHsmPasswordCredentials</span></a><span class="symbol">,</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-amazon-cloud-hsm-key-config/index.html"><span class="identifier">AmazonCloudHsmKeyConfig</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.r3.corda.networkmanage.common.cryptoservice.gemalto/-gemalto-luna-crypto-service/index.html">GemaltoLunaCryptoService</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">GemaltoLunaCryptoService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">JCACryptoService</span></a><span class="symbol">&lt;</span><a href="../../com.r3.corda.networkmanage.common.cryptoservice.authentication/-gemalto-authentication-credentials/index.html"><span class="identifier">GemaltoAuthenticationCredentials</span></a><span class="symbol">,</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-gemalto-luna-key-config/index.html"><span class="identifier">GemaltoLunaKeyConfig</span></a><span class="symbol">&gt;</span></code>
+<p>Implementation of a <a href="#">CryptoService</a> that is backed by a Gemalto Luna HSM.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.r3.corda.networkmanage.common.cryptoservice.securosys/-securosys-primus-x-crypto-service/index.html">SecurosysPrimusXCryptoService</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SecurosysPrimusXCryptoService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">JCACryptoService</span></a><span class="symbol">&lt;</span><a href="../../com.r3.corda.networkmanage.common.cryptoservice.authentication/-securosys-authentication-credentials/index.html"><span class="identifier">SecurosysAuthenticationCredentials</span></a><span class="symbol">,</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-securosys-key-config/index.html"><span class="identifier">SecurosysKeyConfig</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
