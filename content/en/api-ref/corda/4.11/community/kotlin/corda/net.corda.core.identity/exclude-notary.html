@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>excludeNotary - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="index.html">net.corda.core.identity</a>&nbsp;/&nbsp;<a href="./exclude-notary.html">excludeNotary</a><br/>
+<br/>
+<h1>excludeNotary</h1>
+<a name="net.corda.core.identity$excludeNotary(kotlin.collections.Map((net.corda.core.identity.Party, net.corda.core.identity.excludeNotary.T)), net.corda.core.transactions.SignedTransaction)"></a>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">excludeNotary</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity$excludeNotary(kotlin.collections.Map((net.corda.core.identity.Party, net.corda.core.identity.excludeNotary.T)), net.corda.core.transactions.SignedTransaction)/map">map</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="-party/index.html"><span class="identifier">Party</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.identity$excludeNotary(kotlin.collections.Map((net.corda.core.identity.Party, net.corda.core.identity.excludeNotary.T)), net.corda.core.transactions.SignedTransaction)/stx">stx</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="-party/index.html"><span class="identifier">Party</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Remove the <a href="-party/index.html">Party</a> associated with the notary of a <a href="../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a> from the a map of <a href="-party/index.html">Party</a>s.  It is a no-op
+if the notary is null.</p>
+<p><strong>Return</strong><br/>
+a new copy of the map, with the well known <a href="-party/index.html">Party</a> for the notary removed.</p>
+</BODY>
+</HTML>

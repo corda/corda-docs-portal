@@ -1,0 +1,175 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CordaRuntimeException - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core</a>&nbsp;/&nbsp;<a href="./index.html">CordaRuntimeException</a><br/>
+<br/>
+<h1>CordaRuntimeException</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">CordaRuntimeException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-runtime-exception/index.html"><span class="identifier">RuntimeException</span></a><span class="symbol">, </span><a href="../-corda-throwable/index.html"><span class="identifier">CordaThrowable</span></a></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">CordaRuntimeException</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.CordaRuntimeException$<init>(kotlin.String, kotlin.Throwable)/message">message</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.CordaRuntimeException$<init>(kotlin.String, kotlin.Throwable)/cause">cause</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html"><span class="identifier">Throwable</span></a><span class="symbol">?</span><span class="symbol">)</span></code><br/>
+<code><span class="identifier">CordaRuntimeException</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.CordaRuntimeException$<init>(kotlin.String)/message">message</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span></code><br/>
+<code><span class="identifier">CordaRuntimeException</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.CordaRuntimeException$<init>(kotlin.String, kotlin.String, kotlin.Throwable)/originalExceptionClassName">originalExceptionClassName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.CordaRuntimeException$<init>(kotlin.String, kotlin.String, kotlin.Throwable)/_message">_message</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.CordaRuntimeException$<init>(kotlin.String, kotlin.String, kotlin.Throwable)/_cause">_cause</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html"><span class="identifier">Throwable</span></a><span class="symbol">?</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="cause.html">cause</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">cause</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html"><span class="identifier">Throwable</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="message.html">message</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">message</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="original-exception-class-name.html">originalExceptionClassName</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">originalExceptionClassName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="original-message.html">originalMessage</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">originalMessage</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="add-suppressed.html">addSuppressed</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addSuppressed</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.CordaRuntimeException$addSuppressed(kotlin.Array((kotlin.Throwable)))/suppressed">suppressed</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html"><span class="identifier">Throwable</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="equals.html">equals</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">equals</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.CordaRuntimeException$equals(kotlin.Any)/other">other</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hash-code.html">hashCode</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">hashCode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-cause.html">setCause</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setCause</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.CordaRuntimeException$setCause(kotlin.Throwable)/cause">cause</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html"><span class="identifier">Throwable</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-message.html">setMessage</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setMessage</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.CordaRuntimeException$setMessage(kotlin.String)/message">message</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.flows/-hospitalize-flow-exception/index.html">HospitalizeFlowException</a></h4>
+</td>
+<td>
+<p>This exception allows a flow to pass itself to the flow hospital. Once the flow reaches
+the hospital it will determine how to progress depending on what <a href="cause.html">cause</a>s the exception wraps.
+Assuming there are no important wrapped exceptions, throwing a <a href="../../net.corda.core.flows/-hospitalize-flow-exception/index.html">HospitalizeFlowException</a>
+will place the flow in overnight observation, where it will be replayed at a later time.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">HospitalizeFlowException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CordaRuntimeException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.flows/-killed-flow-exception/index.html">KilledFlowException</a></h4>
+</td>
+<td>
+<p>An exception that is thrown when a flow has been killed.</p>
+<code><span class="keyword">class </span><span class="identifier">KilledFlowException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CordaRuntimeException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.serialization/-missing-attachments-runtime-exception/index.html">MissingAttachmentsRuntimeException</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">MissingAttachmentsRuntimeException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CordaRuntimeException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.client.rpc/-permission-exception/index.html">PermissionException</a></h4>
+</td>
+<td>
+<p>Thrown to indicate that the calling user does not have permission for something they have requested (for example
+calling a method).</p>
+<code><span class="keyword">class </span><span class="identifier">PermissionException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CordaRuntimeException</span></a><span class="symbol">, </span><span class="identifier">RpcSerializableError</span><span class="symbol">, </span><a href="../-client-relevant-error.html"><span class="identifier">ClientRelevantError</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.flows/-result-serialization-exception/index.html">ResultSerializationException</a></h4>
+</td>
+<td>
+<p>Thrown whenever a flow result cannot be serialized when attempting to save it in the database</p>
+<code><span class="keyword">class </span><span class="identifier">ResultSerializationException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CordaRuntimeException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.client.rpc/-r-p-c-exception/index.html">RPCException</a></h4>
+</td>
+<td>
+<p>Thrown to indicate a fatal error in the RPC system itself, as opposed to an error generated by the invoked method.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">RPCException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CordaRuntimeException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.flows/-unexpected-flow-end-exception/index.html">UnexpectedFlowEndException</a></h4>
+</td>
+<td>
+<p>Thrown when a flow session ends unexpectedly due to a type mismatch (the other side sent an object of a type
+that we were not expecting), or the other side had an internal error, or the other side terminated when we
+were waiting for a response.</p>
+<code><span class="keyword">class </span><span class="identifier">UnexpectedFlowEndException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CordaRuntimeException</span></a><span class="symbol">, </span><span class="identifier">IdentifiableException</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.node/-zone-version-too-low-exception/index.html">ZoneVersionTooLowException</a></h4>
+</td>
+<td>
+<p>When a Corda feature cannot be used due to the node's compatibility zone not enforcing a high enough minimum platform
+version.</p>
+<code><span class="keyword">class </span><span class="identifier">ZoneVersionTooLowException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CordaRuntimeException</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

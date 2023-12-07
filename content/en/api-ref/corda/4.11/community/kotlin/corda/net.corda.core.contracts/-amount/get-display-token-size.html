@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Amount.getDisplayTokenSize - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="index.html">Amount</a>&nbsp;/&nbsp;<a href="./get-display-token-size.html">getDisplayTokenSize</a><br/>
+<br/>
+<h1>getDisplayTokenSize</h1>
+<a name="net.corda.core.contracts.Amount.Companion$getDisplayTokenSize(kotlin.Any)"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">getDisplayTokenSize</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.Amount.Companion$getDisplayTokenSize(kotlin.Any)/token">token</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html"><span class="identifier">BigDecimal</span></a></code>
+<p>Determines the representation of one Token quantity in BigDecimal. For Currency and Issued
+the definitions is taken from Currency defaultFractionDigits property e.g. 2 for USD, or 0 for JPY
+so that the automatic token size is the conventional minimum penny amount.
+For other possible token types the asset token should implement TokenizableAssetInfo to
+correctly report the designed nominal amount.</p>
+</BODY>
+</HTML>

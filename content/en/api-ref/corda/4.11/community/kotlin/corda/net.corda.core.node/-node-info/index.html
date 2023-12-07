@@ -1,0 +1,113 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NodeInfo - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node</a>&nbsp;/&nbsp;<a href="./index.html">NodeInfo</a><br/>
+<br/>
+<h1>NodeInfo</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">NodeInfo</span></code>
+<p>Information about a network node that acts on behalf of some party. NodeInfos can be found via the network map
+cache, accessible from a <a href="../../net.corda.core.node.services/-network-map-cache/index.html">net.corda.core.node.services.NetworkMapCache</a>. They are also available via RPC
+using the <a href="../../net.corda.core.messaging/-corda-r-p-c-ops/network-map-snapshot.html">net.corda.core.messaging.CordaRPCOps.networkMapSnapshot</a> method.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Information about a network node that acts on behalf of some party. NodeInfos can be found via the network map
+cache, accessible from a <a href="../../net.corda.core.node.services/-network-map-cache/index.html">net.corda.core.node.services.NetworkMapCache</a>. They are also available via RPC
+using the <a href="../../net.corda.core.messaging/-corda-r-p-c-ops/network-map-snapshot.html">net.corda.core.messaging.CordaRPCOps.networkMapSnapshot</a> method.</p>
+<code><span class="identifier">NodeInfo</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.NodeInfo$<init>(kotlin.collections.List((net.corda.core.utilities.NetworkHostAndPort)), kotlin.collections.List((net.corda.core.identity.PartyAndCertificate)), kotlin.Int, kotlin.Long)/addresses">addresses</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.utilities/-network-host-and-port/index.html"><span class="identifier">NetworkHostAndPort</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.NodeInfo$<init>(kotlin.collections.List((net.corda.core.utilities.NetworkHostAndPort)), kotlin.collections.List((net.corda.core.identity.PartyAndCertificate)), kotlin.Int, kotlin.Long)/legalIdentitiesAndCerts">legalIdentitiesAndCerts</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.identity/-party-and-certificate/index.html"><span class="identifier">PartyAndCertificate</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.NodeInfo$<init>(kotlin.collections.List((net.corda.core.utilities.NetworkHostAndPort)), kotlin.collections.List((net.corda.core.identity.PartyAndCertificate)), kotlin.Int, kotlin.Long)/platformVersion">platformVersion</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.NodeInfo$<init>(kotlin.collections.List((net.corda.core.utilities.NetworkHostAndPort)), kotlin.collections.List((net.corda.core.identity.PartyAndCertificate)), kotlin.Int, kotlin.Long)/serial">serial</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="addresses.html">addresses</a></h4>
+</td>
+<td>
+<p>An ordered list of IP addresses/hostnames where the node can be contacted.</p>
+<code><span class="keyword">val </span><span class="identifier">addresses</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.utilities/-network-host-and-port/index.html"><span class="identifier">NetworkHostAndPort</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="legal-identities.html">legalIdentities</a></h4>
+</td>
+<td>
+<p>An ordered list of legal identities supported by this node. The node will always have at least one, so if you
+are porting code from earlier versions of Corda that expected a single party per node, just use the first item
+in the returned list.</p>
+<code><span class="keyword">val </span><span class="identifier">legalIdentities</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="legal-identities-and-certs.html">legalIdentitiesAndCerts</a></h4>
+</td>
+<td>
+<p>A non-empty list, where the first identity is assumed to be the default identity of the node.</p>
+<code><span class="keyword">val </span><span class="identifier">legalIdentitiesAndCerts</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.identity/-party-and-certificate/index.html"><span class="identifier">PartyAndCertificate</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="platform-version.html">platformVersion</a></h4>
+</td>
+<td>
+<p>An integer representing the set of protocol features the node supports. See the docsite
+    for information on how the platform is versioned.</p>
+<code><span class="keyword">val </span><span class="identifier">platformVersion</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="serial.html">serial</a></h4>
+</td>
+<td>
+<p>An arbitrary number incremented each time the NodeInfo is changed. This is analogous to the same
+    concept in DNS.</p>
+<code><span class="keyword">val </span><span class="identifier">serial</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="identity-and-cert-from-x500-name.html">identityAndCertFromX500Name</a></h4>
+</td>
+<td>
+<p>Get a legal identity and certificate of this node from the X.500 name. This is intended for use in cases where
+the node is expected to have a matching identity, and will throw an exception if no match is found.</p>
+<code><span class="keyword">fun </span><span class="identifier">identityAndCertFromX500Name</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.NodeInfo$identityAndCertFromX500Name(net.corda.core.identity.CordaX500Name)/name">name</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party-and-certificate/index.html"><span class="identifier">PartyAndCertificate</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="identity-from-x500-name.html">identityFromX500Name</a></h4>
+</td>
+<td>
+<p>Get a legal identity of this node from the X.500 name. This is intended for use in cases where the node is
+expected to have a matching identity, and will throw an exception if no match is found.</p>
+<code><span class="keyword">fun </span><span class="identifier">identityFromX500Name</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.NodeInfo$identityFromX500Name(net.corda.core.identity.CordaX500Name)/name">name</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-legal-identity.html">isLegalIdentity</a></h4>
+</td>
+<td>
+<p>Returns true if <a href="is-legal-identity.html#net.corda.core.node.NodeInfo$isLegalIdentity(net.corda.core.identity.Party)/party">party</a> is one of the identities of this node, else false.</p>
+<code><span class="keyword">fun </span><span class="identifier">isLegalIdentity</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.NodeInfo$isLegalIdentity(net.corda.core.identity.Party)/party">party</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Returns true if <a href="is-legal-identity.html#net.corda.core.node.NodeInfo$isLegalIdentity(net.corda.core.identity.CordaX500Name)/name">name</a> matches one of the identities of this node, else false.</p>
+<code><span class="keyword">fun </span><span class="identifier">isLegalIdentity</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.NodeInfo$isLegalIdentity(net.corda.core.identity.CordaX500Name)/name">name</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

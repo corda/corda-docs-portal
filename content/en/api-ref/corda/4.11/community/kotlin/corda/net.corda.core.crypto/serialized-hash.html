@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>serializedHash - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="./serialized-hash.html">serializedHash</a><br/>
+<br/>
+<h1>serializedHash</h1>
+<a name="net.corda.core.crypto$serializedHash(net.corda.core.crypto.serializedHash.T)"></a>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <s><span class="identifier">serializedHash</span></s><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto$serializedHash(net.corda.core.crypto.serializedHash.T)/x">x</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code><br/>
+<strong>Deprecated:</strong> This has been moved to DigestService<br/>
+<br/>
+<p>Serialise the object and return the hash of the serialized bytes. Note that the resulting hash may not be deterministic
+across platform versions: serialization can produce different values if any of the types being serialized have changed,
+or if the version of serialization specified by the context changes.</p>
+</BODY>
+</HTML>

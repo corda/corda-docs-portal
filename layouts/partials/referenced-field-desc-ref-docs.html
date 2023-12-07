@@ -2,7 +2,7 @@
 {{ $refurl := .url }}
 {{ $refjson := getJSON $refurl }}
 <ul>
-{{ range $key, $value := $refjson.properties }}
+    {{ range $key, $value := $refjson.properties }}
     {{ with $value }}
         <ul>
             {{ partial "field-desc-ref-docs" (dict "value" $value "key" $key "url" $.Params.url) }}
@@ -26,5 +26,5 @@
             </ul>      
         </ul>
     {{ end }}
-{{ end }}
+    {{ end }}
 </ul>

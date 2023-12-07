@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>KeyManagementService.freshKey - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node.services</a>&nbsp;/&nbsp;<a href="index.html">KeyManagementService</a>&nbsp;/&nbsp;<a href="./fresh-key.html">freshKey</a><br/>
+<br/>
+<h1>freshKey</h1>
+<a name="net.corda.core.node.services.KeyManagementService$freshKey()"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">freshKey</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code>
+<p>Generates a new random <a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a> and adds it to the internal key storage. Returns the public part of the pair.</p>
+<a name="net.corda.core.node.services.KeyManagementService$freshKey(java.util.UUID)"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">freshKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.KeyManagementService$freshKey(java.util.UUID)/externalId">externalId</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code>
+<p>Generates a new random <a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a> and adds it to the internal key storage. Associates the public key to an external ID. Returns the
+public key part of the pair.</p>
+</BODY>
+</HTML>

@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TwoPartyDealFlow.Handshake - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.finance.flows</a>&nbsp;/&nbsp;<a href="../index.html">TwoPartyDealFlow</a>&nbsp;/&nbsp;<a href="./index.html">Handshake</a><br/>
+<br/>
+<h1>Handshake</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Handshake</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>This object is serialised to the network and is the first flow message the seller sends to the buyer.</p>
+<h3>Parameters</h3>
+<p><a name="primaryIdentity"></a>
+<code>primaryIdentity</code> - the (anonymised) identity of the participant that initiates communication/handshake.</p>
+<p><a name="secondaryIdentity"></a>
+<code>secondaryIdentity</code> - the (anonymised) identity of the participant that is recipient of initial communication.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>This object is serialised to the network and is the first flow message the seller sends to the buyer.</p>
+<code><span class="identifier">Handshake</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.TwoPartyDealFlow.Handshake$<init>(net.corda.finance.flows.TwoPartyDealFlow.Handshake.T, net.corda.core.identity.AnonymousParty, net.corda.core.identity.AnonymousParty)/payload">payload</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.TwoPartyDealFlow.Handshake$<init>(net.corda.finance.flows.TwoPartyDealFlow.Handshake.T, net.corda.core.identity.AnonymousParty, net.corda.core.identity.AnonymousParty)/primaryIdentity">primaryIdentity</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.identity/-anonymous-party/index.html"><span class="identifier">AnonymousParty</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.TwoPartyDealFlow.Handshake$<init>(net.corda.finance.flows.TwoPartyDealFlow.Handshake.T, net.corda.core.identity.AnonymousParty, net.corda.core.identity.AnonymousParty)/secondaryIdentity">secondaryIdentity</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.identity/-anonymous-party/index.html"><span class="identifier">AnonymousParty</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="payload.html">payload</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">payload</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="primary-identity.html">primaryIdentity</a></h4>
+</td>
+<td>
+<p>the (anonymised) identity of the participant that initiates communication/handshake.</p>
+<code><span class="keyword">val </span><span class="identifier">primaryIdentity</span><span class="symbol">: </span><a href="../../../net.corda.core.identity/-anonymous-party/index.html"><span class="identifier">AnonymousParty</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="secondary-identity.html">secondaryIdentity</a></h4>
+</td>
+<td>
+<p>the (anonymised) identity of the participant that is recipient of initial communication.</p>
+<code><span class="keyword">val </span><span class="identifier">secondaryIdentity</span><span class="symbol">: </span><a href="../../../net.corda.core.identity/-anonymous-party/index.html"><span class="identifier">AnonymousParty</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

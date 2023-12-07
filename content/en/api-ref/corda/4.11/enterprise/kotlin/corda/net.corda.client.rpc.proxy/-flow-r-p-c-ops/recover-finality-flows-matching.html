@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowRPCOps.recoverFinalityFlowsMatching - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc.proxy</a>&nbsp;/&nbsp;<a href="index.html">FlowRPCOps</a>&nbsp;/&nbsp;<a href="./recover-finality-flows-matching.html">recoverFinalityFlowsMatching</a><br/>
+<br/>
+<h1>recoverFinalityFlowsMatching</h1>
+<a name="net.corda.client.rpc.proxy.FlowRPCOps$recoverFinalityFlowsMatching(net.corda.core.flows.FlowRecoveryQuery, kotlin.Boolean)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">recoverFinalityFlowsMatching</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.FlowRPCOps$recoverFinalityFlowsMatching(net.corda.core.flows.FlowRecoveryQuery, kotlin.Boolean)/query">query</span><span class="symbol">:</span>&nbsp;<span class="identifier">FlowRecoveryQuery</span><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.proxy.FlowRPCOps$recoverFinalityFlowsMatching(net.corda.core.flows.FlowRecoveryQuery, kotlin.Boolean)/forceRecover">forceRecover</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><span class="identifier">StateMachineRunId</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span></code>
+<p>Recover flows matching the specified query criteria.
+<a href="recover-finality-flows-matching.html#net.corda.client.rpc.proxy.FlowRPCOps$recoverFinalityFlowsMatching(net.corda.core.flows.FlowRecoveryQuery, kotlin.Boolean)/forceRecover">forceRecover</a> will also attempt to recover flows which are in a RUNNABLE, PAUSED or HOSPITALIZED state.</p>
+<p><strong>Return</strong><br/>
+map of identified failed flows and whether they were successfully recovered.</p>
+</BODY>
+</HTML>

@@ -1,0 +1,89 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RPCConnection - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc</a>&nbsp;/&nbsp;<a href="./index.html">RPCConnection</a><br/>
+<br/>
+<h1>RPCConnection</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">RPCConnection</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">I</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.messaging/-r-p-c-ops/index.html"><span class="identifier">RPCOps</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html"><span class="identifier">Closeable</span></a></code>
+<p>Holds a <a href="proxy.html">proxy</a> object implementing <a href="index.html#I">I</a> that forwards requests to the RPC server. The server version can be queried
+via this interface.</p>
+<p><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html#close()">Closeable.close</a> may be used to shut down the connection and release associated resources. It is an
+alias for <a href="notify-server-and-close.html">notifyServerAndClose</a>.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="proxy.html">proxy</a></h4>
+</td>
+<td>
+<p>Holds a synthetic class that automatically forwards method calls to the server, and returns the response.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">proxy</span><span class="symbol">: </span><span class="identifier">I</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="server-protocol-version.html">serverProtocolVersion</a></h4>
+</td>
+<td>
+<p>The RPC protocol version reported by the server.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">serverProtocolVersion</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="close.html">close</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="force-close.html">forceClose</a></h4>
+</td>
+<td>
+<p>Closes this client without notifying the server.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">forceClose</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-telemetry-handle.html">getTelemetryHandle</a></h4>
+</td>
+<td>
+<p>Returns the configured openTelemetry global. Returns null if opentelemetry has not been configured.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">getTelemetryHandle</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.RPCConnection$getTelemetryHandle(java.lang.Class((net.corda.client.rpc.RPCConnection.getTelemetryHandle.T)))/telemetryClass">telemetryClass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notify-server-and-close.html">notifyServerAndClose</a></h4>
+</td>
+<td>
+<p>Closes this client gracefully by sending a notification to the server, so it can immediately clean up resources.
+If the server is not available this method may block for a short period until it's clear the server is not
+coming back.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">notifyServerAndClose</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-corda-r-p-c-connection/index.html">CordaRPCConnection</a></h4>
+</td>
+<td>
+<p>This class is essentially just a wrapper for an <code>RPCConnection&lt;CordaRPCOps&gt;</code> and can be treated identically.</p>
+<code><span class="keyword">class </span><span class="identifier">CordaRPCConnection</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">RPCConnection</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.messaging/-corda-r-p-c-ops/index.html"><span class="identifier">CordaRPCOps</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

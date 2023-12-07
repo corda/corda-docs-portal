@@ -250,6 +250,27 @@ name = "Operating a Corda Node"
 parent = "corda-enterprise-4-9-corda-nodes"
 weight = 60
 
+[[corda-community-4-9]]
+identifier = "corda-community-4-9-upgrading"
+name = "Upgrading CorDapps and nodes"
+weight = 15
+[[corda-community-4-9]]
+identifier = "corda-community-4-9-corda-api"
+name = "Corda API"
+weight = 17
+[[corda-community-4-9]]
+identifier = "corda-community-4-9-development"
+name = "Development"
+weight = 20
+[[corda-community-4-9]]
+identifier = "corda-community-4-9-operations"
+name = "Operations"
+weight = 30
+[[corda-community-4-9]]
+identifier = "corda-community-4-9-contributing-index"
+name = "Participate"
+weight = 500
+
 [[corda-enterprise-4-10]]
 identifier = "corda-enterprise-4-10-notaries"
 name = "Corda Notaries"
@@ -307,107 +328,73 @@ identifier = "corda-community-4-10-contributing-index"
 name = "Participate"
 weight = 500
 
-[[corda-community-4-9]]
-identifier = "corda-community-4-9-upgrading"
+[[corda-enterprise-4-11]]
+identifier = "corda-enterprise-4-11-notaries"
+name = "Corda Notaries"
+weight = 35
+
+[[corda-enterprise-4-11]]
+identifier = "corda-enterprise-4-11-corda-networks"
+name = "Corda Networks"
+weight = 40
+
+[[corda-enterprise-4-11]]
+identifier = "corda-enterprise-4-11-corda-nodes-operating"
+name = "Operating a Corda Node"
+parent = "corda-enterprise-4-11-corda-nodes"
+weight = 60
+
+[[corda-enterprise-4-11]]
+identifier = "corda-enterprise-4-11-notaries"
+name = "Corda Notaries"
+weight = 35
+
+[[corda-enterprise-4-11]]
+identifier = "corda-enterprise-4-11-corda-networks"
+name = "Corda Networks"
+weight = 40
+
+[[corda-enterprise-4-11]]
+identifier = "corda-enterprise-4-11-corda-nodes-operating"
+name = "Operating a Corda Node"
+parent = "corda-enterprise-4-11-corda-nodes"
+weight = 60
+
+[[corda-community-4-11]]
+identifier = "corda-community-4-11-upgrading"
 name = "Upgrading CorDapps and nodes"
 weight = 15
-[[corda-community-4-9]]
-identifier = "corda-community-4-9-corda-api"
+
+[[corda-community-4-11]]
+identifier = "corda-community-4-11-corda-api"
 name = "Corda API"
 weight = 17
-[[corda-community-4-9]]
-identifier = "corda-community-4-9-development"
+
+[[corda-community-4-11]]
+identifier = "corda-community-4-11-development"
 name = "Development"
 weight = 20
-[[corda-community-4-9]]
-identifier = "corda-community-4-9-operations"
+
+[[corda-community-4-11]]
+identifier = "corda-community-4-11-operations"
 name = "Operations"
 weight = 30
-[[corda-community-4-9]]
-identifier = "corda-community-4-9-contributing-index"
+
+[[corda-community-4-11]]
+identifier = "corda-community-4-11-contributing-index"
 name = "Participate"
 weight = 500
 
 [[corda5]]
-identifier = "corda-rest-ref"
+identifier = "corda5-rest-ref"
 parent = "corda5-rest-api-reference"
 name = "REST API Reference"
 weight = 2000
 url = "/en/platform/corda/5.0/reference/rest-api/openapi.html"
 
-#keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
-#[[tools-cdl]]
-#identifier = "tools-cdl"
-#name = "CorDapp Design Language (CDL)"
-#weight = 100
-
-#new platform section here
-#the homepage menu creates a left hand side menu inside all the landing pages
-#if an entry has a URL property, it is to artificially add the document into a second menu
-
-#this entry is required to create a link to the corda docs in the homepage menu
-[[homepage]]
-identifier = "platform-corda-comm"
-parent = "platform-corda-4"
-url = "/en/platform/corda/4.10/community.html"
-name = "Corda Community "
-weight = 100
-
-#this entry is required to create a link to the corda ent docs in the homepage menu
-[[homepage]]
-identifier = "platform-corda-ent"
-parent = "platform-corda-4"
-url = "/en/platform/corda/4.10/enterprise.html"
-name = "Corda Enterprise"
-weight = 200
-
-#this entry is required to create a link to the cenm docs in the homepage menu
-[[homepage]]
-identifier = "platform-corda-cenm"
-parent = "platform-corda-4"
-url = "/en/platform/corda/1.5/cenm.html"
-name = "Corda Enterprise Network Manager"
-weight = 300
-
-#the following samples entries are for visual/demo purposes only and serve as links to github samples in the homepage menu
-[[homepage]]
-identifier = "sample-1"
-parent = "homepage-samples"
-name = "Sample 1"
-url = "https://github.com/"
-weight = 100
-
-[[homepage]]
-identifier = "sample-2"
-parent = "homepage-samples"
-name = "Sample 2"
-url = "https://github.com/"
-weight = 200
-
-[[homepage]]
-identifier = "sample-3"
-parent = "homepage-samples"
-name = "Sample 3"
-url = "https://github.com/"
-weight = 300
-
-#the following apps links are a little redundant but they create menu entries for homepage that also link to the apps docs menu
-[[homepage]]
-identifier = "apps-biab"
-parent = "homepage-apps"
-name = "Bank in a box"
-url = "/en/apps/bankinabox/bank-index.html"
-weight = 100
-
-#the following platform entries are non-document menu entries, they could be replaced with documents but new content would have to be created
-[[homepage]]
-identifier = "platform-corda-4"
-parent = "homepage-corda"
-name = "Corda 4"
-weight = 200
-
-[[homepage]]
-identifier = "platform-corda-5"
-parent = "homepage-corda"
-name = "Corda 5"
-weight = 100
+[[corda51]]
+identifier = "corda51-rest-ref"
+parent = "corda51-rest-api-reference"
+name = "REST API Reference"
+weight = 2000
+url = "/en/platform/corda/5.1/reference/rest-api/openapi.html"

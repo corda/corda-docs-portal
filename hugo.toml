@@ -93,4 +93,4 @@ googleTagManagerID = "G-NCYRYSGJ7C"
   [[module.mounts]]
     source = 'content/en'
     target = 'content/en'
-    excludeFiles = ['interop-raw/**'] 
+    excludeFiles = ['interop-raw/**']

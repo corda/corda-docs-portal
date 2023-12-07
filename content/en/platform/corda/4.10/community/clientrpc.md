@@ -114,7 +114,7 @@ class ClientRpcExample {
 The returned [CordaRPCConnection](https://api.corda.net/api/corda-os/4.10/html/api/javadoc/net/corda/client/rpc/CordaRPCConnection.html) is somewhat expensive to create and consumes a small amount of server-side resources. When you’re done with it, call `close` on it. Alternatively, you would typically employ the `use` method on [CordaRPCClient](https://api.corda.net/api/corda-os/4.10/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html), which cleans up automatically after the passed in lambda finishes. Do not create a new proxy for every call you make: reuse an existing one.
 {{< /warning >}}
 
-For further information on using the RPC API, see [Working with the CordaRPCClient API]({{< relref "../enterprise/get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}). 
+For further information on using the RPC API, see [Working with the CordaRPCClient API]({{< relref "../enterprise/get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}).
 
 
 ### Defining RPC users and permissions
