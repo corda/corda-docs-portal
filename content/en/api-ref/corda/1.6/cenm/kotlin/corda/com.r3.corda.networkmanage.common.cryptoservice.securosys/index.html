@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>com.r3.corda.networkmanage.common.cryptoservice.securosys - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">com.r3.corda.networkmanage.common.cryptoservice.securosys</a><br/>
+<br/>
+<h2>Package com.r3.corda.networkmanage.common.cryptoservice.securosys</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-non-cashing-content-signer-builder/index.html">NonCashingContentSignerBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">NonCashingContentSignerBuilder</span></code>
+<p>A copy of object <a href="#">net.corda.nodeapi.internal.crypto.ContentSignerBuilder</a> from Corda node-api.
+This class do not reuses signatures which are intentionally cashed by <a href="#">net.corda.core.crypto.internal.Instances.getSignatureInstance</a>,
+instead calling <a href="http://docs.oracle.com/javase/8/docs/api/java/security/Signature.html#getInstance(java.lang.String)">java.security.Signature.getInstance</a> which recreate the returned object.
+For Securosys HSM with partitions, any crypto primitives (such as a Signature object) needs to be recreated
+after changing the configuration (these are bound to the TCP transport associated with the current configuration).</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-securosys-primus-x-crypto-service/index.html">SecurosysPrimusXCryptoService</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SecurosysPrimusXCryptoService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.r3.corda.networkmanage.common.cryptoservice/-j-c-a-crypto-service/index.html"><span class="identifier">JCACryptoService</span></a><span class="symbol">&lt;</span><a href="../com.r3.corda.networkmanage.common.cryptoservice.authentication/-securosys-authentication-credentials/index.html"><span class="identifier">SecurosysAuthenticationCredentials</span></a><span class="symbol">,</span>&nbsp;<a href="../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-securosys-key-config/index.html"><span class="identifier">SecurosysKeyConfig</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-securosys-primus-x-crypto-service-test/index.html">SecurosysPrimusXCryptoServiceTest</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SecurosysPrimusXCryptoServiceTest</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service-spec/index.html"><span class="identifier">CryptoServiceSpec</span></a><span class="symbol">&lt;</span><a href="../com.r3.corda.networkmanage.common.cryptoservice.authentication/-securosys-authentication-credentials/index.html"><span class="identifier">SecurosysAuthenticationCredentials</span></a><span class="symbol">,</span>&nbsp;<a href="../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-securosys-key-config/index.html"><span class="identifier">SecurosysKeyConfig</span></a><span class="symbol">&gt;</span></code>
+<p>This test can be run against the cloud HSM provided by Securosys. It has the @Ignore annotation by default as the
+placeholder values have to be filled out in order to run it (see wiki page for credentials).</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

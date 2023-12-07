@@ -1,0 +1,81 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ExponentialBackOffTimer - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.utils</a>&nbsp;/&nbsp;<a href="./index.html">ExponentialBackOffTimer</a><br/>
+<br/>
+<h1>ExponentialBackOffTimer</h1>
+<code><span class="keyword">class </span><span class="identifier">ExponentialBackOffTimer</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Timer.html"><span class="identifier">Timer</span></a></code>
+<p>Extension of the Java <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Timer.html">Timer</a> util class that schedules tasks with exponential backoff, as well as the ability
+to cancel the currently running task as well as future scheduled tasks. It also enables asynchronous cancellation</p>
+<p>Creation of the timer is facilitated via the <a href="schedule-and-run.html">scheduleAndRun</a> method</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">ExponentialBackOffTimer</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils.ExponentialBackOffTimer$<init>()/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span></code>
+<p>Extension of the Java <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Timer.html">Timer</a> util class that schedules tasks with exponential backoff, as well as the ability
+to cancel the currently running task as well as future scheduled tasks. It also enables asynchronous cancellation</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="ctx.html">ctx</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">ctx</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="cancel.html">cancel</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">cancel</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Terminates this timer, discarding any currently scheduled tasks,
+as well as cancelling the currently executing task. This blocks
+until the timer and any executing tasks are cancelled, as opposed
+to the asynchronous version <a href="cancel-async.html">cancelAsync</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="cancel-async.html">cancelAsync</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">cancelAsync</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html"><span class="identifier">CompletableFuture</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span></code>
+<p>Returns a future for the termination of this timer</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="schedule-and-run.html">scheduleAndRun</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">scheduleAndRun</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils.ExponentialBackOffTimer.Companion$scheduleAndRun(kotlin.String, kotlin.Long, kotlin.Long, kotlin.Int, kotlin.Long, , kotlin.Function0((kotlin.Unit)))/taskDescription">taskDescription</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils.ExponentialBackOffTimer.Companion$scheduleAndRun(kotlin.String, kotlin.Long, kotlin.Long, kotlin.Int, kotlin.Long, , kotlin.Function0((kotlin.Unit)))/executionDelayMillis">executionDelayMillis</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils.ExponentialBackOffTimer.Companion$scheduleAndRun(kotlin.String, kotlin.Long, kotlin.Long, kotlin.Int, kotlin.Long, , kotlin.Function0((kotlin.Unit)))/timeoutMillis">timeoutMillis</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils.ExponentialBackOffTimer.Companion$scheduleAndRun(kotlin.String, kotlin.Long, kotlin.Long, kotlin.Int, kotlin.Long, , kotlin.Function0((kotlin.Unit)))/maxRetries">maxRetries</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils.ExponentialBackOffTimer.Companion$scheduleAndRun(kotlin.String, kotlin.Long, kotlin.Long, kotlin.Int, kotlin.Long, , kotlin.Function0((kotlin.Unit)))/maxBackoffTimeMillis">maxBackoffTimeMillis</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils.ExponentialBackOffTimer.Companion$scheduleAndRun(kotlin.String, kotlin.Long, kotlin.Long, kotlin.Int, kotlin.Long, , kotlin.Function0((kotlin.Unit)))/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils.ExponentialBackOffTimer.Companion$scheduleAndRun(kotlin.String, kotlin.Long, kotlin.Long, kotlin.Int, kotlin.Long, , kotlin.Function0((kotlin.Unit)))/task">task</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ExponentialBackOffTimer</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

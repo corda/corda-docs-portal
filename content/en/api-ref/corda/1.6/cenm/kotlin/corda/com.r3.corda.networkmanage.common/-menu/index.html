@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Menu - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common</a>&nbsp;/&nbsp;<a href="./index.html">Menu</a><br/>
+<br/>
+<h1>Menu</h1>
+<code><span class="keyword">class </span><span class="identifier">Menu</span></code>
+<p>A generic menu class for console based interactions with user.
+Inspired by https://github.com/bryandh/genericmenu, but adjusted to our the particular needs of this project.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">Menu</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.Menu$<init>(com.r3.corda.networkmanage.common.Renderer)/renderer">renderer</span><span class="symbol">:</span>&nbsp;<a href="../-renderer/index.html"><span class="identifier">Renderer</span></a><span class="symbol">)</span></code>
+<p>A generic menu class for console based interactions with user.
+Inspired by https://github.com/bryandh/genericmenu, but adjusted to our the particular needs of this project.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="add-item.html">addItem</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">addItem</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.Menu$addItem(kotlin.String, kotlin.String, kotlin.Function0((kotlin.Unit)), kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.Menu$addItem(kotlin.String, kotlin.String, kotlin.Function0((kotlin.Unit)), kotlin.Boolean)/label">label</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.Menu$addItem(kotlin.String, kotlin.String, kotlin.Function0((kotlin.Unit)), kotlin.Boolean)/action">action</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.Menu$addItem(kotlin.String, kotlin.String, kotlin.Function0((kotlin.Unit)), kotlin.Boolean)/isTerminating">isTerminating</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Menu</span></a></code>
+<p>Adds a menu item to the list of the menu items. The order in which the items are added matters.
+If the exit option is set (@see <a href="set-exit-option.html">setExitOption</a> then it will be displayed always as the last element in the menu.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-exit-option.html">setExitOption</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setExitOption</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.Menu$setExitOption(kotlin.String, kotlin.String)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.Menu$setExitOption(kotlin.String, kotlin.String)/label">label</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Menu</span></a></code>
+<p>Sets the exit option with given key and label.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="show-menu.html">showMenu</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">showMenu</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Shows the menu built out of the given menu items and (if present) exit option.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="with-exception-handler.html">withExceptionHandler</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">withExceptionHandler</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.Menu$withExceptionHandler(kotlin.Function1((java.lang.Exception, kotlin.Unit)))/handler">handler</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">exception</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html"><span class="identifier">Exception</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Menu</span></a></code>
+<p>Assigns the exception handler for this menu. The exception handler is invoked every time
+any of the menu item selection handler function throws an exception.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

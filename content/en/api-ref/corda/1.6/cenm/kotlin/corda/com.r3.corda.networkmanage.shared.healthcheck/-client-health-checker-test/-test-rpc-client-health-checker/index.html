@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ClientHealthCheckerTest.TestRpcClientHealthChecker - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">com.r3.corda.networkmanage.shared.healthcheck</a>&nbsp;/&nbsp;<a href="../index.html">ClientHealthCheckerTest</a>&nbsp;/&nbsp;<a href="./index.html">TestRpcClientHealthChecker</a><br/>
+<br/>
+<h1>TestRpcClientHealthChecker</h1>
+<code><span class="keyword">class </span><span class="identifier">TestRpcClientHealthChecker</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../../com.r3.corda.networkmanage.common.healthcheck/-client-health-checker/index.html"><span class="identifier">ClientHealthChecker</span></a></code>
+<p>Testing class to enable the use of mocked RPC clients</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">TestRpcClientHealthChecker</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.shared.healthcheck.ClientHealthCheckerTest.TestRpcClientHealthChecker$<init>(kotlin.collections.Map((kotlin.String, )))/serviceClients">serviceClients</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>Testing class to enable the use of mocked RPC clients</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="create-enm-service-clients.html">createEnmServiceClients</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createEnmServiceClients</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span><span class="symbol">&gt;</span></code>
+<p>To avoid keeping long lived connections around we can instead create the clients as and when they are needed and
+ensure that they are closed when the health check has been performed.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="create-rpc-service-clients.html">createRpcServiceClients</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createRpcServiceClients</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span><span class="symbol">&gt;</span></code>
+<p>To avoid keeping long lived connections around we can instead create the clients as and when they are needed and
+ensure that they are closed when the health check has been performed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../../com.r3.corda.networkmanage.common.healthcheck/-client-health-checker/check-all-services.html">checkAllServices</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">checkAllServices</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.healthcheck.ClientHealthChecker$checkAllServices(com.r3.corda.networkmanage.common.Renderer)/renderer">renderer</span><span class="symbol">:</span>&nbsp;<a href="../../../com.r3.corda.networkmanage.common/-renderer/index.html"><span class="identifier">Renderer</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Run the health check against all clients that can be configured for the current service.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

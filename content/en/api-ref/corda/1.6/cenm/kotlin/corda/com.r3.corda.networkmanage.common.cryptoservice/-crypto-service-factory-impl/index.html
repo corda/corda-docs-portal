@@ -1,0 +1,112 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CryptoServiceFactoryImpl - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.cryptoservice</a>&nbsp;/&nbsp;<a href="./index.html">CryptoServiceFactoryImpl</a><br/>
+<br/>
+<h1>CryptoServiceFactoryImpl</h1>
+<code><span class="keyword">class </span><span class="identifier">CryptoServiceFactoryImpl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-crypto-service-factory/index.html"><span class="identifier">CryptoServiceFactory</span></a></code>
+<p>Class responsible for creating the implementation specific Crypto Service object that can be used to interact
+with the HSM/underlying provider. Note that most of the HSM specific java libraries are proprietary and hence cannot
+be bundled with our release. Instead, these Jars are provided by the user and hot-loaded at runtime. See static make
+method.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">CryptoServiceFactoryImpl</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceFactoryImpl$<init>()/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span></code>
+<p>Class responsible for creating the implementation specific Crypto Service object that can be used to interact
+with the HSM/underlying provider. Note that most of the HSM specific java libraries are proprietary and hence cannot
+be bundled with our release. Instead, these Jars are provided by the user and hot-loaded at runtime. See static make
+method.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="ctx.html">ctx</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">ctx</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="create.html">create</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">create</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceFactoryImpl$create()/config">config</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-crypto-service/index.html"><span class="identifier">CryptoService</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.authentication/-authentication-credentials.html"><span class="identifier">AuthenticationCredentials</span></a><span class="symbol">,</span>&nbsp;<span class="keyword">out</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-key-config/index.html"><span class="identifier">KeyConfig</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="create-azure-key-vault-crypto-service.html">createAzureKeyVaultCryptoService</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createAzureKeyVaultCryptoService</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceFactoryImpl$createAzureKeyVaultCryptoService(kotlin.String, )/keyVaultUrl">keyVaultUrl</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceFactoryImpl$createAzureKeyVaultCryptoService(kotlin.String, )/protection">protection</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../com.r3.corda.networkmanage.common.cryptoservice.azurekeyvault/-azure-key-vault-crypto-service/index.html"><span class="identifier">AzureKeyVaultCryptoService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="create-b-c-crypto-service.html">createBCCryptoService</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createBCCryptoService</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceFactoryImpl$createBCCryptoService(, kotlin.String, kotlin.String)/keyStore">keyStore</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceFactoryImpl$createBCCryptoService(, kotlin.String, kotlin.String)/keyStorePassword">keyStorePassword</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceFactoryImpl$createBCCryptoService(, kotlin.String, kotlin.String)/keyPassword">keyPassword</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../com.r3.corda.networkmanage.common.cryptoservice.bouncycastle/-b-c-crypto-service/index.html"><span class="identifier">BCCryptoService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="create-cloud-hsm-crypto-service.html">createCloudHsmCryptoService</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createCloudHsmCryptoService</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceFactoryImpl$createCloudHsmCryptoService()/certificateStore">certificateStore</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../com.r3.corda.networkmanage.common.cryptoservice.cloudhsm/-amazon-cloud-hsm-crypto-service/index.html"><span class="identifier">AmazonCloudHsmCryptoService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="create-gemalto-luna-crypto-service.html">createGemaltoLunaCryptoService</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createGemaltoLunaCryptoService</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../com.r3.corda.networkmanage.common.cryptoservice.gemalto/-gemalto-luna-crypto-service/index.html"><span class="identifier">GemaltoLunaCryptoService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="create-securosys-crypto-service.html">createSecurosysCryptoService</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createSecurosysCryptoService</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceFactoryImpl$createSecurosysCryptoService(kotlin.String, kotlin.Int)/host">host</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceFactoryImpl$createSecurosysCryptoService(kotlin.String, kotlin.Int)/port">port</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../com.r3.corda.networkmanage.common.cryptoservice.securosys/-securosys-primus-x-crypto-service/index.html"><span class="identifier">SecurosysPrimusXCryptoService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="create-utimaco-crypto-service.html">createUtimacoCryptoService</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createUtimacoCryptoService</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceFactoryImpl$createUtimacoCryptoService(kotlin.String, kotlin.Int, kotlin.String, kotlin.Int, kotlin.Int)/host">host</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceFactoryImpl$createUtimacoCryptoService(kotlin.String, kotlin.Int, kotlin.String, kotlin.Int, kotlin.Int)/port">port</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceFactoryImpl$createUtimacoCryptoService(kotlin.String, kotlin.Int, kotlin.String, kotlin.Int, kotlin.Int)/keyGroup">keyGroup</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceFactoryImpl$createUtimacoCryptoService(kotlin.String, kotlin.Int, kotlin.String, kotlin.Int, kotlin.Int)/keySpecifier">keySpecifier</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceFactoryImpl$createUtimacoCryptoService(kotlin.String, kotlin.Int, kotlin.String, kotlin.Int, kotlin.Int)/authThreshold">authThreshold</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../com.r3.corda.networkmanage.common.cryptoservice.utimaco/-utimaco-crypto-service/index.html"><span class="identifier">UtimacoCryptoService</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="make.html">make</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">make</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceFactoryImpl.Companion$make(kotlin.collections.List((java.net.URL)), kotlin.collections.List((java.nio.file.Path)), )/hsmJars">hsmJars</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/net/URL.html"><span class="identifier">URL</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceFactoryImpl.Companion$make(kotlin.collections.List((java.net.URL)), kotlin.collections.List((java.nio.file.Path)), )/hsmSharedLibraries">hsmSharedLibraries</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html"><span class="identifier">Path</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceFactoryImpl.Companion$make(kotlin.collections.List((java.net.URL)), kotlin.collections.List((java.nio.file.Path)), )/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CryptoServiceFactoryImpl</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
