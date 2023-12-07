@@ -1,0 +1,114 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CertificateSigningRequestSigner - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.signer.csr</a>&nbsp;/&nbsp;<a href="./index.html">CertificateSigningRequestSigner</a><br/>
+<br/>
+<h1>CertificateSigningRequestSigner</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">CertificateSigningRequestSigner</span></code>
+<p>Encapsulates certificate signing logic</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">CertificateSigningRequestSigner</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$<init>(kotlin.Function0(()), )/makeRemoteRepository">makeRemoteRepository</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$<init>(kotlin.Function0(()), )/ctx_">ctx_</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span></code>
+<p>Encapsulates certificate signing logic</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="async-requests.html">asyncRequests</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">asyncRequests</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentHashMap.html"><span class="identifier">ConcurrentHashMap</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&gt;</span></code>
+<p>Stores the requests that has not been completed immediately
+Maps the CSR id id to the plugin's response</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="ctx.html">ctx</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">ctx</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="make-remote-repository.html">makeRemoteRepository</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">makeRemoteRepository</span><span class="symbol">: </span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="get-request-status.html">getRequestStatus</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getRequestStatus</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$getRequestStatus(kotlin.String)/requestId">requestId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="persist.html">persist</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">persist</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$persist(kotlin.collections.Map((kotlin.String, )), kotlin.collections.MutableMap((kotlin.String, )), kotlin.collections.MutableMap((kotlin.String, )), com.r3.corda.networkmanage.common.Renderer, )/toPersist">toPersist</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$persist(kotlin.collections.Map((kotlin.String, )), kotlin.collections.MutableMap((kotlin.String, )), kotlin.collections.MutableMap((kotlin.String, )), com.r3.corda.networkmanage.common.Renderer, )/failed">failed</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html"><span class="identifier">MutableMap</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$persist(kotlin.collections.Map((kotlin.String, )), kotlin.collections.MutableMap((kotlin.String, )), kotlin.collections.MutableMap((kotlin.String, )), com.r3.corda.networkmanage.common.Renderer, )/succeeded">succeeded</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html"><span class="identifier">MutableMap</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$persist(kotlin.collections.Map((kotlin.String, )), kotlin.collections.MutableMap((kotlin.String, )), kotlin.collections.MutableMap((kotlin.String, )), com.r3.corda.networkmanage.common.Renderer, )/renderer">renderer</span><span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common/-renderer/index.html"><span class="identifier">Renderer</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$persist(kotlin.collections.Map((kotlin.String, )), kotlin.collections.MutableMap((kotlin.String, )), kotlin.collections.MutableMap((kotlin.String, )), com.r3.corda.networkmanage.common.Renderer, )/userInfo">userInfo</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>The actual persisting logic happens in this function.
+If we encounter a <a href="#">RepositoryException</a> when persisting we add the request to the <code>failed</code> connection.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="sign.html">sign</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$sign(kotlin.collections.Map((kotlin.String, com.r3.enm.model.CertificateSigningRequest)), kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/toSign">toSign</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="../../com.r3.enm.model/-certificate-signing-request/index.html"><span class="identifier">CertificateSigningRequest</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$sign(kotlin.collections.Map((kotlin.String, com.r3.enm.model.CertificateSigningRequest)), kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/headless">headless</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$sign(kotlin.collections.Map((kotlin.String, com.r3.enm.model.CertificateSigningRequest)), kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/renderer">renderer</span><span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common/-renderer/index.html"><span class="identifier">Renderer</span></a>&nbsp;<span class="symbol">=</span>&nbsp;LoggingRenderer(ctx)<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$sign(kotlin.collections.Map((kotlin.String, com.r3.enm.model.CertificateSigningRequest)), kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/userInfo">userInfo</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="sign-requests.html">signRequests</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">signRequests</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$signRequests(kotlin.collections.Map((kotlin.String, com.r3.enm.model.CertificateSigningRequest)), kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/toSign">toSign</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="../../com.r3.enm.model/-certificate-signing-request/index.html"><span class="identifier">CertificateSigningRequest</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$signRequests(kotlin.collections.Map((kotlin.String, com.r3.enm.model.CertificateSigningRequest)), kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/headless">headless</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$signRequests(kotlin.collections.Map((kotlin.String, com.r3.enm.model.CertificateSigningRequest)), kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/renderer">renderer</span><span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common/-renderer/index.html"><span class="identifier">Renderer</span></a>&nbsp;<span class="symbol">=</span>&nbsp;LoggingRenderer(ctx)<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.csr.CertificateSigningRequestSigner$signRequests(kotlin.collections.Map((kotlin.String, com.r3.enm.model.CertificateSigningRequest)), kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, )/userInfo">userInfo</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="../../com.r3.enm.model/-certificate-signing-request/index.html"><span class="identifier">CertificateSigningRequest</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&gt;</span></code>
+<p>Signs the provided map of <a href="../../com.r3.enm.model/-certificate-signing-request/index.html">CertificateSigningRequest</a> with the key/certificate chosen by the implementing class.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-default-certificate-signing-request-signer/index.html">DefaultCertificateSigningRequestSigner</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">DefaultCertificateSigningRequestSigner</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CertificateSigningRequestSigner</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-plugin-certificate-signing-request-signer/index.html">PluginCertificateSigningRequestSigner</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">PluginCertificateSigningRequestSigner</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CertificateSigningRequestSigner</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

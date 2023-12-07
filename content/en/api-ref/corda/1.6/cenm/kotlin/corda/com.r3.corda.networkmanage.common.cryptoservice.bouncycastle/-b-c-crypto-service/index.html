@@ -1,0 +1,173 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>BCCryptoService - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.cryptoservice.bouncycastle</a>&nbsp;/&nbsp;<a href="./index.html">BCCryptoService</a><br/>
+<br/>
+<h1>BCCryptoService</h1>
+<code><span class="keyword">class </span><span class="identifier">BCCryptoService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service/index.html"><span class="identifier">CryptoService</span></a><span class="symbol">&lt;</span><a href="../../com.r3.corda.networkmanage.common.cryptoservice.authentication/-b-c-key-store-credentials/index.html"><span class="identifier">BCKeyStoreCredentials</span></a><span class="symbol">,</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-b-c-key-config/index.html"><span class="identifier">BCKeyConfig</span></a><span class="symbol">&gt;</span></code>
+<p>Basic implementation of a <a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service/index.html">CryptoService</a> that uses BouncyCastle for cryptographic
+operations and a local Java KeyStore in the form of <a href="http://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html">KeyStore</a> to store private keys.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">BCCryptoService</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$<init>()/keyStore">keyStore</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span></code>
+<p>Basic implementation of a <a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service/index.html">CryptoService</a> that uses BouncyCastle for cryptographic
+operations and a local Java KeyStore in the form of <a href="http://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html">KeyStore</a> to store private keys.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="authenticate.html">authenticate</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">authenticate</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$authenticate(com.r3.corda.networkmanage.common.cryptoservice.authentication.BCKeyStoreCredentials)/credentials">credentials</span><span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.authentication/-b-c-key-store-credentials/index.html"><span class="identifier">BCKeyStoreCredentials</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Authenticate a user against the underlying crypto provider using given <a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service/authenticate.html#com.r3.corda.networkmanage.common.cryptoservice.CryptoService$authenticate(com.r3.corda.networkmanage.common.cryptoservice.CryptoService.T)/credentials">credentials</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="contains-key.html">containsKey</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">containsKey</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$containsKey(kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Check if this <a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service/index.html">CryptoService</a> contains an entry for the given alias.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="generate-and-store-key-pair.html">generateAndStoreKeyPair</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">generateAndStoreKeyPair</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$generateAndStoreKeyPair(com.r3.corda.networkmanage.common.cryptoservice.keygeneration.BCKeyConfig)/keyConfig">keyConfig</span><span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-b-c-key-config/index.html"><span class="identifier">BCKeyConfig</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code>
+<p>Generate a key pair and a basic self-signed certificate and store within the underlying key store.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="generate-random-big-integer.html">generateRandomBigInteger</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">generateRandomBigInteger</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$generateRandomBigInteger(kotlin.Int)/sizeInBytes">sizeInBytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html"><span class="identifier">BigInteger</span></a></code>
+<p>Generate a random BigInteger using the underlying <a href="http://docs.oracle.com/javase/8/docs/api/java/security/Provider.html">Provider</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-authenticated-users.html">getAuthenticatedUsers</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getAuthenticatedUsers</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code>
+<p>Return the list of users currently authenticated against the underlying crypto provider.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-certificate.html">getCertificate</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getCertificate</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$getCertificate(kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/Certificate.html"><span class="identifier">Certificate</span></a></code>
+<p>Returns the <a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/Certificate.html">Certificate</a> of the entry for the given alias.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-key-pair-and-certificate-chain.html">getKeyPairAndCertificateChain</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getKeyPairAndCertificateChain</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$getKeyPairAndCertificateChain(kotlin.String, kotlin.String)/keyAlias">keyAlias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$getKeyPairAndCertificateChain(kotlin.String, kotlin.String)/keyPassword">keyPassword</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Retrieve a key pair and accompanying certificate chain for a given alias.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-public-key.html">getPublicKey</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getPublicKey</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$getPublicKey(kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code>
+<p>Returns the <a href="http://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> of the entry for the given alias.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-signer.html">getSigner</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getSigner</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$getSigner(kotlin.String, kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$getSigner(kotlin.String, kotlin.String)/password">password</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code>
+<p>Returns <a href="#">ContentSigner</a> for the key identified by the input alias.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="import-key.html">importKey</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">importKey</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$importKey(kotlin.String, java.security.KeyPair, kotlin.String, kotlin.collections.List((java.security.cert.X509Certificate)))/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$importKey(kotlin.String, java.security.KeyPair, kotlin.String, kotlin.collections.List((java.security.cert.X509Certificate)))/keyPair">keyPair</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$importKey(kotlin.String, java.security.KeyPair, kotlin.String, kotlin.collections.List((java.security.cert.X509Certificate)))/keyPassword">keyPassword</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$importKey(kotlin.String, java.security.KeyPair, kotlin.String, kotlin.collections.List((java.security.cert.X509Certificate)))/certificateChain">certificateChain</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Import an externally generated key pair and certificate chain into the key store.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="is-authenticated.html">isAuthenticated</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">isAuthenticated</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Boolean flag indicating whether further authentication is needed to use stored keys.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="log-out.html">logOut</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">logOut</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Reset the authentication state for the underlying crypto provider.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-certificate.html">setCertificate</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setCertificate</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$setCertificate(kotlin.String, java.security.cert.X509Certificate)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$setCertificate(kotlin.String, java.security.cert.X509Certificate)/certificate">certificate</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>For the given <a href="set-certificate.html#com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$setCertificate(kotlin.String, java.security.cert.X509Certificate)/alias">alias</a>, add an entry with X509 certificate.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="sign.html">sign</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$sign(kotlin.String, kotlin.ByteArray, kotlin.String, kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$sign(kotlin.String, kotlin.ByteArray, kotlin.String, kotlin.String)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$sign(kotlin.String, kotlin.ByteArray, kotlin.String, kotlin.String)/signAlgorithm">signAlgorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$sign(kotlin.String, kotlin.ByteArray, kotlin.String, kotlin.String)/password">password</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code>
+<p>Sign a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> using the private key identified by the input alias.
+Returns the signature bytes formatted according to the signature scheme.
+The signAlgorithm if specified determines the signature scheme used for signing, if
+not specified then the signature scheme is based on the private key scheme.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="update-certificate.html">updateCertificate</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">updateCertificate</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$updateCertificate(com.r3.corda.networkmanage.common.cryptoservice.keygeneration.BCKeyConfig, kotlin.collections.List((java.security.cert.X509Certificate)))/keyConfig">keyConfig</span><span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-b-c-key-config/index.html"><span class="identifier">BCKeyConfig</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService$updateCertificate(com.r3.corda.networkmanage.common.cryptoservice.keygeneration.BCKeyConfig, kotlin.collections.List((java.security.cert.X509Certificate)))/certificateChain">certificateChain</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Update the certificate chain within the underlying key store.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

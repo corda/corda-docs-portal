@@ -44,6 +44,7 @@ This page provides links to the API reference documentation for all API modules 
 
 |Corda Enterprise version|Javadoc API reference|Kotlin doc API reference|
 |:----|:----|:----|
+|1.6|<a href="../../../en/api-ref/corda/1.6/cenm/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/1.6/cenm/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 |1.5|<a href="../../../en/api-ref/corda/1.5/cenm/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/1.5/cenm/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 |1.4|<a href="../../../en/api-ref/corda/1.4/cenm/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/1.4/cenm/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 |1.3|<a href="../../../en/api-ref/corda/1.3/cenm/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/1.3/cenm/kotlin/corda/index.html" target="_blank">Kotlin</a>|
