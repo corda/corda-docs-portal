@@ -250,7 +250,7 @@ For the purpose of testing Corda, use the CPI endpoint.
    {{< note >}}
    If you get any errors, first try the following: run the *stopAndCleanCorda* Gradle task, run the *startCorda* Gradle task, wait one minute, then try and access Swagger again.
 
-   If you still get errors, check the topic on [Resetting the CSDE]({{< relref "../corda/5.0/developing-applications/getting-started/reset-csde.md" >}}).
+   If you still get errors, check the topic on [Resetting the CSDE]( "../../tools-corda5/csde/reset-csde.md" ).
    {{</ note >}}
 
 ## Deploy the Digital Currencies CorDapp
