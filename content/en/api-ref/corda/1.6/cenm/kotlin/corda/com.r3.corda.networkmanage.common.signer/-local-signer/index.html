@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>LocalSigner - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.signer</a>&nbsp;/&nbsp;<a href="./index.html">LocalSigner</a><br/>
+<br/>
+<h1>LocalSigner</h1>
+<code><span class="keyword">class </span><span class="identifier">LocalSigner</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-signer/index.html"><span class="identifier">Signer</span></a></code>
+<p>This local signer is intended to be used in testing environment where hardware signing module is not available.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-authenticated-local-signer/index.html">AuthenticatedLocalSigner</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">AuthenticatedLocalSigner</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-signer/-authenticated-signer/index.html"><span class="identifier">AuthenticatedSigner</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">LocalSigner</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.LocalSigner$<init>(, kotlin.String, kotlin.String, kotlin.String, )/keyStore">keyStore</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.LocalSigner$<init>(, kotlin.String, kotlin.String, kotlin.String, )/keyAlias">keyAlias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.LocalSigner$<init>(, kotlin.String, kotlin.String, kotlin.String, )/keyStorePassword">keyStorePassword</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.LocalSigner$<init>(, kotlin.String, kotlin.String, kotlin.String, )/keyPassword">keyPassword</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.LocalSigner$<init>(, kotlin.String, kotlin.String, kotlin.String, )/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span></code><br/>
+<code><span class="identifier">LocalSigner</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.LocalSigner$<init>(java.nio.file.Path, kotlin.String, kotlin.String, kotlin.String, )/keyStorePath">keyStorePath</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html"><span class="identifier">Path</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.LocalSigner$<init>(java.nio.file.Path, kotlin.String, kotlin.String, kotlin.String, )/keyStorePassword">keyStorePassword</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.LocalSigner$<init>(java.nio.file.Path, kotlin.String, kotlin.String, kotlin.String, )/keyAlias">keyAlias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.LocalSigner$<init>(java.nio.file.Path, kotlin.String, kotlin.String, kotlin.String, )/keyPassword">keyPassword</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.LocalSigner$<init>(java.nio.file.Path, kotlin.String, kotlin.String, kotlin.String, )/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span></code><code><span class="identifier">LocalSigner</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.LocalSigner$<init>(com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService, kotlin.String, kotlin.collections.List((java.security.cert.X509Certificate)), )/cryptoService">cryptoService</span><span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.bouncycastle/-b-c-crypto-service/index.html"><span class="identifier">BCCryptoService</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.LocalSigner$<init>(com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService, kotlin.String, kotlin.collections.List((java.security.cert.X509Certificate)), )/keyAlias">keyAlias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.LocalSigner$<init>(com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService, kotlin.String, kotlin.collections.List((java.security.cert.X509Certificate)), )/signerCertChain">signerCertChain</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.LocalSigner$<init>(com.r3.corda.networkmanage.common.cryptoservice.bouncycastle.BCCryptoService, kotlin.String, kotlin.collections.List((java.security.cert.X509Certificate)), )/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span></code>
+<p>This local signer is intended to be used in testing environment where hardware signing module is not available.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="ctx.html">ctx</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">ctx</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="authenticate.html">authenticate</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">authenticate</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.LocalSigner$authenticate(kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, kotlin.Boolean, , kotlin.Function1((com.r3.corda.networkmanage.common.signer.Signer.AuthenticatedSigner, com.r3.corda.networkmanage.common.signer.LocalSigner.authenticate.T)))/headless">headless</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.LocalSigner$authenticate(kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, kotlin.Boolean, , kotlin.Function1((com.r3.corda.networkmanage.common.signer.Signer.AuthenticatedSigner, com.r3.corda.networkmanage.common.signer.LocalSigner.authenticate.T)))/renderer">renderer</span><span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common/-renderer/index.html"><span class="identifier">Renderer</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.LocalSigner$authenticate(kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, kotlin.Boolean, , kotlin.Function1((com.r3.corda.networkmanage.common.signer.Signer.AuthenticatedSigner, com.r3.corda.networkmanage.common.signer.LocalSigner.authenticate.T)))/logOff">logOff</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.LocalSigner$authenticate(kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, kotlin.Boolean, , kotlin.Function1((com.r3.corda.networkmanage.common.signer.Signer.AuthenticatedSigner, com.r3.corda.networkmanage.common.signer.LocalSigner.authenticate.T)))/userInfo">userInfo</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.signer.LocalSigner$authenticate(kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, kotlin.Boolean, , kotlin.Function1((com.r3.corda.networkmanage.common.signer.Signer.AuthenticatedSigner, com.r3.corda.networkmanage.common.signer.LocalSigner.authenticate.T)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="../-signer/-authenticated-signer/index.html"><span class="identifier">AuthenticatedSigner</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="authenticate.html#T"><span class="identifier">T</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="authenticate.html#T"><span class="identifier">T</span></a></code>
+<p>Authentication within the local signer requires no user input, hence the <a href="authenticate.html#com.r3.corda.networkmanage.common.signer.LocalSigner$authenticate(kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, kotlin.Boolean, , kotlin.Function1((com.r3.corda.networkmanage.common.signer.Signer.AuthenticatedSigner, com.r3.corda.networkmanage.common.signer.LocalSigner.authenticate.T)))/headless">headless</a> and <a href="authenticate.html#com.r3.corda.networkmanage.common.signer.LocalSigner$authenticate(kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, kotlin.Boolean, , kotlin.Function1((com.r3.corda.networkmanage.common.signer.Signer.AuthenticatedSigner, com.r3.corda.networkmanage.common.signer.LocalSigner.authenticate.T)))/renderer">renderer</a> inputs have
+no effect.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

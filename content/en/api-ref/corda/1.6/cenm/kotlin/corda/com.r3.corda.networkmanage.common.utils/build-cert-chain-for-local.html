@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>buildCertChainForLocal - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="index.html">com.r3.corda.networkmanage.common.utils</a>&nbsp;/&nbsp;<a href="./build-cert-chain-for-local.html">buildCertChainForLocal</a><br/>
+<br/>
+<h1>buildCertChainForLocal</h1>
+<a name="com.r3.corda.networkmanage.common.utils$buildCertChainForLocal(kotlin.String, kotlin.collections.Collection(()), )"></a>
+<code><span class="keyword">fun </span><span class="identifier">buildCertChainForLocal</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForLocal(kotlin.String, kotlin.collections.Collection(()), )/certificateAlias">certificateAlias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForLocal(kotlin.String, kotlin.collections.Collection(()), )/certificatesStores">certificatesStores</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForLocal(kotlin.String, kotlin.collections.Collection(()), )/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">&gt;</span></code>
+<p>This method assumes that the certificates store has been built locally. This will result in two possible scenarios:</p>
+<ol><li>The old PKI is being used - the certificate stores will be the locally generated key stores containing private
+    keys with their corresponding full certificate chains attached</li>
+<li>The new PKI is being used - the certificates stores will contain single entries for every member in the chain</li>
+</ol>
+<a name="com.r3.corda.networkmanage.common.utils$buildCertChainForLocal(kotlin.String, , )"></a>
+<code><span class="keyword">fun </span><span class="identifier">buildCertChainForLocal</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForLocal(kotlin.String, , )/certificateAlias">certificateAlias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForLocal(kotlin.String, , )/certificatesStore">certificatesStore</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForLocal(kotlin.String, , )/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">&gt;</span></code>
+<p>Overload for the buildCertChainForLocal</p>
+</BODY>
+</HTML>

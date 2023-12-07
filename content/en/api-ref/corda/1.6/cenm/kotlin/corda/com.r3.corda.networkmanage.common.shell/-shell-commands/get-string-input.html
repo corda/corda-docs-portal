@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ShellCommands.getStringInput - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.shell</a>&nbsp;/&nbsp;<a href="index.html">ShellCommands</a>&nbsp;/&nbsp;<a href="./get-string-input.html">getStringInput</a><br/>
+<br/>
+<h1>getStringInput</h1>
+<a name="com.r3.corda.networkmanage.common.shell.ShellCommands$getStringInput(kotlin.String, kotlin.collections.Set((kotlin.String)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getStringInput</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.shell.ShellCommands$getStringInput(kotlin.String, kotlin.collections.Set((kotlin.String)))/promptString">promptString</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.shell.ShellCommands$getStringInput(kotlin.String, kotlin.collections.Set((kotlin.String)))/possibleValues">possibleValues</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code>
+<p>Prompts the user for input, printing the <a href="get-string-input.html#com.r3.corda.networkmanage.common.shell.ShellCommands$getStringInput(kotlin.String, kotlin.collections.Set((kotlin.String)))/promptString">promptString</a>. Validates the input is not null or blank, re-requesting
+input if invalid. Also validates that input is one of the given <a href="get-string-input.html#com.r3.corda.networkmanage.common.shell.ShellCommands$getStringInput(kotlin.String, kotlin.collections.Set((kotlin.String)))/possibleValues">possibleValues</a> (if not null).
+<a href="#">renderer</a> is the class responsible for rendering the user options on the screen and reading user input.</p>
+<p><strong>Return</strong><br/>
+validated user input, or null if user cancelled</p>
+</BODY>
+</HTML>

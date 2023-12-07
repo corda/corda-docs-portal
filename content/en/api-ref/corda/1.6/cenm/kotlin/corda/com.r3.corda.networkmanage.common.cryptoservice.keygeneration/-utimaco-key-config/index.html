@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>UtimacoKeyConfig - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.cryptoservice.keygeneration</a>&nbsp;/&nbsp;<a href="./index.html">UtimacoKeyConfig</a><br/>
+<br/>
+<h1>UtimacoKeyConfig</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">UtimacoKeyConfig</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-key-config/index.html"><span class="identifier">KeyConfig</span></a></code>
+<p>All required parameters to generate a Utimaco HSM key using a <a href="#">UtimacoCryptoService</a>.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">UtimacoKeyConfig</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.keygeneration.UtimacoKeyConfig$<init>(kotlin.String, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Int)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.keygeneration.UtimacoKeyConfig$<init>(kotlin.String, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Int)/storeExternal">storeExternal</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.keygeneration.UtimacoKeyConfig$<init>(kotlin.String, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Int)/override">override</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.keygeneration.UtimacoKeyConfig$<init>(kotlin.String, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Int)/export">export</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.keygeneration.UtimacoKeyConfig$<init>(kotlin.String, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Int)/curve">curve</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.keygeneration.UtimacoKeyConfig$<init>(kotlin.String, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Int)/genMechanism">genMechanism</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span></code>
+<p>All required parameters to generate a Utimaco HSM key using a <a href="#">UtimacoCryptoService</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="alias.html">alias</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">alias</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>Alias of the new key entry within the key store.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="curve.html">curve</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">curve</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>Elliptic curve specification. See Utimaco documentation for more details.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="export.html">export</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">export</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Flag representing whether it should be possible to export the key entry.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="gen-mechanism.html">genMechanism</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">genMechanism</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>Generation mechanism for the key pair. See Utimaco documentation for more details.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="override.html">override</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">override</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Flag representing whether it should be possible to override the key entry.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="store-external.html">storeExternal</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">storeExternal</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Boolean representing whether the key will be also stored externally.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

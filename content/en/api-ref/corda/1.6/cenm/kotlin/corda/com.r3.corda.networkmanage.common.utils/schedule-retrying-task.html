@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>scheduleRetryingTask - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="index.html">com.r3.corda.networkmanage.common.utils</a>&nbsp;/&nbsp;<a href="./schedule-retrying-task.html">scheduleRetryingTask</a><br/>
+<br/>
+<h1>scheduleRetryingTask</h1>
+<a name="com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))"></a>
+<code><span class="keyword">fun </span><span class="identifier">scheduleRetryingTask</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/taskDescription">taskDescription</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/taskExecutionInterval">taskExecutionInterval</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/timeoutMillis">timeoutMillis</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/maxRetries">maxRetries</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/maxBackoffTimeMillis">maxBackoffTimeMillis</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/task">task</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-exponential-back-off-timer/index.html"><span class="identifier">ExponentialBackOffTimer</span></a></code>
+<p>Schedules a <a href="schedule-retrying-task.html#com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/task">task</a> to execute every <a href="schedule-retrying-task.html#com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/taskExecutionInterval">taskExecutionInterval</a>, with each failed execution using a retrying exponential
+backoff strategy. After a given execution has succeeded then the next execution (<a href="schedule-retrying-task.html#com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/taskExecutionInterval">taskExecutionInterval</a> after the
+first attempt) will continue as normal, regardless of the number of retries that the previous attempt had.</p>
+<h3>Parameters</h3>
+<p><a name="taskDescription"></a>
+<code>taskDescription</code> - A human readable description of the task to execute.</p>
+<p><a name="taskExecutionInterval"></a>
+<code>taskExecutionInterval</code> - The period in millis between each task execution.</p>
+<p><a name="timeoutMillis"></a>
+<code>timeoutMillis</code> - The millisecond timeout threshold for each execution of a task.</p>
+<p><a name="ctx"></a>
+<code>ctx</code> - Logging context.</p>
+<p><a name="maxRetries"></a>
+<code>maxRetries</code> - Optional integer value representing the maximum number of times that any given execution of a task
+    should be retried before giving up (and waiting for the next scheduled execution).</p>
+<p><a name="maxBackoffTimeMillis"></a>
+<code>maxBackoffTimeMillis</code> - Optional millisecond value to cap the retry delay during exponential backoff.</p>
+<p><a name="task"></a>
+<code>task</code> - The task to execute.</p>
+</BODY>
+</HTML>

@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>UpdateStatus - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.enm.servicesapi.networkmap</a>&nbsp;/&nbsp;<a href="./index.html">UpdateStatus</a><br/>
+<br/>
+<h1>UpdateStatus</h1>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">UpdateStatus</span></code>
+<h3>Enum Values</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-n-e-w.html">NEW</a></p>
+</td>
+<td>
+<p>A newly created update.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-f-l-a-g_-d-a-y.html">FLAG_DAY</a></p>
+</td>
+<td>
+<p>An update that has passed its deadline and flagged to be made active on the next signing event. At most only one
+update with status either NEW or FLAG_DAY can exist.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-a-p-p-l-i-e-d.html">APPLIED</a></p>
+</td>
+<td>
+<p>Any previously flagged update that has been activated into the network map.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-c-a-n-c-e-l-l-e-d.html">CANCELLED</a></p>
+</td>
+<td>
+<p>A new or flag day update that has been cancelled.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

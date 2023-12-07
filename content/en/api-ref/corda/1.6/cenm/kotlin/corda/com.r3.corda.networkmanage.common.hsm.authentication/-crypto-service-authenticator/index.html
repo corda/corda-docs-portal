@@ -1,0 +1,92 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CryptoServiceAuthenticator - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.hsm.authentication</a>&nbsp;/&nbsp;<a href="./index.html">CryptoServiceAuthenticator</a><br/>
+<br/>
+<h1>CryptoServiceAuthenticator</h1>
+<code><span class="keyword">class </span><span class="identifier">CryptoServiceAuthenticator</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">, </span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.authentication/-authentication-credentials.html"><span class="identifier">AuthenticationCredentials</span></a><span class="symbol">, </span><span class="identifier">V</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-key-config/index.html"><span class="identifier">KeyConfig</span></a><span class="symbol">&gt;</span></code>
+<p>Class responsible for handling authentication of the <a href="#">cryptoService</a>. Supports the ability to prompt the user for
+required credentials as well as resetting of the <a href="#">cryptoService</a> authentication state once the desired tasks have
+been run.</p>
+<h3>Parameters</h3>
+<p><a name="cryptoService"></a>
+<code>cryptoService</code> - crypto service used to execute the signing/key generation tasks.</p>
+<p><a name="credentialsConfigs"></a>
+<code>credentialsConfigs</code> - list of authentication credentials configuration objects for the <a href="#">cryptoService</a>.</p>
+<p><a name="credentialsTransformer"></a>
+<code>credentialsTransformer</code> - transformer that converts each credentials config into a fully formed credentials
+    object that can be used to authenticate the <a href="#">cryptoService</a>.</p>
+<p><a name="ctx_"></a>
+<code>ctx_</code> - logging context for authentication operations</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-global-crypto-lock.html">GlobalCryptoLock</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">GlobalCryptoLock</span></code>
+<p>A global lock object so only one thread can connect and authenticate with a crypto service at a time.
+This allows the crypto service interaction to complete with logOut so the isAuthenticated method doesn't return
+true in a different thread before the first thread has called logOut.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">CryptoServiceAuthenticator</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator$<init>(com.r3.corda.networkmanage.common.cryptoservice.CryptoService((com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.U, com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.V)), kotlin.collections.List((com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.T)), com.r3.corda.networkmanage.common.cryptoservice.authentication.CredentialsTransformer((com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.T, com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.U)), )/cryptoService">cryptoService</span><span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service/index.html"><span class="identifier">CryptoService</span></a><span class="symbol">&lt;</span><a href="index.html#U"><span class="identifier">U</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator$<init>(com.r3.corda.networkmanage.common.cryptoservice.CryptoService((com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.U, com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.V)), kotlin.collections.List((com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.T)), com.r3.corda.networkmanage.common.cryptoservice.authentication.CredentialsTransformer((com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.T, com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.U)), )/credentialsConfigs">credentialsConfigs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator$<init>(com.r3.corda.networkmanage.common.cryptoservice.CryptoService((com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.U, com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.V)), kotlin.collections.List((com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.T)), com.r3.corda.networkmanage.common.cryptoservice.authentication.CredentialsTransformer((com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.T, com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.U)), )/credentialsTransformer">credentialsTransformer</span><span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.authentication/-credentials-transformer/index.html"><span class="identifier">CredentialsTransformer</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#U"><span class="identifier">U</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator$<init>(com.r3.corda.networkmanage.common.cryptoservice.CryptoService((com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.U, com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.V)), kotlin.collections.List((com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.T)), com.r3.corda.networkmanage.common.cryptoservice.authentication.CredentialsTransformer((com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.T, com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.U)), )/ctx_">ctx_</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span></code>
+<p>Class responsible for handling authentication of the <a href="#">cryptoService</a>. Supports the ability to prompt the user for
+required credentials as well as resetting of the <a href="#">cryptoService</a> authentication state once the desired tasks have
+been run.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="ctx.html">ctx</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">ctx</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="close.html">close</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator$close(com.r3.corda.networkmanage.common.Renderer)/renderer">renderer</span><span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common/-renderer/index.html"><span class="identifier">Renderer</span></a>&nbsp;<span class="symbol">=</span>&nbsp;LoggingRenderer(ctx)<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="connect-and-authenticate.html">connectAndAuthenticate</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">connectAndAuthenticate</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator$connectAndAuthenticate(kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, kotlin.Boolean, , kotlin.Function1((com.r3.corda.networkmanage.common.cryptoservice.CryptoService((com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.U, com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.V)), com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.connectAndAuthenticate.T)))/headless">headless</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator$connectAndAuthenticate(kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, kotlin.Boolean, , kotlin.Function1((com.r3.corda.networkmanage.common.cryptoservice.CryptoService((com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.U, com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.V)), com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.connectAndAuthenticate.T)))/renderer">renderer</span><span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common/-renderer/index.html"><span class="identifier">Renderer</span></a>&nbsp;<span class="symbol">=</span>&nbsp;LoggingRenderer(ctx)<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator$connectAndAuthenticate(kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, kotlin.Boolean, , kotlin.Function1((com.r3.corda.networkmanage.common.cryptoservice.CryptoService((com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.U, com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.V)), com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.connectAndAuthenticate.T)))/logOff">logOff</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator$connectAndAuthenticate(kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, kotlin.Boolean, , kotlin.Function1((com.r3.corda.networkmanage.common.cryptoservice.CryptoService((com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.U, com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.V)), com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.connectAndAuthenticate.T)))/userInfo">userInfo</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator$connectAndAuthenticate(kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, kotlin.Boolean, , kotlin.Function1((com.r3.corda.networkmanage.common.cryptoservice.CryptoService((com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.U, com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.V)), com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.connectAndAuthenticate.T)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service/index.html"><span class="identifier">CryptoService</span></a><span class="symbol">&lt;</span><a href="index.html#U"><span class="identifier">U</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="connect-and-authenticate.html#T"><span class="identifier">T</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="connect-and-authenticate.html#T"><span class="identifier">T</span></a></code>
+<p>Interactively (using console) authenticates a user against the crypto service. Once authentication is successful
+the <a href="connect-and-authenticate.html#com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator$connectAndAuthenticate(kotlin.Boolean, com.r3.corda.networkmanage.common.Renderer, kotlin.Boolean, , kotlin.Function1((com.r3.corda.networkmanage.common.cryptoservice.CryptoService((com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.U, com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.V)), com.r3.corda.networkmanage.common.hsm.authentication.CryptoServiceAuthenticator.connectAndAuthenticate.T)))/block">block</a> is executed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

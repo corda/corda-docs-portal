@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CryptoServiceFactory - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.cryptoservice</a>&nbsp;/&nbsp;<a href="./index.html">CryptoServiceFactory</a><br/>
+<br/>
+<h1>CryptoServiceFactory</h1>
+<code><span class="keyword">interface </span><span class="identifier">CryptoServiceFactory</span></code>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="create.html">create</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">create</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceFactory$create()/config">config</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-crypto-service/index.html"><span class="identifier">CryptoService</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.authentication/-authentication-credentials.html"><span class="identifier">AuthenticationCredentials</span></a><span class="symbol">,</span>&nbsp;<span class="keyword">out</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-key-config/index.html"><span class="identifier">KeyConfig</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-crypto-service-factory-impl/index.html">CryptoServiceFactoryImpl</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CryptoServiceFactoryImpl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CryptoServiceFactory</span></a></code>
+<p>Class responsible for creating the implementation specific Crypto Service object that can be used to interact
+with the HSM/underlying provider. Note that most of the HSM specific java libraries are proprietary and hence cannot
+be bundled with our release. Instead, these Jars are provided by the user and hot-loaded at runtime. See static make
+method.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
