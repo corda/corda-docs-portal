@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>LegalNameValidator.validateAttribute - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.validator</a>&nbsp;/&nbsp;<a href="index.html">LegalNameValidator</a>&nbsp;/&nbsp;<a href="./validate-attribute.html">validateAttribute</a><br/>
+<br/>
+<h1>validateAttribute</h1>
+<a name="com.r3.corda.networkmanage.common.validator.LegalNameValidator$validateAttribute(kotlin.String)"></a>
+<code><span class="keyword">fun </span><span class="identifier">validateAttribute</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.validator.LegalNameValidator$validateAttribute(kotlin.String)/normalizedNameAttribute">normalizedNameAttribute</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>The validation function validates a string for use as the X500 attribute of a name.
+It applies the following rules:</p>
+<ul><li>Must be normalized (as per the <a href="normalize.html">normalize</a> function).</li>
+<li>Length must be 255 characters or shorter.</li>
+<li>No blacklisted words like "node", "server".</li>
+<li>Must consist of at least three letters.</li>
+<li>Restrict names to Latin scripts for now to avoid right-to-left issues, debugging issues when we can't pronounce
+names over the phone, and character confusability attacks.</li>
+<li>Must start with a capital letter.</li>
+<li>No commas or equals signs.</li>
+<li>No dollars or quote marks, we might need to relax the quote mark constraint in future to handle Irish company names.</li>
+<li>Has no control characters</li>
+</ul>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - if the name does not meet the required rules. The message indicates why not.</p>
+</BODY>
+</HTML>

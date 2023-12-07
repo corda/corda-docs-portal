@@ -1,0 +1,129 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ServiceCommand - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.utils</a>&nbsp;/&nbsp;<a href="./index.html">ServiceCommand</a><br/>
+<br/>
+<h1>ServiceCommand</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">ServiceCommand</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-base-service-command/index.html"><span class="identifier">BaseServiceCommand</span></a></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-service-type/index.html">ServiceType</a></p>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">ServiceType</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">ServiceCommand</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils.ServiceCommand$<init>(kotlin.String, kotlin.String)/serviceName">serviceName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;"Network services and tools"<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils.ServiceCommand$<init>(kotlin.String, kotlin.String)/documentation">documentation</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DOCS_URL<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="obfuscation-options.html">obfuscationOptions</a></p>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">obfuscationOptions</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="services.html">services</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">services</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="-service-type/index.html"><span class="identifier">ServiceType</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-base-service-command/logging-level.html">loggingLevel</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">loggingLevel</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-base-service-command/verbose.html">verbose</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">verbose</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="suppress-sql-exception.html">suppressSqlException</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">suppressSqlException</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils.ServiceCommand$suppressSqlException(kotlin.String, kotlin.Function0((kotlin.Unit)))/serviceName">serviceName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils.ServiceCommand$suppressSqlException(kotlin.String, kotlin.Function0((kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="validate-command-line-flags.html">validateCommandLineFlags</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">validateCommandLineFlags</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-base-service-command/run.html">run</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">run</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Top level wrapper used when executing any subclass command. Sets up exception handler to
+prevent stack traces being dumped to the console and also handles version or help requests.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="amend-store-location.html">amendStoreLocation</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">.</span><span class="identifier">amendStoreLocation</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils.ServiceCommand.Companion$amendStoreLocation(, java.nio.file.Path)/workingDirPath">workingDirPath</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html"><span class="identifier">Path</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">.</span><span class="identifier">amendStoreLocation</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils.ServiceCommand.Companion$amendStoreLocation(, java.nio.file.Path)/workingDirPath">workingDirPath</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html"><span class="identifier">Path</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="generate-normalised-path-string.html">generateNormalisedPathString</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">generateNormalisedPathString</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils.ServiceCommand.Companion$generateNormalisedPathString(java.nio.file.Path, kotlin.String)/workingDir">workingDir</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html"><span class="identifier">Path</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils.ServiceCommand.Companion$generateNormalisedPathString(java.nio.file.Path, kotlin.String)/child">child</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html"><span class="identifier">Path</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

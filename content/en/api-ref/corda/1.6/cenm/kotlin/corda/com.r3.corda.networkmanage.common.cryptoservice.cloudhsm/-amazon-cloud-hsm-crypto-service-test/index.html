@@ -1,0 +1,109 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AmazonCloudHsmCryptoServiceTest - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.cryptoservice.cloudhsm</a>&nbsp;/&nbsp;<a href="./index.html">AmazonCloudHsmCryptoServiceTest</a><br/>
+<br/>
+<h1>AmazonCloudHsmCryptoServiceTest</h1>
+<code><span class="keyword">class </span><span class="identifier">AmazonCloudHsmCryptoServiceTest</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service-spec/index.html"><span class="identifier">CryptoServiceSpec</span></a><span class="symbol">&lt;</span><a href="../../com.r3.corda.networkmanage.common.cryptoservice.authentication/-cloud-hsm-password-credentials/index.html"><span class="identifier">CloudHsmPasswordCredentials</span></a><span class="symbol">,</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-amazon-cloud-hsm-key-config/index.html"><span class="identifier">AmazonCloudHsmKeyConfig</span></a><span class="symbol">&gt;</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">AmazonCloudHsmCryptoServiceTest</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service-spec/logging-context-rule.html">loggingContextRule</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">loggingContextRule</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="create-key-config.html">createKeyConfig</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createKeyConfig</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.cloudhsm.AmazonCloudHsmCryptoServiceTest$createKeyConfig(kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-amazon-cloud-hsm-key-config/index.html"><span class="identifier">AmazonCloudHsmKeyConfig</span></a></code>
+<p>Method used to create a basic key config for a given <a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service-spec/create-key-config.html#com.r3.corda.networkmanage.common.cryptoservice.CryptoServiceSpec$createKeyConfig(kotlin.String)/alias">alias</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="delete.html">delete</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">delete</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.cloudhsm.AmazonCloudHsmCryptoServiceTest$delete(kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Method used to delete any keys created during the tests.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-crypto-service.html">getCryptoService</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getCryptoService</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service/index.html"><span class="identifier">CryptoService</span></a><span class="symbol">&lt;</span><a href="../../com.r3.corda.networkmanage.common.cryptoservice.authentication/-cloud-hsm-password-credentials/index.html"><span class="identifier">CloudHsmPasswordCredentials</span></a><span class="symbol">,</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-amazon-cloud-hsm-key-config/index.html"><span class="identifier">AmazonCloudHsmKeyConfig</span></a><span class="symbol">&gt;</span></code>
+<p>Method used to retrieve the <a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service/index.html">CryptoService</a> that will be tested.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service-spec/-content signer works with -hsm-x509-utilities.html">Content signer works with HsmX509Utilities</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Content signer works with HsmX509Utilities</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service-spec/-generate key, then sign and verify data.html">Generate key, then sign and verify data</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Generate key, then sign and verify data</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service-spec/-when key does not exist, get-content-signer should throw.html">When key does not exist, getContentSigner should throw</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">When key does not exist, getContentSigner should throw</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service-spec/-when key does not exist, signing should throw.html">When key does not exist, signing should throw</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">When key does not exist, signing should throw</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service-spec/generate-random-key-alias.html">generateRandomKeyAlias</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">generateRandomKeyAlias</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,333 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>com.r3.corda.networkmanage.common.utils - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">com.r3.corda.networkmanage.common.utils</a><br/>
+<br/>
+<h2>Package com.r3.corda.networkmanage.common.utils</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-base-command/index.html">BaseCommand</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">BaseCommand</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html"><span class="identifier">Runnable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-base-service-command/index.html">BaseServiceCommand</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">BaseServiceCommand</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-base-command/index.html"><span class="identifier">BaseCommand</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-config-file-path-args-parser/index.html">ConfigFilePathArgsParser</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">ConfigFilePathArgsParser</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-validated/index.html"><span class="identifier">Validated</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-crl-utils-test/index.html">CrlUtilsTest</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CrlUtilsTest</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-exponential-back-off-timer/index.html">ExponentialBackOffTimer</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">ExponentialBackOffTimer</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Timer.html"><span class="identifier">Timer</span></a></code>
+<p>Extension of the Java <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Timer.html">Timer</a> util class that schedules tasks with exponential backoff, as well as the ability
+to cancel the currently running task as well as future scheduled tasks. It also enables asynchronous cancellation</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-hsm-x509-utilities-test/index.html">HsmX509UtilitiesTest</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">HsmX509UtilitiesTest</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-illegal-command-line-argument/index.html">IllegalCommandLineArgument</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">IllegalCommandLineArgument</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-illegal-seed-argument/index.html">IllegalSeedArgument</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">IllegalSeedArgument</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-illegal-command-line-argument/index.html"><span class="identifier">IllegalCommandLineArgument</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-keystore-file-path-args-parser/index.html">KeystoreFilePathArgsParser</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">KeystoreFilePathArgsParser</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-logging-level-converter/index.html">LoggingLevelConverter</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">LoggingLevelConverter</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-network-manager-command-exception-handler/index.html">NetworkManagerCommandExceptionHandler</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">NetworkManagerCommandExceptionHandler</span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span></code>
+<p>This class inherits the core functionality of the DefaultExceptionHandler provided by picocli,
+with a few tweaks.
+When a return code on error is specified, the DefaultExceptionHandler has the exception's stacktrace
+printed to console instead of being rethrown, causing our NetworkServicesUncaughtExceptionHandler
+to not catch anything and the console output to be incorrect.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-network-services-error-with-code/index.html">NetworkServicesErrorWithCode</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">NetworkServicesErrorWithCode</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-network-services-uncaught-exception-handler/index.html">NetworkServicesUncaughtExceptionHandler</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">NetworkServicesUncaughtExceptionHandler</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Thread/UncaughtExceptionHandler.html"><span class="identifier">UncaughtExceptionHandler</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-revocation/index.html">Revocation</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Revocation</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-service-command/index.html">ServiceCommand</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">ServiceCommand</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-base-service-command/index.html"><span class="identifier">BaseServiceCommand</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-supported-crl-reasons/index.html">SupportedCrlReasons</a></p>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">SupportedCrlReasons</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-utils-test/index.html">UtilsTest</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">UtilsTest</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-validated/index.html">Validated</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">Validated</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-version-provider/index.html">VersionProvider</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">VersionProvider</span></code>
+<p>Custom version printing when command is called with --version or -V flag.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-working-dir-config-file-path-args-parser/index.html">WorkingDirConfigFilePathArgsParser</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">WorkingDirConfigFilePathArgsParser</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-config-file-path-args-parser/index.html"><span class="identifier">ConfigFilePathArgsParser</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extensions for External Classes</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="java.time.-duration/index.html">java.time.Duration</a></p>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="kotlin.collections.-iterable/index.html">kotlin.collections.Iterable</a></p>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-c-o-r-d-a_-n-e-t-w-o-r-k_-m-a-p.html">CORDA_NETWORK_MAP</a></p>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">CORDA_NETWORK_MAP</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-d-u-m-m-y_-c-e-r-t-i-f-i-c-a-t-e_-r-e-v-o-c-a-t-i-o-n.html">DUMMY_CERTIFICATE_REVOCATION</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">DUMMY_CERTIFICATE_REVOCATION</span><span class="symbol">: </span><a href="-revocation/index.html"><span class="identifier">Revocation</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-n-e-t-w-o-r-k_-r-o-o-t_-t-r-u-s-t-s-t-o-r-e_-f-i-l-e-n-a-m-e.html">NETWORK_ROOT_TRUSTSTORE_FILENAME</a></p>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">NETWORK_ROOT_TRUSTSTORE_FILENAME</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="build-cert-chain-for-h-s-m.html">buildCertChainForHSM</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">buildCertChainForHSM</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForHSM(kotlin.String, java.security.KeyStore, kotlin.collections.Collection(()), )/certificateAlias">certificateAlias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForHSM(kotlin.String, java.security.KeyStore, kotlin.collections.Collection(()), )/keyStore">keyStore</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html"><span class="identifier">KeyStore</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForHSM(kotlin.String, java.security.KeyStore, kotlin.collections.Collection(()), )/certificatesStores">certificatesStores</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForHSM(kotlin.String, java.security.KeyStore, kotlin.collections.Collection(()), )/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">&gt;</span></code>
+<p>The method assumes that the certificates store has been built using the HSM. In this case, as certificate chains larger
+than 1 are not supported, the key store should always contain the initial certificate. There are two scenarios:</p>
+<code><span class="keyword">fun </span><span class="identifier">buildCertChainForHSM</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForHSM(kotlin.String, java.security.KeyStore, , )/certificateAlias">certificateAlias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForHSM(kotlin.String, java.security.KeyStore, , )/keyStore">keyStore</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html"><span class="identifier">KeyStore</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForHSM(kotlin.String, java.security.KeyStore, , )/certificatesStore">certificatesStore</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForHSM(kotlin.String, java.security.KeyStore, , )/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">&gt;</span></code>
+<p>Overload for the buildCertChainForLocal</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="build-cert-chain-for-local.html">buildCertChainForLocal</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">buildCertChainForLocal</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForLocal(kotlin.String, kotlin.collections.Collection(()), )/certificateAlias">certificateAlias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForLocal(kotlin.String, kotlin.collections.Collection(()), )/certificatesStores">certificatesStores</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForLocal(kotlin.String, kotlin.collections.Collection(()), )/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">&gt;</span></code>
+<p>This method assumes that the certificates store has been built locally. This will result in two possible scenarios:</p>
+<code><span class="keyword">fun </span><span class="identifier">buildCertChainForLocal</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForLocal(kotlin.String, , )/certificateAlias">certificateAlias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForLocal(kotlin.String, , )/certificatesStore">certificatesStore</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildCertChainForLocal(kotlin.String, , )/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">&gt;</span></code>
+<p>Overload for the buildCertChainForLocal</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="build-remaining-cert-chain.html">buildRemainingCertChain</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">buildRemainingCertChain</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildRemainingCertChain(java.security.cert.X509Certificate, kotlin.collections.Collection(()))/currentCertificate">currentCertificate</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$buildRemainingCertChain(java.security.cert.X509Certificate, kotlin.collections.Collection(()))/certificatesStores">certificatesStores</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="command-line-parse-and-return-err.html">commandLineParseAndReturnErr</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html"><span class="identifier">Runnable</span></a><span class="symbol">&gt;</span> <span class="identifier">commandLineParseAndReturnErr</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$commandLineParseAndReturnErr(com.r3.corda.networkmanage.common.utils.commandLineParseAndReturnErr.R, kotlin.Array((kotlin.String)))/runnable">runnable</span><span class="symbol">:</span>&nbsp;<a href="command-line-parse-and-return-err.html#R"><span class="identifier">R</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="com.r3.corda.networkmanage.common.utils$commandLineParseAndReturnErr(com.r3.corda.networkmanage.common.utils.commandLineParseAndReturnErr.R, kotlin.Array((kotlin.String)))/args">args</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="command-line-run-exit-on-error.html">commandLineRunExitOnError</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html"><span class="identifier">Runnable</span></a><span class="symbol">&gt;</span> <span class="identifier">commandLineRunExitOnError</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$commandLineRunExitOnError(com.r3.corda.networkmanage.common.utils.commandLineRunExitOnError.R, kotlin.Array((kotlin.String)))/runnable">runnable</span><span class="symbol">:</span>&nbsp;<a href="command-line-run-exit-on-error.html#R"><span class="identifier">R</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="com.r3.corda.networkmanage.common.utils$commandLineRunExitOnError(com.r3.corda.networkmanage.common.utils.commandLineRunExitOnError.R, kotlin.Array((kotlin.String)))/args">args</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="create-signed-crl.html">createSignedCrl</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createSignedCrl</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$createSignedCrl(com.r3.corda.networkmanage.common.signer.Signer.AuthenticatedSigner, java.net.URL, java.time.Duration, kotlin.collections.Collection((com.r3.corda.networkmanage.common.utils.Revocation)), kotlin.Boolean)/signer">signer</span><span class="symbol">:</span>&nbsp;<a href="../com.r3.corda.networkmanage.common.signer/-signer/-authenticated-signer/index.html"><span class="identifier">AuthenticatedSigner</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$createSignedCrl(com.r3.corda.networkmanage.common.signer.Signer.AuthenticatedSigner, java.net.URL, java.time.Duration, kotlin.collections.Collection((com.r3.corda.networkmanage.common.utils.Revocation)), kotlin.Boolean)/endpointUrl">endpointUrl</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/net/URL.html"><span class="identifier">URL</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$createSignedCrl(com.r3.corda.networkmanage.common.signer.Signer.AuthenticatedSigner, java.net.URL, java.time.Duration, kotlin.collections.Collection((com.r3.corda.networkmanage.common.utils.Revocation)), kotlin.Boolean)/nextUpdateInterval">nextUpdateInterval</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/time/Duration.html"><span class="identifier">Duration</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$createSignedCrl(com.r3.corda.networkmanage.common.signer.Signer.AuthenticatedSigner, java.net.URL, java.time.Duration, kotlin.collections.Collection((com.r3.corda.networkmanage.common.utils.Revocation)), kotlin.Boolean)/includeInCrl">includeInCrl</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="-revocation/index.html"><span class="identifier">Revocation</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$createSignedCrl(com.r3.corda.networkmanage.common.signer.Signer.AuthenticatedSigner, java.net.URL, java.time.Duration, kotlin.collections.Collection((com.r3.corda.networkmanage.common.utils.Revocation)), kotlin.Boolean)/indirectIssuingPoint">indirectIssuingPoint</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509CRL.html"><span class="identifier">X509CRL</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="execute-task-with-back-off.html">executeTaskWithBackOff</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">executeTaskWithBackOff</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$executeTaskWithBackOff(java.util.concurrent.ScheduledExecutorService, kotlin.Int, kotlin.Long, kotlin.String, , kotlin.Function0((kotlin.Unit)))/executor">executor</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ScheduledExecutorService.html"><span class="identifier">ScheduledExecutorService</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Executors.newScheduledThreadPool(1)<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$executeTaskWithBackOff(java.util.concurrent.ScheduledExecutorService, kotlin.Int, kotlin.Long, kotlin.String, , kotlin.Function0((kotlin.Unit)))/maxAttempts">maxAttempts</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$executeTaskWithBackOff(java.util.concurrent.ScheduledExecutorService, kotlin.Int, kotlin.Long, kotlin.String, , kotlin.Function0((kotlin.Unit)))/initialRetryDelayMillis">initialRetryDelayMillis</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$executeTaskWithBackOff(java.util.concurrent.ScheduledExecutorService, kotlin.Int, kotlin.Long, kotlin.String, , kotlin.Function0((kotlin.Unit)))/taskDescription">taskDescription</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$executeTaskWithBackOff(java.util.concurrent.ScheduledExecutorService, kotlin.Int, kotlin.Long, kotlin.String, , kotlin.Function0((kotlin.Unit)))/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$executeTaskWithBackOff(java.util.concurrent.ScheduledExecutorService, kotlin.Int, kotlin.Long, kotlin.String, , kotlin.Function0((kotlin.Unit)))/task">task</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Attempts a single execution of the given <a href="execute-task-with-back-off.html#com.r3.corda.networkmanage.common.utils$executeTaskWithBackOff(java.util.concurrent.ScheduledExecutorService, kotlin.Int, kotlin.Long, kotlin.String, , kotlin.Function0((kotlin.Unit)))/task">task</a>, and retrying with an exponential backoff strategy
+if execution fails. An error is logged upon every failure but no exceptions are thrown.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-cert-role.html">getCertRole</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">.</span><span class="identifier">getCertRole</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code>
+<p>Helper method to extract cert role from certificate signing request. Default to NODE_CA if not exist for backward compatibility.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-obfuscation-options-if-defined.html">getObfuscationOptionsIfDefined</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getObfuscationOptionsIfDefined</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$getObfuscationOptionsIfDefined()/obfuscationOptions">obfuscationOptions</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span></code>
+<p>Checks if the user has provided the seed or the passphrase for obfuscation, if neither is provided we imply that
+the config is not obfuscated</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-version-string.html">getVersionString</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getVersionString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="schedule-retrying-task.html">scheduleRetryingTask</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">scheduleRetryingTask</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/taskDescription">taskDescription</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/taskExecutionInterval">taskExecutionInterval</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/timeoutMillis">timeoutMillis</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/ctx">ctx</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/maxRetries">maxRetries</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/maxBackoffTimeMillis">maxBackoffTimeMillis</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/task">task</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-exponential-back-off-timer/index.html"><span class="identifier">ExponentialBackOffTimer</span></a></code>
+<p>Schedules a <a href="schedule-retrying-task.html#com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/task">task</a> to execute every <a href="schedule-retrying-task.html#com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/taskExecutionInterval">taskExecutionInterval</a>, with each failed execution using a retrying exponential
+backoff strategy. After a given execution has succeeded then the next execution (<a href="schedule-retrying-task.html#com.r3.corda.networkmanage.common.utils$scheduleRetryingTask(kotlin.String, kotlin.Long, kotlin.Long, , kotlin.Int, kotlin.Long, kotlin.Function0((kotlin.Unit)))/taskExecutionInterval">taskExecutionInterval</a> after the
+first attempt) will continue as normal, regardless of the number of retries that the previous attempt had.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="to-table-format.html">toTableFormat</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toTableFormat</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$toTableFormat(kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.collections.List((kotlin.String)))), kotlin.Boolean)/columnHeaders">columnHeaders</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$toTableFormat(kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.collections.List((kotlin.String)))), kotlin.Boolean)/rowValues">rowValues</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$toTableFormat(kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.collections.List((kotlin.String)))), kotlin.Boolean)/headerSeparator">headerSeparator</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code>
+<p>Used to display nicely formatted tables. Takes a set of <a href="to-table-format.html#com.r3.corda.networkmanage.common.utils$toTableFormat(kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.collections.List((kotlin.String)))), kotlin.Boolean)/columnHeaders">columnHeaders</a> and <a href="to-table-format.html#com.r3.corda.networkmanage.common.utils$toTableFormat(kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.collections.List((kotlin.String)))), kotlin.Boolean)/rowValues">rowValues</a> and returns the list of
+padded row strings, with correct spacing, that can be printed to console.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="validate-certificate-role.html">validateCertificateRole</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">validateCertificateRole</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$validateCertificateRole(java.security.cert.X509Certificate, , kotlin.String)/certificate">certificate</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$validateCertificateRole(java.security.cert.X509Certificate, , kotlin.String)/expectedRole">expectedRole</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.utils$validateCertificateRole(java.security.cert.X509Certificate, , kotlin.String)/serviceName">serviceName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
