@@ -69,14 +69,14 @@ Find out more about the [Archive Service]({{< relref "../../../../tools/archivin
 **Soft locking**  automatically or explicitly reserves states to prevent
 multiple transactions within the same node from trying to use the same output simultaneously. Whilst any double spend attempts would
 ultimately be detected by a notary, soft locking provides a mechanism of early detection for such unwarranted and
-invalid scenarios.
+invalid scenarios. Such transactions would result in naturally wasted work when the notary rejects them as double spend attempts.
 
 Soft locks are automatically applied to coin selection, like cash spending, to ensure that no two transactions attempt to
-spend the same fungible states. If there aren't enough fungible states to satisfy both requests,  one of the requesters receives an `InsufficientBalanceException`.
+spend the same fungible states. If there aren't enough fungible states to satisfy both requests,  one of the requester's receives an `InsufficientBalanceException`.
 
 {{< note >}}
 
-The Cash Contract schema table generates automatically upon node startup. Coin selection uses
+The Cash Contract schema table is generated automatically upon node startup. Coin selection uses
 this table to ensure correct locking and selection of states to satisfy minimum requested spending amounts.
 
 {{< /note >}}
