@@ -1,7 +1,7 @@
 ---
 title: "Platform Support"
 date: 2023-08-17
-version: 'Corda 5.1'
+version: 'Corda 5.0'
 menu:
   corda51:
     parent: corda51-release-notes
@@ -47,6 +47,7 @@ This section lists the supported versions of the following:
 ### Security Vault {{< enterprise-icon >}}
 
 {{< snippet "prereqs-vault.md" >}}
+
 
 ## End of Life Strategy
 Use the following table to track the end of life schedule for each version of Corda. Each version of Corda has R3 support available for a fixed period. 

@@ -11,12 +11,7 @@ section_menu: corda51
 ---
 # Creating CPIs
 
-To ensure a trusted and shared model of the business, Network Operators are responsible for creating {{< tooltip >}}CPIs{{< /tooltip >}}. This is usually performed as part of [onboarding the MGM]({{< relref "../creating/mgm/cpi.md">}}) or [onboarding members]({{< relref "../creating/members/cpi.md">}}) to the application network. However, it is also necessary to create a new CPI in the following circumstances:
-
-* A CorDapp Developer [creates a new CPB]({{< relref "../../developing-applications/upgrading/_index.md">}}) for a new version of a Corda-deployed {{< tooltip >}}CorDapp{{< /tooltip >}}.
-* A Cluster Administrator [upgrades the Corda platform version]({{< relref "../../deploying-operating/deployment/upgrading/_index.md" >}}).
-
-In these cases, you must create a new CPI, incrementing the `--cpi-version`:
+To ensure a trusted and shared model of the business, Network Operators are responsible for creating {{< tooltip >}}CPIs{{< /tooltip >}}. This is usually performed as part of [onboarding the MGM]({{< relref "../creating/mgm/cpi.md">}}) or [onboarding members]({{< relref "../creating/members/cpi.md">}}) to the application network. However, if a CorDapp Developer [creates a new CPB]({{< relref "../../developing-applications/upgrading/_index.md">}}) for a new version of a Corda-deployed {{< tooltip >}}CorDapp{{< /tooltip >}}, you must create a new CPI, incrementing the `--cpi-version`:
 
 {{< tabs name="build-cpi">}}
 {{% tab name="Bash" %}}
@@ -33,7 +28,7 @@ In these cases, you must create a new CPI, incrementing the `--cpi-version`:
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
-```shell
+```shell 
 corda-cli.cmd package create-cpi `
 --cpb <CPB_FILE> `
 --group-policy <GROUP_POLICY_FILE_> `
@@ -47,4 +42,4 @@ corda-cli.cmd package create-cpi `
 {{% /tab %}}
 {{< /tabs >}}
 
-Once created, the Cluster Administrator can [apply the new version of the CPI]({{< relref "../../deploying-operating/vnodes/upgrade-cpi.md">}}).
+Once created, the Cluster Administrator can [upload the new version of the CPI]({{< relref "../../deploying-operating/vnodes/upgrade-cpi.md">}}).

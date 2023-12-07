@@ -9,6 +9,7 @@ menu:
     parent: corda51-develop
     weight: 9000
 section_menu: corda51
+
 ---
 
 # Creating a New Version of a CorDapp
@@ -30,7 +31,7 @@ The scope of this topic does not include migrating application data persisted by
 
 The following users are involved in upgrading a Corda-deployed CorDapp:
 
-1. **CorDapp Developer**: makes the required changes to the code and creates a new {{< tooltip >}}CPK{{< /tooltip >}}, ensuring that the CPK is [identifiable across versions](#identifying-cordapps-across-versions). The CorDapp Developer [builds a CPB]({{< relref "../../developing-applications/packaging/cpb.md" >}}) from the CPK files to enable the Network Operator to create a CPI.
+1. **CorDapp Developer**: makes the required changes to the code and creates a new {{< tooltip >}}CPK{{< /tooltip >}}, ensuring that the CPK is [identifiable across versions](#identifying-cordapps-across-versions).
 2. **Network Operator**: [creates the new CPI]({{< relref "../../application-networks/cpi/_index.md" >}}), incrementing the `--cpi-version`.
 3. **Cluster Administrator**: [uploads the new CPI]({{< relref "../../deploying-operating/vnodes/upgrade-cpi.md" >}}) to the virtual nodes.
 
