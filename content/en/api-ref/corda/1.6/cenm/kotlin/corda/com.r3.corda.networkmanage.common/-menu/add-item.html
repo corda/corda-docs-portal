@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Menu.addItem - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common</a>&nbsp;/&nbsp;<a href="index.html">Menu</a>&nbsp;/&nbsp;<a href="./add-item.html">addItem</a><br/>
+<br/>
+<h1>addItem</h1>
+<a name="com.r3.corda.networkmanage.common.Menu$addItem(kotlin.String, kotlin.String, kotlin.Function0((kotlin.Unit)), kotlin.Boolean)"></a>
+<code><span class="keyword">fun </span><span class="identifier">addItem</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.Menu$addItem(kotlin.String, kotlin.String, kotlin.Function0((kotlin.Unit)), kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.Menu$addItem(kotlin.String, kotlin.String, kotlin.Function0((kotlin.Unit)), kotlin.Boolean)/label">label</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.Menu$addItem(kotlin.String, kotlin.String, kotlin.Function0((kotlin.Unit)), kotlin.Boolean)/action">action</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.Menu$addItem(kotlin.String, kotlin.String, kotlin.Function0((kotlin.Unit)), kotlin.Boolean)/isTerminating">isTerminating</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="index.html"><span class="identifier">Menu</span></a></code>
+<p>Adds a menu item to the list of the menu items. The order in which the items are added matters.
+If the exit option is set (@see <a href="set-exit-option.html">setExitOption</a> then it will be displayed always as the last element in the menu.</p>
+<h3>Parameters</h3>
+<p><a name="key"></a>
+<code>key</code> - itemization label. E.g. If you pass "1", it will be displayed as <a href="#">1</a>.</p>
+<p><a name="label"></a>
+<code>label</code> - menu item label</p>
+<p><a name="action"></a>
+<code>action</code> - lambda that is executed when user selects this option.</p>
+<p><a name="isTerminating"></a>
+<code>isTerminating</code> - flag that specifies whether the completion of the action should exit this menu.</p>
+</BODY>
+</HTML>

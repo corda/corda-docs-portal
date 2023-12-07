@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>com.r3.corda.networkmanage.common.cryptoservice - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">com.r3.corda.networkmanage.common.cryptoservice</a><br/>
+<br/>
+<h2>Package com.r3.corda.networkmanage.common.cryptoservice</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-crypto-service/index.html">CryptoService</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">CryptoService</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.r3.corda.networkmanage.common.cryptoservice.authentication/-authentication-credentials.html"><span class="identifier">AuthenticationCredentials</span></a><span class="symbol">, </span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-key-config/index.html"><span class="identifier">KeyConfig</span></a><span class="symbol">&gt;</span></code>
+<p>Crypto service that encompasses certain cryptographic operations such as signing of data.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-crypto-service-exception/index.html">CryptoServiceException</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">CryptoServiceException</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-crypto-service-factory/index.html">CryptoServiceFactory</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">CryptoServiceFactory</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-crypto-service-factory-impl/index.html">CryptoServiceFactoryImpl</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CryptoServiceFactoryImpl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-crypto-service-factory/index.html"><span class="identifier">CryptoServiceFactory</span></a></code>
+<p>Class responsible for creating the implementation specific Crypto Service object that can be used to interact
+with the HSM/underlying provider. Note that most of the HSM specific java libraries are proprietary and hence cannot
+be bundled with our release. Instead, these Jars are provided by the user and hot-loaded at runtime. See static make
+method.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-crypto-service-spec/index.html">CryptoServiceSpec</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">CryptoServiceSpec</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.r3.corda.networkmanage.common.cryptoservice.authentication/-authentication-credentials.html"><span class="identifier">AuthenticationCredentials</span></a><span class="symbol">, </span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-key-config/index.html"><span class="identifier">KeyConfig</span></a><span class="symbol">&gt;</span></code>
+<p>This is a base class, containing the tests that consist the specification for <a href="-crypto-service/index.html">CryptoService</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-j-c-a-crypto-service/index.html">JCACryptoService</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">JCACryptoService</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.r3.corda.networkmanage.common.cryptoservice.authentication/-authentication-credentials.html"><span class="identifier">AuthenticationCredentials</span></a><span class="symbol">, </span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-key-config/index.html"><span class="identifier">KeyConfig</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-crypto-service/index.html"><span class="identifier">CryptoService</span></a><span class="symbol">&lt;</span><a href="-j-c-a-crypto-service/index.html#T"><span class="identifier">T</span></a><span class="symbol">,</span>&nbsp;<a href="-j-c-a-crypto-service/index.html#U"><span class="identifier">U</span></a><span class="symbol">&gt;</span></code>
+<p>This is the base class that facilitates easy integration of further HSM vendors that provide a JCA provider.
+For every vendor we want to support there has to be a new CryptoService that implements <a href="-crypto-service/index.html">CryptoService</a>
+and optionally inherits from this class if it makes sense. Not all vendors fully implement the JCA API and
+some of the methods of this class will have to be overridden with vendor-specific implementations.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

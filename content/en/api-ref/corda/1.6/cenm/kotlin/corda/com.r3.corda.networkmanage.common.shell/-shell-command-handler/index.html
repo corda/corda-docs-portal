@@ -1,0 +1,78 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ShellCommandHandler - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.shell</a>&nbsp;/&nbsp;<a href="./index.html">ShellCommandHandler</a><br/>
+<br/>
+<h1>ShellCommandHandler</h1>
+<code><span class="keyword">class </span><span class="identifier">ShellCommandHandler</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-shell-commands/index.html"><span class="identifier">ShellCommands</span></a></code>
+<p>This class allows for interacting with an interactive shell by invoking external methods, as well as retrieving user
+input.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">ShellCommandHandler</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.shell.ShellCommandHandler$<init>(com.r3.corda.networkmanage.common.Renderer)/renderer">renderer</span><span class="symbol">:</span>&nbsp;<a href="../../com.r3.corda.networkmanage.common/-renderer/index.html"><span class="identifier">Renderer</span></a><span class="symbol">)</span></code>
+<p>This class allows for interacting with an interactive shell by invoking external methods, as well as retrieving user
+input.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="renderer.html">renderer</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">renderer</span><span class="symbol">: </span><a href="../../com.r3.corda.networkmanage.common/-renderer/index.html"><span class="identifier">Renderer</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="get-boolean-input.html">getBooleanInput</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getBooleanInput</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.shell.ShellCommandHandler$getBooleanInput(kotlin.String)/promptString">promptString</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span></code>
+<p>Prompts the user for boolean input (Y/N), returning the appropriate boolean value or null if user cancelled.
+<a href="#">renderer</a> is the class responsible for rendering the user options on the screen and reading user input.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-string-input.html">getStringInput</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getStringInput</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.shell.ShellCommandHandler$getStringInput(kotlin.String, kotlin.collections.Set((kotlin.String)))/promptString">promptString</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.shell.ShellCommandHandler$getStringInput(kotlin.String, kotlin.collections.Set((kotlin.String)))/possibleValues">possibleValues</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code>
+<p>Prompts the user for input, printing the <a href="../-shell-commands/get-string-input.html#com.r3.corda.networkmanage.common.shell.ShellCommands$getStringInput(kotlin.String, kotlin.collections.Set((kotlin.String)))/promptString">promptString</a>. Validates the input is not null or blank, re-requesting
+input if invalid. Also validates that input is one of the given <a href="../-shell-commands/get-string-input.html#com.r3.corda.networkmanage.common.shell.ShellCommands$getStringInput(kotlin.String, kotlin.collections.Set((kotlin.String)))/possibleValues">possibleValues</a> (if not null).
+<a href="#">renderer</a> is the class responsible for rendering the user options on the screen and reading user input.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="show-menu.html">showMenu</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">showMenu</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.shell.ShellCommandHandler$showMenu(com.r3.corda.networkmanage.common.shell.MenuOptions)/menuOptions">menuOptions</span><span class="symbol">:</span>&nbsp;<a href="../-menu-options/index.html"><span class="identifier">MenuOptions</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Parses all labels and the associated methods to be called to construct a menu which will be displayed via the
+renderer.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
