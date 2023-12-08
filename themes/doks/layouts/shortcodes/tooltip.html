@@ -43,17 +43,33 @@
 
 </style>
 
-{{ $searchtermlower := lower .Inner }}
+{{ $searchterm := .Inner }}
+{{ $searchtermlower := lower $searchterm }}
 {{ $searchtermkebab := replace $searchtermlower " " "-" }}
-{{ $termlink := printf "%s" $searchtermkebab  | printf "%s%s" "en/platform/corda/5.0/reference/glossary.html#" | printf "%s%s" .Site.BaseURL | safeURL }}
-<a class="term" href ='{{ $termlink }}' >&nbsp{{ .Inner }}
 
-{{ $glossarylist := getJSON "content/en/platform/corda/5.0/glossaryitems.json" }}
+{{- /* If no version set for file, point to glossary of latest C5 version. For example, "about the docs" and tools */}}    
+{{ $versionfolder := "corda/5.1" }}
+{{ $version := string (.Page.Params.version) }}
+{{ with $version }}
+    {{ if ne $version "tools" }}
+        {{ $versionfolder = replace (lower ($version)) " " "/" }}
+    {{ end }}
+{{ end }}
+
+{{ $file := printf "%s" "/glossaryitems.json" | printf "%s%s" $versionfolder | printf "%s%s" "content/en/platform/" }}
+
+{{ $termlink := printf "%s" "/reference/glossary.html#"  | printf "%s%s" $versionfolder | printf "%s%s" "en/platform/" | printf "%s%s" .Site.BaseURL | safeURL }}
+
+{{ $glossarylist := getJSON $file }}
 {{ range $term, $value := $glossarylist }}
     {{ $term := lower $term }}
     {{ if eq $term $searchtermlower }} 
+        {{ $termlink := printf "%s" $searchtermkebab | printf "%s%s" $termlink }}
+        <a class="term" href ='{{ $termlink }}' >&nbsp{{ $searchterm }}
         <span class="definition" >{{ $value.definition }}</span>
     {{ else if eq $term (strings.TrimSuffix "s" $searchtermlower) }}
+        {{ $termlink := printf "%s" (strings.TrimSuffix "s" $searchtermkebab) | printf "%s%s" $termlink | printf "%s" }}
+        <a class="term" href ='{{ $termlink }}' >&nbsp{{ $searchterm }}
         <span class="definition">{{ $value.definition }}</span>
     {{ end }}
 {{ end }}

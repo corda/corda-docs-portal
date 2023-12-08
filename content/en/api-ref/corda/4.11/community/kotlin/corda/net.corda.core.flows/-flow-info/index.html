@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowInfo - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="./index.html">FlowInfo</a><br/>
+<br/>
+<h1>FlowInfo</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">FlowInfo</span></code>
+<p>Version and name of the CorDapp hosting the other side of the flow.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Version and name of the CorDapp hosting the other side of the flow.</p>
+<code><span class="identifier">FlowInfo</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowInfo$<init>(kotlin.Int, kotlin.String)/flowVersion">flowVersion</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowInfo$<init>(kotlin.Int, kotlin.String)/appName">appName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="app-name.html">appName</a></h4>
+</td>
+<td>
+<p>Name of the CorDapp jar hosting the flow, without the .jar extension. It will include a unique identifier
+to deduplicate it from other releases of the same CorDapp, typically a version string. See the
+<a href="https://docs.corda.net/cordapp-build-systems.html#cordapp-jar-format">CorDapp JAR format</a> for more details.</p>
+<code><span class="keyword">val </span><span class="identifier">appName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="flow-version.html">flowVersion</a></h4>
+</td>
+<td>
+<p>The integer flow version the other side is using.</p>
+<code><span class="keyword">val </span><span class="identifier">flowVersion</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>PrivacySalt - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="./index.html">PrivacySalt</a><br/>
+<br/>
+<h1>PrivacySalt</h1>
+<code><span class="keyword">class </span><span class="identifier">PrivacySalt</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a></code>
+<p>A privacy salt is required to compute nonces per transaction component in order to ensure that an adversary cannot
+use brute force techniques and reveal the content of a Merkle-leaf hashed value.
+Because this salt serves the role of the seed to compute nonces, its size and entropy should be equal to the
+underlying hash function used for Merkle tree generation, currently <a href="../../net.corda.core.crypto/-secure-hash/-s-h-a256/index.html">SecureHash.SHA256</a>, which has an output of 32 bytes.
+There are two constructors, one that generates a new 32-bytes random salt, and another that takes a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> input.
+The latter is required in cases where the salt value needs to be pre-generated (agreed between transacting parties),
+but it is highlighted that one should always ensure it has sufficient entropy.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Constructs a salt with a randomly-generated saltLength byte value.</p>
+<code><span class="identifier">PrivacySalt</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.PrivacySalt$<init>(kotlin.Int)/saltLength">saltLength</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span></code>
+<p>Constructs a salt with a randomly-generated 32 byte value.</p>
+<code><span class="identifier">PrivacySalt</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>A privacy salt is required to compute nonces per transaction component in order to ensure that an adversary cannot
+use brute force techniques and reveal the content of a Merkle-leaf hashed value.
+Because this salt serves the role of the seed to compute nonces, its size and entropy should be equal to the
+underlying hash function used for Merkle tree generation, currently <a href="../../net.corda.core.crypto/-secure-hash/-s-h-a256/index.html">SecureHash.SHA256</a>, which has an output of 32 bytes.
+There are two constructors, one that generates a new 32-bytes random salt, and another that takes a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> input.
+The latter is required in cases where the salt value needs to be pre-generated (agreed between transacting parties),
+but it is highlighted that one should always ensure it has sufficient entropy.</p>
+<code><span class="identifier">PrivacySalt</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.PrivacySalt$<init>(kotlin.ByteArray)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="create-for.html">createFor</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createFor</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.PrivacySalt.Companion$createFor(kotlin.String)/algorithm">algorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">PrivacySalt</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.crypto/is-zero.html">isZero</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">.</span><span class="identifier">isZero</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.serialization/deserialize.html">deserialize</a></h4>
+</td>
+<td>
+<p>Convenience extension method for deserializing a ByteSequence, utilising the defaults.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="../../net.corda.core.utilities/-byte-sequence/index.html"><span class="identifier">ByteSequence</span></a><span class="symbol">.</span><span class="identifier">deserialize</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.serialization$deserialize(net.corda.core.utilities.ByteSequence, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/serializationFactory">serializationFactory</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.serialization/-serialization-factory/index.html"><span class="identifier">SerializationFactory</span></a>&nbsp;<span class="symbol">=</span>&nbsp;SerializationFactory.defaultFactory<span class="symbol">, </span><span class="identifier" id="net.corda.core.serialization$deserialize(net.corda.core.utilities.ByteSequence, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.serialization/-serialization-context/index.html"><span class="identifier">SerializationContext</span></a>&nbsp;<span class="symbol">=</span>&nbsp;serializationFactory.defaultContext<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.serialization/deserialize-with-compatible-context.html">deserializeWithCompatibleContext</a></h4>
+</td>
+<td>
+<p>Additionally returns <a href="../../net.corda.core.serialization/-serialization-context/index.html">SerializationContext</a> which was used for encoding.
+It might be helpful to know <a href="../../net.corda.core.serialization/-serialization-context/index.html">SerializationContext</a> to use the same encoding in the reply.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="../../net.corda.core.utilities/-byte-sequence/index.html"><span class="identifier">ByteSequence</span></a><span class="symbol">.</span><span class="identifier">deserializeWithCompatibleContext</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.serialization$deserializeWithCompatibleContext(net.corda.core.utilities.ByteSequence, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/serializationFactory">serializationFactory</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.serialization/-serialization-factory/index.html"><span class="identifier">SerializationFactory</span></a>&nbsp;<span class="symbol">=</span>&nbsp;SerializationFactory.defaultFactory<span class="symbol">, </span><span class="identifier" id="net.corda.core.serialization$deserializeWithCompatibleContext(net.corda.core.utilities.ByteSequence, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.serialization/-serialization-context/index.html"><span class="identifier">SerializationContext</span></a>&nbsp;<span class="symbol">=</span>&nbsp;serializationFactory.defaultContext<span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.serialization/-object-with-compatible-context/index.html"><span class="identifier">ObjectWithCompatibleContext</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.crypto/hash-as.html">hashAs</a></h4>
+</td>
+<td>
+<p>Compute the <a href="../../net.corda.core.crypto/hash-as.html#net.corda.core.crypto$hashAs(net.corda.core.utilities.OpaqueBytes, kotlin.String)/algorithm">algorithm</a> hash for the contents of the <a href="../../net.corda.core.utilities/-opaque-bytes/index.html">OpaqueBytes</a>.</p>
+<code><span class="keyword">fun </span><a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">.</span><span class="identifier">hashAs</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto$hashAs(net.corda.core.utilities.OpaqueBytes, kotlin.String)/algorithm">algorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.crypto/sha256.html">sha256</a></h4>
+</td>
+<td>
+<p>Compute the SHA-256 hash for the contents of the <a href="../../net.corda.core.utilities/-opaque-bytes/index.html">OpaqueBytes</a>.</p>
+<code><span class="keyword">fun </span><a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">.</span><span class="identifier">sha256</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SHA256</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

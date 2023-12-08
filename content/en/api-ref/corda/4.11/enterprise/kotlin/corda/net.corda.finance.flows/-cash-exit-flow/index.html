@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CashExitFlow - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.finance.flows</a>&nbsp;/&nbsp;<a href="./index.html">CashExitFlow</a><br/>
+<br/>
+<h1>CashExitFlow</h1>
+<code><span class="identifier">@InitiatingFlow</span> <span class="identifier">@StartableByRPC</span> <span class="keyword">class </span><span class="identifier">CashExitFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-abstract-cash-flow/index.html"><span class="identifier">AbstractCashFlow</span></a><span class="symbol">&lt;</span><span class="identifier">Result</span><span class="symbol">&gt;</span></code>
+<p>Initiates a flow that produces an cash exit transaction.</p>
+<h3>Parameters</h3>
+<p><a name="amount"></a>
+<code>amount</code> - the amount of a currency to remove from the ledger.</p>
+<p><a name="issuerRef"></a>
+<code>issuerRef</code> - the reference on the issued currency. Added to the node's legal identity to determine the
+issuer.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-exit-request/index.html">ExitRequest</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">ExitRequest</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">AbstractRequest</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">CashExitFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.CashExitFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.utilities.OpaqueBytes)/amount">amount</span><span class="symbol">:</span>&nbsp;<span class="identifier">Amount</span><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashExitFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.utilities.OpaqueBytes)/issuerRef">issuerRef</span><span class="symbol">:</span>&nbsp;<span class="identifier">OpaqueBytes</span><span class="symbol">)</span></code><br/>
+<code><span class="identifier">CashExitFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.CashExitFlow$<init>(net.corda.finance.flows.CashExitFlow.ExitRequest)/request">request</span><span class="symbol">:</span>&nbsp;<span class="identifier">ExitRequest</span><span class="symbol">)</span></code>
+<p>Initiates a flow that produces an cash exit transaction.</p>
+<code><span class="identifier">CashExitFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.CashExitFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.utilities.OpaqueBytes, net.corda.core.utilities.ProgressTracker)/amount">amount</span><span class="symbol">:</span>&nbsp;<span class="identifier">Amount</span><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashExitFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.utilities.OpaqueBytes, net.corda.core.utilities.ProgressTracker)/issuerRef">issuerRef</span><span class="symbol">:</span>&nbsp;<span class="identifier">OpaqueBytes</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashExitFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.utilities.OpaqueBytes, net.corda.core.utilities.ProgressTracker)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<span class="identifier">ProgressTracker</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="call.html">call</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">call</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Result</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="tracker.html">tracker</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">tracker</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ProgressTracker</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

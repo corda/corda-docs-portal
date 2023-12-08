@@ -57,7 +57,6 @@ Finally, some concepts that expand on other areas:
 * [Nodes]({{< relref "../../community/key-concepts-node.md" >}}) - each node contains an instance of Corda, one or more CorDapps, and so on.
 * [Transaction tear-offs]({{< relref "../../community/key-concepts-tearoffs.md" >}}) - transactions can be signed by parties who have access to only a limited view of the transaction parts.
 * [Trade-offs]({{< relref "../../community/key-concepts-tradeoffs.md" >}}) that have been made in designing Corda and CorDapps.
-* [Deterministic JVM]({{< relref "../../community/key-concepts-djvm.md" >}}) - information about the importance and details of the deterministic JVM.
 
 ## Corda white papers
 

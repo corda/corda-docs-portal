@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NonCashingContentSignerBuilder - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">com.r3.corda.networkmanage.common.cryptoservice.securosys</a>&nbsp;/&nbsp;<a href="./index.html">NonCashingContentSignerBuilder</a><br/>
+<br/>
+<h1>NonCashingContentSignerBuilder</h1>
+<code><span class="keyword">object </span><span class="identifier">NonCashingContentSignerBuilder</span></code>
+<p>A copy of object <a href="#">net.corda.nodeapi.internal.crypto.ContentSignerBuilder</a> from Corda node-api.
+This class do not reuses signatures which are intentionally cashed by <a href="#">net.corda.core.crypto.internal.Instances.getSignatureInstance</a>,
+instead calling <a href="http://docs.oracle.com/javase/8/docs/api/java/security/Signature.html#getInstance(java.lang.String)">java.security.Signature.getInstance</a> which recreate the returned object.
+For Securosys HSM with partitions, any crypto primitives (such as a Signature object) needs to be recreated
+after changing the configuration (these are bound to the TCP transport associated with the current configuration).</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="build.html">build</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">build</span><span class="symbol">(</span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.securosys.NonCashingContentSignerBuilder$build(, java.security.PrivateKey, java.security.Provider, java.security.SecureRandom)/signatureScheme">signatureScheme</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.securosys.NonCashingContentSignerBuilder$build(, java.security.PrivateKey, java.security.Provider, java.security.SecureRandom)/privateKey">privateKey</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.securosys.NonCashingContentSignerBuilder$build(, java.security.PrivateKey, java.security.Provider, java.security.SecureRandom)/provider">provider</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/security/Provider.html"><span class="identifier">Provider</span></a><span class="symbol">, </span><span class="identifier" id="com.r3.corda.networkmanage.common.cryptoservice.securosys.NonCashingContentSignerBuilder$build(, java.security.PrivateKey, java.security.Provider, java.security.SecureRandom)/random">random</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/security/SecureRandom.html"><span class="identifier">SecureRandom</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -173,7 +173,7 @@ You can then execute the `create` script to create the topics.
 
 ## Database
 
-By default, a Corda installation automatically creates and populates the database schema it requires. 
+By default, a Corda installation automatically creates and populates the database schema it requires.
 
 {{< note >}}
 If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database, as described in this section.
@@ -188,13 +188,13 @@ bootstrap:
 ```
 
 Create and populate the database schema, as follows:
-1. [Create the Database Tables](#create-the-database-tables)
-2. [Populate the RBAC Database Connection Configuration](#populate-the-rbac-database-connection-configuration)
-3. [Populate the Crypto Database Connection Configuration](#populate-the-crypto-database-connection-configuration)
-4. [Populate the Virtual Nodes Database Connection Configuration](#populate-the-virtual-nodes-database-connection-configuration)
-5. [Populate the REST Admin User](#populate-the-rest-admin-user)
-6. [Create the RBAC and Crypto Users](#create-the-rbac-and-crypto-users)
-7. [Populate the Crypto Configuration](#populate-the-crypto-configuration)
+1. [Create the database tables](#create-the-database-tables).
+2. [Populate the RBAC database connection configuration](#populate-the-rbac-database-connection-configuration).
+3. [Populate the crypto database connection configuration](#populate-the-crypto-database-connection-configuration).
+4. [Populate the virtual nodes database connection configuration](#populate-the-virtual-nodes-database-connection-configuration).
+5. [Populate the REST admin user](#populate-the-rest-admin-user).
+6. [Create the RBAC and crypto users](#create-the-rbac-and-crypto-users).
+7. [Populate the crypto configuration](#populate-the-crypto-configuration).
 
 {{< note >}}
 * If you are applying SQL to a schema using the `psql` command, you can specify which schema to apply it to using the `--dbname` parameter: `--dbname "dbname=cordacluster options=--search_path=<SCHEMA-NAME>"`.
@@ -229,7 +229,7 @@ Depending on your installation, follow the steps in one of the following section
 * [RBAC Database Connection Configuration for Corda](#rbac-database-connection-configuration-for-corda)
 * [RBAC Database Connection Configuration for Corda Enterprise with HashiCorp Vault](#rbac-database-connection-configuration-for-corda-enterprise-with-hashicorp-vault) {{< enterprise-icon >}}
 
-#### RBAC Database Connection Configuration for Corda 
+#### RBAC Database Connection Configuration for Corda
 
 1. Execute the following Corda CLI command to generate DDL for populating the {{< tooltip >}}RBAC{{< /tooltip >}} database connection configuration:
 
@@ -271,7 +271,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% /tab %}}
    {{< /tabs >}}
 
-2. Review the DDL files generated and then execute against the database, ensuring to apply them to the `CONFIG` schema.
+2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
 #### RBAC Database Connection Configuration for Corda Enterprise with HashiCorp Vault {{< enterprise-icon >}}
 
@@ -315,7 +315,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% /tab %}}
    {{< /tabs >}}
 
-2. Review the DDL files generated and then execute against the database, ensuring to apply them to the `CONFIG` schema.
+2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
 ### Populate the Crypto Database Connection Configuration
 
@@ -366,7 +366,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% /tab %}}
    {{< /tabs >}}
 
-2. Review the DDL files generated and then execute against the database, ensuring to apply them to the `CONFIG` schema.
+2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
 #### Crypto Database Connection Configuration for Corda Enterprise with HashiCorp Vault {{< enterprise-icon >}}
 
@@ -410,7 +410,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% /tab %}}
    {{< /tabs >}}
 
-2. Review the DDL files generated and then execute against the database, ensuring to apply them to the `CONFIG` schema.
+2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
 ### Populate the Virtual Nodes Database Connection Configuration
 
@@ -427,7 +427,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
-     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \ 
+     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \
      --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \
      --is-admin
    ```
@@ -435,8 +435,8 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> `
-     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> ` 
-     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db ` 
+     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> `
+     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db `
      --is-admin
    ```
    {{% /tab %}}
@@ -446,7 +446,7 @@ Depending on your installation, follow the steps in one of the following section
    There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
    {{< /note >}}
 
-2. Review the DDL files generated and then execute against the database, ensuring to apply them to the `CONFIG` schema.
+2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
 #### Virtual Nodes Database Connection Configuration for Corda Enterprise with HashiCorp Vault {{< enterprise-icon >}}
 
@@ -456,7 +456,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> \
-     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \ 
+     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \
      --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key vnodes -l /tmp/db \
      --is-admin
    ```
@@ -464,7 +464,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> `
-     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> ` 
+     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> `
      --jdbc-pool-max-size <POOL-SIZE> -t VAULT --vault-path <path-to-corda-created-secrets> --key vnodes -l /tmp/db `
      --is-admin
    ```
@@ -473,6 +473,7 @@ Depending on your installation, follow the steps in one of the following section
 
    {{< note >}}
    There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
+
    {{< /note >}}
 
    For example:
@@ -480,7 +481,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> \
-     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://prereqs-postgres:5432/cordacluster' \ 
+     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://prereqs-postgres:5432/cordacluster' \
      --jdbc-pool-max-size  5 -t VAULT --vault-path dbsecrets --key vnodes -l /tmp/db \
      --is-admin
    ```
@@ -488,14 +489,14 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> `
-     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://prereqs-postgres:5432/cordacluster ` 
+     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://prereqs-postgres:5432/cordacluster `
      --jdbc-pool-max-size  5 -t VAULT --vault-path dbsecrets --key vnodes -l /tmp/db `
      --is-admin
    ```
    {{% /tab %}}
    {{< /tabs >}}
 
-2. Review the DDL files generated and then execute against the database, ensuring to apply them to the `CONFIG` schema.
+2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `CONFIG` schema.
 
 ### Populate the REST Admin User
 
@@ -514,7 +515,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% /tab %}}
    {{< /tabs >}}
 
-2. Review the DDL files generated and then execute against the database, ensuring to apply them to the `RBAC` schema.
+2. Review the DDL files generated and then execute against the database, ensuring that you apply them to the `RBAC` schema.
 
 ### Grant Access to the Cluster Database
 
@@ -564,7 +565,7 @@ Depending on your installation, follow the steps in one of the following section
 
    The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
 
-2. Review the DDL files generated and then execute against the database, ensuring to apply to the `CONFIG` schema.
+2. Review the DDL files generated and then execute against the database, ensuring that you apply to the `CONFIG` schema.
 
 #### Initial Crypto Configuration for Corda Enterprise with HashiCorp Vault {{< enterprise-icon >}}
 
@@ -583,9 +584,9 @@ Depending on your installation, follow the steps in one of the following section
    {{< /tab >}}
    {{< /tabs >}}
 
-    `salt` and `passphrase` are the names of Vault keys and should be entered as shown, they are not to be substituted for any actual salt or passphrase.
+   `salt` and `passphrase` are the names of Vault keys and should be entered as shown: they are not to be substituted for any actual salt or passphrase.
 
-2. Review the DDL files generated and then execute against the database, ensuring to apply to the `CONFIG` schema.
+2. Review the DDL files generated and then execute against the database, ensuring that you apply to the `CONFIG` schema.
 
 ## RBAC Roles
 
