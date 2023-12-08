@@ -31,7 +31,7 @@ To view the list of existing {{< tooltipdc >}}redemption{{< /tooltipdc >}} reque
    * **Issuer Status:** APPROVED or PENDING, depending on if the issuer has approved the redemption request or not.
    * **Custodian Status:** APPROVED or PENDING, depending on if the custodian has approved the redemption request or not.
    * **Token name:** The name of the token definition; normally the full name of the currency; for example, UAE Dirham.
-   * **Token symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, *AED*.
+   * **Token symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, *AED*. Only alphanumerical characters can be used, and letters will be automatically capitalised.
    * **Amount:** The number of tokens to be redeemed.
    * **Requester:** The participant making the redemption request.
    * **Last updated:** The date and time at which the request was last updated.
