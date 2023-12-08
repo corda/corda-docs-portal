@@ -37,7 +37,7 @@ To approve or reject a transfer:
    
    * **Status:** The status of the request.
    * **Token name:** The name of the token definition; normally the full name of the currency; for example, UAE Dirham.
-   * **Token symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, *AED*.
+   * **Token symbol:** A symbol for the token definition; normally the [three-letter ISO-4217 code](https://en.wikipedia.org/wiki/ISO_4217) for the currency; for example, *AED*. Only alphanumerical characters can be used, and letters will be automatically capitalised.
    * **Amount:** The number of tokens requested.
    * **Approver:** The participant that either (1) has to approve the receipt of tokens (if the other party made a push request) or (2) has to approve the sending of tokens (if the other party made a pull request).
    * **Requester:** The participant that created the transfer request.
