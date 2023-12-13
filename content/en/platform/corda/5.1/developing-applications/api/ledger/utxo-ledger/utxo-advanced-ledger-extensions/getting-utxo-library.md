@@ -1,5 +1,5 @@
 ---
-date: '2023-08-10'
+date: '2023-07-04'
 title: "Getting the UTXO Library"
 project: corda
 version: 'Corda 5.1'
