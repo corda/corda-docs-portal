@@ -10,6 +10,7 @@ menu:
 section_menu: corda5
 ---
 # Deploying
+
 This page describes how to deploy Corda 5. All the necessary [prerequisites]({{< relref "../prerequisites.md" >}}) must have been satisfied before Corda is deployed.
 In particular, PostgreSQL and {{< tooltip >}}Kafka{{< /tooltip >}} must be running. The mechanism to achieve that is up to you. For example, you can:
 
@@ -27,59 +28,14 @@ This section contains the following:
 
 The Corda container images must be in a registry that is accessible from the Kubernetes cluster in which Corda will run.
 By default, the Corda images are made available via Docker Hub.
-If your Kubernetes cluster can not pull images from Docker Hub, or if you are deploying Corda Enterprise, the following sections describe how to push the images from the provided `tar` file into a container registry that is accessible from the cluster:
 
-* [Container Images for Corda]({{< relref "#container-images-for-corda" >}})
-* [Container Images for Corda Enterprise]({{< relref "#container-images-for-corda-enterprise" >}})
+{{< enterprise-icon noMargin="true" >}} If you are deploying Corda Enterprise, you can push the images from the provided `tar` file into a container registry that is accessible from the cluster:
 
-### Container Images for Corda
+1. Download `corda-ent-worker-images-5.0.1.tar` from the [R3 Customer Hub](https://r3.force.com/).
 
-To push the Corda images:
-
-1. Download `corda-os-worker-images-{{<version-num>}}.0.tar` from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
-
-2. Inflate and load the `corda-os-worker-images-{{<version-num>}}.0.tar` file into the local Docker engine with the following command:
+2. Inflate and load the `corda-ent-worker-images-5.0.1.tar` file into the local Docker engine with the following command:
    ```shell
-   docker load -i corda-os-worker-images-{{<version-num>}}.0.tar
-   ```
-
-3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target container registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
-   ```shell
-   #!/bin/bash
-   if [ -z "$1" ]; then
-    echo "Specify target registry"
-    exit 1
-   fi
-
-   declare -a images=(
-    "corda-os-rest-worker" "corda-os-flow-worker"
-    "corda-os-member-worker" "corda-os-p2p-gateway-worker"
-    "corda-os-p2p-link-manager-worker" "corda-os-db-worker"
-    "corda-os-crypto-worker" "corda-os-plugins" )
-   tag={{<version-num>}}.0.0
-   target_registry=$1
-
-   for image in "${images[@]}"; do
-    source=corda/$image:$tag
-    target=$target_registry/$image:$tag
-    echo "Publishing image $source to $target"
-    docker tag $source $target
-    docker push $target
-   done
-
-   docker tag postgres:14.4 $target_registry/postgres:14.4
-   docker push $target_registry/postgres:14.4
-   ```
-
-### Container Images for Corda Enterprise {{< enterprise-icon >}}
-
-To push the Corda Enterprise images:
-
-1. Download `corda-ent-worker-images-{{<version-num>}}.0.tar` from the [R3 Customer Hub](https://r3.force.com/).
-
-2. Inflate and load the `corda-ent-worker-images-{{<version-num>}}.0.tar` file into the local Docker engine with the following command:
-   ```shell
-   docker load -i corda-ent-worker-images-{{<version-num>}}.0.tar
+   docker load -i corda-ent-worker-images-5.0.1.tar
    ```
 
 3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target container registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
@@ -95,7 +51,7 @@ To push the Corda Enterprise images:
     "corda-ent-member-worker" "corda-ent-p2p-gateway-worker"
     "corda-ent-p2p-link-manager-worker" "corda-ent-db-worker"
     "corda-ent-crypto-worker" "corda-ent-plugins" )
-   tag={{<version-num>}}.0.0
+   tag=5.0.1.0
    target_registry=$1
 
    for image in "${images[@]}"; do
@@ -122,14 +78,12 @@ The following sections describe how to download the Corda {{< tooltip >}}Helm{{<
 If you have access to Docker Hub, you can download the Corda Helm chart using the following command:
 
 ```shell
-helm fetch oci://registry-1.docker.io/corda/corda --version {{<version-num>}}.0
+helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.1.0
 ```
-
-If you do not have access to Docker Hub, you can download the `corda-{{<version-num>}}.0.tgz` file from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
 
 ### Corda Enterprise Helm chart {{< enterprise-icon >}}
 
-You can download the `corda-enterprise-{{<version-num>}}.0.tgz` file from the the [R3 Customer Hub](https://r3.force.com/).
+You can download the `corda-enterprise-5.0.1.0.tgz` file from the the [R3 Customer Hub](https://r3.force.com/).
 
 ## Configure the Deployment
 
@@ -499,6 +453,7 @@ Bootstrap secrets are cleaned up automatically post-install with the exception o
 {{< /note >}}
 
 #### Kafka
+
 The Kafka bootstrapping creates the topics required by Corda.
 If `kafka.topicPrefix` has been specified, the process uses this as a prefix for all of the topic names.
 The bootstrap configuration enables the default number of topic partitions to be overridden.
@@ -528,7 +483,7 @@ bootstrap:
 ```
 
 {{< note >}}
-If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database. For more information, see the [Database]({{< relref "./manual-bootstrapping.md#database" >}}) section in the *Manual Bootstrapping* section.
+If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database. For more information, see the [Database]({{< relref "./manual-bootstrapping.md#database" >}}) section in the _Manual Bootstrapping_ section.
 {{< /note >}}
 
 By default, the database bootstrapping uses the psql CLI from the Docker image `postgres:14.4` on Docker Hub.
