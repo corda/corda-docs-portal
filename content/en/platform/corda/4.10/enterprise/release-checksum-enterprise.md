@@ -48,21 +48,31 @@ The release packs and checksum files for Corda Enterprise 4.10.2 can be download
 
 The following release packs are available, along with their respective checksum files:
 
-* devtest-4.10.2.tar.gz
+* devtest-4.10.2.tar.gz 
+
+  Checksum file: *release-pack-devtest-4.10.2.md*
 
   Required for building, developing and testing CorDapps.
 
 * runtime-4.10.2.tar.gz
 
+  Checksum file: *release-pack-runtime-4.10.2.md*
+
   Required to run Corda.
 
 The following release packs are provided as optionals for external tools, SDKs, and CorDapps:
 
-* optional-sdk-4.10.2.tar.gz
+* optional-sdk-4.10.2.tar.gz 
+
+  Checksum file: *release-pack-optional-sdk-4.10.2.md*
 
 * optional-gateway-plugins-4.10.2.tar.gz
 
+  Checksum file: *release-pack-optional-gateway-plugins-4.10.2.md* 
+
 * optional-tools-4.10.2.tar.gz
+
+  Checksum file: *release-pack-optional-tools-4.10.2.md*
 
 ## Checksums of Corda Enterprise Edition 4.10.1 release files
 
