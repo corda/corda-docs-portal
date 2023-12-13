@@ -1,7 +1,7 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-4-11:
+  corda-enterprise-4-12:
     parent: bank-in-a-box-user-interface-4-11
     identifier: bank-in-a-box-customer-ui-4-11
 tags:
@@ -9,7 +9,7 @@ tags:
 - UI
 title: Customer and guest UI
 weight: 320
-section_menu: corda-enterprise-4-11
+section_menu: corda-enterprise-4-12
 ---
 
 # Customer and guest user interface

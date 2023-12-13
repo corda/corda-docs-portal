@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    parent: corda-enterprise-4-11-corda-nodes-deploying
+  corda-enterprise-4-12:
+    parent: corda-enterprise-4-12-corda-nodes-deploying
 tags:
 - starting
 - components
@@ -66,12 +66,12 @@ $ export CONFIG_OBFUSCATION_SEED=my-seed; export CONFIG_OBFUSCATION_PASSPHRASE=m
 {{< note >}}
 If a node is registered but not started and the [Network Map Service]({{< relref "../../../../1.5/cenm/network-map.md#network-map-service" >}})goes down before the first start of the node, the node will fail to restart.
 
-                                                  
-                                                                                                              
 
-                                                                       
 
-                                                                                                                                                                     
+
+
+
+
 {{< /note >}}
 
 {{< note >}}

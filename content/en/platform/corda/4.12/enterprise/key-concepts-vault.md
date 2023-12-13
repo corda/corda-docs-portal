@@ -5,8 +5,8 @@ aliases:
 - /key-concepts-vault.html
 date: '2023-02-01'
 menu:
-  corda-enterprise-4-11:
-    identifier: corda-enterprise-4-11-key-concepts-vault
+  corda-enterprise-4-12:
+    identifier: corda-enterprise-4-12-key-concepts-vault
     parent: corda-enterprise-key-concepts-4-11
     weight: 1090
 tags:

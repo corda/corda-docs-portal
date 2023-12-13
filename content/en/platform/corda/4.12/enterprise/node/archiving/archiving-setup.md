@@ -1,10 +1,10 @@
 ---
 date: '2020-12-10T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    identifier: corda-enterprise-4-11-corda-nodes-archive-service
+  corda-enterprise-4-12:
+    identifier: corda-enterprise-4-12-corda-nodes-archive-service
     name: "Archive Service"
-    parent: corda-enterprise-4-11-corda-nodes
+    parent: corda-enterprise-4-12-corda-nodes
 tags:
 - archive
 - backup schema

@@ -5,8 +5,8 @@ aliases:
 - /key-concepts-oracles.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    identifier: corda-enterprise-4-11-key-concepts-oracles
+  corda-enterprise-4-12:
+    identifier: corda-enterprise-4-12-key-concepts-oracles
     parent: corda-enterprise-key-concepts-4-11
     weight: 1110
 tags:

@@ -5,8 +5,8 @@ aliases:
 - /key-concepts-node.html
 date: '2023-01-30'
 menu:
-  corda-enterprise-4-11:
-    identifier: corda-enterprise-4-11-key-concepts-node
+  corda-enterprise-4-12:
+    identifier: corda-enterprise-4-12-key-concepts-node
     parent: corda-enterprise-key-concepts-4-11
     weight: 1120
 tags:

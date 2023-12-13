@@ -1,7 +1,7 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
+  corda-enterprise-4-12:
     identifier: apps-4-11
     name: "Featured apps"
 title: Featured apps
@@ -16,6 +16,6 @@ Within the documentation, you will find set-up guides, tips, and operational ins
 
 Explore:
 
-* [Corda Payments]({{< relref "./payments/payments-index.md" >}}) - A technical preview of Corda's payments feature. 
+* [Corda Payments]({{< relref "./payments/payments-index.md" >}}) - A technical preview of Corda's payments feature.
 * [Bank in a Box]({{< relref "./bankinabox/getting-started.md" >}}) - A complete retail banking concept that can be hosted on a Corda network.
 * [State reissuance]({{< relref "./reissuance/state-reissuance.md" >}}) - A mechanism for breaking transaction backchains by reissuing a state with a guaranteed state replacement.

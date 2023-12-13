@@ -1,10 +1,10 @@
 ---
 date: '2021-07-07T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    identifier: corda-enterprise-4-11-financial-model
+  corda-enterprise-4-12:
+    identifier: corda-enterprise-4-12-financial-model
     name: "Financial model"
-    parent: corda-enterprise-4-11-component-library-index
+    parent: corda-enterprise-4-12-component-library-index
 tags:
 - financial
 - model
