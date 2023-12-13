@@ -29,7 +29,7 @@ This section contains the following:
 The Corda container images must be in a registry that is accessible from the Kubernetes cluster in which Corda will run.
 By default, the Corda images are made available via Docker Hub.
 
-{{< enterprise-icon noMargin="true" >}} If you are deploying Corda Enterprise, you can push the images from the provided `tar` file into a container registry that is accessible from the cluster:
+{{< enterprise-icon noMargin="true" >}} If you are deploying Corda Enterprise, you can push the images from the provided `.tar` file into a container registry that is accessible from the cluster:
 
 1. Download `corda-ent-worker-images-5.0.1.tar` from the [R3 Customer Hub](https://r3.force.com/).
 
