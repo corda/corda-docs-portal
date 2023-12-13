@@ -1,5 +1,5 @@
 ---
-date: '2023-10-20'
+date: '2022-09-21'
 version: 'Corda 5.1'
 title: "serialization"
 menu:

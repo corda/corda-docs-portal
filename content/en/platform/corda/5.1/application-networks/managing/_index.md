@@ -1,5 +1,5 @@
 ---
-date: '2023-08-10'
+date: '2023-04-07'
 title: "Managing Members"
 version: 'Corda 5.1'
 menu:

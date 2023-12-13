@@ -1,5 +1,5 @@
 ---
-date: '2023-11-23'
+date: '2023-06-20'
 version: 'Corda 5.1'
 title: "Vault-Named Queries"
 menu:

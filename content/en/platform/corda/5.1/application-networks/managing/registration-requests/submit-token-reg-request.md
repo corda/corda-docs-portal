@@ -1,5 +1,5 @@
 ---
-date: '2023-08-10'
+date: '2023-04-07'
 version: 'Corda 5.1'
 title: "Submitting a Token in a Registration Request"
 menu:
