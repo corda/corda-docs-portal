@@ -4,12 +4,12 @@ description: "Documentation for the 4.11 Enterprise Edition release of Corda"
 menu:
   versions:
     weight: -800
-  corda-enterprise-4-12:
-    identifier: about-corda-landing-4-12-enterprise
+  corda-enterprise-4-11:
+    identifier: about-corda-landing-4-11-enterprise
     weight: -30
     name: Corda Enterprise 4.11
 project: corda
-section_menu: corda-enterprise-4-12
+section_menu: corda-enterprise-4-11
 title: Corda Enterprise 4.11
 version: 'Enterprise 4.11'
 ---

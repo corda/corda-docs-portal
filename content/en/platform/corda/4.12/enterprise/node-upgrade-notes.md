@@ -1,9 +1,9 @@
 ---
 date: '2021-08-02'
 menu:
-  corda-enterprise-4-12:
-    identifier: "corda-enterprise-4-12-node-upgrade"
-    parent: corda-enterprise-4-12-upgrading-menu
+  corda-enterprise-4-11:
+    identifier: "corda-enterprise-4-11-node-upgrade"
+    parent: corda-enterprise-4-11-upgrading-menu
 tags:
 - upgrading
 - node

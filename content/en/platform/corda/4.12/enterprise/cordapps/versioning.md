@@ -1,8 +1,8 @@
 ---
 date: '2020-08-10'
 menu:
-  corda-enterprise-4-12:
-    parent: corda-enterprise-4-12-cordapps-versioning
+  corda-enterprise-4-11:
+    parent: corda-enterprise-4-11-cordapps-versioning
 tags:
 - versioning
 title: Versioning

@@ -1,8 +1,8 @@
 ---
 date: '2021-07-12'
 menu:
-  corda-enterprise-4-12:
-    parent: corda-enterprise-4-12-node-serialization
+  corda-enterprise-4-11:
+    parent: corda-enterprise-4-11-node-serialization
 tags:
 - wire
 - format
@@ -26,7 +26,7 @@ then skip it. This is deliberate, to enable other message formats in the future.
 
 The first version byte is set to 1 by default. This indicates the major version of the format. Any other version byte indicates a serialization format that isn't backwards compatible, and you should abort.
 The second byte is the minor version. Your code will tolerate this incrementing if it is robust
-to unknown data (for example, new schema elements).
+to unknown data (for example, new schema elements). 
 The third byte is an encoding byte. This indicates that new features, such as
 compression, are active. You should abort if this isn’t zero.
 

@@ -5,11 +5,11 @@ aliases:
 - /tutorials-index.html
 date: '2023-01-25'
 menu:
-  corda-community-4-12:
+  corda-community-4-11:
     name: Tutorials
     weight: 50
-    identifier: tutorials-corda-4-12-community
-    parent: get-started-landing-4-12-community
+    identifier: tutorials-corda-4-11-community
+    parent: get-started-landing-4-11-community
 tags:
 - tutorials
 title: Tutorials

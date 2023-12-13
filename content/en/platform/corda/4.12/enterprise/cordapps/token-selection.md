@@ -1,8 +1,8 @@
 ---
 date: '2020-05-10T12:00:00Z'
 menu:
-  corda-enterprise-4-12:
-    parent: corda-enterprise-4-12-token-sdk
+  corda-enterprise-4-11:
+    parent: corda-enterprise-4-11-token-sdk
 weight: 100
 tags:
 - Tokens SDK

@@ -1,10 +1,10 @@
 ---
 date: '2020-05-10T12:00:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-token-sdk
+  corda-community-4-11:
+    identifier: corda-community-4-11-token-sdk
     name: "Tokens SDK"
-    parent: corda-community-4-12-development
+    parent: corda-community-4-11-development
 tags:
 - tokens sdk
 - fungible

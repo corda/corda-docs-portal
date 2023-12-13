@@ -5,9 +5,9 @@ aliases:
 - /versioning.html
 date: '2022-11-23T16:36:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-versioning
-    parent: corda-community-4-12-versioning-and-upgrades
+  corda-community-4-11:
+    identifier: corda-community-4-11-versioning
+    parent: corda-community-4-11-versioning-and-upgrades
     weight: 1020
 tags:
 - versioning
@@ -71,7 +71,7 @@ can be disabled.
 | Corda release  | Platform version |
 | :------------- | :------------- |
 | 4.11 | 13 |
-| 4.10 | 12 |
+| 4.10 | 12 | 
 | 4.9 | 11 |
 | 4.8 | 10 |
 | 4.7 | 9 |

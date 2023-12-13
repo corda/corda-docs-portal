@@ -1,8 +1,8 @@
 ---
 date: '2023-01-11'
 menu:
-  corda-enterprise-4-12:
-    parent: corda-enterprise-4-12-corda-nodes
+  corda-enterprise-4-11:
+    parent: corda-enterprise-4-11-corda-nodes
 tags:
 - docker
 - image

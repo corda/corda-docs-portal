@@ -5,9 +5,9 @@ aliases:
 - /key-concepts-vault.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-key-concepts-vault
-    parent: corda-community-4-12-key-concepts
+  corda-community-4-11:
+    identifier: corda-community-4-11-key-concepts-vault
+    parent: corda-community-4-11-key-concepts
     weight: 1090
 tags:
 - concepts
@@ -23,7 +23,7 @@ A Corda vault is a database containing all data from the ledger relevant to a no
 
 ### Spent and unspent states
 
-**Unspent** or unconsumed states represent:
+**Unspent** or unconsumed states represent:  
     * Fungible states available for spending.
     * States available to transfer to another party.
     * Linear states available for evolution. For example, in response to a lifecycle event on a deal.

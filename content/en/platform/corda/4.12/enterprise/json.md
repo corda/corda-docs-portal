@@ -1,8 +1,8 @@
 ---
 date: '2021-07-07T12:00:00Z'
 menu:
-  corda-enterprise-4-12:
-    parent: corda-enterprise-4-12-node-serialization
+  corda-enterprise-4-11:
+    parent: corda-enterprise-4-11-node-serialization
 tags:
 - json
 title: JSON

@@ -5,9 +5,9 @@ aliases:
 - /cordapp-custom-serializers.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-cordapp-custom-serializers
-    parent: corda-community-4-12-serialization-index
+  corda-community-4-11:
+    identifier: corda-community-4-11-cordapp-custom-serializers
+    parent: corda-community-4-11-serialization-index
     weight: 1020
 tags:
 - cordapp

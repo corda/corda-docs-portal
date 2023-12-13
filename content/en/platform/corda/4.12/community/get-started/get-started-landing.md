@@ -3,8 +3,8 @@ title: Getting started
 date: '2023-01-27'
 
 menu:
-  corda-community-4-12:
-    identifier: get-started-landing-4-12-community
+  corda-community-4-11:
+    identifier: get-started-landing-4-11-community
     name: "Getting started"
 tags:
 - started
@@ -44,7 +44,7 @@ If you are upgrading from an open source version of Corda, follow the upgrade gu
 
 ## Next steps
 
-1. Familiarize yourself with the [Corda key concepts]({{< relref "../about-corda/corda-key-concepts.md" >}}).
+1. Familiarize yourself with the [Corda key concepts]({{< relref "../about-corda/corda-key-concepts.md" >}}). 
 2. Run a [sample CorDapp]({{< relref "../../community/tutorial-cordapp.md" >}}) to see Corda in action.
 4. [Build your own CorDapp]({{< relref "../../community/building-a-cordapp-index.md" >}}) from scratch.
 

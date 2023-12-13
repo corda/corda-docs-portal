@@ -5,9 +5,9 @@ aliases:
 - /upgrading-cordapps.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-upgrading-cordapps
-    parent: corda-community-4-12-versioning-and-upgrades
+  corda-community-4-11:
+    identifier: corda-community-4-11-upgrading-cordapps
+    parent: corda-community-4-11-versioning-and-upgrades
     weight: 1030
 tags:
 - upgrading
@@ -351,7 +351,7 @@ constraint of the states it’s allowed to replace.
 
 
 {{< warning >}}
-Corda 4 introduced the Signature Constraint (see [API: Contract Constraints]({{< relref "api-contract-constraints.md" >}})). States created or migrated to
+Corda 4 introduced the Signature Constraint (see [API: Contract Constraints]({{< relref "api-contract-constraints.md" >}})). States created or migrated to 
 the Signature Constraint can’t be explicitly upgraded using the Contract upgrade transaction. This feature might be added in a future version.
 Given the nature of the Signature constraint there should be little need to create a brand new contract to fix issues in the old contract.
 

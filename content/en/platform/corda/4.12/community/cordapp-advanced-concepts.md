@@ -5,9 +5,9 @@ aliases:
 - /cordapp-advanced-concepts.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-cordapp-advanced-concepts
-    parent: corda-community-4-12-development
+  corda-community-4-11:
+    identifier: corda-community-4-11-cordapp-advanced-concepts
+    parent: corda-community-4-11-development
     weight: 160
 tags:
 - cordapp

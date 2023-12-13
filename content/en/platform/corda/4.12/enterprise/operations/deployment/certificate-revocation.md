@@ -1,9 +1,9 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-4-12:
-    identifier: corda-enterprise-4-12-operations-guide-deployment-cenm-certificate-revocation
-    parent: corda-enterprise-4-12-operations-guide-deployment-cenm
+  corda-enterprise-4-11:
+    identifier: corda-enterprise-4-11-operations-guide-deployment-cenm-certificate-revocation
+    parent: corda-enterprise-4-11-operations-guide-deployment-cenm
     weight: 60
 tags:
 - certificate

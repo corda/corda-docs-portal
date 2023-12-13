@@ -5,9 +5,9 @@ aliases:
 - /blob-inspector.html
 date: '2021-07-15'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-blob-inspector
-    parent: corda-community-4-12-serialization-index
+  corda-community-4-11:
+    identifier: corda-community-4-11-blob-inspector
+    parent: corda-community-4-11-serialization-index
     weight: 1060
 tags:
 - blob

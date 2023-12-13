@@ -5,9 +5,9 @@ aliases:
 - /node-operations-upgrade-cordapps.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-node-operations-upgrade-cordapps
-    parent: corda-community-4-12-corda-nodes-index
+  corda-community-4-11:
+    identifier: corda-community-4-11-node-operations-upgrade-cordapps
+    parent: corda-community-4-11-corda-nodes-index
     weight: 1100
 tags:
 - node

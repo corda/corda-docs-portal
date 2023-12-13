@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-12:
-    parent: corda-enterprise-4-12-corda-nodes-deploying
+  corda-enterprise-4-11:
+    parent: corda-enterprise-4-11-corda-nodes-deploying
 tags:
 - running
 - node
@@ -209,7 +209,7 @@ To enable export of JMX metrics over HTTP via [Jolokia](https://jolokia.org/), r
 
 `java -Dcapsule.jvm.args="-javaagent:drivers/jolokia-jvm-1.3.7-agent.jar=port=7005" -jar corda.jar`
 
-This command will start the node with JMX metrics accessible via HTTP on port 7005.
+This command will start the node with JMX metrics accessible via HTTP on port 7005.  
 
 The status is published as: `net.corda.Node.Status`, and is available almost immediately at startup.
 

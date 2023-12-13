@@ -5,9 +5,9 @@ aliases:
 - /api-stability-guarantees.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-api-stability-guarantees
-    parent: corda-community-4-12-versioning-and-upgrades
+  corda-community-4-11:
+    identifier: corda-community-4-11-api-stability-guarantees
+    parent: corda-community-4-11-versioning-and-upgrades
     weight: 1010
 tags:
 - api
