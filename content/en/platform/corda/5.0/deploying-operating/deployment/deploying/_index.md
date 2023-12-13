@@ -78,7 +78,7 @@ The following sections describe how to download the Corda {{< tooltip >}}Helm{{<
 If you have access to Docker Hub, you can download the Corda Helm chart using the following command:
 
 ```shell
-helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.1.0
+helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.1
 ```
 
 ### Corda Enterprise Helm chart {{< enterprise-icon >}}
