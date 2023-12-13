@@ -4,7 +4,7 @@ date: '2021-07-02'
 menu:
   corda-community-4-11:
     identifier: community-platform-support-matrix
-    parent:about-corda-landing-4-11-community
+    parent: about-corda-landing-4-11-community
     weight: 450
 ---
 
