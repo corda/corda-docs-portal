@@ -1,9 +1,9 @@
 ---
 date: '2023-01-12'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-tutorial-integration-testing
-    parent: corda-community-4-11-supplementary-tutorials-index
+  corda-community-4-12:
+    identifier: corda-community-4-12-tutorial-integration-testing
+    parent: corda-community-4-12-supplementary-tutorials-index
     weight: 230
 tags:
 - tutorial

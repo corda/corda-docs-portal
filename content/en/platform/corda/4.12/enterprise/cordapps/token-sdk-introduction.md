@@ -1,10 +1,10 @@
 ---
 date: '2020-10-30T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    identifier: corda-enterprise-4-11-token-sdk
+  corda-enterprise-4-12:
+    identifier: corda-enterprise-4-12-token-sdk
     name: "Tokens SDK"
-    parent: corda-enterprise-4-11-cordapps
+    parent: corda-enterprise-4-12-cordapps
 tags:
 - tokens sdk
 - fungible
@@ -28,9 +28,9 @@ Use this guide to:
 
 3. Create flows that issue your token correctly onto the ledger, move it from party to party, and have it redeemed.
 
-### Changes in Tokens SDK 
+### Changes in Tokens SDK
 
-For information on the latest changes in Tokens SDK, see the [release notes]({{< relref "../../../../../tools/tokens-sdk/tokens-sdk-index.md" >}}). 
+For information on the latest changes in Tokens SDK, see the [release notes]({{< relref "../../../../../tools/tokens-sdk/tokens-sdk-index.md" >}}).
 
 ### Upgrading Tokens SDK
 

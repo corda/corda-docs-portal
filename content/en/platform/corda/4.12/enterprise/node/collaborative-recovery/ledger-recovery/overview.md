@@ -1,9 +1,9 @@
 ---
 date: '2023-11-08'
 menu:
-  corda-enterprise-4-11:
-    identifier: corda-enterprise-4-11-ledger-recovery
-    parent: corda-enterprise-4-11-corda-nodes-collaborative-recovery
+  corda-enterprise-4-12:
+    identifier: corda-enterprise-4-12-ledger-recovery
+    parent: corda-enterprise-4-12-corda-nodes-collaborative-recovery
 tags:
 - ledger recovery
 title: Ledger Recovery

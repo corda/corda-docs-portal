@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    parent: corda-enterprise-4-11-cordapps-flows
+  corda-enterprise-4-12:
+    parent: corda-enterprise-4-12-cordapps-flows
 tags:
 - flow
 - state
@@ -555,7 +555,7 @@ leak will come later.
 
 The Two Phase Finality protocol was introduced to improve resilience and recoverability.
 
-For information on the changes to `FinalityFlow` and `ReceiveFinalityFlow`, see [API Flows: Two Phase Finality]({{< relref "cordapps/api-flows.md#two-phase-finality" >}}). 
+For information on the changes to `FinalityFlow` and `ReceiveFinalityFlow`, see [API Flows: Two Phase Finality]({{< relref "cordapps/api-flows.md#two-phase-finality" >}}).
 
 See [FinalityFlow Recovery]({{< relref "finality-flow-recovery.md" >}}) for details on how to use recovery RPC operations and associated Node Shell commands to recover from failure scenarios.
 

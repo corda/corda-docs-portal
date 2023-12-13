@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    parent: corda-enterprise-4-11-cordapps
+  corda-enterprise-4-12:
+    parent: corda-enterprise-4-12-cordapps
 tags:
 - cordapp
 title: CorDapp Structure
@@ -23,7 +23,7 @@ In this document, you will find:
     A module is a software component or part of a program that contains one or more routines.
 *class*
     A class defines a set of properties and methods that are common to all objects of one type. Classes are written in a defined structure to create a Java or Kotlin object.
-*dependency*  
+*dependency*
     When one object uses another object's function.
 
 

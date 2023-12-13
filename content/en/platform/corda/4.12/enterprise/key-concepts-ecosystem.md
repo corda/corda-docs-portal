@@ -5,9 +5,9 @@ aliases:
 - /key-concepts-ecosystem.html
 date: '2023-01-30'
 menu:
-  corda-enterprise-4-11:
-    identifier: corda-enterprise-4-11-key-concepts-ecosystem
-    parent: corda-enterprise-key-concepts-4-11
+  corda-enterprise-4-12:
+    identifier: corda-enterprise-4-12-key-concepts-ecosystem
+    parent: corda-enterprise-key-concepts-4-12
     weight: 1010
 tags:
 - concepts

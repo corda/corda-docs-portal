@@ -1,9 +1,9 @@
 ---
 date: '2023-01-09'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-open-telemetry
-    parent: corda-community-4-11-corda-nodes-index
+  corda-community-4-12:
+    identifier: corda-community-4-12-open-telemetry
+    parent: corda-community-4-12-corda-nodes-index
     weight: 1250
 title: OpenTelemetry
 ---
@@ -24,7 +24,7 @@ The two types of telemetry are completely independent. You can have both, one, o
 
 ## Corda OpenTelemetry integration
 
-The Corda OpenTelemetry component links at compile time with the OpenTelemetry API. In order to produce spans, there is a runtime dependency on the OpenTelemetry SDK. 
+The Corda OpenTelemetry component links at compile time with the OpenTelemetry API. In order to produce spans, there is a runtime dependency on the OpenTelemetry SDK.
 
 There are two ways to make the OpenTelemetry SDK available to the Corda node:
 
@@ -60,11 +60,11 @@ If this setting is true and the OpenTelemetry SDK has been linked to Corda as de
 
 ## Client API
 
-OpenTelemetry span generation is also incorporated into the RPC client API. If you want your Corda client code to generate spans, you need to include the OpenTelemetry SDK as a dependency. The methods described above only apply to the Corda node. 
+OpenTelemetry span generation is also incorporated into the RPC client API. If you want your Corda client code to generate spans, you need to include the OpenTelemetry SDK as a dependency. The methods described above only apply to the Corda node.
 
 You can link to the OpenTelemetry SDK from a client project in two ways:
 
-* By compiling against the OpenTelemetry driver which includes the OpenTelemetry SDK. 
+* By compiling against the OpenTelemetry driver which includes the OpenTelemetry SDK.
 * By running the client with the OpenTelemetry Java agent attached.
 
 To use the OpenTelemetry driver, add the following dependency to the `build.gradle` file of the client:
@@ -74,7 +74,7 @@ dependencies {
 ...
 compile "net.corda:corda-opentelemetry-driver:$corda_release_version"
 }
-``` 
+```
 
 Alternatively, you can attach your client to the OpenTelemetry Java agent via the following command line:
 
@@ -87,17 +87,17 @@ The OpenTelemetry API may be used in your flows and in your client code to creat
 ```kotlin
 val openTelemetry: OpenTelemetry? = serviceHub.telemetryService.getTelemetryHandle(OpenTelemetry::class.java)
     }
-``` 
+```
 
 From the client API, where RPC is a CordaRPCConnection, you would use the following:
 
 ```kotlin
 val openTelemetry: OpenTelemetry? = rpc.getTelemetryHandle(OpenTelemetry::class.java)
     }
-``` 
+```
 Once you have the OpenTelemetry handle, you can call the OpenTelemetry API.
 
-### Baggage 
+### Baggage
 
 When creating your own spans, you can also create your own baggage. If you create your own baggage, it will also be sent to other nodes, and you can specify if you want this baggage to be copied to span tags. If you do, all of the spans involved in the transaction for that node will also get a copy of the baggage. This can be enabled with the following parameter:
 `telemetry.copyBaggageToTags = true`.
@@ -116,7 +116,7 @@ The current implementation of OpenTelemetry will send spans to the backend when 
 If a child span does not complete, parent spans also do not complete.
 {{< /note >}}
 
-As an alternative, the Corda OpenTelemetry component sends a start or end span to the backend when a flow or operation starts or stops, in addition to the normal spans sent for the operation. This is effectively a start flow span event and an end flow span event. With this view of the spans, it becomes easier to determine where the flow got stuck, as it will be the lowest child without an end span event. 
+As an alternative, the Corda OpenTelemetry component sends a start or end span to the backend when a flow or operation starts or stops, in addition to the normal spans sent for the operation. This is effectively a start flow span event and an end flow span event. With this view of the spans, it becomes easier to determine where the flow got stuck, as it will be the lowest child without an end span event.
 
 {{< note >}}
 These start and end span events are only generated for spans that Corda has generated. If you create a span in your own flow code, you will not see equivalent start and end span events for your flows, as Corda knows nothing of them.

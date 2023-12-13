@@ -5,9 +5,9 @@ aliases:
 - /key-concepts-node.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-key-concepts-node
-    parent: corda-community-4-11-key-concepts
+  corda-community-4-12:
+    identifier: corda-community-4-12-key-concepts-node
+    parent: corda-community-4-12-key-concepts
     weight: 1120
 tags:
 - concepts

@@ -5,9 +5,9 @@ aliases:
 - /corda-testnet-intro.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-corda-testnet-intro
-    parent: corda-community-4-11-corda-networks-index
+  corda-community-4-12:
+    identifier: corda-community-4-12-corda-testnet-intro
+    parent: corda-community-4-12-corda-networks-index
     weight: 1000
 tags:
 - corda

@@ -5,9 +5,9 @@ aliases:
 - /clientrpc.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-clientrpc
-    parent: corda-community-4-11-corda-nodes-index
+  corda-community-4-12:
+    identifier: corda-community-4-12-clientrpc
+    parent: corda-community-4-12-corda-nodes-index
     weight: 1120
 tags:
 - clientrpc
@@ -114,7 +114,7 @@ class ClientRpcExample {
 The returned [CordaRPCConnection](../../../../api-ref/corda/4.11/community/javadoc/net/corda/client/rpc/CordaRPCConnection.html) is somewhat expensive to create and consumes a small amount of server-side resources. When you’re done with it, call `close` on it. Alternatively, you would typically employ the `use` method on [CordaRPCClient](../../../../api-ref/corda/4.11/community/javadoc/net/corda/client/rpc/CordaRPCClient.html), which cleans up automatically after the passed in lambda finishes. Do not create a new proxy for every call you make: reuse an existing one.
 {{< /warning >}}
 
-For further information on using the RPC API, see [Working with the CordaRPCClient API]({{< relref "../enterprise/get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}). 
+For further information on using the RPC API, see [Working with the CordaRPCClient API]({{< relref "../enterprise/get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}).
 
 
 ### Defining RPC users and permissions

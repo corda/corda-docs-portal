@@ -1,8 +1,8 @@
 ---
 date: '2023-11-08'
 menu:
-  corda-enterprise-4-11:
-    parent: corda-enterprise-4-11-ledger-recovery
+  corda-enterprise-4-12:
+    parent: corda-enterprise-4-12-ledger-recovery
 tags:
 - archiving ledger recovery records
 title: Archiving

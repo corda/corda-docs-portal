@@ -4,12 +4,12 @@ description: "Documentation for the 4.11 Community Edition release of Corda"
 menu:
   versions:
     weight: -750
-  corda-community-4-11:
-    identifier: about-corda-landing-4-11-community
+  corda-community-4-12:
+    identifier: about-corda-landing-4-12-community
     weight: -5
     name: Corda Community 4.11
 project: corda
-section_menu: corda-community-4-11
+section_menu: corda-community-4-12
 title: Corda Community 4.11
 version: 'Community & Open Source 4.11'
 ---

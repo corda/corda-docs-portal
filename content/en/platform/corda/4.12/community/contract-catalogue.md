@@ -5,9 +5,9 @@ aliases:
 - /contract-catalogue.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-contract-catalogue
-    parent: corda-community-4-11-component-library-index
+  corda-community-4-12:
+    identifier: corda-community-4-12-contract-catalogue
+    parent: corda-community-4-12-component-library-index
     weight: 1010
 tags:
 - contract

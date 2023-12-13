@@ -2,9 +2,9 @@
 title: "Corda Community Edition Key Concepts"
 date: '2021-07-02'
 menu:
-  corda-community-4-11:
-    parent: about-corda-landing-4-11-community
-    identifier: corda-key-concepts-4-11-community
+  corda-community-4-12:
+    parent: about-corda-landing-4-12-community
+    identifier: corda-key-concepts-4-12-community
     weight: 100
     name: "Corda key concepts"
 tags:

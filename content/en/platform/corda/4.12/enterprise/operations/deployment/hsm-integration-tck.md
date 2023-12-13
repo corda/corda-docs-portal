@@ -1,9 +1,9 @@
 ---
 date: '2020-12-16T01:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    identifier: corda-enterprise-4-11-operations-guide-deployment-hsm-testing
-    parent: corda-enterprise-4-11-operations-guide-deployment-hsm
+  corda-enterprise-4-12:
+    identifier: corda-enterprise-4-12-operations-guide-deployment-hsm-testing
+    parent: corda-enterprise-4-12-operations-guide-deployment-hsm
     name: "Testing an HSM integration"
 tags:
 - operations

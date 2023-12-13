@@ -1,9 +1,9 @@
 ---
 date: '2020-04-22T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    parent: corda-enterprise-4-11-monitoring-logging
-    identifier: corda-enterprise-4-11-monitoring-audit-collector
+  corda-enterprise-4-12:
+    parent: corda-enterprise-4-12-monitoring-logging
+    identifier: corda-enterprise-4-12-monitoring-audit-collector
 tags:
 - rpc
 - audit

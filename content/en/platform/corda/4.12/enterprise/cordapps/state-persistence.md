@@ -1,10 +1,10 @@
 ---
 date: '2021-07-15'
 menu:
-  corda-enterprise-4-11:
-    identifier: corda-enterprise-4-11-cordapps-states-persistence
+  corda-enterprise-4-12:
+    identifier: corda-enterprise-4-12-cordapps-states-persistence
     name: "State persistence"
-    parent: corda-enterprise-4-11-cordapps-states
+    parent: corda-enterprise-4-12-cordapps-states
 tags:
 - state
 - persistence
@@ -236,10 +236,10 @@ Make sure table and column names are compatible with the naming convention used 
 
 ## Persisting Hierarchical Data
 
-You may want to persist hierarchical relationships within state data using multiple database tables. 
-To facilitate this, you must implement all queries making use of hierarchical relations as native SQL. 
+You may want to persist hierarchical relationships within state data using multiple database tables.
+To facilitate this, you must implement all queries making use of hierarchical relations as native SQL.
 
-Example schemas implementing hierarchical relationships have been implemented below. 
+Example schemas implementing hierarchical relationships have been implemented below.
 
 For one-to-one scenarios, use the following:
 
