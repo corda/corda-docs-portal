@@ -1,5 +1,5 @@
 ---
-date: '2022-08-17
+date: '2022-08-17'
 title: Corda 5.1
 project: corda
 version: 'Corda 5.1'
