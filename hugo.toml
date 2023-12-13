@@ -94,3 +94,6 @@ googleTagManagerID = "G-NCYRYSGJ7C"
     source = 'content/en'
     target = 'content/en'
     excludeFiles = ['interop-raw/**']
+
+[frontmatter]
+publishDate = [':git']
