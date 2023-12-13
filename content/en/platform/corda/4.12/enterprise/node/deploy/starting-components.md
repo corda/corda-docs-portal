@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    parent: corda-enterprise-4-11-corda-nodes-deploying
+  corda-enterprise-4-12:
+    parent: corda-enterprise-4-12-corda-nodes-deploying
 tags:
 - starting
 - components
@@ -28,7 +28,7 @@ The `corda-firewall.jar` is used by both Bridge and Float. The JAR file  assumes
 
 To start the Float run the following command from the Float VM:
 
-`/usr/bin/java -Xmx1024m -jar /opt/corda/corda-firewall-4.11.jar --config-file float.conf`
+`/usr/bin/java -Xmx1024m -jar /opt/corda/corda-firewall-4.12.jar --config-file float.conf`
 
 You should see the following output:
 
@@ -42,7 +42,7 @@ FloatSupervisorService: active = true
 
 To start the Node run the following command from the Node VM:
 
-`/usr/bin/java -Xmx2048m -jar /opt/corda/corda-4.11.jar --config-file node.conf`
+`/usr/bin/java -Xmx2048m -jar /opt/corda/corda-4.12.jar --config-file node.conf`
 
 {{< note >}}
 If your node configuration file is obfuscated and you want to de-obfuscate it when running the node, you need to pass the obfuscation seed and passphrase to the node in the node run command.
@@ -52,26 +52,26 @@ To do so using the [Configuration Obfuscator]({{< relref "../../tools-config-obf
 The following example shows how to pass a seed and a passphrase explicitly to a node component using the Configuration Obfuscator command-line tool:
 
 ```bash
-$ /usr/bin/java -Xmx2048m -jar /opt/corda/corda-4.11.jar --config-file node.conf --config-obfuscation-seed my-seed --config-obfuscation-passphrase my-passphrase
+$ /usr/bin/java -Xmx2048m -jar /opt/corda/corda-4.12.jar --config-file node.conf --config-obfuscation-seed my-seed --config-obfuscation-passphrase my-passphrase
 
 ```
 
 To pass the seed and passphrase to a node using environment variables, follow the example below:
 
 ```bash
-$ export CONFIG_OBFUSCATION_SEED=my-seed; export CONFIG_OBFUSCATION_PASSPHRASE=my-passphrase; /usr/bin/java -Xmx2048m -jar /opt/corda/corda-4.11.jar --config-file node.conf
+$ export CONFIG_OBFUSCATION_SEED=my-seed; export CONFIG_OBFUSCATION_PASSPHRASE=my-passphrase; /usr/bin/java -Xmx2048m -jar /opt/corda/corda-4.12.jar --config-file node.conf
 ```
 {{< /note >}}
 
 {{< note >}}
 If a node is registered but not started and the [Network Map Service]({{< relref "../../../../1.5/cenm/network-map.md#network-map-service" >}})goes down before the first start of the node, the node will fail to restart.
 
-                                                  
-                                                                                                              
 
-                                                                       
 
-                                                                                                                                                                     
+
+
+
+
 {{< /note >}}
 
 {{< note >}}
@@ -90,7 +90,7 @@ See [Pause and resume flows]({{< relref "../../flow-pause-and-resume.md#starting
 
 To start the Bridge run the following command from the Bridge VM:
 
-`/usr/bin/java -Xmx1024m -jar /opt/corda/corda-firewall-4.11.jar`
+`/usr/bin/java -Xmx1024m -jar /opt/corda/corda-firewall-4.12.jar`
 
 You should see the following output in the Bridge:
 

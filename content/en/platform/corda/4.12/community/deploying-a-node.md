@@ -5,9 +5,9 @@ aliases:
 - /deploying-a-node.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-deploying-a-node
-    parent: corda-community-4-11-corda-nodes-index
+  corda-community-4-12:
+    identifier: corda-community-4-12-deploying-a-node
+    parent: corda-community-4-12-corda-nodes-index
     weight: 1060
 tags:
 - deploying
@@ -82,13 +82,13 @@ our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` director
 7. Make the following changes to `/opt/corda/node.conf`:
 
    a. Change the `p2pAddress`, `rpcSettings.address`, and `rpcSettings.adminAddress` values to match your server’s hostname or external IP address. These are the addresses other nodes or RPC interfaces will use to communicate with your node.
-   
+
    b. Change the ports if necessary; for example, if you are running multiple nodes on one server (see below).
-   
+
    c. Enter an email address which will be used as an administrative contact during the registration process. This is only visible to the permissioning service.
-   
+
    d. Enter your node’s desired legal name; see [Node identity]({{< relref "node-naming.md#node-identity" >}}) for more details.
-   
+
    e. If required, add RPC users.
 
 {{< note >}}
@@ -133,7 +133,7 @@ directory:
 
 
     a. Make sure the service description is informative, particularly if you plan to run multiple nodes.
-    
+
     b. Change the username to the user account you want to use to run Corda. **We recommend that this user account is not root.**
 
 11. **SystemD**: Make sure the `corda.service` file is owned by root with the correct permissions:
@@ -213,13 +213,13 @@ We recommend running Corda as a Windows service. This provides service handling,
 7. Make the following changes to `C:\Corda\node.conf`:
 
    a. Change the `p2pAddress`, `rpcSettings.address` and `rpcSettings.adminAddress` values to match your server’s hostname or external IP address. These are the addresses other nodes or RPC interfaces will use to communicate with your node.
-   
+
    b. Change the ports if necessary; for example, if you are running multiple nodes on one server (see below).
-   
+
    c. Enter an email address which will be used as an administrative contact during the registration process. This is only visible to the permissioning service.
-   
+
    d. Enter your node’s desired legal name; see [Node identity]({{< relref "node-naming.md#node-identity" >}}) for more details.
-   
+
    e. If required, add RPC users.
 
 8. Copy the required Java keystores to the node; see [Network certificates]({{< relref "permissioning.md" >}}).
@@ -242,9 +242,9 @@ We recommend running Corda as a Windows service. This provides service handling,
 12. Edit the `nssm.bat` file:
 
     a. If you are installing multiple nodes, use a different service name (`cordanode1`), and modify *AppDirectory*, *AppStdout* and *AppStderr* for each node accordingly.
-    
+
     b. Set an informative description.
-    
+
 13. Provision the required certificates to your node. Contact the network permissioning service or see [Network certificates]({{< relref "permissioning.md" >}}).
 14. Run the batch file by clicking on it or from a command prompt.
 15. Run `services.msc` and verify that a service called `cordanode1` is present and running.

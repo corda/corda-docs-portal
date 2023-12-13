@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    parent: corda-enterprise-4-11-upgrading-menu
+  corda-enterprise-4-12:
+    parent: corda-enterprise-4-12-upgrading-menu
 tags:
 - node
 - operations
@@ -10,7 +10,7 @@ tags:
 - os
 - ent
 title: Upgrading a Corda OS node to Corda Enterprise
-aliases: /docs/4.11/enterprise/node/operating/node-operations-upgrading-os-to-ent.html
+aliases: /docs/4.12/enterprise/node/operating/node-operations-upgrading-os-to-ent.html
 weight: 40
 ---
 
@@ -93,7 +93,7 @@ Please contact R3 for further advice.
 
 ## Upgrade from an older Corda Community Edition release to Corda Enterprise
 
-CorDapps, contracts and states written for Corda 4.x are compatible with Corda Enterprise Edition 4.11, so upgrading
+CorDapps, contracts and states written for Corda 4.x are compatible with Corda Enterprise Edition 4.12, so upgrading
 existing Corda Community Edition nodes should be a simple case of updating the Corda JAR file.
 See [Upgrading a node]({{< relref "node-upgrade-notes.md" >}}) for general instructions on upgrading your node.
 For developer information on recompiling CorDapps against Corda Enterprise, See [Upgrading a CorDapp to a newer platform version]({{< relref "app-upgrade-notes.md" >}}).

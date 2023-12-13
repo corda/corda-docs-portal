@@ -1,9 +1,9 @@
 ---
 date: '2023-01-12'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-tutorial-observer-nodes
-    parent: corda-community-4-11-supplementary-tutorials-index
+  corda-community-4-12:
+    identifier: corda-community-4-12-tutorial-observer-nodes
+    parent: corda-community-4-12-supplementary-tutorials-index
     weight: 190
 tags:
 - tutorial

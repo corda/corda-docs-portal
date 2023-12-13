@@ -5,15 +5,15 @@ aliases:
 - /node-upgrade-notes.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-node-upgrade-notes
-    parent: corda-community-4-11-upgrading
+  corda-community-4-12:
+    identifier: corda-community-4-12-node-upgrade-notes
+    parent: corda-community-4-12-upgrading
     weight: 30
 tags:
 - node
 - upgrade
 - notes
-title: Upgrading your node to Corda Community Edition 4.11
+title: Upgrading your node to Corda Community Edition 4.12
 ---
 
 
@@ -69,7 +69,7 @@ Ensure your node is running Corda 4.0 or later.
 
 ## Step 5: Replace `corda.jar` with the new version
 
-Download the latest version of Corda from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-node/4.11/corda-node-4.11.jar).
+Download the latest version of Corda from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-node/4.12/corda-node-4.12.jar).
 Make sure it’s available on your path, and that you’ve read the [Release notes]({{< relref "release-notes.md" >}}), in particular to discover what version of Java this
 node requires.
 

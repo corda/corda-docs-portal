@@ -1,9 +1,9 @@
 ---
 date: '2023-09-25'
 menu:
-  corda-enterprise-4-11:
-    parent: corda-enterprise-4-11-corda-networks
-    identifier: corda-enterprise-4-11-corda-networks-parameters
+  corda-enterprise-4-12:
+    parent: corda-enterprise-4-12-corda-networks
+    identifier: corda-enterprise-4-12-corda-networks-parameters
 tags:
 - network
 - map
@@ -40,7 +40,7 @@ also distributes the node info files to the node directories.
 More parameters will be added in future releases to regulate things like allowed port numbers, whether or not IPv6
 connectivity is required for zone members, required cryptographic algorithms and roll-out schedules (e.g. for moving to post quantum cryptography), parameters related to SGX and so on.
 
-The list of available network parameters can be found in the topic [Available Network Parameters]({{< relref "available-network-parameters.md" >}}). 
+The list of available network parameters can be found in the topic [Available Network Parameters]({{< relref "available-network-parameters.md" >}}).
 
 ## Network parameters update process
 

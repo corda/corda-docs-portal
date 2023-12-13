@@ -5,9 +5,9 @@ aliases:
 - /loadtesting.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-loadtesting
-    parent: corda-community-4-11-operations
+  corda-community-4-12:
+    identifier: corda-community-4-12-loadtesting
+    parent: corda-community-4-12-operations
     weight: 380
 tags:
 - loadtesting
@@ -54,7 +54,7 @@ rpcUser = {username = corda, password = not_blockchain, permissions = ["ALL"]}
 
 ```
 
-[loadtest-reference.conf](https://github.com/corda/corda/blob/release/os/4.11/tools/loadtest/src/main/resources/loadtest-reference.conf)
+[loadtest-reference.conf](https://github.com/corda/corda/blob/release/os/4.12/tools/loadtest/src/main/resources/loadtest-reference.conf)
 
 
 ## Running the load tests

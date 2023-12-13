@@ -5,9 +5,9 @@ aliases:
 - /api-vault-query.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-api-vault-query
-    parent: corda-community-4-11-corda-api
+  corda-community-4-12:
+    identifier: corda-community-4-12-api-vault-query
+    parent: corda-community-4-12-corda-api
     weight: 310
 tags:
 - api
@@ -87,7 +87,7 @@ fun <T : ContractState> _trackBy(criteria: QueryCriteria,
 
 ```
 
-[VaultService.kt](https://github.com/corda/corda/blob/release/os/4.11/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt)
+[VaultService.kt](https://github.com/corda/corda/blob/release/os/4.12/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt)
 
 And via `CordaRPCOps` for use by RPC client applications:
 
@@ -100,7 +100,7 @@ fun <T : ContractState> vaultQueryBy(criteria: QueryCriteria,
 
 ```
 
-[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.11/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
+[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.12/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
 
 ```kotlin
 @RPCReturnsObservables
@@ -111,7 +111,7 @@ fun <T : ContractState> vaultTrackBy(criteria: QueryCriteria,
 
 ```
 
-[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.11/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
+[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.12/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
 
 Helper methods are also provided with default values for arguments:
 
@@ -126,7 +126,7 @@ fun <T : ContractState> vaultQueryByWithSorting(contractStateType: Class<out T>,
 
 ```
 
-[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.11/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
+[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.12/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
 
 ```kotlin
 fun <T : ContractState> vaultTrack(contractStateType: Class<out T>): DataFeed<Vault.Page<T>, Vault.Update<T>>
@@ -139,7 +139,7 @@ fun <T : ContractState> vaultTrackByWithSorting(contractStateType: Class<out T>,
 
 ```
 
-[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.11/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
+[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.12/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
 
 The API provides both static (snapshot) and dynamic (snapshot with streaming updates) methods for a defined set of
 filter criteria:

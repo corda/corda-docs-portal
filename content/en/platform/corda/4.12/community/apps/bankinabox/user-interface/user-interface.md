@@ -2,14 +2,14 @@
 title: "User interface (UI)"
 date: '2023-02-14'
 menu:
-  corda-community-4-11:
-    parent: bankinabox-4-11-community
-    identifier: bank-in-a-box-user-interface-4-11-community
+  corda-community-4-12:
+    parent: bankinabox-4-12-community
+    identifier: bank-in-a-box-user-interface-4-12-community
 tags:
 - Bank in a Box
 - UI
 weight: 300
-section_menu: corda-community-4-11
+section_menu: corda-community-4-12
 ---
 
 # User interfaces on Bank in a Box

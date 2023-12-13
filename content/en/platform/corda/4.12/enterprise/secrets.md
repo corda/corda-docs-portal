@@ -1,10 +1,10 @@
 ---
 date: '2020-09-29T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    identifier: corda-enterprise-4-11-corda-nodes-secrets
+  corda-enterprise-4-12:
+    identifier: corda-enterprise-4-12-corda-nodes-secrets
     name: "Corda Secrets"
-    parent: corda-enterprise-4-11-corda-nodes
+    parent: corda-enterprise-4-12-corda-nodes
 
 title: Corda secrets
 weight: 110
@@ -18,7 +18,7 @@ This page documents the secrets that are managed and required by a Corda install
 
 The relationships between the secrets and Corda components is shown in the following diagram.
 
-   {{< 
+   {{<
      figure
 	    src="secrets/secrets.png"
       width=100%

@@ -2,15 +2,15 @@
 title: "Back end guide"
 date: '2023-02-14'
 menu:
-  corda-enterprise-4-11:
-    parent: bankinabox-4-11
+  corda-enterprise-4-12:
+    parent: bankinabox-4-12
     name: "Back end guide"
-    identifier: bank-in-a-box-back-end-guide-4-11
+    identifier: bank-in-a-box-back-end-guide-4-12
 tags:
 - Bank in a Box
 - back end
 weight: 200
-section_menu: corda-enterprise-4-11
+section_menu: corda-enterprise-4-12
 ---
 
 # Back end guide
@@ -741,7 +741,7 @@ The business logic behind Bank in a Box payments is explained below, addressing:
 
 #### Deduplicating payment logs
 
-In Corda, notaries prevent the double spending of contract states but this naturally excludes off-ledger systems. Instead, Corda provides a [FlowExternalOperation]({{< relref "../../cordapps/api-flows.md" >}}) that is executed with a `deduplicationId`, allowing for custom handling of duplicate runs. Each recurring payment execution is logged and duplicate logs can be avoided by creating the payment log instance within a subclass of `FlowExternalOperation`. 
+In Corda, notaries prevent the double spending of contract states but this naturally excludes off-ledger systems. Instead, Corda provides a [FlowExternalOperation]({{< relref "../../cordapps/api-flows.md" >}}) that is executed with a `deduplicationId`, allowing for custom handling of duplicate runs. Each recurring payment execution is logged and duplicate logs can be avoided by creating the payment log instance within a subclass of `FlowExternalOperation`.
 
 The skeleton `CreateRecurringPaymentLogOperation` is as follows:
 

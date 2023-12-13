@@ -5,17 +5,17 @@ aliases:
 - /tutorials-index.html
 date: '2023-01-25'
 menu:
-  corda-community-4-11:
+  corda-community-4-12:
     name: Tutorials
     weight: 50
-    identifier: tutorials-corda-4-11-community
-    parent: get-started-landing-4-11-community
+    identifier: tutorials-corda-4-12-community
+    parent: get-started-landing-4-12-community
 tags:
 - tutorials
 title: Tutorials
 ---
 
-The Corda 4.11 tutorials show you how to build a basic CorDapp and add advanced features to fit your business needs.
+The Corda 4.12 tutorials show you how to build a basic CorDapp and add advanced features to fit your business needs.
 
 Follow the [Building your first CorDapp]({{< relref "build-basic-cordapp/basic-cordapp-intro.md" >}}) learning path to learn how to:
 

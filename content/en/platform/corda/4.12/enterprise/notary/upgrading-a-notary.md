@@ -1,9 +1,9 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    parent: corda-enterprise-4-11-notary-migration-overview
-    identifier: corda-enterprise-4-11-upgrade-notary-database
+  corda-enterprise-4-12:
+    parent: corda-enterprise-4-12-notary-migration-overview
+    identifier: corda-enterprise-4-12-upgrade-notary-database
 title: Importing Percona notary data to CockroachDB
 weight: 1
 ---

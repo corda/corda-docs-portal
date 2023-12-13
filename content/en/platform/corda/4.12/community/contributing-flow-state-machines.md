@@ -5,9 +5,9 @@ aliases:
 - /contributing-flow-state-machines.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-contributing-flow-state-machines
-    parent: corda-community-4-11-contributing-index
+  corda-community-4-12:
+    identifier: corda-community-4-12-contributing-flow-state-machines
+    parent: corda-community-4-12-contributing-index
     weight: 1090
 tags:
 - contributing

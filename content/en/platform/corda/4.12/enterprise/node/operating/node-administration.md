@@ -1,9 +1,9 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    identifier: corda-enterprise-4-11-corda-nodes-operating-administration
-    parent: corda-enterprise-4-11-corda-nodes-operating
+  corda-enterprise-4-12:
+    identifier: corda-enterprise-4-12-corda-nodes-operating-administration
+    parent: corda-enterprise-4-12-corda-nodes-operating
 tags:
 - node
 - administration
@@ -18,7 +18,7 @@ weight: 145
 ## Logging
 
 Corda's logging feature uses a [Log4j 2](https://logging.apache.org/log4j/2.x/) component and an [SLF4J ](https://www.slf4j.org/interface)
-interface as its abstraction layer. You can find the latest Corda logging configuration file on [GitHub](https://github.com/corda/corda/blob/release/os/4.11/config/dev/log4j2.xml).
+interface as its abstraction layer. You can find the latest Corda logging configuration file on [GitHub](https://github.com/corda/corda/blob/release/os/4.12/config/dev/log4j2.xml).
 
 * By default, node log files are stored to the `logs` subdirectory of the working directory and are rotated from time to time.
 * Passing the `--log-to-console` command line flag logs printing to the console.
@@ -443,7 +443,7 @@ The RPC call is also available as the `run nodeDiagnosticInfo` command executabl
 Here is a sample output displayed by the `run nodeDiagnosticInfo` command executed from the Corda shell:
 
 ```none
-version: "4.11"
+version: "4.12"
 revision: "fa98aa75ba9802e37779ff4f3c5bfed7f5df08db"
 platformVersion: 13
 vendor: "Corda Community Edition"

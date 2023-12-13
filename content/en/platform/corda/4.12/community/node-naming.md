@@ -5,9 +5,9 @@ aliases:
 - /node-naming.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-node-naming
-    parent: corda-community-4-11-corda-nodes-index
+  corda-community-4-12:
+    identifier: corda-community-4-12-node-naming
+    parent: corda-community-4-12-corda-nodes-index
     weight: 1020
 tags:
 - node
@@ -57,7 +57,7 @@ The name must also obey the following constraints:
 
 
 
-* The `country` attribute is a valid *ISO 3166-1<https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2>* two letter code in upper-case. See the list of [defined country codes](https://github.com/corda/corda/blob/release/os/4.11/tools/worldmap/src/main/resources/net/corda/worldmap/cities.txt).
+* The `country` attribute is a valid *ISO 3166-1<https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2>* two letter code in upper-case. See the list of [defined country codes](https://github.com/corda/corda/blob/release/os/4.12/tools/worldmap/src/main/resources/net/corda/worldmap/cities.txt).
 * The `organisation` field of the name obeys the following constraints:
 
     * Has at least two letters

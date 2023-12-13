@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    parent: corda-enterprise-4-11-cordapps-flows
+  corda-enterprise-4-12:
+    parent: corda-enterprise-4-12-cordapps-flows
 tags:
 - flow
 - state
@@ -105,7 +105,7 @@ movement of the asset.
 transaction in B’s local vault, and then sending it on to S who also checks it and commits the transaction to S’s
 local vault.
 
-You can find the implementation of this flow in the file [TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.11/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt).
+You can find the implementation of this flow in the file [TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.12/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt).
 
 Assuming no malicious termination, they both end the flow being in possession of a valid, signed transaction that
 represents an atomic asset swap.
@@ -555,7 +555,7 @@ leak will come later.
 
 The Two Phase Finality protocol was introduced to improve resilience and recoverability.
 
-For information on the changes to `FinalityFlow` and `ReceiveFinalityFlow`, see [API Flows: Two Phase Finality]({{< relref "cordapps/api-flows.md#two-phase-finality" >}}). 
+For information on the changes to `FinalityFlow` and `ReceiveFinalityFlow`, see [API Flows: Two Phase Finality]({{< relref "cordapps/api-flows.md#two-phase-finality" >}}).
 
 See [FinalityFlow Recovery]({{< relref "finality-flow-recovery.md" >}}) for details on how to use recovery RPC operations and associated Node Shell commands to recover from failure scenarios.
 

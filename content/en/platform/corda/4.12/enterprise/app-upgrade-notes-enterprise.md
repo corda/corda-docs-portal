@@ -1,27 +1,27 @@
 ---
 date: '2021-08-11'
 menu:
-  corda-enterprise-4-11:
-    identifier: "corda-enterprise-4-11-enterprise-cordapp-upgrade"
-    parent: corda-enterprise-4-11-upgrading-menu
+  corda-enterprise-4-12:
+    identifier: "corda-enterprise-4-12-enterprise-cordapp-upgrade"
+    parent: corda-enterprise-4-12-upgrading-menu
 tags:
 - app
 - upgrade
 - notes
 - enterprise
-title: Upgrading a CorDapp to Corda Enterprise Edition 4.11
+title: Upgrading a CorDapp to Corda Enterprise Edition 4.12
 weight: 20
 ---
 
-# Upgrading a CorDapp to Corda Enterprise Edition 4.11
+# Upgrading a CorDapp to Corda Enterprise Edition 4.12
 
 ## Upgrading from Corda Community Edition
 
-Before upgrading to Corda Enterprise Edition 4.11, upgrade your CorDapp to Corda Community Edition 4.11. See [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) for detailed instructions.
+Before upgrading to Corda Enterprise Edition 4.12, upgrade your CorDapp to Corda Community Edition 4.12. See [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) for detailed instructions.
 
 You don't need to re-compile your CorDapp to Corda Enterprise for it to run on Corda Enterprise. If you want your CorDapp to
 be compatible with nodes running open source, then compile it against Corda Community Edition (formerly Open Source) 4.x.
-However, if you want to leverage specific features of Corda Enterprise, such as third-party commercial database support, and don't envisage your CorDapp being run in an open source production environment, then follow the [re-compiling for Corda Enterprise Edition 4.11]({{< relref "#re-compiling-for-corda-enterprise-edition-411" >}}) guide.
+However, if you want to leverage specific features of Corda Enterprise, such as third-party commercial database support, and don't envisage your CorDapp being run in an open source production environment, then follow the [re-compiling for Corda Enterprise Edition 4.12]({{< relref "#re-compiling-for-corda-enterprise-edition-411" >}}) guide.
 
 {{< note >}}
 Corda Enterprise and Corda Community Edition public APIs are currently identical. However, this may change for future releases.
@@ -30,17 +30,17 @@ See [Corda and Corda Enterprise compatibility]({{< relref "version-compatibility
 {{< /note >}}
 
 
-### Re-compiling for Corda Enterprise Edition 4.11
+### Re-compiling for Corda Enterprise Edition 4.12
 
-To re-compile your CorDapp for Corda Enterprise Edition 4.11, you need to:
+To re-compile your CorDapp for Corda Enterprise Edition 4.12, you need to:
 
 1. Update your Gradle build file as follows.
 
     ```shell
     corda_release_distribution = 'com.r3.corda'
     corda_core_release_distribution = 'net.corda'
-    corda_release_version = '4.11'
-    corda_core_release_version = '4.11'
+    corda_release_version = '4.12'
+    corda_core_release_version = '4.12'
     corda_gradle_plugins_version = '5.0.12'
     kotlin_version = '1.2.71'
     quasar_version = '0.7.16_r3'
@@ -70,7 +70,7 @@ been removed.
         // Dependency on Corda Community Edition
         maven { url 'https://download.corda.net/maven/corda-releases' }
         maven { url 'https://download.corda.net/maven/corda-dependencies' }
-        
+
         // Corda dependencies for the patched Quasar version
         maven { url "https://download.corda.net/maven/corda-dependencies" } // access to the patched Quasar version
     }
@@ -102,7 +102,7 @@ been removed.
     ```
 
 {{< note >}}
-Corda Enterprise Edition 4.11 binaries are not publicly available. To make the dependencies available for development, either
+Corda Enterprise Edition 4.12 binaries are not publicly available. To make the dependencies available for development, either
 create a mirror repository and upload them there, or add them to your local Maven repository.
 
 You can request a copy of the Corda Enterprise Developer Pack (contains a Maven repository mirror
@@ -145,7 +145,7 @@ Therefore, you have to add the following variables to your build configuration:
 
 ```shell
 ext.corda_core_release_distribution = 'net.corda'
-ext.corda_core_release_version = '4.11'
+ext.corda_core_release_version = '4.12'
 ```
 
 Any dependency on `corda-core` (or `corda-serialization`) has to use these new variables to depend on the open source version of those
@@ -164,4 +164,4 @@ cordaCompile "$ext.corda_core_release_distribution:corda-core:$ext.corda_core_re
 
 ## Upgrading from Corda Enterprise 3.x
 
-You can only upgrade to Corda Enterprise Edition 4.11 from a previous 4.x version. To upgrade from 3.x, first upgrade to 4.x and then to 4.11. For example, 3.3 to 4.5, and then 4.5 to 4.11.
+You can only upgrade to Corda Enterprise Edition 4.12 from a previous 4.x version. To upgrade from 3.x, first upgrade to 4.x and then to 4.11. For example, 3.3 to 4.5, and then 4.5 to 4.11.

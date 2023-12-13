@@ -5,9 +5,9 @@ aliases:
 - /json.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-json
-    parent: corda-community-4-11-serialization-index
+  corda-community-4-12:
+    identifier: corda-community-4-12-json
+    parent: corda-community-4-12-serialization-index
     weight: 1050
 tags:
 - json
@@ -32,8 +32,8 @@ connection to the node (see [Interacting with a node]({{< relref "clientrpc.md" 
 The API is described in detail here:
 
 
-* [Kotlin API docs](../../../../api-ref/corda/4.11/community/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html)
-* [JavaDoc](../../../../api-ref/corda/4.11/community/javadoc/net/corda/client/jackson/package-summary.html)
+* [Kotlin API docs](../../../../api-ref/corda/4.12/community/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html)
+* [JavaDoc](../../../../api-ref/corda/4.12/community/javadoc/net/corda/client/jackson/package-summary.html)
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}

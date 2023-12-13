@@ -1,10 +1,10 @@
 ---
 date: '2021-07-07T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    identifier: corda-enterprise-4-11-financial-model
+  corda-enterprise-4-12:
+    identifier: corda-enterprise-4-12-financial-model
     name: "Financial model"
-    parent: corda-enterprise-4-11-component-library-index
+    parent: corda-enterprise-4-12-component-library-index
 tags:
 - financial
 - model
@@ -33,7 +33,7 @@ A type used to define the underlying financial product in a transaction.
 
 ## Amount
 
-The [Amount](../../../../../en/api-ref/corda/4.11/community/kotlin/corda/net.corda.core.contracts/-amount/index.html) class represents an amount of
+The [Amount](../../../../../en/api-ref/corda/4.12/community/kotlin/corda/net.corda.core.contracts/-amount/index.html) class represents an amount of
 a fungible asset. It is a generic class which wraps around the token. For example, the `Amount` could be:
 * The standard JDK type `Currency`.
 * An `Issued` instance.

@@ -5,9 +5,9 @@ aliases:
 - /api-transactions.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-api-transactions
-    parent: corda-community-4-11-corda-api
+  corda-community-4-12:
+    identifier: corda-community-4-12-api-transactions
+    parent: corda-community-4-12-corda-api
     weight: 300
 tags:
 - api
@@ -478,7 +478,7 @@ We can add components to the builder using the `TransactionBuilder.withItems` me
 
 
 
-[TransactionBuilder.kt](https://github.com/corda/corda/blob/release/os/4.11/core/src/main/kotlin/net/corda/core/transactions/TransactionBuilder.kt) | ![github](/images/svg/github.svg "github")
+[TransactionBuilder.kt](https://github.com/corda/corda/blob/release/os/4.12/core/src/main/kotlin/net/corda/core/transactions/TransactionBuilder.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -788,7 +788,7 @@ data class SignedTransaction(val txBits: SerializedBytes<CoreTransaction>,
 
 
 
-[SignedTransaction.kt](https://github.com/corda/corda/blob/release/os/4.11/core/src/main/kotlin/net/corda/core/transactions/SignedTransaction.kt) | ![github](/images/svg/github.svg "github")
+[SignedTransaction.kt](https://github.com/corda/corda/blob/release/os/4.12/core/src/main/kotlin/net/corda/core/transactions/SignedTransaction.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 

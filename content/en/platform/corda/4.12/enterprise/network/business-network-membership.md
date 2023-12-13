@@ -1,8 +1,8 @@
 ---
 date: '2020-12-11T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    parent: corda-enterprise-4-11-corda-networks
+  corda-enterprise-4-12:
+    parent: corda-enterprise-4-12-corda-networks
 tags:
 - corda
 - networks
@@ -56,7 +56,7 @@ In a Business Network, you can assign different roles to members of the network.
 
 ## Installation
 
-This is an extension for Corda 4.11. If you have this version of Corda, you can access the required JAR files here:
+This is an extension for Corda 4.12. If you have this version of Corda, you can access the required JAR files here:
 
 * [BNE contracts](https://download.corda.net/maven/corda-releases/net/corda/bn/business-networks-contracts/1.1/business-networks-contracts-1.1.jar).
 * [BNE workflows](https://download.corda.net/maven/corda-releases/net/corda/bn/business-networks-workflows/1.1/business-networks-workflows-1.1.jar).
