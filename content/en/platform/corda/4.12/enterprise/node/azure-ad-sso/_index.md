@@ -1,7 +1,7 @@
 ---
 menu:
-  corda-enterprise-4-12:
-    parent: corda-enterprise-4-12-corda-nodes
+  corda-enterprise-4-11:
+    parent: corda-enterprise-4-11-corda-nodes
 tags:
 - contexts
 - auth
@@ -100,7 +100,7 @@ The `synchronizeGroups` setting controls whether the user should be added to the
 
 You can use Group synchronization to keep the memberships of each user up to date in Azure AD. You can use group synchronization to:
 
-* Create groups that do not yet exist. If a user is a member of groups that do not yet exist in Azure AD, you can use group synchronization to automatically have these groups created.
+* Create groups that do not yet exist. If a user is a member of groups that do not yet exist in Azure AD, you can use group synchronization to automatically have these groups created.  
 * Control which of the membership groups should be synchronized. To do this, you can provide a filter string, which has to be a valid `OData4` filter string [https://docs.microsoft.com/en-us/graph/api/group-list?view=graph-rest-1.0&tabs=http](https://docs.microsoft.com/en-us/graph/api/group-list?view=graph-rest-1.0&tabs=http).
 
 #### Enable `Group.Read.All`

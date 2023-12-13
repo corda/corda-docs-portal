@@ -1,8 +1,8 @@
 ---
 date: '2021-07-12'
 menu:
-  corda-enterprise-4-12:
-    parent: corda-enterprise-4-12-node-serialization
+  corda-enterprise-4-11:
+    parent: corda-enterprise-4-11-node-serialization
 tags:
 - cordapp
 - custom

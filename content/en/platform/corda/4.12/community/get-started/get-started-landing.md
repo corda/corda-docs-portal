@@ -3,8 +3,8 @@ title: Getting started
 date: '2023-01-27'
 
 menu:
-  corda-community-4-12:
-    identifier: get-started-landing-4-12-community
+  corda-community-4-11:
+    identifier: get-started-landing-4-11-community
     name: "Getting started"
 tags:
 - started
@@ -36,15 +36,15 @@ To start using Corda Community Edition if you have never used Corda before:
 
 To download Corda Community Edition, or to upgrade from an open source version of Corda:
 
-* Download the `.tar` [file](https://download.corda.net/corda-community-edition/4.12/community-4.12.tar).
-* Download the `.zip` [file](https://download.corda.net/corda-community-edition/4.12/community-4.12.zip)
+* Download the `.tar` [file](https://download.corda.net/corda-community-edition/4.11/community-4.11.tar).
+* Download the `.zip` [file](https://download.corda.net/corda-community-edition/4.11/community-4.11.zip)
 * Use the Docker image available on [Docker Hub](https://hub.docker.com/repository/docker/corda/community).
 
 If you are upgrading from an open source version of Corda, follow the upgrade guides to make sure your [node]({{< relref "../../community/node-upgrade-notes.md" >}}) and [CorDapps]({{< relref "../../community/upgrading-cordapps.md" >}}) are upgraded correctly.
 
 ## Next steps
 
-1. Familiarize yourself with the [Corda key concepts]({{< relref "../about-corda/corda-key-concepts.md" >}}).
+1. Familiarize yourself with the [Corda key concepts]({{< relref "../about-corda/corda-key-concepts.md" >}}). 
 2. Run a [sample CorDapp]({{< relref "../../community/tutorial-cordapp.md" >}}) to see Corda in action.
 4. [Build your own CorDapp]({{< relref "../../community/building-a-cordapp-index.md" >}}) from scratch.
 

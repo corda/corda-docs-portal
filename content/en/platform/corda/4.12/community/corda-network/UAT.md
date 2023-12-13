@@ -5,9 +5,9 @@ aliases:
 - /corda-network/uat.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-12:
-    parent: corda-community-4-12-corda-network-foundation
-    identifier: corda-community-4-12-corda-network-uat
+  corda-community-4-11:
+    parent: corda-community-4-11-corda-network-foundation
+    identifier: corda-community-4-11-corda-network-uat
 tags:
 - UAT
 weight: 1

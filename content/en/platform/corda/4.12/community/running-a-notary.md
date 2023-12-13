@@ -5,9 +5,9 @@ aliases:
 - /running-a-notary.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-running-a-notary
-    parent: corda-community-4-12-corda-networks-index
+  corda-community-4-11:
+    identifier: corda-community-4-11-running-a-notary
+    parent: corda-community-4-11-corda-networks-index
     weight: 1100
 tags:
 - running
@@ -52,7 +52,7 @@ for more details.
 ## Crash fault-tolerant (experimental)
 
 Corda provides a prototype [Raft-based](http://atomix.io/) highly available notary implementation. You can try it out on our
-[notary demo](https://github.com/corda/corda/blob/release/os/4.12/samples/notary-demo) page. Note that it has known limitations
+[notary demo](https://github.com/corda/corda/blob/release/os/4.11/samples/notary-demo) page. Note that it has known limitations
 and is not recommended for production use.
 
 

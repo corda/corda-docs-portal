@@ -5,9 +5,9 @@ aliases:
 - /cordapp-build-systems.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-cordapp-build-systems
-    parent: corda-community-4-12-building-a-cordapp-index
+  corda-community-4-11:
+    identifier: corda-community-4-11-cordapp-build-systems
+    parent: corda-community-4-11-building-a-cordapp-index
     weight: 1060
 tags:
 - cordapp
@@ -38,7 +38,7 @@ You will need to:
 * Know [what a CorDapp is]({{< relref "cordapp-overview.md" >}}).
 * Set up your [development environment]({{< relref "getting-set-up.md" >}}).
 * Run a [sample CorDapp]({{< relref "tutorial-cordapp.md" >}}) to see Corda in action (optional).
-* Install the [CorDapp gradle plugin](https://plugins.gradle.org/plugin/net.corda.plugins.cordapp). To ensure you are using the correct version of Gradle, use the Gradle wrapper provided.
+* Install the [CorDapp gradle plugin](https://plugins.gradle.org/plugin/net.corda.plugins.cordapp). To ensure you are using the correct version of Gradle, use the Gradle wrapper provided. 
 * Copy across the following folder and files from the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin) or the [Java CorDapp Template](https://github.com/corda/cordapp-template-java) to your project's root directory:
 
   * `gradle/`
@@ -78,8 +78,8 @@ Current versions:
 ```groovy
 ext.corda_release_distribution = 'com.r3.corda'
 ext.corda_core_release_distribution = 'net.corda'
-ext.corda_release_version = '4.12'
-ext.corda_core_release_version = '4.12'
+ext.corda_release_version = '4.11'
+ext.corda_core_release_version = '4.11'
 ext.corda_gradle_plugins_version = '5.0.12'
 ext.quasar_version = '0.7.15_r3'
 ext.quasar_classifier=''

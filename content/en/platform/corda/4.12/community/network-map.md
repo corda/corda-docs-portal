@@ -5,9 +5,9 @@ aliases:
 - /network-map.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-network-map
-    parent: corda-community-4-12-corda-networks-index
+  corda-community-4-11:
+    identifier: corda-community-4-11-network-map
+    parent: corda-community-4-11-corda-networks-index
     weight: 1030
 tags:
 - network
@@ -233,7 +233,7 @@ data class ParametersUpdateInfo(
 
 ```
 
-[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.12/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
+[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.11/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
 
 
 ### Automatic Acceptance
@@ -277,7 +277,7 @@ data class NetworkParameters(
 
 ```
 
-[NetworkParameters.kt](https://github.com/corda/corda/blob/release/os/4.12/core/src/main/kotlin/net/corda/core/node/NetworkParameters.kt)
+[NetworkParameters.kt](https://github.com/corda/corda/blob/release/os/4.11/core/src/main/kotlin/net/corda/core/node/NetworkParameters.kt)
 
 This behaviour can be turned off by setting the optional node configuration property `networkParameterAcceptanceSettings.autoAcceptEnabled`
 to `false`. For example:

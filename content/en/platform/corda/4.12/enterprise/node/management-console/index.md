@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-12:
-    parent: corda-enterprise-4-12-corda-nodes
+  corda-enterprise-4-11:
+    parent: corda-enterprise-4-11-corda-nodes
 tags:
 - node
 - administration
@@ -92,7 +92,7 @@ General node information is displayed on the **Status** tab. To access the **Sta
 1. Log on to the node management console.
 2. Navigate to **Status** tab.
 
-   {{<
+   {{< 
      figure
 	    src="management-console/node-management-console_status.png"
       width=100%
@@ -106,14 +106,14 @@ General node information is displayed on the **Status** tab. To access the **Sta
 1. Log on to the node management console.
 2. Navigate to **NODE** tab under **Configuration**.
 
-   {{<
+   {{< 
      figure
 	    src="management-console/node-management-console_node-configuration.png"
       width=100%
 	    figcaption="Node management console node configuration tab"
 	    alt="Node management console node configuration tab"
    >}}
-
+   
 ## Viewing the log4j configuration file
 
 1. Log on to the node management console.
@@ -122,14 +122,14 @@ General node information is displayed on the **Status** tab. To access the **Sta
 
 Logging configuration will be displayed in the text editor. The editor can be configured via footer bar to set language, theme, and font size. The editor will be in read-only mode, so no changes may be made.
 
-   {{<
+   {{< 
      figure
 	    src="management-console/node-management-console_log-configuration.png"
       width=100%
 	    figcaption="Node management console logging configuration tab"
 	    alt="Node management console logging configuration tab"
    >}}
-
+   
 ### Failure conditions
 
 If the file cannot be found, an error panel will be displayed in place of the text editor.
@@ -145,7 +145,7 @@ If you do not have permission to perform this action and you click the tab, a me
 
 The most recent 500 log events are displayed. Note that this list is static: it does not change. Click **Refresh** to see the most recent 500 log events. This list does *not* contain the startup logs.
 
-   {{<
+   {{< 
      figure
 	    src="management-console/node-management-console_logs.png"
       width=100%
@@ -173,7 +173,7 @@ The table will list the `short name`, `type`, and `vendor` for each CorDapp. The
 To view more information about a particular CorDapp, click on an entry in the table and
 the entry expands to show a more comprehensive list of properties for that CorDapp.
 
-   {{<
+   {{< 
      figure
 	    src="management-console/node-management-console_cordapps.png"
       width=100%
@@ -192,7 +192,7 @@ If you do not have permission to perform this action and you click the tab, a me
 ### Further information
 
 * The CorDapp fields are retrieved as a `CordappInfo` object from the Corda API.
-    * View the [API documentation](../../../../../../../en/api-ref/corda/4.12/community/kotlin/corda/net.corda.core.cordapp/-cordapp-info/index.html).
+    * View the [API documentation](../../../../../../../en/api-ref/corda/4.11/community/kotlin/corda/net.corda.core.cordapp/-cordapp-info/index.html).
 
 ## Viewing available drivers
 
@@ -201,14 +201,14 @@ If you do not have permission to perform this action and you click the tab, a me
 
 A table shows the names of the drivers on the node.
 
-   {{<
+   {{< 
      figure
 	    src="management-console/node-management-console_drivers.png"
       width=100%
 	    figcaption="Node management console drivers tab"
 	    alt="Node management console drivers tab"
    >}}
-
+   
 ### Empty state
 
 If there are no available drivers, a message informs you that there are no available drivers.
@@ -223,14 +223,14 @@ If you do not have permission to perform this action and you click the tab, a me
 2. Navigate to **Status** tab.
 3. Click the **Draining mode** toggle to turn draining mode on or off.
 
-   {{<
+   {{< 
      figure
 	    src="management-console/node-management-console_status.png"
       width=100%
 	    figcaption="Node management console status tab"
 	    alt="Node management console status tab"
    >}}
-
+   
 ## Shutting down a node gracefully
 
 Shutting down a node gracefully enables draining mode, waits for in-flight flows to complete, and then stops the node.
@@ -258,7 +258,7 @@ When the node management console is reloaded, the node diagnostic info is unavai
 If you stop a node from the command line, the node will still appear in the console because Corda does not poll the node to see if it is still connected. Refresh the page to show the correct status.
 {{% /note %}}
 
-   {{<
+   {{< 
      figure
 	    src="management-console/node-management-console_status.png"
       width=100%
@@ -275,7 +275,7 @@ If you do not have permission to perform these actions:
 
 ### Further information
 * The Status fields are retrieved as a `NodeDiagnosticInfo` object from the Corda API.
-    * View the [API documentation](../../../../../../../en/api-ref/corda/4.12/community/kotlin/corda/net.corda.core.node/-node-diagnostic-info/index.html)
+    * View the [API documentation](../../../../../../../en/api-ref/corda/4.11/community/kotlin/corda/net.corda.core.node/-node-diagnostic-info/index.html)
 * The calls to gracefully stop or kill a node, or to toggle drainage mode:
     * Make a REST call to the Node Management REST service.
     * The REST service connects to the node via a `CordaRPCService` connection to execute the command.

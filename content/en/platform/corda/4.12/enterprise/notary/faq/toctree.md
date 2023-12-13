@@ -1,10 +1,10 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-12:
-    identifier: corda-enterprise-4-12-running-a-notary-cluster-faq-toctree
+  corda-enterprise-4-11:
+    identifier: corda-enterprise-4-11-running-a-notary-cluster-faq-toctree
     name: "Notary FAQs"
-    parent: corda-enterprise-4-12-corda-nodes-notary-operate
+    parent: corda-enterprise-4-11-corda-nodes-notary-operate
 title: Frequently-Asked-Questions
 weight: 150
 ---

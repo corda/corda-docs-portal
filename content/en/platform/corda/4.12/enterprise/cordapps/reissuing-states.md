@@ -1,9 +1,9 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-12:
-    identifier: corda-enterprise-4-12-reissuing-states
-    parent: corda-enterprise-4-12-cordapps
+  corda-enterprise-4-11:
+    identifier: corda-enterprise-4-11-reissuing-states
+    parent: corda-enterprise-4-11-cordapps
     weight: 65
 tags:
 - state
@@ -185,7 +185,7 @@ The flow returns a set because the exact order of backchain transactions is not 
 
 State machine [CDL]({{< relref "../../../../../../en/tools/cdl/cdl-index.md" >}}) chart:
 
-   {{<
+   {{< 
      figure
 	    src="/en/images/reissuance-state-machine.png"
       width=100%
@@ -197,14 +197,14 @@ State machine [CDL]({{< relref "../../../../../../en/tools/cdl/cdl-index.md" >}}
 
 State evolution [CDL]({{< relref "../../../../../../en/tools/cdl/cdl-index.md" >}}) chart:
 
-   {{<
+   {{< 
      figure
 	    src="/en/images/reissuance-state-evolution.png"
       width=100%
 	    figcaption="State reissuance - state evolution CDL chart"
 	    alt="State reissuance - state evolution CDL chart"
    >}}
-
+   
 ## Limitations
 
 ### Reissuance of encumbered states is not supported

@@ -1,8 +1,8 @@
 ---
 date: '2020-04-24T12:00:00Z'
 menu:
-  corda-enterprise-4-12:
-    parent: corda-enterprise-4-12-corda-nodes-collaborative-recovery-121
+  corda-enterprise-4-11:
+    parent: corda-enterprise-4-11-corda-nodes-collaborative-recovery-121
 tags:
 - disaster recovery
 - collaborative recovery
@@ -168,7 +168,7 @@ In case of failure, the usage of standard Corda flows for transmission of artifa
 Upon successful completion of the automatic LedgerRecover, all `ReconciliationStatus`es initiated by the requester node (of the recovery) are refreshed. This is done so that newly acquired transactions will not show up as difference in the reconciliation results.
 
 {{< note >}}
-When recovered transactions are persisted, these will trigger the same events as were triggered when the transaction was originally persisted (before the disaster). If users are subscribing to vault-observable feeds (see [documentation on updates](../../../../../../../api-ref/corda/4.12/community/kotlin/corda/net.corda.core.node.services/-vault-service/updates.html)), they will receive duplicate updates.
+When recovered transactions are persisted, these will trigger the same events as were triggered when the transaction was originally persisted (before the disaster). If users are subscribing to vault-observable feeds (see [documentation on updates](../../../../../../../api-ref/corda/4.11/community/kotlin/corda/net.corda.core.node.services/-vault-service/updates.html)), they will receive duplicate updates.
 {{< /note >}}
 
 #### Parameters

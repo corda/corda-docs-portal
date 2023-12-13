@@ -5,9 +5,9 @@ aliases:
 - /shell.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-shell
-    parent: corda-community-4-12-corda-nodes-index
+  corda-community-4-11:
+    identifier: corda-community-4-11-shell
+    parent: corda-community-4-11-corda-nodes-index
     weight: 1110
 tags:
 - shell
@@ -96,7 +96,7 @@ You can access the standalone shell from [software.r3.com](https://software.r3.c
 Run the `corda-standalone-shell` jar using:
 
 ```
- java -jar corda-standalone-shell-4.12.jar [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
+ java -jar corda-standalone-shell-4.11.jar [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
     [--truststore-file=<trustStoreFile>]
     [--truststore-password=<trustStorePassword>]
     [--truststore-type=<trustStoreType>] [--user=<user>] [-a=<host>]
@@ -129,7 +129,7 @@ By default, a Corda node does not run the shell.
 When using `cordaformation` the shell can be included in generated node's by including the following in the `build.gradle` file containing `deployNodes`:
 
 ```
-cordaDriver "net.corda:corda-shell:4.12"
+cordaDriver "net.corda:corda-shell:4.11"
 ```
 
 ## The shell via SSH

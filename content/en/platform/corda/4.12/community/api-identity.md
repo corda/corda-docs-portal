@@ -5,9 +5,9 @@ aliases:
 - /api-identity.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-api-identity
-    parent: corda-community-4-12-corda-api
+  corda-community-4-11:
+    identifier: corda-community-4-11-api-identity
+    parent: corda-community-4-11-corda-api
     weight: 230
 tags:
 - api
@@ -106,7 +106,7 @@ override fun call(): SignedTransaction {
 
 
 
-[TwoPartyDealFlow.kt](https://github.com/corda/corda/blob/release/os/4.12/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyDealFlow.kt](https://github.com/corda/corda/blob/release/os/4.11/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -161,7 +161,7 @@ val twiceSignedTx = partSignedTx + sellerSignature
 
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.12/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.11/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -201,7 +201,7 @@ subFlow(IdentitySyncFlow.Receive(otherSideSession))
 
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.12/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.11/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 

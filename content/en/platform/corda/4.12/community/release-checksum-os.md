@@ -2,9 +2,9 @@
 title: Corda Community Edition 4.11 release packs and checksums
 date: '2021-07-02'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-release-checksum-os
-    parent: corda-community-4-12-release-notes
+  corda-community-4-11:
+    identifier: corda-community-4-11-release-checksum-os
+    parent: corda-community-4-11-release-notes
     weight: 440
     name: "Release packs and checksums"
 ---

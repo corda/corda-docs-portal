@@ -2,14 +2,14 @@
 title: "Getting started"
 date: '2023-02-14'
 menu:
-  corda-enterprise-4-12:
-    parent: bankinabox-4-12
+  corda-enterprise-4-11:
+    parent: bankinabox-4-11
     name: "Getting started"
 tags:
 - Bank in a Box
 - installation
 weight: 100
-section_menu: corda-enterprise-4-12
+section_menu: corda-enterprise-4-11
 ---
 
 # Getting started with Bank in a Box

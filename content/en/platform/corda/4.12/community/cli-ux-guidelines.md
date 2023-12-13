@@ -5,9 +5,9 @@ aliases:
 - /cli-ux-guidelines.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-cli-ux-guidelines
-    parent: corda-community-4-12-contributing-index
+  corda-community-4-11:
+    identifier: corda-community-4-11-cli-ux-guidelines
+    parent: corda-community-4-11-contributing-index
     weight: 1080
 tags:
 - cli

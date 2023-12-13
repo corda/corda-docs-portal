@@ -1,15 +1,15 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-4-12:
-    parent: bank-in-a-box-user-interface-4-12
-    identifier: bank-in-a-box-admin-ui-4-12
+  corda-enterprise-4-11:
+    parent: bank-in-a-box-user-interface-4-11
+    identifier: bank-in-a-box-admin-ui-4-11
 tags:
 - Bank in a Box
 - UI
 title: Admin UI
 weight: 310
-section_menu: corda-enterprise-4-12
+section_menu: corda-enterprise-4-11
 ---
 
 # Admin user interface

@@ -5,9 +5,9 @@ aliases:
 - /contributing.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-contributing
-    parent: corda-community-4-12-contributing-index
+  corda-community-4-11:
+    identifier: corda-community-4-11-contributing
+    parent: corda-community-4-11-contributing-index
     weight: 1020
 tags:
 - contributing
@@ -65,9 +65,9 @@ Note that *release* is always part of the name of the branch, even for unrelease
 Github branch is always the current development branch of Corda. Development work should target the default branch
 unless the work is needed in a specific version of Corda. In that case, development work should target the oldest version
 of Corda for which the work would be appropriate. For instance, if a pull request would be applicable to Corda 4.6 and
-Corda 4.12, it would be appropriate to open a pull request for *release/os/4.6*. That work would then be merged forward
-from *release/os/4.6* to *release/os/4.12*. If the work is only applicable to Corda 4.8, a pull request need only be
-opened against release/os/4.12.
+Corda 4.11, it would be appropriate to open a pull request for *release/os/4.6*. That work would then be merged forward
+from *release/os/4.6* to *release/os/4.11*. If the work is only applicable to Corda 4.8, a pull request need only be
+opened against release/os/4.11.
 
 
 ### Things to check

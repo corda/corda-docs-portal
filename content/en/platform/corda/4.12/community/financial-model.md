@@ -5,9 +5,9 @@ aliases:
 - /financial-model.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-financial-model
-    parent: corda-community-4-12-component-library-index
+  corda-community-4-11:
+    identifier: corda-community-4-11-financial-model
+    parent: corda-community-4-11-component-library-index
     weight: 1020
 tags:
 - financial

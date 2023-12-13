@@ -1,9 +1,9 @@
 ---
 date: '2023-05-08'
 menu:
-  corda-enterprise-4-12:
-    identifier: corda-enterprise-4-12-operations-guide-deployment-hsm
-    parent: corda-enterprise-4-12-operations-guide-deployment
+  corda-enterprise-4-11:
+    identifier: corda-enterprise-4-11-operations-guide-deployment-hsm
+    parent: corda-enterprise-4-11-operations-guide-deployment
     name: "HSM deployment"
 tags:
 - operations
@@ -131,7 +131,7 @@ specify the slot or partition.
 * **password**:
 the password associated with the slot or partition.
 
-The optional parameter `usekwp` can also be added to the file. When FIPS mode is activated in the Luna HSM, version 7.7.1 of the firmware does not allow the mechanism AES/CBC/PKCS5Padding to use wrap functionality. This has resulted in flow errors with confidential identities when using "wrapped" mode.
+The optional parameter `usekwp` can also be added to the file. When FIPS mode is activated in the Luna HSM, version 7.7.1 of the firmware does not allow the mechanism AES/CBC/PKCS5Padding to use wrap functionality. This has resulted in flow errors with confidential identities when using "wrapped" mode. 
 
 A new mechanism (AES/KWP/NoPadding) has been enabled that allows wrapping when in FIPS mode. To switch to this new mechanism, set the `usekwp` parameter to true. If false or the parameter does not exist in the configuration file, then the existing mechanism is used.
 

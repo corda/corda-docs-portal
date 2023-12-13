@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-12:
-    parent: corda-enterprise-4-12-corda-networks
+  corda-enterprise-4-11:
+    parent: corda-enterprise-4-11-corda-networks
 tags:
 - network
 title: Corda Network Considerations
@@ -68,7 +68,7 @@ Here are the basis goals of a Segregated Sub Zone:
 * The ability to hive off members of the business network into a private enclave
 * The ability to cloak the members of the business network
 * That is where the notary is not whitelisted globally and is operated to the standard deemed acceptable by the BNO, not the Zone operator and members (as per those in the global whitelist)
-* The ability to operate “private” notary service>
+* The ability to operate “private” notary service> 
 That is where the notary can exist in the global whitelist but is restricted to notarisation of specific State types
 The ability to operate non whitelisted, “less universally trusted”, notaries.
 The ability to operate their own Compatibility Zone.

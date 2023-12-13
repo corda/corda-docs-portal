@@ -5,9 +5,9 @@ aliases:
 - /tutorial-cordapp.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-tutorial-cordapp
-    parent: corda-community-4-12-building-a-cordapp-index
+  corda-community-4-11:
+    identifier: corda-community-4-11-tutorial-cordapp
+    parent: corda-community-4-11-building-a-cordapp-index
     weight: 1030
 tags:
 - tutorial
@@ -147,7 +147,7 @@ The `runnodes` script creates a node tab/window for each node. It usually takes 
 / /___  /_/ / /  / /_/ / /_/ /          of it to charity. Now I have $2,999,999.75.
 \____/     /_/   \__,_/\__,_/
 
---- Corda Community Edition 4.12 (fa98aa7) -------------------------------------------------------------
+--- Corda Community Edition 4.11 (fa98aa7) -------------------------------------------------------------
 
 
 Logs can be found in                    : /Users/cordauser/src/samples-kotlin/Basic/cordapp-example/build/nodes/PartyA/logs
@@ -350,12 +350,12 @@ The `cordapp-example` Java folder is structured as follows:
 │           │                         │      └── Starter.java
 │           │                         │
 │           │                         └── Client.java
-│           │
+│           │                     
 │           └── resources
 │                    └── static
 │                           ├── index.html
 │                           └── app.js
-│  
+│                       
 ├── config
 │     ├── dev
 │     │     └── log4j2.xml
@@ -461,7 +461,7 @@ The `cordapp-example` Kotlin folder is structured as follows:
 │           │                         │      └── Server.kt
 │           │                         │
 │           │                         └── Client.kt
-│           │
+│           │                     
 │           └── resources
 │                    └── static
 │                           ├── index.html
@@ -487,7 +487,7 @@ The `cordapp-example` Kotlin folder is structured as follows:
 │       │                             ├── schema
 │       │                             │     └── IOUSchema.kt
 │       │                             └── states
-│       │                                   └── IOUState.kt
+│       │                                   └── IOUState.kt                                                    
 │       └── test
 │            └── kotlin
 │                 └── net
@@ -497,7 +497,7 @@ The `cordapp-example` Kotlin folder is structured as follows:
 │                                        └── contracts
 │                                              ├── ContractTests.kt
 │                                              └── StateTests.kt
-│
+│           
 ├── gradle
 │   └── wrapper
 │       ├── gradle-wrapper.jar

@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-12:
-    parent: corda-enterprise-4-12-corda-nodes-operating-interacting
+  corda-enterprise-4-11:
+    parent: corda-enterprise-4-11-corda-nodes-operating-interacting
 tags:
 - cli
 - application
@@ -46,7 +46,7 @@ You will now be able to run the command line application from anywhere by runnin
 For example, for the Corda node, install the shell extensions using
 
 ```shell
-java -jar corda-4.12.jar install-shell-extensions
+java -jar corda-4.11.jar install-shell-extensions
 ```
 
 And then run the node by running:
@@ -81,15 +81,15 @@ restart the shell or see [above](#installing-shell-extensions) for instructions 
 
 |Description|Alias|JAR Name|
 |---------------------------------------------------------|------------------------------|----------------------------------------------------------|
-|[Corda node]({{< relref "../deploy/running-a-node.md#starting-an-individual-corda-node" >}})|`corda --<option>`|`corda-4.12.jar`|
-|Network bootstrapper|`bootstrapper --<option>`|`corda-tools-network-bootstrapper-4.12.jar`|
-|[Standalone shell]({{< relref "shell.md#standalone-shell" >}})|`corda-shell --<option>`|`corda-shell-4.12.jar`|
-|Blob inspector|`blob-inspector --<option>`|`corda-tools-blob-inspector-4.12.jar`|
+|[Corda node]({{< relref "../deploy/running-a-node.md#starting-an-individual-corda-node" >}})|`corda --<option>`|`corda-4.11.jar`|
+|Network bootstrapper|`bootstrapper --<option>`|`corda-tools-network-bootstrapper-4.11.jar`|
+|[Standalone shell]({{< relref "shell.md#standalone-shell" >}})|`corda-shell --<option>`|`corda-shell-4.11.jar`|
+|Blob inspector|`blob-inspector --<option>`|`corda-tools-blob-inspector-4.11.jar`|
 
 {{< /table >}}
 
 
 ## List of existing Enterprise CLI applications
 
-Database Manager                `database-manager --<option>`  `corda-tools-database-manager-4.12.jar`
-Corda Firewall          `corda-firewall --<option>`    `corda-firewall-4.12.jar`                                 |
+Database Manager                `database-manager --<option>`  `corda-tools-database-manager-4.11.jar`
+Corda Firewall          `corda-firewall --<option>`    `corda-firewall-4.11.jar`                                 |

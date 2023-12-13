@@ -1,9 +1,9 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-corda-configuration-fields
-    parent: corda-community-4-12-corda-nodes-index
+  corda-community-4-11:
+    identifier: corda-community-4-11-corda-configuration-fields
+    parent: corda-community-4-11-corda-nodes-index
     weight: 1031
 tags:
 - corda
@@ -303,7 +303,7 @@ Please do not change.
 
 ## `notary`
 
-  This optional object configures the node to run as a notary.
+  This optional object configures the node to run as a notary. 
  Specify the `serviceLegalName` and either the `mysql` (deprecated) or `jpa` configuration as described below, and set the `validating` boolean to true or false.
 
 * `validating`
@@ -513,13 +513,13 @@ Deprecated. Use rpcSettings instead.**
 
 ## `telemetry`
 
-There are new configuration fields for telemetry. See the [OpenTelemetry]({{< relref "opentelemetry.md" >}}) section for more information.
+There are new configuration fields for telemetry. See the [OpenTelemetry]({{< relref "opentelemetry.md" >}}) section for more information. 
 
-* `openTelemetryEnabled`
+* `openTelemetryEnabled` 
   * Specifies if the node should generate spans to be sent to a collector. The node will only generate spans if this property is set to `true` and an OpenTelemetry SDK is on the node classpath. By default, no OpenTelemetry SDK is on the node classpath, meaning by default no spans are actually generated. To prevent spans being generated regardless of whether the OpenTelemetry SDK is on the classpath, this configuration field should be set to `false`.
   * *Default:* true
 * `spanStartEndEventsEnabled`
-  * When Corda generates spans for flows and certain significant operations, it has the capability to generate a span for starting the operation, ending the operation, and generating a single span to cover the whole operation. This can be useful to determine where a flow is stuck, as you will only see the start spans, and not the end spans. This is not standard OpenTelemetry behaviour, and it could also result in a lot of spans flooding the network. Setting this field to `true` will enable it.
+  * When Corda generates spans for flows and certain significant operations, it has the capability to generate a span for starting the operation, ending the operation, and generating a single span to cover the whole operation. This can be useful to determine where a flow is stuck, as you will only see the start spans, and not the end spans. This is not standard OpenTelemetry behaviour, and it could also result in a lot of spans flooding the network. Setting this field to `true` will enable it. 
   * *Default:* false
 * `copyBaggageToTags`
   * If set to `true`, this parameter will cause baggage to be copied to tags when generating spans. Baggage are fields which can be passed around with the invocation of OpenTelemetry.

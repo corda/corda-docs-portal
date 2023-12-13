@@ -1,8 +1,8 @@
 ---
 date: '2023-01-11'
 menu:
-  corda-enterprise-4-12:
-    parent: corda-enterprise-4-12-corda-nodes
+  corda-enterprise-4-11:
+    parent: corda-enterprise-4-11-corda-nodes
 tags:
 - docker
 - image
@@ -12,7 +12,7 @@ weight: 120
 
 # Official Corda Docker image
 
-The official Corda Docker image is found at the [Corda Docker hub](https://hub.docker.com/u/corda). The [latest version](https://hub.docker.com/layers/corda/corda-enterprise/4.12-zulu-openjdk8-alpine/images/sha256-c41b5876238c7d7904d2e5f737a9ebdfcd1d65842a8318c83ee35d550235cb2e) is `corda/corda-enterprise:4.12-zulu-openjdk8-alpine`.
+The official Corda Docker image is found at the [Corda Docker hub](https://hub.docker.com/u/corda). The [latest version](https://hub.docker.com/layers/corda/corda-enterprise/4.11-zulu-openjdk8-alpine/images/sha256-c41b5876238c7d7904d2e5f737a9ebdfcd1d65842a8318c83ee35d550235cb2e) is `corda/corda-enterprise:4.11-zulu-openjdk8-alpine`.
 
 ## Prerequisites
 

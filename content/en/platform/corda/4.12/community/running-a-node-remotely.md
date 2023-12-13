@@ -4,9 +4,9 @@ aliases:
 - /HEAD/running-a-node-remotely.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-running-a-node-remotely
-    parent: corda-community-4-12-corda-nodes-index
+  corda-community-4-11:
+    identifier: corda-community-4-11-running-a-node-remotely
+    parent: corda-community-4-11-corda-nodes-index
     weight: 1140
 tags:
 - running

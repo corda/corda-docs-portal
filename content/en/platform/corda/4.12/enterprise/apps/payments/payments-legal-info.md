@@ -2,11 +2,11 @@
 title: "Corda Payments Legal Info"
 date: '2023-02-14'
 menu:
-  corda-enterprise-4-12:
-    parent: payments-4-12
+  corda-enterprise-4-11:
+    parent: payments-4-11
     weight: 600
     name: "Legal information"
-section_menu: corda-enterprise-4-12
+section_menu: corda-enterprise-4-11
 ---
 
 **Do not translate or localise.**
@@ -12007,7 +12007,7 @@ None
    See the License for the specific language governing permissions and
    limitations under the License.
 
-=======================================================================
+=======================================================================   
 
 To the extent any open source subcomponents are licensed under the EPL and/or other
 similar licenses that require the source code and/or modifications to
@@ -15285,7 +15285,7 @@ None
    See the License for the specific language governing permissions and
    limitations under the License.
 
-=======================================================================
+=======================================================================   
 
 To the extent any open source subcomponents are licensed under the EPL and/or other
 similar licenses that require the source code and/or modifications to

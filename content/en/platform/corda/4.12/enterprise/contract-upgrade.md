@@ -1,8 +1,8 @@
 ---
 date: '2021-07-16'
 menu:
-  corda-enterprise-4-12:
-    parent: corda-enterprise-4-12-cordapps-contracts
+  corda-enterprise-4-11:
+    parent: corda-enterprise-4-11-cordapps-contracts
 tags:
 - contract
 - upgrade

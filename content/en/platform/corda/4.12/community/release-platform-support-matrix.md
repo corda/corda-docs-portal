@@ -2,9 +2,9 @@
 title: Platform support matrix
 date: '2021-07-02'
 menu:
-  corda-community-4-12:
+  corda-community-4-11:
     identifier: community-platform-support-matrix
-    parent: corda-community-4-12-release-notes
+    parent: corda-community-4-11-release-notes
     weight: 450
 ---
 
@@ -13,7 +13,7 @@ menu:
 
 Corda supports a subset of the platforms that are supported by [Java](http://www.oracle.com/technetwork/java/javase/certconfig-2095354.html).
 
-Production use of Corda Community Edition 4.12 is only supported on Linux OS, see details below.
+Production use of Corda Community Edition 4.11 is only supported on Linux OS, see details below.
 
 ## Network management
 
@@ -27,10 +27,10 @@ Experimental notaries, such as **Crash fault-tolerant** and **Byzantine fault-to
 
 ## JDK support
 
-Corda: Community Edition 4.12 has been tested and verified to work with **Oracle JDK 8 JVM 8u381** and **Azul Zulu Enterprise 8u382**, for Azure deployment downloadable from
+Corda: Community Edition 4.11 has been tested and verified to work with **Oracle JDK 8 JVM 8u381** and **Azul Zulu Enterprise 8u382**, for Azure deployment downloadable from
 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
-Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.12.
+Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.11.
 
 {{< warning >}}
 In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/technetwork/java/java-se-support-roadmap.html),

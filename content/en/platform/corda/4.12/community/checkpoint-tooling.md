@@ -5,9 +5,9 @@ aliases:
 - /checkpoint-tooling.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-12:
-    identifier: corda-community-4-12-checkpoint-tooling
-    parent: corda-community-4-12-tools-index
+  corda-community-4-11:
+    identifier: corda-community-4-11-checkpoint-tooling
+    parent: corda-community-4-11-tools-index
     weight: 1050
 tags:
 - checkpoint
@@ -625,7 +625,7 @@ The feature provides a way for flows to reload from checkpoints, even if no erro
 
 ### How to use this feature
 
-Add the `reloadCheckpointAfterSuspend` [node configuration option]({{< relref "corda-configuration-fields.md#reloadcheckpointaftersuspend" >}}) and set it to `true`, as shown below:
+Add the `reloadCheckpointAfterSuspend` [node configuration option]({{< relref "corda-configuration-fields.md#reloadcheckpointaftersuspend" >}}) and set it to `true`, as shown below:    
 
 ```
 reloadCheckpointAfterSuspend = true
@@ -690,7 +690,7 @@ If an error does occur when deserializing the flow's checkpoint, a `ReloadFlowFr
 
 * the node is restarted
 * a node operator manually restarts the flow
-* a node operator manually kills the flow off
+* a node operator manually kills the flow off  
 
  This only occurs when the configuration option is turned on as this is not standard behaviour. The exception that caused the failure is logged, which will hopefully provide enough information to figure out what object could not be deserialized correctly. From this point, you can either change your flow or apply custom serialization for objects that failed deserialization.
 
