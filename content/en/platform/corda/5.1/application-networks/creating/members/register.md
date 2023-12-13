@@ -1,5 +1,5 @@
 ---
-date: '2023-08-10'
+date: '2023-04-13'
 version: 'Corda 5.1'
 title: "Register the Member"
 menu:

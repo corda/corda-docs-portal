@@ -1,5 +1,5 @@
 ---
-date: '2023-08-10'
+date: '2023-06-12'
 title: "Retrieving Virtual Nodes"
 project: corda
 version: 'Corda 5.1'

@@ -1,5 +1,5 @@
 ---
-date: '2023-08-10'
+date: '2023-06-22'
 title: "External Messaging CorDapps"
 project: corda
 version: 'Corda 5.1'

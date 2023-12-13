@@ -1,5 +1,5 @@
 ---
-date: '2023-08-10'
+date: '2023-06-06'
 title: "CPK Gradle Plugin"
 project: corda
 version: 'Corda 5.1'
