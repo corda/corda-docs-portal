@@ -54,7 +54,7 @@ The maximum allowed size in bytes of a transaction. This is the size of the tran
 The minimum platform version that the nodes must be running. Any node which is below this will not start.
 
    {{< note >}}
-   To determine which `minimumPlatformVersion` a zone must mandate in order to permit all the features of Corda 4.11, see [Corda versioning]({{< relref "../cordapps/versioning.md" >}}).
+   To determine which `minimumPlatformVersion` a zone must mandate in order to permit all the features of Corda 4.12, see [Corda versioning]({{< relref "../cordapps/versioning.md" >}}).
    {{< /note >}}
 
 ## `modifiedTime`

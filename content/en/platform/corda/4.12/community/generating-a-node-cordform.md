@@ -308,7 +308,7 @@ The snippet below configures contracts classes from the Finance CorDapp to be ve
 
 ## Optional migration step
 
-If you are migrating your database schema from an older Corda version to Corda 4.11, you must add the following parameter to the node section in the `build.gradle` and set it to `true`:
+If you are migrating your database schema from an older Corda version to Corda 4.12, you must add the following parameter to the node section in the `build.gradle` and set it to `true`:
 
   ```
           runSchemaMigration = true

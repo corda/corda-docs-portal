@@ -62,7 +62,7 @@ interface QueryableState : ContractState {
 
 ```
 
-[PersistentTypes.kt](https://github.com/corda/corda/blob/release/os/4.11/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
+[PersistentTypes.kt](https://github.com/corda/corda/blob/release/os/4.12/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
 
 The `QueryableState` interface requires the state to enumerate the different relational schemas it supports, for
 instance in situations where the schema has evolved. Each relational schema is represented as a `MappedSchema`
@@ -97,7 +97,7 @@ interface SchemaService {
 
 ```
 
-[SchemaService.kt](https://github.com/corda/corda/blob/release/os/4.11/node/src/main/kotlin/net/corda/node/services/api/SchemaService.kt)
+[SchemaService.kt](https://github.com/corda/corda/blob/release/os/4.12/node/src/main/kotlin/net/corda/node/services/api/SchemaService.kt)
 
 ```kotlin
 /**
@@ -144,7 +144,7 @@ open class MappedSchema(schemaFamily: Class<*>,
 
 ```
 
-[PersistentTypes.kt](https://github.com/corda/corda/blob/release/os/4.11/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
+[PersistentTypes.kt](https://github.com/corda/corda/blob/release/os/4.12/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
 
 With this framework, the relational view of ledger states can evolve in a controlled fashion in lock-step with internal systems or other
 integration points and is not dependant on changes to the contract code.
@@ -266,7 +266,7 @@ object CashSchemaV1 : MappedSchema(schemaFamily = CashSchema.javaClass, version 
 
 
 
-[CashSchemaV1.kt](https://github.com/corda/corda/blob/release/os/4.11/finance/contracts/src/main/kotlin/net/corda/finance/schemas/CashSchemaV1.kt) | ![github](/images/svg/github.svg "github")
+[CashSchemaV1.kt](https://github.com/corda/corda/blob/release/os/4.12/finance/contracts/src/main/kotlin/net/corda/finance/schemas/CashSchemaV1.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 

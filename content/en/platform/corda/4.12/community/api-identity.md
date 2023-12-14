@@ -106,7 +106,7 @@ override fun call(): SignedTransaction {
 
 
 
-[TwoPartyDealFlow.kt](https://github.com/corda/corda/blob/release/os/4.11/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyDealFlow.kt](https://github.com/corda/corda/blob/release/os/4.12/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 

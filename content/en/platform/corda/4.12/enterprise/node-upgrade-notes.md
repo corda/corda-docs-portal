@@ -9,22 +9,22 @@ tags:
 - node
 - upgrade
 - notes
-title: Upgrading a node to Corda Enterprise Edition 4.11
-aliases: /docs/4.11/enterprise/node/operating/cm-upgrading-node.html
+title: Upgrading a node to Corda Enterprise Edition 4.12
+aliases: /docs/4.12/enterprise/node/operating/cm-upgrading-node.html
 weight: 10
 ---
 
-# Upgrading a node to Corda Enterprise Edition 4.11
+# Upgrading a node to Corda Enterprise Edition 4.12
 
-Follow these steps to upgrade a node from Corda Enterprise Edition 4.x to Corda Enterprise Edition 4.11.
+Follow these steps to upgrade a node from Corda Enterprise Edition 4.x to Corda Enterprise Edition 4.12.
 
 If you are upgrading from Corda Enterprise 3.x, you must first:
 1. Upgrade your node to Corda Enterprise 3.3, if you haven't already. If your node is running on an earlier version, follow the steps in Upgrade a Corda 3.X Enterprise Node (available in the [archived-docs](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs) directory of the [corda/corda-docs-portal](https://github.com/corda/corda-docs-portal) repo).
 2. Upgrade from Corda Enterprise 3.3 to Corda Enterprise Edition 4.5.
-3. Upgrade from Corda 4.5 to Corda Enterprise Edition 4.11.
+3. Upgrade from Corda 4.5 to Corda Enterprise Edition 4.12.
 
 {{< warning >}}
-Before upgrading to Corda Enterprise Edition 4.11, read the guidance on [upgrading your notary service]({{< relref "notary/upgrading-the-ha-notary-service.md" >}}).
+Before upgrading to Corda Enterprise Edition 4.12, read the guidance on [upgrading your notary service]({{< relref "notary/upgrading-the-ha-notary-service.md" >}}).
 {{< /warning >}}
 
 Most of the Corda 4 public, non-experimental APIs are stable. See the [full list of stable APIs]({{< relref "../../../../api-ref/api-ref-corda-4.md" >}}). If you are working with a stable API, you don't need to update your CorDapps. To upgrade:
@@ -69,7 +69,7 @@ For a detailed explanation of Corda backup and recovery guarantees, see [Backup 
 
 ## Step 3: Update the database
 
-The database update can be performed automatically or manually and must be performed incrementally for each major version. For example, if you are upgrading from version 4.8 to 4.11, you must first apply the database update from 4.8 to 4.9, and then apply the database update from 4.9 to 4.10, and then from 4.10 to 4.11. The minor version does not matter since there are no database updates contained in minor version releases.
+The database update can be performed automatically or manually and must be performed incrementally for each major version. For example, if you are upgrading from version 4.8 to 4.12, you must first apply the database update from 4.8 to 4.9, and then apply the database update from 4.9 to 4.10, and then from 4.10 to 4.11. The minor version does not matter since there are no database updates contained in minor version releases.
 
 You can perform an automatic database update when:
 

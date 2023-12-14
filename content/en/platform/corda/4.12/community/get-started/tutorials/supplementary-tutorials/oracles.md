@@ -15,7 +15,7 @@ title: Writing oracle services
 This tutorial covers *oracles*: network services that link the ledger to the outside world by providing facts that
 affect the validity of transactions.
 
-The [IRS trading demo app](https://github.com/corda/corda/tree/release/os/4.11/samples/irs-demo/cordapp) includes an example oracle that provides an interest rate fixing service.
+The [IRS trading demo app](https://github.com/corda/corda/tree/release/os/4.12/samples/irs-demo/cordapp) includes an example oracle that provides an interest rate fixing service.
 
 ## Introduction
 
@@ -114,7 +114,7 @@ data class FixOf(val name: String, val forDay: LocalDate, val ofTenor: Tenor)
 
 ```
 
-[FinanceTypes.kt](https://github.com/corda/corda/blob/release/os/4.11/finance/contracts/src/main/kotlin/net/corda/finance/contracts/FinanceTypes.kt)
+[FinanceTypes.kt](https://github.com/corda/corda/blob/release/os/4.12/finance/contracts/src/main/kotlin/net/corda/finance/contracts/FinanceTypes.kt)
 
 ```kotlin
 /** A [Fix] represents a named interest rate, on a given day, for a given duration. It can be embedded in a tx. */
@@ -122,7 +122,7 @@ data class Fix(val of: FixOf, val value: BigDecimal) : CommandData
 
 ```
 
-[FinanceTypes.kt](https://github.com/corda/corda/blob/release/os/4.11/finance/contracts/src/main/kotlin/net/corda/finance/contracts/FinanceTypes.kt)
+[FinanceTypes.kt](https://github.com/corda/corda/blob/release/os/4.12/finance/contracts/src/main/kotlin/net/corda/finance/contracts/FinanceTypes.kt)
 
 ```kotlin
 class Oracle {
@@ -218,7 +218,7 @@ fun sign(ftx: FilteredTransaction): TransactionSignature {
 
 ```
 
-[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/4.11/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)
+[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/4.12/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)
 
 Here you can see that there are several steps:
 
@@ -256,7 +256,7 @@ class Oracle(private val services: AppServiceHub) : SingletonSerializeAsToken() 
 
 ```
 
-[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/4.11/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)
+[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/4.12/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)
 
 The Corda node scans for any class with this annotation and initialises them. The only requirement is that the class provide
 a constructor with a single parameter of type `ServiceHub`.
@@ -292,7 +292,7 @@ class FixQueryHandler(private val otherPartySession: FlowSession) : FlowLogic<Un
 
 ```
 
-[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/4.11/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)
+[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/4.12/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)
 
 These two flows leverage the oracle to provide the querying and signing operations. They get reference to the oracle,
 which will have already been initialised by the node, using `ServiceHub.cordaService`. Both flows are annotated with
@@ -341,7 +341,7 @@ class FixSignFlow(val tx: TransactionBuilder, val oracle: Party,
 
 ```
 
-[RatesFixFlow.kt](https://github.com/corda/corda/blob/release/os/4.11/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/RatesFixFlow.kt)
+[RatesFixFlow.kt](https://github.com/corda/corda/blob/release/os/4.12/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/RatesFixFlow.kt)
 
 You’ll note that the `FixSignFlow` requires a `FilterTransaction` instance which includes only `Fix` commands.
 You can find a further explanation of this in [Oracles]({{< relref "../../../key-concepts-oracles.md" >}}). Below you will see how to build such a

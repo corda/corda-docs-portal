@@ -53,10 +53,10 @@ You can use the Network Bootstrapper to scan all the node configurations in a co
 
 To bootstrap a test network:
 
-1. Download the [Corda Network Boostrapper](https://download.corda.net/maven/corda-releases/net/corda/corda-tools-network-bootstrapper/4.11/corda-tools-network-bootstrapper-4.11.jar) for the version of Corda you want the nodes to run.
+1. Download the [Corda Network Boostrapper](https://download.corda.net/maven/corda-releases/net/corda/corda-tools-network-bootstrapper/4.12/corda-tools-network-bootstrapper-4.12.jar) for the version of Corda you want the nodes to run.
 2. Create a directory containing a node config file (ending in “_node.conf”) for each node you want to create.
 3. Set “devMode” to `true`.
-4. Run the command `java -jar network-bootstrapper-4.11.jar --dir <nodes-root-dir>`.
+4. Run the command `java -jar network-bootstrapper-4.12.jar --dir <nodes-root-dir>`.
 
 If you were to run this command on a directory containing these files:
 
@@ -185,7 +185,7 @@ First, run the Network Bootstrapper as usual. Your network structure will look l
 
 Then, run the Network Bootstrapper again from the root directory:
 
-`java -jar network-bootstrapper-4.11.jar --dir <nodes-root-dir>`
+`java -jar network-bootstrapper-4.12.jar --dir <nodes-root-dir>`
 
 You will produce this result:
 
@@ -257,7 +257,7 @@ For example, you could take this pre-generated network:
 
 Then run the Network Bootstrapper again from the root directory:
 
-`java -jar network-bootstrapper-4.11.jar --dir <nodes-root-dir>`
+`java -jar network-bootstrapper-4.12.jar --dir <nodes-root-dir>`
 
 To produce:
 
@@ -307,11 +307,11 @@ You can use the `--minimum-platform-version`, `--max-message-size`, `--max-trans
 
 You can provide a file to override the network parameters using:
 
-`java -jar network-bootstrapper-4.11.jar --network-parameter-overrides=<path_to_file>`
+`java -jar network-bootstrapper-4.12.jar --network-parameter-overrides=<path_to_file>`
 
 Or the short form version:
 
-`java -jar network-bootstrapper-4.11.jar -n=<path_to_file>`
+`java -jar network-bootstrapper-4.12.jar -n=<path_to_file>`
 
 The network parameter overrides file is a HOCON file with several configuration fields, all of which are optional. If you don't provide a field, it will be ignored. If a field is not provided and you are bootstrapping a new network, a sensible default value will be used. If a field is not provided
 when you are updating an existing network, the value in the existing network parameters file will be used.

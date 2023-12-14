@@ -25,19 +25,19 @@ Corda supports two types of RPC client:
 * **Corda RPC Client**, which is used if you want to interact with your node via the `CordaRPCOps` remote interface.
 * **Multi RPC Client**, which is used if you want to interact with your node via the `CordaRPCOps` remote interface, as an alternative to the Corda RPC Client. Compared to the Corda RPC Client, the Multi RPC Client is more flexible with handling connection speed variations when started in HA mode, through the use of the [RPCConnectionListener interface](#adding-rpc-connection-listeners).
 
-To interact with your node via HTTP, you need to start up your own webserver that connects to your node using the [CordaRPCClient](../../../../../en/api-ref/corda/4.11/enterprise/javadoc/net/corda/client/rpc/CordaRPCClient.html) [(Kotlin)](../../../../../en/api-ref/corda/4.11/enterprise/kotlin/corda/net.corda.client.rpc/-corda-r-p-c-client/index.html) class. You can find an example of how to do this using the popular Spring Boot server [here](https://github.com/corda/samples-java/tree/master/Advanced/obligation-cordapp/clients).
+To interact with your node via HTTP, you need to start up your own webserver that connects to your node using the [CordaRPCClient](../../../../../en/api-ref/corda/4.12/enterprise/javadoc/net/corda/client/rpc/CordaRPCClient.html) [(Kotlin)](../../../../../en/api-ref/corda/4.12/enterprise/kotlin/corda/net.corda.client.rpc/-corda-r-p-c-client/index.html) class. You can find an example of how to do this using the popular Spring Boot server [here](https://github.com/corda/samples-java/tree/master/Advanced/obligation-cordapp/clients).
 
 ## Building the Corda RPC Client
 
-To interact with your node via the `CordaRPCOps` remote interface, you need to build a client that uses the [CordaRPCClient](../../../../api-ref/corda/4.11/community/javadoc/net/corda/client/rpc/CordaRPCClient.html) class. The `CordaRPCClient` class enables you to connect to your node via a message queue protocol and provides a simple RPC interface (the `CordaRPCOps` remote interface) for interacting with the node. You make calls on a JVM object as normal, and the marshalling back-and-forth is handled for you.
+To interact with your node via the `CordaRPCOps` remote interface, you need to build a client that uses the [CordaRPCClient](../../../../api-ref/corda/4.12/community/javadoc/net/corda/client/rpc/CordaRPCClient.html) class. The `CordaRPCClient` class enables you to connect to your node via a message queue protocol and provides a simple RPC interface (the `CordaRPCOps` remote interface) for interacting with the node. You make calls on a JVM object as normal, and the marshalling back-and-forth is handled for you.
 
 ### Pre-requisites
 
-To use the [CordaRPCClient](../../../../api-ref/corda/4.11/community/javadoc/net/corda/client/rpc/CordaRPCClient.html) class, you must add `net.corda:corda-rpc:$corda_release_version` as a `cordaCompile` dependency in your client’s `build.gradle` file.
+To use the [CordaRPCClient](../../../../api-ref/corda/4.12/community/javadoc/net/corda/client/rpc/CordaRPCClient.html) class, you must add `net.corda:corda-rpc:$corda_release_version` as a `cordaCompile` dependency in your client’s `build.gradle` file.
 
 ### Connecting to a node with `CordaRPCClient`
 
-The [CordaRPCClient](../../../../api-ref/corda/4.11/community/javadoc/net/corda/client/rpc/CordaRPCClient.html) class has a `start` method that takes the node’s RPC address and returns a [CordaRPCConnection](../../../../api-ref/corda/4.11/community/javadoc/net/corda/client/rpc/CordaRPCConnection.html).
+The [CordaRPCClient](../../../../api-ref/corda/4.12/community/javadoc/net/corda/client/rpc/CordaRPCClient.html) class has a `start` method that takes the node’s RPC address and returns a [CordaRPCConnection](../../../../api-ref/corda/4.12/community/javadoc/net/corda/client/rpc/CordaRPCConnection.html).
 
 The [CordaRPCConnection](../../../../api-ref/corda/4.11/community/javadoc/net/corda/client/rpc/CordaRPCConnection.html) class has a `proxy` method that takes an RPC username and password and returns a [CordaRPCOps](../../../../api-ref/corda/4.11/community/javadoc/net/corda/core/messaging/CordaRPCOps.html) object that you can use to interact with the node.
 

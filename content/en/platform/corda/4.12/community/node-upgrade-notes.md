@@ -13,7 +13,7 @@ tags:
 - node
 - upgrade
 - notes
-title: Upgrading your node to Corda Community Edition 4.11
+title: Upgrading your node to Corda Community Edition 4.12
 ---
 
 

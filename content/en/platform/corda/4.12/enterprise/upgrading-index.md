@@ -12,8 +12,8 @@ weight: 2
 
 # Upgrading a CorDapp or node
 
-* [Upgrading a node to Corda 4.11]({{< relref "node-upgrade-notes.md" >}})
-* [Upgrading a CorDapp to Corda Enterprise Edition 4.11]({{< relref "app-upgrade-notes-enterprise.md" >}})
+* [Upgrading a node to Corda 4.12]({{< relref "node-upgrade-notes.md" >}})
+* [Upgrading a CorDapp to Corda Enterprise Edition 4.12]({{< relref "app-upgrade-notes-enterprise.md" >}})
 * [Upgrading a CorDapp to a newer platform version]({{< relref "app-upgrade-notes.md" >}})
 * [Upgrading a Corda OS Node to Corda Enterprise]({{< relref "node-operations-upgrading-os-to-ent.md" >}})
 * [Upgrading deployed CorDapps]({{< relref "node-operations-upgrade-cordapps.md" >}})

@@ -42,7 +42,7 @@ docker run -ti \
         -v /path/to/cordapps:/opt/corda/cordapps \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/community:4.11-zulu-openjdk8:latest
+        corda/community:4.12-zulu-openjdk8:latest
 ```
 
 As the node runs within a container, several mount points are required:
@@ -83,7 +83,7 @@ docker run -ti \
         -v /home/user/sharedFolder/network-parameters:/opt/corda/network-parameters \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/community:4.11-zulu-openjdk8:latest
+        corda/community:4.12-zulu-openjdk8:latest
 ```
 
 The mount `/home/user/sharedFolder/node-infos:/opt/corda/additional-node-infos` is used to hold the `nodeInfo` of all the nodes within the network.
@@ -117,7 +117,7 @@ docker run -ti --net="host" \
         -e RPC_USER="PartyA"      \
         -v /home/user/docker/config:/etc/corda          \
         -v /home/user/docker/certificates:/opt/corda/certificates \
-        corda/community:4.11-zulu-openjdk8:latest config-generator --generic --exit-on-generate
+        corda/community:4.12-zulu-openjdk8:latest config-generator --generic --exit-on-generate
 ```
 
 Several environment variables must also be passed to the container to allow it to register:
@@ -152,7 +152,7 @@ docker run -ti \
         -v /home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps:/opt/corda/cordapps \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/community:4.11-zulu-openjdk8:latest
+        corda/community:4.12-zulu-openjdk8:latest
 ```
 
 You can now start the node as normal:
@@ -168,5 +168,5 @@ docker run -ti \
         -v /home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps:/opt/corda/cordapps \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/community:4.11-zulu-openjdk8:latest
+        corda/community:4.12-zulu-openjdk8:latest
 ```

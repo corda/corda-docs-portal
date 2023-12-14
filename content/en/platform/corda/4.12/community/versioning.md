@@ -150,7 +150,7 @@ The following error message will be received before the node shuts down:
 ```
 [ERROR] 17:10:11+0100 [main] internal.NodeStartupLogging. - Invalid Cordapps found, that couldn't be loaded:
 [Problem: CorDapp requires minimumPlatformVersion: 7, but was: 2 in Cordapp
-file:/corda-open-source/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps/bank-of-corda-demo-4.11-SNAPSHOT.jar
+file:/corda-open-source/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps/bank-of-corda-demo-4.12-SNAPSHOT.jar
 ```
 
 For more information on how to address this, see the [Release new CorDapp versions]({{< relref "upgrading-cordapps.md" >}}) page.
