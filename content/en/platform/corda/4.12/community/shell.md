@@ -5,9 +5,9 @@ aliases:
 - /shell.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-shell
-    parent: corda-community-4-11-corda-nodes-index
+  corda-community-4-12:
+    identifier: corda-community-4-12-shell
+    parent: corda-community-4-12-corda-nodes-index
     weight: 1110
 tags:
 - shell

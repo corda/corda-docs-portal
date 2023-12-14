@@ -5,9 +5,9 @@ aliases:
 - /getting-set-up.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-getting-set-up
-    parent: corda-community-4-11-building-a-cordapp-index
+  corda-community-4-12:
+    identifier: corda-community-4-12-getting-set-up
+    parent: corda-community-4-12-building-a-cordapp-index
     weight: 1020
 tags:
 - getting
@@ -18,7 +18,7 @@ title: Getting set up for CorDapp development
 
 # Getting set up for CorDapp development
 
-There are four pieces of required software for CorDapp development: 
+There are four pieces of required software for CorDapp development:
 * Java 8 JDK
 * IntelliJ IDEA
 * Git

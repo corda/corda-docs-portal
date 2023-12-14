@@ -5,9 +5,9 @@ aliases:
 - /api-persistence.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-api-persistence
-    parent: corda-community-4-11-corda-api
+  corda-community-4-12:
+    identifier: corda-community-4-12-api-persistence
+    parent: corda-community-4-12-corda-api
     weight: 240
 tags:
 - api
@@ -280,10 +280,10 @@ e.g. for Oracle database, prior to version 12.2 the maximum length of table/colu
 
 ## Persisting Hierarchical Data
 
-You may want to persist hierarchical relationships within state data using multiple database tables. 
-To facilitate this, you must implement all queries making use of hierarchical relations as native SQL. 
+You may want to persist hierarchical relationships within state data using multiple database tables.
+To facilitate this, you must implement all queries making use of hierarchical relations as native SQL.
 
-Example schemas implementing hierarchical relationships have been implemented below. 
+Example schemas implementing hierarchical relationships have been implemented below.
 
 For one-to-one scenarios, use the following:
 

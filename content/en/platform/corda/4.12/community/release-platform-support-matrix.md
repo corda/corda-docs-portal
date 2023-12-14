@@ -2,9 +2,9 @@
 title: Platform support matrix
 date: '2021-07-02'
 menu:
-  corda-community-4-11:
+  corda-community-4-12:
     identifier: community-platform-support-matrix
-    parent: about-corda-landing-4-11-community
+    parent: about-corda-landing-4-12-community
     weight: 450
 ---
 

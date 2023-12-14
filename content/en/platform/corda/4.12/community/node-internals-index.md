@@ -5,9 +5,9 @@ aliases:
 - /node-internals-index.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-node-internals-index
-    parent: corda-community-4-11-development
+  corda-community-4-12:
+    identifier: corda-community-4-12-node-internals-index
+    parent: corda-community-4-12-development
     weight: 120
 tags:
 - node

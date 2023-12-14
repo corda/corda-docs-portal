@@ -4,9 +4,9 @@ aliases:
 - /HEAD/generating-a-node-cordform.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-cordform-plugin
-    parent: corda-community-4-11-generating-a-node
+  corda-community-4-12:
+    identifier: corda-community-4-12-cordform-plugin
+    parent: corda-community-4-12-generating-a-node
     weight: 1000
 tags:
 - cordform

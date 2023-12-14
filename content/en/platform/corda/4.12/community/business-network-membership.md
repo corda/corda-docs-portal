@@ -1,9 +1,9 @@
 ---
 date: '2020-09-25T12:00:00Z'
 menu:
-  corda-community-4-11:
-    identifier: corda-community-4-11-business-network-management
-    parent: corda-community-4-11-corda-networks-index
+  corda-community-4-12:
+    identifier: corda-community-4-12-business-network-management
+    parent: corda-community-4-12-corda-networks-index
     weight: 1200
 tags:
 - BNO
