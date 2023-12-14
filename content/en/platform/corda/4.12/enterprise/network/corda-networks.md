@@ -3,7 +3,6 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-12:
     identifier: corda-enterprise-4-12-corda-networks
-    name: "Corda Networks"
 tags:
 - corda
 - networks
