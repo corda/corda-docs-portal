@@ -1,10 +1,10 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    identifier: corda-enterprise-4-11-component-library-index
+  corda-enterprise-4-12:
+    identifier: corda-enterprise-4-12-component-library-index
     name: "Component library"
-    parent: corda-enterprise-4-11-cordapps
+    parent: corda-enterprise-4-12-cordapps
 tags:
 - component
 - library

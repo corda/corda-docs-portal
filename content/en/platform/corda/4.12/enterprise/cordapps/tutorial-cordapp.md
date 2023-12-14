@@ -8,8 +8,8 @@ aliases:
 - /docs/corda-os/tutorial-cordapp.html
 date: '2021-07-15'
 menu:
-  corda-enterprise-4-11:
-    parent: corda-enterprise-4-11-cordapps
+  corda-enterprise-4-12:
+    parent: corda-enterprise-4-12-cordapps
 tags:
 - tutorial
 - cordapp
@@ -106,7 +106,7 @@ The project containing the sample CorDapp opens.
     See [Appendix B]({{< relref "#appendix-b-node-structure" >}}) for the node structure.
 
 {{< note >}}
-`deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would instead create a single node as described in [Creating nodes locally]({{< relref "../node/deploy/generating-a-node.md" >}}), and build your CorDapp JARs as described in [Building and installing a CorDapp]({{< relref "cordapp-build-systems.md" >}}). 
+`deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would instead create a single node as described in [Creating nodes locally]({{< relref "../node/deploy/generating-a-node.md" >}}), and build your CorDapp JARs as described in [Building and installing a CorDapp]({{< relref "cordapp-build-systems.md" >}}).
 {{< /note >}}
 
 

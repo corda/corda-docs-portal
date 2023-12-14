@@ -1,9 +1,9 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    identifier: corda-enterprise-4-11-corda-notary-metrics
-    parent: corda-enterprise-4-11-corda-nodes-notary-operate
+  corda-enterprise-4-12:
+    identifier: corda-enterprise-4-12-corda-notary-metrics
+    parent: corda-enterprise-4-12-corda-nodes-notary-operate
 tags:
 - notary
 - metrics

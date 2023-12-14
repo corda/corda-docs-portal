@@ -1,8 +1,8 @@
 ---
 date: '2020-12-11T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    parent: corda-enterprise-4-11-corda-networks
+  corda-enterprise-4-12:
+    parent: corda-enterprise-4-12-corda-networks
 tags:
 - corda
 - networks

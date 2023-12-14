@@ -1,9 +1,9 @@
 ---
 date: '2023-01-12'
 menu:
-  corda-enterprise-4-11:
-    identifier: corda-enterprise-4-11-oracles
-    parent: corda-enterprise-4-11-supplementary-tutorials-index
+  corda-enterprise-4-12:
+    identifier: corda-enterprise-4-12-oracles
+    parent: corda-enterprise-4-12-supplementary-tutorials-index
     weight: 200
 tags:
 - oracles

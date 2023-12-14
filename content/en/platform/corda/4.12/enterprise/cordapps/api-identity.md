@@ -1,10 +1,10 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    identifier: corda-enterprise-4-11-cordapps-identity
+  corda-enterprise-4-12:
+    identifier: corda-enterprise-4-12-cordapps-identity
     name: "Identities in a CorDapp"
-    parent: corda-enterprise-4-11-cordapps
+    parent: corda-enterprise-4-12-cordapps
 tags:
 - api
 - identity

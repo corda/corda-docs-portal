@@ -1,9 +1,9 @@
 ---
 date: '2021-08-11'
 menu:
-  corda-enterprise-4-11:
-    identifier: "corda-enterprise-4-11-enterprise-cordapp-upgrade"
-    parent: corda-enterprise-4-11-upgrading-menu
+  corda-enterprise-4-12:
+    identifier: "corda-enterprise-4-12-enterprise-cordapp-upgrade"
+    parent: corda-enterprise-4-12-upgrading-menu
 tags:
 - app
 - upgrade
@@ -70,7 +70,7 @@ been removed.
         // Dependency on Corda Community Edition
         maven { url 'https://download.corda.net/maven/corda-releases' }
         maven { url 'https://download.corda.net/maven/corda-dependencies' }
-        
+
         // Corda dependencies for the patched Quasar version
         maven { url "https://download.corda.net/maven/corda-dependencies" } // access to the patched Quasar version
     }

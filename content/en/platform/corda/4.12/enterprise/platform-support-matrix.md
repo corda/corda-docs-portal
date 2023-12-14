@@ -1,8 +1,8 @@
 ---
 date: '2023-02-13'
 menu:
-  corda-enterprise-4-11:
-    parent: about-corda-landing-4-11-enterprise
+  corda-enterprise-4-12:
+    parent: about-corda-landing-4-12-enterprise
     name: Platform support
 tags:
 - platform

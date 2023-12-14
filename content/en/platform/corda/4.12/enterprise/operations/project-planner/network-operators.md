@@ -1,8 +1,8 @@
 ---
 date: '2020-06-18T12:00:00Z'
 menu:
-  corda-enterprise-4-11:
-    parent: corda-enterprise-4-11-ops-project-planning
+  corda-enterprise-4-12:
+    parent: corda-enterprise-4-12-ops-project-planning
 tags:
 - operations
 - deployment

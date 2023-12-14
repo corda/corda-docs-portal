@@ -2,14 +2,14 @@
 title: "Bank in a Box API guide"
 date: '2023-02-14'
 menu:
-  corda-enterprise-4-11:
-    parent: bankinabox-4-11
-    identifier: bank-in-a-box-api-guide-4-11
+  corda-enterprise-4-12:
+    parent: bankinabox-4-12
+    identifier: bank-in-a-box-api-guide-4-12
 tags:
 - Bank in a Box
 - API
 weight: 400
-section_menu: corda-enterprise-4-11
+section_menu: corda-enterprise-4-12
 ---
 
 # Bank in a Box API guide
@@ -1501,7 +1501,7 @@ Sample response:
 
 ### Deposit money
 
-Send a `POST` request to the `/payments/deposit-fiat` endpoint to invoke the <a href="./back-end-guide.html#depositfiatflow">`DepositFiatFlow`</a>. The `DepositFiatFlow` is used to deposit a specified amount to an account with the provided account ID. This request requires authorization. It can be sent by an admin user. 
+Send a `POST` request to the `/payments/deposit-fiat` endpoint to invoke the <a href="./back-end-guide.html#depositfiatflow">`DepositFiatFlow`</a>. The `DepositFiatFlow` is used to deposit a specified amount to an account with the provided account ID. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `POST`.
 - Path: `/payments/deposit-fiat`.
