@@ -118,7 +118,7 @@ fun sign(ftx: FilteredTransaction): TransactionSignature {
 
 ```
 
-[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/4.11/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)
+[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/4.12/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)
 
 {{< note >}}
 The way the `FilteredTransaction` is constructed ensures that after signing of the root hash, it is impossible to add or remove

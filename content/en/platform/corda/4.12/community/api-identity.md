@@ -161,7 +161,7 @@ val twiceSignedTx = partSignedTx + sellerSignature
 
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.11/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.12/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -201,7 +201,7 @@ subFlow(IdentitySyncFlow.Receive(otherSideSession))
 
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.11/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.12/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 

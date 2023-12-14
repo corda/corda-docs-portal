@@ -365,7 +365,7 @@ database.transaction {
 }
 ```
 
-[HibernateConfigurationTest.kt](https://github.com/corda/corda/blob/release/os/4.11/node/src/test/kotlin/net/corda/node/services/persistence/HibernateConfigurationTest.kt)
+[HibernateConfigurationTest.kt](https://github.com/corda/corda/blob/release/os/4.12/node/src/test/kotlin/net/corda/node/services/persistence/HibernateConfigurationTest.kt)
 
 JDBC sessions can be used in flows and services (see “[Writing flows]({{< relref "api-flows.md" >}})”).
 

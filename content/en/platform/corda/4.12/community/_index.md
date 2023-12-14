@@ -1,20 +1,20 @@
 ---
 date: '2023-02-28'
-description: "Documentation for the 4.11 Community Edition release of Corda"
+description: "Documentation for the 4.12 Community Edition release of Corda"
 menu:
   versions:
     weight: -750
   corda-community-4-12:
     identifier: about-corda-landing-4-12-community
     weight: -5
-    name: Corda Community 4.11
+    name: Corda Community 4.12
 project: corda
 section_menu: corda-community-4-12
-title: Corda Community 4.11
-version: 'Community & Open Source 4.11'
+title: Corda Community 4.12
+version: 'Community & Open Source 4.12'
 ---
 
-# Corda Community Edition 4.11
+# Corda Community Edition 4.12
 
 Corda Community Edition is a free to use, open source version of Corda, with added optional support. By choosing to develop using this edition of Corda, you can access affordable technical support to help you take your project to market with confidence.
 

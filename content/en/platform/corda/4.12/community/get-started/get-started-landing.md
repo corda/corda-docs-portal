@@ -36,8 +36,8 @@ To start using Corda Community Edition if you have never used Corda before:
 
 To download Corda Community Edition, or to upgrade from an open source version of Corda:
 
-* Download the `.tar` [file](https://download.corda.net/corda-community-edition/4.11/community-4.11.tar).
-* Download the `.zip` [file](https://download.corda.net/corda-community-edition/4.11/community-4.11.zip)
+* Download the `.tar` [file](https://download.corda.net/corda-community-edition/4.12/community-4.12.tar).
+* Download the `.zip` [file](https://download.corda.net/corda-community-edition/4.12/community-4.12.zip)
 * Use the Docker image available on [Docker Hub](https://hub.docker.com/repository/docker/corda/community).
 
 If you are upgrading from an open source version of Corda, follow the upgrade guides to make sure your [node]({{< relref "../../community/node-upgrade-notes.md" >}}) and [CorDapps]({{< relref "../../community/upgrading-cordapps.md" >}}) are upgraded correctly.

@@ -69,7 +69,7 @@ Ensure your node is running Corda 4.0 or later.
 
 ## Step 5: Replace `corda.jar` with the new version
 
-Download the latest version of Corda from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-node/4.11/corda-node-4.11.jar).
+Download the latest version of Corda from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-node/4.12/corda-node-4.12.jar).
 Make sure it’s available on your path, and that you’ve read the [Release notes]({{< relref "release-notes.md" >}}), in particular to discover what version of Java this
 node requires.
 

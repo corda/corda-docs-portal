@@ -427,7 +427,7 @@ thread {
     fun isWaitingForShutdown(): Boolean
 ```
 
-[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.11/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
+[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.12/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
 
 ## Creating the transaction graph
 

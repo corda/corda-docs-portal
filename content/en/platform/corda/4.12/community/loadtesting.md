@@ -210,7 +210,7 @@ The `gatherRemoteState` function should check the actual remote nodes’ states 
 
 ```
 
-[LoadTest.kt](https://github.com/corda/corda/blob/release/os/4.11/tools/loadtest/src/main/kotlin/net/corda/loadtest/LoadTest.kt)
+[LoadTest.kt](https://github.com/corda/corda/blob/release/os/4.12/tools/loadtest/src/main/kotlin/net/corda/loadtest/LoadTest.kt)
 
 `gatherRemoteState` gets as input handles to all the nodes, and the current predicted state, or null if this is the initial gathering.
 

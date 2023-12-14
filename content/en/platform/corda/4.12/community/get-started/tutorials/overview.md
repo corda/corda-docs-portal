@@ -15,7 +15,7 @@ tags:
 title: Tutorials
 ---
 
-The Corda 4.11 tutorials show you how to build a basic CorDapp and add advanced features to fit your business needs.
+The Corda 4.12 tutorials show you how to build a basic CorDapp and add advanced features to fit your business needs.
 
 Follow the [Building your first CorDapp]({{< relref "build-basic-cordapp/basic-cordapp-intro.md" >}}) learning path to learn how to:
 

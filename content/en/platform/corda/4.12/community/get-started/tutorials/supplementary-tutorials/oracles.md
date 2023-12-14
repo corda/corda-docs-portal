@@ -370,7 +370,7 @@ override fun call(): TransactionSignature {
 
 ```
 
-[RatesFixFlow.kt](https://github.com/corda/corda/blob/release/os/4.11/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/RatesFixFlow.kt)
+[RatesFixFlow.kt](https://github.com/corda/corda/blob/release/os/4.12/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/RatesFixFlow.kt)
 
 As you can see, this:
 
@@ -409,7 +409,7 @@ Here’s an example of it in action from `FixingFlow.Fixer`.
 
 ```
 
-[FixingFlow.kt](https://github.com/corda/corda/blob/release/os/4.11/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/FixingFlow.kt)
+[FixingFlow.kt](https://github.com/corda/corda/blob/release/os/4.12/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/FixingFlow.kt)
 
 {{< note >}}
 When overriding be careful when making the sub-class an anonymous or inner class (object declarations in Kotlin),
@@ -455,4 +455,4 @@ You can then write tests on your mock network to verify the nodes interact with 
 
 ```
 
-For more examples, see [OracleNodeTearOffTests.kt](https://github.com/corda/corda/tree/release/os/4.11/samples/irs-demo/cordapp/workflows-irs/src/test/kotlin/net/corda/irs/api/OracleNodeTearOffTests.kt).
+For more examples, see [OracleNodeTearOffTests.kt](https://github.com/corda/corda/tree/release/os/4.12/samples/irs-demo/cordapp/workflows-irs/src/test/kotlin/net/corda/irs/api/OracleNodeTearOffTests.kt).
