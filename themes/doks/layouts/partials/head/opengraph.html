@@ -28,7 +28,7 @@
 {{ end -}}
 
 {{ $iso8601 := "2006-01-02T15:04:05-07:00" -}}
-{{ if .IsPage -}}
+{{ if or .IsPage .IsSection -}}
   {{ if not .PublishDate.IsZero -}}
     <meta property="article:published_time" {{ .PublishDate.Format $iso8601 | printf "content=%q" | safeHTMLAttr }}>
   {{ else if not .Date.IsZero -}}
