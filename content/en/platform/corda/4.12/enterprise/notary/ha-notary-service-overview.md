@@ -8,7 +8,7 @@ tags:
 - notary
 - service
 - overview
-title: Notary service overview
+title: Corda Notaries
 weight: 10
 ---
 

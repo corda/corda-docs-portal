@@ -6,7 +6,7 @@ menu:
 tags:
 - corda
 - networks
-title: Understanding Corda Networks
+title: Corda Networks
 weight: 10
 ---
 
