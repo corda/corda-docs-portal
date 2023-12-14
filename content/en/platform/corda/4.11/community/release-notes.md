@@ -48,8 +48,6 @@ Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
 
 Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this new improved protocol. The recovery flows that take advantage of this new protocol are present only in the Corda Enterprise edition.
 
-See [Two Phase Finality]({{< relref "two-phase-finality.md" >}}).
-
 ### Upgraded dependencies
 
 The following dependencies have been upgraded to address critical and high-severity security vulnerabilities:
