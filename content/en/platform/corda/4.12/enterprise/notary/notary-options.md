@@ -11,7 +11,7 @@ tags:
 - service
 - overview
 title: Notary options in Corda Enterprise
-weight: 10
+weight: 50
 ---
 
 

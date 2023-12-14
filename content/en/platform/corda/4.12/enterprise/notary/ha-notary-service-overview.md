@@ -9,7 +9,7 @@ tags:
 - service
 - overview
 title: Corda Notaries
-weight: 10
+weight: 40
 ---
 
 
