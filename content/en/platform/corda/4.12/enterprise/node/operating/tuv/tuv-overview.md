@@ -17,7 +17,7 @@ Corda 4.12 has been released on and is compatible with JDK 17 and Kotlin 1.8. Th
 
 Before migrating to Corda 4.12, you must also ensure that the transactions committed to the database using the older Corda version are valid, verifiable and deserializable post-migration. You can do it using Transaction Validator Utility (TVU) which streams and performs validation on database transactions. TVU's useful features include:
 
-* Transaction validation: Can validate (verify and deserialize) transactions by streaming them from the database. You can provide the database credentials as Hikari properties. They can also be read directly from a node using its node.conf.
+* Transaction validation: Can validate (verify and deserialize) transactions by streaming them from the database. You can provide the database credentials as Hikari properties and they can also be read directly from a node using its node.conf.
 * Progress registration: The utility registers its runtime progress with reference to the number of transactions processed.
 * Progress reloading: Since the number of transactions can be high (possibly millions), the utility can be paused and resumed at a later point in time.
 * Transaction time loading: Since the number of transactions can be high (possibly millions), the utility can start processing transactions from a supplied transaction time.
