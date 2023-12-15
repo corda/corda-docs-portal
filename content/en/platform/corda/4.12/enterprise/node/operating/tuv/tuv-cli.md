@@ -3,15 +3,15 @@ date: '2023-12-15'
 section_menu: corda-enterprise-4-12
 menu:
   corda-enterprise-4-12:
-    identifier: corda-enterprise-4-12-backchain-verification
+    identifier: corda-enterprise-4-12-tuv-cli
     parent: corda-enterprise-4-12-tuv
 tags:
-- backchain
+- tuv cli
 - tuv
 - transaction validator utility
-title: Backchain verification
-weight: 500
+title: Transaction Validator Utility CLI commands
+weight: 200
 ---
 
-# Backchain verification
+# Transaction Validator Utility CLI commands
 

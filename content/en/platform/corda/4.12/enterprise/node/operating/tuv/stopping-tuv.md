@@ -3,15 +3,15 @@ date: '2023-12-15'
 section_menu: corda-enterprise-4-12
 menu:
   corda-enterprise-4-12:
-    identifier: corda-enterprise-4-12-backchain-verification
+    identifier: corda-enterprise-4-12-stopping-tuv
     parent: corda-enterprise-4-12-tuv
 tags:
-- backchain
+- stopping tuv
 - tuv
 - transaction validator utility
-title: Backchain verification
-weight: 500
+title: Stopping Transaction Validator Utility
+weight: 400
 ---
 
-# Backchain verification
+# Stopping Transaction Validator Utility
 

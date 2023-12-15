@@ -6,12 +6,12 @@ menu:
     identifier: corda-enterprise-4-12-backchain-verification
     parent: corda-enterprise-4-12-tuv
 tags:
-- backchain
+- test tuv
 - tuv
 - transaction validator utility
-title: Backchain verification
-weight: 500
+title: Testing Transaction Validator Utility
+weight: 600
 ---
 
-# Backchain verification
+# Testing Transaction Validator Utility
 
