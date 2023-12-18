@@ -6,12 +6,23 @@ menu:
     identifier: corda-enterprise-4-12-testing-tuv
     parent: corda-enterprise-4-12-tuv
 tags:
-- test tuv
+- pluggable tuv
 - tuv
 - transaction validator utility
-title: Testing Transaction Validator Utility
+title: Creating Transaction Validator Utility classes
 weight: 600
 ---
 
-# Testing Transaction Validator Utility
+# Creating Transaction Validator Utility classes
 
+Apart from verification and deserialization, you may also want to perform other tasks on your transactions using TUV. To do that you can provide your own class and run its logic on every transaction.
+The following is an example of a pluggable project that logs transactions. You can use this project to test the utility and as a starting point for any project that needs to be pluggable in the TVU.
+
+To run the project from the command-line:
+
+1. Navigate to the enterprise base directory.
+2. Create a JAR file under `samples/log-transaction/build/libs` by running:
+* If you are using Unix, run `./gradlew tools:transaction-validator:samples:logtransaction:build`.
+* If you are using Windows, run `gradlew tools:transaction-validator:samples:logtransaction:build`.
+4. Place the JAR in the node's drivers directory (`<node-base>/drivers`).
+5. Run the TVU using the `-c` CLI option specifying full class name, for example, `-c net.corda.tvu.LogTransaction`.
