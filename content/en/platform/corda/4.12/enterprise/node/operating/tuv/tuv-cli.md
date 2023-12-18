@@ -116,11 +116,11 @@ Since the utility does not support transaction ID re-verification with progress 
 
 You can modify and use the following TUV CLI command examples in your project.
 
-### Deserialize transactions
+### Deserialize transactions using a CorDapp
 
 Intent:
 * Connect to the datasource given (`-d` option)
-* Register and reload progress from file register.txt (`-l` option)
+* Register and reload progress from the `register.txt` file (`-l` option)
 * Use CorDapp in `/Users/suhas.srivastava/IdeaProjects/corda/cordapp-template-java/build/libs` directory to deserialize transactions (`--cordapp-dir` option)
 
 Command: `-d dataSource.url=jdbc:postgresql://localhost:5432/postgres -d dataSource.user=postgres -d dataSource.password=my_password -d dataSourceClassName=org.postgresql.ds.PGSimpleDataSource -l register.txt --cordapp-dir /Users/suhas.srivastava/IdeaProjects/corda/cordapp-template-java/build/libs`
