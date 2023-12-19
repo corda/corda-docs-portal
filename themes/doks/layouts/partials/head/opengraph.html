@@ -8,50 +8,10 @@
   <meta property="og:url" content="{{ .Permalink }}">
 {{ end -}}
 
-{{ with $.Params.images -}}
-  {{ range first 6 . -}}
-  <meta property="og:image" content="{{ $.Permalink }}{{ . }}">
-  {{ end -}}
-{{ else -}}
-  {{ $images := $.Resources.ByType "image" -}}
-  {{ $featured := $images.GetMatch "*feature*" -}}
-  {{ if not $featured -}}
-    {{ $featured = $images.GetMatch "{*cover*,*thumbnail*}" }}
-  {{ end -}}
-  {{ with $featured -}}
-    <meta property="og:image" content="{{ $featured.Permalink }}"/>
-  {{ else -}}
-  {{/* If no image featured for the page, generate an image that includes the pages title */}}
-    {{ with $.Site.Params.images -}}
-      
-      {{ $font := resources.Get "poppins-latin-700.woff" }}
-      {{ $size := 80 }}
-      {{ $title := $.Title }}
-      {{ $x := 600 }}
-      {{ $y := 300 }}
-      {{ if gt (len $title) 30 }}
-        {{ $size = 70 }}
-        {{ $x = 400 }}
-        {{ $y = 200 }}
-      {{ end }}
-      {{ $textOptions := dict 
-        "size" $size
-        "x" $x "y" $y
-        "lineSpacing" 10
-        "font" (resources.Get "Poppins SemiBold 600.ttf")
-      }}
-
-      {{ $filter := images.Text $title $textOptions }}
-
-      {{ with resources.Get "images/r3-docs-open-graph-dynamic.png" }}
-        {{ with .Filter $filter }}
-          <meta property="og:image" content="{{ .Permalink }}"/>
-        {{ end }}
-      {{ end }}
-    {{ end -}}
-  {{ end -}}
-{{ end -}}
-
+{{ $featured := partial "opengraph/featured-image.html" }}
+{{ with $featured -}}
+  <meta property="og:image" content="{{ .Permalink }}"/>
+{{ end }}
 
 {{ $iso8601 := "2006-01-02T15:04:05-07:00" -}}
 {{ if or .IsPage .IsSection -}}
