@@ -2,14 +2,10 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="{{ $.Permalink }}{{ index . 0 }}">
 {{ else -}}
-  {{ $images := $.Resources.ByType "image" -}}
-  {{ $featured := $images.GetMatch "*feature*" -}}
-  {{ if not $featured -}}
-    {{ $featured = $images.GetMatch "{*cover*,*thumbnail*}" -}}
-  {{ end -}}
+  {{ $featured := partial "head/featured-image.html" . }}
   {{ with $featured -}}
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="{{ $featured.Permalink }}">
+    <meta name="twitter:image" content="{{ .Permalink }}">
   {{ else -}}
     {{ with $.Site.Params.images -}}
       <meta name="twitter:card" content="summary_large_image">
