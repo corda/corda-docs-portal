@@ -21,11 +21,32 @@
   {{ with $featured -}}
     <meta property="og:image" content="{{ $featured.Permalink }}"/>
   {{ else -}}
+  {{/* If no image featured for the page, generate an image that includes the pages title */}}
     {{ with $.Site.Params.images -}}
-      <meta property="og:image" content="{{ index . 0 | absURL }}"/>
+      
+      {{ $font := resources.Get "poppins-latin-700.woff" }}
+      {{ $size := 80 }}
+      {{ $title := $.Title }}
+      {{ if gt (len $title) 20 }}
+        {{ $size = 70 }}
+      {{ end }}
+      {{ $textOptions := dict 
+        "size" $size
+        "x" 600 "y" 300
+        "font" (resources.Get "Poppins SemiBold 600.ttf")
+      }}
+
+      {{ $filter := images.Text $title $textOptions }}
+
+      {{ with resources.Get "images/r3-docs-open-graph-dynamic.png" }}
+        {{ with .Filter $filter }}
+          <meta property="og:image" content="{{ .RelPermalink }}"/>
+        {{ end }}
+      {{ end }}
     {{ end -}}
   {{ end -}}
 {{ end -}}
+
 
 {{ $iso8601 := "2006-01-02T15:04:05-07:00" -}}
 {{ if or .IsPage .IsSection -}}
