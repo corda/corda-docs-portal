@@ -27,12 +27,17 @@
       {{ $font := resources.Get "poppins-latin-700.woff" }}
       {{ $size := 80 }}
       {{ $title := $.Title }}
-      {{ if gt (len $title) 20 }}
+      {{ $x := 600 }}
+      {{ $y := 300 }}
+      {{ if gt (len $title) 30 }}
         {{ $size = 70 }}
+        {{ $x = 400 }}
+        {{ $y = 200 }}
       {{ end }}
       {{ $textOptions := dict 
         "size" $size
-        "x" 600 "y" 300
+        "x" $x "y" $y
+        "lineSpacing" 10
         "font" (resources.Get "Poppins SemiBold 600.ttf")
       }}
 
@@ -40,7 +45,7 @@
 
       {{ with resources.Get "images/r3-docs-open-graph-dynamic.png" }}
         {{ with .Filter $filter }}
-          <meta property="og:image" content="{{ .RelPermalink }}"/>
+          <meta property="og:image" content="{{ .Permalink }}"/>
         {{ end }}
       {{ end }}
     {{ end -}}
