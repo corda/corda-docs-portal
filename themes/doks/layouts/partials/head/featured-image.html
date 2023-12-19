@@ -1,5 +1,5 @@
 {{ $images := $.Resources.ByType "image" }}
-{{ $featured = $images.GetMatch "*feature*" }}
+{{ $featured := $images.GetMatch "*feature*" }}
 {{ if not $featured }}
     {{/* If no image featured for the page, generate an image that includes the pages title */}}
     {{ $size := 80 }}

@@ -8,7 +8,7 @@
   <meta property="og:url" content="{{ .Permalink }}">
 {{ end -}}
 
-{{ $featured := partial "head/featured-image.html" }}
+{{ $featured := partial "head/featured-image.html" . }}
 {{ with $featured -}}
   <meta property="og:image" content="{{ .Permalink }}"/>
 {{ end }}
