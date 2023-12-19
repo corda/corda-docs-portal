@@ -2,7 +2,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="{{ $.Permalink }}{{ index . 0 }}">
 {{ else -}}
-  {{ $featured := partial "featured-image.html" . }}
+  {{ $featured := partial "head/featured-image.html" . }}
   {{ with $featured -}}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="{{ .Permalink }}">
