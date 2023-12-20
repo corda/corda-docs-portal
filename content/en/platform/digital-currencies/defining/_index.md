@@ -1,6 +1,5 @@
 ---
 date: '2023-07-04'
-lastmod: '2023-07-04'
 section_menu: digitalcurrencies
 menu:
   digitalcurrencies:
