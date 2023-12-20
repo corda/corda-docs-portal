@@ -1,4 +1,5 @@
 ---
+description: "Learn how to create your first basic Corda 5 CorDapp."
 date: '2023-05-03'
 title: "Building Your First CorDapp"
 project: corda
@@ -18,6 +19,7 @@ Follow this learning path to build your first {{< tooltip >}}CorDapp{{< /tooltip
 ## Before You Start
 
 Before you start building your first CorDapp:
+
 - Read about [Corda key concepts]({{< relref "../../key-concepts/_index.md" >}}).
 - Install the required [prerequisites]({{< relref "../tooling/_index.md" >}}).
 - Read the CorDapp Standard Development Environment (CSDE) [installation instructions]({{< relref "../../../../../tools-corda5/csde/installing/_index.md" >}})

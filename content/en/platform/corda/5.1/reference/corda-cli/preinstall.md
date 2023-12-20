@@ -1,4 +1,5 @@
 ---
+description: "List of preinstall commands for the Corda 5.1 CLI. You can use these commands to manually check Corda's configuration."  
 date: '2023-08-10'
 version: 'Corda 5.1'
 menu:
@@ -10,12 +11,10 @@ section_menu: corda51
 title: "preinstall"
 ---
 # preinstall
-This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `preinstall` arguments. You can use these commands to manually
-check Corda's configuration, to confirm that all the Corda deployment [prerequisites]({{< relref "../../deploying-operating/deployment/prerequisites.md" >}})
+This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `preinstall` arguments. You can use these commands to manually check Corda's configuration, to confirm that all the Corda deployment [prerequisites]({{< relref "../../deploying-operating/deployment/prerequisites.md" >}})
 are running and that the correct credentials and permissions are provided to install a running Corda cluster.
 
-The YAML files used by the commands must be of the format described in the <a href="../../deploying-operating/deployment/deploying.html#configure-the-deployment">Configure the Deployment</a>
-section. This allows you to use the commands to verify the override configuration used as part of a Corda Helm installation.
+The YAML files used by the commands must be of the format described in the <a href="../../deploying-operating/deployment/deploying.html#configure-the-deployment">Configure the Deployment</a> section. This allows you to use the commands to verify the override configuration used as part of a Corda Helm installation.
 
 ## check-limits
 

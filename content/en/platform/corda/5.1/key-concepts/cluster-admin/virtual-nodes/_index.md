@@ -1,4 +1,5 @@
 ---
+description: "AN overview of Corda 5 virtual nodes for Cluster Administrators."
 title: "Virtual Nodes"
 date: 2023-07-24
 version: 'Corda 5.1'

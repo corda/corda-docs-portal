@@ -1,4 +1,5 @@
 ---
+description: "Learn the fundamentals of the Corda 5 notary, Corda’s uniqueness consensus service."
 title: "Notaries"
 date: 2023-06-08
 version: 'Corda 5.1'

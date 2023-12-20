@@ -1,4 +1,5 @@
 ---
+description: "Learn how to sign CorDapps with a custom certificate."
 date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Signing Packages with a Custom Certificate"
