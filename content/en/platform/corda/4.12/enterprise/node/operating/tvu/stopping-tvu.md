@@ -3,11 +3,11 @@ date: '2023-12-15'
 section_menu: corda-enterprise-4-12
 menu:
   corda-enterprise-4-12:
-    identifier: corda-enterprise-4-12-stopping-tuv
-    parent: corda-enterprise-4-12-tuv
+    identifier: corda-enterprise-4-12-stopping-tvu
+    parent: corda-enterprise-4-12-tvu
 tags:
-- stopping tuv
-- tuv
+- stopping tvu
+- tvu
 - transaction validator utility
 title: Stopping Transaction Validator Utility
 weight: 400

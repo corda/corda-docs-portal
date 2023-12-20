@@ -2,10 +2,10 @@
 date: '2023-12-15'
 menu:
   corda-enterprise-4-12:
-    identifier: corda-enterprise-4-12-tuv-behavior
-    parent: corda-enterprise-4-12-tuv
+    identifier: corda-enterprise-4-12-tvu-behavior
+    parent: corda-enterprise-4-12-tvu
 tags:
-- tuv
+- tvu
 - transaction validator utility
 title: Transaction Validator Utility behavior
 weight: 100
@@ -28,3 +28,8 @@ This section describes the steps that the TUV goes through when validating trans
 9. It waits for all transaction processing to complete.
 10. It disconnects cleanly from the database, shuts down the executor when all transactions are verified and writes progress and errors to underlying resources.
 11. It exits upon completion or can be stopped.
+
+## Transaction processing
+
+You can provide a class to process transactions at runtime using the `-c` or `--class-load` CLI option. If you do not provide the `-c` CLI option, then the utility defaults to load the process which performs transaction verification and deserialization.
+You can also create and load a user-defined class. To learn how to create your own pluggable class, follow the steps in the [Creating Transaction Validator Utility classes](({{< relref "testing-tuv" >}})) section.

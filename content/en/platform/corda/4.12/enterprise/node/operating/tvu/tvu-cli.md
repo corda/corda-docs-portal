@@ -3,11 +3,11 @@ date: '2023-12-15'
 section_menu: corda-enterprise-4-12
 menu:
   corda-enterprise-4-12:
-    identifier: corda-enterprise-4-12-tuv-cli
-    parent: corda-enterprise-4-12-tuv
+    identifier: corda-enterprise-4-12-tvu-cli
+    parent: corda-enterprise-4-12-tvu
 tags:
-- tuv cli
-- tuv
+- tvu cli
+- tvu
 - transaction validator utility
 title: Transaction Validator Utility CLI parameters
 weight: 200
@@ -15,7 +15,7 @@ weight: 200
 
 # Transaction Validator Utility CLI parameters
 
-The following section lists all the Transaction Validator Utility (TUV) CLI parameters. You can use them to perform various actions on transactions present in your database.
+The following section lists all the Transaction Validator Utility (TVU) CLI parameters. You can use them to perform various actions on transactions present in your database.
 
 ### -b, --base-directory
 
@@ -110,41 +110,3 @@ You can create a new time instant using any of the following:
 {{< note >}}
 When using H2 database, if the utility is not able to find the database from the provided `dataSource.url`, then H2's default behavior is to create a database at the `dataSource.url location`. To avoid this, append `;IFEXISTS=TRUE` to your `dataSource.url`.
 {{< /note >}}
-
-
-## TUV CLI command examples
-
-You can modify and use the following TUV CLI command examples in your project.
-
-### Deserialize transactions using a CorDapp
-
-Intent:
-* Connect to the datasource given (`-d` option).
-* Register and reload progress from the `register.txt` file (`-l` option).
-* Use CorDapp in `/Users/suhas.srivastava/IdeaProjects/corda/cordapp-template-java/build/libs` directory to deserialize transactions (`--cordapp-dir` option).
-
-Command: `-d dataSource.url=jdbc:postgresql://localhost:5432/postgres -d dataSource.user=postgres -d dataSource.password=my_password -d dataSourceClassName=org.postgresql.ds.PGSimpleDataSource -l register.txt --cordapp-dir /Users/suhas.srivastava/IdeaProjects/corda/cordapp-template-java/build/libs`
-
-### Load transactions for a given timestamp
-
-Intent:
-* Connect to the node database from reading `node.conf` in `/Users/suhas.srivastava/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA` (`-b` option).
-* Load transactions having transaction time greater than or equal to `2023-10-10T10:41:39.808179Z` (`--load-tx-time` option).
-
-Command: `-b /Users/suhas.srivastava/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA --load-tx-time 2023-10-10T10:41:39.808179Z`
-
-### Load transactions from a specific file
-
-Intent:
-* Connect to the node database from reading `node.conf` in `/Users/suhas.srivastava/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA` (`-b` option).
-* Only load transactions given in `/Users/suhas.srivastava/IdeaProjects/corda/enterprise/Ids.txt` file (`-i` option).
-
-Command: `-b /Users/suhas.srivastava/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA  -i /Users/suhas.srivastava/IdeaProjects/corda/enterprise/Ids.txt`
-
-### Perform user-supplied task
-
-Intent:
-* Connect to the node database from reading `node.conf` in `/Users/suhas.srivastava/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA` (`-b` option).
-* Do not validate transactions but perform a user-supplied task defined in the `net.corda.tvu.LogTransaction` class for each transaction.
-
-Command: `-b /Users/suhas.srivastava/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA -c net.corda.tvu.LogTransaction`
