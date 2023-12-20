@@ -4,6 +4,7 @@ aliases:
 - /HEAD/key-concepts.html
 - /key-concepts.html
 date: '2020-04-07T12:00:00Z'
+section_menu: corda-community-4-10
 menu:
   corda-community-4-10:
     identifier: corda-community-4-10-key-concepts
@@ -11,7 +12,7 @@ menu:
     weight: 80
 tags:
 - concepts
-title: Key concepts
+title: Key concepts 1146
 ---
 
 
