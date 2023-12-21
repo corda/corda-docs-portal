@@ -1,4 +1,5 @@
 ---
+description: "Learn how to integrate Corda into the wider ecosystem using the REST API or the external messaging API."
 title: "Integrating Corda into the Wider Ecosystem"
 date: 2023-07-26
 version: 'Corda 5.1'

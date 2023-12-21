@@ -1,4 +1,5 @@
 ---
+description: "Learn how to writes contracts as part of your first basic Corda 5 CorDapp."
 date: '2023-05-03'
 title: "Write Contracts"
 version: 'Corda 5.1'

@@ -1,4 +1,5 @@
 ---
+description: "Review the metrics generated for the Corda backing store. The backing store is responsible for abstracting database access from the uniqueness checker, and performs all read and write operations against the uniqueness database."
 date: '2023-06-14'
 version: 'Corda 5.1'
 title: "Backing Store"

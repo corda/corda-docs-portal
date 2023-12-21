@@ -1,4 +1,5 @@
 ---
+description: "Learn how Corda metrics can provide insight into the inner workings of Corda and can be used as the basis for monitoring and alerting."
 date: '2023-06-14'
 version: 'Corda 5.1'
 title: "Metrics"

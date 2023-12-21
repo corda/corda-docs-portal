@@ -1,4 +1,5 @@
 ---
+description: "Learn about Corda 5 logs. This page describes how to retrieve particular information and details the log levels and format."
 date: '2023-05-10'
 version: 'Corda 5.1'
 title: "Logs"
@@ -10,6 +11,7 @@ menu:
 section_menu: corda51
 ---
 # Logs
+
 Corda workers write their logs to standard out/standard error from where they are collected by {{< tooltip >}}Kubernetes{{< /tooltip >}}.
 You can retrieve the logs for a single pod using `kubectl`:
 

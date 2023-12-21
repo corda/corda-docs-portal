@@ -1,4 +1,5 @@
 ---
+description: "Learn how to configure key pairs and certificates for the MGM."
 date: '2023-04-07'
 version: 'Corda 5.1'
 title: "Configure Key Pairs and Certificates for the MGM"

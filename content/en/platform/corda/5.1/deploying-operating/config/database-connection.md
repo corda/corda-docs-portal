@@ -1,4 +1,5 @@
 ---
+description: "Learn how to configure database connection details."
 title: "Database Connection Configuration"
 version: 'Corda 5.1'
 date: '2023-05-16'
@@ -13,6 +14,7 @@ section_menu: corda51
 # Database Connection Configuration
 
 Database connection details must be configured differently than the standard dynamic configuration process. This is necessary not only because the details are sensitive but also to maintain operation separation between the different types of workers. For example, the {{< tooltip >}}flow worker{{< /tooltip >}} process should not have access to the database connection details. This section describes how the connection details of the following are maintained:
+
 * [Configuration Database]({{< relref "#configuration-database" >}})
 * [All Other Databases]({{< relref "#all-other-databases" >}})
 

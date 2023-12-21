@@ -1,4 +1,5 @@
 ---
+description: "Learn the most important key concepts for Corda 5 CorDapp Developers."
 title: "Architecture for CorDapp Developers"
 date: 2023-07-25
 version: 'Corda 5.1'

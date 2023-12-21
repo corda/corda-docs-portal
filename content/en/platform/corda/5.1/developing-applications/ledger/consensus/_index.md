@@ -1,4 +1,5 @@
 ---
+description: "Understand the validity and uniqueness consensus required before Corda commits transactions to the ledger."
 title: "Consensus"
 date: 2023-06-08
 version: 'Corda 5.1'

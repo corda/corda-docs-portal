@@ -1,4 +1,5 @@
 ---
+description: ""
 date: '2023-04-07'
 version: 'Corda 5.1'
 title: "Configuring Pre-Authentication Rules"

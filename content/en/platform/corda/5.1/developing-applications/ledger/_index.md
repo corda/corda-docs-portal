@@ -1,4 +1,5 @@
 ---
+description: "Learn the fundamentals of the Corda 5 CorDapp ledger."
 title: "Ledger"
 date: 2023-06-08
 version: 'Corda 5.1'

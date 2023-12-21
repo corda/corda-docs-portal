@@ -1,4 +1,5 @@
 ---
+description: "Review the metrics generated for the flow mapper. The flow mapper acts as a gateway component in the flow engine, to ensure that requests originating from outside the Corda cluster are deduplicated correctly."
 date: '2023-06-14'
 version: 'Corda 5.1'
 title: "Flow Mapper"

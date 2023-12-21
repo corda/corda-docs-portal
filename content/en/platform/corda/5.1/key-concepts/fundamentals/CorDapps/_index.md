@@ -1,4 +1,5 @@
 ---
+description: "Learn about the architecture of Corda 5 CorDapps."
 title: "CorDapps"
 date: 2023-06-07
 version: 'Corda 5.1'
