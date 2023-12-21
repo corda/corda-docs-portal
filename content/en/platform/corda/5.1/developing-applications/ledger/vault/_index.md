@@ -1,4 +1,5 @@
 ---
+description: "Learn the fundamentals of the Corda 5 CorDapp vault."
 title: "Vault"
 date: 2023-06-08
 version: 'Corda 5.1'
@@ -17,11 +18,13 @@ A Corda vault is a database containing all data from the ledger relevant to a pa
 ## Spent and Unspent States
 
 Unspent or unconsumed states represent:
+
 * Fungible states available for spending.
 * States available to transfer to another party.
 * Linear states available for evolution. For example, in response to a lifecycle event on a deal.
 
 Spent or consumed states represent a ledger immutable state. These are kept for the purpose of:
+
 * Transaction reporting.
 * Audit and archives, including the ability to perform joins with app-private data, like customer notes.
 
@@ -31,6 +34,7 @@ Spending from the vault in this way ensures that transactions respect fungibilit
 ## Data Management on and off Ledger
 
 The vault supports the management of data in both authoritative on-ledger form and, where appropriate, shadow off-ledger form:
+
 * On-ledger data refers to {{< tooltip >}}distributed ledger{{< /tooltip >}} state (cash, deals, trades) to which a party is participant. The on-ledger store tracks unconsumed states. The node updates it internally when all participants verify and sign a {{< tooltip >}}smart contract{{< /tooltip >}} and commit a transaction to the ledger.
 * Off-ledger data refers to a party’s internal reference, static, and systems data.
 

@@ -1,4 +1,5 @@
 ---
+description: "View the Corda 5.1 REST API documentation."
 title: "Corda REST API"
 project: corda
 version: 'Corda 5.1'
@@ -11,6 +12,8 @@ menu:
 section_menu: corda51
 ---
 # Corda REST API
+
 This section describes the Corda REST {{< tooltip >}}API{{< /tooltip >}}, which enables operators to interact with a running version of Corda. It contains the following:
+
 * [Accessing the REST API]({{< relref "./accessing.md" >}})
 * [REST API Reference](./rest-api/openapi.html)

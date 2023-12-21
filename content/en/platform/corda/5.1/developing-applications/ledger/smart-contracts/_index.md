@@ -1,4 +1,5 @@
 ---
+description: "Learn the fundamentals of Corda 5 ledger smart contracts."
 title: "Smart Contracts"
 date: 2023-06-08
 version: 'Corda 5.1'

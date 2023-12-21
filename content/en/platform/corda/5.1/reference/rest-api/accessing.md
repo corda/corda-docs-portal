@@ -1,4 +1,5 @@
 ---
+description: "Learn how to invoke the Corda 5.1 REST API."
 title: "Accessing the REST API"
 project: corda
 version: 'Corda 5.1'
@@ -11,6 +12,7 @@ menu:
 section_menu: corda51
 ---
 # Accessing the REST API
+
 To access and invoke the REST API:
 
 1. If the REST API has not been exposed externally to the {{< tooltip >}}cluster{{< /tooltip >}} via a load balancer, forward the port by running the following command in a terminal window, replacing `<NAMESPACE>` with the Kubernetes namespace that Corda is installed in:

@@ -1,4 +1,5 @@
 ---
+description: "Get started with Corda 5.1 by learning the key concepts."
 date: '2022-08-17'
 title: "Key Concepts"
 project: corda
@@ -10,9 +11,12 @@ menu:
     weight: 950
 ---
 # Key Concepts
+
 The *Key Concepts* section provides a detailed look at {{< version >}}. This page gives an overview of {{< version >}} and contains the following:
 {{< toc >}}
+
 ## Decentralized Applications
+
 In recent decades, business processes have been transformed via the progressive adoption of new technologies.
 Each step has brought improvements and economies in terms of speed, capacity, connectivity, communication, and predictability.
 Systems have grown to the extent that single instances can no longer successfully deliver adequate solutions, leading to the rise of decentralization and a move to the cloud.
@@ -25,6 +29,7 @@ The challenge in solving this is that the two parties in our example have no abi
 Decentralized applications are the solution to this problem.
 
 ## What is DLT?
+
 DLT stands for Distributed Ledger Technology. It is a digital system for recording, storing, and processing digital data in a decentralized way across a network of computers, perhaps in different locations and involving multiple organizations.
 
 Decentralized applications are a new paradigm of application where the source of truth, represented by the application's state, can cross trust boundaries without the requirement for a central, overarching, point of control.
@@ -40,6 +45,7 @@ This ensures that the data is accurate, transparent, and tamper-evident.
 Blockchain is one popular type of DLT that is commonly used for cryptocurrencies such as Bitcoin, but there are many other types of DLT besides blockchain.
 
 ## What is Corda’s take on DLT?
+
 Corda is a distributed application platform for the creation and operation of decentralized applications, which are written using a rich Java API.
 These applications are created using standard Java development tools and packaged using Corda tooling.
 Once packaged, applications are deployed onto Corda, which executes both applications and ledger update workflows on behalf of organizational entities.
@@ -67,19 +73,18 @@ This removes the ability for information to leak out through the observation of 
 Flows use a messaging system to allow communication and updates between relevant parties. Flows are designed to be modular, meaning that each step in the flow can be executed independently and in parallel with other steps, which makes Corda efficient, with fast processing times.
 
 ## Use Case Examples
-"_Who is Corda for?_" Corda was originally designed as a {{< tooltip >}}distributed ledger{{< /tooltip >}} and system of record for the financial services industry. 
+
+"_Who is Corda for?_" Corda was originally designed as a {{< tooltip >}}distributed ledger{{< /tooltip >}} and system of record for the financial services industry.
 Within financial markets, Corda can be used to automate trading and settlement processes and reduce the need for reconciliation. 
 Additionally, Corda’s {{< tooltip >}}smart contracts{{< /tooltip >}} make it easy to automate complex financial agreements between parties. Corda is used in financial markets for use cases such as:
 
 * **Financial Market Infrastructure (FMI)** - Corda accelerates and automates settlement processes, thereby removing the need for costly and risky reconciliation processes, reducing credit, and counter-party risk and default risk arising from unsettled trades.
-* **Central Banks** - Corda enables dematerialization (also referred to as tokenization or digitalization) of central bank money into central bank digital currency (CBDC). This is applied to the replacement of RTGS (real-time gross settlement) systems, cross-border payments, and delivery versus payment (DvP) scenarios. 
+* **Central Banks** - Corda enables dematerialization (also referred to as tokenization or digitalization) of central bank money into central bank digital currency (CBDC). This is applied to the replacement of RTGS (real-time gross settlement) systems, cross-border payments, and delivery versus payment (DvP) scenarios.
 * **Banks** - Corda facilitates the overnight reconciliation of inter-bank transactions and financial asset management, including issuance, trading, and custody of dematerialized financial assets such as bonds and equities. Also, it facilitates the issuing of private money (as fiat backed digital currency) for inter-book cross-border transactions and delivery versus payment (DvP) scenarios.
 * **Exchanges** - Corda manages the lifecycle of digital financial assets and automating processes such as issuance, trading, settlement and custody.
 * **FinTechs** - Corda enables the building of solutions for the digitalizing of traditional assets, such as bills of lading, letters of credit, and precious commodities in order to increase efficiencies and reduce business risk.
- 
 Corda’s capabilities are also applicable across a broader set of markets and industries where there is a need for multi-party workflows managing transactions, data, and processes to establish a shared view of a distributed set of data, i.e. I see what you see. These include industries such as:
 
 * **Insurance** - Insurance companies use Corda to automate the settlement of claims and other transactions. Corda's smart contracts make it easy to enforce the terms of insurance policies and automate the claims process.
 * **Supply chain management** - Corda can be used in supply chain management to track goods and ensure that they are authentic and have not been tampered with. Corda's privacy features make it well-suited for managing confidential information in supply chain transactions.
 * **Healthcare** - Due to Corda being strong on privacy and confidentiality, it can be used in the healthcare industry to manage and provide access to patient data securely and ensure that patient privacy is protected.
-

@@ -1,4 +1,5 @@
 ---
+description: "Learn how to onboard a new member as a notary service representative."
 date: '2023-04-07'
 version: 'Corda 5.1'
 title: "Onboarding Notaries"
@@ -73,7 +74,7 @@ The R3 notary server CPB is signed with a DigiCert KMS signing key. To use it, i
    ```
 
 2. Import the `notary-ca-root.pem` file into the keystore:
-   ```
+   ```shell
    keytool -importcert -keystore signingkeys.pfx -storepass <keystore-password> -noprompt -alias notary-ca-root -file notary-ca-root.pem
    ```
 
@@ -156,6 +157,7 @@ This sets the following notary specific values:
 {{< note >}}
 It is currently only possible to have a single notary virtual node associated with a notary service X.500 name. The eventual intent is to allow a many-to-one mapping, similar to the high-availability notary implementation in Corda 4. This will allow a notary service to be hosted across multiple Corda clusters/regions.
 {{< /note >}}
+
 ### Register the Notary
 
 To register a member, run the following command:

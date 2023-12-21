@@ -1,4 +1,5 @@
 ---
+description: "Review the fields of each Corda configuration section."
 title: "Configuration Fields"
 project: corda
 version: 'Corda 5.1'

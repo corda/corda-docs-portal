@@ -1,4 +1,5 @@
 ---
+description: "Review the metrics generated for the UTXO ledger."
 date: '2023-10-02'
 version: 'Corda 5.1'
 title: "UTXO Ledger"
@@ -14,9 +15,8 @@ section_menu: corda51
 
 This section outlines the metrics that enable you to monitor the {{< tooltip >}}UTXO{{< /tooltip >}} ledger performance.
 
-The UTXO ledger is built on Corda’s flow functionality with several specialised processors that execute various operations.
-Each of these processors is connected via the message bus to flows. Therefore, the most prominent performance improvements
-revolve around decreasing the number of times a flow suspends and reducing the time lost to the message bus.
+The UTXO ledger is built on Corda’s flow functionality with several specialized processors that execute various operations.
+Each of these processors is connected via the message bus to flows. Therefore, the most prominent performance improvements revolve around decreasing the number of times a flow suspends and reducing the time lost to the message bus.
 
 <style>
 table th:first-of-type {

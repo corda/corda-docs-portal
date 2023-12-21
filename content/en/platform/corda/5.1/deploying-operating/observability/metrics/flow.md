@@ -1,4 +1,5 @@
 ---
+description: "Review the metrics generated for flows. These metrics measure the execution of flow classes provided by the CorDapp."
 date: '2023-06-14'
 version: 'Corda 5.1'
 title: "Flow"
@@ -12,8 +13,7 @@ section_menu: corda51
 
 # Flow
 
-Flow metrics measure the execution of flow classes provided by the {{< tooltip >}}CorDapp{{< /tooltip >}}, providing an indication of the performance
-and health of the flow engine Corda uses to execute these flows.
+Flow metrics measure the execution of flow classes provided by the {{< tooltip >}}CorDapp{{< /tooltip >}}, providing an indication of the performance and health of the flow engine Corda uses to execute these flows.
 
 <style>
 table th:first-of-type {

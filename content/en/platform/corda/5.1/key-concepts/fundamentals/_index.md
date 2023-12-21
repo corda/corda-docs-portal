@@ -1,4 +1,5 @@
 ---
+description: "Learn the fundamental key concepts of Corda 5.1."
 title: "Fundamentals"
 date: 2023-04-21
 version: 'Corda 5.1'
@@ -11,7 +12,7 @@ section_menu: corda51
 ---
 # Fundamentals
 
-Corda offers a single, global, source of truth that can be shared by multiple untrusting individuals. 
+Corda offers a single, global, source of truth that can be shared by multiple untrusting individuals.
 Corda provides this by utilizing a distributed ledger.
 {{< tooltip >}}DLT{{< /tooltip >}} has the following characteristics:
 

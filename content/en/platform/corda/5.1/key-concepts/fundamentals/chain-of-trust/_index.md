@@ -1,4 +1,5 @@
 ---
+description: "Understand Corda's chain of trust."
 title: "Chain of Trust"
 date: 2023-06-07
 version: 'Corda 5.1'

@@ -1,4 +1,5 @@
 ---
+description: "Review the metrics generated for the Corda sandbox. The sandbox supports Corda's stability and security when operating in a highly-available and multi-tenant configuration."
 date: '2023-06-14'
 version: 'Corda 5.1'
 title: "Sandbox"

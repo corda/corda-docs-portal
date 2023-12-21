@@ -1,4 +1,5 @@
 ---
+description: "Learn how to create a new Corda Package Installer (CPI) for a new version of a Corda-deployed CorDapp or an upgraded Corda cluster."
 date: '2023-11-21'
 title: "Creating CPIs"
 version: 'Corda 5.1'

@@ -1,4 +1,5 @@
 ---
+description: "Review the metrics generated for the Corda task manager. The task manager exposes metrics for underlying thread pools and jobs processing duration and count."
 date: '2023-10-26'
 version: 'Corda 5.1'
 title: "Task Manager"

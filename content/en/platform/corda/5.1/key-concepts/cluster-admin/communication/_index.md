@@ -1,4 +1,5 @@
 ---
+description: "Learn about communication within a Corda 5 cluster and from outside a Corda 5 cluster."
 title: "Cluster Communications"
 date: 2023-07-24
 version: 'Corda 5.1'

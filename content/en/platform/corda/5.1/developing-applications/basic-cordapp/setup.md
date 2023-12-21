@@ -1,4 +1,5 @@
 ---
+description: "Learn how to configure your environment for your first basic Corda 5 CorDapp."
 date: '2023-05-03'
 title: "Initial Setup"
 version: 'Corda 5.1'
