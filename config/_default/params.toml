@@ -9,8 +9,8 @@ description = "Find tutorials, sample code, developer guides, and API references
 
 ## Open Graph + Twitter Cards
 images = ["r3-docs-open-graph.png"]
-twitterSite = "cordablockchain"
-twitterCreator = "cordablockchain"
+twitterSite = "inside_r3"
+twitterCreator = "inside_r3"
 facebookAuthor = "R3blockchain"
 facebookPublisher = "R3blockchain"
 ogLocale = "en_US"
@@ -18,7 +18,7 @@ ogLocale = "en_US"
 ## JSON-LD
 schemaType = "Organization"
 schemaLogo = "logo-r3.png"
-schemaTwitter = "https://twitter.com/cordablockchain"
+schemaTwitter = "https://twitter.com/inside_r3"
 schemaLinkedIn = "https://www.linkedin.com/company/r3cev-llc/"
 schemaGitHub = "https://github.com/corda"
 schemaSection = "blog"
