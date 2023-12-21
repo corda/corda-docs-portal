@@ -13,7 +13,7 @@ weight: 100
 
 # Transaction Validator Utility behavior
 
-This section describes the steps that the TUV goes through when validating transactions present in a specified database.
+This section describes the steps that the TVU goes through when validating transactions present in a specified database.
 
 1. Upon startup, the utility connects to the specified database.
 2. If it is not able to connect to the database, it exits with an error message.
