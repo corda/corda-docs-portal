@@ -1,5 +1,5 @@
 ---
-date: '2023-08-10'
+date: '2023-03-08'
 version: 'Corda 5.1'
 title: "corda.membership"
 menu:

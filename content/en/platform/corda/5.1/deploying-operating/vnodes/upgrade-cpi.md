@@ -1,5 +1,5 @@
 ---
-date: '2023-08-10'
+date: '2023-06-12'
 title: "Upgrading a CPI"
 project: corda
 version: 'Corda 5.1'

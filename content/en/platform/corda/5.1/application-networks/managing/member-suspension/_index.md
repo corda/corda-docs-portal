@@ -1,5 +1,5 @@
 ---
-date: '2023-08-10'
+date: '2023-05-09'
 title: "Suspending Members"
 project: corda
 version: 'Corda 5.1'

@@ -69,7 +69,6 @@ So far your code should look similar to this:
 class CreateAndIssueAppleStampFlow : ClientStartableFlow
 ```
 
-
 #### Add the `call` Method
 
 1. Add the `call` method with an `ClientRequestBody` argument and `String` return type (that `ClientStartableFlow` requires to be implemented).
@@ -199,7 +198,7 @@ val notaryInfo = notaryLookup.notaryServices.single()
 {{< note >}}
 This code assumes there is only one notary service on the network. If this assumption is false, an exception will be thrown.
 For a network with multiple notary services, the CorDapp needs to implement logic to choose the appropriate notary service
-for a {{< tooltip >}}transaction{{< /tooltip >}}. Do not use `first()` instead of `single()` because it will result in non-deterministic selection of
+for a transaction. Do not use `first()` instead of `single()` because it will result in non-deterministic selection of
 a notary service when there are multiple notary services on the network.
 {{</ note >}}
 

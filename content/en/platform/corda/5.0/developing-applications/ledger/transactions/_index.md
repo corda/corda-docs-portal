@@ -12,7 +12,7 @@ section_menu: corda5
 
 # Transactions
 
-You can not edit the Corda ledger. The only way to change it is to add new transactions to it. A transaction updates the ledger by consuming existing input {{< tooltip >}}states{{< /tooltip >}} and outputting new states. The states the transaction consumes are marked “consumed”.
+You can not edit the Corda ledger. The only way to change it is to add new transactions to it. A transaction updates the ledger by consuming existing input {{< tooltip >}}states{{< /tooltip >}} and outputting new states. The states that the transaction consumes are marked “consumed”.
 Every state is immutable. It can not be changed. This is called an {{< tooltip >}}UTXO{{< /tooltip >}} model.
 
 The following is an example of a transaction with two inputs and two outputs:
