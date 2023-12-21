@@ -1,4 +1,5 @@
 ---
+description: "Learn how the Network Operator can update the current group parameters using the REST API. New group parameters are then signed by the MGM and distributed within the network."
 date: '2023-10-05'
 title: "Updating Group Parameters"
 project: corda

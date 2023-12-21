@@ -1,4 +1,5 @@
 ---
+description: "Review the metrics generated for the ledger uniqueness checker. These metrics are from the perspective of the notarization flow running on a notary virtual node."
 date: '2023-06-14'
 version: 'Corda 5.1'
 title: "Ledger Uniqueness Checker Client Service"
@@ -34,4 +35,5 @@ table th:nth-of-type(4) {
 | `corda_ledger_uniqueness_client_run_time_seconds` | Timer | <ul><li>`result_type`</li></ul> | The time taken from requesting a uniqueness check to a response being received. |
 
 Tags:
+
 * `result_type`: This tag is set to the specific type of uniqueness check result that was returned.

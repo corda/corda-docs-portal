@@ -1,4 +1,5 @@
 ---
+description: "Learn how to build an MGM CPI and upload it to your network."
 date: '2023-04-07'
 version: 'Corda 5.1'
 title: "Build the MGM CPI"

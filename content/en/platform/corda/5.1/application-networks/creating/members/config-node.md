@@ -1,4 +1,5 @@
 ---
+description: "Learn how to configure the communication properties for the a member."
 date: '2023-04-13'
 version: 'Corda 5.1'
 title: "Configure Communication Properties for the Member"
@@ -15,7 +16,7 @@ section_menu: corda51
 
 You must configure the virtual node as a network participant with the properties required for peer-to-peer messaging. The order is slightly different to {{< tooltip >}}MGM{{< /tooltip >}} onboarding because you must perform this step before registering a {{< tooltip >}}member{{< /tooltip >}}.
 
-To configure the member virtual node, run the following command, setting these properties: 
+To configure the member virtual node, run the following command, setting these properties:
 
 * `p2pTlsCertificateChainAlias` — the alias used when importing the {{< tooltip >}}TLS{{< /tooltip >}} certificate.
 * `sessionKeysAndCertificates` — contains a list of objects as you can specify multiple {{< tooltip >}}session initiation keys{{< /tooltip >}} and certificates. Each object contains the fields *[sessionKeyId]({{< relref "./key-pairs.md#generate-a-session-initiation-key-pair" >}})*, *sessionCertificateChainAlias* and *preferred*. One object in the list must have the *preferred* Boolean field set to `true`. The list cannot be empty. 
