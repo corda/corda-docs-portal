@@ -27,7 +27,7 @@ This section describes the steps that the TUV goes through when validating trans
 8. It registers any processing-related errors.
 9. It waits for all transaction processing to complete.
 10. It disconnects cleanly from the database, shuts down the executor when all transactions are verified and writes progress and errors to underlying resources.
-11. It exits upon completion or can be stopped.
+11. It exits upon completion or can be stopped. See the [Stopping Transaction Validator Utility](({{< relref "stopping-tvu" >}})) section.
 
 ## Transaction processing
 

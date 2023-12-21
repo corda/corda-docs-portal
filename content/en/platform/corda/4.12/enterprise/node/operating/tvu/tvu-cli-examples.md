@@ -24,30 +24,30 @@ The following section provides you with the examples of how you can use the TVU 
 Intent:
 * Connect to the datasource given (`-d` option).
 * Register and reload progress from the `register.txt` file (`-l` option).
-* Use CorDapp in `/Users/suhas.srivastava/IdeaProjects/corda/cordapp-template-java/build/libs` directory to deserialize transactions (`--cordapp-dir` option).
+* Use CorDapp in `/Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/libs` directory to deserialize transactions (`--cordapp-dir` option).
 
-Command: `-d dataSource.url=jdbc:postgresql://localhost:5432/postgres -d dataSource.user=postgres -d dataSource.password=my_password -d dataSourceClassName=org.postgresql.ds.PGSimpleDataSource -l register.txt --cordapp-dir /Users/suhas.srivastava/IdeaProjects/corda/cordapp-template-java/build/libs`
+Command: `-d dataSource.url=jdbc:postgresql://localhost:5432/postgres -d dataSource.user=postgres -d dataSource.password=my_password -d dataSourceClassName=org.postgresql.ds.PGSimpleDataSource -l register.txt --cordapp-dir /Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/libs`
 
 ## Load transactions for a given timestamp
 
 Intent:
-* Connect to the node database from reading `node.conf` in `/Users/suhas.srivastava/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA` (`-b` option).
+* Connect to the node database from reading `node.conf` in `/Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA` (`-b` option).
 * Load transactions having transaction time greater than or equal to `2023-10-10T10:41:39.808179Z` (`--load-tx-time` option).
 
-Command: `-b /Users/suhas.srivastava/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA --load-tx-time 2023-10-10T10:41:39.808179Z`
+Command: `-b /Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA --load-tx-time 2023-10-10T10:41:39.808179Z`
 
 ## Load transactions from a specific file
 
 Intent:
-* Connect to the node database from reading `node.conf` in `/Users/suhas.srivastava/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA` (`-b` option).
-* Only load transactions given in `/Users/suhas.srivastava/IdeaProjects/corda/enterprise/Ids.txt` file (`-i` option).
+* Connect to the node database from reading `node.conf` in `/Users/<user>/<cordapp>/corda/cordapp-template-java/build/nodes/PartyA` (`-b` option).
+* Only load transactions given in `/Users/cordallp/corda/IdeaProjects/corda/enterprise/Ids.txt` file (`-i` option).
 
-Command: `-b /Users/suhas.srivastava/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA  -i /Users/suhas.srivastava/IdeaProjects/corda/enterprise/Ids.txt`
+Command: `-b /Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA  -i /Users/suhas.srivastava/IdeaProjects/corda/enterprise/Ids.txt`
 
 ## Perform user-supplied task
 
 Intent:
-* Connect to the node database from reading `node.conf` in `/Users/suhas.srivastava/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA` (`-b` option).
+* Connect to the node database from reading `node.conf` in `/Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA` (`-b` option).
 * Do not validate transactions but perform a user-supplied task defined in the `net.corda.tvu.LogTransaction` class for each transaction.
 
-Command: `-b /Users/suhas.srivastava/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA -c net.corda.tvu.LogTransaction`
+Command: `-b /Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA -c net.corda.tvu.LogTransaction`

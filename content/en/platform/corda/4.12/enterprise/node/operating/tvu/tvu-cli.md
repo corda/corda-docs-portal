@@ -37,7 +37,9 @@ Example: `-c net.corda.tvu.SampleApp`
 
 ### --cordapp-dir
 
-Give absolute path to a directory containing CorDapps. You can provide this option zero or more times in the following way: `--cordapp-dir --cordappp-dir --cordapp-dir ...`. Provided path must be a directory. Specifying this parameter enables full transaction deserialization validation.
+Provides an absolute path to a directory containing CorDapps. Specifying this parameter enables full transaction deserialization validation. The `--cordapp-dir` CLI parameter always requires a value and provided path must be a directory. You can provide this option zero or more times in the following way:
+
+`--cordapp-dir <first-absolute-path> --cordappp-dir <second-absolute-path> --cordapp-dir <third-absolute-path>`
 
 ### -d, --datasource
 
@@ -55,7 +57,7 @@ Example: `-d dataSource.url=jdbc:h2:~/IdeaProjects/corda/cordapp-template-java/b
 
 ### -e, --error-dir-path
 
-Takes a directory path and registers errors into this path. The value for this parameters must be a directory. The utility can register errors in the provided file path and create separate error-registration files for all verification and deserialization errors for every `signedTransactionId` in a `<signedTransactionId>.dat` file. These files are then zipped as an `ErrorDirPath/<currentTimestamp>.zip`. If this parameter is missing, then current directory is taken as the `ErrorDirPath` value.
+Takes a directory path and registers errors into this path. The value for this parameter must be a directory. The utility can register errors in the provided file path and create separate error-registration files for all verification and deserialization errors for every `signedTransactionId` in a `<signedTransactionId>.dat` file. These files are then zipped as an `ErrorDirPath/<currentTimestamp>.zip`. If this parameter is missing, then current directory is taken as the `ErrorDirPath` value.
 
 {{< note >}}
 `--error-dir-path` must be a directory or an exception is thrown.
