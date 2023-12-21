@@ -240,11 +240,7 @@ The following table lists the dependency version changes between 4.10.3 and 4.11
 
 | Dependency                         | Name                | Version 4.10.3 Community | Version 4.11 Community |
 |------------------------------------|---------------------|--------------------------|------------------------|
-<<<<<<< HEAD
 | org.bouncycastle                   | Bouncy Castle       | bcprov-jdk15on:1.70      | bcprov-jdk18on:1.75    |
-=======
-| org.bouncycastle                   | Bouncy Castle       | 1.70                     | 1.75                   |
->>>>>>> release/dc/0.3b
 | co.paralleluniverse:quasar-core    | Quasar              | 0.7.15_r3                | 0.7.16_r3              |
 | org.hibernate                      | Hibernate           | 5.4.32.Final             | 5.6.14.Final           |
 | com.h2database                     | H2                  | 1.4.197                  | 2.2.2241               |
