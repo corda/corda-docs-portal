@@ -41,6 +41,10 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 ## New features and enhancements
 
+### Archive Service and Corda Enterprise compatibility
+
+The [Archive Service]({{< relref "../../../../tools/archiving-service/archiving-release-notes.md" >}}) is a standalone service that operates on a different release cadence to the Corda platform. If you intend to use it with Corda Enterprise 4.11 and above, you must use the 1.1.x version of the Archive Service. Version 1.0.x of the Archive Service is compatible with Corda 4.10 and below. The latest 1.1.x version of the Archive Service was introduced to handle the extra signatures column added to the node transactions table.
+
 ### JDK Azul and Oracle JDK upgrade
 
 Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
