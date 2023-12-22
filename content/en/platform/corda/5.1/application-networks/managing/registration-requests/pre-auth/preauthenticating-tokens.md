@@ -1,5 +1,8 @@
 ---
+<<<<<<< HEAD
 description: "Learn how the Network Operator creates, views, and revokes pre-authentication tokens."
+=======
+>>>>>>> release/platform/4.12
 date: '2023-04-07'
 version: 'Corda 5.1'
 title: "Managing Pre-Authentication Tokens"

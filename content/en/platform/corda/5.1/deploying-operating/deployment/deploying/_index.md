@@ -123,7 +123,7 @@ To push the Corda Enterprise images:
    docker tag postgres:14.4 $target_registry/postgres:14.4
    docker push $target_registry/postgres:14.4
    docker tag sha256:9a53f78a8232118072a72bda97e56f2c3395d34a212fe7e575d1af61cda059c6 $target_registry/ingress-nginx-controller:v1.9.3
-   docker push $target_registry/ingress-nginx-controller:v1.9.3   
+   docker push $target_registry/ingress-nginx-controller:v1.9.3
    ```
 
 ## Download the Corda Helm Chart
@@ -443,7 +443,7 @@ Corda requires one or more PostgreSQL database instances for the persistence of 
 If you do not configure state manager databases, Corda deploys the state managers for the flow, flow mapper, and token selection workers on the cluster database. This is not safe for production deployments.
 {{< /note >}}
 
-The configuration for these instances is defined in `stateManager` sections. At a minimum, the configuration section requires `host`, `username`, and `password`. By default, the installation expects databases named as follows:  
+The configuration for these instances is defined in `stateManager` sections. At a minimum, the configuration section requires `host`, `username`, and `password`. By default, the installation expects databases named as follows:
 
 * Flow worker: `flow_state_manager`
 * Flow mapper worker: `flow_mapper_state_manager`
@@ -466,7 +466,7 @@ workers:
             secretKeyRef:
               name: <FLOW_STATE_MANAGER_PASSWORD_SECRET_NAME>
               key: <FLOW_STATE_MANAGER_PASSWORD_SECRET_KEY>
-  
+
   flowMapper:
     stateManager:
       db:

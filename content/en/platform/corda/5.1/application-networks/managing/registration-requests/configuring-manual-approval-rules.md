@@ -1,5 +1,8 @@
 ---
+<<<<<<< HEAD
 description: "Learn how the Network Operator can configure the MGM to require that member registration requests are manually approved (or declined)."
+=======
+>>>>>>> release/platform/4.12
 date: '2023-04-07'
 version: 'Corda 5.1'
 title: "Configuring Manual Approval Rules"

@@ -1,5 +1,8 @@
 ---
+<<<<<<< HEAD
 description: "Learn how the Network Operator can configure the member registration process and review registration requests."
+=======
+>>>>>>> release/platform/4.12
 date: '2023-04-07'
 title: "Managing Member Registrations"
 project: corda

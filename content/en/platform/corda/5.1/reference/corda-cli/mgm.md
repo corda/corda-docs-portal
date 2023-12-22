@@ -1,5 +1,5 @@
 ---
-description: "List of mgm commands for the Corda 5.1 CLI. You can use these commands to execute membership operations for static networks used for testing purposes."  
+description: "List of mgm commands for the Corda 5.1 CLI. You can use these commands to execute membership operations for static networks used for testing purposes."
 date: '2022-12-20'
 version: 'Corda 5.1'
 menu:

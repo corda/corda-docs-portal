@@ -1,5 +1,8 @@
 ---
+<<<<<<< HEAD
 description: "Learn how the Network Operator can suspend and re-activate members."
+=======
+>>>>>>> release/platform/4.12
 date: '2023-05-09'
 title: "Suspending Members"
 project: corda

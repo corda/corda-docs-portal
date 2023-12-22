@@ -37,7 +37,7 @@ The migration process results in downtime for the Corda cluster.
      --set bootstrap.db.enabled=false \
      --set bootstrap.kafka.enabled=false \
      --set bootstrap.rbac.enabled=false
-   ```  
+   ```
 
 If the original Corda installation used automatic bootstrapping to generate the salt and passphrase, the installation of Corda Enterprise must also be configured with the location of the generated values in the {{< tooltip >}}Kubernetes{{< /tooltip >}} secret `$HELM_RELEASE_NAME}-config`. For example:
 ```shell

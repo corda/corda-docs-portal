@@ -1,5 +1,8 @@
 ---
+<<<<<<< HEAD
 description: "Learn how to manage application-network member registrations and update group parameters."
+=======
+>>>>>>> release/platform/4.12
 date: '2023-04-07'
 title: "Managing Members"
 version: 'Corda 5.1'

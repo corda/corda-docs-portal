@@ -1,5 +1,8 @@
 ---
+<<<<<<< HEAD
 description: "Learn how the Network Operator manages pre-authorization tokens and rules and how a registering member includes this pre-auth token in their registration request."
+=======
+>>>>>>> release/platform/4.12
 date: '2023-04-07'
 title: "Managing Pre-Authorization"
 project: corda
