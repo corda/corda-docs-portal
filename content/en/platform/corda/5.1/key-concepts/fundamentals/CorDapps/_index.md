@@ -1,4 +1,5 @@
 ---
+description: "Learn about the architecture of Corda 5 CorDapps."
 title: "CorDapps"
 date: 2023-06-07
 version: 'Corda 5.1'
@@ -16,12 +17,13 @@ A CorDapp is a Java (or any JVM targeting language) application built using the 
 
 {{<
   figure
-	 src="cordapp.png"
+	 src="featured_cordapp.png"
    width="25%"
 	 figcaption="CorDapp Architecture"
 >}}
 
 As shown in the following diagram, CorDapps are composed of two layers:
+
 * Orchestration layer
 * {{< tooltip >}}Consensus{{< /tooltip >}} layer
 
@@ -122,7 +124,6 @@ In a decentralized system, how can an entity trust the global state when it has 
 The validity of a proposal is evaluated within a decentralized system through a set of rules that each proposal must meet in order to be considered valid. Generally, this collection of rules is referred to as a {{< tooltip >}}smart contract{{< /tooltip >}} and each proposed update is governed by it.
 
 Smart contracts can have different levels of granularity (network-wide or individual data representations) but the same general principles hold true that a proposal is only accepted if the smart contract validates it. Rules in Corda can be arbitrary; however, there is a strong requirement that validity controls are deterministic as once evaluated as valid, checks on a change in the future must always return that it is valid. As a result, smart contracts can only reason about data present within the system of record: anything outside that generally leads to non-deterministic results as their presence cannot be guaranteed. The following diagram shows how valid rules update the system of record:
-
 
 {{<
   figure

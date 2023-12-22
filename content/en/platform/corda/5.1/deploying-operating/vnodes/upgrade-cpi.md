@@ -1,4 +1,5 @@
 ---
+description: "Learn how to upgrade the CPI of a virtual node using the REST API."
 date: '2023-06-12'
 title: "Upgrading a CPI"
 project: corda

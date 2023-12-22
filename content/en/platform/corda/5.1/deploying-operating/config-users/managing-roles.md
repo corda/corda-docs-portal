@@ -1,4 +1,5 @@
 ---
+description: "Learn how to use RBAC permission templates to create fine-grained roles for specific actions."
 date: '2023-04-07'
 version: 'Corda 5.1'
 title: "Managing Roles and Permissions"
@@ -10,6 +11,7 @@ menu:
 section_menu: corda51
 ---
 # Managing Roles and Permissions
+
 By default, when a {{< tooltip >}}cluster{{< /tooltip >}} starts, the "super admin" {{< tooltip >}}REST user identity{{< /tooltip >}} is created, which has unrestricted access permissions.
 While this account can be used to perform any action, there is room for error if not used carefully.
 {{< tooltip >}}RBAC{{< /tooltip >}} permission templates enable you to create fine-grained roles for specific actions such as:

@@ -1,4 +1,5 @@
 ---
+description: "Learn how to configure the MGM, through which a membership group is created for a network."
 date: '2023-04-07'
 title: "Onboarding the MGM"
 project: corda
@@ -20,6 +21,7 @@ These sections describe a standard configuration. You can read about alternative
 
 {{< note >}}
 These tutorials all assume that you have:
+
 * [deployed Corda 5 to a Kubernetes cluster]({{< relref "../../../deploying-operating/deployment/deploying/_index.md" >}}).
 * cloned the [GitHub corda-runtime-os repository](https://github.com/corda/corda-runtime-os).
 

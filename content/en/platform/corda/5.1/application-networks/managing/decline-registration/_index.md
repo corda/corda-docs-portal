@@ -1,4 +1,5 @@
 ---
+description: "Learn how the Network Operator can use the MGM admin API to decline an in-progress registration request that may be stuck or displaying some other unexpected behavior."
 date: '2023-10-05'
 title: "Declining In-Progress Registrations"
 project: corda
@@ -12,8 +13,7 @@ section_menu: corda51
 ---
 # Declining In-Progress Registrations
 
-As the Network Operator, you can use the MGM admin API to decline an in-progress registration request that may be stuck or displaying
-some other unexpected behaviour.
+As the Network Operator, you can use the MGM admin API to decline an in-progress registration request that may be stuck or displaying some other unexpected behavior.
 
 {{< note >}}
 Only use this endpoint under exceptional circumstances.

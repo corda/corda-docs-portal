@@ -1,4 +1,5 @@
 ---
+description: "List of package commands for the Corda 5.1 CLI. You can use these commands to execute operations for working with CPB and CPI files. "
 date: '2023-01-06'
 version: 'Corda 5.1'
 menu:

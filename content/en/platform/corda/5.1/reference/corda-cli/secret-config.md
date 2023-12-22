@@ -1,4 +1,5 @@
 ---
+description: "List of secret-config commands for the Corda 5.1 CLI. You can use these commands to generate the configuration for use with a secrets lookup service."
 date: '2023-05-12'
 version: 'Corda 5.1'
 menu:

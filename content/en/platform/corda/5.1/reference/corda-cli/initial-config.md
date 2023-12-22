@@ -1,4 +1,5 @@
 ---
+description: "List of initial-config commands for the Corda 5.1 CLI. You can use these commands to manually perform various setup actions."
 date: '2022-12-20'
 version: 'Corda 5.1'
 menu:
@@ -10,6 +11,7 @@ section_menu: corda51
 title: "initial-config"
 ---
 # initial-config
+
 This section lists the Corda CLI `initial-config` arguments. You can use these commands to manually perform various setup actions, as described in the [Manual Bootstrapping]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md" >}}) section.
 
 ## create-user-config

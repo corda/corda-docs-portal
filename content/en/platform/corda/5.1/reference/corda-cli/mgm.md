@@ -1,4 +1,5 @@
 ---
+description: "List of mgm commands for the Corda 5.1 CLI. You can use these commands to execute membership operations for static networks used for testing purposes."
 date: '2022-12-20'
 version: 'Corda 5.1'
 menu:
@@ -10,7 +11,8 @@ section_menu: corda51
 title: "mgm"
 ---
 # mgm
-This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `mgm` arguments. You can use these commands to execute membership operations for static networks used for testing pruposes.
+
+This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `mgm` arguments. You can use these commands to execute membership operations for static networks used for testing purposes.
 
 Running the `groupPolicy` command without any arguments prints a sample `GroupPolicy.json` file that you can manually tweak.
 

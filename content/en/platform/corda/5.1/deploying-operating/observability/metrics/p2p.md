@@ -1,4 +1,5 @@
 ---
+description: "Review the metrics generated for the peer-to-peer layer. This layer is responsible for delivering messages between virtual nodes."
 date: '2023-06-14'
 version: 'Corda 5.1'
 title: "Peer-to-peer Messages and Sessions"
@@ -13,8 +14,7 @@ section_menu: corda51
 # Peer-to-peer Messages and Sessions
 
 The peer-to-peer layer is responsible for delivering messages between virtual nodes.
-When these virtual nodes are hosted in separate clusters, the exchange of messages occurs securely through end-to-end
-authenticated sessions. The following metrics are associated with both the messages and the sessions.
+When these virtual nodes are hosted in separate clusters, the exchange of messages occurs securely through end-to-end authenticated sessions. The following metrics are associated with both the messages and the sessions.
 
 <style>
 table th:first-of-type {
@@ -43,6 +43,7 @@ table th:nth-of-type(4) {
 | `corda_p2p_session_inbound`                  | SettableGauge | None                                                                                                                                | The number of inbound peer-to-peer sessions.  |
 
 Tags:
+
 * `virtualnode_source`: The source {{< tooltip >}}virtual node{{< /tooltip >}} of the message.
 * `virtualnode_destination`: The destination virtual node of the message.
 * `group`: The network within which a message is exchanged.
