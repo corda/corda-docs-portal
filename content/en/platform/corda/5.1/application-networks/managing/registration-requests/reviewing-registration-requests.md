@@ -1,8 +1,5 @@
 ---
-<<<<<<< HEAD
 description: "Learn how the Network Operator reviews and manually approves or declines registration requests."
-=======
->>>>>>> release/platform/4.12
 date: '2023-04-07'
 version: 'Corda 5.1'
 title: "Reviewing Registration Requests"
@@ -30,7 +27,7 @@ This method returns the requests in the following format:
 ```JSON
   {
     "memberInfoSubmitted": {
-      "data": 
+      "data":
     },
     "reason": "string",
     "registrationId": "string",

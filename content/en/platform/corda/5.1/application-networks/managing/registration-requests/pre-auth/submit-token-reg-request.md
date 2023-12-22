@@ -1,8 +1,5 @@
 ---
-<<<<<<< HEAD:content/en/platform/corda/5.1/application-networks/managing/registration-requests/pre-auth/submit-token-reg-request.md
 description: "Learn how registering members submit a pre-auth token in their registration context."
-=======
->>>>>>> release/platform/4.12:content/en/platform/corda/5.1/application-networks/managing/registration-requests/submit-token-reg-request.md
 date: '2023-04-07'
 version: 'Corda 5.1'
 title: "Submitting a Token in a Registration Request"

@@ -1,8 +1,5 @@
 ---
-<<<<<<< HEAD
 description: "Learn how the Network Operator can suspend and re-activate members."
-=======
->>>>>>> release/platform/4.12
 date: '2023-05-09'
 title: "Suspending Members"
 project: corda
@@ -74,7 +71,7 @@ Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f
 {{% /tab %}}
 {{< /tabs >}}
 
-`<serial-number>` is the current serial number of the member, as retrieved by the [Member Lookup endpoint]({{< relref "#search-for-members">}}). 
+`<serial-number>` is the current serial number of the member, as retrieved by the [Member Lookup endpoint]({{< relref "#search-for-members">}}).
 If the serial number does not match, the method returns a `409 CONFLICT`. This can happen if another process has updated the member information, before the suspension operation. If this occurs, you can query the Member Lookup endpoint again and decide whether to proceed with the operation.
 
 ## Activate a Member
@@ -97,7 +94,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 {{% /tab %}}
 {{< /tabs >}}
 
-`<serial-number>` is the current serial number of the member, as retrieved by the [Member REST endpoint]({{< relref "#search-for-members">}}). 
+`<serial-number>` is the current serial number of the member, as retrieved by the [Member REST endpoint]({{< relref "#search-for-members">}}).
 If the serial number does not match, the method returns a `409 CONFLICT`.
 
  Once a member has been re-activated, flow communication between it and other members can resume.
