@@ -1,5 +1,5 @@
-# Version
-corda5versions = ["Corda 5.0", "Corda 5.1"]
+# Versions. The latest Corda 5 release must be first in the list.
+corda5versions = ["Corda 5.1", "Corda 5.0"]
 
 ## Homepage
 title = "R3 Documentation"
