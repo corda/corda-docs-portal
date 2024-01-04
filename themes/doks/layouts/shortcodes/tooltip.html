@@ -48,7 +48,7 @@
 {{ $searchtermkebab := replace $searchtermlower " " "-" }}
 
 {{- /* If no version set for file, point to glossary of latest C5 version. For example, "about the docs" and tools */}}    
-{{ $versionfolder := "corda/5.1" }}
+{{ $versionfolder := replace (index .Site.Params.corda5versions 0) "Corda " "corda/" }}
 {{ $version := string (.Page.Params.version) }}
 {{ with $version }}
     {{ if ne $version "tools" }}
