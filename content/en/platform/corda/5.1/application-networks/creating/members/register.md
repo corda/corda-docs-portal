@@ -1,4 +1,5 @@
 ---
+description: "Learn how to register a member on a network."
 date: '2023-04-13'
 version: 'Corda 5.1'
 title: "Register the Member"
@@ -14,11 +15,13 @@ section_menu: corda51
 
 This section describes how to register a {{< tooltip >}}member{{< /tooltip >}} on a network. You can learn more about configuring the registration process in the [Managing Members section]({{< relref "../../managing/registration-requests/_index.md" >}}).
 This section contains the following:
+
 1. [Build Registration Context]({{< relref "#build-registration-context" >}})
 2. [Register the Member]({{< relref "#register-the-member" >}})
 3. [Confirm Registration]({{< relref "#confirm-registration" >}})
 
 ## Build Registration Context
+
 {{< note >}}
 You can retrieve the names available for signature-spec through `KeysRpcOps`. One of them is used as an example below.
 {{< /note >}}<!--will need more info-->

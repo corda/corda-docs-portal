@@ -1,4 +1,5 @@
 ---
+description: "Learn about Corda security policies and the OSGi security model that they are based on."
 title: "Security Policies"
 version: 'Corda 5.1'
 date: '2023-05-16'
@@ -21,7 +22,7 @@ Corda applies the strictest policy, `high_security.policy`, by default. You can 
 
 Policies can have `ALLOW` and `DENY` access blocks that represent a string encoded [ConditionalPermissionInfo](https://docs.osgi.org/javadoc/r4v42/org/osgi/service/condpermadmin/ConditionalPermissionInfo.html#getEncoded()). A block at a higher position has a higher priority. Each block starts with conditions that must be satisfied in order to apply that block. Next, the block lists a set of permissions that are either allowed or denied based on the block type. The [basic syntax](https://docs.osgi.org/specification/osgi.core/8.0.0/service.condpermadmin.html#i1716478) is:
 
-```
+```java
 policy      ::= access '{' conditions permissions '}' name?
 access      ::= 'ALLOW' | 'DENY'       // case insensitive 
 conditions  ::= ( '[' qname quoted-string* ']' )*
@@ -31,7 +32,7 @@ name        ::= quoted-string
 
 The following snippet shows an example of a deny-access block for the flow {{< tooltip >}}sandbox{{< /tooltip >}}:
 
-```
+```java
 DENY {
 [org.osgi.service.condpermadmin.BundleLocationCondition "FLOW/*"]
 

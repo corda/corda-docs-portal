@@ -1,4 +1,5 @@
 ---
+description: "Reference material for Corda 5.1."
 title: "References"
 project: corda
 version: 'Corda 5.1'
@@ -10,5 +11,6 @@ menu:
 section_menu: corda51
 ---
 # References
+
 This section contains reference material for use by multiple Corda personas. It contains the following:
 {{< childpages >}}

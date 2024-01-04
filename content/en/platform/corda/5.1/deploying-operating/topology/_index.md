@@ -1,4 +1,5 @@
 ---
+description: "Explore the infrastructure topology for Corda in Amazon Web Services (AWS) or Corda in Azure."
 date: '2023-02-23'
 version: 'Corda 5.1'
 title: "Infrastructure Topology"
@@ -37,39 +38,38 @@ The following diagram shows the topology used if hosting on Azure:
   figcaption="Azure Example"
 >}}
 
-
-1.  External Network:
+1. External Network:
     * Represents either the Internet, or a known peered network.
-2.  Load Balancer Firewall:
+2. Load Balancer Firewall:
     * Represents the network rules used to limit which networks are allowed to access the load balancer.
     * AWS resource provided by "EC2/Security Groups".
     * Azure resource provided by "Load balancing/Load Balancers", or "Network security groups".
     * Create your own, or use ones created at stage 5.
-3.  Load Balancer:
+3. Load Balancer:
     * Represents a load balancer that manages ingress traffic.
     * AWS resource provided by "EC2/Load Balancers".
     * Azure resource provided by "Load balancing/Load Balancers".
     * Create your own, or use one created at stage 5.
-4.  Application Ingress Firewall:
+4. Application Ingress Firewall:
     * Represents the network rules used to limit which networks are allowed to access the application network ingress.
     * AWS resource provided by "EC2/Security Groups".
     * Azure resource provided by "Network security groups".
     * Create your own, or use ones created at stage 5.
-5.  Application Ingress:
+5. Application Ingress:
     * Represents the Kubernetes Ingress Controller, or Kubernetes Service that exposes the cluster applications to the outside network.
     * Usually accompanied with a cloud-native load balancer with the ability to configure further.
     * Kubernetes resources provided by, but not limited to, "Ingress-Nginx", "Traefik Proxy", and the Kubernetes resource kind "Service" (type: LoadBalancer).
-6.  Corda.
-7.  Database Firewall:
+6. Corda.
+7. Database Firewall:
     * Represents the network rules used to limit which networks are allowed to access the database.
     * AWS resource provided by "EC2/Security Groups".
     * Azure resource provided by "Network security groups".
-8.  Database:
+8. Database:
     * Represents the datastore used by Corda.
     * Supported database engine is "PostgreSQL" (version 14.4).
     * AWS resource provided by "RDS".
     * Azure resource provided by "Azure Database for PostgreSQL flexible servers".
-9.  Egress Firewall (optional limitation):
+9. Egress Firewall (optional limitation):
     * Represents the network rules used to limit egress network access to external networks.
     * AWS resource provided by "EC2/Security Groups".
     * Azure resource provided by "Load balancing/Load Balancers", or "Network security groups".

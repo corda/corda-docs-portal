@@ -1,4 +1,5 @@
 ---
+description: "Learn how to build a Corda Package Bundle (CPB) from your Corda Package (CPK) files using Gradle or the Corda CLI."
 date: '2023-02-23'
 title: "Build a CPB"
 project: corda
@@ -17,7 +18,7 @@ You can build a CPB from your CPK files using one of the following:
 * [Gradle]({{< relref "#build-a-cpb-using-gradle" >}})
 * [Corda CLI]({{< relref "#build-a-cpb-using-the-corda-cli" >}})
 
-### Build a CPB Using Gradle
+## Build a CPB Using Gradle
 
 To build a CPB using Gradle:
 
@@ -41,11 +42,11 @@ You should always sign test CPBs with a different key used only for testing. The
    ./gradlew cpb
    ```
 
-### Build a CPB Using the Corda CLI
+## Build a CPB Using the Corda CLI
 
 To build a CPB using the {{< tooltip >}}Corda CLI{{< /tooltip >}}:
 
-1. Generate a code signing key. For example: 
+1. Generate a code signing key. For example:
 
    ```
    keytool -genkeypair -alias "<key-alias>" -keystore <signingkeys.pfx> -storepass "<keystore-password>" -dname "cn=<CPI Plugin Example - Signing Key 1, o=R3, L=London, c=GB>" -keyalg <RSA> -storetype <pkcs12> -validity <4000>
@@ -89,4 +90,3 @@ You should always sign test CPBs with a different key used only for testing. The
    {{< /tabs >}}
 
    For more information about the Corda CLI `package` command, see the [Corda CLI Reference]({{< relref "../../reference/corda-cli/package.md" >}}) section.
-   

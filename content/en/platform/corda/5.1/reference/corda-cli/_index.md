@@ -1,4 +1,5 @@
 ---
+description: "List of commands for the Corda 5.1 CLI."  
 title: "Corda CLI Commands"
 project: corda
 version: 'Corda 5.1'
@@ -11,5 +12,6 @@ menu:
 section_menu: corda51
 ---
 # Corda CLI Commands
+
 This section describes the CLI commands:
 {{< childpages >}}

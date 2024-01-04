@@ -1,4 +1,5 @@
 ---
+description: "An overview for CorDapp Developers about designing CorDapps."
 title: "Building CorDapps"
 date: 2023-07-26
 version: 'Corda 5.1'

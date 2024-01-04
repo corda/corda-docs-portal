@@ -1,4 +1,5 @@
 ---
+description: "Understand Corda 5.1 terms and phrases."
 title: "Glossary"
 date: 2023-08-17
 version: 'Corda 5.1'
@@ -11,4 +12,5 @@ section_menu: corda51
 ---
 
 # Glossary
+
 {{< glossary >}}

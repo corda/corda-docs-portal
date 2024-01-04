@@ -1,4 +1,5 @@
 ---
+description: "Understand the implications of upgrading a CorDapp for the ledger."
 date: '2023-11-20'
 title: "Ledger Implications of Upgrading CorDapps"
 project: corda

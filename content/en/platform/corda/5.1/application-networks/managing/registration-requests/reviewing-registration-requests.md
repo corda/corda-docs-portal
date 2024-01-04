@@ -1,4 +1,5 @@
 ---
+description: "Learn how the Network Operator reviews and manually approves or declines registration requests."
 date: '2023-04-07'
 version: 'Corda 5.1'
 title: "Reviewing Registration Requests"
@@ -10,7 +11,8 @@ menu:
 section_menu: corda51
 ---
 # Reviewing Registration Requests
-This section describes how to review and manually approve or decline registration requests. This process applies to registration requests that meet the criteria for manual approval specified by a [standard rule for the group]({{< relref "./configuring-manual-approval-rules.md" >}}) or by a [pre-auth rule]({{< relref "pre-auth/configuring-pre-auth-rules.md" >}}). 
+
+This section describes how to review and manually approve or decline registration requests. This process applies to registration requests that meet the criteria for manual approval specified by a [standard rule for the group]({{< relref "./configuring-manual-approval-rules.md" >}}) or by a [pre-auth rule]({{< relref "pre-auth/configuring-pre-auth-rules.md" >}}).
 
 ## Viewing Requests Pending Manual Approval
 
@@ -52,7 +54,7 @@ curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/mgm/$MGM_HOLDING_ID/a
 ## Approving a Request
 
 To approve a rquest, pass the ID of the request to the [POST method of the
-mgm/{holdingidentityshorthash}/approve/{requestid} endpoint](../../../reference/rest-api/openapi.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__approve__requestid_). You can retrieve the ID of a request from the response of the GET endpoint described in [Viewing Requests Pending Manual Approval]({{< relref "#viewing-requests-pending-manual-approval" >}}). 
+mgm/{holdingidentityshorthash}/approve/{requestid} endpoint](../../../reference/rest-api/openapi.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__approve__requestid_). You can retrieve the ID of a request from the response of the GET endpoint described in [Viewing Requests Pending Manual Approval]({{< relref "#viewing-requests-pending-manual-approval" >}}).
 
 ```bash
 curl -k -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/mgm/$MGM_HOLDING_ID/approve/<REQUEST_-_ID>
@@ -64,7 +66,7 @@ You can only approve requests that are in the `PENDING_MANUAL_APPROVAL` status.
 ## Declining a Request
 
 To decline a request, pass the ID of the request and a reason to the [POST method of the
-mgm/{holdingidentityshorthash}/decline/{requestid} endpoint](../../../reference/rest-api/openapi.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__decline__requestid_). You can retrieve the ID of a request from the response of the GET endpoint described in [Viewing Requests Pending Manual Approval]({{< relref "#viewing-requests-pending-manual-approval" >}}). 
+mgm/{holdingidentityshorthash}/decline/{requestid} endpoint](../../../reference/rest-api/openapi.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__decline__requestid_). You can retrieve the ID of a request from the response of the GET endpoint described in [Viewing Requests Pending Manual Approval]({{< relref "#viewing-requests-pending-manual-approval" >}}).
 
 ```bash
 curl -k -u $REST_API_USER:$REST_API_PASSWORD -d <REASON> $REST_API_URL/mgm/$MGM_HOLDING_ID/decline/<REQUEST_-_ID>

@@ -1,4 +1,5 @@
 ---
+description: "CorDapp Developer documentation for Corda 5.1."
 title: "Developing Applications"
 project: corda
 version: 'Corda 5.1'

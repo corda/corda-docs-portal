@@ -1,4 +1,5 @@
 ---
+description: "Understand how CorDapps are signed and verified."
 date: '2023-08-10'
 version: 'Corda 5.1'
 title: "Code Signing"
