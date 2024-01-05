@@ -17,7 +17,7 @@ The solution for this CorDapp is available in [Java](https://github.com/corda/sa
 
 Before you start building your first CorDapp:
 
-- Read about [Corda key concepts]({{< relref "../../../key-concepts.md" >}}).
+- Read about [Corda key concepts]({{< relref "../../../about-corda/corda-key-concepts.md" >}}).
 - [Get set up for CorDapp development]({{< relref "../../../getting-set-up.md" >}}).
 - [Run the sample CorDapp]({{< relref "../../../tutorial-cordapp.md" >}}).
 
