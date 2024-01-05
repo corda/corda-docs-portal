@@ -7,7 +7,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
     identifier: corda-community-4-10-key-concepts-notaries
-    parent: corda-community-4-10-key-concepts
+    parent: corda-key-concepts-4-10-community
     weight: 1080
 tags:
 - concepts

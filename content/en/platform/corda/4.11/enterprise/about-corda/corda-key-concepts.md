@@ -6,7 +6,7 @@ menu:
     parent: about-corda-landing-4-11-enterprise
     identifier: corda-enterprise-key-concepts-4-11
     weight: 100
-    name: "Corda key concepts"
+    name: "Key concepts"
 tags:
 - concepts
 - enterprise
