@@ -6,7 +6,7 @@ menu:
     parent: about-corda-landing-4-10-community
     identifier: corda-key-concepts-4-10-community
     weight: 100
-    name: "Corda key concepts"
+    name: "Key concepts"
 tags:
 - concepts
 - community

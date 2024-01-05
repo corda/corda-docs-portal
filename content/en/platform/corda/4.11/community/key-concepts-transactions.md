@@ -7,7 +7,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-11:
     identifier: corda-community-4-11-key-concepts-transactions
-    parent: corda-community-4-11-key-concepts
+    parent: corda-key-concepts-4-11-community
     weight: 1040
 tags:
 - concepts

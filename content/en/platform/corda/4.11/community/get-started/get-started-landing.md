@@ -23,7 +23,7 @@ To start using Corda Community Edition if you have never used Corda before:
    * Git
    * Gradle
 
-   For help finding these, use the [setup guide]({{< relref "../../community/getting-set-up.md" >}}).
+   For help finding these, use the [setup guide]({{< relref "../getting-set-up.md" >}}).
 
 2. Clone the CorDapp samples repository. CorDapps are applications that run on a Corda network. Run the appropriate command:
 
@@ -40,19 +40,12 @@ To download Corda Community Edition, or to upgrade from an open source version o
 * Download the `.zip` [file](https://download.corda.net/corda-community-edition/4.11/community-4.11.zip)
 * Use the Docker image available on [Docker Hub](https://hub.docker.com/repository/docker/corda/community).
 
-If you are upgrading from an open source version of Corda, follow the upgrade guides to make sure your [node]({{< relref "../../community/node-upgrade-notes.md" >}}) and [CorDapps]({{< relref "../../community/upgrading-cordapps.md" >}}) are upgraded correctly.
+If you are upgrading from an open source version of Corda, follow the upgrade guides to make sure your [node]({{< relref "../../community/node-upgrade-notes.md" >}}) and [CorDapps]({{< relref "../upgrading-cordapps.md" >}}) are upgraded correctly.
 
 ## Next steps
 
 1. Familiarize yourself with the [Corda key concepts]({{< relref "../about-corda/corda-key-concepts.md" >}}). 
-2. Run a [sample CorDapp]({{< relref "../../community/tutorial-cordapp.md" >}}) to see Corda in action.
-4. [Build your own CorDapp]({{< relref "../../community/building-a-cordapp-index.md" >}}) from scratch.
+2. Run a [sample CorDapp]({{< relref "../tutorial-cordapp.md" >}}) to see Corda in action.
+4. [Build your own CorDapp]({{< relref "../building-a-cordapp-index.md" >}}) from scratch.
 
 You can then take your Corda integration to the next level by deep-diving into specific topics in our [Corda Community Edition]({{< relref "../_index.md" >}}) documentation. You can also view the [API reference material]({{< relref "../../../../../../en/api-ref/api-ref-corda-4.md#corda-community--open-source-4x" >}}), browse [featured apps]({{< relref "../apps/apps-index.md" >}}), or browse [tools and add-ons]({{< relref "../../../../../tools/_index.md" >}}).
-
-{{< note >}}
-<b>Read Corda white papers</b>
-* The [introductory white paper](https://www.r3.com/white-papers/the-corda-platform-an-introduction-whitepaper/) describes Corda’s mission and philosophy. It’s suitable for a business audience.
-* The [technical white paper](https://www.r3.com/white-papers/corda-technical-whitepaper/) describes the architecture and protocol.
-{{< /note >}}
-

@@ -3,17 +3,17 @@ date: '2022-02-15'
 menu:
   corda-community-4-10:
     identifier: corda-community-4-10-key-concepts-webinar
-    parent: corda-community-4-10-development
-    weight: 81
+    parent: corda-key-concepts-4-10-community
+    weight: 1500
 tags:
 - concepts
 - webinar
-title: Key concept webinar series
+title: Key concepts webinars
 ---
 
-# Key concept webinars
+# Key concepts webinars
 
-Watch this series of webinars to learn more about the big ideas that make Corda work. You can also read our [key concept documentation](key-concepts.md), the [Corda Whitepaper](https://www.r3.com/white-papers/the-corda-platform-an-introduction-whitepaper/), and [Corda Technical Whitepaper](https://www.r3.com/white-papers/corda-technical-whitepaper/).
+Watch this series of webinars to learn more about the big ideas that make Corda work. You can also read our [key concept documentation]({{< relref "about-corda/corda-key-concepts.md" >}}), the [Corda Whitepaper](https://www.r3.com/white-papers/the-corda-platform-an-introduction-whitepaper/), and [Corda Technical Whitepaper](https://www.r3.com/white-papers/corda-technical-whitepaper/).
 
 
 ## 1 - The Corda Ledger
