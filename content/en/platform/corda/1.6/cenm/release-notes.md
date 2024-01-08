@@ -26,7 +26,7 @@ title: Release notes
 
 ### Fixed issues
 
-* Updated Typesafe Config version from 1.3.1 to 1.4.0 for the CENM CLI tool, enabling the resolution of environment variables in configuration files.
+* Updated Typesafe Config version from 1.3.1 to 1.4.0 for the CENM CLI tool.
 
 ### Upgraded dependencies
 
