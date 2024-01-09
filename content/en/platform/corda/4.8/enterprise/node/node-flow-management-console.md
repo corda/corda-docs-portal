@@ -22,7 +22,7 @@ It consists of two JAR files:
 * The flow management plug-in: `flow-management-plugin-<release>.jar`.
 * The permissions JAR for the plug-in: `auth-baseline-flow-management-<release>.jar`.
 
-These files can be downloaded from the Customer Hub.
+These files can be downloaded from the [Customer Hub](https://customerhub.r3.com).
 
 {{< note >}}
 In version 1.0.3, Apache Log4j dependency has been updated to version 2.17.1. This is to prevent exposure to security issues raised with earlier versions of Log4j.
