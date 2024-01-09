@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Learn how to retrieve information about the virtual nodes in a cluster, update their state, and upgrade their CPI."
+date: '2023-02-23'
 title: "Managing Virtual Nodes"
 project: corda
 version: 'Corda 5.1'
@@ -11,6 +12,7 @@ menu:
 section_menu: corda51
 ---
 # Managing Virtual Nodes
+
 This section describes how to manage virtual nodes. It contains the following:
 {{< childpages >}}
 

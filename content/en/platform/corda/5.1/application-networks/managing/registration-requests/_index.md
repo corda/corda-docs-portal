@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Learn how the Network Operator can configure the member registration process and review registration requests."
+date: '2023-04-07'
 title: "Managing Member Registrations"
 project: corda
 version: 'Corda 5.1'
@@ -38,6 +39,7 @@ The Network Operator can pre-authenticate registrations for specific members. Th
 Corda has a set of REST APIs available for managing these pre-auth tokens. Through these APIs, tokens can be created, revoked, and viewed. When viewing a token, it is possible to see the token ID, the {{< tooltip >}}X.500{{< /tooltip >}} name of the member the token is assigned to, optionally a time and date when the token expires, the token status, and additional information provided by the MGM when creating or revoking the token. For more information, see [Managing Pre-Authentication Tokens]({{< relref "pre-auth/preauthenticating-tokens.md" >}}).
 
 A registration with a pre-auth token can fail for the following reasons:
+
 * The token is not a valid UUID.
 * The token was not issued for the X.500 name of the registering member.
 * The registration was submitted after the token's time-to-live has expired.
@@ -46,4 +48,4 @@ A registration with a pre-auth token can fail for the following reasons:
 
 If any of these conditions are met, the registration is declined.
 
-Although pre-auth tokens allow registrations to bypass the standard set of registration rules configured, the Network Operator can specify that certain changes to the member's context must be reviewed, even if a pre-auth token was submitted. This is possible through a set of REST APIs very similar to those used to definine group registration approval rules. For more information, see [Configuring Pre-Authentication Rules]({{< relref "pre-auth/configuring-pre-auth-rules.md" >}}).
+Although pre-auth tokens allow registrations to bypass the standard set of registration rules configured, the Network Operator can specify that certain changes to the member's context must be reviewed, even if a pre-auth token was submitted. This is possible through a set of REST APIs very similar to those used to define group registration approval rules. For more information, see [Configuring Pre-Authentication Rules]({{< relref "pre-auth/configuring-pre-auth-rules.md" >}}).

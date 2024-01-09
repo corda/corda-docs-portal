@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Learn how to onboard members to a network."
+date: '2023-04-13'
 title: "Onboarding Members"
 project: corda
 version: 'Corda 5.1'

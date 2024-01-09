@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Learn how to configure a Corda cluster to use mutual TLS to secure connections between two clusters."
+date: '2023-04-07'
 version: 'Corda 5.1'
 title: "Mutual TLS Connections"
 menu:
@@ -19,6 +20,7 @@ As the gateway manages the TLS connections for an entire {{< tooltip >}}cluster{
 The server gateway has a set of accepted certificate subjects. As part of the client certificate verification, the server rejects a connection with a certificate that has a subject not specified in the allowed list. Before a member can register with a cluster that is configured with mutual TLS, you must add the certificate subject of that member to the allowed list of the {{< tooltip >}}MGM{{< /tooltip >}}. Once a member is successfully onboarded, the MGM distributes the certificate subject of the member to all other members in the group. The gateway in each member cluster uses this to accept TLS connections from any onboarded member.
 
 {{< note >}}
+
 * Mutual TLS is set per cluster. It must apply to all groups that the cluster hosts and all clusters that host those groups. You can not onboard a member unless the TLS type of the MGM cluster is aligned with the TLS type of the member cluster.
 * Changing the TLS type after a member or an MGM was onboarded makes any TLS connection with that member unusable.
 * A virtual node can only be configured with a single TLS certificate that will be used as both a client and a server certificate.
@@ -28,6 +30,7 @@ The server gateway has a set of accepted certificate subjects. As part of the cl
 ## Modify the Cluster Configurations
 
 To configure a cluster to use mutual TLS, you must set the `sslConfig.tlsType` flag in the `corda.p2p.gateway` configuration section to `MUTUAL` for the following:
+
 * The MGM cluster before registering the MGM.
 * All member clusters before uploading the {{< tooltip >}}CPI{{< /tooltip >}}.
 

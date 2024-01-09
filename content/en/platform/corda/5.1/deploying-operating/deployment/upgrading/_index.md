@@ -1,4 +1,5 @@
 ---
+description: "Learn how to upgrade your cluster from Corda 5.0 to Corda 5.1."
 date: '2023-11-02'
 version: 'Corda 5.1'
 title: "Upgrading from 5.0"
@@ -52,7 +53,7 @@ Follow the steps in [Migrate the Corda Cluster Database](#migrate-the-corda-clus
 
 This reveals any issues with migrating the data before incurring any downtime. It will also indicate the length of downtime required to perform a real upgrade, allowing you to schedule accordingly.
 
-For information about rolling back the Corda 5.0 to Corda {{< version-num >}} upgrade process, see [Rolling Back]().
+For information about rolling back the Corda 5.0 to Corda {{< version-num >}} upgrade process, see [Rolling Back]({{< relref "rolling-back.md" >}}).
 
 ## Scale Down the Running Corda Worker Instances
 

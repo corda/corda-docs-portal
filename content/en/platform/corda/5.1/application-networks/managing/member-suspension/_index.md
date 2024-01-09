@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Learn how the Network Operator can suspend and re-activate members."
+date: '2023-05-09'
 title: "Suspending Members"
 project: corda
 version: 'Corda 5.1'
@@ -13,11 +14,13 @@ section_menu: corda51
 # Suspending Members
 
 It is possible to temporarily suspend a {{< tooltip >}}member{{< /tooltip >}} of a group. Once a member has been suspended, Corda blocks {{< tooltip >}}flow{{< /tooltip >}} communication between it and other members of the group. A suspended member performing a member lookup can only see updates from the {{< tooltip >}}MGM{{< /tooltip >}} and not from other members. It is not possible to suspend the MGM. This section describes how to perform the following:
+
 * [Search for Members]({{< relref "#search-for-members">}})
 * [Suspend a Member]({{< relref "#suspend-a-member">}})
 * [Activate a Member]({{< relref "#activate-a-member">}})
 
 The commands shown in this section, use the following variables:
+
 * `MGM_HOLDING_ID` — the short hash of the MGM's {{< tooltip >}}holding identity{{< /tooltip >}}.
 * `X500_NAME` — the {{< tooltip >}}X.500{{< /tooltip >}} name of the member being suspended or re-activated.
 * `REST_API_URL` — the URL of the {{< tooltip >}}REST worker{{< /tooltip >}}. This may vary depending on where you have deployed your {{< tooltip >}}cluster{{< /tooltip >}} and how you have forwarded the ports. For example, `https://localhost:8888/api/v5_1`.

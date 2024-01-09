@@ -1,5 +1,6 @@
 ---
-date: '2023-10-18'
+description: "Learn how to deploy Corda 5."
+date: '2023-05-11'
 version: 'Corda 5.1'
 title: "Deploying"
 menu:
@@ -75,6 +76,8 @@ To push the Corda images:
 
    docker tag postgres:14.4 $target_registry/postgres:14.4
    docker push $target_registry/postgres:14.4
+   docker tag sha256:9a53f78a8232118072a72bda97e56f2c3395d34a212fe7e575d1af61cda059c6 $target_registry/ingress-nginx-controller:v1.9.3
+   docker push $target_registry/ingress-nginx-controller:v1.9.3
    ```
 
 ### Container Images for Corda Enterprise {{< enterprise-icon >}}
@@ -119,6 +122,8 @@ To push the Corda Enterprise images:
 
    docker tag postgres:14.4 $target_registry/postgres:14.4
    docker push $target_registry/postgres:14.4
+   docker tag sha256:9a53f78a8232118072a72bda97e56f2c3395d34a212fe7e575d1af61cda059c6 $target_registry/ingress-nginx-controller:v1.9.3
+   docker push $target_registry/ingress-nginx-controller:v1.9.3   
    ```
 
 ## Download the Corda Helm Chart
@@ -175,15 +180,24 @@ You can also view an [example configuration](#example-configuration).
 
 ### Image Registry
 
-If you are not using the Corda container images from Docker Hub, define an override specifying the name of the container registry to which you pushed the images:
+If you are not using the Corda container images from Docker Hub, define overrides specifying the name of the container registry to which you pushed the Corda, PostgreSQL, and NGINX Ingress Controller images:
 
 ```yaml
 image:
   registry: <REGISTRY-NAME>
+bootstrap:
+  db:
+    clientImage:
+      registry: <REGISTRY-NAME>
+workers:
+  tokenSelection:
+    sharding:
+      image:
+        registry: <REGISTRY-NAME>
+        repository: "ingress-nginx-controller"
 ```
 
-If the registry requires authentication, create a [Kubernetes secret](https://kubernetes.io/docs/concepts/configuration/secret/#docker-config-secrets)
-containing the container registry credentials, in the Kubernetes namespace where Corda is to be deployed. Specify an override with the name of the Kubernetes secret:
+If the registry requires authentication, create a [Kubernetes secret](https://kubernetes.io/docs/concepts/configuration/secret/#docker-config-secrets) containing the container registry credentials, in the Kubernetes namespace where Corda is to be deployed. Specify an override with the name of the Kubernetes secret:
 
 ```yaml
 imagePullSecrets:

@@ -8,7 +8,7 @@
 
     {{ if eq .IsHome true }}
       window.facetFilters = [
-        ['project:get-started', 'project:tutorials', 'project:samples', 'project:tools', 'project:announcements', 'version:Community Edition 4.11', 'version:Enterprise 4.11', 'version:CENM 1.6', 'version:Corda 5.1'],
+        ['project:get-started', 'project:tutorials', 'project:samples', 'project:tools', 'project:announcements', 'version:Community Edition 4.11', 'version:Enterprise 4.11', 'version:CENM 1.6', 'version:{{index .Site.Params.corda5versions 0}}'],
         'language:en'
       ];
 
@@ -16,24 +16,24 @@
       {{ $project := .Page.Params.project}}
       window.facetFilters = [
         ['project:{{- $project -}}'],
-        ['version:Community Edition 4.11', 'version:Enterprise 4.11', 'version:CENM 1.6', 'version:Corda 5.1'],
+        ['version:Community Edition 4.11', 'version:Enterprise 4.11', 'version:CENM 1.6', 'version:{{index .Site.Params.corda5versions 0}}'],
         'language:en'
       ];
     {{ else if eq .Page.Params.version nil }}
       {{ $project := .Page.Params.project}}
       {{ $version := .Parent.Page.Params.version}}
       window.facetFilters = [
-        ['project:{{- $project -}}'],
-        ['version:{{- $version -}}'],
+        'project:{{- $project -}}',
+        'version:{{- $version -}}',
         'language:en'
       ];
     {{ else }}
       {{ $project := .Page.Params.project}}
       {{ $version := .Page.Params.version}}
       window.facetFilters = [
-       ['project:{{- $project -}}'],
-       ['version:{{- $version -}}'],
-       'language:en'
+        'project:{{- $project -}}',
+        'version:{{- $version -}}',
+        'language:en'
       ];
     {{ end }}
   {{ end -}}

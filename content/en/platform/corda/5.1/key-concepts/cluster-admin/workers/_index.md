@@ -1,6 +1,7 @@
 ---
+description: "Learn about the Corda 5 worker processors and their own operational responsibilities."
 title: "Workers"
-date: 2023-11-14
+date: 2023-07-24
 version: 'Corda 5.1'
 menu:
   corda51:
@@ -16,7 +17,7 @@ Corda 5 introduces a distributed architecture for the Corda runtime that is base
 
 {{< 
   figure
-	 src="workers.png"
+	 src="featured_workers.png"
    width="75%"
 	 figcaption="Corda Workers"
 >}}

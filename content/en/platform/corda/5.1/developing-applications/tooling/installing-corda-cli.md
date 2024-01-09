@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Learn how to install the Corda CLI."
+date: '2023-04-12'
 version: 'Corda 5.1'
 menu:
   corda51:

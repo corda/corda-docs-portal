@@ -41,6 +41,10 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 ## New features and enhancements
 
+### Archive Service and Corda Enterprise compatibility
+
+The [Archive Service]({{< relref "../../../../tools/archiving-service/archiving-release-notes.md" >}}) is a standalone service that operates on a different release cadence to the Corda platform. If you intend to use it with Corda Enterprise 4.11 and above, you must use the 1.1.x version of the Archive Service. Version 1.0.x of the Archive Service is compatible with Corda 4.10 and below. The latest 1.1.x version of the Archive Service was introduced to handle the extra signatures column added to the node transactions table.
+
 ### JDK Azul and Oracle JDK upgrade
 
 Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
@@ -323,7 +327,7 @@ The following table lists the dependency version changes between 4.10.3 and 4.11
 
 | Dependency                         | Name                | Version 4.10.3 Enterprise | Version 4.11 Enterprise|
 |------------------------------------|---------------------|--------------------------|------------------------|
-| org.bouncycastle                   | Bouncy Castle       | 1.70                     | 1.75                   |
+| org.bouncycastle                   | Bouncy Castle       | bcprov-jdk15on:1.70      | bcprov-jdk18on:1.75    |
 | co.paralleluniverse:quasar-core    | Quasar              | 0.7.15_r3                | 0.7.16_r3              |
 | org.hibernate                      | Hibernate           | 5.4.32.Final             | 5.6.14.Final           |
 | com.h2database                     | H2                  | 1.4.197                  | 2.2.2241               |

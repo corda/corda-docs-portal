@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Learn how to execute the flows and test your first basic Corda 5 CorDapp."
+date: '2023-05-03'
 title: "Test Your CorDapp"
 version: 'Corda 5.1'
 menu:
@@ -11,8 +12,7 @@ menu:
 
 # Test Your CorDapp
 
-This tutorial guides you through the steps required to execute the {{< tooltip >}}flows{{< /tooltip >}} you have previously created,
-to confirm the {{< tooltip >}}CorDapp{{< /tooltip >}} works as expected.
+This tutorial guides you through the steps required to execute the {{< tooltip >}}flows{{< /tooltip >}} you have previously created, to confirm the {{< tooltip >}}CorDapp{{< /tooltip >}} works as expected.
 
 ## Learning Objectives
 

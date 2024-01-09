@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Learn how CorDapps can send simple messages via Kafka to external systems using the external messaging API service."
+date: '2023-06-22'
 title: "External Messaging CorDapps"
 project: corda
 version: 'Corda 5.1'
@@ -12,16 +13,18 @@ section_menu: corda51
 ---
 
 # External Messaging CorDapps {{< enterprise-icon >}}
-A running Corda {{< tooltip >}}flow{{< /tooltip >}} can send simple messages via {{< tooltip >}}Kafka{{< /tooltip >}} to external systems. 
-In {{< version >}}, this is limited to sending messages, but a future version will support both send and send-and-receive messages. 
+
+A running Corda {{< tooltip >}}flow{{< /tooltip >}} can send simple messages via {{< tooltip >}}Kafka{{< /tooltip >}} to external systems.
+In {{< version >}}, this is limited to sending messages, but a future version will support both send and send-and-receive messages.
 
 External messaging is implemented in {{< tooltip >}}CorDapps{{< /tooltip >}} by the following components:
+
 * **Channels** - abstract representations of routes from a flow to an external system. They allow Cluster Administrators and Network Operators to control the Kafka implementation of a logical channel at the cluster and virtual node level. A CorDapp Developer is responsible for defining the channels as part of the CorDapp.
 * **Routes** - configuration of the channel and its behavior for a specific virtual node. This includes the actual Kafka topic to be used, if the route is active or not, and how the flow API responds to an inactive route.
 * **Default Route Configuration** - the route configuration used, along with any channels defined in the CorDapp, to generate the virtual node’s routes. The default route configuration is defined at the cluster level and can be updated via the <a href="../reference/rest-api/openapi.html#tag/Configuration-API/operation/put_config">`config` endpoint</a> of the REST API. For more information see [Configuring External Messaging]({{< relref "../deploying-operating/external-messaging/_index.md">}}).
-* **Flow API** - an injectable flow service allows the flow to send messages via a named and configured channel to external systems. 
+* **Flow API** - an injectable flow service allows the flow to send messages via a named and configured channel to external systems.
 
-To create a CorDapp that can use external messaging, you must add a resource file to define the channel(s) to use and inject the external messaging API service into the flow: 
+To create a CorDapp that can use external messaging, you must add a resource file to define the channel(s) to use and inject the external messaging API service into the flow:
 
 1. To define the channel(s) to use:
 
@@ -72,6 +75,6 @@ To create a CorDapp that can use external messaging, you must add a resource fil
            }
        }
    }
-   ``` 
+   ```
 
    Once your CorDapp has been [packaged]({{< relref "./packaging/_index.md">}}), the Network Operator can [create a virtual node]({{< relref "../application-networks/creating/members/cpi.md">}}) to run the CorDapp. Corda creates routes for the virtual node as part of the virtual node creation process.  The Cluster Administrator must manually [create the required Kafka topics]({{< relref "../deploying-operating/external-messaging/_index.md#creating-kafka-topics">}}) and can also optionally [change the default route configuration]({{< relref "../deploying-operating/external-messaging/_index.md#configuring-external-messaging-routes">}}).

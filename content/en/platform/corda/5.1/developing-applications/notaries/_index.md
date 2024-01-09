@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Learn how to configure a notary for a Corda 5 application network."
+date: '2023-02-23'
 title: "Notaries"
 project: corda
 version: 'Corda 5.1'
@@ -44,7 +45,7 @@ The following sections describe the details of the architecture shown in the dia
 
 {{<
   figure
-	 src="non-validating-notary.jpg"
+	 src="featured_non-validating-notary.jpg"
    width=70%
 	 figcaption="The CPKs, CPBs, and CPIs involved in getting a functioning network that can run a notary (and by extension, UTXO ledger functionality)"
 	 alt="Corda 5 non-validating notary"

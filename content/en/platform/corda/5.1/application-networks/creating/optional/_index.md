@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Learn how to optionally configure a network to use mutual TLS or  session certificates."
+date: '2023-04-07'
 title: "Optional Configurations"
 project: corda
 version: 'Corda 5.1'
@@ -12,5 +13,6 @@ section_menu: corda51
 ---
 
 # Optional Configurations
+
 This section describes alternative configurations. It contains the following:
 {{< childpages >}}

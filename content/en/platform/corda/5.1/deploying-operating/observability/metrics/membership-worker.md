@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Review the metrics generated for the membership worker. The membership worker is responsible for the processing of application network functionality either on behalf of an MGM, a network member, or both."
+date: '2023-06-14'
 version: 'Corda 5.1'
 title: "Membership Worker"
 menu:
@@ -14,30 +15,26 @@ section_menu: corda51
 
 The membership worker is responsible for the processing of {{< tooltip >}}application network{{< /tooltip >}} functionality either on behalf of an {{< tooltip >}}MGM{{< /tooltip >}}, a network {{< tooltip >}}member{{< /tooltip >}}, or both.
 For an MGM, examples of this application functionality include:
+
 * handling incoming registration requests
 * network management
 * ensuring the network participants are all in sync with the latest network data
 
 For a network member, examples include:
+
 * registering with an MGM to join a network
 * managing network data sent from the MGM
 * periodically syncing network data with the MGM
 
 The timer metrics of the membership worker focus on the areas mentioned above. Specifically, the timer metrics cover:
+
 * each stage of registration on both the MGM and membership side
 * general membership actions (which at the moment only include the distribution of network data by the MGM)
 * synchronisation of network data handling on both the MGM and member sides
 
-These metrics are tagged with the name of the handler so that you can observe at a low-level exactly where time is spent
-across different processes. These handler names are tagged as the operation name. They are also tagged with the short
-hash ID and the group ID of the {{< tooltip >}}virtual node{{< /tooltip >}} the operation is performed on behalf of in order to determine if certain
-virtual nodes or groups are taking longer than others to process.
+These metrics are tagged with the name of the handler so that you can observe at a low-level exactly where time is spent across different processes. These handler names are tagged as the operation name. They are also tagged with the short hash ID and the group ID of the {{< tooltip >}}virtual node{{< /tooltip >}} the operation is performed on behalf of in order to determine if certain virtual nodes or groups are taking longer than others to process.
 
-The membership worker also includes a single gauge metric which shows the size of the network member list held in memory
-at any point. It is useful to compare any changes in the performance returned by the timer metrics to the size of the
-member list at the time to see if timings could be impacted by a growing network. The gauge metrics are also tagged by
-virtual node short hash and group ID so that it is possible to see the overall size of the member lists held in memory
-but also view it per application network.
+The membership worker also includes a single gauge metric which shows the size of the network member list held in memory at any point. It is useful to compare any changes in the performance returned by the timer metrics to the size of the member list at the time to see if timings could be impacted by a growing network. The gauge metrics are also tagged by virtual node short hash and group ID so that it is possible to see the overall size of the member lists held in memory but also view it per application network.
 
 <style>
 table th:first-of-type {

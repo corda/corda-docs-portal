@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Learn how registering members submit a pre-auth token in their registration context."
+date: '2023-04-07'
 version: 'Corda 5.1'
 title: "Submitting a Token in a Registration Request"
 menu:
@@ -10,7 +11,8 @@ menu:
 section_menu: corda51
 ---
 # Submitting a Token in a Registration Request
-After you have [generated a pre-auth token]({{< relref "pre-auth/preauthenticating-tokens.md#creating-a-token" >}}), you can distribute this to a registering {{< tooltip >}}member{{< /tooltip >}} through offline channels, outside of Corda. 
+
+After you have [generated a pre-auth token]({{< relref "preauthenticating-tokens.md#creating-a-token" >}}), you can distribute this to a registering {{< tooltip >}}member{{< /tooltip >}} through offline channels, outside of Corda.
 The registering member must then include this pre-auth token in the registration request they submit when registering. To do this, an additional key must be set in the registration context. This key is `corda.auth.token`, and the value of this key must be the pre-auth token that the {{< tooltip >}}MGM{{< /tooltip >}} provided.
 
 For example, taking this sample registration request context as a base:

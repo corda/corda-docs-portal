@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Learn how to create a Corda Package (CPK) file."
+date: '2023-02-23'
 title: "Build a CPK"
 project: corda
 version: 'Corda 5.1'
@@ -11,12 +12,15 @@ menu:
 section_menu: corda51
 ---
 # Build a CPK
+
 This section describes how to create CPKs. It contains the following:
+
 * [Configure your Project]({{< relref "#configure-your-project" >}})
 * [Sign Your Code]({{< relref "#sign-your-code" >}})
 * [Create the CPK File]({{< relref "#create-the-cpk-file" >}})
 
 ## Configure your Project
+
 To configure your CPK project:
 
 1. Add the CPK plugin to your project by adding the following to the start of the `build.gradle` file of your {{< tooltip >}}CorDapp{{< /tooltip >}} Gradle project:

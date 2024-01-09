@@ -103,7 +103,7 @@ You can use generic versions of `MoveTokensFlow` or `addMoveTokens` (not `addMov
 
 To use in-memory selection, you must ensure the CorDapp `VaultWatcherService` is installed and the service is running. This comes as part of the Tokens SDK.
 
-To initialise this service, you must select an `indexingStrategy`. An indexing strategy is used to apply an index to recorded records of Token States in in the `VaultWatcherService`. This improves querying time (and ultimately the performance of your application). As always - you can tune different use cases for better performance by selecting the appropriate indexing strategy.
+To initialise this service, you must specify the `indexingStrategies` property. An indexing strategy is used to apply an index to recorded records of Token States in in the `VaultWatcherService`. This improves querying time (and ultimately the performance of your application). As always - you can tune different use cases for better performance by selecting the appropriate indexing strategy.
 
 * **Token_Only** selection strategy indexes states only using token type and identifier.
 * **External_ID** strategy can be used to group states from many public keys connected to a given unique user ID. If you use **Accounts**, this strategy is ideal because it allows for faster querying of tokens that belong to accounts.

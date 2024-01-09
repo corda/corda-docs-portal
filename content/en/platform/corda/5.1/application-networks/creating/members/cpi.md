@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Learn how to build a member CPI and upload it to your network."
+date: '2023-04-13'
 version: 'Corda 5.1'
 title: "Build and Upload the Member CPI"
 menu:

@@ -1,4 +1,5 @@
 ---
+description: "Learn the most important key concepts for Corda 5 Cluster Administrators."
 title: "Architecture for Cluster Administrators"
 date: 2023-07-24
 version: 'Corda 5.1'

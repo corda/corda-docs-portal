@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Review the metrics generated for the crypto worker. The crypto worker is responsible for handling crypto operations in Corda, such as signing."
+date: '2023-06-14'
 version: 'Corda 5.1'
 title: "Crypto Worker"
 menu:
@@ -19,11 +20,11 @@ The keys of the virtual nodes are stored in dedicated databases per {{< tooltip 
 The crypto requests can be categorized into {{< tooltip >}}flow{{< /tooltip >}} requests and everything else. Flow requests to the crypto processor are of more importance in terms of metrics as they occur frequently and impact the time taken to complete flows. With the crypto worker metrics, you can measure the below crypto requests within the crypto worker:
 
 * Flow-crypto requests, which consist of the operations:
-    * `SigningService.sign`: The `sign` operation is initiated on the flow side and is performed in the crypto processor. It sends the bytes to be signed, along with the public part of the signing key and the signature spec, to the crypto worker.
+  * `SigningService.sign`: The `sign` operation is initiated on the flow side and is performed in the crypto processor. It sends the bytes to be signed, along with the public part of the signing key and the signature spec, to the crypto worker.
     On the crypto worker side, the crypto worker attempts to find the key in the keys hosted for the virtual node that
     sent the request and if found, it signs the bytes and returns the signature.
     The metrics in the following table pertain to the time taken to handle the entire `sign` request. Additionally, there are more detailed metrics related to key caches and the `sign` operation itself.
-    * `SigningService.findMySigningKeys`: The `findMySigningKeys` operation sends a set of public keys to the crypto worker, which then filters and returns the keys owned by the calling virtual node.
+  * `SigningService.findMySigningKeys`: The `findMySigningKeys` operation sends a set of public keys to the crypto worker, which then filters and returns the keys owned by the calling virtual node.
     The metrics in the following table are related to the time taken to handle the entire `findMySigningKeys` request. Additionally, there are metrics related to key caches.
 
 * Admin or other requests, which involve operations such as creating a new key pair for a virtual node, or list information about the keys owned by a virtual node. Regarding metrics for these requests, the following metrics pertain to the time taken to handle the requests as a whole.
@@ -57,6 +58,7 @@ table th:nth-of-type(4) {
 | `corda_crypto_signature_spec_time_seconds` | Timer | <ul><li>`operation_name`</li></ul> | The time taken for crypto signature spec operations including deserializing wire objects to signature spec and vice versa. |
 
 Tags:
+
 * `operation_name`: The name of the operation that the metric is related to.
 * `tenant`: The identifier of a tenant: it's either a virtual node identifier or a category for cluster level keys, for example {{< tooltip >}}TLS{{< /tooltip >}}.
 * `signature_spec`: The signature signing scheme name to create signatures during crypto signing operations.

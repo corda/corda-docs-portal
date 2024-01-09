@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Review the metrics generated for the database worker. The database worker is responsible for handling and serving persistence requests originating from various Corda worker types."
+date: '2023-06-14'
 version: 'Corda 5.1'
 title: "Database Worker"
 menu:
@@ -12,8 +13,8 @@ section_menu: corda51
 
 # Database Worker
 
-The database worker is the sole worker with access to the database (apart from the {{< tooltip >}}crypto worker{{< /tooltip >}}, which has its
-own dedicated database). As a result, the activities carried out within the database worker pertain to the database.
+The database worker is the sole worker with access to the database (apart from the {{< tooltip >}}crypto worker{{< /tooltip >}}), which has its
+own dedicated database. As a result, the activities carried out within the database worker pertain to the database.
 
 The database worker is responsible for handling and serving persistence requests originating from various Corda worker types,
 such as the {{< tooltip >}}flow worker{{< /tooltip >}} or the {{< tooltip >}}MGM{{< /tooltip >}} worker. The {{< tooltip >}}flow{{< /tooltip >}} persistence requests metrics presented in this section measure:

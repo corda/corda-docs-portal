@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Learn how to configure a dynamic network to use session certificates when sending messages."
+date: '2023-04-07'
 version: 'Corda 5.1'
 title: "Session Certificates"
 menu:

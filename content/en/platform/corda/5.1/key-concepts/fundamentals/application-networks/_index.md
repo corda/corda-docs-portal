@@ -1,4 +1,5 @@
 ---
+description: "Learn about Corda 5 application networks, discrete instances of a permissioned collective associated with one or more applications."
 title: "Application Networks"
 date: 2023-06-07
 version: 'Corda 5.1'
@@ -25,7 +26,7 @@ The following diagram shows the application network architecture:
 
 {{< 
   figure
-	 src="application-network.png"
+	 src="featured_application-network.png"
    width=40%
 	 figcaption="Application Network"
 >}}

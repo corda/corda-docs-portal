@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Learn how to retrieve information about the virtual nodes in a cluster using the Corda REST API."
+date: '2023-06-12'
 title: "Retrieving Virtual Nodes"
 project: corda
 version: 'Corda 5.1'
@@ -14,6 +15,7 @@ section_menu: corda51
 # Retrieving Virtual Nodes
 
 This section describes how to retrieve information about virtual nodes in a cluster. It contains the following:
+
 * [Retrieving All Virtual Nodes](#retrieving-all-virtual-nodes)
 * [Retrieving the Virtual Node of a Specific Member](#retrieving-the-virtual-node-of-a-specific-member)
 

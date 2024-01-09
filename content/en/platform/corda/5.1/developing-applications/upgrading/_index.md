@@ -1,5 +1,6 @@
 ---
-date: '2023-11-20'
+description: "Learn how to create a new version of a Corda-deployed CorDapp to upgrade your CorDapp to fix bugs, create new functionality, or change existing functionality."
+date: '2023-05-18'
 title: "Creating a New Version of a CorDapp"
 project: corda
 version: 'Corda 5.1'

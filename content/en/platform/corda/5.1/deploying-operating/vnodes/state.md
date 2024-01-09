@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Learn how to change the state of a virtual node using the REST API."
+date: '2023-06-12'
 title: "Setting the State of Virtual Nodes"
 project: corda
 version: 'Corda 5.1'

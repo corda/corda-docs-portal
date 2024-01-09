@@ -1,4 +1,5 @@
 ---
+description: "Legal information for Corda 5.1."
 title: "Third-Party Software Notices and Information"
 date: 2023-05-23
 version: 'Corda 5.1'

@@ -6,29 +6,33 @@
 {{ with $value.description}} 
     - {{ $value.description}} 
 {{ end }}    
-{{ with $value.oneOf }}
+{{ if or (isset $value "oneOf") (isset $value "enum") }}
     This must be set to one of the following values:
     <ul>
+    {{ with $value.oneOf }}
         {{ range $oneOfk, $oneOfv := $value.oneOf }}
-                <li>{{ $oneOfv.const }} - {{ $oneOfv.title }}</li>
+            <li>{{ $oneOfv.const }} - {{ $oneOfv.title }}</li>
         {{ end }}
-    </ul>
-{{ end }}
-{{ with $value.enum }}
-    This must be set to one of the following values:
-    <ul>
+    {{ end }}
+    {{ with $value.enum }}
         {{ range $enumval := $value.enum }}
             <li>{{ $enumval }}</li>
         {{ end }}
+    {{ end }}
     </ul>
-{{ end }}
-{{ if isset $value "minimum" }}
-    <br>Minimum value: {{ string ($value.minimum) }}
-{{ end }}
-{{ if isset $value "maximum" }}
-    <br>Maximum value: {{ string ($value.maximum) }}
-{{ end }}
-{{ if isset $value "default" }}
+    {{ if (isset $value "default") }}
+        {{ if eq $value.type "array" }}
+            {{ range $arrayvalue := $value.default }}
+                {{ if not (reflect.IsMap $arrayvalue)}}
+                    Default value: {{ $arrayvalue }}
+                {{ end }}
+            {{ end }}
+        {{ else if not (reflect.IsMap $value.default) }}
+            Default value: {{ string ($value.default) }} 
+        {{ end }}
+    {{ end }}
+    
+{{ else if (isset $value "default") }}
     {{ if eq $value.type "array" }}
         {{ range $arrayvalue := $value.default }}
             {{ if not (reflect.IsMap $arrayvalue)}}
@@ -38,6 +42,12 @@
     {{ else if not (reflect.IsMap $value.default) }}
         <br>Default value: {{ string ($value.default) }} 
     {{ end }}
+{{ end }}
+{{ if isset $value "minimum" }}
+    <br>Minimum value: {{ string ($value.minimum) }}
+{{ end }}
+{{ if isset $value "maximum" }}
+    <br>Maximum value: {{ string ($value.maximum) }}
 {{ end }}
 {{ $ref := index $value "$ref"}}
 {{ with $ref }}

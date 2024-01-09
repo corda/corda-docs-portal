@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Understand how to package a CorDapps."
+date: '2023-02-23'
 title: "Packaging"
 project: corda
 version: 'Corda 5.1'
@@ -11,6 +12,7 @@ menu:
 section_menu: corda51
 ---
 # Packaging
+
 Just like a regular application, your {{< tooltip >}}CorDapp{{< /tooltip >}} must be packaged for distribution and installation. Corda takes a three-layered model to its packaging design to allow maximum reusability and portability:
 
 1. **Corda Package (CPK):** Represents a single code-entity authored by a CorDapp Developer. CPKs are the Corda equivalent of a software library. They represent testable, reusable, sub-components of a final application. See [Build a CPK]({{< relref "./cpk.md">}}).

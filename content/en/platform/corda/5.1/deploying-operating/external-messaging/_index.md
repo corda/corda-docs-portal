@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Learn how Cluster Administrators configure a Corda Enterprise cluster for CorDapps that implement external messaging."
+date: '2023-06-28'
 title: "External Messaging Administration"
 project: corda
 version: 'Corda 5.1'
@@ -14,6 +15,7 @@ section_menu: corda51
 # External Messaging Administration {{< enterprise-icon >}}
 
 {{< tooltip >}}CorDapp{{< /tooltip >}} flows can send simple messages via {{< tooltip >}}Kafka{{< /tooltip >}} to external systems. For more information, see [External Messaging CorDapps]({{< relref "../../developing-applications/external-messaging.md" >}}). This section describes the cluster administration tasks required for CorDapps that implement external messaging. It contains the following:
+
 * [Configuring External Messaging Routes](#configuring-external-messaging-routes)
 * [Creating Kafka Topics](#creating-kafka-topics)
 
@@ -89,8 +91,7 @@ Corda does not create Kafka topics used for external messaging. You must manuall
 2. Manually create a Kafka topic for each route returned in `externalMessagingRouteConfiguration.currentRoutes.routes`. In the example above, create a topic named `ext.B5C16DBC7BB5.external_app_v1.receive`. For more information, see the [Manual Bootstrapping]({{< relref "../deployment/deploying/manual-bootstrapping.md">}}) section.
 
 3. Listen to the Kafka topic for messages using the `kafka-console-consumer` command. Log in to the pod or container that is running Kafka and execute the following:
-   ```
+   ```shell
    kafka-console-consumer --topic <topic-nam> --from-beginning --bootstrap-server localhost:9092
    ```
    To test that everything is working correctly, start the {{< tooltip >}}flow{{< /tooltip >}} that sends external messages. For more information, see the <a href="../reference/rest-api/openapi.html#tag/Flow-Management-API/operation/post_flow__holdingidentityshorthash_">REST API documentation of the `flow` endpoint</a>.
-

@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Review the prerequisites for deploying Corda 5."
+date: '2023-05-11'
 version: 'Corda 5.1'
 title: "Prerequisites"
 menu:

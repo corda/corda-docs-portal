@@ -1,4 +1,5 @@
 ---
+description: "Learn how to re-register a member in order to update its member-provided context or endpoint information."
 date: '2023-10-04'
 version: 'Corda 5.1'
 title: "Re-register a Member"
@@ -12,9 +13,7 @@ section_menu: corda51
 
 # Re-register a Member
 
-A {{< tooltip >}}member{{< /tooltip >}} may request to update its own member-provided context, for example,
-after key rotation or changes to its endpoint information. Additionally, a member who previously attempted to register but
-failed may wish to try again. The membership re-registration steps described in this section can be followed for both of these scenarios.
+A {{< tooltip >}}member{{< /tooltip >}} may request to update its own member-provided context, for example, after key rotation or changes to its endpoint information. Additionally, a member who previously attempted to register but failed may wish to try again. The membership re-registration steps described in this section can be followed for both of these scenarios.
 
 The instructions on this page assume that you have completed the [registration]({{< relref "register.md" >}}) steps.
 
@@ -174,12 +173,9 @@ You can learn more about configuring the registration process in the [Managing M
 
 4. Send a re-registration request using the common [registration/re-registration endpoint](../../../reference/rest-api/openapi.html#tag/Member-Registration-API/operation/get_membership__holdingidentityshorthash_).
 
-   If a member submits more than one registration request at the same time, the MGM queues the requests and processes them
-   one by one, treating each subsequent request in the queue as a re-registration attempt.
+   If a member submits more than one registration request at the same time, the MGM queues the requests and processes them one by one, treating each subsequent request in the queue as a re-registration attempt.
 
-   If a member submits multiple re-registration requests with the same serial number, the MGM processes the first request
-   (if the serial number is valid). The MGM declines the other requests because the serial number specified in
-   those requests is outdated after the first request is completed.
+   If a member submits multiple re-registration requests with the same serial number, the MGM processes the first request (if the serial number is valid). The MGM declines the other requests because the serial number specified in those requests is outdated after the first request is completed.
 
    {{< tabs >}}
    {{% tab name="Bash"%}}
@@ -200,9 +196,6 @@ You can learn more about configuring the registration process in the [Managing M
    {{% /tab %}}
    {{< /tabs >}}
 
-   This sends the request to the MGM, which should return a successful response with status `SUBMITTED`. You can check if the
-   request was approved by checking the status of the registration request.
+   This sends the request to the MGM, which should return a successful response with status `SUBMITTED`. You can check if the request was approved by checking the status of the registration request.
 
-   After successful re-registration, you should be able to see the member's information containing the `ext.sample` field in
-   their member-provided context. The member retains its most recent status in the group, for example, a suspended member
-   will remain suspended after successful re-registration.
+   After successful re-registration, you should be able to see the member's information containing the `ext.sample` field in their member-provided context. The member retains its most recent status in the group, for example, a suspended member will remain suspended after successful re-registration.

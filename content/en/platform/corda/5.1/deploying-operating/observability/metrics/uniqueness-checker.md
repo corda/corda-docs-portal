@@ -1,5 +1,6 @@
 ---
-date: '2023-08-10'
+description: "Review the metrics generated for the Corda uniqueness checker. The uniqueness checker handles the business logic of uniqueness checking."
+date: '2023-06-14'
 version: 'Corda 5.1'
 title: "Uniqueness Checker"
 menu:
@@ -17,15 +18,11 @@ The uniqueness checker and backing store metrics are from the perspective of uni
 The uniqueness checker handles the business logic of uniqueness checking.
 The implementation is batched at two levels and three categories of metrics are provided:
 
-* Metrics starting with `uniqueness_checker_batch` relate to “top level” metrics, which apply to a single batch
-  processed by the uniqueness checker. As a batch may contain requests from different {{< tooltip >}}notary{{< /tooltip >}} services and/or virtual nodes,
-  these metrics provide no context as to the identities of the batch being processed.
+* Metrics starting with `uniqueness_checker_batch` relate to “top level” metrics, which apply to a single batch processed by the uniqueness checker. As a batch may contain requests from different {{< tooltip >}}notary{{< /tooltip >}} services and/or virtual nodes, these metrics provide no context as to the identities of the batch being processed.
 
-* Metrics starting with `uniqueness_checker_subbatch` relate to “sub-batch level” metrics. Each sub-batch represents
-  a partition for each notary {{< tooltip >}}virtual node{{< /tooltip >}} identity within a batch. The virtual node identity is captured via the existing `virtualnode.source` tag.
+* Metrics starting with `uniqueness_checker_subbatch` relate to “sub-batch level” metrics. Each sub-batch represents a partition for each notary {{< tooltip >}}virtual node{{< /tooltip >}} identity within a batch. The virtual node identity is captured via the existing `virtualnode.source` tag.
 
-* Metrics starting with `uniqueness_checker_request` relate to metrics applicable to specific requests within a sub-batch,
-  such as the result of a request. Like the sub-batch metrics, these are also associated with the `virtualnode.source` tag.
+* Metrics starting with `uniqueness_checker_request` relate to metrics applicable to specific requests within a sub-batch, such as the result of a request. Like the sub-batch metrics, these are also associated with the `virtualnode.source` tag.
 
 <style>
 table th:first-of-type {
@@ -51,6 +48,7 @@ table th:nth-of-type(4) {
 | `corda_uniqueness_checker_request_count` | Counter | <ul><li>`virtualnode_source`</li><li>`result_type`</li><li>`duplicate`</li></ul> | A count of the number of requests processed. On its own this simply duplicates information that is already captured at the batch and sub-batch levels, but the tags can be used to provide additional context not available in the other metrics. |
 
 Tags:
+
 * `virtualnode_source`: The virtual node identity.
 * `result_type`: It can be used to understand the number of successful vs failed requests, and the type of failures.
 * `duplicate`: This tag is set to `true` if the uniqueness checker has seen a request for this transaction before, and is therefore simply returning the original result. Otherwise, it is `false`.

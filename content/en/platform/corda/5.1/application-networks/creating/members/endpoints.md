@@ -1,4 +1,5 @@
 ---
+description: "Learn how to make changes to a member's endpoint information by re-registering the member with the updated information."
 date: '2023-09-21'
 title: "Modify Member Endpoints"
 project: corda
