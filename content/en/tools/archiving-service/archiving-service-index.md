@@ -197,6 +197,10 @@ grant select on all tables in schema corda to archive;
 grant insert on all tables in schema corda to archive;
 ```
 
+{{< note >}}
+You must execute the commands to create backup schema after the node has set up the main schema via its `run-migration-scripts` command.
+{{< /note >}}
+
 ### Oracle
 
 You can use the following DDL statements to create a backup schema user `archive`:
@@ -212,6 +216,22 @@ This means that rights have to be current on a per table basis.
 ```
 grant select, insert on corda.NODE_TRANSACTIONS to archive;
 ```
+
+{{< note >}}
+This applies to Oracle databases only; other database types don’t require table-by-table permissions updates.
+{{< /note >}}
+
+The minimum list of tables that can/should be archived includes:
+* `ARCHIVABLE_TX`
+* `ARCHIVABLE_ATT`
+* `NODE_ATTACHMENTS`
+* `NODE_TRANSACTIONS`
+
+There are also other archivable tables that contain data linked to `NODE_ATTACHMENTS` and `NODE_TRANSACTIONS`. An archivable table is one that contains either:
+* A column named `transaction_id` (meaning it is linked to `NODE_TRANSACTIONS`).
+* A column named `att_id` (meaning it is linked to `NODE_ATTACHMENTS`).
+
+Corda provides quite of few of these types of tables and they vary between different Corda versions. You can also add your own tables. Any tables that you want to include in the archiving process need to be granted access to the database as well.
 
 ### MSSQL
 The following DDL statements can be used to create a backup schema user `archive`:
