@@ -170,7 +170,7 @@ For more information on the `confidentialIdentityPreGenerationPeriod` network pa
 
 ## Archiving
 
-The [Archive Service](../../../../tools/archiving-service/archiving-service-index.md) archives Ledger Recovery distribution records associated with the archived transactions. (The tables `node_sender_distribution_records` and `node_receiver_distribution_records` are included in the archiving process.)
+The [Archive Service](../../../../tools/archiving-service/archiving-service-index.md) archives Ledger Recovery distribution records associated with the archived transactions. (The tables `node_sender_distr_recs` and `node_receiver_distr_recs` are included in the archiving process.)
 
 ### Performance
 The Ledger Recovery flow has been optimised to support large-scale recovery of transactions (internal testing has been conducted
