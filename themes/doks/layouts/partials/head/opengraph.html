@@ -5,14 +5,16 @@
   {{ else }}
     {{ $.Title }} - {{ . }}
   {{ end }}
-{{ else with .Parent.Page.Params.version }}
-  {{ if eq . $.Title}}
-    {{ $.Title }}
-  {{ else }}
-    {{ $.Title }} - {{ . }}
-  {{ end }}
 {{ else }}
-  {{ $.Title }}
+  {{ with .Parent.Page.Params.version }}
+    {{ if eq . $.Title}}
+      {{ $.Title }}
+    {{ else }}
+      {{ $.Title }} - {{ . }}
+    {{ end }}
+  {{ else }}
+    {{ $.Title }}
+  {{ end }}
 {{ end }}
 ">
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
