@@ -6,7 +6,7 @@
     {{ $.Title }} - {{ . }}
   {{ end }}
 {{ else }}
-  {{ with $.Parent.Page.Params.version }}
+  {{ with .Parent.version }}
     {{ if eq . $.Title}}
       {{ $.Title }}
     {{ else }}
