@@ -15,13 +15,13 @@ tags:
 
 # Corda Enterprise Edition 4.8 release packs and checksums
 
-The Corda Enterprise release consists of multiple release packs. You can download the Corda Enterprise release packs and their respective checksum files from the Customer Hub.
+The Corda Enterprise release consists of multiple release packs. You can download the Corda Enterprise release packs and their respective checksum files from the [Customer Hub](https://customerhub.r3.com).
 
 Before you install the downloaded packs, verify the integrity of each pack using the respective checksum file to ensure it has not been tampered with or corrupted during the download. You can do this by calculating the checksum of your downloaded file, then comparing its value to the checksum value provided below.
 
 ## Release pack and checksums for Corda Enterprise Edition 4.8.11
 
-The release pack and checksum files for Corda Enterprise 4.8.11 can be downloaded from the Customer Hub.
+The release pack and checksum files for Corda Enterprise 4.8.11 can be downloaded from the [Customer Hub](https://customerhub.r3.com).
 
 The following release pack is available, along with its respective checksum files:
 
