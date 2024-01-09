@@ -1,22 +1,4 @@
-<meta property="og:title" content="
-{{ with .Params.Version }}
-  {{ if eq . $.Title}}
-    {{ $.Title }}
-  {{ else }}
-    {{ $.Title }} - {{ . }}
-  {{ end }}
-{{ else }}
-  {{ with .Parent.version }}
-    {{ if eq . $.Title}}
-      {{ $.Title }}
-    {{ else }}
-      {{ $.Title }} - {{ . }}
-    {{ end }}
-  {{ else }}
-    {{ $.Title }}
-  {{ end }}
-{{ end }}
-">
+<meta property="og:title" content="{{ with .Params.Version }}{{ if eq . $.Title}}{{ $.Title }}{{ else }}{{ $.Title }} - {{ . }}{{ end }}{{ else }}{{ with .Parent }}{{ with $.Parent.Params.version }}{{ if eq . $.Title}}{{ $.Title }}{{ else }}{{ $.Title }} - {{ . }}{{ end }}{{ end }}{{ else }}{{ $.Title }}{{ end }}{{end}}">
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 {{ if $.Scratch.Get "paginator" -}}
