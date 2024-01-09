@@ -29,7 +29,7 @@ For this process you must have completed the following tasks:
 - Install Git Bash and OpenSSL.
 - Create a signing key and certificate using OpenSSL.
 - Have access to an AWS instance.
-- Download Corda Enterprise utilities JAR file from the Customer Hub.
+- Download Corda Enterprise utilities JAR file from the [Customer Hub](https://customerhub.r3.com).
 
 ## Steps
 
