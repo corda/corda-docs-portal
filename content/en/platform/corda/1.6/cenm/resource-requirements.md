@@ -15,6 +15,6 @@ title: CENM VM Sizing Guide
 
 # CENM VM Sizing Guide
 
-When it comes to VM size recommendations for CENM, it's the standard D2 v4 instance for each CENM service:
-* 2 vCPUs
-* 8 GB memory
+Recommended production specification for CENM components running on separate VMs:
+
+* 2 CPU Core, 8 GB Memory
