@@ -221,7 +221,7 @@ grant select, insert on corda.NODE_TRANSACTIONS to archive;
 This applies to Oracle databases only; other database types don’t require table-by-table permissions updates.
 {{< /note >}}
 
-The minimum list of tables that can/should be archived includes:
+The following tables should be archived:
 * `ARCHIVABLE_TX`
 * `ARCHIVABLE_ATT`
 * `NODE_ATTACHMENTS`
