@@ -13,6 +13,6 @@ weight: 1200
 
 The [Archive Service](../../archiving/archiving-setup.md) archives Ledger Recovery distribution
 records associated with archived transactions. The following tables are included in the archiving process:
-* `node_sender_distribution_records`
-* `node_receiver_distribution_records`
+* `node_sender_distr_recs`
+* `node_receiver_distr_recs`
 
