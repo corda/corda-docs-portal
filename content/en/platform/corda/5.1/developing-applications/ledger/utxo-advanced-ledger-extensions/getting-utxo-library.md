@@ -1,4 +1,5 @@
 ---
+description: "Learn how to include the Corda 5 Advanced UTXO Ledger Extensions library in your project."
 date: '2023-07-04'
 title: "Including the UTXO Extensions Library"
 project: corda
