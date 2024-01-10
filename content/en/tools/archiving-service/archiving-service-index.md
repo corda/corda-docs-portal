@@ -198,7 +198,7 @@ grant insert on all tables in schema corda to archive;
 ```
 
 {{< note >}}
-You must execute the commands to create backup schema after the node has set up the main schema via its `run-migration-scripts` command.
+You must execute the commands to create backup schema after the node has set up the main schema using the `run-migration-scripts` command.
 {{< /note >}}
 
 ### Oracle
