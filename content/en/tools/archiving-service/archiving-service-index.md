@@ -227,7 +227,7 @@ The following tables should be archived:
 * `NODE_ATTACHMENTS`
 * `NODE_TRANSACTIONS`
 
-There are also other archivable tables that contain data linked to `NODE_ATTACHMENTS` and `NODE_TRANSACTIONS`. An archivable table is one that contains either:
+There are also other archivable tables that contain data linked to `NODE_ATTACHMENTS` and `NODE_TRANSACTIONS`. An archivable table contains one of the following:
 * A column named `transaction_id` (meaning it is linked to `NODE_TRANSACTIONS`).
 * A column named `att_id` (meaning it is linked to `NODE_ATTACHMENTS`).
 
