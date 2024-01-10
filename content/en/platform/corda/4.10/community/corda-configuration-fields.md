@@ -364,8 +364,7 @@ Please do not change.
 
 ## `networkServices`
 
-  If the Corda compatibility zone services, both network map and registration (doorman), are not running on the same endpoint
-  and thus have different URLs then this option should be used in place of the `compatibilityZoneURL` setting.
+If both of the Corda compatibility zone services, network map and registration (doorman), are not running on the same endpoint and thus have different URLs, use this option in place of the `compatibilityZoneURL` setting
 
 {{< attention >}}
 Important: Only one of `compatibilityZoneURL` or `networkServices` should be used.

@@ -56,8 +56,7 @@ entities that have the same or similar brand names
 retrieve the network map. These should be provided to you by the operator of the zone. This must be either:
     * **compatibilityZoneURL** The root address of the network management service. Use this if both the doorman and the
 network map service are operating on the same URL endpoint
-    * **networkServices** If the Corda compatibility zone services, both network map and registration (doorman), are not running on the same endpoint
-  and thus have different URLs then this option should be used in place of the `compatibilityZoneURL` setting:
+    * **networkServices** If both of the Corda compatibility zone services, network map and registration (doorman), are not running on the same endpoint and thus have different URLs, use this option in place of the `compatibilityZoneURL` setting:
         * **doormanURL** is the root address of the doorman. This is the address used for initial registration
         * **networkMapURL** is the root address of the network map service
 * It generates a new private/public keypair to sign the certificate signing request
