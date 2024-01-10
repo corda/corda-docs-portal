@@ -10,10 +10,10 @@ menu:
 tags:
 - resource requirements
 - config
-title: CENM VM Sizing Guide
+title: CENM VM Sizing Guidelines
 ---
 
-# CENM VM Sizing Guide
+# CENM VM Sizing Guidelines
 
 Recommended production specification for CENM components running on separate VMs:
 
