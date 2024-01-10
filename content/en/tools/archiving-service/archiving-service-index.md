@@ -231,7 +231,7 @@ There are also other archivable tables that contain data linked to `NODE_ATTACHM
 * A column named `transaction_id` (meaning it is linked to `NODE_TRANSACTIONS`).
 * A column named `att_id` (meaning it is linked to `NODE_ATTACHMENTS`).
 
-Corda provides quite a few of these types of tables and they vary between different Corda versions. You can also add your own tables. Any tables that you want to include in the archiving process need to be granted access to the database as well.
+Corda provides multiple tables of this type and they vary between different Corda versions. You can also add your own tables. You must grant access to any tables that you want to include in the archiving process.
 
 ### MSSQL
 The following DDL statements can be used to create a backup schema user `archive`:
