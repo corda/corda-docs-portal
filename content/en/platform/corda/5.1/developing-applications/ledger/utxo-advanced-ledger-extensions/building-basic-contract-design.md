@@ -1,4 +1,5 @@
 ---
+description: "Learn how to design a contract using the Corda 5 Advanced UTXO Ledger Extensions library."
 date: '2023-06-01'
 title: "Building Basic Contract Design"
 project: corda
