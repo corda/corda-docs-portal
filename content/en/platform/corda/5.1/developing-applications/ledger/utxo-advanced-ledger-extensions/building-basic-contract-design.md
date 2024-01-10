@@ -7,7 +7,7 @@ menu:
   corda51:
     identifier: corda51-utxo-ledger-building-basic-contract-design
     parent: corda51-utxo-advanced-ledger-extensions
-    weight: 4500
+    weight: 3000
 section_menu: corda51
 ---
 
@@ -63,7 +63,7 @@ The following contract refactors the above to support the ability to derive cont
 The contract still provides the same three commands: `Create`, `Update`, and `Delete`. The `verify` function delegates these command types to `verifyCreate`, `verifyUpdate`, and `verifyDelete` functions respectively, which in turn call `onVerifyCreate`, `onVerifyUpdate`, and `onVerifyDelete` respectively.
 
 {{< note >}}
-The 'verify' function has been marked final. This change is necessary as it prevents derived contract implementations from circumventing the base contract rules.
+The `verify` function is marked `final`. This is necessary to prevent derived contract implementations from circumventing the base contract rules.
 {{< /note >}}
 
 ```java
@@ -134,11 +134,11 @@ public final void verify(UtxoLedgerTransaction transaction) {
 
 The `verify` function is marked final for security reasons, and therefore additional commands cannot be added to the contract. For example, the contract may wish to describe multiple ways to `Update` a {{< tooltip >}}state{{< /tooltip >}}, or set of states. The contract only defines a single `Update` command: there can only be one mechanism to perform updates.
 
-The second problem lies in the commands themselves and their names. `Create`, `Update` and `Delete` are very ambiguous names, which may not make sense depending on the context of the contract being implemented.
+The second problem lies in the commands themselves and their names. `Create`, `Update`, and `Delete` are very ambiguous names, which may not make sense depending on the context of the contract being implemented.
 
 ## Delegated Command Design
 
-In the contracts above, the commands are nothing more than marker classes; effectively they are cases in a switch statement, which allows the contract's `verify` function to delegate responsibility of specific contract constraints to other functions, such as `verifyCreate`, `verifyUpdate` and `verifyDelete`.
+In the contracts above, the commands are nothing more than marker classes; effectively they are cases in a switch statement, which allows the contract's `verify` function to delegate responsibility of specific contract constraints to other functions, such as `verifyCreate`, `verifyUpdate`, and `verifyDelete`.
 
 Implement the `verify` function on the command itself. Instead of being an empty marker class, this gives the command responsibility, as it becomes responsible for implementing its associated contract verification constraints.
 In this case, define a `VerifiableCommand` interface with a `verify` function; for example:
@@ -197,7 +197,7 @@ public class Delete extends ExampleContractCommand {
 ```
 
 {{< note >}}
-The `Create`, `Update` and `Delete` commands are not marked final. Therefore, you can extend the contract verification constraints from these points, but you cannot extend them from `ExampleContractCommand`.
+The `Create`, `Update`, and `Delete` commands are not marked `final`. Therefore, you can extend the contract verification constraints from these points, but you cannot extend them from `ExampleContractCommand`.
 {{< /note >}}
 
 ## Delegated Contract Design
