@@ -13,3 +13,7 @@ section_menu: corda51
 # net.corda.v5.ledger.utxo
 
 {{< childpages >}}
+
+{{< note >}}
+You can extend Corda 5's UTXO ledger using the [UTXO Advanced Ledger Extensions Library]({{< relref "../../../ledger/utxo-advanced-ledger-extensions/_index.md" >}}).
+{{< /note >}}
