@@ -1,6 +1,6 @@
 ---
 description: "Learn how to make changes to an MGM's endpoint information by re-registering the member with the updated information."
-date: '2023-09-21'
+date: '2024-01-11'
 title: "Modify an MGM Endpoint"
 project: corda
 version: 'Corda 5.2'

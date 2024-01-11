@@ -1,6 +1,6 @@
 ---
 description: "Learn how to re-register a MGM in order to update its member-provided context or endpoint information."
-date: '2023-10-04'
+date: '2024-01-11'
 version: 'Corda 5.2'
 title: "Re-register an MGM"
 menu:
