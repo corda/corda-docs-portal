@@ -57,6 +57,11 @@ For the best CENM deployment performance with Kubernetes, you must set up the AK
 The deployment scripts are compatible with Corda Enterprise Network Manager version 1.5.
 The deployed network runs on Kubernetes minimum version 1.16.9 and Helm minimum version 3.1.1.
 
+### VM Sizing Guidelines
+
+Recommended production specification for CENM components running on separate VMs:
+* 2 CPU Core, 8 GB Memory
+
 ## Deployment
 
 ### Deployment overview
