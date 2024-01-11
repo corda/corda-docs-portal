@@ -1,7 +1,7 @@
 ---
 description: "Learn the fundamentals of the Corda 5 CorDapp vault."
 title: "Vault"
-date: 2023-06-08
+date: '2023-06-08'
 version: 'Corda 5.1'
 menu:
   corda51:

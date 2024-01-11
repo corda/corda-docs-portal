@@ -68,7 +68,7 @@ pageNumber: <which page to show, every page contains 100 records>
 
 
 It is also possible to poll the network map database to check how many network participants have accepted the new
-network parameters - the information is stored in the `node-info.accepted_parameters_hash` column.
+network parameters - the information is stored in the `node-info.accepted_parameters_update_id` column.
 * Once the `updateDeadline` has passed, a flag day can be issued. This is the act of changing the active network
 parameters to be the parameters advertised in step 2. To achieve this, restart the Network Map Service with the
 `--flag-day` flag. This will cause all nodes in the network to shutdown when they next poll the service due to a
