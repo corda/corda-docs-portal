@@ -146,7 +146,7 @@ The `runnodes` script creates a node tab/window for each node. It usually takes 
 / /___  /_/ / /  / /_/ / /_/ /          of it to charity. Now I have $2,999,999.75.
 \____/     /_/   \__,_/\__,_/
 
---- Corda Community Edition 4.1 (fa98aa7) -------------------------------------------------------------
+--- Corda Community Edition 4.12 (fa98aa7) -------------------------------------------------------------
 
 
 Logs can be found in                    : /Users/cordauser/src/samples-kotlin/Basic/cordapp-example/build/nodes/PartyA/logs
