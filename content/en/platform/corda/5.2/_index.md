@@ -7,7 +7,7 @@ version: 'Corda 5.2'
 section_menu: corda52
 menu:
   versions:
-    weight: -5000
+    weight: -4060
   corda52:
     weight: -100    
 ---
