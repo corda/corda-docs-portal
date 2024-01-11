@@ -1,5 +1,5 @@
 ---
-description: "Learn how to re-register a MGM in order to update its member-provided context or endpoint information."
+description: "Learn how to re-register an MGM in order to update its member-provided context or endpoint information."
 date: '2024-01-11'
 version: 'Corda 5.2'
 title: "Re-register an MGM"
@@ -13,7 +13,7 @@ section_menu: corda52
 
 # Re-register an MGM
 
-An {{< tooltip >}}MGM{{< /tooltip >}} may need to update its own member-provided context, for example, after key rotation or [changes to its endpoint information]({{< relref "./endpoints.md">}}). Additionally, an MGM that previously attempted to register but failed may wish to try again. The MGM re-registration steps described in this section can be followed for both of these scenarios. The instructions on this page assume that you have completed the [registration]({{< relref "register.md" >}}) steps.
+An {{< tooltip >}}MGM{{< /tooltip >}} may need to update its own member-provided context, for example, after key rotation or [changes to its endpoint information]({{< relref "./endpoints.md">}}). Additionally, an MGM that previously attempted to register but failed may wish to try again. The instructions on this page assume that you have completed the [registration]({{< relref "register.md" >}}) steps.
 
 To re-register an MGM:
 

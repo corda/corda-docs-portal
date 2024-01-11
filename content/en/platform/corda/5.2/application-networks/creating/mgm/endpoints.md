@@ -16,7 +16,7 @@ section_menu: corda52
 
 If an MGM needs to make changes to their endpoint information (for example, changing the URL of the endpoint or adding a new endpoint), the MGM must [re-register]({{< relref "reregister.md" >}}) with the updated endpoint information.
 
-To minimize communication disruption, the MGM should also configure the P2P Gateway with both the old and new information, before re-registering, and then remove the old information, as follows:
+To minimize communication disruption, the MGM should also configure the P2P Gateway with both the old and new information, before re-registering, and then removing the old information, as follows:
 
 1. Ensure that the cluster can accept connections on the new endpoint.
    In a production environment that exposes the Corda P2P Gateway service via a load balancer, this may require updating the load balancer configuration with the new endpoint.
@@ -139,12 +139,9 @@ To minimize communication disruption, the MGM should also configure the P2P Gate
    {{% /tab %}}
    {{< /tabs >}}
    {{< note >}}
-   If the MGM is changing to a new hostname and the new hostname is not already included in the TLS certificate’s Subject Alternative Name (SAN), before proceeding with the registration you must configure a new certificate, as follows:
-
+   If the MGM is changing to a new hostname and the new hostname is not already included in the TLS certificate’s Subject Alternative Name (SAN), before proceeding with the re-registration you must configure a new certificate, as follows:
    1. [Generate a new key pair and request the issuance of a new certificate that contains the new hostname in it]({{< relref "./key-pairs.md#configure-the-cluster-tls-key-pair" >}}). Ensure that you specify a new alias for the uploaded certificate.
-
    2. [Configure communication properties using the alias of the new certificate]({{< relref "./config-node.md" >}}).
-
    To avoid any communication disruption with other members after the new certificate is configured and before the re-registration is complete, the new TLS certificate should contain both the old and the new hostname as SANs.
    {{< /note >}}
 4. [Re-register]({{< relref "reregister.md" >}}) with the updated registration context that contains the new endpoint URL. After successful re-registration, you should be able to see the MGM's new endpoint URL in their member-provided context. For example:
@@ -192,13 +189,3 @@ To minimize communication disruption, the MGM should also configure the P2P Gate
    ```
    {{% /tab %}}
    {{< /tabs >}}
-
-## Changing to a New Hostname
-
-To change to a new hostname, follow the steps described in [Updating the Endpoint](#updating-the-endpoint). However, if the new hostname is not already included in the TLS certificate’s Subject Alternative Name (SAN), before proceeding with the registration you must configure a new certificate, as follows:
-
-1. [Generate a new key pair and request the issuance of a new certificate that contains the new hostname in it]({{< relref "./key-pairs.md#configure-the-cluster-tls-key-pair" >}}). Ensure that you specify a new alias for the uploaded certificate.
-
-2. [Configure communication properties using the alias of the new certificate]({{< relref "./config-node.md" >}}).
-
-To avoid any communication disruption with other members after the new certificate is configured and before the re-registration is complete, the new TLS certificate should contain both the old and the new hostname as SANs.
