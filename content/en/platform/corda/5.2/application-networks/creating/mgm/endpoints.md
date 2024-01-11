@@ -16,7 +16,7 @@ section_menu: corda52
 
 If an MGM needs to make changes to their endpoint information (for example, changing the URL of the endpoint or adding a new endpoint), the MGM must [re-register]({{< relref "reregister.md" >}}) with the updated endpoint information.
 
-To minimize communication disruption, the MGM should also configure the P2P Gateway with both the old and new information, before re-registering, and then removing the old information, as follows:
+To minimize communication disruption, the MGM should first configure the P2P Gateway with both the old and new information, before re-registering, and then remove the old information, as follows:
 
 1. Ensure that the cluster can accept connections on the new endpoint.
    In a production environment that exposes the Corda P2P Gateway service via a load balancer, this may require updating the load balancer configuration with the new endpoint.
