@@ -13,7 +13,7 @@ section_menu: corda52
 
 # Re-register an MGM
 
-An {{< tooltip >}}MGM{{< /tooltip >}} may need to update its own member-provided context, for example, after key rotation or [changes to its endpoint information]({{< relref "./endpoints.md">}}). Additionally, an MGM that previously attempted to register but failed may wish to try again. The instructions on this page assume that you have completed the [registration]({{< relref "register.md" >}}) steps.
+An {{< tooltip >}}MGM{{< /tooltip >}} may need to update its own member-provided context; for example, after key rotation or [changes to its endpoint information]({{< relref "./endpoints.md">}}). Additionally, an MGM that previously attempted to register but failed may wish to try again. The instructions on this page assume that you have completed the [registration]({{< relref "register.md" >}}) steps.
 
 To re-register an MGM:
 
