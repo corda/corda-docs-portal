@@ -72,7 +72,7 @@ Each CENM service has its own dedicated folder with more detailed documentation.
 The charts are currently developed and tested against
 [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-gb/services/kubernetes-service/).
 
-### VM Sizing Guidelines
+### VM sizing guidelines
 
 Recommended production specification for CENM components running on separate VMs:
 * 2 CPU Core, 8 GB Memory
