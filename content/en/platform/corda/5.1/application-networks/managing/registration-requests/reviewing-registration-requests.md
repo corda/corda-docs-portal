@@ -27,7 +27,7 @@ This method returns the requests in the following format:
 ```JSON
   {
     "memberInfoSubmitted": {
-      "data": 
+      "data":
     },
     "reason": "string",
     "registrationId": "string",

@@ -45,7 +45,7 @@ To create a CorDapp that can use external messaging, you must add a resource fil
    * Names can contain alphanumeric values, underscores, periods, and dashes and must have between 1 and 100 characters. Topic names with a period or underscore could clash in internal data structures, so we recommend that you use either but not both.
    {{< /note >}}
 
-2. Add the API service using `@CordaInject`. The following example flow shows how the API is injected and how the API can be called, sending a simple string message to the defined channel `external_app`:  
+2. Add the API service using `@CordaInject`. The following example flow shows how the API is injected and how the API can be called, sending a simple string message to the defined channel `external_app`:
 
    {{< note >}}
    Channel names are case sensitive.
@@ -53,7 +53,7 @@ To create a CorDapp that can use external messaging, you must add a resource fil
 
    ```java
    class ExternalMessageTestFlow : ClientStartableFlow {
-   
+
        private companion object {
            val log = LoggerFactory.getLogger(this::class.java.enclosingClass)
        }
