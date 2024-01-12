@@ -26,6 +26,14 @@ If you deviate from the above compatibility guidelines, for example, using the A
 
 ## Corda Enterprise 4.11 and above
 
+### Archive Service 1.1.1
+
+In this release:
+
+* Previously, it was possible for the Archive Service `create-snapshot` command to fail when used with a Corda 4.11 node. This issue occurred when the node database was one of SQL Server, Oracle, or PostgreSQL, and the Archive Service was configured to use a backup schema. 
+
+  This issue has been resolved.
+ 
 ### Archive Service 1.1
 
 In this release:
@@ -35,8 +43,15 @@ In this release:
 
 ## Corda Enterprise 4.10 and below
 
-### Archive Service 1.0.5
+### Archive Service 1.0.6
 
+In this release:
+
+* Previously, it was possible for the Archive Service `create-snapshot` command to fail. This issue occurred when the node database was Oracle and the Archive Service was configured to use a backup schema.
+
+  This issue has been resolved.
+
+### Archive Service 1.0.5
 
 #### Fixed issues
 The Archive Service misunderstood reference states. As a result, the Archive Service could not archive a transaction if it referenced an unconsumed transaction and there were no unconsumed transactions that referenced it.
@@ -45,12 +60,10 @@ As of this release, the Archive Service marks a transaction, that only has outbo
 
 ### Archive Service 1.0.4
 
-
 #### Fixed issues
 When using a Microsoft SQL Server database, an error was generated when using the `vault-states` filter with a positive value specified for the `retentionDays` parameter.
 
 ### Archive Service 1.0.3
-
 
 A new configuration option has been added which allows the Archive Service to skip transactions that have legacy contract states that cause exceptions during a JSON snapshot export. This configuration option is: `ignoreSnapshotExportFailures: true`.
 
@@ -66,6 +79,5 @@ In this release:
 * Tables are now ordered by table name length in descending order to prevent foreign key constraints from being violated when deleting rows.
 
 ### Archive Service 1.0.1
-
 
 The Archive Service is now compatible with [Ledger Graph V1.2.1 On Demand function]({{< relref "archiving-service-index.html#archiving-and-ondemand-ledgergraph" >}}).
