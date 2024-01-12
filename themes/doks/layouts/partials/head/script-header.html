@@ -16,11 +16,7 @@
       {{ $project := .Page.Params.project}}
       window.facetFilters = [
         ['project:{{- $project -}}'],
-<<<<<<< HEAD
         ['version:Community Edition 4.11', 'version:Enterprise 4.11', 'version:CENM 1.6', 'version:{{index .Site.Params.corda5versions 0}}'],
-=======
-        ['version:Community Edition 4.12', 'version:Enterprise 4.12', 'version:CENM 1.6', 'version:Corda 5.1'],
->>>>>>> 2b50fe4e8813c15f5591c9cfbf158cb32e6840e2
         'language:en'
       ];
     {{ else if eq .Page.Params.version nil }}
