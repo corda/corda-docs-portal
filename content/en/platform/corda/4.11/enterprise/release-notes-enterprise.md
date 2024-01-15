@@ -18,7 +18,7 @@ weight: 10
 # Corda Enterprise Edition 4.11 release notes
 
 {{< note >}}
-If you are using the Archive Service with Corda Enterprise Edition 4.11, you must use the 1.1.x stream of the Archive Service release. For more details, see [Archive Service]({{< relref "../../../../tools/archiving-service/archiving-service-index.md" >}}).
+If you are using the Archive Service with Corda Enterprise Edition 4.11, you must use the 1.1.x stream of the Archive Service release. For more details, see [Archive Service]({{< relref "../../../../tools/archiving-service/archiving-release-notes.md" >}}).
 {{< /note >}}
 
 ## Corda Enterprise Edition 4.11.2 release notes
