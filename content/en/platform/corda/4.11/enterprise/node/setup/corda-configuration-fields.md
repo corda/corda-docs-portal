@@ -928,6 +928,22 @@ advertised to the network map service instead of the provided `p2pAddress`.
 * `sshPort`
   * Port to be used for SSH connection, default `22`.
 
+### `reloadCheckpointAfterSuspend`
+
+This is an optional configuration option that enables you to detect unrestorable checkpoints when developing CorDapps and thus reduces the risk of writing flows that cannot be retried gracefully. To use this functionality, set `reloadCheckpointAfterSuspend` to `true`:
+
+  ```
+  reloadCheckpointAfterSuspend = true
+  ```
+
+{{< note >}}
+This option is disabled by default and is independent from `devMode`.
+{{< /note >}}
+
+For full details, see [Automatic detection of unrestorable checkpoints]({{< relref "../operating/monitoring-and-logging/checkpoint-tooling.md#automatic-detection-of-unrestorable-checkpoints" >}}).
+
+*Default:* not defined
+
 ### `rpcAddress`
 
 {{< important >}}
@@ -1089,19 +1105,3 @@ Internal option.
 **Important: Please do not change.**
 
 *Default:* InMemory
-
-### `reloadCheckpointAfterSuspend`
-
-  This is an optional configuration option that enables you to detect unrestorable checkpoints when developing CorDapps and thus reduces the risk of writing flows that cannot be retried gracefully. To use this functionality, set `reloadCheckpointAfterSuspend` to `true`:
-
-  ```
-  reloadCheckpointAfterSuspend = true
-  ```
-
-  {{< note >}}
-  This option is disabled by default and is independent from `devMode`.
-  {{< /note >}}
-
-  For full details, see [Automatic detection of unrestorable checkpoints]({{< relref "../operating/monitoring-and-logging/checkpoint-tooling.md#automatic-detection-of-unrestorable-checkpoints" >}}).
-
-  *Default:* not defined
