@@ -30,9 +30,7 @@ If you deviate from the above compatibility guidelines, for example, using the A
 
 In this release:
 
-* Previously, it was possible for the Archive Service `create-snapshot` command to fail when used with a Corda 4.11 node. This issue occurred when the node database was one of SQL Server, Oracle, or PostgreSQL, and the Archive Service was configured to use a backup schema. 
-
-  This issue has been resolved.
+* Previously, it was possible for the Archive Service `create-snapshot` command to fail when used with a Corda 4.11 node. This issue occurred when the node database was one of SQL Server, Oracle, or PostgreSQL, and the Archive Service was configured to use a backup schema. This issue has been resolved.
  
 ### Archive Service 1.1
 
@@ -47,9 +45,7 @@ In this release:
 
 In this release:
 
-* Previously, it was possible for the Archive Service `create-snapshot` command to fail. This issue occurred when the node database was Oracle and the Archive Service was configured to use a backup schema.
-
-  This issue has been resolved.
+* Previously, it was possible for the Archive Service `create-snapshot` command to fail. This issue occurred when the node database was Oracle and the Archive Service was configured to use a backup schema. This issue has been resolved.
 
 ### Archive Service 1.0.5
 
