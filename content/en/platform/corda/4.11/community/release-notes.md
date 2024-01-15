@@ -20,6 +20,21 @@ tags:
 
 # Corda Community Edition 4.11 release notes
 
+## Corda Community Edition 4.11.2 release notes
+
+Corda Community Edition 4.11.2 is a patch release of Corda Community Edition focused on resolving issues.
+
+### Fixed issues
+
+* Fixed the delete rule in Log4j configuration to use the correct file names.
+* Fixed HSM connectivity issue for TCP connections.
+* Fixed a regression in the RPC `getFlowsMatchingV2` extension operation that rendered it incompatible with previous Corda releases. This issue manifested in the Corda flow management GUI, preventing it from displaying the flow status of previous Corda releases.
+
+### Third party component upgrades
+
+* Jetty version was upgraded from 9.4.51.v20230217 to 9.4.53.v20231009.
+
+
 ## Corda Community Edition 4.11.1 release notes
 
 Corda Community Edition 4.11.1 is a patch release of Corda Community Edition focused on resolving issues.

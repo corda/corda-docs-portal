@@ -17,6 +17,10 @@ weight: 10
 
 # Corda Enterprise Edition 4.9 release notes
 
+{{< note >}}
+If you are using the Archive Service with Corda Enterprise Edition 4.9, you must use the 1.0.x stream of the Archive Service release. For more details, see [Archive Service]({{< relref "../../../../tools/archiving-service/archiving-service-index.md" >}}).
+{{< /note >}}
+
 ## Corda Enterprise Edition 4.9.9 release notes
 
 Corda Enterprise Edition 4.9.9 is a patch release of Corda Enterprise focused on resolving issues.
@@ -25,9 +29,14 @@ Corda Enterprise Edition 4.9.9 is a patch release of Corda Enterprise focused on
 
 As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "../../4.9/enterprise/upgrading-index.md" >}}).
 
-### Fixed Issues
+### Fixed issues
 
-* log4j2.xml now deletes the correct file for diagnostic and checkpoint logs in the rollover strategy configuration.
+* Fixed the delete rule in Log4j configuration to use the correct file names.
+* Fixed HSM connectivity issue for TCP connections.
+
+### Third party component upgrades
+
+* Jetty version was upgraded from 9.4.51.v20230217 to 9.4.53.v20231009.
 
 ## Corda Enterprise Edition 4.9.8 release notes
 

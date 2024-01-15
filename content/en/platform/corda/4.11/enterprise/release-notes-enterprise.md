@@ -17,6 +17,25 @@ weight: 10
 
 # Corda Enterprise Edition 4.11 release notes
 
+{{< note >}}
+If you are using the Archive Service with Corda Enterprise Edition 4.11, you must use the 1.1.x stream of the Archive Service release. For more details, see [Archive Service]({{< relref "../../../../tools/archiving-service/archiving-service-index.md" >}}).
+{{< /note >}}
+
+## Corda Enterprise Edition 4.11.2 release notes
+
+Corda Enterprise Edition 4.11.2 is a patch release of Corda Enterprise Edition focused on resolving issues.
+
+### Fixed issues
+
+* Fixed the delete rule in Log4j configuration to use the correct file names.
+* Fixed HSM connectivity issue for TCP connections.
+* Fixed a regression in the RPC `getFlowsMatchingV2` extension operation that rendered it incompatible with previous Corda releases. This issue manifested in the Corda flow management GUI, preventing it from displaying the flow status of previous Corda releases.
+
+### Third party component upgrades
+
+* Jetty version was upgraded from 9.4.51.v20230217 to 9.4.53.v20231009.
+
+
 ## Corda Enterprise Edition 4.11.1 release notes
 
 Corda Enterprise Edition 4.11.1 is a patch release of Corda Enterprise Edition focused on resolving issues.

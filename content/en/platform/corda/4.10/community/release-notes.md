@@ -26,7 +26,12 @@ Corda Community Edition 4.10.4 is a patch release of Corda Community Edition foc
 
 ### Fixed issues
 
-* log4j2.xml now deletes the correct file for diagnostic and checkpoint logs in the rollover strategy configuration.
+* Fixed the delete rule in Log4j configuration to use the correct file names.
+* Fixed HSM connectivity issue for TCP connections.
+
+### Third party component upgrades
+
+* Jetty version was upgraded from 9.4.51.v20230217 to 9.4.53.v20231009.
 
 ## Corda Community Edition 4.10.3 release notes
 
