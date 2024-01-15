@@ -25,6 +25,10 @@ If you are using the Archive Service with Corda Enterprise Edition 4.11, you mus
 
 Corda Enterprise Edition 4.11.2 is a patch release of Corda Enterprise Edition focused on resolving issues.
 
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node](upgrading-index.md).
+
 ### Fixed issues
 
 * Fixed the delete rule in Log4j configuration to use the correct file names.
