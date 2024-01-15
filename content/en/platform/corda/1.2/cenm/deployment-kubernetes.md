@@ -75,7 +75,7 @@ The charts are currently developed and tested against
 ### VM sizing guidelines
 
 Recommended production specification for CENM components running on separate VMs:
-* 2 CPU Core, 8 GB Memory
+* 2 CPU cores, 8 GB Memory
 
 ## General information about this deployment
 
