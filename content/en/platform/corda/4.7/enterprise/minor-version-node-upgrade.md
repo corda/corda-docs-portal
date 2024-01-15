@@ -47,7 +47,7 @@ For a smooth node draining process, avoid long-running flows.
 
 Replace the `corda.jar` with the latest version of Corda.
 
-Download the latest version of Corda from the Customer Hub. Make sure it’s available on your path, and that you’ve read the [Corda release notes](release-notes-enterprise.md). Pay particular attention to which version of Java the
+Download the latest version of Corda from the [Customer Hub](https://customerhub.r3.com). Make sure it’s available on your path, and that you’ve read the [Corda release notes](release-notes-enterprise.md). Pay particular attention to which version of Java the
 node requires.
 
 {{< important >}}

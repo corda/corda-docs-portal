@@ -16,7 +16,7 @@
   {{ end -}}
 {{ end -}}
 
-<meta name="twitter:title" content="{{ with .Params.Version }}{{ if eq . $.Title}}{{ $.Title }}{{ else }}{{ $.Title }} - {{ . }}{{ end }}{{ else }}{{ $.Title }}{{ end }}">
+<meta name="twitter:title" content="{{ with .Params.Version }}{{ if eq . $.Title}}{{ $.Title }}{{ else }}{{ $.Title }} - {{ . }}{{ end }}{{ else }}{{ with .Parent }}{{ with $.Parent.Params.version }}{{ if eq . $.Title}}{{ $.Title }}{{ else }}{{ $.Title }} - {{ . }}{{ end }}{{ end }}{{ else }}{{ $.Title }}{{ end }}{{end}}">
 <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
 {{ with .Site.Social.twitter -}}
   <meta name="twitter:site" content="@{{ . }}">

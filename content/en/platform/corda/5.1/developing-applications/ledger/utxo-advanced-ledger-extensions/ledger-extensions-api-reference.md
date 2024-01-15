@@ -1,4 +1,5 @@
 ---
+description: "Review modules of the Corda 5 Advanced UTXO Ledger Extensions library."
 date: '2023-06-01'
 title: "Ledger Extensions API Reference"
 project: corda
@@ -7,33 +8,41 @@ menu:
   corda51:
     identifier: corda51-utxo-ledger-extensions-api-reference
     parent: corda51-utxo-advanced-ledger-extensions
-    weight: 4600
+    weight: 4000
 section_menu: corda51
 ---
 
 # Advanced Ledger Extensions API Reference
 
+* [Advanced Contract Design](#advanced-contract-design)
+* [Advanced Ledger Types](#advanced-ledger-types)
+
 ## Advanced Contract Design
 
-All the contract design issues described in [Building Basic Contract Design]({{< relref "building-basic-contract-design.md" >}}) are implemented by the Corda 5 Advanced {{< tooltip >}}UTXO{{< /tooltip >}} Extensions library, and are included in all the specific implementations; for example, chainable, fungible and identifiable contracts.
+All of the contract design issues described in [Building Basic Contract Design]({{< relref "building-basic-contract-design.md" >}}) are implemented by the Advanced {{< tooltip >}}UTXO{{< /tooltip >}} Extensions library, and are included in the specific implementations; for example, chainable, fungible, and identifiable contracts.
 
 ## Advanced Ledger Types
 
-### Base API
+This section describes the modules of the Advanced UTXO Ledger Extensions library. It contains the following:
 
-Module: base
+* [base](#base)
+* [chainable](#chainable)
+* [fungible](#fungible)
+* [identifiable](#identifiable)
+* [ownable](#ownable)
+* [issuable](#issuable)
 
-Package: com.r3.corda.ledger.utxo.base
+### `base`
 
-The Base API provides the underlying component model for designing extensible contracts with delegated contract verification constraint logic, as well as other components which allow {{< tooltip >}}CorDapp{{< /tooltip >}} developers to better express intent throughout their applications.
+`com.r3.corda.ledger.utxo.base`
 
-### Chainable API
+The `base` module provides the underlying component model for designing extensible contracts with delegated contract verification constraint logic, as well as other components which allow {{< tooltip >}}CorDapp{{< /tooltip >}} Developers to better express intent throughout their applications.
 
-Module: chainable
+### `chainable`
 
-Package: com.r3.corda.ledger.utxo.chainable
+`com.r3.corda.ledger.utxo.chainable`
 
-The Chainable API provides the component model for designing chainable {{< tooltip >}}states{{< /tooltip >}} and contracts. Chainable states represent strictly linear state chains, where every state in the chain points to the previous state in the chain. This could be thought of as a similar concept to a blockchain, where each new block points to the previous block.
+The `chainable` module provides the component model for designing chainable {{< tooltip >}}states{{< /tooltip >}} and contracts. Chainable states represent strictly linear state chains, where every state in the chain points to the previous state in the chain. This could be thought of as a similar concept to a blockchain, where each new block points to the previous block.
 
 #### Designing Chainable States
 
@@ -135,7 +144,7 @@ public final class ExampleChainableContract extends ChainableContract {
 }
 ```
 
-#### Creating, Updating and Deleting Chainable States
+#### Creating, Updating, and Deleting Chainable States
 
 To create a chainable state, create an instance of a `ChainableState` with a `pointer` of `null`:
 
@@ -153,13 +162,11 @@ Consume the existing instance in the same transaction that contains the updated 
 
 To delete a chainable state, retrieve the existing `ChainableState`'s `StateRef` and consume the state using the `StateRef`.
 
-### Fungible API
+### `fungible`
 
-Module: fungible
+`com.r3.corda.ledger.utxo.fungible`
 
-Package: com.r3.corda.ledger.utxo.fungible
-
-The fungible API provides the component model for designing fungible states and contracts. Fungible states represent states that have a scalar numeric quantity, and can be split, merged and mutually exchanged with other fungible states of the same class. Fungible states represent the building blocks for states like tokens.
+The `fungible` module provides the component model for designing fungible states and contracts. Fungible states represent states that have a scalar numeric quantity, and can be split, merged and mutually exchanged with other fungible states of the same class. Fungible states represent the building blocks for states like tokens.
 
 #### Designing Fungible States
 
@@ -268,13 +275,11 @@ public final class ExampleFungibleContract extends FungibleContract {
 }
 ```
 
-### Identifiable API
+### `identifiable`
 
-Module: identifiable
+`com.r3.corda.ledger.utxo.identifiable`
 
-Package: com.r3.corda.ledger.utxo.identifiable
-
-The Identifiable API provides the component model for designing identifiable states and contracts. Identifiable states represent states that have a unique identifier that is guaranteed unique at the network level. Identifiable states are designed to evolve over time, where unique identifiers can be used to resolve the history of the identifiable state.
+The `identifiable` module provides the component model for designing identifiable states and contracts. Identifiable states represent states that have a unique identifier that is guaranteed unique at the network level. Identifiable states are designed to evolve over time, where unique identifiers can be used to resolve the history of the identifiable state.
 
 #### Designing Identifiable States
 
@@ -369,7 +374,7 @@ public final class ExampleIdentifiableContract extends IdentifiableContract {
 }
 ```
 
-#### Creating, Updating and Deleting Identifiable States
+#### Creating, Updating, and Deleting Identifiable States
 
 To create a unique identifiable state, create an instance of an `IdentifiableState` with an `id` of `null`.
 
@@ -409,13 +414,11 @@ PagedQuery.ResultSet<?> resultSet = utxoLedgerService.query(IdentifiableStateQue
 List<StateAndRef<ExampleIdentifiableState>> results = (List<StateAndRef<ExampleIdentifiableState>>) resultSet.getResults();
 ```
 
-### Ownable API
+### `ownable`
 
-Module: ownable
+`com.r3.corda.ledger.utxo.ownable`
 
-Package: com.r3.corda.ledger.utxo.ownable
-
-The Ownable API provides the component to design ownable states and contracts; that is, states that have a defined owner and need the owner's signature to be consumed.
+The `ownable` module provides the component to design ownable states and contracts; that is, states that have a defined owner and need the owner's signature to be consumed.
 
 #### Designing Ownable States
 
@@ -515,17 +518,9 @@ while (resultSet.hasNext()) {
 }
 ```
 
-### Wellknown Ownable API
-
-Module: ownable
-
-Package: com.r3.corda.ledger.utxo.ownable
-
-The Wellknown Ownable API provides the ability to retrieve states by a wellknown identity. It does not provide any contract functionality.
-
 #### Designing Wellknown Ownable States
 
-A wellknown ownable state can be designed by implementing the `WellKnownOwnableState` interface:
+A wellknown ownable state can be designed by implementing the `WellKnownOwnableState` interface. It does not provide any contract functionality:
 
 ```java
 @BelongsToContract(ExampleContract.class)
@@ -590,13 +585,11 @@ while (resultSet.hasNext()) {
 While `WellKnownOwnableState` can be used independently from `OwnableState`, they work well with each other as it can leverage the `OwnableConstraints` while querying for specific owners by name instead of by `PublicKey`s.
 {{< /note >}}
 
-### Issuable API
+### `issuable`
 
-Module: issuable
+`com.r3.corda.ledger.utxo.issuable`
 
-Package: com.r3.corda.ledger.utxo.issuable
-
-The Issuable API designs states that have an issuer as part of the state, verifying that
+The `issuable` module designs states that have an issuer as part of the state, verifying that
 any issuance of the state has been signed by the issuer, thus restricting who can issue states
 of this particular type.
 
@@ -710,14 +703,6 @@ while (resultSet.hasNext()) {
     results.addAll((List<StateAndRef<ExampleIssuableState>>) resultSet.next());
 }
 ```
-
-### Wellknown Issuable API
-
-Module: issuable
-
-Package: com.r3.corda.ledger.utxo.issuable
-
-The Wellknown Issuable API provides the ability to retrieve states by a wellknown identity. It does not provide any contract functionality.
 
 #### Designing Wellknown Issuable States
 
