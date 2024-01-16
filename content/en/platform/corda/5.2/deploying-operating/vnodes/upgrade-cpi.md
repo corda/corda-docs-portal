@@ -50,6 +50,7 @@ To upgrade a CPI, do the following:
    ```
    {{% /tab %}}
    {{< /tabs >}}
+   The `api/v5_2/virtualnode/<virtualnodeshortid>/db/vault/<newcpichecksum>` endpoint returns the SQL you must execute to upgrade the virtual node's `vault` database.
 
    Upgrading a CPI triggers the member to [re-register]({{< relref "../../application-networks/creating/members/reregister.md" >}}) with the MGM. This ensures the MGM has the latest information about the CPIs that virtual nodes are running.
 

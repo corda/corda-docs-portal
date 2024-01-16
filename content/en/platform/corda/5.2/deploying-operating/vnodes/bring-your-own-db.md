@@ -70,3 +70,22 @@ For example, to create the required databases for a virtual node:
 
 ## Connecting a Virtual Node to Your Own Database
 
+To update a virtual node to connect to your own database use the PUT method of the [/api/v5_2/virtualnode_virtualnodeshortid_db endpoint](../../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/put_virtualnode__virtualnodeshortid__db). This method requires the short hash ID of the virtual node as a path parameter and the connection strings as parameters in the request body. For example:
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```shell
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{"request": {"cryptoDdlConnection": "'$...'", ...}}' $REST_API_URL/virtualnode/<virtualnodeshortid>/db
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+$X500_NAME = "C=GB, L=London, O=Alice"
+$VIRTUAL_NODE_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/virtualnode/<virtualnodeshortid>/db" -Method Post -Body (ConvertTo-Json @{
+    request = @{
+       cryptoDdlConnection = 
+       .....
+    }
+})
+```
+{{% /tab %}}
+{{< /tabs >}}
