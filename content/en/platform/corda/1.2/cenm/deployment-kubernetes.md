@@ -72,6 +72,11 @@ Each CENM service has its own dedicated folder with more detailed documentation.
 The charts are currently developed and tested against
 [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-gb/services/kubernetes-service/).
 
+### VM sizing guidelines
+
+Recommended production specification for CENM components running on separate VMs:
+* 2 CPU cores, 8 GB Memory
+
 ## General information about this deployment
 
 All CENM 1.2 services run inside a single, dedicated Kubernetes namespace (the default name is `cenm`). Each service runs in its own dedicated Kubernetes pod.

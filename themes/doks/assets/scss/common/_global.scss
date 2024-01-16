@@ -464,6 +464,19 @@ details[open] summary:after {
   content: url("/icons/icon-arrow-up.svg");
 }
 
-li p{
-  margin-bottom: 0;
+li .nav-tabs{
+  margin-top: 1rem;
+}
+
+li .tab-content{
+  margin-bottom: 1rem;
+}
+
+li pre{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+li ul{
+  margin-bottom: 1rem;
 };
