@@ -37,7 +37,7 @@ To upgrade a CPI, do the following:
    ```
    {{% /tab %}}
    {{< /tabs >}}
-   {{< enterprise-icon noMargin="true" >}} Alternatively, if you are [using your own virtual node databases]({{< relref "./bring-your-own-db.md" >}}), send the checksum of the CPI to upgrade to using the <a href ="../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/get_virtualnode__virtualnodeshortid__db_vault__newcpichecksum_">`api/v5_2/virtualnode/<virtualnodeshortid>/db/vault/<newcpichecksum>` endpoint</a>:
+   Alternatively, if you are [using your own virtual node databases]({{< relref "./bring-your-own-db.md" >}}), send the checksum of the CPI to upgrade to using the <a href ="../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/get_virtualnode__virtualnodeshortid__db_vault__newcpichecksum_">`api/v5_2/virtualnode/<virtualnodeshortid>/db/vault/<newcpichecksum>` endpoint</a>:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell

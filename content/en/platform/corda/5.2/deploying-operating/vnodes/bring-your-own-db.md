@@ -11,9 +11,9 @@ menu:
 section_menu: corda52
 ---
 
-# Bringing Your Own Database {{< enterprise-icon >}}
+# Bringing Your Own Database
 
-The default Corda deployment and migration functionality for [virtual nodes databases]({{< relref "../../key-concepts/cluster-admin/_index.md#virtual-node-databases" >}}) may not be suitable for environments with a controlled set of database permissions. Changes to database schemas may be a separate process run under the control of a Database Administrator. The bring-your-own-database (BYOD) feature of Corda Enterprise enables Cluster Administrators to manage the creation and any subsequent updates of a PostgreSQL database, rather than using a database managed by Corda.
+The default Corda deployment and migration functionality for [virtual nodes databases]({{< relref "../../key-concepts/cluster-admin/_index.md#virtual-node-databases" >}}) may not be suitable for environments with a controlled set of database permissions. Changes to database schemas may be a separate process run under the control of a Database Administrator. The bring-your-own-database (BYOD) feature enables Cluster Administrators to manage the creation and any subsequent updates of a PostgreSQL database, rather than using a database managed by Corda.
 
 {{< toc >}}
 
