@@ -17,6 +17,19 @@ tags:
 
 # Corda Community Edition 4.9 release notes
 
+## Corda Community Edition 4.9.9 release notes
+
+Corda Community Edition 4.9.9 is a patch release of Corda Community Edition focused on resolving issues.
+
+### Fixed issues
+
+* Fixed the delete rule in Log4j configuration to use the correct file names.
+* Fixed HSM connectivity issue for TCP connections.
+
+### Third party component upgrades
+
+* Jetty version was upgraded from 9.4.51.v20230217 to 9.4.53.v20231009.
+
 ## Corda Community Edition 4.9.8 release notes
 
 Corda Community Edition 4.9.8 is a patch release of Corda Community Edition focused on resolving issues.
