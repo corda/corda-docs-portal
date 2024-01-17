@@ -2,18 +2,23 @@
 description: "Learn about the entities in the RBAC permissions system and their relationships."
 date: '2023-04-07'
 version: 'Corda 5.2'
-title: "Permission System Entities"
+title: "RBAC Entities"
 menu:
   corda52:
     parent: corda52-cluster-users
     identifier: corda52-cluster-permission-system-entities
-    weight: 3000
+    weight: 1000
 section_menu: corda52
 ---
-# Permission System Entities
+# RBAC Entities
 
 The {{< tooltip >}}RBAC{{< /tooltip >}} permissions system in Corda 5 is made up of multiple entities.
-The following section describes those entities and relationships between them.
+The following section describes these entities and their relationships:
+
+* [User](#user)
+* [Role](#role)
+* [Permission](#permission)
+* [Change Audit](#change-audit)
 
 ## User
 
