@@ -37,7 +37,7 @@ To upgrade a CPI, do the following:
    ```
    {{% /tab %}}
    {{< /tabs >}}
-   The `api/v5_2/virtualnode/<virtualnodeshortid>/db/vault/<newcpichecksum>` endpoint returns the SQL you must execute to upgrade the virtual node's `vault` database.
+   The `api/v5_2/virtualnode/<virtualnodeshortid>/db/vault/<newcpichecksum>` endpoint returns the SQL you must execute to upgrade the virtual node's `vault` database. You must run this SQL before upgrading the CPI.
 4. Send the checksum of the CPI to upgrade to using the PUT method of the <a href ="../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/put_virtualnode__virtualnodeshortid__cpi__targetcpifilechecksum_">`api/v5_2/virtualnode/<virtualnodeshortid>/cpi/<targetcpifilechecksum>` endpoint</a>:
    {{< tabs >}}
    {{% tab name="Bash"%}}
