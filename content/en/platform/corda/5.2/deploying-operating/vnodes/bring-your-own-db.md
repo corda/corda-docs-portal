@@ -23,7 +23,7 @@ The following {{< tooltip >}}REST API{{< /tooltip >}} endpoints are available to
 
 * [api/v5_2/virtualnode/create/db/crypto](../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/get_virtualnode_create_db_crypto) — returns the SQL required to create the `crypto` database.
 * [api_v5_2/virtualnode/create/db/uniqueness](../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/get_virtualnode_create_db_uniqueness) — returns the SQL required to create the `uniqueness` database.
-* [api/v5_2/virtualnode/create/db/vault/{cpichecksum}](../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/get_virtualnode_create_db_vault__cpichecksum_) — returns the SQL required to create the `vault` database for a particular {{< tooltip >}}CPI{{< /tooltip >}} specified by its checksum.
+* [api/v5_2/virtualnode/create/db/vault/<cpichecksum>](../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/get_virtualnode_create_db_vault__cpichecksum_) — returns the SQL required to create the `vault` database for a particular {{< tooltip >}}CPI{{< /tooltip >}} specified by its checksum.
 
 For example, to create the required databases for a virtual node:
 
@@ -70,7 +70,7 @@ For example, to create the required databases for a virtual node:
 
 ## Connecting a Virtual Node to Your Own Database
 
-To update a virtual node to connect to your own database use the PUT method of the [/api/v5_2/virtualnode_virtualnodeshortid_db endpoint](../../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/put_virtualnode__virtualnodeshortid__db). This method requires the short hash ID of the virtual node as a path parameter and the connection strings as parameters in the request body. For example:
+To update an existing virtual node to connect to your own database use the PUT method of the [/api/v5_2/virtualnode_virtualnodeshortid_db endpoint](../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/put_virtualnode__virtualnodeshortid__db). This method requires the short hash ID of the virtual node as a path parameter and the connection strings as parameters in the request body. For example:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell

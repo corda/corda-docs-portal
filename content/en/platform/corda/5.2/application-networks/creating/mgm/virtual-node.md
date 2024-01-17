@@ -14,7 +14,8 @@ section_menu: corda52
 
 # Create a Virtual Node for the MGM
 
-You can create a virtual node using the POST method of the [/api/v5_2/virtualnode endpoint](../../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/post_virtualnode). The following sections describe how to use this method:
+You can create a virtual node using the POST method of the [/api/v5_2/virtualnode endpoint](../../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/post_virtualnode). By default, this endpoint configures the node to connect to the standard Corda-managed virtual note databases. Alternatively, if you are [using your own virtual node databases]({{< relref "../../../deploying-operating/vnodes/bring-your-own-db.md" >}}), you can specify the connection strings as parameters in the request body. The following sections describe how to use this method:
+
 * [Create a Virtual Node on Linux or macOS](#create-a-virtual-node-on-linux-or-macos)
 * [Create a Virtual Node on Windows](#create-a-virtual-node-on-windows)
 
@@ -26,6 +27,14 @@ To create a virtual node for the {{< tooltip >}}MGM{{< /tooltip >}} on Linux or 
 export CPI_CHECKSUM=<CPI-checksum>
 export X500_NAME="C=GB, L=London, O=MGM"
 curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{ "request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "'$X500_NAME'"}}' $REST_API_URL/virtualnode
+```
+
+Alternatively, if you are [using your own virtual node databases]({{< relref "../../../deploying-operating/vnodes/bring-your-own-db.md" >}}), specify the connection strings in the request body:
+
+```shell
+export CPI_CHECKSUM=<CPI-checksum>
+export X500_NAME="C=GB, L=London, O=MGM"
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{ "request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "'$X500_NAME', "cryptoDdlConnection": "'$...'", ..."}}' $REST_API_URL/virtualnode
 ```
 
 You can use the `requestId` from the response to check that the virtual node was created successfully. Run the following, replacing `<request-ID>` with the ID received:
@@ -50,6 +59,20 @@ $VIRTUAL_NODE_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Aut
     request = @{
        cpiFileChecksum = $CPI_STATUS_RESPONSE.cpiFileChecksum
        x500Name = $X500_NAME
+    }
+})
+```
+
+Alternatively, if you are [using your own virtual node databases]({{< relref "../../../deploying-operating/vnodes/bring-your-own-db.md" >}}), specify the connection strings in the request body:
+
+```shell
+$X500_NAME = "C=GB, L=London, O=Alice"
+$VIRTUAL_NODE_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/virtualnode" -Method Post -Body (ConvertTo-Json @{
+    request = @{
+       cpiFileChecksum = $CPI_STATUS_RESPONSE.cpiFileChecksum
+       x500Name = $X500_NAME
+       cryptoDdlConnection = ..
+       .....
     }
 })
 ```
