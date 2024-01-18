@@ -45,7 +45,7 @@ You must have the `UserAdminRole` role to create new users.
 
 ## Changing Passwords
 
-You can your own password using the POST method of the [/api/v5_2/user/selfpassword endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/post_user_selfpassword). For example:
+You can change your own password using the POST method of the [/api/v5_2/user/selfpassword endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/post_user_selfpassword). For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
