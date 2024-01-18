@@ -19,7 +19,7 @@ The default Corda deployment and migration functionality for [virtual nodes data
 
 ## Creating Your Own Virtual Node Databases
 
-The following {{< tooltip >}}REST API{{< /tooltip >}} endpoints are available to generate the SQL required to create or update the schemas required for a virtual node:
+The following REST API endpoints are available to generate the SQL required to create or update the schemas required for a virtual node:
 
 * [api/v5_2/virtualnode/create/db/crypto](../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/get_virtualnode_create_db_crypto) — returns the SQL required to create the `crypto` database.
 * [api_v5_2/virtualnode/create/db/uniqueness](../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/get_virtualnode_create_db_uniqueness) — returns the SQL required to create the `uniqueness` database.
