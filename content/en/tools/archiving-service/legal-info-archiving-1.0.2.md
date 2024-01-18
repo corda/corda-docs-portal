@@ -3,7 +3,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   tools:
     identifier: archive-service-1-0-2-legal-info
-    parent: release-notes-archiving
+    parent: archive-service-legal-info
     weight: 715
 tags:
 - legal
