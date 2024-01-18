@@ -12,7 +12,7 @@ section_menu: corda52
 ---
 # Managing Roles and Permissions
 
-[By default, when a cluster starts]({{< relref "../deployment/deploying/_index.md#rbac" >}}), the "super admin" REST user identity is created, which has unrestricted access permissions.
+By default, when a cluster starts, the "super admin" REST user identity is created, which has unrestricted access permissions.
 This user is created using a special utility that performs a one-time write to the RBAC permissions database.
 This "super admin" user can create additional users and assign necessary permissions to them.
 These permissions may include, but are not limited to, the ability to create even more users.
@@ -29,18 +29,12 @@ These roles and permissions enable certain common operations.
 The creation of users and associating such users to these roles should be performed manually by an admin user.
 {{< /note >}}
 
+## Default Roles
+
 The following table lists the roles created by default by [RBAC bootstrapping as part of deploying Corda]({{< relref "../deployment/deploying/_index.md#rbac" >}}). For information about creating roles manually, see the [Manual Bootstrapping section]({{< relref "../deployment/deploying/manual-bootstrapping.md">}}).
 
 | <div style="width:160px">Role</div> | Description                                                                                                                                                                                       |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `UserAdminRole`                     | Permits the following:<li>Create and delete users<li>Create and delete permissions<li>Create and delete roles<li>Assign and un-assign roles to users<li>Assign and un-assign permissions to roles |
 | `VNodeCreatorRole`                  | Permits the following:<li>Uploading CPIs<li>Creating virtual nodes<li>Updating virtual nodes                                                                                                      |
-| `FlowExecutorRole`                  | Permits the following for a specified virtual node:<li>Start any flow<li>Enquire about the status of running flows                                                                                    |
-
-## Querying Permissions via REST
-
-To retrieve permissions matching certain query criteria, use the [get_permission](../../reference/rest-api/openapi.html#tag/RBAC-Permission-API/operation/get_permission) API call.
-
-{{< note >}}
-Currently, Corda checks if a user can execute `startFlow` REST operations. No checks are made to whether the user can start a particular flow.
-{{< /note >}}
+| `FlowExecutorRole`                  | Permits the following for a specified virtual node:<li>Start any flow<li>Enquire about the status of running flows                                                                                |

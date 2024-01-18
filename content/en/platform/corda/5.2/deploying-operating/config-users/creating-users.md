@@ -2,7 +2,7 @@
 description: "Learn how to create new RBAC users."
 date: '2024-01-17'
 version: 'Corda 5.2'
-title: "Managing Users"
+title: "Managing Users and Roles"
 menu:
   corda52:
     parent: corda52-cluster-users
@@ -10,8 +10,97 @@ menu:
     weight: 3000
 section_menu: corda52
 ---
-# Managing Users
+# Managing Users and Roles
+
+RBAC users are created and managed using the REST API. This section describes the following:
+
+{{< toc >}}
 
 ## Creating Users
 
+You can create a new user using the POST method of the [/api/v5_2/user endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/post_user). You must include a login name and full name and also specify if the account is enabled. For example:
+
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```shell
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{"request": {"enabled": true, "fullName:" "Joe Bloggs", "loginName:" "jbloggs"}}' $REST_API_URL/user
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/user" -Method Post -Body (ConvertTo-Json @{
+    request = @{
+       enabled = true
+       fullName = "Joe Bloggs"
+       loginName = "jbloggs"
+    }
+})
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+## Retrieving Roles
+
+You can retrieve all roles in the system using the [/api/v5_2/role endpoint](../../reference/rest-api/openapi.html#tag/RBAC-Role-API/operation/get_role). For example:
+
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```shell
+curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/role
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/role"
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+This request returns the following for each role:
+
+* `id` — the unique identifier of the role.
+* `version` — the version number of the role.
+* `updateTimestamp` — the date and time when the role was last updated.
+* `roleName` — the name of the role.
+* `permissions` — a list of the permissions associated with the role.
+
 ## Assigning Roles
+
+You can assign a role to a user using the [/api/v5_2/<login-name>/role/<role-id> endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/put_user__loginname__role__roleid_). This endpoint requires the login name of the user and the ID of the role. To retrieve a list of the roles in the system, including their IDs, see [Retrieving Roles](#retrieving-roles).
+
+For example, to assign the *** role to Joe Bloggs:
+
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```shell
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT $REST_API_URL/user/jbloggs/role/********
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/user/jbloggs/role/********" -Method Put
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+## Querying Permissions
+
+You can retrieve the permissions in the system that match certain criteria, using the [/api/v5_2/permission endpoint](../../reference/rest-api/openapi.html#tag/RBAC-Permission-API/operation/get_permission). For example, to return 100 permissions that deny access:
+
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```shell
+curl -k -u $REST_API_USER:$REST_API_PASSWORD  $REST_API_URL/permission?limit=0&permissiontype=DENY
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)}` 
+   -Method Get -Uri "$REST_API_URL/permission`?limit=100&permissiontype=DENY"
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+{{< note >}}
+Currently, Corda checks if a user can execute `startFlow` REST operations. No checks are made to whether the user can start a particular flow.
+{{< /note >}}
