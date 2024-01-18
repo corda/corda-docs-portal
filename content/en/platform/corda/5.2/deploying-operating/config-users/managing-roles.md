@@ -35,6 +35,6 @@ The following table lists the roles created by default by [RBAC bootstrapping as
 
 | <div style="width:160px">Role</div> | Description                                                                                                                                                                                       |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `UserAdminRole`                     | Permits the following:<li>Create and delete users<li>Create and delete permissions<li>Create and delete roles<li>Assign and un-assign roles to users<li>Assign and un-assign permissions to roles |
+| `UserAdminRole`                     | Permits the following:<li>Create and delete users<li>Create and delete permissions<li>Create and delete roles<li>Change the password of other users<li>Assign and un-assign roles to users<li>Assign and un-assign permissions to roles |
 | `VNodeCreatorRole`                  | Permits the following:<li>Uploading CPIs<li>Creating virtual nodes<li>Updating virtual nodes                                                                                                      |
 | `FlowExecutorRole`                  | Permits the following for a specified virtual node:<li>Start any flow<li>Enquire about the status of running flows                                                                                |
