@@ -79,8 +79,7 @@ curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{"request": {"cryptoDdlConnecti
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-$X500_NAME = "C=GB, L=London, O=Alice"
-$VIRTUAL_NODE_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/virtualnode/<virtualnodeshortid>/db" -Method Post -Body (ConvertTo-Json @{
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/virtualnode/<virtualnodeshortid>/db" -Method Post -Body (ConvertTo-Json @{
     request = @{
        cryptoDdlConnection = 
        .....
