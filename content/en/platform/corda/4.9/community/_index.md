@@ -3,14 +3,14 @@ date: '2020-04-07T12:00:00Z'
 description: "Documentation for the 4.9 Community Edition release of Corda"
 menu:
   versions:
-    weight: -651
+    weight: -647
   corda-community-4-9:
     weight: -10
     name: Corda Community Edition 4.9
 project: corda
 section_menu: corda-community-4-9
-title: Corda Community Edition 4.9
-version: 'Community 4.9'
+title: Corda Community 4.9
+version: 'Community & Open Source 4.9'
 ---
 
 # Corda Community Edition 4.9
