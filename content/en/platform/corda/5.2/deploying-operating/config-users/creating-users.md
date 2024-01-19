@@ -74,7 +74,7 @@ curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{"request": {"password": "<new_
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/user/selfpassword" -Method Post -Body (ConvertTo-Json @{
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/user/otheruserpassword" -Method Post -Body (ConvertTo-Json @{
     request = @{
        password = <new_password>
        username = <user_loginname>
