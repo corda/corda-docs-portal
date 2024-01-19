@@ -110,9 +110,9 @@ enterpriseConfiguration {
 
 ## Ledger Recovery distribution record cleanup
 
-The Ledger Recovery distribution record cleanup removes distribution records earlier than a certain point in time. The job deletes entries from the `NODE_SENDER_DISTR_RECS` and `NODE_RECEIVER_DISTR_RECS` tables. For more information on Ledger Recovery and its associated distribution records, see [Ledger Recovery](../../ledger-recovery-flow.md).
+The Ledger Recovery distribution record cleanup removes distribution records earlier than a certain point in time. The job deletes entries from the `NODE_SENDER_DISTR_RECS` and `NODE_RECEIVER_DISTR_RECS` tables. For more information on Ledger Recovery and its associated distribution records, see [Ledger Recovery](../collaborative-recovery/ledger-recovery/overview.md).
 
-The Ledger Recovery distribution record cleanup only runs if one of the following parameters has been configured:
+The Ledger Recovery disddtribution record cleanup only runs if one of the following parameters has been configured:
 
 * If the [network parameter](../../network/available-network-parameters.md) 'recoveryMaximumBackupInterval' is defined, then it is used and given first precedence.
 * Else, if the node parameter `enterpriseConfiguration.ledgerRecoveryConfiguration.recoveryMaximumBackupInterval` is defined, it is used.
