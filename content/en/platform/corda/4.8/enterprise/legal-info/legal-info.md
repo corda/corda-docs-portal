@@ -2,8 +2,8 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-8:
-    identifier: corda-enterprise-4-8-legal-info
-    parent: corda-enterprise-4-8-release-notes
+    identifier: corda-enterprise-4-8-0-legal-info
+    parent: corda-enterprise-4-8-legal-info
     weight: 300
     name: Third-party software licence information - 4.8
 tags:
