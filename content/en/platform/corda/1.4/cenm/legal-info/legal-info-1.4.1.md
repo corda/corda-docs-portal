@@ -7,7 +7,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-4:
     identifier: cenm-1-4-1-legal-info
-    parent: cenm-1-4-cenm-releases
+    parent: cenm-1-4-legal-info
     weight: 130
 tags:
 - legal
