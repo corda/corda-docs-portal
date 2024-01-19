@@ -1,0 +1,18 @@
+---
+date: '2024-01-17'
+menu:
+  tools:
+    identifier: ledger-graph-legal-info
+    parent: ledger-graph-release-notes
+    weight: 800
+tags:
+- legal
+- info
+title: Third-party software licence information - LedgerGraph
+---
+
+# LedgerGraph third-party software notices and licence information
+
+The third-party software notices and license information for LedgerGraph can be found here.
+
+{{< childpages >}}

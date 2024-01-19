@@ -3,7 +3,7 @@ date: '2023-04-11'
 menu:
   tools:
     identifier: ledger-graph-1-2-4-legal-info
-    parent: tools-ledgergraph
+    parent: ledger-graph-legal-info
     weight: 803
 tags:
 - legal

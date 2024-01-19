@@ -1,17 +1,18 @@
 ---
-title: Corda Enterprise Edition 4.7 third-party software notices and licence information
+title: Corda Enterprise Edition 4.7.1 third-party software notices and licence information
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-7:
-    parent: corda-enterprise-4-7-release-notes
-    weight: 300
-    name: Third-party software licence information - 4.7
+    parent: corda-enterprise-4-7-legal-info
+    identifier: corda-enterprise-4-7-1-legal-info
+    weight: 310
+    name: Third-party software licence information - 4.7.1
 tags:
 - legal
 - info
 ---
 
-# Corda Enterprise Edition 4.7 third-party software notices and licence information
+# Corda Enterprise Edition 4.7.1 third-party software notices and licence information
 
 **Do not translate or localise.**
 
@@ -76,107 +77,111 @@ This file is based on or incorporates material from the projects listed below (T
 57.	groovy-all
 58.	guava
 59.	h2
-60.	HdrHistogram
-61.	hibernate-commons-annotations
-62.	hibernate-core
-63.	hibernate-java8
-64.	HikariCP
-65.	istack-commons-runetime
-66.	j2objc-annotations
-67.	jackson-annotations
-68.	jackson-core
-69.	jackson-databind
-70.	jacksondataformat-yaml
-71.	jacksondatatype- jsr310
-72.	jacksonmodule-kotlin
-73.	jandex
-74.	jansi
-75.	javassist
-76.	javax.activation-api
-77.	javax.persistence-api
-78.	jaxb-api
-79.	jaxb-runtime
-80.	jboss-logging
-81.	jboss-transaction- api_1.2_spec
-82.	jcabi-log
-83.	jcabi-manifests
-84.	jcl-over-slf4j
-85.	jgroups
-86.	johnzon-core
-87.	jolokia-core
-88.	jolokia-jvm
-89.	jpam
-90.	jsch
-91.	json-simple
-92.	jsr305
-93.	jul-to-slf4j
-94.	kotlin-reflect
-95.	kotlin-stdlib
-96.	kotlin-stdlib-common
-97.	kotlin-stdlib-jdk7
-98.	kotlin-stdlib-jdk8
-99.	kotlin-stdlib-jre7
-100.	kotlin-stdlib-jre8
-101.	kryo
-102.	kryo-serializers
-103.	LatencyUtils
-104.	liquibase-core
-105.	liquibase-slf4j
-106.	listenablefuture
-107.	log4j-api
-108.	log4j-core
-109.	log4j-over-slf4j
-110.	log4j-slf4j-impl
-111.	log4j-web
-112.	metrics-core
-113.	metrics-graphite
-114.	metrics-jmx
-115.	metrics-new-relic
-116.	mina-core
-117.	minlog
-118.	netty-buffer
-119.	netty-codec
-120.	netty-codec-http
-121.	netty-codec-socks
-122.	netty-common
-123.	netty-handler
-124.	netty-handler-proxy
-125.	netty-resolver
-126.	netty-tcnative-boringssl-static
-127.	netty-transport
-128.	netty-transport-native-epoll
-129.	netty-transport-native-kqueue
-130.	netty-transport-native-unix-common
-131.	newrelic-api
-132.	objenesis
-133.	okhttp
-134.	okio
-135.	picocli
-136.	proton-j
-137.	quasar-core
-138.	reflectasm
-139.	rxjava
-140.	shiro-cache
-141.	shiro-config-core
-142.	shiro-config-ogdl
-143.	shiro-core
-144.	shiro-crypto-cipher
-145.	shiro-crypto-core
-146.	shiro-crypto-hash
-147.	shiro-event
-148.	shiro-lang
-149.	slf4j-api
-150.	slf4j-nop
-151.	snakeyaml
-152.	snappy
-153.	sshd-common
-154.	sshd-core
-155.	sshd-pam
-156.	stax-ex
-157.	txw2
-158.	zookeeper
-159.	zookeeper-jute
+60.	h2
+61.	HdrHistogram
+62.	hibernate-commons-annotations
+63.	hibernate-core
+64.	hibernate-java8
+65.	HikariCP
+66.	istack-commons-runetime
+67.	j2objc-annotations
+68.	jackson-annotations
+69.	jackson-core
+70.	jackson-databind
+71.	jacksondataformat-yaml
+72.	jacksondatatype- jsr310
+73.	jacksonmodule-kotlin
+74.	jandex
+75.	jansi
+76.	javassist
+77.	javax.activation-api
+78.	javax.persistence-api
+79.	jaxb-api
+80.	jaxb-runtime
+81.	jboss-logging
+82.	jboss-transaction- api_1.2_spec
+83.	jcabi-log
+84.	jcabi-manifests
+85.	jcl-over-slf4j
+86.	jgroups
+87.	johnzon-core
+88.	jolokia-core
+89.	jolokia-jvm
+90.	jpam
+91.	jsch
+92.	json-simple
+93.	jsr305
+94.	jul-to-slf4j
+95.	kotlin-reflect
+96.	kotlin-stdlib
+97.	kotlin-stdlib-common
+98.	kotlin-stdlib-jdk7
+99.	kotlin-stdlib-jdk8
+100.	kotlin-stdlib-jre7
+101.	kotlin-stdlib-jre8
+102.	kryo
+103.	kryo-serializers
+104.	LatencyUtils
+105.	liquibase-core
+106.	liquibase-slf4j
+107.	listenablefuture
+108.	log4j-api
+109.	log4j-core
+110.	log4j-over-slf4j
+111.	log4j-slf4j-impl
+112.	log4j-web
+113.	metrics-core
+114.	metrics-graphite
+115.	metrics-jmx
+116.	metrics-new-relic
+117.	mina-core
+118.	minlog
+119.	netty-buffer
+120.	netty-codec
+121.	netty-codec-http
+122.	netty-codec-socks
+123.	netty-common
+124.	netty-handler
+125.	netty-handler-proxy
+126.	netty-resolver
+127.	netty-tcnative-boringssl-static
+128.	netty-transport
+129.	netty-transport-native-epoll
+130.	netty-transport-native-kqueue
+131.	netty-transport-native-unix-common
+132.	newrelic-api
+133.	objenesis
+134.	okhttp
+135.	okio
+136.	picocli
+137.	proton-j
+138.	quasar-core
+139.	reflectasm
+140.	rxjava
+141.	shiro-cache
+142.	shiro-config-core
+143.	shiro-config-ogdl
+144.	shiro-core
+145.	shiro-crypto-cipher
+146.	shiro-crypto-core
+147.	shiro-crypto-hash
+148.	shiro-event
+149.	shiro-lang
+150.	slf4j-api
+151.	slf4j-nop
+152.	snakeyaml
+153.	snappy
+154.	sshd-common
+155.	sshd-core
+156.	sshd-pam
+157.	stax-ex
+158.	txw2
+159.	zookeeper
+160.	zookeeper-jute
 
+
+================================================
+================================================
 
 =========== START OF NOTICES AND INFORMATION for the following components=========
 
@@ -2358,13 +2363,13 @@ Also add information on how to contact you by electronic and paper mail.
 If the program is interactive, make it output a short notice like this when it starts in an interactive mode:
 
    Gnomovision version 69, Copyright (C) year name of author
-   Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show w'. This is free software, and you are welcome to redistribute it under certain conditions; type `show c' for details.
+   Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type 'show w'. This is free software, and you are welcome to redistribute it under certain conditions; type 'show c' for details.
 
-The hypothetical commands `show w' and `show c' should show the appropriate parts of the General Public License. Of course, the commands you use may be called something other than `show w' and `show c'; they could even be mouse-clicks or menu items--whatever suits your program.
+The hypothetical commands 'show w' and 'show c' should show the appropriate parts of the General Public License. Of course, the commands you use may be called something other than 'show w' and 'show c'; they could even be mouse-clicks or menu items--whatever suits your program.
 
 You should also get your employer (if you work as a programmer) or your school, if any, to sign a "copyright disclaimer" for the program, if necessary. Here is a sample; alter the names:
 
-   Yoyodyne, Inc., hereby disclaims all copyright interest in the program `Gnomovision' (which makes passes at compilers) written by James Hacker.
+   Yoyodyne, Inc., hereby disclaims all copyright interest in the program 'Gnomovision' (which makes passes at compilers) written by James Hacker.
 
    signature of Ty Coon, 1 April 1989
    Ty Coon, President of Vice
@@ -3081,12 +3086,12 @@ when it starts in an interactive mode:
 
     Gnomovision version 69, Copyright (C) year name of author
     Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type
-    `show w'. This is free software, and you are welcome to redistribute
-    it under certain conditions; type `show c' for details.
+    'show w'. This is free software, and you are welcome to redistribute
+    it under certain conditions; type 'show c' for details.
 
-The hypothetical commands `show w' and `show c' should show the
+The hypothetical commands 'show w' and 'show c' should show the
 appropriate parts of the General Public License. Of course, the commands
-you use may be called something other than `show w' and `show c'; they
+you use may be called something other than 'show w' and 'show c'; they
 could even be mouse-clicks or menu items--whatever suits your program.
 
 You should also get your employer (if you work as a programmer) or your
@@ -3094,7 +3099,7 @@ school, if any, to sign a "copyright disclaimer" for the program, if
 necessary. Here is a sample; alter the names:
 
     Yoyodyne, Inc., hereby disclaims all copyright interest in the
-    program `Gnomovision' (which makes passes at compilers) written by
+    program 'Gnomovision' (which makes passes at compilers) written by
     James Hacker.
 
     signature of Ty Coon, 1 April 1989
@@ -3502,6 +3507,10 @@ version(s), and exceptions or additional permissions here}."
 =========== START OF NOTICES AND INFORMATION for the following components=========
 
 h2 1.4.192
+http://www.h2database.com/
+http://h2database.com/html/license.html
+
+h2 1.4.197
 http://www.h2database.com/
 http://h2database.com/html/license.html
 
@@ -4459,13 +4468,13 @@ Copyright (c) 2019 Luke Hutchison
 https://github.com/classgraph/classgraph
 https://github.com/classgraph/classgraph/blob/master/LICENSE-ClassGraph.txt
 
-bcpkix-jdk15on 1.66
-Copyright (c) 2000-2020 The Legion of the Bouncy Castle Inc.
+bcpkix-jdk15on 1.68
+Copyright (c) 2000-2021 The Legion of the Bouncy Castle Inc.
 http://www.bouncycastle.org/java.html
 http://www.bouncycastle.org/licence.html
 
-bcprov-jdk15on	1.66
-Copyright (c) 2000-2020 The Legion of the Bouncy Castle Inc.
+bcprov-jdk15on	1.68
+Copyright (c) 2000-2021 The Legion of the Bouncy Castle Inc.
 http://www.bouncycastle.org/java.html
 http://www.bouncycastle.org/licence.html
 
@@ -4639,7 +4648,7 @@ modification, are permitted provided that the following conditions are met:
   3. The names of the authors may not be used to endorse or promote products
      derived from this software without specific prior written permission.
 
-THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES,
+THIS SOFTWARE IS PROVIDED ''AS IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES,
 INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
 FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL JCRAFT,
 INC. OR ANY CONTRIBUTORS TO THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT,
@@ -4652,7 +4661,7 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ================================================
 END OF THIRD PARTY NOTICES FOR
-Corda Enterprise V. 4.7
+Corda Enterprise V. 4.7.1
 ================================================
 
 ----------------------END OF OPEN SOURCE LICENSES -----------------------

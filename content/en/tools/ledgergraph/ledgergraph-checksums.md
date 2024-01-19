@@ -2,7 +2,7 @@
 date: '2022-09-15'
 menu:
   tools:
-    parent: tools-ledgergraph
+    parent: tools-ledger-graph
     identifer: ledger-graph-checksums
 title: Checksums of LedgerGraph release files
 weight: 802
