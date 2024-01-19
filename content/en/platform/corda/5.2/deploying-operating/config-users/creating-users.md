@@ -69,7 +69,7 @@ Users with the `UserAdminRole` role can change the password of other users using
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{"request": {"password": "<new_password>", "username": "<user_loginname>"}}' $REST_API_URL/user/selfpassword
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{"request": {"password": "<new_password>", "username": "<user_loginname>"}}' $REST_API_URL/user/otheruserpassword
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
