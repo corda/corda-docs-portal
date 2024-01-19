@@ -8,7 +8,7 @@ date: '2022-11-29T10:28:00Z'
 menu:
   corda-community-4-9:
     identifier: corda-community-4-9-5-legal-info
-    parent: corda-community-4-9-release-notes
+    parent: corda-community-4-9-legal-info
     weight: 450
     name: Third-party software licence information - 4.9.5
 tags:
