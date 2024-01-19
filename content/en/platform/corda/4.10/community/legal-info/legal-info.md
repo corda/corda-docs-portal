@@ -7,8 +7,8 @@ aliases:
 date: '2023-01-09'
 menu:
   corda-community-4-10:
-    identifier: corda-community-4-10-legal-info
-    parent: corda-community-4-10-release-notes
+    identifier: corda-community-4-10-0-legal-info
+    parent: corda-community-4-10-legal-info
     weight: 450
     name: Third-party software licence information - 4.10
 tags:
