@@ -18,12 +18,12 @@ RBAC users are created and managed using the REST API. This section describes th
 
 ## Creating Users
 
-You can create a new user using the POST method of the [/api/v5_2/user endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/post_user). You must include a login name and full name and also specify if the account is enabled. For example:
+You can create a new user using the POST method of the [/api/v5_2/user endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/post_user). You must include a login name, full name, and password and also specify if the account is enabled. For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{"request": {"enabled": true, "fullName:" "Joe Bloggs", "loginName:" "jbloggs"}}' $REST_API_URL/user
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{"request": {"enabled": true, "fullName:" "Joe Bloggs", "loginName:" "jbloggs", "password:" "wx%ty23Q"}}' $REST_API_URL/user
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -33,6 +33,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
        enabled = true
        fullName = "Joe Bloggs"
        loginName = "jbloggs"
+       password = "wx%ty23Q"
     }
 })
 ```
@@ -113,17 +114,17 @@ This request returns the following for each role:
 
 You can assign a role to a user using the [/api/v5_2/<login-name>/role/<role-id> endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/put_user__loginname__role__roleid_). This endpoint requires the login name of the user and the ID of the role. To retrieve a list of the roles in the system, including their IDs, see [Retrieving Roles](#retrieving-roles).
 
-For example, to assign the *** role to Joe Bloggs:
+For example, to assign a role with the ID bbcc4621-d88f-4a94-ae2f-b38072bf5087 to Joe Bloggs:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT $REST_API_URL/user/jbloggs/role/********
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT $REST_API_URL/user/jbloggs/rolebbcc4621-d88f-4a94-ae2f-b38072bf5087
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/user/jbloggs/role/********" -Method Put
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/user/jbloggs/rolebbcc4621-d88f-4a94-ae2f-b38072bf5087 -Method Put
 ```
 {{% /tab %}}
 {{< /tabs >}}
