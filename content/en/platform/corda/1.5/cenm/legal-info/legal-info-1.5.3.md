@@ -6,7 +6,7 @@ date: '2021-12-17T09:59:25Z'
 menu:
   cenm-1-5:
     identifier: cenm-1-5-3-legal-info
-    parent: cenm-1-5-cenm-releases
+    parent: cenm-1-5-legal-info
     weight: 127
 tags:
 - legal

@@ -5,16 +5,16 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-5:
-    identifier: cenm-1-5-legal-info
-    parent: cenm-1-5-cenm-releases
-    weight: 120
+    identifier: cenm-1-5-1-legal-info
+    parent: cenm-1-5-legal-info
+    weight: 125
 tags:
 - legal
 - info
-title: Third-party software notices and licence information - CENM 1.5.0
+title: Third-party software notices and licence information - CENM 1.5.1
 ---
 
-# Corda Enterprise Network Manager 1.5 third-party software notices and licence information
+# Corda Enterprise Network Manager 1.5.1 third-party software notices and licence information
 
 **Do not translate or localise.**
 
@@ -153,60 +153,64 @@ This file is based on or incorporates material from the projects listed below (T
 131.	jsch
 132.	jsr305
 133.	jwks-rsa
-134.	kotlin-reflect
-135.	kotlin-stdlib
-136.	kotlin-stdlib-common
-137.	kotlin-stdlib-jdk7
-138.	kotlin-stdlib-jdk8
-139.	kryo
-140.	kryo-serializers
-141.	LatencyUtils
-142.	liquibase-core
-143.	liquibase-slf4j
-144.	listenablefuture
-145.	log4j-api
-146.	log4j-core
-147.	log4j-slf4j-impl
-148.	log4j-web
-149.	metrics-core
-150.	metrics-new-relic
-151.	mina-core
-152.	minlog
-153.	mssql-jdbc
-154.	netty-buffer
-155.	netty-codec
-156.	netty-codec-http
-157.	netty-codec-socks
-158.	netty-common
-159.	netty-handler-proxy
-160.	netty-handler
-161.	netty-resolver
-162.	netty-transport
-163.	netty-transport-native-epoll
-164.	netty-transport-native-kqueue
-165.	netty-transport-native-unix-common
-166.	objenesis
-167.	okhttp
-168.	okio
-169.	osgi-resource-locator
-170.	pf4j
-171.	picocli
-172.	proton-j
-173.	reflectasm
-174.	rxjava
-175.	sal-api
-176.	slf4j-api
-177.	snakeyaml
-178.	snappy
-179.	spring-beans
-180.	spring-core
-181.	sshd-common
-182.	sshd-core
-183.	sshd-pam
-184.	stax-api
-185.	stax-ex
-186.	txw2
-187.	validation-api
+134.	kotlin-compiler-embeddable
+135.	kotlin-noarg
+136.	kotlin-reflect
+137.	kotlin-script-runtime
+138.	kotlin-scripting-compiler-embeddable
+139.	kotlin-stdlib
+140.	kotlin-stdlib-common
+141.	kotlin-stdlib-jdk7
+142.	kotlin-stdlib-jdk8
+143.	kryo
+144.	kryo-serializers
+145.	LatencyUtils
+146.	liquibase-core
+147.	liquibase-slf4j
+148.	listenablefuture
+149.	log4j-api
+150.	log4j-core
+151.	log4j-slf4j-impl
+152.	log4j-web
+153.	metrics-core
+154.	metrics-new-relic
+155.	mina-core
+156.	minlog
+157.	mssql-jdbc
+158.	netty-buffer
+159.	netty-codec
+160.	netty-codec-http
+161.	netty-codec-socks
+162.	netty-common
+163.	netty-handler-proxy
+164.	netty-handler
+165.	netty-resolver
+166.	netty-transport
+167.	netty-transport-native-epoll
+168.	netty-transport-native-kqueue
+169.	netty-transport-native-unix-common
+170.	objenesis
+171.	okhttp
+172.	okio
+173.	osgi-resource-locator
+174.	pf4j
+175.	picocli
+176.	proton-j
+177.	reflectasm
+178.	rxjava
+179.	sal-api
+180.	slf4j-api
+181.	snakeyaml
+182.	snappy
+183.	spring-beans
+184.	spring-core
+185.	sshd-common
+186.	sshd-core
+187.	sshd-pam
+188.	stax-api
+189.	stax-ex
+190.	txw2
+191.	validation-api
 
 
 ================================================
@@ -311,12 +315,12 @@ commons-beanutils-core 1.8.0
 https://github.com/apache/commons-beanutils
 https://github.com/apache/commons-beanutils/blob/master/LICENSE.txt
 
-commons-collections	3.2.2		
-http://commons.apache.org/collections/
+commons-codec	1.10		
+http://commons.apache.org/proper/commons-codec/
 http://www.apache.org/licenses/LICENSE-2.0.txt
 
-commons-collections4 4.3		
-http://commons.apache.org/proper/commons-collections/
+commons-collections	3.2.2		
+http://commons.apache.org/collections/
 http://www.apache.org/licenses/LICENSE-2.0.txt
 
 commons-io 2.6		
@@ -495,7 +499,27 @@ jpam 1.1
 http://jpam.sourceforge.net/
 http://jpam.sourceforge.net/JPamUserGuide.html#id.s6.2.1
 
+kotlin-compiler-embeddable 1.2.71
+Copyright 2000-2020 JetBrains s.r.o. and Kotlin Programming Language contributors.
+https://kotlinlang.org/
+https://github.com/JetBrains/kotlin-web-site/blob/master/LICENSE
+
+kotlin-noarg 1.2.71
+Copyright 2000-2020 JetBrains s.r.o. and Kotlin Programming Language contributors.
+https://kotlinlang.org/
+https://github.com/JetBrains/kotlin-web-site/blob/master/LICENSE
+
 kotlin-reflect 1.2.71
+Copyright 2000-2020 JetBrains s.r.o. and Kotlin Programming Language contributors.
+https://kotlinlang.org/
+https://github.com/JetBrains/kotlin-web-site/blob/master/LICENSE
+
+kotlin-script-runtime 1.2.71
+Copyright 2000-2020 JetBrains s.r.o. and Kotlin Programming Language contributors.
+https://kotlinlang.org/
+https://github.com/JetBrains/kotlin-web-site/blob/master/LICENSE
+
+kotlin-scripting-compiler-embeddable 1.2.71
 Copyright 2000-2020 JetBrains s.r.o. and Kotlin Programming Language contributors.
 https://kotlinlang.org/
 https://github.com/JetBrains/kotlin-web-site/blob/master/LICENSE
@@ -611,10 +635,10 @@ netty-transport-native-unix-common 4.1.22.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-objenesis 2.5.1
+objenesis 2.6
 Copyright © 2003-2013, Objenesis Team and all contributors
 http://objenesis.org/
-http://objenesis.org/license.html
+https://www.apache.org/licenses/LICENSE-2.0.txt
 
 okhttp	3.11.0
 https://github.com/square/okhttp
@@ -5989,7 +6013,7 @@ the Author.
 
 ================================================
 END OF THIRD PARTY NOTICES FOR
-Corda Enterprise Network Manager  V. 1.5
+Corda Enterprise Network Manager  V. 1.5.1
 ================================================
 
 
