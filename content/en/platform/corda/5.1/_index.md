@@ -9,7 +9,7 @@ menu:
   versions:
     weight: -4000
   corda51:
-    weight: -100    
+    weight: -100
 ---
 # Next-Gen {{< version >}}
 
