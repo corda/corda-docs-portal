@@ -55,7 +55,7 @@ CENM Releases
 * [Release notes]({{< relref "../../../../../en/platform/corda/1.2/cenm/release-notes.md" >}})
 * [Upgrading Corda Enterprise Network Manager]({{< relref "../../../../../en/platform/corda/1.2/cenm/upgrade-notes.md" >}})
 * [Changelog]({{< relref "../../../../../en/platform/corda/1.2/cenm/changelog.md" >}})
-* [Legal notice]({{< relref "../../../../../en/platform/corda/1.2/cenm/legal-info-1.2.3.md" >}})
+* [Legal notice]({{< relref "../../../../../en/platform/corda/1.2/cenm/legal-info/legal-info-1.2.3.md" >}})
 
 
 
