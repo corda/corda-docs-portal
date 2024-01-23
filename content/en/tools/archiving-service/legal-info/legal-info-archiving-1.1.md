@@ -1,5 +1,6 @@
 ---
 date: '2024-01-17'
+section_menu: tools
 menu:
   tools:
     identifier: archive-service-1-1-legal-info

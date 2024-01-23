@@ -5,6 +5,9 @@ aliases:
 - /HEAD/legal-info.html
 - /legal-info.html
 date: '2022-11-29T10:28:00Z'
+project: corda
+section_menu: corda-community-4-9
+version: 'Community & Open Source 4.9'
 menu:
   corda-community-4-9:
     identifier: corda-community-4-9-5-legal-info

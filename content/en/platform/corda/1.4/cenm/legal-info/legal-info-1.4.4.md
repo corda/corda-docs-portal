@@ -1,5 +1,8 @@
 ---
 date: '2022-01-28T09:59:25Z'
+project: corda
+section_menu: cenm-1-4
+version: 'CENM 1.4'
 menu:
   cenm-1-4:
     identifier: cenm-1-4-4-legal-info

@@ -1,5 +1,8 @@
 ---
 date: '2023-03-28'
+project: corda
+section_menu: cenm-1-5
+version: 'CENM 1.5'
 menu:
   cenm-1-5:
     identifier: cenm-1-5-7-legal-info

@@ -1,5 +1,8 @@
 ---
 date: '2022-01-21T12:00:00Z'
+project: corda
+section_menu: corda-enterprise-4-7
+version: 'Enterprise 4.7'
 menu:
   corda-enterprise-4-7:
     parent: corda-enterprise-4-7-legal-info

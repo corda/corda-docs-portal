@@ -3,6 +3,9 @@ aliases:
 - /docs/cenm/head/legal-info.html
 - /docs/cenm/legal-info.html
 date: '2021-12-17T09:59:25Z'
+project: corda
+section_menu: cenm-1-5
+version: 'CENM 1.5'
 menu:
   cenm-1-5:
     identifier: cenm-1-5-3-legal-info

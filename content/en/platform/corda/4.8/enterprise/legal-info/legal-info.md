@@ -1,5 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
+project: corda
+section_menu: corda-enterprise-4-8
+version: 'Enterprise 4.8'
 menu:
   corda-enterprise-4-8:
     identifier: corda-enterprise-4-8-0-legal-info

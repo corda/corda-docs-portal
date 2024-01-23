@@ -1,6 +1,9 @@
 ---
 title: Corda Enterprise Edition 4.9 third-party software notices and licence information
 date: '2020-04-07T12:00:00Z'
+project: corda
+section_menu: corda-enterprise-4-9
+version: 'Enterprise 4.9'
 menu:
   corda-enterprise-4-9:
     identifier: corda-enterprise-4-9-0-legal-info
