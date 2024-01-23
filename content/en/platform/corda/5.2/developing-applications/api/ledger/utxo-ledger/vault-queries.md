@@ -460,7 +460,7 @@ while (resultSet.hasNext()) {
 
 ## Vault-Named Query Operators
 
-The following is the list of the standard operators for the vault-named query syntax:
+The following are the standard operators for vault-named queries:
 
 * `IN`
 * `LIKE`
@@ -474,22 +474,45 @@ The following is the list of the standard operators for the vault-named query sy
 * `<`
 * `>=`
 * `<=`
-* [->](#operator)
+* `->`
 * `->>`
 * `?`
 * `::`
 
-Where the behavior is not standard, the operators are explained in detail in the following sections.
+Where the behavior is not standard, the operators are explained with examples in the following table:
 
-### Operator: ->
+<style>
+table th:first-of-type {
+    width: 15%;
+}
+table th:nth-of-type(2) {
+    width: 15%;
+}
+table th:nth-of-type(3) {
+    width: 15%;
+}
+table th:nth-of-type(4) {
+    width: 55%;
+}
+</style>
 
-**Right Operand Type:** `Int`
-**Description:**  Gets JSON array element.
-**Example:**
-`custom_representation -> 'com.r3.corda.demo.ArrayObjState' -> 0`
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Right Operand Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-></td>
+<td>Int</td>
+<td>Gets JSON array element.</td>
+<td><code>custom_representation -&gt; &#39;com.r3.corda.demo.ArrayObjState&#39; -&gt; 0</code><br>For example, for the following JSON:
 
-Example JSON:
-```java
+```json
 {
   "com.r3.corda.demo.ArrayObjState": [
     {"A": 1},
@@ -497,79 +520,92 @@ Example JSON:
   ]
 }
 ```
-This example returns:
-```java
+the following is returned:
+```json
 {
   "A": 1
 }
 ```
-**Name:** `->`
-**Right Operand Type:** </b> `Text`
-**Description:** Get JSON object field.
-**Example:**
-`custom_representation -> 'com.r3.corda.demo.TestState'`
-Selects the top-level JSON field called `com.r3.corda.demo.TestState` from the JSON object in the `custom_representation` database column.
-Example JSON:
-```java
+
+</td>
+</tr>
+<tr>
+<td>-></td>
+<td>Text</td>
+<td>Gets JSON object field. </td>
+<td><code>custom_representation -> 'com.r3.corda.demo.TestState'</code> selects the top-level JSON field called <code>com.r3.corda.demo.TestState</code> from the JSON object in the <code>custom_representation</code> database column.<br>For example, for the following JSON:
+
+```json
 {
   "com.r3.corda.demo.TestState": {
     "testField": "ABC"
   }
 }
 ```
-This example returns:
-```java
+the following is returned:
+```json
 {
   "testField": "ABC"
 }
 ```
-**Name:** `->>`
-**Right Operand Type:** `Int`
-**Description:** Get JSON array element as text.
-**Example:**
-`custom_representation -> 'com.r3.corda.demo.ArrayState' ->> 2`
-Selects the third element (indexing from 0)  of the array type top-level JSON field called `com.r3.corda.demo.ArrayState` from the JSON object in the `custom_representation` database column.
-Example JSON:
-```java
+
+</td>
+</tr>
+<tr>
+<td>->></td>
+<td>Int</td>
+<td>Get JSON array element as text.  </td>
+<td><code>custom_representation -> 'com.r3.corda.demo.ArrayState' ->> 2</code> selects the third element (indexing from 0) of the array type top-level JSON field called <code>com.r3.corda.demo.ArrayState</code> from the JSON object in the <code>custom_representation</code> database column. <br>For example, <code>7</code> is returned for the following JSON:
+
+```json
 {
   "com.r3.corda.demo.ArrayState": [
     5, 6, 7
   ]
 }
 ```
-This example returns: `7`.
-**Name:** `->>`
-**Right Operand Type:** `Text`
-**Description:** Get JSON object field as text.
-**Example:**
-`custom_representation -> 'com.r3.corda.demo.TestState' ->> 'testField'`
-Selects the `testField` JSON field from the top-level JSON object called `com.r3.corda.demo.TestState` in the `custom_representation` database column.
-Example JSON:
-```java
+
+</td>
+</tr>
+<tr>
+<td>->></td>
+<td>Text</td>
+<td>Get JSON object field as text. </td>
+<td><code>custom_representation -> 'com.r3.corda.demo.TestState' ->> 'testField'</code> selects  the testField JSON field from the top-level JSON object called <code>com.r3.corda.demo.TestState</code> in the <code>custom_representation</code> database column.<br>For example, <code>ABC</code> is returned for the following JSON:
+
+```json
 {
   "com.r3.corda.demo.TestState": {
     "testField": "ABC"
   }
 }
 ```
-This example returns: `ABC`.
-**Name:** `?`
-**Right Operand Type:** `Text`
-**Description:** Checks if JSON object field exists.
-**Example:**
-`custom_representation ? 'com.r3.corda.demo.TestState'`
-Checks if the object in the `custom_representation` database column has a top-level field called `com.r3.corda.demo.TestState`.
-Example JSON:
-```java
+
+</td>
+</tr>
+<tr>
+<td>?</td>
+<td>Text</td>
+<td> Checks if JSON object field exists.</td>
+<td><code>custom_representation ? 'com.r3.corda.demo.TestState'</code> checks if the object in the <code>custom_representation database</code>  column has a top-level field called <code>com.r3.corda.demo.TestState</code>.<br>For example, <code>true</code> is returned for the following JSON:
+
+```json
 {
   "com.r3.corda.demo.TestState": {
     "testField": "ABC"
   }
 }
 ```
-This example returns: `true`.
-**Name:** `::`
-**Right Operand Type:** A type, for example, `Int`
-**Description:** Casts the element/object field to the specified type.
-**Example:**
-`(visible_states.field ->> property)::int = 1234`
+
+</td>
+</tr>
+<tr>
+<td>::</td>
+<td>A type, for example, Int.</td>
+<td>Casts the element/object field to the specified type.</td>
+<td><code>(visible_states.field ->> property)::int = 1234</code>
+
+</td>
+</tr>
+</tbody>
+</table>
