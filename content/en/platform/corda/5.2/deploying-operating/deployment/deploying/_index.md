@@ -807,11 +807,13 @@ bootstrap:
     enabled: true
 ```
 
+For more information about these roles, see [Managing Roles and Permissions]({{< relref "../../config-users/managing-roles.md">}}).
+
 ### Service Accounts
 
 If additional permissions are required, you can specify a service account for the Corda workers and bootstrap containers.
 
-For example, when running with Red Hat OpenShift Container Platform, you must use a service account with the priviliged security context constraint:
+For example, when running with Red Hat OpenShift Container Platform, you must use a service account with the privileged security context constraint:
 
 1. Create a file `sa.yaml` defining a custom service account bound to a role that provides the required security context constraint:
 

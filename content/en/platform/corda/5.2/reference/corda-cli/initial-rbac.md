@@ -21,17 +21,12 @@ table th:nth-of-type(2) {
 </style>
 
 # initial-rbac
-This section lists the Corda CLI `initial-rbac` arguments. You can use these commands to manually create {{< tooltip >}}RBAC{{< /tooltip >}} roles, as described in the [Manual Bootstrapping]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md#rbac-roles" >}}) section.
+
+This section lists the Corda CLI `initial-rbac` arguments. You can use these commands to manually create {{< tooltip >}}RBAC{{< /tooltip >}} roles, as described in the [Manual Bootstrapping]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md#rbac-roles" >}}) section. For more information about these default roles, see [Managing Roles and Permissions]({{< relref "../../deploying-operating/config-users/managing-roles.md">}}).
 
 ## user-admin
 
-The `user-admin` command creates a `UserAdminRole` role, which permits the following:
-
-* Create and delete users
-* Create and delete permissions
-* Create and delete roles
-* Assign and un-assign roles to users
-* Assign and un-assign permissions to roles
+The `user-admin` command creates the `UserAdminRole` role.
 
 {{< snippet initial-rbac.md >}}
 
@@ -50,11 +45,7 @@ corda-cli.cmd initial-rbac user-admin --yield 300 --user <INITIAL-USERNAME> --pa
 
 ## vnode-creator
 
-The `vnode-creator` command creates a `VNodeCreatorRole` role, which permits the following:
-* Uploading CPIs
-* Creating virtual nodes
-* Updating virtual nodes
-
+The `vnode-creator` command creates the `VNodeCreatorRole` role.
 {{< snippet initial-rbac.md >}}
 
 {{< tabs >}}
@@ -70,35 +61,9 @@ corda-cli.cmd initial-rbac vnode-creator --yield 300 --user <INITIAL-USERNAME> -
 {{% /tab %}}
 {{< /tabs >}}
 
-## corda-developer
-
-The `corda-developer` command creates a `CordaDeveloperRole` role, which permits the following:
-
-* Reset virtual nodes
-* Sync virtual node vaults
-* Change the state of virtual nodes
-
-{{< snippet initial-rbac.md >}}
-
-{{< tabs >}}
-{{% tab name="Bash" %}}
-```sh
-corda-cli.sh initial-rbac corda-developer --yield 300 --user <INITIAL-USERNAME> --password <INITIAL-PASSWORD> --target <API-ENDPOINT>
-```
-{{% /tab %}}
-{{% tab name="PowerShell" %}}
-```shell
-corda-cli.cmd initial-rbac corda-developer --yield 300 --user <INITIAL-USERNAME> --password <INITIAL-PASSWORD> --target <API-ENDPOINT>
-```
-{{% /tab %}}
-{{< /tabs >}}
-
 ## flow-executor
 
-The `flow-executor` command creates a `FlowExecutorRole` role, which permits the following for a specified virtual node:
-
-* Start any flow
-* Enquire about the status of running flows
+The `flow-executor` command creates the `FlowExecutorRole` role.
 
 | Argument                  | Description                                                                                         |
 | ------------------------- | --------------------------------------------------------------------------------------------------- |
@@ -125,7 +90,7 @@ corda-cli.cmd initial-rbac flow-executor --v-node-id 253501665E9D --yield 300 --
 
 ## all-cluster-roles
 
-The `all-cluster-roles` command creates all of the cluster-scoped roles: [CordaDeveloperRole](#corda-developer), [UserAdminRole](#user-admin), [VNodeCreatorRole](#vnode-creator).
+The `all-cluster-roles` command creates the `UserAdminRole` and `VNodeCreatorRole` roles.
 
 {{< snippet initial-rbac.md >}}
 
