@@ -1,5 +1,6 @@
 ---
 date: '2023-06-20'
+description: "Learn how to query the Corda database using vault-named queries."
 version: 'Corda 5.2'
 title: "Vault-Named Queries"
 menu:
@@ -12,15 +13,21 @@ section_menu: corda52
 
 # Vault-Named Queries
 
-A vault-named query is a database query that can be defined by Corda users. The user can define the following:
+Vault-named queries enable you to query the Corda database. The user can define the following:
 
 * The name of the query
-* The query functionality (state the type that the query will work on and the `WHERE` clause)
+* The query functionality (the type that the query works on and the `WHERE` clause)
 * Optional filtering logic of the result set
 * Optional transformation logic of the result set
 * Optional collection logic of the result set
 
-The query creator must follow a few pre-defined steps so that the query is registered and usable.
+The query creator must follow pre-defined steps so that the query is registered and usable.
+
+This section contains the following:
+
+* [Representing a State in the Database](#representing-a-state-in-the-database)
+* [Creating and Registering a Vault-Named Query](#creating-and-registering-a-vault-named-query)
+* [Vault-Named Query Operators](#vault-named-query-operators)
 
 ## Representing a State in the Database
 
@@ -109,7 +116,7 @@ class TestUtxoStateJsonFactory implements ContractStateVaultJsonFactory<TestUtxo
 {{% /tab %}}
 {{< /tabs >}}
 
-After the output state finalizes, it is represented as the following in the database (`custom_representation column`)
+After the output state finalizes, it is represented as the following in the database (`custom_representation` column)
 with a `stateRef` field stored under the `ContractState` JSON object:
 
 ```json
@@ -178,14 +185,14 @@ public class DummyCustomQueryFactory implements VaultNamedQueryFactory {
 {{< /tabs >}}
 
 The interface called `VaultNamesQueryFactory` has one method:
-`void create(@NotNull VaultNamedQueryBuilderFactory vaultNamedQueryBuilderFactory);`
+`void create(@NotNull VaultNamedQueryBuilderFactory vaultNamedQueryBuilderFactory);`.
 
 This function is called during start-up and it defines how a query operates in it with the following steps:
 
 * To create a vault-named query with a given name, in this case it is `DUMMY_CUSTOM_QUERY`, call `vaultNamedQueryBuilderFactory.create()`.
 * To define how a query's `WHERE` clause will work, call `whereJson()`.
   {{< note >}}
-  Always start with the actual `WHERE` statement and then write the rest of the clause. Fields need to be prefixed with the `visible_states.` qualifier. Since `visible_states.custom_representation` is a JSON column, we can use some JSON specific  operations.
+  * Always start with the actual `WHERE` statement and then write the rest of the clause. You must prefix fields with the `visible_states.` qualifier. Since `visible_states.custom_representation` is a JSON column, we can use some JSON specific operations.
   * Parameters can be used in the query in a `:parameter` format. In this example, use a parameter called `:testField` which can be set when executing this query. This works similarly to popular Java SQL libraries such as Hibernate.
   {{< /note >}}
 
@@ -193,17 +200,17 @@ This function is called during start-up and it defines how a query operates in i
 
 ### Complex Query Example
 
- To add some extra logic to the query:
+For example, to add some extra logic to the query:
 
 * Only keep the results that have “Alice” in their participant list.
 * Transform the result set to only keep the {{< tooltip >}}transaction{{< /tooltip >}} IDs.
 * Collect the result set into one single integer.
 
-These optional logics will always be applied in the following order:
+These optional logics are always applied in the following order:
 
-1. Filtering
-2. Transforming
-3. Collecting
+1. [Filtering](#filtering)
+2. [Transforming](#transforming)
+3. [Collecting](#collecting)
 
 {{< note >}}
 The query `whereJson` returns `StateAndRef` objects and the data going into the filtering and transforming logic consists of `StateAndRefs`.
@@ -214,7 +221,7 @@ The query `whereJson` returns `StateAndRef` objects and the data going into the 
 To create a filtering logic, implement the `net.corda.v5.ledger.utxo.query.VaultNamedQueryStateAndRefFilter<T>` interface. The `<T>` type here is the state type that will be returned from the database, which in this case is `TestState`. This interface has only one function.
 This defines whether or not to keep the given element (`row`) from the result set. Elements returning true are kept and the rest are discarded.
 
-In this example, keep the elements that have “Alice” in their participant list. This filter would look like this:
+In this example, keep the elements that have “Alice” in their participant list:
 {{< tabs name="tabs-4" >}}
 {{% tab name="Kotlin" %}}
 ```kotlin
@@ -240,7 +247,7 @@ class DummyCustomQueryFilter implements VaultNamedQueryStateAndRefFilter<TestUtx
 
 #### Transforming
 
-To create a transformer class, make sure to only keep the transaction IDs of each record. Transformer classes must implement the `VaultNamedQueryStateAndRefTransformer<T, R>` interface. The `<T>` is the type of results returned from the database, which in this case is `TestState`, `<R>` is the type to transform the results into, and transaction IDs should be `Strings`.
+To create a transformer class, only keep the transaction IDs of each record. Transformer classes must implement the `VaultNamedQueryStateAndRefTransformer<T, R>` interface. The `<T>` is the type of results returned from the database, which in this case is `TestState`, `<R>` is the type to transform the results into, and transaction IDs should be `Strings`.
 
 This interface has one function:
 
@@ -278,7 +285,7 @@ This transforms each element to a `String` object, which is the given state’s 
 #### Collecting
 
 Collecting is used to collect results set into one single integer.
-For this, implement the `net.corda.v5.ledger.utxo.query.VaultNamedQueryCollector<R, T>` interface. The `<R>` parameter is the type of the original result set (in this case `String` because of transformation) and `<T>` is the type collected into (in this can an `Int`).
+For this, implement the `net.corda.v5.ledger.utxo.query.VaultNamedQueryCollector<R, T>` interface. The `<R>` parameter is the type of the original result set (in this case `String` because of transformation) and `<T>` is the type collected into (in this case, an `Int`).
 
 This interface has only one method:
 
@@ -320,7 +327,7 @@ class DummyCustomQueryCollector implements VaultNamedQueryCollector<String, Inte
 {{< /tabs >}}
 
 {{< note >}}
-The query `isDone` should only be set to 'true' if the result set is complete.
+The query `isDone` should only be set to `true` if the result set is complete.
 {{< /note >}}
 
 #### Registering our Complex Query
@@ -365,7 +372,7 @@ public class JsonQueryFactory implements VaultNamedQueryFactory {
 {{< /tabs >}}
 
 {{< note >}}
-The collector always must be the last one in the chain as all previous filtering and mapping functionality is applied before collecting.
+The collector must always be the last one in the chain as all previous filtering and mapping functionality is applied before collecting.
 {{< /note >}}
 
 ### Executing a Vault-Named Query
@@ -389,8 +396,8 @@ utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class)
 Provide the name of the query (in this case `DUMMY_CUSTOM_QUERY`) and the return type. Since the result set is collected into an integer in the complex query example, use `Int` (or `Integer` in Java).
 Before executing, define the following:
 
-* How many results each page of the query should return (`setLimit`), default Int.MAX (2,147,483,647).
-* Define named parameters that are in the query and the actual value for them. {{< note >}} All parameters must be defined, otherwise the execution will fail. (`setParameter` or `setParameters`) {{</ note >}}
+* How many results each page of the query should return (`setLimit`), the default value is Int.MAX (2,147,483,647).
+* Define named parameters that are in the query and the actual value for them. ALl parameters must be defined, otherwise the execution will fail. (`setParameter` or `setParameters`).
 * Each state in the database has a timestamp value for when it was inserted. Set an * upper limit to only return states that were inserted before a given time. (`setTimestampLimit`)
 
 It is not necessary to call `ParameterizedQuery.setOffset` as the query pages the results based on each state's created timestamp.
@@ -417,7 +424,7 @@ PagedQuery.ResultSet<Integer> resultSet = utxoLedgerService.query("DUMMY_CUSTOM_
 {{< /tabs >}}
 
 {{< note >}}
-A dummy value is assigned for the `testField` parameter in this query, but it can be replaced. There is only one parameter in this example query which is `:testField`.
+A dummy value is assigned for the `testField` parameter in this query, but it can be replaced. There is only one parameter in this example query: `:testField`.
 {{</ note >}}
 
 Results can be acquired by calling `getResults()` on the `ResultSet`.  Call `hasNext()` to check if there are more results to retrieve and `next()` to move onto the next page:
@@ -451,7 +458,7 @@ while (resultSet.hasNext()) {
 {{% /tab %}}
 {{< /tabs >}}
 
-# Vault-Named Query Operators
+## Vault-Named Query Operators
 
 The following is the list of the standard operators for the vault-named query syntax:
 
@@ -467,12 +474,15 @@ The following is the list of the standard operators for the vault-named query sy
 * `<`
 * `>=`
 * `<=`
-* `->`
+* [->](#operator)
 * `->>`
 * `?`
 * `::`
+
 Where the behavior is not standard, the operators are explained in detail in the following sections.
-**Name:** `->`
+
+### Operator: ->
+
 **Right Operand Type:** `Int`
 **Description:**  Gets JSON array element.
 **Example:**
