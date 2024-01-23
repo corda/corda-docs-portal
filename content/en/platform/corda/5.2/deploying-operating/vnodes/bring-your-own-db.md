@@ -19,7 +19,7 @@ The default Corda deployment and migration functionality for [virtual nodes data
 
 ## Creating Your Own Virtual Node Databases
 
-The following REST API endpoints are available to generate the SQL required to create or update the schemas required for a virtual node:
+The following REST API endpoints are available to generate the SQL required to update the schemas required for a virtual node:
 
 * [api/v5_2/virtualnode/create/db/crypto](../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/get_virtualnode_create_db_crypto) — returns the SQL required to create the `crypto` database.
 * [api_v5_2/virtualnode/create/db/uniqueness](../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/get_virtualnode_create_db_uniqueness) — returns the SQL required to create the `uniqueness` database.
@@ -27,7 +27,9 @@ The following REST API endpoints are available to generate the SQL required to c
 
 For example, to create the required databases for a virtual node:
 
-1. Retrieve the required SQL for the `crypto` database:
+1. Create the necessary schemas and users. The DML user for each database requires SELECT, UPDATE, INSERT, and DELETE permissions. The DDL user is optional but, if used, it requires full permissions to enable it to deploy schema.
+
+2. Retrieve the required SQL for the `crypto` database:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -40,7 +42,7 @@ For example, to create the required databases for a virtual node:
    ```
    {{% /tab %}}
    {{< /tabs >}}
-2. Retrieve the required SQL for the `uniqueness` database:
+3. Retrieve the required SQL for the `uniqueness` database:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -53,7 +55,7 @@ For example, to create the required databases for a virtual node:
    ```
    {{% /tab %}}
    {{< /tabs >}}
-3. Retrieve the required SQL for the `vault` database:
+4. Retrieve the required SQL for the `vault` database:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -66,7 +68,7 @@ For example, to create the required databases for a virtual node:
    ```
    {{% /tab %}}
    {{< /tabs >}}
-4. Execute the SQL for the three databases.
+5. Execute the SQL for the three databases.
 
 ## Connecting a Virtual Node to Your Own Database
 
@@ -74,16 +76,68 @@ To update an existing virtual node to connect to your own database use the PUT m
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{"request": {"cryptoDdlConnection": "'$...'", ...}}' $REST_API_URL/virtualnode/<virtualnodeshortid>/db
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{"request": {"cryptoDdlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_crypto_FD545924FF37\"},\"user\":\"cryptoddlconnection_fd545924ff37\",\"pass\":\"WXZS48pRyFQu0GNJNseRMeIL8ZczwfPAHnDJRZdQ11M6fJxjjdhbcKEYSwSiHHqT\"}}","cryptoDmlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_crypto_FD545924FF37\"},\"user\":\"cryptodmlconnection_fd545924ff37\",\"pass\":\"d6LIdsVpTwoHaetemyeGWXb0TjRHXOCR6yrxeCCWzWTGiqiDxR5zPuYMBaFdbj6A\"}}","uniquenessDdlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_uniq_FD545924FF37\"},\"user\":\"uniquenessddlconnection_fd545924ff37\",\"pass\":\"nVzjzsjfmQpSubHi7K7Rt2Cjlt40wb85zPQQI1KxprmCUswqUJhHH0ovdTy6wYWi\"}}","uniquenessDmlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_uniq_FD545924FF37\"},\"user\":\"uniquenessdmlconnection_fd545924ff37\",\"pass\":\"HjgqzcVTohZIapZrgsNz6dlW6U4yHUn6LjCsfG5nwHbuso5hsvAuWBB8DievZX7R\"}}","vaultDdlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_vault_FD545924FF37\"},\"user\":\"vaultddlconnection_fd545924ff37\",\"pass\":\"UwFGEWX9KFfLf9Gai63bUAgcMMh0OzUP9wTRGYEhptkBcfzqScK6tqnz6wSAxN7K\"}}","vaultDmlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_vault_FD545924FF37\"},\"user\":\"vaultdmlconnection_fd545924ff37\",\"pass\":\"PJRFQInjedKZcgf1o0YYq7Dv7vhbsdFL5U7FuCID3S7ZYjPNJ7GITbyTgIofeQwL\"}}"}' $REST_API_URL/virtualnode/<virtualnodeshortid>/db
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
 Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/virtualnode/<virtualnodeshortid>/db" -Method Post -Body (ConvertTo-Json @{
     request = @{
-       cryptoDdlConnection = 
-       .....
-    }
+      cryptoDdlConnection = @{
+         database = @{
+            jdbc = @{
+               url = "jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_crypto_FD545924FF37"
+               user = "cryptoddlconnection_fd545924ff37"
+               pass = "WXZS48pRyFQu0GNJNseRMeIL8ZczwfPAHnDJRZdQ11M6fJxjjdhbcKEYSwSiHHqT"
+            }
+         }
+      }
+      cryptoDmlConnection = @{
+         database = @{
+            jdbc = @{
+               url = "jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_crypto_FD545924FF37"
+               user = "cryptodmlconnection_fd545924ff37"
+               pass = "d6LIdsVpTwoHaetemyeGWXb0TjRHXOCR6yrxeCCWzWTGiqiDxR5zPuYMBaFdbj6A"
+            }
+         }
+      }
+      uniquenessDdlConnection = @{
+         database = @{
+            jdbc = @{
+               url = "jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_uniq_FD545924FF37"
+               user = "uniquenessddlconnection_fd545924ff37"
+               pass = "nVzjzsjfmQpSubHi7K7Rt2Cjlt40wb85zPQQI1KxprmCUswqUJhHH0ovdTy6wYWi"
+            }
+         }
+      }
+      uniquenessDmlConnection = @{
+         database = @{
+            jdbc = @{
+               url = "jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_uniq_FD545924FF37"
+               user = "uniquenessdmlconnection_fd545924ff37"
+               pass = "HjgqzcVTohZIapZrgsNz6dlW6U4yHUn6LjCsfG5nwHbuso5hsvAuWBB8DievZX7R"
+            }
+         }
+      }
+      vaultDdlConnection = @{
+         database = @{
+            jdbc = @{
+               url = "jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_vault_FD545924FF37"
+               user = "vaultddlconnection_fd545924ff37"
+               pass = "UwFGEWX9KFfLf9Gai63bUAgcMMh0OzUP9wTRGYEhptkBcfzqScK6tqnz6wSAxN7K"
+            }
+         }
+      }
+      vaultDmlConnection = @{
+         database = @{
+            jdbc = @{
+               url = "jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_vault_FD545924FF37"
+               user = "vaultdmlconnection_fd545924ff37"
+               pass = "PJRFQInjedKZcgf1o0YYq7Dv7vhbsdFL5U7FuCID3S7ZYjPNJ7GITbyTgIofeQwL"
+            }
+         }
+      }
+   }
 })
 ```
 {{% /tab %}}

@@ -34,7 +34,7 @@ Alternatively, if you are [using your own virtual node databases]({{< relref "..
 ```shell
 export CPI_CHECKSUM=<CPI-checksum>
 export X500_NAME="C=GB, L=London, O=MGM"
-curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{ "request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "'$X500_NAME', "cryptoDdlConnection": "'$...'", ..."}}' $REST_API_URL/virtualnode
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{ "request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "'$X500_NAME', "cryptoDdlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_crypto_FD545924FF37\"},\"user\":\"cryptoddlconnection_fd545924ff37\",\"pass\":\"WXZS48pRyFQu0GNJNseRMeIL8ZczwfPAHnDJRZdQ11M6fJxjjdhbcKEYSwSiHHqT\"}}","cryptoDmlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_crypto_FD545924FF37\"},\"user\":\"cryptodmlconnection_fd545924ff37\",\"pass\":\"d6LIdsVpTwoHaetemyeGWXb0TjRHXOCR6yrxeCCWzWTGiqiDxR5zPuYMBaFdbj6A\"}}","uniquenessDdlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_uniq_FD545924FF37\"},\"user\":\"uniquenessddlconnection_fd545924ff37\",\"pass\":\"nVzjzsjfmQpSubHi7K7Rt2Cjlt40wb85zPQQI1KxprmCUswqUJhHH0ovdTy6wYWi\"}}","uniquenessDmlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_uniq_FD545924FF37\"},\"user\":\"uniquenessdmlconnection_fd545924ff37\",\"pass\":\"HjgqzcVTohZIapZrgsNz6dlW6U4yHUn6LjCsfG5nwHbuso5hsvAuWBB8DievZX7R\"}}","vaultDdlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_vault_FD545924FF37\"},\"user\":\"vaultddlconnection_fd545924ff37\",\"pass\":\"UwFGEWX9KFfLf9Gai63bUAgcMMh0OzUP9wTRGYEhptkBcfzqScK6tqnz6wSAxN7K\"}}","vaultDmlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_vault_FD545924FF37\"},\"user\":\"vaultdmlconnection_fd545924ff37\",\"pass\":\"PJRFQInjedKZcgf1o0YYq7Dv7vhbsdFL5U7FuCID3S7ZYjPNJ7GITbyTgIofeQwL\"}}"}' $REST_API_URL/virtualnode
 ```
 
 You can use the `requestId` from the response to check that the virtual node was created successfully. Run the following, replacing `<request-ID>` with the ID received:
@@ -69,10 +69,62 @@ Alternatively, if you are [using your own virtual node databases]({{< relref "..
 $X500_NAME = "C=GB, L=London, O=Alice"
 $VIRTUAL_NODE_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/virtualnode" -Method Post -Body (ConvertTo-Json @{
     request = @{
-       cpiFileChecksum = $CPI_STATUS_RESPONSE.cpiFileChecksum
-       x500Name = $X500_NAME
-       cryptoDdlConnection = ..
-       .....
+        cpiFileChecksum = $CPI_STATUS_RESPONSE.cpiFileChecksum
+        x500Name = $X500_NAME
+        cryptoDdlConnection = @{
+            database = @{
+                jdbc = @{
+                    url = "jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_crypto_FD545924FF37"
+                    user = "cryptoddlconnection_fd545924ff37"
+                    pass = "WXZS48pRyFQu0GNJNseRMeIL8ZczwfPAHnDJRZdQ11M6fJxjjdhbcKEYSwSiHHqT"
+                }
+            }
+        }
+        cryptoDmlConnection = @{
+            database = @{
+                jdbc = @{
+                    url = "jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_crypto_FD545924FF37"
+                    user = "cryptodmlconnection_fd545924ff37"
+                    pass = "d6LIdsVpTwoHaetemyeGWXb0TjRHXOCR6yrxeCCWzWTGiqiDxR5zPuYMBaFdbj6A"
+                }
+            }
+        }
+        uniquenessDdlConnection = @{
+            database = @{
+                jdbc = @{
+                    url = "jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_uniq_FD545924FF37"
+                    user = "uniquenessddlconnection_fd545924ff37"
+                    pass = "nVzjzsjfmQpSubHi7K7Rt2Cjlt40wb85zPQQI1KxprmCUswqUJhHH0ovdTy6wYWi"
+                }
+            }
+        }
+        uniquenessDmlConnection = @{
+            database = @{
+                jdbc = @{
+                    url = "jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_uniq_FD545924FF37"
+                    user = "uniquenessdmlconnection_fd545924ff37"
+                    pass = "HjgqzcVTohZIapZrgsNz6dlW6U4yHUn6LjCsfG5nwHbuso5hsvAuWBB8DievZX7R"
+                }
+            }
+        }
+        vaultDdlConnection = @{
+            database = @{
+                jdbc = @{
+                    url = "jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_vault_FD545924FF37"
+                    user = "vaultddlconnection_fd545924ff37"
+                    pass = "UwFGEWX9KFfLf9Gai63bUAgcMMh0OzUP9wTRGYEhptkBcfzqScK6tqnz6wSAxN7K"
+                }
+            }
+        }
+        vaultDmlConnection = @{
+            database = @{
+                jdbc = @{
+                    url = "jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_vault_FD545924FF37"
+                    user = "vaultdmlconnection_fd545924ff37"
+                    pass = "PJRFQInjedKZcgf1o0YYq7Dv7vhbsdFL5U7FuCID3S7ZYjPNJ7GITbyTgIofeQwL"
+                }
+            }
+        }        
     }
 })
 ```
