@@ -19,7 +19,7 @@ The default Corda deployment and migration functionality for [virtual nodes data
 
 ## Creating Your Own Virtual Node Databases
 
-The following REST API endpoints are available to generate the SQL required to update the schemas required for a virtual node:
+The following REST API endpoints are available to generate the SQL to update the schemas required for a virtual node:
 
 * [api/v5_2/virtualnode/create/db/crypto](../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/get_virtualnode_create_db_crypto) — returns the SQL required to create the `crypto` database.
 * [api_v5_2/virtualnode/create/db/uniqueness](../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/get_virtualnode_create_db_uniqueness) — returns the SQL required to create the `uniqueness` database.
@@ -29,7 +29,7 @@ For example, to create the required databases for a virtual node:
 
 1. Create the necessary schemas and users. The DML user for each database requires SELECT, UPDATE, INSERT, and DELETE permissions. The DDL user is optional but, if used, it requires full permissions to enable it to deploy schema.
 
-2. Retrieve the required SQL for the `crypto` database:
+2. Retrieve the SQL for the `crypto` database:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -42,7 +42,7 @@ For example, to create the required databases for a virtual node:
    ```
    {{% /tab %}}
    {{< /tabs >}}
-3. Retrieve the required SQL for the `uniqueness` database:
+3. Retrieve the SQL for the `uniqueness` database:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -55,7 +55,7 @@ For example, to create the required databases for a virtual node:
    ```
    {{% /tab %}}
    {{< /tabs >}}
-4. Retrieve the required SQL for the `vault` database:
+4. Retrieve the SQL for the `vault` database:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
