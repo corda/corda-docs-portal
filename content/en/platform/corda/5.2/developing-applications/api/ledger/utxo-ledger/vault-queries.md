@@ -192,7 +192,7 @@ This function is called during start-up and it defines how a query operates in i
 * To create a vault-named query with a given name, in this case it is `DUMMY_CUSTOM_QUERY`, call `vaultNamedQueryBuilderFactory.create()`.
 * To define how a query's `WHERE` clause will work, call `whereJson()`.
   {{< note >}}
-  * Always start with the actual `WHERE` statement and then write the rest of the clause. You must prefix fields with the `visible_states.` qualifier. Since `visible_states.custom_representation` is a JSON column, we can use some JSON specific operations.
+  * Always start with the actual `WHERE` statement and then write the rest of the clause. You must prefix fields with the `visible_states.` qualifier. Since `visible_states.custom_representation` is a JSON column, you can use some JSON-specific operations.
   * Parameters can be used in the query in a `:parameter` format. In this example, use a parameter called `:testField` which can be set when executing this query. This works similarly to popular Java SQL libraries such as Hibernate.
   {{< /note >}}
 
