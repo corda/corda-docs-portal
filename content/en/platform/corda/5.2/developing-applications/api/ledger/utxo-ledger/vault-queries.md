@@ -571,7 +571,7 @@ the following is returned:
 <td>->></td>
 <td>Text</td>
 <td>Get JSON object field as text. </td>
-<td><code>custom_representation -> 'com.r3.corda.demo.TestState' ->> 'testField'</code> selects  the testField JSON field from the top-level JSON object called <code>com.r3.corda.demo.TestState</code> in the <code>custom_representation</code> database column.<br>For example, <code>ABC</code> is returned for the following JSON:
+<td><code>custom_representation -> 'com.r3.corda.demo.TestState' ->> 'testField'</code> selects  the `testField` JSON field from the top-level JSON object called <code>com.r3.corda.demo.TestState</code> in the <code>custom_representation</code> database column.<br>For example, <code>ABC</code> is returned for the following JSON:
 
 ```json
 {
