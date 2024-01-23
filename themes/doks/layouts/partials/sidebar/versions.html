@@ -16,7 +16,7 @@
 {{ end }}
 {{ end }}
 
-{{ $totalVersions := 1 }}
+{{ $totalVersions := 0 }}
 {{ range .Site.Menus.versions }}
 {{ if eq .Page.Params.Project $projectMenuForThisPage }}
   {{ $totalVersions = add $totalVersions 1 }}
