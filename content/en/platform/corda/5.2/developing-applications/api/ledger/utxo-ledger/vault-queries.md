@@ -396,7 +396,7 @@ utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class)
 Provide the name of the query (in this case `DUMMY_CUSTOM_QUERY`) and the return type. Since the result set is collected into an integer in the complex query example, use `Int` (or `Integer` in Java).
 Before executing, define the following:
 
-* How many results each page of the query should return (`setLimit`), the default value is Int.MAX (2,147,483,647).
+* How many results each page of the query should return (`setLimit`), the default value is `Int.MAX` (2,147,483,647).
 * Define named parameters that are in the query and the actual value for them. ALl parameters must be defined, otherwise the execution will fail. (`setParameter` or `setParameters`).
 * Each state in the database has a timestamp value for when it was inserted. Set an * upper limit to only return states that were inserted before a given time. (`setTimestampLimit`)
 
