@@ -15,4 +15,6 @@ tags:
 title: Third-party software notices and licence information - CENM 1.5.7
 ---
 
-Use the menu to the left to view the notices and licence information associated with this release.
+The third-party software notices and license information for CENM 1.5.7 can be found here:
+
+{{< childpages >}}
