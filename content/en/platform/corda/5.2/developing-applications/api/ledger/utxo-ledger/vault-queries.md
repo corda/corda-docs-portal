@@ -403,11 +403,12 @@ utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class)
 Provide the name of the query (in this case `DUMMY_CUSTOM_QUERY`) and the return type. Since the result set is collected into an integer in the complex query example, use `Int` (or `Integer` in Java).
 Before executing, define the following:
 
-* How many results each page of the query should return (`setLimit`), the default value is `Int.MAX` (2,147,483,647).
-* Define named parameters that are in the query and the actual value for them (`setParameter` or `setParameters`). All parameters must be defined, otherwise the execution will fail.
-* Each state in the database has a timestamp value for when it was inserted. Set an upper limit (`setTimestampLimit`) to only return states that were inserted before a given time.
+* How many results each page of the query should return (`setLimit`). The default value is `Int.MAX` (2,147,483,647).
+* Named parameters that are in the query and the actual value for them (`setParameter` or `setParameters`). All parameters must be defined, otherwise the execution will fail.
+* An upper limit (`setTimestampLimit`) to only return states that were inserted before a given time. Each state in the database has a timestamp value for when it was inserted.
 
 It is not necessary to call `ParameterizedQuery.setOffset` as the query pages the results based on each state's created timestamp.
+
 In this case it would look like this:
 {{< tabs name="tabs-9" >}}
 {{% tab name="Kotlin" %}}
