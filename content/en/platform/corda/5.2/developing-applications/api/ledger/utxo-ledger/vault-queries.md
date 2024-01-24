@@ -247,7 +247,11 @@ class DummyCustomQueryFilter implements VaultNamedQueryStateAndRefFilter<TestUtx
 
 #### Transforming
 
-To create a transformer class, only keep the transaction IDs of each record. Transformer classes must implement the `VaultNamedQueryStateAndRefTransformer<T, R>` interface. The `<T>` is the type of results returned from the database, which in this case is `TestState`, `<R>` is the type to transform the results into, and transaction IDs must be `Strings`.
+To create a transformer class, only keep the transaction IDs of each record. Transformer classes must implement the `VaultNamedQueryStateAndRefTransformer<T, R>` interface, where:
+
+* `<T>` is the type of results returned from the database, which in this case is `TestState`.
+* `<R>` is the type to transform the results into.
+* Transaction IDs are specified as `Strings`.
 
 This interface has one function:
 
