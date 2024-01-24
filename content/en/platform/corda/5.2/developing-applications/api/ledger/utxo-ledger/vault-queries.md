@@ -289,7 +289,10 @@ This transforms each element to a `String` object, which is the given state’s 
 #### Collecting
 
 Collecting is used to collect results set into one single integer.
-For this, implement the `net.corda.v5.ledger.utxo.query.VaultNamedQueryCollector<R, T>` interface. The `<R>` parameter is the type of the original result set (in this case `String` because of transformation) and `<T>` is the type collected into (in this case, an `Int`).
+For this, implement the `net.corda.v5.ledger.utxo.query.VaultNamedQueryCollector<R, T>` interface, where:
+
+* `<T>` is the type collected into (in this case, an `Int`).
+* `<R>` is the type of the original result set (in this case `String` because of transformation).
 
 This interface has only one method:
 
