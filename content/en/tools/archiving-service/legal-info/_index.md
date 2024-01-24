@@ -13,6 +13,4 @@ title: Third-party software licence information - Archive Service
 
 # Archive Service third-party software notices and licence information
 
-The third-party software notices and license information for Archive Service can be found here.
-
-{{< childpages >}}
+The third-party software notices and license information for Archive Service can be found in this submenu.
