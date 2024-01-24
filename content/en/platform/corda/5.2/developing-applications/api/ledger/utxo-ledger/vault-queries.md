@@ -405,7 +405,7 @@ Before executing, define the following:
 
 * How many results each page of the query should return (`setLimit`), the default value is `Int.MAX` (2,147,483,647).
 * Define named parameters that are in the query and the actual value for them (`setParameter` or `setParameters`). All parameters must be defined, otherwise the execution will fail.
-* Each state in the database has a timestamp value for when it was inserted. Set an * upper limit to only return states that were inserted before a given time. (`setTimestampLimit`)
+* Each state in the database has a timestamp value for when it was inserted. Set an upper limit (`setTimestampLimit`) to only return states that were inserted before a given time.
 
 It is not necessary to call `ParameterizedQuery.setOffset` as the query pages the results based on each state's created timestamp.
 In this case it would look like this:
