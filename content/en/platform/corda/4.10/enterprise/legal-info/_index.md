@@ -18,6 +18,6 @@ tags:
 
 # Corda Enterprise Edition 4.10 third-party software notices and licence information
 
-The third-party software notices and license information for Corda Enterprise Edition 4.10 can be found here.
+The third-party software notices and license information for Corda Enterprise Edition 4.10 can be found here:
 
 {{< childpages >}}

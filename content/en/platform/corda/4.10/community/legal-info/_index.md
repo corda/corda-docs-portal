@@ -17,4 +17,6 @@ tags:
 
 # Corda Community Edition 4.10 third-party software notices and licence information
 
-The third-party software notices and license information for Corda Community Edition 4.10 can be found in this submenu.
+The third-party software notices and license information for Corda Community Edition 4.10 can be found here:
+
+{{< childpages >}}

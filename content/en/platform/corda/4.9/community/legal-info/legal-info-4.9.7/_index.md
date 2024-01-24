@@ -20,3 +20,5 @@ tags:
 ---
 
 Use the menu to the left to view the notices and licence information associated with this release.
+
+{{< childpages >}}
