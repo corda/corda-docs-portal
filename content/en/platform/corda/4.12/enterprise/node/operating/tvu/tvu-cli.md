@@ -17,6 +17,11 @@ weight: 200
 
 The following sections list the Transaction Validator Utility (TVU) CLI parameters. You can use these parameters to perform various actions on transactions present in your database.
 
+{{< note >}}
+The following examples assume you have a node installation available with transactions in the database and the associated CorDapps in the node's CorDapps directory.
+{{< /note >}}
+
+
 ### -b, --base-directory
 
 The path (can be absolute or relative) to the node's base directory for reading configuration directly from a node. If this option is not supplied, then the current directory is taken as the node's base directory.
