@@ -17,4 +17,6 @@ title: Third-party software licence information - CENM 1.2
 
 # CENM 1.2 third-party software notices and licence information
 
-The third-party software notices and license information for CENM 1.2 can be found ìn this submenu.
+The third-party software notices and license information for CENM 1.2 can be found here:
+
+{{< childpages >}}

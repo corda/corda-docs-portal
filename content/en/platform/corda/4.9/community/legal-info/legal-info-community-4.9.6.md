@@ -12,7 +12,7 @@ menu:
   corda-community-4-9:
     identifier: corda-community-4-9-6-legal-info
     parent: corda-community-4-9-legal-info
-    weight: 450
+    weight: 500
     name: "4.9.6"
 tags:
 - legal

@@ -10,7 +10,7 @@ menu:
   cenm-1-5:
     identifier: cenm-1-5-0-legal-info
     parent: cenm-1-5-legal-info
-    weight: 120
+    weight: 100
     name: "1.5.0"
 tags:
 - legal

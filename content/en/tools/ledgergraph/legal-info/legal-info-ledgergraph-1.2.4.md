@@ -1,10 +1,11 @@
 ---
 date: '2023-04-11'
+section_menu: tools
 menu:
   tools:
     identifier: ledger-graph-1-2-4-legal-info
     parent: ledger-graph-legal-info
-    weight: 803
+    weight: 100
     name: "1.2.4"
 tags:
 - legal

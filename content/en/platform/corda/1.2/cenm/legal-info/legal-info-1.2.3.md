@@ -11,7 +11,7 @@ menu:
   cenm-1-2:
     identifier: cenm-1-2-3-legal-info
     parent: cenm-1-2-legal-info
-    weight: 125
+    weight: 300
     name: "1.2.3"
 tags:
 - legal

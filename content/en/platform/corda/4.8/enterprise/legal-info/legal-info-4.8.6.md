@@ -8,7 +8,7 @@ menu:
   corda-enterprise-4-8:
     identifier: corda-enterprise-4-8-6-legal-info
     parent: corda-enterprise-4-8-legal-info
-    weight: 345
+    weight: 700
     name: "4.8.6"
 tags:
 - legal

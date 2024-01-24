@@ -5,12 +5,12 @@ menu:
   tools:
     identifier: archive-service-1-1-legal-info
     parent: archive-service-legal-info
-    weight: 800
+    weight: 500
     name: "1.1"
 tags:
 - legal
 - info
-title: Third-party software licence information - Archive Service 1.1
+title: "Third-party software licence information - Archive Service 1.1"
 ---
 
 # Archive Service 1.1 third-party software notices and licence information

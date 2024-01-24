@@ -1,15 +1,16 @@
 ---
 date: '2023-04-11'
+section_menu: tools
 menu:
   tools:
     identifier: archive-service-1-0-3-legal-info
     parent: archive-service-legal-info
-    weight: 716
+    weight: 300
     name: "1.0.3"
 tags:
 - legal
 - info
-title: Third-party software licence information - Archive Service 1.0.3
+title: "Third-party software licence information - Archive Service 1.0.3"
 ---
 
 # Archive Service 1.0.3 third-party software notices and licence information
