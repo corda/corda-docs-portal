@@ -337,7 +337,7 @@ class DummyCustomQueryCollector implements VaultNamedQueryCollector<String, Inte
 The query `isDone` should only be set to `true` if the result set is complete.
 {{< /note >}}
 
-#### Registering our Complex Query
+#### Registering a Complex Query
 
 Register a complex query with a filter, a transformer, and a collector with the following example:
 {{< tabs name="tabs-7" >}}
