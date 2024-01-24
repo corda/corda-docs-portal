@@ -8,6 +8,7 @@ menu:
     identifier: cenm-1-2-6-legal-info
     parent: cenm-1-2-legal-info
     weight: 128
+    name: "1.2.6"
 tags:
 - legal
 - info

@@ -9,7 +9,7 @@ menu:
     parent: corda-enterprise-4-7-legal-info
     identifier: corda-enterprise-4-7-1-legal-info
     weight: 310
-    name: Third-party software licence information - 4.7.1
+    name: "4.7.1"
 tags:
 - legal
 - info

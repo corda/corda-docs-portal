@@ -5,6 +5,7 @@ menu:
     identifier: ledger-graph-1-2-4-legal-info
     parent: ledger-graph-legal-info
     weight: 803
+    name: "1.2.4"
 tags:
 - legal
 - info

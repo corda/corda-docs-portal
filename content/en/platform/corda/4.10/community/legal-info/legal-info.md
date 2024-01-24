@@ -13,7 +13,7 @@ menu:
     identifier: corda-community-4-10-0-legal-info
     parent: corda-community-4-10-legal-info
     weight: 450
-    name: Third-party software licence information - 4.10
+    name: "4.10"
 tags:
 - legal
 - info

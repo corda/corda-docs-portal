@@ -5,6 +5,7 @@ menu:
     identifier: archive-service-legal-info
     parent: release-notes-archiving
     weight: 800
+    name: "Third-party software licence information"
 tags:
 - legal
 - info

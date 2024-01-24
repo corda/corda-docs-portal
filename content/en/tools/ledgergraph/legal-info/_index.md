@@ -5,6 +5,7 @@ menu:
     identifier: ledger-graph-legal-info
     parent: ledger-graph-release-notes
     weight: 800
+    name: "Third-party software licence information"
 tags:
 - legal
 - info

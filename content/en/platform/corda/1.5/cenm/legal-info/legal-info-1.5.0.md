@@ -11,6 +11,7 @@ menu:
     identifier: cenm-1-5-0-legal-info
     parent: cenm-1-5-legal-info
     weight: 120
+    name: "1.5.0"
 tags:
 - legal
 - info

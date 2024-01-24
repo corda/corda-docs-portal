@@ -5,6 +5,7 @@ menu:
     identifier: archive-service-1-0-5-legal-info
     parent: archive-service-legal-info
     weight: 716
+    name: "1.0.5"
 tags:
 - legal
 - info
