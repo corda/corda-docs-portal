@@ -20,6 +20,7 @@ This section describes the steps that the TVU goes through when validating trans
 3. It loads the following:
     * If `-l` or `--load-tx-time` CLI option is given, it loads last known processed transaction.
     * If `-i` CLI option is given, it loads transaction ID(s) for reverification.
+    * If none of the `-i`, `-l`, or `--load-tx-time` options are given, then all the transactions are loaded from the database.
 4. It loads transaction processing class to process transactions.
 5. It starts reading transactions from the database.
 6. It submits transactions to an executor which processes them in separate threads using the loaded process class.
@@ -29,7 +30,7 @@ This section describes the steps that the TVU goes through when validating trans
 10. It disconnects cleanly from the database, shuts down the executor when all transactions are verified and writes progress and errors to underlying resources.
 11. It exits upon completion or can be stopped. See the [Stopping Transaction Validator Utility](({{< relref "stopping-tvu" >}})) section.
 
-## Transaction processing
+## User-defined transaction processing
 
-You can provide a class to process transactions at runtime using the `-c` or `--class-load` CLI option. If you do not provide the `-c` CLI option, then the utility defaults to load the process which performs transaction verification and deserialization.
-You can also create and load a user-defined class. To learn how to create your own pluggable class, follow the steps in the [Creating Transaction Validator Utility classes](({{< relref "testing-tvu" >}})) section.
+You can provide a user-defined class to process transactions at runtime using the `-c` or `--class-load` CLI option. If you do not provide the `-c` CLI option, then the utility defaults to load the process which performs transaction verification and deserialization.
+To learn how to create your own pluggable class, follow the steps in the [Creating Transaction Validator Utility classes](({{< relref "testing-tvu" >}})) section.

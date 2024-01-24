@@ -19,34 +19,31 @@ The TVU tool streams and validates all the transactions from a provided database
 
 The following section provides you with the examples of how you can use the TVU CLI commands in practice. You can modify and use the provided TVU CLI command examples so they work in your project.
 
-## Deserialize transactions using a CorDapp
+## Verify all transactions in a database
 
-Intent:
-* Connect to the datasource given (`-d` option).
-* Register and reload progress from the `register.txt` file (`-l` option).
-* Use CorDapp in `/Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/libs` directory to deserialize transactions (`--cordapp-dir` option).
+This example shows how to:
+* Verify all transactions in a database and record the progress.
 
-Command: `-d dataSource.url=jdbc:postgresql://localhost:5432/postgres -d dataSource.user=postgres -d dataSource.password=my_password -d dataSourceClassName=org.postgresql.ds.PGSimpleDataSource -l register.txt --cordapp-dir /Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/libs`
+Command: `java -jar transaction-validator.jar -d dataSource.url=jdbc:postgresql://localhost:5432/postgres -d dataSource.user=postgres -d dataSource.password=my_password -d dataSourceClassName=org.postgresql.ds.PGSimpleDataSource -l register.txt --cordapp-dir /Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/libs`
 
-## Load transactions for a given timestamp
+## Verify transactions from a given timestamp
 
-Intent:
+This example shows how to:
 * Connect to the node database from reading `node.conf` in `/Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA` (`-b` option).
 * Load transactions having transaction time greater than or equal to `2023-10-10T10:41:39.808179Z` (`--load-tx-time` option).
 
-Command: `-b /Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA --load-tx-time 2023-10-10T10:41:39.808179Z`
+Command: `java -jar transaction-validator.jar -b /Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA --load-tx-time 2023-10-10T10:41:39.808179Z`
 
-## Load transactions from a specific file
+## Verify specific identified transactions
 
-Intent:
-* Connect to the node database from reading `node.conf` in `/Users/<user>/<cordapp>/corda/cordapp-template-java/build/nodes/PartyA` (`-b` option).
-* Only load transactions given in `/Users/cordallp/corda/IdeaProjects/corda/enterprise/Ids.txt` file (`-i` option).
+This example shows how to:
+* Verify transactions in a database where database is identified by datasource parameters.
 
-Command: `-b /Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA  -i /Users/suhas.srivastava/IdeaProjects/corda/enterprise/Ids.txt`
+Command: `java -jar transaction-validator.jar -d dataSource.url=jdbc:postgresql://localhost:5432/postgres -d dataSource.user=postgres -d dataSource.password=my_password -d dataSourceClassName=org.postgresql.ds.PGSimpleDataSource -i /Users/cordallp/corda/IdeaProjects/corda/enterprise/Ids.txt`
 
 ## Perform user-supplied task
 
-Intent:
+This example shows how to:
 * Connect to the node database from reading `node.conf` in `/Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA` (`-b` option).
 * Do not validate transactions but perform a user-supplied task defined in the `net.corda.tvu.LogTransaction` class for each transaction.
 
