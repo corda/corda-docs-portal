@@ -1,4 +1,5 @@
 ---
+description: "Learn what is Transaction Validator Utility and its different uses."
 date: '2023-12-15'
 menu:
   corda-enterprise-4-12:

@@ -1,4 +1,5 @@
 ---
+descriptions: "Transaction Validator Utility command examples."
 date: '2023-12-20'
 section_menu: corda-enterprise-4-12
 menu:

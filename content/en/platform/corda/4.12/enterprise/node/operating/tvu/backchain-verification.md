@@ -1,4 +1,5 @@
 ---
+description: "The backchain verification steps using the TVU CLI commands."
 date: '2023-12-15'
 section_menu: corda-enterprise-4-12
 menu:

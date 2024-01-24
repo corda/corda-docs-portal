@@ -1,4 +1,5 @@
 ---
+description: "The steps that the Transaction Validator Utility goes through when validating transactions."
 date: '2023-12-15'
 menu:
   corda-enterprise-4-12:

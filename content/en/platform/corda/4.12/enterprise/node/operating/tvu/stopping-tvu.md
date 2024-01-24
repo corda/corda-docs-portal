@@ -1,4 +1,5 @@
 ---
+description: "Learn how to stop Transaction Validator Utility in a correct way."
 date: '2023-12-15'
 section_menu: corda-enterprise-4-12
 menu:
