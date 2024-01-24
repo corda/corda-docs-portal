@@ -19,7 +19,7 @@ The following sections list the Transaction Validator Utility (TVU) CLI paramete
 
 ### -b, --base-directory
 
-The absolute path to the node's base directory for reading configuration directly from a node. If this option is not supplied, then the current directory is taken as the node's base directory.
+The path (can be absolute or relative) to the node's base directory for reading configuration directly from a node. If this option is not supplied, then the current directory is taken as the node's base directory.
 
 {{< note >}}
 If `-b` or `--base-directory` is specified, then CorDapps are also loaded from the supplied `base-directory/cordapps` directory and transaction deserialization is enabled by default.
@@ -69,7 +69,7 @@ A directory path where the utility registers errors. The value for this paramete
 
 ### -f, --config-file
 
-Absolute path to the node's configuration file for reading configuration directly from a node. It requires `-b` or `--base-directory` option. If this parameter is not supplied, the default is `node.conf`.
+Absolute path to the node's configuration file for reading configuration directly from a node. Can have the `-b` or `--base-directory` option. If this parameter is not supplied, the default is `node.conf`.
 
 Example: `-b /corda/cordapp-template-java/build/nodes/PartyA -f /corda/cordapp-template-java/build/nodes/PartyA/some-other-node.conf`
 
@@ -92,7 +92,7 @@ Since the utility does not support transaction ID re-verification with progress 
 
 ### -l, --load-file-path
 
-A file path where the current progress will be stored and the last progress can be loaded from. If the given file is empty, then progress is not loaded from the file and the utility only writes the progress to it.
+A file path where the current progress will be stored and the last progress can be loaded from. If the given file is empty, then the utility starts processing transactions from the beginning.
 
 If this parameter is not provided, then progress is logged on-screen and the utility starts processing transactions starting with the earliest transaction in the database as per transaction time.
 
@@ -103,7 +103,8 @@ The transaction time from which the utility resumes transaction verification. Th
 If this parameter is not provided, then the utility starts processing transactions from the earliest transaction in the database as per transaction time or loads progress from file if the `-f` option is specified.
 
 {{< note >}}
-`--load-tx-time` takes preference over the `-f` option in terms of progress loading.
+* `--load-tx-time` takes preference over the `-f` option in terms of progress loading.
+* `--load-tx-time` takes preference over the `-l` option in terms of progress reloading. If both are provided, then the utility starts processing transactions from the provided transaction time and any progress is recorded in the file specified with the `-l` option. In this way, when the utility is restarted later without providing the `–load-tx-time` option but still specifying the `-l` option, it can resume processing transactions from the last stop point.
 {{< /note >}}
 
 You can create a new time instant using any of the following:

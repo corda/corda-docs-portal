@@ -15,8 +15,8 @@ weight: 400
 
 # Stopping Transaction Validator Utility
 
-As the utility writes progress and errors to the underlying resources, if needed, you can stop it in one of the following ways:
+As the utility writes its runtime progress and registers transaction processing errors to the underlying resources, if needed, you can stop it in one of the following ways so the progress and errors are reliably registered:
 * Press `Ctrl+C`
 * Send `SIGTERM`
 
-Do not try to stop the utility using `kill -9` or `SIGKILL`.
+Do not try to stop the utility using `kill -9` or `SIGKILL`. Since `kill -9` and `SIGKILL` terminate the utility immediately, the progress and the errors will not be reliably registered. This does not harm the utility’s working in anyways with regard to transaction processing but only disrupt the functionality wherein it registers progress for progress reloading and registers errors for debugging.
