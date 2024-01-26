@@ -16,7 +16,7 @@ weight: 400
 
 # Stopping Transaction Validator Utility
 
-As the utility writes its runtime progress and registers transaction processing errors to the underlying resources, if needed, you can stop it in one of the following ways so the progress and errors are reliably registered:
+The Transaction Validator Utility (TVU) writes its runtime progress and registers transaction processing errors to the underlying resources. If needed, you can stop TVU in one of the following ways so the progress and errors are reliably registered:
 * Press `Ctrl+C`
 * Send `SIGTERM`
 
