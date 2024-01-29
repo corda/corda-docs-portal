@@ -23,7 +23,7 @@ The following examples assume you have a node installation available with transa
 {{< /note >}}
 
 
-### -b, --base-directory
+### `-b`, `--base-directory`
 
 Path to the node's base directory for reading configuration directly from a node. If this option is not supplied, then the current directory is taken as the node's base directory.
 
@@ -34,7 +34,7 @@ Example:
 java -jar transaction-validator.jar -b /corda/cordapp-template-java/build/nodes/PartyA
 ```
 
-### -c, --class-load
+### `-c`, `--class-load`
 
 The full user-defined class name used for transaction processing. The class must implement `(SignedTransactionWithTimestamp) -> Unit` and should be placed under the node's drivers directory: `/drivers`. The node's base directory is taken as specified by the configuration in `-b` or `--base-directory` parameter.
 
@@ -45,7 +45,7 @@ Example:
 java -jar transaction-validator.jar -c net.corda.tvu.SampleApp
 ```
 
-### -e, --error-dir-path
+### `-e`, `--error-dir-path`
 
 A directory path where the utility registers errors. The utility can register errors in a provided file path as well as create separate error-registration files for all verification and deserialization errors for every `signedTransactionId` in a `<signedTransactionId>.dat` file. These files are then zipped as an `ErrorDirPath/<currentTimestamp>.zip`. If this parameter is missing, then the current directory is taken as the `ErrorDirPath` value.
 
@@ -53,7 +53,7 @@ A directory path where the utility registers errors. The utility can register er
 `-e` or `--error-dir-path` must be a directory or an exception is thrown.
 {{< /note >}}
 
-### -f, --config-file
+### `-f`, `--config-file`
 
 Path to the node's configuration file for reading configuration directly from a node. Can have the `-b` or `--base-directory` option. If this parameter is not supplied, the default is `node.conf`.
 
@@ -62,11 +62,11 @@ Example:
 java -jar transaction-validator.jar -b /corda/cordapp-template-java/build/nodes/PartyA -f /corda/cordapp-template-java/build/nodes/PartyA/some-other-node.conf
 ```
 
-### -h, --help
+### `-h`, `--help`
 
 Provides the information about and the list of all the TVU CLI options.
 
-### -i, --id-load-file
+### `-i`, `--id-load-file`
 
 File path to the location containing the IDs of the transactions to be reprocessed. The reverification does not happen if this option is absent. The file containing IDs of the transactions to be reprocessed can be either:
 * A text file containing newline-separated list of transaction IDs.
@@ -77,13 +77,13 @@ File path to the location containing the IDs of the transactions to be reprocess
 * Since the utility does not support transaction ID reverification with progress loading and registration, the `-i` or `--id-load-file` parameter cannot be specified with `-l` or `--load-tx-time`.
 {{< /note >}}
 
-### -l, --load-file-path
+### `-l`, `--load-file-path`
 
 A file path where the current progress will be stored and the last progress can be loaded from. If the given file is empty, then the utility starts processing transactions from the beginning.
 
 If this parameter is not provided, then progress is logged on-screen and the utility starts processing transactions starting with the earliest transaction in the database as per transaction time.
 
-### --load-tx-time
+### `--load-tx-time`
 
 The transaction time from which the utility resumes transaction verification. The provided transaction time is compared against transaction recorded time. The utility loads transactions which have a transaction timestamp greater than or equal to the provided time.
 
