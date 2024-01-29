@@ -68,8 +68,9 @@ Provides the information about and the list of all the TVU CLI options.
 
 ### -i, --id-load-file
 
-Transactions for reverification. These transactions are specified as a file path to a text file containing transaction IDs or to a `.zip` file containing files with file names as transaction IDs.
-ID reverification does not happen if this option is absent.
+File path to the location containing the IDs of the transactions to be reprocessed. The reverification does not happen if this option is absent. The file containing IDs of the transactions to be reprocessed can be either:
+* A text file containing newline-separated list of transaction IDs.
+* A `.zip` file that is created automatically when the TVU encounters errors. This error `.zip` file stores erroneous transactions’ raw data.
 
 {{< note >}}
 * `--id-load-file` must not be a directory or an exception is thrown.

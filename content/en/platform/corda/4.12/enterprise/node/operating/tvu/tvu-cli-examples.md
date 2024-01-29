@@ -1,5 +1,5 @@
 ---
-descriptions: "Transaction Validator Utility command examples."
+descriptions: "Transaction Validator Utility CLI command examples."
 date: '2023-12-20'
 section_menu: corda-enterprise-4-12
 menu:
@@ -16,34 +16,80 @@ weight: 300
 
 # TVU CLI command examples
 
-The following section provides you with the examples of how you can use the Transaction Validator Utility (TVU) CLI features in practice. You can modify and use the provided TVU CLI command examples so they work in your project. In the following examples the TVU's `JAR` was copied to the node's directory.
+The following section provides you with the examples of how you can use the Transaction Validator Utility (TVU) CLI features in practice. You can modify and use the provided TVU CLI command examples so they work in your project. In the following examples the TVU's JAR was copied to the node's directory.
 
 ## Transaction validation
 
-This example shows how to:
-* Verify all transactions in a database and record the progress.
+Validate all transactions in the database specified in the `node.conf` file of the node base directory `/cordallp/corda/nodeA/`.
 
-Command: `java -jar transaction-validator.jar -d dataSource.url=jdbc:postgresql://localhost:5432/postgres -d dataSource.user=postgres -d dataSource.password=my_password -d dataSourceClassName=org.postgresql.ds.PGSimpleDataSource -l register.txt --cordapp-dir /Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/libs`
+```
+java -jar transaction-validator.jar -b /cordallp/corda/nodeA
+```
+
+To validate all the node's transactions present at `/cordallp/corda/nodeA` without using the `-b` CLI option, paste the `transaction-validator.jar` file in the node’s base directory `/cordall/coda/nodeA` and run the command without any option. This treats the node’s base directory as the current working directory (which is the default behavior for the `-b` option) and validates all transactions using the `node.conf` file present in the current working directory. Go to `/cordallp/corda/nodeA` using `cd /cordallp/corda/nodeA` and run the command:
+
+```
+cd /cordallp/corda/nodeA; java -jar transaction-validator.jar
+```
+
+## Progress registration
+
+You can register progress in a `.txt` file and reload it from this file using the `-l` option. If the file doesn’t exist, specifying a file path as this option’s value creates the file at this path and writes the progress into it. If the file is present, the utility loads the most recent progress from it and updates the file with the new progress.
+
+```
+java -jar transaction-validator.jar -l register.txt -b /cordallp/corda/nodeA
+```
+
+## Progress reloading
+
+You can register progress in a `.txt` file and reload it from this file using the `-l` option. Specifying a file path as this option’s value directs the utility to load the most recent progress from it and update the file with the new progress.
+
+```
+java -jar transaction-validator.jar -l register.txt -b /cordallp/corda/nodeA
+```
 
 ## Transaction time loading
 
-This example shows how to:
-* Connect to the node database from reading `node.conf` in `/Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA` (`-b` option).
-* Load transactions having transaction time greater than or equal to `2023-10-10T10:41:39.808179Z` (`--load-tx-time` option).
+You can load transactions from or after a certain transaction time.
 
-Command: `java -jar transaction-validator.jar -b /Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA --load-tx-time 2023-10-10T10:41:39.808179Z`
+```
+java -jar transaction-validator.jar --load-tx-time 2007-12-03T10:15:30.00Z
+```
 
 ## Reverification using transaction ID
 
-This example shows how to:
-* Verify transactions in a database where database is identified by datasource parameters.
+Reverify transactions by specifying path to a newline-separated `Ids.txt` file containing transaction IDs.
 
-Command: `java -jar transaction-validator.jar -d dataSource.url=jdbc:postgresql://localhost:5432/postgres -d dataSource.user=postgres -d dataSource.password=my_password -d dataSourceClassName=org.postgresql.ds.PGSimpleDataSource -i /Users/cordallp/corda/IdeaProjects/corda/enterprise/Ids.txt`
+```
+java -jar transaction-validator.jar -i Ids.txt -b /cordallp/corda/nodeA
+```
+
+## Error registration
+
+If you do not specify the `-e` option, the errors are registered in a `.zip` file generated in the current working directory.
+
+```
+java -jar transaction-validator.jar -b /cordallp/corda/nodeA
+```
+
+If you specify `/cordallp/corda/nodeA/errors` using the `-e` option, the errors are registered in a `.zip` file generated in this directory.
+
+```
+java -jar transaction-validator.jar -b /cordallp/corda/nodeA -e /cordallp/corda/nodeA/errors
+```
+
+## Erroneous transaction reverification
+
+Reverify erroneous transactions specified in the `.zip` file created using the `-e` option. Use the `-i` option with a file path to the error `.zip` file to invoke this functionality.
+
+```
+java -jar transaction-validator.jar -b /cordallp/corda/nodeA -i /cordallp/corda/nodeA/errors/2024-01-25-18-24-25.zip
+```
 
 ## Transaction processor
 
-This example shows how to:
-* Connect to the node database from reading `node.conf` in `/Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA` (`-b` option).
-* Do not validate transactions but perform a user-supplied task defined in the `net.corda.tvu.LogTransaction` class for each transaction.
+Process transactions as specified in the `net.corda.tvu.LogTransaction` class. Put the JAR file containing the `net.corda.tvu.LogTransaction` class in the `/cordallp/corda/nodeA/drivers` directory.
 
-Command: `-b /Users/cordallp/corda/IdeaProjects/corda/cordapp-template-java/build/nodes/PartyA -c net.corda.tvu.LogTransaction`
+```
+java -jar transaction-validator.jar -b /cordallp/corda/nodeA -c net.corda.tvu.LogTransaction
+```
