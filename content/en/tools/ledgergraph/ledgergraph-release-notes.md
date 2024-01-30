@@ -2,8 +2,8 @@
 date: '2022-09-15'
 menu:
   tools:
-    parent: tools-ledgergraph
-    identifer: ledger-graph-release-notes
+    parent: tools-ledger-graph
+    identifier: ledger-graph-release-notes
 title: Release notes
 weight: 801
 ---

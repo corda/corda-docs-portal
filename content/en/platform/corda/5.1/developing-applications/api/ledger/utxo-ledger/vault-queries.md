@@ -12,15 +12,21 @@ section_menu: corda51
 
 # Vault-Named Queries
 
-A vault-named query is a database query that can be defined by Corda users. The user can define the following:
+Vault-named queries enable you to query the Corda database. The user can define the following:
 
 * The name of the query
-* The query functionality (state the type that the query will work on and the `WHERE` clause)
+* The query functionality (the type that the query works on and the `WHERE` clause)
 * Optional filtering logic of the result set
 * Optional transformation logic of the result set
 * Optional collection logic of the result set
 
-The query creator must follow a few pre-defined steps so that the query is registered and usable.
+The query creator must follow pre-defined steps so that the query is registered and usable.
+
+This section contains the following:
+
+* [Representing a State in the Database](#representing-a-state-in-the-database)
+* [Creating and Registering a Vault-Named Query](#creating-and-registering-a-vault-named-query)
+* [Vault-Named Query Operators](#vault-named-query-operators)
 
 ## Representing a State in the Database
 
@@ -109,7 +115,7 @@ class TestUtxoStateJsonFactory implements ContractStateVaultJsonFactory<TestUtxo
 {{% /tab %}}
 {{< /tabs >}}
 
-After the output state finalizes, it is represented as the following in the database (`custom_representation column`)
+After the output state finalizes, it is represented as the following in the database (`custom_representation` column)
 with a `stateRef` field stored under the `ContractState` JSON object:
 
 ```json
@@ -178,14 +184,14 @@ public class DummyCustomQueryFactory implements VaultNamedQueryFactory {
 {{< /tabs >}}
 
 The interface called `VaultNamesQueryFactory` has one method:
-`void create(@NotNull VaultNamedQueryBuilderFactory vaultNamedQueryBuilderFactory);`
+`void create(@NotNull VaultNamedQueryBuilderFactory vaultNamedQueryBuilderFactory);`.
 
 This function is called during start-up and it defines how a query operates in it with the following steps:
 
 * To create a vault-named query with a given name, in this case it is `DUMMY_CUSTOM_QUERY`, call `vaultNamedQueryBuilderFactory.create()`.
 * To define how a query's `WHERE` clause will work, call `whereJson()`.
   {{< note >}}
-  Always start with the actual `WHERE` statement and then write the rest of the clause. Fields need to be prefixed with the `visible_states.` qualifier. Since `visible_states.custom_representation` is a JSON column, we can use some JSON specific  operations.
+  * Always start with the actual `WHERE` statement and then write the rest of the clause. You must prefix fields with the `visible_states.` qualifier. Since `visible_states.custom_representation` is a JSON column, you can use some JSON-specific operations.
   * Parameters can be used in the query in a `:parameter` format. In this example, use a parameter called `:testField` which can be set when executing this query. This works similarly to popular Java SQL libraries such as Hibernate.
   {{< /note >}}
 
@@ -193,17 +199,17 @@ This function is called during start-up and it defines how a query operates in i
 
 ### Complex Query Example
 
- To add some extra logic to the query:
+For example, to add some extra logic to the query:
 
 * Only keep the results that have “Alice” in their participant list.
 * Transform the result set to only keep the {{< tooltip >}}transaction{{< /tooltip >}} IDs.
 * Collect the result set into one single integer.
 
-These optional logics will always be applied in the following order:
+These optional logics are always applied in the following order:
 
-1. Filtering
-2. Transforming
-3. Collecting
+1. [Filtering](#filtering)
+2. [Transforming](#transforming)
+3. [Collecting](#collecting)
 
 {{< note >}}
 The query `whereJson` returns `StateAndRef` objects and the data going into the filtering and transforming logic consists of `StateAndRefs`.
@@ -214,7 +220,7 @@ The query `whereJson` returns `StateAndRef` objects and the data going into the 
 To create a filtering logic, implement the `net.corda.v5.ledger.utxo.query.VaultNamedQueryStateAndRefFilter<T>` interface. The `<T>` type here is the state type that will be returned from the database, which in this case is `TestState`. This interface has only one function.
 This defines whether or not to keep the given element (`row`) from the result set. Elements returning true are kept and the rest are discarded.
 
-In this example, keep the elements that have “Alice” in their participant list. This filter would look like this:
+In this example, keep the elements that have “Alice” in their participant list:
 {{< tabs name="tabs-4" >}}
 {{% tab name="Kotlin" %}}
 ```kotlin
@@ -240,7 +246,11 @@ class DummyCustomQueryFilter implements VaultNamedQueryStateAndRefFilter<TestUtx
 
 #### Transforming
 
-To create a transformer class, make sure to only keep the transaction IDs of each record. Transformer classes must implement the `VaultNamedQueryStateAndRefTransformer<T, R>` interface. The `<T>` is the type of results returned from the database, which in this case is `TestState`, `<R>` is the type to transform the results into, and transaction IDs should be `Strings`.
+To create a transformer class, only keep the transaction IDs of each record. Transformer classes must implement the `VaultNamedQueryStateAndRefTransformer<T, R>` interface, where:
+
+* `<T>` is the type of results returned from the database, which in this case is `TestState`.
+* `<R>` is the type to transform the results into.
+* Transaction IDs are specified as `Strings`.
 
 This interface has one function:
 
@@ -278,7 +288,10 @@ This transforms each element to a `String` object, which is the given state’s 
 #### Collecting
 
 Collecting is used to collect results set into one single integer.
-For this, implement the `net.corda.v5.ledger.utxo.query.VaultNamedQueryCollector<R, T>` interface. The `<R>` parameter is the type of the original result set (in this case `String` because of transformation) and `<T>` is the type collected into (in this can an `Int`).
+For this, implement the `net.corda.v5.ledger.utxo.query.VaultNamedQueryCollector<R, T>` interface, where:
+
+* `<T>` is the type collected into (in this case, an `Int`).
+* `<R>` is the type of the original result set (in this case `String` because of transformation).
 
 This interface has only one method:
 
@@ -320,10 +333,10 @@ class DummyCustomQueryCollector implements VaultNamedQueryCollector<String, Inte
 {{< /tabs >}}
 
 {{< note >}}
-The query `isDone` should only be set to 'true' if the result set is complete.
+The query `isDone` should only be set to `true` if the result set is complete.
 {{< /note >}}
 
-#### Registering our Complex Query
+#### Registering a Complex Query
 
 Register a complex query with a filter, a transformer, and a collector with the following example:
 {{< tabs name="tabs-7" >}}
@@ -365,7 +378,7 @@ public class JsonQueryFactory implements VaultNamedQueryFactory {
 {{< /tabs >}}
 
 {{< note >}}
-The collector always must be the last one in the chain as all previous filtering and mapping functionality is applied before collecting.
+The collector must always be the last one in the chain as all previous filtering and mapping functionality is applied before collecting.
 {{< /note >}}
 
 ### Executing a Vault-Named Query
@@ -389,11 +402,12 @@ utxoLedgerService.query("DUMMY_CUSTOM_QUERY", Integer.class)
 Provide the name of the query (in this case `DUMMY_CUSTOM_QUERY`) and the return type. Since the result set is collected into an integer in the complex query example, use `Int` (or `Integer` in Java).
 Before executing, define the following:
 
-* How many results each page of the query should return (`setLimit`), default Int.MAX (2,147,483,647).
-* Define named parameters that are in the query and the actual value for them. {{< note >}} All parameters must be defined, otherwise the execution will fail. (`setParameter` or `setParameters`) {{</ note >}}
-* Each state in the database has a timestamp value for when it was inserted. Set an * upper limit to only return states that were inserted before a given time. (`setTimestampLimit`)
+* How many results each page of the query should return (`setLimit`). The default value is `Int.MAX` (2,147,483,647).
+* Named parameters that are in the query and the actual value for them (`setParameter` or `setParameters`). All parameters must be defined, otherwise the execution will fail.
+* An upper limit (`setTimestampLimit`) to only return states that were inserted before a given time. Each state in the database has a timestamp value for when it was inserted.
 
 It is not necessary to call `ParameterizedQuery.setOffset` as the query pages the results based on each state's created timestamp.
+
 In this case it would look like this:
 {{< tabs name="tabs-9" >}}
 {{% tab name="Kotlin" %}}
@@ -417,7 +431,7 @@ PagedQuery.ResultSet<Integer> resultSet = utxoLedgerService.query("DUMMY_CUSTOM_
 {{< /tabs >}}
 
 {{< note >}}
-A dummy value is assigned for the `testField` parameter in this query, but it can be replaced. There is only one parameter in this example query which is `:testField`.
+A dummy value is assigned for the `testField` parameter in this query, but it can be replaced. There is only one parameter in this example query: `:testField`.
 {{</ note >}}
 
 Results can be acquired by calling `getResults()` on the `ResultSet`.  Call `hasNext()` to check if there are more results to retrieve and `next()` to move onto the next page:
@@ -451,9 +465,9 @@ while (resultSet.hasNext()) {
 {{% /tab %}}
 {{< /tabs >}}
 
-# Vault-Named Query Operators
+## Vault-Named Query Operators
 
-The following is the list of the standard operators for the vault-named query syntax:
+The following are the standard operators for vault-named queries:
 
 * `IN`
 * `LIKE`
@@ -471,15 +485,41 @@ The following is the list of the standard operators for the vault-named query sy
 * `->>`
 * `?`
 * `::`
-Where the behavior is not standard, the operators are explained in detail in the following sections.
-**Name:** `->`
-**Right Operand Type:** `Int`
-**Description:**  Gets JSON array element.
-**Example:**
-`custom_representation -> 'com.r3.corda.demo.ArrayObjState' -> 0`
 
-Example JSON:
-```java
+Where the behavior is not standard, the operators are explained with examples in the following table:
+
+<style>
+table th:first-of-type {
+    width: 15%;
+}
+table th:nth-of-type(2) {
+    width: 15%;
+}
+table th:nth-of-type(3) {
+    width: 15%;
+}
+table th:nth-of-type(4) {
+    width: 55%;
+}
+</style>
+
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Right Operand Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-></td>
+<td>Int</td>
+<td>Gets JSON array element.</td>
+<td><code>custom_representation -&gt; &#39;com.r3.corda.demo.ArrayObjState&#39; -&gt; 0</code><br>For example, for the following JSON:
+
+```json
 {
   "com.r3.corda.demo.ArrayObjState": [
     {"A": 1},
@@ -487,79 +527,92 @@ Example JSON:
   ]
 }
 ```
-This example returns:
-```java
+the following is returned:
+```json
 {
   "A": 1
 }
 ```
-**Name:** `->`
-**Right Operand Type:** </b> `Text`
-**Description:** Get JSON object field.
-**Example:**
-`custom_representation -> 'com.r3.corda.demo.TestState'`
-Selects the top-level JSON field called `com.r3.corda.demo.TestState` from the JSON object in the `custom_representation` database column.
-Example JSON:
-```java
+
+</td>
+</tr>
+<tr>
+<td>-></td>
+<td>Text</td>
+<td>Gets JSON object field. </td>
+<td><code>custom_representation -> 'com.r3.corda.demo.TestState'</code> selects the top-level JSON field called <code>com.r3.corda.demo.TestState</code> from the JSON object in the <code>custom_representation</code> database column.<br>For example, for the following JSON:
+
+```json
 {
   "com.r3.corda.demo.TestState": {
     "testField": "ABC"
   }
 }
 ```
-This example returns:
-```java
+the following is returned:
+```json
 {
   "testField": "ABC"
 }
 ```
-**Name:** `->>`
-**Right Operand Type:** `Int`
-**Description:** Get JSON array element as text.
-**Example:**
-`custom_representation -> 'com.r3.corda.demo.ArrayState' ->> 2`
-Selects the third element (indexing from 0)  of the array type top-level JSON field called `com.r3.corda.demo.ArrayState` from the JSON object in the `custom_representation` database column.
-Example JSON:
-```java
+
+</td>
+</tr>
+<tr>
+<td>->></td>
+<td>Int</td>
+<td>Get JSON array element as text.  </td>
+<td><code>custom_representation -> 'com.r3.corda.demo.ArrayState' ->> 2</code> selects the third element (indexing from 0) of the array type top-level JSON field called <code>com.r3.corda.demo.ArrayState</code> from the JSON object in the <code>custom_representation</code> database column. <br>For example, <code>7</code> is returned for the following JSON:
+
+```json
 {
   "com.r3.corda.demo.ArrayState": [
     5, 6, 7
   ]
 }
 ```
-This example returns: `7`.
-**Name:** `->>`
-**Right Operand Type:** `Text`
-**Description:** Get JSON object field as text.
-**Example:**
-`custom_representation -> 'com.r3.corda.demo.TestState' ->> 'testField'`
-Selects the `testField` JSON field from the top-level JSON object called `com.r3.corda.demo.TestState` in the `custom_representation` database column.
-Example JSON:
-```java
+
+</td>
+</tr>
+<tr>
+<td>->></td>
+<td>Text</td>
+<td>Get JSON object field as text. </td>
+<td><code>custom_representation -> 'com.r3.corda.demo.TestState' ->> 'testField'</code> selects  the `testField` JSON field from the top-level JSON object called <code>com.r3.corda.demo.TestState</code> in the <code>custom_representation</code> database column.<br>For example, <code>ABC</code> is returned for the following JSON:
+
+```json
 {
   "com.r3.corda.demo.TestState": {
     "testField": "ABC"
   }
 }
 ```
-This example returns: `ABC`.
-**Name:** `?`
-**Right Operand Type:** `Text`
-**Description:** Checks if JSON object field exists.
-**Example:**
-`custom_representation ? 'com.r3.corda.demo.TestState'`
-Checks if the object in the `custom_representation` database column has a top-level field called `com.r3.corda.demo.TestState`.
-Example JSON:
-```java
+
+</td>
+</tr>
+<tr>
+<td>?</td>
+<td>Text</td>
+<td> Checks if JSON object field exists.</td>
+<td><code>custom_representation ? 'com.r3.corda.demo.TestState'</code> checks if the object in the <code>custom_representation database</code>  column has a top-level field called <code>com.r3.corda.demo.TestState</code>.<br>For example, <code>true</code> is returned for the following JSON:
+
+```json
 {
   "com.r3.corda.demo.TestState": {
     "testField": "ABC"
   }
 }
 ```
-This example returns: `true`.
-**Name:** `::`
-**Right Operand Type:** A type, for example, `Int`
-**Description:** Casts the element/object field to the specified type.
-**Example:**
-`(visible_states.field ->> property)::int = 1234`
+
+</td>
+</tr>
+<tr>
+<td>::</td>
+<td>A type, for example, Int.</td>
+<td>Casts the element/object field to the specified type.</td>
+<td><code>(visible_states.field ->> property)::int = 1234</code>
+
+</td>
+</tr>
+</tbody>
+</table>
