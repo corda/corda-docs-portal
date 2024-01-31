@@ -27,7 +27,7 @@ For context on how the certificate revocation list fits into the wider context, 
 
 Note that, once added the entries cannot be removed from the certificate revocation list.
 
-In the similar vein as CSR, by default the approval workflow for revocation requests is integrated with the JIRA tool,
+In the similar vein as CSR, by default the approval workflow for revocation requests is integrated with the Jira tool,
 and the submitted requests follow exactly the same lifecycle. To support the above functionality, there are two
 externally available REST endpoints: one for the certificate revocation request submission and
 one for the certificate revocation list retrieval.
