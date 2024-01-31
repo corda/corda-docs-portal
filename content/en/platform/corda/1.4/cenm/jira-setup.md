@@ -20,6 +20,9 @@ The following are the instructions on setting up the JIRA in order to satisfy mi
 of the Identity Manager Certificate Signing Request (CSR)/Certificate Revocation Request (CRR) approval workflow. This will enable
 a user to integrate such JIRA deployment with the CENM CSR/CRR approval workflow plugin.
 
+{{< note >}}
+At present, there is no roadmap for the implementation of JIRA Cloud plugin support.
+{{< /note >}}
 
 ## User Set-Up
 
