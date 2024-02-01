@@ -1,7 +1,7 @@
 ---
 cascade:
-  version: 'Corda 5.1'
-  project: 'Corda'
+  version: Corda 5.1
+  project: corda
   section_menu: corda51
 description: "Release notes, legal information, and platform support details for Corda 5.1."
 title: "Release Notes"
