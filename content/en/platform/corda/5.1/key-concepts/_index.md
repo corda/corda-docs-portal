@@ -1,7 +1,7 @@
 ---
 cascade:
   version: 'Corda 5.1'
-  project: 'Corda'
+  project: corda
   section_menu: corda51
 description: "Get started with Corda 5.1 by learning the key concepts."
 date: '2022-08-17'
