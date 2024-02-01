@@ -309,12 +309,12 @@ By default, the REST API is exposed on an internal Kubernetes service.
 To enable access from outside the Kubernetes cluster, use one of the following:
 
 * [Kubernetes Ingress](#kubernetes-ingress)
-* [AWS Load Balancer Controller](#aws-load-balancer-controller)
+* [External Load Balancer](#external-load-balancer)
 
 ##### Kubernetes Ingress
 
-We recommend configuring Kubernetes Ingress to provide the REST worker with HTTP load balancing.
-This also enables optional annotations for additional integration, such as External DNS or Cert Manager. For example:
+We recommend configuring [Kubernetes Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) to provide the REST worker with HTTP load balancing.
+For example, to use an [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/) deployed with the class name `nginx`:
 
 ```yaml
 workers:
@@ -326,12 +326,14 @@ workers:
       className: "nginx"
       # required hosts for the REST worker ingress
       hosts:
-      - <your-rest-worker.development.example.com>
+      - api.corda.example.com
 ```
 
-##### AWS Load Balancer Controller
+The optional annotations enable additional integrations, such as [ExternalDNS](https://github.com/kubernetes-sigs/external-dns) or [cert-manager](https://cert-manager.io/).
 
-Alternatively, the REST API can be fronted directly by a load balancer. The Helm chart allows annotations to be specified to
+##### External Load Balancer
+
+Alternatively, the REST API service can be fronted directly by an external load balancer. The Helm chart allows annotations to be specified to
 facilitate the creation of a load balancer by a cloud-platform specific controller.
 For example, the following configuration specifies that the [AWS Load Balancer Controller](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html)
 fronts the REST API with a Network Load Balancer internal to the Virtual Private Cloud (VPC):
@@ -342,11 +344,12 @@ workers:
     service:
       type: LoadBalancer
       annotations:
-        service.beta.kubernetes.io/aws-load-balancer-internal: true
         service.beta.kubernetes.io/aws-load-balancer-scheme: internal
         service.beta.kubernetes.io/aws-load-balancer-type: nlb
-        external-dns.beta.kubernetes.io/hostname: corda.example.com
+        external-dns.beta.kubernetes.io/hostname: api.corda.example.com
 ```
+
+The full set of service annotations available for the AWS Load Balancer Controller can be found in the controller's [documentation](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.6/guide/service/annotations/).
 
 #### Install the REST Worker Certificate
 
@@ -381,15 +384,15 @@ If the secret data is modified, the REST worker pod will not currently detect th
 
 ### P2P Gateway
 
-You can configure Kubernetes Ingress to provide the P2P gateway worker with HTTP load balancing.
+You can configure [Kubernetes Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) to provide the P2P gateway worker with HTTP load balancing.
 
 {{< note >}}
 
-* Kubernetes Ingress makes the P2P gateway accessible from outside the Kubernetes cluster that the Corda cluster is deployed into. Your organization must own the domain name (`my-sub.mydomain.com` in the example below) and that must resolve to the IP address of the Ingress-managed load balancer. The Network Operator must use one of the Ingress hosts when [registering a Member]({{< relref "../../../application-networks/creating/members/cpi.md#set-variables">}}) or [registering the MGM]({{< relref "../../../application-networks/creating/mgm/cpi.md#set-variables">}}).
+* Kubernetes Ingress makes the P2P gateway accessible from outside the Kubernetes cluster that the Corda cluster is deployed into. Your organization must own the domain name (gateway.corda.example.com` in the example below) and that must resolve to the IP address of the Ingress-managed load balancer. The Network Operator must use one of the Ingress hosts when [registering a Member]({{< relref "../../../application-networks/creating/members/cpi.md#set-variables">}}) or [registering the MGM]({{< relref "../../../application-networks/creating/mgm/cpi.md#set-variables">}}).
 * The gateway only supports TLS termination in the gateway and not inside the load balancer itself.
 {{< /note >}}
 
-R3 recommends using an NGINX load balancer. For example:
+R3 recommends using the [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/). For example:
 
 ```yaml
 workers:
@@ -397,12 +400,14 @@ workers:
     ingress:
       className: "nginx"
       hosts:
-        - "my-sub.mydomain.com"
+        - "gateway.corda.example.com"
       annotations:
         nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
         nginx.ingress.kubernetes.io/ssl-passthrough: "true"
         nginx.ingress.kubernetes.io/ssl-redirect: "true"
 ```
+
+See the controller's [documentation](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/) for further details of the available annotations.
 
 ### PostgreSQL
 
