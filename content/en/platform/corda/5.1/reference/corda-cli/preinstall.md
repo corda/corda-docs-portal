@@ -1,13 +1,11 @@
 ---
 description: "List of preinstall commands for the Corda 5.1 CLI. You can use these commands to manually check Corda's configuration."  
 date: '2023-08-10'
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-cordacli-preinstall
     weight: 4025
     parent: corda51-cli-reference
-section_menu: corda51
 title: "preinstall"
 ---
 # preinstall

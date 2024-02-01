@@ -1,14 +1,12 @@
 ---
 description: "Learn how the Network Operator reviews and manually approves or declines registration requests."
 date: '2023-04-07'
-version: 'Corda 5.1'
 title: "Reviewing Registration Requests"
 menu:
   corda51:
     identifier: corda51-approval-review
     parent: corda51-networks-reg-requests
     weight: 3000
-section_menu: corda51
 ---
 # Reviewing Registration Requests
 

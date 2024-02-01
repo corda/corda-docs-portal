@@ -2,13 +2,11 @@
 description: "Understand the validity and uniqueness consensus required before Corda commits transactions to the ledger."
 title: "Consensus"
 date: 2023-06-08
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-fundamentals-ledger-consensus
     parent: corda51-fundamentals-ledger
     weight: 5000
-section_menu: corda51
 ---
 
 # Consensus

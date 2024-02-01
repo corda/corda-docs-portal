@@ -1,7 +1,6 @@
 ---
 description: "Learn how to configure key pairs and certificates for a member."
 date: '2023-04-13'
-version: 'Corda 5.1'
 title: "Configure Key Pairs and Certificates for the Member"
 menu:
   corda51:
@@ -9,7 +8,6 @@ menu:
     parent: corda51-networks-members
     weight: 3000
     name: "Configure Key Pairs and Certificates"
-section_menu: corda51
 ---
 
 # Configure Key Pairs and Certificates for the Member

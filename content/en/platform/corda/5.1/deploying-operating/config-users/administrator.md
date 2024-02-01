@@ -1,14 +1,12 @@
 ---
 description: "Learn about the 'super admin' Corda REST user identity."
 date: '2023-04-07'
-version: 'Corda 5.1'
 title: "Administrator"
 menu:
   corda51:
     parent: corda51-cluster-users
     identifier: corda51-cluster-administrator
     weight: 1000
-section_menu: corda51
 ---
 # Administrator
 
