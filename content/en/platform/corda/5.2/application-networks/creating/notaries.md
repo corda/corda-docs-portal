@@ -1,14 +1,12 @@
 ---
 description: "Learn how to onboard a new member as a notary service representative."
 date: '2023-04-07'
-version: 'Corda 5.2'
 title: "Onboarding Notaries"
 menu:
   corda52:
     identifier: corda52-networks-notaries
     parent: corda52-networks-create
     weight: 3000
-section_menu: corda52
 ---
 # Onboarding Notaries
 

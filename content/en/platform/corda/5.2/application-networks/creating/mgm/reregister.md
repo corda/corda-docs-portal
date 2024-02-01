@@ -1,14 +1,12 @@
 ---
 description: "Learn how to re-register an MGM in order to update its member-provided context or endpoint information."
 date: '2024-01-11'
-version: 'Corda 5.2'
 title: "Re-register an MGM"
 menu:
   corda52:
     identifier: corda52-networks-mgm-reregister
     parent: corda52-networks-mgm
     weight: 6000
-section_menu: corda52
 ---
 
 # Re-register an MGM

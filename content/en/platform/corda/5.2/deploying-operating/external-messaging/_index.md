@@ -2,14 +2,11 @@
 description: "Learn how Cluster Administrators configure a Corda Enterprise cluster for CorDapps that implement external messaging."
 date: '2023-06-28'
 title: "External Messaging Administration"
-project: corda
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-cluster-external-messaging
     parent: corda52-cluster
     weight: 10000
-section_menu: corda52
 ---
 
 # External Messaging Administration {{< enterprise-icon >}}

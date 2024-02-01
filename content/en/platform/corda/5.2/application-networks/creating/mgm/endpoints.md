@@ -2,14 +2,11 @@
 description: "Learn how to make changes to an MGM's endpoint information by re-registering the member with the updated information."
 date: '2024-01-11'
 title: "Modify an MGM Endpoint"
-project: corda
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-networks-mgm-endpoints
     parent: corda52-networks-mgm
     weight: 5500
-section_menu: corda52
 ---
 
 # Modify an MGM Endpoint

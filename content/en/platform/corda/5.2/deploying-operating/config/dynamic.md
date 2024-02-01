@@ -1,14 +1,12 @@
 ---
 description: "Learn how to configure Corda by sending the values as JSON to the Corda REST API."
 date: '2023-05-16'
-version: 'Corda 5.2'
 title: "Dynamic Configuration"
 menu:
   corda52:
     identifier: corda52-cluster-dynamic
     parent: corda52-cluster-config
     weight: 1000
-section_menu: corda52
 ---
 
 # Dynamic Configuration

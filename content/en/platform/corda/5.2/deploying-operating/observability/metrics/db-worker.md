@@ -1,14 +1,12 @@
 ---
 description: "Review the metrics generated for the database worker. The database worker is responsible for handling and serving persistence requests originating from various Corda worker types."
 date: '2023-06-14'
-version: 'Corda 5.2'
 title: "Database Worker"
 menu:
   corda52:
     parent: corda52-cluster-metrics
     identifier: corda52-cluster-db-worker
     weight: 300
-section_menu: corda52
 ---
 
 # Database Worker

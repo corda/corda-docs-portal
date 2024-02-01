@@ -2,14 +2,11 @@
 description: "Learn how to build a Corda Package Bundle (CPB) from your Corda Package (CPK) files using Gradle or the Corda CLI."
 date: '2023-02-23'
 title: "Build a CPB"
-project: corda
-version: 'Corda 5.2'
 menu:
   corda52:
     parent: corda52-develop-packaging
     identifier: corda52-develop-packaging-cbp
     weight: 2000
-section_menu: corda52
 ---
 # Build a CPB
 

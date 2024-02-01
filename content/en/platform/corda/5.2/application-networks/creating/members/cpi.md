@@ -1,14 +1,12 @@
 ---
 description: "Learn how to build a member CPI and upload it to your network."
 date: '2023-04-13'
-version: 'Corda 5.2'
 title: "Build and Upload the Member CPI"
 menu:
   corda52:
     identifier: corda52-networks-members-cpi
     parent: corda52-networks-members
     weight: 1000
-section_menu: corda52
 ---
 
 # Build and Upload the Member CPI

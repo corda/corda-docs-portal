@@ -2,13 +2,11 @@
 description: "Learn the fundamentals of the Corda 5 notary, Corda’s uniqueness consensus service."
 title: "Notaries"
 date: 2023-06-08
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-fundamentals-ledger-notaries
     parent: corda52-fundamentals-ledger
     weight: 6000
-section_menu: corda52
 ---
 
 # Notaries

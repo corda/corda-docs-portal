@@ -1,14 +1,12 @@
 ---
 description: "Plan your application network (business network) by considering cluster deployment and topology, onboarding processes, security policy, and data sovereignty."
 date: '2023-04-07'
-version: 'Corda 5.2'
 title: "Planning Application Networks"
 menu:
   corda52:
     identifier: corda52-networks-plan
     parent: corda52-networks
     weight: 1000
-section_menu: corda52
 ---
 # Planning Application Networks
 

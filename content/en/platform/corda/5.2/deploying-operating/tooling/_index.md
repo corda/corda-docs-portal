@@ -2,14 +2,11 @@
 description: "Review the tools required by Cluster Administrators."
 date: '2023-05-10'
 title: "Cluster Administrator Tooling"
-project: corda
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-cluster-tooling
     parent: corda52-cluster
     weight: 2000
-section_menu: corda52
 ---
 <style>
 table th:first-of-type {

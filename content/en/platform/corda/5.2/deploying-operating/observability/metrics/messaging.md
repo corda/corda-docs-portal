@@ -1,14 +1,12 @@
 ---
 description: "Review the metrics generated for the messaging patterns library. This messaging patterns library contains several embedded metrics that provide measurements for all workers through their Kafka consumers and producers."
 date: '2023-06-14'
-version: 'Corda 5.2'
 title: "Messaging"
 menu:
   corda52:
     parent: corda52-cluster-metrics
     identifier: corda52-cluster-messaging
     weight: 1200
-section_menu: corda52
 ---
 
 # Messaging

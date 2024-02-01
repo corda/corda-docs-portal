@@ -1,7 +1,6 @@
 ---
 description: "Learn how to configure the communication properties for the a member."
 date: '2023-04-13'
-version: 'Corda 5.2'
 title: "Configure Communication Properties for the Member"
 menu:
   corda52:
@@ -9,7 +8,6 @@ menu:
     parent: corda52-networks-members
     weight: 4000
     name: "Configure Communication Properties"
-section_menu: corda52
 ---
 
 # Configure Communication Properties for the Member

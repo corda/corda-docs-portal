@@ -1,14 +1,12 @@
 ---
 description: "Review the metrics generated for flow sessions. Sessions are used by flows to communicate with counterparties."
 date: '2023-06-14'
-version: 'Corda 5.2'
 title: "Flow Session"
 menu:
   corda52:
     parent: corda52-cluster-metrics
     identifier: corda52-cluster-flow-session
     weight: 600
-section_menu: corda52
 ---
 
 # Flow Session

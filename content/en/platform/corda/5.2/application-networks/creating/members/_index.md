@@ -2,14 +2,11 @@
 description: "Learn how to onboard members to a network."
 date: '2023-04-13'
 title: "Onboarding Members"
-project: corda
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-networks-members
     parent: corda52-networks-create
     weight: 2000
-section_menu: corda52
 ---
 
 # Onboarding Members
