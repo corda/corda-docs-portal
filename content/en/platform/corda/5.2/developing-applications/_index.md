@@ -5,14 +5,11 @@ cascade:
   section_menu: corda52
 description: "CorDapp Developer documentation for Corda 5.1."
 title: "Developing Applications"
-project: corda
-version: 'Corda 5.2'
 date: 2023-04-21
 menu:
   corda52:
     identifier: corda52-develop
     weight: 3000
-section_menu: corda52
 ---
 # Developing Applications
 

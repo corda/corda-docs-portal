@@ -2,13 +2,11 @@
 description: "Learn the most important key concepts for Corda 5 CorDapp Developers."
 title: "Architecture for CorDapp Developers"
 date: 2023-07-25
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-key-concepts-cordapp-dev
     parent: corda52-key-concepts
     weight: 2000
-section_menu: corda52
 ---
 
 # Architecture for CorDapp Developers

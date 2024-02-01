@@ -2,14 +2,11 @@
 description: "Learn how to determine the health of your Corda cluster using Kubernetes liveness and readiness probes, Corda metrics, logs, and tracing."
 date: '2023-02-23'
 title: "Observability"
-project: corda
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-cluster-observability
     parent: corda52-cluster
     weight: 6000
-section_menu: corda52
 ---
 # Observability
 

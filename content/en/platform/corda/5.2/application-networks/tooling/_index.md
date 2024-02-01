@@ -2,14 +2,11 @@
 description: "Review the tools required by Network Operators."
 date: '2023-04-07'
 title: "Network Operator Tooling"
-project: corda
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-networks-tooling
     parent: corda52-networks
     weight: 2000
-section_menu: corda52
 ---
 <style>
 table th:first-of-type {

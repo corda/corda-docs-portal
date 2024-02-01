@@ -2,13 +2,11 @@
 description: "Understand Corda's chain of trust."
 title: "Chain of Trust"
 date: 2023-06-07
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-fundamentals-chain-trust
     parent: corda52-fundamentals
     weight: 6000
-section_menu: corda52
 ---
 
 # Chain of Trust

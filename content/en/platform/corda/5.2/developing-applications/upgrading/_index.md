@@ -2,14 +2,11 @@
 description: "Learn how to create a new version of a Corda-deployed CorDapp to upgrade your CorDapp to fix bugs, create new functionality, or change existing functionality."
 date: '2023-05-18'
 title: "Creating a New Version of a CorDapp"
-project: corda
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-upgrading
     parent: corda52-develop
     weight: 9000
-section_menu: corda52
 ---
 
 # Creating a New Version of a CorDapp

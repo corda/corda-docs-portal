@@ -1,14 +1,12 @@
 ---
 description: "Learn how Corda metrics can provide insight into the inner workings of Corda and can be used as the basis for monitoring and alerting."
 date: '2023-06-14'
-version: 'Corda 5.2'
 title: "Metrics"
 menu:
   corda52:
     parent: corda52-cluster-observability
     identifier: corda52-cluster-metrics
     weight: 2000
-section_menu: corda52
 ---
 
 # Metrics

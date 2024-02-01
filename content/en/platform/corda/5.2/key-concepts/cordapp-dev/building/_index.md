@@ -2,13 +2,11 @@
 description: "An overview for CorDapp Developers about designing CorDapps."
 title: "Building CorDapps"
 date: 2023-07-26
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-cordapp-dev-build
     parent: corda52-key-concepts-cordapp-dev
     weight: 2000
-section_menu: corda52
 ---
 
 # Tech Stack

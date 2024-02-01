@@ -6,9 +6,6 @@ cascade:
 description: "Get started with Corda 5.1 by learning the key concepts."
 date: '2022-08-17'
 title: "Key Concepts"
-project: corda
-version: 'Corda 5.2'
-section_menu: corda52
 menu:
   corda52:
     identifier: corda52-key-concepts

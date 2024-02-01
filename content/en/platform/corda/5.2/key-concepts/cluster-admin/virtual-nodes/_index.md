@@ -2,13 +2,11 @@
 description: "AN overview of Corda 5 virtual nodes for Cluster Administrators."
 title: "Virtual Nodes"
 date: 2023-07-24
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-cluster-admin-vnodes
     parent: corda52-key-concepts-cluster-admin
     weight: 3000
-section_menu: corda52
 ---
 
 # Virtual Nodes
