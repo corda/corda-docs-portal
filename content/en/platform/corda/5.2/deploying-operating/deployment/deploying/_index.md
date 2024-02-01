@@ -388,7 +388,7 @@ You can configure [Kubernetes Ingress](https://kubernetes.io/docs/concepts/servi
 
 {{< note >}}
 
-* Kubernetes Ingress makes the P2P gateway accessible from outside the Kubernetes cluster that the Corda cluster is deployed into. Your organization must own the domain name (gateway.corda.example.com` in the example below) and that must resolve to the IP address of the Ingress-managed load balancer. The Network Operator must use one of the Ingress hosts when [registering a Member]({{< relref "../../../application-networks/creating/members/cpi.md#set-variables">}}) or [registering the MGM]({{< relref "../../../application-networks/creating/mgm/cpi.md#set-variables">}}).
+* Kubernetes Ingress makes the P2P gateway accessible from outside the Kubernetes cluster that the Corda cluster is deployed into. Your organization must own the domain name (`gateway.corda.example.com` in the example below) and that must resolve to the IP address of the Ingress-managed load balancer. The Network Operator must use one of the Ingress hosts when [registering a Member]({{< relref "../../../application-networks/creating/members/cpi.md#set-variables">}}) or [registering the MGM]({{< relref "../../../application-networks/creating/mgm/cpi.md#set-variables">}}).
 * The gateway only supports TLS termination in the gateway and not inside the load balancer itself.
 {{< /note >}}
 
