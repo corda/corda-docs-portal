@@ -1,5 +1,5 @@
 ---
-description: "View the Corda 5.1 REST API documentation."
+description: "View the Corda 5.2 REST API documentation."
 title: "Corda REST API"
 date: 2023-05-08
 menu:

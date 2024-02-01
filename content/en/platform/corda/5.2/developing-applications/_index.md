@@ -3,7 +3,7 @@ cascade:
   project: corda
   version: 'Corda 5.2'
   section_menu: corda52
-description: "CorDapp Developer documentation for Corda 5.1."
+description: "CorDapp Developer documentation for Corda 5.2."
 title: "Developing Applications"
 date: 2023-04-21
 menu:

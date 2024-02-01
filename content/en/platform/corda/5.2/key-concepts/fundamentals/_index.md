@@ -1,5 +1,5 @@
 ---
-description: "Learn the fundamental key concepts of Corda 5.1."
+description: "Learn the fundamental key concepts of Corda 5.2."
 title: "Fundamentals"
 date: 2023-04-21
 menu:

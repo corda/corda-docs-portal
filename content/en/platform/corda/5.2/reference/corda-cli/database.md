@@ -1,5 +1,5 @@
 ---
-description: "List of database commands for the Corda 5.1 CLI."  
+description: "List of database commands for the Corda 5.2 CLI."  
 date: '2022-12-20'
 menu:
   corda52:

@@ -2,7 +2,7 @@
 cascade:
   project: corda
   version: 'Corda 5.2'
-  description: "Reference material for Corda 5.1."
+  description: "Reference material for Corda 5.2."
 title: "References"
 date: 2023-04-24
 menu:

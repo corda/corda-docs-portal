@@ -1,5 +1,5 @@
 ---
-description: "List of vnode commands for the Corda 5.1 CLI. You can use these commands to reset or upgrade virtual nodes."  
+description: "List of vnode commands for the Corda 5.2 CLI. You can use these commands to reset or upgrade virtual nodes."  
 date: '2023-11-07'
 menu:
   corda52:

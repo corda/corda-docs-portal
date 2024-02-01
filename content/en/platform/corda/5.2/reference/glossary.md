@@ -1,5 +1,5 @@
 ---
-description: "Understand Corda 5.1 terms and phrases."
+description: "Understand Corda 5.2 terms and phrases."
 title: "Glossary"
 date: 2023-08-17
 menu:

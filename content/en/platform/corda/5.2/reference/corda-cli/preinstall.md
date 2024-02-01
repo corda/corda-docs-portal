@@ -1,5 +1,5 @@
 ---
-description: "List of preinstall commands for the Corda 5.1 CLI. You can use these commands to manually check Corda's configuration."  
+description: "List of preinstall commands for the Corda 5.2 CLI. You can use these commands to manually check Corda's configuration."  
 date: '2023-08-10'
 menu:
   corda52:

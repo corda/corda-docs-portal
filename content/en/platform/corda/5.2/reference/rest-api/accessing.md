@@ -1,5 +1,5 @@
 ---
-description: "Learn how to invoke the Corda 5.1 REST API."
+description: "Learn how to invoke the Corda 5.2 REST API."
 title: "Accessing the REST API"
 date: 2023-05-08
 menu:

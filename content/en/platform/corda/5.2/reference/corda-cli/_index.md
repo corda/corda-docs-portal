@@ -1,5 +1,5 @@
 ---
-description: "List of commands for the Corda 5.1 CLI."  
+description: "List of commands for the Corda 5.2 CLI."  
 title: "Corda CLI Commands"
 date: 2023-04-24
 menu:

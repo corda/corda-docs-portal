@@ -3,7 +3,7 @@ cascade:
   project: corda
   version: 'Corda 5.2'
   section_menu: corda52
-description: "Cluster Administrator documentation for Corda 5.1."
+description: "Cluster Administrator documentation for Corda 5.2."
 title: "Administering Corda Clusters"
 date: '2023-05-16'
 menu:

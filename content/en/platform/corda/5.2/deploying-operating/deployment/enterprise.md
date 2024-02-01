@@ -1,5 +1,5 @@
 ---
-description: "Learn how to migrate from the standard version of Corda 5.1 to Corda 5.1 Enterprise."
+description: "Learn how to migrate from the standard version of Corda 5.2 to Corda 5.2 Enterprise."
 date: '2023-05-11'
 title: "Migrating to Corda Enterprise"
 menu:

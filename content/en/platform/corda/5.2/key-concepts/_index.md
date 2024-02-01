@@ -3,7 +3,7 @@ cascade:
   project: corda
   version: 'Corda 5.2'
   section_menu: corda52
-description: "Get started with Corda 5.1 by learning the key concepts."
+description: "Get started with Corda 5.2 by learning the key concepts."
 date: '2022-08-17'
 title: "Key Concepts"
 menu:
