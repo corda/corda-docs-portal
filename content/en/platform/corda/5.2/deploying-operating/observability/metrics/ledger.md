@@ -1,14 +1,12 @@
 ---
 description: "Review the metrics generated for the UTXO ledger."
 date: '2023-10-02'
-version: 'Corda 5.2'
 title: "UTXO Ledger"
 menu:
   corda52:
     parent: corda52-cluster-metrics
     identifier: corda52-cluster-ledger
     weight: 1600
-section_menu: corda52
 ---
 
 # UTXO Ledger

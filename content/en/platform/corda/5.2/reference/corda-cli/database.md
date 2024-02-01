@@ -1,13 +1,11 @@
 ---
 description: "List of database commands for the Corda 5.1 CLI."  
 date: '2022-12-20'
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-cordacli-database
     weight: 1000
     parent: corda52-cli-reference
-section_menu: corda52
 title: "database"
 ---
 # database

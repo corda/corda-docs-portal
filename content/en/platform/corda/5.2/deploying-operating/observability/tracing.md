@@ -1,14 +1,12 @@
 ---
 description:  "Learn how to configure your Corda Helm chart for a tracing server and sample rate. "
 date: '2023-05-10'
-version: 'Corda 5.2'
 title: "Tracing Framework"
 menu:
   corda52:
     parent: corda52-cluster-observability
     identifier: corda52-cluster-tracing
     weight: 4000
-section_menu: corda52
 ---
 
 # Tracing Framework

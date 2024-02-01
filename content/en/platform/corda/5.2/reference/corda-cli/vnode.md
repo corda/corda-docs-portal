@@ -1,13 +1,11 @@
 ---
 description: "List of vnode commands for the Corda 5.1 CLI. You can use these commands to reset or upgrade virtual nodes."  
 date: '2023-11-07'
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-cordacli-vnode
     weight: 6000
     parent: corda52-cli-reference
-section_menu: corda52
 title: "vnode"
 ---
 # vnode

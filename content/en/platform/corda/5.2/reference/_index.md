@@ -1,4 +1,8 @@
 ---
+cascade:
+  project: corda
+  version: 'Corda 5.2'
+  section_menu: corda52
 description: "Reference material for Corda 5.1."
 title: "References"
 project: corda

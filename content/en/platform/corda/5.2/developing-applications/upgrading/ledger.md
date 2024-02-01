@@ -2,14 +2,11 @@
 description: "Understand the implications of upgrading a CorDapp for the ledger."
 date: '2023-11-20'
 title: "Ledger Implications of Upgrading CorDapps"
-project: corda
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-upgrading-ledger
     parent: corda52-upgrading
     weight: 1000
-section_menu: corda52
 ---
 # Ledger Implications of Upgrading CorDapps
 

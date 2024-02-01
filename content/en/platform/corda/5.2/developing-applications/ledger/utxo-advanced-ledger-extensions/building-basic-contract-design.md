@@ -2,14 +2,11 @@
 description: "Learn how to design a contract using the Corda 5 Advanced UTXO Ledger Extensions library."
 date: '2023-06-01'
 title: "Building Basic Contract Design"
-project: corda
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-utxo-ledger-building-basic-contract-design
     parent: corda52-utxo-advanced-ledger-extensions
     weight: 3000
-section_menu: corda52
 ---
 
 # Building Basic Contract Design

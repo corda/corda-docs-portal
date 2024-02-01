@@ -1,14 +1,12 @@
 ---
 description: "Review the metrics generated for the Corda backing store. The backing store is responsible for abstracting database access from the uniqueness checker, and performs all read and write operations against the uniqueness database."
 date: '2023-06-14'
-version: 'Corda 5.2'
 title: "Backing Store"
 menu:
   corda52:
     parent: corda52-cluster-metrics
     identifier: corda52-cluster-backing-store
     weight: 100
-section_menu: corda52
 ---
 
 # Backing Store

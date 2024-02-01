@@ -1,14 +1,12 @@
 ---
 description: "Review the metrics generated for HTTP requests."
 date: '2023-06-14'
-version: 'Corda 5.2'
 title: "HTTP Requests"
 menu:
   corda52:
     parent: corda52-cluster-metrics
     identifier: corda52-cluster-http
     weight: 800
-section_menu: corda52
 ---
 
 # HTTP Requests
