@@ -2,13 +2,11 @@
 description: "Learn the fundamentals of the Corda 5 CorDapp vault."
 title: "Vault"
 date: '2023-06-08'
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-fundamentals-ledger-vault
     parent: corda51-fundamentals-ledger
     weight: 7000
-section_menu: corda51
 ---
 
 # Vault

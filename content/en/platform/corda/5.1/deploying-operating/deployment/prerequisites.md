@@ -1,14 +1,12 @@
 ---
 description: "Review the prerequisites for deploying Corda 5."
 date: '2023-05-11'
-version: 'Corda 5.1'
 title: "Prerequisites"
 menu:
   corda51:
     parent: corda51-cluster-deploy
     identifier: corda51-cluster-prerequisites
     weight: 1000
-section_menu: corda51
 ---
 # Prerequisites
 

@@ -1,10 +1,11 @@
 ---
+cascade:
+  version: 'Corda 5.1'
+  project: corda
+  section_menu: corda51
 description: "Get started with Corda 5.1 by learning the key concepts."
 date: '2022-08-17'
 title: "Key Concepts"
-project: corda
-version: 'Corda 5.1'
-section_menu: corda51
 menu:
   corda51:
     identifier: corda51-key-concepts

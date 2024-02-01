@@ -1,14 +1,12 @@
 ---
 description: "Learn about Corda security policies and the OSGi security model that they are based on."
 title: "Security Policies"
-version: 'Corda 5.1'
 date: '2023-05-16'
 menu:
   corda51:
     identifier: corda51-cluster-security
     parent: corda51-cluster-config
     weight: 3050
-section_menu: corda51
 ---
 # Security Policies
 

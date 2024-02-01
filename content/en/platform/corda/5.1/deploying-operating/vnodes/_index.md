@@ -2,14 +2,11 @@
 description: "Learn how to retrieve information about the virtual nodes in a cluster, update their state, and upgrade their CPI."
 date: '2023-02-23'
 title: "Managing Virtual Nodes"
-project: corda
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-cluster-nodes
     parent: corda51-cluster
     weight: 5000
-section_menu: corda51
 ---
 # Managing Virtual Nodes
 

@@ -1,14 +1,12 @@
 ---
 description: "Review the fields of the corda.ledger.utxo Corda configuration section."
 date: '2023-03-08'
-version: 'Corda 5.1'
 title: "corda.ledger.utxo"
 menu:
   corda51:
     parent: corda51-config-fields
     identifier: corda51-config-ledger-utxo
     weight: 4000
-section_menu: corda51
 ---
 # corda.ledger.utxo
 

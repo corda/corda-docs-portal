@@ -1,14 +1,12 @@
 ---
 description: "Review the metrics generated for the ledger uniqueness checker. These metrics are from the perspective of the notarization flow running on a notary virtual node."
 date: '2023-06-14'
-version: 'Corda 5.1'
 title: "Ledger Uniqueness Checker Client Service"
 menu:
   corda51:
     parent: corda51-cluster-metrics
     identifier: corda51-cluster-ledger-uniqueness
     weight: 1000
-section_menu: corda51
 ---
 
 # Ledger Uniqueness Checker Client Service

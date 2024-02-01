@@ -2,14 +2,11 @@
 description: "Learn how to create an application network, that includes a a running MGM that all members must register with before they can transact among the group."
 date: '2023-04-07'
 title: "Creating Application Networks"
-project: corda
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-networks-create
     parent: corda51-networks
     weight: 3000
-section_menu: corda51
 ---
 # Creating Application Networks
 
