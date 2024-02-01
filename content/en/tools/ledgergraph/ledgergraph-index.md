@@ -6,7 +6,7 @@ menu:
   tools:
     name: LedgerGraph
     weight: 800
-    identifier: tools-ledgergraph
+    identifier: tools-ledger-graph
 title: LedgerGraph
 ---
 
