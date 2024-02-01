@@ -1,14 +1,12 @@
 ---
-description: "Verify the versions of third-party software that Corda 5.1 supports discover the end of life strategy."
+description: "Verify the versions of third-party software that Corda 5.2 supports discover the end of life strategy."
 title: "Platform Support"
 date: 2023-08-17
-version: 'Corda 5.2'
 menu:
   corda52:
     parent: corda52-release-notes
     identifier: corda52-release-notes-support
     weight: 900
-section_menu: corda52
 ---
 
 <style>

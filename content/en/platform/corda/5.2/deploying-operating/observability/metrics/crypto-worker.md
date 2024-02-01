@@ -1,14 +1,12 @@
 ---
 description: "Review the metrics generated for the crypto worker. The crypto worker is responsible for handling crypto operations in Corda, such as signing."
 date: '2023-06-14'
-version: 'Corda 5.2'
 title: "Crypto Worker"
 menu:
   corda52:
     parent: corda52-cluster-metrics
     identifier: corda52-cluster-crypto-worker
     weight: 200
-section_menu: corda52
 ---
 
 # Crypto Worker

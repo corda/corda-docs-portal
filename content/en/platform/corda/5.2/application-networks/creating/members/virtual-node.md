@@ -1,7 +1,6 @@
 ---
 description: "Learn how to create a member virtual node."
 date: '2023-04-13'
-version: 'Corda 5.2'
 title: "Create a Virtual Node for the Member"
 menu:
   corda52:
@@ -9,7 +8,6 @@ menu:
     parent: corda52-networks-members
     weight: 2000
     name: "Create a Virtual Node"
-section_menu: corda52
 ---
 
 # Create a Virtual Node for the Member

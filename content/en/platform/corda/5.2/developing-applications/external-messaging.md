@@ -2,14 +2,11 @@
 description: "Learn how CorDapps can send simple messages via Kafka to external systems using the external messaging API service."
 date: '2023-06-22'
 title: "External Messaging CorDapps"
-project: corda
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-develop-external-messaging
     parent: corda52-develop
     weight: 7050
-section_menu: corda52
 ---
 
 # External Messaging CorDapps {{< enterprise-icon >}}

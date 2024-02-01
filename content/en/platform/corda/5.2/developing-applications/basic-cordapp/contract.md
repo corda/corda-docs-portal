@@ -2,7 +2,6 @@
 description: "Learn how to writes contracts as part of your first basic Corda 5 CorDapp."
 date: '2023-05-03'
 title: "Write Contracts"
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-develop-first-cordapp-contract

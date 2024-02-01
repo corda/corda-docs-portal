@@ -2,13 +2,11 @@
 description: "Learn about communication within a Corda 5 cluster and from outside a Corda 5 cluster."
 title: "Cluster Communications"
 date: 2023-07-24
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-cluster-admin-communications
     parent: corda52-key-concepts-cluster-admin
     weight: 4000
-section_menu: corda52
 ---
 
 # Cluster Communications

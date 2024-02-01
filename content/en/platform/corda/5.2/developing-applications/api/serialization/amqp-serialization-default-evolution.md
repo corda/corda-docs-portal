@@ -1,13 +1,11 @@
 ---
 date: '2022-09-21T14:27:00+01:00'
-version: 'Corda 5.2'
 title: "Default Class Evolution"
 menu:
   corda52:
     identifier: corda52-api-serialisation-default-evolution
     parent: corda52-api-serialisation
     weight: 8000
-section_menu: corda52
 ---
 # Default Class Evolution
 Whilst more complex evolutionary modifications to classes require annotating, Corda’s serialization

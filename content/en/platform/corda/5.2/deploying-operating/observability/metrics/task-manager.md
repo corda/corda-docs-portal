@@ -1,14 +1,12 @@
 ---
 description: "Review the metrics generated for the Corda task manager. The task manager exposes metrics for underlying thread pools and jobs processing duration and count."
 date: '2023-10-26'
-version: 'Corda 5.2'
 title: "Task Manager"
 menu:
   corda52:
     parent: corda52-cluster-metrics
     identifier: corda52-cluster-task-manager
     weight: 1450
-section_menu: corda52
 ---
 
 # Task Manager

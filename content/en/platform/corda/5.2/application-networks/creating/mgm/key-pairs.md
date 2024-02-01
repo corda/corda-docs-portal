@@ -1,7 +1,6 @@
 ---
 description: "Learn how to configure key pairs and certificates for the MGM."
 date: '2023-04-07'
-version: 'Corda 5.2'
 title: "Configure Key Pairs and Certificates for the MGM"
 menu:
   corda52:
@@ -9,7 +8,6 @@ menu:
     identifier: corda52-networks-mgm-key-pairs
     weight: 3000
     name:  "Configure Key Pairs and Certificates"
-section_menu: corda52
 ---
 # Configure Key Pairs and Certificates for the MGM
 

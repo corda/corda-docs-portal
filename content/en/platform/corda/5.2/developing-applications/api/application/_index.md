@@ -1,13 +1,11 @@
 ---
 date: '2023-02-10'
-version: 'Corda 5.2'
 title: "application"
 menu:
   corda52:
     identifier: corda52-api-application
     parent: corda52-api
     weight: 1000
-section_menu: corda52
 ---
 # net.corda.v5.application
 The `corda-application` module provides the fundamental building blocks required to create a [flow]({{< relref "../../ledger/flows/_index.md" >}}) and so all {{< tooltip >}}CorDapps{{< /tooltip >}} use this module.

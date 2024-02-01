@@ -1,14 +1,11 @@
 ---
 date: '2023-06-20'
 title: "Using the UTXO Ledger Token Selection API"
-project: corda
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-develop-utxo
     parent: corda52-api-ledger-utxo-token-selection
     weight: 1000
-section_menu: corda52
 ---
 
 # Using the UTXO Ledger Token Selection API
