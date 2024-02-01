@@ -3,7 +3,7 @@ description: "CorDapp Developer, Cluster Administrator, and Network Operator doc
 date: '2022-08-17'
 title: Corda 5.1
 version: 'Corda 5.1'
-project: 'Corda'
+project: corda
 section_menu: corda51
 menu:
   versions:
