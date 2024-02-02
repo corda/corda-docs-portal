@@ -1,9 +1,5 @@
 ---
 date: '2022-09-06'
-<<<<<<< HEAD
-=======
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 title: "membership"
 menu:
   corda51:

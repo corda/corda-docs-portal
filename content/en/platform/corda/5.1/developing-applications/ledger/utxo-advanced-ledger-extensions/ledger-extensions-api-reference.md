@@ -7,10 +7,6 @@ menu:
     identifier: corda51-utxo-ledger-extensions-api-reference
     parent: corda51-utxo-advanced-ledger-extensions
     weight: 4000
-<<<<<<< HEAD:content/en/platform/corda/5.1/developing-applications/ledger/utxo-advanced-ledger-extensions/ledger-extensions-api-reference.md
-=======
-section_menu: corda51
->>>>>>> release/platform/4.12:content/en/platform/corda/5.1/developing-applications/api/ledger/utxo-ledger/utxo-advanced-ledger-extensions/ledger-extensions-api-reference.md
 ---
 
 # Advanced Ledger Extensions API Reference

@@ -1,10 +1,6 @@
 ---
 description: "Learn how to configure Corda by sending the values as JSON to the Corda REST API."
 date: '2023-05-16'
-<<<<<<< HEAD
-=======
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 title: "Dynamic Configuration"
 menu:
   corda51:

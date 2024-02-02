@@ -1,12 +1,6 @@
 ---
-<<<<<<< HEAD
-description: "List of topic commands for the Corda 5.1 CLI. You can use these commands to manually create topics in Kafka."  
-date: '2022-12-20'
-=======
 description: "List of topic commands for the Corda 5.1 CLI. You can use these commands to manually create topics in Kafka."
 date: '2022-12-20'
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 menu:
   corda51:
     identifier: corda51-cordacli-topic

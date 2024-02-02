@@ -1,10 +1,6 @@
 ---
 description: "Review the metrics generated for flow sessions. Sessions are used by flows to communicate with counterparties."
 date: '2023-06-14'
-<<<<<<< HEAD
-=======
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 title: "Flow Session"
 menu:
   corda51:

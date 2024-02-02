@@ -1,10 +1,6 @@
 ---
 description: "Review the metrics generated for the peer-to-peer layer. This layer is responsible for delivering messages between virtual nodes."
 date: '2023-06-14'
-<<<<<<< HEAD
-=======
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 title: "Peer-to-peer Messages and Sessions"
 menu:
   corda51:

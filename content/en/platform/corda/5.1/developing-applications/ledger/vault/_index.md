@@ -2,10 +2,6 @@
 description: "Learn the fundamentals of the Corda 5 CorDapp vault."
 title: "Vault"
 date: '2023-06-08'
-<<<<<<< HEAD
-=======
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 menu:
   corda51:
     identifier: corda51-fundamentals-ledger-vault

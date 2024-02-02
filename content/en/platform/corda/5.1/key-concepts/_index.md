@@ -1,11 +1,8 @@
 ---
-<<<<<<< HEAD
 cascade:
   version: 'Corda 5.1'
   project: corda
   section_menu: corda51
-=======
->>>>>>> release/platform/4.12
 description: "Get started with Corda 5.1 by learning the key concepts."
 date: '2022-08-17'
 title: "Key Concepts"
@@ -79,7 +76,7 @@ Flows use a messaging system to allow communication and updates between relevant
 ## Use Case Examples
 
 "_Who is Corda for?_" Corda was originally designed as a {{< tooltip >}}distributed ledger{{< /tooltip >}} and system of record for the financial services industry.
-Within financial markets, Corda can be used to automate trading and settlement processes and reduce the need for reconciliation. 
+Within financial markets, Corda can be used to automate trading and settlement processes and reduce the need for reconciliation.
 Additionally, Corda’s {{< tooltip >}}smart contracts{{< /tooltip >}} make it easy to automate complex financial agreements between parties. Corda is used in financial markets for use cases such as:
 
 * **Financial Market Infrastructure (FMI)** - Corda accelerates and automates settlement processes, thereby removing the need for costly and risky reconciliation processes, reducing credit, and counter-party risk and default risk arising from unsettled trades.

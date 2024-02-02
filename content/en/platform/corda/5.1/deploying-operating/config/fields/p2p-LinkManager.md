@@ -1,10 +1,6 @@
 ---
 description: "Review the fields of the corda.p2p.linkManager Corda configuration section."
 date: '2023-03-08'
-<<<<<<< HEAD
-=======
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 title: "corda.p2p.linkManager"
 menu:
   corda51:

@@ -1,10 +1,6 @@
 ---
 description: "Learn how to use Kubernetes liveness and readiness probes with Corda."
 date: '2023-05-10'
-<<<<<<< HEAD
-=======
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 title: "Kubernetes Liveness and Readiness Probes"
 menu:
   corda51:

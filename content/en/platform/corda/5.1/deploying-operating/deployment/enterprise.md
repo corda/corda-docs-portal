@@ -1,10 +1,6 @@
 ---
 description: "Learn how to migrate from the standard version of Corda 5.1 to Corda 5.1 Enterprise."
 date: '2023-05-11'
-<<<<<<< HEAD
-=======
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 title: "Migrating to Corda Enterprise"
 menu:
   corda51:

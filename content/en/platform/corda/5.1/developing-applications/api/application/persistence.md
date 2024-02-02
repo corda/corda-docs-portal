@@ -1,9 +1,5 @@
 ---
 date: '2023-02-10'
-<<<<<<< HEAD
-=======
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 title: "application.persistence"
 menu:
   corda51:
@@ -80,19 +76,19 @@ The following is an example that also defines some named JPQL queries:
 @CordaSerializable
 @Entity(name = "dog")
 @NamedQueries(
-    NamedQuery(name = "Dog.summon", query = "SELECT d FROM Dog d WHERE d.name = :name"),    
-    NamedQuery(name = "Dog.independent", query = "SELECT d FROM Dog d WHERE d.owner IS NULL"),    
-    NamedQuery(name = "Dog.summonLike", query = "SELECT d FROM Dog d WHERE d.name LIKE :name ORDER BY d.name"),    
-    NamedQuery(name = "Dog.all", query = "SELECT d FROM Dog d ORDER BY d.name"),    
+    NamedQuery(name = "Dog.summon", query = "SELECT d FROM Dog d WHERE d.name = :name"),
+    NamedQuery(name = "Dog.independent", query = "SELECT d FROM Dog d WHERE d.owner IS NULL"),
+    NamedQuery(name = "Dog.summonLike", query = "SELECT d FROM Dog d WHERE d.name LIKE :name ORDER BY d.name"),
+    NamedQuery(name = "Dog.all", query = "SELECT d FROM Dog d ORDER BY d.name"),
     NamedQuery(name = "Dog.release", query = "UPDATE Dog SET owner=null")
 )
 class Dog(
-    @Id    
-    @Column(name = "id", nullable = false)    
-    val id: UUID,    
-    @Column(name = "name")    
-    val name: String,    
-    @Column(name = "birthdate")    
+    @Id
+    @Column(name = "id", nullable = false)
+    val id: UUID,
+    @Column(name = "name")
+    val name: String,
+    @Column(name = "birthdate")
     val birthdate: Instant,
     @Column(name = "owner")
     val owner: String?
@@ -150,7 +146,7 @@ To use the Persistence API from a {{< tooltip >}}flow{{< /tooltip >}}:
    ```kotlin
      val dog = Dog(dogId, "dog", Instant.now(), "none")
      persistenceService.persist(dog)
-    ```   
+    ```
 
    {{< note >}}
   All persistence operations are processed over Kafka.

@@ -1,10 +1,6 @@
 ---
 description: "Learn how to configure database connection details."
 title: "Database Connection Configuration"
-<<<<<<< HEAD
-=======
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 date: '2023-05-16'
 menu:
   corda51:

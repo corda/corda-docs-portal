@@ -1,11 +1,8 @@
 ---
-<<<<<<< HEAD
 cascade:
   version: 'Corda 5.1'
   project: corda
   section_menu: corda51
-=======
->>>>>>> release/platform/4.12
 description: "CorDapp Developer documentation for Corda 5.1."
 title: "Developing Applications"
 date: 2023-04-21

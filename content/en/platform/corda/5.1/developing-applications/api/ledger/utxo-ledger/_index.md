@@ -1,9 +1,5 @@
 ---
 date: '2023-06-20'
-<<<<<<< HEAD
-=======
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 title: "ledger.utxo"
 menu:
   corda51:

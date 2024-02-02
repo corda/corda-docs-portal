@@ -2,10 +2,6 @@
 description: "Learn about the Corda 5 worker processors and their own operational responsibilities."
 title: "Workers"
 date: 2023-07-24
-<<<<<<< HEAD
-=======
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 menu:
   corda51:
     identifier: corda51-cluster-admin-workers
@@ -17,7 +13,7 @@ menu:
 
 Corda 5 introduces a distributed architecture for the Corda runtime that is based on worker processes. There are different types of worker processors which each have their own operational responsibility and, because each worker is stateless, it is possible to scale horizontally.
 
-{{< 
+{{<
   figure
 	 src="featured_workers.png"
    width="75%"

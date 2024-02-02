@@ -1,10 +1,6 @@
 ---
 description: "Review the prerequisites for deploying Corda 5."
 date: '2023-05-11'
-<<<<<<< HEAD
-=======
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 title: "Prerequisites"
 menu:
   corda51:

@@ -1,10 +1,6 @@
 ---
 description:  "Learn how to configure your Corda Helm chart for a tracing server and sample rate. "
 date: '2023-05-10'
-<<<<<<< HEAD
-=======
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 title: "Tracing Framework"
 menu:
   corda51:

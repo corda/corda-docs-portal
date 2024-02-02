@@ -1,10 +1,6 @@
 ---
 description: "Review the metrics generated for the messaging patterns library. This messaging patterns library contains several embedded metrics that provide measurements for all workers through their Kafka consumers and producers."
 date: '2023-06-14'
-<<<<<<< HEAD
-=======
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 title: "Messaging"
 menu:
   corda51:

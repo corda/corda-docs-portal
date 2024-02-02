@@ -1,10 +1,6 @@
 ---
 description: "Review the fields of the corda.membership Corda configuration section."
 date: '2023-03-08'
-<<<<<<< HEAD
-=======
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 title: "corda.membership"
 menu:
   corda51:
@@ -14,8 +10,4 @@ menu:
 ---
 # corda.membership
 
-<<<<<<< HEAD
 {{< generate-ref-docs url="https://raw.githubusercontent.com/corda/corda-api/release/os/5.1/data/config-schema/src/main/resources/net/corda/schema/configuration/membership/1.0/corda.membership.json" >}}
-=======
-{{< generate-ref-docs url="https://raw.githubusercontent.com/corda/corda-api/release/os/5.1/data/config-schema/src/main/resources/net/corda/schema/configuration/membership/1.0/corda.membership.json" >}}
->>>>>>> release/platform/4.12

@@ -1,10 +1,6 @@
 ---
 description: "Learn how to deploy Corda 5."
 date: '2023-05-11'
-<<<<<<< HEAD
-=======
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 title: "Deploying"
 menu:
   corda51:
@@ -125,11 +121,7 @@ To push the Corda Enterprise images:
    docker tag postgres:14.4 $target_registry/postgres:14.4
    docker push $target_registry/postgres:14.4
    docker tag sha256:9a53f78a8232118072a72bda97e56f2c3395d34a212fe7e575d1af61cda059c6 $target_registry/ingress-nginx-controller:v1.9.3
-<<<<<<< HEAD
-   docker push $target_registry/ingress-nginx-controller:v1.9.3   
-=======
    docker push $target_registry/ingress-nginx-controller:v1.9.3
->>>>>>> release/platform/4.12
    ```
 
 ## Download the Corda Helm Chart

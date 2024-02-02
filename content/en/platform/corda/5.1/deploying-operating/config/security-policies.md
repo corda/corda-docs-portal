@@ -1,10 +1,6 @@
 ---
 description: "Learn about Corda security policies and the OSGi security model that they are based on."
 title: "Security Policies"
-<<<<<<< HEAD
-=======
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 date: '2023-05-16'
 menu:
   corda51:
@@ -26,7 +22,7 @@ Policies can have `ALLOW` and `DENY` access blocks that represent a string encod
 
 ```java
 policy      ::= access '{' conditions permissions '}' name?
-access      ::= 'ALLOW' | 'DENY'       // case insensitive 
+access      ::= 'ALLOW' | 'DENY'       // case insensitive
 conditions  ::= ( '[' qname quoted-string* ']' )*
 permissions ::= ( '(' qname (quoted-string quoted-string?)? ')' )+
 name        ::= quoted-string

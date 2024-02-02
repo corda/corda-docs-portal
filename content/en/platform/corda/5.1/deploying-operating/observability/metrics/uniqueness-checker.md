@@ -1,10 +1,6 @@
 ---
 description: "Review the metrics generated for the Corda uniqueness checker. The uniqueness checker handles the business logic of uniqueness checking."
 date: '2023-06-14'
-<<<<<<< HEAD
-=======
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 title: "Uniqueness Checker"
 menu:
   corda51:

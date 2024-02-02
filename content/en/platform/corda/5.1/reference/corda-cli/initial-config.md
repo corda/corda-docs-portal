@@ -1,12 +1,6 @@
 ---
-<<<<<<< HEAD
-description: "List of initial-config commands for the Corda 5.1 CLI. You can use these commands to manually perform various setup actions."  
-date: '2022-12-20'
-=======
 description: "List of initial-config commands for the Corda 5.1 CLI. You can use these commands to manually perform various setup actions."
 date: '2022-12-20'
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 menu:
   corda51:
     identifier: corda51-cordacli-initial-config
