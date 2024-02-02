@@ -868,7 +868,7 @@ shell {
 #### Production Configuration
 
 The example below shows a more production-like configuration of the Identity Manager. It is configured with an Issuance
-and Revocation workflow, using JIRA workflows for CSR/CRR approvals, no local signer, and using SSL for secure communication between CENM services. In this scenario, all approved requests would be signed using an external signing
+and Revocation workflow, using Jira workflows for CSR/CRR approvals, no local signer, and using SSL for secure communication between CENM services. In this scenario, all approved requests would be signed using an external signing
 service (see [Signing Services]({{< relref "../../../../../en/platform/corda/1.5/cenm/signing-service.md" >}})).
 
 ```docker

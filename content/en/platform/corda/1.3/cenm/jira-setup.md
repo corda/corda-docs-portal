@@ -10,18 +10,18 @@ menu:
 tags:
 - jira
 - setup
-title: JIRA Set-Up
+title: Jira Set-Up
 ---
 
 
-# JIRA Set-Up
+# Jira Set-Up
 
-The following are the instructions on setting up the JIRA in order to satisfy minimal requirements from the point of view
+The following are the instructions on setting up the Jira in order to satisfy minimal requirements from the point of view
 of the Identity Manager Certificate Signing Request (CSR)/Certificate Revocation Request (CRR) approval workflow. This will enable
-a user to integrate such JIRA deployment with the CENM CSR/CRR approval workflow plugin.
+a user to integrate such Jira deployment with the CENM CSR/CRR approval workflow plugin.
 
 {{< note >}}
-At present, there is no roadmap for the implementation of JIRA Cloud plugin support.
+At present, there is no roadmap for the implementation of Jira Cloud plugin support.
 {{< /note >}}
 
 ## User Set-Up
@@ -48,7 +48,7 @@ Tickets are moved from `Approved` status to `Done` automatically, once the reque
 
 ## Custom fields
 
-Additionally, the following 3 custom fields need to be created and configured in JIRA:
+Additionally, the following 3 custom fields need to be created and configured in Jira:
 
 
 
