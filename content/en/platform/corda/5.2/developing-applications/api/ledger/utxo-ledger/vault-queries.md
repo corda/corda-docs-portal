@@ -1,14 +1,12 @@
 ---
 date: '2023-06-20'
 description: "Learn how to query the Corda database using vault-named queries."
-version: 'Corda 5.2'
 title: "Vault-Named Queries"
 menu:
   corda52:
     identifier: corda52-api-vault-queries
     parent: corda52-api-ledger-utxo
     weight: 3000
-section_menu: corda52
 ---
 
 # Vault-Named Queries

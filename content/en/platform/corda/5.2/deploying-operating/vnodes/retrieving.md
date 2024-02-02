@@ -2,14 +2,11 @@
 description: "Learn how to retrieve information about the virtual nodes in a cluster using the Corda REST API."
 date: '2023-06-12'
 title: "Retrieving Virtual Nodes"
-project: corda
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-cluster-nodes-retrieving
     parent: corda52-cluster-nodes
     weight: 1000
-section_menu: corda52
 ---
 
 # Retrieving Virtual Nodes

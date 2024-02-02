@@ -1,13 +1,11 @@
 ---
 date: '2023-02-10'
-version: 'Corda 5.2'
 title: "application.crypto"
 menu:
   corda52:
     identifier: corda52-api-app-crypto
     parent: corda52-api-application
     weight: 1000
-section_menu: corda52
 ---
 # net.corda.v5.application.crypto
 The `crypto` package provides services and types for performing cryptographic operations. The main services available to applications are:

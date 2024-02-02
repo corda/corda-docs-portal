@@ -1,7 +1,6 @@
 ---
 description: "Learn how to configure the communication properties for the MGM."
 date: '2023-04-13'
-version: 'Corda 5.2'
 title: "Configure Communication Properties for the MGM"
 menu:
   corda52:
@@ -9,7 +8,6 @@ menu:
     identifier: corda52-networks-mgm-config-node
     weight: 5000
     name: "Configure Communication Properties"
-section_menu: corda52
 ---
 
 # Configure Communication Properties for the MGM

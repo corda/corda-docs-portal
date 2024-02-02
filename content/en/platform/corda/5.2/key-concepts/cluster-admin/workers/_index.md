@@ -2,13 +2,11 @@
 description: "Learn about the Corda 5 worker processors and their own operational responsibilities."
 title: "Workers"
 date: 2023-07-24
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-cluster-admin-workers
     parent: corda52-key-concepts-cluster-admin
     weight: 2000
-section_menu: corda52
 ---
 
 # Workers

@@ -2,14 +2,11 @@
 description: "Learn how to upgrade the member Corda Package Installers (CPIs) of your application network if an administrator upgrades the Corda cluster from 5.0 to 5.1."
 date: '2023-11-22'
 title: "Upgrading an Application Network"
-project: corda
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-networks-upgrade
     parent: corda52-networks
     weight: 6000
-section_menu: corda52
 ---
 
 # Upgrading an Application Network

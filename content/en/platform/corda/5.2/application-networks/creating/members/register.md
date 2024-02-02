@@ -1,14 +1,12 @@
 ---
 description: "Learn how to register a member on a network."
 date: '2023-04-13'
-version: 'Corda 5.2'
 title: "Register the Member"
 menu:
   corda52:
     identifier: corda52-networks-members-register
     parent: corda52-networks-members
     weight: 5000
-section_menu: corda52
 ---
 
 # Register the Member

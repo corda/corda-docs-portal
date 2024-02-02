@@ -1,14 +1,12 @@
 ---
 description: "Review the metrics generated for the gateway worker. The gateway worker is responsible for sending outbound messages to virtual nodes located in different clusters and receiving inbound messages from virtual nodes within different clusters."
 date: '2023-08-10'
-version: 'Corda 5.2'
 title: "Gateway Worker"
 menu:
   corda52:
     parent: corda52-cluster-metrics
     identifier: corda52-cluster-gateway-worker
     weight: 700
-section_menu: corda52
 ---
 
 # Gateway Worker

@@ -2,14 +2,11 @@
 description: "Learn how to create a Corda Package (CPK) file."
 date: '2023-02-23'
 title: "Build a CPK"
-project: corda
-version: 'Corda 5.2'
 menu:
   corda52:
     parent: corda52-develop-packaging
     identifier: corda52-develop-packaging-cpk
     weight: 1000
-section_menu: corda52
 ---
 # Build a CPK
 

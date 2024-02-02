@@ -1,14 +1,12 @@
 ---
 description: "Learn how the Network Operator can configure the MGM to require that member registration requests are manually approved (or declined)."
 date: '2023-04-07'
-version: 'Corda 5.2'
 title: "Configuring Manual Approval Rules"
 menu:
   corda52:
     identifier: corda52-manual-approval-rules
     parent: corda52-networks-reg-requests
     weight: 1000
-section_menu: corda52
 ---
 # Configuring Manual Approval Rules
 

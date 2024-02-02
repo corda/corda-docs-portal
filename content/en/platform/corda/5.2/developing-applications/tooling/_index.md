@@ -2,14 +2,11 @@
 description: "Review the tools required by CorDapp Developers."
 date: '2023-02-23'
 title: "Application Developer Tooling"
-project: corda
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-develop-tooling
     parent: corda52-develop
     weight: 1000
-section_menu: corda52
 ---
 <style>
 table th:first-of-type {

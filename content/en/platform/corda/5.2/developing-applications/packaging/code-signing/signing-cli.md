@@ -1,14 +1,12 @@
 ---
 description: "Learn how to sign Corda Package (CPK), Corda Package Bundle (CPB), and Corda Package Installer (CPI) files using the Corda CLI."
 date: '2023-08-10'
-version: 'Corda 5.2'
 title: "Signing Packages Using Corda CLI"
 menu:
   corda52:
     parent: corda52-develop-packaging-code-signing
     identifier: corda52-develop-packaging-code-signing-signing-cli
     weight: 2000
-section_menu: corda52
 ---
 
 # Signing Packages Using Corda CLI

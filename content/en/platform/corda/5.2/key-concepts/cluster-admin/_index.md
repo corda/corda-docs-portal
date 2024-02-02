@@ -2,13 +2,11 @@
 description: "Learn the most important key concepts for Corda 5 Cluster Administrators."
 title: "Architecture for Cluster Administrators"
 date: 2023-07-24
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-key-concepts-cluster-admin
     parent: corda52-key-concepts
     weight: 3000
-section_menu: corda52
 ---
 
 # Architecture for Cluster Administrators

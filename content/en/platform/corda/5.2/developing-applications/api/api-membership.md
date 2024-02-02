@@ -1,13 +1,11 @@
 ---
 date: '2022-09-06'
-version: 'Corda 5.2'
 title: "membership"
 menu:
   corda52:
     identifier: corda52-api-membership
     parent: corda52-api
     weight: 6000
-section_menu: corda52
 ---
 # net.corda.v5.membership
 The `corda-membership` package defines interfaces that provide information about a {{< tooltip >}}member{{< /tooltip >}} and a {{< tooltip >}}membership group{{< /tooltip >}}. The interfaces in this module should not be implemented by {{< tooltip >}}CorDapp{{< /tooltip >}} Developers. Instead, instances can be retrieved through lookup services.

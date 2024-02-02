@@ -1,14 +1,12 @@
 ---
 description: "Review the fields of the corda.externalMessaging Corda Enterprise configuration section."
 date: '2023-03-08'
-version: 'Corda 5.2'
 title: "corda.externalMessaging"
 menu:
   corda52:
     parent: corda52-config-fields
     identifier: corda52-config-externalMessaging
     weight: 2050
-section_menu: corda52
 ---
 # corda.externalMessaging {{< enterprise-icon >}}
 

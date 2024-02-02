@@ -2,13 +2,11 @@
 description: "Learn about Corda 5 application networks, discrete instances of a permissioned collective associated with one or more applications."
 title: "Application Networks"
 date: 2023-06-07
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-fundamentals-app-networks
     parent: corda52-fundamentals
     weight: 2000
-section_menu: corda52
 ---
 
 # Application Networks
