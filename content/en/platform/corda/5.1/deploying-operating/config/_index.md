@@ -1,11 +1,6 @@
 ---
 description: "Learn about the Corda 5 configuration system."
 title: "Configuring Corda"
-<<<<<<< HEAD
-=======
-project: corda
-version: 'Corda 5.1'
->>>>>>> release/platform/4.12
 date: '2023-05-16'
 menu:
   corda51:
