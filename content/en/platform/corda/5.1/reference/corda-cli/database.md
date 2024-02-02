@@ -1,6 +1,12 @@
 ---
+<<<<<<< HEAD
 description: "List of database commands for the Corda 5.1 CLI."  
 date: '2022-12-20'
+=======
+description: "List of database commands for the Corda 5.1 CLI."
+date: '2022-12-20'
+version: 'Corda 5.1'
+>>>>>>> release/platform/4.12
 menu:
   corda51:
     identifier: corda51-cordacli-database

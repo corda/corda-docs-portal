@@ -1,5 +1,9 @@
 ---
 date: '2023-02-10'
+<<<<<<< HEAD
+=======
+version: 'Corda 5.1'
+>>>>>>> release/platform/4.12
 title: "application.serialization"
 menu:
   corda51:

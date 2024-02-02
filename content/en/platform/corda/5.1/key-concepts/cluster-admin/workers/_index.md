@@ -2,6 +2,10 @@
 description: "Learn about the Corda 5 worker processors and their own operational responsibilities."
 title: "Workers"
 date: 2023-07-24
+<<<<<<< HEAD
+=======
+version: 'Corda 5.1'
+>>>>>>> release/platform/4.12
 menu:
   corda51:
     identifier: corda51-cluster-admin-workers

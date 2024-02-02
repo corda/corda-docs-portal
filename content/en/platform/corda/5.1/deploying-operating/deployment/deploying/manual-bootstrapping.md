@@ -1,6 +1,10 @@
 ---
 description: "Learn how to disable automatic setup processes and manually configure Kafka, databases, and RBAC roles."
 date: '2023-05-16'
+<<<<<<< HEAD
+=======
+version: 'Corda 5.1'
+>>>>>>> release/platform/4.12
 title: "Manual Bootstrapping"
 menu:
   corda51:
@@ -142,7 +146,7 @@ Alternatively, the Corda CLI can generate a preview of the required Kafka topic 
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k <CLIENT-PROPERTIES-FILE> create -r <REPLICAS> -p <PARTITIONS> connect -f <YAML-TOPIC-FILE> 
+   corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k <CLIENT-PROPERTIES-FILE> create -r <REPLICAS> -p <PARTITIONS> connect -f <YAML-TOPIC-FILE>
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -182,7 +186,7 @@ connect
 corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
 create -r <REPLICAS> -p <PARTITIONS> `
 -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u flowMapper=<FLOWMAPPER_USER> -u membership=<MEMBERSHIP_USER> `
--u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> 
+-u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER>
 connect
 ```
 {{% /tab %}}
@@ -307,7 +311,7 @@ Depending on your installation, follow the steps in one of the following section
    ```shell
    corda-cli.cmd initial-config create-db-config -u rbacuser -p rc9VLHU3 `
       --name corda-rbac --jdbc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC `
-      --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 ` 
+      --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 `
       --validation-timeout 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
@@ -489,7 +493,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
-     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \ 
+     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \
      --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> \
      --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \
      --is-admin
@@ -498,9 +502,9 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> `
-     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> ` 
+     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> `
      --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> `
-     --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db ` 
+     --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db `
      --is-admin
    ```
    {{% /tab %}}
@@ -508,7 +512,7 @@ Depending on your installation, follow the steps in one of the following section
 
    {{< note >}}
    There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
-   
+
    For more information about the Corda CLI `create-db-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config">}}).
    {{< /note >}}
 
@@ -522,7 +526,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> \
-     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \ 
+     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \
      --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> \
      --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> -t VAULT --vault-path <path-to-corda-created-secrets> --key vnodes -l /tmp/db \
      --is-admin
@@ -531,7 +535,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> `
-     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> ` 
+     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> `
      --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> `
      --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> -t VAULT --vault-path <path-to-corda-created-secrets> --key vnodes -l /tmp/db `
      --is-admin
@@ -550,7 +554,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> \
-     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://prereqs-postgres:5432/cordacluster' \ 
+     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://prereqs-postgres:5432/cordacluster' \
      --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 \
      --validation-timeout 5 -t VAULT --vault-path dbsecrets --key vnodes -l /tmp/db \
      --is-admin
@@ -559,7 +563,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> `
-     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://prereqs-postgres:5432/cordacluster ` 
+     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://prereqs-postgres:5432/cordacluster `
      --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 `
      --validation-timeout 5 -t VAULT --vault-path dbsecrets --key vnodes -l /tmp/db `
      --is-admin

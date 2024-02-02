@@ -62,7 +62,7 @@ The registration context of the member's request to join the network can specify
 }
 ```
 
-These properties will be included in the member's `MemberInfo`. 
+These properties will be included in the member's `MemberInfo`.
 
 {{< note >}}
 Custom properties have a character limit of 128 for keys and 800 for values. A maximum of 100 key-value pairs can be defined in a registration context.

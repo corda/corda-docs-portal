@@ -1,8 +1,11 @@
 ---
+<<<<<<< HEAD
 cascade:
   version: 'Corda 5.1'
   project: corda
   section_menu: corda51
+=======
+>>>>>>> release/platform/4.12
 description: "Reference material for Corda 5.1."
 title: "References"
 date: 2023-04-24

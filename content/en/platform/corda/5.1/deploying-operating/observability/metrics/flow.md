@@ -1,6 +1,10 @@
 ---
 description: "Review the metrics generated for flows. These metrics measure the execution of flow classes provided by the CorDapp."
 date: '2023-06-14'
+<<<<<<< HEAD
+=======
+version: 'Corda 5.1'
+>>>>>>> release/platform/4.12
 title: "Flow"
 menu:
   corda51:

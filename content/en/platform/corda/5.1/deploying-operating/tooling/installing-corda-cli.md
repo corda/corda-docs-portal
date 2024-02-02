@@ -1,6 +1,10 @@
 ---
 description: "Learn how to install the Corda CLI."
 date: '2023-04-12'
+<<<<<<< HEAD
+=======
+version: 'Corda 5.1'
+>>>>>>> release/platform/4.12
 menu:
   corda51:
     identifier: corda51-cluster-cli

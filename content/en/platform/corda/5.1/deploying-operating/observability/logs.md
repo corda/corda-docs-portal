@@ -1,6 +1,10 @@
 ---
 description: "Learn about Corda 5 logs. This page describes how to retrieve particular information and details the log levels and format."
 date: '2023-05-10'
+<<<<<<< HEAD
+=======
+version: 'Corda 5.1'
+>>>>>>> release/platform/4.12
 title: "Logs"
 menu:
   corda51:

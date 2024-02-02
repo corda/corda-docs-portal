@@ -1,6 +1,10 @@
 ---
 description: "Review the metrics generated for the database worker. The database worker is responsible for handling and serving persistence requests originating from various Corda worker types."
 date: '2023-06-14'
+<<<<<<< HEAD
+=======
+version: 'Corda 5.1'
+>>>>>>> release/platform/4.12
 title: "Database Worker"
 menu:
   corda51:

@@ -1,6 +1,10 @@
 ---
 description: "Review the metrics generated for the membership worker. The membership worker is responsible for the processing of application network functionality either on behalf of an MGM, a network member, or both."
 date: '2023-06-14'
+<<<<<<< HEAD
+=======
+version: 'Corda 5.1'
+>>>>>>> release/platform/4.12
 title: "Membership Worker"
 menu:
   corda51:

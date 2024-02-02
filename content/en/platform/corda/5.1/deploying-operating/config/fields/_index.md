@@ -1,6 +1,11 @@
 ---
 description: "Review the fields of each Corda configuration section."
 title: "Configuration Fields"
+<<<<<<< HEAD
+=======
+project: corda
+version: 'Corda 5.1'
+>>>>>>> release/platform/4.12
 date: '2023-05-16'
 menu:
   corda51:

@@ -1,6 +1,10 @@
 ---
 description: "Learn about Corda security policies and the OSGi security model that they are based on."
 title: "Security Policies"
+<<<<<<< HEAD
+=======
+version: 'Corda 5.1'
+>>>>>>> release/platform/4.12
 date: '2023-05-16'
 menu:
   corda51:

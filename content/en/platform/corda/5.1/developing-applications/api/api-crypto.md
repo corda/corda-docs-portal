@@ -1,5 +1,9 @@
 ---
 date: '2023-06-21'
+<<<<<<< HEAD
+=======
+version: 'Corda 5.1'
+>>>>>>> release/platform/4.12
 title: "crypto"
 menu:
   corda51:

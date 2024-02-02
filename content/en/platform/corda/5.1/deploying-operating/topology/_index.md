@@ -1,6 +1,10 @@
 ---
 description: "Explore the infrastructure topology for Corda in Amazon Web Services (AWS) or Corda in Azure."
 date: '2023-02-23'
+<<<<<<< HEAD
+=======
+version: 'Corda 5.1'
+>>>>>>> release/platform/4.12
 title: "Infrastructure Topology"
 menu:
   corda51:

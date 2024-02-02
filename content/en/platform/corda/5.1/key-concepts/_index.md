@@ -1,8 +1,11 @@
 ---
+<<<<<<< HEAD
 cascade:
   version: 'Corda 5.1'
   project: corda
   section_menu: corda51
+=======
+>>>>>>> release/platform/4.12
 description: "Get started with Corda 5.1 by learning the key concepts."
 date: '2022-08-17'
 title: "Key Concepts"

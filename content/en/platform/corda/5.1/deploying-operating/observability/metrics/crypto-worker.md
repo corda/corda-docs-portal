@@ -1,6 +1,10 @@
 ---
 description: "Review the metrics generated for the crypto worker. The crypto worker is responsible for handling crypto operations in Corda, such as signing."
 date: '2023-06-14'
+<<<<<<< HEAD
+=======
+version: 'Corda 5.1'
+>>>>>>> release/platform/4.12
 title: "Crypto Worker"
 menu:
   corda51:

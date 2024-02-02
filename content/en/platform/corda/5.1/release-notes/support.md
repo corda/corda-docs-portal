@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 description: "Verify the versions of third-party software that Corda 5.1 supports and review the end of life strategy."
+=======
+description: "Verify the versions of third-party software that Corda 5.1 supports discover the end of life strategy."
+>>>>>>> release/platform/4.12
 title: "Platform Support"
 date: 2023-08-17
 menu:
