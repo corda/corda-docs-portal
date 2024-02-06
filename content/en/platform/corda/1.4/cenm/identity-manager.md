@@ -418,7 +418,7 @@ Manager’s configuration file. The CENM ships with two included plugins:
 
 
 * Auto approval
-* JIRA workflow
+* Jira workflow
 
 An approval mechanism *must* be specified.
 
@@ -457,9 +457,9 @@ workflows {
 ```
 
 
-##### JIRA Workflow
+##### Jira Workflow
 
-The Issuance workflow can alternatively use JIRA to manage CRR approval. This can be enabled by referencing the JIRA
+The Issuance workflow can alternatively use Jira to manage CRR approval. This can be enabled by referencing the Jira
 CRR workflow plugin within the configuration file along with the associated configuration parameters:
 
 ```guess
@@ -867,7 +867,7 @@ shell {
 #### Production Configuration
 
 The example below shows a more production-like configuration of the Identity Manager. It is configured with an Issuance
-and Revocation workflow, using JIRA workflows for CSR/CRR approvals, no local signer, and using SSL for secure communication between CENM services. In this scenario, all approved requests would be signed using an external signing
+and Revocation workflow, using Jira workflows for CSR/CRR approvals, no local signer, and using SSL for secure communication between CENM services. In this scenario, all approved requests would be signed using an external signing
 service (see [Signing Services](signing-service.md)).
 
 ```docker

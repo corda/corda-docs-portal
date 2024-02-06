@@ -1,15 +1,12 @@
 ---
 description: "View the Corda 5.1 REST API documentation."
 title: "Corda REST API"
-project: corda
-version: 'Corda 5.1'
 date: 2023-05-08
 menu:
   corda51:
     parent: corda51-references
     identifier: corda51-rest-api-reference
     weight: 3000
-section_menu: corda51
 ---
 # Corda REST API
 

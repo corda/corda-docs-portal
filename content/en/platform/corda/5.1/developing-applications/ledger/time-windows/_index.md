@@ -2,13 +2,11 @@
 description: "Learn the fundamentals of Corda 5 transaction time windows."
 title: "Time Windows"
 date: 2023-06-08
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-fundamentals-ledger-time-window
     parent: corda51-fundamentals-ledger
     weight: 7000
-section_menu: corda51
 ---
 
 # Time Windows

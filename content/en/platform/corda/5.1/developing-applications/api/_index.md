@@ -2,14 +2,11 @@
 description: "Discover the modules in the CorDapp API and review the Java API documentation."
 date: '2023-04-24'
 title: "CorDapp API"
-project: corda
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-api
     parent: corda51-develop
     weight: 8000
-section_menu: corda51
 ---
 
 # CorDapp API

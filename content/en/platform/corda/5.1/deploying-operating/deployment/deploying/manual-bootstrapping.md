@@ -1,14 +1,12 @@
 ---
 description: "Learn how to disable automatic setup processes and manually configure Kafka, databases, and RBAC roles."
 date: '2023-05-16'
-version: 'Corda 5.1'
 title: "Manual Bootstrapping"
 menu:
   corda51:
     parent: corda51-cluster-deploying
     identifier: corda51-cluster-bootstrapping
     weight: 2000
-section_menu: corda51
 ---
 # Manual Bootstrapping
 

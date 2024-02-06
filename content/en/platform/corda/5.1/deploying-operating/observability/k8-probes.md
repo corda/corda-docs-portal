@@ -1,14 +1,12 @@
 ---
 description: "Learn how to use Kubernetes liveness and readiness probes with Corda."
 date: '2023-05-10'
-version: 'Corda 5.1'
 title: "Kubernetes Liveness and Readiness Probes"
 menu:
   corda51:
     parent: corda51-cluster-observability
     identifier: corda51-cluster-k8-probes
     weight: 1000
-section_menu: corda51
 ---
 # Kubernetes Liveness and Readiness Probes
 

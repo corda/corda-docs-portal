@@ -1,14 +1,12 @@
 ---
 description: "Learn about the entities in the RBAC permissions system and their relationships."
 date: '2023-04-07'
-version: 'Corda 5.1'
 title: "Permission System Entities"
 menu:
   corda51:
     parent: corda51-cluster-users
     identifier: corda51-cluster-permission-system-entities
     weight: 3000
-section_menu: corda51
 ---
 # Permission System Entities
 
