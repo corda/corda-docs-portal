@@ -1,14 +1,12 @@
 ---
 description: "Learn how to configure database connection details."
 title: "Database Connection Configuration"
-version: 'Corda 5.2'
 date: '2023-05-16'
 menu:
   corda52:
     identifier: corda52-cluster-database
     parent: corda52-cluster-config
     weight: 2000
-section_menu: corda52
 ---
 
 # Database Connection Configuration

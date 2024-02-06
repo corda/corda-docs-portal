@@ -2,14 +2,11 @@
 description: "Learn how to configure a notary for a Corda 5 application network."
 date: '2023-02-23'
 title: "Notaries"
-project: corda
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-develop-notaries
     parent: corda52-develop
     weight: 4500
-section_menu: corda52
 ---
 # Notaries
 

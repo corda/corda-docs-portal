@@ -1,14 +1,12 @@
 ---
 description: "Review the fields of the corda.membership Corda configuration section."
 date: '2023-03-08'
-version: 'Corda 5.2'
 title: "corda.membership"
 menu:
   corda52:
     parent: corda52-config-fields
     identifier: corda52-config-membership
     weight: 5000
-section_menu: corda52
 ---
 # corda.membership
 

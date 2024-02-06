@@ -2,14 +2,11 @@
 description: "Learn how to make changes to a member's endpoint information by re-registering the member with the updated information."
 date: '2023-09-21'
 title: "Modify Member Endpoints"
-project: corda
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-networks-member-endpoints
     parent: corda52-networks-members
     weight: 5500
-section_menu: corda52
 ---
 
 # Modify Member Endpoints

@@ -1,13 +1,11 @@
 ---
 date: '2023-02-10'
-version: 'Corda 5.2'
 title: "crypto.extensions"
 menu:
   corda52:
     identifier: corda52-api-crypto-extensions
     parent: corda52-api
     weight: 5050
-section_menu: corda52
 ---
 # net.corda.v5.crypto.extensions
 The `corda-crypto-extensions` package of the `Corda Crypto API` defines low-level crypto capabilities that can be used to extend functionality of the Corda Crypto Library by implementing them in a {{< tooltip >}}CPK{{< /tooltip >}}. For more information, see the documentation for the package in the <a href="/en/api-ref/corda/{{<version-num>}}/net/corda/v5/crypto/extensions/package-summary.html" target=" blank">Java API documentation</a>.

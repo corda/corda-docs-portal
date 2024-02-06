@@ -1,14 +1,12 @@
 ---
 description: "Learn about Corda 5 logs. This page describes how to retrieve particular information and details the log levels and format."
 date: '2023-05-10'
-version: 'Corda 5.2'
 title: "Logs"
 menu:
   corda52:
     parent: corda52-cluster-observability
     identifier: corda52-cluster-logs
     weight: 3000
-section_menu: corda52
 ---
 # Logs
 

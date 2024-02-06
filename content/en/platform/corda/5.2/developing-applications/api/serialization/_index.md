@@ -1,13 +1,11 @@
 ---
 date: '2022-09-21'
-version: 'Corda 5.2'
 title: "serialization"
 menu:
   corda52:
     identifier: corda52-api-serialisation
     parent: corda52-api
     weight: 8000
-section_menu: corda52
 ---
 # net.corda.v5.serialization
 

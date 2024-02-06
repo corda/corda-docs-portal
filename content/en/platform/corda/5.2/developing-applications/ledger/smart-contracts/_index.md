@@ -2,13 +2,11 @@
 description: "Learn the fundamentals of Corda 5 ledger smart contracts."
 title: "Smart Contracts"
 date: 2023-06-08
-version: 'Corda 5.2'
 menu:
   corda52:
     identifier: corda52-fundamentals-ledger-smart-contracts
     parent: corda52-fundamentals-ledger
     weight: 3000
-section_menu: corda52
 ---
 
 # Smart Contracts

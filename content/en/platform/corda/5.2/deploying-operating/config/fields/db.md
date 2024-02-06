@@ -2,13 +2,11 @@
 description: "Review the fields of the corda.db Corda configuration section."
 date: '2023-03-08'
 title: "corda.db"
-version: 'Corda 5.2'
 menu:
   corda52:
     parent: corda52-config-fields
     identifier: corda52-config-db
     weight: 2000
-section_menu: corda52
 ---
 # corda.db
 
