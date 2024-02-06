@@ -28,7 +28,7 @@ Corda Community Edition 4.11.2 is a patch release of Corda Community Edition foc
 
 * Fixed the delete rule in Log4j configuration to use the correct file names.
 * Fixed HSM connectivity issue for TCP connections.
-* Fixed a regression in the RPC `getFlowsMatchingV2` extension operation that rendered it incompatible with previous Corda releases. This issue manifested in the Corda flow management GUI, preventing it from displaying the flow status of previous Corda releases.
+* Fixed a regression in the RPC `getFlowsMatchingV2` extension operation that rendered it incompatible with previous Corda releases. This issue manifested in the Corda flow management GUI, preventing it from displaying the flow status of previous Corda releases. Due to this fix, if you have created an RPC client using 4.11.1 or 4.11, you need to rebuild the client using 4.11.2.
 
 ### Third party component upgrades
 
