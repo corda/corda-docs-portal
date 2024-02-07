@@ -508,7 +508,6 @@ Depending on your installation, follow the steps in one of the following section
 
    {{< note >}}
    There is no schema in `--jdbc-url` as virtual nodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
-   
    For more information about the Corda CLI `create-db-config` command's arguments, see the [Corda CLI reference]({{< relref "../../../reference/corda-cli/initial-config.md#create-db-config">}}).
    {{< /note >}}
 
@@ -598,6 +597,7 @@ The cluster database user is the user specified in `db.cluster.username` in the 
 GRANT USAGE ON SCHEMA CONFIG to <CLUSTER-DB-USER>;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CONFIG to <CLUSTER-DB-USER>;
 GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA CONFIG TO <CLUSTER-DB-USER>;
+ALTER ROLE <CLUSTER-DB-USER> SET search_path TO CONFIG;
 ```
 
 ### Create the RBAC and Crypto Users
@@ -608,9 +608,11 @@ Create the RBAC and Crypto users and grant access as follows:
 CREATE USER <RBAC-USERNAME> WITH ENCRYPTED PASSWORD '<RBAC-PASSWORD>';
 GRANT USAGE ON SCHEMA RBAC to <RBAC-USERNAME>;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA RBAC to <RBAC-USERNAME>;
+ALTER ROLE <RBAC-USERNAME> SET search_path TO RBAC;
 CREATE USER <CRYPTO-USERNAME> WITH ENCRYPTED PASSWORD '<CRYPTO-PASSWORD>';
 GRANT USAGE ON SCHEMA CRYPTO to <CRYPTO-USERNAME>;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CRYPTO to <CRYPTO-USERNAME>;
+ALTER ROLE <CRYPTO-USERNAME> SET search_path TO CRYPTO;
 ```
 
 ### Grant Access to the State Manager Databases
@@ -621,6 +623,7 @@ The state manager database users are configured by the username specified in the
 GRANT USAGE ON SCHEMA STATE_MANAGER TO <STATE_MANAGER_USERNAME>;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA STATE_MANAGER TO <STATE_MANAGER_USERNAME>;
 GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA STATE_MANAGER TO <STATE_MANAGER_USERNAME>;
+ALTER ROLE <STATE_MANAGER_USERNAME> SET search_path TO STATE_MANAGER;
 ```
 
 ### Populate the Crypto Configuration
