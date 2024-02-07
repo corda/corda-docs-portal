@@ -597,7 +597,7 @@ The cluster database user is the user specified in `db.cluster.username` in the 
 GRANT USAGE ON SCHEMA CONFIG to <CLUSTER-DB-USER>;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CONFIG to <CLUSTER-DB-USER>;
 GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA CONFIG TO <CLUSTER-DB-USER>;
-ALTER ROLE "user" SET search_path TO config;
+ALTER ROLE <CLUSTER-DB-USER> SET search_path TO CONFIG;
 ```
 
 ### Create the RBAC and Crypto Users
