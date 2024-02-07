@@ -27,7 +27,7 @@ curl -k -u $REST_API_USER:$REST_API_PASSWORD -X POST -d '{"ownerX500Name": "O=Al
 {{% tab name="PowerShell"%}}
 ```shell
 Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/mgm/$MGM_HOLDING_ID/preauthtoken" -Body (ConvertTo-Json @{
-    ownerX500Name: "O=Alice, L=London, C=GB"
+    ownerX500Name = "O=Alice, L=London, C=GB"
     }
 })
 ```
@@ -130,7 +130,7 @@ curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"remarks":"Additional a
 {{% tab name="PowerShell"%}}
 ```shell
 Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$REST_API_URL/mgm/$MGM_HOLDING_ID/preauthtoken/revoke/<TOKEN-ID>" -Body (ConvertTo-Json  @{
-    remarks: "Additional authentication required."
+    remarks = "Additional authentication required."
     }
 })
 ```

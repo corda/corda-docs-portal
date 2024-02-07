@@ -31,8 +31,8 @@ curl -k -u $REST_API_USER:$REST_API_PASSWORD -d "$RULE_PARAMS" $REST_API_URL/mgm
 {{% tab name="PowerShell"%}}
 ```shell
 Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/mgm/$MGM_HOLDING_ID/approval/rules" -Body (ConvertTo-Json -Depth 4 @{
-    ruleLabel: "Review all changes to keys in the Corda namespace",
-    ruleRegex: "corda.*"
+    ruleLabel = "Review all changes to keys in the Corda namespace",
+    ruleRegex = "corda.*"
     }
 })
 ```
