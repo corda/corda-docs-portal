@@ -27,7 +27,7 @@ The following REST API endpoints are available to generate the SQL to update the
 
 For example, to create the required databases for a virtual node:
 
-1. Create the necessary schemas and users. The DML user for each database requires SELECT, UPDATE, INSERT, and DELETE permissions. The DDL user is optional but, if used, it requires full permissions to enable it to deploy schema.
+1. Create the necessary schemas and users. You must specify the `search_path` for the schema for all users. The DML user for each database requires SELECT, UPDATE, INSERT, and DELETE permissions. The DDL user is optional but, if used, it requires full permissions to enable it to deploy schema.
 
 2. Retrieve the SQL for the `crypto` database:
    {{< tabs >}}
