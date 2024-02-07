@@ -64,7 +64,7 @@ Once the databases are created, Corda must be aware of where the dependent datab
 
 This design enables Corda to connect to a dynamic set of databases, specifically the virtual node databases, which are created and managed by Corda itself.
 By default, virtual node databases are automatically created when a new virtual node is created.
-The bring-your-own-database (BYOD) feature enables Cluster Administrators to manage the creation and any subsequent updates of a PostgreSQL database, rather than using a database managed by Corda. For more information, see [Bringing Your Own Database] ({{< relref "../../deploying-operating/vnodes/bring-your-own-db.md">}}).
+The bring-your-own-database (BYOD) feature enables Cluster Administrators to manage the creation and any subsequent updates of a PostgreSQL database, rather than using a database managed by Corda. For more information, see [Bringing Your Own Database]({{< relref "../../deploying-operating/vnodes/bring-your-own-db.md">}}).
 
 Because database connection details, including credentials, are stored inside the `config` database, we suggest passwords, and other sensitive configuration values, are treated as “secrets”. For more information, see [Configuration Secrets]({{< relref "../../deploying-operating/config/secrets.md">}}).
 
