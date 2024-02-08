@@ -2,7 +2,6 @@
 description: "Learn how to write flows as part of your first basic Corda 5 CorDapp."
 date: '2023-05-03'
 title: "Write Flows"
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-develop-first-cordapp-flows

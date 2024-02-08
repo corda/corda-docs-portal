@@ -1,14 +1,12 @@
 ---
 description: "Learn how the Network Operator creates, views, and revokes pre-authentication tokens."
 date: '2023-04-07'
-version: 'Corda 5.1'
 title: "Managing Pre-Authentication Tokens"
 menu:
   corda51:
     identifier: corda51-pre-auth-tokens
     parent: corda51-networks-pre-auth
     weight: 1000
-section_menu: corda51
 ---
 # Managing Pre-Authentication Tokens
 

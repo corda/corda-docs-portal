@@ -1,14 +1,12 @@
 ---
 description: "Learn how to upgrade your cluster from Corda 5.0 to Corda 5.1."
 date: '2023-11-02'
-version: 'Corda 5.1'
 title: "Upgrading from 5.0"
 menu:
   corda51:
     parent: corda51-cluster-deploy
     identifier: corda51-cluster-upgrade
     weight: 4000
-section_menu: corda51
 ---
 # Upgrading from 5.0
 

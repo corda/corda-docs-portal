@@ -1,13 +1,11 @@
 ---
 date: '2023-02-10'
-version: 'Corda 5.1'
 title: "application.flows"
 menu:
   corda51:
     identifier: corda51-api-app-flows
     parent: corda51-api-application
     weight: 2000
-section_menu: corda51
 ---
 # net.corda.v5.application.flows
 The `flows` package contains interfaces and annotations for defining {{< tooltip >}}flows{{< /tooltip >}}. The main interfaces are:

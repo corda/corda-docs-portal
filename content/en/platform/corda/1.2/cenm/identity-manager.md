@@ -198,14 +198,14 @@ CSR gets approval as well as how the desired certificate is signed.
 #### CSR Approval Mechanism
 
 Before a certificate can be issued to a new node, its CSR first needs to be approved. The mechanism by which approval is
-granted can vary from a basic automatic approval approach to a more manual, production grade approach like JIRA
+granted can vary from a basic automatic approval approach to a more manual, production grade approach like Jira
 integration. The approval mechanism is configured by specifying the plugin class responsible for handling CSR approvals
 within the Issuance workflow inside the Identity Manager’s config file. The CENM currently ships with two included
 plugins:
 
 
 * Auto approval
-* JIRA workflow
+* Jira workflow
 
 An approval mechanism *must* be specified.
 
@@ -244,10 +244,10 @@ workflows {
 ```
 
 
-##### JIRA Workflow
+##### Jira Workflow
 
-The Identity Manager Service can use JIRA to manage the certificate signing request approval work flow. This can be
-enabled by referencing the JIRA CSR workflow plugin within the config file along with the associated configuration
+The Identity Manager Service can use Jira to manage the certificate signing request approval work flow. This can be
+enabled by referencing the Jira CSR workflow plugin within the config file along with the associated configuration
 parameters:
 
 ```guess
@@ -270,9 +270,9 @@ workflows {
 See [Workflow](workflow.md) for more information.
 
 
-###### JIRA Project Configuration
+###### Jira Project Configuration
 
-See [JIRA Set-Up](jira-setup.md) for more information about how to configure a JIRA project for CSR approval.
+See [Jira Set-Up](jira-setup.md) for more information about how to configure a Jira project for CSR approval.
 
 
 #### CSR Signing Mechanism
@@ -418,7 +418,7 @@ Manager’s config file. The CENM ships with two included plugins:
 
 
 * Auto approval
-* JIRA workflow
+* Jira workflow
 
 An approval mechanism *must* be specified.
 
@@ -457,9 +457,9 @@ workflows {
 ```
 
 
-##### JIRA Workflow
+##### Jira Workflow
 
-The Issuance workflow can alternatively use JIRA to manage CRR approval. This can be enabled by referencing the JIRA
+The Issuance workflow can alternatively use Jira to manage CRR approval. This can be enabled by referencing the Jira
 CRR workflow plugin within the config file along with the associated configuration parameters:
 
 ```guess
@@ -707,7 +707,7 @@ shell {
 #### Production Configuration
 
 Below is an example of a more production-like configuration of the Identity Manager. It is configured with a Issuance
-and Revocation workflow, using JIRA workflows for CSR/CRR approvals, no local signer and also using SSL for secure
+and Revocation workflow, using Jira workflows for CSR/CRR approvals, no local signer and also using SSL for secure
 communication between ENM services. In this scenario, all approved requests would be signed using an external signing
 service (see [Signing Services](signing-service.md)).
 

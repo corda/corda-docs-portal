@@ -1,14 +1,12 @@
 ---
 description: "Review the metrics generated for the membership worker. The membership worker is responsible for the processing of application network functionality either on behalf of an MGM, a network member, or both."
 date: '2023-06-14'
-version: 'Corda 5.1'
 title: "Membership Worker"
 menu:
   corda51:
     parent: corda51-cluster-metrics
     identifier: corda51-cluster-membership-worker
     weight: 1100
-section_menu: corda51
 ---
 
 # Membership Worker

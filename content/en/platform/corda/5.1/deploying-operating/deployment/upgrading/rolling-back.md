@@ -1,14 +1,12 @@
 ---
 description: "Learn how to roll back the Corda 5.0 to Corda 5.1 upgrade process if an issue occurs."
 date: '2023-11-09'
-version: 'Corda 5.1'
 title: "Rolling Back"
 menu:
   corda51:
     parent: corda51-cluster-upgrade
     identifier: corda51-cluster-rollback
     weight: 1000
-section_menu: corda51
 ---
 # Rolling Back
 

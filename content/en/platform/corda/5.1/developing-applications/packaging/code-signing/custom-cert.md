@@ -1,14 +1,12 @@
 ---
 description: "Learn how to sign CorDapps with a custom certificate."
 date: '2023-08-10'
-version: 'Corda 5.1'
 title: "Signing Packages with a Custom Certificate"
 menu:
   corda51:
     parent: corda51-develop-packaging-code-signing
     identifier: corda51-develop-packaging-code-signing-custom-cert
     weight: 1000
-section_menu: corda51
 ---
 
 # Signing Packages with a Custom Certificate

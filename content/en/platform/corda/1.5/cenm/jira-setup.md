@@ -10,13 +10,17 @@ menu:
 tags:
 - jira
 - setup
-title: JIRA Set-Up
+title: Jira Set-Up
 ---
 
 
 # Jira setup
 
 To integrate a Jira deployment with the CENM CSR/CRR approval workflow plugin, it must meet the requirements of the Identity Manager Certificate Signing Request (CSR)/Certificate Revocation Request (CRR) approval workflow.
+
+{{< note >}}
+At present, there is no roadmap for the implementation of Jira Cloud plugin support.
+{{< /note >}}
 
 ## Configure projects and users
 

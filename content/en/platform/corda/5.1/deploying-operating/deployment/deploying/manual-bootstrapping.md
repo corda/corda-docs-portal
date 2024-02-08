@@ -1,14 +1,12 @@
 ---
 description: "Learn how to disable automatic setup processes and manually configure Kafka, databases, and RBAC roles."
 date: '2023-05-16'
-version: 'Corda 5.1'
 title: "Manual Bootstrapping"
 menu:
   corda51:
     parent: corda51-cluster-deploying
     identifier: corda51-cluster-bootstrapping
     weight: 2000
-section_menu: corda51
 ---
 # Manual Bootstrapping
 
@@ -195,7 +193,7 @@ connect
 By default, a Corda installation automatically creates and populates the database schema it requires.
 
 {{< note >}}
-If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database, as described in this section. {{< enterprise-icon>}}
+If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database, as described in this section.
 {{< /note >}}
 
 To create the schema manually, set the following override in the deployment configuration to disable the automatic creation:

@@ -1,14 +1,12 @@
 ---
 description: "Review the metrics generated for flows. These metrics measure the execution of flow classes provided by the CorDapp."
 date: '2023-06-14'
-version: 'Corda 5.1'
 title: "Flow"
 menu:
   corda51:
     parent: corda51-cluster-metrics
     identifier: corda51-cluster-flow
     weight: 400
-section_menu: corda51
 ---
 
 # Flow

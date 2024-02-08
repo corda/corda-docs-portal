@@ -94,9 +94,9 @@ the future versioning of both independently.
 
 
 * Fixed Jira synchronisation issue for the rejected CSR/CRRs.
-* Fixed the remark field length restriction in the CSR/CRR DB. In the past it was 256 characters causing some issues in JIRA.
+* Fixed the remark field length restriction in the CSR/CRR DB. In the past it was 256 characters causing some issues in Jira.
 * Added certificate signing request rejection reasons to the node’s rejection response.
-* Added certificate signing request rejection reasons handling for the JIRA workflow.
+* Added certificate signing request rejection reasons handling for the Jira workflow.
 * Signing Service -> Doorman socket based communication added.
 * Added client and server health check tools to the utilities JAR
 * Change of the naming convention Enterprise Zone Manager -> Enterprise Network Manager.

@@ -1,14 +1,12 @@
 ---
 description: "Learn how to use RBAC permission templates to create fine-grained roles for specific actions."
 date: '2023-04-07'
-version: 'Corda 5.1'
 title: "Managing Roles and Permissions"
 menu:
   corda51:
     parent: corda51-cluster-users
     identifier: corda51-cluster-managing-roles
     weight: 2000
-section_menu: corda51
 ---
 # Managing Roles and Permissions
 

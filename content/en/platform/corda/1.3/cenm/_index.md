@@ -3,6 +3,9 @@ aliases:
 - /docs/cenm/head/index.html
 - /docs/cenm/index.html
 date: '2020-01-08T09:59:25Z'
+project: corda
+section_menu: cenm-1-3
+version: 'CENM 1.3'
 description: "Documentation for the 1.3 release of Corda Enterprise Network Manager (CENM)"
 menu:
   versions:
