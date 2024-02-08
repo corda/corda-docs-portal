@@ -1,5 +1,5 @@
 ---
-description: "Learn how to roll back the Corda 5.0 to Corda 5.2 upgrade process if an issue occurs."
+description: "Learn how to roll back the Corda 5.1 to Corda 5.2 upgrade process if an issue occurs."
 date: '2023-11-09'
 title: "Rolling Back"
 menu:
@@ -8,9 +8,10 @@ menu:
     identifier: corda52-cluster-rollback
     weight: 1000
 ---
+
 # Rolling Back
 
-To roll back the Corda 5.0 to Corda {{< version-num >}} upgrade process, restore the [database backups]({{< relref "_index.md#back-up-the-corda-database" >}}) and restart the Corda 5.0 workers.
+To roll back the Corda 5.1 to Corda {{< version-num >}} upgrade process, restore the [database backups]({{< relref "_index.md#back-up-the-corda-database" >}}) and restart the Corda 5.1 workers.
 
 {{< note >}}
 
@@ -24,12 +25,13 @@ You can no longer roll back an upgrade after:
 To restart the Corda 5.0 workers, you can do one of the following:
 
 * Reverse the commands in [Scale Down the Running Corda Worker Instances]({{< relref "_index.md#scale-down-the-running-corda-worker-instances" >}}) that scaled the workers to zero replicas.
-* Issue a Helm upgrade command that resets the values you installed Corda 5.0 with, which includes replica counts. For example:
+* Issue a Helm upgrade command that resets the values you installed Corda 5.1 with, which includes replica counts. For example:
 
    ```shell
-   helm upgrade corda -n corda \
-  oci://corda-os-docker.software.r3.com/helm-charts/release-5.0.0.0/corda \
-  --version "5.0.0" \
+   helm upgrade corda -n <corda_namespace> \
+  oci://corda-os-docker.software.r3.com/helm-charts/release-5.1.0.0/corda \
+  --version "5.1.0" \
   --values values.yaml \
   --wait
    ```
+   

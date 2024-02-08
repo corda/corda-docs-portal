@@ -1,16 +1,16 @@
 ---
-description: "Learn how to upgrade your cluster from Corda 5.0 to Corda 5.1."
+description: "Learn how to upgrade your cluster from Corda 5.1 to Corda 5.2."
 date: '2023-11-02'
-title: "Upgrading from 5.0"
+title: "Upgrading from 5.1"
 menu:
   corda52:
     parent: corda52-cluster-deploy
     identifier: corda52-cluster-upgrade
     weight: 4000
 ---
-# Upgrading from 5.0
+# Upgrading from 5.1
 
-This section describes how to upgrade a Corda cluster from 5.0 to {{< version-num >}}. It lists the required [prerequisites](#prerequisites) and describes the following steps required to perform an upgrade:
+This section describes how to upgrade a Corda cluster from 5.1 to {{< version-num >}}. It lists the required [prerequisites](#prerequisites) and describes the following steps required to perform an upgrade:
 
 1. [Back Up the Corda Database](#back-up-the-corda-database)
 2. [Test the Migration](#test-the-migration)
@@ -56,7 +56,7 @@ For information about rolling back the Corda 5.0 to Corda {{< version-num >}} up
 ## Scale Down the Running Corda Worker Instances
 
 {{< important >}}
-Scaling down the Corda 5.0 workers results in Corda becoming unresponsive until you launch the Corda {{< version-num >}} workers. You must first test the database migration as described in [Test the Migration](#test-the-migration) and also ensure that you are familiar with the rest of the upgrade process to incur minimum Corda downtime.
+Scaling down the Corda 5.1 workers results in Corda becoming unresponsive until you launch the Corda {{< version-num >}} workers. You must first test the database migration as described in [Test the Migration](#test-the-migration) and also ensure that you are familiar with the rest of the upgrade process to incur minimum Corda downtime.
 {{< /important >}}
 
 You can scale down the workers using any tool of your choice. For example, the run the following commands if using `kubectl`:
@@ -64,22 +64,30 @@ You can scale down the workers using any tool of your choice. For example, the r
 ```shell
 kubectl scale --replicas=0 deployment/corda-crypto-worker -n <corda_namespace>
 kubectl scale --replicas=0 deployment/corda-db-worker -n <corda_namespace>
+kubectl scale --replicas=0 deployment/corda-flow-mapper-worker -n <corda_namespace>
 kubectl scale --replicas=0 deployment/corda-flow-worker -n <corda_namespace>
 kubectl scale --replicas=0 deployment/corda-membership-worker -n <corda_namespace>
 kubectl scale --replicas=0 deployment/corda-p2p-gateway-worker -n <corda_namespace>
 kubectl scale --replicas=0 deployment/corda-p2p-link-manager-worker -n <corda_namespace>
+kubectl scale --replicas=0 deployment/corda-persistence-worker -n <corda_namespace>
 kubectl scale --replicas=0 deployment/corda-rest-worker -n <corda_namespace>
+kubectl scale --replicas=0 deployment/corda-token-selection-worker -n <corda_namespace>
+kubectl scale --replicas=0 deployment/corda-uniqueness-worker -n <corda_namespace>
+kubectl scale --replicas=0 deployment/corda-verification-worker -n <corda_namespace>
 ```
 
 If you are scripting these commands, you can wait for the workers to be scaled down using something similar to the following:
 ```shell
-while [ "$(kubectl get pods --field-selector=status.phase=Running -n corda | grep worker | wc -l | tr -d ' ')" != 0 ]
+while [ "$(kubectl get pods --field-selector=status.phase=Running -n <corda_namespace> | grep worker | wc -l | tr -d ' ')" != 0 ]
 do
   sleep 1
 done
 ```
 
 ## Migrate the Corda Cluster Database
+
+**Because we stripped off search_path from DB URLs in 
+ it means we need to set the search_path of cluster DB at SQL level.**
 
 To migrate the database schemas, do the following:
 
@@ -126,16 +134,23 @@ To migrate the database schemas, do the following:
    psql -h localhost -c "GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA state_manager TO corda" -p 5432 -d cordacluster -U postgres
    ```
 
-## Update the Database Connection Configuration Table
+4. Set the `search_path` of the cluster database:
 
-Corda 5.0 only used one concurrent connection for each virtual node. As of 5.1, this is configurable in [corda.db]({{< relref "../../config/fields/db.md" >}}). As part of the upgrade process, you must remove the 5.0 setting to enable the new Corda {{< version-num >}} default of 10 maximum virtual node connections.
+   ```shell
+   psql -h localhost -c "ALTER ROLE "corda" SET search_path TO config, state_manager" -p 5432 -d cordacluster -U postgres
+   psql -h localhost -c "ALTER ROLE "rbac_user" SET search_path TO rbac" -p 5432 -d cordacluster -U postgres
+   psql -h localhost -c "ALTER ROLE "crypto_user" SET search_path TO crypto" -p 5432 -d cordacluster -U postgres
+   ```
 
-To remove the 5.0 setting, issue a SQL statement that removes `"pool":{"max_size":1}`, from the JSON config in each row in the cluster `db_connections` table. In the following example, `CONFIG` in `CONFIG.db_connection` is the name of the cluster schema, while `config` is a column name that you must specify in lowercase:
-```shell
-psql -h localhost -c "UPDATE CONFIG.db_connection SET config = REPLACE(config,'\"pool\":{\"max_size\":1},','')" -p 5432 -d cordacluster -U postgres
-```
+## Migrate State Manager Databases
+
+** needed??? **
 
 ## Migrate the Virtual Node Databases
+
+
+** needed??? **
+
 
 Migrating virtual node databases requires the short hash holding ID of each virtual node. For more information, see [Retrieving Virtual Nodes]({{< relref "../../vnodes/retrieving.md" >}}).
 
@@ -159,7 +174,8 @@ To migrate the virtual node databases, do the following:
    {{< /tabs >}}
 
 3. Review the generated SQL and apply it as follows:
-   ```
+
+   ```shell
    psql -h localhost -p 5432 -f ./sql_updates/vnodes.sql -d cordacluster -U postgres
    ```
 
@@ -200,6 +216,9 @@ To migrate the virtual node databases, do the following:
    ```
 
 ## Update Kafka Topics
+
+** needed??? **
+
 
 Corda {{< version-num >}} contains new Kafka topics and also revised Kafka ACLs. You can apply these changes in one of the following ways:
 
@@ -264,6 +283,6 @@ Alternatively, the `preview` and `create` sub-commands of the Corda CLI `topic` 
 To complete the upgrade to {{< version-num >}} and launch the Corda {{< version-num >}} workers, upgrade the Helm chart:
 
 ```shell
-helm upgrade corda -n corda oci://corda-os-docker.software.r3.com/helm-charts/release/os/{{<version-num>}}/corda --version {{<version-num>}}.0 -f values.yaml
+helm upgrade corda -n <corda_namespace> oci://corda-os-docker.software.r3.com/helm-charts/release/os/{{<version-num>}}/corda --version {{<version-num>}}.0 -f values.yaml
 ```
 For more information about the values in the deployment YAML file, see [Configure the Deployment]({{< relref "../../deployment/deploying/_index.md#configure-the-deployment" >}}).
