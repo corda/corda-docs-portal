@@ -11,6 +11,7 @@ title: 'Core types in the Corda API'
 weight: 190
 ---
 
+
 # API: Core types
 
 Corda provides several core classes as part of its API.

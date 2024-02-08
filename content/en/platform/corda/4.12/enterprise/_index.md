@@ -1,17 +1,17 @@
 ---
-date: '2020-04-07T12:00:00Z'
+cascade:
+  version: 'Enterprise 4.12'
+  project: corda
+  section_menu: corda-enterprise-4-12
 description: "Documentation for the 4.12 Enterprise Edition release of Corda"
+title: "Corda Enterprise 4.12"
+date: '2020-04-07'
 menu:
   versions:
     weight: -900
   corda-enterprise-4-12:
     identifier: about-corda-landing-4-12-enterprise
     weight: -30
-    name: Corda Enterprise 4.12
-project: corda
-section_menu: corda-enterprise-4-12
-title: Corda Enterprise 4.12
-version: 'Enterprise 4.12'
 ---
 
 # Corda Enterprise 4.12
