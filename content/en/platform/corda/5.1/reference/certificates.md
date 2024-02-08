@@ -18,7 +18,7 @@ This section describes the different types of keys and certificates used by Cord
 
 ## Application Keys
 
-Corda uses the following types of keys:
+Corda uses the following types of key:
 
 <style>
 table th:first-of-type {
