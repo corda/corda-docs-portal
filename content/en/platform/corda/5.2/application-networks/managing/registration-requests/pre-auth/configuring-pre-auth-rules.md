@@ -31,7 +31,7 @@ curl -k -u $REST_API_USER:$REST_API_PASSWORD -d $RULE_PARAMS $REST_API_URL/mgm/$
 {{% /tab %}}
 {{% tab name="PowerShell"%}}
 ```shell
-Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$REST_API_URL/mgm/$MGM_HOLDING_ID/approval/rules/preauth" -Body (ConvertTo-Json  @{
+Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/mgm/$MGM_HOLDING_ID/approval/rules/preauth" -Body (ConvertTo-Json  @{
     ruleRegex = "^corda.endpoints.*$",
     ruleLabel = "Any change to P2P endpoints requires manual review."
     }
