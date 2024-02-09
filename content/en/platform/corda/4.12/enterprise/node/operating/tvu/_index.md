@@ -1,15 +1,19 @@
 ---
+cascade:
+  version: 'Enterprise 4.12'
+  project: corda
+  section_menu: corda-enterprise-4-12
 description: "Learn what is Transaction Validator Utility and its different uses."
+title: "Transaction Validator Utility"
 date: '2023-12-15'
 menu:
   corda-enterprise-4-12:
     identifier: corda-enterprise-4-12-tvu
     parent: corda-enterprise-4-12-corda-nodes-operating
+weight: 130
 tags:
 - tvu
 - transaction validator utility
-title: Transaction Validator Utility
-weight: 130
 ---
 
 # Transaction Validator Utility

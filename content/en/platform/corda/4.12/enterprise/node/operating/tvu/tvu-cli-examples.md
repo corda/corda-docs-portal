@@ -16,7 +16,11 @@ weight: 300
 
 # TVU CLI command examples
 
-The following section provides you with the examples of how you can use the Transaction Validator Utility (TVU) CLI features in practice. You can modify and use the provided TVU CLI command examples so they work in your project. In the following examples the TVU's JAR was copied to the node's directory.
+The following section provides examples of how to use the Transaction Validator Utility (TVU) CLI commands. You can modify and use the provided TVU CLI command examples to work in your project.
+
+{{< note >}}
+In the following examples the TVU's JAR was copied to the node's directory.
+{{< /note >}}
 
 ## Transaction validation
 
