@@ -8,6 +8,16 @@ menu:
     identifier: corda52-cluster-prerequisites
     weight: 1000
 ---
+
+<style>
+table th:first-of-type {
+    width: 60%;
+}
+table th:nth-of-type(2) {
+    width: 40%;
+}
+</style>
+
 # Prerequisites
 
 The Corda deployment process has the following prerequisites:
