@@ -1,6 +1,11 @@
 ---
-date: '2023-02-28'
+cascade:
+  version: 'Community & Open Source 4.12'
+  project: corda
+  section_menu: corda-community-4-12
 description: "Documentation for the 4.12 Community Edition release of Corda"
+title: "Corda Community 4.12"
+date: '2023-02-28'
 menu:
   versions:
     weight: -850
@@ -8,11 +13,8 @@ menu:
     identifier: about-corda-landing-4-12-community
     weight: -5
     name: Corda Community 4.12
-project: corda
-section_menu: corda-community-4-12
-title: Corda Community 4.12
-version: 'Community & Open Source 4.12'
 ---
+
 
 # Corda Community Edition 4.12
 
