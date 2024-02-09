@@ -20,4 +20,4 @@ The Transaction Validator Utility (TVU) writes its runtime progress and register
 * Press `Ctrl+C`
 * Send `SIGTERM`
 
-Do not try to stop the utility using `kill -9` or `SIGKILL`. Since `kill -9` and `SIGKILL` terminate the utility immediately, the progress and the errors will not be reliably registered. This does not harm the utility’s working in anyways with regard to transaction processing but only disrupt the functionality wherein it registers progress for progress reloading and registers errors for debugging.
+Do not try to stop the utility using `kill -9` or `SIGKILL`. Since `kill -9` and `SIGKILL` terminate the utility immediately, the progress and the errors will not be reliably registered. This does not harm the utility’s working in any way with regard to transaction processing but only disrupts the functionality wherein it registers progress for progress reloading and registers errors for debugging.
