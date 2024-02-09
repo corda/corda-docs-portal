@@ -20,5 +20,5 @@ table th:nth-of-type(5) {
 
 | **Version**   | **Date of Release** | **End of Maintenance**   | **End of Security**      | **End of Support**       |
 | ------------- | ------------------- | ------------------------ | ------------------------ | ------------------------ |
-| **Corda 5.0** | 07/23               | 01/24                    | 01/24                    | 01/24                    |
-| **Corda 5.1** | 11/23               | Date of next LTS release | Date of next LTS release | Date of next LTS release |
+| **Corda 5.1** | 11/23               | 02/24                    | 02/24                    | 02/24                    |
+| **Corda 5.2** | 02/24               | Date of next LTS release | Date of next LTS release | Date of next LTS release |
