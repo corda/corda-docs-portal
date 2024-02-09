@@ -69,12 +69,12 @@ $VIRTUAL_NODE_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Aut
     request = @{
         cpiFileChecksum = $CPI_STATUS_RESPONSE.cpiFileChecksum
         x500Name = $X500_NAME
-        "cryptoDdlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_crypto_FD545924FF37\"},\"user\":\"cryptoddlconnection_fd545924ff37\",\"pass\":\"WXZS48pRyFQu0GNJNseRMeIL8ZczwfPAHnDJRZdQ11M6fJxjjdhbcKEYSwSiHHqT\"}}"
-        "cryptoDmlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_crypto_FD545924FF37\"},\"user\":\"cryptodmlconnection_fd545924ff37\",\"pass\":\"d6LIdsVpTwoHaetemyeGWXb0TjRHXOCR6yrxeCCWzWTGiqiDxR5zPuYMBaFdbj6A\"}}"
-        "uniquenessDdlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_uniq_FD545924FF37\"},\"user\":\"uniquenessddlconnection_fd545924ff37\",\"pass\":\"nVzjzsjfmQpSubHi7K7Rt2Cjlt40wb85zPQQI1KxprmCUswqUJhHH0ovdTy6wYWi\"}}"
-        "uniquenessDmlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_uniq_FD545924FF37\"},\"user\":\"uniquenessdmlconnection_fd545924ff37\",\"pass\":\"HjgqzcVTohZIapZrgsNz6dlW6U4yHUn6LjCsfG5nwHbuso5hsvAuWBB8DievZX7R\"}}"
-        "vaultDdlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_vault_FD545924FF37\"},\"user\":\"vaultddlconnection_fd545924ff37\",\"pass\":\"UwFGEWX9KFfLf9Gai63bUAgcMMh0OzUP9wTRGYEhptkBcfzqScK6tqnz6wSAxN7K\"}}"
-        "vaultDmlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase?currentSchema=vnode_vault_FD545924FF37\"},\"user\":\"vaultdmlconnection_fd545924ff37\",\"pass\":\"PJRFQInjedKZcgf1o0YYq7Dv7vhbsdFL5U7FuCID3S7ZYjPNJ7GITbyTgIofeQwL\"}}"       
+        "cryptoDdlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase\"},\"user\":\"cryptoddlconnection_fd545924ff37\",\"pass\":\"WXZS48pRyFQu0GNJNseRMeIL8ZczwfPAHnDJRZdQ11M6fJxjjdhbcKEYSwSiHHqT\"}}"
+        "cryptoDmlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase\"},\"user\":\"cryptodmlconnection_fd545924ff37\",\"pass\":\"d6LIdsVpTwoHaetemyeGWXb0TjRHXOCR6yrxeCCWzWTGiqiDxR5zPuYMBaFdbj6A\"}}"
+        "uniquenessDdlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase\"},\"user\":\"uniquenessddlconnection_fd545924ff37\",\"pass\":\"nVzjzsjfmQpSubHi7K7Rt2Cjlt40wb85zPQQI1KxprmCUswqUJhHH0ovdTy6wYWi\"}}"
+        "uniquenessDmlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase\"},\"user\":\"uniquenessdmlconnection_fd545924ff37\",\"pass\":\"HjgqzcVTohZIapZrgsNz6dlW6U4yHUn6LjCsfG5nwHbuso5hsvAuWBB8DievZX7R\"}}"
+        "vaultDdlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase\"},\"user\":\"vaultddlconnection_fd545924ff37\",\"pass\":\"UwFGEWX9KFfLf9Gai63bUAgcMMh0OzUP9wTRGYEhptkBcfzqScK6tqnz6wSAxN7K\"}}"
+        "vaultDmlConnection":"{\"database\":{\"jdbc\":{\"url\":\"jdbc:postgresql://localhost:5432/yourdatabase\"},\"user\":\"vaultdmlconnection_fd545924ff37\",\"pass\":\"PJRFQInjedKZcgf1o0YYq7Dv7vhbsdFL5U7FuCID3S7ZYjPNJ7GITbyTgIofeQwL\"}}"       
     }
 })
 ```
