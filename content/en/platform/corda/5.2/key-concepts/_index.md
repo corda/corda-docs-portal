@@ -14,9 +14,10 @@ menu:
 # Key Concepts
 
 The *Key Concepts* section provides a detailed look at {{< version >}}. This page gives an overview of {{< version >}} and contains the following:
+
 {{< toc >}}
 
-## Decentralized Applications
+## Why Decentralized Applications?
 
 In recent decades, business processes have been transformed via the progressive adoption of new technologies.
 Each step has brought improvements and economies in terms of speed, capacity, connectivity, communication, and predictability.
@@ -84,6 +85,7 @@ Additionally, Corda’s {{< tooltip >}}smart contracts{{< /tooltip >}} make it e
 * **Banks** - Corda facilitates the overnight reconciliation of inter-bank transactions and financial asset management, including issuance, trading, and custody of dematerialized financial assets such as bonds and equities. Also, it facilitates the issuing of private money (as fiat backed digital currency) for inter-book cross-border transactions and delivery versus payment (DvP) scenarios.
 * **Exchanges** - Corda manages the lifecycle of digital financial assets and automating processes such as issuance, trading, settlement and custody.
 * **FinTechs** - Corda enables the building of solutions for the digitalizing of traditional assets, such as bills of lading, letters of credit, and precious commodities in order to increase efficiencies and reduce business risk.
+
 Corda’s capabilities are also applicable across a broader set of markets and industries where there is a need for multi-party workflows managing transactions, data, and processes to establish a shared view of a distributed set of data, i.e. I see what you see. These include industries such as:
 
 * **Insurance** - Insurance companies use Corda to automate the settlement of claims and other transactions. Corda's smart contracts make it easy to enforce the terms of insurance policies and automate the claims process.
