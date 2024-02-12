@@ -1,13 +1,11 @@
 ---
 date: '2023-06-20'
-version: 'Corda 5.1'
 title: "ledger.utxo.token.selection"
 menu:
   corda51:
     identifier: corda51-api-ledger-utxo-token-selection
     parent: corda51-api-ledger-utxo
     weight: 1000
-section_menu: corda51
 ---
 # net.corda.v5.ledger.utxo.token.selection
 The Token Selection API enables a {{< tooltip >}}flow{{< /tooltip >}} to exclusively select a set of {{< tooltip >}}states{{< /tooltip >}} to potentially use as input states in a {{< tooltip >}}UTXO{{< /tooltip >}} {{< tooltip >}}transaction{{< /tooltip >}}. Although this can be achieved with simple {{< tooltip >}}vault{{< /tooltip >}} queries, the selection API offers the following key features that improve the performance and reliability of the flows:

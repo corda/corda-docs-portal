@@ -2,13 +2,11 @@
 description: "Review the fields of the corda.security Corda configuration section."
 date: '2023-03-08'
 title: "corda.security"
-version: 'Corda 5.1'
 menu:
   corda51:
     parent: corda51-config-fields
     identifier: corda51-config-security
     weight: 11000
-section_menu: corda51
 ---
 # corda.security
 

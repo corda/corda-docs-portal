@@ -1,14 +1,12 @@
 ---
 description: "Review the metrics generated for the Corda uniqueness checker. The uniqueness checker handles the business logic of uniqueness checking."
 date: '2023-06-14'
-version: 'Corda 5.1'
 title: "Uniqueness Checker"
 menu:
   corda51:
     parent: corda51-cluster-metrics
     identifier: corda51-cluster-uniqueness-checker
     weight: 1500
-section_menu: corda51
 ---
 
 # Uniqueness Checker

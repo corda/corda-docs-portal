@@ -2,14 +2,11 @@
 description: "Learn how the Network Operator can update the current group parameters using the REST API. New group parameters are then signed by the MGM and distributed within the network."
 date: '2023-10-05'
 title: "Updating Group Parameters"
-project: corda
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-networks-update-group-params
     parent: corda51-networks-manage
     weight: 4000
-section_menu: corda51
 ---
 # Updating Group Parameters
 

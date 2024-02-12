@@ -2,14 +2,11 @@
 description: "Understand how to package a CorDapps."
 date: '2023-02-23'
 title: "Packaging"
-project: corda
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-develop-packaging
     parent: corda51-develop
     weight: 6050
-section_menu: corda51
 ---
 # Packaging
 

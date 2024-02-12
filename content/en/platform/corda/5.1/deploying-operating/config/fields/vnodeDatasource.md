@@ -2,13 +2,11 @@
 description: "Review the fields of the corda.vnode.datasource Corda configuration section."
 date: '2023-11-27'
 title: "corda.vnode.datasource"
-version: 'Corda 5.1'
 menu:
   corda51:
     parent: corda51-config-fields
     identifier: corda51-config-vnodedatasource
     weight: 13000
-section_menu: corda51
 ---
 # corda.vnode.datasource
 

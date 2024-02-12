@@ -1,14 +1,12 @@
 ---
 description: "Explore the infrastructure topology for Corda in Amazon Web Services (AWS) or Corda in Azure."
 date: '2023-02-23'
-version: 'Corda 5.1'
 title: "Infrastructure Topology"
 menu:
   corda51:
     identifier: corda51-cluster-topology
     parent: corda51-cluster
     weight: 3000
-section_menu: corda51
 ---
 # Infrastructure Topology
 

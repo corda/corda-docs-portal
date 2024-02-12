@@ -1,14 +1,12 @@
 ---
 description: "Learn how to build an MGM CPI and upload it to your network."
 date: '2023-04-07'
-version: 'Corda 5.1'
 title: "Build the MGM CPI"
 menu:
   corda51:
     parent: corda51-networks-mgm
     identifier: corda51-networks-mgm-cpi
     weight: 1000
-section_menu: corda51
 ---
 
 # Build the MGM CPI

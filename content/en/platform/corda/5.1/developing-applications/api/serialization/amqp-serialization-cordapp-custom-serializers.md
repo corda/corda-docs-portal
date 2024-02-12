@@ -1,13 +1,11 @@
 ---
 date: '2022-09-21T14:27:00+01:00'
-version: 'Corda 5.1'
 title: "Pluggable Serializers for CorDapps"
 menu:
   corda51:
     identifier: corda51-api-serialisation-cordapp-custom-serializers
     parent: corda51-api-serialisation
     weight: 8000
-section_menu: corda51
 ---
 # Pluggable Serializers for CorDapps
 To be serializable by Corda, Java classes must be compiled with the -parameters switch to enable matching of its properties

@@ -2,13 +2,11 @@
 description: "Learn how to integrate Corda into the wider ecosystem using the REST API or the external messaging API."
 title: "Integrating Corda into the Wider Ecosystem"
 date: 2023-07-26
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-cordapp-dev-ecosystem
     parent: corda51-key-concepts-cordapp-dev
     weight: 4000
-section_menu: corda51
 ---
 
 # Integrating Corda into the Wider Ecosystem

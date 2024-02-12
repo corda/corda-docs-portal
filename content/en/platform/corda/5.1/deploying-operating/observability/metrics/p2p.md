@@ -1,14 +1,12 @@
 ---
 description: "Review the metrics generated for the peer-to-peer layer. This layer is responsible for delivering messages between virtual nodes."
 date: '2023-06-14'
-version: 'Corda 5.1'
 title: "Peer-to-peer Messages and Sessions"
 menu:
   corda51:
     parent: corda51-cluster-metrics
     identifier: corda51-cluster-p2p
     weight: 1300
-section_menu: corda51
 ---
 
 # Peer-to-peer Messages and Sessions
