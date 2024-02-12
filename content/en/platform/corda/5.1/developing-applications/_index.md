@@ -1,14 +1,15 @@
 ---
+cascade:
+  version: 'Corda 5.1'
+  project: corda
+  section_menu: corda51
 description: "CorDapp Developer documentation for Corda 5.1."
 title: "Developing Applications"
-project: corda
-version: 'Corda 5.1'
 date: 2023-04-21
 menu:
   corda51:
     identifier: corda51-develop
     weight: 3000
-section_menu: corda51
 ---
 # Developing Applications
 

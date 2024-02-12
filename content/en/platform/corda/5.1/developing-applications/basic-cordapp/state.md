@@ -2,7 +2,6 @@
 description: "Learn how to write states as part of your first basic Corda 5 CorDapp."
 date: '2023-05-03'
 title: "Write States"
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-develop-first-cordapp-state

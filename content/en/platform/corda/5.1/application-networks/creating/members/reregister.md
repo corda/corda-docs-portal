@@ -1,14 +1,12 @@
 ---
 description: "Learn how to re-register a member in order to update its member-provided context or endpoint information."
 date: '2023-10-04'
-version: 'Corda 5.1'
 title: "Re-register a Member"
 menu:
   corda51:
     identifier: corda51-networks-members-reregister
     parent: corda51-networks-members
     weight: 6000
-section_menu: corda51
 ---
 
 # Re-register a Member

@@ -2,14 +2,11 @@
 description: "Learn how to configure the MGM, through which a membership group is created for a network."
 date: '2023-04-07'
 title: "Onboarding the MGM"
-project: corda
-version: 'Corda 5.1'
 menu:
   corda51:
     parent: corda51-networks-create
     identifier: corda51-networks-mgm
     weight: 1000
-section_menu: corda51
 ---
 
 # Onboarding the MGM

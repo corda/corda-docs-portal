@@ -2,14 +2,11 @@
 description: "Learn how to change the state of a virtual node using the REST API."
 date: '2023-06-12'
 title: "Setting the State of Virtual Nodes"
-project: corda
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-cluster-nodes-state
     parent: corda51-cluster-nodes
     weight: 2000
-section_menu: corda51
 ---
 
 # Setting the State of Virtual Nodes

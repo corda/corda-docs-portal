@@ -2,14 +2,11 @@
 description: "Learn how the Network Operator can use the MGM admin API to decline an in-progress registration request that may be stuck or displaying some other unexpected behavior."
 date: '2023-10-05'
 title: "Declining In-Progress Registrations"
-project: corda
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-networks-decline-registration
     parent: corda51-networks-manage
     weight: 3000
-section_menu: corda51
 ---
 # Declining In-Progress Registrations
 

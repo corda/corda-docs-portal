@@ -1,15 +1,12 @@
 ---
 description: "Learn about the Corda 5 configuration system."
 title: "Configuring Corda"
-project: corda
-version: 'Corda 5.1'
 date: '2023-05-16'
 menu:
   corda51:
     identifier: corda51-cluster-config
     parent: corda51-cluster
     weight: 3050
-section_menu: corda51
 ---
 
 # Configuring Corda
