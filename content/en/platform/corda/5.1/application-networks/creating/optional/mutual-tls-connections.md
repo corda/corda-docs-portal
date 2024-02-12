@@ -1,14 +1,12 @@
 ---
 description: "Learn how to configure a Corda cluster to use mutual TLS to secure connections between two clusters."
 date: '2023-04-07'
-version: 'Corda 5.1'
 title: "Mutual TLS Connections"
 menu:
   corda51:
     identifier: corda51-network-mutual-tls
     parent: corda51-networks-optional
     weight: 1000
-section_menu: corda51
 ---
 
 # Mutual TLS Connections

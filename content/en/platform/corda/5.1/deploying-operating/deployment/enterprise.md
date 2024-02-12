@@ -1,14 +1,12 @@
 ---
 description: "Learn how to migrate from the standard version of Corda 5.1 to Corda 5.1 Enterprise."
 date: '2023-05-11'
-version: 'Corda 5.1'
 title: "Migrating to Corda Enterprise"
 menu:
   corda51:
     parent: corda51-cluster-deploy
     identifier: corda51-cluster-enterprise
     weight: 3000
-section_menu: corda51
 ---
 
 # Migrating to Corda Enterprise {{< enterprise-icon >}}

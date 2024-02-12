@@ -1,14 +1,12 @@
 ---
 description: "Learn how to set any string configuration value as 'secret'."
 title: "Configuration Secrets"
-version: 'Corda 5.1'
 date: '2023-05-16'
 menu:
   corda51:
     identifier: corda51-cluster-secrets
     parent: corda51-cluster-config
     weight: 3000
-section_menu: corda51
 ---
 
 # Configuration Secrets

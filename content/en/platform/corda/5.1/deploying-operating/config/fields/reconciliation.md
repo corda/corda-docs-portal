@@ -1,14 +1,12 @@
 ---
 description: "Review the fields of the corda.reconciliation Corda configuration section."
 date: '2023-03-08'
-version: 'Corda 5.1'
 title: "corda.reconciliation"
 menu:
   corda51:
     parent: corda51-config-fields
     identifier: corda51-config-reconciliation
     weight: 9000
-section_menu: corda51
 ---
 # corda.reconciliation
 

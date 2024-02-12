@@ -15,9 +15,6 @@ The Contract Testing library enables {{< tooltip >}}CorDapp{{< /tooltip >}} deve
 This version of the Contract Testing library only supports UTXO contracts.
 {{< /note >}}
 
-The Contract Testing library is currently compatible with the following versions of Corda:
-* 5.0
-
 ## Prerequisites
 
 * {{< tooltip >}}CSDE{{< /tooltip >}} — contains Contract Testing library [examples](#examples).
@@ -112,7 +109,7 @@ The CSDE contains Contract Testing examples in the following locations:
 
 ### Apples
 
-The `apples` example tests the `AppleStampContract` and `BasketOfApplesContract` contracts written as part of the [Building Your First CorDapp tutorial]({{< relref "../../platform/corda/5.0/developing-applications/basic-cordapp/contract.md" >}}).
+The `apples` example tests the `AppleStampContract` and `BasketOfApplesContract` contracts written as part of the [Building Your First CorDapp tutorial]({{< relref "../../platform/corda/5.1/developing-applications/basic-cordapp/contract.md" >}}).
 
 ### Chat
 

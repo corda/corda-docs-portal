@@ -136,7 +136,7 @@ CENM 1.5.1 introduces fixes to known issues in CENM 1.5.
   ```
 * We have fixed an issue where the signing request status command in the CENM Command-line Interface Tool (CLI) did not work for asynchronous signing.
 * We have fixed an issue where the Network Map Service failed to start with an EC public key used in the `packageOwnership` configuration in the network parameters, and an `Unrecognised algorithm` error was thrown.
-* We have fixed an issue where, if a CSR was rejected with a [rejection code](workflow.html#certificate-signing-request-rejection-reasons) between 1 and 11 via the JIRA workflow, the node notification would be incorrect - the `Additional remark` field output would contain technical data instead of a description of the rejection reason.
+* We have fixed an issue where, if a CSR was rejected with a [rejection code](workflow.html#certificate-signing-request-rejection-reasons) between 1 and 11 via the Jira workflow, the node notification would be incorrect - the `Additional remark` field output would contain technical data instead of a description of the rejection reason.
 
 #### Fixed issues specific to the CENM management console
 
@@ -216,7 +216,7 @@ For more information about this feature, contact your R3 account manager.
 * The CENM Command-line Interface (CLI) Tool does not return a message if a token has expired when running `signer` commands.
 * The Identity Manager Service shows an incorrect error when the `workflow.enmListener.port` parameter is missed.
 * When setting up CENM services with Shell support, the Signing Service and the Network Map Service hang after running the `shutdown` command.
-* When a CSR is rejected with a [rejection code](workflow.html#certificate-signing-request-rejection-reasons) between 1 and 11 via the JIRA workflow, the node notification is incorrect - the `Additional remark` field output contains technical data instead of a description of the rejection reason.
+* When a CSR is rejected with a [rejection code](workflow.html#certificate-signing-request-rejection-reasons) between 1 and 11 via the Jira workflow, the node notification is incorrect - the `Additional remark` field output contains technical data instead of a description of the rejection reason.
 
 {{< note >}}
 The list above contains known issues specific to CENM 1.5. See the release notes for previous CENM releases further down on this page for information about known issues specific to those versions.

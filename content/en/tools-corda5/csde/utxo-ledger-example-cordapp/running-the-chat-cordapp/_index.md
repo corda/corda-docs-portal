@@ -1,7 +1,6 @@
 ---
 date: '2023-01-23'
 title: "Running the Chat CorDapp"
-version: 'Corda 5.0'
 menu:
   corda5-tools:
     parent: corda5-utxo-example

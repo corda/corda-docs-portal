@@ -2,13 +2,11 @@
 description: "Learn the fundamentals of Corda 5 ledger states."
 title: "States"
 date: 2023-06-08
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-fundamentals-ledger-states
     parent: corda51-fundamentals-ledger
     weight: 1000
-section_menu: corda51
 ---
 
 # States

@@ -2,13 +2,11 @@
 description: "Review the fields of the corda.stateManager Corda configuration section."
 date: '2023-08-10'
 title: "corda.stateManager"
-version: 'Corda 5.1'
 menu:
   corda51:
     parent: corda51-config-fields
     identifier: corda51-config-stateManager
     weight: 12000
-section_menu: corda51
 ---
 # corda.stateManager
 

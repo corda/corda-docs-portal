@@ -2,14 +2,11 @@
 description: "Learn how to create your first basic Corda 5 CorDapp."
 date: '2023-05-03'
 title: "Building Your First CorDapp"
-project: corda
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-develop-first-cordapp
     parent: corda51-develop
     weight: 6000
-section_menu: corda51
 ---
 
 # Building Your First CorDapp
