@@ -55,7 +55,7 @@ Corda uses the following types of infrastructure key:
 | CPB Signing      | Code-signing key for publishing CPIs. The CorDapp publisher uses this key to sign a {{< tooltip >}}CPB{{< /tooltip >}} before sending it to the Network Operator to use when [creating the CPI]({{< relref "../application-networks/creating/members/cpi.md#import-code-signing-certificates" >}}). For more information, see [Code Signing]({{< relref "../developing-applications/packaging/code-signing/_index.md">}}).                                                                   | 256-bit X.509 public signature verification key |
 | CPI Publisher    | Code-signing key for publishing CPIs. Corda validates that uploaded {{< tooltip >}}CPIs{{< /tooltip >}} are signed with a trusted key. The Network Operator usually [imports the signing key to Corda]({{< relref "../application-networks/creating/members/cpi.md#import-code-signing-certificates" >}}). In some cases, such as the Notary CPI, R3 manages the key. For more information, see [Code Signing]({{< relref "../developing-applications/packaging/code-signing/_index.md">}}). | 256-bit X.509 public signature verification key | 256-bit X.509 public signature verification key
 
-## PKI assets
+## PKI Assets
 
 Corda supports the following PKI assets:
 
