@@ -79,11 +79,11 @@ Corda requires the following types of keys:
 * Ledger
 * CorDapp publisher code signing
 
-{{< note >}}
-It is not currently possible to revoke or rotate keys.
-{{< /note >}}
-
 For a list of the keys and certificates used by Corda, see the [Reference]({{< relref "../../reference/certificates.md" >}}) section.
+
+{{< note >}}
+It is currently only possible to rotate wrapping keys. For more information about key rotation, see [Rotating Wrapping Keys]({{< relref "../../deploying-operating/keys/rotation.md" >}}).
+{{< /note >}}
 
 ### Key Wrapping
 
@@ -96,10 +96,9 @@ All keys are stored in the Crypto databases (cluster and virtual nodes) and they
 	 figcaption="Wrapping Keys"
 >}}
 
-The diagram illustrates that key wrapping is hierarchical. The master wrapping key protects other wrapping keys, such as the virtual node related keys, which in turn protect the private keys used by Corda. It must never be possible for someone with a copy of the Corda database, or a virtual node database, to decrypt the keys stored in the database using other information stored in the database. Therefore, the master wrapping key, or the information required to generate this key, must be stored and managed outside Corda. This can be achieved in one of the following ways:
+The diagram illustrates that key wrapping is hierarchical. The master wrapping key protects other wrapping keys, such as the virtual node related keys, which in turn protect the private keys used by Corda. The master wrapping key, or the information required to generate this key, must be stored and managed outside Corda. This ensures that it is not possible to decrypt the keys stored in the database using other information stored in the same database. By default, the Corda default secrets lookup service generates the master key using a passphrase and salt set for the crypto worker processes. {{< enterprise-icon noMargin="true" >}}Alternatively, Corda Enterprise can retrieve the master key from an external key management system that Corda retrieves when required.
 
-* Pass a passphrase and salt, to generate the master key, into the crypto worker processes. For more information, see [Default Secrets Service]({{< relref "../../deploying-operating/deployment/deploying/_index.md#default-secrets-service" >}}).
-* {{< enterprise-icon noMargin="true" >}} Store and manage the master in an external key management system that Corda retrieves when required. For more information, see [External Secrets Service]({{< relref "../../deploying-operating/deployment/deploying/_index.md#external-secrets-service" >}}).
+For more information about how to manage the master wrapping key, see [Configuring the Master Wrapping Key]({{< relref "../../deploying-operating/keys/master.md" >}}).
 
 ## Kafka
 
