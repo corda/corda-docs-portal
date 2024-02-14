@@ -82,7 +82,7 @@ Corda requires the following types of keys:
 For a list of the keys and certificates used by Corda, see the [Reference]({{< relref "../../reference/certificates.md" >}}) section.
 
 {{< note >}}
-It is currently only possible to rotate wrapping keys. For more information about key rotation, see [Rotating Wrapping Keys]({{< relref "../../deploying-operating/keys/rotation.md" >}}).
+It is currently only possible to rotate wrapping keys. For more information about key rotation, see [Rotating Wrapping Keys]({{< relref "../../deploying-operating/keys/_index.md#rotating-wrapping-keys" >}}).
 {{< /note >}}
 
 ### Key Wrapping
@@ -98,7 +98,7 @@ All keys are stored in the Crypto databases (cluster and virtual nodes) and they
 
 The diagram illustrates that key wrapping is hierarchical. The master wrapping key protects other wrapping keys, such as the virtual node related keys, which in turn protect the private keys used by Corda. The master wrapping key, or the information required to generate this key, must be stored and managed outside Corda. This ensures that it is not possible to decrypt the keys stored in the database using other information stored in the same database. By default, the Corda default secrets lookup service generates the master key using a passphrase and salt set for the crypto worker processes. {{< enterprise-icon noMargin="true" >}}Alternatively, Corda Enterprise can retrieve the master key from an external key management system that Corda retrieves when required.
 
-For more information about how to manage the master wrapping key, see [Configuring the Master Wrapping Key]({{< relref "../../deploying-operating/keys/master.md" >}}).
+For more information about how to manage the master wrapping key, see [Configuring the Master Wrapping Key]({{< relref "../../deploying-operating/keys/_index.md#configuring-the-master-wrapping-key" >}}).
 
 ## Kafka
 

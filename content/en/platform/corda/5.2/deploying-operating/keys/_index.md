@@ -15,4 +15,182 @@ As described in the [Architecture for Cluster Administrators]({{< relref "../../
 These managed wrapping keys are in turn wrapped by a master wrapping key.
 This section describes how Corda stores the master wrapping key and how to rotate master and managed wrapping keys. It contains the following:
 
-{{< childpages >}}
+{{< toc >}}
+
+## Configuring the Master Wrapping Key
+
+The master wrapping key, or the information required to generate this key, must be stored and managed outside Corda.
+You can achieve this in one of the following ways:
+
+* Pass a passphrase and salt, to generate the master key, into the crypto worker processes. For more information, see [Default Secrets Service]({{< relref "../../deploying-operating/deployment/deploying/_index.md#default-secrets-service" >}}).
+* {{< enterprise-icon noMargin="true" >}} Store and manage the master in an external key management system for Corda to retrieve when required. For more information, see [External Secrets Service]({{< relref "../../deploying-operating/deployment/deploying/_index.md#external-secrets-service" >}}).
+
+Corda stores the master wrapping key settings in the `corda.crypto` configuration section.
+For information about the configuration fields in this section, see [corda.crypto]({{< relref "../config/fields/crypto.md" >}}).
+For information about how to retrieve the current values of a configuration section, see [Retrieving Current Configuration Values]({{< relref "../config/dynamic.md#retrieving-current-configuration-values" >}}).
+
+## Rotating Wrapping Keys
+
+R3 recommend changing the wrapping keys frequently to limit the probability of a compromised key being in use.
+Corda supports the following key rotation:
+
+* [Master Wrapping Key](#rotating-master-wrapping-key)
+* [Managed Wrapping Keys](#rotating-managed-wrapping-keys)
+
+### Rotating Master Wrapping Key
+
+Because the master key is not managed by Corda, you must first change the default key in the source system.
+Corda must then re-encrypt all of the keys that were wrapped with the old master key.
+To rotate the master wrapping key, do the following:
+
+1. Add the new key to the source environment. For more information, see [Configuring the Master Wrapping Key](#configuring-the-master-wrapping-key).
+2. Add the new key to the `corda.crypto` configuration section, setting it as the default key. The [Setting Configuration Fields Dynamically]({{< relref "../config/dynamic.md#setting-configuration-fields-dynamically" >}}) section describes how to update configuration values. For example, to add a new master key with the alias `master2`:
+
+   {{< tabs >}}
+   {{% tab name="Bash"%}}
+   ```shell
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.crypto", "version":"1", "config": \
+    "{\"caching\ :\"expireAfterAccessMins\":{\"default\":60},\"maximumSize\" :{\"default\":10000}},\"hsm\": \
+    {\"defaultWrappingKey\":\"master2\",\"retrying\": {\"attemptTimeoutMills\":20000, \"maxAttempts\":3}, \"wrappingKeys\": \
+    [{\"alias\" :\"master1\", \"passphrase\": {\"configSecret\" : {\"encryptedSecret\" :\"ZAmGcppwqUNsViSE06b801DVARbD9wT7SZnYP03WKZFOnC9KTsII04pWWq5Je2CUZdP+xIsHFUO3RkZVwhwnyQhWoxcW6JEo\"}},\"salt\": \
+    {\"configSecret\":{\"encryptedSecret\":\"cvNVJ4D7fNGm59Uh3Tlhi0W3pToDxl7vykUdZaxEuEPGUMdmu7G+xTEfl0CcC2R9aWl6FgrzmX5x+qCGNElUi/PBA40EGjEU\"}}}, \
+    {\"alias\":\"master2\",\"passphrase\":{\"configSecret\": {\"encryptedSecret\":\"gzXRjE4AoZSW8GQhcqbw0shQfwWGy5O8alNDqXaqTUzyUnLBVUXLwhv+uAEZzecQixiaEaNtfOvuftYW9NjwwRyf6m4KZIag\"}},\"salt\": \
+    {\"configSecret\": {\"encryptedSecret\":\"flvAnf5G/aRmDIaahXHjftEpc0odufhzZsuiipxtQTFV+pccB+RHnIqle26jjDlDUBfn3HPbVezKhpRHL/NP5M+cX/rU15DE\"}}}]}, \
+    \"retrying\":{\"maxAttempts\": {\"default\": 3},\"waitBetweenMills\":{\"default\":[200]}}}}","schemaVersion": {"major": 1, "minor": 0}}' \
+    "$REST_API_URL/config"
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+
+   ```shell
+  Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method Put -Uri "$REST_API_URL/config" -Body (ConvertTo-Json -Depth 4 @{
+   {
+     "config": "{
+        "caching":{
+          "expireAfterAccessMins":{
+            "default":60
+          },
+          "maximumSize":{
+            "default":10000
+          }
+        },
+        "hsm":{
+          "defaultWrappingKey": "master1",
+          "retrying":{
+            "attemptTimeoutMills": 20000,
+            "maxAttempts": 3
+          },
+          "wrappingKeys":[{
+            "alias": "master1",
+            "passphrase":{
+              "configSecret":
+              {
+                "encryptedSecret": "gzXRjE4AoZSW8GQhcqbw0shQfwWGy5O8alNDqXaqTUzyUnLBVUXLwhv+uAEZzecQixiaEaNtfOvuftYW9NjwwRyf6m4KZIag"
+              }
+            },
+            "salt":{
+              "configSecret":
+              {
+                "encryptedSecret": "cvNVJ4D7fNGm59Uh3Tlhi0W3pToDxl7vykUdZaxEuEPGUMdmu7G+xTEfl0CcC2R9aWl6FgrzmX5x+qCGNElUi/PBA40EGjEU"
+              }
+            },
+          },
+          {
+            "alias": "master2",
+            "passphrase":{
+              "configSecret":
+              {
+                "encryptedSecret": "ZAmGcppwqUNsViSE06b801DVARbD9wT7SZnYP03WKZFOnC9KTsII04pWWq5Je2CUZdP+xIsHFUO3RkZVwhwnyQhWoxcW6JEo"
+              }
+            },
+            "salt":{
+              "configSecret":
+              {
+                "encryptedSecret": "flvAnf5G/aRmDIaahXHjftEpc0odufhzZsuiipxtQTFV+pccB+RHnIqle26jjDlDUBfn3HPbVezKhpRHL/NP5M+cX/rU15DE"
+              }
+            }
+          }]
+        "retrying":{
+          "maxAttempts":{
+            "default":3
+          },
+          "waitBetweenMills":{
+            "default":[200]
+          }
+        }
+      }",
+      "schemaVersion": {
+        "major": 1,
+        "minor": 0
+      },
+      "section": "corda.crypto",
+      "version": 1
+   })
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+3. Rotate the key to the new default key using the POST method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/post_wrappingkey_rotation__tenantid_):
+   {{< tabs >}}
+   {{% tab name="Bash"%}}
+   ```shell
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X POST "$REST_API_URL/wrappingkey/rotation/master"
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+  Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method POST -Uri "$REST_API_URL/wrappingkey/rotation/master" 
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+   You can use the the GET method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/get_wrappingkey_rotation__tenantid_) to check the status of the rotation:
+   {{< tabs >}}
+   {{% tab name="Bash"%}}
+   ```shell
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET "$REST_API_URL/wrappingkey/rotation/master"
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+  Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method GET -Uri "$REST_API_URL/wrappingkey/rotation/master" 
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+### Rotating Managed Wrapping Keys
+
+The cluster and virtual node wrapping keys are managed by Corda and can be rotated using the POST method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/post_wrappingkey_rotation__tenantid_). Specify one of the following as the path parameter:
+
+* The short hash holding ID of the virtual node to rotate a virtual node wrapping key.
+* One of the following for the corresponding cluster-level service:
+  * `p2p`
+  * `rest`
+  * `crypto`
+
+For example, to rotate the cluster P2P wrapping key:
+
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```shell
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X POST "$REST_API_URL/wrappingkey/rotation/p2p"
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method POST -Uri "$REST_API_URL/wrappingkey/rotation/p2p" 
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+You can use the the GET method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/get_wrappingkey_rotation__tenantid_) to check the status of the rotation. This returns the rotation status for all keys for the specified virtual node or cluster-level service.
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```shell
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET "$REST_API_URL/wrappingkey/rotation/p2p"
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method GET -Uri "$REST_API_URL/wrappingkey/rotation/p2p" 
+```
+{{% /tab %}}
+{{< /tabs >}}
