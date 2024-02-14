@@ -4,7 +4,7 @@ date: '2023-11-28'
 menu:
   corda51:
     identifier: corda52-certificates
-    parent: corda51-references
+    parent: corda52-references
     weight: 4000
 ---
 
