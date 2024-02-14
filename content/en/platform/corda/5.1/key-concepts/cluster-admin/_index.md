@@ -2,13 +2,11 @@
 description: "Learn the most important key concepts for Corda 5 Cluster Administrators."
 title: "Architecture for Cluster Administrators"
 date: 2023-07-24
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-key-concepts-cluster-admin
     parent: corda51-key-concepts
     weight: 3000
-section_menu: corda51
 ---
 
 # Architecture for Cluster Administrators
@@ -80,7 +78,15 @@ Corda requires the following types of keys:
 * Ledger
 * CorDapp publisher code signing
 
-All of these keys are stored in the Crypto databases (cluster and virtual nodes) and they are all encrypted at rest with “wrapping keys”:
+{{< note >}}
+It is not currently possible to revoke or rotate keys.
+{{< /note >}}
+
+For a list of the keys and certificates used by Corda, see the [Reference]({{< relref "../../reference/certificates.md" >}}) section.
+
+### Key Wrapping
+
+All keys are stored in the Crypto databases (cluster and virtual nodes) and they are all encrypted at rest with “wrapping keys”:
 
 {{<
   figure
@@ -89,14 +95,10 @@ All of these keys are stored in the Crypto databases (cluster and virtual nodes)
 	 figcaption="Wrapping Keys"
 >}}
 
-The diagram illustrates that key wrapping is hierarchical. The master wrapping key protects other wrapping keys, such as the virtual node related keys, which in turn protect the private keys used by Corda. It must never be possible for someone with a copy of the Corda database, or a virtual node database, to decrypt the keys stored in the database using other information stored in the database. Threfore, the master wrapping key, or the information required to generate this key, must be stored and managed outside Corda. This can be achieved in one of the following ways:
+The diagram illustrates that key wrapping is hierarchical. The master wrapping key protects other wrapping keys, such as the virtual node related keys, which in turn protect the private keys used by Corda. It must never be possible for someone with a copy of the Corda database, or a virtual node database, to decrypt the keys stored in the database using other information stored in the database. Therefore, the master wrapping key, or the information required to generate this key, must be stored and managed outside Corda. This can be achieved in one of the following ways:
 
 * Pass a passphrase and salt, to generate the master key, into the crypto worker processes. For more information, see [Default Secrets Service]({{< relref "../../deploying-operating/deployment/deploying/_index.md#default-secrets-service" >}}).
 * {{< enterprise-icon noMargin="true" >}} Store and manage the master in an external key management system that Corda retrieves when required. For more information, see [External Secrets Service]({{< relref "../../deploying-operating/deployment/deploying/_index.md#external-secrets-service" >}}).
-
-{{< note >}}
-It is not currently possible to revoke or rotate keys.
-{{< /note >}}
 
 ## Kafka
 

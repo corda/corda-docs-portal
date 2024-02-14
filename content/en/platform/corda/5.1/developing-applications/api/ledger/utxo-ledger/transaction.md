@@ -1,13 +1,11 @@
 ---
 date: '2023-11-13'
-version: 'Corda 5.1'
 title: "ledger.utxo.transaction"
 menu:
   corda51:
     identifier: corda51-api-ledger-utxo-transaction
     parent: corda51-api-ledger-utxo
     weight: 2000
-section_menu: corda51
 ---
 # net.corda.v5.ledger.utxo.transaction
 

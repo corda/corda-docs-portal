@@ -1,14 +1,12 @@
 ---
 description: "Learn how registering members submit a pre-auth token in their registration context."
 date: '2023-04-07'
-version: 'Corda 5.1'
 title: "Submitting a Token in a Registration Request"
 menu:
   corda51:
     identifier: corda51-submit-token
     parent: corda51-networks-pre-auth
     weight: 3000
-section_menu: corda51
 ---
 # Submitting a Token in a Registration Request
 

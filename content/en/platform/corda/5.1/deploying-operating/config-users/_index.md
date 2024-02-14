@@ -2,14 +2,11 @@
 description: "Learn how to manage roles and permissions for Corda users."
 date: '2023-02-23'
 title: "Configuring Users"
-project: corda
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-cluster-users
     parent: corda51-cluster
     weight: 4000
-section_menu: corda51
 ---
 # Configuring Users
 

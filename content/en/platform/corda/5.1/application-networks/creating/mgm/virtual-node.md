@@ -1,7 +1,6 @@
 ---
 description: "Learn how to create the MGM virtual node."
 date: '2023-04-07'
-version: 'Corda 5.1'
 title: "Create a Virtual Node for the MGM"
 menu:
   corda51:
@@ -9,7 +8,6 @@ menu:
     identifier: corda51-networks-mgm-virtual-node
     weight: 2000
     name: "Create a Virtual Node"
-section_menu: corda51
 ---
 
 # Create a Virtual Node for the MGM

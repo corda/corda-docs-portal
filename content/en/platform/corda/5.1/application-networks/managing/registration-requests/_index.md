@@ -2,14 +2,11 @@
 description: "Learn how the Network Operator can configure the member registration process and review registration requests."
 date: '2023-04-07'
 title: "Managing Member Registrations"
-project: corda
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-networks-reg-requests
     parent: corda51-networks-manage
     weight: 1000
-section_menu: corda51
 ---
 # Managing Member Registrations
 

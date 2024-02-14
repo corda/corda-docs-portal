@@ -2,14 +2,11 @@
 description: "Learn how to include the Corda 5 Advanced UTXO Ledger Extensions library in your project."
 date: '2023-07-04'
 title: "Including the UTXO Extensions Library"
-project: corda
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-utxo-ledger-getting-utxo-library
     parent: corda51-utxo-advanced-ledger-extensions
     weight: 1000
-section_menu: corda51
 ---
 
 # Including the UTXO Extensions Library
