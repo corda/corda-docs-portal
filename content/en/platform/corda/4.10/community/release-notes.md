@@ -26,8 +26,9 @@ Corda Community Edition 4.10.4 is a patch release of Corda Community Edition foc
 
 ### Fixed issues
 
-* Fixed the delete rule in Log4j configuration to use the correct file names.
+* In the default log4j2.xml file, the Delete action in the DefaultRolloverStrategy policy for log files beginning with `diagnostic-*` or `checkpoints_agent-*`  was incorrect. It erroneously compared against the wrong file names. This issue has been rectified, ensuring that files are now deleted in accordance with the policy.
 * Fixed HSM connectivity issue for TCP connections.
+* Previously, a rare error scenario occurred where a node would erroneously perceive a valid connection to a peer when, in fact, it did not. This issue typically arose when the peer node was disconnecting/connecting. This issue has now been resolved.
 
 ### Third party component upgrades
 
