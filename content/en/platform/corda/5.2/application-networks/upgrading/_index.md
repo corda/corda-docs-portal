@@ -1,5 +1,5 @@
 ---
-description: "Learn how to upgrade the member Corda Package Installers (CPIs) of your application network if an administrator upgrades the Corda cluster from 5.0 to 5.1."
+description: "Learn how to upgrade the member Corda Package Installers (CPIs) of your application network if an administrator upgrades the Corda cluster from 5.1 to 5.2."
 date: '2023-11-22'
 title: "Upgrading an Application Network"
 menu:
@@ -11,7 +11,7 @@ menu:
 
 # Upgrading an Application Network
 
-If an administrator [re-registers the MGM]({{< relref "../creating/mgm/reregister.md" >}}) or [upgrades a Corda cluster from 5.0 to 5.1]({{< relref "../../deploying-operating/deployment/upgrading/_index.md" >}}), you should upgrade the member {{< tooltip >}}CPIs{{< /tooltip >}} of your application network. The `MemberInfo` platform version is set at member registration time and so upgrading members ensures that this value reflects the current version. Upgrading members enables the following:
+If an administrator [re-registers the MGM]({{< relref "../creating/mgm/reregister.md" >}}) or [upgrades a Corda cluster from 5.1 to 5.2]({{< relref "../../deploying-operating/deployment/upgrading/_index.md" >}}), you should upgrade the MGM and the member {{< tooltip >}}CPIs{{< /tooltip >}} of your application network. The `MemberInfo` platform version is set at member registration time and so upgrading members ensures that this value reflects the current version. Upgrading members enables the following:
 
 * Members see the latest `MemberInfo` of the MGM.
 * The MGM can make decisions about members based on their platform version. For example, the MGM can exclude a member from the network if they do not upgrade.
@@ -19,19 +19,24 @@ If an administrator [re-registers the MGM]({{< relref "../creating/mgm/reregiste
 * Ledger system flows can block transactions on members that are not on the current platform version.
 
 {{< note >}}
-There are no other technical limitations to running CorDapps built against Corda 5.0 after a platform upgrade to 5.1. Corda supports backwards compatibility but does not support forwards compatibility; 5.1 applications will not run on 5.0 Corda.
+There are no other technical limitations to running CorDapps built against Corda 5.1 after a platform upgrade to 5.2. Corda supports backwards compatibility but does not support forwards compatibility; 5.2 CorDapps will not run on 5.1 Corda.
 {{< /note >}}
 
 The following sections describe how to upgrade your application network:
 
+1. [Upgrade the MGM](#upgrade-the-mgm)
 1. [Re-export the Group Policy from the MGM](#re-export-the-group-policy-from-the-mgm)
-2. [Repackage the Member CPB](#repackage-the-member-cpb)
-3. [Upload the CPI](#upload-the-cpi)
-4. [Apply the New CPI to Each Virtual Node](#apply-the-new-cpi-to-each-virtual-node)
+1. [Repackage the Member CPB](#repackage-the-member-cpb)
+1. [Upload the CPI](#upload-the-cpi)
+1. [Apply the New CPI to Each Virtual Node](#apply-the-new-cpi-to-each-virtual-node)
+
+## Upgrade the MGM
+
+The first step in upgrading a network is to upgrade the MGM to the new version by [re-registering the MGM]({{< relref "../creating/mgm/reregister.md" >}}).
 
 ## Re-export the Group Policy from the MGM
 
-To retrieve the {{< tooltip >}}group policy{{< /tooltip >}} file from the upgraded {{< tooltip >}}MGM{{< /tooltip >}}:
+After re-registering the MGM, to retrieve the {{< tooltip >}}group policy{{< /tooltip >}} file from the upgraded {{< tooltip >}}MGM{{< /tooltip >}}, do the following:
 
    {{< tabs >}}
    {{% tab name="Bash"%}}
