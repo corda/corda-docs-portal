@@ -11,7 +11,7 @@ menu:
 
 # Upgrading an Application Network
 
-If an administrator [re-registers the MGM]({{< relref "../creating/mgm/reregister.md" >}}) or [upgrades a Corda cluster from 5.1 to 5.2]({{< relref "../../deploying-operating/deployment/upgrading/_index.md" >}}), you should upgrade the MGM and the member {{< tooltip >}}CPIs{{< /tooltip >}} of your application network. The `MemberInfo` platform version is set at member registration time and so upgrading members ensures that this value reflects the current version. Upgrading members enables the following:
+If an administrator [upgrades a Corda cluster from 5.1 to 5.2]({{< relref "../../deploying-operating/deployment/upgrading/_index.md" >}}), you should re-register the MGM and upgrade the member {{< tooltip >}}CPIs{{< /tooltip >}} of your application network. The `MemberInfo` platform version is set at member registration time and so re-registering the MGM and upgrading members ensures that this value reflects the current version. This enables the following:
 
 * Members see the latest `MemberInfo` of the MGM.
 * The MGM can make decisions about members based on their platform version. For example, the MGM can exclude a member from the network if they do not upgrade.
@@ -24,13 +24,14 @@ There are no other technical limitations to running CorDapps built against Corda
 
 The following sections describe how to upgrade your application network:
 
-1. [Upgrade the MGM](#upgrade-the-mgm)
+1. [Re-register the MGM](#re-register-the-mgm)
 1. [Re-export the Group Policy from the MGM](#re-export-the-group-policy-from-the-mgm)
 1. [Repackage the Member CPB](#repackage-the-member-cpb)
 1. [Upload the CPI](#upload-the-cpi)
 1. [Apply the New CPI to Each Virtual Node](#apply-the-new-cpi-to-each-virtual-node)
+1. [Check Member Re-registration](#check-member-re-registration)
 
-## Upgrade the MGM
+## Re-register the MGM
 
 The first step in upgrading a network is to upgrade the MGM to the new version by [re-registering the MGM]({{< relref "../creating/mgm/reregister.md" >}}).
 
@@ -139,3 +140,25 @@ The result contains the `cpiFileChecksum`.
 ## Apply the New CPI to Each Virtual Node
 
 The Cluster Administrator can [apply the new version of the CPI]({{< relref "../../deploying-operating/vnodes/upgrade-cpi.md">}}) using the CPI checksum.
+
+## Check Member Re-registration
+
+To check that a member successfully re-registered with the MGM, retrieve all of the member's registration requests and check that the latest request was approved:
+
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```bash
+export REGISTRATION_ID=<registration-ID>
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/membership/$HOLDING_ID
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/membership/$HOLDING_ID"
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+You can also confirm in the response that the platform version is correct.
+
+If the automatic re-registration was unsuccessful, you must [manually re-register the member]({{< relref "../creating/members/reregister.md" >}}).
