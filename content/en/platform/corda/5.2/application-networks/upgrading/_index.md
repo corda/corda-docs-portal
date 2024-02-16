@@ -148,7 +148,6 @@ To check that a member successfully re-registered with the MGM, retrieve all of 
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```bash
-export REGISTRATION_ID=<registration-ID>
 curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/membership/$HOLDING_ID
 ```
 {{% /tab %}}
