@@ -1,14 +1,12 @@
 ---
 description: "Learn how to register the MGM on a network"
 date: '2023-04-07'
-version: 'Corda 5.1'
 title: "Register the MGM"
 menu:
   corda51:
     parent: corda51-networks-mgm
     identifier: corda51-networks-mgm-register
     weight: 4000
-section_menu: corda51
 ---
 
 # Register the MGM

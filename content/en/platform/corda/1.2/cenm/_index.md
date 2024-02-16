@@ -2,6 +2,9 @@
 aliases:
 - /releases/release-1.2/index.html
 date: '2020-01-08T09:59:25Z'
+project: corda
+section_menu: cenm-1-2
+version: 'CENM 1.2'
 description: "Documentation for the 1.2 release of Corda Enterprise Network Manager (CENM)"
 menu:
   versions:
@@ -55,7 +58,7 @@ CENM Releases
 * [Release notes]({{< relref "../../../../../en/platform/corda/1.2/cenm/release-notes.md" >}})
 * [Upgrading Corda Enterprise Network Manager]({{< relref "../../../../../en/platform/corda/1.2/cenm/upgrade-notes.md" >}})
 * [Changelog]({{< relref "../../../../../en/platform/corda/1.2/cenm/changelog.md" >}})
-* [Legal notice]({{< relref "../../../../../en/platform/corda/1.2/cenm/legal-info-1.2.3.md" >}})
+* [Legal notice]({{< relref "../../../../../en/platform/corda/1.2/cenm/legal-info/legal-info-1.2.3.md" >}})
 
 
 

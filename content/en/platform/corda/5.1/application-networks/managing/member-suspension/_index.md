@@ -2,14 +2,11 @@
 description: "Learn how the Network Operator can suspend and re-activate members."
 date: '2023-05-09'
 title: "Suspending Members"
-project: corda
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-networks-member-suspension
     parent: corda51-networks-manage
     weight: 2000
-section_menu: corda51
 ---
 # Suspending Members
 

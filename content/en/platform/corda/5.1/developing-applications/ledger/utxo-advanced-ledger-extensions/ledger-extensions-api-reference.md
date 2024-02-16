@@ -2,14 +2,11 @@
 description: "Review modules of the Corda 5 Advanced UTXO Ledger Extensions library."
 date: '2023-06-01'
 title: "Ledger Extensions API Reference"
-project: corda
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-utxo-ledger-extensions-api-reference
     parent: corda51-utxo-advanced-ledger-extensions
     weight: 4000
-section_menu: corda51
 ---
 
 # Advanced Ledger Extensions API Reference

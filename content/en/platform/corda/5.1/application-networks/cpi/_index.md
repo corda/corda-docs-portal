@@ -2,13 +2,11 @@
 description: "Learn how to create a new Corda Package Installer (CPI) for a new version of a Corda-deployed CorDapp or an upgraded Corda cluster."
 date: '2023-11-21'
 title: "Creating CPIs"
-version: 'Corda 5.1'
 menu:
   corda51:
     identifier: corda51-networks-cpi
     parent: corda51-networks
     weight: 5000
-section_menu: corda51
 ---
 # Creating CPIs
 

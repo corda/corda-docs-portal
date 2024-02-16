@@ -1,9 +1,11 @@
 {{ $menu := .Page.Params.section_menu }}
 {{ $weight := printf "%s" ".weight" | printf "%s%s" $menu | printf "%s%s" ".Params.menu." | printf "%s" }}
+{{ $name := printf "%s" ".name" | printf "%s%s" $menu | printf "%s%s" "menu." | printf "%s" }}
+
 {{- with .Page.Pages -}}
-<ul>
-{{- range sort . $weight -}}
-<li><a href='{{- .Permalink -}}'>{{ .Title }}</a></li>
-{{- end -}}
-</ul>
+    <ul>
+    {{- range sort . $weight -}}
+        <li><a href='{{- .Permalink -}}'>{{ with .Param $name }} {{ . }} {{ else}}{{ .Title }}{{ end}}</a></li>
+    {{- end -}}
+    </ul>
 {{- end -}}

@@ -23,7 +23,7 @@ the one from the certificate signing request (CSR).
 
 Note: For context on how the certificate revocation list fits into the wider context, see [Certificate Hierarchy Guide]({{< relref "../../../../../en/platform/corda/1.5/cenm/pki-guide.md" >}}). Once added, the entries cannot be removed from the certificate revocation list.
 
-As with CSR, the approval workflow for revocation requests is integrated with the JIRA tool by default,
+As with CSR, the approval workflow for revocation requests is integrated with the Jira tool by default,
 and the submitted requests follow the same lifecycle. To support the above functionality, there are two
 externally available REST endpoints:
 * one for certificate revocation request submission
