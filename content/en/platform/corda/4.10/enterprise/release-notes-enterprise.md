@@ -38,6 +38,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 ### Third party component upgrades
 
 * Jetty version was upgraded from 9.4.51.v20230217 to 9.4.53.v20231009.
+* Apache Tomcat was upgraded from 9.0.82 to 9.0.83 in the node management plugin, which is now at version 1.0.6.
 
 ## Corda Enterprise Edition 4.10.3 release notes
 
