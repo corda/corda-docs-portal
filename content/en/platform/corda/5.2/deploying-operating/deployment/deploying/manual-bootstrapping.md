@@ -142,7 +142,7 @@ Alternatively, the Corda CLI can generate a preview of the required Kafka topic 
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k <CLIENT-PROPERTIES-FILE> create -r <REPLICAS> -p <PARTITIONS> connect -f <YAML-TOPIC-FILE> 
+   corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k <CLIENT-PROPERTIES-FILE> create -r <REPLICAS> -p <PARTITIONS> connect -f <YAML-TOPIC-FILE>
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -182,7 +182,7 @@ connect
 corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
 create -r <REPLICAS> -p <PARTITIONS> `
 -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u flowMapper=<FLOWMAPPER_USER> -u membership=<MEMBERSHIP_USER> `
--u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> 
+-u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER>
 connect
 ```
 {{% /tab %}}
@@ -217,7 +217,7 @@ Create and populate the database schema, as follows:
 {{< note >}}
 
 * If you are applying SQL to a schema using the `psql` command, you can specify which schema to apply it to using the `--dbname` parameter: `--dbname "dbname=cordacluster options=--search_path=<SCHEMA-NAME>"`.
-* If you are targeting schemas, database and crypto-generated SQL should be applied to the `CONFIG` schema, and `create-user-config` generated SQL should be applied to the `RBAC` schema. If you do not specify the schema, the installation process creates the tables in the default schema and you must update the next steps in this procedure to reflect this.
+* If you are targeting schemas, database and crypto-generated SQL should be applied to the `CONFIG` schema, and `create-user-config` generated SQL should be applied to the `RBAC` schema. If you do not specify the schema, the installation process creates the tables in the default schema, and you must update the next steps in this procedure to reflect this.
 {{< /note >}}
 
 ### Create the Database Tables
@@ -243,7 +243,7 @@ Create and populate the database schema, as follows:
 
 2. Review the DML files generated and then execute against the database.
 
-3. Generate the DML file for creating the state manager database table. The following command specifies that the `STATE_MANAGER` schema should be used for the state manager and generates the file in the `/tmp/statemanager` directory:
+3. For each state type and schema (see [State Manager Databases]({{< relref "./_index.md#state-manager-databases">}})), generate the DML file for creating the state manager database table. The following command specifies that the `STATE_MANAGER` schema should be used for the state manager and generates the file in the `/tmp/statemanager` directory:
 
    {{< tabs name="DML-state-manager">}}
    {{% tab name="Bash" %}}
@@ -307,7 +307,7 @@ Depending on your installation, follow the steps in one of the following section
    ```shell
    corda-cli.cmd initial-config create-db-config -u rbacuser -p rc9VLHU3 `
       --name corda-rbac --jdbc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC `
-      --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 ` 
+      --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 `
       --validation-timeout 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
@@ -369,7 +369,7 @@ Depending on your installation, follow the steps in one of the following section
 
 ### Populate the Crypto Database Connection Configuration
 
-Depending on your installation, follow the steps in one of the following sections to generate DDL for populating the RBAC database connection configuration:
+Depending on your installation, follow the steps in one of the following sections to generate DDL for populating the CRYPTO database connection configuration:
 
 * [Crypto Database Connection Configuration for Corda](#crypto-database-connection-configuration-for-corda)
 * [Crypto Database Connection Configuration for Corda Enterprise with HashiCorp Vault](#crypto-database-connection-configuration-for-corda-enterprise-with-hashicorp-vault) {{< enterprise-icon >}}
@@ -476,7 +476,7 @@ Depending on your installation, follow the steps in one of the following section
 
 ### Populate the Virtual Nodes Database Connection Configuration
 
-Depending on your installation, follow the steps in one of the following sections to generate DDL for populating the RBAC database connection configuration:
+Depending on your installation, follow the steps in one of the following sections to generate DDL for populating the VIRTUAL_NODE database connection configuration:
 
 * [Virtual Nodes Database Connection Configuration for Corda](#virtual-nodes-database-connection-configuration-for-corda)
 * [Virtual Nodes Database Connection Configuration for Corda Enterprise with HashiCorp Vault](#virtual-nodes-database-connection-configuration-for-corda-enterprise-with-hashicorp-vault) {{< enterprise-icon >}}
@@ -489,7 +489,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
-     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \ 
+     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \
      --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> \
      --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \
      --is-admin
@@ -498,9 +498,9 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> `
-     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> ` 
+     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> `
      --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> `
-     --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db ` 
+     --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db `
      --is-admin
    ```
    {{% /tab %}}
@@ -521,7 +521,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> \
-     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \ 
+     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>' \
      --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> \
      --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> -t VAULT --vault-path <path-to-corda-created-secrets> --key vnodes -l /tmp/db \
      --is-admin
@@ -530,7 +530,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> `
-     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> ` 
+     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> `
      --jdbc-pool-max-size <MAX-POOL-SIZE> --jdbc-pool-min-size <MIN-POOL-SIZE> --idle-timeout <TIMEOUT> `
      --max-lifetime <LIFETIME> --keepalive-time <LIVENESS> --validation-timeout <TIMEOUT> -t VAULT --vault-path <path-to-corda-created-secrets> --key vnodes -l /tmp/db `
      --is-admin
@@ -549,7 +549,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> \
-     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://prereqs-postgres:5432/cordacluster' \ 
+     --name corda-virtual-nodes --jdbc-url 'jdbc:postgresql://prereqs-postgres:5432/cordacluster' \
      --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 \
      --validation-timeout 5 -t VAULT --vault-path dbsecrets --key vnodes -l /tmp/db \
      --is-admin
@@ -558,7 +558,7 @@ Depending on your installation, follow the steps in one of the following section
    {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> `
-     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://prereqs-postgres:5432/cordacluster ` 
+     --name corda-virtual-nodes --jdbc-url jdbc:postgresql://prereqs-postgres:5432/cordacluster `
      --jdbc-pool-max-size 5 --jdbc-pool-min-size 1 --idle-timeout 100 --max-lifetime 1000 --keepalive-time 60 `
      --validation-timeout 5 -t VAULT --vault-path dbsecrets --key vnodes -l /tmp/db `
      --is-admin
@@ -591,39 +591,68 @@ Depending on your installation, follow the steps in one of the following section
 
 ### Grant Access to the Cluster Database
 
-The cluster database user is the user specified in `db.cluster.username` in the [deployment configuration]({{< relref "./_index.md#configure-the-deployment" >}}). Grant access to this user as follows:
+The cluster database user is the one set through the `config.username` field under each Corda Worker that interacts with the Cluster database (see [deployment configuration]({{< relref "./_index.md#cluster-database" >}})).
+For each Corda Worker that interacts with the Cluster database, grant access to the user as follows:
 
 ```sql
-GRANT USAGE ON SCHEMA CONFIG to <CLUSTER-DB-USER>;
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CONFIG to <CLUSTER-DB-USER>;
-GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA CONFIG TO <CLUSTER-DB-USER>;
-ALTER ROLE <CLUSTER-DB-USER> SET search_path TO CONFIG;
+GRANT USAGE ON SCHEMA "CONFIG" TO "<CONFIG-DB-USERNAME>";
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA "CONFIG" TO "<CONFIG-DB-USERNAME>";
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA "CONFIG" TO "<CONFIG-DB-USERNAME>";
+ALTER ROLE <CONFIG-DB-USERNAME> SET search_path TO "CONFIG";
 ```
 
-### Create the RBAC and Crypto Users
+### Create RBAC, Crypto and Virtual Node Users
 
-Create the RBAC and Crypto users and grant access as follows:
+Using the values defined for `RBAC-USERNAME` and `RBAC-PASSWORD` in [Populate the RBAC database connection configuration](#populate-the-rbac-database-connection-configuration), create the RBAC user and grant access as follows:
 
 ```sql
-CREATE USER <RBAC-USERNAME> WITH ENCRYPTED PASSWORD '<RBAC-PASSWORD>';
-GRANT USAGE ON SCHEMA RBAC to <RBAC-USERNAME>;
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA RBAC to <RBAC-USERNAME>;
-ALTER ROLE <RBAC-USERNAME> SET search_path TO RBAC;
-CREATE USER <CRYPTO-USERNAME> WITH ENCRYPTED PASSWORD '<CRYPTO-PASSWORD>';
-GRANT USAGE ON SCHEMA CRYPTO to <CRYPTO-USERNAME>;
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CRYPTO to <CRYPTO-USERNAME>;
-ALTER ROLE <CRYPTO-USERNAME> SET search_path TO CRYPTO;
+CREATE USER "<RBAC-USERNAME>" WITH ENCRYPTED PASSWORD '<RBAC-PASSWORD>';
+GRANT USAGE ON SCHEMA "RBAC" to "<RBAC-USERNAME>";
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA "RBAC" to "<RBAC-USERNAME>";
+ALTER ROLE "<RBAC-USERNAME>" SET search_path TO "RBAC";
+```
+
+Using the values defined for `CRYPTO-USERNAME` and `CRYPTO-PASSWORD` in [Populate the crypto database connection configuration](#populate-the-crypto-database-connection-configuration), create the Crypto user and grant access as follows:
+
+```sql
+CREATE USER "<CRYPTO-USERNAME>" WITH ENCRYPTED PASSWORD '<CRYPTO-PASSWORD>';
+GRANT USAGE ON SCHEMA "CRYPTO" to "<CRYPTO-USERNAME>";
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA "CRYPTO" to "<CRYPTO-USERNAME>";
+ALTER ROLE "<CRYPTO-USERNAME>" SET search_path TO "CRYPTO";
+```
+
+Using the values defined for `VNODE-USERNAME` and `VNODE-PASSWORD` in [[Populate the virtual nodes database connection configuration](#populate-the-virtual-nodes-database-connection-configuration), create the Virtual Node user and grant access as follows:
+
+```sql
+CREATE USER "<VNODE-USERNAME>" WITH ENCRYPTED PASSWORD '<VNODE-PASSWORD>';
+GRANT USAGE ON SCHEMA "VIRTUAL_NODE" to "<VNODE-USERNAME>";
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA "VIRTUAL_NODE" to "<VNODE-USERNAME>";
+ALTER ROLE "<VNODE-USERNAME>" SET search_path TO "VIRTUAL_NODE";
 ```
 
 ### Grant Access to the State Manager Databases
 
-The state manager database users are configured by the username specified in the `stateManager` configurations for each worker type. Grant access to this user as follows:
+As mentioned in [State Manager Databases]({{< relref "./_index.md#state-manager-databases">}}), Corda Workers use individual set of credentials for accessing any particular state type.
+These credentials are configured at the Corda Worker level, under `stateManager.<STATE_TYPE>.username` and `stateManager.<STATE_TYPE>.password`.
+Moreover, and by default, different state types are assigned to different database schemas, so great care must be taken when granting access.
+
+| <div style="width:100px">STATE-MANAGER-USERNAME </div> | <div style="width:100px">STATE-MANAGER-PERMISSIONS </div> | <div style="width:100px">STATE-MANAGER-SCHEMA </div> |
+|--------------------------------------------------------|-----------------------------------------------------------|------------------------------------------------------|
+| `flow.stateManager.flowCheckpoint.username`            | SELECT, INSERT, UPDATE, DELETE                            | `sm_flow_checkpoint`                                 |
+| `flowMapper.stateManager.flowMapping.username`         | SELECT, INSERT, UPDATE, DELETE                            | `sm_flow_mapping`                                    |
+| `rest.stateManager.flowStatus.username`                | SELECT, INSERT, UPDATE, DELETE                            | `sm_flow_status`                                     |
+| `rest.stateManager.keyRotation.username`               | SELECT                                                    | `sm_key_rotation`                                    |
+| `crypto.stateManager.keyRotation.username`             | SELECT, INSERT, UPDATE, DELETE                            | `sm_key_rotation`                                    |
+| `p2pLinkManager.stateManager..p2pSession.username`     | SELECT, INSERT, UPDATE, DELETE                            | `sm_p2p_session`                                     |
+| `tokenSelection.stateManager.tokenPoolCache.username`  | SELECT, INSERT, UPDATE, DELETE                            | `sm_token_pool_cache`                                |
+
+Using the table above as reference, and going from top to bottom, grant access to the user as follows:
 
 ```sql
-GRANT USAGE ON SCHEMA STATE_MANAGER TO <STATE_MANAGER_USERNAME>;
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA STATE_MANAGER TO <STATE_MANAGER_USERNAME>;
-GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA STATE_MANAGER TO <STATE_MANAGER_USERNAME>;
-ALTER ROLE <STATE_MANAGER_USERNAME> SET search_path TO STATE_MANAGER;
+GRANT USAGE ON SCHEMA "<STATE-MANAGER-SCHEMA>" TO "<STATE-MANAGER-USERNAME>";
+GRANT <STATE-MANAGER-PERMISSIONS> ON ALL TABLES IN SCHEMA "<STATE-MANAGER-SCHEMA>" TO "<STATE-MANAGER-USERNAME>";
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA "<STATE-MANAGER-SCHEMA>" TO "<STATE-MANAGER-USERNAME>";
+ALTER ROLE "<STATE-MANAGER-USERNAME>" SET search_path TO "<STATE-MANAGER-SCHEMA>";
 ```
 
 ### Populate the Crypto Configuration

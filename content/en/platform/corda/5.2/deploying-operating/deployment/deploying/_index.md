@@ -121,7 +121,7 @@ To push the Corda Enterprise images:
    docker tag postgres:14.4 $target_registry/postgres:14.4
    docker push $target_registry/postgres:14.4
    docker tag sha256:9a53f78a8232118072a72bda97e56f2c3395d34a212fe7e575d1af61cda059c6 $target_registry/ingress-nginx-controller:v1.9.3
-   docker push $target_registry/ingress-nginx-controller:v1.9.3   
+   docker push $target_registry/ingress-nginx-controller:v1.9.3
    ```
 
 ## Download the Corda Helm Chart
@@ -156,6 +156,7 @@ The following sections describe the minimal set of configuration options require
 * [REST API]({{< relref "#rest-api" >}})
 * [P2P Gateway]({{< relref "#p2p-gateway" >}})
 * [PostgreSQL]({{< relref "#postgresql" >}})
+* [Kafka Message Bus]({{< relref "#kafka-message-bus" >}})
 * [Encryption]({{< relref "#encryption" >}})
 * [Bootstrapping]({{< relref "#bootstrapping" >}})
 * [Custom Annotations for Worker Pods]({{< relref "#custom-annotations-for-worker-pods" >}})
@@ -414,108 +415,401 @@ The following configuration is required for the Corda databases:
 * [Cluster Database](#cluster-database)
 * [State Manager Databases](#state-manager-databases)
 
+The Platform supports using multiple databases in isolation to spread the load and improve horizontal scalability.
+Starting with version 5.2, all databases must be defined only once within the deployment configuration so that any dependant component can simply reference the database by `id`, this greatly simplifies maintenance and reduces redundant information.
+
+{{< note >}}
+A database with an id set as `default` is always mandatory and, as the names suggests, it will be the database used by default by the Platform if nothing else is configured.
+{{< /note >}}
+
 #### Cluster Database
 
-The password for PostgreSQL can be specified directly as a Helm override, but this is not recommended.
-Instead, create a Kubernetes secret containing the password with a key of `password`. By default, the installation expects a database named `cordacluster`, but this can be overridden. You can then define the PostgreSQL configuration as follows:
+The following Corda Workers require access to the Cluster database, and credentials must be specified for each one independently.
+
+* Crypto Workers.
+* Database Workers.
+* Persistence Workers.
+* Token Selection Workers.
+* Uniqueness Workers.
+
+By default, the installation expects a database named `cordacluster`, but this can be overridden:
 
 ```yaml
-db:
-  cluster:
-    host: <POSTGRESQL_HOST>
+databases:
+  - id: "default"
+    host: <POSTGRESQL_HOST1>
+    name: <POSTGRESQL_CLUSTER_DATABASE_NAME>
     port: 5432
-    username:
-      value: <POSTGRESQL_USER>
-    password:
-      valueFrom:
-        secretKeyRef:
-          name: <POSTGRESQL_PASSWORD_SECRET_NAME>
-          key: <POSTGRESQL_PASSWORD_SECRET_KEY>
-    database: <POSTGRESQL_CLUSTER_DB>
+    type: "postgresql"
+```
+
+A single set of credentials can be specified by referencing, under each worker, a Kubernetes secret containing the `username` and `password`:
+
+```yaml
+config:
+  username:
+    valueFrom:
+      secretKeyRef:
+        key: <POSTGRESQL_CLUSTER_DATABASE_USERNAME_SECRET_KEY>
+        name: <POSTGRESQL_CLUSTER_DATABASE_USERNAME_SECRET_NAME>
+  password:
+    valueFrom:
+      secretKeyRef:
+        key: <POSTGRESQL_CLUSTER_DATABASE_PASSWORD_SECRET_KEY>
+        name: <POSTGRESQL_CLUSTER_DATABASE_PASSWORD_SECRET_NAME>
+```
+
+Alternatively, for finer-grained access control, separate credentials can be specified for each worker:
+
+```yaml
+workers:
+  crypto:
+    config:
+      username:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_CRYPTO_WORKER_USERNAME_SECRET_KEY>
+            name: <POSTGRESQL_CRYPTO_WORKER_USERNAME_SECRET_NAME>
+      password:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_CRYPTO_WORKER_PASSWORD_SECRET_KEY>
+            name: <POSTGRESQL_CRYPTO_WORKER_PASSWORD_SECRET_NAME>
+  db:
+    config:
+      username:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_DB_WORKER_USERNAME_SECRET_KEY>
+            name: <POSTGRESQL_DB_WORKER_USERNAME_SECRET_NAME>
+      password:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_DB_WORKER_PASSWORD_SECRET_KEY>
+            name: <POSTGRESQL_DB_WORKER_PASSWORD_SECRET_NAME>
+  persistence:
+    config:
+      username:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_PERSISTENCE_WORKER_USERNAME_SECRET_KEY>
+            name: <POSTGRESQL_PERSISTENCE_WORKER_USERNAME_SECRET_NAME>
+      password:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_PERSISTENCE_WORKER_PASSWORD_SECRET_KEY>
+            name: <POSTGRESQL_PERSISTENCE_WORKER_PASSWORD_SECRET_NAME>
+  tokenSelection:
+    config:
+      username:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_TOKEN_SELECTION_WORKER_USERNAME_SECRET_KEY>
+            name: <POSTGRESQL_TOKEN_SELECTION_WORKER_USERNAME_SECRET_NAME>
+      password:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_TOKEN_SELECTION_WORKER_PASSWORD_SECRET_KEY>
+            name: <POSTGRESQL_TOKEN_SELECTION_WORKER_PASSWORD_SECRET_NAME>
+  uniqueness:
+    config:
+      username:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_UNIQUENESS_WORKER_USERNAME_SECRET_KEY>
+            name: <POSTGRESQL_UNIQUENESS_WORKER_USERNAME_SECRET_NAME>
+      password:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_UNIQUENESS_WORKER_PASSWORD_SECRET_KEY>
+            name: <POSTGRESQL_UNIQUENESS_WORKER_PASSWORD_SECRET_NAME>
+```
+
+Note that, here, as elsewhere, credentials can be specified directly as part of the overrides using `value` instead of `valueFrom`:
+
+```yaml
+username:
+  value: <USERNAME>
+password:
+  value: <USERNAME>
+```
+
+{{< note >}}
+Even though the password can be specified directly as a Helm override, it is not recommended for security reasons.
+Similarly, even though all Corda Workers can share the same set of credentials, doing so would compromise the security, so it is not recommended either.
+Instead, it is recommended to create a Kubernetes Secret per Corda Worker containing.
+{{< /note >}}
+
+If required, the connection pool used when interacting with the database can also be independently configured at the `config` level within each worker:
+
+```yaml
+config:
+  connectionPool:
+    minSize: <MIN_CONNECTION_POOL_SIZE>
+    maxSize: <MAX_CONNECTION_POOL_SIZE>
+    maxLifetimeSeconds: <MAX_CONNECTION_POOL_LIFE_TIME_SECONDS>
+    idleTimeoutSeconds: <MAX_CONNECTION_POOL_IDLE_TIMEOUT_SECONDS>
+    keepAliveTimeSeconds: <MAX_CONNECTION_POOL_KEEP_ALIVE_TIME_SECONDS>
+    validationTimeoutSeconds: <MAX_CONNECTION_POOL_VALIDATION_TIME_OUT_SECONDS>
 ```
 
 #### State Manager Databases
 
-Corda requires one or more PostgreSQL database instances for the persistence of state. These are referred to as state manager databases. R3 recommends that you deploy separate isolated state manager database instances for the following workers:
+Corda requires one or more PostgreSQL database instances for persisting different State types, these are referred to as State Manager databases.
+Since multiple Corda Workers use, and sometimes share, these database instances, it is recommended to deploy separate and isolated instances for each State type, as doing so improves both the performance and scalability of the Platform.
+If not possible due to cost restrictions, consider at least isolating the following state types in production environments:
 
-* Flow workers
-* Flow mapper workers
-* Token selection workers
+* Flow Mapping
+* Flow Checkpoints
+* Token Pool Cache (if [Token Selection Services]({{< relref "../../../developing-applications/api/ledger/utxo-ledger/token-selection" >}}) are used)
+
+The following table shows the relationship between Corda Workers and State types, along with the access type required by each one.
+
+| <div style="width:100px">State Type </div> | <div style="width:100px">Worker Name </div> | <div style="width:100px">Access Type </div> | <div style="width:100px">Default Schema </div> |
+|--------------------------------------------|---------------------------------------------|---------------------------------------------|------------------------------------------------|
+| `flowCheckpoint`                           | `flow`                                      | READ/WRITE                                  | `sm_flow_checkpoint`                           |
+| `flowMapping`                              | `flowMapper`                                | READ/WRITE                                  | `sm_flow_mapping`                              |
+| `flowStatus`                               | `rest`                                      | READ/WRITE                                  | `sm_flow_status`                               |
+| `keyRotation`                              | `rest`                                      | READ                                        | `sm_key_rotation`                              |
+| `keyRotation`                              | `crypto`                                    | READ/WRITE                                  | `sm_key_rotation`                              |
+| `p2pSession`                               | `p2pLinkManager`                            | READ/WRITE                                  | `sm_p2p_session`                               |
+| `tokenPoolCache`                           | `tokenSelection`                            | READ/WRITE                                  | `sm_token_pool_cache`                          |
 
 {{< note >}}
-If you do not configure state manager databases, Corda deploys the state managers for the flow, flow mapper, and token selection workers on the cluster database. This is not safe for production deployments.
+If you do not configure isolated State Manager databases, by default Corda deploys all of them to the `default` Cluster database, not recommended for production environments.
 {{< /note >}}
 
-The configuration for these instances is defined in `stateManager` sections. At a minimum, the configuration section requires `host`, `username`, and `password`. By default, the installation expects databases named as follows:  
+Similarly to the Cluster database, the configuration for these State Manager database instances is defined using a combination of the `database` and `stateManager` sections.
+Below is a fully fledged example of how to keep the Cluster database and the State Manager databases completely isolated from each other.
 
-* Flow worker: `flow_state_manager`
-* Flow mapper worker: `flow_mapper_state_manager`
-* Token selection worker: `token_selection_state_manager`
+```yaml
+databases:
+  - id: "default"
+    host: <POSTGRESQL_CLUSTER_DATABASE_HOST>
+    name: <POSTGRESQL_CLUSTER_DATABASE_NAME>
+    port: 5432
+    type: "postgresql"
+  - id: "flow-checkpoint-state-manager"
+    host: <POSTGRESQL_FLOW_CHECKPOINT_DATABASE_HOST>
+    name: <POSTGRESQL_FLOW_CHECKPOINT_DATABASE_NAME>
+    port: 5432
+    type: "postgresql"
+  - id: "flow-mapping-state-manager"
+    host: <POSTGRESQL_FLOW_MAPPING_DATABASE_HOST>
+    name: <POSTGRESQL_FLOW_MAPPING_DATABASE_NAME>
+    port: 5432
+    type: "postgresql"
+  - id: "flow-status-state-manager"
+    host: <POSTGRESQL_FLOW_STATUS_DATABASE_HOST>
+    name: <POSTGRESQL_FLOW_STATUS_DATABASE_NAME>
+    port: 5432
+    type: "postgresql"
+  - id: "key-rotation-state-manager"
+    host: <POSTGRESQL_KEY_ROTATION_DATABASE_HOST>
+    name: <POSTGRESQL_KEY_ROTATION_DATABASE_NAME>
+    port: 5432
+    type: "postgresql"
+  - id: "p2p-session-state-manager"
+    host: <POSTGRESQL_P2P_SESSION_DATABASE_HOST>
+    name: <POSTGRESQL_P2P_SESSION_DATABASE_NAME>
+    port: 5432
+    type: "postgresql"
+  - id: "token-pool-cache-state-manager"
+    host: <POSTGRESQL_TOKEN_POOL_CACHE_DATABASE_HOST>
+    name: <POSTGRESQL_TOKEN_POOL_CACHE_DATABASE_NAME>
+    port: 5432
+    type: "postgresql"
 
-These names and the port values can be overridden. You can define the state manager configuration as follows:
+stateManager:
+  flowCheckpoint:
+    type: Database
+    storageId: "flow-checkpoint-state-manager"
+    partition: "sm_flow_checkpoint"
+  flowMapping:
+    type: Database
+    storageId: "flow-mapping-state-manager"
+    partition: "sm_flow_mapping"
+  flowStatus:
+    type: Database
+    storageId: "flow-status-state-manager"
+    partition: "sm_flow_status"
+  keyRotation:
+    type: Database
+    storageId: "key-rotation-state-manager"
+    partition: "sm_key_rotation"
+  p2pSession:
+    type: Database
+    storageId: "p2p-session-state-manager"
+    partition: "sm_p2p_session"
+  tokenPoolCache:
+    type: Database
+    storageId: "token-pool-cache-state-manager"
+    partition: "sm_token_pool_cache"
+```
+
+Opposite to the above (only recommended for development environments), the example below shows how a single database instance can be used for the Cluster and another database instance, isolated, can be used for all State Manager state types.
+
+```yaml
+databases:
+  - id: "default"
+    host: <POSTGRESQL_CLUSTER_DATABASE_HOST>
+    name: <POSTGRESQL_CLUSTER_DATABASE_NAME>
+    port: 5432
+    type: "postgresql"
+  - id: "state-manager"
+    host: <POSTGRESQL_STATE_MANAGER_DATABASE_HOST>
+    name: <POSTGRESQL_STATE_MANAGER_DATABASE_NAME>
+    port: 5432
+    type: "postgresql"
+
+stateManager:
+  flowCheckpoint:
+    type: Database
+    storageId: "state-manager"
+  flowMapping:
+    type: Database
+    storageId: "state-manager"
+  flowStatus:
+    type: Database
+    storageId: "state-manager"
+  keyRotation:
+    type: Database
+    storageId: "state-manager"
+  p2pSession:
+    type: Database
+    storageId: "state-manager"
+  tokenPoolCache:
+    type: Database
+    storageId: "state-manager"
+```
+
+Credentials must be specified for each worker and each state type, as an example:
 
 ```yaml
 workers:
-  flow:
+  crypto:
     stateManager:
-      db:
-        host: <FLOW_STATE_MANAGER_HOST>
-        port: <FLOW_STATE_MANAGER_PORT>
-        name: <FLOW_STATE_MANAGER_DATABASE_NAME>
+      keyRotation:
         username:
-          value: <FLOW_STATE_MANAGER_USER>
+          valueFrom:
+            secretKeyRef:
+              key: <POSTGRESQL_KEY_ROTATION_CRYPTO_WORKER_USERNAME_SECRET_KEY>
+              name: <POSTGRESQL_KEY_ROTATION_CRYPTO_WORKER_USERNAME_SECRET_NAME>
         password:
           valueFrom:
             secretKeyRef:
-              name: <FLOW_STATE_MANAGER_PASSWORD_SECRET_NAME>
-              key: <FLOW_STATE_MANAGER_PASSWORD_SECRET_KEY>
-  
+              key: <POSTGRESQL_KEY_ROTATION_CRYPTO_WORKER_PASSWORD_SECRET_KEY>
+              name: <POSTGRESQL_KEY_ROTATION_CRYPTO_WORKER_PASSWORD_SECRET_NAME>
+  flow:
+    stateManager:
+      flowCheckpoint:
+        username:
+          valueFrom:
+            secretKeyRef:
+              key: <POSTGRESQL_FLOW_CHECKPOINT_USERNAME_SECRET_KEY>
+              name: <POSTGRESQL_FLOW_CHECKPOINT_USERNAME_SECRET_NAME>
+        password:
+          valueFrom:
+            secretKeyRef:
+              key: <POSTGRESQL_FLOW_CHECKPOINT_PASSWORD_SECRET_KEY>
+              name: <POSTGRESQL_FLOW_CHECKPOINT_PASSWORD_SECRET_NAME>
   flowMapper:
     stateManager:
-      db:
-        host: <FLOW_MAPPER_STATE_MANAGER_HOST>
-        port: <FLOW_MAPPER_STATE_MANAGER_PORT>
-        name: <FLOW_MAPPER_STATE_MANAGER_DATABASE_NAME>
+      flowMapping:
         username:
-          value: <FLOW_MAPPER_STATE_MANAGER_USER>
+          valueFrom:
+            secretKeyRef:
+              key: <POSTGRESQL_FLOW_MAPPING_USERNAME_SECRET_KEY>
+              name: <POSTGRESQL_FLOW_MAPPING_USERNAME_SECRET_NAME>
         password:
           valueFrom:
             secretKeyRef:
-              name: <FLOW_MAPPER_STATE_MANAGER_PASSWORD_SECRET_NAME>
-              key: <FLOW_MAPPER_STATE_MANAGER_PASSWORD_SECRET_KEY>
-
+              key: <POSTGRESQL_FLOW_MAPPING_PASSWORD_SECRET_KEY>
+              name: <POSTGRESQL_FLOW_MAPPING_PASSWORD_SECRET_NAME>
+  p2pLinkManager:
+    stateManager:
+      p2pSession:
+        username:
+          valueFrom:
+            secretKeyRef:
+              key: <POSTGRESQL_P2P_SESSION_USERNAME_SECRET_KEY>
+              name: <POSTGRESQL_P2P_SESSION_USERNAME_SECRET_NAME>
+        password:
+          valueFrom:
+            secretKeyRef:
+              key: <POSTGRESQL_P2P_SESSION_PASSWORD_SECRET_KEY>
+              name: <POSTGRESQL_P2P_SESSION_PASSWORD_SECRET_NAME>
   tokenSelection:
     stateManager:
-      db:
-        host: <TOKEN_SELECTION_STATE_MANAGER_HOST>
-        port: <TOKEN_SELECTION_STATE_MANAGER_PORT>
-        name: <TOKEN_SELECTION_STATE_MANAGER_DATABASE_NAME>
+      tokenPoolCache:
         username:
-          value: <TOKEN_SELECTION_STATE_MANAGER_USER>
+          valueFrom:
+            secretKeyRef:
+              key: <POSTGRESQL_TOKEN_POOL_CACHE_USERNAME_SECRET_KEY>
+              name: <POSTGRESQL_TOKEN_POOL_CACHE_USERNAME_SECRET_NAME>
         password:
           valueFrom:
             secretKeyRef:
-              name: <TOKEN_SELECTION_STATE_MANAGER_PASSWORD_SECRET_NAME>
-              key: <TOKEN_SELECTION_STATE_MANAGER_PASSWORD_SECRET_KEY>
+              key: <POSTGRESQL_TOKEN_POOL_CACHE_PASSWORD_SECRET_KEY>
+              name: <POSTGRESQL_TOKEN_POOL_CACHE_PASSWORD_SECRET_NAME>
+  rest:
+    stateManager:
+      keyRotation:
+        username:
+          valueFrom:
+            secretKeyRef:
+              key: <POSTGRESQL_KEY_ROTATION_REST_WORKER_USERNAME_SECRET_KEY>
+              name: <POSTGRESQL_KEY_ROTATION_REST_WORKER_USERNAME_SECRET_NAME>
+        password:
+          valueFrom:
+            secretKeyRef:
+              key: <POSTGRESQL_KEY_ROTATION_REST_WORKER_PASSWORD_SECRET_KEY>
+              name: <POSTGRESQL_KEY_ROTATION_REST_WORKER_PASSWORD_SECRET_NAME>
+      flowStatus:
+        username:
+          valueFrom:
+            secretKeyRef:
+              key: <POSTGRESQL_FLOW_STATUS_USERNAME_SECRET_KEY>
+              name: <POSTGRESQL_FLOW_STATUS_USERNAME_SECRET_NAME>
+        password:
+          valueFrom:
+            secretKeyRef:
+              key: <POSTGRESQL_FLOW_STATUS_PASSWORD_SECRET_KEY>
+              name: <POSTGRESQL_FLOW_STATUS_PASSWORD_SECRET_NAME>
 ```
 
-You can also override the default JDBC connection pool configurations for each worker type, for example:
+Note that, here, as elsewhere, credentials can be specified directly as part of the overrides using `value` instead of `valueFrom`:
+
+```yaml
+username:
+  value: <USERNAME>
+password:
+  value: <USERNAME>
+```
+
+{{< note >}}
+Even though the password can be specified directly as a Helm override, it is not recommended for security reasons.
+Similarly, even though Corda Workers can share the same set of credentials when sharing a State Manager database, doing so would compromise the security, so it is not recommended either.
+Instead, it is recommended to create a Kubernetes Secret per Corda Worker and State Type.
+{{< /note >}}
+
+If required, the connection pool used when interacting with the database can be independently configured for each state type within each worker, as an example:
 
 ```yaml
 workers:
-  flow:
+  rest:
     stateManager:
-      db:
+      keyRotation:
         connectionPool:
-          maxSize: <MAX_JDBC_CONNECTION_POOL_SIZE_PER_WORKER>
-          minSize: <MIN_JDBC_CONNECTION_POOL_SIZE_PER_WORKER>
-          idleTimeoutSeconds: <MAX_TIME_SECONDS_CONNECTION_IDLE_IN_POOL>
-          maxLifetimeSeconds: <MAX_TIME_SECONDS_CONNECTION_STAYS_IN_POOL>
-          keepAliveTimeSeconds: <INTERVAL_TIME_SECONDS_CONNECTIONS_TESTED_FOR_ALIVENESS>
-          validationTimeoutSeconds: <MAX_TIME_SECONDS_POOL_WAITS_FOR_CONNECTION_TO_BE_VALIDATED>
+          minSize: <MIN_CONNECTION_POOL_SIZE>
+          maxSize: <MAX_CONNECTION_POOL_SIZE>
+          maxLifetimeSeconds: <MAX_CONNECTION_POOL_LIFE_TIME_SECONDS>
+          idleTimeoutSeconds: <MAX_CONNECTION_POOL_IDLE_TIMEOUT_SECONDS>
+          keepAliveTimeSeconds: <MAX_CONNECTION_POOL_KEEP_ALIVE_TIME_SECONDS>
+          validationTimeoutSeconds: <MAX_CONNECTION_POOL_VALIDATION_TIME_OUT_SECONDS>
 ```
 
-### Kafka Bootstrap Servers
+### Kafka Message Bus
 
 Specify the Kafka bootstrap servers as a comma-separated list:
 
@@ -542,7 +836,7 @@ kafka:
 If the broker certificate is self-signed or cannot be trusted for some other reason, create a Kubernetes secret containing the client {{< tooltip >}}trust store{{< /tooltip >}}. The trust store can be in PEM or {{< tooltip >}}JKS{{< /tooltip >}} format. If JKS format is used, you can supply a password for the trust store. The following example is for a trust store in PEM format stored against the `ca.crt` key in the Kubernetes secret:
 
 ```yaml
-kafka
+kafka:
   tls:
     secretRef:
       name: <TRUST-STORE-SECRET-NAME>
@@ -751,54 +1045,8 @@ when the deployment completes contain instructions for how to retrieve this. Thi
             key: "password"
   ```
 
-By default, the bootstrap process and, subsequently at runtime, the crypto and database workers, use a single database user.
-R3 recommends configuring separate bootstrap and runtime users, by specifying a bootstrap user as follows:
-
- ```yaml
-bootstrap:
-  db:
-    cluster:
-      username:
-        value: <POSTGRESQL_BOOTSTRAP_USER>
-      password:
-        valueFrom:
-          secretKeyRef:
-            name: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_NAME>
-            key: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_KEY>
-```
-
-R3 also recommends configuring a separate bootstrap user for each state manager database, for example:
-
-```yaml
-bootstrap:
-  db:
-    enabled: true
-    stateManager:
-      flow:
-        username:
-          value: <FLOW_STATE_MANAGER_BOOTSTRAP_USER>
-         password:
-           valueFrom:
-             secretKeyRef:
-               name: <FLOW_STATE_MANAGER_BOOTSTRAP_PASSWORD_SECRET_NAME>
-               key: <FLOW_STATE_MANAGER_BOOTSTRAP_PASSWORD_SECRET_KEY>
-      flowMapper:
-        username:
-          value: <FLOW_MAPPER_STATE_MANAGER_BOOTSTRAP_USER>
-          password:
-           valueFrom:
-             secretKeyRef:
-               name: <FLOW_MAPPER_STATE_MANAGER_BOOTSTRAP_PASSWORD_SECRET_NAME>
-               key: <FLOW_MAPPER_STATE_MANAGER_BOOTSTRAP_PASSWORD_SECRET_KEY>
-      tokenSelection:
-        username:
-          value: <TOKEN_SELECTION_STATE_MANAGER_BOOTSTRAP_USER>
-          password:
-           valueFrom:
-             secretKeyRef:
-               name: <TOKEN_SELECTION_STATE_MANAGER_BOOTSTRAP_PASSWORD_SECRET_NAME>
-               key: <TOKEN_SELECTION_STATE_MANAGER_BOOTSTRAP_PASSWORD_SECRET_KEY>
-```
+For security reasons, it is recommended to use separate bootstrap and runtime credentials for all databases, which is what the installation does by default.
+If desired, this can be changed at deployment time by overriding the Helm Chart values.
 
 #### RBAC
 
@@ -825,7 +1073,7 @@ For example, when running with Red Hat OpenShift Container Platform, you must us
    apiVersion: v1
    metadata:
      name: corda-privileged
-
+   ---
    kind: Role
    apiVersion: rbac.authorization.k8s.io/v1
    metadata:
@@ -839,7 +1087,7 @@ For example, when running with Red Hat OpenShift Container Platform, you must us
          - securitycontextconstraints
        resourceNames:
          - privileged
-
+   ---
    kind: RoleBinding
    apiVersion: rbac.authorization.k8s.io/v1
    metadata:
@@ -933,7 +1181,13 @@ If the pre-install checks fail (for example, if Kafka or PostgreSQL are not avai
 The example in this section is included only for illustrative purposes. You must use the information provided to determine the correct configuration file for your environment.
 {{< /warning >}}
 
-The following example shows a complete configuration file for Corda deployment in an environment in which Kafka is using a trusted TLS certificate, SASL authentication is enabled, the REST API is exposed via an AWS Network Load Balancer, and the generated password for the initial admin user is retrieved from a secret.
+The following example shows a complete configuration file for Corda deployment in an environment in which:
+- The Cluster database is isolated from the State Manager database.
+- All manged state types are stored within a single State Manager database.
+- Kafka is using a trusted TLS certificate and SASL authentication is enabled.
+- Runtime credentials (unique per worker) to access Cluster database are automatically generated during deployment.
+- Runtime credentials (unique per worker and state type) to access State Manager database are automatically generated during deployment.
+- The REST API is exposed via an AWS Network Load Balancer, and the generated password for the initial admin user is retrieved from a secret.
 
 ```yaml
 image:
@@ -952,22 +1206,18 @@ resources:
 
 serviceAccount:
   name: "corda-privileged"
-bootstrap:
-  serviceAccount:
-    name: "corda-privileged"
 
-db:
-  cluster:
-    host: "postgres.example.com"
+databases:
+  - id: "default"
+    name: "cordacluster"
     port: 5432
-    database: "cordacluster"
-    username:
-      value: "user"
-    password:
-      valueFrom:
-        secretKeyRef:
-          name: "postgres-secret"
-          key: "password"
+    type: "postgresql"
+    host: "postgres.example.com"
+  - id: "state-manager"
+    name: "statemanager"
+    port: 5432
+    type: "postgresql"
+    host: "postgres-state-manager.example.com"
 
 kafka:
   bootstrapServers: "kafka-1.example.com,kafka-2.example.com,kafka-3.example.com"
@@ -981,38 +1231,23 @@ bootstrap:
   db:
     clientImage:
       registry: "registry.example.com"
-    cluster:
-      username:
-        value: "bootstrap-user"
-      password:
-        valueFrom:
-          secretKeyRef:
-            key: "bootstrap-password"
-    stateManager:
-      flow:
+    databases:
+      - id: "default"
         username:
-          value: "postgres"
+          value: "user"
         password:
           valueFrom:
             secretKeyRef:
-              name: "flow-state-manager-db-postgresql"
-              key: "postgres-password"
-      flowMapper:
+              key: "password"
+              name: "postgres-secret"
+      - id: "state-manager"
         username:
-          value: "postgres"
+          value: "state-manager-user"
         password:
           valueFrom:
             secretKeyRef:
-              name: "flow-mapper-state-manager-db-postgresql"
-              key: "postgres-password"
-      tokenSelection:
-        username:
-          value: "postgres"
-        password:
-          valueFrom:
-            secretKeyRef:
-              name: "token-selection-state-manager-db-postgresql"
-              key: "postgres-password"
+              key: "password"
+              name: "state-manager-postgres-secret"
   kafka:
     sasl:
       username:
@@ -1022,10 +1257,26 @@ bootstrap:
           secretKeyRef:
             name: "kafka-credentials"
             key: "bootstrap"
-  serviceAccount: "corda-privileged"
+  serviceAccount:
+    name: "corda-privileged"
+
+stateManager:
+  flowCheckpoint:
+    storageId: "state-manager"
+  flowMapping:
+    storageId: "state-manager"
+  flowStatus:
+    storageId: "state-manager"
+  keyRotation:
+    storageId: "state-manager"
+  p2pSession:
+    storageId: "state-manager"
+  tokenPoolCache:
+    storageId: "state-manager"
 
 workers:
   crypto:
+    replicaCount: 3
     kafka:
       sasl:
         username:
@@ -1035,9 +1286,13 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "crypto"
-    replicaCount: 3
-
   db:
+    replicaCount: 2
+    resources:
+      requests:
+        memory: 2048Mi
+      limits:
+        memory: 2048Mi
     kafka:
       sasl:
         username:
@@ -1047,14 +1302,13 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "db"
+  flow:
+    replicaCount: 6
     resources:
       requests:
         memory: 2048Mi
       limits:
         memory: 2048Mi
-    replicaCount: 2
-
-  flow:
     kafka:
       sasl:
         username:
@@ -1064,24 +1318,8 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "flow"
-    resources:
-      requests:
-        memory: 2048Mi
-      limits:
-        memory: 2048Mi
-    replicaCount: 6
-    stateManager:
-      db:
-        host: "flow-state-manager-db-postgresql"
-        username:
-          value: "statemanager-user"
-        password:
-          valueFrom:
-            secretKeyRef:
-              name: "flow-state-manager-db-postgresql"
-              key: "password"
-
   flowMapper:
+    replicaCount: 3
     kafka:
       sasl:
         username:
@@ -1091,31 +1329,8 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "flowMapper"
-    replicaCount: 3
-    stateManager:
-      db:
-        host: "flow-mapper-state-manager-db-postgresql"
-        username:
-          value: "statemanager-user"
-        password:
-          valueFrom:
-            secretKeyRef:
-              name: "flow-mapper-state-manager-db-postgresql"
-              key: "password"
-
-  verification:
-    kafka:
-      sasl:
-        username:
-          value: "verification"
-        password:
-          valueFrom:
-            secretKeyRef:
-              name: "kafka-credentials"
-              key: "verification"
-    replicaCount: 3
-
   membership:
+    replicaCount: 3
     kafka:
       sasl:
         username:
@@ -1125,9 +1340,8 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "membership"
-    replicaCount: 3
-
   p2pGateway:
+    replicaCount: 3
     kafka:
       sasl:
         username:
@@ -1137,9 +1351,8 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "p2pGateway"
-    replicaCount: 3
-
   p2pLinkManager:
+    replicaCount: 3
     kafka:
       sasl:
         username:
@@ -1149,9 +1362,13 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "p2pLinkManager"
-    replicaCount: 3
-
   persistence:
+    replicaCount: 3
+    resources:
+      requests:
+        memory: 2048Mi
+      limits:
+        memory: 2048Mi
     kafka:
       sasl:
         username:
@@ -1161,36 +1378,8 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "persistence"
-    resources:
-      requests:
-        memory: 2048Mi
-      limits:
-        memory: 2048Mi
-    replicaCount: 3
-
-  tokenSelection:
-    kafka:
-      sasl:
-        username:
-          value: "tokenSelection"
-        password:
-          valueFrom:
-            secretKeyRef:
-              name: "kafka-credentials"
-              key: "tokenSelection"
-    replicaCount: 3
-    stateManager:
-      db:
-        host: "token-selection-state-manager-db-postgresql"
-        username:
-          value: "statemanager-user"
-        password:
-          valueFrom:
-            secretKeyRef:
-              name: "token-selection-state-manager-db-postgresql"
-              key: "password"
-
   rest:
+    replicaCount: 3
     kafka:
       sasl:
         username:
@@ -1200,7 +1389,6 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "rest"
-    replicaCount: 3
     service:
       type: "LoadBalancer"
       annotations:
@@ -1208,8 +1396,19 @@ workers:
         service.beta.kubernetes.io/aws-load-balancer-scheme: "internal"
         service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
         external-dns.beta.kubernetes.io/hostname: "corda.example.com"
-
+  tokenSelection:
+    replicaCount: 3
+    kafka:
+      sasl:
+        username:
+          value: "tokenSelection"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "kafka-credentials"
+              key: "tokenSelection"
   uniqueness:
+    replicaCount: 3
     kafka:
       sasl:
         username:
@@ -1219,7 +1418,17 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "uniqueness"
+  verification:
     replicaCount: 3
+    kafka:
+      sasl:
+        username:
+          value: "verification"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "kafka-credentials"
+              key: "verification"
 ```
 
 ## Deployment
