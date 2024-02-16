@@ -127,7 +127,7 @@ To rotate the master wrapping key, do the following:
    ```
    {{% /tab %}}
    {{< /tabs >}}
-   Corda wraps all new managed wrapping keys with this new master wrapping key.
+   Corda will wrap any new managed wrapping keys with this new master wrapping key.
 3. Rotate the old master key to the new default master key using the POST method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/post_wrappingkey_rotation__tenantid_):
    {{< tabs >}}
    {{% tab name="Bash"%}}
