@@ -591,8 +591,8 @@ Depending on your installation, follow the steps in one of the following section
 
 ### Grant Access to the Cluster Database
 
-The cluster database user is the one set through the `config.username` field under each Corda Worker that interacts with the Cluster database (see [deployment configuration]({{< relref "./_index.md#cluster-database" >}})).
-For each Corda Worker that interacts with the Cluster database, grant access to the user as follows:
+The cluster database user is the user set in the `config.username` field under each Corda worker that interacts with the cluster database (see [deployment configuration]({{< relref "./_index.md#cluster-database" >}})).
+For each Corda Worker that interacts with the cluster database, grant access to the user as follows:
 
 ```sql
 GRANT USAGE ON SCHEMA "CONFIG" TO "<CONFIG-DB-USERNAME>";
@@ -621,7 +621,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA "CRYPTO" to "<CRYPT
 ALTER ROLE "<CRYPTO-USERNAME>" SET search_path TO "CRYPTO";
 ```
 
-Using the values defined for `VNODE-USERNAME` and `VNODE-PASSWORD` in [[Populate the virtual nodes database connection configuration](#populate-the-virtual-nodes-database-connection-configuration), create the Virtual Node user and grant access as follows:
+Using the values defined for `VNODE-USERNAME` and `VNODE-PASSWORD` in [[Populate the virtual nodes database connection configuration](#populate-the-virtual-nodes-database-connection-configuration), create the virtual node user and grant access as follows:
 
 ```sql
 CREATE USER "<VNODE-USERNAME>" WITH ENCRYPTED PASSWORD '<VNODE-PASSWORD>';
@@ -632,9 +632,9 @@ ALTER ROLE "<VNODE-USERNAME>" SET search_path TO "VIRTUAL_NODE";
 
 ### Grant Access to the State Manager Databases
 
-As mentioned in [State Manager Databases]({{< relref "./_index.md#state-manager-databases">}}), Corda Workers use individual set of credentials for accessing any particular state type.
-These credentials are configured at the Corda Worker level, under `stateManager.<STATE_TYPE>.username` and `stateManager.<STATE_TYPE>.password`.
-Moreover, and by default, different state types are assigned to different database schemas, so great care must be taken when granting access.
+As mentioned in [State Manager Databases]({{< relref "./_index.md#state-manager-databases">}}), Corda workers use individual sets of credentials for accessing any particular state type.
+These credentials are configured at the Corda worker level, under `stateManager.<STATE_TYPE>.username` and `stateManager.<STATE_TYPE>.password`.
+By default, different state types are assigned to different database schemas and so you must grant access carefully.
 
 | <div style="width:100px">STATE-MANAGER-USERNAME </div> | <div style="width:100px">STATE-MANAGER-PERMISSIONS </div> | <div style="width:100px">STATE-MANAGER-SCHEMA </div> |
 |--------------------------------------------------------|-----------------------------------------------------------|------------------------------------------------------|

@@ -415,24 +415,24 @@ The following configuration is required for the Corda databases:
 * [Cluster Database](#cluster-database)
 * [State Manager Databases](#state-manager-databases)
 
-The Platform supports using multiple databases in isolation to spread the load and improve horizontal scalability.
-Starting with version 5.2, all databases must be defined only once within the deployment configuration so that any dependant component can simply reference the database by `id`, this greatly simplifies maintenance and reduces redundant information.
+Corda supports using multiple databases in isolation to spread the load and improve horizontal scalability.
+All databases must be defined only once within the deployment configuration and any dependant component can simply reference the database by `id`. This greatly simplifies maintenance and reduces redundant information.
 
 {{< note >}}
-A database with an id set as `default` is always mandatory and, as the names suggests, it will be the database used by default by the Platform if nothing else is configured.
+A database with an `id` set as `default` is always mandatory. Corda uses this database if nothing else is configured.
 {{< /note >}}
 
 #### Cluster Database
 
-The following Corda Workers require access to the Cluster database, and credentials must be specified for each one independently.
+The following Corda workers require access to the cluster database, and credentials must be specified for each one independently.
 
-* Crypto Workers.
-* Database Workers.
-* Persistence Workers.
-* Token Selection Workers.
-* Uniqueness Workers.
+* Crypto Workers
+* Database Workers
+* Persistence Workers
+* Token Selection Workers
+* Uniqueness Workers
 
-By default, the installation expects a database named `cordacluster`, but this can be overridden:
+By default, Corda expects a database named `cordacluster`, but you can override this, as follows:
 
 ```yaml
 databases:
@@ -525,7 +525,7 @@ workers:
             name: <POSTGRESQL_UNIQUENESS_WORKER_PASSWORD_SECRET_NAME>
 ```
 
-Note that, here, as elsewhere, credentials can be specified directly as part of the overrides using `value` instead of `valueFrom`:
+Note that, as elsewhere, credentials can be specified directly as part of the overrides using `value` instead of `valueFrom`:
 
 ```yaml
 username:
@@ -535,9 +535,9 @@ password:
 ```
 
 {{< note >}}
-Even though the password can be specified directly as a Helm override, it is not recommended for security reasons.
-Similarly, even though all Corda Workers can share the same set of credentials, doing so would compromise the security, so it is not recommended either.
-Instead, it is recommended to create a Kubernetes Secret per Corda Worker containing.
+Although the password can be specified directly as a Helm override, it is not recommended for security reasons.
+Similarly, although all Corda workers can share the same set of credentials, doing so compromises security and so is also not recommended.
+Instead, we recommend you create a Kubernetes Secret per Corda worker containing the credentials.
 {{< /note >}}
 
 If required, the connection pool used when interacting with the database can also be independently configured at the `config` level within each worker:
@@ -555,15 +555,15 @@ config:
 
 #### State Manager Databases
 
-Corda requires one or more PostgreSQL database instances for persisting different State types, these are referred to as State Manager databases.
-Since multiple Corda Workers use, and sometimes share, these database instances, it is recommended to deploy separate and isolated instances for each State type, as doing so improves both the performance and scalability of the Platform.
+Corda requires one or more PostgreSQL database instances for persisting different state types. These are referred to as state manager databases.
+Multiple Corda workers use, and sometimes share, these database instances and so, to improve both performance and scalability, we recommend deploying separate and isolated instances for each state type.
 If not possible due to cost restrictions, consider at least isolating the following state types in production environments:
 
 * Flow Mapping
 * Flow Checkpoints
 * Token Pool Cache (if [Token Selection Services]({{< relref "../../../developing-applications/api/ledger/utxo-ledger/token-selection" >}}) are used)
 
-The following table shows the relationship between Corda Workers and State types, along with the access type required by each one.
+The following table shows the relationship between Corda workers and state types and with the access type required by each one:
 
 | <div style="width:100px">State Type </div> | <div style="width:100px">Worker Name </div> | <div style="width:100px">Access Type </div> | <div style="width:100px">Default Schema </div> |
 |--------------------------------------------|---------------------------------------------|---------------------------------------------|------------------------------------------------|
@@ -576,11 +576,11 @@ The following table shows the relationship between Corda Workers and State types
 | `tokenPoolCache`                           | `tokenSelection`                            | READ/WRITE                                  | `sm_token_pool_cache`                          |
 
 {{< note >}}
-If you do not configure isolated State Manager databases, by default Corda deploys all of them to the `default` Cluster database, not recommended for production environments.
+If you do not configure isolated state manager databases, by default, Corda deploys all of them to the `default` cluster database. This is not recommended for production environments.
 {{< /note >}}
 
-Similarly to the Cluster database, the configuration for these State Manager database instances is defined using a combination of the `database` and `stateManager` sections.
-Below is a fully fledged example of how to keep the Cluster database and the State Manager databases completely isolated from each other.
+Similarly to the cluster database, the configuration for these state manager database instances is defined using a combination of the `database` and `stateManager` sections.
+The following is a full example of how to keep the cluster database and all of the state manager databases completely isolated from each other.
 
 ```yaml
 databases:
@@ -647,7 +647,7 @@ stateManager:
     partition: "sm_token_pool_cache"
 ```
 
-Opposite to the above (only recommended for development environments), the example below shows how a single database instance can be used for the Cluster and another database instance, isolated, can be used for all State Manager state types.
+In contrast to the above, and only recommended for development environments, the following example shows how a single database instance can be used for the cluster and another database instance, isolated, can be used for all state manager state types.
 
 ```yaml
 databases:
@@ -778,7 +778,7 @@ workers:
               name: <POSTGRESQL_FLOW_STATUS_PASSWORD_SECRET_NAME>
 ```
 
-Note that, here, as elsewhere, credentials can be specified directly as part of the overrides using `value` instead of `valueFrom`:
+Note that, as elsewhere, credentials can be specified directly as part of the overrides using `value` instead of `valueFrom`:
 
 ```yaml
 username:
@@ -788,12 +788,12 @@ password:
 ```
 
 {{< note >}}
-Even though the password can be specified directly as a Helm override, it is not recommended for security reasons.
-Similarly, even though Corda Workers can share the same set of credentials when sharing a State Manager database, doing so would compromise the security, so it is not recommended either.
-Instead, it is recommended to create a Kubernetes Secret per Corda Worker and State Type.
+Although the password can be specified directly as a Helm override, it is not recommended for security reasons.
+Similarly, although all Corda workers can share the same set of credentials, doing so compromises security and so is also not recommended.
+Instead, we recommend you create a Kubernetes Secret per Corda worker containing the credentials.
 {{< /note >}}
 
-If required, the connection pool used when interacting with the database can be independently configured for each state type within each worker, as an example:
+If required, the connection pool used when interacting with the database can be independently configured for each state type within each worker. For example:
 
 ```yaml
 workers:
@@ -1045,8 +1045,8 @@ when the deployment completes contain instructions for how to retrieve this. Thi
             key: "password"
   ```
 
-For security reasons, it is recommended to use separate bootstrap and runtime credentials for all databases, which is what the installation does by default.
-If desired, this can be changed at deployment time by overriding the Helm Chart values.
+For security reasons, we recommended using separate bootstrap and runtime credentials for all databases. This is the default behaviour.
+If required, you can change this at deployment time by overriding the Helm Chart values.
 
 #### RBAC
 
@@ -1182,12 +1182,12 @@ The example in this section is included only for illustrative purposes. You must
 {{< /warning >}}
 
 The following example shows a complete configuration file for Corda deployment in an environment in which:
-- The Cluster database is isolated from the State Manager database.
-- All manged state types are stored within a single State Manager database.
-- Kafka is using a trusted TLS certificate and SASL authentication is enabled.
-- Runtime credentials (unique per worker) to access Cluster database are automatically generated during deployment.
-- Runtime credentials (unique per worker and state type) to access State Manager database are automatically generated during deployment.
-- The REST API is exposed via an AWS Network Load Balancer, and the generated password for the initial admin user is retrieved from a secret.
+- ahe Cluster database is isolated from the State Manager database.
+- all manged state types are stored within a single State Manager database.
+- Kafka uses a trusted TLS certificate and SASL authentication is enabled.
+- runtime credentials (unique per worker) to access cluster databases are automatically generated during deployment.
+- runtime credentials (unique per worker and state type) to access state manager database are automatically generated during deployment.
+- the REST API is exposed via an AWS Network Load Balancer, and the generated password for the initial admin user is retrieved from a secret.
 
 ```yaml
 image:
