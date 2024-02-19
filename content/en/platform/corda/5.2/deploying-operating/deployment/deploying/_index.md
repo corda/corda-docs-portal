@@ -439,7 +439,7 @@ databases:
     type: "postgresql"
 ```
 
-A single set of credentials can be specified by referencing, under each worker, a Kubernetes secret containing the `username` and `password`:
+A single set of credentials can be specified by referencing, under each worker, the following configuration that defines a Kubernetes secret containing the `username` and `password`:
 
 ```yaml
 config:
