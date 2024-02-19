@@ -535,17 +535,19 @@ Although the password can be specified directly as a Helm override, R3 does not 
 Similarly, although all Corda workers can share the same set of credentials, R3 recommends you create a Kubernetes Secret per Corda worker containing the credentials.
 {{< /note >}}
 
-If required, the connection pool used when interacting with the database can also be independently configured at the `config` level within each worker:
+If required, the connection pool used when interacting with the database can also be independently configured at the `config` level within each worker, as an example:
 
 ```yaml
-config:
-  connectionPool:
-    minSize: <MIN_CONNECTION_POOL_SIZE>
-    maxSize: <MAX_CONNECTION_POOL_SIZE>
-    maxLifetimeSeconds: <MAX_CONNECTION_POOL_LIFE_TIME_SECONDS>
-    idleTimeoutSeconds: <MAX_CONNECTION_POOL_IDLE_TIMEOUT_SECONDS>
-    keepAliveTimeSeconds: <MAX_CONNECTION_POOL_KEEP_ALIVE_TIME_SECONDS>
-    validationTimeoutSeconds: <MAX_CONNECTION_POOL_VALIDATION_TIME_OUT_SECONDS>
+workers:
+  crypto:
+    config:
+      connectionPool:
+        minSize: <MIN_CONNECTION_POOL_SIZE>
+        maxSize: <MAX_CONNECTION_POOL_SIZE>
+        maxLifetimeSeconds: <MAX_CONNECTION_POOL_LIFE_TIME_SECONDS>
+        idleTimeoutSeconds: <MAX_CONNECTION_POOL_IDLE_TIMEOUT_SECONDS>
+        keepAliveTimeSeconds: <MAX_CONNECTION_POOL_KEEP_ALIVE_TIME_SECONDS>
+        validationTimeoutSeconds: <MAX_CONNECTION_POOL_VALIDATION_TIME_OUT_SECONDS>
 ```
 
 #### State Manager Databases
