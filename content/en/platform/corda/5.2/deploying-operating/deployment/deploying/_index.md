@@ -247,7 +247,7 @@ These numbers are only suggestions and you should make your own decisions about 
 
 ### Resource Requests and Limits
 
-Specify a default set of resource requests and limits for the Corda containers. The following are recommended as a starting point:
+Specify a default set of resource requests and limits for the Corda containers. R3 recommends the following as a starting point:
 
 ```yaml
 resources:
@@ -263,7 +263,7 @@ It is particularly important to specify resource requests when using a Kubernete
 {{< /note >}}
 
 You can also override the default resource requests and limits separately for each type of Corda worker.
-For example, we recommend starting with higher memory limits for the database and flow workers:
+For example, R3 recommends starting with higher memory limits for the database and flow workers:
 
 ```yaml
 workers:
@@ -285,15 +285,11 @@ As with the number of replicas, you may need to adjust these values based on tes
 
 #### Recommended Infrastructure
 
-For an AWS topology, we recommend the following initial configuration:
+For an AWS topology, R3 recommends the following initial configuration:
 
-* Kubernetes: For a cluster with a single replica of each worker, a Kubernetes cluster with two `t3.2xlarge` nodes is
-  a reasonable starting point. For a cluster with three replicas of each worker, extend that to four nodes.
-* RDS PostgreSQL: `db.r5.large` instance size is sufficient for both a Corda cluster with a single replica of each worker
-  and three replicas of each worker, subject to the persistence requirements of any {{< tooltip >}}CorDapp{{< /tooltip >}} running in the cluster.
-* MSK: For a cluster with a single replica of each worker and a topic replica count of three, a Kafka cluster of three
-  `kafka.t3.small` instances may suffice. In a high-availability topology with three replicas of each worker and a topic replica count
-  of three, we recommend five brokers using at least `kafka.m5.large` instances.
+* Kubernetes: For a cluster with a single replica of each worker, a Kubernetes cluster with two `t3.2xlarge` nodes is a reasonable starting point. For a cluster with three replicas of each worker, extend that to four nodes.
+* RDS PostgreSQL: `db.r5.large` instance size is sufficient for both a Corda cluster with a single replica of each worker and three replicas of each worker, subject to the persistence requirements of any {{< tooltip >}}CorDapp{{< /tooltip >}} running in the cluster.
+* MSK: For a cluster with a single replica of each worker and a topic replica count of three, a Kafka cluster of three `kafka.t3.small` instances may suffice. In a high-availability topology with three replicas of each worker and a topic replica count of three, R3 recommends five brokers using at least `kafka.m5.large` instances.
 
 ### REST API
 
@@ -312,7 +308,7 @@ To enable access from outside the Kubernetes cluster, use one of the following:
 
 ##### Kubernetes Ingress
 
-We recommend configuring [Kubernetes Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) to provide the REST worker with HTTP load balancing.
+R3 recommends configuring [Kubernetes Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) to provide the REST worker with HTTP load balancing.
 For example, to use an [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/) deployed with the class name `nginx`:
 
 ```yaml
@@ -535,9 +531,8 @@ password:
 ```
 
 {{< note >}}
-Although the password can be specified directly as a Helm override, it is not recommended for security reasons.
-Similarly, although all Corda workers can share the same set of credentials, doing so compromises security and so is also not recommended.
-Instead, we recommend you create a Kubernetes Secret per Corda worker containing the credentials.
+Although the password can be specified directly as a Helm override, R3 does not recommend this for security reasons.
+Similarly, although all Corda workers can share the same set of credentials, R3 recommends you create a Kubernetes Secret per Corda worker containing the credentials.
 {{< /note >}}
 
 If required, the connection pool used when interacting with the database can also be independently configured at the `config` level within each worker:
@@ -556,7 +551,7 @@ config:
 #### State Manager Databases
 
 Corda requires one or more PostgreSQL database instances for persisting different state types. These are referred to as state manager databases.
-Multiple Corda workers use, and sometimes share, these database instances and so, to improve both performance and scalability, we recommend deploying separate and isolated instances for each state type.
+Multiple Corda workers use, and sometimes share, these database instances and so, to improve both performance and scalability, R3 recommends deploying separate and isolated instances for each state type.
 If not possible due to cost restrictions, consider at least isolating the following state types in production environments:
 
 * Flow Mapping
@@ -576,7 +571,7 @@ The following table shows the relationship between Corda workers and state types
 | `tokenPoolCache`                           | `tokenSelection`                            | READ/WRITE                                  | `sm_token_pool_cache`                          |
 
 {{< note >}}
-If you do not configure isolated state manager databases, by default, Corda deploys all of them to the `default` cluster database. This is not recommended for production environments.
+If you do not configure isolated state manager databases, by default, Corda deploys all of them to the `default` cluster database. R3 does not recommend this for production environments.
 {{< /note >}}
 
 Similarly to the cluster database, the configuration for these state manager database instances is defined using a combination of the `database` and `stateManager` sections.
@@ -788,9 +783,8 @@ password:
 ```
 
 {{< note >}}
-Although the password can be specified directly as a Helm override, it is not recommended for security reasons.
-Similarly, although all Corda workers can share the same set of credentials, doing so compromises security and so is also not recommended.
-Instead, we recommend you create a Kubernetes Secret per Corda worker containing the credentials.
+Although the password can be specified directly as a Helm override, R3 does not recommend this for security reasons.
+Similarly, although all Corda workers can share the same set of credentials, R3 recommends that you create a Kubernetes Secret per Corda worker containing the credentials.
 {{< /note >}}
 
 If required, the connection pool used when interacting with the database can be independently configured for each state type within each worker. For example:
@@ -1045,7 +1039,7 @@ when the deployment completes contain instructions for how to retrieve this. Thi
             key: "password"
   ```
 
-For security reasons, we recommended using separate bootstrap and runtime credentials for all databases. This is the default behaviour.
+For security reasons, R3 recommends using separate bootstrap and runtime credentials for all databases. This is the default behaviour.
 If required, you can change this at deployment time by overriding the Helm Chart values.
 
 #### RBAC
