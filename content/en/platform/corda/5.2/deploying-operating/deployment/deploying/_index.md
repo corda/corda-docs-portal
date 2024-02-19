@@ -283,14 +283,6 @@ workers:
 
 As with the number of replicas, you may need to adjust these values based on testing with your actual application workload.
 
-#### Recommended Infrastructure
-
-For an AWS topology, R3 recommends the following initial configuration:
-
-* Kubernetes: For a cluster with a single replica of each worker, a Kubernetes cluster with two `t3.2xlarge` nodes is a reasonable starting point. For a cluster with three replicas of each worker, extend that to four nodes.
-* RDS PostgreSQL: `db.r5.large` instance size is sufficient for both a Corda cluster with a single replica of each worker and three replicas of each worker, subject to the persistence requirements of any {{< tooltip >}}CorDapp{{< /tooltip >}} running in the cluster.
-* MSK: For a cluster with a single replica of each worker and a topic replica count of three, a Kafka cluster of three `kafka.t3.small` instances may suffice. In a high-availability topology with three replicas of each worker and a topic replica count of three, R3 recommends five brokers using at least `kafka.m5.large` instances.
-
 ### REST API
 
 The following configuration options are available for the [REST API]({{< relref "../../../reference/rest-api/_index.md" >}}):
