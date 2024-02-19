@@ -431,23 +431,7 @@ databases:
     type: "postgresql"
 ```
 
-A single set of credentials can be specified by referencing, under each worker, the following configuration that defines a Kubernetes secret containing the `username` and `password`:
-
-```yaml
-config:
-  username:
-    valueFrom:
-      secretKeyRef:
-        key: <POSTGRESQL_CLUSTER_DATABASE_USERNAME_SECRET_KEY>
-        name: <POSTGRESQL_CLUSTER_DATABASE_USERNAME_SECRET_NAME>
-  password:
-    valueFrom:
-      secretKeyRef:
-        key: <POSTGRESQL_CLUSTER_DATABASE_PASSWORD_SECRET_KEY>
-        name: <POSTGRESQL_CLUSTER_DATABASE_PASSWORD_SECRET_NAME>
-```
-
-Alternatively, for finer-grained access control, separate credentials can be specified for each worker:
+Credentials must be specified for each worker that requires access to the cluster database:
 
 ```yaml
 workers:
