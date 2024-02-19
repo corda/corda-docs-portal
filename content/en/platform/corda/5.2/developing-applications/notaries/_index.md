@@ -6,7 +6,7 @@ menu:
   corda52:
     identifier: corda52-develop-notaries
     parent: corda52-develop
-    weight: 4500
+    weight: 4600
 ---
 # Notaries
 
@@ -16,14 +16,14 @@ This section outlines how to configure a notary for a Corda {{< tooltip >}}appli
 * [Notary Plugin CorDapps](#notary-plugin-cordapps)
 
 {{< note >}}
-Notary virtual nodes use an additional “uniqueness” database for capturing state data for double-spend prevention. This is similar to the existing “crypto” and “vault” databases. Currently, when auto-provisioning virtual node databases, a uniqueness database is always provisioned, regardless of whether it is a notary virtual node or not. This will be addressed in a future release.
+Notary virtual nodes use an additional `uniqueness` database for capturing state data for double-spend prevention. This is similar to the existing `crypto` and `vault` databases. Currently, when auto-provisioning virtual node databases, a uniqueness database is always provisioned, regardless of whether it is a notary virtual node or not. This will be addressed in a future release.
 {{< /note >}}
 
 ## Network Member Roles
 
 With the introduction of the {{< tooltip >}}UTXO{{< /tooltip >}} ledger and notaries, Network Operators must be aware of the different roles that exist on a network. Network participants can take one of three roles:
 
-* **Application:** Members which run a {{< tooltip >}}CPI{{< /tooltip >}} containing a {{< tooltip >}}CPB{{< /tooltip >}} which provides a {{< tooltip >}}CorDapp{{< /tooltip >}} to run on the network. Most members fulfil this role, and would be our archetypical “Alice” or “Bob” nodes.
+* **Application:** Members which run a {{< tooltip >}}CPI{{< /tooltip >}} containing a {{< tooltip >}}CPB{{< /tooltip >}} which provides a {{< tooltip >}}CorDapp{{< /tooltip >}} to run on the network. Most members fulfil this role, and are our archetypical “Alice” or “Bob” nodes.
 * **Notary:** Members which run a CPI containing a CPB which provide a notarization service to the network. These are effectively representatives of a notary service, similar to how notary workers represented a notary service in a Corda 4 high-availability notary setup.
 * **MGM:** The Membership Group Manager. In the context of notary functionality, there is nothing special or different about the {{< tooltip >}}MGM{{< /tooltip >}}. The MGM virtual node is deployed as part of your standard network setup.
 
@@ -34,7 +34,7 @@ Notary functionality is provided in the form of plugin CorDapps. In theory, anyo
 * A **client**, or **application** CPB, which is used to generate a {{< tooltip >}}CPI{{< /tooltip >}} associated with application virtual nodes. At a minimum, this contains a {{< tooltip >}}CPK{{< /tooltip >}} that has an initiating {{< tooltip >}}flow{{< /tooltip >}} that is automatically invoked by the Corda 5 flow framework to initiate a notarization request.
 * A **notary server** CPB (Corda Package Bundle), which is used to generate a CPI associated with notary virtual nodes. At a minimum, this contains a CPK that has a responder flow to what is packaged in the client CPB.
 
-For {{< version >}}, only a single notary protocol is provided, the **non-validating notary protocol**.
+For {{< version >}}, only a single notary protocol is provided, the **non-validating notary protocol**. !!!!!
 
 ### Plugin Packaging
 
