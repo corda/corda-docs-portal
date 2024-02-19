@@ -47,15 +47,17 @@ To rotate the master wrapping key, do the following:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.crypto", "version":"1", "config": \
-    "{\"caching\ :\"expireAfterAccessMins\":{\"default\":60},\"maximumSize\" :{\"default\":10000}},\"hsm\": \
-    {\"defaultWrappingKey\":\"master2\",\"retrying\": {\"attemptTimeoutMills\":20000, \"maxAttempts\":3}, \"wrappingKeys\": \
-    [{\"alias\":\"master1\", \"passphrase\": {\"configSecret\": {\"encryptedSecret\" :\"ZAmGcppwqUNsViSE06b801DVARbD9wT7SZnYP03WKZFOnC9KTsII04pWWq5Je2CUZdP+xIsHFUO3RkZVwhwnyQhWoxcW6JEo\"}},\"salt\": \
-    {\"configSecret\":{\"encryptedSecret\":\"cvNVJ4D7fNGm59Uh3Tlhi0W3pToDxl7vykUdZaxEuEPGUMdmu7G+xTEfl0CcC2R9aWl6FgrzmX5x+qCGNElUi/PBA40EGjEU\"}}}, \
-    {\"alias\":\"master2\",\"passphrase\":{\"configSecret\": {\"encryptedSecret\":\"gzXRjE4AoZSW8GQhcqbw0shQfwWGy5O8alNDqXaqTUzyUnLBVUXLwhv+uAEZzecQixiaEaNtfOvuftYW9NjwwRyf6m4KZIag\"}},\"salt\": \
-    {\"configSecret\":{\"encryptedSecret\":\"flvAnf5G/aRmDIaahXHjftEpc0odufhzZsuiipxtQTFV+pccB+RHnIqle26jjDlDUBfn3HPbVezKhpRHL/NP5M+cX/rU15DE\"}}}]}, \
-    \"retrying\":{\"maxAttempts\": {\"default\": 3},\"waitBetweenMills\":{\"default\":[200]}}}}","schemaVersion": {"major":1, "minor":0}}' \
-    "$REST_API_URL/config"
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD  -X 'PUT' \
+  '$REST_API_URL/config' \
+  -d '{
+  "section": "corda.crypto",
+  "config": "{\"caching\":{\"expireAfterAccessMins\":{\"default\":60},\"maximumSize\":{\"default\":10000}},\"hsm\":{\"defaultWrappingKey\":\"master2\",\"retrying\":{\"attemptTimeoutMills\":20000,\"maxAttempts\":3},\"wrappingKeys\":[{\"alias\":\"master1\",\"passphrase\":{\"configSecret\":{\"encryptedSecret\":\"ZAmGcppwqUNsViSE06b801DVARbD9wT7SZnYP03WKZFOnC9KTsII04pWWq5Je2CUZdP+xIsHFUO3RkZVwhwnyQhWoxcW6JEo\"}},\"salt\":{\"configSecret\":{\"encryptedSecret\":\"cvNVJ4D7fNGm59Uh3Tlhi0W3pToDxl7vykUdZaxEuEPGUMdmu7G+xTEfl0CcC2R9aWl6FgrzmX5x+qCGNElUi/PBA40EGjEU\"}}},{\"alias\":\"master2\",\"passphrase\":{\"configSecret\":{\"encryptedSecret\":\"gzXRjE4AoZSW8GQhcqbw0shQfwWGy5O8alNDqXaqTUzyUnLBVUXLwhv+uAEZzecQixiaEaNtfOvuftYW9NjwwRyf6m4KZIag\"}},\"salt\":{\"configSecret\":{\"encryptedSecret\":\"flvAnf5G/aRmDIaahXHjftEpc0odufhzZsuiipxtQTFV+pccB+RHnIqle26jjDlDUBfn3HPbVezKhpRHL/NP5M+cX/rU15DE\"}}}]},\"retrying\":{\"maxAttempts\":{\"default\":3},\"waitBetweenMills\":{\"default\":[200]}}}",
+  "schemaVersion": {
+    "major": 1,
+    "minor": 0
+  },
+  "version": 0
+}'
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
