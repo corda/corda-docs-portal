@@ -1177,7 +1177,7 @@ The example in this section is included only for illustrative purposes. You must
 
 The following example shows a complete configuration file for Corda deployment in an environment in which:
 - the Cluster database is isolated from the State Manager database.
-- all manged state types are stored within a single State Manager database.
+- all managed state types are stored within a single State Manager database.
 - Kafka uses a trusted TLS certificate and SASL authentication is enabled.
 - runtime credentials (unique per worker) to access cluster databases are automatically generated during deployment.
 - runtime credentials (unique per worker and state type) to access state manager database are automatically generated during deployment.
