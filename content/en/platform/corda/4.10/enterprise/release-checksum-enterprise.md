@@ -20,6 +20,28 @@ The Corda Enterprise release consists of multiple release packs. You can downloa
 
 Before you install the downloaded packs, verify the integrity of each pack using the respective checksum file to ensure it has not been tampered with or corrupted during the download. You can do this by calculating the checksum of your downloaded file, then comparing its value to the checksum value provided below.
 
+## Release packs and checksums for Corda Enterprise Edition 4.10.4
+
+The release packs and checksum files for Corda Enterprise 4.10.4 can be downloaded from the Customer Hub.
+
+The following release packs are available, along with their respective checksum files:
+
+* devtest-4.10.4.tar.gz
+
+  Required for building, developing and testing CorDapps.
+
+* runtime-4.10.4.tar.gz
+
+  Required to run Corda.
+
+The following release packs are provided as optionals for external tools, SDKs, and CorDapps:
+
+* optional-sdk-4.10.4.tar.gz
+
+* optional-gateway-plugins-4.10.4.tar.gz
+
+* optional-tools-4.10.4.tar.gz
+
 ## Release packs and checksums for Corda Enterprise Edition 4.10.3
 
 The release packs and checksum files for Corda Enterprise 4.10.3 can be downloaded from the Customer Hub.
@@ -48,7 +70,7 @@ The release packs and checksum files for Corda Enterprise 4.10.2 can be download
 
 The following release packs are available, along with their respective checksum files:
 
-* devtest-4.10.2.tar.gz 
+* devtest-4.10.2.tar.gz
 
   Checksum file: *release-pack-devtest-4.10.2.md*
 
@@ -62,13 +84,13 @@ The following release packs are available, along with their respective checksum 
 
 The following release packs are provided as optionals for external tools, SDKs, and CorDapps:
 
-* optional-sdk-4.10.2.tar.gz 
+* optional-sdk-4.10.2.tar.gz
 
   Checksum file: *release-pack-optional-sdk-4.10.2.md*
 
 * optional-gateway-plugins-4.10.2.tar.gz
 
-  Checksum file: *release-pack-optional-gateway-plugins-4.10.2.md* 
+  Checksum file: *release-pack-optional-gateway-plugins-4.10.2.md*
 
 * optional-tools-4.10.2.tar.gz
 

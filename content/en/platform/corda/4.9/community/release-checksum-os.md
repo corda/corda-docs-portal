@@ -13,6 +13,14 @@ menu:
 
 Before you install the downloaded files, verify the integrity of each file to ensure it has not been tampered with or corrupted during the download. You can do this by calculating the checksum of your downloaded file, then comparing its value to the checksum value provided below.
 
+## Release packs and checksums for Corda Community Edition 4.9.9
+
+* Zip archive: https://download.corda.net/corda-community-edition/4.9.9/community-4.9.9.zip
+* Tar archive: https://download.corda.net/corda-community-edition/4.9.9/community-4.9.9.tar
+
+Checksums for release-os-4.9.9
+
+
 ## Release packs and checksums for Corda Community Edition 4.9.8
 
 * Zip archive: https://download.corda.net/corda-community-edition/4.9.8/community-4.9.8.zip
