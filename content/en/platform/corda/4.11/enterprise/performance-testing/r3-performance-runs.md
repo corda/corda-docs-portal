@@ -124,7 +124,7 @@ enterpriseConfiguration = {
 devMode = false
 ```
 
-Depending on the type of machines used, it is recommended that the `rpcThreadPoolSize` does not exceed the number of
+Depending on the type of machines used, R3 recommends that the `rpcThreadPoolSize` does not exceed the number of
 virtual cores (that is, 2 x number of cores when hyperthreading is enabled), and the `flowThreadPoolSize` should be around
 4 times the number of virtual cores. Depending on other factors like disk I/O, networking, memory, etc., tweaking these
 numbers can yield better performance results.
@@ -149,7 +149,7 @@ Corda checkpointing mechanism means that many checkpoints are written to the dat
 flow finishes. Checkpoints will only be read when a flow is resumed or restarted, which might not happen a lot when
 running a large number of short-lived flows. Therefore, a read-optimised database server (as, for example, the hosted database
 instances offered by the big cloud providers) is not ideal for a busy Corda node and will limit throughput.
-It is recommended to manage the database server manually and optimise for write throughput at least as much as for read.
+R3 recommends to manage the database server manually and optimise for write throughput at least as much as for read.
 
 
 ## Test Plan
