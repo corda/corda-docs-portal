@@ -196,7 +196,7 @@ See [Generating a node]({{< relref "generating-a-node.md" >}}).
 {{< /note >}}
 
 {{< warning >}}
-This tool requires additional memory footprint and R3 recommended a minimal heap size of at least 1Gb.
+This tool requires additional memory footprint and R3 recommends a minimal heap size of at least 1Gb.
 
 {{< /warning >}}
 
