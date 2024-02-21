@@ -31,7 +31,7 @@ This section explains how to configure the above components and the following di
 
 ## Recommended Key and Cert hierarchy
 
-For SSL to work some PKI infrastructure must be in place. We recommend generating a self signed root key that can
+For SSL to work some PKI infrastructure must be in place. R3 recommends generating a self signed root key that can
 then be used to sign a key for each service. This way, all that needs distributing to the machines hosting the JVMs
 running the ENM components is a keystore containing the trust root (the Certificate representing the root key) and a
 keystore containing the keypair generated for that service.

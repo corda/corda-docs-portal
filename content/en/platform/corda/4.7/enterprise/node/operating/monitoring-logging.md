@@ -264,6 +264,6 @@ The values for `keyStorePassword` and `trustStorePassword` in the above example 
 
 
 {{< warning >}}
-This method does not offer full protection. We recommend using further obfuscation methods for sensitive data.
+This method does not offer full protection. R3 recommends using further obfuscation methods for sensitive data.
 
 {{< /warning >}}

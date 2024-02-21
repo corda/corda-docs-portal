@@ -106,9 +106,9 @@ schema modification rights. For more information, see [Corda Database Management
 
 ### Database users
 
-We recommend creating one database user with schema modification rights so as to be able to create the schema objects
+R3 recommends creating one database user with schema modification rights so as to be able to create the schema objects
 necessary for the operation of the notary. However, this user should not be used for the operation of the notary for
-security reasons. We recommend the creation of a user with more limited permissions for the operation of the notary. This
+security reasons. R3 recommends the creation of a user with more limited permissions for the operation of the notary. This
 would be set in the configuration of the notary in the `dataSourceProperties` section.
 
 

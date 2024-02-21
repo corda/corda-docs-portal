@@ -36,7 +36,7 @@ Node Registration Tool.
 
 ## Linux: Installing and running Corda as a system service
 
-We recommend creating system services to run a node. This provides logging and service
+R3 recommends creating system services to run a node. This provides logging and service
 handling, and ensures the Corda service is run at boot.
 
 **Prerequisites**:
@@ -153,7 +153,7 @@ exec java -jar /opt/corda/corda.jar
 * Make the following changes to `corda.service` or `corda.conf`:
 
 * Make sure the service description is informative - particularly if you plan to run multiple nodes.
-* Change the username to the user account you want to use to run Corda. **We recommend that this user account is
+* Change the username to the user account you want to use to run Corda. **R3 recommends that this user account is
 not root**
 * **SystemD**: Make sure the `corda.service` file is owned by root with the correct permissions:
 
@@ -190,7 +190,7 @@ SystemD or Upstart configuration files so they are unique.
 
 ## Windows: Installing and running Corda as a Windows service
 
-We recommend running Corda as a Windows service. This provides service handling, ensures the Corda service is run
+R3 recommends running Corda as a Windows service. This provides service handling, ensures the Corda service is run
 at boot, and means the Corda service stays running with no users connected to the server.
 
 **Prerequisites**:

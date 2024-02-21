@@ -783,6 +783,6 @@ try {
 {{< /tabs >}}
 
 {{< note >}}
-To avoid having to `flush` the sessions manually in order to survive non-database exceptions, we recommend that you keep any code that is likely to cause such errors out of `withEntityManager` blocks.
+To avoid having to `flush` the sessions manually in order to survive non-database exceptions, R3 recommends that you keep any code that is likely to cause such errors out of `withEntityManager` blocks.
 
 {{< /note >}}
