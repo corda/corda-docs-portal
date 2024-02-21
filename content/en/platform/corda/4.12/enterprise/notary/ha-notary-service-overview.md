@@ -68,7 +68,7 @@ will be highly-available. This is because the notary service can continue proces
 replicas and/or notary workers fail. For example, a three-node notary cluster can tolerate one crash fault.
 
 {{< note >}}
-In production, we recommend running five or more replicas in the notary state database cluster. However, there is more flexibility regarding the number of notary workers. Since for notary workers, we are only concerned with availability and not durability, there is a tradeoff between the number of notary workers and availability performance.
+In production, R3 recommends running five or more replicas in the notary state database cluster. However, there is more flexibility regarding the number of notary workers. Since for notary workers, we are only concerned with availability and not durability, there is a tradeoff between the number of notary workers and availability performance.
 {{< /note >}}
 
 If desired, you can choose to run each database server and its Corda notary worker on the same machine:
@@ -103,7 +103,7 @@ local files. You can find out more in the [permissioning]({{< relref "../network
 
 {{< note >}}
 The key store aliases for the worker identity, worker node CA and notary service are fully configurable. Unique worker identity and node
-CA aliases are required for the workers to share the same HA HSM. Although not required for all deployment scenarios, it is recommended
+CA aliases are required for the workers to share the same HA HSM. Although not required for all deployment scenarios, R3 recommends
 to configure unique worker aliases. See [node configuration file]({{< relref "../node/setup/corda-configuration-fields.md" >}}) for more information.
 {{< /note >}}
 

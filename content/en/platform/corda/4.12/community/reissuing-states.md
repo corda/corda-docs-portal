@@ -266,7 +266,7 @@ The issuing party must be a trusted party and is expected to act in an appropria
 
 #### Possibility of other party reissuing the state
 
-If the issuing party is not a participant and issuer information is not included in state to be reissued, any party can reissue a state. Therefore, it is recommended to include issuer information inside the state.
+If the issuing party is not a participant and issuer information is not included in state to be reissued, any party can reissue a state. Therefore, R3 recommends to include issuer information inside the state.
 
 #### The issuing party is corrupted
 

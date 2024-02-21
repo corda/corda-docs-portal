@@ -196,7 +196,7 @@ See [Generating a node]({{< relref "generating-a-node.md" >}}).
 {{< /note >}}
 
 {{< warning >}}
-This tool requires additional memory footprint and we recommended a minimal heap size of at least 1Gb.
+This tool requires additional memory footprint and R3 recommends a minimal heap size of at least 1Gb.
 
 {{< /warning >}}
 
@@ -267,7 +267,7 @@ determine whether the VM has been instrumented or not at runtime.
 
 The agent will log output to a log4j2 configured logger.
 
-It is recommended to configure a separate log file to capture this information by configuring an appender as follows:
+R3 recommends to configure a separate log file to capture this information by configuring an appender as follows:
 
 ```xml
 <Logger name="CheckpointAgent" level="info" additivity="false">

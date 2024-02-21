@@ -36,7 +36,7 @@ On a server machine with many processor cores, this can lead to over a 100 threa
 threads fighting for resources, and memory contention and very poor performance will be the result.
 
 In Corda Enterprise, these properties can be controlled via the node configuration.
-It is recommended to keep a diary of changes during the tweaking of any parameters, or ideally have the node configuration under version
+R3 recommends to keep a diary of changes during the tweaking of any parameters, or ideally have the node configuration under version
 control so it is easy to go back and check settings for previous results.
 
 
@@ -125,7 +125,7 @@ The database should be running on a separate server. Corda has some rather unusu
 checkpoints to the database, but only ever reads them when a flow needs to be restarted, the amount of data written to the database can
 vastly exceed the amount of data read and index look-ups performed. Checkpoints are usually written once and removed once the flow finishes.
 Therefore, a standard, read-optimised database as is e.g. on offer from cloud providers does not suit the performance requirements of Corda
-very well. It is recommended to run a dedicated database on a server that has fast disks, so the writing of checkpoints does not slow
+very well. R3 recommends to run a dedicated database on a server that has fast disks, so the writing of checkpoints does not slow
 the processing down.
 
 Depending on the write performance of the database, it might be useful to have a separate database server for each node rather than having
