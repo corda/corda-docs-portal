@@ -32,7 +32,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 ### Fixed issues
 
 * In the default log4j2.xml file, the Delete action in the DefaultRolloverStrategy policy for log files beginning with `diagnostic-*` or `checkpoints_agent-*`  was incorrect. It erroneously compared against the wrong file names. This issue has been rectified, ensuring that files are now deleted in accordance with the policy.
-* Resolved a TLS connection issue regression when using an HSM to store TLS private keys.
+* Resolved a TLS connection issue regression when using a HSM to store TLS private keys.
 * Previously, a rare error scenario could occur where a node would erroneously perceive a valid connection to a peer when, in fact, it was not connected. This issue typically arose when the peer node was disconnecting/connecting. This issue has now been resolved.
 
 ### Third party component upgrades
