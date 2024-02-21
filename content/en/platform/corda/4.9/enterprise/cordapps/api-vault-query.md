@@ -972,7 +972,7 @@ If the results you were expecting do not match actual returned query results, we
 
 ## Other use-case scenarios
 
-For advanced use cases that require sophisticated pagination, sorting, grouping, and aggregation functions, it is recommended that the CorDapp developer utilise one of the many proven frameworks that ship with this capability out of the box, namely, implementations of JPQL (JPA Query Language) such as Hibernate for advanced SQL access, and Spring Data for advanced pagination and ordering constructs.
+For advanced use cases that require sophisticated pagination, sorting, grouping, and aggregation functions, R3 recommends that the CorDapp developer utilise one of the many proven frameworks that ship with this capability out of the box, namely, implementations of JPQL (JPA Query Language) such as Hibernate for advanced SQL access, and Spring Data for advanced pagination and ordering constructs.
 
 ## Mapping owning keys to external IDs
 

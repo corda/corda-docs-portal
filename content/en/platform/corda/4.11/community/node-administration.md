@@ -148,7 +148,7 @@ The following JMX statistics are exported:
 
 ### Notes for production use
 
-When using Jolokia monitoring in production, it is recommended to use a Jolokia agent that reads the metrics from the node
+When using Jolokia monitoring in production, R3 recommends to use a Jolokia agent that reads the metrics from the node
 and pushes them to the metrics storage, rather than exposing a port on the production machine/process to the internet.
 
 Also ensure to have restrictive Jolokia access policy in place for access to production nodes. The Jolokia access is controlled

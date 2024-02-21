@@ -648,7 +648,7 @@ Now that it’s calling `ReceiveFinalityFlow`, which effectively does the same t
 
 The [Confidential identities](api-identity.html#confidential-identities) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
 has been adjusted in the same way as `FinalityFlow` above, to close problems with confidential identities being injectable into a node
-outside of other flow context. Old code will still work, but it is recommended to adjust your call sites so a session is passed into
+outside of other flow context. Old code will still work, but R3 recommends to adjust your call sites so a session is passed into
 the `SwapIdentitiesFlow`.
 
 

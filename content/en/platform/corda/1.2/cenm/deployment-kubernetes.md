@@ -94,7 +94,7 @@ There are three ways of bootstrapping a new CENM environment:
 2. scripted (`bootstrap.cenm`) with  **reusing** already allocated public IP addresses
 3. manually run each helm command
 
-In case of initial bootstrap process it is recommended to use the first method.
+In case of initial bootstrap process R3 recommends to use the first method.
 
 The first two bootstrapping methods uses default values stored in values.yaml file in each helm chart. To fully customize new environment use third method.
 

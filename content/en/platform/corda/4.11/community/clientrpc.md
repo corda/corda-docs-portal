@@ -114,7 +114,7 @@ class ClientRpcExample {
 The returned [CordaRPCConnection](../../../../api-ref/corda/4.11/community/javadoc/net/corda/client/rpc/CordaRPCConnection.html) is somewhat expensive to create and consumes a small amount of server-side resources. When you’re done with it, call `close` on it. Alternatively, you would typically employ the `use` method on [CordaRPCClient](../../../../api-ref/corda/4.11/community/javadoc/net/corda/client/rpc/CordaRPCClient.html), which cleans up automatically after the passed in lambda finishes. Do not create a new proxy for every call you make: reuse an existing one.
 {{< /warning >}}
 
-For further information on using the RPC API, see [Working with the CordaRPCClient API]({{< relref "../enterprise/get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}). 
+For further information on using the RPC API, see [Working with the CordaRPCClient API]({{< relref "../enterprise/get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}).
 
 
 ### Defining RPC users and permissions
@@ -423,7 +423,7 @@ When the `start` method is called on `MultiRPCClient`, it performs a remote call
 Once the connection has been created, it is possible to obtain a `proxy` and perform a remote call.
 {{< /note >}}
 
-As some internal resources are allocated to `MultiRPCClient`, it is recommended that you call the `close()` method when the `MultiRPCClient` is no longer needed. In Kotlin, you would typically employ the `use` construct for this purpose. In Java, you can use `try-with-resource`.
+As some internal resources are allocated to `MultiRPCClient`, R3 recommends that you call the `close()` method when the `MultiRPCClient` is no longer needed. In Kotlin, you would typically employ the `use` construct for this purpose. In Java, you can use `try-with-resource`.
 
 `RPCConnection` is also a `Closeable` construct, so it is a good idea to call `close()` on it after use.
 
