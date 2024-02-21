@@ -22,7 +22,7 @@ This Corda network offering builds a pre-configured network of Corda nodes as Ub
 
 
 * Ensure you have a registered Microsoft Azure account which can create virtual machines under your subscription(s) and you are logged on to the Azure portal (portal.azure.com)
-* It is recommended you generate a private-public SSH key pair (see [here](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2/))
+* R3 recommends you generate a private-public SSH key pair (see [here](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2/))
 
 
 ## Deploying the Corda Network
@@ -56,7 +56,7 @@ Define the number of Corda nodes in your network and the size of VM.
 * **Number of Notary nodes**: There can only be one Notary node in this network. Leave as ‘1’
 * **Number of participant nodes**: This is the number of Corda nodes in your network. At least 2 nodes in your network is recommended (so you can send transactions between them). You can specific 1 participant node and use the Notary node as a second node. There is an upper limit of 9
 * **Storage performance**: Leave as ‘Standard’
-* **Virtual machine size**: The size of the VM is automatically adjusted to suit the number of participant nodes selected. It is recommended to use the suggested values
+* **Virtual machine size**: The size of the VM is automatically adjusted to suit the number of participant nodes selected. R3 recommends to use the suggested values
 
 {{< figure alt="azure multi node step2" width=80% zoom="../resources/azure_multi_node_step2.png" >}}
 Click ‘OK’

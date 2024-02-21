@@ -258,7 +258,7 @@ The primary way Corda’s AMQP serialization framework instantiates objects is v
 used to first determine which properties of an object are to be serialised, then, on deserialization, it is used to
 instantiate the object with the serialized values.
 
-It is recommended that serializable objects in Corda adhere to the following rules, as they allow immutable state
+R3 recommends that serializable objects in Corda adhere to the following rules, as they allow immutable state
 objects to be deserialised:
 * A Java Bean getter for each of the properties in the constructor, with a name of the form `getX`.  For example, for a constructor
   parameter `foo`, there must be a getter called `getFoo()`.  If `foo` is a boolean, the getter may
