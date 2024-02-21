@@ -505,7 +505,7 @@ It is possible to get an exception when executing this flow.
 
 **`ReconciliationAlreadyScheduledException`** &mdash; As the name suggests, this exception will be thrown if there is already an ongoing reconciliation with the party you've tried to reconcile with. This exception can also occur if the other party (party B) has already initiated a reconciliation with you in the other direction; B -&gt; A instead of A -&gt; B.
 
-**`MaxIncomingSessionsExceededException`** &mdash; This exception can be thrown if the other party (party B) is already overloaded processing reconciliations from other parties. In this event, it is recommended that you try again at a later time.
+**`MaxIncomingSessionsExceededException`** &mdash; This exception can be thrown if the other party (party B) is already overloaded processing reconciliations from other parties. In this event, R3 recommends that you try again at a later time.
 
 ### Step 2. Checking the Status of the Reconciliation
 

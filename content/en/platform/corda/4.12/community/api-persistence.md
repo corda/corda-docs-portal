@@ -696,7 +696,7 @@ You can handle database errors that occur within a `withEntityManager` by catchi
   There is no need for a `flush` when catching exceptions around the `withEntityManager` block. It will automatically trigger a `flush` when leaving the block.
 
   {{< note >}}
-  It is recommended that exceptions are handled around a `withEntityManager` block as it is less likely to lead to unexpected behaviour when interacting with JPA.
+  R3 recommends that exceptions are handled around a `withEntityManager` block as it is less likely to lead to unexpected behaviour when interacting with JPA.
 
   {{< /note >}}
 

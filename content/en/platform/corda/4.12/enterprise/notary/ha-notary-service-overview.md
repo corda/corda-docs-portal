@@ -103,7 +103,7 @@ local files. You can find out more in the [permissioning]({{< relref "../network
 
 {{< note >}}
 The key store aliases for the worker identity, worker node CA and notary service are fully configurable. Unique worker identity and node
-CA aliases are required for the workers to share the same HA HSM. Although not required for all deployment scenarios, it is recommended
+CA aliases are required for the workers to share the same HA HSM. Although not required for all deployment scenarios, R3 recommends
 to configure unique worker aliases. See [node configuration file]({{< relref "../node/setup/corda-configuration-fields.md" >}}) for more information.
 {{< /note >}}
 
