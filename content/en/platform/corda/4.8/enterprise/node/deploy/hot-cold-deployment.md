@@ -152,7 +152,7 @@ After creating a load balancer for each traffic type, the configuration should l
 ## Configuring the shared network drive
 
 The network drive is used to store the Artemis files, specifically those concerning P2P messages (the `artemis` directory
-found in the node’s base directory). Therefore, it is recommended that the network drive be in close proximity to the machines
+found in the node’s base directory). Therefore, R3 recommends that the network drive be in close proximity to the machines
 hosting the nodes to avoid performance loss caused by slow I/O to and from the network drive.
 
 After the network drive is mounted on the node machine, it’s recommended to create a symbolic link to it in the node’s

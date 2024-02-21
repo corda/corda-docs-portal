@@ -185,26 +185,26 @@ The flow returns a set because the exact order of backchain transactions is not 
 
 State machine [CDL]({{< relref "../../../../../../en/tools/cdl/cdl-index.md" >}}) chart:
 
-   {{< 
+   {{<
      figure
 	    src="/en/images/reissuance-state-machine.png"
       width=100%
 	    figcaption="State reissuance - state machine CDL chart"
 	    alt="State reissuance - state machine CDL chart"
    >}}
-   
+
 ### Reissuance - state evolution
 
 State evolution [CDL]({{< relref "../../../../../../en/tools/cdl/cdl-index.md" >}}) chart:
 
-   {{< 
+   {{<
      figure
 	    src="/en/images/reissuance-state-evolution.png"
       width=100%
 	    figcaption="State reissuance - state evolution CDL chart"
 	    alt="State reissuance - state evolution CDL chart"
    >}}
-   
+
 ## Limitations
 
 ### Reissuance of encumbered states is not supported
@@ -265,7 +265,7 @@ The issuing party must be a trusted party and is expected to act in an appropria
 
 #### Possibility of other party reissuing the state
 
-If the issuing party is not a participant and issuer information is not included in state to be reissued, any party can reissue a state. Therefore, it is recommended to include issuer information inside the state.
+If the issuing party is not a participant and issuer information is not included in state to be reissued, any party can reissue a state. Therefore, R3 recommends to include issuer information inside the state.
 
 #### The issuing party is corrupted
 

@@ -23,7 +23,7 @@ You must specify the top-level `databaseChangeLog` in a resource file in the CPK
 This file can reference one or more files including `changeSet`.
 
 You should organise these change sets with future changes in mind.
-For example, we recommend a single `include` per version of the table.
+For example, R3 recommends a single `include` per version of the table.
 Once a `changeSet` is deployed, it cannot be changed and any change must be provided as a `changeSet` with a new `id`.
 We suggest adding a version in the `id`; for example, `<table-name>-v1`.
 
@@ -76,19 +76,19 @@ The following is an example that also defines some named JPQL queries:
 @CordaSerializable
 @Entity(name = "dog")
 @NamedQueries(
-    NamedQuery(name = "Dog.summon", query = "SELECT d FROM Dog d WHERE d.name = :name"),    
-    NamedQuery(name = "Dog.independent", query = "SELECT d FROM Dog d WHERE d.owner IS NULL"),    
-    NamedQuery(name = "Dog.summonLike", query = "SELECT d FROM Dog d WHERE d.name LIKE :name ORDER BY d.name"),    
-    NamedQuery(name = "Dog.all", query = "SELECT d FROM Dog d ORDER BY d.name"),    
+    NamedQuery(name = "Dog.summon", query = "SELECT d FROM Dog d WHERE d.name = :name"),
+    NamedQuery(name = "Dog.independent", query = "SELECT d FROM Dog d WHERE d.owner IS NULL"),
+    NamedQuery(name = "Dog.summonLike", query = "SELECT d FROM Dog d WHERE d.name LIKE :name ORDER BY d.name"),
+    NamedQuery(name = "Dog.all", query = "SELECT d FROM Dog d ORDER BY d.name"),
     NamedQuery(name = "Dog.release", query = "UPDATE Dog SET owner=null")
 )
 class Dog(
-    @Id    
-    @Column(name = "id", nullable = false)    
-    val id: UUID,    
-    @Column(name = "name")    
-    val name: String,    
-    @Column(name = "birthdate")    
+    @Id
+    @Column(name = "id", nullable = false)
+    val id: UUID,
+    @Column(name = "name")
+    val name: String,
+    @Column(name = "birthdate")
     val birthdate: Instant,
     @Column(name = "owner")
     val owner: String?
@@ -146,7 +146,7 @@ To use the Persistence API from a {{< tooltip >}}flow{{< /tooltip >}}:
    ```kotlin
      val dog = Dog(dogId, "dog", Instant.now(), "none")
      persistenceService.persist(dog)
-    ```   
+    ```
 
    {{< note >}}
   All persistence operations are processed over Kafka.
