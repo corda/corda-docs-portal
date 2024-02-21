@@ -990,7 +990,7 @@ Vault.Page<ContractState> snapshot = results.getSnapshot();
 
 ## Troubleshooting
 
-If the results you were expecting do not match actual returned query results, we recommend that you add an entry to your `log4j2.xml` configuration file to enable display of executed SQL statements:
+If the results you were expecting do not match actual returned query results, R3 recommends that you add an entry to your `log4j2.xml` configuration file to enable display of executed SQL statements:
 
 ```kotlin
 <Logger name="org.hibernate.SQL" level="debug" additivity="false">
