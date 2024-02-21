@@ -19,7 +19,8 @@ Before you start building your first CorDapp:
 
 - Read about [Corda key concepts]({{< relref "../../key-concepts/_index.md" >}}).
 - Install the required [prerequisites]({{< relref "../tooling/_index.md" >}}).
-- Read the CorDapp Standard Development Environment (CSDE) [installation instructions]({{< relref "../../../../../tools-corda5/csde/installing/_index.md" >}})
+
+- Read the CorDapp Standard Development Environment (CSDE) [installation instructions]({{< relref "../getting-started/installing/_index.md" >}})
 
 ## The Story
 

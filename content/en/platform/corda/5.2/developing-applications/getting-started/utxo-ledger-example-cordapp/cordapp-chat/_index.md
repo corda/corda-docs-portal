@@ -2,11 +2,11 @@
 date: '2023-11-01'
 title: "Chat CorDapp Design"
 menu:
-  corda5-tools:
-    parent: corda5-utxo-example
-    identifier: corda5-chatcordapp
+  corda52:
+    parent: corda52-utxo-example
+    identifier: corda52-chatcordapp
     weight: 1000
-section_menu: corda5-tools
+
 ---
 # Chat CorDapp Design
 

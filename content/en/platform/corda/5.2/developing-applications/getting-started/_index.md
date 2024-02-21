@@ -1,17 +1,14 @@
 ---
 date: '2023-11-01'
 description: Describes how to set up a CorDapp development environment, including writing, compiling, and running a first basic CorDapp using the CorDapp Standard Development Environment (CSDE).
-title: "CSDE"
-project: corda5-tools
-section_menu: corda5-tools
-version: tools
+title: "Getting Started"
 menu:
-  corda5-tools:
-    weight: 1000
-    identifier: corda5-develop-get-started
-aliases: ../platform/corda/5.0/developing-applications/getting-started.html
+  corda52:
+    weight: 5075
+    identifier: corda52-develop-get-started
+    parent: corda52-develop 
 ---
-# CSDE
+# Getting Started
 
 This section guides Developers who are new to Corda 5 from setting up their development environment through to writing, compiling, and running their first basic {{< tooltip >}}CorDapp{{< /tooltip >}}.
 

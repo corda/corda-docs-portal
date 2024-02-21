@@ -2,11 +2,11 @@
 date: '2023-11-01'
 title: "Kotlin Flow Code Walkthrough"
 menu:
-  corda5-tools:
-    parent: corda5-flow
-    identifier: corda5-flow-kotlin
+  corda52:
+    parent: corda52-flow
+    identifier: corda52-flow-kotlin
     weight: 1000
-section_menu: corda5-tools
+
 ---
 # Kotlin Flow Code Walkthrough
 

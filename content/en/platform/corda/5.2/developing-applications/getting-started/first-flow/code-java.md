@@ -2,11 +2,11 @@
 date: '2023-11-01'
 title: "Java Flow Code Walkthrough"
 menu:
-  corda5-tools:
-    parent: corda5-flow
-    identifier: corda5-flow-java
+  corda52:
+    parent: corda52-flow
+    identifier: corda52-flow-java
     weight: 2000
-section_menu: corda5-tools
+
 ---
 # Java Flow Code Walkthrough
 

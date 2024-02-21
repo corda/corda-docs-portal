@@ -2,11 +2,11 @@
 date: '2023-06-21'
 title: "Installing the CSDE"
 menu:
-  corda5-tools:
-    parent: corda5-develop-get-started
-    identifier: corda5-csde-installing
+  corda52:
+    parent: corda52-develop-get-started
+    identifier: corda52-csde-installing
     weight: 2000
-section_menu: corda5-tools
+
 ---
 
 # Installing the CSDE

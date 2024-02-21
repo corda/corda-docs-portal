@@ -22,7 +22,7 @@ This section describes the tasks performed by {{< tooltip >}}CorDapp{{< /tooltip
 
 Static networks are intended for local testing when the list of virtual nodes or members in the network are predetermined.
 These networks are composed of only a single cluster as there is no instance of the Membership Group Manager ({{< tooltip >}}MGM{{< /tooltip >}}) to distribute member data across clusters.
-For information about deploying locally to a static network with the combined worker, see the [Getting Started Using the CSDE]({{< relref "../../../../tools-corda5/csde/_index.md" >}}) section.
+For information about deploying locally to a static network with the combined worker, see the [Getting Started Using the CSDE]({{< relref "./getting-started/_index.md" >}}) section.
 
 ## Dynamic Networks
 

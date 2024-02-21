@@ -2,11 +2,11 @@
 date: '2023-11-01'
 title: "Resetting the CSDE"
 menu:
-  corda5-tools:
-    parent: corda5-develop-get-started
-    identifier: corda5-reset
+  corda52:
+    parent: corda52-develop-get-started
+    identifier: corda52-reset
     weight: 8000
-section_menu: corda5-tools
+
 ---
 # Resetting the CSDE
 

@@ -2,11 +2,11 @@
 date: '2023-11-01'
 title: "Prerequisites for the CSDE"
 menu:
-  corda5-tools:
-    parent: corda5-develop-get-started
-    identifier: corda5-prereqs
+  corda52:
+    parent: corda52-develop-get-started
+    identifier: corda52-prereqs
     weight: 1000
-section_menu: corda5-tools
+
 ---
 # Prerequisites for the CSDE
 
