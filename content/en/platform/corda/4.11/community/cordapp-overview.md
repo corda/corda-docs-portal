@@ -93,7 +93,7 @@ Please read [Setting your dependencies]({{< relref "cordapp-build-systems.md" >}
 depend on the `corda-core` package from the Corda Community Edition distribution.
 
 {{< note >}}
-As of Corda 4 it is recommended to use [CorDapp Jar signing]({{< relref "cordapp-build-systems.md" >}}) to leverage the new signature constraints functionality.
+As of Corda 4 R3 recommends to use [CorDapp Jar signing]({{< relref "cordapp-build-systems.md" >}}) to leverage the new signature constraints functionality.
 
 {{< /note >}}
 

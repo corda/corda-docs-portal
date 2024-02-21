@@ -236,10 +236,10 @@ Make sure table and column names are compatible with the naming convention used 
 
 ## Persisting Hierarchical Data
 
-You may want to persist hierarchical relationships within state data using multiple database tables. 
-To facilitate this, you must implement all queries making use of hierarchical relations as native SQL. 
+You may want to persist hierarchical relationships within state data using multiple database tables.
+To facilitate this, you must implement all queries making use of hierarchical relations as native SQL.
 
-Example schemas implementing hierarchical relationships have been implemented below. 
+Example schemas implementing hierarchical relationships have been implemented below.
 
 For one-to-one scenarios, use the following:
 
@@ -648,7 +648,7 @@ Around the block:
   There is no need for a `flush` when catching exceptions around the `withEntityManager` block. It automatically triggers a `flush` when leaving the block.
 
   {{< note >}}
-  It is recommended that exceptions are handled around a `withEntityManager` block as it is less likely to lead to unexpected behaviour when interacting with JPA.
+  R3 recommends that exceptions are handled around a `withEntityManager` block as it is less likely to lead to unexpected behaviour when interacting with JPA.
 
   {{< /note >}}
 

@@ -261,7 +261,7 @@ GRANT USAGE, SELECT ON ALL sequences IN SCHEMA "my_schema" TO "my_user";
 ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences TO "my_user";
 ALTER ROLE "my_user" SET search_path = "my_schema";
 ```
-If you are creating a CENM service instance user in PostgreSQL using a custom schema name (different from the user name), connect to the database as an administrator and run the script above. The last statement in the script - setting the `search_path` - prevents querying the differing [default schema search path](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH). If you don't have the privileges required to run the script, set the custom schema in the URL in the database configuration section of the `node.conf` file: 
+If you are creating a CENM service instance user in PostgreSQL using a custom schema name (different from the user name), connect to the database as an administrator and run the script above. The last statement in the script - setting the `search_path` - prevents querying the differing [default schema search path](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH). If you don't have the privileges required to run the script, set the custom schema in the URL in the database configuration section of the `node.conf` file:
 
 ```groovy
 database = {
@@ -927,7 +927,7 @@ DROP SCHEMA IF EXISTS "my_schema" CASCADE;
 
 ## 6. Database Migration
 
-When upgrading a CENM service, any required database schema changes are applied by the services rather than by a standalone tool. As a best practice, we recommend that the services are configured with a database user without permission to make schema modifications, when running normally (this is the setup described above).
+When upgrading a CENM service, any required database schema changes are applied by the services rather than by a standalone tool. As a best practice, R3 recommends that the services are configured with a database user without permission to make schema modifications, when running normally (this is the setup described above).
 
 The typical service migration process is described below. Please read the release notes for any version-specific processes, especially when upgrading between major versions.
 

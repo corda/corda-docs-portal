@@ -200,7 +200,7 @@ The path to the truststore file to use in control tunnel connections.
 Optionally the `SenderReceiver` and `BridgeInner` modes can be run in a hot-warm configuration, which determines the active instance using an external master election service.
 Currently, the leader election process can be delegated to Zookeeper, or the firewall can use the `Bully Algorithm` (see [Bully algorithm on Wikipedia](https://en.wikipedia.org/wiki/Bully_algorithm)) via Publish/Subscribe messages on the artemis broker.
 
-For production it is recommended that a Zookeeper cluster be used as this will protect against network partitioning scenarios. However, the `Bully Algorithm` mode does not require any additional server processes.
+For production R3 recommends that a Zookeeper cluster be used as this will protect against network partitioning scenarios. However, the `Bully Algorithm` mode does not require any additional server processes.
 
 Eventually other electors may be supported e.g. `etcd`.
 
