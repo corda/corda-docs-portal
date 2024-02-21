@@ -61,7 +61,7 @@ You now have everything you need to develop CorDapps. If you encounter any issue
 
 ## Run a sample CorDapp *(optional)*
 
-We recommend [running a sample CorDapp]({{< relref "tutorial-cordapp.md" >}}) to see Corda in action before you start developing.
+R3 recommends [running a sample CorDapp]({{< relref "tutorial-cordapp.md" >}}) to see Corda in action before you start developing.
 
 ## Resources
 

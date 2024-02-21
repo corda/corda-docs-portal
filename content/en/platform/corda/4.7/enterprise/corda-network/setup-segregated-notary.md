@@ -22,7 +22,7 @@ notary implementations to choose from:
 - A highly-available (HA) notary cluster requiring multiple nodes
 
 You should take care when deciding on the type of notary to deploy, as single notary nodes cannot be upgraded to HA notaries later.
-In production environments we recommend using a notary cluster for additional reliability and scalability.
+In production environments R3 recommends using a notary cluster for additional reliability and scalability.
 
 ## Configuring and deploying a notary
 
@@ -43,7 +43,7 @@ Please note that you must register the notary service identity **before** the in
 
 2. Register each worker node in the notary cluster using the Corda Network process.
 
-    Each worker node requires access to the notary service identity key generated in the preceding step. We recommend using
+    Each worker node requires access to the notary service identity key generated in the preceding step. R3 recommends using
     an HSM to ensure key security.
 
 3. Add the notary service identity to the network parameters by sending the `nodeInfo-xxx` file using the [Corda Network support portal](https://r3-cev.atlassian.net/servicedesk/customer/portal/7) using either a segregated network request form, or by creating a new task.
