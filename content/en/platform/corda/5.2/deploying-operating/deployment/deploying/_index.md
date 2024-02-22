@@ -1053,7 +1053,7 @@ For example, when running with Red Hat OpenShift Container Platform, you must us
    rules:
      - verbs:
          - use
-       apiGroups::
+       apiGroups:
          - security.openshift.io
        resources:
          - securitycontextconstraints
