@@ -130,7 +130,7 @@ You can learn more about configuring the registration process in the [Managing M
    This serial number may be optionally included in the registration context to specify which version of the `MemberInfo` was
    intended to be updated. If no serial number is provided while re-registering, the platform uses the member's latest
    serial number by default. Only the latest `MemberInfo` version may be updated - requests with an older serial number are declined.
-   R3 recommends to provide the serial number to avoid unintentional updates, in case you have an outdated version of the `MemberInfo`.
+   R3 recommends providing the serial number to avoid unintentional updates, in case you have an outdated version of the `MemberInfo`.
 
    You can retrieve the serial number from the MGM-provided context of the `MemberInfo` by performing a member lookup.
 
