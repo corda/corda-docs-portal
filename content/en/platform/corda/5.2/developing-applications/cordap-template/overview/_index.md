@@ -1,16 +1,17 @@
 ---
 date: '2023-06-21'
-title: "CSDE Overview"
+title: "Overview"
+description: Learn about the contents of the CorDapp template.
 menu:
   corda52:
     parent: corda52-develop-get-started
-    identifier: corda52-csde-overview
+    identifier: corda52-runtime-plugin-overview
     weight: 2050
 
 ---
-# CSDE Overview
+# CorDapp Template Overview
 
-This section provides an overview of the content of CSDE. It contains the following:
+This section provides an overview of the content of the CorDapp template. It contains the following:
 
 * [Project Structure](#project-structure)
 * [Gradle Helpers for the Combined Worker](#gradle-helpers-for-the-combined-worker)
@@ -23,16 +24,18 @@ On the left, you can see the folder structure created, ready for CorDapps develo
 
 For Kotlin, write your {{< tooltip >}}flow{{< /tooltip >}} code in `workflows/src/main/kotlin/<your package path>` and your contract and {{< tooltip >}}states{{< /tooltip >}} code in `/contracts/src/main/kotlin/<your package path>`.
 
-For Java, use `workflows/src/main/java/<your package path>` and your contract and states code in `/contracts/src/main/java/<your package path>`.
+For Java, use `workflows/src/main/java/<your package path>` for your flows and `/contracts/src/main/java/<your package path>` for your contract and states code.
 
 For test code, use the corresponding test folder.
+
 ## Gradle Helpers for the Combined Worker
 
-On the right, you can see the Gradle tasks that we have included to help you work with a local deployment of Corda using the combined worker:
-{{< figure src="gradle-helpers.png" figcaption="CSDE gradle helpers" alt="CSDE gradle tasks in IntelliJ" width=100% length=100% >}}
+On the right, you can see the Gradle tasks that help you work with a local deployment of Corda using the combined worker:
+{{< figure src="gradle-helpers.png" figcaption="Corda Runtime gradle helpers" alt="Corda Runtime gradle tasks in IntelliJ" width=100% length=100% >}}
 The **combined worker** is a Corda cluster that runs all of the workers in one JVM process.
 
 The helpers are split into three folders:
+
 * [csde-corda](#csde-corda)
 * [csde-cordapp](#csde-cordapp)
 * [csde-queries](#csde-queries)

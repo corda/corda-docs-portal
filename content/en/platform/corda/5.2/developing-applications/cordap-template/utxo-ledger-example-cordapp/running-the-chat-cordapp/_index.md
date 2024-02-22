@@ -1,6 +1,7 @@
 ---
 date: '2023-01-23'
 title: "Running the Chat CorDapp"
+description: Learn how to run the UTXO chat example application in the CorDapp template.
 menu:
   corda52:
     parent: corda52-utxo-example
@@ -17,9 +18,9 @@ This section describes how to run the {{< tooltip >}}UTXO{{< /tooltip >}} chat {
 * [Using Swagger](#using-swagger)
 * [Typical Set of Flows](#typical-set-of-flows)
 
-## Configuring the Application Network (Virtual Nodes)
+## Configuring the Application Network
 
-The CSDE is configured to create a five party {{< tooltip >}}application network{{< /tooltip >}} required to run the Chat {{< tooltip >}}CorDapp{{< /tooltip >}}, including virtual nodes for Alice, Bob, Charlie, Dave, and a {{< tooltip >}}notary{{< /tooltip >}}. To change the network configuration, see [Configuring the Network Participants]({{< relref "../../configure-the-network-participants/_index.md" >}}).
+The CorDapp template is configured to create a five party {{< tooltip >}}application network{{< /tooltip >}} required to run the Chat {{< tooltip >}}CorDapp{{< /tooltip >}}, including virtual nodes for Alice, Bob, Charlie, Dave, and a {{< tooltip >}}notary{{< /tooltip >}}. To change the network configuration, see [Configuring the Network Participants]({{< relref "../../configure-the-network-participants/_index.md" >}}).
 
 {{< note >}}
 You must keep the notary node to enable the CorDapp to finalise transactions.
@@ -27,7 +28,7 @@ You must keep the notary node to enable the CorDapp to finalise transactions.
 
 ## Deploying the CorDapp
 
-To deploy and run the CorDapp, follow the same steps as outlined in the [Running Your First CorDapp]({{< relref "../../running-your-first-cordapp/_index.md" >}}) section of this [Getting Started guide]({{< relref "../../_index.md" >}}).
+To deploy and run the CorDapp, follow the same steps as outlined in [Running Your First CorDapp]({{< relref "../../running-your-first-cordapp/_index.md" >}}).
 However, when you come to trigger the {{< tooltip >}}flows{{< /tooltip >}}, you must trigger the appropriate `ChatFlow` rather than `MyFirstFlow`.
 
 {{< note >}}

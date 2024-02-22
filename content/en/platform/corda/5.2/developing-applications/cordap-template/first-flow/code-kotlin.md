@@ -1,6 +1,7 @@
 ---
 date: '2023-11-01'
 title: "Kotlin Flow Code Walkthrough"
+description: Learn how to write flows in Kotlin using the CorDapp template.
 menu:
   corda52:
     parent: corda52-flow
@@ -10,7 +11,7 @@ menu:
 ---
 # Kotlin Flow Code Walkthrough
 
-This section describes the Kotlin code for the {{< tooltip >}}flows{{< /tooltip >}} and supporting classes in `workflows/src/main/kotlin/com/r3/developers/csdetemplate/flowexample/workflows/MyFirstFlow.kt` in the [CSDE repo](https://github.com/corda/CSDE-cordapp-template-kotlin). It contains the following:
+This section describes the Kotlin code for the {{< tooltip >}}flows{{< /tooltip >}} and supporting classes in `workflows/src/main/kotlin/com/r3/developers/csdetemplate/flowexample/workflows/MyFirstFlow.kt` in the [CorDapp template repo](https://github.com/corda/cordapp-template-kotlin). It contains the following:
 
 * [Helper Classes](#helper-classes)
 * [Initiating and Responding Flows](#initiating-and-responding-flows)
@@ -217,8 +218,8 @@ When running on Corda, the log files are updated.
         val log = LoggerFactory.getLogger(this::class.java.enclosingClass)
     }
 ```
-The log files for CSDE are located in the logs folder in the root of the project.
-The CSDE starts a new log file each time a new instance of Corda is created or when the log file grows too large. The logging can be configured by editing the `config/log4j2.xml` file.
+The log files for the CorDapp template are located in the logs folder in the root of the project.
+The CorDapp template starts a new log file each time a new instance of Corda is created or when the log file grows too large. The logging can be configured by editing the `config/log4j2.xml` file.
 Because the Corda combined worker runs all of the Corda processes in one JVM process, there are a lot of log entries.
 We recommend adding an easily searchable tag to each log message. For example:
 ```kotlin

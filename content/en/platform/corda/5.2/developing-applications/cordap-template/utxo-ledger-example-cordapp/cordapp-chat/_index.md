@@ -1,6 +1,7 @@
 ---
 date: '2023-11-01'
 title: "Chat CorDapp Design"
+description: Learn about the design of the UTXO chat example application in the CorDapp template.
 menu:
   corda52:
     parent: corda52-utxo-example
@@ -28,7 +29,7 @@ Where:
 
 The history of a chat will be recorded in the backchain of the chat.
 
-### Chat Smart Contract
+## Chat Smart Contract
 
 The {{< tooltip >}}Smart Contract{{< /tooltip >}} (combination of the ChatState and ChatContract) can be represented by a simple Smart Contract View diagram:
 
@@ -49,7 +50,7 @@ The {{< tooltip >}}Smart Contract{{< /tooltip >}} (combination of the ChatState 
 
  {{< /note >}}
 
-### Chat State Evolution
+## Chat State Evolution
 
 The evolution of the ledger when stepping through the walkthrough steps can be shown using the CDL State evolution view:
 
@@ -59,7 +60,7 @@ The evolution of the ledger when stepping through the walkthrough steps can be s
 * Each update transaction creates the new ChatState as an output and consumes the previous ChatState as an input.
 * To recreate the historic conversation the back chain is traversed from newest (unconsumed) state to oldest.
 
-### Chat Flows
+## Chat Flows
 
 There are six {{< tooltip >}}flows{{< /tooltip >}} in the Chat Application:
 

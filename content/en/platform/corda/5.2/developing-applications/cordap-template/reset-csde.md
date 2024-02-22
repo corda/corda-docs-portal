@@ -1,6 +1,7 @@
 ---
 date: '2023-11-01'
-title: "Resetting the CSDE"
+title: "Resetting the CorDapp Template"
+description: Learn stop and clean the CorDapp template.
 menu:
   corda52:
     parent: corda52-develop-get-started
@@ -8,21 +9,21 @@ menu:
     weight: 8000
 
 ---
-# Resetting the CSDE
+# Resetting the CorDapp Template
 
-The CSDE creates temporary files to store data required to generate and upload {{< tooltip >}}CPI{{< /tooltip >}} files and manage the Corda cluster.
-If these files are modified, deleted, or otherwise get out of sync with the actual state of the Corda cluster, the CSDE Gradle tasks may not function correctly.
+The CorDapp Template creates temporary files to store data required to generate and upload {{< tooltip >}}CPI{{< /tooltip >}} files and manage the Corda cluster.
+If these files are modified, deleted, or otherwise get out of sync with the actual state of the Corda cluster, the CorDapp Template Gradle tasks may not function correctly.
 For example:
 
-* A Corda cluster is started without using the `startCorda` task or by running `startCorda` from a different CSDE repository.
-* A CPI file is uploaded without using the CSDE Gradle task.
+* A Corda cluster is started without using the `startCorda` task or by running `startCorda` from a different CorDapp Template repository.
+* A CPI file is uploaded without using the CorDapp Template Gradle task.
 
-This section describes how to reset the CSDE to handle these situations or other occasions when the CSDE tasks are not working as expected.
+This section describes how to reset the CorDapp Template to handle these situations or other occasions when the CorDapp Template tasks are not working as expected.
 This process does the following:
 
 * Stops any processes related to the Corda cluster.
 * Removes the existing Corda cluster software (but not the {{< tooltip >}}Corda CLI{{< /tooltip >}}).
-* Deletes all of the temporary files that the CSDE creates and uses.
+* Deletes all of the temporary files that the CorDapp Template creates and uses.
 * Runs the Gradle `clean` task to remove any CPI build artifacts.
 
 The instructions in this section use the following terms:
@@ -30,11 +31,11 @@ The instructions in this section use the following terms:
 * `project-root-dir` — the project directory of the IntelliJ project contained in the repo.
    For example, if you git-cloned the `corda/CSDE-cordapp-template-kotlin` repo to `/Users/charlie.smith/DevWork/DevExWork`, `<project-root-dir>` is `/Users/charlie.smith/DevWork/DevExWork/CSDE-cordapp-template-kotlin`.
 * `user-home` — the user home directory.
-   * On Windows, this is typically something like `C:\Users\Charlie.Smith`.
-   * On macOS, this is typically something like `/Users/charlie.smith`.
-   * On Linux, this is typically something like `/home/charlie.smith`.
+  * On Windows, this is typically something like `C:\Users\Charlie.Smith`.
+  * On macOS, this is typically something like `/Users/charlie.smith`.
+  * On Linux, this is typically something like `/home/charlie.smith`.
 
-To reset the CSDE:
+To reset the CorDapp Template:
 
 1. Stop any running combined worker processes:
    * On Linux/macOS:
@@ -111,4 +112,4 @@ To reset the CSDE:
 6. Delete the `<user-home>/.corda/corda5` directory and its contents.
 7. Delete the `<project-root-dir>/workspace` directory and its contents.
 
-   You should now be able to run all CSDE Gradle tasks again. These tasks download the Corda cluster software and recreate all of the temporary files, as required.
+   You should now be able to run all CorDapp Template Gradle tasks again. These tasks download the Corda cluster software and recreate all of the temporary files, as required.

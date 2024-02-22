@@ -1,24 +1,25 @@
 ---
 date: '2023-11-01'
-title: "Prerequisites for the CSDE"
+title: "Prerequisites"
+description: Discover the prerequisites for the CorDapp template.
 menu:
   corda52:
     parent: corda52-develop-get-started
-    identifier: corda52-prereqs
+    identifier: corda52-runtime-plugin-prereqs
     weight: 1000
 
 ---
-# Prerequisites for the CSDE
+# Prerequisites for the CorDapp Template
 
-This section lists the third-party software prerequisites for local deployment with the [CorDapp Standard Development Environment (CSDE)]({{< relref "../installing/_index.md" >}}).
+This section lists the third-party software prerequisites for local deployment with the CorDapp template.
 
 {{< note >}}
-You cannot start Corda via the CSDE `startCorda` task if any existing local programs are using ports 5432, 5005, or 8888. Reserve these ports. For more information, see [Required CSDE Ports]({{< relref "#required-csde-ports" >}}).
+You cannot start Corda via the CorDapp template `startCorda` task if any existing local programs are using ports 5432, 5005, or 8888. Reserve these ports. For more information, see [Required runtime Gradle plugin Ports](#required-runtime-gradle-plugin-ports).
 {{< /note >}}
 
 ## Software Prerequisites
 
-The {{< version >}} CSDE has been tested with the following:
+The {{< version >}} CorDapp Template has been tested with the following:
 
 | Software                                 | Version                                                             |
 | ---------------------------------------- | ------------------------------------------------------------------- |
@@ -29,9 +30,9 @@ The {{< version >}} CSDE has been tested with the following:
 | Docker                                   | Docker Engine ~v20.x.y or Docker Desktop ~v3.5.x                    |
 | {{< tooltip >}}Corda CLI{{< /tooltip >}} |                                                                     |
 
-## Required CSDE Ports
+## Required CorDapp Template Ports
 
-The current version of the [Corda combined worker]({{< relref "../installing/_index.md#gradle-helpers-for-the-combined-worker" >}}) runs on ports 5005, 5432, and 8888. Reserve these ports to avoid errors. For example, some Mac operating systems use port 5005 for the system Control Center. The following section describes how to make the port available.
+The current version of the [Corda combined worker]({{< relref "../overview/_index.md#gradle-helpers-for-the-combined-worker" >}}) runs on ports 5005, 5432, and 8888. Reserve these ports to avoid errors. For example, some Mac operating systems use port 5005 for the system Control Center. The following section describes how to make that port available.
 
 ### Disabling Airplay Receiver on Mac
 

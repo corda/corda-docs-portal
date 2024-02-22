@@ -1,6 +1,7 @@
 ---
 date: '2023-11-01'
 title: "Running Your First CorDapp"
+description: Learn how to run your very first CorDapp using the CorDapp template.
 menu:
   corda52:
     parent: corda52-develop-get-started
@@ -10,7 +11,7 @@ menu:
 ---
 # Running Your First CorDapp
 
-The CSDE includes {{< tooltip >}}flows{{< /tooltip >}} and tests for a very simple {{< tooltip >}}CorDapp{{< /tooltip >}}, which you can run out of the box. The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlow.kt` file. This is also the code described in the [first flow section]({{< relref "../first-flow/_index.md" >}}). This section describes how to run, test, and deploy this flow. It contains the following:
+The CorDapp template includes {{< tooltip >}}flows{{< /tooltip >}} and tests for a very simple {{< tooltip >}}CorDapp{{< /tooltip >}}, which you can run out of the box. The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlow.kt` file. This is also the code described in the [first flow section]({{< relref "../first-flow/_index.md" >}}). This section describes how to run, test, and deploy this flow. It contains the following:
 
 * [Starting the Corda Combined Worker](#starting-the-corda-combined-worker)
 * [Testing Liveness and Swagger](#testing-liveness-and-swagger)
@@ -18,23 +19,24 @@ The CSDE includes {{< tooltip >}}flows{{< /tooltip >}} and tests for a very simp
 
 ## Starting the Corda Combined Worker
 
-To run the flow, you must first start a local combined worker version of Corda. CSDE includes helper Gradle tasks to do this.
-{{< figure src="starting-corda.png" width="40%" figcaption="CSDE startCorda task" alt="CSDE task to start the combined worker in IntelliJ" >}}
+To run the flow, you must first start a local combined worker version of Corda. The CorDapp template includes helper Gradle tasks to do this.
+{{< figure src="starting-corda.png" width="40%" figcaption="startCorda task" alt="Task to start the combined worker in IntelliJ" >}}
 
 The `startCorda` task runs in an Intellij 'Run' window. After about one minute, it shows the following output:
-{{< figure src="starting-corda-running.png" figcaption="CSDE startCorda task running" alt="CSDE task to start the combined worker in IntelliJ" >}}
+{{< figure src="starting-corda-running.png" figcaption="startCorda task running" alt="Task to start the combined worker in IntelliJ" >}}
 
-The `startCorda` will continue to run whilst the Corda cluster is running. It will stop when the cluster is shut down.
-Currently, we do not have a liveness detector for Corda in the CSDE so we check liveness by manually hitting an endpoint. You can use the [listVNodes helper]({{< relref "../overview/_index.md#csde-queries" >}}) to do this.
+The `startCorda` task continues to run whilst the Corda cluster is running. It stops when the cluster is shut down.
+Currently, we do not have a liveness detector for Corda in the CorDapp template so we check liveness by manually hitting an endpoint. You can use the [listVNodes helper]({{< relref "../overview/_index.md#csde-queries" >}}) to do this.
 
 ## Testing Liveness and Swagger
 
 Corda exposes HTTP REST {{< tooltip >}}API{{< /tooltip >}} endpoints for interacting with itself and the CorDapps running on it. It also exposes a Swagger interface which is described in the following sections.
 
 ### Displaying the Swagger UI
+
 To display the Swagger UI, use the following link:
 
-[https://localhost:8888/api/v5_1/swagger#/](https://localhost:8888/api/v5_1/swagger#/)
+[https://localhost:8888/api/v5_2/swagger#/](https://localhost:8888/api/v5_2/swagger#/)
 
 If Corda has started, the Swagger UI displays:
 {{< figure src="swagger-ui.png" width="80%" figcaption="Swagger UI showing Corda liveness" alt="Swagger UI showing Corda" >}}
@@ -56,7 +58,7 @@ To access the Corda cluster, you must authorize Swagger:
 
 ### Hitting Endpoints
 
-Once authorised, you can start hitting endpoints. The easiest one to try is `/cpi` because it is the first one on the Swagger page and requires no arguments:
+Once authorized, you can start hitting endpoints. The easiest one to try is `/cpi` because it is the first one on the Swagger page and requires no arguments:
 
 1. Expand the `GET /cpi` row and click **Try it out**.
 {{< figure src="get-cpi.png" figcaption="Try it out button for GET /cpi" alt="Expanded GET /cpi with Try it out button" >}}
