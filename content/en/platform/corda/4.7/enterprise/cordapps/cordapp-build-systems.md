@@ -520,7 +520,7 @@ cordapp {
 
 ## Separation of CorDapp contracts, flows and services
 
-It is recommended that **contract** code (states, commands, verification logic) be packaged separately from **business flows** (and associated services).
+R3 recommends that **contract** code (states, commands, verification logic) be packaged separately from **business flows** (and associated services).
 This decoupling enables *contracts* to evolve independently from the *flows* and *services* that use them. Contracts may even be specified and implemented by different
 providers (eg. Corda currently ships with a cash financial contract which in turn is used in many other flows and many other CorDapps).
 

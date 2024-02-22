@@ -42,7 +42,7 @@ driver can be obtained from Maven or the
 The Percona nodes communicate with each other via group communication (GComm). The Percona
 replicas should only be reachable from each other and from the worker nodes.
 
-We recommend running the worker nodes and the Percona service in a joined private subnet, opening
+R3 recommends running the worker nodes and the Percona service in a joined private subnet, opening
 up the P2P ports of the workers for external traffic.
 
 

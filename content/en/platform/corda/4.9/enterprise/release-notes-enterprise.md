@@ -31,7 +31,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 * Vault queries have been optimised to avoid the extra SQL query for the total state count where possible.
 * Node thread names have been made more specific to make logging more descriptive and debugging easier.
 * Delays when SSL handshaking with new nodes no longer impact existing connections with existing nodes.
-* An issue has been resolved where, sometimes, the order of the states returned by a vault query would be incorrect if they belonged to the same transaction. 
+* An issue has been resolved where, sometimes, the order of the states returned by a vault query would be incorrect if they belonged to the same transaction.
 * An issue has been resolved where, previously, an incorrect value for `Page.totalStatesAvailable` was returned for queries on `externalIds`, when there where external IDs mapped to multiple keys.
 
 ## Corda Enterprise Edition 4.9.7 release notes
@@ -60,7 +60,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
   On applying this update the PrimusX JCE should be upgraded to version 2.3.4 or later.
 
-  There is no need to upgrade the HSM firmware version for this update but it is recommended to keep the firmware up to date as a matter of course. Currently the latest firmware version if 2.8.50.
+  There is no need to upgrade the HSM firmware version for this update but R3 recommends to keep the firmware up to date as a matter of course. Currently the latest firmware version if 2.8.50.
 
 * The default SSL handshake timeout for inbound connections has been increased to 60 seconds. If during SSL handshake, certificate revocation lists (CRLs) take a long time to download or are unreachable, then this 60 seconds gives the node enough time to establish the connection if `crlCheckSoftFail` is enabled.
 

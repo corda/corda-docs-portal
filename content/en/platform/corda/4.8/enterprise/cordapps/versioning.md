@@ -74,7 +74,7 @@ The table below highlights key features and the corresponding version numbers.
 {{< /table >}}
 
 {{< note >}}
-We recommend a minimum network platform version of 5 for Corda 4.5 onwards.
+R3 recommends a minimum network platform version of 5 for Corda 4.5 onwards.
 {{< /note >}}
 
 ## Minimum platform version
@@ -92,7 +92,7 @@ This allows the node to activate or deactivate backwards compatibility code path
 
 For example, if a CorDapp uses features introduced in Corda 4.5 and has passed regression testing on Corda 4.6. It will have a `minimumPlatformVersion` of 7 and a `targetPlatformVersion` of 8.
 If the CorDapp is then loaded onto a node running Corda 4.7 (platform version 9), that node may implement backwards compatibility workarounds.
-This may impact the CorDapp's performance, security, and features. 
+This may impact the CorDapp's performance, security, and features.
 
 Specifying a higher `targetPlatformVersion` allows your CorDapp to take advantage of a newer platform version's behaviors and features if they are available on any given node. However, before doing this you need to thoroughly test your CorDapp against the new platform version. For example, you should ensure your CorDapp exhibits the correct behavior on a node running the new target version, and that it functions
 correctly across a network of nodes running the same target version.

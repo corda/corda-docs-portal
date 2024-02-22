@@ -76,7 +76,7 @@ The table below highlights key features and the corresponding version numbers.
 {{< /table >}}
 
 {{< note >}}
-We recommend a minimum network platform version of 5 for Corda 4.5 onwards.
+R3 recommends a minimum network platform version of 5 for Corda 4.5 onwards.
 {{< /note >}}
 
 ## Minimum platform version
