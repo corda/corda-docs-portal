@@ -56,8 +56,94 @@ To rotate the master wrapping key, do the following:
     "major": 1,
     "minor": 0
   },
-  "version": 0
+  "version": 1
 }'
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+
+   ```shell
+  Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method Put -Uri "$REST_API_URL/config" -Body (ConvertTo-Json -Depth 4 @{
+   {
+     "config": "{
+        "caching":{
+          "expireAfterAccessMins":{
+            "default":60
+          },
+          "maximumSize":{
+            "default":10000
+          }
+        },
+        "hsm":{
+          "defaultWrappingKey": "master2",
+          "retrying":{
+            "attemptTimeoutMills": 20000,
+            "maxAttempts": 3
+          },
+          "wrappingKeys":[{
+            "alias": "master1",
+            "passphrase":{
+              "configSecret":
+              {
+                "encryptedSecret": "gzXRjE4AoZSW8GQhcqbw0shQfwWGy5O8alNDqXaqTUzyUnLBVUXLwhv+uAEZzecQixiaEaNtfOvuftYW9NjwwRyf6m4KZIag"
+              }
+            },
+            "salt":{
+              "configSecret":
+              {
+                "encryptedSecret": "cvNVJ4D7fNGm59Uh3Tlhi0W3pToDxl7vykUdZaxEuEPGUMdmu7G+xTEfl0CcC2R9aWl6FgrzmX5x+qCGNElUi/PBA40EGjEU"
+              }
+            },
+          },
+          {
+            "alias": "master2",
+            "passphrase":{
+              "configSecret":{
+                "encryptedSecret": "ZAmGcppwqUNsViSE06b801DVARbD9wT7SZnYP03WKZFOnC9KTsII04pWWq5Je2CUZdP+xIsHFUO3RkZVwhwnyQhWoxcW6JEo"
+              }
+            },
+            "salt":{
+              "configSecret":{
+                "encryptedSecret": "flvAnf5G/aRmDIaahXHjftEpc0odufhzZsuiipxtQTFV+pccB+RHnIqle26jjDlDUBfn3HPbVezKhpRHL/NP5M+cX/rU15DE"
+              }
+            }
+          }]
+        "retrying":{
+          "maxAttempts":{
+            "default":3
+          },
+          "waitBetweenMills":{
+            "default":[200]
+          }
+        }
+      }",
+      "schemaVersion": {
+        "major": 1,
+        "minor": 0
+      },
+      "section": "corda.crypto",
+      "version": 1
+   })
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+  Alternatively, to add a new master key, with the alias `master2`, [maintained by Hashicorp Vault]({{< relref "../config/secrets.md#external-secrets-service" >}}):
+
+   {{< tabs >}}
+   {{% tab name="Bash"%}}
+   ```shell
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD  -X 'PUT' \
+  '$REST_API_URL/config' \
+  -d '{
+  "section": "corda.crypto",
+  "config": "{\"caching\":{\"expireAfterAccessMins\":{\"default\":60},\"maximumSize\":{\"default\":10000}},\"hsm\":{\"defaultWrappingKey\":\"master2\",\"retrying\":{\"attemptTimeoutMills\":20000,\"maxAttempts\":3},\"wrappingKeys\":[{\"alias\":\"master1\",\"passphrase\":{\"configSecret\":{\"vaultKey\":\"passphrase\",\"vaultPath\":\"cryptosecrets\"}},\"salt\":{\"configSecret\":{\"vaultKey\":\"salt\",\"vaultPath\":\"cryptosecrets\"}}},{\"alias\":\"master2\",\"passphrase\":{\"configSecret\":{\"vaultKey\":\"passphrase2\",\"vaultPath\":\"cryptosecrets\"}},\"salt\":{\"configSecret\":{\"vaultKey\":\"salt2\",\"vaultPath\":\"cryptosecrets\"}}}]},\"retrying\":{\"maxAttempts\":{\"default\":3},\"waitBetweenMills\":{\"default\":[200]}}}",
+  "schemaVersion": {
+    "major": 1,
+    "minor": 0
+  },
+  "version": 1
+  }'
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
@@ -83,30 +169,30 @@ To rotate the master wrapping key, do the following:
           "wrappingKeys":[{
             "alias": "master1",
             "passphrase":{
-              "configSecret":
-              {
-                "encryptedSecret": "gzXRjE4AoZSW8GQhcqbw0shQfwWGy5O8alNDqXaqTUzyUnLBVUXLwhv+uAEZzecQixiaEaNtfOvuftYW9NjwwRyf6m4KZIag"
-              }
+              "configSecret":{
+                "vaultKey":"passphrase",
+                "vaultPath":"cryptosecrets"
+                }
             },
             "salt":{
-              "configSecret":
-              {
-                "encryptedSecret": "cvNVJ4D7fNGm59Uh3Tlhi0W3pToDxl7vykUdZaxEuEPGUMdmu7G+xTEfl0CcC2R9aWl6FgrzmX5x+qCGNElUi/PBA40EGjEU"
+              "configSecret":{
+                "vaultKey":"salt"
+                "vaultPath":"cryptosecrets"
               }
-            },
+            }
           },
           {
             "alias": "master2",
             "passphrase":{
-              "configSecret":
-              {
-                "encryptedSecret": "ZAmGcppwqUNsViSE06b801DVARbD9wT7SZnYP03WKZFOnC9KTsII04pWWq5Je2CUZdP+xIsHFUO3RkZVwhwnyQhWoxcW6JEo"
+              "configSecret":{
+                "vaultKey":"passphrase2",
+                "vaultPath":"cryptosecrets"
               }
             },
             "salt":{
-              "configSecret":
-              {
-                "encryptedSecret": "flvAnf5G/aRmDIaahXHjftEpc0odufhzZsuiipxtQTFV+pccB+RHnIqle26jjDlDUBfn3HPbVezKhpRHL/NP5M+cX/rU15DE"
+              "configSecret":{
+                "vaultKey":"salt2"
+                "vaultPath":"cryptosecrets"                
               }
             }
           }]
@@ -129,6 +215,7 @@ To rotate the master wrapping key, do the following:
    ```
    {{% /tab %}}
    {{< /tabs >}}
+
    Corda will wrap any new managed wrapping keys with this new master wrapping key.
 3. Rotate the old master key to the new default master key using the POST method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/post_wrappingkey_rotation__tenantid_):
    {{< tabs >}}
