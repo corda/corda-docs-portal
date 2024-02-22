@@ -34,7 +34,10 @@ Notary functionality is provided in the form of plugin CorDapps. In theory, anyo
 * A **client**, or **application** CPB, which is used to generate a {{< tooltip >}}CPI{{< /tooltip >}} associated with application virtual nodes. At a minimum, this contains a {{< tooltip >}}CPK{{< /tooltip >}} that has an initiating {{< tooltip >}}flow{{< /tooltip >}} that is automatically invoked by the Corda 5 flow framework to initiate a notarization request.
 * A **notary server** CPB (Corda Package Bundle), which is used to generate a CPI associated with notary virtual nodes. At a minimum, this contains a CPK that has a responder flow to what is packaged in the client CPB.
 
-For {{< version >}}, only a single notary protocol is provided, the **non-validating notary protocol**. !!!!!
+For {{< version >}}, the following notary protocols are provided:
+
+* Non-validating notary protocol
+* Validating-contract notary protocol
 
 ### Plugin Packaging
 
