@@ -215,7 +215,7 @@ To rotate the master wrapping key, do the following:
    {{< /tabs >}}
 
    Corda will wrap any new managed wrapping keys with this new master wrapping key.
-3. Rotate the old master key to the new default master key using the POST method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/post_wrappingkey_rotation__tenantid_):
+3. Rotate the old master key to the new default master key using the POST method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/post_wrappingkey_rotation__tenantid_):
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -228,7 +228,7 @@ To rotate the master wrapping key, do the following:
    ```
    {{% /tab %}}
    {{< /tabs >}}
-   You can use the the GET method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/get_wrappingkey_rotation__tenantid_) to check the status of the rotation:
+   You can use the the GET method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/get_wrappingkey_rotation__tenantid_) to check the status of the rotation:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -247,7 +247,7 @@ To rotate the master wrapping key, do the following:
 
 ### Rotating Managed Wrapping Keys
 
-The cluster and virtual node wrapping keys are managed by Corda and can be rotated using the POST method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/post_wrappingkey_rotation__tenantid_). Specify one of the following as the path parameter:
+The cluster and virtual node wrapping keys are managed by Corda and can be rotated using the POST method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/post_wrappingkey_rotation__tenantid_). Specify one of the following as the path parameter:
 
 * The short hash holding ID of the virtual node to rotate a virtual node wrapping key.
 * One of the following for the corresponding cluster-level service:
@@ -270,7 +270,7 @@ Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f
 {{% /tab %}}
 {{< /tabs >}}
 
-You can use the the GET method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/get_wrappingkey_rotation__tenantid_) to check the status of the rotation. This returns the rotation status for all keys for the specified virtual node or cluster-level service.
+You can use the the GET method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/get_wrappingkey_rotation__tenantid_) to check the status of the rotation. This returns the rotation status for all keys for the specified virtual node or cluster-level service.
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
