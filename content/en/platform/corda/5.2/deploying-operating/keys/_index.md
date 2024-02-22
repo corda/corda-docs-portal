@@ -57,11 +57,10 @@ To rotate the master wrapping key, do the following:
     "minor": 0
   },
   "version": 1
-}'
+  }'
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
-
    ```shell
   Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method Put -Uri "$REST_API_URL/config" -Body (ConvertTo-Json -Depth 4 @{
    {
@@ -128,26 +127,25 @@ To rotate the master wrapping key, do the following:
    {{% /tab %}}
    {{< /tabs >}}
 
-  Alternatively, to add a new master key, with the alias `master2`, [maintained by Hashicorp Vault]({{< relref "../config/secrets.md#external-secrets-service" >}}):
+   Alternatively, to add a new master key [maintained by Hashicorp Vault]({{< relref "../config/secrets.md#external-secrets-service" >}}):
 
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
    curl -k -u $REST_API_USER:$REST_API_PASSWORD  -X 'PUT' \
-  '$REST_API_URL/config' \
-  -d '{
-  "section": "corda.crypto",
-  "config": "{\"caching\":{\"expireAfterAccessMins\":{\"default\":60},\"maximumSize\":{\"default\":10000}},\"hsm\":{\"defaultWrappingKey\":\"master2\",\"retrying\":{\"attemptTimeoutMills\":20000,\"maxAttempts\":3},\"wrappingKeys\":[{\"alias\":\"master1\",\"passphrase\":{\"configSecret\":{\"vaultKey\":\"passphrase\",\"vaultPath\":\"cryptosecrets\"}},\"salt\":{\"configSecret\":{\"vaultKey\":\"salt\",\"vaultPath\":\"cryptosecrets\"}}},{\"alias\":\"master2\",\"passphrase\":{\"configSecret\":{\"vaultKey\":\"passphrase2\",\"vaultPath\":\"cryptosecrets\"}},\"salt\":{\"configSecret\":{\"vaultKey\":\"salt2\",\"vaultPath\":\"cryptosecrets\"}}}]},\"retrying\":{\"maxAttempts\":{\"default\":3},\"waitBetweenMills\":{\"default\":[200]}}}",
-  "schemaVersion": {
+   '$REST_API_URL/config' \
+   -d '{
+   "section": "corda.crypto",
+   "config": "{\"caching\":{\"expireAfterAccessMins\":{\"default\":60},\"maximumSize\":{\"default\":10000}},\"hsm\":{\"defaultWrappingKey\":\"master2\",\"retrying\":{\"attemptTimeoutMills\":20000,\"maxAttempts\":3},\"wrappingKeys\":[{\"alias\":\"master1\",\"passphrase\":{\"configSecret\":{\"vaultKey\":\"passphrase\",\"vaultPath\":\"cryptosecrets\"}},\"salt\":{\"configSecret\":{\"vaultKey\":\"salt\",\"vaultPath\":\"cryptosecrets\"}}},{\"alias\":\"master2\",\"passphrase\":{\"configSecret\":{\"vaultKey\":\"passphrase2\",\"vaultPath\":\"cryptosecrets\"}},\"salt\":{\"configSecret\":{\"vaultKey\":\"salt2\",\"vaultPath\":\"cryptosecrets\"}}}]},\"retrying\":{\"maxAttempts\":{\"default\":3},\"waitBetweenMills\":{\"default\":[200]}}}",
+   "schemaVersion": {
     "major": 1,
     "minor": 0
-  },
-  "version": 1
-  }'
+   },
+   "version": 1
+   }'
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
-
    ```shell
   Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method Put -Uri "$REST_API_URL/config" -Body (ConvertTo-Json -Depth 4 @{
    {
