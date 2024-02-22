@@ -1482,7 +1482,7 @@ The class that will be loaded from plugin JAR file and will be its entry point f
 
 
 {{< note >}}
-It is recommended to set schedule’s interval to a proper value in order for SMR to feed plugin with the new
+R3 recommends to set schedule’s interval to a proper value in order for SMR to feed plugin with the new
 signable material as soon as possible, but not too often to avoid plugin being spammed. For instance, the
 value of interval between 1 and 10 seconds should be sufficient.
 

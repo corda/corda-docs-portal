@@ -57,7 +57,7 @@ The Signing Service is responsible for the actual signing of various materials w
 * Network Parameters
 * Network Maps
 
-It is recommended that any keys utilised by the zone are stored within Hardware Security Modules (HSMs), with
+R3 recommends that any keys utilised by the zone are stored within Hardware Security Modules (HSMs), with
 the Signing Service configured to sign entities on either a schedule or on direct user access.
 
 This can be thought of as the Certificate Authority for the Corda network represented by the deployed CENM software.

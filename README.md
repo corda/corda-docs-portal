@@ -7,14 +7,15 @@ The HTML documentation output is generated using Hugo. You can build and edit th
 ## Build and edit the docs locally
 
 1. Install [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
-2. Install a markdown editor of your choice.
-3. Fork the `corda/corda-docs-portal` repository, and clone your fork.
-4. From the root directory of the repository, run `npm install`. This installs all the required modules to build the documentation locally.
-5. Open a new branch and create/edit the relevant markdown file(s) in the `content` directory.
-6. Run `hugo server` to build the documentation locally. After you make changes, the content should refresh dynamically.
-7. If the `hugo server` command didn't work, run `hugo server --watch=false`. Please note that due to an existing unresolved Hugo bug that manifests for larger websites like `docs.r3.com`, it may not possible to build the documentation locally with dynamic content refresh - you need to `CTRL-C` and run the build again after you make changes to your content.
-8. Navigate to `https://localhost:1313` to view the locally built documentation.
-9. Push your changes to GitHub and open a pull request.
+2. Install [hugo](https://gohugo.io/).
+3. Install a markdown editor of your choice.
+4. Fork the `corda/corda-docs-portal` repository, and clone your fork.
+5. From the root directory of the repository, run `npm install`. This installs all the required modules to build the documentation locally.
+6. Open a new branch and create/edit the relevant markdown file(s) in the `content` directory.
+7. Run `hugo server` to build the documentation locally. After you make changes, the content should refresh dynamically.
+8. If the `hugo server` command didn't work, run `hugo server --watch=false`. Please note that due to an existing unresolved Hugo bug that manifests for larger websites like `docs.r3.com`, it may not possible to build the documentation locally with dynamic content refresh - you need to `CTRL-C` and run the build again after you make changes to your content.
+9. Navigate to `https://localhost:1313` to view the locally built documentation.
+10. Push your changes to GitHub and open a pull request.
 
 ## Keep your fork in sync with the documentation
 

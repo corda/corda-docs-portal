@@ -31,7 +31,7 @@ Before you start writing your own unit tests:
 
 When writing flow unit tests, you rely on both states and contracts to test the functionality of the flow. You also must create a `MockNetwork` with `StartedMockNode`s. `StartedMockNode`s behave like normal Corda nodes, but their services are mocked out.
 
-Flow tests are generally more complicated, so we recommend having a file for each flow you wish to test.
+Flow tests are generally more complicated, so R3 recommends having a file for each flow you wish to test.
 
 Follow these steps to write a flow unit test for the `CreateAndIssueAppleStampTest`:
 
