@@ -31,7 +31,7 @@ and ease of operation, the recommended database is CockroachDB 21.2.x. The full 
 listed in the [Platform support matrix]({{< relref "../../platform-support-matrix.md" >}}).
 
 {{< note >}}
-Please note that CockroachDB is not supported by the Corda Database Management Tool. It is recommended that
+Please note that CockroachDB is not supported by the Corda Database Management Tool. R3 recommends that
 the SQL script provided below be used as the basis for setting up a CockroachDB database. This means it will not
 be possible to setup a CockroachDB database schema using the Corda Database Management Tool, neither will it be
 possible to upgrade an existing schema to a newer version using the tool.
@@ -108,9 +108,9 @@ schema modification rights. For more information, see [Corda Database Management
 
 ### Database users
 
-We recommend creating one database user with schema modification rights so as to be able to create the schema objects
+R3 recommends creating one database user with schema modification rights so as to be able to create the schema objects
 necessary for the operation of the notary. However, this user should not be used for the operation of the notary for
-security reasons. We recommend the creation of a user with more limited permissions for the operation of the notary. This
+security reasons. R3 recommends the creation of a user with more limited permissions for the operation of the notary. This
 would be set in the configuration of the notary in the `dataSourceProperties` section.
 
 
@@ -267,7 +267,7 @@ grant insert on table corda.* to corda;
 
 ### Generating a client certificate
 
-It is recommended that the CockroachDB installation be configured to use SSL for secure connections. This will
+R3 recommends that the CockroachDB installation be configured to use SSL for secure connections. This will
 require certificates to be generated for the database user that Corda uses to connect to CockroachDB. When
 generating the certificates, make sure that PKCS8 certificates are also generated. An example `bash` command
 is given below.
@@ -312,7 +312,7 @@ Some information specific to the configuration of the JPA notary to interact wit
 
 ### Database setup
 
-It is recommended that a pluggable database be created to house the notary data. This can be done by opening a
+R3 recommends that a pluggable database be created to house the notary data. This can be done by opening a
 terminal window on the Oracle machine and running the following command in order to start sqlplus, the Oracle
 SQL command line tool.
 

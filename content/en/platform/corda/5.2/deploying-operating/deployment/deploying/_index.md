@@ -159,7 +159,7 @@ The following sections describe the minimal set of configuration options require
 * [Kafka Message Bus]({{< relref "#kafka-message-bus" >}})
 * [Encryption]({{< relref "#encryption" >}})
 * [Bootstrapping]({{< relref "#bootstrapping" >}})
-* [Custom Annotations for Worker Pods]({{< relref "#custom-annotations-for-worker-pods" >}})
+* [Worker Pods]({{< relref "#worker-pods" >}})
 * [Node Affinities]({{< relref "#node-affinities" >}})
 * [Pre-Install Checks]({{< relref "#pre-install-checks" >}})
 
@@ -1089,7 +1089,14 @@ For example, when running with Red Hat OpenShift Container Platform, you must us
         name: "corda-privileged"
    ```
 
-### Custom Annotations for Worker Pods
+### Worker Pods
+
+The following configuration is possible for Corda worker pods:
+
+* [Custom Annotations](#custom-annotations)
+* [Istio Integration](#istio-integration)
+
+#### Custom Annotations
 
 You can define custom annotations for worker pods. You can add these globally or to individual workers. For example, to define `annotation-key-1` for all workers:
 
@@ -1105,6 +1112,18 @@ workers:
   crypto:
     annotations:
       annotation-key-2: "some-value"
+```
+
+#### Istio Integration
+
+You can integrate with Istio service mesh to secure communication between Corda workers. To enable this, add the following custom labels to worker pods:
+
+```yaml
+bootstrap:
+  commonPodLabels:
+    sidecar.istio.io/inject: !!str false # explicitly disable Istio integration from bootstrap pods
+commonPodLabels:
+  sidecar.istio.io/inject: !!str true # explicitly enable Istio integration for all Corda pods
 ```
 
 ### Node Affinities

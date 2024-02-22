@@ -73,7 +73,7 @@ Note that notary performance degrades as the database fills up. This is an unavo
 states to examine when detecting double spend attempts. Some databases, notably CockroachDB, exhibit less degradation than
 other databases, although the difference will only be apparent with databases containing more than a billion states.
 
-Because of the performance degradation, we recommend sizing a notary and its database according to the expected minimum throughput
+Because of the performance degradation, R3 recommends sizing a notary and its database according to the expected minimum throughput
 measured in states per second and the expected data volumes in terms of notarised states.
 
 Notary performance is most affected by the hardware specifications of the database server, although the hardware specifications

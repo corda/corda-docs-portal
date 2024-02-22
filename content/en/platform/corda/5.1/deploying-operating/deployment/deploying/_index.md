@@ -121,7 +121,7 @@ To push the Corda Enterprise images:
    docker tag postgres:14.4 $target_registry/postgres:14.4
    docker push $target_registry/postgres:14.4
    docker tag sha256:9a53f78a8232118072a72bda97e56f2c3395d34a212fe7e575d1af61cda059c6 $target_registry/ingress-nginx-controller:v1.9.3
-   docker push $target_registry/ingress-nginx-controller:v1.9.3   
+   docker push $target_registry/ingress-nginx-controller:v1.9.3
    ```
 
 ## Download the Corda Helm Chart
@@ -262,7 +262,7 @@ It is particularly important to specify resource requests when using a Kubernete
 {{< /note >}}
 
 You can also override the default resource requests and limits separately for each type of Corda worker.
-For example, we recommend starting with higher memory limits for the database and flow workers:
+For example, R3 recommends starting with higher memory limits for the database and flow workers:
 
 ```yaml
 workers:
@@ -284,7 +284,7 @@ As with the number of replicas, you may need to adjust these values based on tes
 
 #### Recommended Infrastructure
 
-For an AWS topology, we recommend the following initial configuration:
+For an AWS topology, R3 recommends the following initial configuration:
 
 * Kubernetes: For a cluster with a single replica of each worker, a Kubernetes cluster with two `t3.2xlarge` nodes is
   a reasonable starting point. For a cluster with three replicas of each worker, extend that to four nodes.
@@ -292,7 +292,7 @@ For an AWS topology, we recommend the following initial configuration:
   and three replicas of each worker, subject to the persistence requirements of any {{< tooltip >}}CorDapp{{< /tooltip >}} running in the cluster.
 * MSK: For a cluster with a single replica of each worker and a topic replica count of three, a Kafka cluster of three
   `kafka.t3.small` instances may suffice. In a high-availability topology with three replicas of each worker and a topic replica count
-  of three, we recommend five brokers using at least `kafka.m5.large` instances.
+  of three, R3 recommends five brokers using at least `kafka.m5.large` instances.
 
 ### REST API
 
@@ -311,7 +311,7 @@ To enable access from outside the Kubernetes cluster, use one of the following:
 
 ##### Kubernetes Ingress
 
-We recommend configuring [Kubernetes Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) to provide the REST worker with HTTP load balancing.
+R3 recommends configuring [Kubernetes Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) to provide the REST worker with HTTP load balancing.
 For example, to use an [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/) deployed with the class name `nginx`:
 
 ```yaml
@@ -446,7 +446,7 @@ Corda requires one or more PostgreSQL database instances for the persistence of 
 If you do not configure state manager databases, Corda deploys the state managers for the flow, flow mapper, and token selection workers on the cluster database. This is not safe for production deployments.
 {{< /note >}}
 
-The configuration for these instances is defined in `stateManager` sections. At a minimum, the configuration section requires `host`, `username`, and `password`. By default, the installation expects databases named as follows:  
+The configuration for these instances is defined in `stateManager` sections. At a minimum, the configuration section requires `host`, `username`, and `password`. By default, the installation expects databases named as follows:
 
 * Flow worker: `flow_state_manager`
 * Flow mapper worker: `flow_mapper_state_manager`
@@ -469,7 +469,7 @@ workers:
             secretKeyRef:
               name: <FLOW_STATE_MANAGER_PASSWORD_SECRET_NAME>
               key: <FLOW_STATE_MANAGER_PASSWORD_SECRET_KEY>
-  
+
   flowMapper:
     stateManager:
       db:

@@ -673,7 +673,7 @@ the system can operate as normal without a running Identity Manager Service as l
 
 When multiple caching proxies are defined, in rare cases there could be inconsistencies among their cached values.
 Some of the instances may contain outdated cached values because they were not hit after a CRL update,
-or they may not contain a value at all due to a lack of hits after they were spawn. For this reason, we recommend that you use a shared mounted volume as
+or they may not contain a value at all due to a lack of hits after they were spawn. For this reason, R3 recommends that you use a shared mounted volume as
 the cache directory in order to make sure that all the cached responses are the same, and that there are no CRL inconsistencies across proxy instances.
 You can do that easily by, for example, using a Kubernetes cluster for managing the proxy containers.
 
