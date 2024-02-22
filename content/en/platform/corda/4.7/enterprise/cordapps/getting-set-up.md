@@ -58,7 +58,7 @@ If you'd prefer to install Gradle manually, navigate to [Gradle](https://gradle.
 
 ## Run a sample CorDapp *(optional)*
 
-We recommend [running a sample CorDapp](tutorial-cordapp.md) to see Corda in action before you start developing.
+R3 recommends [running a sample CorDapp](tutorial-cordapp.md) to see Corda in action before you start developing.
 
 ## Resources
 

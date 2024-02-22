@@ -291,7 +291,7 @@ The primary way Corda’s AMQP serialization framework instantiates objects is v
 used to first determine which properties of an object are to be serialized, then, on deserialization, it is used to
 instantiate the object with the serialized values.
 
-It is recommended that serializable objects in Corda adhere to the following rules, as they allow immutable state
+R3 recommends that serializable objects in Corda adhere to the following rules, as they allow immutable state
 objects to be deserialized:
 
 
