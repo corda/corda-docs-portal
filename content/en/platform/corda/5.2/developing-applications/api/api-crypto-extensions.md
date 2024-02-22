@@ -12,7 +12,7 @@ The `corda-crypto-extensions` package of the `Corda Crypto API` defines low-leve
 
 # Extending Supported Digest Algorithms
 
-The Corda Crypto Library implements a wide variety of digest algorithms out of the box. However, you can use a digest algorithm that is not supported by the library by simply implementing some interfaces and adding the code into the CPK with the {{< tooltip >}}CorDapp{{< /tooltip >}} code. Corda picks up any custom algorithms at runtime. We recommend adding custom digest code in a separate Java module.
+The Corda Crypto Library implements a wide variety of digest algorithms out of the box. However, you can use a digest algorithm that is not supported by the library by simply implementing some interfaces and adding the code into the CPK with the {{< tooltip >}}CorDapp{{< /tooltip >}} code. Corda picks up any custom algorithms at runtime. R3 recommends adding custom digest code in a separate Java module.
 
 {{< note >}}
 Digest algorithms must be cryptographically strong. For example, MD5 is not a strong algorithm and is therefore not supported by the library.
