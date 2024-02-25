@@ -85,7 +85,7 @@ Corda may breach this limit, particularly if a large number of worker instances 
   figure
 	 src="standard-worker-deployment.png"
    width="40%"
-	 figcaption="Default Worker Deployment"
+	 figcaption="Default Worker Connections"
 >}}
 
 In these scenarios, it is necessary to increase the number of connections available but that may also be insufficient.
@@ -95,7 +95,7 @@ To scale further, R3 recommends the deployment of a server-side connection pool.
   figure
 	 src="pgbouncer-worker-deployment.png"
    width="40%"
-	 figcaption="Default Worker Deployment"
+	 figcaption="Server-Side Connection Pool for Workers"
 >}}
 
 Corda has been tested with [PgBouncer](https://www.pgbouncer.org/) in conjunction with [CloudNativePG](https://cloudnative-pg.io/). Other poolers and configurations may also work.
