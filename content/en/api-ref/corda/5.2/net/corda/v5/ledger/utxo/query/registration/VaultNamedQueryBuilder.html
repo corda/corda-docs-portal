@@ -259,12 +259,36 @@ public interface <span class="typeNameLabel"><a href=VaultNamedQueryBuilder.html
                                         <tr id="i1" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=VaultNamedQueryBuilder.html>VaultNamedQueryBuilder</a></code>
                                             </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultNamedQueryBuilder.html#orderBy(java.lang.String,java.lang.String)>orderBy</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> columnExpression, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> flags) </code>
+                                            </th>
+                                            <td class="colLast">Sets an ORDER BY expression.</td>
+                                        </tr>
+                                        
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code>abstract <a href=VaultNamedQueryBuilder.html>VaultNamedQueryBuilder</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultNamedQueryBuilder.html#orderBy(java.lang.String)>orderBy</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> columnExpression) </code>
+                                            </th>
+                                            <td class="colLast">Sets an ORDER BY expression.</td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=VaultNamedQueryBuilder.html>VaultNamedQueryBuilder</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultNamedQueryBuilder.html#selectUnconsumedStatesOnly()>selectUnconsumedStatesOnly</a>() </code>
+                                            </th>
+                                            <td class="colLast">Sets a flag to add the appropriate where clause to only select states that are unconsumed as of the time of the initial query.</td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>abstract <a href=VaultNamedQueryBuilder.html>VaultNamedQueryBuilder</a></code>
+                                            </td>
                                             <th class="colSecond" scope="row"><code><a href=VaultNamedQueryBuilder.html#filter(net.corda.v5.ledger.utxo.query.VaultNamedQueryFilter)>filter</a>(@NotNull() <a href=../VaultNamedQueryFilter.html>VaultNamedQueryFilter</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt; filter) </code>
                                             </th>
                                             <td class="colLast">Sets the filter function of the named query.</td>
                                         </tr>
                                         
-                                        <tr id="i2" class="altColor">
+                                        <tr id="i5" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=VaultNamedQueryBuilder.html>VaultNamedQueryBuilder</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=VaultNamedQueryBuilder.html#map(net.corda.v5.ledger.utxo.query.VaultNamedQueryTransformer)>map</a>(@NotNull() <a href=../VaultNamedQueryTransformer.html>VaultNamedQueryTransformer</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>, out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt; transformer) </code>
@@ -272,7 +296,7 @@ public interface <span class="typeNameLabel"><a href=VaultNamedQueryBuilder.html
                                             <td class="colLast">Sets the mapper function of the named query.</td>
                                         </tr>
                                         
-                                        <tr id="i3" class="rowColor">
+                                        <tr id="i6" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=VaultNamedQueryBuilderCollected.html>VaultNamedQueryBuilderCollected</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=VaultNamedQueryBuilder.html#collect(net.corda.v5.ledger.utxo.query.VaultNamedQueryCollector)>collect</a>(@NotNull() <a href=../VaultNamedQueryCollector.html>VaultNamedQueryCollector</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>, out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt; collector) </code>
@@ -355,6 +379,102 @@ public interface <span class="typeNameLabel"><a href=VaultNamedQueryBuilder.html
                                         
                                             <dt><span class="returnLabel">Returns:</span></dt>
                                             <dd><p>A builder instance with the where clause set.</p></dd>
+                                        
+
+                                        
+
+                                        </dl>
+                                    </li>
+                                </ul>
+                                
+                                <a id="orderBy(java.lang.String,java.lang.String)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>orderBy</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=VaultNamedQueryBuilder.html>VaultNamedQueryBuilder</a> <a href=VaultNamedQueryBuilder.html#orderBy(java.lang.String,java.lang.String)>orderBy</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> columnExpression, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> flags)</pre>
+                                        <div class="block"><p>Sets an ORDER BY expression. The columnExpression needs to evaluate to a value in the vault database, i.e. either a column name or a JSON expression. The flags string allows to set order by flags, e.g. &quot;ASC&quot;, these will be passed through to the database as is, so be careful with using database vendor specific flags. This function can be called multiple times on one VaultNamedQueryBuilder. The order of calls matters - the first call defines the primary order, and within that the column of the second call will be used etc.</p></div>
+
+                                        <dl>
+
+                                        
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>columnExpression</code> - SQL expression that results in a value to order by</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>flags</code> - ORDER BY flags, e.g.</dd>
+                                            
+                                            
+                                        
+
+                                        
+                                            <dt><span class="returnLabel">Returns:</span></dt>
+                                            <dd><p>A builder instance with the ORDER BY field set.</p></dd>
+                                        
+
+                                        
+
+                                        </dl>
+                                    </li>
+                                </ul>
+                                
+                                <a id="orderBy(java.lang.String)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>orderBy</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=VaultNamedQueryBuilder.html>VaultNamedQueryBuilder</a> <a href=VaultNamedQueryBuilder.html#orderBy(java.lang.String)>orderBy</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> columnExpression)</pre>
+                                        <div class="block"><p>Sets an ORDER BY expression. The columnExpression needs to evaluate to a value in the vault database, i.e. either a column name or a JSON expression. This is equivalent to calling `oderBy(columnExpression, null);` This function can be called multiple times on one VaultNamedQueryBuilder. The order of calls matters - the first call defines the primary order, and within that the column of the second call will be used etc.</p></div>
+
+                                        <dl>
+
+                                        
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>columnExpression</code> - SQL expression that results in a value to order by</dd>
+                                            
+                                            
+                                        
+
+                                        
+                                            <dt><span class="returnLabel">Returns:</span></dt>
+                                            <dd><p>A builder instance with the ORDER BY field set.</p></dd>
+                                        
+
+                                        
+
+                                        </dl>
+                                    </li>
+                                </ul>
+                                
+                                <a id="selectUnconsumedStatesOnly()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>selectUnconsumedStatesOnly</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=VaultNamedQueryBuilder.html>VaultNamedQueryBuilder</a> <a href=VaultNamedQueryBuilder.html#selectUnconsumedStatesOnly()>selectUnconsumedStatesOnly</a>()</pre>
+                                        <div class="block"><p>Sets a flag to add the appropriate where clause to only select states that are unconsumed as of the time of the initial query. Use this in favour of adding a `visible_states.consumed is NULL` clause to the whereJson field. Note that states returned from such a query can still be consumed if they have been consumed after the initial query was executed.</p></div>
+
+                                        <dl>
+
+                                        
+
+                                        
+                                            <dt><span class="returnLabel">Returns:</span></dt>
+                                            <dd><p>A builder instance with the unconsumed only flag set.</p></dd>
                                         
 
                                         
