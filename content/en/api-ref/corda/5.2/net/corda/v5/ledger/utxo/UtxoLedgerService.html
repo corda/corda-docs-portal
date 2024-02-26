@@ -294,6 +294,14 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                         </tr>
                                         
                                         <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=../../crypto/SecureHash.html>SecureHash</a>, <a href=transaction/filtered/UtxoFilteredTransactionAndSignatures.html>UtxoFilteredTransactionAndSignatures</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#findFilteredTransactionsAndSignatures(net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction)>findFilteredTransactionsAndSignatures</a>(@NotNull() <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> signedTransaction) </code>
+                                            </th>
+                                            <td class="colLast">Finds matching <a href=transaction/filtered/UtxoFilteredTransaction.html>UtxoFilteredTransaction</a> and the notary signatures for a given signed transaction in the vault.</td>
+                                        </tr>
+                                        
+                                        <tr id="i7" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=transaction/filtered/UtxoFilteredTransactionBuilder.html>UtxoFilteredTransactionBuilder</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#filterSignedTransaction(net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction)>filterSignedTransaction</a>(@NotNull() <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> transaction) </code>
@@ -301,7 +309,7 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                             <td class="colLast">Filters a <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> to create a <a href=transaction/filtered/UtxoFilteredTransaction.html>UtxoFilteredTransaction</a> that only contains the components specified by the <a href=transaction/filtered/UtxoFilteredTransactionBuilder.html>UtxoFilteredTransactionBuilder</a> output from this method.</td>
                                         </tr>
                                         
-                                        <tr id="i7" class="rowColor">
+                                        <tr id="i8" class="altColor">
                                             <td class="colFirst"><code>abstract &lt;T extends <a href=ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerService.html#findUnconsumedStatesByType(java.lang.Class)>T</a>&gt;&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#findUnconsumedStatesByType(java.lang.Class)>findUnconsumedStatesByType</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerService.html#findUnconsumedStatesByType(java.lang.Class)>T</a>&gt; type) </code>
@@ -309,7 +317,7 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                             <td class="colLast">Finds unconsumed states that are concrete implementations or subclasses of <code>type</code>.</td>
                                         </tr>
                                         
-                                        <tr id="i8" class="altColor">
+                                        <tr id="i9" class="rowColor">
                                             <td class="colFirst"><code>abstract &lt;T extends <a href=ContractState.html>ContractState</a>&gt; <a href=../../application/persistence/PagedQuery.ResultSet.html>PagedQuery.ResultSet</a>&lt;<a href=StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerService.html#findUnconsumedStatesByExactType(java.lang.Class,java.lang.Integer,java.time.Instant)>T</a>&gt;&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#findUnconsumedStatesByExactType(java.lang.Class,java.lang.Integer,java.time.Instant)>findUnconsumedStatesByExactType</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerService.html#findUnconsumedStatesByExactType(java.lang.Class,java.lang.Integer,java.time.Instant)>T</a>&gt; type, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> limit, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> createdTimestampLimit) </code>
@@ -317,7 +325,7 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                             <td class="colLast">Finds unconsumed states of the specified <a href=ContractState.html>ContractState</a> type in the vault.</td>
                                         </tr>
                                         
-                                        <tr id="i9" class="rowColor">
+                                        <tr id="i10" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=FinalizationResult.html>FinalizationResult</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#finalize(net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction,java.util.List)>finalize</a>(@NotNull() <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> transaction, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../application/messaging/FlowSession.html>FlowSession</a>&gt; sessions) </code>
@@ -325,7 +333,7 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                             <td class="colLast">Verifies, signs, collects signatures, records and broadcasts a <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> to participants and observers.</td>
                                         </tr>
                                         
-                                        <tr id="i10" class="altColor">
+                                        <tr id="i11" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=FinalizationResult.html>FinalizationResult</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#receiveFinality(net.corda.v5.application.messaging.FlowSession,net.corda.v5.ledger.utxo.transaction.UtxoTransactionValidator)>receiveFinality</a>(@NotNull() <a href=../../application/messaging/FlowSession.html>FlowSession</a> session, @NotNull() <a href=transaction/UtxoTransactionValidator.html>UtxoTransactionValidator</a> validator) </code>
@@ -333,7 +341,7 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                             <td class="colLast">Verifies, signs and records a <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a>.</td>
                                         </tr>
                                         
-                                        <tr id="i11" class="rowColor">
+                                        <tr id="i12" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=transaction/UtxoTransactionBuilder.html>UtxoTransactionBuilder</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#sendAndReceiveTransactionBuilder(net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder,net.corda.v5.application.messaging.FlowSession)>sendAndReceiveTransactionBuilder</a>(@NotNull() <a href=transaction/UtxoTransactionBuilder.html>UtxoTransactionBuilder</a> transactionBuilder, @NotNull() <a href=../../application/messaging/FlowSession.html>FlowSession</a> session) </code>
@@ -341,7 +349,7 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                             <td class="colLast">Sends a transaction builder to another session, waits for the other side to propose transaction builder components, applies the proposed components to a copy of the original builder, and returns that new builder.</td>
                                         </tr>
                                         
-                                        <tr id="i12" class="altColor">
+                                        <tr id="i13" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=transaction/UtxoTransactionBuilder.html>UtxoTransactionBuilder</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#receiveTransactionBuilder(net.corda.v5.application.messaging.FlowSession)>receiveTransactionBuilder</a>(@NotNull() <a href=../../application/messaging/FlowSession.html>FlowSession</a> session) </code>
@@ -349,7 +357,7 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                             <td class="colLast">Receives a transaction builder from another session.</td>
                                         </tr>
                                         
-                                        <tr id="i13" class="rowColor">
+                                        <tr id="i14" class="altColor">
                                             <td class="colFirst"><code>abstract void</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#sendUpdatedTransactionBuilder(net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder,net.corda.v5.application.messaging.FlowSession)>sendUpdatedTransactionBuilder</a>(@NotNull() <a href=transaction/UtxoTransactionBuilder.html>UtxoTransactionBuilder</a> transactionBuilder, @NotNull() <a href=../../application/messaging/FlowSession.html>FlowSession</a> session) </code>
@@ -357,7 +365,7 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                             <td class="colLast">Sends the difference between the current transaction builder and the originally received one to another session with all dependent back chains.</td>
                                         </tr>
                                         
-                                        <tr id="i14" class="altColor">
+                                        <tr id="i15" class="rowColor">
                                             <td class="colFirst"><code>abstract void</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#sendTransaction(net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction,java.util.List)>sendTransaction</a>(@NotNull() <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> signedTransaction, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../application/messaging/FlowSession.html>FlowSession</a>&gt; sessions) </code>
@@ -365,7 +373,15 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                             <td class="colLast">Sends the transaction to counterparty sessions.</td>
                                         </tr>
                                         
-                                        <tr id="i15" class="rowColor">
+                                        <tr id="i16" class="altColor">
+                                            <td class="colFirst"><code>abstract void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#sendTransactionWithBackchain(net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction,java.util.List)>sendTransactionWithBackchain</a>(@NotNull() <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> signedTransaction, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../application/messaging/FlowSession.html>FlowSession</a>&gt; sessions) </code>
+                                            </th>
+                                            <td class="colLast">Sends the transaction to counterparty sessions and forces backchain resolution.</td>
+                                        </tr>
+                                        
+                                        <tr id="i17" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#receiveTransaction(net.corda.v5.application.messaging.FlowSession)>receiveTransaction</a>(@NotNull() <a href=../../application/messaging/FlowSession.html>FlowSession</a> session) </code>
@@ -373,15 +389,15 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                             <td class="colLast">Receives a verified transaction from the counterparty session and persists it to the vault.</td>
                                         </tr>
                                         
-                                        <tr id="i16" class="altColor">
+                                        <tr id="i18" class="altColor">
                                             <td class="colFirst"><code>abstract void</code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#sendAsLedgerTransaction(net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction,java.util.List)>sendAsLedgerTransaction</a>(@NotNull() <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> signedTransaction, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../application/messaging/FlowSession.html>FlowSession</a>&gt; sessions) </code>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#sendLedgerTransaction(net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction,java.util.List)>sendLedgerTransaction</a>(@NotNull() <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> signedTransaction, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../application/messaging/FlowSession.html>FlowSession</a>&gt; sessions) </code>
                                             </th>
                                             <td class="colLast">Sends an unsigned copy of the base LedgerTransaction to counterparty sessions.</td>
                                         </tr>
                                         
-                                        <tr id="i17" class="rowColor">
+                                        <tr id="i19" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=transaction/UtxoLedgerTransaction.html>UtxoLedgerTransaction</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#receiveLedgerTransaction(net.corda.v5.application.messaging.FlowSession)>receiveLedgerTransaction</a>(@NotNull() <a href=../../application/messaging/FlowSession.html>FlowSession</a> session) </code>
@@ -389,7 +405,7 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                             <td class="colLast">Receives a ledger transaction from the counterparty session.</td>
                                         </tr>
                                         
-                                        <tr id="i18" class="altColor">
+                                        <tr id="i20" class="altColor">
                                             <td class="colFirst"><code>abstract &lt;R&gt; <a href=query/VaultNamedParameterizedQuery.html>VaultNamedParameterizedQuery</a>&lt;<a href=UtxoLedgerService.html#query(java.lang.String,java.lang.Class)>R</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#query(java.lang.String,java.lang.Class)>query</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> queryName, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerService.html#query(java.lang.String,java.lang.Class)>R</a>&gt; resultClass) </code>
@@ -397,7 +413,7 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                             <td class="colLast">Creates a query object for a vault named query with the given name.</td>
                                         </tr>
                                         
-                                        <tr id="i19" class="rowColor">
+                                        <tr id="i21" class="rowColor">
                                             <td class="colFirst"><code>abstract void</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#persistDraftSignedTransaction(net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction)>persistDraftSignedTransaction</a>(@NotNull() <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> utxoSignedTransaction) </code>
@@ -405,7 +421,7 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                             <td class="colLast">Persists a non-finalized (draft) transaction.</td>
                                         </tr>
                                         
-                                        <tr id="i20" class="altColor">
+                                        <tr id="i22" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#findDraftSignedTransaction(net.corda.v5.crypto.SecureHash)>findDraftSignedTransaction</a>(@NotNull() <a href=../../crypto/SecureHash.html>SecureHash</a> id) </code>
@@ -637,6 +653,39 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                         
                                             <dt><span class="returnLabel">Returns:</span></dt>
                                             <dd><p>Returns the <a href=transaction/UtxoLedgerTransaction.html>UtxoLedgerTransaction</a> if it has been recorded previously, or null if no transaction could be found.</p></dd>
+                                        
+
+                                        
+
+                                        </dl>
+                                    </li>
+                                </ul>
+                                
+                                <a id="findFilteredTransactionsAndSignatures(net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>findFilteredTransactionsAndSignatures</h4>
+                                        <pre class="methodSignature">@NotNull()@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=../../crypto/SecureHash.html>SecureHash</a>, <a href=transaction/filtered/UtxoFilteredTransactionAndSignatures.html>UtxoFilteredTransactionAndSignatures</a>&gt; <a href=UtxoLedgerService.html#findFilteredTransactionsAndSignatures(net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction)>findFilteredTransactionsAndSignatures</a>(@NotNull() <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> signedTransaction)</pre>
+                                        <div class="block"><p>Finds matching <a href=transaction/filtered/UtxoFilteredTransaction.html>UtxoFilteredTransaction</a> and the notary signatures for a given signed transaction in the vault.</p></div>
+
+                                        <dl>
+
+                                        
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>signedTransaction</code> - A new transaction of dependencies to find.</dd>
+                                            
+                                            
+                                        
+
+                                        
+                                            <dt><span class="returnLabel">Returns:</span></dt>
+                                            <dd><p>Returns the map of past transactions, containing only notary signatures in the objects.</p></dd>
                                         
 
                                         
@@ -987,6 +1036,40 @@ utxoLedgerService.replyTransactionBuilderProposal(proposedTxBuilder, session)
                                     </li>
                                 </ul>
                                 
+                                <a id="sendTransactionWithBackchain(net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction,java.util.List)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>sendTransactionWithBackchain</h4>
+                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract void <a href=UtxoLedgerService.html#sendTransactionWithBackchain(net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction,java.util.List)>sendTransactionWithBackchain</a>(@NotNull() <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> signedTransaction, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../application/messaging/FlowSession.html>FlowSession</a>&gt; sessions)</pre>
+                                        <div class="block"><p>Sends the transaction to counterparty sessions and forces backchain resolution.</p></div>
+
+                                        <dl>
+
+                                        
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>signedTransaction</code> - The <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> to send.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>sessions</code> - The counterparties who receive the transaction.</dd>
+                                            
+                                            
+                                        
+
+                                        
+
+                                        
+
+                                        </dl>
+                                    </li>
+                                </ul>
+                                
                                 <a id="receiveTransaction(net.corda.v5.application.messaging.FlowSession)">
                                     <!--   -->
                                 </a>
@@ -1020,15 +1103,15 @@ utxoLedgerService.replyTransactionBuilderProposal(proposedTxBuilder, session)
                                     </li>
                                 </ul>
                                 
-                                <a id="sendAsLedgerTransaction(net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction,java.util.List)">
+                                <a id="sendLedgerTransaction(net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction,java.util.List)">
                                     <!--   -->
                                 </a>
                                 <ul class=
                                               "blockList"
                                           >
                                     <li class="blockList">
-                                        <h4>sendAsLedgerTransaction</h4>
-                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract void <a href=UtxoLedgerService.html#sendAsLedgerTransaction(net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction,java.util.List)>sendAsLedgerTransaction</a>(@NotNull() <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> signedTransaction, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../application/messaging/FlowSession.html>FlowSession</a>&gt; sessions)</pre>
+                                        <h4>sendLedgerTransaction</h4>
+                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract void <a href=UtxoLedgerService.html#sendLedgerTransaction(net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction,java.util.List)>sendLedgerTransaction</a>(@NotNull() <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> signedTransaction, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../application/messaging/FlowSession.html>FlowSession</a>&gt; sessions)</pre>
                                         <div class="block"><p>Sends an unsigned copy of the base LedgerTransaction to counterparty sessions.</p></div>
 
                                         <dl>
