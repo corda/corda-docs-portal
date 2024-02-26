@@ -78,7 +78,7 @@ Because database connection details, including credentials, are stored inside th
 #### Database Connection Management
 
 Depending on the scenario, Corda uses a direct database connection or a client connection pool.
-One of Postgresql’s limitations is that by default it allows a relatively low number of maximum connections.
+One limitation of PostgreSQL is that by default it allows a relatively low number of maximum connections.
 Corda may breach this limit, particularly if a large number of worker instances are deployed or a large number of virtual nodes are created in a single database.
 
 {{<
