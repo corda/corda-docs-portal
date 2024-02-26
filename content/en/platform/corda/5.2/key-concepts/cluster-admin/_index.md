@@ -24,7 +24,7 @@ Corda 5 is a distributed application made of multiple stateless workers, as desc
 
 ## Persistence
 
-Corda uses relational databases for its persistence layer. Corda uses a number of Postgresql databases which can be co-hosted on the same database server or even share a single database instance but segregated by schemas. All are logically separated, with Corda managing the connection details for each of the logical databases.
+Corda uses relational databases for its persistence layer. Corda uses a number of PostgreSQL databases which can be co-hosted on the same database server or even share a single database instance but segregated by schemas. All are logically separated, with Corda managing the connection details for each of the logical databases.
 
 Broadly speaking, there are two groups of databases:
 
