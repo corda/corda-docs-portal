@@ -24,8 +24,8 @@ The checksum information for Archive Service 1.1.1 can be found as part of the [
 
 The checksum information for Archive Service 1.0.5 can be found as part of both:
 
-* the [Corda 4.10.3 release]({{< relref "../../platform/corda/4.10/enterprise/release-checksum-enterprise.md" >}}).
-* the [Corda 4.9.9 release]({{< relref "../../platform/corda/4.10/enterprise/release-checksum-enterprise.md" >}}).
+* the [Corda 4.10.4 release]({{< relref "../../platform/corda/4.10/enterprise/release-checksum-enterprise.md" >}}).
+* the [Corda 4.9.9 release]({{< relref "../../platform/corda/4.9/enterprise/release-checksum-enterprise.md" >}}).
 
 ## Checksums of Archive Service 1.0.5 release files
 
