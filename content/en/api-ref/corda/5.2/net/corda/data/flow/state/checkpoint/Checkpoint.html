@@ -254,6 +254,12 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast"></td>
                                         </tr>
                                         
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public  <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=SavedOutputs.html>SavedOutputs</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=Checkpoint.html#savedOutputs>savedOutputs</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
                                     </table>
                                 </div>
                             </li>
@@ -286,7 +292,7 @@ extends SpecificRecordBase implements SpecificRecord
                                         
                                             <tr class="rowColor">
                                                 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
-                                                        href="#Checkpoint(java.lang.String,java.lang.Integer,net.corda.data.flow.state.checkpoint.PipelineState,net.corda.data.flow.state.checkpoint.FlowState,java.lang.String,net.corda.data.KeyValuePairList)">Checkpoint</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> flowId, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> initialPlatformVersion, <a href=PipelineState.html>PipelineState</a> pipelineState, <a href=FlowState.html>FlowState</a> flowState, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> flowMetricsState, <a href=../../../KeyValuePairList.html>KeyValuePairList</a> customState)</code></th>
+                                                        href="#Checkpoint(java.lang.String,java.lang.Integer,net.corda.data.flow.state.checkpoint.PipelineState,net.corda.data.flow.state.checkpoint.FlowState,java.lang.String,net.corda.data.KeyValuePairList,java.util.List)">Checkpoint</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> flowId, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> initialPlatformVersion, <a href=PipelineState.html>PipelineState</a> pipelineState, <a href=FlowState.html>FlowState</a> flowState, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> flowMetricsState, <a href=../../../KeyValuePairList.html>KeyValuePairList</a> customState, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=SavedOutputs.html>SavedOutputs</a>&gt; savedOutputs)</code></th>
                                                 <td class="colLast">All-args constructor.</td>
                                             </tr>
                                         
@@ -436,6 +442,22 @@ extends SpecificRecordBase implements SpecificRecord
                                         </tr>
                                         
                                         <tr id="i12" class="altColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=SavedOutputs.html>SavedOutputs</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Checkpoint.html#getSavedOutputs()>getSavedOutputs</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets the value of the 'savedOutputs' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i13" class="rowColor">
+                                            <td class="colFirst"><code>void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Checkpoint.html#setSavedOutputs(java.util.List)>setSavedOutputs</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=SavedOutputs.html>SavedOutputs</a>&gt; value) </code>
+                                            </th>
+                                            <td class="colLast">Sets the value of the 'savedOutputs' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i14" class="altColor">
                                             <td class="colFirst"><code>static Schema</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=Checkpoint.html#getClassSchema()>getClassSchema</a>() </code>
@@ -443,7 +465,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast"></td>
                                         </tr>
                                         
-                                        <tr id="i13" class="rowColor">
+                                        <tr id="i15" class="rowColor">
                                             <td class="colFirst"><code>static BinaryMessageEncoder&lt;<a href=Checkpoint.html>Checkpoint</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=Checkpoint.html#getEncoder()>getEncoder</a>() </code>
@@ -451,7 +473,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast">Return the BinaryMessageEncoder instance used by this class.</td>
                                         </tr>
                                         
-                                        <tr id="i14" class="altColor">
+                                        <tr id="i16" class="altColor">
                                             <td class="colFirst"><code>static BinaryMessageDecoder&lt;<a href=Checkpoint.html>Checkpoint</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=Checkpoint.html#getDecoder()>getDecoder</a>() </code>
@@ -459,7 +481,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast">Return the BinaryMessageDecoder instance used by this class.</td>
                                         </tr>
                                         
-                                        <tr id="i15" class="rowColor">
+                                        <tr id="i17" class="rowColor">
                                             <td class="colFirst"><code>static BinaryMessageDecoder&lt;<a href=Checkpoint.html>Checkpoint</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=Checkpoint.html#createDecoder(org.apache.avro.message.SchemaStore)>createDecoder</a>(SchemaStore resolver) </code>
@@ -467,7 +489,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast">Create a new BinaryMessageDecoder instance for this class that uses the specified SchemaStore.</td>
                                         </tr>
                                         
-                                        <tr id="i16" class="altColor">
+                                        <tr id="i18" class="altColor">
                                             <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/nio/ByteBuffer.html>ByteBuffer</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=Checkpoint.html#toByteBuffer()>toByteBuffer</a>() </code>
@@ -475,7 +497,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast">Serializes this Checkpoint to a ByteBuffer.</td>
                                         </tr>
                                         
-                                        <tr id="i17" class="rowColor">
+                                        <tr id="i19" class="rowColor">
                                             <td class="colFirst"><code>static <a href=Checkpoint.html>Checkpoint</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=Checkpoint.html#fromByteBuffer(java.nio.ByteBuffer)>fromByteBuffer</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/nio/ByteBuffer.html>ByteBuffer</a> b) </code>
@@ -483,7 +505,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast">Deserializes a Checkpoint from a ByteBuffer.</td>
                                         </tr>
                                         
-                                        <tr id="i18" class="altColor">
+                                        <tr id="i20" class="altColor">
                                             <td class="colFirst"><code>SpecificData</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=Checkpoint.html#getSpecificData()>getSpecificData</a>() </code>
@@ -491,7 +513,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast"></td>
                                         </tr>
                                         
-                                        <tr id="i19" class="rowColor">
+                                        <tr id="i21" class="rowColor">
                                             <td class="colFirst"><code>Schema</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=Checkpoint.html#getSchema()>getSchema</a>() </code>
@@ -499,7 +521,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast"></td>
                                         </tr>
                                         
-                                        <tr id="i20" class="altColor">
+                                        <tr id="i22" class="altColor">
                                             <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=Checkpoint.html#get(int)>get</a>(int field$) </code>
@@ -507,7 +529,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast"></td>
                                         </tr>
                                         
-                                        <tr id="i21" class="rowColor">
+                                        <tr id="i23" class="rowColor">
                                             <td class="colFirst"><code>void</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=Checkpoint.html#put(int,Object)>put</a>(int field$, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> value$) </code>
@@ -515,7 +537,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast"></td>
                                         </tr>
                                         
-                                        <tr id="i22" class="altColor">
+                                        <tr id="i24" class="altColor">
                                             <td class="colFirst"><code>static <a href=Checkpoint.Builder.html>Checkpoint.Builder</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=Checkpoint.html#newBuilder()>newBuilder</a>() </code>
@@ -523,7 +545,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast">Creates a new Checkpoint RecordBuilder.</td>
                                         </tr>
                                         
-                                        <tr id="i23" class="rowColor">
+                                        <tr id="i25" class="rowColor">
                                             <td class="colFirst"><code>static <a href=Checkpoint.Builder.html>Checkpoint.Builder</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=Checkpoint.html#newBuilder(net.corda.data.flow.state.checkpoint.Checkpoint.Builder)>newBuilder</a>(<a href=Checkpoint.Builder.html>Checkpoint.Builder</a> other) </code>
@@ -531,7 +553,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast">Creates a new Checkpoint RecordBuilder by copying an existing Builder.</td>
                                         </tr>
                                         
-                                        <tr id="i24" class="altColor">
+                                        <tr id="i26" class="altColor">
                                             <td class="colFirst"><code>static <a href=Checkpoint.Builder.html>Checkpoint.Builder</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=Checkpoint.html#newBuilder(net.corda.data.flow.state.checkpoint.Checkpoint)>newBuilder</a>(<a href=Checkpoint.html>Checkpoint</a> other) </code>
@@ -539,7 +561,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast">Creates a new Checkpoint RecordBuilder by copying an existing Checkpoint instance.</td>
                                         </tr>
                                         
-                                        <tr id="i25" class="rowColor">
+                                        <tr id="i27" class="rowColor">
                                             <td class="colFirst"><code>void</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=Checkpoint.html#writeExternal(java.io.ObjectOutput)>writeExternal</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/ObjectOutput.html>ObjectOutput</a> out) </code>
@@ -547,7 +569,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast"></td>
                                         </tr>
                                         
-                                        <tr id="i26" class="altColor">
+                                        <tr id="i28" class="altColor">
                                             <td class="colFirst"><code>void</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=Checkpoint.html#readExternal(java.io.ObjectInput)>readExternal</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/ObjectInput.html>ObjectInput</a> in) </code>
@@ -608,11 +630,11 @@ extends SpecificRecordBase implements SpecificRecord
                                     </li>
                                 </ul>
                                 
-                                <a name="Checkpoint(java.lang.String,java.lang.Integer,net.corda.data.flow.state.checkpoint.PipelineState,net.corda.data.flow.state.checkpoint.FlowState,java.lang.String,net.corda.data.KeyValuePairList)"></a>
+                                <a name="Checkpoint(java.lang.String,java.lang.Integer,net.corda.data.flow.state.checkpoint.PipelineState,net.corda.data.flow.state.checkpoint.FlowState,java.lang.String,net.corda.data.KeyValuePairList,java.util.List)"></a>
                                 <ul class="blockList">
                                     <li class="blockList">
                                         <h4>Checkpoint</h4>
-                                        <pre>Checkpoint(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> flowId, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> initialPlatformVersion, <a href=PipelineState.html>PipelineState</a> pipelineState, <a href=FlowState.html>FlowState</a> flowState, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> flowMetricsState, <a href=../../../KeyValuePairList.html>KeyValuePairList</a> customState)</pre>
+                                        <pre>Checkpoint(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> flowId, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> initialPlatformVersion, <a href=PipelineState.html>PipelineState</a> pipelineState, <a href=FlowState.html>FlowState</a> flowState, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> flowMetricsState, <a href=../../../KeyValuePairList.html>KeyValuePairList</a> customState, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=SavedOutputs.html>SavedOutputs</a>&gt; savedOutputs)</pre>
                                         <div class="block">All-args constructor.</div>
                                         
                                         <dl>
@@ -640,6 +662,10 @@ extends SpecificRecordBase implements SpecificRecord
                                             
                                             
                                             <dd><code>customState</code> - Internal storage for pipeline extensions.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>savedOutputs</code> - Saved output events by input for replay if neccessary.</dd>
                                             
                                             
                                         </dl>
@@ -976,6 +1002,62 @@ extends SpecificRecordBase implements SpecificRecord
                                         <h4>setCustomState</h4>
                                         <pre class="methodSignature"> void <a href=Checkpoint.html#setCustomState(net.corda.data.KeyValuePairList)>setCustomState</a>(<a href=../../../KeyValuePairList.html>KeyValuePairList</a> value)</pre>
                                         <div class="block"><p>Sets the value of the 'customState' field. Internal storage for pipeline extensions.</p></div>
+
+                                        <dl>
+
+                                        
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>value</code> - the value to set.</dd>
+                                            
+                                            
+                                        
+
+                                        
+
+                                        
+
+                                        </dl>
+                                    </li>
+                                </ul>
+                                
+                                <a id="getSavedOutputs()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getSavedOutputs</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=SavedOutputs.html>SavedOutputs</a>&gt; <a href=Checkpoint.html#getSavedOutputs()>getSavedOutputs</a>()</pre>
+                                        <div class="block"><p>Gets the value of the 'savedOutputs' field.</p></div>
+
+                                        <dl>
+
+                                        
+
+                                        
+                                            <dt><span class="returnLabel">Returns:</span></dt>
+                                            <dd><p>Saved output events by input for replay if neccessary.</p></dd>
+                                        
+
+                                        
+
+                                        </dl>
+                                    </li>
+                                </ul>
+                                
+                                <a id="setSavedOutputs(java.util.List)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setSavedOutputs</h4>
+                                        <pre class="methodSignature"> void <a href=Checkpoint.html#setSavedOutputs(java.util.List)>setSavedOutputs</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=SavedOutputs.html>SavedOutputs</a>&gt; value)</pre>
+                                        <div class="block"><p>Sets the value of the 'savedOutputs' field. Saved output events by input for replay if neccessary.</p></div>
 
                                         <dl>
 

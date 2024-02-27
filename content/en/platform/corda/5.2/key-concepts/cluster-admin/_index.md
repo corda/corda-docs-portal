@@ -24,7 +24,7 @@ Corda 5 is a distributed application made of multiple stateless workers, as desc
 
 ## Persistence
 
-Corda uses relational databases for its persistence layer. Corda uses a number of databases which can be co-hosted on the same database server or even share a single database instance but segregated by schemas. All are logically separated, with Corda managing the connection details for each of the logical databases.
+Corda uses relational databases for its persistence layer. Corda uses a number of PostgreSQL databases which can be co-hosted on the same database server or even share a single database instance but segregated by schemas. All are logically separated, with Corda managing the connection details for each of the logical databases.
 
 Broadly speaking, there are two groups of databases:
 
@@ -56,6 +56,13 @@ Corda requires one of each of the following types per virtual node:
 
 ### Database Management
 
+This section describes Corda database management and contains the following:
+
+* [Database Initialization](#database-initialization)
+* [Database Connection Management](#database-connection-management)
+
+#### Database Initialization
+
 All cluster-level databases must be initialized before Corda is operational. See the [Corda Deployment section]({{< relref "../../deploying-operating/deployment/deploying/_index.md#database" >}}) for information about how databases are bootstrapped.
 Once the databases are created, Corda must be aware of where the dependent databases are. This happens in two places:
 
@@ -67,6 +74,31 @@ By default, virtual node databases are automatically created when a new virtual 
 The bring-your-own-database (BYOD) feature enables Cluster Administrators to manage the creation and any subsequent updates of a PostgreSQL database, rather than using a database managed by Corda. For more information, see [Bringing Your Own Database]({{< relref "../../deploying-operating/vnodes/bring-your-own-db.md">}}).
 
 Because database connection details, including credentials, are stored inside the `config` database, we suggest passwords, and other sensitive configuration values, are treated as “secrets”. For more information, see [Configuration Secrets]({{< relref "../../deploying-operating/config/secrets.md">}}).
+
+#### Database Connection Management
+
+Depending on the scenario, Corda uses a direct database connection or a client connection pool.
+One limitation of PostgreSQL is that by default it allows a relatively low number of maximum connections.
+Corda may breach this limit, particularly if a large number of worker instances are deployed or a large number of virtual nodes are created in a single database.
+
+{{<
+  figure
+	 src="standard-worker-deployment.png"
+   width="40%"
+	 figcaption="Default Worker Connections"
+>}}
+
+In these scenarios, it is necessary to increase the number of connections available but that may also be insufficient.
+To scale further, R3 recommends the deployment of a server-side connection pool.
+
+{{<
+  figure
+	 src="pgbouncer-worker-deployment.png"
+   width="40%"
+	 figcaption="Server-Side Connection Pool for Workers"
+>}}
+
+Corda has been tested with [PgBouncer](https://www.pgbouncer.org/) in conjunction with [CloudNativePG](https://cloudnative-pg.io/). Other poolers and configurations may also work.
 
 ## Key Management
 
