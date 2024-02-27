@@ -36,7 +36,6 @@ Particularly if transactions can have many inputs and ouputs or states are fungi
 
 For these cases, R3 provides an alternative notary protocol. For more information, see [Contract-Verifying Notary Protocol](../../notaries/contract-verifying-notary.md).
 
-???
 The non-validating notary protocol maintains a degree of privacy by only revealing the information about a transaction that is strictly necessary to perform validation. Below is a summary of which specific transaction components are revealed:
 
 | Transaction Components            | Non-validating Protocol   |

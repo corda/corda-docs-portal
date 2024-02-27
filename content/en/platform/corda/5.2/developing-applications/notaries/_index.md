@@ -18,8 +18,6 @@ A notary service is formed by one or more notary workers that together form a no
 
 Every state has an appointed notary cluster, so the cluster only notarizes a transaction if it is the appointed notary cluster of all of the transaction’s input states. A network can have several notary clusters, all running different consensus algorithms. 
 
-????????
-
 ## Multiple Notaries
 
 Each Corda network can have multiple notary clusters. This has several benefits:
