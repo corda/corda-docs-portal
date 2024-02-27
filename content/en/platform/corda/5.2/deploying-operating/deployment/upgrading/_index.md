@@ -115,7 +115,7 @@ To migrate the cluster database schemas, do the following:
    ```
 
 3. Grant the necessary permissions:
-   * `cluster` user - set up by the Helm chart, in Corda 5.1 from the property `db.cluster.username.value`. `corda` in this example. In Corda 5.2 this property does not exist and is set elsewhere in the config. More information about this is provided later in this document.****
+   * `cluster` user - set up by the Helm chart, in Corda 5.1 from the property `db.cluster.username.value`. `corda` in this example. In Corda 5.2 this property does not exist and is set elsewhere in the config. More information about this is provided later in this document.
    * `rbac` user - set up by the Helm chart from the property `db.rbac.username.value`. `rbac_user` in this example.
    * `crypto` user - set up by the Helm chart from the property `db.crypto.username.value`. `crypto_user` this example.
 
@@ -241,7 +241,7 @@ As a result, as part of the migration to 5.2, you must add new values in the YAM
 1. Configure each worker with individual user access to the state manager database. Corda only reads this from a secret, so you must create that secret with the 5.1 username in it, as the field `corda-username`. For example:
 
    ```shell
-   kubectl create secret generic -n corda prereqs-postgres-user --from-literal=corda-username=corda
+   kubectl create secret generic -n <corda_namespace> prereqs-postgres-user --from-literal=corda-username=corda
    ```
 
 1. Add the accompanying YAML additions that pull the username out of the secret, which existed in 5.1:
@@ -534,9 +534,9 @@ Alternatively, the `preview` and `create` sub-commands of the Corda CLI `topic` 
 
 ## Launch the Corda {{< version-num >}} Workers
 
-To complete the upgrade to {{< version-num >}} and launch the Corda {{< version-num >}} workers, upgrade the Helm chart:
+To complete the upgrade to {{< version-num >}} and launch the Corda {{< version-num >}} workers, upgrade the Helm chart, ensuring <YOUR_VALUES_YAML> is a YAML file containing only {{< version-num >}} schema compatible values:
 
 ```shell
-helm upgrade corda -n <corda_namespace> oci://corda-os-docker.software.r3.com/helm-charts/release/os/{{<version-num>}}/corda --version {{<version-num>}}.0 -f values.yaml
+helm upgrade corda -n <corda_namespace> oci://corda-os-docker.software.r3.com/helm-charts/release/os/{{<version-num>}}/corda --version {{<version-num>}}.0 -f <YOUR_VALUES_YAML>
 ```
 For more information about the values in the deployment YAML file, see [Configure the Deployment]({{< relref "../../deployment/deploying/_index.md#configure-the-deployment" >}}).
