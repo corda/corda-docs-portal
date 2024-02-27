@@ -99,7 +99,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
   On applying this update the PrimusX JCE should be upgraded to version 2.3.4 or later.
 
-  There is no need to upgrade the HSM firmware version for this update but it is recommended to keep the firmware up to date as a matter of course. Currently the latest firmware version if 2.8.50.
+  There is no need to upgrade the HSM firmware version for this update but R3 recommends to keep the firmware up to date as a matter of course. Currently the latest firmware version if 2.8.50.
 
 * A fix for cache eviction has been applied where an issue resulted in an incorrect contract verification status while a database transaction was in progress during contract verification.
 

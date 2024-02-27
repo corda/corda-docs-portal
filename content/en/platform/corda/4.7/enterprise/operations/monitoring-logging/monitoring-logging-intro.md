@@ -60,7 +60,7 @@ serialization in the node has been restricted for security reasons, the metrics 
 directly. Nodes can be configured to export the data over HTTP on the `/jolokia` HTTP endpoint, Jolokia defines the JSON and REST
 formats for accessing MBeans, and provides client libraries to work with that protocol as well.
 
-When using Jolokia monitoring in production, it is recommended to use a Jolokia agent that reads the metrics from the node
+When using Jolokia monitoring in production, R3 recommends to use a Jolokia agent that reads the metrics from the node
 and pushes them to the metrics storage, rather than exposing a port on the production machine/process to the internet.
 
 Also ensure to have restrictive Jolokia access policy in place for access to production nodes. The Jolokia access is controlled

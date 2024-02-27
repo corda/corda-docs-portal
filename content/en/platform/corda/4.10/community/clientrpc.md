@@ -423,7 +423,7 @@ When the `start` method is called on `MultiRPCClient`, it performs a remote call
 Once the connection has been created, it is possible to obtain a `proxy` and perform a remote call.
 {{< /note >}}
 
-As some internal resources are allocated to `MultiRPCClient`, it is recommended that you call the `close()` method when the `MultiRPCClient` is no longer needed. In Kotlin, you would typically employ the `use` construct for this purpose. In Java, you can use `try-with-resource`.
+As some internal resources are allocated to `MultiRPCClient`, R3 recommends that you call the `close()` method when the `MultiRPCClient` is no longer needed. In Kotlin, you would typically employ the `use` construct for this purpose. In Java, you can use `try-with-resource`.
 
 `RPCConnection` is also a `Closeable` construct, so it is a good idea to call `close()` on it after use.
 
