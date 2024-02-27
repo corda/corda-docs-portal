@@ -159,7 +159,7 @@ java.util.EnumMap (but only if there is at least one entry)
 ```
 
  {{< note >}}
- If you receive a deserialization error when running your CorDapp, we recommend changing `java.util.Map` to `java.util.LinkedHashMap` to resolve the error.
+ If you receive a deserialization error when running your CorDapp, R3 recommends changing `java.util.Map` to `java.util.LinkedHashMap` to resolve the error.
  {{< /note >}}
 
 

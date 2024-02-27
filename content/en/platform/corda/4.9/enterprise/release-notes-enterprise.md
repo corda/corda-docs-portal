@@ -83,7 +83,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
   On applying this update the PrimusX JCE should be upgraded to version 2.3.4 or later.
 
-  There is no need to upgrade the HSM firmware version for this update but it is recommended to keep the firmware up to date as a matter of course. Currently the latest firmware version if 2.8.50.
+  There is no need to upgrade the HSM firmware version for this update but R3 recommends to keep the firmware up to date as a matter of course. Currently the latest firmware version if 2.8.50.
 
 * The default SSL handshake timeout for inbound connections has been increased to 60 seconds. If during SSL handshake, certificate revocation lists (CRLs) take a long time to download or are unreachable, then this 60 seconds gives the node enough time to establish the connection if `crlCheckSoftFail` is enabled.
 

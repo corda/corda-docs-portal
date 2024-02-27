@@ -68,5 +68,5 @@ of Corda as well as opt in to newer features should they happen to be available 
 {{< /table >}}
 
 {{< note >}}
-We recommend a minimum network platform version of 5 for Corda 4.5 onwards; however, a network mPV of 4 may continue to work in some instances.
+R3 recommends a minimum network platform version of 5 for Corda 4.5 onwards; however, a network mPV of 4 may continue to work in some instances.
 {{< /note >}}

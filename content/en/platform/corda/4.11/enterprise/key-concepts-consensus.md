@@ -3,6 +3,7 @@ aliases:
 - /head/key-concepts-consensus.html
 - /HEAD/key-concepts-consensus.html
 - /key-concepts-consensus.html
+- /docs/key-concepts-consensus.html
 date: '2023-01-30'
 menu:
   corda-enterprise-4-11:

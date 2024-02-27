@@ -196,7 +196,7 @@ See [Generating a Node](node/deploy/generating-a-node.html#tasks-using-the-cordf
 {{< /note >}}
 
 {{< warning >}}
-This tool requires additional memory footprint and we recommended a minimal heap size of at least 1Gb.
+This tool requires additional memory footprint and R3 recommends a minimal heap size of at least 1Gb.
 
 {{< /warning >}}
 
@@ -265,7 +265,7 @@ determine whether the VM has been instrumented or not at runtime.
 
 The agent will log output to a log4j2 configured logger.
 
-It is recommended to configure a separate log file to capture this information by configuring an appender as follows:
+R3 recommends to configure a separate log file to capture this information by configuring an appender as follows:
 
 ```xml
 <Logger name="CheckpointAgent" level="info" additivity="false">
@@ -688,7 +688,7 @@ If an error does occur when deserializing the flow's checkpoint, a `ReloadFlowFr
 
 * the node is restarted
 * a node operator manually restarts the flow
-* a node operator manually kills the flow off  
+* a node operator manually kills the flow off
 
 This only occurs when the configuration option is turned on as this is not standard behaviour. The exception that caused the failure is logged, which will hopefully provide enough information to figure out what object could not be deserialized correctly. From this point, you can either change your flow or apply custom serialization for objects that failed deserialization.
 

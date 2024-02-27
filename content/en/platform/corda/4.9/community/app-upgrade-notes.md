@@ -648,7 +648,7 @@ Now that it’s calling `ReceiveFinalityFlow`, which effectively does the same t
 
 The [Confidential identities](api-identity.html#confidential-identities) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
 has been adjusted in the same way as `FinalityFlow` above, to close problems with confidential identities being injectable into a node
-outside of other flow context. Old code will still work, but it is recommended to adjust your call sites so a session is passed into
+outside of other flow context. Old code will still work, but R3 recommends to adjust your call sites so a session is passed into
 the `SwapIdentitiesFlow`.
 
 
@@ -805,7 +805,7 @@ the act of upgrading your app to use the version 4 Gradle plugins will result in
 automatically using new signature constraints selected automatically based on these signing keys.
 
 You can read more about signature constraints and what they do in [API: Contract Constraints](api-contract-constraints.md). The `TransactionBuilder` class will
-automatically use them if your application JAR is signed. **We recommend all JARs are signed**. To learn how to sign your JAR files, read
+automatically use them if your application JAR is signed. **R3 recommends all JARs are signed**. To learn how to sign your JAR files, read
 [Signing the CorDapp](cordapp-build-systems.html#sign-the-cordapp). In dev mode, all JARs are signed by developer certificates. If a JAR that was signed
 with developer certificates is deployed to a production node, the node will refuse to start. Therefore to deploy apps built for Corda 4
 to production you will need to generate signing keys and integrate them with the build process.
