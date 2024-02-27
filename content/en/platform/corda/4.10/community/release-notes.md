@@ -20,6 +20,19 @@ tags:
 
 # Corda Community Edition 4.10 release notes
 
+## Corda Community Edition 4.10.4 release notes
+
+Corda Community Edition 4.10.4 is a patch release of Corda Community Edition focused on resolving issues.
+
+### Fixed issues
+
+* In the default log4j2.xml file, the Delete action in the DefaultRolloverStrategy policy for log files beginning with `diagnostic-*` or `checkpoints_agent-*`  was incorrect. It erroneously compared against the wrong file names. This issue has been rectified, ensuring that files are now deleted in accordance with the policy.
+* Previously, a rare error scenario could occur where a node would erroneously perceive a valid connection to a peer when, in fact, it was not connected. This issue typically arose when the peer node was disconnecting/connecting.
+
+### Third party component upgrades
+
+* Jetty version was upgraded from 9.4.51.v20230217 to 9.4.53.v20231009.
+
 ## Corda Community Edition 4.10.3 release notes
 
 Corda Community Edition 4.10.3 is a patch release of Corda Community Edition focused on resolving issues.
@@ -109,9 +122,9 @@ This release includes the following fixes:
 * Flow draining mode no longer acknowledges P2P in-flight messages that have not yet been committed to the database. Previously, flow draining mode acknowledged all in-flight messages as duplicate.
 
 * Previously, the attachment class loader was being closed too early if it was evicted from the cache. Now, closing of attachment class loaders is delayed until all SerializationContext that refer to them (from BasicVerifier) have gone out of scope.
- 
+
 * Occasionally, database transactions were rolled back under heavy load that caused flow state machine threads to stop processing flows. This resulted in eventual node lockup in certain circumstances.
-  
+
 ### Database schema changes
 
 There are no database changes between 4.9 and 4.10.

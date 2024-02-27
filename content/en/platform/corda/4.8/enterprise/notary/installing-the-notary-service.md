@@ -74,7 +74,7 @@ p2pAddress : "{{ fully qualified domain name, e.g. host.example.com (or localhos
 rpcUsers=[]
 myLegalName : "O=Worker 1, C=GB, L=London"
 
-// We recommend using Postgres for the node database, or an other supported
+// R3 recommends using Postgres for the node database, or an other supported
 // database that you already have set up. Note that the notarised states
 // are written to the shared notary database configured in `notary.jpa`.
 dataSourceProperties = {

@@ -64,7 +64,7 @@ app to be produced and applied to an existing state as long as it has been signe
 ### Signature Constraints
 
 The best kind of constraint to use is the **Signature Constraint**. If you sign your application it will be used automatically.
-We recommend signature constraints because they let you express complex social and business relationships while allowing
+R3 recommends signature constraints because they let you express complex social and business relationships while allowing
 smooth migration of existing data to new versions of your application.
 
 Signature constraints can specify flexible threshold policies, but if you use the automatic support then a state will
