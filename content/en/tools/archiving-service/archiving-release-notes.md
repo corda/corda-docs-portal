@@ -34,7 +34,7 @@ Archive Service 1.1.1 is a patch release focused on resolving issues.
 
 * When creating a backup table, the Archive Service created a backup table index name greater than 30 characters. This caused problems with Oracle 11. 
 
-* When used with a Corda 4.11 node, it was possible for the Archive Service `create-snapshot` command to fail. This issue occurred when the node database was one of SQL Server, Oracle, or PostgreSQL, and the Archive Service was configured to use a backup schema. This issue has been resolved.
+* When used with a Corda 4.11 node, it was possible for the Archive Service `create-snapshot` command to fail. This issue occurred when the node database was one of SQL Server, Oracle, or PostgreSQL, and the Archive Service was configured to use a backup schema.
 
 * When done immediately after a `delete-vault` operation, the `import-snapshot` would fail to import transactions in an Archive Service regression. This issue has been resolved.
 
