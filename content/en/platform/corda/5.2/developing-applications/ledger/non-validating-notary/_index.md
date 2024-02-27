@@ -18,9 +18,13 @@ To support the UTXO ledger model, R3 provides a non-validating [notary]({{< relr
 * Add any outputs as new valid states to the list of unconsumed states.
 * Signs the transaction and sends the signature back to the requestor of the notarization.
 
+## Validity
+
 To establish that a state on the ledger is valid, a virtual node must verify the transaction that has the state as output.
 The first step is to verify that all states which appear as inputs, if any, to that transaction are are valid by verifying those transactions first.
 Once the inputs are valid, Corda can continue verifying the new states, which includes checking the signatures, including the notary signature, and then moving on to running the smart contracts which check that the transaction represents a valid transformation of inputs and outputs on the ledger.
+
+## Backchain
 
 This validity requirement means that in order to verify a transaction, each virtual node must fetch the whole chain of transactions back to issuance. This is called the backchain of a transaction.
 For some use cases, for example to trace the origin of a tokenized asset, this can actually be quite useful.
@@ -35,6 +39,8 @@ Particularly if transactions can have many inputs and ouputs or states are fungi
   * Archiving the ledger is near impossible, as old transaction might be required to verify the backchain of newly created transactions.
 
 For these cases, R3 provides an alternative notary protocol. For more information, see [Contract-Verifying Notary Protocol](../../notaries/contract-verifying-notary.md).
+
+## Privacy
 
 The non-validating notary protocol maintains a degree of privacy by only revealing the information about a transaction that is strictly necessary to perform validation. Below is a summary of which specific transaction components are revealed:
 
