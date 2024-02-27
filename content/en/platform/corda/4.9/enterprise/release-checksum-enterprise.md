@@ -28,7 +28,7 @@ The following release packs are available, along with their respective checksum 
 
 * devtest-4.9.9.tar.gz
 
-  Required for building, developing and testing CorDapps.
+  Required for building, developing, and testing CorDapps.
 
 * runtime-4.9.9.tar.gz
 
