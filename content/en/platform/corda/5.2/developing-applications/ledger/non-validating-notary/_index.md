@@ -1,5 +1,5 @@
 ---
-description: "********"
+description: Learn about the R3 non-validating notary protocol.
 title: "Non-Validating Notary Protocol"
 date: 2023-06-08
 menu:
