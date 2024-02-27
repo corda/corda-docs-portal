@@ -19,9 +19,39 @@ A notary service is formed by one or more notary workers that together form a no
 
 Every state has an appointed notary cluster, so the cluster only notarizes a transaction if it is the appointed notary cluster of all of the transaction’s input states. A network can have several notary clusters, all running different consensus algorithms. Backchain resolution verifies that all transactions through the backchain have been notarized by a notary allowed on the network at the time of that transaction’s notarization. This verification is based on the network group parameters, which Corda also distributes with the backchain.
 
-A notary service runs a notary protocol, which dictates the consensus algorithm and additional validation performed. In {{< version >}}, only the non-validating notary protocol is supported, which performs minimal additional checks beyond double-spend and time-window validation.
+## Notary Protocols
 
-## Data Visibility
+A notary service runs a notary protocol, which dictates the consensus algorithm and additional validation performed. R3 provide the following protocols:
+
+* [Non-validating Notary Protocol](#non-validating-notary-protocol)
+* [Contract-Verifying Protocol](#contract-verifying-notary-protocol)
+
+For more information about bundling these in your CPI, see [Notary CorDapps]({{< relref "../../notaries/_index.md" >}})
+
+### Non-Validating Notary Protocol
+
+When Corda receives a new transaction from a participant on the network, it performs the following:
+
+* Checks that all inputs are in the list of unconsumed states.
+* Remove the inputs from the list of unconsumed states.
+* Add any outputs as new valid states to the list of unconsumed states.
+* Signs the transaction and sends the signature back to the requestor of the notarization.
+
+To establish that a state on the ledger is valid, a virtual node must verify the transaction that has the state as output.
+The first step is to verify that all states which appear as inputs, if any, to that transaction are are valid by verifying those transactions first.
+Once the inputs are valid, Corda can continue verifying the new states, which includes checking the signatures, including the notary signature, and then moving on to running the smart contracts which check that the transaction represents a valid transformation of inputs and outputs on the ledger.
+
+This validity requirement means that in order to verify a transaction, each virtual node must fetch the whole chain of transactions back to issuance. This is called the backchain of a transaction.
+For some use cases, for example to trace the origin of a tokenized asset, this can actually be quite useful.
+For other cases, where the relevant property is ownership rather than provenance, it is less desirable.
+Particularly if transactions can have many inputs and ouputs or states are fungible tokens. In these cases, the backchain can turn into a tangled web of transactions that needs to be downloaded. This leads to the following:
+
+* Decentralized verification. Every virtual node has the required data to run the full set of verifications all the way to the origins, without having to rely on any remote or centralized verification. The role of the notary is limited to ensuring no state is consumed more than once.
+* Privacy implications. Every virtual node must fetch and process a large number of transactions that it might not have been involved in, and can see the full history of every token it sees.
+* Performance implications. The backchain continues to grow:
+  * When a virtual node receives a state or token for which it has not seen the history before, it must download the complete backchain. This must occur before it can accept/sign a transaction and slows down the main functionality of the network. This would be definitely the case for any new joiner to a network.
+  * Most virtual nodes will eventually have to store a large part of the global ledger in their database which could be gigabytes of data that is only required to verify new transactions.
+  * Archiving the ledger is near impossible, as old transaction might be required to verify the backchain of newly created transactions.
 
 The non-validating notary protocol maintains a degree of privacy by only revealing the information about a transaction that is strictly necessary to perform validation. Below is a summary of which specific transaction components are revealed:
 
@@ -40,11 +70,14 @@ The protocol also records the calling party’s identity in the form of its {{< 
 [1] A state reference is composed of the issuing transaction’s ID and the state’s position in the outputs. It does not reveal what kind of state it is or its contents.
 [2] Output states are not revealed, but the total number of output states are communicated to allow the protocol to track unspent states.
 
-## Pluggable Notaries
+### Contract-Verifying Notary Protocol
 
-The notary is implemented as a special app on the application network, consisting of a client plug-in included with an application workflow app, and a server component that needs to be installed as a notary member with its own virtual node.
+As outlined in the [Non-Validating Notary Protocol](#non-validating-notary-protocol) section, a backchain verification based UTXO ledger is not suitable for a large scale token network that also needs very high performance, such as a digital currency.
+The contract-verifying notary protocol provides an alternative approach to verifying that inputs to a transaction are trustworthy.
 
-The client plug-in and the server component define the protocol used by this notary.
+
+
+
 
 ## Multiple Notaries
 
