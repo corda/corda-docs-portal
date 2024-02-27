@@ -88,9 +88,9 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
   The issue is now resolved. When generating a wrapped key-pair, the temporary key-pair is not persisted in the HSM and thus cannot be leaked.
 
-  On applying this update, it is recommended that the PrimusX JCE should be upgraded to version 2.3.4 or later for optimum performance of the HSM. If the JCE is not updated, then no keys are leaked but they are temporarily created in the HSM and are then garbage-collected within 24 hours.
+  On applying this update, R3 recommends that the PrimusX JCE should be upgraded to version 2.3.4 or later for optimum performance of the HSM. If the JCE is not updated, then no keys are leaked but they are temporarily created in the HSM and are then garbage-collected within 24 hours.
 
-  There is no need to upgrade the HSM firmware version for this update, but it is recommended to keep the firmware up to date as a matter of course. Currently the latest firmware version is 2.8.50.
+  There is no need to upgrade the HSM firmware version for this update, but R3 recommends to keep the firmware up to date as a matter of course. Currently the latest firmware version is 2.8.50.
 
 ## Corda Enterprise Edition 4.8.9 release notes
 

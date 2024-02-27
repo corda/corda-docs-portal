@@ -58,7 +58,7 @@ program starts, that you can interact with it, and that no exceptions are genera
 
 ## Running tests in IntelliJ
 
-We recommend editing your IntelliJ preferences so that you use the Gradle runner - this means that the quasar utils
+R3 recommends editing your IntelliJ preferences so that you use the Gradle runner - this means that the quasar utils
 plugin will make sure that some flags (like `-javaagent` - see below) are
 set for you.
 

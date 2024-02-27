@@ -108,16 +108,20 @@ var pathtoroot = "../../../../../../../";
     <div class="typeSummary">
 
 <table>
-<caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Interface Summary</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
-<th class="colFirst" scope="col">Class</th>
+<th class="colFirst" scope="col">Interface</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tbody>
 
-    <tr class="altColor"><th class="colFirst" scope="row"><a href=TokenBalanceCriteria.html>TokenBalanceCriteria</a></th><td class="colLast">Represents a description of the selection criteria for a token selection query using the <a href=TokenSelection.html>TokenSelection</a> API.</td></tr>
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=ClaimedToken.html>ClaimedToken</a></th><td class="colLast">Defines a claimed token from a <a href=TokenSelection.html>TokenSelection</a>.</td></tr>
 
-    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TokenClaimCriteria.html>TokenClaimCriteria</a></th><td class="colLast">Represents a description of the selection criteria for a token selection query using the <a href=TokenSelection.html>TokenSelection</a> API.</td></tr>
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TokenBalance.html>TokenBalance</a></th><td class="colLast">Defines a balance of a set of tokens returned by a call to <a href=TokenSelection.html#queryBalance(net.corda.v5.ledger.utxo.token.selection.TokenBalanceCriteria)>queryBalance</a>.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TokenClaim.html>TokenClaim</a></th><td class="colLast">Defines a claimed set of tokens returned by a call to <a href=TokenSelection.html#tryClaim(net.corda.v5.ledger.utxo.token.selection.TokenClaimCriteria)>tryClaim</a>.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TokenSelection.html>TokenSelection</a></th><td class="colLast">Defines a mechanism to allow flows to query the token cache.</td></tr>
 </tbody>
 </table>
 
@@ -134,20 +138,16 @@ var pathtoroot = "../../../../../../../";
     <div class="typeSummary">
 
 <table>
-<caption><span>Interface Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
-<th class="colFirst" scope="col">Interface</th>
+<th class="colFirst" scope="col">Class</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tbody>
 
-    <tr class="altColor"><th class="colFirst" scope="row"><a href=TokenClaim.html>TokenClaim</a></th><td class="colLast">Defines a claimed set of tokens returned by a call to <a href=TokenSelection.html#tryClaim(net.corda.v5.ledger.utxo.token.selection.TokenClaimCriteria)>tryClaim</a>.</td></tr>
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TokenBalanceCriteria.html>TokenBalanceCriteria</a></th><td class="colLast">Represents a description of the selection criteria for a token selection query using the <a href=TokenSelection.html>TokenSelection</a> API.</td></tr>
 
-    <tr class="rowColor"><th class="colFirst" scope="row"><a href=ClaimedToken.html>ClaimedToken</a></th><td class="colLast">Defines a claimed token from a <a href=TokenSelection.html>TokenSelection</a>.</td></tr>
-
-    <tr class="altColor"><th class="colFirst" scope="row"><a href=TokenSelection.html>TokenSelection</a></th><td class="colLast">Defines a mechanism to allow flows to query the token cache.</td></tr>
-
-    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TokenBalance.html>TokenBalance</a></th><td class="colLast">Defines a balance of a set of tokens returned by a call to <a href=TokenSelection.html#queryBalance(net.corda.v5.ledger.utxo.token.selection.TokenBalanceCriteria)>queryBalance</a>.</td></tr>
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TokenClaimCriteria.html>TokenClaimCriteria</a></th><td class="colLast">Represents a description of the selection criteria for a token selection query using the <a href=TokenSelection.html>TokenSelection</a> API.</td></tr>
 </tbody>
 </table>
 

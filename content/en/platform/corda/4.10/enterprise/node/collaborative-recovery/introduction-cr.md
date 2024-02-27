@@ -228,4 +228,4 @@ It is currently not possible to recover the issuance transaction containing an `
 
 Collaborative Recovery is *not* compatible with the legacy Corda Finance module. This is due to the way Confidential Identities are used as a part of the `CashPaymentFlow`.
 
-In general, it is recommended that you avoid the legacy Corda Finance module in favour of [Tokens]({{< relref "../../cordapps/token-sdk-introduction.md" >}}) and Accounts SDKs.
+In general, R3 recommends that you avoid the legacy Corda Finance module in favour of [Tokens]({{< relref "../../cordapps/token-sdk-introduction.md" >}}) and Accounts SDKs.

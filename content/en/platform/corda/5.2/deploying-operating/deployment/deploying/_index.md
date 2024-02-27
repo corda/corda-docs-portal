@@ -26,57 +26,14 @@ This section contains the following:
 ## Download and Push Container Images to a Registry
 
 The Corda container images must be in a registry that is accessible from the Kubernetes cluster in which Corda will run.
-By default, the Corda images are made available via Docker Hub.
-If your Kubernetes cluster can not pull images from Docker Hub, or if you are deploying Corda Enterprise, the following sections describe how to push the images from the provided `tar` file into a container registry that is accessible from the cluster:
+For more information, see the following sections:
 
 * [Container Images for Corda]({{< relref "#container-images-for-corda" >}})
 * [Container Images for Corda Enterprise]({{< relref "#container-images-for-corda-enterprise" >}})
 
 ### Container Images for Corda
 
-To push the Corda images:
-
-1. Download `corda-os-worker-images-{{<version-num>}}.0.tar` from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
-
-2. Inflate and load the `corda-os-worker-images-{{<version-num>}}.0.tar` file into the local Docker engine with the following command:
-
-   ```shell
-   docker load -i corda-os-worker-images-{{<version-num>}}.0.tar
-   ```
-
-3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target container registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
-
-   ```shell
-   #!/bin/bash
-   if [ -z "$1" ]; then
-    echo "Specify target registry"
-    exit 1
-   fi
-
-   declare -a images=(
-    "corda-os-rest-worker" "corda-os-flow-worker"
-    "corda-os-member-worker" "corda-os-p2p-gateway-worker"
-    "corda-os-p2p-link-manager-worker" "corda-os-db-worker"
-    "corda-os-flow-mapper-worker" "corda-os-verification-worker"
-    "corda-os-persistence-worker" "corda-os-token-selection-worker"
-    "corda-os-crypto-worker" "corda-os-uniqueness-worker"
-    "corda-os-plugins" )
-   tag={{<version-num>}}.0.0
-   target_registry=$1
-
-   for image in "${images[@]}"; do
-    source=corda/$image:$tag
-    target=$target_registry/$image:$tag
-    echo "Publishing image $source to $target"
-    docker tag $source $target
-    docker push $target
-   done
-
-   docker tag postgres:14.4 $target_registry/postgres:14.4
-   docker push $target_registry/postgres:14.4
-   docker tag sha256:9a53f78a8232118072a72bda97e56f2c3395d34a212fe7e575d1af61cda059c6 $target_registry/ingress-nginx-controller:v1.9.3
-   docker push $target_registry/ingress-nginx-controller:v1.9.3
-   ```
+The Corda images are available from Docker Hub.
 
 ### Container Images for Corda Enterprise {{< enterprise-icon >}}
 
@@ -133,14 +90,11 @@ The following sections describe how to download the Corda {{< tooltip >}}Helm{{<
 
 ### Corda Helm chart
 
-If you have access to Docker Hub, you can download the Corda Helm chart using the following command:
+You can download the Corda Helm chart from Docker Hub using the following command:
 
 ```shell
 helm fetch oci://registry-1.docker.io/corda/corda --version {{<version-num>}}.0
 ```
-
-If you do not have access to Docker Hub, you can download the `corda-{{<version-num>}}.0.tgz` file from the [R3 Developer Portal](https://developer.r3.com/next-gen-corda/#get-corda).
-
 ### Corda Enterprise Helm chart {{< enterprise-icon >}}
 
 You can download the `corda-enterprise-{{<version-num>}}.0.tgz` file from the the [R3 Customer Hub](https://r3.force.com/).
@@ -159,7 +113,7 @@ The following sections describe the minimal set of configuration options require
 * [Kafka Message Bus]({{< relref "#kafka-message-bus" >}})
 * [Encryption]({{< relref "#encryption" >}})
 * [Bootstrapping]({{< relref "#bootstrapping" >}})
-* [Custom Annotations for Worker Pods]({{< relref "#custom-annotations-for-worker-pods" >}})
+* [Worker Pods]({{< relref "#worker-pods" >}})
 * [Node Affinities]({{< relref "#node-affinities" >}})
 * [Pre-Install Checks]({{< relref "#pre-install-checks" >}})
 
@@ -1089,7 +1043,14 @@ For example, when running with Red Hat OpenShift Container Platform, you must us
         name: "corda-privileged"
    ```
 
-### Custom Annotations for Worker Pods
+### Worker Pods
+
+The following configuration is possible for Corda worker pods:
+
+* [Custom Annotations](#custom-annotations)
+* [Istio Integration](#istio-integration)
+
+#### Custom Annotations
 
 You can define custom annotations for worker pods. You can add these globally or to individual workers. For example, to define `annotation-key-1` for all workers:
 
@@ -1105,6 +1066,18 @@ workers:
   crypto:
     annotations:
       annotation-key-2: "some-value"
+```
+
+#### Istio Integration
+
+You can integrate with Istio service mesh to secure communication between Corda workers. To enable this, add the following custom labels to worker pods:
+
+```yaml
+bootstrap:
+  commonPodLabels:
+    sidecar.istio.io/inject: !!str false # explicitly disable Istio integration from bootstrap pods
+commonPodLabels:
+  sidecar.istio.io/inject: !!str true # explicitly enable Istio integration for all Corda pods
 ```
 
 ### Node Affinities

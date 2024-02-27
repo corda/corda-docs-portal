@@ -2,9 +2,9 @@
 title: "Corda Keys and Certificates"
 date: '2023-11-28'
 menu:
-  corda51:
+  corda52:
     identifier: corda52-certificates
-    parent: corda51-references
+    parent: corda52-references
     weight: 4000
 ---
 
@@ -75,7 +75,7 @@ Corda uses the following credentials:
 | Client Kafka credentials for a specific worker | Kafka credentials (user name and password) created at deployment time and stored by default in Kubernetes etcd as secret configuration. This value is passed to worker pods memory at runtime.                                              | High entropy unencrypted string       |
 | Kubernetes secrets creation via API            | The Cluster Adminstrator creates the secrets in Kubernetes etcd to be used by the Corda Helm charts. This is executed optionally when Helm Chart overrides are not used as an alternative.                                                |                                       |
 | Kubernetes Secrets configured in Helm charts   | The Cluster Administrator configures the Secrets as overrides in Helm charts. This is an alternative to creating Kubernetes Secrets via API.                                                                                                                     |                                       |
-| HELM Chart execution                           | Corda cluster installation HELM Chart execution targeting a Kubernetes environment.                                                                                                                                                        |                                       |
+| Helm Chart execution                           | Corda cluster installation Helm Chart execution targeting a Kubernetes environment.                                                                                                                                                        |                                       |
 | Cluster Administrator user credentials          | Cluster Administrator user credentials.                                                                                                                                                                                                     | 256-bit secure salted/hashed password |
 | Sensitive config SALT and PASSPHRASE           | SALT and PASSPHRASE to derive a symmetric AES key to decrypt sensitive values encrypted at rest.                                                                                                  | High entropy unencrypted string       |
 | Cluster database credentials                         | Cluster database credentials.                                                                                                                                                                                                                     | High entropy unencrypted string                     |
