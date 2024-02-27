@@ -155,7 +155,7 @@ If the `adminListener` property is present in the configuration, this means that
     * **password**:
     The password for the trust root keystore.
   * **issuer**: The \"iss\" claim in the JWT - you must set the same value as in the Auth Service's configuration. Required unless authentication is disabled.
-  * **leeway**: Defines the amount of time, in seconds, allowed when checking JSON Web Token (JWT) issuance and expiration times. Required unless authentication is disabled. We recommend a default time of **10 seconds**.
+  * **leeway**: Defines the amount of time, in seconds, allowed when checking JSON Web Token (JWT) issuance and expiration times. Required unless authentication is disabled. R3 recommends a default time of **10 seconds**.
 
 ## Obfuscated configuration files
 

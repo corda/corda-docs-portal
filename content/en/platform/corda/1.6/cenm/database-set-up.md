@@ -927,7 +927,7 @@ DROP SCHEMA IF EXISTS "my_schema" CASCADE;
 
 ## 6. Database Migration
 
-When upgrading a CENM service, any required database schema changes are applied by the services rather than by a standalone tool. As a best practice, we recommend that the services are configured with a database user without permission to make schema modifications, when running normally (this is the setup described above).
+When upgrading a CENM service, any required database schema changes are applied by the services rather than by a standalone tool. As a best practice, R3 recommends that the services are configured with a database user without permission to make schema modifications, when running normally (this is the setup described above).
 
 The typical service migration process is described below. Please read the release notes for any version-specific processes, especially when upgrading between major versions.
 
