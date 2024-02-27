@@ -6,7 +6,7 @@ menu:
   corda52:
     identifier: corda52-fundamentals-ledger
     parent: corda52-develop
-    weight: 4550
+    weight: 4750
 ---
 
 # Ledger
