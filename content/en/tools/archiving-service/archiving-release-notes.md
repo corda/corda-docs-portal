@@ -36,7 +36,7 @@ Archive Service 1.1.1 is a patch release focused on resolving issues.
 
 * When used with a Corda 4.11 node, it was possible for the Archive Service `create-snapshot` command to fail. This issue occurred when the node database was one of SQL Server, Oracle, or PostgreSQL, and the Archive Service was configured to use a backup schema.
 
-* When done immediately after a `delete-vault` operation, the `import-snapshot` would fail to import transactions in an Archive Service regression. This issue has been resolved.
+* When done immediately after a `delete-vault` operation, the `import-snapshot` failed to import transactions in an Archive Service regression. 
 
 ### Archive Service 1.1
 
