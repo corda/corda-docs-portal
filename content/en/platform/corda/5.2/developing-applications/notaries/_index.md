@@ -57,7 +57,7 @@ There are four modules/CPKs of relevance to the non-validating notary protocol, 
 * **`non-validating-notary-client`** —  intended to run on application virtual nodes, and provides a sub-flow that initiates a notarization request to a notary {{< tooltip >}}virtual node{{< /tooltip >}} when requested by the ledger finality flow.
 * **`non-validating-notary-server`** —  provides a responder flow to the corresponding initiator flow in the client package, and will perform notarization processing.
 
-The source code for all of these modules can be found under the [notary-plugins area of corda-runtime-os](https://github.com/corda/corda-runtime-os/tree/release/os/5.2/notary-plugins).
+The source code for all of these modules can be found under the [notary-plugins area of corda-runtime-os](https://github.com/corda/corda-runtime-os/tree/release/os/5.0/notary-plugins).
 
 ### Notary Server CPB
 
