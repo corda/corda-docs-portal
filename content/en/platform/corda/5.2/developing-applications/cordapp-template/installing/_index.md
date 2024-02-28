@@ -25,7 +25,7 @@ The images in this section show the `cordapp-template-kotlin` repository in Inte
 
 1. To obtain the {{< version >}} CorDapp template, clone the [cordapp-template-kotlin repository](https://github.com/corda/cordapp-template-kotlin) or [cordapp-template-java repository](https://github.com/corda/cordapp-template-java):
 
-   {{< tabs name="clone-csde">}}
+   {{< tabs name="clone">}}
    {{% tab name="Kotlin"%}}
    ```sh
    git clone https://github.com/corda/cordapp-template-kotlin.git <local-folder>

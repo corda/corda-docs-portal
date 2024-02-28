@@ -11,8 +11,8 @@ menu:
 
 # Initial Setup
 
-After you have completed this tutorial, you will have modified the {{< tooltip >}}CSDE{{< /tooltip >}} environment to make it ready for building your {{< tooltip >}}CorDapp{{< /tooltip >}}.
-You will have also created three packages within the existing CSDE project structure.
+After you have completed this tutorial, you will have modified the {{< tooltip >}}CorDapp template {{< /tooltip >}} environment to make it ready for building your {{< tooltip >}}CorDapp{{< /tooltip >}}.
+You will have also created three packages within the existing CorDapp template project structure.
 
 {{< note >}}
 The packages are not required but they define a suggested structure for you to follow.
@@ -20,10 +20,10 @@ The packages are not required but they define a suggested structure for you to f
 
 ## Initial Setup of Your CorDapp
 
-In this tutorial, you will use the CSDE repository as a template and build on top of it.
+In this tutorial, you will use the CorDapp template repository as a template and build on top of it.
 This project already contains some example flows, contracts, and {{< tooltip >}}states{{< /tooltip >}}.
 
-1. Follow the CSDE [installation instructions]({{< relref "../cordapp-template/installing/_index.md" >}}) to clone the [Kotlin CSDE repository](https://github.com/corda/CSDE-cordapp-template-kotlin).
+1. Follow the CorDapp template [installation instructions]({{< relref "../cordapp-template/installing/_index.md" >}}) to clone the [Kotlin CorDapp template repository](https://github.com/corda/cordapp-template-kotlin).
 
 2. Create the `com.r3.developers.apples.workflows` package. If using IntelliJ, you can do this by right-clicking
 the **kotlin** folder within the **workflows** folder and then selecting **New > Package**.

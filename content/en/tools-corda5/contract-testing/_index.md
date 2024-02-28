@@ -17,7 +17,7 @@ This version of the Contract Testing library only supports UTXO contracts.
 
 ## Prerequisites
 
-* {{< tooltip >}}CSDE{{< /tooltip >}} — contains Contract Testing library [examples](#examples).
+* CorDapp template — contains Contract Testing library [examples](#examples).
 * Contract and state classes
 
 ## Importing the Library
@@ -102,10 +102,10 @@ exact string of the error message matches the expected message. To test if the s
 
 ## Examples
 
-The CSDE contains Contract Testing examples in the following locations:
+The Corda 5 CorDapp template contains Contract Testing examples in the following locations:
 
-* [CSDE-cordapp-template-kotlin repository](https://github.com/corda/CSDE-cordapp-template-kotlin/tree/release/corda-5-0) - `contracts/src/test/kotlin/com/r3/developers`
-* [CSDE-cordapp-template-java repository](https://github.com/corda/CSDE-cordapp-template-java/tree/release/corda-5-0) - `contracts/src/test/java/com/r3/developers`
+* [cordapp-template-kotlin repository](https://github.com/corda/cordapp-template-kotlin - `contracts/src/test/kotlin/com/r3/developers`
+* [cordapp-template-java repository](https://github.com/corda/cordapp-template-java) - `contracts/src/test/java/com/r3/developers`
 
 ### Apples
 
@@ -113,4 +113,4 @@ The `apples` example tests the `AppleStampContract` and `BasketOfApplesContract`
 
 ### Chat
 
-The `utxoexample` example tests the `ChatContract` of the [UTXO chat application](../platform/corda/{{< latest-c5-version >}}/developing-applications/getting-started/utxo-ledger-example-cordapp/cordapp-chat.html) delivered with the CSDE.
+The `utxoexample` example tests the `ChatContract` of the [UTXO chat application](../platform/corda/{{< latest-c5-version >}}/developing-applications/cordapp-template/utxo-ledger-example-cordapp/cordapp-chat.html) delivered with the CorDapp template.

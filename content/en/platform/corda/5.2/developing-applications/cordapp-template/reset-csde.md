@@ -29,7 +29,7 @@ This process does the following:
 The instructions in this section use the following terms:
 
 * `project-root-dir` — the project directory of the IntelliJ project contained in the repo.
-   For example, if you git-cloned the `corda/CSDE-cordapp-template-kotlin` repo to `/Users/charlie.smith/DevWork/DevExWork`, `<project-root-dir>` is `/Users/charlie.smith/DevWork/DevExWork/CSDE-cordapp-template-kotlin`.
+   For example, if you git-cloned the `corda/cordapp-template-kotlin` repo to `/Users/charlie.smith/DevWork/DevExWork`, `<project-root-dir>` is `/Users/charlie.smith/DevWork/DevExWork/cordapp-template-kotlin`.
 * `user-home` — the user home directory.
   * On Windows, this is typically something like `C:\Users\Charlie.Smith`.
   * On macOS, this is typically something like `/Users/charlie.smith`.
