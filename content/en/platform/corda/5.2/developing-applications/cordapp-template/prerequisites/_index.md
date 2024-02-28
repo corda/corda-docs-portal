@@ -14,7 +14,7 @@ menu:
 This section lists the third-party software prerequisites for local deployment with the CorDapp template.
 
 {{< note >}}
-You cannot start Corda via the CorDapp template `startCorda` task if any existing local programs are using ports 5432, 5005, or 8888. Reserve these ports. For more information, see [Required runtime Gradle plugin Ports](#required-runtime-gradle-plugin-ports).
+You cannot start Corda via the CorDapp template `startCorda` task if any existing local programs are using ports 5432, 9092, 5005, 7004, or 8888. Reserve these ports. For more information, see [Required runtime Gradle plugin Ports](#required-runtime-gradle-plugin-ports).
 {{< /note >}}
 
 ## Software Prerequisites
