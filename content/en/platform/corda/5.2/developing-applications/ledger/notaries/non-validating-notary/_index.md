@@ -44,7 +44,7 @@ Particularly if transactions can have many inputs and ouputs or states are fungi
 * Performance implications - The backchain continues to grow:
   * When a virtual node receives a state or token for which it has not seen the history before, it must download the complete backchain. This must occur before it can accept/sign a transaction and slows down the main functionality of the network. This would be definitely the case for any new joiner to a network.
   * Most virtual nodes will eventually have to store a large part of the global ledger in their database, which could be gigabytes of data that is only required to verify new transactions.
-  * Archiving the ledger is near impossible, as old transaction might be required to verify the backchain of newly created transactions.
+  * Archiving the ledger is near impossible, as old transactions might be required to verify the backchain of newly created transactions.
 
 For these cases, R3 provides an alternative notary protocol. For more information, see [Contract-Verifying Notary Protocol](../../notaries/contract-verifying-notary.md).
 
