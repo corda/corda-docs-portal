@@ -95,12 +95,12 @@ To migrate the cluster database schemas, do the following:
    {{< tabs name="database">}}
    {{% tab name="Bash" %}}
    ```sh
-   corda-cli.sh database spec -c -l /sql_updates -g="" --jdbc-url=<DATABASE-URL> -u postgres
+   corda-cli.sh database spec -c -l ./sql_updates -g="" --jdbc-url=<DATABASE-URL> -u postgres
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   corda-cli.cmd database spec -c -l /sql_updates -g="" --jdbc-url=<DATABASE-URL> -u postgres
+   corda-cli.cmd database spec -c -l ./sql_updates -g="" --jdbc-url=<DATABASE-URL> -u postgres
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -136,12 +136,12 @@ To migrate the state manager database schemas, do the following:
    {{< tabs name="state-manager">}}
    {{% tab name="Bash" %}}
    ```sh
-   corda-cli.sh database spec -c -l /sql_updates -s="statemanager" -g="statemanager:state_manager" --jdbc-url=<DATABASE-URL> -u postgres
+   corda-cli.sh database spec -c -l ./sql_updates -s="statemanager" -g="statemanager:state_manager" --jdbc-url=<DATABASE-URL> -u postgres
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   corda-cli.cmd database spec -c -l /sql_updates -s="statemanager" -g="statemanager:state_manager" --jdbc-url=<DATABASE-URL> -u postgres
+   corda-cli.cmd database spec -c -l ./sql_updates -s="statemanager" -g="statemanager:state_manager" --jdbc-url=<DATABASE-URL> -u postgres
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -415,17 +415,17 @@ To migrate the virtual node databases, do the following:
 
 1. Create a file containing the short hash holding IDs of the virtual nodes to migrate.
 
-2. Generate the required SQL scripts using the `platform-migration` sub-command of the <a href = "../../reference/corda-cli/vnode.md"> Corda CLI `vnode` command</a>. For example, if you save the holding IDs in `/sql_updates/holdingIds`:
+2. Generate the required SQL scripts using the `platform-migration` sub-command of the <a href = "../../reference/corda-cli/vnode.md"> Corda CLI `vnode` command</a>. For example, if you save the holding IDs in `./sql_updates/holdingIds`:
 
    {{< tabs name="">}}
    {{% tab name="Bash" %}}
    ```sh
-   corda-cli.sh vnode platform-migration --jdbc-url=jdbc:postgresql://host.docker.internal:5432/cordacluster -u postgres -i /sql_updates/holdingIds -o /sql_updates/vnodes.sql
+   corda-cli.sh vnode platform-migration --jdbc-url=jdbc:postgresql://host.docker.internal:5432/cordacluster -u postgres -i ./sql_updates/holdingIds -o ./sql_updates/vnodes.sql
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   corda-cli.cmd vnode platform-migration --jdbc-url=jdbc:postgresql://host.docker.internal:5432/cordacluster -u postgres -i /sql_updates/holdingIds -o /sql_updates/vnodes.sql
+   corda-cli.cmd vnode platform-migration --jdbc-url=jdbc:postgresql://host.docker.internal:5432/cordacluster -u postgres -i ./sql_updates/holdingIds -o ./sql_updates/vnodes.sql
    ```
    {{% /tab %}}
    {{< /tabs >}}
