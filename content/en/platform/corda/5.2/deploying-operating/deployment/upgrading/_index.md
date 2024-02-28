@@ -1,25 +1,27 @@
 ---
-description: "Learn how to upgrade your cluster from Corda 5.0 to Corda 5.1."
+description: "Learn how to upgrade your cluster from Corda 5.1 to Corda 5.2."
 date: '2023-11-02'
-title: "Upgrading from 5.0"
+title: "Upgrading from 5.1"
 menu:
   corda52:
     parent: corda52-cluster-deploy
     identifier: corda52-cluster-upgrade
     weight: 4000
 ---
-# Upgrading from 5.0
+# Upgrading from 5.1
 
-This section describes how to upgrade a Corda cluster from 5.0 to {{< version-num >}}. It lists the required [prerequisites](#prerequisites) and describes the following steps required to perform an upgrade:
+This section describes how to upgrade a Corda cluster from 5.1 to {{< version-num >}}. It lists the required [prerequisites](#prerequisites) and describes the following steps required to perform an upgrade:
 
 1. [Back Up the Corda Database](#back-up-the-corda-database)
-2. [Test the Migration](#test-the-migration)
-3. [Scale Down the Running Corda Worker Instances](#scale-down-the-running-corda-worker-instances)
-4. [Migrate the Corda Cluster Database](#migrate-the-corda-cluster-database)
-5. [Update the Database Connection Configuration Table](#update-the-database-connection-configuration-table)
-6. [Migrate the Virtual Node Databases](#migrate-the-virtual-node-databases)
-7. [Update Kafka Topics](#update-kafka-topics)
-8. [Launch the Corda {{< version-num >}} Workers](#launch-the-corda-workers)
+1. [Test the Migration](#test-the-migration)
+1. [Scale Down the Running Corda Worker Instances](#scale-down-the-running-corda-worker-instances)
+1. [Migrate the Corda Cluster Database](#migrate-the-corda-cluster-database)
+1. [Migrate State Manager Databases](#migrate-state-manager-databases)
+1. [Managing 5.2 Multi-Database Support](#managing-52-multi-database-support)
+1. [Setting Search Paths](#setting-search-paths)
+1. [Migrate the Virtual Node Databases](#migrate-the-virtual-node-databases)
+1. [Update Kafka Topics](#update-kafka-topics)
+1. [Launch the Corda {{< version-num >}} Workers](#launch-the-corda-workers)
 
 For information about how to roll back an upgrade, see [Rolling Back]({{< relref "rolling-back.md" >}}).
 
@@ -47,7 +49,7 @@ You must create a backup of all schemas in your database:
 
 ## Test the Migration
 
-Follow the steps in [Migrate the Corda Cluster Database](#migrate-the-corda-cluster-database) and [Update the Database Connection Configuration Table](#update-the-database-connection-configuration-table) on copies of your database backups to ensure that the database migration stages are successful before proceeding with an upgrade of a production instance of Corda.
+Follow the steps in [Migrate the Corda Cluster Database](#migrate-the-corda-cluster-database) and [Migrate State Manager Databases](#migrate-state-manager-databases) on copies of your database backups to ensure that the database migration stages are successful before proceeding with an upgrade of a production instance of Corda.
 
 This reveals any issues with migrating the data before incurring any downtime. It will also indicate the length of downtime required to perform a real upgrade, allowing you to schedule accordingly.
 
@@ -56,7 +58,7 @@ For information about rolling back the Corda 5.0 to Corda {{< version-num >}} up
 ## Scale Down the Running Corda Worker Instances
 
 {{< important >}}
-Scaling down the Corda 5.0 workers results in Corda becoming unresponsive until you launch the Corda {{< version-num >}} workers. You must first test the database migration as described in [Test the Migration](#test-the-migration) and also ensure that you are familiar with the rest of the upgrade process to incur minimum Corda downtime.
+Scaling down the Corda 5.1 workers results in Corda becoming unresponsive until you launch the Corda {{< version-num >}} workers. You must first test the database migration as described in [Test the Migration](#test-the-migration) and also ensure that you are familiar with the rest of the upgrade process to incur minimum Corda downtime.
 {{< /important >}}
 
 You can scale down the workers using any tool of your choice. For example, the run the following commands if using `kubectl`:
@@ -64,16 +66,21 @@ You can scale down the workers using any tool of your choice. For example, the r
 ```shell
 kubectl scale --replicas=0 deployment/corda-crypto-worker -n <corda_namespace>
 kubectl scale --replicas=0 deployment/corda-db-worker -n <corda_namespace>
+kubectl scale --replicas=0 deployment/corda-flow-mapper-worker -n <corda_namespace>
 kubectl scale --replicas=0 deployment/corda-flow-worker -n <corda_namespace>
 kubectl scale --replicas=0 deployment/corda-membership-worker -n <corda_namespace>
 kubectl scale --replicas=0 deployment/corda-p2p-gateway-worker -n <corda_namespace>
 kubectl scale --replicas=0 deployment/corda-p2p-link-manager-worker -n <corda_namespace>
+kubectl scale --replicas=0 deployment/corda-persistence-worker -n <corda_namespace>
 kubectl scale --replicas=0 deployment/corda-rest-worker -n <corda_namespace>
+kubectl scale --replicas=0 deployment/corda-token-selection-worker -n <corda_namespace>
+kubectl scale --replicas=0 deployment/corda-uniqueness-worker -n <corda_namespace>
+kubectl scale --replicas=0 deployment/corda-verification-worker -n <corda_namespace>
 ```
 
 If you are scripting these commands, you can wait for the workers to be scaled down using something similar to the following:
 ```shell
-while [ "$(kubectl get pods --field-selector=status.phase=Running -n corda | grep worker | wc -l | tr -d ' ')" != 0 ]
+while [ "$(kubectl get pods --field-selector=status.phase=Running -n <corda_namespace> | grep worker | wc -l | tr -d ' ')" != 0 ]
 do
   sleep 1
 done
@@ -81,24 +88,23 @@ done
 
 ## Migrate the Corda Cluster Database
 
-To migrate the database schemas, do the following:
+To migrate the cluster database schemas, do the following:
 
 1. Generate the required SQL scripts using the `spec` sub-command of the <a href = "../../reference/corda-cli/database.md"> Corda CLI `database` command</a>. For example:
 
    {{< tabs name="database">}}
    {{% tab name="Bash" %}}
    ```sh
-   corda-cli.sh database spec -c -l /sql_updates -s="config,rbac,crypto,statemanager" \
-   -g="config:config,rbac:rbac,crypto:crypto,statemanager:state_manager" --jdbc-url=<DATABASE-URL> -u postgres
+   corda-cli.sh database spec -c -l ./sql_updates -g="" --jdbc-url=<DATABASE-URL> -u postgres
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   corda-cli.cmd database spec -c -l /sql_updates -s="config,rbac,crypto,statemanager" `
-   -g="config:config,rbac:rbac,crypto:crypto,statemanager:state_manager" --jdbc-url=<DATABASE-URL> -u postgres
+   corda-cli.cmd database spec -c -l ./sql_updates -g="" --jdbc-url=<DATABASE-URL> -u postgres
    ```
    {{% /tab %}}
    {{< /tabs >}}
+   This example generates the schemas into a directory named `sql_updates` but you can choose any output directory. The `database spec` command generates all but state manager SQL by default. This example does not specify any overrides so the default schema names are used. `-g=""` generates schema-aware SQL.
 
 2. Verify the generated SQL scripts and apply them to the Postgres database. For example:
 
@@ -106,14 +112,12 @@ To migrate the database schemas, do the following:
    psql -h localhost -p 5432 -f ./sql_updates/config.sql -d cordacluster -U postgres
    psql -h localhost -p 5432 -f ./sql_updates/crypto.sql -d cordacluster -U postgres
    psql -h localhost -p 5432 -f ./sql_updates/rbac.sql -d cordacluster -U postgres
-   psql -h localhost -p 5432 -f ./sql_updates/statemanager.sql -d cordacluster -U postgres
    ```
 
-3. Grant the necessary permissions to the following new database tables:
-   * Cluster database — configured by the Helm chart by the property `db.cluster.username.value`; `corda` in the example below.
-   * RBAC database — configured by the Helm chart by the property `db.rbac.username.value`; `rbac_user` in the example below.
-   * Crypto database — configured by the Helm chart from the property `db.crypto.username.value`; `crypto_user` in the example below.
-   * State manager database — configured by the Helm chart from the property `db.cluster.username.value`; `corda` in the example below.
+3. Grant the necessary permissions:
+   * `cluster` user - set up by the Helm chart, in Corda 5.1 from the property `db.cluster.username.value`. `corda` in this example. In Corda 5.2 this property does not exist and is set elsewhere in the config. More information about this is provided later in this document.
+   * `rbac` user - set up by the Helm chart from the property `db.rbac.username.value`. `rbac_user` in this example.
+   * `crypto` user - set up by the Helm chart from the property `db.crypto.username.value`. `crypto_user` this example.
 
    For example:
    ```shell
@@ -121,18 +125,286 @@ To migrate the database schemas, do the following:
    psql -h localhost -c "GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA config TO corda" -p 5432 -d cordacluster -U postgres
    psql -h localhost -c "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA rbac TO rbac_user" -p 5432 -d cordacluster -U postgres
    psql -h localhost -c "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA crypto TO crypto_user" -p 5432 -d cordacluster -U postgres
-   psql -h localhost -c "GRANT USAGE ON SCHEMA state_manager TO corda" -p 5432 -d cordacluster -U postgres
-   psql -h localhost -c "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA state_manager TO corda" -p 5432 -d cordacluster -U postgres
-   psql -h localhost -c "GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA state_manager TO corda" -p 5432 -d cordacluster -U postgres
    ```
 
-## Update the Database Connection Configuration Table
+## Migrate State Manager Databases
 
-Corda 5.0 only used one concurrent connection for each virtual node. As of 5.1, this is configurable in [corda.db]({{< relref "../../config/fields/db.md" >}}). As part of the upgrade process, you must remove the 5.0 setting to enable the new Corda {{< version-num >}} default of 10 maximum virtual node connections.
+To migrate the state manager database schemas, do the following:
 
-To remove the 5.0 setting, issue a SQL statement that removes `"pool":{"max_size":1}`, from the JSON config in each row in the cluster `db_connections` table. In the following example, `CONFIG` in `CONFIG.db_connection` is the name of the cluster schema, while `config` is a column name that you must specify in lowercase:
+1. Generate the required SQL scripts using the `spec` sub-command of the <a href = "../../reference/corda-cli/database.md"> Corda CLI `database` command</a>. For example:
+
+   {{< tabs name="state-manager">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh database spec -c -l ./sql_updates -s="statemanager" -g="statemanager:state_manager" --jdbc-url=<DATABASE-URL> -u postgres
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd database spec -c -l ./sql_updates -s="statemanager" -g="statemanager:state_manager" --jdbc-url=<DATABASE-URL> -u postgres
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+   The name `state_manager` is always used for the state manager schema in every 5.1 deployment.
+
+2. Verify the generated SQL scripts and apply them to the Postgres database. For example:
+
+   ```shell
+   psql -h localhost -p 5432 -f ./sql_updates/statemanager.sql -d cordacluster -U postgres
+   ```
+
+3. Grant the necessary permissions. The database role username for the state manager in Corda 5.2 is the property specified by `workers.<worker_type>.stateManager.db.username` in the helm chart. However, if you set a value, Corda uses the `db.cluster.username.value` value is used. This is the same behavior as Corda 5.1.
+
+   For example:
+   ```shell
+   psql -h localhost -c "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA config TO corda" -p 5432 -d cordacluster -U postgres
+   psql -h localhost -p 5432 -f ./sql_updates/statemanager.sql -d cordacluster -U postgres
+   ```   
+
+## Managing 5.2 Multi-Database Support
+
+Corda 5.2 introduced support for multiple state manager databases, based on type of state. Corda 5.1 supported only one state manager database where all states were stored. There is no migration path that splits existing states between new databases and Corda deployments that were running 5.1 must continue to use a single database for all states.
+
+However, to keep cluster and state manager database configuration aligned, cluster database configuration was modified slightly.
+As a result, as part of the migration to 5.2, you must add new values in the YAML provided to the Helm chart. The 5.1 YAML schema also contains values that are no longer compatible and must be removed. To update your Helm chart YAML, do the following:
+
+1. Remove the following sections, including the top-level label:
+
+   ```yaml
+   db: <-- remove including this line
+   ...
+   ```
+
+   ```yaml
+   bootstrap:
+      db:
+         cluster: <-- remove including this line
+      ...
+   ```
+
+1. Add the following sections, updating the examples with the equivalent values from the Corda 5.1 deployment being upgraded:
+
+   ```yaml
+   databases:
+    - id: "default"
+      name: "cordacluster"
+      port: 5432
+      type: "postgresql"
+      host: "prereqs-postgres"
+    - id: "state-manager"
+      name: "cordacluster"
+      port: 5432
+      type: "postgresql"
+      host: "prereqs-postgres"
+   ```
+
+   ```
+   bootstrap:
+   ...
+   db:
+      databases: <-- this is new, it references the db in the snippet above
+       - id: "default"
+         username:
+         value: "postgres"
+   ```
+
+1. Add the following lines to map the multi-database support back to the 5.1 mono-database. 5.1 used a fixed schema name of `state_manager` for the state manager database which is hardcoded below in the partition field.
+
+   ```
+   stateManager:
+   flowCheckpoint:
+      type: Database
+      storageId: "state-manager" <-- this references the db in snippet above
+      partition: "state_manager"
+   flowMapping:
+      type: Database
+      storageId: "state-manager"
+      partition: "state_manager"
+   flowStatus:
+      type: Database
+      storageId: "state-manager"
+      partition: "state_manager"
+   keyRotation:
+      type: Database
+      storageId: "state-manager"
+      partition: "state_manager"
+   p2pSession:
+      type: Database
+      storageId: "state-manager"
+      partition: "state_manager"
+   tokenPoolCache:
+      type: Database
+      storageId: "state-manager"
+      partition: "state_manager"
+   ```
+
+1. Configure each worker with individual user access to the state manager database. Corda only reads this from a secret, so you must create that secret with the 5.1 username in it, as the field `corda-username`. For example:
+
+   ```shell
+   kubectl create secret generic -n <corda_namespace> prereqs-postgres-user --from-literal=corda-username=corda
+   ```
+
+1. Add the accompanying YAML additions that pull the username out of the secret, which existed in 5.1:
+
+   ```
+   workers:
+      crypto:
+         config:
+            username:
+               valueFrom:
+                  secretKeyRef:
+                     name: "prereqs-postgres-user"
+                     key: "corda-username"
+            password:
+               valueFrom:
+                  secretKeyRef:
+                     name: "prereqs-postgres"
+                     key: "corda-password"
+         stateManager:
+            keyRotation:
+               username:
+                  valueFrom:
+                     secretKeyRef:
+                        name: "prereqs-postgres-user"
+                        key: "corda-username"
+               password:
+                  valueFrom:
+                     secretKeyRef:
+                        name: "prereqs-postgres"
+                        key: "corda-password"
+      db:
+         config:
+            username:
+               valueFrom:
+                  secretKeyRef:
+                     name: "prereqs-postgres-user"
+                     key: "corda-username"
+            password:
+               valueFrom:
+                  secretKeyRef:
+                     name: "prereqs-postgres"
+                     key: "corda-password"
+      persistence:
+         config:
+            username:
+               valueFrom:
+                  secretKeyRef:
+                     name: "prereqs-postgres-user"
+                     key: "corda-username"
+            password:
+               valueFrom:
+                  secretKeyRef:
+                     name: "prereqs-postgres"
+                     key: "corda-password"
+      tokenSelection:
+         config:
+            username:
+               valueFrom:
+                  secretKeyRef:
+                     name: "prereqs-postgres-user"
+                     key: "corda-username"
+            password:
+               valueFrom:
+                  secretKeyRef:
+                     name: "prereqs-postgres"
+                     key: "corda-password"
+      stateManager:
+         tokenPoolCache:
+            username:
+               valueFrom:
+                  secretKeyRef:
+                     name: "prereqs-postgres-user"
+                     key: "corda-username"
+            password:
+               valueFrom:
+                  secretKeyRef:
+                     name: "prereqs-postgres"
+                     key: "corda-password"
+   uniqueness:
+      config:
+         username:
+            valueFrom:
+               secretKeyRef:
+                  name: "prereqs-postgres-user"
+                  key: "corda-username"
+         password:
+            valueFrom:
+               secretKeyRef:
+                  name: "prereqs-postgres"
+                  key: "corda-password"
+   flow:
+      stateManager:
+         flowCheckpoint:
+            username:
+               valueFrom:
+                  secretKeyRef:
+                     name: "prereqs-postgres-user"
+                     key: "corda-username"
+         password:
+            valueFrom:
+               secretKeyRef:
+                  name: "prereqs-postgres"
+                  key: "corda-password"
+   flowMapper:
+      stateManager:
+         flowMapping:
+            username:
+               valueFrom:
+                  secretKeyRef:
+                     name: "prereqs-postgres-user"
+                     key: "corda-username"
+            password:
+               valueFrom:
+                  secretKeyRef:
+                     name: "prereqs-postgres"
+                     key: "corda-password"
+   p2pLinkManager:
+      stateManager:
+         p2pSession:
+            username:
+               valueFrom:
+                  secretKeyRef:
+                     name: "prereqs-postgres-user"
+                     key: "corda-username"
+            password:
+               valueFrom:
+                  secretKeyRef:
+                     name: "prereqs-postgres"
+                     key: "corda-password"
+   rest:
+      stateManager:
+         keyRotation:
+            username:
+               valueFrom:
+                  secretKeyRef:
+                     name: "prereqs-postgres-user"
+                     key: "corda-username"
+            password:
+               valueFrom:
+                  secretKeyRef:
+                     name: "prereqs-postgres"
+                     key: "corda-password"
+         flowStatus:
+            username:
+               valueFrom:
+                  secretKeyRef:
+                     name: "prereqs-postgres-user"
+                     key: "corda-username"
+            password:
+               valueFrom:
+                  secretKeyRef:
+                     name: "prereqs-postgres"
+                     key: "corda-password"
+   ```
+
+## Setting Search Paths
+
+In Corda 5.1, schema names were injected everywhere as part of JDBC URLs. As of Corda 5.2, to support databases behind proxies, `search_path` was removed from JDBC URLs. As a result, as part of the migration process, you must set the `search_path` of the cluster database at SQL level. For example:
+
 ```shell
-psql -h localhost -c "UPDATE CONFIG.db_connection SET config = REPLACE(config,'\"pool\":{\"max_size\":1},','')" -p 5432 -d cordacluster -U postgres
+psql -h localhost -c "ALTER ROLE "corda" SET search_path TO config, state_manager" -p 5432 -d cordacluster -U postgres
+psql -h localhost -c "ALTER ROLE "rbac_user" SET search_path TO rbac" -p 5432 -d cordacluster -U postgres
+psql -h localhost -c "ALTER ROLE "crypto_user" SET search_path TO crypto" -p 5432 -d cordacluster -U postgres
 ```
 
 ## Migrate the Virtual Node Databases
@@ -143,23 +415,24 @@ To migrate the virtual node databases, do the following:
 
 1. Create a file containing the short hash holding IDs of the virtual nodes to migrate.
 
-2. Generate the required SQL scripts using the `platform-migration` sub-command of the <a href = "../../reference/corda-cli/vnode.md"> Corda CLI `vnode` command</a>. For example, if you save the holding IDs in `/sql_updates/holdingIds`:
+2. Generate the required SQL scripts using the `platform-migration` sub-command of the <a href = "../../reference/corda-cli/vnode.md"> Corda CLI `vnode` command</a>. For example, if you save the holding IDs in `./sql_updates/holdingIds`:
 
    {{< tabs name="">}}
    {{% tab name="Bash" %}}
    ```sh
-   corda-cli.sh vnode platform-migration --jdbc-url=jdbc:postgresql://host.docker.internal:5432/cordacluster -u postgres -i /sql_updates/holdingIds -o /sql_updates/vnodes.sql
+   corda-cli.sh vnode platform-migration --jdbc-url=jdbc:postgresql://host.docker.internal:5432/cordacluster -u postgres -i ./sql_updates/holdingIds -o ./sql_updates/vnodes.sql
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   corda-cli.cmd vnode platform-migration --jdbc-url=jdbc:postgresql://host.docker.internal:5432/cordacluster -u postgres -i /sql_updates/holdingIds -o /sql_updates/vnodes.sql
+   corda-cli.cmd vnode platform-migration --jdbc-url=jdbc:postgresql://host.docker.internal:5432/cordacluster -u postgres -i ./sql_updates/holdingIds -o ./sql_updates/vnodes.sql
    ```
    {{% /tab %}}
    {{< /tabs >}}
 
 3. Review the generated SQL and apply it as follows:
-   ```
+
+   ```shell
    psql -h localhost -p 5432 -f ./sql_updates/vnodes.sql -d cordacluster -U postgres
    ```
 
@@ -261,9 +534,9 @@ Alternatively, the `preview` and `create` sub-commands of the Corda CLI `topic` 
 
 ## Launch the Corda {{< version-num >}} Workers
 
-To complete the upgrade to {{< version-num >}} and launch the Corda {{< version-num >}} workers, upgrade the Helm chart:
+To complete the upgrade to {{< version-num >}} and launch the Corda {{< version-num >}} workers, upgrade the Helm chart, ensuring <YOUR_VALUES_YAML> is a YAML file containing only {{< version-num >}} schema compatible values:
 
 ```shell
-helm upgrade corda -n corda oci://corda-os-docker.software.r3.com/helm-charts/release/os/{{<version-num>}}/corda --version {{<version-num>}}.0 -f values.yaml
+helm upgrade corda -n <corda_namespace> oci://corda-os-docker.software.r3.com/helm-charts/release/os/{{<version-num>}}/corda --version {{<version-num>}}.0 -f <YOUR_VALUES_YAML>
 ```
 For more information about the values in the deployment YAML file, see [Configure the Deployment]({{< relref "../../deployment/deploying/_index.md#configure-the-deployment" >}}).
