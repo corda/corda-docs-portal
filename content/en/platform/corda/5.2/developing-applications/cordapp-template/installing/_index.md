@@ -42,7 +42,7 @@ The images in this section show the `cordapp-template-kotlin` repository in Inte
 2. Checkout the {{< version-num >}} branch:
 
    ```sh
-   git checkout release-V5
+   git checkout release-V5.2
    ```
 
 3. Initialize the Git repository and change the remote so you do not inadvertently push your work back to the R3 repository:
