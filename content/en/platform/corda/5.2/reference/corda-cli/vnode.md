@@ -9,7 +9,7 @@ menu:
 title: "vnode"
 ---
 # vnode
-This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `vnode` sub-commands. You can use these commands to reset or upgrade virtual nodes. For more information see, [Upgrading from 5.0]({{< relref "../../deploying-operating/deployment/upgrading/_index.md" >}}).
+This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `vnode` sub-commands. You can use these commands to reset or upgrade virtual nodes. For more information see, [Upgrading from 5.1]({{< relref "../../deploying-operating/deployment/upgrading/_index.md" >}}).
 
 <style>
 table th:first-of-type {
@@ -65,4 +65,4 @@ corda-cli.cmd vnode platform-migration --jdbc-url=jdbc:postgresql://host.docker.
 {{% /tab %}}
 {{< /tabs >}}
 
-For more information about upgrading from Corda 5.0 to Corda 5.1, see [Upgrading from 5.0]({{< relref "../../deploying-operating/deployment/upgrading/_index.md" >}}).
+For more information about upgrading from Corda 5.1 to Corda 5.2, see [Upgrading from 5.1]({{< relref "../../deploying-operating/deployment/upgrading/_index.md" >}}).
