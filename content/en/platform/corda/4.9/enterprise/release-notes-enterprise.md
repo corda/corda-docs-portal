@@ -17,6 +17,29 @@ weight: 10
 
 # Corda Enterprise Edition 4.9 release notes
 
+{{< note >}}
+If you are using the Archive Service with Corda Enterprise Edition 4.9, you must use the 1.0.x stream of the Archive Service release. For more details, see [Archive Service]({{< relref "../../../../tools/archiving-service/archiving-release-notes.md" >}}).
+{{< /note >}}
+
+## Corda Enterprise Edition 4.9.9 release notes
+
+Corda Enterprise Edition 4.9.9 is a patch release of Corda Enterprise focused on resolving issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "../../4.9/enterprise/upgrading-index.md" >}}).
+
+### Fixed issues
+
+* In the default log4j2.xml file, the Delete action in the DefaultRolloverStrategy policy for log files beginning with `diagnostic-*` or `checkpoints_agent-*` was incorrect. It erroneously compared against the wrong file names. This issue has been rectified, ensuring that files are now deleted in accordance with the policy.
+* Resolved a TLS connection issue regression when using a HSM to store TLS private keys.
+* Previously, a rare error scenario could occur where a node would erroneously perceive a valid connection to a peer when, in fact, it was not connected. This issue typically arose when the peer node was disconnecting/connecting. This issue has now been resolved.
+
+### Third party component upgrades
+
+* Jetty version was upgraded from 9.4.51.v20230217 to 9.4.53.v20231009.
+* Apache Tomcat was upgraded from 9.0.82 to 9.0.83 in the node management plugin, which is now at version 1.0.6.
+
 ## Corda Enterprise Edition 4.9.8 release notes
 
 Corda Enterprise Edition 4.9.8 is a patch release of Corda Enterprise focused on resolving issues.
