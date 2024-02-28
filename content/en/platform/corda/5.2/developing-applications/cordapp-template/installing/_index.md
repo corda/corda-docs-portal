@@ -72,7 +72,6 @@ The `gradle.properties` file specifies the Corda version that the Gradle tasks u
 
 ```shell
 cordaNotaryPluginsVersion=5.2.0.0
-combinedWorkerJarVersion=5.2.0.0
 ```
 
 ### Java Version
