@@ -39,7 +39,7 @@ R3 provides a [non-validating notary protocol]({{< relref "non-validating-notary
 
 You must build a contract-verifying notary protocol CPB for [Transaction Privacy Enhancements]({{< relref "../enhanced-ledger-privacy.md">}}) that contains the relevant contract CPKs, along with the contract-verifying notary server logic supplied with Corda. These contracts are those used on the specific network that the notary is intended for and are required to enable the notary to run and verify the contracts to notarize transactions. A different CPB must be built for each application network, and must be rebuilt and upgraded along with the application.
 
-To build the notary CPB, add a gradle module to your CorDapp project that builds the notary whenever the application is built. For example, in `ledger-utxo-demo-app` the project layout looks as follows:
+To build the notary CPB, add a Gradle module to your CorDapp project that builds the notary whenever the application is built. For example, in `ledger-utxo-demo-app` the project layout looks as follows:
 
 {{<
   figure
