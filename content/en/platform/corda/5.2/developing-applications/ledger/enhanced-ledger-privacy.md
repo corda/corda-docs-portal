@@ -14,7 +14,7 @@ menu:
 Transaction privacy enhancements enable you to operate a network that increases the privacy of transactions by no longer requiring every virtual node in a network to see and verify all predecessors, linked by inputs, back to issuance of a transaction on the UTXO ledger. In exchange, visibility of transaction content must be given to the notary.
 
 The notary is already a known party that must be trusted and so Corda can use it to not only check that the inputs are unconsumed, but also check and vouch for the validity of a transaction.
-This is particularly suitable in use cases where the notary operator exists as an already trusted entity within the network, for example, a central bank.
+This is particularly suitable in use cases where the notary operator exists as an already trusted entity within the network; for example, a central bank.
 
 Corda implements this with a notary that knows about the contracts governing the transactions in an application network, just like the other virtual nodes, and verifying that all transactions adhere to these contracts before signing them.
 In this case, outputs from a transaction signed by the notary can be trusted to be valid by any virtual node without further verification of their provenance.
