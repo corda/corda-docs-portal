@@ -20,12 +20,12 @@ flows to confirm correct behaviour of your CorDapp.
 
 ## Before You Start
 
-Before you run your flows, you must install the CorDapp template  environment.
-The CorDapp template  environment will automatically provision a notary {{< tooltip >}}virtual node{{< /tooltip >}}, in addition to virtual nodes for four participants
+Before you run your flows, you must install the CorDapp template.
+The CorDapp template will automatically provision a notary {{< tooltip >}}virtual node{{< /tooltip >}}, in addition to virtual nodes for four participants
 – Alice, Bob, Charlie, and Dave. You will use the Bob and Dave virtual nodes for your flows. They represent the farmer
 and the customer referenced in the earlier tutorials.
 
-1. Follow the [CorDapp template  environment instructions]({{< relref "../cordapp-template/installing/_index.md"  >}}) to start the Corda combined worker and to deploy the static network.
+1. Follow the [CorDapp template instructions]({{< relref "../cordapp-template/installing/_index.md"  >}}) to start the Corda combined worker and to deploy the static network.
 2. Once done, confirm that the nodes are available by running the `listVNodes` gradle task. It should return something like the following:
 
    ```shell
