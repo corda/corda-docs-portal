@@ -26,7 +26,7 @@ The `startCorda` task runs in an Intellij 'Run' window. After about one minute, 
 {{< figure src="starting-corda-running.png" figcaption="startCorda task running" alt="Task to start the combined worker in IntelliJ" >}}
 
 The `startCorda` task continues to run whilst the Corda cluster is running. It stops when the cluster is shut down.
-Currently, we do not have a liveness detector for Corda in the CorDapp template so we check liveness by manually hitting an endpoint. You can use the [listVNodes helper]({{< relref "../overview/_index.md#csde-queries" >}}) to do this.
+Currently, we do not have a liveness detector for Corda in the CorDapp template so we check liveness by manually hitting an endpoint. You can use the [listVNodes helper]({{< relref "../overview/_index.md#corda-runtime-plugin-queries" >}}) to do this.
 
 ## Testing Liveness and Swagger
 
@@ -78,7 +78,7 @@ Once authorized, you can start hitting endpoints. The easiest one to try is `/cp
 You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
 
 1. Click the `vNodesSetup` Gradle task:
-{{< figure src="vnodesetup.png" width="40%" figcaption="CSDE vNodeSetup task" alt="CSDE task to set up the vNodes in IntelliJ" >}}
+{{< figure src="vnodesetup.png" width="40%" figcaption="vNodeSetup task" alt="Task to set up the virtual nodes in IntelliJ" >}}
    This task runs a series of Gradle tasks to:
    * Build the {{< tooltip >}}CPB{{< /tooltip >}}
    * Create the GroupPolicy (Application Network definition)

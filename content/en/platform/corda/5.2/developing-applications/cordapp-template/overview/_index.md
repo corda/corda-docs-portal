@@ -20,7 +20,7 @@ This section provides an overview of the content of the CorDapp template. It con
 ## Project Structure
 
 On the left, you can see the folder structure created, ready for CorDapps development.
- {{< figure src="project-structure.png" figcaption="CSDE folder structure" alt="CSDE folders in IntelliJ" >}}
+ {{< figure src="project-structure.png" figcaption="CorDapp template folder structure" alt="CorDapp template folders in IntelliJ" >}}
 
 For Kotlin, write your {{< tooltip >}}flow{{< /tooltip >}} code in `workflows/src/main/kotlin/<your package path>` and your contract and {{< tooltip >}}states{{< /tooltip >}} code in `/contracts/src/main/kotlin/<your package path>`.
 
@@ -81,7 +81,7 @@ These are standard queries that are useful to run against your Corda cluster.
 
 | <div style="width:220px">Helper</div> | Description                                                                                                               |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `listVNodes`                          | Queries the Corda cluster and returns the list of vnodes. This includes the `ShortHash` that you  need for running flows. |
+| `listVNodes`                          | Queries the Corda cluster and returns the list of virtual nodes. This includes the `ShortHash` that you  need for running flows. |
 | `listCPIs`                            | Queries the Corda cluster and returns the list of CPIs uploaded.                                                          |
 
 ### corda-runtime-plugin-supporting
@@ -98,4 +98,4 @@ These are supporting Gradle tasks, used internally by other tasks.
 
 In the toolbar, you can select the `DebugCorDapp` run configuration to debug the running Corda from IntelliJ.
 
-{{< figure src="debugging.png" figcaption="CSDE DebugCorDapp" alt="Menu in IntelliJ to debug Corda" >}}
+{{< figure src="debugging.png" figcaption="CorDapp template DebugCorDapp" width="30%" alt="Menu in IntelliJ to debug Corda" >}}

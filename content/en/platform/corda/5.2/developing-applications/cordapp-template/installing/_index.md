@@ -57,7 +57,7 @@ The images in this section show the `cordapp-template-kotlin` repository in Inte
 4. Open the project in IntelliJ and let the import process complete.
    When complete, the project structure looks as follows:
 
-   {{< figure src="CSDE-full-screen.png" figcaption="CSDE project" alt="CSDE project in IntelliJ" >}}
+   {{< figure src="full-screen.png" figcaption="CorDapp template project" alt="CorDapp template project in IntelliJ" >}}
 
 ## Configuring
 
@@ -80,10 +80,10 @@ cordaNotaryPluginsVersion=5.2.0.0
 
 1. Set **Gradle JVM** to **Project SDK 17**, via **File > Settings > Build, Execution, Deployment > Build Tools > Gradle**.
 
-   {{< figure src="gradle-configuration.png" figcaption="Gradle Java version" alt="JVM version in IntelliJ for CSDE project" >}}
+   {{< figure src="gradle-configuration.png" figcaption="Gradle Java version" alt="JVM version in IntelliJ for CorDapp template project" >}}
 
 2. Update the Java version in the `build.gradle` file:
 
-   {{< figure src="configure-csde-build-gradle-block.png" figcaption="Configure the CSDE plugin via the build.gradle file" alt="CSDE build gradle block in IntelliJ for CSDE project" >}}
+   {{< figure src="configure-build-gradle-block.png" figcaption="Configure the Corda runtime Gradle plugin via the build.gradle file" alt="Corda runtime Gradle build gradle block in IntelliJ for CorDapp template project" >}}
 
 If using IntelliJ IDEA version 2023.1.4 or greater, you should instead set the environmental variable `JAVA_HOME` to point to your installation of Java Azul Zulu 17.

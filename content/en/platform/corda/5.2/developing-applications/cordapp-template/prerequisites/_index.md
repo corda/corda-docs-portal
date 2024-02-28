@@ -32,7 +32,7 @@ The {{< version >}} CorDapp Template has been tested with the following:
 
 ## Required CorDapp Template Ports
 
-The current version of the [Corda combined worker]({{< relref "../overview/_index.md#gradle-helpers-for-the-combined-worker" >}}) runs on ports 5005, 7004, and 8888. Reserve these ports to avoid errors. For example, some Mac operating systems use port 5005 for the system Control Center. The following section describes how to make that port available.
+The current version of the [Corda combined worker]({{< relref "../overview/_index.md#gradle-helpers-for-the-combined-worker" >}}) runs on ports 5432, 9092, 5005, 7004, or 8888. Reserve these ports to avoid errors. For example, some Mac operating systems use port 5005 for the system Control Center. The following section describes how to make that port available.
 
 ### Disabling Airplay Receiver on Mac
 
