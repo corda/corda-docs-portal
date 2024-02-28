@@ -37,11 +37,58 @@ R3 provides a [non-validating notary protocol]({{< relref "non-validating-notary
 
 ### Contract-Verifying Notary Protocol
 
-You must build the contract-verifying notary protocol CPB for [Transaction Privacy Enhancements]({{< relref "../enhanced-ledger-privacy.md">}}) for your application network to contain the relevant contract CPKs. For more information, see the [implementation section]({{< relref "../enhanced-ledger-privacy.md#implementation">}}).
+You must build a contract-verifying notary protocol CPB for [Transaction Privacy Enhancements]({{< relref "../enhanced-ledger-privacy.md">}}) that contains the relevant contract CPKs, along with the contract-verifying notary server logic supplied with Corda. These contracts are those used on the specific network that the notary is intended for and are required to enable the notary to run and verify the contracts to notarize transactions. A different CPB must be built for each application network, and must be rebuilt and upgraded along with the application.
+
+To build the notary CPB, add a gradle module to your CorDapp project that builds the notary whenever the application is built. For example, in `ledger-utxo-demo-app` the project layout looks as follows:
+
+{{<
+  figure
+	 src="contract-verifying-example.png"
+   width=40%
+	 figcaption="Example contract-verifying notary project"
+	 alt="Contract-verifying notary project"
+>}}
+
+The `ledger-utxo-demo-app` project (contains the workflows) and the `ledger-utxo-demo-contract` project (contains the contracts) are unchanged. The `ledger-utxo-demo-verifying-notary` project was added to build the contract-verifying notary for this specific application. It contains no code, just a `build.gradle` file as it just needs to bring together the notary server CPK and the contract CPKs for this application. The `build.gradle` file looks as follows:
+
+```gradle
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+    id 'net.corda.plugins.cordapp-cpb2'
+}
+
+cordapp {
+    targetPlatformVersion 50200
+    minimumPlatformVersion 50200 
+    workflow {
+        name "Utxo demo verifying notary"
+        versionId 1
+        vendor "R3"
+    }
+}
+
+dependencies {
+    cordaProvided platform("net.corda:corda-api:$cordaApiVersion")
+    cordaProvided 'org.jetbrains.kotlin:kotlin-osgi-bundle'
+    cordaProvided 'net.corda:corda-ledger-utxo'
+
+    # cordapp dependency on the app contract (built locally)
+    cordapp project(':apps:ledger-utxo-demo-contract')
+
+    # cordapp dependency on the contract verifying server CPK (pulled in via Maven)
+    cordapp "com.r3.corda.notary.plugin.contractverifying:notary-plugin-contract-verifying-server:$notaryPluginVersion"
+}
+```
+
+This is a standard workflow project that pulls in the contracts and the notary server CPK as dependencies. Building a CPB from this project creates a working notary CPB.
 
 ## Application CPB
 
 It is not possible to provide a standard application CPB, because the contents of this depend on the functionality of your CorDapp. You must decide which CPKs to bundle together to provide your application functionality. However, you must also bundle the `notary-common`, `<notary-type>-api`, and `<notary-type>-client` CPKs to provide the notary protocols your CorDapp will support.
+
+{{< note >}}
+If implementing the contract-verifying notary protocol, workflows and contracts must be packaged in separate CPKs. This ensures that the notary only has contracts and none of the workflows.
+{{< /note >}}
 
 The easiest way to ensure your CorDapp includes the necessary CPKs is to use the CorDapp dependency functionality of the CPK Gradle plugin. Add one of the following to your Gradle dependency configuration, where `cordaNotaryPluginsVersion` is an appropriate version of `corda-runtime-os`:
 

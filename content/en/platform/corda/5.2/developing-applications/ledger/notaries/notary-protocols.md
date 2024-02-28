@@ -20,4 +20,4 @@ Two notary protocols are currently available:
 * [Non-validating notary protocol]({{< relref "non-validating-notary/_index.md" >}}) - each virtual node checks the whole chain of transactions back to issuance.
 * [Contract-verifying notary protocol]({{< relref "../enhanced-ledger-privacy.md" >}}) - the notary checks the contracts applicable to transactions.
 
-To help you select a protocol, see the [Considerations section]({{< relref "../enhanced-ledger-privacy.md#considerations" >}})  of the [Transaction Privacy Enhancements page]({{< relref "../enhanced-ledger-privacy.md" >}}) page.
+To help you select a protocol, see the [Considerations section]({{< relref "../enhanced-ledger-privacy.md#considerations" >}})  of the [Transaction Privacy Enhancements page]({{< relref "../enhanced-ledger-privacy.md" >}}).

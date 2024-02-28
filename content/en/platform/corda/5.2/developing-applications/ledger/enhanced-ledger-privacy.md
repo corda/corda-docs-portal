@@ -67,7 +67,7 @@ The following example illustrates why the backchain is required:
 * For some reason, Alice misses the first update of reference states in transaction R2 that consumed R1(0) and issued R2(0).
 * Another update transaction R3 consumes R2(0) and issues R3(0).
 
-If Alice receives this with enhanced privacy (without backchain), she only receives a filtered version of R2, that wdoesill not have any inputs, and therefore not mark R1(0) as consumed.
+If Alice receives this with enhanced privacy (without backchain), she only receives a filtered version of R2, that does not have any inputs, and therefore not mark R1(0) as consumed.
 By forcing a full backchain resolution, we ensure that Alice receives the full signed transaction R2 and thus R1(0) is consumed.
 
 {{< note >}}
