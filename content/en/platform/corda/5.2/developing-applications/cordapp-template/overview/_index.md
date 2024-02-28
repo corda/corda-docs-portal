@@ -34,47 +34,68 @@ On the right, you can see the Gradle tasks that help you work with a local deplo
 {{< figure src="gradle-helpers.png" figcaption="Corda Runtime gradle helpers" alt="Corda Runtime gradle tasks in IntelliJ" width=100% length=100% >}}
 The **combined worker** is a Corda cluster that runs all of the workers in one JVM process.
 
-The helpers are split into three folders:
+The helpers are split into five folders:
 
-* [csde-corda](#csde-corda)
-* [csde-cordapp](#csde-cordapp)
-* [csde-queries](#csde-queries)
+* [corda-runtime-plugin-local-environment](#corda-runtime-plugin-local-environment)
+* [corda-runtime-plugin-cordapp](#corda-runtime-plugin-cordapp)
+* [corda-runtime-plugin-network](#corda-runtime-plugin-network)
+* [corda-runtime-plugin-queries](#corda-runtime-plugin-queries)
+* [corda-runtime-plugin-supporting](#corda-runtime-plugin-supporting)
 
-### csde-corda
+### corda-runtime-plugin-local-environment
 
 These tasks help with the lifecycle of your local Corda cluster.
 
-| <div style="width:220px">Helper   </div> | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ---------------------------------------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `startCorda`                             | 1. Downloads a copy of the combined worker JAR, if required. <br> 2. Starts an instance of a Postgres Docker container. You will need Docker Engine or Docker Desktop running.<br> 3. Starts the combined worker. The Combined Worker will continue to run in a 'Run' Console until it is shut down. <br> Note, Corda takes about one minute to start up. It is best to poll the cluster with one of the `csde-query` helpers until it responds to confirm if the cluster is live and ready to interact. |
-| `stopCorda`                              | 1. Stops the Postgres database. <br> 2. Stops the combined worker.        |
+| <div style="width:220px">Helper   </div> | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `startCorda`                             | Starts an instance of the Corda cluster using Docker Compose, with the combined worker container on the network with the necessary prerequisites (Kafka and Postgres). This requires Docker Engine or Docker Desktop running.<br> The Docker Compose process will continue to run in a 'Run' console, providing output from all of the containers, until it is shut down. <br> Note, Corda takes about one minute to start up. You should poll the cluster with one of the `corda-runtime-plugin-queries` helpers until it responds to confirm if the cluster is live and ready to interact. |
+| `stopCorda`                              | Stops the Corda cluster using Docker Compose and deletes all containers and networks used by the cluster.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `stopCordaAndCleanWorkspace`             | 1. Stops the Corda cluster using Docker Compose and deletes all containers and networks used by the cluster (same as the `stopCorda` task) <br> 2. Recursively deletes workspace directory, to reset any pending state.                                                                                                                                                                                                                                                                                                                                                                      |
 
-### csde-cordapp
+### corda-runtime-plugin-cordapp
 
-| <div style="width:220px">Helper</div> | Description                                                                                                                                                                             |
-|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `1-createGroupPolicy`                 | Creates the {{< tooltip >}}group policy{{< /tooltip >}} which is required to set up the {{< tooltip >}}application network{{< /tooltip >}}.                                                                                                           |
-| `2-createKeyStore`                    | Creates the signing keys for publishing the {{< tooltip >}}CPIs{{< /tooltip >}}.                                                                                                                                       |
-| `3-buildCPIs`                         | Builds your CorDapp and wraps it in a signed CPI.                                                                                                                                       |
-| `4-deployCPIs`                        | Deploys the CPI to your local Corda cluster. If the CPI has already been deployed to the nodes on the cluster, this task performs a forced upload and replaces the old CPI with the new one. |
-| `5-vNodeSetup`                        | Sets up the virtual nodes specified in `config/static-network-config.json` on you local Corda cluster with the uploaded CPI.                                                            |
+| <div style="width:220px">Helper</div> | Description                                                                                                                                                                                  |
+| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `createGroupPolicy`                   | Creates the {{< tooltip >}}group policy{{< /tooltip >}} which is required to set up the {{< tooltip >}}application network{{< /tooltip >}}.                                                  |
+| `createKeyStore`                      | Creates the signing keys for publishing the {{< tooltip >}}CPIs{{< /tooltip >}}.                                                                                                             |
+| `buildCPIs`                           | Builds your CorDapp and wraps it in a signed CPI.                                                                                                                                            |
+| `deployCPIs`                          | Deploys the CPI to your local Corda cluster. If the CPI has already been deployed to the nodes on the cluster, this task performs a forced upload and replaces the old CPI with the new one. |
 
-Each of these tasks has a dependency on the previous. So, if you run 3, it also runs 1 and 2.
+Some tasks have a dependency on the others. So, for example, if you run `deployCPIs`, it also runs `createGroupPolicy`, `createKeyStore` and `buildCPIs`.
+
+### corda-runtime-plugin-network
+
+| <div style="width:220px">Helper</div> | Description                                                                                                                  |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `vNodesSetup`                         | Sets up the virtual nodes specified in `config/static-network-config.json` on you local Corda cluster with the uploaded CPI. |
+
+Some tasks have a dependency on the others. So, for example, if you run `vNodesSetup`, it also runs `deployCPIs`.
 
 {{< note >}}
-You only need to run `5-vNodeSetup` the first time you upload your CPI to the corda cluster. On subsequent builds, you can just run `4-deployCPIs`. (`5-vNodeSetup` has no effect if the virtual nodes have already been set up. It will not try to recreate them.)
+You only need to run `vNodesSetup` the first time you upload your CPI to the corda cluster. On subsequent builds, you can just run `deployCPIs`. (`vNodeSetup` has no effect if the virtual nodes have already been set up. It will not try to recreate them.)
 {{< /note >}}
 
-### csde-queries
+### corda-runtime-plugin-queries
 
 These are standard queries that are useful to run against your Corda cluster.
 
 | <div style="width:220px">Helper</div> | Description                                                                                                               |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `listVNodes`                          | Queries the Corda cluster and returns the list of vnodes. This includes the `ShortHash` that you  need for running flows. |
-| `listCPIs`                          | Queries the Corda cluster and returns the list of CPIs uploaded. |
+| `listCPIs`                            | Queries the Corda cluster and returns the list of CPIs uploaded.                                                          |
+
+### corda-runtime-plugin-supporting
+
+These are supporting Gradle tasks, used internally by other tasks.
+
+| <div style="width:220px">Helper</div> | Description                                                                                 |
+| ------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `getNotaryServerCPB`                  | Downloads the Notary Server CPB.                                                            |
+| `projInit`                            | Creates workspace directory.                                                                |
+| `updateProcessorTimeout`              | Updates the processor timeout in the `corda.messaging` config section of the Corda cluster. |
 
 ## Debug Configuration
+
 In the toolbar, you can select the `DebugCorDapp` run configuration to debug the running Corda from IntelliJ.
 
 {{< figure src="debugging.png" figcaption="CSDE DebugCorDapp" alt="Menu in IntelliJ to debug Corda" >}}
