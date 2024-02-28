@@ -77,7 +77,7 @@ Once authorized, you can start hitting endpoints. The easiest one to try is `/cp
 
 You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
 
-1. Click the `5-vNodeSetup` Gradle task:
+1. Click the `vNodesSetup` Gradle task:
 {{< figure src="vnodesetup.png" width="40%" figcaption="CSDE vNodeSetup task" alt="CSDE task to set up the vNodes in IntelliJ" >}}
    This task runs a series of Gradle tasks to:
    * Build the {{< tooltip >}}CPB{{< /tooltip >}}
