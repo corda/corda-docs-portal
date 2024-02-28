@@ -17,8 +17,8 @@ Notary functionality is provided in the form of plugin CorDapps. A notary protoc
 
 Two notary protocols are currently available:
 
-* [non-validating notary protocol]({{< relref "non-validating-notary/_index.md" >}}) - checks the whole chain of transactions back to issuance.
-* [contract-verifying notary protocol]({{< relref "../enhanced-ledger-privacy.md" >}}) - checks the contracts applicable to transactions.
+* [Non-validating notary protocol]({{< relref "non-validating-notary/_index.md" >}}) - checks the whole chain of transactions back to issuance.
+* [Contract-verifying notary protocol]({{< relref "../enhanced-ledger-privacy.md" >}}) - checks the contracts applicable to transactions.
 
 ## Selecting a Protocol
 
