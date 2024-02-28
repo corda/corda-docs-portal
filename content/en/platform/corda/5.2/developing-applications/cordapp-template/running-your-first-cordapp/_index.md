@@ -11,7 +11,7 @@ menu:
 ---
 # Running Your First CorDapp
 
-The CorDapp template includes {{< tooltip >}}flows{{< /tooltip >}} and tests for a very simple {{< tooltip >}}CorDapp{{< /tooltip >}}, which you can run out of the box. The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlow.kt` file. This is also the code described in the [first flow section]({{< relref "../first-flow/_index.md" >}}). This section describes how to run, test, and deploy this flow. It contains the following:
+The CorDapp template includes {{< tooltip >}}flows{{< /tooltip >}} and tests for a very simple {{< tooltip >}}CorDapp{{< /tooltip >}}, which you can run out of the box. The code for the flow can be found in the `src/main/kotlin.com.r3.developers.cordapptemplate.flowexample.workflows.MyFirstFlow.kt` file. This is also the code described in the [first flow section]({{< relref "../first-flow/_index.md" >}}). This section describes how to run, test, and deploy this flow. It contains the following:
 
 * [Starting the Corda Combined Worker](#starting-the-corda-combined-worker)
 * [Testing Liveness and Swagger](#testing-liveness-and-swagger)
@@ -109,7 +109,7 @@ requestBody code:
 ```kotlin
 {
    "clientRequestId": "r1",
-   "flowClassName": "com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlow",
+   "flowClassName": "com.r3.developers.cordapptemplate.flowexample.workflows.MyFirstFlow",
    "requestBody": {
       "otherMember":"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB"
    }

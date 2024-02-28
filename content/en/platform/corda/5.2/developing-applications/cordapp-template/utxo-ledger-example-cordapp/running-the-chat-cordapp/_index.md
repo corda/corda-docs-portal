@@ -61,7 +61,7 @@ For example:
 ```java
    {
     "clientRequestId": "create-1",
-    "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.CreateNewChatFlow",
+    "flowClassName": "com.r3.developers.cordapptemplate.utxoexample.workflows.CreateNewChatFlow",
     "requestBody": {
         "chatName":"Chat with Bob",
         "otherMember":"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB",
@@ -80,7 +80,7 @@ curl -X 'POST' \
   -H 'Content-Type: application/json' \
   -d '{
   "clientRequestId": "create-1",
-  "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.CreateNewChatFlow",
+  "flowClassName": "com.r3.developers.cordapptemplate.utxoexample.workflows.CreateNewChatFlow",
   "requestBody": {
   "chatName":"Chat with Bob",
   "otherMember":"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB",
@@ -140,7 +140,7 @@ The following is a typical set of flows for a conversation between Alice and Bob
    ```java
    {
     "clientRequestId": "create-1",
-    "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.CreateNewChatFlow",
+    "flowClassName": "com.r3.developers.cordapptemplate.utxoexample.workflows.CreateNewChatFlow",
     "requestBody": {
         "chatName":"Chat with Bob",
         "otherMember":"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB",
@@ -156,7 +156,7 @@ The following is a typical set of flows for a conversation between Alice and Bob
    ```java
    {
     "clientRequestId": "list-1",
-    "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.ListChatsFlow",
+    "flowClassName": "com.r3.developers.cordapptemplate.utxoexample.workflows.ListChatsFlow",
     "requestBody": {}
    }
    ```
@@ -180,7 +180,7 @@ The following is a typical set of flows for a conversation between Alice and Bob
    ```java
    {
     "clientRequestId": "update-1",
-    "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.UpdateChatFlow",
+    "flowClassName": "com.r3.developers.cordapptemplate.utxoexample.workflows.UpdateChatFlow",
     "requestBody": {
         "id":"674276c9-f311-43a6-90b8-73439bc7e28b",
         "message": "Hi Alice"
@@ -197,7 +197,7 @@ The following is a typical set of flows for a conversation between Alice and Bob
    ```java
    {
     "clientRequestId": "update-2",
-    "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.UpdateChatFlow",
+    "flowClassName": "com.r3.developers.cordapptemplate.utxoexample.workflows.UpdateChatFlow",
     "requestBody": {
         "id":"674276c9-f311-43a6-90b8-73439bc7e28b",
         "message": "How are you today?"
@@ -211,7 +211,7 @@ The following is a typical set of flows for a conversation between Alice and Bob
    ```java
    {
     "clientRequestId": "list-2",
-    "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.ListChatsFlow",
+    "flowClassName": "com.r3.developers.cordapptemplate.utxoexample.workflows.ListChatsFlow",
     "requestBody": {}
    }
    ```
@@ -223,7 +223,7 @@ The following is a typical set of flows for a conversation between Alice and Bob
    ```java
    {
     "clientRequestId": "get-1",
-    "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.GetChatFlow",
+    "flowClassName": "com.r3.developers.cordapptemplate.utxoexample.workflows.GetChatFlow",
     "requestBody": {
         "id":"674276c9-f311-43a6-90b8-73439bc7e28b",
         "numberOfRecords":"4"
@@ -250,7 +250,7 @@ The following is a typical set of flows for a conversation between Alice and Bob
    ```java
    {
     "clientRequestId": "update-4",
-    "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.UpdateChatFlow",
+    "flowClassName": "com.r3.developers.cordapptemplate.utxoexample.workflows.UpdateChatFlow",
     "requestBody": {
         "id":"674276c9-f311-43a6-90b8-73439bc7e28b",
         "message": "I am very well thank you"
@@ -265,7 +265,7 @@ The following is a typical set of flows for a conversation between Alice and Bob
    ```java
    {
     "clientRequestId": "get-2",
-    "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.GetChatFlow",
+    "flowClassName": "com.r3.developers.cordapptemplate.utxoexample.workflows.GetChatFlow",
     "requestBody": {
         "id":"674276c9-f311-43a6-90b8-73439bc7e28b",
         "numberOfRecords":"2"

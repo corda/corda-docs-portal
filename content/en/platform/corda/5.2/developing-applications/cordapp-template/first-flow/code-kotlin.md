@@ -26,7 +26,7 @@ This section describes the Kotlin code for the {{< tooltip >}}flows{{< /tooltip 
 The full listing with explanatory comments is as follows:
 
 ```kotlin
-package com.r3.developers.csdetemplate.flowexample.workflows
+package com.r3.developers.cordapptemplate.flowexample.workflows
 
 import net.corda.v5.application.flows.*
 import net.corda.v5.application.marshalling.JsonMarshallingService
@@ -173,7 +173,7 @@ class MyFirstFlowResponder: ResponderFlow {
 RequestBody for triggering the flow via REST:
 {
     "clientRequestId": "r1",
-    "flowClassName": "com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlow",
+    "flowClassName": "com.r3.developers.cordapptemplate.flowexample.workflows.MyFirstFlow",
     "requestBody": {
         "otherMember":"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB"
         }

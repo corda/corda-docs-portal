@@ -35,7 +35,7 @@ The `src/main/java/com/r3/developers/csdetemplate/flowexample/workflows` folder 
 ### Message.java
 
 ```java
-package com.r3.developers.csdetemplate.flowexample.workflows;
+package com.r3.developers.cordapptemplate.flowexample.workflows;
 
 import net.corda.v5.base.annotations.CordaSerializable;
 import net.corda.v5.base.types.MemberX500Name;
@@ -65,7 +65,7 @@ public class Message {
 ### MyFirstFlow.java
 
 ```java
-package com.r3.developers.csdetemplate.flowexample.workflows;
+package com.r3.developers.cordapptemplate.flowexample.workflows;
 
 import net.corda.v5.application.flows.*;
 import net.corda.v5.application.marshalling.JsonMarshallingService;
@@ -156,7 +156,7 @@ public class MyFirstFlow implements ClientStartableFlow {
 RequestBody for triggering the flow via REST:
 {
     "clientRequestId": "r1",
-    "flowClassName": "com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlow",
+    "flowClassName": "com.r3.developers.cordapptemplate.flowexample.workflows.MyFirstFlow",
     "requestData": {
         "otherMember":"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB"
         }
@@ -168,7 +168,7 @@ RequestBody for triggering the flow via REST:
 ### MyFirstFlowResponder.java
 
 ```java
-package com.r3.developers.csdetemplate.flowexample.workflows;
+package com.r3.developers.cordapptemplate.flowexample.workflows;
 
 import net.corda.v5.application.flows.CordaInject;
 import net.corda.v5.application.flows.InitiatedBy;
@@ -236,7 +236,7 @@ public class MyFirstFlowResponder implements ResponderFlow {
 ### MyFirstFlowStartArgs.java
 
 ```java
-package com.r3.developers.csdetemplate.flowexample.workflows;
+package com.r3.developers.cordapptemplate.flowexample.workflows;
 
 import net.corda.v5.base.types.MemberX500Name;
 
