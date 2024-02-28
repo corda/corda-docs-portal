@@ -114,4 +114,6 @@ Alternatively, you can form your application CPB using the [Corda CLI]({{< relre
 Having two CPBs for the application and notary virtual node roles on the network also extends to needing two different CPIs. This process is unchanged, but ensure the following:
 
 * the notary server CPB signing key is used to create the CPI and then imported to Corda
-* the same {{< tooltip >}}group policy{{< /tooltip >}} file is used when creating both the application and notary CPIs, for more information see the [Onboarding Notaries]({{< relref "../../../application-networks/creating/notaries.md" >}}) section
+* the same {{< tooltip >}}group policy{{< /tooltip >}} file is used when creating both the application and notary CPIs.
+
+For more information see the [Onboarding Notaries]({{< relref "../../../application-networks/creating/notaries.md" >}}) section.
