@@ -10,14 +10,15 @@ menu:
 ---
 # Notary Protocols
 
-Notary functionality is provided in the form of plugin CorDapps. In theory, anyone can write a new notary protocol by implementing their own CorDapps. However, initially, it is expected to only use protocols provided by R3. For a given notary protocol, two {{< tooltip >}}CPBs{{< /tooltip >}} are required:
+Notary functionality is provided in the form of plugin CorDapps. A notary protocol requires two {{< tooltip >}}CPBs{{< /tooltip >}}:
 
 * A **client**, or **application** CPB, which is used to generate a {{< tooltip >}}CPI{{< /tooltip >}} associated with application virtual nodes. At a minimum, this contains a {{< tooltip >}}CPK{{< /tooltip >}} that has an initiating {{< tooltip >}}flow{{< /tooltip >}} that is automatically invoked by the Corda 5 flow framework to initiate a notarization request.
 * A **notary server** CPB, which is used to generate a CPI associated with notary virtual nodes. At a minimum, this contains a CPK that has a responder flow to what is packaged in the client CPB.
 
-For {{< version >}}, a [non-validating notary protocol]({{< relref "./non-validating-notary/_index.md" >}}) and a********
-The non-validating notary protocol supports the UTXO ledger model. As outlined in the [Ledger section](******), this backchain verification based model is not suitable for a large scale token network that also needs very high performance, such as a digital currency.
-The [contract-verifying notary protocol](****) provides an alternative approach to verifying that inputs to a transaction are trustworthy.
+Two notary protocols are currently available:
+
+* [non-validating notary protocol]({{< relref "non-validating-notary/_index.md" >}}) - checks the whole chain of transactions back to issuance.
+* [contract-verifying notary protocol]({{< relref "../enhanced-ledger-privacy.md" >}}) - checks the contracts applicable to transactions.
 
 ## Selecting a Protocol
 

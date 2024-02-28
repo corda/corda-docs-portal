@@ -6,7 +6,7 @@ menu:
   corda52:
     identifier: corda52-fundamentals-ledger-notaries
     parent: corda52-develop-notaries
-    weight: 1000
+    weight: 2000
 ---
 
 # Non-Validating Notary Protocol

@@ -31,11 +31,17 @@ The source code for these modules is in the [notary-plugin-non-validating](https
 
 ## Notary Server CPB
 
-R3 provides a non-validating notary protocol CPB and a contract-verifying notary CPB. These are available from the [Corda GitHub release page](https://github.com/corda/corda-runtime-os/releases/).
+### Non-Validating Notary Protocol
+
+R3 provides a [non-validating notary protocol]({{< relref "non-validating-notary/_index.md">}})  CPB. This is available from the [Corda GitHub release page](https://github.com/corda/corda-runtime-os/releases/).
+
+### Contract-Verifying Notary Protocol
+
+You must build the contract-verifying notary protocol CPB for [Enhanced Ledger Privacy]({{< relref "../enhanced-ledger-privacy.md">}}) for your application network to contain the relevant contract CPKs. For more information, see the [implementation section]({{< relref "../enhanced-ledger-privacy.md#implementation">}}).
 
 ## Application CPB
 
-It is not possible to provide a standard application CPB, because the contents of this depend on the functionality of your CorDapp. You must decide which CPKs to bundle together to provide your application functionality. However, you must also bundle the `notary-common`, `<notary-type>-api`, and `<notary-type>-client` CPKs to provide the notary protocols your CorDapp will support. For the contract-verifying notary to work, you must package workflows and contracts in separate CPKs.
+It is not possible to provide a standard application CPB, because the contents of this depend on the functionality of your CorDapp. You must decide which CPKs to bundle together to provide your application functionality. However, you must also bundle the `notary-common`, `<notary-type>-api`, and `<notary-type>-client` CPKs to provide the notary protocols your CorDapp will support.
 
 The easiest way to ensure your CorDapp includes the necessary CPKs is to use the CorDapp dependency functionality of the CPK Gradle plugin. Add one of the following to your Gradle dependency configuration, where `cordaNotaryPluginsVersion` is an appropriate version of `corda-runtime-os`:
 
