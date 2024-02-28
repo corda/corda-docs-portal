@@ -17,25 +17,7 @@ Notary functionality is provided in the form of plugin CorDapps. A notary protoc
 
 Two notary protocols are currently available:
 
-* [Non-validating notary protocol]({{< relref "non-validating-notary/_index.md" >}}) - checks the whole chain of transactions back to issuance.
-* [Contract-verifying notary protocol]({{< relref "../enhanced-ledger-privacy.md" >}}) - checks the contracts applicable to transactions.
+* [Non-validating notary protocol]({{< relref "non-validating-notary/_index.md" >}}) - each virtual node checks the whole chain of transactions back to issuance.
+* [Contract-verifying notary protocol]({{< relref "../enhanced-ledger-privacy.md" >}}) - the notary checks the contracts applicable to transactions.
 
-## Selecting a Protocol
-
-This section outlines the [benefits](#backchain-skipping-benefits) and [drawbacks](#backchain-skipping-drawbacks) of backchain skipping (contract-verifying notary protocol) versus backchain resolution (non-validating notary protocol).
-
-### Backchain Skipping Benefits
-
-* **Enhanced privacy between participants**  - Participants only see the transactions that they are party to. While they need to see the inputs to a transaction to verify it before signing, they receive those as part of filtered transactions, so they only see exactly the required inputs.
-* **Enhanced performance** - Instead of an ever growing backchain, Corda only requires a bundle with the direct inputs for each new transaction, so the throughput of the system will not start to degrade with long time use of tokens.
-* **Reduced storage footprint** - Each member node only needs to store transactions it is involved in, and the direct inputs. Depending on the nature of the network application, this can lead to a drastic reduction in required database space.
-* **Easier archiving** - Once all outputs from a transaction are spent, the transaction it will no longer be required, making it easier to deduce which parts of the ledger can be archived.
-* **Eliminates denial of state attacks** - Running verification on the notary eliminates any risk of denial of state attacks by requesting notarizations of bogus transactions with known inputs. Every transaction has to conform to the contract rules of the network and is checked to carry the required signatures.
-
-### Backchain Skipping Drawbacks
-
-* **More trust in the notary operator** - Participants must all rely on the contract verifying notary working correctly, and the network traffic to the notary is increased. This must be taken into consideration when planning the network layout.
-Furthermore, it will often be impossible to prove the validity of a transaction locally without relying on the verification run on the notary to endorse the validity of the inputs.
-* **Increased notary operator responsibility** - Depending on the legal frameworks around the application network, the notary operator might become liable for the correctness of the contract verification.
-* **Loss of privacy towards the notary operator** - In the classic UTXO model, only participants involved in transactions see the transaction and the backchain. The network operator and the notary never see any contents of the transactions, only the hashes and indices denoting the consumed and created states. In the contract-verifying model, the notary must process all transaction content, to enable a total view of all interactions on the global ledger. However, there is no requirement for the notary to store a copy of all the transaction data.
-* **Loss of history** - No provenance or audit trail of a state is maintained without introducing special virtual nodes to observe all transactions in the network. If necessary, for example supply chain tracing this must be enforced by the smart contracts.
+To help you select a protocol, see the [Considerations section]({{< relref "../enhanced-ledger-privacy.md#considerations" >}})  of the [Transaction Privacy Enhancements page]({{< relref "../enhanced-ledger-privacy.md" >}}) page.

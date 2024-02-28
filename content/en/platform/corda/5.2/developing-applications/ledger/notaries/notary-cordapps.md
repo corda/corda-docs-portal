@@ -37,7 +37,7 @@ R3 provides a [non-validating notary protocol]({{< relref "non-validating-notary
 
 ### Contract-Verifying Notary Protocol
 
-You must build the contract-verifying notary protocol CPB for [Enhanced Ledger Privacy]({{< relref "../enhanced-ledger-privacy.md">}}) for your application network to contain the relevant contract CPKs. For more information, see the [implementation section]({{< relref "../enhanced-ledger-privacy.md#implementation">}}).
+You must build the contract-verifying notary protocol CPB for [Transaction Privacy Enhancements]({{< relref "../enhanced-ledger-privacy.md">}}) for your application network to contain the relevant contract CPKs. For more information, see the [implementation section]({{< relref "../enhanced-ledger-privacy.md#implementation">}}).
 
 ## Application CPB
 

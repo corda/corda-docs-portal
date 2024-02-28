@@ -1,7 +1,7 @@
 ---
 description: Learn about the R3 contract-verifying notary protocol.
 date: '2024-02-27'
-title: "Enhanced Ledger Privacy"
+title: "Transaction Privacy Enhancements"
 menu:
   corda52:
     identifier: corda52-develop-notary-contract-verifying
@@ -9,7 +9,9 @@ menu:
     weight: 5050
 ---
 
-# Enhanced Ledger Privacy
+# Transaction Privacy Enhancements
+
+Transaction privacy enhancements enable you to operate a network that increases the privacy of transactions by no longer requiring every virtual node in a network to see and verify all predecessors, linked by inputs, back to issuance of a transaction on the UTXO ledger. In exchange, visibility of transaction content must be given to the notary.
 
 The notary is already a known party that must be trusted and so Corda can use it to not only check that the inputs are unconsumed, but also check and vouch for the validity of a transaction.
 This is particularly suitable in use cases where the notary operator exists as an already trusted entity within the network, for example, a central bank.
@@ -20,7 +22,27 @@ However, this means that the notary itself must check that any inputs to a trans
 Similarly, participants verifying a new proposed transaction now only need to check that all inputs come from transactions signed by the verifying notary service for the network.
 Following this reasoning, the backchain resolution in the [non-validating notary protocol]({{< relref "./notaries/non-validating-notary/_index.md" >}}) of the {{< tooltip >}}UTXO{{< /tooltip >}} ledger model is replaced by a payload consisting of the proposed transaction plus any immediate predecessors that provide the inputs being consumed by the proposed transaction.
 
-For improved efficiency and privacy, the inputs to a proposed transaction can be sent as **filtered transactions**. Filtered transactions use Merkle proofs to only reveal the relevant parts of a transaction. In this case, only the output states used in the proposed transaction and the notary metadata, along with the relevant notary signature, are sent
+For improved efficiency and privacy, the inputs to a proposed transaction can be sent as **filtered transactions**. Filtered transactions use Merkle proofs to only reveal the relevant parts of a transaction. In this case, only the output states used in the proposed transaction and the notary metadata, along with the relevant notary signature, are sent.
+
+## Considerations
+
+This section outlines the [advantages](#backchain-skipping-advantages) and [drawbacks](#backchain-skipping-drawbacks) of backchain skipping (contract-verifying notary protocol) versus backchain resolution (non-validating notary protocol).
+
+### Backchain Skipping Advantages
+
+* **Enhanced privacy between participants**  - Participants only see the transactions that they are party to. While they need to see the inputs to a transaction to verify it before signing, they receive those as part of filtered transactions, so they only see exactly the required inputs.
+* **Enhanced performance** - Instead of an ever growing backchain, Corda only requires a bundle with the direct inputs for each new transaction, so the throughput of the system will not start to degrade with long time use of tokens.
+* **Reduced storage footprint** - Each member node only needs to store transactions it is involved in, and the direct inputs. Depending on the nature of the network application, this can lead to a drastic reduction in required database space.
+* **Easier archiving** - Once all outputs from a transaction are spent, the transaction it will no longer be required, making it easier to deduce which parts of the ledger can be archived.
+* **Eliminates denial of state attacks** - Running verification on the notary eliminates any risk of denial of state attacks by requesting notarizations of bogus transactions with known inputs. Every transaction has to conform to the contract rules of the network and is checked to carry the required signatures.
+
+### Backchain Skipping Drawbacks
+
+* **More trust in the notary operator** - Participants must all rely on the contract verifying notary working correctly, and the network traffic to the notary is increased. This must be taken into consideration when planning the network layout.
+Furthermore, it will often be impossible to prove the validity of a transaction locally without relying on the verification run on the notary to endorse the validity of the inputs.
+* **Increased notary operator responsibility** - Depending on the legal frameworks around the application network, the notary operator might become liable for the correctness of the contract verification.
+* **Loss of privacy towards the notary operator** - In the classic UTXO model, only participants involved in transactions see the transaction and the backchain. The network operator and the notary never see any contents of the transactions, only the hashes and indices denoting the consumed and created states. In the contract-verifying model, the notary must process all transaction content, to enable a total view of all interactions on the global ledger. However, there is no requirement for the notary to store a copy of all the transaction data.
+* **Loss of history** - No provenance or audit trail of a state is maintained without introducing special virtual nodes to observe all transactions in the network. If necessary, for example supply chain tracing this must be enforced by the smart contracts.
 
 ## Implementation
 
