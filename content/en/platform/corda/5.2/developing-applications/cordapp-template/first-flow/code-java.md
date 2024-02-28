@@ -27,6 +27,7 @@ This section describes the Java code for the {{< tooltip >}}flows{{< /tooltip >}
 ## Java Flow Files
 
 The `src/main/java/com/r3/developers/cordapptemplate/flowexample/workflows` folder contains the following files:
+
 * [Message.java](#messagejava)
 * [MyFirstFlow.java](#myfirstflowjava)
 * [MyFirstFlowResponder.java](#myfirstflowresponderjava)
@@ -422,8 +423,9 @@ We can now start sending messages to the responder:
    ```
    The code continues to execute until it reaches the `session.receive()` method. At that point, the flow checkpoints and persists its {{< tooltip >}}state{{< /tooltip >}} to the database. It resumes when it receives a message back from the responder. This frees up the Corda cluster {{< tooltip >}}flow workers{{< /tooltip >}} to perform other tasks.
    {{< note >}}
-   There is no guarantee that the same {{< tooltip >}}flow worker{{< /tooltip >}} resumes the completion of the flow and so singleton objects should be avoided in Corda 5 flows.
+   There is no guarantee that the same flow worker  resumes the completion of the flow and so singleton objects should be avoided in Corda 5 flows.
    {{< /note >}}
+   
    ```java
            Message response = session.receive(Message.class);
     ```

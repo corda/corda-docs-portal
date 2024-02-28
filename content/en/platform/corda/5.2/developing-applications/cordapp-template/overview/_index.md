@@ -98,4 +98,4 @@ These are supporting Gradle tasks, used internally by other tasks.
 
 In the toolbar, you can select the `DebugCorDapp` run configuration to debug the running Corda from IntelliJ.
 
-{{< figure src="debugging.png" figcaption="CorDapp template DebugCorDapp" width="30%" alt="Menu in IntelliJ to debug Corda" >}}
+{{< figure src="debugging.png" figcaption="CorDapp template DebugCorDapp" width="40%" alt="Menu in IntelliJ to debug Corda" >}}
