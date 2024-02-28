@@ -20,7 +20,7 @@ The packages are not required but they define a suggested structure for you to f
 
 ## Initial Setup of Your CorDapp
 
-In this tutorial, you will use the CorDapp template repository as a template and build on top of it.
+In this tutorial, you will use the CorDapp template repository and build on top of it.
 This project already contains some example flows, contracts, and {{< tooltip >}}states{{< /tooltip >}}.
 
 1. Follow the CorDapp template [installation instructions]({{< relref "../cordapp-template/installing/_index.md" >}}) to clone the [Kotlin CorDapp template repository](https://github.com/corda/cordapp-template-kotlin).
