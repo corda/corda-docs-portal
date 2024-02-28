@@ -41,7 +41,7 @@ Particularly if transactions can have many inputs and ouputs or states are fungi
 
 * Decentralized verification. Every virtual node has the required data to run the full set of verifications all the way to the origins, without having to rely on any remote or centralized verification. The role of the notary is limited to ensuring no state is consumed more than once.
 * Privacy implications - Every virtual node must fetch and process a large number of transactions that it might not have been involved in, and can see the full history of every token it sees.
-* Performance implications. The backchain continues to grow:
+* Performance implications - The backchain continues to grow:
   * When a virtual node receives a state or token for which it has not seen the history before, it must download the complete backchain. This must occur before it can accept/sign a transaction and slows down the main functionality of the network. This would be definitely the case for any new joiner to a network.
   * Most virtual nodes will eventually have to store a large part of the global ledger in their database which could be gigabytes of data that is only required to verify new transactions.
   * Archiving the ledger is near impossible, as old transaction might be required to verify the backchain of newly created transactions.
