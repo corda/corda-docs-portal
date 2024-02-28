@@ -1,7 +1,7 @@
 ---
 date: '2023-11-01'
-title: "Resetting the CorDapp Template"
-description: Learn stop and clean the CorDapp template.
+title: "Resetting the Corda Runtime Gradle Plugin"
+description: Learn stop and clean the Corda runtime Gradle plugin.
 menu:
   corda52:
     parent: corda52-develop-get-started
@@ -9,7 +9,7 @@ menu:
     weight: 8000
 
 ---
-# Resetting the CorDapp Template
+# Resetting the Corda Runtime Gradle Plugin
 
 The CorDapp Template creates temporary files to store data required to generate and upload {{< tooltip >}}CPI{{< /tooltip >}} files and manage the Corda cluster.
 If these files are modified, deleted, or otherwise get out of sync with the actual state of the Corda cluster, the CorDapp Template Gradle tasks may not function correctly.
