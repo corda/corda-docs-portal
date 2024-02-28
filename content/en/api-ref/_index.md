@@ -12,7 +12,7 @@ title: API Reference
 
 ## Corda 5 API reference
 
-See the [Corda 5.1](../../en/api-ref/corda/5.1/index.html) page to access the API reference documentation for all API modules publicly exposed in Corda 5.1.
+See the [{{< latest-c5-version >}}](../../en/api-ref/corda/{{< latest-c5-version >}}/index.html) page to access the API reference documentation for all API modules publicly exposed in {{< latest-c5-version >}}.
 
 ## Corda 4 API Reference
 
