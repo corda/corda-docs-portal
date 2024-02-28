@@ -42,7 +42,7 @@ This section outlines the [advantages](#backchain-skipping-advantages) and [draw
 Furthermore, it will often be impossible to prove the validity of a transaction locally without relying on the verification run on the notary to endorse the validity of the inputs.
 * **Increased notary operator responsibility** - Depending on the legal frameworks around the application network, the notary operator might become liable for the correctness of the contract verification.
 * **Loss of privacy towards the notary operator** - In the classic UTXO model, only participants involved in transactions see the transaction and the backchain. The network operator and the notary never see any contents of the transactions, only the hashes and indices denoting the consumed and created states. In the contract-verifying model, the notary must process all transaction content, to enable a total view of all interactions on the global ledger. However, there is no requirement for the notary to store a copy of all the transaction data.
-* **Loss of history** - No provenance or audit trail of a state is maintained without introducing special virtual nodes to observe all transactions in the network. If necessary, for example supply chain tracing this must be enforced by the smart contracts.
+* **Loss of history** - No provenance or audit trail of a state is maintained without introducing special virtual nodes to observe all transactions in the network. If necessary for, for example, supply chain tracing, then this must be enforced by the smart contracts.
 
 ## Implementation
 
