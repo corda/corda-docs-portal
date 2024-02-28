@@ -16,7 +16,7 @@ Transaction privacy enhancements enable you to operate a network that increases 
 The notary is already a known party that must be trusted and so Corda can use it to not only check that the inputs are unconsumed, but also check and vouch for the validity of a transaction.
 This is particularly suitable in use cases where the notary operator exists as an already trusted entity within the network; for example, a central bank.
 
-Corda implements this with a notary that knows about the contracts governing the transactions in an application network, just like the other virtual nodes, and verifying that all transactions adhere to these contracts before signing them.
+Corda implements this with a notary that knows about the contracts governing the transactions in an application network, just like the other virtual nodes, and verifies that all transactions adhere to these contracts before signing them.
 In this case, outputs from a transaction signed by the notary can be trusted to be valid by any virtual node without further verification of their provenance.
 However, this means that the notary itself must check that any inputs to a transaction it verifies come from a transaction that has been signed by the same notary service.
 Similarly, participants verifying a new proposed transaction now only need to check that all inputs come from transactions signed by the verifying notary service for the network.
