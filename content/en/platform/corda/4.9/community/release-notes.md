@@ -17,6 +17,19 @@ tags:
 
 # Corda Community Edition 4.9 release notes
 
+## Corda Community Edition 4.9.9 release notes
+
+Corda Community Edition 4.9.9 is a patch release of Corda Community Edition focused on resolving issues.
+
+### Fixed issues
+
+* In the default log4j2.xml file, the Delete action in the DefaultRolloverStrategy policy for log files beginning with `diagnostic-*` or `checkpoints_agent-*`  was incorrect. It erroneously compared against the wrong file names. This issue has been rectified, ensuring that files are now deleted in accordance with the policy.
+* Previously, a rare error scenario could occur where a node would erroneously perceive a valid connection to a peer when, in fact, it was not connected. This issue typically arose when the peer node was disconnecting/connecting.
+
+### Third party component upgrades
+
+* Jetty version was upgraded from 9.4.51.v20230217 to 9.4.53.v20231009.
+
 ## Corda Community Edition 4.9.8 release notes
 
 Corda Community Edition 4.9.8 is a patch release of Corda Community Edition focused on resolving issues.
