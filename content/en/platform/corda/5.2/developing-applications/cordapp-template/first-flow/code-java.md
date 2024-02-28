@@ -11,7 +11,7 @@ menu:
 ---
 # Java Flow Code Walkthrough
 
-This section describes the Java code for the {{< tooltip >}}flows{{< /tooltip >}} and supporting classes in the `workflows/src/main/java/com/r3/developers/csdetemplate/flowexample/workflows` folder in the [CorDapp template repo](https://github.com/corda/CSDE-cordapp-template-java). It contains the following:
+This section describes the Java code for the {{< tooltip >}}flows{{< /tooltip >}} and supporting classes in the `workflows/src/main/java/com/r3/developers/csdetemplate/flowexample/workflows` folder in the [CorDapp template repo](https://github.com/corda/cordapp-template-java). It contains the following:
 
 * [Java Flow Files](#java-flow-files)
 * [Helper Classes](#helper-classes)

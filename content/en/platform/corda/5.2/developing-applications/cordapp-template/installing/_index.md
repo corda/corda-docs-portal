@@ -23,7 +23,7 @@ The images in this section show the `cordapp-template-kotlin` repository in Inte
 
 ## Downloading
 
-1. To obtain the CorDapp template, clone the [cordapp-template-kotlin repository](https://github.com/corda/cordapp-template-kotlin/tree/release/corda-5-2) or [cordapp-template-java repository](https://github.com/corda/cordapp-template-java/tree/release/corda-5-2):
+1. To obtain the {{< version >}} CorDapp template, clone the [cordapp-template-kotlin repository](https://github.com/corda/cordapp-template-kotlin) or [cordapp-template-java repository](https://github.com/corda/cordapp-template-java):
 
    {{< tabs name="clone-csde">}}
    {{% tab name="Kotlin"%}}
@@ -39,10 +39,10 @@ The images in this section show the `cordapp-template-kotlin` repository in Inte
    {{% /tab %}}
    {{< /tabs >}}
 
-2. Change to the new folder and create a new branch from the corda-5-2 release tag:
+2. Checkout the {{< version-num >}} branch:
 
    ```sh
-   git checkout -b newbranch tags/release/corda-5-2
+   git checkout 
    ```
 
 3. Initialize the Git repository and change the remote so you do not inadvertently push your work back to the R3 repository:
