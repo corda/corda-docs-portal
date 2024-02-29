@@ -68,7 +68,7 @@ The CorDapp template includes [Gradle tasks]({{< relref "../overview/_index.md#g
 
 ### Corda Version
 
-The `gradle.properties` file specifies the Corda version that the Gradle tasks use. Update the version by setting `cordaNotaryPluginsVersion` and `combinedWorkerJarVersion` to the Corda Version. For example, for Corda 5.2:
+The `gradle.properties` file specifies the Corda version that the Gradle tasks use. Update the version by setting `cordaNotaryPluginsVersion` and `combinedWorkerJarVersion` to the Corda version. For example, for Corda 5.2:
 
 ```shell
 cordaNotaryPluginsVersion=5.2.0.0
