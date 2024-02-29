@@ -53,4 +53,4 @@ To reset the Corda runtime Gradle plugin:
 
 1. Delete the `<project-root-dir>/workspace` directory and its contents.
 
-   You should now be able to run all CorDapp Template Gradle tasks again. These tasks download the Corda cluster software and recreate all of the temporary files, as required.
+   You should now be able to run all CorDapp template Gradle tasks again. These tasks download the Corda cluster software and recreate all of the temporary files, as required.
