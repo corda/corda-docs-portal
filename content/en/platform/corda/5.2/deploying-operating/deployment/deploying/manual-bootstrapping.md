@@ -643,7 +643,7 @@ By default, different state types are assigned to different database schemas and
 | `rest.stateManager.flowStatus.username`                | SELECT, INSERT, UPDATE, DELETE                            | `sm_flow_status`                                     |
 | `rest.stateManager.keyRotation.username`               | SELECT                                                    | `sm_key_rotation`                                    |
 | `crypto.stateManager.keyRotation.username`             | SELECT, INSERT, UPDATE, DELETE                            | `sm_key_rotation`                                    |
-| `p2pLinkManager.stateManager..p2pSession.username`     | SELECT, INSERT, UPDATE, DELETE                            | `sm_p2p_session`                                     |
+| `p2pLinkManager.stateManager.p2pSession.username`     | SELECT, INSERT, UPDATE, DELETE                            | `sm_p2p_session`                                     |
 | `tokenSelection.stateManager.tokenPoolCache.username`  | SELECT, INSERT, UPDATE, DELETE                            | `sm_token_pool_cache`                                |
 
 Using the table above as reference, and going from top to bottom, grant access to the user as follows:
