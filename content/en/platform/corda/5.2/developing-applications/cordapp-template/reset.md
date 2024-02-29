@@ -12,7 +12,7 @@ menu:
 # Resetting the Corda Runtime Gradle Plugin
 
 The CorDapp template creates temporary files to store data required to generate and upload {{< tooltip >}}CPI{{< /tooltip >}} files and manage the Corda cluster.
-If these files are modified, deleted, or otherwise get out of sync with the actual state of the Corda cluster, the CorDapp Template Gradle tasks may not function correctly.
+If these files are modified, deleted, or otherwise get out of sync with the actual state of the Corda cluster, the CorDapp template Gradle tasks may not function correctly.
 For example:
 
 * A Corda cluster is started without using the `startCorda` task or by running `startCorda` from a different CorDapp Template repository.
