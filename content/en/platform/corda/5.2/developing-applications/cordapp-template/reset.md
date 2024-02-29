@@ -18,7 +18,7 @@ For example:
 * A Corda cluster is started without using the `startCorda` task or by running `startCorda` from a different CorDapp Template repository.
 * A CPI file is uploaded without using the CorDapp template Gradle task.
 
-This section describes how to reset the CorDapp Template to handle these situations or other occasions when the CorDapp Template tasks are not working as expected.
+This section describes how to reset the CorDapp template to handle these situations or other occasions when the CorDapp template tasks are not working as expected.
 This process does the following:
 
 * Stops any processes related to the Corda cluster.
