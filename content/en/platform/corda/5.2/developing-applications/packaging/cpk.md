@@ -58,7 +58,7 @@ To configure your CPK project:
 ## Sign Your Code
 
 {{< note >}}
-By default, the CPK plugin signs with a default key. This key should only be used for local testing. It is not secure and not intended for use in an environment that is long lived or visible to many people.  You can deploy locally on a static network, using the [CSDE]({{< relref "../../../../../tools-corda5/csde/_index.md">}}).
+By default, the CPK plugin signs with a default key. This key should only be used for local testing. It is not secure and not intended for use in an environment that is long lived or visible to many people.  You can deploy locally on a static network, using the [CorDapp template]({{< relref "../cordapp-template/_index.md">}}).
 {{< /note >}}
 
 To sign with a key other than the default key, add a `cordapp/signing` section to the project `settings.gradle` file.

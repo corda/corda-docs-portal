@@ -53,7 +53,7 @@
     },
     "Corda CLI": {
         "definition": "A command line tool that supports various Corda-related tasks, including Corda Package Installer (CPI) creation and Corda cluster management. ",
-        "more": "The CorDapp Standard Development Environment (CSDE) uses Corda CLI in the background. As a result, you must install Corda CLI before using CSDE. For more information, see <a href=\"../reference/corda-cli.html\">Corda CLI Commands</a>."
+        "more": ""
     },
     "CorDapp": {
         "definition": "Corda Distributed Application. A Java (or any JVM targeting language) application built using the Corda build toolchain and CorDapp API to solve some problem that is best solved in a decentralized manner.",
@@ -62,10 +62,6 @@
     "Crypto worker": {
         "definition": "A worker that manages the cryptographic materials of the Corda cluster and virtual nodes. It connects to any Hardware Security Modules (HSM) used to hold private keys, as well as database(s) used as a software HSM to hold wrapped and encrypted private keys.",
         "more": "When a virtual node needs to sign data, the request is sent across Kafka to one of the Crypto workers which performs the signing. The Crypto workers also provide admin functions to generate certificate signing requests and import certificates from external PKI providers and Certificate Authorities."
-    },
-    "CSDE": {
-        "definition": "CorDapp Standard Development Environment. The recommended developer environment setup for developers wishing to write Corda 5 CorDapps.",
-        "more": "For more information see <a href=\"../../../../tools-corda5/csde.html\">Getting Started Using the CSDE</a>."
     },
     "Database worker": {
         "definition": "A worker that connects to, manages, and operates upon the database(s) used by the Corda cluster. This includes the cluster-level database schemas needed to store configuration data for the cluster, but also the separate databases/schemas used by each virtual node. ",

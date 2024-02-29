@@ -13,26 +13,25 @@ menu:
 This section describes how to onboard a new {{< tooltip >}}member{{< /tooltip >}} as a {{< tooltip >}}notary{{< /tooltip >}} service representative. It assumes that you have configured the [MGM for the network]({{< relref "./mgm/_index.md" >}}). Onboarding a notary member is similar to any other member, but with the exceptions outlined on this page.
 
 {{< note >}}
-When onboarding a notary, you need to use the notary CPK to build a notary CPI.
+When onboarding a notary, you must use a notary CPB to build a notary CPI.
 {{< /note >}}
 
 The sections must be completed in the following order:
 
-1. Download the notary server {{< tooltip >}}CPB{{< /tooltip >}}, which is available from our [GitHub release page](https://github.com/corda/corda-runtime-os/releases/).
-2. [Import Notary CPB Code Signing Certificate]({{< relref "#import-notary-cpb-code-signing-certificate">}}). This is in addition to importing certificates for application CPKs or CPBs.
-3. [Build the notary member CPI]({{< relref "./members/cpi.md">}}) using the Notary CPB. For information about the notary CPB, see the [Notary section of Developing Applications]({{< relref "../../developing-applications/notaries/_index.md#notary-server-cpb" >}}).
-4. [Create a member virtual node]({{< relref "./members/virtual-node.md">}}), specifying the hash of the notary CPI.
-5. [Generate a notary key pair]({{< relref "#generate-a-notary-key-pair">}}).
-6. [Configure the member communication properties]({{< relref "./members/config-node.md">}}).
-7. [Register the notary]({{< relref "#register-the-notary">}}).
+1. If using R3's non-validating notary server, download the {{< tooltip >}}CPB{{< /tooltip >}}, which is available from our [GitHub release page](https://github.com/corda/corda-runtime-os/releases/) and [import the notary CPB code-signing certificate]({{< relref "#import-notary-cpb-code-signing-certificate">}}). This is in addition to importing certificates for application CPKs or CPBs.
+1. [Build the notary member CPI]({{< relref "./members/cpi.md">}}) using R3's non-validating notary CPB or your own contract-verifying CPB. For information about notary CPBs, see [Notary CorDapps]({{< relref "../../developing-applications/ledger/notaries/notary-cordapps.md" >}}).
+1. [Create a member virtual node]({{< relref "./members/virtual-node.md">}}), specifying the hash of the notary CPI.
+1. [Generate a notary key pair]({{< relref "#generate-a-notary-key-pair">}}).
+1. [Configure the member communication properties]({{< relref "./members/config-node.md">}}).
+1. [Register the notary]({{< relref "#register-the-notary">}}).
 
 {{< note >}}
 The PowerShell commands listed are for use with PowerShell 7.0 and will not execute correctly with PowerShell 5.x.
 {{< /note >}}
 
-## Import Notary CPB Code Signing Certificate
+## Import Non-Validating Notary CPB Code Signing Certificate
 
-The R3 notary server CPB is signed with a DigiCert KMS signing key. To use it, import the certificate as follows:
+The R3 non-validating notary server CPB is signed with a DigiCert KMS signing key. To use it, import the certificate as follows:
 
 1. Save the following text into a file named `notary-ca-root.pem`:
 
@@ -107,7 +106,13 @@ export NOTARY_KEY_ID=<notary-key-ID>
 
 ### Build the Notary Registration Context
 
-Run the following command to build the registration context for a notary member:
+{{< note >}}
+It is currently only possible to have a single notary virtual node associated with a notary service X.500 name. The eventual intent is to allow a many-to-one mapping, similar to the high-availability notary implementation in Corda 4. This will allow a notary service to be hosted across multiple Corda clusters/regions.
+{{< /note >}}
+
+#### Non-Validating Notary Member
+
+Run the following command to build the registration context for a non-validating notary member:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -147,14 +152,50 @@ $REGISTRATION_CONTEXT = @{
 {{< /tabs >}}
 
 This sets the following notary specific values:
-* `'corda.roles.0' : "notary"` -  This indicates that the virtual node is taking the role of a notary on the network.
+
+* `"corda.roles.0" : "notary"` -  This indicates that the virtual node is taking the role of a notary on the network.
 * `"corda.notary.service.name" : <x500 name>` - This specifies an {{< tooltip >}}X.500{{< /tooltip >}} name for the notary service that this virtual node will represent. This is the name that will be used by {{< tooltip >}}CorDapps{{< /tooltip >}} when specifying which notary to use for notarization.
 * `"corda.notary.service.flow.protocol.name" : "com.r3.corda.notary.plugin.nonvalidating"` - This attribute replaces the validating Boolean flag in Corda 4. This is effectively the equivalent to setting `validating = false` in Corda 4.
 * `"corda.notary.service.flow.protocol.version.0" : "1"` - This must be specified and currently must be set to version 1. The 0 at the end of the name reflects the fact that in future there may be multiple versions supported, with additional versions specified by 1,2, and so on.
 
-{{< note >}}
-It is currently only possible to have a single notary virtual node associated with a notary service X.500 name. The eventual intent is to allow a many-to-one mapping, similar to the high-availability notary implementation in Corda 4. This will allow a notary service to be hosted across multiple Corda clusters/regions.
-{{< /note >}}
+#### Contract-Verifying Notary Member
+
+Run the following command to build the registration context for a contract-verifying notary member:
+
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```shell
+export REGISTRATION_CONTEXT=' {     
+      "corda.key.scheme": "CORDA.ECDSA.SECP256R1",
+      "corda.roles.0": "notary",
+      "corda.notary.service.name": <An X.500 name for the notary service>,
+      "corda.notary.service.flow.protocol.name": "com.r3.corda.notary.plugin.contractverifying",
+      "corda.notary.service.flow.protocol.version.0": "1",
+      "corda.notary.service.backchain.required": "false"
+}  '
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+$REGISTRATION_CONTEXT = @ {     
+      "corda.key.scheme": "CORDA.ECDSA.SECP256R1",
+      "corda.roles.0": "notary",
+      "corda.notary.service.name": <An X.500 name for the notary service>,
+      "corda.notary.service.flow.protocol.name": "com.r3.corda.notary.plugin.contractverifying",
+      "corda.notary.service.flow.protocol.version.0": "1",
+      "corda.notary.service.backchain.required": "false"
+}  
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+This sets the following notary specific values:
+
+* `"corda.roles.0" : "notary"` -  This indicates that the virtual node is taking the role of a notary on the network.
+* `"corda.notary.service.name" : <x500 name>` - This specifies an {{< tooltip >}}X.500{{< /tooltip >}} name for the notary service that this virtual node will represent. This is the name that will be used by {{< tooltip >}}CorDapps{{< /tooltip >}} when specifying which notary to use for notarization.
+* `"corda.notary.service.flow.protocol.name" : "com.r3.corda.notary.plugin.contractverifying"` - This specifies the contract-verifying protocol.
+* `"corda.notary.service.flow.protocol.version.0" : "1"` - This must be specified and currently must be set to version 1. The 0 at the end of the name reflects the fact that in future there may be multiple versions supported, with additional versions specified by 1,2, and so on.
+* `"corda.notary.service.backchain.required"` - Set to `false` to disable backchain verification and enable [transaction privacy enhancements]({{< relref "../../developing-applications/ledger/enhanced-ledger-privacy.md" >}}) mode.
 
 ### Register the Notary
 
