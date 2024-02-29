@@ -75,8 +75,8 @@ To push the Corda Enterprise images:
     docker push $target
    done
 
-   docker tag postgres:14.4 $target_registry/postgres:14.4
-   docker push $target_registry/postgres:14.4
+   docker tag postgres:14.10 $target_registry/postgres:14.10
+   docker push $target_registry/postgres:14.10
    docker tag 53c87e38a209 $target_registry/ingress-nginx-controller:v1.9.3
    docker push $target_registry/ingress-nginx-controller:v1.9.3
    ```
