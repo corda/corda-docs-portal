@@ -15,7 +15,7 @@ The CorDapp template creates temporary files to store data required to generate 
 If these files are modified, deleted, or otherwise get out of sync with the actual state of the Corda cluster, the CorDapp template Gradle tasks may not function correctly.
 For example:
 
-* A Corda cluster is started without using the `startCorda` task or by running `startCorda` from a different CorDapp Template repository.
+* A Corda cluster is started without using the `startCorda` task or by running `startCorda` from a different CorDapp template repository.
 * A CPI file is uploaded without using the CorDapp template Gradle task.
 
 This section describes how to reset the CorDapp template to handle these situations or other occasions when the CorDapp template tasks are not working as expected.
