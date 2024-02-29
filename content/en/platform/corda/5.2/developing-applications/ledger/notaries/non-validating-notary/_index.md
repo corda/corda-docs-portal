@@ -36,8 +36,7 @@ Once the inputs are valid, Corda can continue verifying the new states. This inc
 
 This validity requirement means that in order to verify a transaction, each virtual node must fetch the whole chain of transactions back to issuance. This is called the backchain of a transaction.
 For some use cases (for example, to trace the origin of a tokenized asset), this can actually be quite useful.
-For other cases, where the relevant property is ownership rather than provenance, it is less desirable.
-Particularly if transactions can have many inputs and outputs or states are fungible tokens. In these cases, the backchain can turn into a tangled web of transactions that needs to be downloaded. This leads to the following:
+For other cases, where the relevant property is ownership rather than provenance, it is less desirable, particularly if transactions can have many inputs and outputs or states are fungible tokens. In these cases, the backchain can turn into a tangled web of transactions that needs to be downloaded. This leads to the following:
 
 * Decentralized verification. Every virtual node has the required data to run the full set of verifications all the way to the origins, without having to rely on any remote or centralized verification. The role of the notary is limited to ensuring no state is consumed more than once.
 * Privacy implications - Every virtual node must fetch and process a large number of transactions that it might not have been involved in, and can see the full history of every token it sees.
