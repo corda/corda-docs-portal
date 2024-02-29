@@ -72,7 +72,7 @@ Some tasks have a dependency on the others. So, for example, if you run `deployC
 Some tasks have a dependency on the others. So, for example, if you run `vNodesSetup`, it also runs `deployCPIs`.
 
 {{< note >}}
-You only need to run `vNodesSetup` the first time you upload your CPI to the corda cluster. On subsequent builds, you can just run `deployCPIs`. (`vNodeSetup` has no effect if the virtual nodes have already been set up. It will not try to recreate them.)
+You only need to run `vNodesSetup` the first time you upload your CPI to the Corda cluster. On subsequent builds, you can just run `deployCPIs`. (`vNodeSetup` has no effect if the virtual nodes have already been set up. It will not try to recreate them.)
 {{< /note >}}
 
 ### corda-runtime-plugin-queries
