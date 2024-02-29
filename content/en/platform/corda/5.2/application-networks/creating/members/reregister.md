@@ -59,7 +59,7 @@ You can learn more about configuring the registration process in the [Managing M
    holding identity, use:
 
    ```bash
-   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/keys/$HOLDING_ID
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/key/$HOLDING_ID
    ```
 
    The following is an example of a member-provided context for a member who has previously registered successfully:
