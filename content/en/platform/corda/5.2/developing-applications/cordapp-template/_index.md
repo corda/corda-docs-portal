@@ -13,7 +13,7 @@ menu:
 This section guides CorDapp Developers from setting up their development environment through to writing, compiling, and running their first basic {{< tooltip >}}CorDapp{{< /tooltip >}} using the CorDapp template.
 
 The CorDapp template simplifies the process of prototyping CorDapps.
-This template is obtained by cloning our `cordapp-template-kotlin` or `cordapp-template-java` repository to your local machine and checking out the `release-V5.2` branch. These templates provide:
+This template is obtained by cloning our [cordapp-template-kotlin](https://github.com/corda/cordapp-template-kotlin/tree/release-V5.2) or [cordapp-template-java](https://github.com/corda/cordapp-template-java/tree/release-V5.2) repository to your local machine and checking out the `release-V5.2` branch. These templates provide:
 
 * a prepared CorDapp project that you can use as a starting point to develop your own prototypes.
 * a base Gradle configuration that brings in the dependencies you need to write and test a Corda 5 CorDapp.
