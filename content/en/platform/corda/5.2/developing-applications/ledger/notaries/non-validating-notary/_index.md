@@ -29,7 +29,7 @@ To support the UTXO ledger model, R3 provides a non-validating [notary]({{< relr
 ## Validity
 
 To establish that a state on the ledger is valid, a virtual node must verify the transaction that has the state as output.
-The first step is to verify that all states which appear as inputs, if any, to that transaction are are valid by verifying those transactions first.
+The first step is to verify that all states which appear as inputs, if any, to that transaction are valid by verifying those transactions first.
 Once the inputs are valid, Corda can continue verifying the new states, which includes checking the signatures, including the notary signature, and then moving on to running the smart contracts which check that the transaction represents a valid transformation of inputs and outputs on the ledger.
 
 ## Backchain
