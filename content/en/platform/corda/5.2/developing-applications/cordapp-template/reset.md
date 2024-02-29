@@ -1,7 +1,7 @@
 ---
 date: '2023-11-01'
 title: "Resetting the Corda Runtime Gradle Plugin"
-description: Learn stop and clean the Corda runtime Gradle plugin.
+description: Learn to stop and clean the Corda runtime Gradle plugin.
 menu:
   corda52:
     parent: corda52-develop-get-started
