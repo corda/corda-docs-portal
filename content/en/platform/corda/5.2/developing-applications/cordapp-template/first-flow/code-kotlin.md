@@ -11,7 +11,7 @@ menu:
 ---
 # Kotlin Flow Code Walkthrough
 
-This section describes the Kotlin code for the {{< tooltip >}}flows{{< /tooltip >}} and supporting classes in `workflows/src/main/kotlin/com/r3/developers/cordapptemplate/flowexample/workflows/MyFirstFlow.kt` in the [CorDapp template repo](https://github.com/corda/cordapp-template-kotlin). It contains the following:
+This section describes the Kotlin code for the {{< tooltip >}}flows{{< /tooltip >}} and supporting classes in `workflows/src/main/kotlin/com/r3/developers/cordapptemplate/flowexample/workflows/MyFirstFlow.kt` in the [CorDapp template repo](https://github.com/corda/cordapp-template-kotlin/tree/release-V5.2). It contains the following:
 
 * [Helper Classes](#helper-classes)
 * [Initiating and Responding Flows](#initiating-and-responding-flows)
