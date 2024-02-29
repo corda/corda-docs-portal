@@ -35,7 +35,7 @@ Once the inputs are valid, Corda can continue verifying the new states. This inc
 ## Backchain
 
 This validity requirement means that in order to verify a transaction, each virtual node must fetch the whole chain of transactions back to issuance. This is called the backchain of a transaction.
-For some use cases, for example to trace the origin of a tokenized asset, this can actually be quite useful.
+For some use cases (for example, to trace the origin of a tokenized asset), this can actually be quite useful.
 For other cases, where the relevant property is ownership rather than provenance, it is less desirable.
 Particularly if transactions can have many inputs and ouputs or states are fungible tokens. In these cases, the backchain can turn into a tangled web of transactions that needs to be downloaded. This leads to the following:
 
