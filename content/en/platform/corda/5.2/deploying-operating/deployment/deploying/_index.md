@@ -722,6 +722,7 @@ password:
 
 {{< note >}}
 Although the password can be specified directly as a Helm override, R3 does not recommend this for security reasons.
+Similarly, R3 recommends that you create a Kubernetes Secret per Corda worker containing the credentials.
 {{< /note >}}
 
 If required, the connection pool used when interacting with the database can be independently configured for each state type within each worker. For example:
