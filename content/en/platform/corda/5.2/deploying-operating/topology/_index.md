@@ -64,7 +64,7 @@ The following diagram shows the topology used if hosting on Azure:
     * Azure resource provided by "Network security groups".
 8. Database:
     * Represents the datastore used by Corda.
-    * Supported database engine is "PostgreSQL" (version 14.4).
+    * Supported database engine is "PostgreSQL" (version 14.10).
     * AWS resource provided by "RDS".
     * Azure resource provided by "Azure Database for PostgreSQL flexible servers".
 9. Egress Firewall (optional limitation):

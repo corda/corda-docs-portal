@@ -931,7 +931,7 @@ bootstrap:
 If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database. For more information, see the [Database]({{< relref "./manual-bootstrapping.md#database" >}}) section in the *Manual Bootstrapping* section.
 {{< /note >}}
 
-By default, the database bootstrapping uses the psql CLI from the Docker image `postgres:14.4` on Docker Hub.
+By default, the database bootstrapping uses the psql CLI from the Docker image `postgres:14.10` on Docker Hub.
 If the Kubernetes cluster does not have access to Docker Hub, you must make this image available in an internal registry.
 You can then specify the location of the image via overrides, as follows:
 
@@ -940,7 +940,7 @@ db:
   clientImage:
     registry: <REGISTRY>
     repository: "postgres"
-    tag: "14.4"
+    tag: "14.10"
 ```
 
 Part of the database bootstrapping involves populating the initial credentials for the REST API admin. You can specify these in one of the following ways:
