@@ -510,7 +510,7 @@ If you do not configure isolated state manager databases, by default, Corda depl
 Similarly to the cluster database, the configuration for these state manager database instances is defined using a combination of the `database` and `stateManager` sections.
 
 {{< note >}}
-The state manager partition values cannot contain hyphens.
+The state manager partition values can contains only letters, underscores, and digits and must begin with a letter.
 {{< /note >}}
 
 The following is a full example of how to keep the cluster database and all of the state manager databases completely isolated from each other:
@@ -615,8 +615,8 @@ stateManager:
     type: Database
     storageId: "state-manager"
 ```
-
-Credentials must be specified for each worker and each state type, even if state types share a database instance. For example:
+Each state type must define its own user, even if state types share a database instance.
+Credentials must be specified for each worker and each state type. For example:
 
 ```yaml
 workers:
