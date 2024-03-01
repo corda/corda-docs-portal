@@ -508,7 +508,12 @@ If you do not configure isolated state manager databases, by default, Corda depl
 {{< /note >}}
 
 Similarly to the cluster database, the configuration for these state manager database instances is defined using a combination of the `database` and `stateManager` sections.
-The following is a full example of how to keep the cluster database and all of the state manager databases completely isolated from each other.
+
+{{< note >}}
+The state manager partition values can contain only letters, underscores, and digits and must begin with a letter.
+{{< /note >}}
+
+The following is a full example of how to keep the cluster database and all of the state manager databases completely isolated from each other:
 
 ```yaml
 databases:
@@ -610,8 +615,7 @@ stateManager:
     type: Database
     storageId: "state-manager"
 ```
-
-Credentials must be specified for each worker and each state type, as an example:
+Each state type must define its own user, even if state types share a database instance. For example:
 
 ```yaml
 workers:
@@ -717,7 +721,7 @@ password:
 
 {{< note >}}
 Although the password can be specified directly as a Helm override, R3 does not recommend this for security reasons.
-Similarly, although all Corda workers can share the same set of credentials, R3 recommends that you create a Kubernetes Secret per Corda worker containing the credentials.
+Similarly, R3 recommends that you create a Kubernetes Secret per Corda worker containing the credentials.
 {{< /note >}}
 
 If required, the connection pool used when interacting with the database can be independently configured for each state type within each worker. For example:
