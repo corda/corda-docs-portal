@@ -9,6 +9,7 @@ menu:
 title: "vnode"
 ---
 # vnode
+
 This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `vnode` sub-commands. You can use these commands to reset or upgrade virtual nodes. For more information see, [Upgrading from 5.0]({{< relref "../../deploying-operating/deployment/upgrading/_index.md" >}}).
 
 <style>
@@ -27,6 +28,12 @@ table th:nth-of-type(2) {
 
 ## reset
 
+The `reset` command is only intended for development use. It allows you to replace the virtual node CPI without bumping the version.
+
+{{< warning >}}
+Never use the `reset` command in a production environment. This command removes ledger data.
+{{< /warning >}}
+
 The following table lists the `reset` sub-commands and arguments:
 
 | Argument         | Description                                                                                                 |
@@ -34,7 +41,7 @@ The following table lists the `reset` sub-commands and arguments:
 | -c, \-\-cpi      | The path to the CPI file used to overwrite the virtual node.                                                |
 | -k, \-\-insecure | Allows insecure server connections with SSL. The default value is false.                                    |
 | -p, \-\-password | The REST API password.                                                                                      |
-| -r, \-\-resync   | The short hash holding IDs of the virtual nodes to reset.                                           |
+| -r, \-\-resync   | The short hash holding IDs of the virtual nodes to reset.                                                   |
 | -t, \-\-target   | The URL of the REST API.                                                                                    |
 | -u, \-\-user     | The REST API user.                                                                                          |
 | -w, \-\-wait     | Polls for the result.                                                                                       |
@@ -48,7 +55,7 @@ The following table lists the `platform-migration` sub-commands and arguments:
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | -i, \-\-input-filename  | The path to a file containing the list of short hash holding IDs of the virtual nodes to migrate. The file must only contain one ID per line. The default value is `./holdingIds`. |
 | \-\-jdbc-url            | The JDBC URL for the connection. Read access is required for Liquibase tracking tables to determine the current version of the platform schemas of each virtual node.              |
-| -o, \-\-output-filename | The path to the generated SQL file. The default value is `./vnodes.sql`.                                                                                                          |
+| -o, \-\-output-filename | The path to the generated SQL file. The default value is `./vnodes.sql`.                                                                                                           |
 | -p, \-\-password        | The database password.                                                                                                                                                             |
 | -u, \-\-user            | The database user.                                                                                                                                                                 |
 
