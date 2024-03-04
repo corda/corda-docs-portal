@@ -26,7 +26,7 @@ or are deploying a third-party CorDapp.
 {{< /note >}}
 
 {{< note >}}
-When deploying multiple nodes in parallel, the package tool (Capsule) that Corda uses can encounter issues retrieving dependencies. This is due to each node trying to download the dependencies in a common location. In these cases, it is recommended to set the environment variable `CAPSULE_CACHE_DIR`, which will allow the Capsule to maintain a separate cache for each node. This is used in the example descriptions below.
+When deploying multiple nodes in parallel, the package tool (Capsule) that Corda uses can encounter issues retrieving dependencies. This is due to each node trying to download the dependencies in a common location. In these cases, R3 recommends to set the environment variable `CAPSULE_CACHE_DIR`, which will allow the Capsule to maintain a separate cache for each node. This is used in the example descriptions below.
 
 The Capsule website has been retired. If you wish to read more about Capsule, you may be able to find documentation in the web archives - for example, the [Wayback Machine](https://archive.org/web/).
 {{< /note >}}
@@ -34,7 +34,7 @@ The Capsule website has been retired. If you wish to read more about Capsule, yo
 
 ## Linux: Installing and running Corda as a system service
 
-We recommend creating system services to run a node. This provides logging and service
+R3 recommends creating system services to run a node. This provides logging and service
 handling, and ensures the Corda service is run at boot.
 
 1. Install a supported Java distribution. The supported versions are listed in [Getting set up for CorDapp development]({{< relref "getting-set-up.md" >}}).
@@ -83,13 +83,13 @@ our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` director
 7. Make the following changes to `/opt/corda/node.conf`:
 
    a. Change the `p2pAddress`, `rpcSettings.address`, and `rpcSettings.adminAddress` values to match your server’s hostname or external IP address. These are the addresses other nodes or RPC interfaces will use to communicate with your node.
-   
+
    b. Change the ports if necessary; for example, if you are running multiple nodes on one server (see below).
-   
+
    c. Enter an email address which will be used as an administrative contact during the registration process. This is only visible to the permissioning service.
-   
+
    d. Enter your node’s desired legal name; see [Node identity]({{< relref "node-naming.md#node-identity" >}}) for more details.
-   
+
    e. If required, add RPC users.
 
 {{< note >}}
@@ -134,8 +134,8 @@ If you are running Ubuntu 14.04, follow the instructions for **Upstart**.
 10. Make the following changes to `corda.service` or `corda.conf`:
 
     a. Make sure the service description is informative - particularly if you plan to run multiple nodes.
-    
-    b. Change the username to the user account you want to use to run Corda. **We recommend that this user account is not root.**
+
+    b. Change the username to the user account you want to use to run Corda. **R3 recommends that this user account is not root.**
 
 11. **SystemD**: Make sure the `corda.service` file is owned by root with the correct permissions:
 
@@ -150,7 +150,7 @@ If you are running Ubuntu 14.04, follow the instructions for **Upstart**.
     sudo chown root:root /etc/init/corda.conf
     sudo chmod 644 /etc/init/corda.conf
     ```
-    
+
 13. Provision the required certificates to your node. Contact the network permissioning service or see [Network certificates]({{< relref "permissioning.md" >}}).
 14. **SystemD**: You can now start a node and set the services to start on boot by running the following `systemctl` commands:
 
@@ -173,18 +173,18 @@ SystemD or Upstart configuration files so they are unique.
 
 ## Windows: Installing and running Corda as a Windows service
 
-We recommend running Corda as a Windows service. This provides service handling, ensures the Corda service is run
+R3 recommends running Corda as a Windows service. This provides service handling, ensures the Corda service is run
 at boot, and means the Corda service stays running with no users connected to the server.
 
 1. Install a supported Java distribution. The supported versions are listed in [Getting set up for CorDapp development]({{< relref "getting-set-up.md" >}}).
 2. Create a `Corda\cordapps` directory:
 
-   ```shell 
+   ```shell
    mkdir C:\Corda\cordapps
    ```
 
-3. Download the following JAR file: 
-  
+3. Download the following JAR file:
+
    https://software.r3.com/ui/native/corda-releases/net/corda/corda/4.9/corda-4.9.jar
 
 4. Copy the file to the Corda/cordapps directory, and rename it corda.jar.
@@ -216,15 +216,15 @@ at boot, and means the Corda service stays running with no users connected to th
 7. Make the following changes to `C:\Corda\node.conf`:
 
    a. Change the `p2pAddress`, `rpcSettings.address` and `rpcSettings.adminAddress` values to match your server’s hostname or external IP address. These are the addresses other nodes or RPC interfaces will use to communicate with your node.
-   
+
    b. Change the ports if necessary; for example, if you are running multiple nodes on one server (see below).
-   
+
    c. Enter an email address which will be used as an administrative contact during the registration process. This is only visible to the permissioning service.
-   
+
    d. Enter your node’s desired legal name; see [Node identity]({{< relref "node-naming.md#node-identity" >}}) for more details.
-   
+
    e. If required, add RPC users.
-  
+
 8. Copy the required Java keystores to the node; see [Network certificates](permissioning.md).
 9. Download the [NSSM service manager](https://nssm.cc/).
 10. Unzip `nssm-2.24\win64\nssm.exe` to `C:\Corda`.
@@ -245,7 +245,7 @@ at boot, and means the Corda service stays running with no users connected to th
 12. Modify the batch file:
 
     a. If you are installing multiple nodes, use a different service name (`cordanode1`), and modify *AppDirectory*, *AppStdout* and *AppStderr* for each node accordingly.
-    
+
     b. Set an informative description.
 
 13. Provision the required certificates to your node. Contact the network permissioning service or see [Network certificates](permissioning.md).

@@ -123,7 +123,7 @@ a new proxy for every call you make - reuse an existing one.
 {{< /warning >}}
 
 For further information on using the RPC API, see [Working with the CordaRPCClient API]({{< relref "../../get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}).
- 
+
 ### Defining RPC users and permissions
 
 To interact with the Corda node via the RPC interface, a node operator must define one or more RPC users. Each user is authenticated with a username and password, and is assigned a set of permissions that control which RPC operations they can perform. To interact with the node via the local shell, permissions are not required. Permissions do, however, have effect if the shell is started via SSH.
@@ -508,7 +508,7 @@ The connection is not created instantly. For this reason, the `start()` method r
 Once the connection has been created, it is possible to obtain a `proxy` and perform a remote call. In the example above, this is demonstrated by a
  call to the `runtimeInfo()` method of `NodeHealthCheckRpcOps` interface.
 
-As some internal resources are allocated to `MultiRPCClient`, it is recommended that you call the `close()` method when the `MultiRPCClient` is no longer needed. In Kotlin, you would typically employ the `use` construct for this purpose. In Java, you can use `try-with-resource`.
+As some internal resources are allocated to `MultiRPCClient`, R3 recommends that you call the `close()` method when the `MultiRPCClient` is no longer needed. In Kotlin, you would typically employ the `use` construct for this purpose. In Java, you can use `try-with-resource`.
 
 `RPCConnection` is also a `Closeable` construct, so it is a good idea to call `close()` on it after use.
 
