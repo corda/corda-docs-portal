@@ -23,7 +23,7 @@ table th:nth-of-type(2) {
 
 | Argument           | Description                                                                                                                                                                        |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| reset              | Uploads and overwrites a previous CPI; see [reset](#reset).                                                                                                                        |
+| reset              | Uploads and overwrites a previous CPI in a development environment; see [reset](#reset).                                                                                                                        |
 | platform-migration | Generates the required SQL commands to migrate the database schema of virtual nodes from one version of Corda Platform to the next; see [platform-migration](#platform-migration). |
 
 ## reset
