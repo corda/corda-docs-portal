@@ -31,7 +31,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
-* When executing the database migration, it was possible for the upgrade to fail when upgrading from a pre-4.11 node. This occurred when the database contained new-style confidential identities, that is, those without a certificate. This issue has been now resolved.
+* When executing the database migration, it was possible for the upgrade to fail when upgrading from a pre-4.11 node. This occurred when the database contained new-style confidential identities, that is, those without a certificate. This issue has now been resolved.
 
 ## Corda Enterprise Edition 4.11.2 release notes
 
