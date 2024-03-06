@@ -158,7 +158,7 @@ pluginJar
 CENM 1.3 introduces a significant number of services. You should upgrade to CENM 1.2.2 before upgrading to 1.3.
 The key steps for the upgrade are:
 
-1. Generate new certificates for [the Gateway Service]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/gateway-service.md" >}}), [the Auth Service]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/auth-service.md" >}}), and [the Zone Service]({{< relref "../../../../../en/platform/corda/1.3/cenm/zone-service.md" >}}).
+1. Generate new certificates for [the Gateway Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md" >}}), [the Auth Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md" >}}), and [the Zone Service]({{< relref "../../../../../en/platform/corda/1.3/cenm/zone-service.md" >}}).
 2. Generate a JWT token key pair for Auth Service.
 3. Deploy Gateway Service to provide a gateway between the CLI tool and the back-end services.
 4. Deploy Auth Service to provide user authentication and authorisation to other services.
@@ -185,7 +185,7 @@ You must replace the `subject` and `crlDistributionUrl` entries in this configur
 appropriate to your deployment.
 {{% /important %}}
 
-To generate the JWT, refer to the [Auth Service]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/auth-service.md" >}}) documentation.
+To generate the JWT, refer to the [Auth Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md" >}}) documentation.
 
 The generated keys and certificates will then need to be distributed to the service hosts,
 replacing the existing SSL (but not network trust root or other signing key/certificates).
@@ -194,8 +194,8 @@ replacing the existing SSL (but not network trust root or other signing key/cert
 
 To deploy the new services, follow the guides in the service documentation:
 
-* [Gateway Service]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/gateway-service.md" >}})
-* [Auth Service]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/auth-service.md" >}})
+* [Gateway Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md" >}})
+* [Auth Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md" >}})
 * [Zone Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/zone-service.md" >}})
 
 {{< note >}}
@@ -205,7 +205,7 @@ systems, and a second one in the secure network alongside the Signing Service.
 
 ### Create user(s)
 
-The [Auth Service]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/auth-service.md" >}}) has an initial user who can manage users, however
+The [Auth Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md" >}}) has an initial user who can manage users, however
 for separation of responsibility this user cannot manage services. Therefore you
 need to create user(s) for configuring the services, as well as potentially users
 to operate the services once they are configured, such as signing certificates.

@@ -190,7 +190,7 @@ The [CENM management console](cenm-console.md) is a new CENM web UI that enables
 
 #### Single sign-on for Azure AD
 
-CENM 1.5 introduces support for Azure Active Directory (AAD) as a single sign-on (SSO) for the CENM [Auth Service]({{< relref "../../4.7/enterprise/node/auth-service.md" >}}), which supports full Role-Based Access Control (RBAC) and provides a web-based management interface for system administrators to create and manage user groups and entitlements. As a result, you can now operate an SSO set-up between Corda services and Azure AD, with a [simple configuration]({{< relref "../../4.7/enterprise/node/azure-ad-sso/_index.md" >}}) to both your Azure AD and Corda Auth services.
+CENM 1.5 introduces support for Azure Active Directory (AAD) as a single sign-on (SSO) for the CENM [Auth Service]({{< relref "../../4.8/enterprise/node/auth-service.md" >}}), which supports full Role-Based Access Control (RBAC) and provides a web-based management interface for system administrators to create and manage user groups and entitlements. As a result, you can now operate an SSO set-up between Corda services and Azure AD, with a [simple configuration]({{< relref "../../4.8/enterprise/node/azure-ad-sso/_index.md" >}}) to both your Azure AD and Corda Auth services.
 
 #### Certificate rotation: ability to reissue node legal identity keys and certificates
 
@@ -352,18 +352,18 @@ See the [CENM deployment]({{< relref "../../../../../en/platform/corda/1.4/cenm/
 #### Other changes
 * We have added support for PostgreSQL 10.10 and 11.5 (JDBC 42.2.8), as noted in [CENM Databases](../../../../../en/platform/corda/1.4/cenm/database-set-up.html#supported-databases) and [CENM support matrix](../../../../../en/platform/corda/1.4/cenm/cenm-support-matrix.html#cenm-databases).
 * A `non-ca-plugin.jar` has been added to `signing-service-plugins` in Artifactory.
-* We have renamed the FARM Service, introduced in CENM 1.3, to [Gateway Service]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/gateway-service.md" >}}). As a result, if you are [upgrading]({{< relref "../../../../../en/platform/corda/1.4/cenm/upgrade-notes.md" >}}) from CENM 1.3 to CENM 1.4, the FARM Service JAR file used in CENM 1.3 should be replaced with the Gateway Service JAR file used in CENM 1.4.
+* We have renamed the FARM Service, introduced in CENM 1.3, to [Gateway Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md" >}}). As a result, if you are [upgrading]({{< relref "../../../../../en/platform/corda/1.4/cenm/upgrade-notes.md" >}}) from CENM 1.3 to CENM 1.4, the FARM Service JAR file used in CENM 1.3 should be replaced with the Gateway Service JAR file used in CENM 1.4.
 * In CENM 1.4 we have changed the way `subZoneID` is set in Signing Service configurations - see the [CENM upgrade guide](../../../../../en/platform/corda/1.4/cenm/upgrade-notes.html#change-in-setting-subzoneid-in-signing-service-configurations) for more details.
 
 ### Fixed issues
 
-* We have fixed an issue where the [Auth service]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/auth-service.md" >}}) could not start during database schema initialisation for PostgreSQL.
+* We have fixed an issue where the [Auth service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md" >}}) could not start during database schema initialisation for PostgreSQL.
 * We have fixed an issue where the Signing Service failed to start, following setup without the SMR (Signable Material Retriever) Service, producing a `serviceLocations` configuration error. Note that the SMR Service has been removed in CENM 1.4 and its functionality has been merged with the Signing Service - see the [New features and enhancements](#new-features-and-enhancements) section above for more details.
 * We have fixed an issue where the `azure-keyvault-with-deps.jar` and `out.pkcs12` files were not copied to the `pki-pod` and PKI generation failed as a result.
 * We have fixed an issue where HSM passwords were not hidden in service logs.
 * We have fixed an issue where the Zone Service removed the `mode` field from the Signing Service's configuration with Utimaco and then failed to return this field to the Angel Service.
 * Commands for the Identity Manager Service and the Network Map Service, which previously returned no information, now indicate when no data is available.
-* We have fixed an issue where [Gateway Service]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/gateway-service.md" >}}) (previously called FARM Service in CENM 1.3) logs were not available in the `logs-farm` container.
+* We have fixed an issue where [Gateway Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md" >}}) (previously called FARM Service in CENM 1.3) logs were not available in the `logs-farm` container.
 * We have fixed an issue where submitting a CRR request with CENM Command-line Interface Tool failed with the unexpected error `method parameters invalid`.
 * When using the Signing Service to manually perform signing tasks with multiple accounts for each task and the option to authenticate `ALL` users is selected, the Signing Service now indicates which user should enter their password.
 with multiple accounts for each task The Signing Service now prompts a specific user to login in while all are being authenticated.

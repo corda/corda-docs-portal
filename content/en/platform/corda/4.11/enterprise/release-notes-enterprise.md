@@ -21,6 +21,18 @@ weight: 10
 If you are using the Archive Service with Corda Enterprise Edition 4.11, you must use the 1.1.x stream of the Archive Service release. For more details, see [Archive Service]({{< relref "../../../../tools/archiving-service/archiving-release-notes.md" >}}).
 {{< /note >}}
 
+## Corda Enterprise Edition 4.11.3 release notes
+
+Corda Enterprise Edition 4.11.3 is a patch release of Corda Enterprise Edition focused on resolving issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node](upgrading-index.md).
+
+### Fixed issues
+
+* Database upgrades failed when upgrading from a pre-4.11 node, if the database contained new-style confidential identities, that is, those without a certificate. 
+
 ## Corda Enterprise Edition 4.11.2 release notes
 
 Corda Enterprise Edition 4.11.2 is a patch release of Corda Enterprise Edition focused on resolving issues.
