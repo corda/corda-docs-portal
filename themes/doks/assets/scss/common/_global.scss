@@ -350,7 +350,8 @@ body {
 }
 
 #TableOfContents ul {
-  padding-left: 2rem;
+  padding-left: 0;
+  list-style: none;
 
   li {
     margin-bottom: 0.25rem;

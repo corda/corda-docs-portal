@@ -108,7 +108,7 @@ For a quick start guide on deploying Corda Enterprise Network Manager services a
 * [CENM Command-line Interface Tool]({{< relref "../../1.6/cenm/cenm-cli-tool.md" >}})
 * [CENM User Admin tool]({{< relref "../../1.6/cenm/user-admin.md" >}})
 * [CENM Management Console]({{< relref "../../1.6/cenm/cenm-console.md" >}})
-* [Config Obfuscation Tool]({{< relref "../../4.7/enterprise/tools-config-obfuscator.md" >}})
+* [Config Obfuscation Tool]({{< relref "../../4.8/enterprise/tools-config-obfuscator.md" >}})
 * [CRL Endpoint Check Tool]({{< relref "../../1.6/cenm/crl-endpoint-check-tool.md" >}})
 * [Embedded shell]({{< relref "../../1.6/cenm/shell.md" >}})
 

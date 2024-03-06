@@ -8,7 +8,7 @@ tags:
 - platform
 - support
 - matrix
-title: Corda Enterprise 4.10 platform support 
+title: Corda Enterprise 4.10 platform support
 weight: 250
 ---
 
@@ -60,7 +60,7 @@ Production use of Corda Enterprise Edition 4.10 is only supported on Linux OS; s
 |-------------------------------|------------------|-----------|
 |Red Hat Enterprise Linux|x86-64|8.x, 7.x, 6.x|
 |Suse Linux Enterprise Server|x86-64|12.x, 11.x|
-|Ubuntu Linux|x86-64|16.04, 16.10, 18.04, 20.04| 
+|Ubuntu Linux|x86-64|16.04, 16.10, 18.04, 20.04|
 |Oracle Linux|x86-64|7.x, 6.x|
 
 {{< /table >}}
@@ -114,7 +114,7 @@ The following database types are supported both in production and for developmen
 
 |Vendor|CPU architecture|Versions|JDBC driver|
 |-------------------------------|------------------|------------------|--------------------|
-|CockroachDB|x86-64|22.1.x|PostgreSQL JDBCDriver 42.5.0|
+|CockroachDB|x86-64|23.1.x|PostgreSQL JDBCDriver 42.5.0|
 |Oracle RAC|x86-64|19c|Oracle JDBC 8|
 
 {{< /table >}}
