@@ -3,6 +3,11 @@ aliases:
 - /head/error-codes.html
 - /HEAD/error-codes.html
 - /error-codes.html
+- /corda-os/4.5/error-codes.html
+- /corda-os/4.6/error-codes.html
+- /corda-os/4.7/error-codes.html
+- /corda-os/4.8/error-codes.html
+
 date: '2020-05-05T12:00:00Z'
 menu:
   corda-community-4-11:
