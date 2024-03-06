@@ -1,7 +1,6 @@
 ---
 description: "Learn how to deploy Corda 5."
 date: '2023-05-11'
-version: 'Corda 5.1'
 title: "Deploying"
 menu:
   corda51:

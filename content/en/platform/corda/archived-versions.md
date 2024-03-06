@@ -27,6 +27,7 @@ Documentation for non-supported releases of Corda Open Source, Corda Enterprise,
 |    | [Corda Enterprise 4.4](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.4) |
 |    | [Corda Enterprise 4.5](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.5) |
 |    | [Corda Enterprise 4.6](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.6) | 
+|    | [Corda Enterprise 4.7](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.7) | 
 | **CENM**  | [CENM 1.0](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/CENM/1.0) | 
 |   | [CENM 1.1](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/CENM/1.1) | 
 | **Corda Open Source**  | [Corda Open Source 1.0](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/1.0) | 
