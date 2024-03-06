@@ -39,20 +39,20 @@ The images in this section show the `cordapp-template-kotlin` repository in Inte
    {{% /tab %}}
    {{< /tabs >}}
 
-2. Checkout the {{< version-num >}} branch:
+2. Browse to the new folder and checkout the {{< version-num >}} branch:
 
    ```sh
    git checkout release-V5.2
    ```
 
-3. Initialize the Git repository and change the remote so you do not inadvertently push your work back to the R3 repository:
+3. Change the remote repository so that you do not inadvertently push your work back to the R3 repository:
 
    ```sh
-   git init
+   git remote remove origin
    git remote add origin <remote-url>
    ```
 
-   where `<remote-url>` is the URL of the remote repository that you have created.
+   where `<remote-url>` is the URL of your remote repository that you have created.
 
 4. Open the project in IntelliJ and let the import process complete.
    When complete, the project structure looks as follows:
