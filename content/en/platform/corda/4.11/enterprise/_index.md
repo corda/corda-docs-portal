@@ -12,6 +12,8 @@ project: corda
 section_menu: corda-enterprise-4-11
 title: Corda Enterprise 4.11
 version: 'Enterprise 4.11'
+aliases:
+- /docs/corda-enterprise/index.html
 ---
 
 # Corda Enterprise 4.11

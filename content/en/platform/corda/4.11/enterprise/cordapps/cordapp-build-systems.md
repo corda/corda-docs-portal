@@ -9,6 +9,8 @@ tags:
 - systems
 title: Build a CorDapp
 weight: 100
+aliases:
+- /docs/corda-enterprise/cordapps/cordapp-build-systems.html
 ---
 
 # Build a CorDapp
