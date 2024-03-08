@@ -1,3 +1,3 @@
 | Software        | Version |
 | --------------- | ------- |
-| HashiCorp Vault | 1.13.1  |
+| HashiCorp Vault | 1.14  |
