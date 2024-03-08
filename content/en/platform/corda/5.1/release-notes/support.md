@@ -26,6 +26,7 @@ This page lists the versions of [third-party software](#third-party-support) tha
 ## Third-Party Support
 
 This section lists the supported versions of the following:
+
 * [Databases]({{< relref "#databases">}})
 * [Container Orchestration]({{< relref "#container-orchestration">}})
 * [Messaging]({{< relref "#messaging">}})
@@ -48,6 +49,7 @@ This section lists the supported versions of the following:
 {{< snippet "prereqs-vault.md" >}}
 
 ## End of Life Strategy
+
 Use the following table to track the end of life schedule for each version of Corda. Each version of Corda has R3 support available for a fixed period. 
 After this period has ended, these versions are no longer supported by R3, and any associated documentation is archived. You should always aim to upgrade to the latest version of Corda whenever possible.
 
