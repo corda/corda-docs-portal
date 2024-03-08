@@ -33,7 +33,7 @@ This section outlines the [advantages](#backchain-skipping-advantages) and [draw
 * **Enhanced privacy between participants**  - Participants only see the transactions that they are party to. While they need to see the inputs to a transaction to verify it before signing, they receive those as part of filtered transactions, so they only see exactly the required inputs.
 * **Enhanced performance** - Instead of an ever growing backchain, Corda only requires a bundle with the direct inputs for each new transaction, so the throughput of the system will not start to degrade with long time use of tokens.
 * **Reduced storage footprint** - Each member node only needs to store transactions it is involved in, and the direct inputs. Depending on the nature of the network application, this can lead to a drastic reduction in required database space.
-* **Easier archiving** - Once all outputs from a transaction are spent, the transaction it will no longer be required, making it easier to deduce which parts of the ledger can be archived.
+* **Easier archiving** - Once all outputs from a transaction are spent, the transaction is no longer required, making it easier to deduce which parts of the ledger can be archived.
 * **Eliminates denial of state attacks** - Running verification on the notary eliminates any risk of denial of state attacks by requesting notarizations of bogus transactions with known inputs. Every transaction has to conform to the contract rules of the network and is checked to carry the required signatures.
 
 ### Backchain Skipping Drawbacks

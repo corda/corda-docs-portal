@@ -22,17 +22,17 @@ Corda 5 introduces a distributed architecture for the Corda runtime that is base
 
 Currently, Corda uses the following types of workers:
 
-* {{< tooltip >}}Crypto workers{{< /tooltip >}} — the only worker type that can load sensitive cryptographic material such as private keys.
-* {{< tooltip >}}Database workers{{< /tooltip >}} — responsible for database configuration and management.
+* Crypto workers — the only worker type that can load sensitive cryptographic material such as private keys.
+* Database workers — responsible for database configuration and management.
 * Persistence workers — responsible for flow and ledger persistence operations within the database sandbox.
 * Uniqueness workers — provide fixed-function checking for spent input and reference states and time-window validation.
-* {{< tooltip >}}Flow workers{{< /tooltip >}} — execute the {{< tooltip >}}CorDapp{{< /tooltip >}} code represented by {{< tooltip >}}flows{{< /tooltip >}}.
-* {{< tooltip >}}Flow mapper workers{{< /tooltip >}} — maintain the mapping and context switching between flows and sessions.
-* {{< tooltip >}}Verification workers{{< /tooltip >}} — verify ledger transactions within the ledger sandbox.
-* {{< tooltip >}}Membership workers{{< /tooltip >}} — provide all membership capabilities, such as joining an application network and discovering other {{< tooltip >}}members{{< /tooltip >}} in the network.
-* {{< tooltip >}}Gateway workers{{< /tooltip >}} — responsible for establishing {{< tooltip >}}TLS{{< /tooltip >}} connections with the gateways from other clusters and sending or receiving messages via HTTPS; this is typically internet facing.
-* {{< tooltip >}}P2P Link Manager workers{{< /tooltip >}} — responsible for delivering messages between two virtual nodes in a secure and reliable way.
-* {{< tooltip >}}REST workers{{< /tooltip >}} — expose the Corda REST API used for administration and flow execution.
+* Flow workers — execute the {{< tooltip >}}CorDapp{{< /tooltip >}} code represented by {{< tooltip >}}flows{{< /tooltip >}}.
+* Flow mapper workers — maintain the mapping and context switching between flows and sessions.
+* Verification workers — verify ledger transactions within the ledger sandbox.
+* Membership workers — provide all membership capabilities, such as joining an application network and discovering other {{< tooltip >}}members{{< /tooltip >}} in the network.
+* Gateway workers — responsible for establishing {{< tooltip >}}TLS{{< /tooltip >}} connections with the gateways from other clusters and sending or receiving messages via HTTPS; this is typically internet facing.
+* P2P Link Manager workers — responsible for delivering messages between two virtual nodes in a secure and reliable way.
+* REST workers — expose the Corda REST API used for administration and flow execution.
 * Token selection workers — selects the set of states to use as input states in a UTXO transaction.
 
 Workers are typically referred to in the plural form because they are designed to be deployed with multiple replicas (for example, [Kubernetes replica sets](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/)) to achieve high availability.
