@@ -3,6 +3,7 @@ aliases:
 - /head/api-states.html
 - /HEAD/api-states.html
 - /api-states.html
+- /docs/corda-os/api-states.html
 date: '2021-08-12'
 menu:
   corda-community-4-11:

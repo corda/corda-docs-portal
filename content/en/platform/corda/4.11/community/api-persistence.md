@@ -3,6 +3,7 @@ aliases:
 - /head/api-persistence.html
 - /HEAD/api-persistence.html
 - /api-persistence.html
+- /docs/corda-os/api-persistence.html
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-11:
