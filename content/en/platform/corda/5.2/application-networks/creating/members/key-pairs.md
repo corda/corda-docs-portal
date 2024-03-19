@@ -172,7 +172,8 @@ If using mutual {{< tooltip >}}TLS{{< /tooltip >}}, you must add the certificate
    {{% /tab %}}
    {{< /tabs >}}
 
-   You can optionally omit the root certificate.
+   You can optionally omit the root certificate. If revocation is enabled and the root certificate does not have a CRL or OSCP endpoint, you must omit the root certificate.
+   
    {{< note >}}
    If you upload a certificate chain consisting of more than one certificate, ensure that `-----END CERTIFICATE-----` and `-----BEGIN CERTIFICATE-----` from the next certificate are separated by a new line with no empty spaces in between.
    {{< /note >}}

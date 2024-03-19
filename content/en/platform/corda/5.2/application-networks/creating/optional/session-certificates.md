@@ -26,7 +26,7 @@ Once you have a certificate based on the CSR exported from Corda issued by the C
 ```shell
 curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT  -F certificate=@/tmp/ca/request/certificate.pem -F alias=session-certificate $REST_API_URL/certificates/vnode/$HOLDING_ID/p2p-session
 ```
-You can optionally omit the root certificate.
+You can optionally omit the root certificate. If revocation is enabled and the root certificate does not have a CRL or OSCP endpoint, you must omit the root certificate.
 
 {{< note >}}
 If you upload a certificate chain consisting of more than one certificates, ensure that `-----END CERTIFICATE-----` and `-----BEGIN CERTIFICATE-----` from the next certificate are separated by a new line with no empty spaces in between.
