@@ -49,7 +49,6 @@ The Corda deployment process requires the following:
 * **Automatic bootstrapping**: user name and password for a user that has permission to:
   * create topics with the given topic prefix.
   * define ACLs for each topic.
-  
   You should use a separate user for each type of Corda worker although, for development and test, a single user can be used.
 * If the Kafka brokers are using {{< tooltip >}}TLS{{< /tooltip >}} and the certificates used are not trusted by the default JVM {{< tooltip >}}trust store{{< /tooltip >}}, a trust store containing the root certificate is required.
 
