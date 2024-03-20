@@ -769,10 +769,12 @@ If the broker certificate is self-signed or cannot be trusted for some other rea
 ```yaml
 kafka:
   tls:
-    secretRef:
-      name: <TRUST-STORE-SECRET-NAME>
-      key: "ca.crt"
-    type: PEM
+    truststore:
+      valueFrom:
+        secretKeyRef:
+          name: <TRUST-STORE-SECRET-NAME>
+          key: "ca.crt"
+      type: "PEM"
 ```
 
 Corda supports SASL for Kafka authentication. If your Kafka instance requires SASL authentication, enable the option in the overrides along with the required mechanism:
