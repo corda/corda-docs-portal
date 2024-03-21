@@ -9,6 +9,8 @@ tags:
 - event
 - scheduling
 title: Scheduling time-based events
+aliases:
+- /docs/corda-os/event-scheduling.html
 ---
 
 

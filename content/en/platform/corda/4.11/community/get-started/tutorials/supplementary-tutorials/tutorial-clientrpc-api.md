@@ -10,6 +10,8 @@ tags:
 - clientrpc
 - api
 title: Working with the CordaRPCClient API
+aliases:
+- /docs/corda-os/tutorial-clientrpc-api.html
 ---
 
 # Working with the CordaRPCClient API
