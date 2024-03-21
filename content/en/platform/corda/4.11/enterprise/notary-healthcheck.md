@@ -8,6 +8,8 @@ tags:
 - healthcheck
 title: Notary health check
 weight: 100
+aliases:
+- /docs/corda-enterprise/notary-healthcheck.html
 ---
 
 

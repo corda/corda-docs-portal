@@ -3,6 +3,7 @@ aliases:
 - /head/network-bootstrapper.html
 - /HEAD/network-bootstrapper.html
 - /network-bootstrapper.html
+- /docs/corda-os/network-bootstrapper.html
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-11:
