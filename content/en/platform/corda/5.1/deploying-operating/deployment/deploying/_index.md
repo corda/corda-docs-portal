@@ -543,12 +543,14 @@ kafka:
 If the broker certificate is self-signed or cannot be trusted for some other reason, create a Kubernetes secret containing the client {{< tooltip >}}trust store{{< /tooltip >}}. The trust store can be in PEM or {{< tooltip >}}JKS{{< /tooltip >}} format. If JKS format is used, you can supply a password for the trust store. The following example is for a trust store in PEM format stored against the `ca.crt` key in the Kubernetes secret:
 
 ```yaml
-kafka
+kafka:
   tls:
-    secretRef:
-      name: <TRUST-STORE-SECRET-NAME>
-      key: "ca.crt"
-    type: PEM
+    truststore:
+      valueFrom:
+        secretKeyRef:
+          name: <TRUST-STORE-SECRET-NAME>
+          key: "ca.crt"
+      type: "PEM"
 ```
 
 Corda supports SASL for Kafka authentication. If your Kafka instance requires SASL authentication, enable the option in the overrides along with the required mechanism:
