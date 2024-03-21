@@ -125,6 +125,11 @@ Secondly, a long wait increases the probability of being interrupted.
 
 In order to avoid these long waits, and also to facilitate building fault tolerant workflows, Corda uses a suspend/resume model.
 In practice, every time one of these “out-of-process” operations happens, such as, signing, persisting, or peer-to-peer communications, the flow should suspend and a checkpoint created.
+
+{{< note >}}
+Corda does not create checkpoints for synchronous HTTP calls on the out-of-process state manager.
+{{< /note >}}
+
 When the out-of-process operation completes, the checkpoint can be restored and the flow resumes from this checkpoint.
 
 Returning to the IOU example, the following diagram shows suspension and resumption points in the flow:
