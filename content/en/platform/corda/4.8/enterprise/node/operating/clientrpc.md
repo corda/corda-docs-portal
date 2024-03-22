@@ -9,6 +9,8 @@ tags:
 - clientrpc
 title: Interacting with a node
 weight: 3
+aliases:
+- /docs/corda-os/4.8/clientrpc.html
 ---
 
 # Interacting with a node
