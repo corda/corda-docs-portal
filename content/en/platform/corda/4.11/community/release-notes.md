@@ -20,6 +20,10 @@ tags:
 
 # Corda Community Edition 4.11 release notes
 
+## Corda Community Edition 4.11.3 release notes
+
+Corda Community Edition 4.11.3 is a patch release of Corda Community Edition to keep it synchronised with the release of Corda Enterprise Edition 4.11.3.
+
 ## Corda Community Edition 4.11.2 release notes
 
 Corda Community Edition 4.11.2 is a patch release of Corda Community Edition focused on resolving issues.

@@ -12,6 +12,8 @@ project: corda
 section_menu: corda-community-4-11
 title: Corda Community 4.11
 version: 'Community & Open Source 4.11'
+aliases:
+- /docs/corda-os/index.html
 ---
 
 # Corda Community Edition 4.11

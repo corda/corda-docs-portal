@@ -10,6 +10,8 @@ tags:
 - observer
 - nodes
 title: Posting transactions to observer nodes
+aliases:
+- /tutorial-observer-nodes.html
 ---
 
 

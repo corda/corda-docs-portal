@@ -75,9 +75,9 @@ To push the Corda Enterprise images:
     docker push $target
    done
 
-   docker tag postgres:14.4 $target_registry/postgres:14.4
-   docker push $target_registry/postgres:14.4
-   docker tag sha256:9a53f78a8232118072a72bda97e56f2c3395d34a212fe7e575d1af61cda059c6 $target_registry/ingress-nginx-controller:v1.9.3
+   docker tag postgres:14.10 $target_registry/postgres:14.10
+   docker push $target_registry/postgres:14.10
+   docker tag 53c87e38a209 $target_registry/ingress-nginx-controller:v1.9.3
    docker push $target_registry/ingress-nginx-controller:v1.9.3
    ```
 
@@ -148,6 +148,7 @@ workers:
       image:
         registry: <REGISTRY-NAME>
         repository: "ingress-nginx-controller"
+        tag: "v1.9.3"
 ```
 
 If the registry requires authentication, create a [Kubernetes secret](https://kubernetes.io/docs/concepts/configuration/secret/#docker-config-secrets) containing the container registry credentials, in the Kubernetes namespace where Corda is to be deployed. Specify an override with the name of the Kubernetes secret:
@@ -507,7 +508,12 @@ If you do not configure isolated state manager databases, by default, Corda depl
 {{< /note >}}
 
 Similarly to the cluster database, the configuration for these state manager database instances is defined using a combination of the `database` and `stateManager` sections.
-The following is a full example of how to keep the cluster database and all of the state manager databases completely isolated from each other.
+
+{{< note >}}
+The state manager partition values can contain only letters, underscores, and digits and must begin with a letter.
+{{< /note >}}
+
+The following is a full example of how to keep the cluster database and all of the state manager databases completely isolated from each other:
 
 ```yaml
 databases:
@@ -609,8 +615,7 @@ stateManager:
     type: Database
     storageId: "state-manager"
 ```
-
-Credentials must be specified for each worker and each state type, as an example:
+Each state type must define its own user, even if state types share a database instance. For example:
 
 ```yaml
 workers:
@@ -716,7 +721,7 @@ password:
 
 {{< note >}}
 Although the password can be specified directly as a Helm override, R3 does not recommend this for security reasons.
-Similarly, although all Corda workers can share the same set of credentials, R3 recommends that you create a Kubernetes Secret per Corda worker containing the credentials.
+Similarly, R3 recommends that you create a Kubernetes Secret per Corda worker containing the credentials.
 {{< /note >}}
 
 If required, the connection pool used when interacting with the database can be independently configured for each state type within each worker. For example:
@@ -764,10 +769,12 @@ If the broker certificate is self-signed or cannot be trusted for some other rea
 ```yaml
 kafka:
   tls:
-    secretRef:
-      name: <TRUST-STORE-SECRET-NAME>
-      key: "ca.crt"
-    type: PEM
+    truststore:
+      valueFrom:
+        secretKeyRef:
+          name: <TRUST-STORE-SECRET-NAME>
+          key: "ca.crt"
+      type: "PEM"
 ```
 
 Corda supports SASL for Kafka authentication. If your Kafka instance requires SASL authentication, enable the option in the overrides along with the required mechanism:
@@ -926,7 +933,7 @@ bootstrap:
 If you are deploying Corda Enterprise with HashiCorp Vault, you must disable automatic bootstrapping and manually configure the database. For more information, see the [Database]({{< relref "./manual-bootstrapping.md#database" >}}) section in the *Manual Bootstrapping* section.
 {{< /note >}}
 
-By default, the database bootstrapping uses the psql CLI from the Docker image `postgres:14.4` on Docker Hub.
+By default, the database bootstrapping uses the psql CLI from the Docker image `postgres:14.10` on Docker Hub.
 If the Kubernetes cluster does not have access to Docker Hub, you must make this image available in an internal registry.
 You can then specify the location of the image via overrides, as follows:
 
@@ -935,7 +942,7 @@ db:
   clientImage:
     registry: <REGISTRY>
     repository: "postgres"
-    tag: "14.4"
+    tag: "14.10"
 ```
 
 Part of the database bootstrapping involves populating the initial credentials for the REST API admin. You can specify these in one of the following ways:
