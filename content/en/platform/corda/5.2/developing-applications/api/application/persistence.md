@@ -150,7 +150,7 @@ To use the Persistence API from a {{< tooltip >}}flow{{< /tooltip >}}:
      persistenceService.persist("persist-dog", dog)
     ```
 
-    `persist-dog` is a unique (within the context of the flow) deterministic deduplication ID to enable request idempotence in failure scenarios. The ID must be deterministic at the time of the function call and can not be more than 128 characters.
+    `persist-dog` is a unique (within the context of the flow) deterministic deduplication ID to enable request idempotence in failure scenarios. The ID must be deterministic at the time of the function call and so you can not use a a random UUID. The ID can not be more than 128 characters.
 
    {{< note >}}
    All persistence operations are processed over Kafka.
