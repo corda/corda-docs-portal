@@ -251,21 +251,20 @@ The cluster and virtual node wrapping keys are managed by Corda and can be rotat
 
 * The short hash holding ID of the virtual node to rotate a virtual node wrapping key.
 * One of the following for the corresponding cluster-level service:
-  * `p2p`
   * `rest`
   * `crypto`
 
-For example, to rotate the cluster P2P wrapping key:
+For example, to rotate the cluster REST wrapping key:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -k -u $REST_API_USER:$REST_API_PASSWORD -X POST "$REST_API_URL/wrappingkey/rotation/p2p"
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X POST "$REST_API_URL/wrappingkey/rotation/rest"
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method POST -Uri "$REST_API_URL/wrappingkey/rotation/p2p" 
+Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method POST -Uri "$REST_API_URL/wrappingkey/rotation/rest" 
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -274,12 +273,12 @@ You can use the the GET method of the [/api/v5_2/wrappingkey/rotation/{tenantid}
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET "$REST_API_URL/wrappingkey/rotation/p2p"
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET "$REST_API_URL/wrappingkey/rotation/rest"
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method GET -Uri "$REST_API_URL/wrappingkey/rotation/p2p" 
+Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method GET -Uri "$REST_API_URL/wrappingkey/rotation/rest" 
 ```
 {{% /tab %}}
 {{< /tabs >}}
