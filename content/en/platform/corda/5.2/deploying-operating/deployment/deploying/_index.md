@@ -1090,7 +1090,7 @@ commonPodLabels:
 
 ### Ledger Repair
 
-By default, the [Corda ledger repair functionality]({{< relref "../../../developing-applications/ledger/ledger-repair.md" >}}) runs every ten minutes. You can modify this schedule by setting the `net.corda.ledger.utxo.repair.schedulePeriod` system property for each database worker. This property is set in seconds. For example, to modify the schedule to every 15 minutes:
+By default, the [Corda ledger repair functionality]({{< relref "../../../developing-applications/ledger/ledger-repair.md" >}}) runs every ten minutes. You can modify this schedule by adding the `net.corda.ledger.utxo.repair.schedulePeriod` system property to the Java options for each database worker. This property is set in seconds. For example, to modify the schedule to every 15 minutes:
 
 ```yaml
 workers:
