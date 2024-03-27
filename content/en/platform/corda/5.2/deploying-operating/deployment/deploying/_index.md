@@ -115,6 +115,7 @@ The following sections describe the minimal set of configuration options require
 * [Bootstrapping]({{< relref "#bootstrapping" >}})
 * [Worker Pods]({{< relref "#worker-pods" >}})
 * [Node Affinities]({{< relref "#node-affinities" >}})
+* [Ledger Repair]({{< relref "#ledger-repair" >}})
 * [Pre-Install Checks]({{< relref "#pre-install-checks" >}})
 
 You can extract a README containing the full set of options from the Helm chart using the following command:
@@ -1086,6 +1087,18 @@ bootstrap:
 commonPodLabels:
   sidecar.istio.io/inject: !!str true # explicitly enable Istio integration for all Corda pods
 ```
+
+### Ledger Repair
+
+By default, the [Corda ledger repair functionality]({{< relref "../../../developing-applications/ledger/ledger-repair.md" >}}) runs every ten minutes. You can modify this schedule by setting the `net.corda.ledger.utxo.repair.schedulePeriod` system property for each database worker. This property is set in seconds. For example, to modify the schedule to every 15 minutes:
+
+```yaml
+workers:
+  db:
+    javaOptions: "-Dnet.corda.ledger.utxo.repair.schedulePeriod=900"
+```
+
+The window of transactions included in the repair process and the length of time the process can run for is defined by fields in the[corda.ledger.utxo configuration section]({{< relref "../../config/fields/ledger-utxo.md" >}}).
 
 ### Node Affinities
 
