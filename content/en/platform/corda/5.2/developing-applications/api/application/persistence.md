@@ -8,6 +8,7 @@ menu:
     weight: 6000
 ---
 # net.corda.v5.application.persistence
+
 The `persistence` package provides services for performing persistence operations; mainly reading and writing data to and from the database. The <a href="/en/api-ref/corda/{{<version-num>}}/net/corda/v5/application/persistence/PersistenceService.html" target=" blank">`PersistenceService`</a>. is the main service for providing this functionality. For more information, see the documentation for the package in the <a href="/en/api-ref/corda/{{<version-num>}}/net/corda/v5/application/persistence/package-summary.html" target=" blank">Java API documentation</a>.
 
 Corda supports CRUD (Create, Read, Update, Delete) operations for user-defined types. This is achieved using JPA-annotated entities and, to manage database migrations, Liquibase.
@@ -22,7 +23,7 @@ Liquibase manages database changes in a change log which references one or more 
 You must specify the top-level `databaseChangeLog` in a resource file in the CPK called `migration/db.changelog-master.xml`.
 This file can reference one or more files including `changeSet`.
 
-You should organise these change sets with future changes in mind.
+You should organize these change sets with future changes in mind.
 For example, R3 recommends a single `include` per version of the table.
 Once a `changeSet` is deployed, it cannot be changed and any change must be provided as a `changeSet` with a new `id`.
 We suggest adding a version in the `id`; for example, `<table-name>-v1`.
@@ -36,6 +37,7 @@ Example of `src/resources/migration/db.changelog-master.xml`:
     <include file="migration/dogs-migration-v1.0.xml"/>
 </databaseChangeLog>
 ```
+
 The referenced `include` file should also be a resource file in `src/resources/migration` and define the table itself. For example, `src/resources/migration/dogs-migration-v1.0.xml`:
 ```xml
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
@@ -56,6 +58,7 @@ The referenced `include` file should also be a resource file in `src/resources/m
     </changeSet>
 </databaseChangeLog>
 ```
+
 {{< note >}}
 The `include` file reference is resolved relative to the resources path in the CPK and not relative to the current directory.
 {{< /note >}}
@@ -124,7 +127,6 @@ This example specifies the table and column names.
 If they are not specified, JPA uses defaults.
 {{< /note >}}
 
-
 ## Using the Persistence API From a CorDapp Flow
 
 To use the Persistence API from a {{< tooltip >}}flow{{< /tooltip >}}:
@@ -145,11 +147,13 @@ To use the Persistence API from a {{< tooltip >}}flow{{< /tooltip >}}:
 2. To create a `Dog` entity that writes a row to the database, use the following code:
    ```kotlin
      val dog = Dog(dogId, "dog", Instant.now(), "none")
-     persistenceService.persist(dog)
+     persistenceService.persist("persist-dog", dog)
     ```
 
+    `persist-dog` is a unique (within the context of the flow) deterministic deduplication ID to enable request idempotence in failure scenarios. The ID must be deterministic at the time of the function call; therefore, you can not use a a random UUID. The ID can not be more than 128 characters.
+
    {{< note >}}
-  All persistence operations are processed over Kafka.
+   All persistence operations are processed over Kafka.
    {{< /note >}}
 
 3. To load a row from the database by ID, use the following code:
@@ -173,7 +177,6 @@ To use the Persistence API from a {{< tooltip >}}flow{{< /tooltip >}}:
    persistenceService.merge(Dog(dogId, newDogName, Instant.now(), "none"))
    ```
    All of the operations available are defined in the public interface: <a href="/en/api-ref/corda/{{<version-num>}}/net/corda/v5/application/persistence/PersistenceService.html" target="_blank">`PersistenceService`</a>.
-
 
 {{< note >}}
 Currently, inputs and outputs to `PersistenceService` must fit in a ~1MB (972,800 bytes) Kafka message. This size limit will be removed in future versions.
