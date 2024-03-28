@@ -15,9 +15,9 @@ The Corda ledger repair functionality resolves scenarios where, due to some unex
 
 The ledger repair functionality checks each member’s vault for transactions that might have been notarized, sends any such transactions to the notary to check whether they were previously seen, and updates the member’s vault if the transactions were notarized.
 
-By default, Corda runs the ledger repair process every ten minutes for transactions from five days in the past to ten minutes in the past, for no more than ten minutes. For more information about changing these default values, see the [deployment]({{< relref "../../deploying-operating/deployment/deploying/_index.md#ledger-repair" >}}) and [configuration fields]({{< relref "../../deploying-operating/config/fields/ledger-utxo.md" >}}) sections.
+By default, Corda runs the ledger repair process every ten minutes for all virtual node's transactions from five days in the past to ten minutes in the past, for no more than ten minutes. For more information about changing these default values, see the [deployment]({{< relref "../../deploying-operating/deployment/deploying/_index.md#ledger-repair" >}}) and [configuration fields]({{< relref "../../deploying-operating/config/fields/ledger-utxo.md" >}}) sections.
 
-To manually run the repair process, start the `com.r3.corda.notary.plugin.common.repair.NotarizedTransactionRepairFlow` flow, setting the following properties:
+To manually run the repair process for a particular node, start the `com.r3.corda.notary.plugin.common.repair.NotarizedTransactionRepairFlow` flow, setting the following properties:
 
 * `from` — the number of milliseconds in the past that the repair functionality processes transactions from. This value must be greater than `until`.
 * `until` — the number of milliseconds in the past that the repair functionality processes transactions until. This value must be less than `from`.
