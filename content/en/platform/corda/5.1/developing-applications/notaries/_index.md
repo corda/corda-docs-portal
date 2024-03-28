@@ -65,11 +65,17 @@ R3 produces a standard non-validating notary server CPB. This only contains CPKs
 
 ### Application CPB
 
-It is not possible to provide a standard application CPB, because the contents of this depend on the how you write a CorDapp. You must decide which CPKs you will bundle together to provide your application CPB. This is comprised of one or more CPKs which provide the application functionality. However, you must also bundle the appropriate CPKs for the notary protocols your CorDapp will support.
+It is not possible to provide a standard application CPB, because the contents of this depend on the how you write a CorDapp.
+You must decide which CPKs to bundle together to provide your application CPB.
+This is comprised of one or more CPKs which provide the application functionality.
+However, you must also bundle the appropriate CPKs for the notary protocols your CorDapp supports.
 
-The decision on which protocols to support is trivial at present, given there is only a single notary protocol to choose; the decision is purely based on whether the CorDapp is using the UTXO ledger model or not. If it is, then you must bundle the `notary-common`, `non-validating-notary-api` and `non-validating-notary-client` CPKs when creating your CPB. Otherwise, there is no requirement to bundle any additional CPKs (as the notary is not involved in flow only or consensual ledger based CorDapps).
+The decision on which protocols to support is trivial at present, given there is only a single notary protocol to choose; the decision is purely based on whether the CorDapp is using the UTXO ledger model or not.
+If it is, then you must bundle the `notary-common`, `non-validating-notary-api` and `non-validating-notary-client` CPKs when creating your CPB.
+Otherwise, there is no requirement to bundle any additional CPKs (as the notary is not involved in flow only or consensual ledger based CorDapps).
 
-The easiest way to ensure your CorDapp includes the necessary CPKs is to use the CorDapp dependency functionality of the CPK Gradle plugin. You need to add the following to your Gradle dependency configuration, where `cordaNotaryPluginsVersion` is an appropriate version of `corda-runtime-os`, as the notary plugin currently lives as part of this repository.
+The easiest way to ensure your CorDapp includes the necessary CPKs is to use the CorDapp dependency functionality of the CPK Gradle plugin.
+You must add the following to your Gradle dependency configuration, where `cordaNotaryPluginsVersion` is the version of Corda deployed on your cluster:
 
 ```kotlin
 cordapp "com.r3.corda.notary.plugin.nonvalidating:notary-plugin-non-validating-client:$cordaNotaryPluginsVersion"
@@ -79,7 +85,8 @@ cordapp "com.r3.corda.notary.plugin.nonvalidating:notary-plugin-non-validating-c
 It is only necessary to specify a dependency on the client CPK; this itself depends on the API and notary common CPKs, so these transitive dependencies will also be pulled in when constructing your application CPB.
 {{< /note >}}
 
-Alternatively, you can form your application CPB using the [Corda CLI]({{< relref "../../reference/corda-cli/package.md" >}}). However, if you choose to use this, you need to explicitly specify all three of the required CPKs (`notary-common`, `non-validating-notary-api` and `non-validating-notary-client`).
+Alternatively, you can form your application CPB using the [Corda CLI]({{< relref "../../reference/corda-cli/package.md" >}}).
+However, if you choose to use this, you need to explicitly specify all three of the required CPKs (`notary-common`, `non-validating-notary-api`, and `non-validating-notary-client`).
 
 ### CPI Creation
 
@@ -87,4 +94,3 @@ Having two CPBs for the application and notary virtual node roles on the network
 
 * the notary server CPB signing key is used to create the CPI and then imported to Corda
 * the same {{< tooltip >}}group policy{{< /tooltip >}} file is used when creating both the application and notary CPIs, for more information see the [Onboarding Notaries]({{< relref "../../application-networks/creating/notaries.md" >}}) section
-
