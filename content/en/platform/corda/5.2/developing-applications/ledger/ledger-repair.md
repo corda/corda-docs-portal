@@ -32,7 +32,7 @@ For example:
     "requestBody": {
         "from": <epoc milliseconds>,
         "until": <epoc milliseconds>,
-        "duration": <seconds>,
+        "duration": <seconds>
     }
 }
 ```
