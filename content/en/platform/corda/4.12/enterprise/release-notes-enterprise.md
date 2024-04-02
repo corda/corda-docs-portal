@@ -33,7 +33,11 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 ### Java upgrade
 
+Java version was upgraded to Java 17.
+
 ### Kotlin upgrade
+
+Kotlin version was upgraded to Kotlin 1.9.
 
 ### Transaction Validator Utility
 
