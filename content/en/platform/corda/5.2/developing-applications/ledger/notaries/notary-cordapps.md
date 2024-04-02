@@ -90,7 +90,7 @@ It is not possible to provide a standard application CPB, because the contents o
 If implementing the contract-verifying notary protocol, workflows and contracts must be packaged in separate CPKs. This ensures that the notary only has contracts and none of the workflows.
 {{< /note >}}
 
-The easiest way to ensure your CorDapp includes the necessary CPKs is to use the CorDapp dependency functionality of the CPK Gradle plugin. Add one of the following to your Gradle dependency configuration, where `cordaNotaryPluginsVersion` is an appropriate version of `corda-runtime-os`:
+The easiest way to ensure your CorDapp includes the necessary CPKs is to use the CorDapp dependency functionality of the CPK Gradle plugin. Add one of the following to your Gradle dependency configuration, where `cordaNotaryPluginsVersion` is the version of Corda deployed on your cluster:
 
 * Contract-verifying protocol:
 
