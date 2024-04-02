@@ -65,7 +65,7 @@ R3 produces a standard non-validating notary server CPB. This only contains CPKs
 
 ### Application CPB
 
-It is not possible to provide a standard application CPB, because the contents of this depend on the how you write a CorDapp.
+It is not possible to provide a standard application CPB, because the contents of this depend on how you write a CorDapp.
 You must decide which CPKs to bundle together to provide your application CPB.
 This is comprised of one or more CPKs which provide the application functionality.
 However, you must also bundle the appropriate CPKs for the notary protocols your CorDapp supports.
