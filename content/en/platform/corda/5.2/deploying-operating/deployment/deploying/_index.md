@@ -1098,7 +1098,7 @@ workers:
     javaOptions: "-XX:MaxRAMPercentage=75 -Dnet.corda.ledger.utxo.repair.schedulePeriod=900"
 ```
 
-The window of transactions included in the repair process and the length of time the process can run for is defined by fields in the[corda.ledger.utxo configuration section]({{< relref "../../config/fields/ledger-utxo.md" >}}).
+The window of transactions included in the repair process and the length of time the process can run for is defined by fields in the [corda.ledger.utxo configuration section]({{< relref "../../config/fields/ledger-utxo.md" >}}).
 
 ### Node Affinities
 
