@@ -19,8 +19,8 @@ By default, Corda runs the ledger repair process every ten minutes for all virtu
 
 To manually run the repair process for a particular node, start the `com.r3.corda.notary.plugin.common.repair.NotarizedTransactionRepairFlow` flow, setting the following properties:
 
-* `from` — the time in epoc milliseconds from which the repair functionality processes transactions. This value must be less than `until`.
-* `until` — the time in epoc milliseconds until which the repair functionality processes transactions. This value must be greater than `from`.
+* `from` — the time in epoch milliseconds from which the repair functionality processes transactions. This value must be less than `until`.
+* `until` — the time in epoch milliseconds until which the repair functionality processes transactions. This value must be greater than `from`.
 * `duration` — the maximum time in seconds that the repair process runs for.
 
 For example:
