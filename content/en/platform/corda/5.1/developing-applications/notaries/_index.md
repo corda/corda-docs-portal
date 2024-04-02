@@ -72,7 +72,7 @@ However, you must also bundle the appropriate CPKs for the notary protocols your
 
 The decision on which protocols to support is trivial at present, given there is only a single notary protocol to choose; the decision is purely based on whether the CorDapp is using the UTXO ledger model or not.
 If it is, then you must bundle the `notary-common`, `non-validating-notary-api` and `non-validating-notary-client` CPKs when creating your CPB.
-Otherwise, there is no requirement to bundle any additional CPKs (as the notary is not involved in flow only or consensual ledger based CorDapps).
+Otherwise, there is no requirement to bundle any additional CPKs (as the notary is not involved in flow only or consensual ledger-based CorDapps).
 
 The easiest way to ensure your CorDapp includes the necessary CPKs is to use the CorDapp dependency functionality of the CPK Gradle plugin.
 You must add the following to your Gradle dependency configuration, where `cordaNotaryPluginsVersion` is the version of Corda deployed on your cluster:
