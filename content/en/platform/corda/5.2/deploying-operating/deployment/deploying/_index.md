@@ -21,7 +21,7 @@ This section contains the following:
 * [Download and Push Container Images to a Registry]({{< relref "#download-and-push-container-images-to-a-registry">}})
 * [Download the Corda Helm Chart]({{< relref "#download-the-corda-helm-chart">}})
 * [Configure the Deployment]({{< relref "#configure-the-deployment">}})
-* [Deploy]({{< relref "#deploy">}})
+* [Install the Corda Helm Chart]({{< relref "#install-the-corda-helm-chart">}})
 
 ## Download and Push Container Images to a Registry
 
@@ -1396,7 +1396,7 @@ workers:
               key: "verification"
 ```
 
-## Deploy
+## Install the Corda Helm Chart
 
 Once the configuration for the environment has been defined in a YAML file, you can install the Helm chart:
 
