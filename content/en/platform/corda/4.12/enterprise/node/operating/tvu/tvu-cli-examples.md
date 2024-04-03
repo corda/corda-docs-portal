@@ -19,7 +19,7 @@ weight: 300
 The following section provides examples of how to use the Transaction Validator Utility (TVU) CLI commands. You can modify and use the provided TVU CLI command examples to work in your project.
 
 {{< note >}}
-In the following examples the TVU's JAR was copied to the node's directory.
+Unless explicitly stated, all examples assume the TVU JAR is present in the node's root directory, and that is also the current working directory.
 {{< /note >}}
 
 ## Transaction validation
@@ -41,7 +41,7 @@ cd /cordallp/corda/nodeA; java -jar transaction-validator.jar
 You can register progress in a `.txt` file and reload it from this file using the `-l` option. If the file doesn’t exist, specifying a file path as this option’s value creates the file at this path and writes the progress into it. If the file is present, the utility loads the most recent progress from it and updates the file with the new progress.
 
 ```
-java -jar transaction-validator.jar -l register.txt -b /cordallp/corda/nodeA
+java -jar transaction-validator.jar -l register.txt
 ```
 
 ## Progress reloading
@@ -49,7 +49,7 @@ java -jar transaction-validator.jar -l register.txt -b /cordallp/corda/nodeA
 You can register progress in a `.txt` file and reload it from this file using the `-l` option. Specifying a file path as this option’s value directs the utility to load the most recent progress from it and update the file with the new progress.
 
 ```
-java -jar transaction-validator.jar -l register.txt -b /cordallp/corda/nodeA
+java -jar transaction-validator.jar -l register.txt
 ```
 
 ## Transaction time loading
@@ -57,7 +57,7 @@ java -jar transaction-validator.jar -l register.txt -b /cordallp/corda/nodeA
 You can load transactions from or after a certain transaction time.
 
 ```
-java -jar transaction-validator.jar --load-tx-time 2007-12-03T10:15:30.00Z
+java -jar transaction-validator.jar -l 2007-12-03T10:15:30.00Z
 ```
 
 ## Reverification using transaction ID
@@ -65,21 +65,15 @@ java -jar transaction-validator.jar --load-tx-time 2007-12-03T10:15:30.00Z
 Reverify transactions by specifying path to a newline-separated `Ids.txt` file containing transaction IDs.
 
 ```
-java -jar transaction-validator.jar -i Ids.txt -b /cordallp/corda/nodeA
+java -jar transaction-validator.jar -i Ids.txt
 ```
 
 ## Error registration
 
-If you do not specify the `-e` option, the errors are registered in a `.zip` file generated in the current working directory.
-
-```
-java -jar transaction-validator.jar -b /cordallp/corda/nodeA
-```
-
 If you specify `/cordallp/corda/nodeA/errors` using the `-e` option, the errors are registered in a `.zip` file generated in this directory.
 
 ```
-java -jar transaction-validator.jar -b /cordallp/corda/nodeA -e /cordallp/corda/nodeA/errors
+java -jar transaction-validator.jar -e /cordallp/corda/nodeA/errors
 ```
 
 ## Erroneous transaction reverification
@@ -87,7 +81,7 @@ java -jar transaction-validator.jar -b /cordallp/corda/nodeA -e /cordallp/corda/
 Reverify erroneous transactions specified in the `.zip` file created using the `-e` option. Use the `-i` option with a file path to the error `.zip` file to invoke this functionality.
 
 ```
-java -jar transaction-validator.jar -b /cordallp/corda/nodeA -i /cordallp/corda/nodeA/errors/2024-01-25-18-24-25.zip
+java -jar transaction-validator.jar -i /cordallp/corda/nodeA/errors/2024-01-25-18-24-25.zip
 ```
 
 ## Transaction processor
@@ -95,5 +89,5 @@ java -jar transaction-validator.jar -b /cordallp/corda/nodeA -i /cordallp/corda/
 Process transactions as specified in the `net.corda.tvu.LogTransaction` class. Put the JAR file containing the `net.corda.tvu.LogTransaction` class in the `/cordallp/corda/nodeA/drivers` directory.
 
 ```
-java -jar transaction-validator.jar -b /cordallp/corda/nodeA -c net.corda.tvu.LogTransaction
+java -jar transaction-validator.jar -c net.corda.tvu.LogTransaction
 ```

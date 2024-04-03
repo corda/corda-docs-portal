@@ -47,11 +47,7 @@ java -jar transaction-validator.jar -c net.corda.tvu.SampleApp
 
 ### `-e`, `--error-dir-path`
 
-A directory path where the utility registers errors. The utility can register errors in a provided file path as well as create separate error-registration files for all verification and deserialization errors for every `signedTransactionId` in a `<signedTransactionId>.dat` file. These files are then zipped as an `ErrorDirPath/<currentTimestamp>.zip`. If this parameter is missing, then the current directory is taken as the `ErrorDirPath` value.
-
-{{< note >}}
-`-e` or `--error-dir-path` must be a directory or an exception is thrown.
-{{< /note >}}
+A directory where the utility stores information about transactions it failed to process. The data files describing all failed transactions are captured in a `.zip` file whose name is the timestamp of when the file was generated. If not specified, the current working directory is assumed.
 
 ### `-f`, `--config-file`
 
@@ -73,8 +69,7 @@ File path to the location containing the IDs of the transactions to be reprocess
 * A `.zip` file that is created automatically when the TVU encounters errors. This error `.zip` file stores erroneous transactions’ raw data.
 
 {{< note >}}
-* `--id-load-file` must not be a directory or an exception is thrown.
-* Since the utility does not support transaction ID reverification with progress loading and registration, the `-i` or `--id-load-file` parameter cannot be specified with `-l` or `--load-tx-time`.
+Since the utility does not support transaction ID reverification with progress loading and registration, the `-i` or `--id-load-file` parameter cannot be specified with `-l` or `--load-tx-time`.
 {{< /note >}}
 
 ### `-l`, `--load-file-path`
@@ -83,7 +78,7 @@ A file path where the current progress will be stored and the last progress can 
 
 If this parameter is not provided, then progress is logged on-screen and the utility starts processing transactions starting with the earliest transaction in the database as per transaction time.
 
-### `--load-tx-time`
+### `-l`, `--load-tx-time`
 
 The transaction time from which the utility resumes transaction verification. The provided transaction time is compared against transaction recorded time. The utility loads transactions which have a transaction timestamp greater than or equal to the provided time.
 
@@ -94,14 +89,4 @@ If this parameter is not provided, then the utility starts processing transactio
 * `--load-tx-time` takes preference over the `-l` option in terms of progress reloading. If both are provided, then the utility starts processing transactions from the provided transaction time and any progress is recorded in the file specified with the `-l` option. In this way, when the utility is restarted later without providing the `–load-tx-time` option but still specifying the `-l` option, it can resume processing transactions from the last stop point.
 {{< /note >}}
 
-You can create a new time instant using any of the following:
-
-1. Provide seconds and nanos without spaces. For example:
-    * seconds=10
-    * seconds10
-    * seconds=10,nanos10
-    * seconds10,nanos=10
-    * seconds=10,nanos=10
-    * seconds10,nanos10
-    * seconds10nanos10
-2. Provide UTC timestamp in format: `2007-12-03T10:15:30.00Z`. The string must represent a valid instant in UTC and is parsed using `DateTimeFormatter.ISO_INSTANT`.
+You can create a new time instant by providing a UTC timestamp in format: `2007-12-03T10:15:30.00Z`. The string must represent a valid instant in UTC and is parsed using `DateTimeFormatter.ISO_INSTANT`.

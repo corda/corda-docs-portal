@@ -1,5 +1,5 @@
 ---
-description: "Learn how to stop Transaction Validator Utility in a correct way."
+description: "Learn how to stop the Transaction Validator Utility in a correct way."
 date: '2023-12-15'
 section_menu: corda-enterprise-4-12
 menu:
@@ -10,14 +10,18 @@ tags:
 - stopping tvu
 - tvu
 - transaction validator utility
-title: Stopping Transaction Validator Utility
+title: Stopping the Transaction Validator Utility
 weight: 400
 ---
 
-# Stopping Transaction Validator Utility
+# Stopping the Transaction Validator Utility
 
-The Transaction Validator Utility (TVU) writes its runtime progress and registers transaction processing errors to the underlying resources. Once TVU processed all the transactions, it terminates automatically. However, if needed, you can terminate it mid-flow in one of the following ways so the progress and errors are reliably registered:
-* Press `Ctrl+C`
-* Send `SIGTERM`
+The Transaction Validator Utility (TVU) writes its runtime progress and registers transaction processing errors to the underlying resources. Once the TVU has processed all the transactions, it terminates automatically. However, if needed, you can terminate it mid-flow by sending either `SIGINT` or `SIGTERM` to the TVU's Java process. `SIGINT` can be sent using Ctrl+C in the shell that is running the process.
 
-Do not try to stop the utility using `kill -9` or `SIGKILL`. Since `kill -9` and `SIGKILL` terminate the utility immediately, the progress and the errors will not be reliably registered. This does not harm the utility’s working in any way with regard to transaction processing but only disrupts the functionality wherein it registers progress for progress reloading and registers errors for debugging.
+Otherwise, signals can be sent using the Linux `kill` command, specifying the signal and the process ID (pid):
+
+* `kill -s SIGINT -p <pid>`
+* `kill -s SIGTERM -p <pid>`
+
+The use of the `SIGKILL` signal is discouraged as it terminates the utility immediately, and the progress and errors will not be reliably captured in the TVU's output files.
+
