@@ -125,6 +125,7 @@ Secondly, a long wait increases the probability of being interrupted.
 
 In order to avoid these long waits, and also to facilitate building fault tolerant workflows, Corda uses a suspend/resume model.
 In practice, every time one of these “out-of-process” operations happens, such as, signing, persisting, or peer-to-peer communications, the flow should suspend and a checkpoint created.
+
 When the out-of-process operation completes, the checkpoint can be restored and the flow resumes from this checkpoint.
 
 Returning to the IOU example, the following diagram shows suspension and resumption points in the flow:
@@ -187,7 +188,7 @@ They act as an application server for the code in the CPKs that are part of the 
 This code runs inside a Corda {{< tooltip >}}sandbox{{< /tooltip >}}. There are three different types of sandboxes:
 
 * Flow - the flow engine host. This exists in the flow worker and is responsible for executing all flow code.
-* Persistence - hosted by the database worker. This takes instructions from the flow engine to persist states or custom objects. For this reason, it needs to parse custom entity classes that are part of the CorDapp.
+* Persistence - hosted by the persistence worker. This takes instructions from the flow engine to persist states or custom objects. For this reason, it needs to parse custom entity classes that are part of the CorDapp.
 * Verify - this is hosted by the flow worker but is exclusively responsible for contract verification.
 
 This relates to the separation of contract and workflow CPKs, as follows:
