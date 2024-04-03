@@ -16,9 +16,9 @@ weight: 400
 
 # Stopping the Transaction Validator Utility
 
-The Transaction Validator Utility (TVU) writes its runtime progress and registers transaction processing errors to the underlying resources. Once the TVU has processed all the transactions, it terminates automatically. However, if needed, you can terminate it mid-flow by sending either `SIGINT` or `SIGTERM` to the TVU's Java process. `SIGINT` can be sent using Ctrl+C in the shell that is running the process.
+The Transaction Validator Utility (TVU) writes its runtime progress and registers transaction processing errors to the underlying resources. Once the TVU has processed all the transactions, it terminates automatically. However, if needed, you can terminate it mid-flow by sending either `SIGINT` or `SIGTERM` to the TVU's Java process. `SIGINT` can be sent using `Ctrl+C` in the shell that is running the process.
 
-Otherwise, signals can be sent using the Linux `kill` command, specifying the signal and the process ID (pid):
+Otherwise, signals can be sent using the Linux `kill` command, specifying the signal and the process ID (`pid`):
 
 * `kill -s SIGINT -p <pid>`
 * `kill -s SIGTERM -p <pid>`
