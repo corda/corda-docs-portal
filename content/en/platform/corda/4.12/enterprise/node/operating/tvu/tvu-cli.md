@@ -78,7 +78,7 @@ A file path where the current progress will be stored and the last progress can 
 
 If this parameter is not provided, then progress is logged on-screen and the utility starts processing transactions starting with the earliest transaction in the database as per transaction time.
 
-### `-l`, `--load-tx-time`
+### `-t`, `--load-tx-time`
 
 The transaction time from which the utility resumes transaction verification. The provided transaction time is compared against transaction recorded time. The utility loads transactions which have a transaction timestamp greater than or equal to the provided time.
 
