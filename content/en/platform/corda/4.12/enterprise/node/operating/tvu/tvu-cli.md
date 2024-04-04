@@ -1,5 +1,5 @@
 ---
-Description: "List of the Transaction Validator Utility parameters."
+Description: "List of the TVU CLI parameters."
 date: '2023-12-15'
 section_menu: corda-enterprise-4-12
 menu:
@@ -10,11 +10,11 @@ tags:
 - tvu cli
 - tvu
 - transaction validator utility
-title: Transaction Validator Utility CLI parameters
+title: TVU CLI parameters
 weight: 200
 ---
 
-# Transaction Validator Utility CLI parameters
+# TVU CLI parameters
 
 The following sections list the Transaction Validator Utility (TVU) CLI parameters. You can use these parameters to perform various actions on transactions present in your database.
 

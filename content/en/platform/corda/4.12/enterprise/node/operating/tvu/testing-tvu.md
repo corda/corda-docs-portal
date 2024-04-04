@@ -1,5 +1,5 @@
 ---
-descriptions: "Learn how to create your own Transaction Validator Utility class."
+descriptions: "Learn how to create your own TVU class."
 date: '2023-12-15'
 section_menu: corda-enterprise-4-12
 menu:
@@ -10,11 +10,11 @@ tags:
 - pluggable tvu
 - tvu
 - transaction validator utility
-title: Creating Transaction Validator Utility classes
+title: Creating TVU classes
 weight: 600
 ---
 
-# Creating Transaction Validator Utility classes
+# Creating TVU classes
 
 Apart from verification and deserialization, you may also want to perform other tasks on your transactions using the Transaction Validator Utility (TVU). To do that, you can provide your own class and run its logic on every transaction.
 The following is an example of a pluggable project that logs transactions. You can use this project to test the utility and as a starting point for any project that needs to be pluggable in the TVU.

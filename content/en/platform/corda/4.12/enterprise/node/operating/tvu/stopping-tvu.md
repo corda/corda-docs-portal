@@ -1,5 +1,5 @@
 ---
-description: "Learn how to stop the Transaction Validator Utility in a correct way."
+description: "Learn how to stop TVU in a correct way."
 date: '2023-12-15'
 section_menu: corda-enterprise-4-12
 menu:
@@ -10,11 +10,11 @@ tags:
 - stopping tvu
 - tvu
 - transaction validator utility
-title: Stopping the Transaction Validator Utility
+title: Stopping TVU
 weight: 400
 ---
 
-# Stopping the Transaction Validator Utility
+# Stopping TVU
 
 The Transaction Validator Utility (TVU) writes its runtime progress and registers transaction processing errors to the underlying resources. Once the TVU has processed all the transactions, it terminates automatically. However, if needed, you can terminate it mid-flow by sending either `SIGINT` or `SIGTERM` to the TVU's Java process. `SIGINT` can be sent using `Ctrl+C` in the shell that is running the process.
 
