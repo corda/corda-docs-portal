@@ -3,7 +3,7 @@ cascade:
   version: 'Enterprise 4.12'
   project: corda
   section_menu: corda-enterprise-4-12
-description: "Learn what is Transaction Validator Utility and its different uses."
+description: "Learn what the Transaction Validator Utility is and its different uses."
 title: "Transaction Validator Utility"
 date: '2023-12-15'
 menu:
