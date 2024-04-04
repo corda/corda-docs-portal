@@ -248,7 +248,7 @@ public interface <span class="typeNameLabel"><a href=PersistenceService.html>Per
                                         <tr id="i0" class="altColor">
                                             <td class="colFirst"><code>abstract void</code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=PersistenceService.html#persist(Object)>persist</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> entity) </code>
+                                            <th class="colSecond" scope="row"><code><a href=PersistenceService.html#persist(java.lang.String,Object)>persist</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> deduplicationId, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> entity) </code>
                                             </th>
                                             <td class="colLast">Persists a single <code>entity</code> to the store.</td>
                                         </tr>
@@ -256,7 +256,7 @@ public interface <span class="typeNameLabel"><a href=PersistenceService.html>Per
                                         <tr id="i1" class="rowColor">
                                             <td class="colFirst"><code>abstract void</code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=PersistenceService.html#persist(java.util.List)>persist</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt; entities) </code>
+                                            <th class="colSecond" scope="row"><code><a href=PersistenceService.html#persist(java.lang.String,java.util.List)>persist</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> deduplicationId, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt; entities) </code>
                                             </th>
                                             <td class="colLast">Persists multiple <code>entities</code> in the persistence context in a single transaction.</td>
                                         </tr>
@@ -369,7 +369,7 @@ public interface <span class="typeNameLabel"><a href=PersistenceService.html>Per
                             </a>
                                 <h3>Method Detail</h3>
                                 
-                                <a id="persist(Object)">
+                                <a id="persist(java.lang.String,Object)">
                                     <!--   -->
                                 </a>
                                 <ul class=
@@ -377,13 +377,22 @@ public interface <span class="typeNameLabel"><a href=PersistenceService.html>Per
                                           >
                                     <li class="blockList">
                                         <h4>persist</h4>
-                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract void <a href=PersistenceService.html#persist(Object)>persist</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> entity)</pre>
-                                        <div class="block"><p>Persists a single <code>entity</code> to the store.</p></div>
+                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract void <a href=PersistenceService.html#persist(java.lang.String,Object)>persist</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> deduplicationId, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> entity)</pre>
+                                        <div class="block"><p>Persists a single <code>entity</code> to the store. There is an automatic transient failure retry mechanism backing this method which can sometimes lead to the persistence service internally making multiple requests to persist the same entities. In order that the same entities are not erroneously persisted more than once, a de-duplication mechanism is in place to filter duplicate requests that were already successful. In order for the persistence service to be able to employ this mechanism, this ID must be: </p><ul><li>Unique within the context of the flow;</li><li>Deterministic at the time of the function call (I.e., a UUID should not be used).</li><li>128 characters or fewer in length.</li></ul><p> For example: </p><pre><code>private static final String MY_ENTITY_DEDUPE_ID = &quot;entity1dedupeId&quot;;
+
+private void persistEntity() {
+    persistenceService.persist(MY_ENTITY_DEDUPE_ID, entitiy);
+}
+</code></pre> It is up to the caller of this function to ensure that the above criteria is fulfilled where de-duplication of retries is a hard requirement. Otherwise, the caller should expect duplication might occur.</div>
 
                                         <dl>
 
                                         
                                             <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>deduplicationId</code> - A unique identifier used to deduplicate persistence requests.</dd>
+                                            
                                             
                                             
                                             <dd><code>entity</code> - The entity to persist.</dd>
@@ -399,7 +408,7 @@ public interface <span class="typeNameLabel"><a href=PersistenceService.html>Per
                                     </li>
                                 </ul>
                                 
-                                <a id="persist(java.util.List)">
+                                <a id="persist(java.lang.String,java.util.List)">
                                     <!--   -->
                                 </a>
                                 <ul class=
@@ -407,13 +416,22 @@ public interface <span class="typeNameLabel"><a href=PersistenceService.html>Per
                                           >
                                     <li class="blockList">
                                         <h4>persist</h4>
-                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract void <a href=PersistenceService.html#persist(java.util.List)>persist</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt; entities)</pre>
-                                        <div class="block"><p>Persists multiple <code>entities</code> in the persistence context in a single transaction.</p></div>
+                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract void <a href=PersistenceService.html#persist(java.lang.String,java.util.List)>persist</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> deduplicationId, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt; entities)</pre>
+                                        <div class="block"><p>Persists multiple <code>entities</code> in the persistence context in a single transaction. There is an automatic transient failure retry mechanism backing this method which can sometimes lead to the persistence service internally making multiple requests to persist the same entities. In order that the same entities are not erroneously persisted more than once, a de-duplication mechanism is in place to filter duplicate requests that were already successful. In order for the persistence service to be able to employ this mechanism, this ID must be: </p><ul><li>Unique within the context of the flow;</li><li>Deterministic at the time of the function call (I.e., a UUID should not be used).</li><li>128 characters or fewer in length.</li></ul><p> For example: </p><pre><code>private static final String MY_ENTITY_DEDUPE_ID = &quot;entity1dedupeId&quot;;
+
+private void persistEntities() {
+    persistenceService.persist(MY_ENTITY_DEDUPE_ID, entities);
+}
+</code></pre> It is up to the caller of this function to ensure that the above criteria is fulfilled where de-duplication of retries is a hard requirement. Otherwise, the caller should expect duplication might occur.</div>
 
                                         <dl>
 
                                         
                                             <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>deduplicationId</code> - A unique identifier used to deduplicate persistence requests.</dd>
+                                            
                                             
                                             
                                             <dd><code>entities</code> - List of entities to be persisted.</dd>
