@@ -272,6 +272,12 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast"></td>
                                         </tr>
                                         
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public  <a href=UniquenessCheckType.html>UniquenessCheckType</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=UniquenessCheckRequestAvro.html#uniquenessCheckType>uniquenessCheckType</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
                                     </table>
                                 </div>
                             </li>
@@ -304,7 +310,7 @@ extends SpecificRecordBase implements SpecificRecord
                                         
                                             <tr class="rowColor">
                                                 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
-                                                        href="#UniquenessCheckRequestAvro(net.corda.data.identity.HoldingIdentity,net.corda.data.flow.event.external.ExternalEventContext,java.lang.String,java.lang.String,java.util.List,java.util.List,java.lang.Integer,java.time.Instant,java.time.Instant)">UniquenessCheckRequestAvro</a></span>(<a href=../identity/HoldingIdentity.html>HoldingIdentity</a> holdingIdentity, <a href=../flow/event/external/ExternalEventContext.html>ExternalEventContext</a> flowExternalEventContext, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> txId, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> originatorX500Name, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; inputStates, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; referenceStates, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> numOutputStates, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> timeWindowLowerBound, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> timeWindowUpperBound)</code></th>
+                                                        href="#UniquenessCheckRequestAvro(net.corda.data.identity.HoldingIdentity,net.corda.data.flow.event.external.ExternalEventContext,java.lang.String,java.lang.String,java.util.List,java.util.List,java.lang.Integer,java.time.Instant,java.time.Instant,net.corda.data.uniqueness.UniquenessCheckType)">UniquenessCheckRequestAvro</a></span>(<a href=../identity/HoldingIdentity.html>HoldingIdentity</a> holdingIdentity, <a href=../flow/event/external/ExternalEventContext.html>ExternalEventContext</a> flowExternalEventContext, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> txId, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> originatorX500Name, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; inputStates, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; referenceStates, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> numOutputStates, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> timeWindowLowerBound, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> timeWindowUpperBound, <a href=UniquenessCheckType.html>UniquenessCheckType</a> uniquenessCheckType)</code></th>
                                                 <td class="colLast">All-args constructor.</td>
                                             </tr>
                                         
@@ -502,6 +508,22 @@ extends SpecificRecordBase implements SpecificRecord
                                         </tr>
                                         
                                         <tr id="i18" class="altColor">
+                                            <td class="colFirst"><code><a href=UniquenessCheckType.html>UniquenessCheckType</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UniquenessCheckRequestAvro.html#getUniquenessCheckType()>getUniquenessCheckType</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets the value of the 'uniquenessCheckType' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i19" class="rowColor">
+                                            <td class="colFirst"><code>void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UniquenessCheckRequestAvro.html#setUniquenessCheckType(net.corda.data.uniqueness.UniquenessCheckType)>setUniquenessCheckType</a>(<a href=UniquenessCheckType.html>UniquenessCheckType</a> value) </code>
+                                            </th>
+                                            <td class="colLast">Sets the value of the 'uniquenessCheckType' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i20" class="altColor">
                                             <td class="colFirst"><code>static Schema</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UniquenessCheckRequestAvro.html#getClassSchema()>getClassSchema</a>() </code>
@@ -509,7 +531,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast"></td>
                                         </tr>
                                         
-                                        <tr id="i19" class="rowColor">
+                                        <tr id="i21" class="rowColor">
                                             <td class="colFirst"><code>static BinaryMessageEncoder&lt;<a href=UniquenessCheckRequestAvro.html>UniquenessCheckRequestAvro</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UniquenessCheckRequestAvro.html#getEncoder()>getEncoder</a>() </code>
@@ -517,7 +539,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast">Return the BinaryMessageEncoder instance used by this class.</td>
                                         </tr>
                                         
-                                        <tr id="i20" class="altColor">
+                                        <tr id="i22" class="altColor">
                                             <td class="colFirst"><code>static BinaryMessageDecoder&lt;<a href=UniquenessCheckRequestAvro.html>UniquenessCheckRequestAvro</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UniquenessCheckRequestAvro.html#getDecoder()>getDecoder</a>() </code>
@@ -525,7 +547,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast">Return the BinaryMessageDecoder instance used by this class.</td>
                                         </tr>
                                         
-                                        <tr id="i21" class="rowColor">
+                                        <tr id="i23" class="rowColor">
                                             <td class="colFirst"><code>static BinaryMessageDecoder&lt;<a href=UniquenessCheckRequestAvro.html>UniquenessCheckRequestAvro</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UniquenessCheckRequestAvro.html#createDecoder(org.apache.avro.message.SchemaStore)>createDecoder</a>(SchemaStore resolver) </code>
@@ -533,7 +555,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast">Create a new BinaryMessageDecoder instance for this class that uses the specified SchemaStore.</td>
                                         </tr>
                                         
-                                        <tr id="i22" class="altColor">
+                                        <tr id="i24" class="altColor">
                                             <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/nio/ByteBuffer.html>ByteBuffer</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UniquenessCheckRequestAvro.html#toByteBuffer()>toByteBuffer</a>() </code>
@@ -541,7 +563,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast">Serializes this UniquenessCheckRequestAvro to a ByteBuffer.</td>
                                         </tr>
                                         
-                                        <tr id="i23" class="rowColor">
+                                        <tr id="i25" class="rowColor">
                                             <td class="colFirst"><code>static <a href=UniquenessCheckRequestAvro.html>UniquenessCheckRequestAvro</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UniquenessCheckRequestAvro.html#fromByteBuffer(java.nio.ByteBuffer)>fromByteBuffer</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/nio/ByteBuffer.html>ByteBuffer</a> b) </code>
@@ -549,7 +571,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast">Deserializes a UniquenessCheckRequestAvro from a ByteBuffer.</td>
                                         </tr>
                                         
-                                        <tr id="i24" class="altColor">
+                                        <tr id="i26" class="altColor">
                                             <td class="colFirst"><code>SpecificData</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UniquenessCheckRequestAvro.html#getSpecificData()>getSpecificData</a>() </code>
@@ -557,7 +579,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast"></td>
                                         </tr>
                                         
-                                        <tr id="i25" class="rowColor">
+                                        <tr id="i27" class="rowColor">
                                             <td class="colFirst"><code>Schema</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UniquenessCheckRequestAvro.html#getSchema()>getSchema</a>() </code>
@@ -565,7 +587,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast"></td>
                                         </tr>
                                         
-                                        <tr id="i26" class="altColor">
+                                        <tr id="i28" class="altColor">
                                             <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UniquenessCheckRequestAvro.html#get(int)>get</a>(int field$) </code>
@@ -573,7 +595,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast"></td>
                                         </tr>
                                         
-                                        <tr id="i27" class="rowColor">
+                                        <tr id="i29" class="rowColor">
                                             <td class="colFirst"><code>Conversion&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UniquenessCheckRequestAvro.html#getConversion(int)>getConversion</a>(int field) </code>
@@ -581,7 +603,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast"></td>
                                         </tr>
                                         
-                                        <tr id="i28" class="altColor">
+                                        <tr id="i30" class="altColor">
                                             <td class="colFirst"><code>void</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UniquenessCheckRequestAvro.html#put(int,Object)>put</a>(int field$, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> value$) </code>
@@ -589,7 +611,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast"></td>
                                         </tr>
                                         
-                                        <tr id="i29" class="rowColor">
+                                        <tr id="i31" class="rowColor">
                                             <td class="colFirst"><code>static <a href=UniquenessCheckRequestAvro.Builder.html>UniquenessCheckRequestAvro.Builder</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UniquenessCheckRequestAvro.html#newBuilder()>newBuilder</a>() </code>
@@ -597,7 +619,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast">Creates a new UniquenessCheckRequestAvro RecordBuilder.</td>
                                         </tr>
                                         
-                                        <tr id="i30" class="altColor">
+                                        <tr id="i32" class="altColor">
                                             <td class="colFirst"><code>static <a href=UniquenessCheckRequestAvro.Builder.html>UniquenessCheckRequestAvro.Builder</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UniquenessCheckRequestAvro.html#newBuilder(net.corda.data.uniqueness.UniquenessCheckRequestAvro.Builder)>newBuilder</a>(<a href=UniquenessCheckRequestAvro.Builder.html>UniquenessCheckRequestAvro.Builder</a> other) </code>
@@ -605,7 +627,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast">Creates a new UniquenessCheckRequestAvro RecordBuilder by copying an existing Builder.</td>
                                         </tr>
                                         
-                                        <tr id="i31" class="rowColor">
+                                        <tr id="i33" class="rowColor">
                                             <td class="colFirst"><code>static <a href=UniquenessCheckRequestAvro.Builder.html>UniquenessCheckRequestAvro.Builder</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UniquenessCheckRequestAvro.html#newBuilder(net.corda.data.uniqueness.UniquenessCheckRequestAvro)>newBuilder</a>(<a href=UniquenessCheckRequestAvro.html>UniquenessCheckRequestAvro</a> other) </code>
@@ -613,7 +635,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast">Creates a new UniquenessCheckRequestAvro RecordBuilder by copying an existing UniquenessCheckRequestAvro instance.</td>
                                         </tr>
                                         
-                                        <tr id="i32" class="altColor">
+                                        <tr id="i34" class="altColor">
                                             <td class="colFirst"><code>void</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UniquenessCheckRequestAvro.html#writeExternal(java.io.ObjectOutput)>writeExternal</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/ObjectOutput.html>ObjectOutput</a> out) </code>
@@ -621,7 +643,7 @@ extends SpecificRecordBase implements SpecificRecord
                                             <td class="colLast"></td>
                                         </tr>
                                         
-                                        <tr id="i33" class="rowColor">
+                                        <tr id="i35" class="rowColor">
                                             <td class="colFirst"><code>void</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UniquenessCheckRequestAvro.html#readExternal(java.io.ObjectInput)>readExternal</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/ObjectInput.html>ObjectInput</a> in) </code>
@@ -682,11 +704,11 @@ extends SpecificRecordBase implements SpecificRecord
                                     </li>
                                 </ul>
                                 
-                                <a name="UniquenessCheckRequestAvro(net.corda.data.identity.HoldingIdentity,net.corda.data.flow.event.external.ExternalEventContext,java.lang.String,java.lang.String,java.util.List,java.util.List,java.lang.Integer,java.time.Instant,java.time.Instant)"></a>
+                                <a name="UniquenessCheckRequestAvro(net.corda.data.identity.HoldingIdentity,net.corda.data.flow.event.external.ExternalEventContext,java.lang.String,java.lang.String,java.util.List,java.util.List,java.lang.Integer,java.time.Instant,java.time.Instant,net.corda.data.uniqueness.UniquenessCheckType)"></a>
                                 <ul class="blockList">
                                     <li class="blockList">
                                         <h4>UniquenessCheckRequestAvro</h4>
-                                        <pre>UniquenessCheckRequestAvro(<a href=../identity/HoldingIdentity.html>HoldingIdentity</a> holdingIdentity, <a href=../flow/event/external/ExternalEventContext.html>ExternalEventContext</a> flowExternalEventContext, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> txId, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> originatorX500Name, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; inputStates, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; referenceStates, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> numOutputStates, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> timeWindowLowerBound, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> timeWindowUpperBound)</pre>
+                                        <pre>UniquenessCheckRequestAvro(<a href=../identity/HoldingIdentity.html>HoldingIdentity</a> holdingIdentity, <a href=../flow/event/external/ExternalEventContext.html>ExternalEventContext</a> flowExternalEventContext, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> txId, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> originatorX500Name, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; inputStates, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; referenceStates, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> numOutputStates, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> timeWindowLowerBound, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> timeWindowUpperBound, <a href=UniquenessCheckType.html>UniquenessCheckType</a> uniquenessCheckType)</pre>
                                         <div class="block">All-args constructor.</div>
                                         
                                         <dl>
@@ -726,6 +748,10 @@ extends SpecificRecordBase implements SpecificRecord
                                             
                                             
                                             <dd><code>timeWindowUpperBound</code> - The new value for timeWindowUpperBound</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>uniquenessCheckType</code> - The type of uniqueness check to perform</dd>
                                             
                                             
                                         </dl>
@@ -1230,6 +1256,62 @@ extends SpecificRecordBase implements SpecificRecord
                                         <h4>setTimeWindowUpperBound</h4>
                                         <pre class="methodSignature"> void <a href=UniquenessCheckRequestAvro.html#setTimeWindowUpperBound(java.time.Instant)>setTimeWindowUpperBound</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> value)</pre>
                                         <div class="block"><p>Sets the value of the 'timeWindowUpperBound' field.</p></div>
+
+                                        <dl>
+
+                                        
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>value</code> - the value to set.</dd>
+                                            
+                                            
+                                        
+
+                                        
+
+                                        
+
+                                        </dl>
+                                    </li>
+                                </ul>
+                                
+                                <a id="getUniquenessCheckType()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getUniquenessCheckType</h4>
+                                        <pre class="methodSignature"> <a href=UniquenessCheckType.html>UniquenessCheckType</a> <a href=UniquenessCheckRequestAvro.html#getUniquenessCheckType()>getUniquenessCheckType</a>()</pre>
+                                        <div class="block"><p>Gets the value of the 'uniquenessCheckType' field.</p></div>
+
+                                        <dl>
+
+                                        
+
+                                        
+                                            <dt><span class="returnLabel">Returns:</span></dt>
+                                            <dd><p>The type of uniqueness check to perform</p></dd>
+                                        
+
+                                        
+
+                                        </dl>
+                                    </li>
+                                </ul>
+                                
+                                <a id="setUniquenessCheckType(net.corda.data.uniqueness.UniquenessCheckType)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setUniquenessCheckType</h4>
+                                        <pre class="methodSignature"> void <a href=UniquenessCheckRequestAvro.html#setUniquenessCheckType(net.corda.data.uniqueness.UniquenessCheckType)>setUniquenessCheckType</a>(<a href=UniquenessCheckType.html>UniquenessCheckType</a> value)</pre>
+                                        <div class="block"><p>Sets the value of the 'uniquenessCheckType' field. The type of uniqueness check to perform</p></div>
 
                                         <dl>
 
