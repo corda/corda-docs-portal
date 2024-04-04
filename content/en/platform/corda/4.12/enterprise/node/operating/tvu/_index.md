@@ -18,7 +18,7 @@ tags:
 
 # Transaction Validator Utility
 
-To avoid post-migration errors when upgrading to Corda 4.12, you must validate transactions committed to the database first. You can do this by running the Transaction Validator Utility (TVU) on your current Corda database. If no errors are detected during the inspection of your backchain, you can proceed with the migration. However, if you find issues, you must investigate and resolve them to ensure an error-free upgrade.
+To avoid post-migration errors when upgrading to Corda 4.12, you must first validate transactions committed to the database. You can do this by running the Transaction Validator Utility (TVU) on your current Corda database. If no errors are detected during the inspection of your backchain, you can proceed with the migration. However, if you find issues, you must investigate and resolve them to ensure an error-free upgrade.
 
 TVU's useful features include:
 
