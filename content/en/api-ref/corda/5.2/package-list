@@ -116,7 +116,9 @@ $dokka.location:net.corda.data.ledger.persistence/FindSignedGroupParametersRespo
 $dokka.location:net.corda.data.ledger.persistence/FindSignedLedgerTransaction.Builder///PointingToDeclaration/net/corda/data/ledger/persistence/FindSignedLedgerTransaction.Builder.html
 $dokka.location:net.corda.data.ledger.persistence/FindTransaction.Builder///PointingToDeclaration/net/corda/data/ledger/persistence/FindTransaction.Builder.html
 $dokka.location:net.corda.data.ledger.persistence/FindTransactionIdsAndStatuses.Builder///PointingToDeclaration/net/corda/data/ledger/persistence/FindTransactionIdsAndStatuses.Builder.html
+$dokka.location:net.corda.data.ledger.persistence/FindTransactionsWithStatusCreatedBetweenTime.Builder///PointingToDeclaration/net/corda/data/ledger/persistence/FindTransactionsWithStatusCreatedBetweenTime.Builder.html
 $dokka.location:net.corda.data.ledger.persistence/FindUnconsumedStatesByType.Builder///PointingToDeclaration/net/corda/data/ledger/persistence/FindUnconsumedStatesByType.Builder.html
+$dokka.location:net.corda.data.ledger.persistence/IncrementTransactionRepairAttemptCount.Builder///PointingToDeclaration/net/corda/data/ledger/persistence/IncrementTransactionRepairAttemptCount.Builder.html
 $dokka.location:net.corda.data.ledger.persistence/LedgerPersistenceRequest.Builder///PointingToDeclaration/net/corda/data/ledger/persistence/LedgerPersistenceRequest.Builder.html
 $dokka.location:net.corda.data.ledger.persistence/PersistFilteredTransactionsAndSignatures.Builder///PointingToDeclaration/net/corda/data/ledger/persistence/PersistFilteredTransactionsAndSignatures.Builder.html
 $dokka.location:net.corda.data.ledger.persistence/PersistSignedGroupParametersIfDoNotExist.Builder///PointingToDeclaration/net/corda/data/ledger/persistence/PersistSignedGroupParametersIfDoNotExist.Builder.html
@@ -378,9 +380,11 @@ $dokka.location:net.corda.data.uniqueness/UniquenessCheckResponseAvro.Builder///
 $dokka.location:net.corda.data.uniqueness/UniquenessCheckResultInputStateConflictAvro.Builder///PointingToDeclaration/net/corda/data/uniqueness/UniquenessCheckResultInputStateConflictAvro.Builder.html
 $dokka.location:net.corda.data.uniqueness/UniquenessCheckResultInputStateUnknownAvro.Builder///PointingToDeclaration/net/corda/data/uniqueness/UniquenessCheckResultInputStateUnknownAvro.Builder.html
 $dokka.location:net.corda.data.uniqueness/UniquenessCheckResultMalformedRequestAvro.Builder///PointingToDeclaration/net/corda/data/uniqueness/UniquenessCheckResultMalformedRequestAvro.Builder.html
+$dokka.location:net.corda.data.uniqueness/UniquenessCheckResultNotPreviouslySeenTransactionAvro.Builder///PointingToDeclaration/net/corda/data/uniqueness/UniquenessCheckResultNotPreviouslySeenTransactionAvro.Builder.html
 $dokka.location:net.corda.data.uniqueness/UniquenessCheckResultReferenceStateConflictAvro.Builder///PointingToDeclaration/net/corda/data/uniqueness/UniquenessCheckResultReferenceStateConflictAvro.Builder.html
 $dokka.location:net.corda.data.uniqueness/UniquenessCheckResultReferenceStateUnknownAvro.Builder///PointingToDeclaration/net/corda/data/uniqueness/UniquenessCheckResultReferenceStateUnknownAvro.Builder.html
 $dokka.location:net.corda.data.uniqueness/UniquenessCheckResultSuccessAvro.Builder///PointingToDeclaration/net/corda/data/uniqueness/UniquenessCheckResultSuccessAvro.Builder.html
+$dokka.location:net.corda.data.uniqueness/UniquenessCheckResultTimeWindowBeforeLowerBoundAvro.Builder///PointingToDeclaration/net/corda/data/uniqueness/UniquenessCheckResultTimeWindowBeforeLowerBoundAvro.Builder.html
 $dokka.location:net.corda.data.uniqueness/UniquenessCheckResultTimeWindowOutOfBoundsAvro.Builder///PointingToDeclaration/net/corda/data/uniqueness/UniquenessCheckResultTimeWindowOutOfBoundsAvro.Builder.html
 $dokka.location:net.corda.data.uniqueness/UniquenessCheckResultUnhandledExceptionAvro.Builder///PointingToDeclaration/net/corda/data/uniqueness/UniquenessCheckResultUnhandledExceptionAvro.Builder.html
 $dokka.location:net.corda.data.virtualnode/VirtualNodeAsynchronousRequest.Builder///PointingToDeclaration/net/corda/data/virtualnode/VirtualNodeAsynchronousRequest.Builder.html
@@ -581,6 +585,7 @@ net.corda.v5.ledger.utxo.observer
 net.corda.v5.ledger.utxo.query
 net.corda.v5.ledger.utxo.query.json
 net.corda.v5.ledger.utxo.query.registration
+net.corda.v5.ledger.utxo.repair
 net.corda.v5.ledger.utxo.token.selection
 net.corda.v5.ledger.utxo.transaction
 net.corda.v5.ledger.utxo.transaction.filtered

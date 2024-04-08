@@ -248,7 +248,7 @@ public interface <span class="typeNameLabel"><a href=TokenSelection.html>TokenSe
                                         <tr id="i0" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=TokenClaim.html>TokenClaim</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=TokenSelection.html#tryClaim(net.corda.v5.ledger.utxo.token.selection.TokenClaimCriteria)>tryClaim</a>(@NotNull() <a href=TokenClaimCriteria.html>TokenClaimCriteria</a> criteria) </code>
+                                            <th class="colSecond" scope="row"><code><a href=TokenSelection.html#tryClaim(java.lang.String,net.corda.v5.ledger.utxo.token.selection.TokenClaimCriteria)>tryClaim</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> deduplicationId, @NotNull() <a href=TokenClaimCriteria.html>TokenClaimCriteria</a> criteria) </code>
                                             </th>
                                             <td class="colLast">Attempts to claim a set of tokens from the cache that satisfies the specified <a href=TokenClaimCriteria.html>TokenClaimCriteria</a>.</td>
                                         </tr>
@@ -305,7 +305,7 @@ public interface <span class="typeNameLabel"><a href=TokenSelection.html>TokenSe
                             </a>
                                 <h3>Method Detail</h3>
                                 
-                                <a id="tryClaim(net.corda.v5.ledger.utxo.token.selection.TokenClaimCriteria)">
+                                <a id="tryClaim(java.lang.String,net.corda.v5.ledger.utxo.token.selection.TokenClaimCriteria)">
                                     <!--   -->
                                 </a>
                                 <ul class=
@@ -313,13 +313,17 @@ public interface <span class="typeNameLabel"><a href=TokenSelection.html>TokenSe
                                           >
                                     <li class="blockList">
                                         <h4>tryClaim</h4>
-                                        <pre class="methodSignature">@Nullable()@<a href=../../../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=TokenClaim.html>TokenClaim</a> <a href=TokenSelection.html#tryClaim(net.corda.v5.ledger.utxo.token.selection.TokenClaimCriteria)>tryClaim</a>(@NotNull() <a href=TokenClaimCriteria.html>TokenClaimCriteria</a> criteria)</pre>
-                                        <div class="block"><p>Attempts to claim a set of tokens from the cache that satisfies the specified <a href=TokenClaimCriteria.html>TokenClaimCriteria</a>. The API allows a flow to query for a target amount of a given state/token type it wishes to spend. If available, a set of tokens will be selected that sum to at least the target amount specified. The tokens will be locked in the cache to prevent other flows from selecting them.</p></div>
+                                        <pre class="methodSignature">@Nullable()@<a href=../../../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=TokenClaim.html>TokenClaim</a> <a href=TokenSelection.html#tryClaim(java.lang.String,net.corda.v5.ledger.utxo.token.selection.TokenClaimCriteria)>tryClaim</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> deduplicationId, @NotNull() <a href=TokenClaimCriteria.html>TokenClaimCriteria</a> criteria)</pre>
+                                        <div class="block"><p>Attempts to claim a set of tokens from the cache that satisfies the specified <a href=TokenClaimCriteria.html>TokenClaimCriteria</a>. The API allows a flow to query for a target amount of a given state/token type it wishes to spend. If available, a set of tokens will be selected that sum to at least the target amount specified. The tokens will be locked in the cache to prevent other flows from selecting them. A unique deterministic identifier for a token claim is provided per API call. Corda may rerun a token claim request on behalf of the calling flow in the event system instability. This ID will be used to deduplicate TokenClaims in this scenario. This ID needs to be unique per TokenClaim within a single flow.</p></div>
 
                                         <dl>
 
                                         
                                             <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>deduplicationId</code> - A unique deterministic identifier for a token claim.</dd>
+                                            
                                             
                                             
                                             <dd><code>criteria</code> - The <a href=TokenClaimCriteria.html>TokenClaimCriteria</a> used to select tokens.</dd>
@@ -329,61 +333,7 @@ public interface <span class="typeNameLabel"><a href=TokenSelection.html>TokenSe
 
                                         
                                             <dt><span class="returnLabel">Returns:</span></dt>
-                                            <dd><p>Returns a <a href=TokenClaim.html>TokenClaim</a> if enough tokens were claimed to satisfy the <a href=TokenClaimCriteria.html#getTargetAmount()>getTargetAmount</a>, or null if the <a href=TokenClaimCriteria.html#getTargetAmount()>getTargetAmount</a> could not be reached. </p><p>Example usage: </p><ul><li>Kotlin:<pre><code>
-lateinit var tokenSelection: TokenSelection
-
-override fun call(requestBody: RestRequestBody): String {
-
-// Create a criteria describing the tokens to be selected and
-// the target amount to be claimed.
-val criteria = TokenClaimCriteria(
-&quot;Currency&quot;,
-getIssuerHash(),
-getNotaryX500Name(),
-&quot;USD&quot;,
-BigDecimal(100)
-)
-
-// Call the token selection API to try and claim the tokens.
-val claim = tokenSelection.tryClaim(criteria)
-
-if (claim == null) {
-// Not enough tokens could be claimed to satisfy the request.
-// take alternative action.
-} else {
-// Tokens we successfully claimed and can now be spent.
-spendTokens(claim.claimedTokens)
-}
-
-return &quot;Done&quot;
-}
-</code></pre></li><li>Java:<pre><code>
-public TokenSelection tokenSelection;
-public String call(RestRequestBody requestBody) {
-// Create a criteria describing the tokens to be selected and
-// the target amount to be claimed.
-TokenClaimCriteria criteria = new TokenClaimCriteria (
-&quot;Currency&quot;,
-getIssuerHash(),
-getNotaryX500Name(),
-&quot;USD&quot;,
-new BigDecimal(100)
-);
-
-// Call the token selection API to try and claim the tokens.
-TokenClaim claim = tokenSelection.tryClaim(criteria);
-
-if (claim == null) {
-// Not enough tokens could be claimed to satisfy the request.
-// take alternative action.
-} else {
-// Tokens we successfully claimed and can now be spent.
-spendTokens(claim.getClaimedTokens());
-}
-
-return &quot;Done&quot;;
-}
-</code></pre></li></ul></dd>
+                                            <dd><p>Returns a <a href=TokenClaim.html>TokenClaim</a> if enough tokens were claimed to satisfy the <a href=TokenClaimCriteria.html#getTargetAmount()>getTargetAmount</a>, or null if the <a href=TokenClaimCriteria.html#getTargetAmount()>getTargetAmount</a> could not be reached.</p></dd>
                                         
 
                                         

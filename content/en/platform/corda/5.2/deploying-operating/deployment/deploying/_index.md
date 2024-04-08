@@ -21,7 +21,7 @@ This section contains the following:
 * [Download and Push Container Images to a Registry]({{< relref "#download-and-push-container-images-to-a-registry">}})
 * [Download the Corda Helm Chart]({{< relref "#download-the-corda-helm-chart">}})
 * [Configure the Deployment]({{< relref "#configure-the-deployment">}})
-* [Deployment]({{< relref "#deployment">}})
+* [Install the Corda Helm Chart]({{< relref "#install-the-corda-helm-chart">}})
 
 ## Download and Push Container Images to a Registry
 
@@ -115,6 +115,7 @@ The following sections describe the minimal set of configuration options require
 * [Bootstrapping]({{< relref "#bootstrapping" >}})
 * [Worker Pods]({{< relref "#worker-pods" >}})
 * [Node Affinities]({{< relref "#node-affinities" >}})
+* [Ledger Repair]({{< relref "#ledger-repair" >}})
 * [Pre-Install Checks]({{< relref "#pre-install-checks" >}})
 
 You can extract a README containing the full set of options from the Helm chart using the following command:
@@ -1087,6 +1088,18 @@ commonPodLabels:
   sidecar.istio.io/inject: !!str true # explicitly enable Istio integration for all Corda pods
 ```
 
+### Ledger Repair
+
+By default, the [Corda ledger repair functionality]({{< relref "../../../developing-applications/ledger/ledger-repair.md" >}}) runs every ten minutes. You can modify this schedule by adding the `net.corda.ledger.utxo.repair.schedulePeriod` system property to the Java options for each database worker. This property is set in seconds. For example, to modify the schedule to every 15 minutes:
+
+```yaml
+workers:
+  db:
+    javaOptions: "-XX:MaxRAMPercentage=75 -Dnet.corda.ledger.utxo.repair.schedulePeriod=900"
+```
+
+The window of transactions included in the repair process and the length of time the process can run for is defined by fields in the [corda.ledger.utxo configuration section]({{< relref "../../config/fields/ledger-utxo.md" >}}).
+
 ### Node Affinities
 
 Corda uses node affinity to assign worker replicas across nodes. By default, for high availability, Corda attempts to deploy multiple replicas on different nodes. The following shows the default values:
@@ -1383,7 +1396,7 @@ workers:
               key: "verification"
 ```
 
-## Deployment
+## Install the Corda Helm Chart
 
 Once the configuration for the environment has been defined in a YAML file, you can install the Helm chart:
 

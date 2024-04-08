@@ -44,6 +44,7 @@ Node operators use [REST]({{< relref "../../../reference/rest-api/_index.md">}})
 All activity on the node occurs in the context of these flows. Unlike contracts, flows execute in a flow {{< tooltip >}}sandbox{{< /tooltip >}}, meaning that nodes can perform actions such as networking, I/O, and use sources of randomness within the execution of a flow.
 
 ### Inter-Node Communication
+
 Messages are passed from an active flow on one virtual node to an active flow on another virtual node. You can specify which flow classes a node can respond to and with what flow it responds with.
 
 For example, Alice is a participant on the network and wishes to agree a ledger update with Bob, another network participant. To communicate with Bob:
@@ -55,14 +56,23 @@ For example, Alice is a participant on the network and wishes to agree a ledger 
 Now that a connection is established, Alice and Bob can communicate to agree a ledger update by passing a series of messages back and forth, as defined by the flow steps.
 
 ### Subflows
+
 Flows can be composed by starting a flow as a subprocess in the context of another flow. The flow that is started as a subprocess is known as a subflow. The parent flow waits until the subflow returns.
 
 ## Flow Library
+
 Corda provides a library of flows to handle common tasks. As a result, you do not have to redefine the logic behind common processes such as:
+
 * Notarizing and recording a transaction.
 * Gathering signatures from counterparty nodes.
 * Verifying a chain of transactions.
 Rather than exposing a library of subflows, this functionality is invoked via the `UtxoLedgerService` class. For example, calling the `finalize()` method invokes a subflow under the hood.
 
 ## Concurrency
-Virtual nodes can have multiple active flows running at once. Flows are serialized to the message bus whenever they enter a blocking state. For example, when waiting on I/O or a networking call. This allows flows to be active for long periods of time, even during interruptions such as node restarts and upgrades. Instead of waiting for the flow to become unblocked, the node immediately starts work on any other scheduled flows, returning to the original flow at a later date. A flow will suspend whenever it needs to perform an operation using platform APIs. Flows can survive a failover event, allowing them to migrate to another {{< tooltip >}}flow worker{{< /tooltip >}} process if required.
+
+Virtual nodes can have multiple active flows running simultaneously.
+When appropriate, Corda serializes flows to an out-of-process state manager.
+This allows flows to be active for long periods of time, even during interruptions such as node restarts and upgrades.
+Instead of waiting for the flow to become unblocked, the node immediately starts work on any other scheduled flows, returning to the original flow at a later date.
+When appropriate, Corda suspends flows that perform an operation using platform APIs.
+These flows can survive a failover event, allowing them to migrate to another {{< tooltip >}}flow worker{{< /tooltip >}} process if required.
