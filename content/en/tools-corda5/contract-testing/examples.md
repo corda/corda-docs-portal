@@ -18,7 +18,7 @@ This example shows how to create a very simple state and a corresponding contrac
 * The output states are all of type `SampleState`.
 
 {{< note >}}
-This is a basic example, for illustration purposes only and not production-ready code. The state and contract code is written in Kotlin.
+This is a basic example, for illustration purposes only, and not production-ready code. The state and contract code is written in Kotlin.
 {{< /note >}}
 
 The following shows the example state code:
@@ -70,7 +70,7 @@ sealed class SampleCommand : Command {
 
 ### Happy Path Test
 
-The following happy path test case creates a transaction with a single output state of type `SampleState` and command `SampleCommand.Issue`. According to our contract this transaction should pass our contract verification.
+The following happy path test case creates a transaction with a single output state of type `SampleState` and command `SampleCommand.Issue`. According to our contract, this transaction should pass our contract verification.
 
 {{< tabs >}}
 {{% tab name="Java" %}}
@@ -174,12 +174,12 @@ class SampleContract : Contract {
 ```
 
 {{< note >}}
-This is a basic example, for illustration purposes only and not production-ready code. The state and contract code is written in Kotlin.
+This is a basic example, for illustration purposes only, and not production-ready code. The state and contract code is written in Kotlin.
 {{< /note >}}
 
 ### Happy Path Test
 
-The following happy path test defines a class-level mock of the `DigestService` so that the happy path test cases pass without having to pass in the mock service to the assert call all the time.
+The following happy path test defines a class-level mock of the `DigestService` so that the happy path test cases pass without having to pass in the mock service to the assert call each time.
 
 First, create two mocks, one valid and one invalid:
 
