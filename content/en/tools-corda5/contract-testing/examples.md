@@ -153,7 +153,7 @@ fun `test sample contract issuance fails`(){
 
 ## With Service Injection
 
-This examples uses the same state as the [example with no service injection](#no-service-injection) but changes the contract to have an injectable service and an extra verification based on that service. In this example we check the default digest algorithm that the `DigestService` returns. The rest of the contract code remains the same:
+This example uses the same state as the [example with no service injection](#no-service-injection) but changes the contract to have an injectable service and an extra verification based on that service. In this example, we check the default digest algorithm that the `DigestService` returns. The rest of the contract code remains the same:
 
 ```kotlin
 class SampleContract : Contract {
