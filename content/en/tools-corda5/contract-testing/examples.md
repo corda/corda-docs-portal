@@ -174,7 +174,7 @@ class SampleContract : Contract {
 ```
 
 {{< note >}}
-This is a basic example, for illustration purposes only, and not production-ready code. The state and contract code is written in Kotlin.
+This is a basic example for illustration purposes only, and not production-ready code. The state and contract code is written in Kotlin.
 {{< /note >}}
 
 ### Happy Path Test
