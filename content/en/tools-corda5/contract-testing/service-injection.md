@@ -4,7 +4,7 @@ title: "Service Injection"
 menu:
   corda5-tools:
     weight: 3000
-    identifier: contract-testing-building
+    identifier: contract-testing-service-injection
     parent: contract-testing
 ---
 
