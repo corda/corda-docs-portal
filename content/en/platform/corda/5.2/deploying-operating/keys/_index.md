@@ -214,7 +214,8 @@ To rotate the master wrapping key, do the following:
    {{% /tab %}}
    {{< /tabs >}}
 
-   Corda will wrap any new managed wrapping keys with this new master wrapping key.
+   The system will take some time to propagate newly added master key across Corda. Corda will wrap any new managed wrapping keys with this new master wrapping key.
+   
 3. Rotate the old master key to the new default master key using the POST method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/post_wrappingkey_rotation__tenantid_):
    {{< tabs >}}
    {{% tab name="Bash"%}}
@@ -247,38 +248,35 @@ To rotate the master wrapping key, do the following:
 
 ### Rotating Managed Wrapping Keys
 
-The cluster and virtual node wrapping keys are managed by Corda and can be rotated using the POST method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/post_wrappingkey_rotation__tenantid_). Specify one of the following as the path parameter:
+Virtual node wrapping keys are managed by Corda and can be rotated using the POST method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/post_wrappingkey_rotation__tenantid_). Specify the following as the path parameter:
 
 * The short hash holding ID of the virtual node to rotate a virtual node wrapping key.
-* One of the following for the corresponding cluster-level service:
-  * `rest`
-  * `crypto`
 
-For example, to rotate the cluster REST wrapping key:
+For example, to rotate the Virtual Node wrapping key:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -k -u $REST_API_USER:$REST_API_PASSWORD -X POST "$REST_API_URL/wrappingkey/rotation/rest"
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X POST "$REST_API_URL/wrappingkey/rotation/{tenantid}"
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method POST -Uri "$REST_API_URL/wrappingkey/rotation/rest" 
+Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method POST -Uri "$REST_API_URL/wrappingkey/rotation/{tenantid}" 
 ```
 {{% /tab %}}
 {{< /tabs >}}
 
-You can use the the GET method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/get_wrappingkey_rotation__tenantid_) to check the status of the rotation. This returns the rotation status for all keys for the specified virtual node or cluster-level service.
+You can use the the GET method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/get_wrappingkey_rotation__tenantid_) to check the status of the rotation. This returns the rotation status for all keys for the specified virtual node.
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET "$REST_API_URL/wrappingkey/rotation/rest"
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET "$REST_API_URL/wrappingkey/rotation/{tenantid}"
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method GET -Uri "$REST_API_URL/wrappingkey/rotation/rest" 
+Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method GET -Uri "$REST_API_URL/wrappingkey/rotation/{tenantid}" 
 ```
 {{% /tab %}}
 {{< /tabs >}}
