@@ -214,7 +214,7 @@ To rotate the master wrapping key, do the following:
    {{% /tab %}}
    {{< /tabs >}}
 
-   The system will take some time to propagate newly added master key across Corda. Corda will wrap any new managed wrapping keys with this new master wrapping key.
+   Corda will take some time to propagate the newly added master key across the cluster. Corda will wrap any new managed wrapping keys with this new master wrapping key.
    
 3. Rotate the old master key to the new default master key using the POST method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/post_wrappingkey_rotation__tenantid_):
    {{< tabs >}}
@@ -248,11 +248,9 @@ To rotate the master wrapping key, do the following:
 
 ### Rotating Managed Wrapping Keys
 
-Virtual node wrapping keys are managed by Corda and can be rotated using the POST method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/post_wrappingkey_rotation__tenantid_). Specify the following as the path parameter:
+Virtual node wrapping keys are managed by Corda and can be rotated using the POST method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/post_wrappingkey_rotation__tenantid_). Specify the short hash holding ID of the virtual node as the path parameter. For example:
 
-* The short hash holding ID of the virtual node to rotate a virtual node wrapping key.
 
-For example, to rotate the Virtual Node wrapping key:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
