@@ -18,7 +18,7 @@ This example shows how to create a very simple state and a corresponding contrac
 * The output states are all of type `SampleState`.
 
 {{< note >}}
-This is a basic example, for illustration purposes only, and not production-ready code. The state and contract code is written in Kotlin.
+This is a basic example for illustration purposes only, and not production-ready code. The state and contract code is written in Kotlin.
 {{< /note >}}
 
 The following shows the example state code:
