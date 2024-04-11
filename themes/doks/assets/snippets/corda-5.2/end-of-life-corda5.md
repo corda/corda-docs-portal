@@ -18,7 +18,7 @@ table th:nth-of-type(5) {
 }
 </style>
 
-| **Version**   | **Date of Release** | **End of Maintenance**   | **End of Security**      | **End of Support**       |
-| ------------- | ------------------- | ------------------------ | ------------------------ | ------------------------ |
-| **Corda 5.1** | 11/23               | 04/24                    | 04/24                    | 04/24                    |
-| **Corda 5.2** | 04/24               | Date of next LTS release | Date of next LTS release | Date of next LTS release |
+| **Version**   | **Date of Release** | **End of Maintenance** | **End of Security** | **End of Support** |
+| ------------- | ------------------- | ---------------------- | ------------------- | ------------------ |
+| **Corda 5.1** | 11/23               | 04/24                  | 04/24               | 04/24              |
+| **Corda 5.2** | 04/24               | 04/26                  | 04/26               | 04/26              |
