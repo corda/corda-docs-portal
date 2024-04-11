@@ -29,20 +29,21 @@ The Corda platform documentation covers the following current versions of the Co
 
 {{< table >}}
 
-| Product                                     | Link to Specific Versions                                                             |
-| ------------------------------------------- | ------------------------------------------------------------------------------------- |
-| **Corda 5**                                 | [Corda 5.1]({{< relref "/en/platform/corda/5.1/_index.md" >}})                         |
-| **Corda 4 Enterprise**                      | [Corda Enterprise 4.11]({{< relref "/en/platform/corda/4.11/enterprise/_index.md" >}}) |
-|                                             | [Corda Enterprise 4.10]({{< relref "/en/platform/corda/4.10/enterprise/_index.md" >}}) |
-|                                             | [Corda Enterprise 4.9]({{< relref "/en/platform/corda/4.9/enterprise/_index.md" >}})   |
-|                                             | [Corda Enterprise 4.8]({{< relref "/en/platform/corda/4.8/enterprise/_index.md" >}})  |
+| Product                                     | Link to Specific Versions                                                                                    |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| **Corda 5**                                 | [Corda 5.2]({{< relref "/en/platform/corda/5.2/_index.md" >}})                                               |
+|                                             | [Corda 5.1]({{< relref "/en/platform/corda/5.1/_index.md" >}})                                               |
+| **Corda 4 Enterprise**                      | [Corda Enterprise 4.11]({{< relref "/en/platform/corda/4.11/enterprise/_index.md" >}})                       |
+|                                             | [Corda Enterprise 4.10]({{< relref "/en/platform/corda/4.10/enterprise/_index.md" >}})                       |
+|                                             | [Corda Enterprise 4.9]({{< relref "/en/platform/corda/4.9/enterprise/_index.md" >}})                         |
+|                                             | [Corda Enterprise 4.8]({{< relref "/en/platform/corda/4.8/enterprise/_index.md" >}})                         |
 | **Corda 4 Community Edition & Open Source** | [Corda Community Edition and Open Source 4.11]({{< relref "/en/platform/corda/4.11/community/_index.md" >}}) |
 |                                             | [Corda Community Edition and Open Source 4.10]({{< relref "/en/platform/corda/4.10/community/_index.md" >}}) |
 | **Corda Enterprise Network Manager (CENM)** | [CENM 1.6]({{< relref "/en/platform/corda/1.6/cenm/_index.md" >}})                                           |
-|                                             | [CENM 1.5]({{< relref "/en/platform/corda/1.5/cenm/_index.md" >}})                                          |
+|                                             | [CENM 1.5]({{< relref "/en/platform/corda/1.5/cenm/_index.md" >}})                                           |
 |                                             | [CENM 1.4]({{< relref "/en/platform/corda/1.4/cenm/_index.md" >}})                                           |
 |                                             | [CENM 1.3]({{< relref "/en/platform/corda/1.3/cenm/_index.md" >}})                                           |
-|                                             | [CENM 1.2]({{< relref "/en/platform/corda/1.2/cenm/_index.md" >}})                                         |
+|                                             | [CENM 1.2]({{< relref "/en/platform/corda/1.2/cenm/_index.md" >}})                                           |
 
 {{< /table >}}
 
