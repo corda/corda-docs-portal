@@ -31,7 +31,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h3 class="card-title">Get Started</h3>
-              <p>Learn <a href="/en/platform/corda/4.11/community/about-corda/corda-key-concepts.html" class="fw-semibold">Corda 4</a> or <a href="/en/platform/corda/{{< latest-c5-version >}}/key-concepts.html" class="fw-semibold">Corda 5</a> key concepts.</p>
+              <p>Learn <a href="/en/platform/corda/4.11/community/about-corda/corda-key-concepts.html" class="fw-semibold">Corda 4</a> or <a href="/en/platform/corda/{{ replace (index .Site.Params.corda5versions 0) "Corda " "" }}/key-concepts.html" class="fw-semibold">Corda 5</a> key concepts.</p>
             </div>
           </div>
         </div>
@@ -42,7 +42,7 @@
               <p>Everything that CorDapp Developers, Cluster Administrators, and Network Operators need to know about the next-generation of Corda.</p>
             </div>
             <div class="card-footer">
-              <a href="en/platform/corda/{{< latest-c5-version >}}.html" class="btn rounded stretched-link">Start Exploring</a>
+              <a href="en/platform/corda/{{ replace (index .Site.Params.corda5versions 0) "Corda " "" }}.html" class="btn rounded stretched-link">Start Exploring</a>
             </div>
           </div>
         </div>
