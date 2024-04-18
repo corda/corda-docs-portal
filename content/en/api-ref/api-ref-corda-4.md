@@ -3,6 +3,7 @@ date: '2021-04-24T00:00:00Z'
 menu:
   api-ref:
     weight: 1000
+    parent: api-ref-index
     identifier: api-ref-corda-4
 project: api-ref
 title: Corda 4 API references
