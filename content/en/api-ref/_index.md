@@ -4,10 +4,8 @@ description: "API reference documentation for all versions of Corda"
 section_menu: api-ref
 project: api-ref
 version: 'api-ref'
-title: API Reference
+title: API References
 ---
-
-# API References
 
 ## Corda 5
 
