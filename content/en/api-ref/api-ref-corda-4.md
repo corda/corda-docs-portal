@@ -2,14 +2,12 @@
 date: '2021-04-24T00:00:00Z'
 menu:
   api-ref:
-    name: Corda 4 API reference
     weight: 1000
+    parent: api-ref-index
     identifier: api-ref-corda-4
 project: api-ref
-title: Corda 4 API reference
+title: Corda 4 API references
 ---
-
-# Corda 4 API reference
 
 This page provides links to the API reference documentation for all API modules publicly exposed in the Corda 4 releases, including Corda Community and Open Source Edition 4.11 and 4.10, Corda Community 4.9, Corda Enterprise 4.5 to 4.10, and Corda Enterprise Network Manager (CENM) 1.0 to 1.5.
 
