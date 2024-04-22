@@ -616,7 +616,7 @@ stateManager:
     type: Database
     storageId: "state-manager"
 ```
-Each state type must define its own user, even if state types share a database instance. For example:
+Even if state types share a database instance, each state type must define its own user and these users must not be the same as the `config` users. For example:
 
 ```yaml
 workers:
