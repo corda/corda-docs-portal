@@ -1,3 +1,4 @@
+{{/* Displays a bulleted list of hyperlinks to any child page files, sorted by the weight variable */}}
 {{ $menu := .Page.Params.section_menu }}
 {{ $weight := printf "%s" ".weight" | printf "%s%s" $menu | printf "%s%s" ".Params.menu." | printf "%s" }}
 {{ $name := printf "%s" ".name" | printf "%s%s" $menu | printf "%s%s" "menu." | printf "%s" }}
