@@ -425,7 +425,7 @@ main > nav[aria-label="breadcrumb"] {
 
   @include media-breakpoint-up(md) {
     position: sticky;
-    top: 150.5px;
+    top: 150.5px; // If displaying a banner message (set in \themes\doks\layouts\partials\header\header.html), set to 150.5px. If no message, set to 120px. 
     background-color: var(--bs-body-bg);
     width: 100%;
     padding: 2px;

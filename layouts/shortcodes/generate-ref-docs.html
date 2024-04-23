@@ -1,5 +1,5 @@
-{{/*Initial read of descriptions from Corda JSON config files.*/}}
-{{/*Check that a URL to config was passed to the shortcode */}}
+{{/*Initial read of descriptions from Corda JSON config files. This shortcode is used to render the config field descriptions from the appropriate branch of the code repo */}}
+{{/*Check that a URL to Corda config was passed to the shortcode */}}
 {{ with $.Params.url }}
     {{ $json := getJSON $.Params.url }}
     <p>{{ $json.description }}</p>
