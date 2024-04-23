@@ -23,7 +23,7 @@ All dates refer to the end of the month indicated.
 
 ## Corda 5
 
-{{< snippet "corda-5.0/end-of-life-corda5.md" >}}
+{{< snippet "corda-5.2/end-of-life-corda5.md" >}}
 
 ## Corda 4
 
