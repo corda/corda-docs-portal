@@ -637,13 +637,13 @@ workers:
         username:
           valueFrom:
             secretKeyRef:
-              key: <POSTGRESQL_CRYPTO_STATEMANAGER_USERNAME_SECRET_KEY>
-              name: <POSTGRESQL_CRYPTO_STATEMANAGER_USERNAME_SECRET_NAME>
+              key: <POSTGRESQL_CRYPTO_KEY_ROTATION_STATEMANAGER_USERNAME_SECRET_KEY>
+              name: <POSTGRESQL_CRYPTO_KEY_ROTATION_STATEMANAGER_USERNAME_SECRET_NAME>
         password:
           valueFrom:
             secretKeyRef:
-              key: <POSTGRESQL_CRYPTO_STATEMANAGER_PASSWORD_SECRET_KEY>
-              name: <POSTGRESQL_CRYPTO_STATEMANAGER_PASSWORD_SECRET_NAME>
+              key: <POSTGRESQL_CRYPTO_KEY_ROTATION_STATEMANAGER_PASSWORD_SECRET_KEY>
+              name: <POSTGRESQL_CRYPTO_KEY_ROTATION_STATEMANAGER_PASSWORD_SECRET_NAME>
   flow:
     config:
       username:
@@ -661,13 +661,13 @@ workers:
         username:
           valueFrom:
             secretKeyRef:
-              key: <POSTGRESQL_FLOW_STATEMANAGER_USERNAME_SECRET_KEY>
-              name: <POSTGRESQL_FLOW_STATEMANAGER_USERNAME_SECRET_NAME>
+              key: <POSTGRESQL_FLOW_CHECKPOINT_STATEMANAGER_USERNAME_SECRET_KEY>
+              name: <POSTGRESQL_FLOW_CHECKPOINT_STATEMANAGER_USERNAME_SECRET_NAME>
         password:
           valueFrom:
             secretKeyRef:
-              key: <POSTGRESQL_FLOW_STATEMANAGER_PASSWORD_SECRET_KEY>
-              name: <POSTGRESQL_FLOW_STATEMANAGER_PASSWORD_SECRET_NAME>
+              key: <POSTGRESQL_FLOW_CHECKPOINT_STATEMANAGER_PASSWORD_SECRET_KEY>
+              name: <POSTGRESQL_FLOW_CHECKPOINT_STATEMANAGER_PASSWORD_SECRET_NAME>
   flowMapper:
     config:
       username:
