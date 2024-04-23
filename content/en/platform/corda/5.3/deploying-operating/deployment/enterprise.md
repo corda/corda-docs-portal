@@ -1,11 +1,11 @@
 ---
-description: "Learn how to migrate from the standard version of Corda 5.2 to Corda 5.2 Enterprise."
+description: "Learn how to migrate from the standard version of Corda 5.3 to Corda 5.3 Enterprise."
 date: '2023-05-11'
 title: "Migrating to Corda Enterprise"
 menu:
-  corda52:
-    parent: corda52-cluster-deploy
-    identifier: corda52-cluster-enterprise
+  corda53:
+    parent: corda53-cluster-deploy
+    identifier: corda53-cluster-enterprise
     weight: 3000
 ---
 
@@ -35,7 +35,7 @@ The migration process results in downtime for the Corda cluster.
      --set bootstrap.db.enabled=false \
      --set bootstrap.kafka.enabled=false \
      --set bootstrap.rbac.enabled=false
-   ```  
+   ```
 
 If the original Corda installation used automatic bootstrapping to generate the salt and passphrase, the installation of Corda Enterprise must also be configured with the location of the generated values in the {{< tooltip >}}Kubernetes{{< /tooltip >}} secret `$HELM_RELEASE_NAME}-config`. For example:
 ```shell

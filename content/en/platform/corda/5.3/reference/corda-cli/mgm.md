@@ -1,11 +1,11 @@
 ---
-description: "List of mgm commands for the Corda 5.2 CLI. You can use these commands to execute membership operations for static networks used for testing purposes."  
+description: "List of mgm commands for the Corda 5.3 CLI. You can use these commands to execute membership operations for static networks used for testing purposes."
 date: '2022-12-20'
 menu:
-  corda52:
-    identifier: corda52-cordacli-mgm
+  corda53:
+    identifier: corda53-cordacli-mgm
     weight: 3000
-    parent: corda52-cli-reference
+    parent: corda53-cli-reference
 title: "mgm"
 ---
 # mgm

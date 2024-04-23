@@ -2,9 +2,9 @@
 date: '2023-06-21'
 title: "crypto"
 menu:
-  corda52:
-    identifier: corda52-api-crypto
-    parent: corda52-api
+  corda53:
+    identifier: corda53-api-crypto
+    parent: corda53-api
     weight: 5000
 ---
 # net.corda.v5.crypto

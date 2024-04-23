@@ -2,9 +2,9 @@
 date: '2023-06-20'
 title: "ledger"
 menu:
-  corda52:
-    identifier: corda52-api-ledger
-    parent: corda52-api
+  corda53:
+    identifier: corda53-api-ledger
+    parent: corda53-api
     weight: 4000
 ---
 # net.corda.v5.ledger

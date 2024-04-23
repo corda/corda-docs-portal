@@ -3,9 +3,9 @@ description: "Review the metrics generated for the database worker. The database
 date: '2023-06-14'
 title: "Database Worker"
 menu:
-  corda52:
-    parent: corda52-cluster-metrics
-    identifier: corda52-cluster-db-worker
+  corda53:
+    parent: corda53-cluster-metrics
+    identifier: corda53-cluster-db-worker
     weight: 300
 ---
 

@@ -3,9 +3,9 @@ description: "Learn how to include the Corda 5 Advanced UTXO Ledger Extensions l
 date: '2023-07-04'
 title: "Including the UTXO Extensions Library"
 menu:
-  corda52:
-    identifier: corda52-utxo-ledger-getting-utxo-library
-    parent: corda52-utxo-advanced-ledger-extensions
+  corda53:
+    identifier: corda53-utxo-ledger-getting-utxo-library
+    parent: corda53-utxo-advanced-ledger-extensions
     weight: 1000
 ---
 

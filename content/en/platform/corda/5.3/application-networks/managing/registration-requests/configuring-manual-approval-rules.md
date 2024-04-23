@@ -3,9 +3,9 @@ description: "Learn how the Network Operator can configure the MGM to require th
 date: '2023-04-07'
 title: "Configuring Manual Approval Rules"
 menu:
-  corda52:
-    identifier: corda52-manual-approval-rules
-    parent: corda52-networks-reg-requests
+  corda53:
+    identifier: corda53-manual-approval-rules
+    parent: corda53-networks-reg-requests
     weight: 1000
 ---
 # Configuring Manual Approval Rules

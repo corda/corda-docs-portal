@@ -3,9 +3,9 @@ description: "Review the metrics generated for the Corda backing store. The back
 date: '2023-06-14'
 title: "Backing Store"
 menu:
-  corda52:
-    parent: corda52-cluster-metrics
-    identifier: corda52-cluster-backing-store
+  corda53:
+    parent: corda53-cluster-metrics
+    identifier: corda53-cluster-backing-store
     weight: 100
 ---
 

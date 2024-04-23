@@ -3,9 +3,9 @@ description: "Learn the fundamentals of the Corda 5 CorDapp ledger."
 title: "Ledger"
 date: 2023-06-08
 menu:
-  corda52:
-    identifier: corda52-fundamentals-ledger
-    parent: corda52-develop
+  corda53:
+    identifier: corda53-fundamentals-ledger
+    parent: corda53-develop
     weight: 4750
 ---
 

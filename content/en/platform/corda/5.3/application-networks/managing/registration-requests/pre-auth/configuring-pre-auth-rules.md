@@ -3,9 +3,9 @@ description: ""
 date: '2023-04-07'
 title: "Configuring Pre-Authentication Rules"
 menu:
-  corda52:
-    identifier: corda52-pre-auth-rules
-    parent: corda52-networks-pre-auth
+  corda53:
+    identifier: corda53-pre-auth-rules
+    parent: corda53-networks-pre-auth
     weight: 2000
 ---
 # Configuring Pre-Authentication Rules

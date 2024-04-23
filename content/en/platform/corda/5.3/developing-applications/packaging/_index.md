@@ -3,9 +3,9 @@ description: "Understand how to package a CorDapps."
 date: '2023-02-23'
 title: "Packaging"
 menu:
-  corda52:
-    identifier: corda52-develop-packaging
-    parent: corda52-develop
+  corda53:
+    identifier: corda53-develop-packaging
+    parent: corda53-develop
     weight: 6050
 ---
 # Packaging

@@ -3,9 +3,9 @@ description: "Learn how to upgrade the member Corda Package Installers (CPIs) of
 date: '2023-11-22'
 title: "Upgrading an Application Network"
 menu:
-  corda52:
-    identifier: corda52-networks-upgrade
-    parent: corda52-networks
+  corda53:
+    identifier: corda53-networks-upgrade
+    parent: corda53-networks
     weight: 6000
 ---
 

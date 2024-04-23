@@ -3,9 +3,9 @@ description: "Learn how to sign Corda Package (CPK), Corda Package Bundle (CPB),
 date: '2023-08-10'
 title: "Signing Packages Using Corda CLI"
 menu:
-  corda52:
-    parent: corda52-develop-packaging-code-signing
-    identifier: corda52-develop-packaging-code-signing-signing-cli
+  corda53:
+    parent: corda53-develop-packaging-code-signing
+    identifier: corda53-develop-packaging-code-signing-signing-cli
     weight: 2000
 ---
 

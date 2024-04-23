@@ -3,9 +3,9 @@ date: '2023-11-01'
 title: "Resetting the Corda Runtime Gradle Plugin"
 description: Learn to stop and clean the Corda runtime Gradle plugin.
 menu:
-  corda52:
-    parent: corda52-develop-get-started
-    identifier: corda52-reset
+  corda53:
+    parent: corda53-develop-get-started
+    identifier: corda53-reset
     weight: 8000
 
 ---
@@ -44,7 +44,7 @@ To reset the Corda runtime Gradle plugin:
    ```shell
    docker compose -f config/combined-worker-compose.yaml -p corda-cluster down
    ```
-   
+
 1. Run the Gradle clean task:
    ```shell
    <project-root-dir>/gradlew clean

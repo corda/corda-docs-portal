@@ -2,9 +2,9 @@
 date: '2022-09-21T14:27:00+01:00'
 title: "Enum Evolution"
 menu:
-  corda52:
-    identifier: corda52-api-serialisation-enum-evolution
-    parent: corda52-api-serialisation
+  corda53:
+    identifier: corda53-api-serialisation-enum-evolution
+    parent: corda53-api-serialisation
     weight: 8000
 ---
 # Enum Evolution

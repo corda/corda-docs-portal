@@ -3,9 +3,9 @@ description: "Learn how to optionally configure a network to use mutual TLS or  
 date: '2023-04-07'
 title: "Optional Configurations"
 menu:
-  corda52:
-    identifier: corda52-networks-optional
-    parent: corda52-networks-create
+  corda53:
+    identifier: corda53-networks-optional
+    parent: corda53-networks-create
     weight: 4000
 ---
 

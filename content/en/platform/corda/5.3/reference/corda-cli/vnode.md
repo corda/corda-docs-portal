@@ -1,11 +1,11 @@
 ---
-description: "List of vnode commands for the Corda 5.2 CLI. You can use these commands to reset or upgrade virtual nodes."  
+description: "List of vnode commands for the Corda 5.3 CLI. You can use these commands to reset or upgrade virtual nodes."
 date: '2023-11-07'
 menu:
-  corda52:
-    identifier: corda52-cordacli-vnode
+  corda53:
+    identifier: corda53-cordacli-vnode
     weight: 6000
-    parent: corda52-cli-reference
+    parent: corda53-cli-reference
 title: "vnode"
 ---
 # vnode
@@ -72,4 +72,4 @@ corda-cli.cmd vnode platform-migration --jdbc-url=jdbc:postgresql://host.docker.
 {{% /tab %}}
 {{< /tabs >}}
 
-For more information about upgrading from Corda 5.1 to Corda 5.2, see [Upgrading from 5.1]({{< relref "../../deploying-operating/deployment/upgrading/_index.md" >}}).
+For more information about upgrading from Corda 5.2 to Corda 5.3, see [Upgrading from 5.2]({{< relref "../../deploying-operating/deployment/upgrading/_index.md" >}}).

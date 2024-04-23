@@ -3,9 +3,9 @@ description: "Learn how to write states as part of your first basic Corda 5 CorD
 date: '2023-05-03'
 title: "Write States"
 menu:
-  corda52:
-    identifier: corda52-develop-first-cordapp-state
-    parent: corda52-develop-first-cordapp
+  corda53:
+    identifier: corda53-develop-first-cordapp-state
+    parent: corda53-develop-first-cordapp
     weight: 2000
 ---
 

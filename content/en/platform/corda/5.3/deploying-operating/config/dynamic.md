@@ -3,9 +3,9 @@ description: "Learn how to configure Corda by sending the values as JSON to the 
 date: '2023-05-16'
 title: "Dynamic Configuration"
 menu:
-  corda52:
-    identifier: corda52-cluster-dynamic
-    parent: corda52-cluster-config
+  corda53:
+    identifier: corda53-cluster-dynamic
+    parent: corda53-cluster-config
     weight: 1000
 ---
 

@@ -2,9 +2,9 @@
 date: '2022-09-06'
 title: "membership"
 menu:
-  corda52:
-    identifier: corda52-api-membership
-    parent: corda52-api
+  corda53:
+    identifier: corda53-api-membership
+    parent: corda53-api
     weight: 6000
 ---
 # net.corda.v5.membership

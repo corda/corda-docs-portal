@@ -3,9 +3,9 @@ description:  "Learn how to configure your Corda Helm chart for a tracing server
 date: '2023-05-10'
 title: "Tracing Framework"
 menu:
-  corda52:
-    parent: corda52-cluster-observability
-    identifier: corda52-cluster-tracing
+  corda53:
+    parent: corda53-cluster-observability
+    identifier: corda53-cluster-tracing
     weight: 4000
 ---
 

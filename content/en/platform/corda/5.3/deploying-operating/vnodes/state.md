@@ -3,9 +3,9 @@ description: "Learn how to change the state of a virtual node using the REST API
 date: '2023-06-12'
 title: "Setting the State of Virtual Nodes"
 menu:
-  corda52:
-    identifier: corda52-cluster-nodes-state
-    parent: corda52-cluster-nodes
+  corda53:
+    identifier: corda53-cluster-nodes-state
+    parent: corda53-cluster-nodes
     weight: 2000
 ---
 

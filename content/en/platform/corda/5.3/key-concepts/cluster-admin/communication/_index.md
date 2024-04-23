@@ -3,9 +3,9 @@ description: "Learn about communication within a Corda 5 cluster and from outsid
 title: "Cluster Communications"
 date: 2023-07-24
 menu:
-  corda52:
-    identifier: corda52-cluster-admin-communications
-    parent: corda52-key-concepts-cluster-admin
+  corda53:
+    identifier: corda53-cluster-admin-communications
+    parent: corda53-key-concepts-cluster-admin
     weight: 4000
 ---
 

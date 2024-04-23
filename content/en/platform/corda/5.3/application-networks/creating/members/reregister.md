@@ -3,9 +3,9 @@ description: "Learn how to re-register a member in order to update its member-pr
 date: '2023-10-04'
 title: "Re-register a Member"
 menu:
-  corda52:
-    identifier: corda52-networks-members-reregister
-    parent: corda52-networks-members
+  corda53:
+    identifier: corda53-networks-members-reregister
+    parent: corda53-networks-members
     weight: 6000
 ---
 

@@ -3,9 +3,9 @@ description: "Review the fields of the corda.p2p.gateway Corda configuration sec
 date: '2023-03-08'
 title: "corda.p2p.gateway"
 menu:
-  corda52:
-    parent: corda52-config-fields
-    identifier: corda52-config-p2pgateway
+  corda53:
+    parent: corda53-config-fields
+    identifier: corda53-config-p2pgateway
     weight: 7000
 ---
 # corda.p2p.gateway

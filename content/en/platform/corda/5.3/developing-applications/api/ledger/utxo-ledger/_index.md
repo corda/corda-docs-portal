@@ -2,9 +2,9 @@
 date: '2023-06-20'
 title: "ledger.utxo"
 menu:
-  corda52:
-    identifier: corda52-api-ledger-utxo
-    parent: corda52-api-ledger
+  corda53:
+    identifier: corda53-api-ledger-utxo
+    parent: corda53-api-ledger
     weight: 3000
 ---
 

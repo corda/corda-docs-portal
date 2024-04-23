@@ -3,9 +3,9 @@ description: "Learn how to configure a dynamic network to use session certificat
 date: '2023-04-07'
 title: "Session Certificates"
 menu:
-  corda52:
-    identifier: corda52-network-session-certificates
-    parent: corda52-networks-optional
+  corda53:
+    identifier: corda53-network-session-certificates
+    parent: corda53-networks-optional
     weight: 2000
 ---
 

@@ -2,9 +2,9 @@
 date: '2023-02-10'
 title: "crypto.extensions"
 menu:
-  corda52:
-    identifier: corda52-api-crypto-extensions
-    parent: corda52-api
+  corda53:
+    identifier: corda53-api-crypto-extensions
+    parent: corda53-api
     weight: 5050
 ---
 # net.corda.v5.crypto.extensions

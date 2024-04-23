@@ -3,9 +3,9 @@ date: '2023-06-21'
 title: "Overview"
 description: Learn about the contents of the CorDapp template.
 menu:
-  corda52:
-    parent: corda52-develop-get-started
-    identifier: corda52-runtime-plugin-overview
+  corda53:
+    parent: corda53-develop-get-started
+    identifier: corda53-runtime-plugin-overview
     weight: 2050
 
 ---

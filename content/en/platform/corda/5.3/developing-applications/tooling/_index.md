@@ -3,9 +3,9 @@ description: "Review the tools required by CorDapp Developers."
 date: '2023-02-23'
 title: "Application Developer Tooling"
 menu:
-  corda52:
-    identifier: corda52-develop-tooling
-    parent: corda52-develop
+  corda53:
+    identifier: corda53-develop-tooling
+    parent: corda53-develop
     weight: 1000
 ---
 <style>

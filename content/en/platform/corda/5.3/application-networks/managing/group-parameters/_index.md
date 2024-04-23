@@ -3,9 +3,9 @@ description: "Learn how the Network Operator can update the current group parame
 date: '2023-10-05'
 title: "Updating Group Parameters"
 menu:
-  corda52:
-    identifier: corda52-networks-update-group-params
-    parent: corda52-networks-manage
+  corda53:
+    identifier: corda53-networks-update-group-params
+    parent: corda53-networks-manage
     weight: 4000
 ---
 # Updating Group Parameters

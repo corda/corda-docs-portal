@@ -3,9 +3,9 @@ description: Learn about the R3 notary protocols.
 date: '2024-02-27'
 title: "Notary Protocols"
 menu:
-  corda52:
-    identifier: corda52-develop-notary-protocols
-    parent: corda52-develop-notaries
+  corda53:
+    identifier: corda53-develop-notary-protocols
+    parent: corda53-develop-notaries
     weight: 1000
 ---
 # Notary Protocols

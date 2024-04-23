@@ -3,9 +3,9 @@ date: '2023-11-01'
 title: "UTXO Ledger Example CorDapp"
 description: Discover the UTXO chat example application in the CorDapp template.
 menu:
-  corda52:
-    parent: "corda52-develop-get-started"
-    identifier: corda52-utxo-example
+  corda53:
+    parent: "corda53-develop-get-started"
+    identifier: corda53-utxo-example
     weight: 7000
 
 ---

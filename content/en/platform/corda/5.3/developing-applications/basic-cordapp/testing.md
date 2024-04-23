@@ -3,9 +3,9 @@ description: "Learn how to execute the flows and test your first basic Corda 5 C
 date: '2023-05-03'
 title: "Test Your CorDapp"
 menu:
-  corda52:
-    identifier: corda52-develop-first-cordapp-testing
-    parent: corda52-develop-first-cordapp
+  corda53:
+    identifier: corda53-develop-first-cordapp-testing
+    parent: corda53-develop-first-cordapp
     weight: 5000
 ---
 

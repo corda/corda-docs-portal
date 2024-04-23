@@ -3,9 +3,9 @@ description: "Discover the benefits of the Corda 5 Advanced UTXO Ledger Extensio
 date: '2023-06-01'
 title: "UTXO Advanced Ledger Extensions Library"
 menu:
-  corda52:
-    identifier: corda52-utxo-advanced-ledger-extensions
-    parent: corda52-fundamentals-ledger
+  corda53:
+    identifier: corda53-utxo-advanced-ledger-extensions
+    parent: corda53-fundamentals-ledger
     weight: 8000
 ---
 

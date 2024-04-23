@@ -3,9 +3,9 @@ description: "Learn how to determine the health of your Corda cluster using Kube
 date: '2023-02-23'
 title: "Observability"
 menu:
-  corda52:
-    identifier: corda52-cluster-observability
-    parent: corda52-cluster
+  corda53:
+    identifier: corda53-cluster-observability
+    parent: corda53-cluster
     weight: 6000
 ---
 # Observability

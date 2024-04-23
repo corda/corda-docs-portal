@@ -3,9 +3,9 @@ description: "Plan your application network (business network) by considering cl
 date: '2023-04-07'
 title: "Planning Application Networks"
 menu:
-  corda52:
-    identifier: corda52-networks-plan
-    parent: corda52-networks
+  corda53:
+    identifier: corda53-networks-plan
+    parent: corda53-networks
     weight: 1000
 ---
 # Planning Application Networks

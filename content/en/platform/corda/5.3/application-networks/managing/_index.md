@@ -3,9 +3,9 @@ description: "Learn how to manage application-network member registrations and u
 date: '2023-04-07'
 title: "Managing Members"
 menu:
-  corda52:
-    identifier: corda52-networks-manage
-    parent: corda52-networks
+  corda53:
+    identifier: corda53-networks-manage
+    parent: corda53-networks
     weight: 4000
 ---
 # Managing Members

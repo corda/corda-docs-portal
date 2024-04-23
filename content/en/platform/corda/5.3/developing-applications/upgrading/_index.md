@@ -3,9 +3,9 @@ description: "Learn how to create a new version of a Corda-deployed CorDapp to u
 date: '2023-05-18'
 title: "Creating a New Version of a CorDapp"
 menu:
-  corda52:
-    identifier: corda52-upgrading
-    parent: corda52-develop
+  corda53:
+    identifier: corda53-upgrading
+    parent: corda53-develop
     weight: 9000
 ---
 

@@ -3,9 +3,9 @@ description: "Learn how to configure the communication properties for the a memb
 date: '2023-04-13'
 title: "Configure Communication Properties for the Member"
 menu:
-  corda52:
-    identifier: corda52-networks-members-node-config
-    parent: corda52-networks-members
+  corda53:
+    identifier: corda53-networks-members-node-config
+    parent: corda53-networks-members
     weight: 4000
     name: "Configure Communication Properties"
 ---
@@ -17,7 +17,7 @@ You must configure the virtual node as a network participant with the properties
 To configure the member virtual node, run the following command, setting these properties:
 
 * `p2pTlsCertificateChainAlias` — the alias used when importing the {{< tooltip >}}TLS{{< /tooltip >}} certificate.
-* `sessionKeysAndCertificates` — contains a list of objects as you can specify multiple {{< tooltip >}}session initiation keys{{< /tooltip >}} and certificates. Each object contains the fields *[sessionKeyId]({{< relref "./key-pairs.md#generate-a-session-initiation-key-pair" >}})*, *sessionCertificateChainAlias* and *preferred*. One object in the list must have the *preferred* Boolean field set to `true`. The list cannot be empty. 
+* `sessionKeysAndCertificates` — contains a list of objects as you can specify multiple {{< tooltip >}}session initiation keys{{< /tooltip >}} and certificates. Each object contains the fields *[sessionKeyId]({{< relref "./key-pairs.md#generate-a-session-initiation-key-pair" >}})*, *sessionCertificateChainAlias* and *preferred*. One object in the list must have the *preferred* Boolean field set to `true`. The list cannot be empty.
 * `useClusterLevelTlsCertificateAndKey` — `true` if the TLS certificate and key are cluster-level certificates and keys.
 
 {{< tabs >}}

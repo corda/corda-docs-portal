@@ -3,9 +3,9 @@ description: "Learn how to deploy Corda 5."
 date: '2023-05-11'
 title: "Deploying"
 menu:
-  corda52:
-    parent: corda52-cluster-deploy
-    identifier: corda52-cluster-deploying
+  corda53:
+    parent: corda53-cluster-deploy
+    identifier: corda53-cluster-deploying
     weight: 2000
 ---
 # Deploying

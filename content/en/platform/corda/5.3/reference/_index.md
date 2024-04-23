@@ -1,14 +1,14 @@
 ---
 cascade:
   project: corda
-  version: 'Corda 5.2'
-  section_menu: corda52
-description: "Reference material for Corda 5.2."
+  version: 'Corda 5.3'
+  section_menu: corda53
+description: "Reference material for Corda 5.3."
 title: "References"
 date: 2023-04-24
 menu:
-  corda52:
-    identifier: corda52-references
+  corda53:
+    identifier: corda53-references
     weight: 6000
 ---
 # References

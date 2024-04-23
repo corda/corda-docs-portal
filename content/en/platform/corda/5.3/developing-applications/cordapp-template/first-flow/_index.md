@@ -3,9 +3,9 @@ date: '2023-11-01'
 title: "Your First Flow"
 description: Learn how to write flows using the CorDapp template.
 menu:
-  corda52:
-    parent: corda52-develop-get-started
-    identifier: corda52-flow
+  corda53:
+    parent: corda53-develop-get-started
+    identifier: corda53-flow
     weight: 5000
 
 ---

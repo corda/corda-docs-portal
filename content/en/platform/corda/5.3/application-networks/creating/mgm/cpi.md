@@ -3,9 +3,9 @@ description: "Learn how to build an MGM CPI and upload it to your network."
 date: '2023-04-07'
 title: "Build the MGM CPI"
 menu:
-  corda52:
-    parent: corda52-networks-mgm
-    identifier: corda52-networks-mgm-cpi
+  corda53:
+    parent: corda53-networks-mgm
+    identifier: corda53-networks-mgm-cpi
     weight: 1000
 ---
 

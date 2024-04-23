@@ -3,9 +3,9 @@ description: "Learn how Cluster Administrators configure a Corda Enterprise clus
 date: '2023-06-28'
 title: "External Messaging Administration"
 menu:
-  corda52:
-    identifier: corda52-cluster-external-messaging
-    parent: corda52-cluster
+  corda53:
+    identifier: corda53-cluster-external-messaging
+    parent: corda53-cluster
     weight: 10000
 ---
 

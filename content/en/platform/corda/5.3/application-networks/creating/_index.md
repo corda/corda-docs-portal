@@ -3,9 +3,9 @@ description: "Learn how to create an application network, that includes a a runn
 date: '2023-04-07'
 title: "Creating Application Networks"
 menu:
-  corda52:
-    identifier: corda52-networks-create
-    parent: corda52-networks
+  corda53:
+    identifier: corda53-networks-create
+    parent: corda53-networks
     weight: 3000
 ---
 # Creating Application Networks

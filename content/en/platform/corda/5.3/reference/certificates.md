@@ -2,9 +2,9 @@
 title: "Corda Keys and Certificates"
 date: '2023-11-28'
 menu:
-  corda52:
-    identifier: corda52-certificates
-    parent: corda52-references
+  corda53:
+    identifier: corda53-certificates
+    parent: corda53-references
     weight: 4000
 ---
 

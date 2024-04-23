@@ -3,9 +3,9 @@ description: "Learn how to set any string configuration value as 'secret'."
 title: "Configuration Secrets"
 date: '2023-05-16'
 menu:
-  corda52:
-    identifier: corda52-cluster-secrets
-    parent: corda52-cluster-config
+  corda53:
+    identifier: corda53-cluster-secrets
+    parent: corda53-cluster-config
     weight: 3000
 ---
 

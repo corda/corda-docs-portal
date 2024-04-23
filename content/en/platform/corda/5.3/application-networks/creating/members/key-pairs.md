@@ -3,9 +3,9 @@ description: "Learn how to configure key pairs and certificates for a member."
 date: '2023-04-13'
 title: "Configure Key Pairs and Certificates for the Member"
 menu:
-  corda52:
-    identifier: corda52-networks-members-key-pairs
-    parent: corda52-networks-members
+  corda53:
+    identifier: corda53-networks-members-key-pairs
+    parent: corda53-networks-members
     weight: 3000
     name: "Configure Key Pairs and Certificates"
 ---
@@ -173,7 +173,7 @@ If using mutual {{< tooltip >}}TLS{{< /tooltip >}}, you must add the certificate
    {{< /tabs >}}
 
    You can optionally omit the root certificate. If revocation is enabled and the root certificate does not have a CRL or OSCP endpoint, you must omit the root certificate.
-   
+
    {{< note >}}
    If you upload a certificate chain consisting of more than one certificate, ensure that `-----END CERTIFICATE-----` and `-----BEGIN CERTIFICATE-----` from the next certificate are separated by a new line with no empty spaces in between.
    {{< /note >}}

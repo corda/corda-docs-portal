@@ -3,9 +3,9 @@ description: "Verify the versions of third-party software that Corda 5.2 support
 title: "Platform Support"
 date: 2023-08-17
 menu:
-  corda52:
-    parent: corda52-release-notes
-    identifier: corda52-release-notes-support
+  corda53:
+    parent: corda53-release-notes
+    identifier: corda53-release-notes-support
     weight: 900
 ---
 

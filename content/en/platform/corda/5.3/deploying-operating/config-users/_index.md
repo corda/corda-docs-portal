@@ -3,9 +3,9 @@ description: "Learn how to manage roles and permissions for Corda users."
 date: '2023-02-23'
 title: "Configuring Users"
 menu:
-  corda52:
-    identifier: corda52-cluster-users
-    parent: corda52-cluster
+  corda53:
+    identifier: corda53-cluster-users
+    parent: corda53-cluster
     weight: 4000
 ---
 # Configuring Users

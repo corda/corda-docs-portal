@@ -3,9 +3,9 @@ description: "Review the metrics generated for the messaging patterns library. T
 date: '2023-06-14'
 title: "Messaging"
 menu:
-  corda52:
-    parent: corda52-cluster-metrics
-    identifier: corda52-cluster-messaging
+  corda53:
+    parent: corda53-cluster-metrics
+    identifier: corda53-cluster-messaging
     weight: 1200
 ---
 

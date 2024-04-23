@@ -3,9 +3,9 @@ description: "Review the metrics generated for the gateway worker. The gateway w
 date: '2023-08-10'
 title: "Gateway Worker"
 menu:
-  corda52:
-    parent: corda52-cluster-metrics
-    identifier: corda52-cluster-gateway-worker
+  corda53:
+    parent: corda53-cluster-metrics
+    identifier: corda53-cluster-gateway-worker
     weight: 700
 ---
 

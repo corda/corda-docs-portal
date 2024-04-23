@@ -3,9 +3,9 @@ description: "Learn how to roll back the Corda 5.1 to Corda 5.2 upgrade process 
 date: '2023-11-09'
 title: "Rolling Back"
 menu:
-  corda52:
-    parent: corda52-cluster-upgrade
-    identifier: corda52-cluster-rollback
+  corda53:
+    parent: corda53-cluster-upgrade
+    identifier: corda53-cluster-rollback
     weight: 1000
 ---
 
@@ -34,4 +34,3 @@ To restart the Corda 5.0 workers, you can do one of the following:
   --values values.yaml \
   --wait
    ```
-   

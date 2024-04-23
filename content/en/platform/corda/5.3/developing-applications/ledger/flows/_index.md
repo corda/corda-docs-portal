@@ -3,9 +3,9 @@ description: "Learn the fundamentals of Corda 5 flows."
 title: "Flows"
 date: 2023-06-08
 menu:
-  corda52:
-    identifier: corda52-fundamentals-ledger-flows
-    parent: corda52-fundamentals-ledger
+  corda53:
+    identifier: corda53-fundamentals-ledger-flows
+    parent: corda53-fundamentals-ledger
     weight: 4000
 ---
 

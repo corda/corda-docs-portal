@@ -3,9 +3,9 @@ description: "Review modules of the Corda 5 Advanced UTXO Ledger Extensions libr
 date: '2023-06-01'
 title: "Ledger Extensions API Reference"
 menu:
-  corda52:
-    identifier: corda52-utxo-ledger-extensions-api-reference
-    parent: corda52-utxo-advanced-ledger-extensions
+  corda53:
+    identifier: corda53-utxo-ledger-extensions-api-reference
+    parent: corda53-utxo-advanced-ledger-extensions
     weight: 4000
 ---
 

@@ -3,9 +3,9 @@ description: "Learn how to disable automatic setup processes and manually config
 date: '2023-05-16'
 title: "Manual Bootstrapping"
 menu:
-  corda52:
-    parent: corda52-cluster-deploying
-    identifier: corda52-cluster-bootstrapping
+  corda53:
+    parent: corda53-cluster-deploying
+    identifier: corda53-cluster-bootstrapping
     weight: 2000
 ---
 # Manual Bootstrapping

@@ -3,9 +3,9 @@ description: "Learn how to register a member on a network."
 date: '2023-04-13'
 title: "Register the Member"
 menu:
-  corda52:
-    identifier: corda52-networks-members-register
-    parent: corda52-networks-members
+  corda53:
+    identifier: corda53-networks-members-register
+    parent: corda53-networks-members
     weight: 5000
 ---
 
@@ -62,7 +62,7 @@ The registration context of the member's request to join the network can specify
 }
 ```
 
-These properties will be included in the member's `MemberInfo`. 
+These properties will be included in the member's `MemberInfo`.
 
 {{< note >}}
 Custom properties have a character limit of 128 for keys and 800 for values. A maximum of 100 key-value pairs can be defined in a registration context.

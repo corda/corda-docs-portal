@@ -3,9 +3,9 @@ description: "Learn how to onboard members to a network."
 date: '2023-04-13'
 title: "Onboarding Members"
 menu:
-  corda52:
-    identifier: corda52-networks-members
-    parent: corda52-networks-create
+  corda53:
+    identifier: corda53-networks-members
+    parent: corda53-networks-create
     weight: 2000
 ---
 

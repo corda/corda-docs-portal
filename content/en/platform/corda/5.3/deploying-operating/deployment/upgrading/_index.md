@@ -1,11 +1,11 @@
 ---
-description: "Learn how to upgrade your cluster from Corda 5.1 to Corda 5.2."
+description: "Learn how to upgrade your cluster from Corda 5.2 to Corda 5.3."
 date: '2023-11-02'
 title: "Upgrading from 5.1"
 menu:
-  corda52:
-    parent: corda52-cluster-deploy
-    identifier: corda52-cluster-upgrade
+  corda53:
+    parent: corda53-cluster-deploy
+    identifier: corda53-cluster-upgrade
     weight: 4000
 ---
 # Upgrading from 5.1
@@ -115,7 +115,7 @@ To migrate the cluster database schemas, do the following:
    ```
 
 3. Grant the necessary permissions:
-   * `cluster` user - set up by the Helm chart, in Corda 5.1 from the property `db.cluster.username.value`. `corda` in this example. In Corda 5.2 this property does not exist and is set elsewhere in the config. More information about this is provided later in this document.
+   * `cluster` user - set up by the Helm chart, in Corda 5.1 from the property `db.cluster.username.value`. `corda` in this example. In Corda 5.3 this property does not exist and is set elsewhere in the config. More information about this is provided later in this document.
    * `rbac` user - set up by the Helm chart from the property `db.rbac.username.value`. `rbac_user` in this example.
    * `crypto` user - set up by the Helm chart from the property `db.crypto.username.value`. `crypto_user` this example.
 
@@ -153,13 +153,13 @@ To migrate the state manager database schemas, do the following:
    psql -h localhost -p 5432 -f ./sql_updates/statemanager.sql -d cordacluster -U postgres
    ```
 
-3. Grant the necessary permissions. The database role username for the state manager in Corda 5.2 is the property specified by `workers.<worker_type>.stateManager.db.username` in the helm chart. However, if you set a value, Corda uses the `db.cluster.username.value` value is used. This is the same behavior as Corda 5.1.
+3. Grant the necessary permissions. The database role username for the state manager in Corda 5.3 is the property specified by `workers.<worker_type>.stateManager.db.username` in the helm chart. However, if you set a value, Corda uses the `db.cluster.username.value` value is used. This is the same behavior as Corda 5.1.
 
    For example:
    ```shell
    psql -h localhost -c "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA config TO corda" -p 5432 -d cordacluster -U postgres
    psql -h localhost -p 5432 -f ./sql_updates/statemanager.sql -d cordacluster -U postgres
-   ```   
+   ```
 
 ## Managing 5.2 Multi-Database Support
 
@@ -440,7 +440,7 @@ To migrate the virtual node databases, do the following:
    ```sh
    while read HOLDING_ID; do
       # In Corda 5.0 all virtual node schemas and users are created by Corda, so we need to extract their names from the db
-    
+
       # Grab the schema names for this holding Id
       VAULT_SCHEMA=$(psql -h localhost -c "SELECT schema_name FROM information_schema.schemata WHERE schema_name LIKE 'vnode_vault%'" -p 5432 -d cordacluster -U postgres | tr -d ' ' | grep -i $HOLDING_ID | grep vault )
       CRYPTO_SCHEMA=$(psql -h localhost -c "SELECT schema_name FROM information_schema.schemata WHERE schema_name LIKE 'vnode_crypto%'" -p 5432 -d cordacluster -U postgres | tr -d ' ' | grep -i $HOLDING_ID | grep crypto )

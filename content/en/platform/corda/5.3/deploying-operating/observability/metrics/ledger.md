@@ -3,9 +3,9 @@ description: "Review the metrics generated for the UTXO ledger."
 date: '2023-10-02'
 title: "UTXO Ledger"
 menu:
-  corda52:
-    parent: corda52-cluster-metrics
-    identifier: corda52-cluster-ledger
+  corda53:
+    parent: corda53-cluster-metrics
+    identifier: corda53-cluster-ledger
     weight: 1600
 ---
 

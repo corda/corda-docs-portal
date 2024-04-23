@@ -1,11 +1,11 @@
 ---
-description: "Learn how to invoke the Corda 5.2 REST API."
+description: "Learn how to invoke the Corda 5.3 REST API."
 title: "Accessing the REST API"
 date: 2023-05-08
 menu:
-  corda52:
-    parent: corda52-rest-api-reference
-    identifier: corda52-rest-api-accessing
+  corda53:
+    parent: corda53-rest-api-reference
+    identifier: corda53-rest-api-accessing
     weight: 1000
 ---
 # Accessing the REST API

@@ -2,9 +2,9 @@
 date: '2023-02-10'
 title: "application.marshalling"
 menu:
-  corda52:
-    identifier: corda52-api-app-marshalling
-    parent: corda52-api-application
+  corda53:
+    identifier: corda53-api-app-marshalling
+    parent: corda53-api-application
     weight: 3000
 ---
 # net.corda.v5.application.marshalling

@@ -1,11 +1,11 @@
 ---
-description: "List of package commands for the Corda 5.2 CLI. You can use these commands to execute operations for working with CPB and CPI files. "  
+description: "List of package commands for the Corda 5.3 CLI. You can use these commands to execute operations for working with CPB and CPI files. "
 date: '2023-01-06'
 menu:
-  corda52:
-    identifier: corda52-cordacli-develop-commands
+  corda53:
+    identifier: corda53-cordacli-develop-commands
     weight: 4000
-    parent: corda52-cli-reference
+    parent: corda53-cli-reference
 title: "package"
 ---
 # package

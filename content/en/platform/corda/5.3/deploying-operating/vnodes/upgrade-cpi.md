@@ -3,9 +3,9 @@ description: "Learn how to upgrade the CPI of a virtual node using the REST API.
 date: '2023-06-12'
 title: "Upgrading a CPI"
 menu:
-  corda52:
-    identifier: corda52-cluster-nodes-upgrade
-    parent: corda52-cluster-nodes
+  corda53:
+    identifier: corda53-cluster-nodes-upgrade
+    parent: corda53-cluster-nodes
     weight: 3000
 ---
 

@@ -3,9 +3,9 @@ description: "Review the metrics generated for flow sessions. Sessions are used 
 date: '2023-06-14'
 title: "Flow Session"
 menu:
-  corda52:
-    parent: corda52-cluster-metrics
-    identifier: corda52-cluster-flow-session
+  corda53:
+    parent: corda53-cluster-metrics
+    identifier: corda53-cluster-flow-session
     weight: 600
 ---
 

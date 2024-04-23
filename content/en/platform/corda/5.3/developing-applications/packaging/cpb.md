@@ -3,9 +3,9 @@ description: "Learn how to build a Corda Package Bundle (CPB) from your Corda Pa
 date: '2023-02-23'
 title: "Build a CPB"
 menu:
-  corda52:
-    parent: corda52-develop-packaging
-    identifier: corda52-develop-packaging-cbp
+  corda53:
+    parent: corda53-develop-packaging
+    identifier: corda53-develop-packaging-cbp
     weight: 2000
 ---
 # Build a CPB
@@ -49,7 +49,7 @@ To build a CPB using the {{< tooltip >}}Corda CLI{{< /tooltip >}}:
    keytool -genkeypair -alias "<key-alias>" -keystore <signingkeys.pfx> -storepass "<keystore-password>" -dname "cn=<CPI Plugin Example - Signing Key 1, o=R3, L=London, c=GB>" -keyalg <RSA> -storetype <pkcs12> -validity <4000>
    ```
    {{< note >}}
-CPBs for deployment on a dynamic network must be signed with a key that you can share with the Network Operator responsible for building the CPI from the CPB. 
+CPBs for deployment on a dynamic network must be signed with a key that you can share with the Network Operator responsible for building the CPI from the CPB.
 You should always sign test CPBs with a different key used only for testing. The final key that the Network Operator uses should not be used for signing until you are ready to release.
    {{< /note >}}
 

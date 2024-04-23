@@ -3,9 +3,9 @@ description: "Review the metrics generated for the peer-to-peer layer. This laye
 date: '2023-06-14'
 title: "Peer-to-peer Messages and Sessions"
 menu:
-  corda52:
-    parent: corda52-cluster-metrics
-    identifier: corda52-cluster-p2p
+  corda53:
+    parent: corda53-cluster-metrics
+    identifier: corda53-cluster-p2p
     weight: 1300
 ---
 

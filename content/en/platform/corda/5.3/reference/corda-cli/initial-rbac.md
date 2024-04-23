@@ -1,11 +1,11 @@
 ---
-description: "List of initial-rbac commands for the Corda 5.2 CLI. You can use these commands to manually create RBAC roles."  
+description: "List of initial-rbac commands for the Corda 5.3 CLI. You can use these commands to manually create RBAC roles."
 date: '2023-10-06'
 menu:
-  corda52:
-    identifier: corda52-cordacli-initial-rbac
+  corda53:
+    identifier: corda53-cordacli-initial-rbac
     weight: 2500
-    parent: corda52-cli-reference
+    parent: corda53-cli-reference
 title: "initial-rbac"
 ---
 

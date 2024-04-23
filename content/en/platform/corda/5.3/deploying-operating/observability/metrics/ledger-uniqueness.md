@@ -3,9 +3,9 @@ description: "Review the metrics generated for the ledger uniqueness checker. Th
 date: '2023-06-14'
 title: "Ledger Uniqueness Checker Client Service"
 menu:
-  corda52:
-    parent: corda52-cluster-metrics
-    identifier: corda52-cluster-ledger-uniqueness
+  corda53:
+    parent: corda53-cluster-metrics
+    identifier: corda53-cluster-ledger-uniqueness
     weight: 1000
 ---
 

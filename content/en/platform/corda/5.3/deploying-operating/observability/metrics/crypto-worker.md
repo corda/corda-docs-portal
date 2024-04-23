@@ -3,9 +3,9 @@ description: "Review the metrics generated for the crypto worker. The crypto wor
 date: '2023-06-14'
 title: "Crypto Worker"
 menu:
-  corda52:
-    parent: corda52-cluster-metrics
-    identifier: corda52-cluster-crypto-worker
+  corda53:
+    parent: corda53-cluster-metrics
+    identifier: corda53-cluster-crypto-worker
     weight: 200
 ---
 

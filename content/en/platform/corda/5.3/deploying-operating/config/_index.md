@@ -3,9 +3,9 @@ description: "Learn about the Corda 5 configuration system."
 title: "Configuring Corda"
 date: '2023-05-16'
 menu:
-  corda52:
-    identifier: corda52-cluster-config
-    parent: corda52-cluster
+  corda53:
+    identifier: corda53-cluster-config
+    parent: corda53-cluster
     weight: 3050
 ---
 

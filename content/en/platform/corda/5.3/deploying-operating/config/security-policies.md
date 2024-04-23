@@ -3,9 +3,9 @@ description: "Learn about Corda security policies and the OSGi security model th
 title: "Security Policies"
 date: '2023-05-16'
 menu:
-  corda52:
-    identifier: corda52-cluster-security
-    parent: corda52-cluster-config
+  corda53:
+    identifier: corda53-cluster-security
+    parent: corda53-cluster-config
     weight: 3050
 ---
 # Security Policies
@@ -22,7 +22,7 @@ Policies can have `ALLOW` and `DENY` access blocks that represent a string encod
 
 ```java
 policy      ::= access '{' conditions permissions '}' name?
-access      ::= 'ALLOW' | 'DENY'       // case insensitive 
+access      ::= 'ALLOW' | 'DENY'       // case insensitive
 conditions  ::= ( '[' qname quoted-string* ']' )*
 permissions ::= ( '(' qname (quoted-string quoted-string?)? ')' )+
 name        ::= quoted-string

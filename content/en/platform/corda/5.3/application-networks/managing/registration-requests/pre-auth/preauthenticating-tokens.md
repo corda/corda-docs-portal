@@ -3,9 +3,9 @@ description: "Learn how the Network Operator creates, views, and revokes pre-aut
 date: '2023-04-07'
 title: "Managing Pre-Authentication Tokens"
 menu:
-  corda52:
-    identifier: corda52-pre-auth-tokens
-    parent: corda52-networks-pre-auth
+  corda53:
+    identifier: corda53-pre-auth-tokens
+    parent: corda53-networks-pre-auth
     weight: 1000
 ---
 # Managing Pre-Authentication Tokens

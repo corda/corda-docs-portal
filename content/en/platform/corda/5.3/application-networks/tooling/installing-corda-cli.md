@@ -2,10 +2,10 @@
 description: "Learn how to install the Corda CLI."
 date: '2023-04-07'
 menu:
-  corda52:
-    identifier: corda52-networks-cli
+  corda53:
+    identifier: corda53-networks-cli
     weight: 1050
-    parent: corda52-networks-tooling
+    parent: corda53-networks-tooling
 title: Installing the Corda CLI
 ---
 

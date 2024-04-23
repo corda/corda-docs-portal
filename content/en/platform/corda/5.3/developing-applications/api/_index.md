@@ -3,9 +3,9 @@ description: "Discover the modules in the CorDapp API and review the Java API do
 date: '2023-04-24'
 title: "CorDapp API"
 menu:
-  corda52:
-    identifier: corda52-api
-    parent: corda52-develop
+  corda53:
+    identifier: corda53-api
+    parent: corda53-develop
     weight: 8000
 ---
 

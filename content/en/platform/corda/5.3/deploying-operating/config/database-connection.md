@@ -3,9 +3,9 @@ description: "Learn how to configure database connection details."
 title: "Database Connection Configuration"
 date: '2023-05-16'
 menu:
-  corda52:
-    identifier: corda52-cluster-database
-    parent: corda52-cluster-config
+  corda53:
+    identifier: corda53-cluster-database
+    parent: corda53-cluster-config
     weight: 2000
 ---
 

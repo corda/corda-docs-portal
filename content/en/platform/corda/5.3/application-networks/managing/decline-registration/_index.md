@@ -3,9 +3,9 @@ description: "Learn how the Network Operator can use the MGM admin API to declin
 date: '2023-10-05'
 title: "Declining In-Progress Registrations"
 menu:
-  corda52:
-    identifier: corda52-networks-decline-registration
-    parent: corda52-networks-manage
+  corda53:
+    identifier: corda53-networks-decline-registration
+    parent: corda53-networks-manage
     weight: 3000
 ---
 # Declining In-Progress Registrations

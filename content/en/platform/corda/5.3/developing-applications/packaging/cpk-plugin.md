@@ -3,9 +3,9 @@ description: "Learn how to used the CPK Gradle plugin to create a CorDapp in CPK
 date: '2023-06-06'
 title: "CPK Gradle Plugin"
 menu:
-  corda52:
-    parent: corda52-develop-packaging
-    identifier: corda52-develop-packaging-cpk-plugin
+  corda53:
+    parent: corda53-develop-packaging
+    identifier: corda53-develop-packaging-cpk-plugin
     weight: 4000
 ---
 

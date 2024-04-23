@@ -1,11 +1,11 @@
 ---
-description: "View the Corda 5.2 REST API documentation."
+description: "View the Corda 5.3 REST API documentation."
 title: "Corda REST API"
 date: 2023-05-08
 menu:
-  corda52:
-    parent: corda52-references
-    identifier: corda52-rest-api-reference
+  corda53:
+    parent: corda53-references
+    identifier: corda53-rest-api-reference
     weight: 3000
 ---
 # Corda REST API

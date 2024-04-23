@@ -3,9 +3,9 @@ description: "Learn how to onboard a new member as a notary service representati
 date: '2023-04-07'
 title: "Onboarding Notaries"
 menu:
-  corda52:
-    identifier: corda52-networks-notaries
-    parent: corda52-networks-create
+  corda53:
+    identifier: corda53-networks-notaries
+    parent: corda53-networks-create
     weight: 3000
 ---
 # Onboarding Notaries
@@ -165,7 +165,7 @@ Run the following command to build the registration context for a contract-verif
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-export REGISTRATION_CONTEXT=' {     
+export REGISTRATION_CONTEXT=' {    
       "corda.key.scheme": "CORDA.ECDSA.SECP256R1",
       "corda.roles.0": "notary",
       "corda.notary.service.name": <An X.500 name for the notary service>,
@@ -177,7 +177,7 @@ export REGISTRATION_CONTEXT=' {    
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-$REGISTRATION_CONTEXT = @ {     
+$REGISTRATION_CONTEXT = @ {    
       "corda.key.scheme": "CORDA.ECDSA.SECP256R1",
       "corda.roles.0": "notary",
       "corda.notary.service.name": <An X.500 name for the notary service>,

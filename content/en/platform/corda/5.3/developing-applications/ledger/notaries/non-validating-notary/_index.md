@@ -3,9 +3,9 @@ description: Learn about the R3 non-validating notary protocol.
 title: "Non-Validating Notary Protocol"
 date: 2023-06-08
 menu:
-  corda52:
-    identifier: corda52-fundamentals-ledger-notaries
-    parent: corda52-develop-notaries
+  corda53:
+    identifier: corda53-fundamentals-ledger-notaries
+    parent: corda53-develop-notaries
     weight: 2000
 ---
 

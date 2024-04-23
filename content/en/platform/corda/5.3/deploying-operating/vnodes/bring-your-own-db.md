@@ -1,14 +1,14 @@
 ---
 description: "Learn how to connect a virtual node to a database not managed by Corda."
 date: '2023-01-16'
-version: 'Corda 5.2'
+version: 'Corda 5.3'
 title: "Bringing Your Own Database"
 menu:
-  corda52:
-    parent: corda52-cluster-nodes
-    identifier: corda52-cluster-byod
+  corda53:
+    parent: corda53-cluster-nodes
+    identifier: corda53-cluster-byod
     weight: 900
-section_menu: corda52
+section_menu: corda53
 ---
 
 # Bringing Your Own Database

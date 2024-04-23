@@ -3,9 +3,9 @@ description: "Explore the infrastructure topology for Corda in Amazon Web Servic
 date: '2023-02-23'
 title: "Infrastructure Topology"
 menu:
-  corda52:
-    identifier: corda52-cluster-topology
-    parent: corda52-cluster
+  corda53:
+    identifier: corda53-cluster-topology
+    parent: corda53-cluster
     weight: 3000
 ---
 # Infrastructure Topology

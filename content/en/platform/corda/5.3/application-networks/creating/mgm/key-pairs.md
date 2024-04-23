@@ -3,9 +3,9 @@ description: "Learn how to configure key pairs and certificates for the MGM."
 date: '2023-04-07'
 title: "Configure Key Pairs and Certificates for the MGM"
 menu:
-  corda52:
-    parent: corda52-networks-mgm
-    identifier: corda52-networks-mgm-key-pairs
+  corda53:
+    parent: corda53-networks-mgm
+    identifier: corda53-networks-mgm-key-pairs
     weight: 3000
     name:  "Configure Key Pairs and Certificates"
 ---
@@ -169,7 +169,7 @@ To set up the {{< tooltip >}}TLS{{< /tooltip >}} key pair and certificate for th
    {{< /tabs >}}
 
    You can optionally omit the root certificate. If revocation is enabled and the root certificate does not have a CRL or OSCP endpoint, you must omit the root certificate.
-   
+
    {{< note >}}
    If you upload a certificate chain consisting of more than one certificate, ensure that `-----END CERTIFICATE-----` and `-----BEGIN CERTIFICATE-----` from the next certificate are separated by a new line with no empty spaces in between.
    {{< /note >}}

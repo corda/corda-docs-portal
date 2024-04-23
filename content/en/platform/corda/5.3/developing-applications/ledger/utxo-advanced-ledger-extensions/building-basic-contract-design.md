@@ -3,9 +3,9 @@ description: "Learn how to design a contract using the Corda 5 Advanced UTXO Led
 date: '2023-06-01'
 title: "Building Basic Contract Design"
 menu:
-  corda52:
-    identifier: corda52-utxo-ledger-building-basic-contract-design
-    parent: corda52-utxo-advanced-ledger-extensions
+  corda53:
+    identifier: corda53-utxo-ledger-building-basic-contract-design
+    parent: corda53-utxo-advanced-ledger-extensions
     weight: 3000
 ---
 

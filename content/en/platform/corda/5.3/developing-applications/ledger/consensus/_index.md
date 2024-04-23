@@ -3,9 +3,9 @@ description: "Understand the validity and uniqueness consensus required before C
 title: "Consensus"
 date: 2023-06-08
 menu:
-  corda52:
-    identifier: corda52-fundamentals-ledger-consensus
-    parent: corda52-fundamentals-ledger
+  corda53:
+    identifier: corda53-fundamentals-ledger-consensus
+    parent: corda53-fundamentals-ledger
     weight: 5000
 ---
 

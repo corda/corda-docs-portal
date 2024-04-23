@@ -3,9 +3,9 @@ description: "Learn how to create new RBAC users."
 date: '2024-01-17'
 title: "Managing Users and Roles"
 menu:
-  corda52:
-    parent: corda52-cluster-users
-    identifier: corda52-cluster-creating-users
+  corda53:
+    parent: corda53-cluster-users
+    identifier: corda53-cluster-creating-users
     weight: 3000
 ---
 # Managing Users and Roles
@@ -143,7 +143,7 @@ curl -k -u $REST_API_USER:$REST_API_PASSWORD  $REST_API_URL/permission?limit=0&p
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)}` 
+Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)}`
    -Method Get -Uri "$REST_API_URL/permission`?limit=100&permissiontype=DENY"
 ```
 {{% /tab %}}

@@ -3,9 +3,9 @@ description: "Learn how to integrate Corda into the wider ecosystem using the RE
 title: "Integrating Corda into the Wider Ecosystem"
 date: 2023-07-26
 menu:
-  corda52:
-    identifier: corda52-cordapp-dev-ecosystem
-    parent: corda52-key-concepts-cordapp-dev
+  corda53:
+    identifier: corda53-cordapp-dev-ecosystem
+    parent: corda53-key-concepts-cordapp-dev
     weight: 4000
 ---
 

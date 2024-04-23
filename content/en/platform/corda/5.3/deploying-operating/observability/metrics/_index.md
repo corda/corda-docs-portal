@@ -3,9 +3,9 @@ description: "Learn how Corda metrics can provide insight into the inner working
 date: '2023-06-14'
 title: "Metrics"
 menu:
-  corda52:
-    parent: corda52-cluster-observability
-    identifier: corda52-cluster-metrics
+  corda53:
+    parent: corda53-cluster-observability
+    identifier: corda53-cluster-metrics
     weight: 2000
 ---
 

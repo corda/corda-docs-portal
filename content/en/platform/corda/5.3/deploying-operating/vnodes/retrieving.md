@@ -3,9 +3,9 @@ description: "Learn how to retrieve information about the virtual nodes in a clu
 date: '2023-06-12'
 title: "Retrieving Virtual Nodes"
 menu:
-  corda52:
-    identifier: corda52-cluster-nodes-retrieving
-    parent: corda52-cluster-nodes
+  corda53:
+    identifier: corda53-cluster-nodes-retrieving
+    parent: corda53-cluster-nodes
     weight: 1000
 ---
 

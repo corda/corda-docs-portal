@@ -3,9 +3,9 @@ description: "Learn about the architecture of Corda 5 CorDapps."
 title: "CorDapps"
 date: 2023-06-07
 menu:
-  corda52:
-    identifier: corda52-fundamentals-cordapps
-    parent: corda52-fundamentals
+  corda53:
+    identifier: corda53-fundamentals-cordapps
+    parent: corda53-fundamentals
     weight: 1000
 ---
 

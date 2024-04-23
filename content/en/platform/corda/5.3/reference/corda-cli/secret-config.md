@@ -1,11 +1,11 @@
 ---
-description: "List of secret-config commands for the Corda 5.2 CLI. You can use these commands to generate the configuration for use with a secrets lookup service."  
+description: "List of secret-config commands for the Corda 5.3 CLI. You can use these commands to generate the configuration for use with a secrets lookup service."
 date: '2023-05-12'
 menu:
-  corda52:
-    identifier: corda52-cordacli-secret-config
+  corda53:
+    identifier: corda53-cordacli-secret-config
     weight: 4050
-    parent: corda52-cli-reference
+    parent: corda53-cli-reference
 title: "secret-config"
 ---
 

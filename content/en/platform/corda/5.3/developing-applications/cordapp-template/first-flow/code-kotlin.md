@@ -3,15 +3,15 @@ date: '2023-11-01'
 title: "Kotlin Flow Code Walkthrough"
 description: Learn how to write flows in Kotlin using the CorDapp template.
 menu:
-  corda52:
-    parent: corda52-flow
-    identifier: corda52-flow-kotlin
+  corda53:
+    parent: corda53-flow
+    identifier: corda53-flow-kotlin
     weight: 1000
 
 ---
 # Kotlin Flow Code Walkthrough
 
-This section describes the Kotlin code for the {{< tooltip >}}flows{{< /tooltip >}} and supporting classes in `workflows/src/main/kotlin/com/r3/developers/cordapptemplate/flowexample/workflows/MyFirstFlow.kt` in the [CorDapp template repo](https://github.com/corda/cordapp-template-kotlin/tree/release-V5.2). It contains the following:
+This section describes the Kotlin code for the {{< tooltip >}}flows{{< /tooltip >}} and supporting classes in `workflows/src/main/kotlin/com/r3/developers/cordapptemplate/flowexample/workflows/MyFirstFlow.kt` in the [CorDapp template repo](https://github.com/corda/cordapp-template-kotlin/tree/release-V5.3). It contains the following:
 
 * [Helper Classes](#helper-classes)
 * [Initiating and Responding Flows](#initiating-and-responding-flows)

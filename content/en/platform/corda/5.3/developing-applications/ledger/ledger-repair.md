@@ -3,9 +3,9 @@ description: Learn about the ledger repair functionality.
 date: '2024-02-27'
 title: "Ledger Repair"
 menu:
-  corda52:
-    identifier: corda52-develop-ledger-repair
-    parent: corda52-fundamentals-ledger
+  corda53:
+    identifier: corda53-develop-ledger-repair
+    parent: corda53-fundamentals-ledger
     weight: 6000
 ---
 

@@ -3,9 +3,9 @@ description: "Learn how to configure your environment for your first basic Corda
 date: '2023-05-03'
 title: "Initial Setup"
 menu:
-  corda52:
-    identifier: corda52-develop-first-cordapp-setup
-    parent: corda52-develop-first-cordapp
+  corda53:
+    identifier: corda53-develop-first-cordapp-setup
+    parent: corda53-develop-first-cordapp
     weight: 1000
 ---
 

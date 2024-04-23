@@ -3,9 +3,9 @@ date: '2023-11-01'
 title: "Debugging Against Local Corda"
 description: Learn how to debug using the CorDapp template.
 menu:
-  corda52:
-    parent: corda52-develop-get-started
-    identifier: corda52-debugging
+  corda53:
+    parent: corda53-develop-get-started
+    identifier: corda53-debugging
     weight: 6000
 
 ---

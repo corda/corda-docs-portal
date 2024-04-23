@@ -3,9 +3,9 @@ date: '2023-11-01'
 description: Learn how to configure the network participants using the CorDapp template.
 title: "Configuring the Network Participants"
 menu:
-  corda52:
-    parent: corda52-develop-get-started
-    identifier: corda52-runtime-plugin-network
+  corda53:
+    parent: corda53-develop-get-started
+    identifier: corda53-runtime-plugin-network
     weight: 7000
 
 ---

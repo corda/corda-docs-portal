@@ -3,9 +3,9 @@ description: "Learn how to make changes to an MGM's endpoint information by re-r
 date: '2024-01-11'
 title: "Modify an MGM Endpoint"
 menu:
-  corda52:
-    identifier: corda52-networks-mgm-endpoints
-    parent: corda52-networks-mgm
+  corda53:
+    identifier: corda53-networks-mgm-endpoints
+    parent: corda53-networks-mgm
     weight: 5500
 ---
 

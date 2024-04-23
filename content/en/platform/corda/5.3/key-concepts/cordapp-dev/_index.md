@@ -3,9 +3,9 @@ description: "Learn the most important key concepts for Corda 5 CorDapp Develope
 title: "Architecture for CorDapp Developers"
 date: 2023-07-25
 menu:
-  corda52:
-    identifier: corda52-key-concepts-cordapp-dev
-    parent: corda52-key-concepts
+  corda53:
+    identifier: corda53-key-concepts-cordapp-dev
+    parent: corda53-key-concepts
     weight: 2000
 ---
 
@@ -93,7 +93,7 @@ In an example with multiple borrowers in the network, this could result in the f
 >}}
 
 As shown, the lender’s vault contains all loans, but borrowers Alice and Bob can only see the loans related to them.
-This is referred to as a {{< tooltip >}}Distributed Ledger{{< /tooltip >}}. 
+This is referred to as a {{< tooltip >}}Distributed Ledger{{< /tooltip >}}.
 
 While flows usually involve multiple parties, they do not have to. Sometimes flows that only involve the initiating party are required. Examples of this are minting tokens or providing a read API for states already in the vault.
 

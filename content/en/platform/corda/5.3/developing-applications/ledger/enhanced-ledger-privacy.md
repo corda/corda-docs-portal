@@ -3,9 +3,9 @@ description: Learn about the R3 contract-verifying notary protocol.
 date: '2024-02-27'
 title: "Transaction Privacy Enhancements"
 menu:
-  corda52:
-    identifier: corda52-develop-notary-contract-verifying
-    parent: corda52-fundamentals-ledger
+  corda53:
+    identifier: corda53-develop-notary-contract-verifying
+    parent: corda53-fundamentals-ledger
     weight: 5050
 ---
 

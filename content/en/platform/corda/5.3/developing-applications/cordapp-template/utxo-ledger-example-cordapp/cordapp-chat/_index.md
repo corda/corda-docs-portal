@@ -3,9 +3,9 @@ date: '2023-11-01'
 title: "Chat CorDapp Design"
 description: Learn about the design of the UTXO chat example application in the CorDapp template.
 menu:
-  corda52:
-    parent: corda52-utxo-example
-    identifier: corda52-chatcordapp
+  corda53:
+    parent: corda53-utxo-example
+    identifier: corda53-chatcordapp
     weight: 1000
 
 ---

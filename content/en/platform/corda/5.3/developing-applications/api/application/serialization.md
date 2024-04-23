@@ -2,9 +2,9 @@
 date: '2023-02-10'
 title: "application.serialization"
 menu:
-  corda52:
-    identifier: corda52-api-app-serialization
-    parent: corda52-api-application
+  corda53:
+    identifier: corda53-api-app-serialization
+    parent: corda53-api-application
     weight: 7000
 ---
 # net.corda.v5.application.serialization

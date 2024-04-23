@@ -3,9 +3,9 @@ description: "Learn how CorDapps can send simple messages via Kafka to external 
 date: '2023-06-22'
 title: "External Messaging CorDapps"
 menu:
-  corda52:
-    identifier: corda52-develop-external-messaging
-    parent: corda52-develop
+  corda53:
+    identifier: corda53-develop-external-messaging
+    parent: corda53-develop
     weight: 7050
 ---
 

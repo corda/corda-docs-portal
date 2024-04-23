@@ -3,9 +3,9 @@ description: "Review the tools required by Network Operators."
 date: '2023-04-07'
 title: "Network Operator Tooling"
 menu:
-  corda52:
-    identifier: corda52-networks-tooling
-    parent: corda52-networks
+  corda53:
+    identifier: corda53-networks-tooling
+    parent: corda53-networks
     weight: 2000
 ---
 <style>

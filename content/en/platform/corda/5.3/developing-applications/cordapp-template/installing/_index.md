@@ -3,9 +3,9 @@ date: '2023-06-21'
 title: "Installing"
 description: Learn how to install the CorDapp template.
 menu:
-  corda52:
-    parent: corda52-develop-get-started
-    identifier: corda52-runtime-plugin-installing
+  corda53:
+    parent: corda53-develop-get-started
+    identifier: corda53-runtime-plugin-installing
     weight: 2000
 
 ---
@@ -42,7 +42,7 @@ The images in this section show the `cordapp-template-kotlin` repository in Inte
 2. Browse to the new folder and checkout the {{< version-num >}} branch:
 
    ```sh
-   git checkout release-V5.2
+   git checkout release-V5.3
    ```
 
 3. Change the remote repository so that you do not inadvertently push your work back to the R3 repository:
@@ -68,10 +68,10 @@ The CorDapp template includes [Gradle tasks]({{< relref "../overview/_index.md#g
 
 ### Corda Version
 
-The `gradle.properties` file specifies the Corda version that the Gradle tasks use. Update the version by setting `cordaNotaryPluginsVersion` to the Corda version. For example, for Corda 5.2:
+The `gradle.properties` file specifies the Corda version that the Gradle tasks use. Update the version by setting `cordaNotaryPluginsVersion` to the Corda version. For example, for Corda 5.3:
 
 ```shell
-cordaNotaryPluginsVersion=5.2.0.0
+cordaNotaryPluginsVersion=5.3.0.0
 ```
 
 ### Java Version

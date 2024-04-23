@@ -2,9 +2,9 @@
 date: '2021-04-24T00:00:00Z'
 title: "base"
 menu:
-  corda52:
-    identifier: corda52-api-base
-    parent: corda52-api
+  corda53:
+    identifier: corda53-api-base
+    parent: corda53-api
     weight: 2000
 ---
 # net.corda.v5.base

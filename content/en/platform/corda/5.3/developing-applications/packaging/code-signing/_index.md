@@ -3,9 +3,9 @@ description: "Understand how CorDapps are signed and verified."
 date: '2023-08-10'
 title: "Code Signing"
 menu:
-  corda52:
-    parent: corda52-develop-packaging
-    identifier: corda52-develop-packaging-code-signing
+  corda53:
+    parent: corda53-develop-packaging
+    identifier: corda53-develop-packaging-code-signing
     weight: 3000
 ---
 

@@ -3,9 +3,9 @@ description: "Learn how to use RBAC permission templates to create fine-grained 
 date: '2023-04-07'
 title: "Managing Roles and Permissions"
 menu:
-  corda52:
-    parent: corda52-cluster-users
-    identifier: corda52-cluster-managing-roles
+  corda53:
+    parent: corda53-cluster-users
+    identifier: corda53-cluster-managing-roles
     weight: 2000
 ---
 # Managing Roles and Permissions

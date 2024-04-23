@@ -3,9 +3,9 @@ date: '2023-11-01'
 title: "Running Your First CorDapp"
 description: Learn how to run your very first CorDapp using the CorDapp template.
 menu:
-  corda52:
-    parent: corda52-develop-get-started
-    identifier: corda52-run-first-cordapp
+  corda53:
+    parent: corda53-develop-get-started
+    identifier: corda53-run-first-cordapp
     weight: 3000
 
 ---

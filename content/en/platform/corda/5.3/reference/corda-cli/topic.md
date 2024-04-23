@@ -1,11 +1,11 @@
 ---
-description: "List of topic commands for the Corda 5.2 CLI. You can use these commands to manually create topics in Kafka."  
+description: "List of topic commands for the Corda 5.3 CLI. You can use these commands to manually create topics in Kafka."
 date: '2022-12-20'
 menu:
-  corda52:
-    identifier: corda52-cordacli-topic
+  corda53:
+    identifier: corda53-cordacli-topic
     weight: 5000
-    parent: corda52-cli-reference
+    parent: corda53-cli-reference
 title: "topic"
 ---
 # topic

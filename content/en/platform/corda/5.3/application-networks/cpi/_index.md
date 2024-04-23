@@ -3,9 +3,9 @@ description: "Learn how to create a new Corda Package Installer (CPI) for a new 
 date: '2023-11-21'
 title: "Creating CPIs"
 menu:
-  corda52:
-    identifier: corda52-networks-cpi
-    parent: corda52-networks
+  corda53:
+    identifier: corda53-networks-cpi
+    parent: corda53-networks
     weight: 5000
 ---
 # Creating CPIs

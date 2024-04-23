@@ -3,9 +3,9 @@ description: "Learn how the Network Operator can configure the member registrati
 date: '2023-04-07'
 title: "Managing Member Registrations"
 menu:
-  corda52:
-    identifier: corda52-networks-reg-requests
-    parent: corda52-networks-manage
+  corda53:
+    identifier: corda53-networks-reg-requests
+    parent: corda53-networks-manage
     weight: 1000
 ---
 # Managing Member Registrations

@@ -3,10 +3,10 @@ description: "Learn how the Network Operator manages pre-authorization tokens an
 date: '2023-04-07'
 title: "Managing Pre-Authorization"
 menu:
-  corda52:
-    identifier: corda52-networks-pre-auth
+  corda53:
+    identifier: corda53-networks-pre-auth
     weight: 2000
-    parent: corda52-networks-reg-requests
+    parent: corda53-networks-reg-requests
 ---
 
 # Managing Pre-Authorization

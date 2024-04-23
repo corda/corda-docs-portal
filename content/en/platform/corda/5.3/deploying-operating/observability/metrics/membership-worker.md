@@ -3,9 +3,9 @@ description: "Review the metrics generated for the membership worker. The member
 date: '2023-06-14'
 title: "Membership Worker"
 menu:
-  corda52:
-    parent: corda52-cluster-metrics
-    identifier: corda52-cluster-membership-worker
+  corda53:
+    parent: corda53-cluster-metrics
+    identifier: corda53-cluster-membership-worker
     weight: 1100
 ---
 

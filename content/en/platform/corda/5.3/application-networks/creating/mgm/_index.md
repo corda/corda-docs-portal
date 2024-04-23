@@ -3,9 +3,9 @@ description: "Learn how to configure the MGM, through which a membership group i
 date: '2023-04-07'
 title: "Onboarding the MGM"
 menu:
-  corda52:
-    parent: corda52-networks-create
-    identifier: corda52-networks-mgm
+  corda53:
+    parent: corda53-networks-create
+    identifier: corda53-networks-mgm
     weight: 1000
 ---
 

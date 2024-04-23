@@ -2,9 +2,9 @@
 date: '2023-02-10'
 title: "application"
 menu:
-  corda52:
-    identifier: corda52-api-application
-    parent: corda52-api
+  corda53:
+    identifier: corda53-api-application
+    parent: corda53-api
     weight: 1000
 ---
 # net.corda.v5.application

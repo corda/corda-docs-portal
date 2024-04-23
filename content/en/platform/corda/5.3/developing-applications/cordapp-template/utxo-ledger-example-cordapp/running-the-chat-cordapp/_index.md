@@ -3,9 +3,9 @@ date: '2023-01-23'
 title: "Running the Chat CorDapp"
 description: Learn how to run the UTXO chat example application in the CorDapp template.
 menu:
-  corda52:
-    parent: corda52-utxo-example
-    identifier: corda52-runchat
+  corda53:
+    parent: corda53-utxo-example
+    identifier: corda53-runchat
     weight: 2000
 
 ---

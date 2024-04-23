@@ -1,11 +1,11 @@
 ---
-description: "Understand Corda 5.2 terms and phrases."
+description: "Understand Corda 5.3 terms and phrases."
 title: "Glossary"
 date: 2023-08-17
 menu:
-  corda52:
-    parent: corda52-references
-    identifier: corda52-glossary
+  corda53:
+    parent: corda53-references
+    identifier: corda53-glossary
     weight: 900
 ---
 

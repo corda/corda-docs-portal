@@ -3,9 +3,9 @@ description: "Review the tools required by Cluster Administrators."
 date: '2023-05-10'
 title: "Cluster Administrator Tooling"
 menu:
-  corda52:
-    identifier: corda52-cluster-tooling
-    parent: corda52-cluster
+  corda53:
+    identifier: corda53-cluster-tooling
+    parent: corda53-cluster
     weight: 2000
 ---
 <style>

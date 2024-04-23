@@ -3,9 +3,9 @@ description: "Learn how to re-register an MGM in order to update its member-prov
 date: '2024-01-11'
 title: "Re-register an MGM"
 menu:
-  corda52:
-    identifier: corda52-networks-mgm-reregister
-    parent: corda52-networks-mgm
+  corda53:
+    identifier: corda53-networks-mgm-reregister
+    parent: corda53-networks-mgm
     weight: 6000
 ---
 

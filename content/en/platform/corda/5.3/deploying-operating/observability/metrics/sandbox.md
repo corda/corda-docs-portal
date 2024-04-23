@@ -3,9 +3,9 @@ description: "Review the metrics generated for the Corda sandbox. The sandbox su
 date: '2023-06-14'
 title: "Sandbox"
 menu:
-  corda52:
-    parent: corda52-cluster-metrics
-    identifier: corda52-cluster-sandbox
+  corda53:
+    parent: corda53-cluster-metrics
+    identifier: corda53-cluster-sandbox
     weight: 1400
 ---
 

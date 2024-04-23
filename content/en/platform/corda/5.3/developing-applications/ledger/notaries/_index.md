@@ -3,9 +3,9 @@ description: Learn about Corda's uniqueness consensus service.
 date: '2024-02-27'
 title: "Notaries"
 menu:
-  corda52:
-    identifier: corda52-develop-notaries
-    parent: corda52-fundamentals-ledger
+  corda53:
+    identifier: corda53-develop-notaries
+    parent: corda53-fundamentals-ledger
     weight: 5025
 ---
 # Notaries

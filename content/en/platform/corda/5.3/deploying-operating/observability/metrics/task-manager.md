@@ -3,9 +3,9 @@ description: "Review the metrics generated for the Corda task manager. The task 
 date: '2023-10-26'
 title: "Task Manager"
 menu:
-  corda52:
-    parent: corda52-cluster-metrics
-    identifier: corda52-cluster-task-manager
+  corda53:
+    parent: corda53-cluster-metrics
+    identifier: corda53-cluster-task-manager
     weight: 1450
 ---
 

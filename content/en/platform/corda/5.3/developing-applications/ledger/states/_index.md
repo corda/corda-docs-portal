@@ -3,9 +3,9 @@ description: "Learn the fundamentals of Corda 5 ledger states."
 title: "States"
 date: 2023-06-08
 menu:
-  corda52:
-    identifier: corda52-fundamentals-ledger-states
-    parent: corda52-fundamentals-ledger
+  corda53:
+    identifier: corda53-fundamentals-ledger-states
+    parent: corda53-fundamentals-ledger
     weight: 1000
 ---
 
@@ -17,7 +17,7 @@ A state is an immutable object representing a fact known by one or more particip
 
 For example, this state represents an IOU; an agreement that Alice owes Bob £10:
 
-{{< 
+{{<
   figure
 	 src="state.png"
      width="50%"
@@ -32,7 +32,7 @@ States are immutable: you can not change them. Corda uses state sequences to tra
 
 For example, if Alice pays Bob £5, the state sequence would be:
 
-{{< 
+{{<
   figure
 	 src="state-sequence.png"
      width="50%"
@@ -41,7 +41,7 @@ For example, if Alice pays Bob £5, the state sequence would be:
 
 Each participant's vault stores the current and consumed states in which it is invovled. For example:
 
-{{< 
+{{<
   figure
 	 src="vault-simple.png"
      width="50%"

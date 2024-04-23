@@ -3,9 +3,9 @@ description: "An overview for CorDapp Developers about designing CorDapps."
 title: "Building CorDapps"
 date: 2023-07-26
 menu:
-  corda52:
-    identifier: corda52-cordapp-dev-build
-    parent: corda52-key-concepts-cordapp-dev
+  corda53:
+    identifier: corda53-cordapp-dev-build
+    parent: corda53-key-concepts-cordapp-dev
     weight: 2000
 ---
 

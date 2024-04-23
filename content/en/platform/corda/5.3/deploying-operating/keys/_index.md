@@ -3,9 +3,9 @@ description: "Learn how to upload and rotate Corda 5 wrapping keys."
 title: "Managing Wrapping Keys"
 date: '2024-02-12'
 menu:
-  corda52:
-    identifier: corda52-cluster-wrapping-keys
-    parent: corda52-cluster
+  corda53:
+    identifier: corda53-cluster-wrapping-keys
+    parent: corda53-cluster
     weight: 3025
 ---
 
@@ -190,7 +190,7 @@ To rotate the master wrapping key, do the following:
             "salt":{
               "configSecret":{
                 "vaultKey":"salt2"
-                "vaultPath":"cryptosecrets"                
+                "vaultPath":"cryptosecrets"
               }
             }
           }]
@@ -215,7 +215,7 @@ To rotate the master wrapping key, do the following:
    {{< /tabs >}}
 
    Corda will take some time to propagate the newly added master key across the cluster. Corda will wrap any new managed wrapping keys with this new master wrapping key.
-   
+
 3. Rotate the old master key to the new default master key using the POST method of the [/api/v5_2/wrappingkey/rotation/{tenantid} endpoint](../reference/rest-api/openapi.html#tag/Key-Rotation-API/operation/post_wrappingkey_rotation__tenantid_):
    {{< tabs >}}
    {{% tab name="Bash"%}}
@@ -225,7 +225,7 @@ To rotate the master wrapping key, do the following:
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-  Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method POST -Uri "$REST_API_URL/wrappingkey/rotation/master" 
+  Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method POST -Uri "$REST_API_URL/wrappingkey/rotation/master"
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -238,7 +238,7 @@ To rotate the master wrapping key, do the following:
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-  Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method GET -Uri "$REST_API_URL/wrappingkey/rotation/master" 
+  Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method GET -Uri "$REST_API_URL/wrappingkey/rotation/master"
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -260,7 +260,7 @@ curl -k -u $REST_API_USER:$REST_API_PASSWORD -X POST "$REST_API_URL/wrappingkey/
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method POST -Uri "$REST_API_URL/wrappingkey/rotation/{tenantid}" 
+Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method POST -Uri "$REST_API_URL/wrappingkey/rotation/{tenantid}"
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -274,7 +274,7 @@ curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET "$REST_API_URL/wrappingkey/r
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method GET -Uri "$REST_API_URL/wrappingkey/rotation/{tenantid}" 
+Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f ${REST_API_USER}:${REST_API_PASSWORD})} -Method GET -Uri "$REST_API_URL/wrappingkey/rotation/{tenantid}"
 ```
 {{% /tab %}}
 {{< /tabs >}}

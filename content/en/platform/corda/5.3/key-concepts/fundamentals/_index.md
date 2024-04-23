@@ -1,11 +1,11 @@
 ---
-description: "Learn the fundamental key concepts of Corda 5.2."
+description: "Learn the fundamental key concepts of Corda 5.3."
 title: "Fundamentals"
 date: 2023-04-21
 menu:
-  corda52:
-    identifier: corda52-fundamentals
-    parent: corda52-key-concepts
+  corda53:
+    identifier: corda53-fundamentals
+    parent: corda53-key-concepts
     weight: 1000
 ---
 # Fundamentals

@@ -3,15 +3,15 @@ date: '2023-11-01'
 title: "Java Flow Code Walkthrough"
 description: Learn how to write flows in Java using the CorDapp template.
 menu:
-  corda52:
-    parent: corda52-flow
-    identifier: corda52-flow-java
+  corda53:
+    parent: corda53-flow
+    identifier: corda53-flow-java
     weight: 2000
 
 ---
 # Java Flow Code Walkthrough
 
-This section describes the Java code for the {{< tooltip >}}flows{{< /tooltip >}} and supporting classes in the `workflows/src/main/java/com/r3/developers/cordapptemplate/flowexample/workflows` folder in the [CorDapp template repo](https://github.com/corda/cordapp-template-java/tree/release-V5.2). It contains the following:
+This section describes the Java code for the {{< tooltip >}}flows{{< /tooltip >}} and supporting classes in the `workflows/src/main/java/com/r3/developers/cordapptemplate/flowexample/workflows` folder in the [CorDapp template repo](https://github.com/corda/cordapp-template-java/tree/release-V5.3). It contains the following:
 
 * [Java Flow Files](#java-flow-files)
 * [Helper Classes](#helper-classes)
@@ -425,7 +425,7 @@ We can now start sending messages to the responder:
    {{< note >}}
    There is no guarantee that the same flow worker  resumes the completion of the flow and so singleton objects should be avoided in Corda 5 flows.
    {{< /note >}}
-   
+
    ```java
            Message response = session.receive(Message.class);
     ```

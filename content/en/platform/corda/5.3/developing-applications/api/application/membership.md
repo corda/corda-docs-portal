@@ -2,9 +2,9 @@
 date: '2023-02-10'
 title: "application.membership"
 menu:
-  corda52:
-    identifier: corda52-api-app-membership
-    parent: corda52-api-application
+  corda53:
+    identifier: corda53-api-app-membership
+    parent: corda53-api-application
     weight: 4000
 ---
 # net.corda.v5.application.membership

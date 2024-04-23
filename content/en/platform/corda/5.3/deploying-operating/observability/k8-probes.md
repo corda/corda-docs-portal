@@ -3,9 +3,9 @@ description: "Learn how to use Kubernetes liveness and readiness probes with Cor
 date: '2023-05-10'
 title: "Kubernetes Liveness and Readiness Probes"
 menu:
-  corda52:
-    parent: corda52-cluster-observability
-    identifier: corda52-cluster-k8-probes
+  corda53:
+    parent: corda53-cluster-observability
+    identifier: corda53-cluster-k8-probes
     weight: 1000
 ---
 # Kubernetes Liveness and Readiness Probes

@@ -3,9 +3,9 @@ description: Learn how to implement a notary for a Corda 5 application network.
 date: '2024-02-27'
 title: "Notary CorDapps"
 menu:
-  corda52:
-    identifier: corda52-develop-notary-cordapps
-    parent: corda52-develop-notaries
+  corda53:
+    identifier: corda53-develop-notary-cordapps
+    parent: corda53-develop-notaries
     weight: 3000
 ---
 # Notary CorDapps
@@ -27,7 +27,7 @@ Each protocol is composed of the following modules/CPKs, which are packaged into
 * **`<notary-type>-client`** — intended to run on application virtual nodes, and provides a sub-flow that initiates a notarization request to a notary {{< tooltip >}}virtual node{{< /tooltip >}} when requested by the ledger finality flow.
 * **`<notary-type>-server`** — provides a responder flow to the corresponding initiator flow in the client package, and performs notarization processing.
 
-The source code for these modules is in the [notary-plugin-non-validating](https://github.com/corda/corda-runtime-os/tree/release/os/5.2/notary-plugins/notary-plugin-non-validating) and [notary-plugin-contract-verifying](https://github.com/corda/corda-runtime-os/tree/release/os/5.2/notary-plugins/notary-plugin-contract-verifying) folders in the [notary-plugins area of corda-runtime-os](https://github.com/corda/corda-runtime-os/tree/release/os/5.2/notary-plugins).
+The source code for these modules is in the [notary-plugin-non-validating](https://github.com/corda/corda-runtime-os/tree/release/os/5.3/notary-plugins/notary-plugin-non-validating) and [notary-plugin-contract-verifying](https://github.com/corda/corda-runtime-os/tree/release/os/5.3/notary-plugins/notary-plugin-contract-verifying) folders in the [notary-plugins area of corda-runtime-os](https://github.com/corda/corda-runtime-os/tree/release/os/5.3/notary-plugins).
 
 ## Notary Server CPB
 
@@ -59,7 +59,7 @@ plugins {
 
 cordapp {
     targetPlatformVersion 50200
-    minimumPlatformVersion 50200 
+    minimumPlatformVersion 50200
     workflow {
         name "Utxo demo verifying notary"
         versionId 1

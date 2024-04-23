@@ -3,9 +3,9 @@ description: "Learn how to configure a Corda cluster to use mutual TLS to secure
 date: '2023-04-07'
 title: "Mutual TLS Connections"
 menu:
-  corda52:
-    identifier: corda52-network-mutual-tls
-    parent: corda52-networks-optional
+  corda53:
+    identifier: corda53-network-mutual-tls
+    parent: corda53-networks-optional
     weight: 1000
 ---
 

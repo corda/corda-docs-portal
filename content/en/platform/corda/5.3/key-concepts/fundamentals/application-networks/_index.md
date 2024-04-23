@@ -3,9 +3,9 @@ description: "Learn about Corda 5 application networks, discrete instances of a 
 title: "Application Networks"
 date: 2023-06-07
 menu:
-  corda52:
-    identifier: corda52-fundamentals-app-networks
-    parent: corda52-fundamentals
+  corda53:
+    identifier: corda53-fundamentals-app-networks
+    parent: corda53-fundamentals
     weight: 2000
 ---
 
@@ -22,7 +22,7 @@ The severity and extent of that attestation are, as previously mentioned, left t
 
 The following diagram shows the application network architecture:
 
-{{< 
+{{<
   figure
 	 src="featured_application-network.png"
    width=40%
@@ -31,10 +31,10 @@ The following diagram shows the application network architecture:
 
 ## Identity Attestation
 
-The Membership Group Manager ({{< tooltip >}}MGM{{< /tooltip >}}) permits identities into an application network. 
+The Membership Group Manager ({{< tooltip >}}MGM{{< /tooltip >}}) permits identities into an application network.
 Identities wishing to join present a request containing various metadata describing them but, most importantly, their unique name and their location as an IP address.
 
-Whilst not strictly required, it is encouraged that alongside their name, identities submit a {{< tooltip >}}PKI{{< /tooltip >}} certificate issued by a trusted authority, alongside the public key whose signature represents the identity's affirmation of acceptance. 
+Whilst not strictly required, it is encouraged that alongside their name, identities submit a {{< tooltip >}}PKI{{< /tooltip >}} certificate issued by a trusted authority, alongside the public key whose signature represents the identity's affirmation of acceptance.
 
 The process of attestation is simple: identities submit their request, additionally request an escalated role, and the Network Operator either [approves or declines the request]({{< relref "../../../application-networks/managing/registration-requests/_index.md" >}}).
 
@@ -42,7 +42,7 @@ The process of attestation is simple: identities submit their request, additiona
 
 It is important within an application network that each identity is uniquely addressable and so each identity must present to the network a unique name.
 Corda does not allow duplicate names to join a single application network.
-However, the same name may exist in multiple different networks, especially if representing the same {{< tooltip >}}entity{{< /tooltip >}}. 
+However, the same name may exist in multiple different networks, especially if representing the same {{< tooltip >}}entity{{< /tooltip >}}.
 This is enforced at the platform level.
 
 ## Peer-to-Peer Communication
@@ -51,7 +51,7 @@ As shown below, Corda is different from other {{< tooltip >}}distributed ledger{
 There are no global broadcasts to all nodes on a network, but all nodes in a network can send messages directly to each other.
 If the recipient is offline, the message waits in an outbound queue until they are online again, just like an e-mail.
 
-{{< 
+{{<
   figure
 	 src="point-to-point-communication.png"
    width=25%
@@ -60,17 +60,17 @@ If the recipient is offline, the message waits in an outbound queue until they a
 
 Identities not registered as members of the application network cannot communicate with those that are, even if they obtain a copy of the CorDapp code:
 * The identities may not be externally visible outside of the application network.
-* The reverse connection attestation undertaken by the Corda networking layer ensures that only attested identities can communicate. 
+* The reverse connection attestation undertaken by the Corda networking layer ensures that only attested identities can communicate.
 
 ## Privacy
 
 ### Communication
 
-Through its attested identity model, Corda allows for direct [peer-to-peer messaging]({{< relref "../application-networks/_index.md/#peer-to-peer-communication" >}}) between identities. 
+Through its attested identity model, Corda allows for direct [peer-to-peer messaging]({{< relref "../application-networks/_index.md/#peer-to-peer-communication" >}}) between identities.
 A proposal to mutate the global state can be undertaken without the knowledge of those not a party to that mutation; there is no need to globally broadcast updates and thus avoid leaking sensitive information.
 At any single point in time, an identity can be involved in any number of distinct transactions:
 
-{{< 
+{{<
   figure
 	 src="private-communication.png"
    width="25%"
@@ -79,23 +79,23 @@ At any single point in time, an identity can be involved in any number of distin
 
 ### Global State
 
-In Corda, as in all {{< tooltip >}}DLT{{< /tooltip >}} systems, there exists a global state. 
-However, in Corda, that global state is not globally visible. 
+In Corda, as in all {{< tooltip >}}DLT{{< /tooltip >}} systems, there exists a global state.
+However, in Corda, that global state is not globally visible.
 Each participant's identity only has visibility over those portions of the global data that are relevant to it:
 
-{{< 
+{{<
   figure
 	 src="global-state.png"
    width="50%"
 	 figcaption="Global State"
 >}}
 
-As shown in the following diagram, there is no single storage point or distribution of data globally. 
+As shown in the following diagram, there is no single storage point or distribution of data globally.
 Each identity locally stores the slices of the global state it needs to, either because:
 * it is a direct participant in a mutation of the global state.
 * it was added as an interested party by a participant.
 
-{{< 
+{{<
   figure
 	 src="global-state-facts.png"
    width="50%"
@@ -104,7 +104,7 @@ Each identity locally stores the slices of the global state it needs to, either 
 
 Therefore, multiple copies of data are distributed and replicated where needed:
 
-{{< 
+{{<
   figure
 	 src="multiple-copies-data.png"
    width="40%"
@@ -113,7 +113,7 @@ Therefore, multiple copies of data are distributed and replicated where needed:
 
 Ultimately, the fundamental promise of Corda and all DLTs is that, once committed to the global state and accepted as valid, there can be no disagreement that an event has occurred:
 
-{{< 
+{{<
   figure
 	 src="trust.png"
    width="40%"

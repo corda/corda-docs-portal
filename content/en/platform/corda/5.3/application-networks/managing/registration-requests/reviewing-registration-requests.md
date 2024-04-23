@@ -3,9 +3,9 @@ description: "Learn how the Network Operator reviews and manually approves or de
 date: '2023-04-07'
 title: "Reviewing Registration Requests"
 menu:
-  corda52:
-    identifier: corda52-approval-review
-    parent: corda52-networks-reg-requests
+  corda53:
+    identifier: corda53-approval-review
+    parent: corda53-networks-reg-requests
     weight: 3000
 ---
 # Reviewing Registration Requests
@@ -34,7 +34,7 @@ This method returns the requests in the following format:
 ```JSON
 {
   "memberInfoSubmitted": {
-    "data": 
+    "data":
   },
   "reason": "string",
   "registrationId": "string",

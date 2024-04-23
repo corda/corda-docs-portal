@@ -3,9 +3,9 @@ description: "Learn how to write flows as part of your first basic Corda 5 CorDa
 date: '2023-05-03'
 title: "Write Flows"
 menu:
-  corda52:
-    identifier: corda52-develop-first-cordapp-flows
-    parent: corda52-develop-first-cordapp
+  corda53:
+    identifier: corda53-develop-first-cordapp-flows
+    parent: corda53-develop-first-cordapp
     weight: 4000
 ---
 

@@ -3,9 +3,9 @@ description: "Learn the fundamentals of Corda 5 transactions."
 title: "Transactions"
 date: 2023-06-08
 menu:
-  corda52:
-    identifier: corda52-fundamentals-ledger-transactions
-    parent: corda52-fundamentals-ledger
+  corda53:
+    identifier: corda53-fundamentals-ledger-transactions
+    parent: corda53-fundamentals-ledger
     weight: 2000
 ---
 

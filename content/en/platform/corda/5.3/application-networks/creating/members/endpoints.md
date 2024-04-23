@@ -3,9 +3,9 @@ description: "Learn how to make changes to a member's endpoint information by re
 date: '2023-09-21'
 title: "Modify Member Endpoints"
 menu:
-  corda52:
-    identifier: corda52-networks-member-endpoints
-    parent: corda52-networks-members
+  corda53:
+    identifier: corda53-networks-member-endpoints
+    parent: corda53-networks-members
     weight: 5500
 ---
 

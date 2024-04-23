@@ -3,9 +3,9 @@ description: "Learn about Corda 5 logs. This page describes how to retrieve part
 date: '2023-05-10'
 title: "Logs"
 menu:
-  corda52:
-    parent: corda52-cluster-observability
-    identifier: corda52-cluster-logs
+  corda53:
+    parent: corda53-cluster-observability
+    identifier: corda53-cluster-logs
     weight: 3000
 ---
 # Logs
