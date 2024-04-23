@@ -1,5 +1,5 @@
-<!--layout for _index pages-->
 {{ define "main" }}
+<!--layout for _index pages-->
 	<div class="row flex-xl-nowrap">
     {{ if ne .Params.sidebar false -}}
 		<div class="col-lg-5 col-xl-4 docs-sidebar collapse d-lg-block">
@@ -23,7 +23,7 @@
 			{{ end }}
 			{{ end }}
 			{{ $isCorda5Version := in .Site.Params.corda5versions .Page.Params.version }}
-			{{ if eq $isCorda5Version false }}			
+			{{ if eq $isCorda5Version false }}
     			<h1>{{ .Title }}</h1>
 			{{ end }}
       {{ if .Site.Params.editPage -}}
