@@ -1,9 +1,9 @@
 ---
 cascade:
   project: corda
-  version: 'Corda 5.2'
+  version: 'Corda 5.3'
   section_menu: corda53
-description: "Release notes, legal information, and platform support details for Corda 5.2."
+description: "Release notes, legal information, and platform support details for Corda 5.3."
 title: "Release Notes"
 date: 2023-05-23
 menu:
