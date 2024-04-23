@@ -621,94 +621,160 @@ Even if state types share a database instance, each state type must define its o
 ```yaml
 workers:
   crypto:
+    config:
+      username:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_CRYPTO_CONFIG_USERNAME_SECRET_KEY>
+            name: <POSTGRESQL_CRYPTO_CONFIG_USERNAME_SECRET_NAME>
+      password:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_CRYPTO_CONFIG_PASSWORD_SECRET_KEY>
+            name: <POSTGRESQL_CRYPTO_CONFIG_PASSWORD_SECRET_NAME>      
     stateManager:
       keyRotation:
         username:
           valueFrom:
             secretKeyRef:
-              key: <POSTGRESQL_KEY_ROTATION_CRYPTO_WORKER_USERNAME_SECRET_KEY>
-              name: <POSTGRESQL_KEY_ROTATION_CRYPTO_WORKER_USERNAME_SECRET_NAME>
+              key: <POSTGRESQL_CRYPTO_STATEMANAGER_USERNAME_SECRET_KEY>
+              name: <POSTGRESQL_CRYPTO_STATEMANAGER_USERNAME_SECRET_NAME>
         password:
           valueFrom:
             secretKeyRef:
-              key: <POSTGRESQL_KEY_ROTATION_CRYPTO_WORKER_PASSWORD_SECRET_KEY>
-              name: <POSTGRESQL_KEY_ROTATION_CRYPTO_WORKER_PASSWORD_SECRET_NAME>
+              key: <POSTGRESQL_CRYPTO_STATEMANAGER_PASSWORD_SECRET_KEY>
+              name: <POSTGRESQL_CRYPTO_STATEMANAGER_PASSWORD_SECRET_NAME>
   flow:
+    config:
+      username:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_FLOW_CONFIG_USERNAME_SECRET_KEY>
+            name: <POSTGRESQL_FLOW_CONFIG_USERNAME_SECRET_NAME>
+      password:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_FLOW_CONFIG_PASSWORD_SECRET_KEY>
+            name: <POSTGRESQL_FLOW_CONFIG_PASSWORD_SECRET_NAME>  
     stateManager:
       flowCheckpoint:
         username:
           valueFrom:
             secretKeyRef:
-              key: <POSTGRESQL_FLOW_CHECKPOINT_USERNAME_SECRET_KEY>
-              name: <POSTGRESQL_FLOW_CHECKPOINT_USERNAME_SECRET_NAME>
+              key: <POSTGRESQL_FLOW_STATEMANAGER_USERNAME_SECRET_KEY>
+              name: <POSTGRESQL_FLOW_STATEMANAGER_USERNAME_SECRET_NAME>
         password:
           valueFrom:
             secretKeyRef:
-              key: <POSTGRESQL_FLOW_CHECKPOINT_PASSWORD_SECRET_KEY>
-              name: <POSTGRESQL_FLOW_CHECKPOINT_PASSWORD_SECRET_NAME>
+              key: <POSTGRESQL_FLOW_STATEMANAGER_PASSWORD_SECRET_KEY>
+              name: <POSTGRESQL_FLOW_STATEMANAGER_PASSWORD_SECRET_NAME>
   flowMapper:
+    config:
+      username:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_FLOW_MAPPER_CONFIG_USERNAME_SECRET_KEY>
+            name: <POSTGRESQL_FLOW_MAPPER_CONFIG_USERNAME_SECRET_NAME>
+      password:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_FLOW_MAPPER_CONFIG_PASSWORD_SECRET_KEY>
+            name: <POSTGRESQL_FLOW_MAPPER_CONFIG_PASSWORD_SECRET_NAME>  
     stateManager:
       flowMapping:
         username:
           valueFrom:
             secretKeyRef:
-              key: <POSTGRESQL_FLOW_MAPPING_USERNAME_SECRET_KEY>
-              name: <POSTGRESQL_FLOW_MAPPING_USERNAME_SECRET_NAME>
+              key: <POSTGRESQL_FLOW_MAPPER_STATEMANAGER_USERNAME_SECRET_KEY>
+              name: <POSTGRESQL_FLOW_MAPPER_STATEMANAGER_USERNAME_SECRET_NAME>
         password:
           valueFrom:
             secretKeyRef:
-              key: <POSTGRESQL_FLOW_MAPPING_PASSWORD_SECRET_KEY>
-              name: <POSTGRESQL_FLOW_MAPPING_PASSWORD_SECRET_NAME>
+              key: <POSTGRESQL_FLOW_MAPPER_STATEMANAGER_PASSWORD_SECRET_KEY>
+              name: <POSTGRESQL_FLOW_MAPPER_STATEMANAGER_PASSWORD_SECRET_NAME>
   p2pLinkManager:
+    config:
+      username:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_P2P_SESSION_CONFIG_USERNAME_SECRET_KEY>
+            name: <POSTGRESQL_P2P_SESSION_CONFIG_USERNAME_SECRET_NAME>
+      password:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_P2P_SESSION_CONFIG_PASSWORD_SECRET_KEY>
+            name: <POSTGRESQL_P2P_SESSION_CONFIG_PASSWORD_SECRET_NAME>  
     stateManager:
       p2pSession:
         username:
           valueFrom:
             secretKeyRef:
-              key: <POSTGRESQL_P2P_SESSION_USERNAME_SECRET_KEY>
-              name: <POSTGRESQL_P2P_SESSION_USERNAME_SECRET_NAME>
+              key: <POSTGRESQL_P2P_SESSION_STATEMANAGER_USERNAME_SECRET_KEY>
+              name: <POSTGRESQL_P2P_SESSION_STATEMANAGER_USERNAME_SECRET_NAME>
         password:
           valueFrom:
             secretKeyRef:
-              key: <POSTGRESQL_P2P_SESSION_PASSWORD_SECRET_KEY>
-              name: <POSTGRESQL_P2P_SESSION_PASSWORD_SECRET_NAME>
+              key: <POSTGRESQL_P2P_SESSION_STATEMANAGER_PASSWORD_SECRET_KEY>
+              name: <POSTGRESQL_P2P_SESSION_STATEMANAGER_PASSWORD_SECRET_NAME>
   tokenSelection:
+    config:
+      username:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_TOKEN_CONFIG_USERNAME_SECRET_KEY>
+            name: <POSTGRESQL_TOKEN_CONFIG_USERNAME_SECRET_NAME>
+      password:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_TOKEN_CONFIG_PASSWORD_SECRET_KEY>
+            name: <POSTGRESQL_TOKEN_CONFIG_PASSWORD_SECRET_NAME>  
     stateManager:
       tokenPoolCache:
         username:
           valueFrom:
             secretKeyRef:
-              key: <POSTGRESQL_TOKEN_POOL_CACHE_USERNAME_SECRET_KEY>
-              name: <POSTGRESQL_TOKEN_POOL_CACHE_USERNAME_SECRET_NAME>
+              key: <POSTGRESQL_TOKEN_STATEMANAGER_USERNAME_SECRET_KEY>
+              name: <POSTGRESQL_TOKEN_STATEMANAGER_USERNAME_SECRET_NAME>
         password:
           valueFrom:
             secretKeyRef:
-              key: <POSTGRESQL_TOKEN_POOL_CACHE_PASSWORD_SECRET_KEY>
-              name: <POSTGRESQL_TOKEN_POOL_CACHE_PASSWORD_SECRET_NAME>
+              key: <POSTGRESQL_TOKEN_STATEMANAGER_PASSWORD_SECRET_KEY>
+              name: <POSTGRESQL_TOKEN_STATEMANAGER_PASSWORD_SECRET_NAME>
   rest:
+    config:
+      username:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_REST_WORKER_CONFIG_USERNAME_SECRET_KEY>
+            name: <POSTGRESQL_REST_WORKER_CONFIG_USERNAME_SECRET_NAME>
+      password:
+        valueFrom:
+          secretKeyRef:
+            key: <POSTGRESQL_REST_WORKER_CONFIG_PASSWORD_SECRET_KEY>
+            name: <POSTGRESQL_REST_WORKER_CONFIG_PASSWORD_SECRET_NAME>  
     stateManager:
       keyRotation:
         username:
           valueFrom:
             secretKeyRef:
-              key: <POSTGRESQL_KEY_ROTATION_REST_WORKER_USERNAME_SECRET_KEY>
-              name: <POSTGRESQL_KEY_ROTATION_REST_WORKER_USERNAME_SECRET_NAME>
+              key: <POSTGRESQL_KEY_ROTATION_REST_WORKER_STATEMANAGER_USERNAME_SECRET_KEY>
+              name: <POSTGRESQL_KEY_ROTATION_REST_WORKER_STATEMANAGER_USERNAME_SECRET_NAME>
         password:
           valueFrom:
             secretKeyRef:
-              key: <POSTGRESQL_KEY_ROTATION_REST_WORKER_PASSWORD_SECRET_KEY>
-              name: <POSTGRESQL_KEY_ROTATION_REST_WORKER_PASSWORD_SECRET_NAME>
+              key: <POSTGRESQL_KEY_ROTATION_REST_WORKER_STATEMANAGER_PASSWORD_SECRET_KEY>
+              name: <POSTGRESQL_KEY_ROTATION_REST_WORKER_STATEMANAGER_PASSWORD_SECRET_NAME>
       flowStatus:
         username:
           valueFrom:
             secretKeyRef:
-              key: <POSTGRESQL_FLOW_STATUS_USERNAME_SECRET_KEY>
-              name: <POSTGRESQL_FLOW_STATUS_USERNAME_SECRET_NAME>
+              key: <POSTGRESQL_FLOW_STATUS_USERNAME_STATEMANAGER_SECRET_KEY>
+              name: <POSTGRESQL_FLOW_STATUS_USERNAME_STATEMANAGER_SECRET_NAME>
         password:
           valueFrom:
             secretKeyRef:
-              key: <POSTGRESQL_FLOW_STATUS_PASSWORD_SECRET_KEY>
-              name: <POSTGRESQL_FLOW_STATUS_PASSWORD_SECRET_NAME>
+              key: <POSTGRESQL_FLOW_STATUS_PASSWORD_STATEMANAGER_SECRET_KEY>
+              name: <POSTGRESQL_FLOW_STATUS_PASSWORD_STATEMANAGER_SECRET_NAME>
 ```
 
 Note that, as elsewhere, credentials can be specified directly as part of the overrides using `value` instead of `valueFrom`:
