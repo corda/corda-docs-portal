@@ -1,3 +1,4 @@
+{{/* Called by field-desc-ref-docs or conditional-field-desc-ref-docs to format any config field descriptions defined in another file, referenced from the original file */}}
 {{ $refurl := .url }}
 {{ $refjson := getJSON $refurl }}
 <ul>
