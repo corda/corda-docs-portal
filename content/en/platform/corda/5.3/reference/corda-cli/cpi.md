@@ -28,7 +28,7 @@ table th:nth-of-type(2) {
 | Argument           | Description                                                            |
 | ------------------ | ---------------------------------------------------------------------- |
 | -t, \-\-target     | The target address of the REST server, for example, https://host:port. |
-| -p, \-\-password   | REST password.                                                         |
+| -p, \-\-password   | The REST password.                                                         |
 | -u, \-\-user       | REST user name.                                                        |
 | -c, \-\-cpi        | The CPI file to upload.                                                |
 | -w, \-\-wait       | Wait for the result or have a result ID returned to be checked later.  |
