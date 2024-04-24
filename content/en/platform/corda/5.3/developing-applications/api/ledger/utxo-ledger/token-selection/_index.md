@@ -13,6 +13,7 @@ The Token Selection API enables a {{< tooltip >}}flow{{< /tooltip >}} to exclusi
 * **Exclusivity:** In an environment where multiple instances of a flow are running in parallel, it is important that each flow can exclusively claim states to spend. Without this, there is a high chance that multiple flows could attempt to spend the same states at the same time, causing transactions to fail during notarization, due to an attempt to spend a state that has already been spent.
 * **Target Amount Selection:** When selecting fungible states to spend, it is usual to select multiple states that sum to at least the target value of the proposed transaction. The selection API provides an explicit model for achieving this, which would be difficult to achieve using standard vault queries.
 * **Performance:** Providing a dedicated API for this specific type of state selection allows implementations that are not coupled to the vault query API and therefore can be optimized for the specific query patterns.
+* **Token Priority:** Some scenarios require tokens to have a specified priority, so they get consumed first. For instance, in the case where tokens represent vouchers with expiry dates, it is important to always consume the tokens that are about to expire first.
 
 ## Token Selection Components
 
@@ -29,7 +30,7 @@ The API defines a generic {{< tooltip >}}token{{< /tooltip >}} that is used to r
 | Amount           | BigDecimal       | User        | The amount/value of the state linked to this token.                                                                                                                                     |
 | Tag              | String           | User        | An optional string that can be searched using a regular expression when selecting tokens.                                                                                               |
 | Owner Hash       | SecureHash       | User        | An optional hash of the owner of the state.         |
-|       |       |        |          |
+| Priority         | Long             | User        | An optional long integer which defines the priority of the token when being consumed. Lower values indicate the token will be consumed first. A `null` value sets the priority of the token to its lowest. |
 
 ### Token Pools
 
@@ -46,6 +47,8 @@ A token observer converts a custom state into a token when a transaction is fina
 
 ### Claim Query
 When a flow needs to select fungible states to spend, it can execute a claim query using the `TokenSelection` API. The API supports a single method `tryClaim` that takes a `TokenClaimCriteria` describing the target amount required and the type of tokens required.
+
+Tokens can be claimed using two different strategies. The `RANDOM` strategy selects tokens in arbitrary fashion while the `PRIORITY` strategy claims the tokens with the highest priority first. The default strategy `RANDOM` is used when no strategy is specified.
 
 ### Token Claim
 When a flow executes a successful query to select tokens via the selection API, it receives a Token Claim. The claim represents a list of tokens that have been exclusively claimed and can be used as inputs to a new transaction. Once the flow has completed (successfully or not), it should release the claim, signaling which tokens, if any, were consumed in a transaction. Any unused tokens are released back to the pool for others to use.

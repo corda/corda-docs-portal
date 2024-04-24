@@ -26,7 +26,8 @@ The following example outlines the basic building blocks to consider when using 
        val currency: String,
        val value: BigDecimal,
        val tag: String? = null,
-       val ownerHash: SecureHash? = null
+       val ownerHash: SecureHash? = null,
+       val priority: Long? = null
    ) : ContractState {
       companion object {
          val tokenType = CoinState::class.java.name.toString()
@@ -44,7 +45,8 @@ The following example outlines the basic building blocks to consider when using 
                symbol = context.stateAndRef.state.contractState.currency
             ),
             context.stateAndRef.state.contractState.value,
-            filterFields = UtxoTokenFilterFields((context.stateAndRef.state.contractState.tag, context.stateAndRef.state.contractState.ownerHash)
+            filterFields = UtxoTokenFilterFields((context.stateAndRef.state.contractState.tag, context.stateAndRef.state.contractState.ownerHash),
+            context.stateAndRef.state.contractState.priority
          )
       }
    }
@@ -66,13 +68,26 @@ The following example outlines the basic building blocks to consider when using 
       // Assume we are using a single notrary
       val notary = notaryLookup.notaryServices.single()
 
-      // Create our selection criteria to select a minimum of 100 GBP worth of coins
+      // 1) Create our selection criteria to select a minimum of 100 GBP worth of coins
+      // This criteria will use the default selection strategy `RANDOM`
       val selectionCriteria = TokenClaimCriteria(
         tokenType = CoinState.tokenType,
         issuerHash = bankX500.toSecureHash(),
         notaryX500Name = notary.name,
         symbol = "GBP",
         targetAmount = BigDecimal(100)
+      )
+
+      // 2) An alternative, is to select tokens based on their priority.
+      // Create our selection criteria to select a minimum of 100 GBP worth of coins selecting the coins with the highest priority.
+      // This criteria will use the default selection strategy `PRIORITY`
+      val selectionCriteria = TokenClaimCriteria(
+        tokenType = CoinState.tokenType,
+        issuerHash = bankX500.toSecureHash(),
+        notaryX500Name = notary.name,
+        symbol = "GBP",
+        targetAmount = BigDecimal(100),
+        strategy = Strategy.PRIORITY
       )
       ```
 
