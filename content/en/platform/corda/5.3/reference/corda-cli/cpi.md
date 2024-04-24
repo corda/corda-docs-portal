@@ -32,7 +32,7 @@ table th:nth-of-type(2) {
 | -u, \-\-user       | The REST user name.                                                        |
 | -c, \-\-cpi        | The CPI file to upload.                                                |
 | -w, \-\-wait       | Wait for the result or have a result ID returned to be checked later.  |
-| -k, \-\-insecure   | Allow for invalid server-side SSL certificates.                        |
+| -k, \-\-insecure   | Allows invalid server-side SSL certificates.                        |
 
 {{< tabs name="DDL-user">}}
 {{% tab name="Bash" %}}
