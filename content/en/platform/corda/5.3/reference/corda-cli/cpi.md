@@ -1,11 +1,11 @@
 ---
 description: "List of CPI commands for the Corda CLI. Use these commands to upload or fetch CPIs."
-date: '2024-04-15'
+date: '2024-04-24'
 menu:
-corda52:
-identifier: corda52-cordacli-cpi
-weight: 500
-parent: corda52-cli-reference
+  corda53:
+    identifier: corda53-cordacli-cpi
+    weight: 500
+    parent: corda53-cli-reference
 title: "cpi"
 ---
 # cpi
