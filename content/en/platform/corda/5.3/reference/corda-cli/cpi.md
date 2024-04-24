@@ -29,7 +29,7 @@ table th:nth-of-type(2) {
 | ------------------ | ---------------------------------------------------------------------- |
 | -t, \-\-target     | The target address of the REST server, for example, https://host:port. |
 | -p, \-\-password   | The REST password.                                                         |
-| -u, \-\-user       | REST user name.                                                        |
+| -u, \-\-user       | The REST user name.                                                        |
 | -c, \-\-cpi        | The CPI file to upload.                                                |
 | -w, \-\-wait       | Wait for the result or have a result ID returned to be checked later.  |
 | -k, \-\-insecure   | Allow for invalid server-side SSL certificates.                        |
