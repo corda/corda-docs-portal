@@ -63,7 +63,7 @@ table th:nth-of-type(2) {
 | Argument           | Description                                                            |
 | ------------------ | ---------------------------------------------------------------------- |
 | -t, \-\-target     | The target address of the REST server, for example, https://host:port. |
-| -p, \-\-password   | REST password.                                                         |
+| -p, \-\-password   | The REST password.                                                         |
 | -u, \-\-user       | REST user name.                                                        |
 | -k, \-\-insecure   | Allow for invalid server-side SSL certificates.                        |
 
