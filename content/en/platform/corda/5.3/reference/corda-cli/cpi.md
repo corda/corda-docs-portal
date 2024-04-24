@@ -10,7 +10,7 @@ title: "cpi"
 ---
 # cpi
 
-This section lists the Corda CLI `cpi` arguments. You can use these commands to upload CPIs to your Corda 5 cluster as well as list the CPIs that are already there.
+This section lists the Corda CLI `cpi` arguments. You can use these commands to upload CPIs to your Corda cluster and also list any existing CPIs.
 
 ## upload
 
