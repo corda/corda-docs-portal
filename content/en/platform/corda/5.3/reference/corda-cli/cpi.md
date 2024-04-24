@@ -49,7 +49,7 @@ corda-cli.cmd cpi upload -t https://localhost:8888 -u admin -p password --cpi my
 
 ## list
 
-The `list` command fetches the CPIs present in your project.
+The `list` command fetches the CPIs present in your C5 cluster.
 
 <style>
 table th:first-of-type {
