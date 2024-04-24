@@ -14,7 +14,7 @@ This section lists the Corda CLI `cpi` arguments. You can use these commands to 
 
 ## upload
 
-The `upload` command uploads CPIs present in the specified `.cpi` file into your C5 cluster, so that Virtual Nodes can be created using this CPI at a later point.
+The `upload` command uploads CPIs present in the specified `.cpi` file into your Corda 5 cluster, so that virtual nodes can be created using this CPI at a later point.
 
 <style>
 table th:first-of-type {
@@ -49,7 +49,7 @@ corda-cli.cmd cpi upload -t https://localhost:8888 -u admin -p password --cpi my
 
 ## list
 
-The `list` command fetches the CPIs present in your C5 cluster.
+The `list` command fetches the CPIs present in your Corda 5 cluster.
 
 <style>
 table th:first-of-type {
