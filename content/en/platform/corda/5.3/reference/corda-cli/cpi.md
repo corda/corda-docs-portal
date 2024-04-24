@@ -64,7 +64,7 @@ table th:nth-of-type(2) {
 | ------------------ | ---------------------------------------------------------------------- |
 | -t, \-\-target     | The target address of the REST server, for example, https://host:port. |
 | -p, \-\-password   | The REST password.                                                         |
-| -u, \-\-user       | REST user name.                                                        |
+| -u, \-\-user       | The REST user name.                                                        |
 | -k, \-\-insecure   | Allow for invalid server-side SSL certificates.                        |
 
 {{< tabs name="DDL-user">}}
