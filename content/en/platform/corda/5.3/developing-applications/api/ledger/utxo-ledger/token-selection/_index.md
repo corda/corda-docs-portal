@@ -28,7 +28,8 @@ The API defines a generic {{< tooltip >}}token{{< /tooltip >}} that is used to r
 | Symbol           | String           | User        | The user-defined symbol for the token.                                                                                                                                                  |
 | Amount           | BigDecimal       | User        | The amount/value of the state linked to this token.                                                                                                                                     |
 | Tag              | String           | User        | An optional string that can be searched using a regular expression when selecting tokens.                                                                                               |
-| Owner Hash       | SecureHash       | User        | An optional hash of the owner of the state.                                                                                                                                             |
+| Owner Hash       | SecureHash       | User        | An optional hash of the owner of the state.         |
+|       |       |        |          |
 
 ### Token Pools
 
