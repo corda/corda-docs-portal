@@ -68,8 +68,8 @@ The following example outlines the basic building blocks to consider when using 
       // Assume we are using a single notrary
       val notary = notaryLookup.notaryServices.single()
 
-      // 1) Create our selection criteria to select a minimum of 100 GBP worth of coins
-      // This criteria will use the default selection strategy `RANDOM`
+      // Create token selection criteria using one of the available strategies:
+      // 1) Select a minimum of 100 GBP worth of coins using the default `RANDOM` strategy that claims tokens arbitrarily
       val selectionCriteria = TokenClaimCriteria(
         tokenType = CoinState.tokenType,
         issuerHash = bankX500.toSecureHash(),
@@ -78,9 +78,7 @@ The following example outlines the basic building blocks to consider when using 
         targetAmount = BigDecimal(100)
       )
 
-      // 2) An alternative, is to select tokens based on their priority.
-      // Create our selection criteria to select a minimum of 100 GBP worth of coins selecting the coins with the highest priority.
-      // This criteria will use the default selection strategy `PRIORITY`
+      // 2) Select a minimum of 100 GBP worth of coins using the `PRIORITY` strategy that claims tokens with the highest priority first
       val selectionCriteria = TokenClaimCriteria(
         tokenType = CoinState.tokenType,
         issuerHash = bankX500.toSecureHash(),
