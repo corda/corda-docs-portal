@@ -31,7 +31,7 @@ table th:nth-of-type(2) {
 | -p, \-\-password   | The REST password.                                                         |
 | -u, \-\-user       | The REST user name.                                                        |
 | -c, \-\-cpi        | The CPI file to upload.                                                |
-| -w, \-\-wait       | Waits for the checksum to populate. If not specified, you'll receive a standard ID, which you can later use to retrieve the checksum.  |
+| -w, \-\-wait       | Waits for the checksum to populate. If not specified, an ID is returned, which you can later use to retrieve the checksum.  |
 | -k, \-\-insecure   | Allows invalid server-side SSL certificates.                        |
 
 {{< tabs name="cpi-upload">}}
