@@ -26,7 +26,8 @@ The following example outlines the basic building blocks to consider when using 
        val currency: String,
        val value: BigDecimal,
        val tag: String? = null,
-       val ownerHash: SecureHash? = null
+       val ownerHash: SecureHash? = null,
+       val priority: Long? = null
    ) : ContractState {
       companion object {
          val tokenType = CoinState::class.java.name.toString()
@@ -44,7 +45,8 @@ The following example outlines the basic building blocks to consider when using 
                symbol = context.stateAndRef.state.contractState.currency
             ),
             context.stateAndRef.state.contractState.value,
-            filterFields = UtxoTokenFilterFields((context.stateAndRef.state.contractState.tag, context.stateAndRef.state.contractState.ownerHash)
+            filterFields = UtxoTokenFilterFields((context.stateAndRef.state.contractState.tag, context.stateAndRef.state.contractState.ownerHash),
+            context.stateAndRef.state.contractState.priority
          )
       }
    }
@@ -66,13 +68,24 @@ The following example outlines the basic building blocks to consider when using 
       // Assume we are using a single notrary
       val notary = notaryLookup.notaryServices.single()
 
-      // Create our selection criteria to select a minimum of 100 GBP worth of coins
+      // Create token selection criteria using one of the available strategies:
+      // 1) Select a minimum of 100 GBP worth of coins using the default `RANDOM` strategy that claims tokens arbitrarily
       val selectionCriteria = TokenClaimCriteria(
         tokenType = CoinState.tokenType,
         issuerHash = bankX500.toSecureHash(),
         notaryX500Name = notary.name,
         symbol = "GBP",
         targetAmount = BigDecimal(100)
+      )
+
+      // 2) Select a minimum of 100 GBP worth of coins using the `PRIORITY` strategy that claims tokens with the highest priority first
+      val selectionCriteria = TokenClaimCriteria(
+        tokenType = CoinState.tokenType,
+        issuerHash = bankX500.toSecureHash(),
+        notaryX500Name = notary.name,
+        symbol = "GBP",
+        targetAmount = BigDecimal(100),
+        strategy = Strategy.PRIORITY
       )
       ```
 
