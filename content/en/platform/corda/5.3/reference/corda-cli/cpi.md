@@ -34,7 +34,7 @@ table th:nth-of-type(2) {
 | -w, \-\-wait       | Wait for the checksum to populate. If not specified, you'll receive a standard ID, which you can later use to retrieve the checksum.  |
 | -k, \-\-insecure   | Allows invalid server-side SSL certificates.                        |
 
-{{< tabs name="DDL-user">}}
+{{< tabs name="cpi-upload">}}
 {{% tab name="Bash" %}}
 ```sh
 corda-cli.sh cpi upload -t https://localhost:8888 -u admin -p password --cpi mycpifile.cpi -w -k
@@ -67,7 +67,7 @@ table th:nth-of-type(2) {
 | -u, \-\-user       | The REST user name.                                                        |
 | -k, \-\-insecure   | Allows invalid server-side SSL certificates.                        |
 
-{{< tabs name="DDL-user">}}
+{{< tabs name="cpi-list">}}
 {{% tab name="Bash" %}}
 ```sh
 corda-cli.sh cpi list -t https://localhost:8888 -u admin -p password -k
