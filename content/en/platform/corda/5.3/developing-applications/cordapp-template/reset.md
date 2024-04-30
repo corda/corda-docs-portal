@@ -22,7 +22,7 @@ This section describes how to reset the CorDapp template to handle these situati
 This process does the following:
 
 * Stops any processes related to the Corda cluster.
-* Removes the existing Corda cluster software (but not the {{< tooltip >}}Corda CLI{{< /tooltip >}}).
+* Removes the existing Corda cluster software.
 * Deletes all of the temporary files that the CorDapp template creates and uses.
 * Runs the Gradle `clean` task to remove any CPI build artifacts.
 
