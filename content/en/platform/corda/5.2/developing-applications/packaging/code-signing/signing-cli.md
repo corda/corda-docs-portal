@@ -31,12 +31,12 @@ To build a CPI, the packaging tool requires the CPB signing certificate in the k
 
 2. Export the signing key certificate:
    ```shell
-   keytool -exportcert  --keystore signingkeys.pfx     --storepass "keystore password" -alias "signing key 1" > sk.crt
+   keytool -exportcert --keystore signingkeys.pfx --storepass "keystore password" -alias "signing key 1" > sk.crt
    ```
 
 3. Import the signing key certificate into the key store:
    ```shell
-   keytool --import --keystore signingkeys.pfx     --storepass "keystore password" --file sk.crt
+   keytool --import --keystore signingkeys.pfx --storepass "keystore password" --file sk.crt
    ```
 
 4. Build a CPI (version 2).
