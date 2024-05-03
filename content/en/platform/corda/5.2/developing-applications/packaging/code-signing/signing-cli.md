@@ -16,7 +16,7 @@ who need to sign their files after the QA process, when they are ready to releas
 The following steps will guide you through the process of removing existing (development) signatures and applying new ones.
 
 {{< note >}}
-To build a CPI, the packaging tool requires the CPB signing certificate in the key store as it doesn't recognize private key entries during CPB validation. To pass validation, you must export the signing key as a certificate and import it into the key store.
+To build a CPI, the packaging tool requires the CPB signing certificate in the keystore, as it does not recognize private key entries during CPB validation. To pass validation, you must export the signing key as a certificate and import it into the keystore.
 {{< /note >}}
 
 1. Remove the existing signatures and apply new ones:
