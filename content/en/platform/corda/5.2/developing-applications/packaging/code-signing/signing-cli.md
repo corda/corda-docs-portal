@@ -20,24 +20,24 @@ To build a CPI, the packaging tool requires the CPB signing certificate in the k
 {{< /note >}}
 
 1. Remove the existing signatures and apply new ones:
-```shell
-./corda-cli.sh package sign \
-mycpb.cpb \
---file signed.cpb \
---keystore signingkeys.pfx \
---storepass "keystore password" \
---key "signing key 1"
-```
+   ```shell
+   ./corda-cli.sh package sign \
+   mycpb.cpb \
+   --file signed.cpb \
+   --keystore signingkeys.pfx \
+   --storepass "keystore password" \
+   --key "signing key 1"
+   ```
 
 2. Export the signing key certificate:
-```shell
-keytool -exportcert  --keystore signingkeys.pfx     --storepass "keystore password" -alias "signing key 1" > sk.crt
-```
+   ```shell
+   keytool -exportcert  --keystore signingkeys.pfx     --storepass "keystore password" -alias "signing key 1" > sk.crt
+   ```
 
 3. Import the signing key certificate into the key store:
-```shell
-keytool --import --keystore signingkeys.pfx     --storepass "keystore password" --file sk.crt
-```
+   ```shell
+   keytool --import --keystore signingkeys.pfx     --storepass "keystore password" --file sk.crt
+   ```
 
 4. Build a CPI (version 2).
    You can supply the group policy file into the CPI by either passing it to the CLI `package` command parameters as a file
@@ -70,7 +70,7 @@ keytool --import --keystore signingkeys.pfx     --storepass "keystore password" 
    ```
 
 5. Check signatures using `jarsigner`:
-```shell
-jarsigner -keystore signingkeys.pfx -storepass "keystore password" -verbose -certs  -verify output.cpi
-```
+   ```shell
+   jarsigner -keystore signingkeys.pfx -storepass "keystore password" -verbose -certs  -verify output.cpi
+   ```
 
