@@ -38,3 +38,27 @@ When upgrading to Corda 4.12, the old contract CorDapp JAR is preserved and relo
 To ensure compatibility of all existing transactions in the node’s backchain with the External Verifier, and consequently with Corda 4.12, a new utility tool has been introduced: the Transaction Validator Utility. This tool runs the External Verifier on the existing backchain as a sanity check.
 
 {{< figure alt="Corda 4.12 vs Corda 4.11" zoom="/resources/corda412vs411.png" >}}
+
+## Upgrade scenarios
+
+This section describes three possible upgrade paths to a network operating on Corda 4.12. In these scenarios a network is a collection of Corda nodes that are all running the same CorDapp.
+
+All scenarios involving the upgrade of existing node versions from a previous version of Corda 4.x to Corda 4.12 assume the existence of 4.11 (or earlier) transactions in the node’s backchain.
+
+### Upgrading selected network nodes to 4.12
+
+In this scenario, you have a mixed network where only selected nodes are upgraded to Corda 4.12, while others remain on previous versions of Corda 4.x. This scenario requires you to perform the following actions:
+* Upgrade any existing CorDapps to run on Java 17 and Kotlin 1.9.
+* Keep a copy of the old CorDapp contract JAR file in the new `legacy-contracts` folder placed inside all upgraded 4.12 nodes.
+
+Any future Corda 4.12 nodes added to the network will also require the `legacy-contracts` folder, unless all nodes have been updated by that time. In the latter case, you are adding new Corda 4.12 nodes to a non-mixed network and this requirement is unnecessary.
+
+### Upgrading all network nodes to 4.12
+
+In this scenario, you are creating a non-mixed network a non-mixed network composed solely of nodes operating on Corda 4.12. Transactions occurring within this newly-upgraded network have only the 4.12 contract component group and therefore, you do not need the `legacy-contracts` folder. This is because nodes trust existing old contract attachments if the new CorDapp locally installed on the node is signed by the same key. However, it is still important that you keep a copy of the old contract JAR for reference.
+
+If any new Corda 4.12 nodes are added to this network in the future, a problem arises wherein nodes won’t trust old contract attachments. For example, this happens if a new transaction contains a backchain of old Corda 4.x transactions. For this reason, you need to upload the old contract JAR needs via RPC to the new node, ensuring it trusts the old contract version.
+
+### Adding 4.12 nodes to a new network
+
+This scenario is the simplest, as it does not require any complex update procedures. In this scenario, all CorDapps are developed for Java 17 and Kotlin 1.9, and the process for adding new nodes is the same as setting up a new network of any previous Corda version.
