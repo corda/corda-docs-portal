@@ -62,3 +62,117 @@ If any new Corda 4.12 nodes are added to this network in the future, a problem a
 ### Adding 4.12 nodes to a new network
 
 This scenario is the simplest, as it does not require any complex update procedures. In this scenario, all CorDapps are developed for Java 17 and Kotlin 1.9, and the process for adding new nodes is the same as setting up a new network of any previous Corda version.
+
+## Pre-requisites
+
+This guide assumes that you have a working Corda network with one or more Corda 4.11 nodes running. If you have custom CorDapps running on your nodes, this guide also describes the required upgrade steps for CorDapps from version 4.11 to 4.12.
+
+To complete the upgrade from Corda 4.11 to Corda 4.12, you need the following components:
+* A Corda 4.12 JAR (obtained from R3).
+* A Corda transaction validator JAR (obtained from R3, as part of the Corda 4.12 release pack).
+* Access to, and the ability to edit the source code for any existing custom CorDapps running in the nodes to be upgraded from 4.11 to 4.12.
+
+## Upgrade outline
+
+To upgrade your Corda node from version 4.11 to 4.12, you must perform the following steps:
+
+1. Validate all existing transactions (per node). See [Validate transactions]({{< relref "#validate-transactions" >}}).
+2. Upgrade any custom CorDapps running on the Corda 4.11 node to work with Java 17 and Kotlin 1.9. See [Upgrade 4.11 CorDapps]({{< relref "#upgrade-411-cordapps" >}}).
+3. Preserve old CorDapp contracts in a new folder called `legacy-contracts`. See [Mixed networks]({{< relref "#mixed-networks" >}}).
+   {{< note >}}
+   Mixed networks only. If you plan on upgrading all nodes on your network to 4.12, then this step is not required.
+   {{< /note >}}
+
+### Validate transactions
+
+When upgrading nodes from Corda 4.11 to Corda 4.12, R3 recommends running the Transaction Validator Utility (TVU) tool included the Corda 4.12 release package. While this is not a strict requirement, it is a sanity check that runs all existing node transactions through the External Verifier. It highlights any issues with the node’s existing backchain so you do not run into any unexpected ledger problems during or after the upgrade.
+
+For more information about TVU and its features, go to the [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}) section.
+
+The example use case in this guide validates the transactions without any additional options.
+
+1. Drain the node.
+   You must perform this step so there are no in-flight transactions when the node is stopped. Not draining the node could lead to these transactions not being checked by TVU, potentially causing issues later on.
+2. Stop the node.
+3. Place the TVU JAR into the root folder of the Corda 4.11 node.
+4. Run TVU:
+   ```
+   $ java -jar corda-tools-transaction-validator-4.12-RC01.jar
+   Starting
+   Total Transactions: 41
+   Waiting for all transactions to be processed...
+   Success, All transactions processed.
+   Total time taken: 3943ms
+   ```
+
+### Upgrade 4.11 CorDapps
+
+You must update all custom CorDapps being upgraded that are running on Corda 4.11 nodes so they use Java 17 and Kotlin 1.9. For steps on updating Cordapps, see [Upgrading a CorDapp to Corda Enterprise Edition 4.12]({{< relref "app-upgrade-notes-enterprise.md" >}}).
+
+#### Flow versioning
+You must annotate any flow that initiates other flows with the `@InitiatingFlow` annotation, which is defined as:
+
+```
+annotation class InitiatingFlow(val version: Int = 1)
+```
+
+The version property, which defaults to 1, specifies the flow’s version. You must increment this integer value whenever a flow release includes changes that are not backwards compatible. However, in this case, the flow version must stay the same to ensure backward compatibility with the flows running on previous Corda versions.
+
+#### Contract versioning
+
+When Corda 4.12 starts, it loads the CorDapp contract JAR. For version 4.12, the contract version must be higher than the contract version in the `legacy-contracts` JAR file. Therefore, you must increment the contract version by at least one.
+
+#### CorDapp minimum platform version
+
+The new CorDapp should inherit the same minimum platform version as Corda 4.12, which is 140. This is not 14, to account for minor updates to Corda 4.11.
+
+#### CorDapp signing
+
+Upon startup, a node verifies the signing key for the CorDapps it uses, preventing unwanted code from being executed. In Corda 4.12, nodes having both new and legacy versions of a contract CorDapp must have the same signing keys, otherwise the node will fail to start.
+
+### Mixed networks
+
+When operating a network with nodes running different versions of Corda, you must store the old CorDapp contract JAR files in the Corda 4.12 node directory (see [Legacy contracts]({{< relref "#legacy-contracts" >}})). This step is not required if all nodes in your network are being upgraded to Corda 4.12.
+
+However, in both scenarios, you must keep a copy of the old CorDapp contracts JAR file. This file may be required if new Corda 4.12 nodes are introduced into a network containing nodes that have previously been upgraded. For steps describing adding a new node to an existing network of Corda 4.12 containing previously upgraded nodes, see []({{< relref "" >}}). WHICH LINK IS IT?
+
+#### Legacy contracts
+
+Corda 4.12 introduces the concept of legacy contracts, a new folder required when operating a network where not all nodes are running Corda 4.12.
+
+This folder contains old CorDapp contract JAR files required by the External Verifier to verify old contract attachments in new transactions. The following is an example folder structure of how to set up the node folder to include the `legacy-contracts` folder.
+
+Before upgrade:
+```
+.
+├── certificates
+├── corda-4.11.jar
+├── cordapps
+│   ├── config
+│   ├── corda-finance-contracts-4.11.jar
+│   └── corda-finance-workflows-4.11.jar
+├── drivers
+└── node.conf
+After upgrade
+```
+
+After upgrade:
+```
+.
+├── certificates
+├── corda-4.12.jar
+├── cordapps
+│   ├── config
+│   ├── corda-finance-contracts-4.12.jar
+│   └── corda-finance-workflows-4.12.jar
+├── drivers
+├── legacy-contracts
+│   └── corda-finance-contracts-4.11.jar
+└── node.conf
+```
+
+The reason behind keeping the legacy contracts is when a node running older version of Corda 4.x wants to transact with a Corda 4.12 node, the 4.12 node will see an old contract version attached to the transaction. To verify the old contract, Corda 4.12 will start the External Verifier which starts a new external process running Kotlin 1.2, this allows a transaction containing (for example) a Corda 4.11 contract to be verified on a Corda 4.12 node.
+
+Likewise, if a 4.12 node creates a transaction, it will add a 4.12 contract into a new component group of the transaction, reserving the existing component group for the 4.11 contract. This gets attached to the transaction which will then have, two sets of contract attachments (jars) the legacy one and the new 4.12 contract. If this transaction is received by a node not running Corda 4.12, it doesn’t know about the new component group, this node will then just ignore the 4.12 contract and verify the legacy contract instead. This then gets stored in the database with everything else.
+
+If you are not using a mixed network then you do not need the legacy-contracts folder.
