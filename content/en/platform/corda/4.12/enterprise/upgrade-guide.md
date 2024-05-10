@@ -37,7 +37,7 @@ When upgrading to Corda 4.12, the old contract CorDapp JAR is preserved and relo
 
 To ensure compatibility of all existing transactions in the node’s backchain with the External Verifier, and consequently with Corda 4.12, a new utility tool has been introduced: the Transaction Validator Utility. This tool runs the External Verifier on the existing backchain as a sanity check.
 
-{{< figure alt="Corda 4.12 vs Corda 4.11" width=80% height=80% zoom="resources/corda412vs411.png" figcaption="Corda 4.12 vs Corda 4.11">}}
+{{< figure alt="Corda 4.12 vs Corda 4.11" width=75% height=75% zoom="resources/corda412vs411.png" figcaption="Corda 4.12 vs Corda 4.11">}}
 
 ## Upgrade scenarios
 
@@ -254,11 +254,11 @@ Corda 4.11 versions of the node and flow management plugins are also compatible 
 In Java 17, an application can no longer access an internal Java method due to the new module system. If a package is not opened, access will be denied. You can circumvent this strong encapsulation by either:
 
 * Starting the JAR with a command line option:
-```
-java -jar corda.jar -f node.conf --add-opens $MODULE/$PACKAGE=$REFLECTING_MODULE
-```
+   ```
+   java -jar corda.jar -f node.conf --add-opens $MODULE/$PACKAGE=$REFLECTING_MODULE
+   ```
 
 * Or by declaring it in the CorDapp manifest file:
-```
-Add-Opens: <module>/<package>
-```
+   ```
+   Add-Opens: <module>/<package>
+   ```
