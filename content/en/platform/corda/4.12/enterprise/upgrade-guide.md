@@ -37,7 +37,7 @@ When upgrading to Corda 4.12, the old contract CorDapp JAR is preserved and relo
 
 To ensure compatibility of all existing transactions in the node’s backchain with the External Verifier, and consequently with Corda 4.12, a new utility tool has been introduced: the Transaction Validator Utility. This tool runs the External Verifier on the existing backchain as a sanity check.
 
-{{< figure alt="Corda 4.12 vs Corda 4.11" zoom="/resources/corda412vs411.png" >}}
+{{< figure alt="Corda 4.12 vs Corda 4.11" zoom="resources/corda412vs411.png" >}}
 
 ## Upgrade scenarios
 
@@ -224,17 +224,17 @@ In this scenario, you must keep a copy of the old CorDapp contract JAR file.
 
 1. Set up the node folder structure without the `legacy-contracts` folder.
 
-```
-.
-├── certificates
-├── corda-4.12.jar
-├── cordapps
-│   ├── config
-│   ├── corda-finance-contracts-4.12.jar
-│   └── corda-finance-workflows-4.12.jar
-├── drivers
-└── node.conf
-```
+   ```
+   .
+   ├── certificates
+   ├── corda-4.12.jar
+   ├── cordapps
+   │   ├── config
+   │   ├── corda-finance-contracts-4.12.jar
+   │   └── corda-finance-workflows-4.12.jar
+   ├── drivers
+   └── node.conf
+   ```
 
 2. Register and then start the node.
 
