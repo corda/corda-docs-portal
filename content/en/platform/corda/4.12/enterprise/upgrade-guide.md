@@ -138,7 +138,11 @@ However, in both scenarios, you must keep a copy of the old CorDapp contracts JA
 
 #### Legacy contracts
 
-Corda 4.12 introduces the concept of legacy contracts, a new folder required when operating a network where not all nodes are running Corda 4.12.
+Corda 4.12 introduces the concept of legacy contracts, a new `legacy-contracts` folder required when operating a network where not all nodes are running Corda 4.12.
+
+{{< note >}}
+If you are not using a mixed network, you do not need the `legacy-contracts` folder.
+{{< /note >}}
 
 This folder contains old CorDapp contract JAR files required by the External Verifier to verify old contract attachments in new transactions. The following is an example folder structure of how to set up the node folder to include the `legacy-contracts` folder.
 
@@ -171,8 +175,90 @@ After upgrade:
 └── node.conf
 ```
 
-The reason behind keeping the legacy contracts is when a node running older version of Corda 4.x wants to transact with a Corda 4.12 node, the 4.12 node will see an old contract version attached to the transaction. To verify the old contract, Corda 4.12 will start the External Verifier which starts a new external process running Kotlin 1.2, this allows a transaction containing (for example) a Corda 4.11 contract to be verified on a Corda 4.12 node.
+To ensure compatibility, you must keep the legacy contracts. When a node operating on a prior version of Corda 4.x wants to transact with a Corda 4.12 node, the 4.12 node identifies an old contract version attached to the transaction. To verify this old contract, Corda 4.12 initiates the External Verifier, which in turn starts a new external process running Kotlin 1.2. This process facilitates transaction containing, for example, a Corda 4.11 contract to be verified on a Corda 4.12 node.
 
-Likewise, if a 4.12 node creates a transaction, it will add a 4.12 contract into a new component group of the transaction, reserving the existing component group for the 4.11 contract. This gets attached to the transaction which will then have, two sets of contract attachments (jars) the legacy one and the new 4.12 contract. If this transaction is received by a node not running Corda 4.12, it doesn’t know about the new component group, this node will then just ignore the 4.12 contract and verify the legacy contract instead. This then gets stored in the database with everything else.
+Similarly, when a 4.12 node creates a transaction, it adds a 4.12 contract into a new component group of the transaction, reserving the existing component group for the 4.11 contract. Consequently, when a 4.11 contract gets attached to the transaction, it ends up with two sets of contract attachments (JARs): the legacy one and the new 4.12 contract. If this transaction is received by a node not running Corda 4.12, the node lacks awareness of about the new component group. It disregards the 4.12 contract and proceeds to verify the legacy contract instead, which is then stored in the database.
 
-If you are not using a mixed network then you do not need the legacy-contracts folder.
+## Starting 4.12 nodes
+
+1. Run the database migration scripts.
+2. Start your node in the usual way:
+
+   ```
+   java -jar corda-4.12.jar -f node.conf
+   ```
+
+## Adding new 4.12 nodes
+
+If you want to add another Corda 4.12 node into your network post-upgrade, the specific steps vary depending on the state of your network.
+
+### Adding new 4.12 nodes to a mixed network
+
+If you are operating a mixed network, then the process for adding a new Corda 4.12 node is relatively straightforward.
+
+1. Set up the node folder structure same as other Corda 4.12 nodes, which includes the `legacy-contracts` folder and associated files.
+
+   ```
+   .
+   ├── certificates
+   ├── corda-4.12.jar
+   ├── cordapps
+   │   ├── config
+   │   ├── corda-finance-contracts-4.12.jar
+   │   └── corda-finance-workflows-4.12.jar
+   ├── drivers
+   ├── legacy-contracts
+   │   └── corda-finance-contracts-4.11.jar
+   └── node.conf
+   ```
+
+2. Register the node to the network and proceed to operate it as normal.
+
+### Adding new 4.12 nodes to a non-mixed network
+
+Perform the following steps if you are adding a new Corda 4.12 node to a network that is only running Corda 4.12 nodes, but also contains older Corda 4.x transactions.
+
+{{< note >}}
+In this scenario, you must keep a copy of the old CorDapp contract JAR file.
+{{< /note >}}
+
+1. Set up the node folder structure without the `legacy-contracts` folder.
+
+```
+.
+├── certificates
+├── corda-4.12.jar
+├── cordapps
+│   ├── config
+│   ├── corda-finance-contracts-4.12.jar
+│   └── corda-finance-workflows-4.12.jar
+├── drivers
+└── node.conf
+```
+
+2. Register and then start the node.
+
+3. Access the Corda node either via RPC client or the standalone shell and upload the old CorDapp contract JAR as an attachment to the node.
+   For more information on uploading attachments, see [Working with attachments]({{< relref "get-started/tutorials/supplementary-tutorials/tutorial-attachments.md" >}}).
+
+## Additional release information
+
+In Corda 4.12, the Corda node explorer is no longer included in the release pack. Should you require it, the Corda 4.11 node explorer remains compatible with Corda 4.12 and should be used for Corda 4.12 nodes.
+
+Corda 4.11 versions of the node and flow management plugins are also compatible with Corda 4.12 and you should use them for Corda 4.12 nodes.
+
+## Troubleshooting
+
+### Add-opens
+
+In Java 17, an application can no longer access an internal Java method due to the new module system. If a package is not opened, access will be denied. You can circumvent this strong encapsulation by either:
+
+* Starting the JAR with a command line option:
+```
+java -jar corda.jar -f node.conf --add-opens $MODULE/$PACKAGE=$REFLECTING_MODULE
+```
+
+* Or by declaring it in the CorDapp manifest file:
+```
+Add-Opens: <module>/<package>
+```
