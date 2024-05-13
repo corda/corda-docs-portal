@@ -92,7 +92,6 @@ For more information about TVU and its features, go to the [Transaction Validato
 The example use case in this guide validates the transactions without any additional options.
 
 1. Drain the node.
-
    You must perform this step so there are no in-flight transactions when the node is stopped. Not draining the node could lead to these transactions not being checked by TVU, potentially causing issues later on.
 3. Stop the node.
 4. Place the TVU JAR into the root folder of the Corda 4.11 node.
@@ -241,7 +240,6 @@ In this scenario, you must keep a copy of the old CorDapp contract JAR file.
 2. Register and then start the node.
 
 3. Access the Corda node either via RPC client or the standalone shell and upload the old CorDapp contract JAR as an attachment to the node.
-
    For more information on uploading attachments, see [Working with attachments]({{< relref "get-started/tutorials/supplementary-tutorials/tutorial-attachments.md" >}}).
 
 ## Additional release information
