@@ -186,12 +186,12 @@ Corda validates that uploaded CPIs are signed with a trusted key. To trust your 
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -F alias="<unique-key-alias>" -F certificate=@<signingkey1.pem> $REST_API_URL/certificates/cluster/code-signer
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -F alias="<unique-key-alias>" -F certificate=@<signingkey1.pem> $REST_API_URL/certificate/cluster/code-signer
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$REST_API_URL/certificates/cluster/code-signer"  -Form @{
+   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$REST_API_URL/certificate/cluster/code-signer"  -Form @{
    certificate=@<signingkey1.pem>
    alias="<unique-key-alias>"
    }
