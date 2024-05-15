@@ -45,12 +45,12 @@ table th:nth-of-type(2) {
 {{< tabs name="">}}
 {{% tab name="Bash" %}}
 ```sh
-corda-cli.sh upgrade migrate-data-5-2-1 -b <BOOTSTRAP-SERVERS> --kafka-config <CLIENT-PROPERTIES-FILE> -t <REST-URL> -u <USER> -p <PASSWORD> --insecure --timeout <TIMEOUT>
+corda-cli.sh upgrade migrate-data-5-2-1 -b <BOOTSTRAP-SERVERS> --kafka-config <CLIENT-PROPERTIES-FILE> -t <REST-URL> -u <USER> -p <PASSWORD>
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-corda-cli.cmd upgrade migrate-data-5-2-1 -b <BOOTSTRAP-SERVERS> --kafka-config <CLIENT-PROPERTIES-FILE> -t <REST-URL> -u <USER> -p <PASSWORD> --insecure --timeout <TIMEOUT>
+corda-cli.cmd upgrade migrate-data-5-2-1 -b <BOOTSTRAP-SERVERS> --kafka-config <CLIENT-PROPERTIES-FILE> -t <REST-URL> -u <USER> -p <PASSWORD>
 ```
 {{% /tab %}}
 {{< /tabs >}}
