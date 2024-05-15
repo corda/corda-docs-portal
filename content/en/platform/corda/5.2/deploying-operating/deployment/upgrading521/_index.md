@@ -10,7 +10,13 @@ menu:
 ---
 # Upgrading from 5.2 to 5.2.1
 
-This section describes how to upgrade a Corda cluster from 5.2 to 5.2.1. It lists the required [prerequisites](#prerequisites) and describes the following steps required to perform an upgrade:
+This section describes how to upgrade a Corda cluster from 5.2 to 5.2.1. It includes script excerpts which you can use as a basis for performing upgrades. The entire script is included at the end.
+
+The script is based on upgrading a cluster running on Docker Desktop on a local host using the R3-provided helm chart for installing PostgreSQL and Kafka. However, you must tailor this script for the specific environment being updated.
+
+The examples provided in this section assume that you installed Corda 5.1 in a namespace called `corda`. This is different to other deployments.
+
+To perform an upgrade, you must fulfill the required [prerequisites](#prerequisites) and go through the following steps:
 
 1. [Back Up the Corda Database](#back-up-the-corda-database)
 2. [Test the Migration](#test-the-migration)
