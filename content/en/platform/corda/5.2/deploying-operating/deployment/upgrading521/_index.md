@@ -94,9 +94,67 @@ To use the Docker images, you must set `CLI_DOCKER_IMAGE` to the 5.2.1 image ver
 
 ## Back Up the Corda Database
 
+You must create a backup of all schemas in your database:
+
+* Cluster — name determined at bootstrap. For example, `CONFIG`.
+* Crypto — name determined at bootstrap. For example, `CRYPTO`.
+* RBAC — name determined at bootstrap. For example, `RBAC`.
+* Virtual nodes schemas — multiple schemas per virtual node holding ID:
+   * `vnode_crypto_<holding_id>`
+   * `vnode_uniq_<holding_id>`
+   * `vnode_vault_<holding_id>`
+
+How these backups are performed, stored, and managed depends on their owner. It differs based on the database service supplier, and it is out of scope of this guide to detail that. Please refer to the database service provider’s documentation.
+
+5.2.1 migration only covers the cluster schema, backing up everything else is a precaution.
+
 ## Test the Migration
 
+Follow the steps in section [Scale Down the Running Corda Worker Instances]({{< relref "#scale-down-the-running-corda-worker-instances" >}}) on copies of your dadabase backups to ensure the database migration stages are successful before proceeding with an upgrade of a production Corda.
+
+This reveals any issues with migrating the data before incurring any downtime. It will also indicate the length of downtime required to perform a real upgrade, allowing you to schedule accordingly.
+
 ## Migrate Data From Kafka Topics to the Cluster Database
+
+Disaster recovery additions require the migration of data previously only published to Kafka to the cluster database. Corda 5.2 deployments will already have published some of this data, so you must extract and copy it to the new database tables.
+
+To extract this data from Kafka and generate SQL scripts to populate the new tables from it, you must call the Corda CLI tool with a specific 5.2.1 migration path plugin.
+
+The Corda CLI tool needs access to the Kafka deployment and the `/keys` part of the Corda REST API. For this reason, you must perform this step prior to scaling down Corda workers.
+
+{{< note >}}
+This tool migrates a snapshot of data at the point in time it is run. Performing administrative tasks on Corda after this stage of upgrade and before the next one results in potential data loss.
+{{< /note >}}
+
+For clusters that use the development prerequisites, Kafka login credentials and the SSL certificate can be obtained from cluster's the secret. If the cluster was deployed differently, it is assumed that the upgrader already knows these details. You can authenticate with Kafka by passing a standard Kafka properties file to the tool using the `-k` parameter. You can generate such a file in the following way:
+
+```
+KAFKA_PASSWORD=$(kubectl get secret -n corda prereqs-kafka -o go-template='{{ index .data "admin-password" | base64decode }}')
+kubectl get secret -n corda prereqs-kafka -o go-template='{{ index .data "ca.crt" | base64decode }}' > ./kafka_config/ca.crt
+cat > ./kafka_config/props.txt <<_EOF
+security.protocol=SASL_SSL
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username=\"admin\" password=\"${KAFKA_PASSWORD}\";
+ssl.truststore.location=/kafka_config/ca.crt
+ssl.truststore.type=PEM
+_EOF
+```
+
+To run the migration Corda CLI plugin, use the following command.
+
+{{< note >}}
+You must also provide REST API access here, including user name and password, and allow insecure connections. In this example, the REST API is port-mapped to the local machine. The provided credentials allow `GET` access to the `/key` APIs for each holding ID and to the `/certificate` APIs for `p2p-tls` and `p2p-session`.
+{{< /note >}}
+
+```
+docker run -v $(pwd)/kafka_config:/kafka_config -v $(pwd)/sql_updates:/sql_updates \
+--add-host prereqs-kafka:host-gateway --add-host rest-api:host-gateway $CLI_DOCKER_IMAGE \
+upgrade migrate-data-5-2-1 -b=prereqs-kafka:9092 --kafka-config=/kafka_config/props.txt \
+-t https://rest-api:8888 -u admin -p admin --insecure \
+-l /sql_updates
+```
+
+Inspect the generated SQL files. You cannot apply them until database schema changes have been completed in step [Migrate the Corda Cluster Database]({{< relref "#migrate-the-corda-cluster-database" >}}). Keep these SQL files until this point.
 
 ## Scale Down the Running Corda Worker Instances
 
