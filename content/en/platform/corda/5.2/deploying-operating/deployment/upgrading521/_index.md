@@ -154,11 +154,91 @@ upgrade migrate-data-5-2-1 -b=prereqs-kafka:9092 --kafka-config=/kafka_config/pr
 -l /sql_updates
 ```
 
-Inspect the generated SQL files. You cannot apply them until database schema changes have been completed in step [Migrate the Corda Cluster Database]({{< relref "#migrate-the-corda-cluster-database" >}}). Keep these SQL files until this point.
+Inspect the generated SQL files. You cannot apply them until database schema changes have been completed in step [Migrate the Corda Cluster Database]({{< relref "#migrate-the-corda-cluster-database" >}}). Keep these SQL files until then.
 
 ## Scale Down the Running Corda Worker Instances
 
+{{< important >}}
+After completing this step and until you finish the last step in these instructions, Corda 5.2 becomes unresponsive. To reduce Corda downtime, R3 recommends that you test the database migration and become fully familiar with the next set of steps before proceeding with this one.
+{{< /important >}}
+
+You can scale down the workers using any tool of your choice. For example, the run the following commands if using `kubectl`:
+
+```
+kubectl scale --replicas=0 deployment/corda-crypto-worker -n corda
+kubectl scale --replicas=0 deployment/corda-db-worker -n corda
+kubectl scale --replicas=0 deployment/corda-flow-mapper-worker -n corda
+kubectl scale --replicas=0 deployment/corda-flow-worker -n corda
+kubectl scale --replicas=0 deployment/corda-membership-worker -n corda
+kubectl scale --replicas=0 deployment/corda-p2p-gateway-worker -n corda
+kubectl scale --replicas=0 deployment/corda-p2p-link-manager-worker -n corda
+kubectl scale --replicas=0 deployment/corda-persistence-worker -n corda
+kubectl scale --replicas=0 deployment/corda-rest-worker -n corda
+kubectl scale --replicas=0 deployment/corda-token-selection-worker -n corda
+kubectl scale --replicas=0 deployment/corda-uniqueness-worker -n corda
+kubectl scale --replicas=0 deployment/corda-verification-worker -n corda
+```
+
+If you are scripting these commands, you can wait for the workers to be scaled down using something similar to the following:
+
+```
+while [ "$(kubectl get pods --field-selector=status.phase=Running -n corda | grep worker | wc -l | tr -d ' ')" != 0 ]
+do
+sleep 1
+done
+```
+
 ## Migrate the Corda Cluster Database
+
+Migrating the database schemas is a four-step process. The first generates SQL scripts, the second applies them to the database. The breaking up of these steps is about transparency, it allows database administrators to review the SQL scripts to ensure they are happy with the content before applying it to their databases. The third step is about granting the necessary permissions to any new tables in the database and is similar to the step run at bootstrapping time as described in [Manual Bootstrapping]({{< relref "../deploying/manual-bootstrapping.md" >}}). Lastly, you must apply the previously-generated SQL files.
+
+To migrate the cluster database schemas, do the following:
+
+1. Generate the required SQL scripts using the `spec` sub-command of the <a href = "../../reference/corda-cli/database.md"> Corda CLI `database` command</a>. For example:
+
+   {{< tabs name="database">}}
+   {{% tab name="Bash" %}}
+   ```sh
+   corda-cli.sh docker run -v $(pwd)/sql_updates:/sql_updates $CLI_DOCKER_IMAGE \
+   database spec -c -l /sql_updates -s="config" -g="config:config" \
+   --jdbc-url=jdbc:postgresql://host.docker.internal:5432/cordacluster -u postgres
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   corda-cli.cmd docker run -v $(pwd)/sql_updates:/sql_updates $CLI_DOCKER_IMAGE \
+   database spec -c -l /sql_updates -s="config" -g="config:config" \
+   --jdbc-url=jdbc:postgresql://host.docker.internal:5432/cordacluster -u postgres
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+   This example generates schemas into a directly called `sql_updates` but you can choose any output directory. The `database spec` command generates only cluster SQL as it is specified in the `-s="config"` parameter. The `-g="config:config"` instructs it to generate schema aware SQL so you do not need to apply the SQL to schemas explicitly in the next step.
+
+2. Verify the generated SQL scripts and apply them to the Postgres database. For example:
+
+   ```shell
+   psql -h localhost -p 5432 -f ./sql_updates/config.sql -d cordacluster -U postgres
+   ```
+
+3. Grant the necessary permissions. For example:
+
+   ```shell
+   psql -h localhost -c "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA config TO corda" -p 5432 -d cordacluster -U postgres
+   psql -h localhost -c "GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA config TO corda" -p 5432 -d cordacluster -U postgres
+   ```
+
+   The `cluster` database user is the user set up by the Corda Helm chart when the config database was originally deployed.
+
+4. Apply the SQL files generated in step [Migrate Data From Kafka Topics to the Cluster Database](#migrate-data-from-kafka-topics-to-the-cluster-database).
+
+   {{< note >}}
+   You must set the schema to the cluster config schema when using `psql`. By default, this is config as used in this example. This is because the migration script is schema-agnostic.
+   {{< /note >}}
+
+   ```shell
+   PGOPTIONS='-c search_path=config' psql -h localhost -p 5432 -f ./sql_updates/migrate_member_data.sql -d cordacluster -U postgres
+   ```
 
 ## **Optional:** Clear Down Key Rotation Stale Data
 
