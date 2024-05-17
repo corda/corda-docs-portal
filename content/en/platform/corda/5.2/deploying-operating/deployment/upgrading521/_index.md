@@ -262,9 +262,46 @@ Corda 5.2.1 introduces new Kafka topic configurations, including changes to ACLs
 
 ### Self Managed Kafka Updates
 
+There is no “SQL script” equivalent for Kafka for Corda Operators to review. Instead, the Corda tool can generate a YAML file that describes how to set up the Kafka deployment.
 
+The YAML file is self-explanatory and can be easily read by a human or imported into various third-party tools that automate Kafka topic changes. To generate the YAML file for importing into another tool or for manual administration, use the preview command:
+
+```
+docker run $CLI_DOCKER_IMAGE \
+topic create -u crypto=CRYPTO_USER -u db=DB_USER -u flow=FLOW_USER -u membership=MEMBERSHIP_USER \
+-u p2pGateway=P2P_GATEWAY_USER -u p2pLinkManager=P2P_LINK_MANAGER_USER -u rest=REST_USER \
+-u uniqueness=UNIQUENESS_WORKER -u flowMapper=FLOW_MAPPER_USER -u persistence=PERSISTENCE_USER \
+-u verification=VERIFICATION_WORKER preview
+```
+
+{{< note >}}
+You do not need a connection to Kafka to perform this step. The YAML file represents the correct state for Kafka topics based on the platform version the tool was built against. It does not include information about the current state of any running Kafka instance. Any differences should be identified by the Kafka instance administrator or the automated tool that processes the YAML file.
+{{< /note >}}
 
 ### Corda CLI Managed Kafka Updates
+
+For clusters using the development prerequisites, you can obtain Kafka login credentials and the SSL certificate from the cluster secret. This is the same to what you did in section [Migrate Data From Kafka Topics to the Cluster Database](#migrate-data-from-kafka-topics-to-the-cluster-database), so if the file was already generated in that step, it can be reused here, allowing you to skip to running the plugin. If the cluster was deployed differently, it is assumed the upgrader already has this information. You can pass a standard Kafka properties file for authentication to the tool using the `-k` parameter. You can generate such a file as follows:
+
+```
+KAFKA_PASSWORD=$(kubectl get secret -n corda prereqs-kafka -o go-template='{{ index .data "admin-password" | base64decode }}')
+kubectl get secret -n corda prereqs-kafka -o go-template='{{ index .data "ca.crt" | base64decode }}' > ./kafka_config/ca.crt
+cat > ./kafka_config/props.txt <<_EOF
+security.protocol=SASL_SSL
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username=\"admin\" password=\"${KAFKA_PASSWORD}\";
+ssl.truststore.location=/kafka_config/ca.crt
+ssl.truststore.type=PEM
+_EOF
+```
+
+To have the tool connect to the cluster and perform the necessary additions to ACLs, use the following code:
+
+```
+docker run -v $(pwd)/kafka_config:/kafka_config --add-host prereqs-kafka:host-gateway $CLI_DOCKER_IMAGE \
+topic -b=prereqs-kafka:9092 -k=/kafka_config/props.txt create connect
+```
+
+Refer the [Appendix](#appendix) for information on how R3 uses `--add-host` to enable the command running in the Docker container to access Kafka for development prerequisites. The Appendic also provides alternatives for users using Corda CLI installed locally rather than Docker container.
 
 ## Launch the Corda 5.2.1 Workers
 
