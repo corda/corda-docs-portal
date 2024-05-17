@@ -43,7 +43,7 @@ Corda 5 relies on certain underlying prerequisites, namely Kafka and PostgreSQL,
 This guide assumes that the Cluster Administrator assigned to upgrade Corda has full administrator access to these prerequisites.
 {{< /note >}}
 
-Developers, including customer CorDapp developers, or those trialling Corda, can use the R3-provided [Corda Helm chart]({{< relref "../deploying.html#download-the-corda-helm-chart" >}}) which installs these prerequisites. The Corda Helm chart can also configure Corda so it can reach these prerequisites, allowing a quick and convenient installation of Corda 5.
+Developers, including customer CorDapp developers, or those trialling Corda, can use the R3-provided [Corda Helm chart]({{< relref "../deploying/_index.md#download-the-corda-helm-chart" >}}) which installs these prerequisites. The Corda Helm chart can also configure Corda so it can reach these prerequisites, allowing a quick and convenient installation of Corda 5.
 
 Customers in production are not expected to follow this path, and generally use managed services for these prerequisites. They also impose significant privilege restrictions in terms of who can administer these services.
 
