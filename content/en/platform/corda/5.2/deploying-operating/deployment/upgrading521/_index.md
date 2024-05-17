@@ -258,7 +258,7 @@ psql -h localhost -c "DELETE FROM sm_key_rotation.state" -p 5432 -d cordacluster
 
 ## Update Kafka Topics
 
-Corda 5.2.1 introduces new Kafka topic configurations, including changes to ACLs. While the Corda CLI tool can automatically apply these changes to a running Kafka deployment, customers may prefer not to manage Kafka indirectly through the CLI. Instead, the tool provides parsable information about the required Kafka topic configurations, allowing users to manage their Kafka instances themselves. This section provides instructions for both alternatives.
+Corda 5.2.1 introduces new Kafka topic configurations, including changes to ACLs. While the Corda CLI tool can automatically apply these changes to a running Kafka deployment, customers may prefer not to manage Kafka indirectly through the Corda CLI. Instead, the tool provides parsable information about the required Kafka topic configurations, allowing users to manage their Kafka instances themselves. This section provides instructions for both alternatives.
 
 ### Self Managed Kafka Updates
 
@@ -268,4 +268,11 @@ Corda 5.2.1 introduces new Kafka topic configurations, including changes to ACLs
 
 ## Launch the Corda 5.2.1 Workers
 
+If Corda 5.2 was deployed using Corda Helm chart, you can deploy Corda 5.2.1 the same way. This updates the deployments with the new image versions and scales them to the defined replica counts. Corda version is overridden at the command line and selecting the 5.2.1 Corda Helm chart defaults to the 5.2.1 worker images. If you provide your own values in a YAML file, ensure it does not refer to 5.2 images.
 
+``helm upgrade corda -n corda \
+oci://corda-os-docker.software.r3.com/helm-charts/release/os/5.2/corda \
+--version "^5.2.1-beta" \
+--values <YOUR_VALUES_YAML> \
+--wait
+```
