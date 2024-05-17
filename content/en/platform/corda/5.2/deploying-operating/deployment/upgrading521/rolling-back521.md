@@ -4,7 +4,7 @@ date: '2023-11-09'
 title: "Rolling Back"
 menu:
   corda52:
-    parent: corda52-cluster-upgrade
+    parent: corda52-cluster-upgrade521
     identifier: corda521-cluster-rollback
     weight: 1000
 ---
