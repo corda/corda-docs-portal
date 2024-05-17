@@ -242,7 +242,29 @@ To migrate the cluster database schemas, do the following:
 
 ## **Optional:** Clear Down Key Rotation Stale Data
 
+Due to a fix in version 5.2.1, the transient flow status state has moved from the key rotation state manager schema to the flow state manager schema. As a result, the automatic cleanup of this data in the old key rotation status manager schema does not occur. Corda 5.2.1 cleans it only from the new location, potentially leaving stale data in the key rotation schema. To avoid unnecessary storage of stale data, R3 recommends that you delete all states from the key rotation state manager database.
+
+The only functional consequence of deleting the key rotation state data is the loss of legacy key rotation status information. This does not affect the outcome of those key rotations but only affects any subsequent attempts to report their status. Using the key rotation API to check the status of past rotations will return a result as if they were never completed. Note that Corda only retains the most recent key rotation status for any tenant.
+
+If you need legacy key rotation data, you can omit this step or perform it later. The upgrade process does not require it. If you choose to perform it later, ensure no key rotation operations are running at that time.
+
+The name of the key rotation schema depends on the value `stateManager.keyRotation.partition` provided to the Corda Helm chart during bootstrapping. If not specified, it defaults to `sm_key_rotation`.
+
+To delete the key rotation state, assuming the default schema name, use:
+
+```
+psql -h localhost -c "DELETE FROM sm_key_rotation.state" -p 5432 -d cordacluster -U postgres
+```
+
 ## Update Kafka Topics
+
+Corda 5.2.1 introduces new Kafka topic configurations, including changes to ACLs. While the Corda CLI tool can automatically apply these changes to a running Kafka deployment, customers may prefer not to manage Kafka indirectly through the CLI. Instead, the tool provides parsable information about the required Kafka topic configurations, allowing users to manage their Kafka instances themselves. This section provides instructions for both alternatives.
+
+### Self Managed Kafka Updates
+
+
+
+### Corda CLI Managed Kafka Updates
 
 ## Launch the Corda 5.2.1 Workers
 
