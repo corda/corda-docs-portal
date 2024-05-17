@@ -301,15 +301,209 @@ docker run -v $(pwd)/kafka_config:/kafka_config --add-host prereqs-kafka:host-ga
 topic -b=prereqs-kafka:9092 -k=/kafka_config/props.txt create connect
 ```
 
-Refer the [Appendix](#appendix) for information on how R3 uses `--add-host` to enable the command running in the Docker container to access Kafka for development prerequisites. The Appendic also provides alternatives for users using Corda CLI installed locally rather than Docker container.
+Refer the [Appendix A](#appendix-a-development-prerequisites-for-connecting-to-kafka) for information on how R3 uses `--add-host` to enable the command running in the Docker container to access Kafka for development prerequisites. The Appendic also provides alternatives for users using Corda CLI installed locally rather than Docker container.
 
 ## Launch the Corda 5.2.1 Workers
 
 If Corda 5.2 was deployed using Corda Helm chart, you can deploy Corda 5.2.1 the same way. This updates the deployments with the new image versions and scales them to the defined replica counts. Corda version is overridden at the command line and selecting the 5.2.1 Corda Helm chart defaults to the 5.2.1 worker images. If you provide your own values in a YAML file, ensure it does not refer to 5.2 images.
 
-``helm upgrade corda -n corda \
+```
+helm upgrade corda -n corda \
 oci://corda-os-docker.software.r3.com/helm-charts/release/os/5.2/corda \
 --version "^5.2.1-beta" \
 --values <YOUR_VALUES_YAML> \
 --wait
+```
+
+## Appendix A: Development Prerequisites for Connecting to Kafka
+
+In the Corda CLI `topic` commands described above, you use `--add-host prereqs-kafka:host-gateway` to map `prereqs-kafka` inside the container to the Docker host (local machine). This allows you to access the Kafka deployment as long as port forwarding from the local machine to the Kafka bootstrap server is in place.
+
+```
+kubectl port-forward -n corda svc/prereqs-kafka 9092:9092 &
+```
+
+The Docker forwards the request for `prereqs-kafka` to the host machine. As port forwarding is already in place, the host machine acts as the bootstrap server on port 9092. The forwarded request is then directed by the bootstrap server to the only broker on prereqs-kafka:9092, which in turn connects to the real Kafka broker on the cluster. If you are not using the Docker image but the Corda CLI tool, you can achieve the same result by adding `prereqs-kafka` to your `/etc/hosts` file and pointing it to `127.0.0.1`.
+
+## Appendix B: Complete Upgrade Script Examples
+
+The upgrade script is based on installing Corda 5.2 from Artifactory images, similar to how this script operates.
+
+```
+#! /bin/zsh
+
+kubectl delete namespace corda
+kubectl create namespace corda
+
+export CORDA_ARTIFACTORY_USERNAME=<ARTIFACTORY_USER>
+export CORDA_ARTIFACTORY_PASSWORD=<ARTIFACTORY_KEY>
+
+# Push a secret to the cluster namespace - artifactory_values.yaml configures the imagePullSecrets with this secret
+kubectl create secret -n corda docker-registry docker-registry-cred \
+  --docker-server "*.software.r3.com" \
+  --docker-username $CORDA_ARTIFACTORY_USERNAME \
+  --docker-password $CORDA_ARTIFACTORY_PASSWORD
+
+echo $CORDA_ARTIFACTORY_PASSWORD | helm registry login --password-stdin \
+  corda-os-docker.software.r3.com \
+  -u $CORDA_ARTIFACTORY_USERNAME
+
+helm install prereqs -n corda --create-namespace oci://registry-1.docker.io/corda/corda-dev-prereqs --timeout 10m --wait
+
+helm upgrade --install corda -n corda \
+  oci://corda-os-docker.software.r3.com/helm-charts/release-5.2.0.0/corda \
+  --version "5.2.0" \
+  --values artifactory_values_2.yaml \
+  --wait
+
+nc localhost 8888
+nc localhost 5432
+nc localhost 9092
+kubectl port-forward -n corda deploy/corda-rest-worker 8888 &
+kubectl port-forward -n corda svc/prereqs-postgres 5432:5432 &
+kubectl port-forward -n corda svc/prereqs-kafka 9092:9092 &
+```
+
+The values for the `install` are pulled from the `artifactory_values_2.yaml` file:
+
+```
+# Override file suitable for local deployment of the Corda Helm chart against version 0.2.0 of the corda-dev-prereqs Helm chart.
+#
+# See `debug.yaml` for debug settings.
+#
+# NOTE: The below assumes you deploy Kafka and the PostgreSQL database in the same namespace, so that domain names containing just the service name are resolved (i.e. prereqs-postgresql instead of prereqs-postgresql.<namespace>)
+#       If that is not the case, you might need to add the namespace as a suffix.
+
+imagePullPolicy: "IfNotPresent"
+
+imagePullSecrets:
+  - docker-registry-cred
+
+databases:
+  - id: "default"
+    name: "cordacluster"
+    port: 5432
+    type: "postgresql"
+    host: "prereqs-postgres"
+
+bootstrap:
+  restApiAdmin:
+    password:
+      value: "admin"
+  db:
+    databases:
+      - id: "default"
+        username:
+          value: "postgres"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "prereqs-postgres"
+              key: "postgres-password"
+  kafka:
+    replicas: 1
+
+kafka:
+  bootstrapServers: "prereqs-kafka:9092"
+  sasl:
+    enabled: true
+    mechanism: "PLAIN"
+    username:
+      value: "admin"
+    password:
+      valueFrom:
+        secretKeyRef:
+          name: "prereqs-kafka"
+          key: "admin-password"
+  tls:
+    enabled: true
+    truststore:
+      valueFrom:
+        secretKeyRef:
+          name: "prereqs-kafka"
+          key: "ca.crt"
+
+workers:
+  crypto:
+    config:
+      username:
+        value: "corda"
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: "prereqs-postgres"
+            key: "corda-password"
+  db:
+    config:
+      username:
+        value: "corda"
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: "prereqs-postgres"
+            key: "corda-password"
+  persistence:
+    config:
+      username:
+        value: "corda"
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: "prereqs-postgres"
+            key: "corda-password"
+  tokenSelection:
+    config:
+      username:
+        value: "corda"
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: "prereqs-postgres"
+            key: "corda-password"
+  uniqueness:
+    config:
+      username:
+        value: "corda"
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: "prereqs-postgres"
+            key: "corda-password"
+```
+
+The complete upgrade script, use:
+
+```
+#! /bin/zsh
+
+kubectl delete namespace corda
+kubectl create namespace corda
+
+export CORDA_ARTIFACTORY_USERNAME=<ARTIFACTORY_USER>
+export CORDA_ARTIFACTORY_PASSWORD=<ARTIFACTORY_KEY>
+
+# Push a secret to the cluster namespace - artifactory_values.yaml configures the imagePullSecrets with this secret
+kubectl create secret -n corda docker-registry docker-registry-cred \
+  --docker-server "*.software.r3.com" \
+  --docker-username $CORDA_ARTIFACTORY_USERNAME \
+  --docker-password $CORDA_ARTIFACTORY_PASSWORD
+
+echo $CORDA_ARTIFACTORY_PASSWORD | helm registry login --password-stdin \
+  corda-os-docker.software.r3.com \
+  -u $CORDA_ARTIFACTORY_USERNAME
+
+helm install prereqs -n corda --create-namespace oci://registry-1.docker.io/corda/corda-dev-prereqs --timeout 10m --wait
+
+helm upgrade --install corda -n corda \
+  oci://corda-os-docker.software.r3.com/helm-charts/release-5.2.0.0/corda \
+  --version "5.2.0" \
+  --values artifactory_values_2.yaml \
+  --wait
+
+nc localhost 8888
+nc localhost 5432
+nc localhost 9092
+kubectl port-forward -n corda deploy/corda-rest-worker 8888 &
+kubectl port-forward -n corda svc/prereqs-postgres 5432:5432 &
+kubectl port-forward -n corda svc/prereqs-kafka 9092:9092 &
 ```
