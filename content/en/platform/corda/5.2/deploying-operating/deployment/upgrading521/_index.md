@@ -27,9 +27,9 @@ To perform an upgrade, you must fulfill the required [prerequisites](#prerequisi
 3. [Migrate Data From Kafka Topics to the Cluster Database](#migrate-data-from-kafka-topics-to-the-cluster-database)
 4. [Scale Down the Running Corda Worker Instances](#scale-down-the-running-corda-worker-instances)
 5. [Migrate the Corda Cluster Database](#migrate-the-corda-cluster-database)
-6. [**Optional:** Clear Down Key Rotation Stale Data](#optional-clear-down-key-rotation-stale-data)
+6. [Optional: Clear Down Key Rotation Stale Data](#optional-clear-down-key-rotation-stale-data)
 7. [Update Kafka Topics](#update-kafka-topics)
-8. [Launch the Corda 5.2.1 Workers](#launch-the-corda-5.2.1-workers)
+8. [Launch the Corda 5.2.1 Workers](#launch-the-corda-521-workers)
 
 For information about how to roll back an upgrade, see [Rolling Back]({{< relref "rolling-back521.md" >}}).
 
@@ -43,11 +43,9 @@ Corda 5 relies on certain underlying prerequisites, namely Kafka and PostgreSQL,
 This guide assumes that the Cluster Administrator assigned to upgrade Corda has full administrator access to these prerequisites.
 {{< /note >}}
 
-Developers, including customer CorDapp developers, or those trialling Corda, can use the R3-provided [Corda Helm chart]({{< relref "../deploying/_index.md#download-the-corda-helm-chart" >}}) which installs these prerequisites. The Corda Helm chart can also configure Corda so it can reach these prerequisites, allowing a quick and convenient installation of Corda 5.
+Developers, including customer CorDapp developers, or those trialing Corda, can use the R3-provided [Corda Helm chart]({{< relref "../deploying/_index.md#download-the-corda-helm-chart" >}}) which installs these prerequisites. The Corda Helm chart can also configure Corda so it can reach these prerequisites, allowing a quick and convenient installation of Corda 5.
 
-Customers in production are not expected to follow this path, and generally use managed services for these prerequisites. They also impose significant privilege restrictions in terms of who can administer these services.
-
-The guide cannot provide instructions on how to gain administrator access to customer-managed or self-hosted services.
+Customers in production are not expected to follow this path, and generally use managed services for these prerequisites. They also impose significant privilege restrictions in terms of who can administer these services. This guide cannot provide instructions on how to gain administrator access to customer-managed or self-hosted services.
 
 ### Kafka Access
 
@@ -55,7 +53,7 @@ Some complications arise when trying to administer Kafka inside a Corda cluster 
 
 A simple port forward to Kafka is not sufficient as this only forwards traffic to the bootstrap server. The redirection from the bootstrap to a Kafka broker fails unless you are on the same subnet as the Kafka broker’s advertised listener name. Additionally, if SSL is enabled for your Kafka deployment, you cannot access it at a different host name from those covered by the certificate.
 
-This guide cannot describe how to create a connection to any arbitrary Kafka deployment. It is up to the upgrader to ensure this is possible from their host. The examples in the guide use local host DNS mapping to connect to a cluster. The host is configured so that a known advertised listener name maps to an IP address by manipulating the local hosts file. However, this might not be appropriate for your deployment. For example, the automated pipelines at R3 use a pod from within the Corda cluster to perform Kafka upgrade steps. Configuring such a pod, if it is required, is the responsibility of the Corda Operator.
+This guide cannot describe how to create a connection to any arbitrary Kafka deployment. It is up to the upgrader to ensure this is possible from their host. The examples in the guide use local host DNS mapping to connect to a cluster. The host is configured so that a known advertised listener name maps to an IP address by manipulating the local host's file. However, this might not be appropriate for your deployment. For example, the automated pipelines at R3 use a pod from within the Corda cluster to perform Kafka upgrade steps. Configuring such a pod, if it is required, is the responsibility of the Corda Operator.
 
 You can test Kafka access using off-the-shelf Kafka tools. For example, if you can list Kafka topics using a command similar to this, you have the required access from your host:
 
@@ -71,7 +69,7 @@ Also, you must have `GET` access to the `/key` and `/certificate` APIs.
 
 ### Corda CLI Tool and Corda 5 Plugins
 
-Some upgrade steps use the Corda CLI tool used also in Corda 5 [manual bootstrapping]({{< relref "../deploying/manual-bootstrapping.md" >}}). Users who entirely bootstrapped Corda 5 using the Corda Helm chart may not be familiar with this tool because the Corda Helm chart executes it for you. For instructions on how to install Corda CLI, go to [Installing the Corda CLI]({{< relref "../../../application-networks/tooling/installing-corda-cli.md" >}}).
+Some upgrade steps use the {{< tooltip >}}Corda CLI{{< /tooltip >}} tool used also in Corda 5 [manual bootstrapping]({{< relref "../deploying/manual-bootstrapping.md" >}}). Users who entirely bootstrapped Corda 5 using the Corda Helm chart may not be familiar with this tool because the Corda Helm chart executes it for you. For instructions on how to install Corda CLI, go to [Installing the Corda CLI]({{< relref "../../../application-networks/tooling/installing-corda-cli.md" >}}).
 
 The Corda CLI tool and plugins are also published internally as Docker images. The examples in this script use those Docker images so that:
 * The Corda CLI tool does not need to be downloaded or installed.
@@ -130,7 +128,7 @@ The Corda CLI tool needs access to the Kafka deployment and the `/keys` part of 
 This tool migrates a snapshot of data at the point in time it is run. Performing administrative tasks on Corda after this stage of upgrade and before the next one results in potential data loss.
 {{< /note >}}
 
-For clusters that use the development prerequisites, Kafka login credentials and the SSL certificate can be obtained from cluster's the secret. If the cluster was deployed differently, it is assumed that the upgrader already knows these details. You can authenticate with Kafka by passing a standard Kafka properties file to the tool using the `-k` parameter. You can generate such a file in the following way:
+For clusters that use the development prerequisites, Kafka login credentials and the SSL certificate can be obtained from the cluster's secret. If the cluster was deployed differently, it is assumed that the upgrader already knows these details. You can authenticate with Kafka by passing a standard Kafka properties file to the tool using the `-k` parameter. You can generate such a file in the following way:
 
 ```
 KAFKA_PASSWORD=$(kubectl get secret -n corda prereqs-kafka -o go-template='{{ index .data "admin-password" | base64decode }}')
@@ -166,7 +164,7 @@ Inspect the generated SQL files. You cannot apply them until database schema cha
 After completing this step and until you finish the last step in these instructions, Corda 5.2 becomes unresponsive. To reduce Corda downtime, R3 recommends that you test the database migration and become fully familiar with the next set of steps before proceeding with this one.
 {{< /important >}}
 
-You can scale down the workers using any tool of your choice. For example, the run the following commands if using `kubectl`:
+You can scale down the workers using any tool of your choice. For example, run the following commands if using `kubectl`:
 
 ```
 kubectl scale --replicas=0 deployment/corda-crypto-worker -n corda
@@ -217,9 +215,9 @@ To migrate the cluster database schemas, do the following:
    {{% /tab %}}
    {{< /tabs >}}
 
-   This example generates schemas into a directly called `sql_updates` but you can choose any output directory. The `database spec` command generates only cluster SQL as it is specified in the `-s="config"` parameter. The `-g="config:config"` instructs it to generate schema aware SQL so you do not need to apply the SQL to schemas explicitly in the next step.
+   This example generates schemas into a directly called `sql_updates` but you can choose any output directory. The `database spec` command generates only cluster SQL as it is specified in the `-s="config"` parameter. The `-g="config:config"` instructs it to generate schema-aware SQL, so you do not need to apply the SQL to schemas explicitly in the next step.
 
-2. Verify the generated SQL scripts and apply them to the Postgres database. For example:
+2. Verify the generated SQL scripts and apply them to the PostgreSQL database. For example:
 
    ```shell
    psql -h localhost -p 5432 -f ./sql_updates/config.sql -d cordacluster -U postgres
@@ -232,19 +230,19 @@ To migrate the cluster database schemas, do the following:
    psql -h localhost -c "GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA config TO corda" -p 5432 -d cordacluster -U postgres
    ```
 
-   The `cluster` database user is the user set up by the Corda Helm chart when the config database was originally deployed.
+   The `cluster` database user is the user set up by the Corda Helm chart when the configuration database was originally deployed.
 
 4. Apply the SQL files generated in step [Migrate Data From Kafka Topics to the Cluster Database](#migrate-data-from-kafka-topics-to-the-cluster-database).
 
    {{< note >}}
-   You must set the schema to the cluster config schema when using `psql`. By default, this is config as used in this example. This is because the migration script is schema-agnostic.
+   You must set the schema to the cluster configuration schema when using `psql`. By default, this is the configuration as used in this example. This is because the migration script is schema-agnostic.
    {{< /note >}}
 
    ```shell
    PGOPTIONS='-c search_path=config' psql -h localhost -p 5432 -f ./sql_updates/migrate_member_data.sql -d cordacluster -U postgres
    ```
 
-## **Optional:** Clear Down Key Rotation Stale Data
+## Optional: Clear Down Key Rotation Stale Data
 
 Due to a fix in version 5.2.1, the transient flow status state has moved from the key rotation state manager schema to the flow state manager schema. As a result, the automatic cleanup of this data in the old key rotation status manager schema does not occur. Corda 5.2.1 cleans it only from the new location, potentially leaving stale data in the key rotation schema. To avoid unnecessary storage of stale data, R3 recommends that you delete all states from the key rotation state manager database.
 
@@ -305,7 +303,7 @@ docker run -v $(pwd)/kafka_config:/kafka_config --add-host prereqs-kafka:host-ga
 topic -b=prereqs-kafka:9092 -k=/kafka_config/props.txt create connect
 ```
 
-Refer the [Appendix A](#appendix-a-development-prerequisites-for-connecting-to-kafka) for information on how R3 uses `--add-host` to enable the command running in the Docker container to access Kafka for development prerequisites. The Appendic also provides alternatives for users using Corda CLI installed locally rather than Docker container.
+Refer the [Appendix A](#appendix-a-development-prerequisites-for-connecting-to-kafka) for information on how R3 uses `--add-host` to enable the command running in the Docker container to access Kafka for development prerequisites. The Appendices also provide alternatives for users using Corda CLI installed locally rather than Docker container.
 
 ## Launch the Corda 5.2.1 Workers
 
@@ -330,6 +328,8 @@ kubectl port-forward -n corda svc/prereqs-kafka 9092:9092 &
 The Docker forwards the request for `prereqs-kafka` to the host machine. As port forwarding is already in place, the host machine acts as the bootstrap server on port 9092. The forwarded request is then directed by the bootstrap server to the only broker on prereqs-kafka:9092, which in turn connects to the real Kafka broker on the cluster. If you are not using the Docker image but the Corda CLI tool, you can achieve the same result by adding `prereqs-kafka` to your `/etc/hosts` file and pointing it to `127.0.0.1`.
 
 ## Appendix B: Complete Upgrade Script Examples
+
+#### Corda 5.2 Install Script
 
 The upgrade script is based on installing Corda 5.2 from Artifactory images, similar to how this script operates.
 
@@ -367,6 +367,8 @@ kubectl port-forward -n corda deploy/corda-rest-worker 8888 &
 kubectl port-forward -n corda svc/prereqs-postgres 5432:5432 &
 kubectl port-forward -n corda svc/prereqs-kafka 9092:9092 &
 ```
+
+#### `artifactory_values_2.yaml`
 
 The values for the `install` are pulled from the `artifactory_values_2.yaml` file:
 
@@ -474,6 +476,8 @@ workers:
             name: "prereqs-postgres"
             key: "corda-password"
 ```
+
+#### `upgrade_to_5_2_1.sh`
 
 The complete upgrade script, use:
 

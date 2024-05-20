@@ -21,12 +21,14 @@ To roll back this process, all that you need to do is to reinstate the database 
 
 You can roll back an upgrade up until the point where Corda 5.2.1 workers are brought back up to a running state. At this point, the 5.2.1 workers start publishing the 5.2.1 messages to Kafka and the 5.2 worker software cannot necessarily read them.
 
-To bring Corda 5.2 workers back you can use `kubectl scale` with a replica count greater than 1, reversing the step below where they were scaled to zero replicas. Or you can issue a helm upgrade command which resets the values you installed Corda 5.2 with, which includes replica counts, for example:
+To bring Corda 5.2 workers back, perform one of the following actions:
+* You can use `kubectl scale` with a replica count greater than one, reversing the step below where they were scaled to zero replicas.
+* Or you can issue a Helm upgrade command which resets the values you installed Corda 5.2 with, including replica counts, for example:
 
-```
-helm upgrade corda -n corda \
-oci://corda-os-docker.software.r3.com/helm-charts/release-5.2.0.0/corda \
---version "5.2.0" \
---values artifactory_values.yaml \
---wait
-```
+   ```
+   helm upgrade corda -n corda \
+   oci://corda-os-docker.software.r3.com/helm-charts/release-5.2.0.0/corda \
+   --version "5.2.0" \
+   --values artifactory_values.yaml \
+   --wait
+   ```
