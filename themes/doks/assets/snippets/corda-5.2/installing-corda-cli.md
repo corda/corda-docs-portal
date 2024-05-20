@@ -10,7 +10,9 @@ Java     | Azul JDK 17
 
 ## Downloading Corda CLI
 
-To obtain the Corda CLI installer, download `corda-cli-installer-5.2.0.0.zip` from the [{{< version >}} Release Page](https://github.com/corda/corda-runtime-os/releases/tag/release-5.2.0.0).
+To obtain the Corda CLI installer for Corda 5.2, download `corda-cli-installer-5.2.0.0.zip` from the [{{< version >}} Release Page](https://github.com/corda/corda-runtime-os/releases/tag/release-5.2.0.0).
+
+To obtain the Corda CLI installer for Corda 5.2.1, download `corda-cli-installer-5.2.1.0.zip` from the [5.2.1 Release Page](https://github.com/corda/corda-runtime-os/releases/tag/release-5.2.1.0).
 
 ## Installing on Linux/macOS
 
@@ -89,5 +91,5 @@ To obtain the Corda CLI installer, download `corda-cli-installer-5.2.0.0.zip` fr
      ```shell
      corda-cli.cmd -h
      ```
-     
+
     If successful, this outputs details of the Corda CLI commands.
