@@ -93,7 +93,7 @@ How these backups are performed, stored, and managed depends on their owner. It 
 
 ## Test the Migration
 
-Follow the steps in section [Scale Down the Running Corda Worker Instances]({{< relref "#scale-down-the-running-corda-worker-instances" >}}) on copies of your dadabase backups to ensure the database migration stages are successful before proceeding with an upgrade of a production Corda.
+Follow the steps in [Scale Down the Running Corda Worker Instances]({{< relref "#scale-down-the-running-corda-worker-instances" >}}) on copies of your database backups to ensure the database migration stages are successful before proceeding with an upgrade of a production Corda.
 
 This reveals any issues with migrating the data before incurring any downtime. It will also indicate the length of downtime required to perform a real upgrade, allowing you to schedule accordingly.
 
