@@ -27,7 +27,7 @@ To bring Corda 5.2 workers back, perform one of the following actions:
 
    ```
    helm upgrade corda -n corda \
-   oci://corda-os-docker.software.r3.com/helm-charts/release-5.2.0.0/corda \
+   helm fetch oci://registry-1.docker.io/corda/corda --version 5.2.0
    --version "5.2.0" \
    --values artifactory_values.yaml \
    --wait

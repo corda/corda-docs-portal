@@ -16,7 +16,7 @@ This section describes how to upgrade a Corda cluster from version 5.2 to 5.2.1.
 You cannot upgrade Corda 5.1 to 5.2.1. You must upgrade Corda to version 5.2 first. For information on how to do it, see [Upgrading from 5.1 to 5.2]({{< relref "../upgrading/_index.md" >}}).
 {{< /note >}}
 
-The examples provided in this section assume that you installed Corda 5.1 in a namespace called `corda`. This is different to other deployments.
+The examples provided in this section assume that you installed Corda 5.2 in a namespace called `corda`. This is different to other deployments.
 
 To perform an upgrade, you must fulfill the required [prerequisites](#prerequisites) and go through the following steps:
 
@@ -39,9 +39,13 @@ Corda 5 relies on certain underlying prerequisites, namely Kafka and PostgreSQL,
 This guide assumes that the Cluster Administrator assigned to upgrade Corda has full administrator access to these prerequisites.
 {{< /note >}}
 
-Developers, including customer CorDapp developers, or those trialing Corda, can use the R3-provided [Corda Helm chart]({{< relref "../deploying/_index.md#download-the-corda-helm-chart" >}}) which installs these prerequisites. The Corda Helm chart can also configure Corda so it can reach these prerequisites, allowing a quick and convenient installation of Corda 5.
+Developers, including customer CorDapp developers, or those trialing Corda, can use the R3-provided [Corda Helm chart]({{< relref "../deploying/_index.md#download-the-corda-helm-chart" >}}) which installs these prerequisites. The Corda Helm chart can also configure Corda, so it can reach these prerequisites, allowing a quick and convenient installation of Corda 5.
 
 Customers in production are not expected to follow this path, and generally use managed services for these prerequisites. There are likely to be significant privilege restrictions in terms of who can administer these services. This guide cannot provide instructions on how to gain administrator access to customer-managed or self-hosted services.
+
+### Downloads
+
+Install PostgreSQL interface (`psql`) and Kubernetes command line tool (`kubectl`) on your local machine.
 
 ### Kafka Access
 
@@ -102,7 +106,7 @@ To extract this data from Kafka and generate SQL scripts to populate the new tab
 The Corda CLI tool needs access to the Kafka deployment, and the `/key` and `/certificate` part of the Corda REST API. For this reason, you must perform this step prior to scaling down Corda workers.
 
 {{< note >}}
-This tool migrates a snapshot of data at the point in time it is run. Performing administrative tasks on Corda after this stage of upgrade and before the next one results in potential data loss.
+The Corda CLI tool migrates a snapshot of data at the point in time it is run. Performing administrative tasks on Corda after this stage of upgrade and before the next one results in potential data loss.
 {{< /note >}}
 
 For clusters that use the development prerequisites, Kafka login credentials and the SSL certificate can be obtained from the cluster's secret. If the cluster was deployed differently, it is assumed that the upgrader already knows these details. You can authenticate with Kafka by passing a standard Kafka properties file to the tool using the `-k` parameter. You can generate such a file in the following way:
@@ -238,11 +242,11 @@ psql -h localhost -c "DELETE FROM sm_key_rotation.state" -p 5432 -d cordacluster
 
 ## Update Kafka Topics
 
-Corda 5.2.1 introduces new Kafka topic configurations, including changes to ACLs. While the Corda CLI tool can automatically apply these changes to a running Kafka deployment, customers may prefer not to manage Kafka indirectly through the Corda CLI. Instead, the tool provides parsable information about the required Kafka topic configurations, allowing users to manage their Kafka instances themselves. This section provides instructions for both alternatives.
+Corda 5.2.1 introduces new Kafka topic configurations, including changes to ACLs. While the Corda CLI tool can automatically apply these changes to a running Kafka deployment, customers may prefer not to manage Kafka indirectly through the Corda CLI. Instead, the Corda CLI tool provides parsable information about the required Kafka topic configurations, allowing users to manage their Kafka instances themselves. This section provides instructions for both alternatives.
 
 ### Self Managed Kafka Updates
 
-There is no “SQL script” equivalent for Kafka for Corda Operators to review. Instead, the Corda tool can generate a YAML file that describes how to set up the Kafka deployment.
+There is no “SQL script” equivalent for Kafka for Corda Operators to review. Instead, the Corda CLI tool can generate a YAML file that describes how to set up the Kafka deployment.
 
 The YAML file is self-explanatory and can be easily read by a human or imported into various third-party tools that automate Kafka topic changes. To generate the YAML file for importing into another tool or for manual administration, use the `preview` and `create` sub-commands of the Corda CLI `topic`command:
 
