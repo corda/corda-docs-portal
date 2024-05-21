@@ -70,7 +70,7 @@ To get information about TLS certificate aliases, the data migration step requir
 Some upgrade steps use the {{< tooltip >}}Corda CLI{{< /tooltip >}} tool used also in Corda 5 [manual bootstrapping]({{< relref "../deploying/manual-bootstrapping.md" >}}). Users who entirely bootstrapped Corda 5 using the Corda Helm chart may not be familiar with this tool because the Corda Helm chart executes it for you. For instructions on how to install Corda CLI, go to [Installing the Corda CLI]({{< relref "../../../application-networks/tooling/installing-corda-cli.md" >}}).
 
 {{< note >}}
-The version of the Corda CLI tool and plugins must match the version of Corda 5 being upgraded to, that is, 5.2.1.
+The version of the Corda CLI tool and plugins must match the version of Corda 5 being upgraded to; that is, 5.2.1.
 {{< /note >}}
 
 The functionality of the tools, the database schemas and Kafka topics embedded in them pertain to the version of Corda they were built against.
