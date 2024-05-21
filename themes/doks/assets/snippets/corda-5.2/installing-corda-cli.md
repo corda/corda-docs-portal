@@ -10,7 +10,9 @@ Java     | Azul JDK 17
 
 ## Downloading Corda CLI
 
-To obtain the Corda CLI installer, download `corda-cli-installer-5.2.0.0.zip` from the [{{< version >}} Release Page](https://github.com/corda/corda-runtime-os/releases/tag/release-5.2.0.0).
+To obtain the Corda CLI installer compatible with your version of Corda, download one of the following:
+* `corda-cli-installer-5.2.0.0.zip` from the [{{< version >}} Release Page](https://github.com/corda/corda-runtime-os/releases/tag/release-5.2.0.0).
+* `corda-cli-installer-5.2.1.0.zip` from the [5.2.1 Release Page](https://github.com/corda/corda-runtime-os/releases/tag/release-5.2.1.0).
 
 ## Installing on Linux/macOS
 
@@ -18,18 +20,18 @@ To obtain the Corda CLI installer, download `corda-cli-installer-5.2.0.0.zip` fr
 
 2. Start a shell session (bash or zsh).
 
-3. Change directory to where you saved `corda-cli-installer-5.2.0.0.zip`.
+3. Change directory to where you saved `corda-cli-installer-<version number>.zip`.
 
 4. Extract the contents of the `zip` file:
 
    ```shell
-   unzip ./corda-cli-installer-5.2.0.0.zip -d corda-cli-installer-5.2.0.0
+   unzip ./corda-cli-installer-<version number>.zip -d corda-cli-installer-<version number>
    ```
 
 5. Change directory to the directory extracted from the `zip` file:
 
    ```shell
-   cd corda-cli-installer-5.2.0.0
+   cd corda-cli-installer-<version number>
    ```
 
 6. Run the install script:
@@ -56,18 +58,18 @@ To obtain the Corda CLI installer, download `corda-cli-installer-5.2.0.0.zip` fr
 
 2. Start a PowerShell session.
 
-3. Change directory to where you saved `corda-cli-installer-5.2.0.0.zip`.
+3. Change directory to where you saved `corda-cli-installer-<version number>.zip`.
 
 4. Extract the contents of the `zip` file:
 
    ```shell
-   Expand-Archive .\corda-cli-installer-5.2.0.0.zip
+   Expand-Archive .\corda-cli-installer-<version number>.zip
    ```
 
 5. Change directory to the directory extracted from the `zip` file:
 
    ```shell
-   cd corda-cli-installer-5.2.0.0
+   cd corda-cli-installer-<version number>
    ```
 
 6. Run the install script:
@@ -89,5 +91,5 @@ To obtain the Corda CLI installer, download `corda-cli-installer-5.2.0.0.zip` fr
      ```shell
      corda-cli.cmd -h
      ```
-     
+
     If successful, this outputs details of the Corda CLI commands.

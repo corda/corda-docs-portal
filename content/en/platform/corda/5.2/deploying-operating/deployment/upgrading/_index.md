@@ -1,14 +1,14 @@
 ---
 description: "Learn how to upgrade your cluster from Corda 5.1 to Corda 5.2."
 date: '2023-11-02'
-title: "Upgrading from 5.1"
+title: "Upgrading from 5.1 to 5.2"
 menu:
   corda52:
     parent: corda52-cluster-deploy
     identifier: corda52-cluster-upgrade
     weight: 4000
 ---
-# Upgrading from 5.1
+# Upgrading from 5.1 to 5.2
 
 This section describes how to upgrade a Corda cluster from 5.1 to {{< version-num >}}. It lists the required [prerequisites](#prerequisites) and describes the following steps required to perform an upgrade:
 
@@ -159,7 +159,7 @@ To migrate the state manager database schemas, do the following:
    ```shell
    psql -h localhost -c "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA config TO corda" -p 5432 -d cordacluster -U postgres
    psql -h localhost -p 5432 -f ./sql_updates/statemanager.sql -d cordacluster -U postgres
-   ```   
+   ```
 
 ## Managing 5.2 Multi-Database Support
 
@@ -440,7 +440,7 @@ To migrate the virtual node databases, do the following:
    ```sh
    while read HOLDING_ID; do
       # In Corda 5.0 all virtual node schemas and users are created by Corda, so we need to extract their names from the db
-    
+
       # Grab the schema names for this holding Id
       VAULT_SCHEMA=$(psql -h localhost -c "SELECT schema_name FROM information_schema.schemata WHERE schema_name LIKE 'vnode_vault%'" -p 5432 -d cordacluster -U postgres | tr -d ' ' | grep -i $HOLDING_ID | grep vault )
       CRYPTO_SCHEMA=$(psql -h localhost -c "SELECT schema_name FROM information_schema.schemata WHERE schema_name LIKE 'vnode_crypto%'" -p 5432 -d cordacluster -U postgres | tr -d ' ' | grep -i $HOLDING_ID | grep crypto )
