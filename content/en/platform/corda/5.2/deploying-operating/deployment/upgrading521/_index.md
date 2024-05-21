@@ -89,7 +89,7 @@ You must create a backup of all schemas in your database:
 
 How these backups are performed, stored, and managed depends on their owner. It differs based on the database service supplier, and it is out of scope of this guide to detail that. Please refer to the database service provider’s documentation.
 
-5.2.1 migration only makes changes in the cluster schema, backing up everything else is a precaution.
+5.2.1 migration only makes changes in the cluster schema; backing up everything else is a precaution.
 
 ## Test the Migration
 
