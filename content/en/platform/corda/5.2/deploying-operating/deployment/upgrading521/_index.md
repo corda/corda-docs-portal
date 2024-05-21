@@ -308,4 +308,4 @@ corda-cli.cmd topic -b=prereqs-kafka:9092 -k=/kafka_config/props.txt create conn
 
 If Corda 5.2 was deployed using Corda Helm chart, you can deploy Corda 5.2.1 the same way. This updates the deployments with the new image versions and scales them to the defined replica counts. Corda version is overridden at the command line and selecting the 5.2.1 Corda Helm chart defaults to the 5.2.1 worker images. If you provide your own values in a YAML file, ensure it does not refer to 5.2 images.
 
-For more information see [placeholder for the updated 5.2.1  Download the Corda Helm Chart instructions: https://docs.r3.com/en/platform/corda/5.2/deploying-operating/deployment/deploying.html#download-the-corda-helm-chart]
+For more information, see the [Corda Helm chart]({{< relref "../deploying/_index.md#download-the-corda-helm-chart" >}}) instructions.
