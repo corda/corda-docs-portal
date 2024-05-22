@@ -1,7 +1,7 @@
 ---
 description: "Legal information for Corda 5.2.1."
 title: "Corda 5.2.1"
-date: 2023-05-23
+date: 2024-05-22
 menu:
   corda52:
     parent: corda52-release-notes-tpn

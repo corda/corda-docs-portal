@@ -1,5 +1,5 @@
 ---
-description: "Legal information for Corda 5.2."
+description: "Legal information for Corda 5.2.0."
 title: "Corda 5.2"
 date: 2023-05-23
 menu:
