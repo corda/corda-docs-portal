@@ -187,12 +187,12 @@ To migrate the cluster database schemas, do the following:
    {{< tabs name="database">}}
    {{% tab name="Bash" %}}
    ```sh
-   corda-cli.sh database spec -c -l ./sql_updates -g="" --jdbc-url=<DATABASE-URL> -u postgres
+   corda-cli.sh database spec -c -l ./sql_updates -s="config" -g="config:config" --jdbc-url=<DATABASE-URL> -u postgres
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   corda-cli.cmd database spec -c -l ./sql_updates -g="" --jdbc-url=<DATABASE-URL> -u postgres
+   corda-cli.cmd database spec -c -l ./sql_updates -s="config" -g="config:config" --jdbc-url=<DATABASE-URL> -u postgres
    ```
    {{% /tab %}}
    {{< /tabs >}}
