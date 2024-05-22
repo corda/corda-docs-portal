@@ -8,5 +8,5 @@ menu:
     identifier: corda52-release-notes-tpn
     weight: 1000
 ---
-# Third-Party Software Notices and Information
+# Corda 5.2 Third-Party Software Notices and Information
 {{< childpages >}}
