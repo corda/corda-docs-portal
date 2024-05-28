@@ -9,11 +9,11 @@ tags:
 - node
 - upgrade
 - cordapps
-title: Corda Enterprise Edition 4.12 upgrade guide
+title: Corda Enterprise Edition 4.11 to 4.12 upgrade guide
 weight: 8
 ---
 
-# Corda Enterprise Edition 4.12 upgrade guide
+# Corda Enterprise Edition 4.11 to 4.12 upgrade guide
 
 This upgrade guide outlines the steps for migrating your Corda 4.11 node to version 4.12 while maintaining backwards compatibility with earlier Corda 4.x versions.
 
@@ -23,9 +23,9 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 
 ### Background
 
-Corda 4.12 uses upgraded versions of Kotlin 1.9 and Java 17. When designing Corda 4.12, we tackled the issue of having a backchain of transactions and verified using Kotlin 1.2 and Java 8 by the earlier versions of Corda.
+Corda 4.12 has been upgraded to use Kotlin 1.9 and Java 17. When designing Corda 4.12, we had to take into consideration the issue of having a backchain of transactions that had been verified using Kotlin 1.2 and Java 8 by earlier versions of Corda.
 
-If a Corda 4.12 node were to be part of a network of mixed Corda 4.x versions, a Corda 4.12 node would not be able to verify a contract verified by an earlier Corda node compiled using Kotlin 1.2. Similarly, an earlier version of Corda node would not be able to verify a new Corda 4.12 contract that was using Kotlin 1.9.
+If a Corda 4.12 node were to be part of a network of mixed Corda 4.x versions, a Corda 4.12 node would not be able to verify a contract compiled using Kotlin 1.2. Similarly, a Corda node running an earlier version of Kotlin would not be able to verify a new Corda 4.12 contract compiled using Kotlin 1.9.
 
 ### The solution
 
@@ -33,7 +33,7 @@ To address verification issues, both earlier versions of Corda 4.x and Corda 4.1
 
 The External Verifier is an external process started by Corda 4.12, running Kotlin 1.2 (with Java 17). This enables Corda 4.12 to run independently of Java 8. Whenever Corda 4.12 detects an old contract version, it externally verifies this contract within the External Verifier process.
 
-When upgrading to Corda 4.12, the old contract CorDapp JAR is preserved and relocated to a new directory named `legacy-contracts`. This directory is essential as it provides the legacy contract for Corda 4.12 nodes to maintain backward compatibility, as required by the External Verifier.
+When upgrading to Corda 4.12, the old contract CorDapp JAR is preserved and relocated to a new directory named `legacy-contracts`. This directory is essential as it provides legacy contracts for Corda 4.12 nodes to maintain backward compatibility, as required by the External Verifier.
 
 To ensure compatibility of all existing transactions in the node’s backchain with the External Verifier, and consequently with Corda 4.12, a new utility tool has been introduced: the [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}). This tool runs the External Verifier on the existing backchain as a sanity check.
 
@@ -51,25 +51,25 @@ In this scenario, you have a mixed network where only selected nodes are upgrade
 * Upgrade any existing CorDapps to run on Java 17 and Kotlin 1.9.
 * Keep a copy of the old CorDapp contract JAR file in the new `legacy-contracts` folder placed inside all upgraded 4.12 nodes.
 
-Any future Corda 4.12 nodes added to the network will also require the `legacy-contracts` folder, unless all nodes have been updated by that time. In the latter case, you are adding new Corda 4.12 nodes to a non-mixed network and this requirement is unnecessary.
+Any future Corda 4.12 nodes added to the network will also require the `legacy-contracts` folder, unless all nodes have been updated by that time. In the latter case, you are adding new Corda 4.12 nodes to a non-mixed network and this requirement is no longer necessary.
 
 ### Upgrading all network nodes to 4.12
 
-In this scenario, you are creating a non-mixed network composed solely of nodes operating on Corda 4.12. Transactions occurring within this newly-upgraded network have only the 4.12 contract component group and therefore, you do not need the `legacy-contracts` folder. This is because nodes trust existing old contract attachments if the new CorDapp locally installed on the node is signed by the same key. However, it is still important that you keep a copy of the old contract JAR for reference.
+In this scenario, you are creating a non-mixed network composed solely of nodes operating on Corda 4.12. Transactions occurring within this newly-upgraded network only have the 4.12 contract component group and therefore, you do not need the `legacy-contracts` folder. This is because nodes trust existing old contract attachments if the new CorDapp locally installed on the node is signed by the same key. However, it is still important that you keep a copy of the old contract JAR for reference.
 
-If any new Corda 4.12 nodes are added to this network in the future, a problem arises wherein nodes won’t trust old contract attachments. For example, this happens if a new transaction contains a backchain of old Corda 4.x transactions. For this reason, you need to upload the old contract JAR needs via RPC to the new node, ensuring it trusts the old contract version.
+If any new Corda 4.12 nodes are added to this network in the future, a problem arises wherein new nodes won’t trust old contract attachments. For example, this happens if a new transaction contains a backchain of old Corda 4.x transactions. For this reason, you must upload the old contract JAR via RPC to the new node, ensuring it trusts the old contract version.
 
 ### Adding 4.12 nodes to a new network
 
 This scenario is the simplest, as it does not require any complex update procedures. In this scenario, all CorDapps are developed for Java 17 and Kotlin 1.9, and the process for adding new nodes is the same as setting up a new network of any previous Corda version.
 
-## Upgrade pre-requisites
+## Upgrade prerequisites
 
 This guide assumes that you have a working Corda network with one or more Corda 4.11 nodes running. If you have custom CorDapps running on your nodes, this guide also describes the required upgrade steps for CorDapps from version 4.11 to 4.12.
 
 To complete the upgrade from Corda 4.11 to Corda 4.12, you need the following components:
 * A Corda 4.12 JAR (obtained from R3).
-* A Corda Transaction Validator Utility JAR (obtained from R3, as part of the Corda 4.12 release pack).
+* A Corda Transaction Validator Utility JAR (obtained from R3, as part of the Corda 4.12 release package).
 * Access to, and the ability to edit the source code for any existing custom CorDapps running in the nodes to be upgraded from 4.11 to 4.12.
 
 ## Upgrade outline
@@ -181,7 +181,7 @@ Similarly, when a 4.12 node creates a transaction, it adds a 4.12 contract into 
 
 ## Starting 4.12 nodes
 
-1. Run the database migration scripts.
+1. Run the database migration scripts. See [Use run-migration-scripts]({{< relref "node/deploy/deploying-a-node.html#use-run-migration-scripts" >}}).
 2. Start your node in the usual way:
 
    ```
@@ -220,7 +220,7 @@ If you are operating a mixed network, then the process for adding a new Corda 4.
 Perform the following steps if you are adding a new Corda 4.12 node to a network that is only running Corda 4.12 nodes, but also contains older Corda 4.x transactions.
 
 {{< note >}}
-In this scenario, you must keep a copy of the old CorDapp contract JAR file.
+In this scenario, you still require a copy of the old CorDapp contract JAR file.
 {{< /note >}}
 
 1. Set up the node folder structure without the `legacy-contracts` folder.
@@ -252,7 +252,7 @@ Corda 4.11 versions of the node and flow management plugins are also compatible 
 
 ### Add-opens
 
-In Java 17, an application can no longer access an internal Java method due to the new module system. If a package is not opened, access will be denied. You can circumvent this strong encapsulation by either:
+After upgrading Corda to Java 17, CorDapps no longer have access to internal Java classes due to the strong encapsulation module system introduced in Java 11. If your CorDapp still requires access to any internal Java classes, you can open the package by either:
 
 * Starting the JAR with a command line option:
    ```
