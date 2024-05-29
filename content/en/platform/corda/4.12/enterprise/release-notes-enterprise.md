@@ -49,6 +49,8 @@ Corda 4.12 introduces Transaction Validator Utility (TVU), a tool that validates
 
 * Previously, there was a rare error scenario where the node would think it had a valid connection to a peer but actually did not. This would potentially occur when the peer node was disconnecting/connecting. This issue has now been resolved.
 
+## Known issues
+
 ## Third party component upgrades
 
 The following table lists the dependency version changes between 4.11.1 and 4.12 Enterprise Editions:
