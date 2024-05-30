@@ -85,7 +85,7 @@ To upgrade your Corda node from version 4.11 to 4.12, you must perform the follo
 
 ### Validate transactions
 
-When upgrading nodes from Corda 4.11 to Corda 4.12, R3 recommends running the Transaction Validator Utility (TVU) tool included the Corda 4.12 release package. While this is not a strict requirement, it is a sanity check that runs all existing node transactions through the External Verifier. It highlights any issues with the node’s existing backchain so you do not run into any unexpected ledger problems during or after the upgrade.
+When upgrading nodes from Corda 4.11 to Corda 4.12, R3 recommends running the Transaction Validator Utility (TVU) tool included in the Corda 4.12 release package. While this is not a strict requirement, it is a sanity check that runs all existing node transactions through the External Verifier. It highlights any issues with the node’s existing backchain so you do not run into any unexpected ledger problems during or after the upgrade.
 
 For more information about TVU and its features, go to the [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}) section.
 
@@ -116,7 +116,7 @@ You must annotate any flow that initiates other flows with the `@InitiatingFlow`
 annotation class InitiatingFlow(val version: Int = 1)
 ```
 
-The version property, which defaults to 1, specifies the flow’s version. You must increment this integer value whenever a flow release includes changes that are not backwards compatible. However, in this case, the flow version must stay the same to ensure backward compatibility with the flows running on previous Corda versions.
+The version property, which defaults to 1, specifies the flow’s version. You must increment this integer value whenever a flow release includes changes that are not backwards compatible. However, in this case, the flow version must stay the same to ensure backward compatibility with the flows running on previous Corda versions. This description highlights a lack of change and is mentioned only because the new contract version, 4.12, must always be incremented, see [Contract versioning]({{< relref "#contract-versioning" >}}).
 
 #### Contract versioning
 
