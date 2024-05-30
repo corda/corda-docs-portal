@@ -48,6 +48,10 @@ java -jar transaction-validator.jar -l register.txt
 
 You can register progress in a `.txt` file and reload it from this file using the `-l` option. Specifying a file path as this option’s value directs the utility to load the most recent progress from it and update the file with the new progress.
 
+{{< note >}}
+Even if all transactions from the `.txt` file have been processed, when reloading progress, the `-l` option always returns a count of one transaction for verification. This behavior is expected because, at startup, the TVU reads the last processed transaction from the progress file and then looks for any transactions in the database with a timestamp greater than or equal to the one retrieved from the file. Naturally, this will always match the last transaction previously processed.
+{{< /note >}}
+
 ```
 java -jar transaction-validator.jar -l register.txt
 ```
