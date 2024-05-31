@@ -20,19 +20,25 @@ The following section describes what the Transaction Validator Utility (TVU) out
 
 ## Console output
 
-By default, the TVU outputs to the console a short summary of what it is doing. If the TVU is run with valid parameters, the output is the following:
+By default, the TVU outputs to the console a short summary of what it is doing. If the TVU is run with valid parameters, the output is similar to the following:
 
 ```
 Starting
-Total Transactions: 8649
-Waiting for all transactions to be processed...
+Discovering transactions...
+	querying database, all transactions
+	transactions found: 8
+Processing transactions...
 ```
 
-The output is then suspended whilst the transactions are processed, until finally you see:
+The output is then suspended whilst the transactions are processed, until finally you see, for example:
 
 ```
-Success, All transactions processed.
-Total time taken: 2001778ms
+Processing completed
+	transactions expected: 8
+	transactions processed: 8
+	succeeded: 6
+	verification failed: 2
+	time taken: 382ms
 ```
 
 If a parameter is specified with an incorrect value, the TVU indicates what the problem is, for example:
