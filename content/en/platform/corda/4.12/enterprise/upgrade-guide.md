@@ -29,13 +29,13 @@ If a Corda 4.12 node were to be part of a network of mixed Corda 4.x versions, a
 
 ### The solution
 
-To address verification issues, both earlier versions of Corda 4.x and Corda 4.12 had to have a way of verifying the correct contract attachment, depending on the Corda version. This is where the External Verifier, a component of Corda 4.12, comes in.
+To address verification issues, both earlier versions of Corda 4.x and Corda 4.12 had to have a way of verifying the correct contract attachment, depending on the Corda version. This is where the external verifier, a component of Corda 4.12, comes in.
 
-The External Verifier is an external process started by Corda 4.12, running Kotlin 1.2 (with Java 17). This enables Corda 4.12 to run independently of Java 8. Whenever Corda 4.12 detects an old contract version, it externally verifies this contract within the External Verifier process.
+The external verifier is a process started by Corda 4.12, running Kotlin 1.2 (with Java 17). This enables Corda 4.12 to run independently of Java 8. Whenever Corda 4.12 detects an old contract version, it externally verifies this contract within the external verifier process.
 
-When upgrading to Corda 4.12, the old contract CorDapp JAR is preserved and relocated to a new directory named `legacy-contracts`. This directory is essential as it provides legacy contracts for Corda 4.12 nodes to maintain backward compatibility, as required by the External Verifier.
+When upgrading to Corda 4.12, the old contract CorDapp JAR is preserved and relocated to a new directory named `legacy-contracts`. This directory is essential as it provides legacy contracts for Corda 4.12 nodes to maintain backward compatibility, as required by the external verifier.
 
-To ensure compatibility of all existing transactions in the node’s backchain with the External Verifier, and consequently with Corda 4.12, a new utility tool has been introduced: the [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}). This tool runs the External Verifier on the existing backchain as a sanity check.
+To ensure compatibility of all existing transactions in the node’s backchain with the external verifier, and consequently with Corda 4.12, a new utility tool has been introduced: the [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}). This tool runs the external verifier process on the existing backchain as a sanity check.
 
 {{< figure alt="Corda 4.12 vs Corda 4.11" width=75% height=75% zoom="resources/corda412vs411.png" figcaption="Corda 4.12 vs Corda 4.11">}}
 
@@ -55,7 +55,7 @@ Any future Corda 4.12 nodes added to the network will also require the `legacy-c
 
 ### Upgrading all network nodes to 4.12
 
-In this scenario, you are creating a non-mixed network composed solely of nodes operating on Corda 4.12. Transactions occurring within this newly-upgraded network only have the 4.12 contract component group and therefore, you do not need the `legacy-contracts` folder. This is because nodes trust existing old contract attachments if the new CorDapp locally installed on the node is signed by the same key. However, it is still important that you keep a copy of the old contract JAR for reference.
+In this scenario, you are creating a non-mixed network composed solely of nodes operating on Corda 4.12. Transactions occurring within this newly-upgraded network only have the 4.12 contract component group and therefore, you do not need the `legacy-contracts` folder. However, it is still important that you keep a copy of the old contract JAR for reference.
 
 If any new Corda 4.12 nodes are added to this network in the future, a problem arises wherein new nodes won’t trust old contract attachments. For example, this happens if a new transaction contains a backchain of old Corda 4.x transactions. For this reason, you must upload the old contract JAR via RPC to the new node, ensuring it trusts the old contract version.
 
@@ -85,7 +85,7 @@ To upgrade your Corda node from version 4.11 to 4.12, you must perform the follo
 
 ### Validate transactions
 
-When upgrading nodes from Corda 4.11 to Corda 4.12, R3 recommends running the Transaction Validator Utility (TVU) tool included in the Corda 4.12 release package. While this is not a strict requirement, it is a sanity check that runs all existing node transactions through the External Verifier. It highlights any issues with the node’s existing backchain so you do not run into any unexpected ledger problems during or after the upgrade.
+When upgrading nodes from Corda 4.11 to Corda 4.12, R3 recommends running the Transaction Validator Utility (TVU) tool included in the Corda 4.12 release package. While this is not a strict requirement, it is a sanity check that runs all existing node transactions through the external verifier. It highlights any issues with the node’s existing backchain so you do not run into any unexpected ledger problems during or after the upgrade.
 
 For more information about TVU and its features, go to the [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}) section.
 
@@ -144,7 +144,7 @@ Corda 4.12 introduces the concept of legacy contracts, a new `legacy-contracts` 
 If you are not using a mixed network, you do not need the `legacy-contracts` folder.
 {{< /note >}}
 
-This folder contains old CorDapp contract JAR files required by the External Verifier to verify old contract attachments in new transactions. The following is an example folder structure of how to set up the node folder to include the `legacy-contracts` folder.
+This folder contains old CorDapp contract JAR files required by the external verifier process to verify old contract attachments in new transactions. The following is an example folder structure of how to set up the node folder to include the `legacy-contracts` folder.
 
 Before upgrade:
 ```
@@ -175,7 +175,7 @@ After upgrade:
 └── node.conf
 ```
 
-To ensure compatibility, you must keep the legacy contracts. When a node operating on a prior version of Corda 4.x wants to transact with a Corda 4.12 node, the 4.12 node identifies an old contract version attached to the transaction. To verify this old contract, Corda 4.12 initiates the External Verifier, which starts a new external process running Kotlin 1.2. This process facilitates transaction containing, for example, a Corda 4.11 contract to be verified on a Corda 4.12 node.
+To ensure compatibility, you must keep the legacy contracts. When a node operating on a prior version of Corda 4.x wants to transact with a Corda 4.12 node, the 4.12 node identifies an old contract version attached to the transaction. To verify this old contract, Corda 4.12 initiates the external verifier process, which starts a new external process running Kotlin 1.2. Making use of the external verifier process is the way in which a 4.12 node can verify transactions from 4.11 or earlier nodes.
 
 Similarly, when a 4.12 node creates a transaction, it adds a 4.12 contract into a new component group of the transaction, reserving the existing component group for the 4.11 contract. Consequently, when a 4.11 contract gets attached to the transaction, it ends up with two sets of contract attachments (JARs): the legacy one and the new 4.12 contract. If this transaction is received by a node not running Corda 4.12, the node lacks awareness of the new component group. It disregards the 4.12 contract and proceeds to verify the legacy contract instead, which is then stored in the database.
 
