@@ -61,4 +61,6 @@ The following table lists the dependency version changes between 4.11.1 and 4.12
 | org.hibernate                      | Hibernate           | 5.6.14.Final              |           |
 | com.h2database                     | H2                  | 2.2.2241                  |                |
 | org.liquibase                      | Liquibase           | 4.20.0                    |                  |
+|                       | Log4j           |                     | 2.23.1                 |
+|                       | SLF4J           |                     | 2.0.12                 |
 
