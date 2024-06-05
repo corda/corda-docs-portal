@@ -37,6 +37,14 @@ When upgrading to Corda 4.12, the old contract CorDapp JAR is preserved and relo
 
 To ensure compatibility of all existing transactions in the node’s backchain with the external verifier, and consequently with Corda 4.12, a new utility tool has been introduced: the [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}). This tool runs the external verifier process on the existing backchain as a sanity check.
 
+#### Corda 4.11 vs Corda 4.12
+
+The following diagram outlines the core differences between Corda 4.11 and Corda 4.12, providing a high-level overview of how the external verifier works with the legacy contract code to verify both Corda 4.11 and Corda 4.12 transactions.
+
+The different colors in the diagram indicate the elements used in each version. While Corda 4.11 remains unchanged, some elements from Corda 4.11 are carried over to Corda 4.12. When the 4.12 node starts, it loads the 4.11 Contract CorDapp, enabling the Corda 4.12 node to send transactions to the Corda 4.11 node. Both the 4.11 contract code (pink) and the 4.12 contract code (green) are included in the transactions. The 4.11 node then discards the new 4.12 contract code.
+
+The Corda 4.11 transaction verifier has also been preserved in an external process to allow Corda 4.11 transactions to be verified by Corda 4.12.
+
 {{< figure alt="Corda 4.12 vs Corda 4.11" width=75% height=75% zoom="resources/corda412vs411.png" figcaption="Corda 4.12 vs Corda 4.11">}}
 
 ## Upgrade scenarios
