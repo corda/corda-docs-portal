@@ -37,7 +37,7 @@ The external verifier is a process started by Corda 4.12, running Kotlin 1.2 (wi
 
 When upgrading to Corda 4.12, the old contract CorDapp JAR is preserved and relocated to a new directory named `legacy-contracts`. This directory is essential as it provides legacy contracts for Corda 4.12 nodes to maintain backward compatibility, as required by the external verifier.
 
-To ensure compatibility of all existing transactions in the node’s backchain with the external verifier, and consequently with Corda 4.12, a new utility tool has been introduced: the [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}). This tool runs the external verifier process on the existing backchain as a sanity check.
+To ensure compatibility of all existing transactions in the node’s backchain with the external verifier, and consequently with Corda 4.12, a new utility tool has been introduced: the Transaction Validator Utility. This tool runs the external verifier process on the existing backchain as a sanity check.
 
 #### Corda 4.11 vs Corda 4.12
 
@@ -97,7 +97,7 @@ To upgrade your Corda node from version 4.11 to 4.12, you must perform the follo
 
 When upgrading nodes from Corda 4.11 to Corda 4.12, R3 recommends running the Transaction Validator Utility (TVU) tool included in the Corda 4.12 release package. While this is not a strict requirement, it is a sanity check that runs all existing node transactions through the external verifier. It highlights any issues with the node’s existing backchain so you do not run into any unexpected ledger problems during or after the upgrade.
 
-For more information about TVU and its features, go to the [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}) section.
+For more information about TVU and its features, go to the Transaction Validator Utility section.
 
 The example use case in this guide validates the transactions without any additional options.
 
@@ -117,7 +117,7 @@ The example use case in this guide validates the transactions without any additi
 
 ### Upgrade 4.11 CorDapps
 
-You must update all custom CorDapps being upgraded that are running on Corda 4.11 nodes so they use Java 17 and Kotlin 1.9. For steps on updating Cordapps, see [Upgrading a CorDapp to Corda Enterprise Edition 4.12]({{< relref "app-upgrade-notes-enterprise.md" >}}).
+You must update all custom CorDapps being upgraded that are running on Corda 4.11 nodes so they use Java 17 and Kotlin 1.9. For steps on updating Cordapps, see [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}).
 
 #### Flow versioning
 You must annotate any flow that initiates other flows with the `@InitiatingFlow` annotation, which is defined as:
@@ -191,7 +191,7 @@ Similarly, when a 4.12 node creates a transaction, it adds a 4.12 contract into 
 
 ## Starting 4.12 nodes
 
-1. Run the database migration scripts. See [Use run-migration-scripts]({{< relref "node/deploy/deploying-a-node.html#use-run-migration-scripts" >}}).
+1. Run the database migration scripts. See [Use run-migration-scripts]({{< relref "deploying-a-node.html#use-run-migration-scripts" >}}).
 2. Start your node in the usual way:
 
    ```
