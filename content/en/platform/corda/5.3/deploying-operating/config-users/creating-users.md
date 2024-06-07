@@ -86,7 +86,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 
 ## Retrieving Roles
 
-You can retrieve all roles in the system using the [/api/v5_2/role endpoint](../../reference/rest-api/openapi.html#tag/RBAC-Role-API/operation/get_role). For example:
+You can retrieve all roles in the system using the [/api/v5_3/role endpoint](../../reference/rest-api/openapi.html#tag/RBAC-Role-API/operation/get_role). For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -111,7 +111,7 @@ This request returns the following for each role:
 
 ## Assigning Roles
 
-You can assign a role to a user using the [/api/v5_2/<login-name>/role/<role-id> endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/put_user__loginname__role__roleid_). This endpoint requires the login name of the user and the ID of the role. To retrieve a list of the roles in the system, including their IDs, see [Retrieving Roles](#retrieving-roles).
+You can assign a role to a user using the [/api/v5_3/<login-name>/role/<role-id> endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/put_user__loginname__role__roleid_). This endpoint requires the login name of the user and the ID of the role. To retrieve a list of the roles in the system, including their IDs, see [Retrieving Roles](#retrieving-roles).
 
 For example, to assign a role with the ID bbcc4621-d88f-4a94-ae2f-b38072bf5087 to Joe Bloggs:
 
@@ -134,7 +134,7 @@ You must have the `UserAdminRole` role to create new users.
 
 ## Querying Permissions
 
-You can retrieve the permissions in the system that match certain criteria, using the [/api/v5_2/permission endpoint](../../reference/rest-api/openapi.html#tag/RBAC-Permission-API/operation/get_permission). For example, to return 100 permissions that deny access:
+You can retrieve the permissions in the system that match certain criteria, using the [/api/v5_3/permission endpoint](../../reference/rest-api/openapi.html#tag/RBAC-Permission-API/operation/get_permission). For example, to return 100 permissions that deny access:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
