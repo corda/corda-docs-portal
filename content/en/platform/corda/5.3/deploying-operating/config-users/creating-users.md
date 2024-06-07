@@ -45,7 +45,7 @@ You must have the `UserAdminRole` role to create new users.
 
 ## Changing Passwords
 
-You can change your own password using the POST method of the [/api/v5_2/user/selfpassword endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/post_user_selfpassword). Use this endpoint if your password has expired, and you have the correct credentials (you cannot use any other endpoint if your password has expired). When you change your password yourself, its default expiry time is set to 90 days. For example:
+You can change your own password using the POST method of the [/api/v5_3/user/selfpassword endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/post_user_selfpassword). Use this endpoint if your password has expired, and you have the correct credentials (you cannot use any other endpoint if your password has expired). When you change your password yourself, its default expiry time is set to 90 days. For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
