@@ -16,7 +16,7 @@ RBAC users are created and managed using the REST API. This section describes th
 
 ## Creating Users
 
-You can create a new user using the POST method of the [/api/v5_2/user endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/post_user). You must include a login name, full name, and password and also specify if the account is enabled. Optionally, you can set the `passwordExpiry` to a past date, which will require the newly-created user to change their password on the first use. If the `passwordExpiry` is not specified or set to `null`, then the password does not expire. For example:
+You can create a new user using the POST method of the [/api/v5_3/user endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/post_user). You must include a login name, full name, and password and also specify if the account is enabled. Optionally, you can set the `passwordExpiry` to a past date, which will require the newly-created user to change their password on the first use. If the `passwordExpiry` is not specified or set to `null`, then the password does not expire. For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
