@@ -64,7 +64,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 {{% /tab %}}
 {{< /tabs >}}
 
-Users with the `UserAdminRole` role can change the password of other users using the POST method of the [/api/v5_2/user/otheruserpassword endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/post_user_otheruserpassword). When a user with the `UserAdminRole` role changes another user's password, its default expiry time is set to 7 days. For example:
+Users with the `UserAdminRole` role can change the password of other users using the POST method of the [/api/v5_3/user/otheruserpassword endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/post_user_otheruserpassword). When a user with the `UserAdminRole` role changes another user's password, its default expiry time is set to 7 days. For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
