@@ -22,7 +22,7 @@ This section describes how to upgrade a Corda cluster from 5.1 to {{< version-nu
 8. [Migrate the Virtual Node Databases](#migrate-the-virtual-node-databases)
 9. [Update Kafka Topics](#update-kafka-topics)
 10. [Launch the Corda {{< version-num >}} Workers](#launch-the-corda-workers)
-11. [Upload the Corda {{< version-num >}} CPIs to virtual nodes](#upload-cpis-to-virtual-nodes)
+11. [Upload the Corda {{< version-num >}} CPIs to virtual nodes](#upload-the-corda-cpis-to-virtual-nodes)
 
 For information about how to roll back an upgrade, see [Rolling Back]({{< relref "rolling-back.md" >}}).
 
