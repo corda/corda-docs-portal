@@ -13,15 +13,16 @@ menu:
 This section describes how to upgrade a Corda cluster from 5.1 to {{< version-num >}}. It lists the required [prerequisites](#prerequisites) and describes the following steps required to perform an upgrade:
 
 1. [Back Up the Corda Database](#back-up-the-corda-database)
-1. [Test the Migration](#test-the-migration)
-1. [Scale Down the Running Corda Worker Instances](#scale-down-the-running-corda-worker-instances)
-1. [Migrate the Corda Cluster Database](#migrate-the-corda-cluster-database)
-1. [Migrate State Manager Databases](#migrate-state-manager-databases)
-1. [Managing 5.2 Multi-Database Support](#managing-52-multi-database-support)
-1. [Setting Search Paths](#setting-search-paths)
-1. [Migrate the Virtual Node Databases](#migrate-the-virtual-node-databases)
-1. [Update Kafka Topics](#update-kafka-topics)
-1. [Launch the Corda {{< version-num >}} Workers](#launch-the-corda-workers)
+2. [Test the Migration](#test-the-migration)
+3. [Scale Down the Running Corda Worker Instances](#scale-down-the-running-corda-worker-instances)
+4. [Migrate the Corda Cluster Database](#migrate-the-corda-cluster-database)
+5. [Migrate State Manager Databases](#migrate-state-manager-databases)
+6. [Managing 5.2 Multi-Database Support](#managing-52-multi-database-support)
+7. [Setting Search Paths](#setting-search-paths)
+8. [Migrate the Virtual Node Databases](#migrate-the-virtual-node-databases)
+9. [Update Kafka Topics](#update-kafka-topics)
+10. [Launch the Corda {{< version-num >}} Workers](#launch-the-corda-workers)
+11. [Upload the Corda {{< version-num >}} CPIs to virtual nodes](#upload-cpis-to-virtual-nodes)
 
 For information about how to roll back an upgrade, see [Rolling Back]({{< relref "rolling-back.md" >}}).
 
@@ -540,3 +541,7 @@ To complete the upgrade to {{< version-num >}} and launch the Corda {{< version-
 helm upgrade corda -n <corda_namespace> oci://corda-os-docker.software.r3.com/helm-charts/release/os/{{<version-num>}}/corda --version {{<version-num>}}.0 -f <YOUR_VALUES_YAML>
 ```
 For more information about the values in the deployment YAML file, see [Configure the Deployment]({{< relref "../../deployment/deploying/_index.md#configure-the-deployment" >}}).
+
+## Upload the Corda {{< version-num >}} CPIs to virtual nodes
+
+For each major Corda version change, you must upgrade your virtual nodes to ensure they are using the latest version's CPIs. To do that, follow the steps described in [Upgrading a CPI]({{< relref "../../vnodes/upgrade-cpi.md" >}}).
