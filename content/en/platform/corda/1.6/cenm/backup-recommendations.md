@@ -37,7 +37,7 @@ Using snapshots always implies some data loss in case of a disaster, and the tra
 
 ### File backups
 
-CENM services read and write information from and to the file-system. R3 recommends backing up the entire directory of the service, plus any external directories and files optionally specified in the configuration.
+CENM services read and write information to and from the file-system. R3 recommends backing up the entire directory of the service, plus any external directories and files optionally specified in the configuration.
 CENM assumes the file system is reliable. You must ensure that it is configured to provide this assurance, which means you must configure it to synchronously replicate to your backup/DR site.
 If the above holds, CENM services will benefit from the following:
 
