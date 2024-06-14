@@ -15,7 +15,7 @@ title: CENM backup recommendations
 # CENM backup recommendations
 
 Various components of CENM read their configuration from the file system, and persist data to a database or into files on disk.
-Given that hardware can fail, operators of IT infrastructure must have a sound backup strategy in place. CENM holds important network information, such as approved and revoked network participants, the network map, and network parameters. While the latest network parameters are saved in a configuration file, the rest could not be recovered. As such, R3 strongly recommends implementing a comprehensive backup strategy.
+Given that hardware can fail, operators of IT infrastructure must have a sound backup strategy in place. CENM holds important network information, such as approved and revoked network participants, the network map, and network parameters. This is another reason why R3 strongly recommends implementing a comprehensive backup strategy.
 
 The following elements of a backup strategy are recommended:
 
