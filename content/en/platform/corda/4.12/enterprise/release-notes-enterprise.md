@@ -37,13 +37,25 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 ## New features and enhancements
 
-### Java upgrade
+### Java and Kotlin upgrade
 
-Java version was upgraded to Java 17.
+Corda 4.12 requires Java 17 and Kotlin 1.9.20. This means that you must recompile any legacy CorDapps written for 4.11 or earlier to work with Java 17 and Kotlin 1.9 to be compatible with Corda 4.12. These upgrades enhance the supportability and security of Corda.
 
-### Kotlin upgrade
+### Java 17 compatible releases of Corda SDKs
 
-Kotlin version was upgraded to Kotlin 1.9.
+A number of SDKs and libraries are provided with the base Corda package. These are their Java 17 and Kotlin 1.9 versions:
+
+| SDK/library               | Java 17 compatible release    |
+|---------------------------|-------------------------------|
+| corda-shell               | 4.12                          |
+| r3-libs                   | 1.4                           |
+| confidential-identities   | 1.2                           |
+| accounts                  | 1.1                           |
+| token-sdk                 | 1.3                           |
+| reissue-cordapp           | 1.1                           |
+| archiving                 | 1.2                           |
+| ledger-graph              | 1.3                           |
+| r3-tools                  | 4.12                          |
 
 ### Transaction Validator Utility
 
