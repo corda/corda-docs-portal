@@ -131,8 +131,6 @@ The following Kotlin and Java CorDapp templates have been converted to JDK17, Ko
 * [Kotlin CorDapp template](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12)
 * [Java CorDapp template](https://github.com/corda/cordapp-template-java/tree/release/4.12)
 
-## Fixed issues
-
 ## Known issues
 
 ## Third party component upgrades

@@ -136,10 +136,6 @@ The following Kotlin and Java CorDapp templates have been converted to JDK17, Ko
 
 The optional gateway plugins release pack contains the flow and node management plugins used by the CENM gateway service. These plugins provide GUI-based flow and node management functionality. Since CENM has not yet been converted to use JDK17, these plugins are not included in the 4.12 release. Once CENM and plugins have been converted, they will be added in a future release. If you wish to use flow and node management functionality, you can obtain the plugins from the 4.11 `optional-gateway-plugins` release pack and use them with the CENM gateway service.
 
-## Fixed issues
-
-* Previously, there was a rare error scenario where the node would think it had a valid connection to a peer but actually did not. This would potentially occur when the peer node was disconnecting/connecting. This issue has now been resolved.
-
 ## Known issues
 
 ## Third party component upgrades
