@@ -1,27 +1,28 @@
 ---
 description: "Learn how to upgrade your cluster from Corda 5.1 to Corda 5.2."
 date: '2023-11-02'
-title: "Upgrading from 5.1"
+title: "Upgrading from 5.1 to 5.2"
 menu:
   corda52:
     parent: corda52-cluster-deploy
     identifier: corda52-cluster-upgrade
     weight: 4000
 ---
-# Upgrading from 5.1
+# Upgrading from 5.1 to 5.2
 
 This section describes how to upgrade a Corda cluster from 5.1 to {{< version-num >}}. It lists the required [prerequisites](#prerequisites) and describes the following steps required to perform an upgrade:
 
 1. [Back Up the Corda Database](#back-up-the-corda-database)
-1. [Test the Migration](#test-the-migration)
-1. [Scale Down the Running Corda Worker Instances](#scale-down-the-running-corda-worker-instances)
-1. [Migrate the Corda Cluster Database](#migrate-the-corda-cluster-database)
-1. [Migrate State Manager Databases](#migrate-state-manager-databases)
-1. [Managing 5.2 Multi-Database Support](#managing-52-multi-database-support)
-1. [Setting Search Paths](#setting-search-paths)
-1. [Migrate the Virtual Node Databases](#migrate-the-virtual-node-databases)
-1. [Update Kafka Topics](#update-kafka-topics)
-1. [Launch the Corda {{< version-num >}} Workers](#launch-the-corda-workers)
+2. [Test the Migration](#test-the-migration)
+3. [Scale Down the Running Corda Worker Instances](#scale-down-the-running-corda-worker-instances)
+4. [Migrate the Corda Cluster Database](#migrate-the-corda-cluster-database)
+5. [Migrate State Manager Databases](#migrate-state-manager-databases)
+6. [Managing 5.2 Multi-Database Support](#managing-52-multi-database-support)
+7. [Setting Search Paths](#setting-search-paths)
+8. [Migrate the Virtual Node Databases](#migrate-the-virtual-node-databases)
+9. [Update Kafka Topics](#update-kafka-topics)
+10. [Launch the Corda {{< version-num >}} Workers](#launch-the-corda-workers)
+11. [Upload the Corda {{< version-num >}} CPIs to virtual nodes](#upload-the-corda-cpis-to-virtual-nodes)
 
 For information about how to roll back an upgrade, see [Rolling Back]({{< relref "rolling-back.md" >}}).
 
@@ -159,7 +160,7 @@ To migrate the state manager database schemas, do the following:
    ```shell
    psql -h localhost -c "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA config TO corda" -p 5432 -d cordacluster -U postgres
    psql -h localhost -p 5432 -f ./sql_updates/statemanager.sql -d cordacluster -U postgres
-   ```   
+   ```
 
 ## Managing 5.2 Multi-Database Support
 
@@ -440,7 +441,7 @@ To migrate the virtual node databases, do the following:
    ```sh
    while read HOLDING_ID; do
       # In Corda 5.0 all virtual node schemas and users are created by Corda, so we need to extract their names from the db
-    
+
       # Grab the schema names for this holding Id
       VAULT_SCHEMA=$(psql -h localhost -c "SELECT schema_name FROM information_schema.schemata WHERE schema_name LIKE 'vnode_vault%'" -p 5432 -d cordacluster -U postgres | tr -d ' ' | grep -i $HOLDING_ID | grep vault )
       CRYPTO_SCHEMA=$(psql -h localhost -c "SELECT schema_name FROM information_schema.schemata WHERE schema_name LIKE 'vnode_crypto%'" -p 5432 -d cordacluster -U postgres | tr -d ' ' | grep -i $HOLDING_ID | grep crypto )
@@ -540,3 +541,7 @@ To complete the upgrade to {{< version-num >}} and launch the Corda {{< version-
 helm upgrade corda -n <corda_namespace> oci://corda-os-docker.software.r3.com/helm-charts/release/os/{{<version-num>}}/corda --version {{<version-num>}}.0 -f <YOUR_VALUES_YAML>
 ```
 For more information about the values in the deployment YAML file, see [Configure the Deployment]({{< relref "../../deployment/deploying/_index.md#configure-the-deployment" >}}).
+
+## Upload the Corda {{< version-num >}} CPIs to virtual nodes
+
+For each major Corda version change, you must upgrade your virtual nodes to ensure they are using the latest version's CPIs. To do that, follow the steps described in [Upgrading a CPI]({{< relref "../../vnodes/upgrade-cpi.md" >}}).
