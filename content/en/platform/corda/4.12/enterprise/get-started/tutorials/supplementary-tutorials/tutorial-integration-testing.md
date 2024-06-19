@@ -265,6 +265,18 @@ expectEvents(aliceVaultUpdates, true, () ->
 
 As a next step, you might like to try setting up a test where Bob sends this cash back to Alice.
 
+## Testing Corda 4.11 to 4.12 migration
+
+To create a transaction that is backward compatible with Corda 4.11 nodes requires attaching both the 4.11 and 4.12 contract JARs. Since a state can only have one attachment constraint, you cannot use hash constraints because they can only match one of the contracts. Therefore, backward-compatible transactions must use signature constraints, where both contract JARs are signed by a common signer. This ensures that the same signature constraint satisfies both the legacy and current transaction components.
+
+The problem comes during development and testing. The signing of the CorDapp may be not be possible during development but just before a release, for example, because the signing process uses a HSM. Therefore, you must be able to test that your Corda 4.11 to 4.12 migration works. You can do it using the node driver.
+
+To do this, you can sign `TestCordapps` with the introduction of a `TestCordapp.asSigned()` method that creates a copy of the JAR and signs it with the dev key.
+
+The node driver also adds support for the new `legacy-contracts` directory. This is done with a new `NodeParameters` property, `val legacyContracts: Collection<TestCordapp> = emptySet()`.
+
+`TestCordapp` discovery had also been improved: the current method `TestCordapp.findCordapp` takes a package name and scans the current classpath to find the single JAR containing that given package. This does not work here as both the 4.11 and 4.12 CorDapps have the same package namespace. This has been solved via a new way to reference CorDapps for the node driver: `TestCodapp.of(URI)`.
+
 ## Summary
 
 That’s it! You saw how to start up several corda nodes locally, how to connect to them, and how to test some simple invariants
