@@ -271,7 +271,7 @@ To create a transaction that is backward compatible with Corda 4.11 nodes requir
 
 The problem comes during development and testing. The signing of the CorDapp may be not be possible during development but just before a release, for example, because the signing process uses a HSM. Therefore, you must be able to test that your Corda 4.11 to 4.12 migration works. You can do it using the node driver.
 
-To do this, you can sign `TestCordapps` with the introduction of a `TestCordapp.asSigned()` method that creates a copy of the JAR and signs it with the dev key.
+To do this, sign `TestCordapps` with the introduction of a `TestCordapp.asSigned()` method that creates a copy of the JAR and signs it with the dev key.
 
 The node driver also adds support for the new `legacy-contracts` directory. This is done with a new `NodeParameters` property, `val legacyContracts: Collection<TestCordapp> = emptySet()`.
 
