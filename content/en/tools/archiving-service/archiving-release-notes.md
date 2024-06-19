@@ -29,7 +29,7 @@ If you deviate from the above compatibility guidelines, for example, using the A
 
 ### Archive Service 1.2
 
-Archive Service 1.2 is a major release supporting Java 17 and Kotlin 1.9. If you wish to use Archive Service this is the only release that works with Corda 4.12.
+Archive Service 1.2 is a major release supporting Java 17 and Kotlin 1.9. If you want to use the Archive Service, this is the only release that works with Corda 4.12.
 
 ## Corda Enterprise 4.11
 
