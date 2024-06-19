@@ -248,24 +248,22 @@ Please do not change any of your existing build.gradle files.
 
 ```kotlin
 plugins {
-  id 'com.github.johnrengelman.shadow' version '5.1.0'
   id 'java'
+  id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
 repositories {
-  jcenter()
+  mavenCentral()
 }
 
 dependencies {
-  compile 'com.azure:azure-security-keyvault-keys:4.2.3'
-  compile 'com.azure:azure-identity:1.2.0'
+  implementation 'com.azure:azure-security-keyvault-keys:4.2.3'
+  implementation 'com.azure:azure-identity:1.2.0'
 }
 
 shadowJar {
-  relocate 'io.netty', 'azure.shaded.io.netty'
-  relocate 'META-INF/native/libnetty', 'META-INF/native/libazure_shaded_netty'
-  relocate 'META-INF/native/netty', 'META-INF/native/azure_shaded_netty'
-  archiveName = 'azure-keyvault-with-deps.jar'
+  relocate 'okhttp3', 'shadow.okhttp3'
+  archiveBaseName = 'azure-keyvault-with-deps.jar'
 }
 ```
 
