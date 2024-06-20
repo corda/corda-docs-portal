@@ -124,7 +124,7 @@ You must annotate any flow that initiates other flows with the `@InitiatingFlow`
 annotation class InitiatingFlow(val version: Int = 1)
 ```
 
-The version property, which defaults to 1, specifies the flow’s version. You must increment this integer value whenever a flow release includes changes that are not backwards compatible. However, in this case, the flow version must stay the same to ensure backward compatibility with the flows running on previous Corda versions. However, even though in this case you are not incrementing the flow version, you must always increment the new 4.12 contract version, see [Contract versioning]({{< relref "#contract-versioning" >}}).
+The version property, which defaults to 1, specifies the flow’s version. You must increment this integer value whenever a flow release includes changes that are not backwards compatible. However, in this case, the flow version must stay the same to ensure backward compatibility with the flows running on previous Corda versions. However, even though in this case you are not incrementing the flow version, you must always increment the new 4.12 contract version; see [Contract versioning]({{< relref "#contract-versioning" >}}).
 
 #### Contract versioning
 
