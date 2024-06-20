@@ -83,34 +83,12 @@ To complete the upgrade from Corda 4.11 to Corda 4.12, you need the following co
 
 To upgrade your Corda node from version 4.11 to 4.12, you must perform the following steps:
 
-1. Validate all existing transactions (per node). See [Validate transactions]({{< relref "#validate-transactions" >}}).
+1. Validate all existing transactions (per node) to ensure that their backchain works with 4.12.
 2. Upgrade any custom CorDapps running on the Corda 4.11 node to work with Java 17 and Kotlin 1.9. See [Upgrade 4.11 CorDapps]({{< relref "#upgrade-411-cordapps" >}}).
 3. Preserve old CorDapp contracts in a new folder called `legacy-contracts`. See [Add the legacy contracts folder to mixed networks]({{< relref "#add-the-legacy-contracts-folder-to-mixed-networks" >}}).
    {{< note >}}
    This step is for mixed networks only. It is not required if you plan on upgrading all nodes on your network to 4.12.
    {{< /note >}}
-
-### Validate transactions
-
-When upgrading nodes from Corda 4.11 to Corda 4.12, R3 recommends running the Transaction Validator Utility (TVU) tool included in the Corda 4.12 release package. While this is not a strict requirement, it is a sanity check that runs all existing node transactions through the external verifier. It highlights any issues with the node’s existing backchain so you do not run into any unexpected ledger problems during or after the upgrade.
-
-For more information about TVU and its features, go to the Transaction Validator Utility section.
-
-The example use case in this guide validates the transactions without any additional options.
-
-1. Drain the node.
-   You must perform this step so there are no in-flight transactions when the node is stopped. Not draining the node could lead to these transactions not being checked by TVU, potentially causing issues later on.
-3. Stop the node.
-4. Place the TVU JAR into the root folder of the Corda 4.11 node.
-5. Run TVU:
-   ```
-   $ java -jar corda-tools-transaction-validator-4.12-RC01.jar
-   Starting
-   Total Transactions: 41
-   Waiting for all transactions to be processed...
-   Success, All transactions processed.
-   Total time taken: 3943ms
-   ```
 
 ### Upgrade 4.11 CorDapps
 
