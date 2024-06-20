@@ -20,11 +20,11 @@ tags:
 
 # Corda Community Edition 4.12 release notes
 
-The Corda Community Edition 4.12 release introduces upgrades to the JDK and Kotlin versions, along with associated upgrade support. Besides the features supporting the JDK/Kotlin upgrade, no other major new features have been introduced.
+The Corda Community Edition 4.12 release introduces upgrades to the Java and Kotlin versions, along with associated upgrade support. Besides the features supporting the Java and Kotlin upgrade, no other major new features have been introduced.
 
 When a CorDapp(s) and a node are successfully upgraded to 4.12, you are able to seamlessly interoperate 4.12 and 4.11 (or earlier) nodes on the same network, including the existing transactions on the ledger.
 
-Supporting new JDK and Kotlin versions is a major feature, as we must also handle legacy contracts from existing backchains. The upgraded JDK and Kotlin versions also have implications for CorDapp developers. Simply replacing the Corda JAR without introducing other changes is not possible.
+Supporting new Java and Kotlin versions is a major feature, as we must also handle legacy contracts from existing backchains. The upgraded Java and Kotlin versions also have implications for CorDapp developers. Simply replacing the Corda JAR without introducing other changes is not possible.
 
 ## Upgrade recommendation
 
@@ -81,9 +81,9 @@ You must review your CorDapps and checked for any making the following calls:
 
 CorDapps that make the above calls, will not work for legacy transactions. To have those CorDapps work, change them to `SignedTransaction.verify()`.
 
-### No 4.12 JDK 17 node explorer
+### No 4.12 Java 17 node explorer
 
-The node explorer has not been converted to use JDK17 and is not provided in the release packs. If you wish to use a node explorer, the only current option is to use a 4.11 node explorer and use it to connect to a 4.12 node.
+The node explorer has not been converted to use Java 17 and is not provided in the release packs. If you wish to use a node explorer, the only current option is to use a 4.11 node explorer and use it to connect to a 4.12 node.
 
 ### Samples Kotlin and Java support
 
@@ -91,7 +91,7 @@ The following two public repositories provide various CorDapp samples:
 * [Samples Kotlin repository](https://github.com/corda/samples-kotlin/tree/release/4.12)
 * [Samples Java repository](https://github.com/corda/samples-java/tree/release/4.12)
 
-Most (but not all) samples have been converted over to JDK17, Kotlin 1.9.20 and Gradle 7.6.4.
+Most (but not all) samples have been converted over to Java 17, Kotlin 1.9.20, and Gradle 7.6.4.
 
 The samples have been written to work with Corda OS, to have them use Corda ENT do the following:
 
@@ -139,23 +139,51 @@ The samples have been written to work with Corda OS, to have them use Corda ENT 
 
 ### Kotlin and Java CorDapp templates
 
-The following Kotlin and Java CorDapp templates have been converted to JDK17, Kotlin 1.9.20 and Gradle 7.6.4. They have been written to work with Corda Community Edition:
+The following Kotlin and Java CorDapp templates have been converted to Java 17, Kotlin 1.9.20, and Gradle 7.6.4. They have been written to work with Corda Community Edition:
 * [Kotlin CorDapp template](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12)
 * [Java CorDapp template](https://github.com/corda/cordapp-template-java/tree/release/4.12)
+
+## Fixed issues
 
 ## Known issues
 
 ## Third party component upgrades
 
-The following table lists the dependency version changes between 4.11.1 and 4.12 Community Editions:
+The following table lists the dependency version changes between 4.11 and 4.12 Community Editions:
 
-| Dependency                         | Name                | Version 4.11.1 Enterprise | Version 4.12 Enterprise|
-|------------------------------------|---------------------|---------------------------|------------------------|
-| org.bouncycastle                   | Bouncy Castle       | bcprov-jdk18on:1.75       |     |
-| co.paralleluniverse:quasar-core    | Quasar              | 0.7.16_r3                 |               |
-| org.hibernate                      | Hibernate           | 5.6.14.Final              |           |
-| com.h2database                     | H2                  | 2.2.2241                  |                |
-| org.liquibase                      | Liquibase           | 4.20.0                    |                  |
-|                       | Log4j           |                     | 2.23.1                 |
-|                       | SLF4J           |                     | 2.0.12                 |
+| Dependency                                     | Name                   | Version 4.11 Enterprise   | Version 4.12 Enterprise  |
+|------------------------------------------------|------------------------|---------------------------|------------------------- |
+| com.google.guava:guava                         | Guava                  | 28.0-jre                  | 33.1.0-jre               |
+| co.paralleluniverse:quasar-core	               | Quasar	                | 0.7.16_r3	                | 0.9.0_r3                 |
+| org.bouncycastle	                             | Bouncy Castle	        | jdk18on:1.75	            | lts8on:2.73.6            |
+| pro com.guardsquare:proguard-gradle	           | ProGuard	              | 6.1.1	                    | 7.3.1                    |
+| org.yaml:snakeyaml	                           | SnakeYAML	            | 1.33	                    | 2.2                      |
+| com.github.ben-manes.caffeine:caffeine         | Caffeine	              | 2.9.3	                    | 3.1.8                    |
+| io.netty:netty-tcnative-boringssl-static	     | TC Native	            | 2.0.48.Final	            | 2.0.65.Final             |
+| org.apache.commons:commons-configuration2      | Commons Configuration2	| 2.10.0	                  | 2.10.1                   |
+| co.paralleluniverse:capsule	                   | Capsule	              | 1.0.3	                    | 1.0.4_r3                 |
+| org.ow2.asm:asm	                               | ASM	                  | 7.1	                      | 9.5                      |
+| org.apache.activemq:*	                         | Artemis	              | 2.19.1	                  | 2.32.0                   |
+| com.fasterxml.jackson.*	                       | Jackson XML	          | 2.13.5	                  | 2.17.0                   |
+| org.eclipse.jetty.ee10:jetty-ee10-*	           | Jetty	                | 9.4.53.v20231009	        | 12.0.7                   |
+| org.glassfish.jersey.*	                       | Jersey	                | 2.25	                    | 3.1.6                    |
+| javax.validation:validation-api	               | Validation	            | -	                        | 2.0.1.Final              |
+| org.slf4j:*	Simpe                              | Log4J	                | 1.7.30	                  | 2.0.12                   |
+| org.apache.logging.log4j:*	                   | Log4j	                | 2.17.1	                  | 2.23.1                   |
+| com.squareup.okhttp3:okhttp	                   | OK HTTP	              | 3.14.9	                  | 4.12.0                   |
+| io.netty:*	                                   | Netty                	| 4.1.77.Final	            | 4.1.109.Final            |
+| org.apache.commons:commons-fileupload2-jakarta | File Upload	          | 1.4	                      | 2.0.0-M1                 |
+| com.esotericsoftware:kryo	                     | Kryo	                  | 4.0.2	                    | 5.5.0                    |
+| org.mockito:mockito-core	                     | Mockito	              | 2.28.2	                  | 5.5.0                    |
+| org.mockito.kotlin:mockito-kotlin	             | Mockito for Kotlin	    | 1.6.0	                    | 5.2.1                    |
+| org.jetbrains.dokka:dokka-gradle-plugin	       | Dokka for Gradle       | 0.10.1	                  | 1.8.20                   |
+| net.i2p.crypto:eddsa	                         | EddSA	                | 0.3.0	                    | -                        |
+| com.zaxxer:HikariCP	                           | Hikari	                | 3.3.1	                    | 5.1.0                    |
+| org.iq80.snappy:snappy	                       | Snappy	                | 0.4	                      | 0.5                      |
+| commons-io:commons-io	                         | Commons I/O	          | 2.6	                      | 2.7                      |
+| org.javassist:javassist	                       | Java Assist	          | 3.27.0-GA	                | 3.29.2-GA                |
+| org.jooq:joor	                                 | Joor	                  | -	                        | 0.9.15                   |
+| org.apache.curator:*	                         | Apache Curator	        | 5.1.0	                    | 5.6.0                    |
+| org.apache.zookeeper:zookeeper	               | Apache Zookeeper	      | -	                        | 3.8.3                    |
+| org.apache.commons:commons-dbcp2	             | Apache Commons	        | -	                        | 2.12.0                   |
 
