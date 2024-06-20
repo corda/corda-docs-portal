@@ -17,11 +17,11 @@ weight: 10
 
 # Corda Enterprise Edition 4.12 release notes
 
-The Corda Enterprise Edition 4.12 release introduces upgrades to the JDK and Kotlin versions, along with associated upgrade support. Besides the features supporting the JDK/Kotlin upgrade, no other major new features have been introduced.
+The Corda Enterprise Edition 4.12 release introduces upgrades to the Java and Kotlin versions, along with associated upgrade support. Apart from the features supporting the Java and Kotlin upgrade, no other major new features have been introduced.
 
 When a CorDapp(s) and a node are successfully upgraded to 4.12, you are able to seamlessly interoperate 4.12 and 4.11 (or earlier) nodes on the same network, including the existing transactions on the ledger.
 
-Supporting new JDK and Kotlin versions is a major feature, as we must also handle legacy contracts from existing backchains. The upgraded JDK and Kotlin versions also have implications for CorDapp developers. Simply replacing the Corda JAR without introducing other changes is not possible.
+Supporting new Java and Kotlin versions is a major feature, as we must also handle legacy contracts from existing backchains. The upgraded Java and Kotlin versions also have implications for CorDapp developers. Simply replacing the Corda JAR without introducing other changes is not possible.
 
 ## Upgrade recommendation
 
@@ -82,9 +82,9 @@ You must review your CorDapps and checked for any making the following calls:
 
 CorDapps that make the above calls, will not work for legacy transactions. To have those CorDapps work, change them to `SignedTransaction.verify()`.
 
-### No 4.12 JDK 17 node explorer
+### No 4.12 Java 17 node explorer
 
-The node explorer has not been converted to use JDK17 and is not provided in the release packs. If you wish to use a node explorer, the only current option is to use a 4.11 node explorer and use it to connect to a 4.12 node.
+The node explorer has not been converted to use Java 17 and is not provided in the release packs. If you wish to use a node explorer, the only current option is to use a 4.11 node explorer and use it to connect to a 4.12 node.
 
 ### Samples Kotlin and Java support
 
@@ -92,7 +92,7 @@ The following two public repositories provide various CorDapp samples:
 * [Samples Kotlin repository](https://github.com/corda/samples-kotlin/tree/release/4.12)
 * [Samples Java repository](https://github.com/corda/samples-java/tree/release/4.12)
 
-Most (but not all) samples have been converted over to JDK17, Kotlin 1.9.20 and Gradle 7.6.4.
+Most (but not all) samples have been converted over to Java 17, Kotlin 1.9.20, and Gradle 7.6.4.
 
 The samples have been written to work with Corda OS, to have them use Corda ENT do the following:
 
@@ -140,13 +140,13 @@ The samples have been written to work with Corda OS, to have them use Corda ENT 
 
 ### Kotlin and Java CorDapp templates
 
-The following Kotlin and Java CorDapp templates have been converted to JDK17, Kotlin 1.9.20 and Gradle 7.6.4. They have been written to work with Corda Community Edition:
+The following Kotlin and Java CorDapp templates have been converted to Java 17, Kotlin 1.9.20, and Gradle 7.6.4. They have been written to work with Corda Community Edition:
 * [Kotlin CorDapp template](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12)
 * [Java CorDapp template](https://github.com/corda/cordapp-template-java/tree/release/4.12)
 
 ### No optional gateway plugins release pack
 
-The optional gateway plugins release pack contains the flow and node management plugins used by the CENM gateway service. These plugins provide GUI-based flow and node management functionality. Since CENM has not yet been converted to use JDK17, these plugins are not included in the 4.12 release. Once CENM and plugins have been converted, they will be added in a future release. If you wish to use flow and node management functionality, you can obtain the plugins from the 4.11 `optional-gateway-plugins` release pack and use them with the CENM gateway service.
+The optional gateway plugins release pack contains the flow and node management plugins used by the CENM gateway service. These plugins provide GUI-based flow and node management functionality. Since CENM has not yet been converted to use Java 17, these plugins are not included in the 4.12 release. Once CENM and plugins have been converted, they will be added in a future release. If you wish to use flow and node management functionality, you can obtain the plugins from the 4.11 `optional-gateway-plugins` release pack and use them with the CENM gateway service.
 
 ## Known issues
 
