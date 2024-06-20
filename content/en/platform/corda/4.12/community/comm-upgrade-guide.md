@@ -37,8 +37,6 @@ The external verifier is a process started by Corda 4.12, running Kotlin 1.2 (wi
 
 When upgrading to Corda 4.12, the old contract CorDapp JAR is preserved and relocated to a new directory named `legacy-contracts`. This directory is essential as it provides legacy contracts for Corda 4.12 nodes to maintain backward compatibility, as required by the external verifier.
 
-To ensure compatibility of all existing transactions in the node’s backchain with the external verifier, and consequently with Corda 4.12, a new utility tool has been introduced: the Transaction Validator Utility. This tool runs the external verifier process on the existing backchain as a sanity check.
-
 #### Corda 4.11 vs Corda 4.12
 
 The following diagram outlines the core differences between Corda 4.11 and Corda 4.12, providing a high-level overview of how the external verifier works with the legacy contract code to verify both Corda 4.11 and Corda 4.12 transactions.
@@ -79,7 +77,6 @@ This guide assumes that you have a working Corda network with one or more Corda 
 
 To complete the upgrade from Corda 4.11 to Corda 4.12, you need the following components:
 * A Corda 4.12 JAR (obtained from R3).
-* A Corda Transaction Validator Utility JAR (obtained from R3, as part of the Corda 4.12 release package).
 * Access to, and the ability to edit the source code for any existing custom CorDapps running in the nodes to be upgraded from 4.11 to 4.12.
 
 ## Upgrade outline
