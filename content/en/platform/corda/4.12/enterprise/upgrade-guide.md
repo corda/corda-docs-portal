@@ -49,7 +49,7 @@ The Corda 4.11 transaction verifier has also been preserved in an external proce
 
 ## Upgrade scenarios
 
-This section describes three possible upgrade paths to a network operating on Corda 4.12. In these scenarios a network is a collection of Corda nodes that are all running the same CorDapp.
+This section describes three possible upgrade paths for a network operating on Corda 4.12. In these scenarios, a network is a collection of Corda nodes that are all running the same CorDapp.
 
 All scenarios involving the upgrade of existing node versions from a previous version of Corda 4.x to Corda 4.12 assume the existence of 4.11 (or earlier) transactions in the node’s backchain.
 
