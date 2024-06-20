@@ -136,7 +136,7 @@ The new CorDapp should inherit the same minimum platform version as Corda 4.12, 
 
 #### CorDapp signing
 
-Upon startup, a node verifies the signing key for the CorDapps it uses, preventing unwanted code from being executed. In Corda 4.12, nodes having both new and legacy versions of a contract CorDapp must have the same signing keys, otherwise the node will fail to start.
+Upon startup, a node verifies the signing key for the CorDapps it uses, preventing unwanted code from being executed. In Corda 4.12, nodes having both new and legacy versions of a contract CorDapp must have the same signing keys; otherwise the node will fail to start.
 
 ### Add the legacy contracts folder to mixed networks
 
