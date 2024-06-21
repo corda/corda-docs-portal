@@ -56,8 +56,8 @@ All scenarios involving the upgrade of existing node versions from a previous ve
 ### Upgrading selected network nodes to 4.12
 
 In this scenario, you have a mixed network where only selected nodes are upgraded to Corda 4.12, while others remain on previous versions of Corda 4.x. This scenario requires you to perform the following actions:
-* Upgrade any existing CorDapps to run on Java 17 and Kotlin 1.9.
-* Keep a copy of the old CorDapp contract JAR file in the new `legacy-contracts` folder placed inside all upgraded 4.12 nodes.
+1. Upgrade any existing CorDapps to run on Java 17 and Kotlin 1.9.
+2. Keep a copy of the old CorDapp contract JAR file in the new `legacy-contracts` folder placed inside all upgraded 4.12 nodes.
 
 Any future Corda 4.12 nodes added to the network will also require the `legacy-contracts` folder, unless all nodes have been updated by that time. In the latter case, you are adding new Corda 4.12 nodes to a non-mixed network and this requirement is no longer necessary.
 
