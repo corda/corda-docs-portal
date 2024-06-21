@@ -123,7 +123,7 @@ However, in both scenarios, you must keep a copy of the old CorDapp contracts JA
 
 #### Legacy contracts
 
-Corda 4.12 introduces the concept of legacy contracts, a new `legacy-contracts` folder required when operating a network where not all nodes are running Corda 4.12.
+Corda 4.12 introduces the concept of *legacy contracts*. A new `legacy-contracts` folder is required when operating a network where not all nodes are running Corda 4.12.
 
 {{< note >}}
 If you are not using a mixed network, you do not need the `legacy-contracts` folder.
