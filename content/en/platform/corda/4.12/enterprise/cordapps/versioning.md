@@ -56,6 +56,7 @@ The table below highlights key features and the corresponding version numbers.
 {{< table >}}
 |Feature|Corda platform version |Minimum network platform version |Introduced in OS version|Introduced in Enterprise version|
 |--------------------|--------------------|--------------------|--------------------|--------------------|
+|API update|140|4|4.12|4.12|
 |API update|13|4|4.11|4.11|
 |API update|12|4|4.10|4.10|
 |API update|11|4|4.9|4.9|
