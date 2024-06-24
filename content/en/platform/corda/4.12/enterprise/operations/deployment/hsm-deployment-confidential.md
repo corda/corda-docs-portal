@@ -122,7 +122,6 @@ The following table contains the current support and the associated configuratio
 | Securosys PrimusX HSM | `PRIMUS_X`                | path to the PrimusX configuration file      | `WRAPPED`          |
 | AWS CloudHSM          | `AWS_CLOUD`               | path to the AWS CloudHSM configuration file | `WRAPPED`          |
 | nCipher               | `N_SHIELD`                | path to `nshield.conf`                      | `NATIVE`           |
-| Futurex               | `FUTUREX`                 | path to`futurex.conf`                       | `WRAPPED`          |
 | Azure Key Vault       | path to `AZURE_KEY_VAULT` | `az_keyvault.conf`                          | `NATIVE`           |
 
 {{< /table >}}
