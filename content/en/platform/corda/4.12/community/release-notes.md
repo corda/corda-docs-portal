@@ -1,10 +1,10 @@
 ---
-title: Corda Community Edition 4.11 release notes
+title: Corda Community Edition 4.12 release notes
 aliases:
 - /head/release-notes.html
 - /HEAD/release-notes.html
 - /release-notes.html
-date: '2023-05-08'
+date: '2024-06-04'
 menu:
   corda-community-4-12:
     identifier: corda-community-4-12-release-notes
@@ -18,233 +18,168 @@ tags:
 
 ---
 
-# Corda Community Edition 4.11 release notes
+# Corda Community Edition 4.12 release notes
 
-## Corda Community Edition 4.11.1 release notes
+The Corda Community Edition 4.12 release introduces upgrades to the Java and Kotlin versions, along with associated upgrade support. Besides the features supporting the Java and Kotlin upgrade, no other major new features have been introduced.
 
-Corda Community Edition 4.11.1 is a patch release of Corda Community Edition focused on resolving issues.
+When a CorDapp(s) and a node are successfully upgraded to 4.12, you are able to seamlessly interoperate 4.12 and 4.11 (or earlier) nodes on the same network, including the existing transactions on the ledger.
 
-### Fixed issues
+Supporting new Java and Kotlin versions is a major feature, as we must also handle legacy contracts from existing backchains. The upgraded Java and Kotlin versions also have implications for CorDapp developers. Simply replacing the Corda JAR without introducing other changes is not possible.
 
-* Interoperability fix between 4.11 and pre-4.11 nodes when sending/fetching transactions for new data type: `TRANSACTION_RECOVERY`.
+## Upgrade recommendation
 
-## Corda Community Edition 4.11 release notes
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../community/_index.md" >}}) as soon as possible. The latest Corda Community release notes are on this page, and for the latest upgrade guide, refer to [Corda Community Edition 4.11 to 4.12 upgrade guide]({{< relref "comm-upgrade-guide.md" >}}).
 
-Corda Community Edition 4.11 includes several new features, enhancements, and fixes.
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 and below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
 
 ## Platform version change
 
-Corda 4.11 uses platform version 13.
+Corda 4.12 uses platform version 140.
 
 For more information about platform versions, see [Versioning]({{< relref "versioning.md" >}}).
 
 ## New features and enhancements
 
-### JDK Azul and Oracle JDK upgrade
+### Java and Kotlin upgrade
 
-Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
+Corda 4.12 requires Java 17 and Kotlin 1.9.20. This means that you must recompile any legacy CorDapps written for 4.11 or earlier to work with Java 17 and Kotlin 1.9 to be compatible with Corda 4.12. These upgrades enhance the supportability and security of Corda.
 
-### Two Phase Finality
+### Java 17 compatible releases of Corda SDKs
 
-Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this new improved protocol. The recovery flows that take advantage of this new protocol are present only in the Corda Enterprise edition.
+A number of SDKs and libraries are provided with the base Corda package. These are their Java 17 and Kotlin 1.9 versions:
 
-### Upgraded dependencies
+| SDK/library               | Java 17 compatible release    |
+|---------------------------|-------------------------------|
+| corda-shell               | 4.12                          |
+| r3-libs                   | 1.4                           |
+| confidential-identities   | 1.2                           |
+| accounts                  | 1.1                           |
+| token-sdk                 | 1.3                           |
+| reissue-cordapp           | 1.1                           |
+| archiving                 | 1.2                           |
+| ledger-graph              | 1.3                           |
+| r3-tools                  | 4.12                          |
 
-The following dependencies have been upgraded to address critical and high-severity security vulnerabilities:
+### Support for signature constraints only
 
-#### Hibernate has been upgraded from 5.4.32.Final to 5.6.14.Final
-#### H2 upgraded from 1.4.199 to 2.2.214
-H2 database has been upgraded to version 2.2.224 primarily to address vulnerabilities reported in earlier versions of H2.
-H2 is not a supported production database and should only be used for development and test purposes. For detailed information
-regarding the differences between H2 version 1.4.199 used in previous versions of Corda, and the new H2 version 2.2.224 implemented in 4.11,
-see the [H2 documentation](https://www.h2database.com/html/main.html). The most important differences are the following:
+Only CorDapps using signature constraints are supported in Corda 4.12; hash constraints are not supported. Using signature constraints has been recommended in previous releases of Corda as it eases the CorDapp upgrade process. If you have any 4.11 CorDapps using hash constraints, you must migrate them to signature constraints on 4.11 before upgrading to 4.12.
 
-* Entity naming
+### Corda 4.11 and 4.12 CorDapps must be signed by the same set of keys
 
-  H2 version 2.2.224 implements stricter rules regarding the naming of tables and columns within the database.
-  The use of SQL keywords is no longer permitted. If a CorDapp schema uses a reserved name for a table or column,
-  the CorDapp's flows will fail when attempting to interact with the table, resulting in an SQL-related exception.
+Once you have recompiled your 4.12 CorDapps for JSK17 and Kotlin 1.9.20, you must sign them using the same set of keys used by the 4.11 CorDapp.
 
-  The solution for this issue involves renaming the problematic table or column to a non-reserved name. This renaming
-  process should be implemented in the CorDapp's migration scripts and in the JPA entity definition within the CorDapp code.
+### Explicit contract upgrade is not supported
 
-* Backwards compatibility
+Explicit contract upgrade is not supported in Corda 4.12.
 
-  H2 version 2.x is not backwards-compatible with older versions. Limited backwards compatibility can be achieved by adding
-  `MODE=LEGACY` to the H2 database URL. For more information, go to the LEGACY Compatibility Mode section
-  of the [H2 Features](https://www.h2database.com/html/features.html) page.
+### `toLedgerTransaction.verify` does not work for legacy transactions
 
-  H2 2.x is unable to read database files created by older H2 versions. The recommended approach for upgrading an older database
-  involves exporting the data and subsequently re-importing it into a new version 2.x database. Further details on this
-  process are outlined on the [H2 Migration to 2.0](https://www.h2database.com/html/migration-to-v2.html) page.
+You must review your CorDapps and checked for any making the following calls:
+* `SignedTransaction.toLedgerTransaction().verify()`
+* `WireTransaction.toLedgerTransaction().verify()`
+* `TransactionBuilder.toLedgerTransaction().verify()`
 
-#### Liquibase upgraded from 3.6.3 to 4.20.0
+CorDapps that make the above calls, will not work for legacy transactions. To have those CorDapps work, change them to `SignedTransaction.verify()`.
 
-* API
+### No 4.12 Java 17 node explorer
 
-  This version of Liquibase features a slightly different API compared to the previous version. CorDapps that have implemented
-  their own database migration code that uses Liquibase need to be updated to align with the new API.
+The node explorer has not been converted to use Java 17 and is not provided in the release packs. If you wish to use a node explorer, the only current option is to use a 4.11 node explorer and use it to connect to a 4.12 node.
 
-* Logging
+### Samples Kotlin and Java support
 
-  In this version of Liquibase, all INFO-level logging is directed to STDERR, while STDOUT is used for logging SQL queries.
-  Utilities that have implemented their own database migration code that uses Liquibase can establish their custom logger
-  to capture Liquibase's informational logging. The Liquibase API provides classes that can be used to integrate custom loggers.
+The following two public repositories provide various CorDapp samples:
+* [Samples Kotlin repository](https://github.com/corda/samples-kotlin/tree/release/4.12)
+* [Samples Java repository](https://github.com/corda/samples-java/tree/release/4.12)
 
-### Consuming transaction IDs added to `vault_state` table
+Most (but not all) samples have been converted over to Java 17, Kotlin 1.9.20, and Gradle 7.6.4.
 
-When a state is consumed by a transaction, Corda now adds the ID of the consuming transaction in the `consuming_tx_id`
-column of the `vault_state` table. Corda only updates this database column for new transactions; for existing consumed
-states already in the ledger, the value of `consuming_tx_id` is null.
+The samples have been written to work with Corda OS, to have them use Corda ENT do the following:
 
-### Deserializing AMQP data performance improvement
+| CorDapp type       | CorDapp                              | Status samples-kotlin     | Status samples-java  |
+|--------------------|--------------------------------------|---------------------------|----------------------|
+| Accounts           | obligation-accounts                  | FULLY WORKING             | N/A                  |
+|                    | sharestatewithaccount                | FULLY WORKING             | N/A                  |
+|                    | supplychain                          | FULLY WORKING             | FULLY WORKING        |
+|                    | worldcupticketbooking                | N/A                       | FULLY WORKING        |
+| Advanced           | duediligence-cordapp                 | FULLY WORKING             | FULLY WORKING        |
+|                    | negotiation-cordapp                  | FULLY WORKING             | FULLY WORKING        |
+|                    | obligation-cordapp                   | FULLY WORKING             | FULLY WORKING        |
+|                    | superyacht-cordapp                   | FULLY WORKING             | N/A                  |
+|                    | syndicated-lending                   | FULLY WORKING             | FULLY WORKING        |
+| Basic              | cordapp-example                      | FULLY WORKING             | FULLY WORKING        |
+|                    | flow-database-access                 | FULLY WORKING             | FULLY WORKING        |
+|                    | flow-http-access                     | FULLY WORKING             | FULLY WORKING        |
+|                    | opentelemetry-cordapp-example        | FULLY WORKING             | N/A                  |
+|                    | ping-pong                            | FULLY WORKING             | FULLY WORKING        |
+|                    | tutorial-applestamp                  | FULLY WORKING             | FULLY WORKING        |
+|                    | tutorial-jarsigning                  | FULLY WORKING             | FULLY WORKING        |
+|                    | tutorial-networkbootrstrapper        | FULLY WORKING             | FULLY WORKING        |
+| Features           | attachment-blacklist                 | FULLY WORKING             | FULLY WORKING        |
+|                    | attachment-sendfile                  | FULLY WORKING             | FULLY WORKING        |
+|                    | confidentialIdentity-whistleblower   | FULLY WORKING             | FULLY WORKING        |
+|                    | contractsdk-recordplayers            | FULLY WORKING             | FULLY WORKING        |
+|                    | cordaService-autopayroll             | FULLY WORKING             | FULLY WORKING        |
+|                    | customlogging-yocordapp              | FULLY WORKING             | FULLY WORKING        |
+|                    | customquery-carinsurance             | FULLY WORKING             | FULLY WORKING        |
+|                    | dockerform-yocordapp                 | FULLY WORKING             | FULLY WORKING        |
+|                    | encumbrance-avatar                   | FULLY WORKING             | FULLY WORKING        |
+|                    | multioutput-transaction              | N/A                       | FULLY WORKING        |
+|                    | notarychange-iou                     | FULLY WORKING             | FULLY WORKING        |
+|                    | observableStates-tradereporting      | FULLY WORKING             | FULLY WORKING        |
+|                    | oracle-primenumber                   | FULLY WORKING             | FULLY WORKING        |
+|                    | postgres-cordapp                     | FULLY WORKING             | FULLY WORKING        |
+|                    | queryableState-carinsurance          | FULLY WORKING             | FULLY WORKING        |
+|                    | referenceStates-sanctionsBody        | FULLY WORKING             | FULLY WORKING        |
+|                    | schedulableState-heartbeat           | FULLY WORKING             | FULLY WORKING        |
+|                    | state-reissuance                     | FULLY WORKING             | FULLY WORKING        |
+| Tokens             | bikemarket                           | FULLY WORKING             | FULLY WORKING        |
+|                    | dollartohousetoken                   | FULLY WORKING             | FULLY WORKING        |
+|                    | fungiblehousetoken                   | FULLY WORKING             | FULLY WORKING        |
+|                    | stockpaydividend                     | FULLY WORKING             | FULLY WORKING        |
 
-This release includes improvements in the performance of deserializing AMQP data, which may result in performance improvements for LedgerGraph, Archiving and other CorDapps.
+### Kotlin and Java CorDapp templates
 
-### Extended SendTransactionFlow
-
-`SendTransactionFlow` has been extended to allow for sending to multiple sessions.
-The caller of `SendTransactionFlow` can indicate the type of sessions to send to, using the following new constructor arguments:
-
-```
-participantSessions: Set<FlowSessions>
-observerSessions: Set<FlowSession>
-```
-These parameters are also used to infer and construct the type of recovery metadata to store on the sender side.
-
-* Participant sessions default to using a `StatesToRecord` value of ONLY_RELEVANT
-* Participant sessions default to using a `StatesToRecord` value of ALL_VISIBLE
-
-### New Encryption Service
-
-An AES-key implementation is used to encrypt and decrypt distribution record recovery metadata for sharing and persistence amongst peers.
-
-### DJVM removal
-
-The DJVM component required that all updates to Corda core were compatible with the `core-deterministic` module.
-To mitigate this issue, the experimental component DJVM has been removed from this and all future releases.
-As a result of the DJVM removal, the two constructor parameters `djvmBootstrapSource` and `djvmCordaSource` have been
-removed from the `DriverParameters` class. Any client code that utilizes `DriverParameters` now requires recompiling.
-
-## Fixed issues
-
-This release includes the following fixes since 4.10.3:
-
-* PostgreSQL 9.6 and 10.10 have been removed from our support matrix as they are no longer supported by PostgreSQL themselves.
-
-* log4j2.xml now deletes the correct file for diagnostic and checkpoint logs in the rollover strategy configuration.
-
-* In the previous patch release, while enhancing SSL certificate handling, certain log messages associated
-  with failed SSL handshakes were unintentionally added. These messages often appeared in the logs during connectivity tests
-  for traffic load balancers and system monitoring. To reduce log noise, we have now silenced these specific log messages.
-
-## Database schema changes
-
-The following database changes have been applied:
-
-* The `vault_state` table now includes a `consuming_tx_id` column. The new column was added in the following migration script: `vault-schema.changelog-v14.xml`.
-
-* Two Phase Finality introduces an additional data field within the main `DbTransaction` table:
-
-  ```kotlin
-  @Column(name = "signatures")
-  val signatures: ByteArray?
-  ```
-
-* Two Phase Finality introduces two new database tables for storage of recovery metadata distribution records:
-
-  ```bash
-  @Entity
-  @Table(name = "${NODE_DATABASE_PREFIX}sender_distr_recs")
-  data class DBSenderDistributionRecord(
-          @EmbeddedId
-          var compositeKey: PersistentKey,
-
-          /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
-          @Column(name = "sender_states_to_record", nullable = false)
-          var senderStatesToRecord: StatesToRecord,
-
-          /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
-          @Column(name = "receiver_states_to_record", nullable = false)
-          var receiverStatesToRecord: StatesToRecord
-  )
-
-  @Entity
-  @Table(name = "${NODE_DATABASE_PREFIX}receiver_distr_recs")
-  data class DBReceiverDistributionRecord(
-          @EmbeddedId
-          var compositeKey: PersistentKey,
-
-          /** Encrypted recovery information for sole use by Sender **/
-          @Lob
-          @Column(name = "distribution_list", nullable = false)
-          val distributionList: ByteArray,
-
-          /** states to record: NONE, ALL_VISIBLE, ONLY_RELEVANT */
-          @Column(name = "receiver_states_to_record", nullable = false)
-          val receiverStatesToRecord: StatesToRecord
-  )
-  ```
-  The above tables use the same persistent composite key type:
-
-  ```bash
-  @Embeddable
-  @Immutable
-  data class PersistentKey(
-          @Column(name = "transaction_id", length = 144, nullable = false)
-          var txId: String,
-
-          @Column(name = "peer_party_id", nullable = false)
-          var peerPartyId: Long,
-
-          @Column(name = "timestamp", nullable = false)
-          var timestamp: Instant,
-
-          @Column(name = "timestamp_discriminator", nullable = false)
-          var timestampDiscriminator: Int
-  )
-  ```
-
-  There are two further tables to hold distribution list privacy information (including encryption keys):
-
-  ```bash
-  @Entity
-  @Table(name = "${NODE_DATABASE_PREFIX}recovery_party_info")
-  data class DBRecoveryPartyInfo(
-          @Id
-          /** CordaX500Name hashCode() **/
-          @Column(name = "party_id", nullable = false)
-          var partyId: Long,
-
-          /** CordaX500Name of party **/
-          @Column(name = "party_name", nullable = false)
-          val partyName: String
-  )
-
-  @Entity
-  @Table(name = "${NODE_DATABASE_PREFIX}aes_encryption_keys")
-  class EncryptionKeyRecord(
-          @Id
-          @Type(type = "uuid-char")
-          @Column(name = "key_id", nullable = false)
-          val keyId: UUID,
-
-          @Column(name = "key_material", nullable = false)
-          val keyMaterial: ByteArray
-  )
-  ```
+The following Kotlin and Java CorDapp templates have been converted to Java 17, Kotlin 1.9.20, and Gradle 7.6.4. They have been written to work with Corda Community Edition:
+* [Kotlin CorDapp template](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12)
+* [Java CorDapp template](https://github.com/corda/cordapp-template-java/tree/release/4.12)
 
 ## Third party component upgrades
 
-The following table lists the dependency version changes between 4.10.3 and 4.11 Community Editions:
+The following table lists the dependency version changes between 4.11 and 4.12 Community Editions:
 
-| Dependency                         | Name                | Version 4.10.3 Community | Version 4.11 Community |
-|------------------------------------|---------------------|--------------------------|------------------------|
-| org.bouncycastle                   | Bouncy Castle       | bcprov-jdk15on:1.70      | bcprov-jdk18on:1.75    |
-| co.paralleluniverse:quasar-core    | Quasar              | 0.7.15_r3                | 0.7.16_r3              |
-| org.hibernate                      | Hibernate           | 5.4.32.Final             | 5.6.14.Final           |
-| com.h2database                     | H2                  | 1.4.197                  | 2.2.2241               |
-| org.liquibase                      | Liquibase           | 3.6.3                    | 4.20.0                 |
+| Dependency                                     | Name                   | Version 4.11 Enterprise   | Version 4.12 Enterprise  |
+|------------------------------------------------|------------------------|---------------------------|------------------------- |
+| com.google.guava:guava                         | Guava                  | 28.0-jre                  | 33.1.0-jre               |
+| co.paralleluniverse:quasar-core	               | Quasar	                | 0.7.16_r3	                | 0.9.0_r3                 |
+| org.bouncycastle	                             | Bouncy Castle	        | jdk18on:1.75	            | lts8on:2.73.6            |
+| pro com.guardsquare:proguard-gradle	           | ProGuard	              | 6.1.1	                    | 7.3.1                    |
+| org.yaml:snakeyaml	                           | SnakeYAML	            | 1.33	                    | 2.2                      |
+| com.github.ben-manes.caffeine:caffeine         | Caffeine	              | 2.9.3	                    | 3.1.8                    |
+| io.netty:netty-tcnative-boringssl-static	     | TC Native	            | 2.0.48.Final	            | 2.0.65.Final             |
+| org.apache.commons:commons-configuration2      | Commons Configuration2	| 2.10.0	                  | 2.10.1                   |
+| co.paralleluniverse:capsule	                   | Capsule	              | 1.0.3	                    | 1.0.4_r3                 |
+| org.ow2.asm:asm	                               | ASM	                  | 7.1	                      | 9.5                      |
+| org.apache.activemq:*	                         | Artemis	              | 2.19.1	                  | 2.32.0                   |
+| com.fasterxml.jackson.*	                       | Jackson XML	          | 2.13.5	                  | 2.17.0                   |
+| org.eclipse.jetty.ee10:jetty-ee10-*	           | Jetty	                | 9.4.53.v20231009	        | 12.0.7                   |
+| org.glassfish.jersey.*	                       | Jersey	                | 2.25	                    | 3.1.6                    |
+| javax.validation:validation-api	               | Validation	            | -	                        | 2.0.1.Final              |
+| org.slf4j:*	Simpe                              | Log4J	                | 1.7.30	                  | 2.0.12                   |
+| org.apache.logging.log4j:*	                   | Log4j	                | 2.17.1	                  | 2.23.1                   |
+| com.squareup.okhttp3:okhttp	                   | OK HTTP	              | 3.14.9	                  | 4.12.0                   |
+| io.netty:*	                                   | Netty                	| 4.1.77.Final	            | 4.1.109.Final            |
+| org.apache.commons:commons-fileupload2-jakarta | File Upload	          | 1.4	                      | 2.0.0-M1                 |
+| com.esotericsoftware:kryo	                     | Kryo	                  | 4.0.2	                    | 5.5.0                    |
+| org.mockito:mockito-core	                     | Mockito	              | 2.28.2	                  | 5.5.0                    |
+| org.mockito.kotlin:mockito-kotlin	             | Mockito for Kotlin	    | 1.6.0	                    | 5.2.1                    |
+| org.jetbrains.dokka:dokka-gradle-plugin	       | Dokka for Gradle       | 0.10.1	                  | 1.8.20                   |
+| net.i2p.crypto:eddsa	                         | EddSA	                | 0.3.0	                    | -                        |
+| com.zaxxer:HikariCP	                           | Hikari	                | 3.3.1	                    | 5.1.0                    |
+| org.iq80.snappy:snappy	                       | Snappy	                | 0.4	                      | 0.5                      |
+| commons-io:commons-io	                         | Commons I/O	          | 2.6	                      | 2.7                      |
+| org.javassist:javassist	                       | Java Assist	          | 3.27.0-GA	                | 3.29.2-GA                |
+| org.jooq:joor	                                 | Joor	                  | -	                        | 0.9.15                   |
+| org.apache.curator:*	                         | Apache Curator	        | 5.1.0	                    | 5.6.0                    |
+| org.apache.zookeeper:zookeeper	               | Apache Zookeeper	      | -	                        | 3.8.3                    |
+| org.apache.commons:commons-dbcp2	             | Apache Commons	        | -	                        | 2.12.0                   |
 
-## Log4j patches
-Click [here]({{< relref "./log4j-patches.md" >}}) to find all patches addressing the December 2021 Log4j vulnerability.
