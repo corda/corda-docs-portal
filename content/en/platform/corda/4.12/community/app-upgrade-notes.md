@@ -37,6 +37,7 @@ If you are using them you should re-namespace them to a package namespace you co
 {{< table >}}
 | Corda release  | Platform version |
 | :------------- | :------------- |
+| 4.12| 140 |
 | 4.11 | 13 |
 | 4.10 | 12 |
 | 4.9 | 11 |
@@ -51,6 +52,12 @@ If you are using them you should re-namespace them to a package namespace you co
 | 4.0 | 4 |
 | 3.3 | 3 |
 {{< /table >}}
+
+## Upgrading CorDapps to platform version 140
+
+Platform version 140 which represents Corda 4.12 is a major platform upgrade. In this version, Corda has been upgraded to run on Java 17 and to use Kotlin 1.9.20. This also means that you must recompile Corda 4.12 CorDapps with Java 17 and Kotlin 1.9.20. Once recompiled and fully tested, you must sign CorDapps with the same key used to sign the 4.11 CorDapps.
+
+Additionally, if a CorDapp has been updated to platform version 140, you must upgrade Corda nodes to Corda 4.12. For instructions on how to upgrade Corda nodes, see [Corda Community Edition 4.11 to 4.12 upgrade guide]({{< relref "comm-upgrade-guide.md" >}}).
 
 ## Upgrading CorDapps to platform version 9, 10, 11, 12, and 13
 
