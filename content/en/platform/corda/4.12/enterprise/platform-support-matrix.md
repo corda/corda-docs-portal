@@ -8,13 +8,13 @@ tags:
 - platform
 - support
 - matrix
-title: Corda Enterprise 4.11 platform support
+title: Corda Enterprise 4.12 platform support
 weight: 250
 ---
 
 # Platform support
 
-This topic lists the JDKs, operating systems and database types that support Corda Enterprise Edition 4.11, both for production and for development. For the 'end of life schedule' for Corda versions and the associated documentation, refer to the [End of Life Schedule]({{< relref "../../eol-schedule.md" >}}).
+This topic lists the JDKs, operating systems and database types that support Corda Enterprise Edition 4.12, both for production and for development. For the 'end of life schedule' for Corda versions and the associated documentation, refer to the [End of Life Schedule]({{< relref "../../eol-schedule.md" >}}).
 
 ## JDK support
 
@@ -22,10 +22,10 @@ Corda Enterprise Edition supports a subset of the platforms that are supported b
 
 ### JDK support in production
 
-Corda Enterprise Edition 4.11 has been tested and verified to work with **Oracle JDK 8 JVM 8u381** and **Azul Zulu Enterprise 8u382**, for Azure deployment downloadable from
+Corda Enterprise Edition 4.12 has been tested and verified to work with **Oracle JDK 8 JVM 8u381** and **Azul Zulu Enterprise 8u382**, for Azure deployment downloadable from
 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
-Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.11.
+Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.12.
 
 {{< warning >}}
 In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/technetwork/java/java-se-support-roadmap.html),
@@ -52,7 +52,7 @@ The following JDKs support Corda for development purposes. Corda does not curren
 
 ### Operating systems support in production
 
-Production use of Corda Enterprise Edition 4.11 is only supported on Linux OS; see details below.
+Production use of Corda Enterprise Edition 4.12 is only supported on Linux OS; see details below.
 
 {{< table >}}
 
