@@ -149,6 +149,12 @@ The following Kotlin and Java CorDapp templates have been converted to Java 17, 
 
 The optional gateway plugins release pack contains the flow and node management plugins used by the CENM gateway service. These plugins provide GUI-based flow and node management functionality. Since CENM has not yet been converted to use Java 17, these plugins are not included in the 4.12 release. Once CENM and plugins have been converted, they will be added in a future release. If you wish to use flow and node management functionality, you can obtain the plugins from the 4.11 `optional-gateway-plugins` release pack and use them with the CENM gateway service.
 
+## Known issues
+
+### Setting logging level via command line has no effect
+
+If you start the node with log level set to trace via the command line option `--logging-level=TRACE`, then you will see some `Unable to format stack trace` outputs from log4j caused by a bug in Artemis. These can be ignored and have no effect on node operation. They can be removed via a custom log4j.xml where trace output from the `org.apache.activemq.artemis.core.paging.cursor.impl.PageCursorProviderImpl` logger is removed.
+
 ## Third party component upgrades
 
 The following table lists the dependency version changes between 4.11 and 4.12 Enterprise Editions:

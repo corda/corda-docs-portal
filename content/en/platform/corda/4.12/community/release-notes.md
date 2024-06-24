@@ -144,6 +144,12 @@ The following Kotlin and Java CorDapp templates have been converted to Java 17, 
 * [Kotlin CorDapp template](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12)
 * [Java CorDapp template](https://github.com/corda/cordapp-template-java/tree/release/4.12)
 
+## Known issues
+
+### Setting logging level via command line has no effect
+
+If you start the node with log level set to trace via the command line option `--logging-level=TRACE`, then you will see some `Unable to format stack trace` outputs from log4j caused by a bug in Artemis. These can be ignored and have no effect on node operation. They can be removed via a custom log4j.xml where trace output from the `org.apache.activemq.artemis.core.paging.cursor.impl.PageCursorProviderImpl` logger is removed.
+
 ## Third party component upgrades
 
 The following table lists the dependency version changes between 4.11 and 4.12 Community Editions:
