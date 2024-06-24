@@ -20,7 +20,7 @@ tags:
 
 # Corda Community Edition 4.12 release notes
 
-The Corda Community Edition 4.12 release introduces upgrades to the Java and Kotlin versions, along with associated upgrade support. Besides the features supporting the Java and Kotlin upgrade, no other major new features have been introduced.
+The Corda Community Edition 4.12 release introduces upgrades to the Java 17 and Kotlin 1.9.20 versions, along with associated upgrade support. Besides the features supporting the Java and Kotlin upgrade, no other major new features have been introduced.
 
 When a CorDapp(s) and a node are successfully upgraded to 4.12, you are able to seamlessly interoperate 4.12 and 4.11 (or earlier) nodes on the same network, including the existing transactions on the ledger.
 
@@ -38,7 +38,7 @@ Corda 4.12 uses platform version 140.
 
 For more information about platform versions, see [Versioning]({{< relref "versioning.md" >}}).
 
-## New features and enhancements
+## New features, enhancements and restrictions
 
 ### Java and Kotlin upgrade
 
@@ -66,7 +66,7 @@ Only CorDapps using signature constraints are supported in Corda 4.12; hash cons
 
 ### Corda 4.11 and 4.12 CorDapps must be signed by the same set of keys
 
-Once you have recompiled your 4.12 CorDapps for JSK17 and Kotlin 1.9.20, you must sign them using the same set of keys used by the 4.11 CorDapp.
+Once you have recompiled your 4.12 CorDapps for Java 17 and Kotlin 1.9.20, you must sign them using the same set of keys used by the 4.11 CorDapp.
 
 ### Explicit contract upgrade is not supported
 
@@ -74,14 +74,14 @@ Explicit contract upgrade is not supported in Corda 4.12.
 
 ### `toLedgerTransaction.verify` does not work for legacy transactions
 
-You must review your CorDapps and checked for any making the following calls:
+You must review your CorDapps and check for any making the following calls:
 * `SignedTransaction.toLedgerTransaction().verify()`
 * `WireTransaction.toLedgerTransaction().verify()`
 * `TransactionBuilder.toLedgerTransaction().verify()`
 
 CorDapps that make the above calls, will not work for legacy transactions. To have those CorDapps work, change them to `SignedTransaction.verify()`.
 
-### No 4.12 Java 17 node explorer
+### Corda node explorer not supported on Java 17
 
 The node explorer has not been converted to use Java 17 and is not provided in the release packs. If you wish to use a node explorer, the only current option is to use a 4.11 node explorer and use it to connect to a 4.12 node.
 
@@ -91,56 +91,56 @@ The following two public repositories provide various CorDapp samples:
 * [Samples Kotlin repository](https://github.com/corda/samples-kotlin/tree/release/4.12)
 * [Samples Java repository](https://github.com/corda/samples-java/tree/release/4.12)
 
-Most (but not all) samples have been converted over to Java 17, Kotlin 1.9.20, and Gradle 7.6.4.
+Most samples have been converted over to Java 17, Kotlin 1.9.20, and Gradle 7.6.4.
 
-The samples have been written to work with Corda OS, to have them use Corda ENT do the following:
+The samples have been written to work with Corda OS. To convert a sample to work with ENT at a minimum you need to point to a repository where your enterprise artifacts are installed and the artifact group name for enterprise (com.r3) must be different from OS (net.corda). The samples listed below have been tested with Java 17 and Kotlin 1.9.20.
 
-| CorDapp type       | CorDapp                              | Status samples-kotlin     | Status samples-java  |
-|--------------------|--------------------------------------|---------------------------|----------------------|
-| Accounts           | obligation-accounts                  | FULLY WORKING             | N/A                  |
-|                    | sharestatewithaccount                | FULLY WORKING             | N/A                  |
-|                    | supplychain                          | FULLY WORKING             | FULLY WORKING        |
-|                    | worldcupticketbooking                | N/A                       | FULLY WORKING        |
-| Advanced           | duediligence-cordapp                 | FULLY WORKING             | FULLY WORKING        |
-|                    | negotiation-cordapp                  | FULLY WORKING             | FULLY WORKING        |
-|                    | obligation-cordapp                   | FULLY WORKING             | FULLY WORKING        |
-|                    | superyacht-cordapp                   | FULLY WORKING             | N/A                  |
-|                    | syndicated-lending                   | FULLY WORKING             | FULLY WORKING        |
-| Basic              | cordapp-example                      | FULLY WORKING             | FULLY WORKING        |
-|                    | flow-database-access                 | FULLY WORKING             | FULLY WORKING        |
-|                    | flow-http-access                     | FULLY WORKING             | FULLY WORKING        |
-|                    | opentelemetry-cordapp-example        | FULLY WORKING             | N/A                  |
-|                    | ping-pong                            | FULLY WORKING             | FULLY WORKING        |
-|                    | tutorial-applestamp                  | FULLY WORKING             | FULLY WORKING        |
-|                    | tutorial-jarsigning                  | FULLY WORKING             | FULLY WORKING        |
-|                    | tutorial-networkbootrstrapper        | FULLY WORKING             | FULLY WORKING        |
-| Features           | attachment-blacklist                 | FULLY WORKING             | FULLY WORKING        |
-|                    | attachment-sendfile                  | FULLY WORKING             | FULLY WORKING        |
-|                    | confidentialIdentity-whistleblower   | FULLY WORKING             | FULLY WORKING        |
-|                    | contractsdk-recordplayers            | FULLY WORKING             | FULLY WORKING        |
-|                    | cordaService-autopayroll             | FULLY WORKING             | FULLY WORKING        |
-|                    | customlogging-yocordapp              | FULLY WORKING             | FULLY WORKING        |
-|                    | customquery-carinsurance             | FULLY WORKING             | FULLY WORKING        |
-|                    | dockerform-yocordapp                 | FULLY WORKING             | FULLY WORKING        |
-|                    | encumbrance-avatar                   | FULLY WORKING             | FULLY WORKING        |
-|                    | multioutput-transaction              | N/A                       | FULLY WORKING        |
-|                    | notarychange-iou                     | FULLY WORKING             | FULLY WORKING        |
-|                    | observableStates-tradereporting      | FULLY WORKING             | FULLY WORKING        |
-|                    | oracle-primenumber                   | FULLY WORKING             | FULLY WORKING        |
-|                    | postgres-cordapp                     | FULLY WORKING             | FULLY WORKING        |
-|                    | queryableState-carinsurance          | FULLY WORKING             | FULLY WORKING        |
-|                    | referenceStates-sanctionsBody        | FULLY WORKING             | FULLY WORKING        |
-|                    | schedulableState-heartbeat           | FULLY WORKING             | FULLY WORKING        |
-|                    | state-reissuance                     | FULLY WORKING             | FULLY WORKING        |
-| Tokens             | bikemarket                           | FULLY WORKING             | FULLY WORKING        |
-|                    | dollartohousetoken                   | FULLY WORKING             | FULLY WORKING        |
-|                    | fungiblehousetoken                   | FULLY WORKING             | FULLY WORKING        |
-|                    | stockpaydividend                     | FULLY WORKING             | FULLY WORKING        |
-|                    | tokentofriend                        | FULLY WORKING             | FULLY WORKING        |
+| CorDapp type       | CorDapp                              |
+|--------------------|--------------------------------------|
+| Accounts           | obligation-accounts                  |
+|                    | sharestatewithaccount                |
+|                    | supplychain                          |
+|                    | worldcupticketbooking                |
+| Advanced           | duediligence-cordapp                 |
+|                    | negotiation-cordapp                  |
+|                    | obligation-cordapp                   |
+|                    | superyacht-cordapp                   |
+|                    | syndicated-lending                   |
+| Basic              | cordapp-example                      |
+|                    | flow-database-access                 |
+|                    | flow-http-access                     |
+|                    | opentelemetry-cordapp-example        |
+|                    | ping-pong                            |
+|                    | tutorial-applestamp                  |
+|                    | tutorial-jarsigning                  |
+|                    | tutorial-networkbootrstrapper        |
+| Features           | attachment-blacklist                 |
+|                    | attachment-sendfile                  |
+|                    | confidentialIdentity-whistleblower   |
+|                    | contractsdk-recordplayers            |
+|                    | cordaService-autopayroll             |
+|                    | customlogging-yocordapp              |
+|                    | customquery-carinsurance             |
+|                    | dockerform-yocordapp                 |
+|                    | encumbrance-avatar                   |
+|                    | multioutput-transaction              |
+|                    | notarychange-iou                     |
+|                    | observableStates-tradereporting      |
+|                    | oracle-primenumber                   |
+|                    | postgres-cordapp                     |
+|                    | queryableState-carinsurance          |
+|                    | referenceStates-sanctionsBody        |
+|                    | schedulableState-heartbeat           |
+|                    | state-reissuance                     |
+| Tokens             | bikemarket                           |
+|                    | dollartohousetoken                   |
+|                    | fungiblehousetoken                   |
+|                    | stockpaydividend                     |
+|                    | tokentofriend                        |
 
 ### Kotlin and Java CorDapp templates
 
-The following Kotlin and Java CorDapp templates have been converted to Java 17, Kotlin 1.9.20, and Gradle 7.6.4. They have been written to work with Corda Community Edition:
+The following Kotlin and Java CorDapp templates have been converted to Java 17, Kotlin 1.9.20, and Gradle 7.6.4. They have been written to work with Corda Community and Open Source Edition:
 * [Kotlin CorDapp template](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12)
 * [Java CorDapp template](https://github.com/corda/cordapp-template-java/tree/release/4.12)
 
