@@ -136,6 +136,7 @@ The samples have been written to work with Corda OS, to have them use Corda ENT 
 |                    | dollartohousetoken                   | FULLY WORKING             | FULLY WORKING        |
 |                    | fungiblehousetoken                   | FULLY WORKING             | FULLY WORKING        |
 |                    | stockpaydividend                     | FULLY WORKING             | FULLY WORKING        |
+|                    | tokentofriend                        | FULLY WORKING             | FULLY WORKING        |
 
 ### Kotlin and Java CorDapp templates
 
