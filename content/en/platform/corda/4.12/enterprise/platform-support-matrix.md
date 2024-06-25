@@ -144,10 +144,10 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 |                               | Driver version 4.21.1    | Driver version 4.21.1    | Driver version 4.21.1      | Driver version 4.21.1       |
 | Gemalto Luna (firmware)       | Firmware version 7.0.3   | Firmware version 7.0.3   | Firmware version 7.0.3     | Firmware version 7.0.3      |
 | Gemalto Luna driver with Corda 4.9.6 and earlier, 4.10, 4.10.1, 4.10.2  | Driver version 7.3 | Driver version 7.3 | Driver version 7.3 | Driver version 7.3 |
-| Gemalto Luna driver with Corda 4.9.7 and later versions of 4.9.*, 4.10.2 and later versions of 4.10.*, plus 4.11 | Driver version 10.4.0 | Driver version 10.4.0 | Driver version 10.4.0 | Driver version 10.4.0 |
+| Gemalto Luna driver with Corda 4.9.7 and later versions of 4.9.*, 4.10.2 and later versions of 4.10.*, 4.11, plus 4.12 | Driver version 10.4.0 | Driver version 10.4.0 | Driver version 10.4.0 | Driver version 10.4.0 |
 | FutureX Vectera Plus          | Firmware version 6.1.5.8 | Firmware version 6.1.5.8 | Firmware version 6.1.5.8   | Firmware version 6.1.5.8    |
-|                               | PKCS#11 version 3.1      | PKCS#11 version 3.1      | PKCS#11 version 3.1        | PKCS#11 version 3.1         |
-|                               | FXJCA version 1.17       | FXJCA version 1.17       | FXJCA version 1.17         | FXJCA version 1.17          |
+|                               | PKCS#11 version 5.1      | PKCS#11 version 5.1      | PKCS#11 version 5.1        | PKCS#11 version 5.1         |
+|                               | FXJCA version 1.33       | FXJCA version 1.33       | FXJCA version 1.33         | FXJCA version 1.33          |
 | Azure Key Vault               | Driver version           | Driver version           | Driver version (SOFTWARE mode only)| Driver version      |
 |                               | azure-identity 1.2.0     | azure-identity 1.2.0     | azure-identity 1.2.0       | azure-identity 1.2.0        |
 |                               | azure-security-keyvault-keys 4.2.3| azure-security-keyvault-keys 4.2.3| azure-security-keyvault-keys 4.2.3| azure-security-keyvault-keys 4.2.3|
