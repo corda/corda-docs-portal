@@ -22,7 +22,7 @@ When planning to develop a CorDapp, consider the following factors:
 
 There are a number of pre-requisites for CorDapp development.
 
-- You must use the **Java 8 JVM**, version 8u171 and onwards are supported, but version 9 and later is not supported.
+- You must use Java 17.
 - Gradle 7.6.4
 - An IDE of your choice. We use IntelliJ because it has strong Kotlin support.
 - Git, for running example projects.

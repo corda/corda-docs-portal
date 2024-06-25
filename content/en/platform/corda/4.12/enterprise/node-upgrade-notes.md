@@ -306,7 +306,7 @@ node requires.
 
 
 {{< important >}}
-Corda 4 requires Java 8u171 or any higher Java 8 patch level. Java 9+ is not currently supported.
+Corda 4 requires Java 17.
 
 
 {{< /important >}}

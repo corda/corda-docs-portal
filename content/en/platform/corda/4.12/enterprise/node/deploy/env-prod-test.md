@@ -60,9 +60,9 @@ When deploying Corda Enterprise in a production environment, the Node, Bridge, a
 ## Installation steps
 
 
-### Installing Java 8 on the VM
+### Installing Java 17 on the VM
 
-Java 8 JDK should be installed on your virtual machine. Refer to your internal processes for installation procedures.
+Java 17 JDK should be installed on your virtual machine. Refer to your internal processes for installation procedures.
 
 These are the configuration files that will be created during the process:
 
