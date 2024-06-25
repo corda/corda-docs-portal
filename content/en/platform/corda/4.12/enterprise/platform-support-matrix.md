@@ -27,12 +27,6 @@ Corda Enterprise Edition 4.12 has been tested and verified to work with **Azul Z
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.12.
 
-{{< warning >}}
-In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/technetwork/java/java-se-support-roadmap.html),
-which outlines the end of public updates of Java SE 8 for commercial use, please ensure you have the correct Java support contract in place
-for your deployment needs.
-{{< /warning >}}
-
 ### JDK support in development
 
 The following JDKs support Corda for development purposes. Corda does not currently support Java 18 or higher.
@@ -42,6 +36,7 @@ The following JDKs support Corda for development purposes. Corda does not curren
 |Supported JDKs|Latest supported version|
 |-----------------------------------|-----------|
 |[Zulu OpenJDK](https://www.azul.com/)|17.0.9|
+|[Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)|17.0.9|
 
 {{< /table >}}
 
