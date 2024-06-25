@@ -236,12 +236,12 @@ The following database changes have been applied:
 
 ## Third party component upgrades
 
-The following table lists the dependency version changes between 4.11.1 and 4.12 Community Editions:
+The following table lists the dependency version changes between 4.10.3 and 4.11 Community Editions:
 
-| Dependency                         | Name                | Version 4.11.1 Community | Version 4.12 Community |
+| Dependency                         | Name                | Version 4.10.3 Community | Version 4.11 Community |
 |------------------------------------|---------------------|--------------------------|------------------------|
 | org.bouncycastle                   | Bouncy Castle       | bcprov-jdk15on:1.70      | bcprov-jdk18on:1.75    |
-| co.paralleluniverse:quasar-core    | Quasar              | 0.7.16_r3                | 0.9.0_r3               |
+| co.paralleluniverse:quasar-core    | Quasar              | 0.7.15_r3                | 0.7.16_r3              |
 | org.hibernate                      | Hibernate           | 5.4.32.Final             | 5.6.14.Final           |
 | com.h2database                     | H2                  | 1.4.197                  | 2.2.2241               |
 | org.liquibase                      | Liquibase           | 3.6.3                    | 4.20.0                 |
