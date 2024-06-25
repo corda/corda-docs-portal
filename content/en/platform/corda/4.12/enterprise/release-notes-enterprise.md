@@ -88,7 +88,7 @@ The node explorer has not been converted to use Java 17 and is not provided in t
 
 ### Samples Kotlin and Java support
 
-The following two public repositories provide various CorDapp samples:
+The following two public repositories provide various CorDapp samples (branch: release/4.12):
 * [Samples Kotlin repository](https://github.com/corda/samples-kotlin/tree/release/4.12)
 * [Samples Java repository](https://github.com/corda/samples-java/tree/release/4.12)
 
@@ -155,13 +155,23 @@ The following dependencies have been used in samples and can be switched from Co
 
 ### Kotlin and Java CorDapp templates
 
-The following Kotlin and Java CorDapp templates have been converted to Java 17, Kotlin 1.9.20, and Gradle 7.6.4. They have been written to work with Corda Community and Open Source Edition:
+The following Kotlin and Java CorDapp templates have been converted to Java 17, Kotlin 1.9.20, and Gradle 7.6.4. They have been written to work with Corda Community and Open Source Edition (branch: release/4.12):
 * [Kotlin CorDapp template](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12)
 * [Java CorDapp template](https://github.com/corda/cordapp-template-java/tree/release/4.12)
 
 ### No optional gateway plugins release pack
 
 The optional gateway plugins release pack contains the flow and node management plugins used by the CENM gateway service. These plugins provide GUI-based flow and node management functionality. Since CENM has not yet been converted to use Java 17, these plugins are not included in the 4.12 release. Once CENM and plugins have been converted, they will be added in a future release. If you wish to use flow and node management functionality, you can obtain the plugins from the 4.11 `optional-gateway-plugins` release pack and use them with the CENM gateway service.
+
+### CorDapp using internal APIs or reflective access
+
+If your CorDapp is using internal APIs or reflective access, then you may need to explicitly open the module on the command line. You can do this by adding one or more `–add-opens` options when starting Corda.
+
+## Fixed issues
+
+### Thread.contextClassLoader set for resumed flow on node startup
+
+Previously, if a flow was resuming on node startup, the thread context class loader was not set, potentially causing `ClassNotFound` issues for CorDapp classes. This has been fixed now.
 
 ## Known issues
 
