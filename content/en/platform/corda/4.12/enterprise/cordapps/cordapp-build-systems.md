@@ -74,10 +74,10 @@ ext.corda_release_distribution = 'com.r3.corda'
 ext.corda_core_release_distribution = 'net.corda'
 ext.corda_release_version = '4.11'
 ext.corda_core_release_version = '4.11'
-ext.corda_gradle_plugins_version = '5.0.12'
-ext.quasar_version = '0.7.15_r3'
+ext.corda_gradle_plugins_version = '5.0.18'
+ext.quasar_version = '0.9.0_r3'
 ext.quasar_classifier=''
-ext.kotlin_version = '1.2.71'
+ext.kotlin_version = '1.9'
 ```
 {{< note >}}
 Corda Enterprise Edition 4 uses patched releases of Quasar and Caffeine to work around shortcomings identified in

@@ -62,7 +62,7 @@ To install Git, navigate to [Git](https://git-scm.com/) and install your preferr
 
 If you intend to proceed directly to run a sample CorDapp, as described in [Running a sample CorDapp]({{< relref "tutorial-cordapp.md" >}}), the included `gradlew` script should install Gradle automatically when you open the sample CorDapp in IntelliJ.
 
-If you'd prefer to install Gradle manually, navigate to [Gradle](https://gradle.org/releases/) then locate and install Gradle **version 5.6.4**. Corda requires a Gradle version between 5.1 and 5.6.4, and does not support Gradle 6.x.
+If you'd prefer to install Gradle manually, navigate to [Gradle](https://gradle.org/releases/) then locate and install Gradle **version 7.6.4**. 
 
 ## Next steps
 
