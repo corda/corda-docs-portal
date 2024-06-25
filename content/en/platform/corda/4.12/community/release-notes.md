@@ -1,5 +1,5 @@
 ---
-title: Corda Community Edition 4.12 release notes
+title: Corda Community and Open Source Edition 4.12 release notes
 aliases:
 - /head/release-notes.html
 - /HEAD/release-notes.html
@@ -18,9 +18,9 @@ tags:
 
 ---
 
-# Corda Community Edition 4.12 release notes
+# Corda Community and Open Source Edition 4.12 release notes
 
-The Corda Community Edition 4.12 release introduces upgrades to the Java 17 and Kotlin 1.9.20 versions, along with associated upgrade support. Besides the features supporting the Java and Kotlin upgrade, no other major new features have been introduced.
+The Corda Community and Open Source Edition 4.12 release introduces upgrades to the Java 17 and Kotlin 1.9.20 versions, along with associated upgrade support. Besides the features supporting the Java and Kotlin upgrade, no other major new features have been introduced.
 
 When a CorDapp(s) and a node are successfully upgraded to 4.12, you are able to seamlessly interoperate 4.12 and 4.11 (or earlier) nodes on the same network, including the existing transactions on the ledger.
 
@@ -28,7 +28,7 @@ Supporting new Java and Kotlin versions is a major feature, as we must also hand
 
 ## Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../community/_index.md" >}}) as soon as possible. The latest Corda Community release notes are on this page, and for the latest upgrade guide, refer to [Corda Community Edition 4.11 to 4.12 upgrade guide]({{< relref "comm-upgrade-guide.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../community/_index.md" >}}) as soon as possible. The latest Corda Community and Open Source release notes are on this page, and for the latest upgrade guide, refer to [Corda Community Edition 4.11 to 4.12 upgrade guide]({{< relref "comm-upgrade-guide.md" >}}).
 
 The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 and below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
 
@@ -93,7 +93,23 @@ The following two public repositories provide various CorDapp samples:
 
 Most samples have been converted over to Java 17, Kotlin 1.9.20, and Gradle 7.6.4.
 
-The samples have been written to work with Corda OS. To convert a sample to work with ENT at a minimum you need to point to a repository where your enterprise artifacts are installed and the artifact group name for enterprise (com.r3) must be different from OS (net.corda). The samples listed below have been tested with Java 17 and Kotlin 1.9.20.
+The samples have been written to work with Corda Open Source. To convert a sample to work with Corda Enterprise at a minimum you need to point to a repository where your enterprise artifacts are installed and the artifact group name for ENT (`com.r3`) must be different from OS `(net.corda`). For example, switch `net.corda:corda-node-driver:4.12` (Corda OS) to `com.r3.corda:corda-node-driver:4.12` (Corda ENT).
+
+The following dependencies have been used in samples and can be switched from Corda OS to Corda Enterprise:
+* corda
+* corda-confidential-identities
+* corda-core-test-utils
+* corda-finance-workflows
+* corda-jackson
+* corda-node
+* corda-node-api
+* corda-node-driver
+* corda-rpc
+* corda-shell
+* corda-test-utils
+* corda-testserver-impl
+
+The samples listed below have been tested with Java 17 and Kotlin 1.9.20:
 
 | CorDapp type       | CorDapp                              |
 |--------------------|--------------------------------------|
@@ -146,7 +162,7 @@ The following Kotlin and Java CorDapp templates have been converted to Java 17, 
 
 ## Known issues
 
-### Setting logging level via command line has no effect
+### Extra stack trace output when logging level is `TRACE`
 
 If you start the node with log level set to trace via the command line option `--logging-level=TRACE`, then you will see some `Unable to format stack trace` outputs from Log4j caused by a bug in Artemis. These can be ignored and have no effect on node operation. They can be removed via a custom log4j.xml where trace output from the `org.apache.activemq.artemis.core.paging.cursor.impl.PageCursorProviderImpl` logger is removed.
 
