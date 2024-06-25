@@ -40,7 +40,7 @@ for your deployment needs.
 
 ## JDKs supported in development
 
-Install the **Java 17 JDK**.
+Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 
 {{< table >}}
 
