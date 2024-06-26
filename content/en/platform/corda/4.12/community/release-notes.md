@@ -93,7 +93,7 @@ The following two public repositories provide various CorDapp samples (branch: r
 
 Most samples have been converted over to Java 17, Kotlin 1.9.20, and Gradle 7.6.4.
 
-The samples have been written to work with Corda Open Source. To convert a sample to work with Corda Enterprise at a minimum you need to point to a repository where your enterprise artifacts are installed and the artifact group name for ENT (`com.r3`) must be different from OS `(net.corda`). For example, switch `net.corda:corda-node-driver:4.12` (Corda OS) to `com.r3.corda:corda-node-driver:4.12` (Corda ENT).
+The samples have been written to work with Corda Open Source. To convert a sample to work with Corda Enterprise, then at a minimum you need to point to a repository where your enterprise artifacts are installed. Also, the artifact group name for ENT (`com.r3`) must be different from OS `(net.corda`). For example, switch `net.corda:corda-node-driver:4.12` (Corda OS) to `com.r3.corda:corda-node-driver:4.12` (Corda ENT).
 
 The following dependencies have been used in samples and can be switched from Corda OS to Corda Enterprise:
 * corda
