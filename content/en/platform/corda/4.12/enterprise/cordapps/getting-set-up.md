@@ -53,7 +53,7 @@ To install Git, go to [Git](https://git-scm.com/) and install the version for yo
 Gradle is a build automation tool for multi-language software development. It controls the development process in the tasks of compilation and packaging to testing, deployment, and publishing.
 
 * If you [run the sample CorDapp]({{< relref "tutorial-cordapp.md" >}}), the included `gradlew` script installs Gradle automatically when you open the sample CorDapp in IntelliJ.
-* If you plan to start developing your own CorDapp straight away, install Gradle manually. Go to [Gradle](https://gradle.org/releases/), then locate and install Gradle **version 7.6.4**. Corda requires a Gradle version 7.6.x, and does not support Gradle 8.x.
+* If you plan to start developing your own CorDapp straight away, install Gradle manually. Go to [Gradle](https://gradle.org/releases/), then locate and install Gradle **version 7.6.4**. Corda requires Gradle version 7.6.x, and does not support Gradle 8.x.
 
 You now have everything you need to develop CorDapps. If you encounter any issues, please ask on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via [our Slack channels](http://slack.corda.net/).
 
