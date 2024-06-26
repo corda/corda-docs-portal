@@ -180,6 +180,16 @@ If you start the node with log level set to trace via the command line option `-
 
 At node startup with the default Log4j, the following message appears: `main WARN The use of package scanning to locate plugins is deprecated and will be removed in a future release.` This is a warning only and can be safely ignored. We are currently investigating alternatives.
 
+### Intermittent warning from Bouncy Castle when running `deployNodes`
+
+When running the Gradle task `deployNodes`, you may occasionally see the following warning message:
+
+```
+exception in disposal thread: org/bouncycastle/util/dispose/DisposalDaemon$3
+```
+
+This is a warning message from the LTS version of Bouncy Castle we are currently using. There is no user impact and it is related to disposing of references with native code. This will be fixed in a future patch release.
+
 ## Third party component upgrades
 
 The following table lists the dependency version changes between 4.11 and 4.12 Community Editions:

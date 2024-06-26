@@ -189,6 +189,15 @@ At node startup with the default Log4j, the following message appears: `main WAR
 
 The Corda 4.12 `notaryhealthcheck-client` fails to start. This will be fixed in a future patch release. As an alternative, you can use the `notaryhealthcheck-client` provided with the Corda 4.11 release.
 
+### Intermittent warning from Bouncy Castle when running `deployNodes`
+
+When running the Gradle task `deployNodes`, you may occasionally see the following warning message:
+
+```
+exception in disposal thread: org/bouncycastle/util/dispose/DisposalDaemon$3
+```
+
+This is a warning message from the LTS version of Bouncy Castle we are currently using. There is no user impact and it is related to disposing of references with native code. This will be fixed in a future patch release.
 
 ## Third party component upgrades
 
