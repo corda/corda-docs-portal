@@ -20,7 +20,7 @@ tags:
 
 # Corda Community and Open Source Edition 4.12 release notes
 
-The Corda Community and Open Source Edition 4.12 release introduces upgrades to the Java 17 and Kotlin 1.9.20 versions, along with associated upgrade support. Besides the features supporting the Java and Kotlin upgrade, no other major new features have been introduced.
+The Corda Enterprise Edition 4.12 release introduces upgrades to the Java and Kotlin versions, along with associated upgrade support. Apart from the features supporting the Java and Kotlin upgrade, no other major new features have been introduced. In this release Java has been upgraded to Java 17 from Java 8 and Kotlin has been upgraded to Kotlin 1.9.20 from 1.2.71.
 
 When a CorDapp(s) and a node are successfully upgraded to 4.12, you are able to seamlessly interoperate 4.12 and 4.11 (or earlier) nodes on the same network, including the existing transactions on the ledger.
 
@@ -109,7 +109,7 @@ The following dependencies have been used in samples and can be switched from Co
 * corda-test-utils
 * corda-testserver-impl
 
-The samples listed below have been tested with Java 17 and Kotlin 1.9.20:
+The samples listed below have been converted to and tested with Java 17 and Kotlin 1.9.20:
 
 | CorDapp type       | CorDapp                              |
 |--------------------|--------------------------------------|

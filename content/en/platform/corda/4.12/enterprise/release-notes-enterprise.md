@@ -17,7 +17,7 @@ weight: 10
 
 # Corda Enterprise Edition 4.12 release notes
 
-The Corda Enterprise Edition 4.12 release introduces upgrades to the Java 17 and Kotlin 1.9.20 versions, along with associated upgrade support. Apart from the features supporting the Java and Kotlin upgrade, no other major new features have been introduced.
+The Corda Enterprise Edition 4.12 release introduces upgrades to the Java and Kotlin versions, along with associated upgrade support. Apart from the features supporting the Java and Kotlin upgrade, no other major new features have been introduced. In this release Java has been upgraded to Java 17 from Java 8 and Kotlin has been upgraded to Kotlin 1.9.20 from 1.2.71.
 
 When a CorDapp(s) and a node are successfully upgraded to 4.12, you are able to seamlessly interoperate 4.12 and 4.11 (or earlier) nodes on the same network, including the existing transactions on the ledger.
 
@@ -110,6 +110,8 @@ The following dependencies have been used in samples and can be switched from Co
 * corda-test-utils
 * corda-testserver-impl
 
+The samples listed below have been converted to and tested with Java 17 and Kotlin 1.9.20:
+
 | CorDapp type       | CorDapp                              |
 |--------------------|--------------------------------------|
 | Accounts           | obligation-accounts                  |
@@ -182,6 +184,11 @@ If you start the node with log level set to trace via the command line option `-
 ### Startup warnings from Log4j
 
 At node startup with the default Log4j, the following message appears: `main WARN The use of package scanning to locate plugins is deprecated and will be removed in a future release.` This is a warning only and can be safely ignored. We are currently investigating alternatives.
+
+### `notaryhealthcheck-client` fails to start
+
+The Corda 4.12 `notaryhealthcheck-client` fails to start. This will be fixed in a future patch release. As an alternative, you can use the `notaryhealthcheck-client` provided with the Corda 4.11 release.
+
 
 ## Third party component upgrades
 
