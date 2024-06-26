@@ -1,5 +1,5 @@
 ---
-title: Corda Community and Open Source Edition 4.12 release notes
+title: Corda Open Source Edition 4.12 release notes
 aliases:
 - /head/release-notes.html
 - /HEAD/release-notes.html
@@ -18,9 +18,9 @@ tags:
 
 ---
 
-# Corda Community and Open Source Edition 4.12 release notes
+# Corda Open Source Edition 4.12 release notes
 
-The Corda Enterprise Edition 4.12 release introduces upgrades to the Java and Kotlin versions, along with associated upgrade support. Apart from the features supporting the Java and Kotlin upgrade, no other major new features have been introduced. In this release Java has been upgraded to Java 17 from Java 8 and Kotlin has been upgraded to Kotlin 1.9.20 from 1.2.71.
+The Corda Open Source Edition 4.12 release introduces upgrades to the Java and Kotlin versions, along with associated upgrade support. Apart from the features supporting the Java and Kotlin upgrade, no other major new features have been introduced. In this release Java has been upgraded to Java 17 from Java 8 and Kotlin has been upgraded to Kotlin 1.9.20 from 1.2.71.
 
 When a CorDapp(s) and a node are successfully upgraded to 4.12, you are able to seamlessly interoperate 4.12 and 4.11 (or earlier) nodes on the same network, including the existing transactions on the ledger.
 
@@ -28,7 +28,7 @@ Supporting new Java and Kotlin versions is a major feature, as we must also hand
 
 ## Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../community/_index.md" >}}) as soon as possible. The latest Corda Community and Open Source release notes are on this page, and for the latest upgrade guide, refer to [Corda Community Edition 4.11 to 4.12 upgrade guide]({{< relref "comm-upgrade-guide.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../community/_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Corda Open Source Edition 4.11 to 4.12 upgrade guide]({{< relref "comm-upgrade-guide.md" >}}).
 
 The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 and below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
 
@@ -156,7 +156,7 @@ The samples listed below have been converted to and tested with Java 17 and Kotl
 
 ### Kotlin and Java CorDapp templates
 
-The following Kotlin and Java CorDapp templates have been converted to Java 17, Kotlin 1.9.20, and Gradle 7.6.4. They have been written to work with Corda Community and Open Source Edition (branch: release/4.12):
+The following Kotlin and Java CorDapp templates have been converted to Java 17, Kotlin 1.9.20, and Gradle 7.6.4. They have been written to work with Corda Open Source Edition (branch: release/4.12):
 * [Kotlin CorDapp template](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12)
 * [Java CorDapp template](https://github.com/corda/cordapp-template-java/tree/release/4.12)
 
@@ -192,7 +192,7 @@ This is a warning message from the LTS version of Bouncy Castle we are currently
 
 ## Third party component upgrades
 
-The following table lists the dependency version changes between 4.11 and 4.12 Community Editions:
+The following table lists the dependency version changes between 4.11 and 4.12 Open Source Editions:
 
 | Dependency                                     | Name                   | Version 4.11 Enterprise   | Version 4.12 Enterprise  |
 |------------------------------------------------|------------------------|---------------------------|------------------------- |
