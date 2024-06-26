@@ -12,7 +12,7 @@ weight: 120
 
 # Official Corda Docker image
 
-The official Corda Docker image is found at the [Corda Docker hub](https://hub.docker.com/u/corda). The [latest version](https://hub.docker.com/layers/corda/corda-enterprise/4.11-zulu-openjdk8-alpine/images/sha256-c41b5876238c7d7904d2e5f737a9ebdfcd1d65842a8318c83ee35d550235cb2e) is `corda/corda-enterprise:4.11-zulu-openjdk8-alpine`.
+The official Corda Docker image is found at the [Corda Docker hub](https://hub.docker.com/u/corda). The [latest version](https://hub.docker.com/layers/corda/corda-enterprise/4.12-zulu-openjdk-alpine/images/sha256-cbe9ca47237b53cbc5c74322bb24a59687a0cfacb080fa0aa916be5218654223?context=explore) is `corda/corda-enterprise:4.12-zulu-openjdk-alpine`.
 
 ## Prerequisites
 
