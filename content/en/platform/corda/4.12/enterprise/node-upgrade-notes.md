@@ -303,7 +303,7 @@ Option `-b` points to the base directory which contains a `node.conf` file and `
 
 Replace the `corda.jar` with the latest version from Corda.
 
-Download the latest version of Corda from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-node/4.11/corda-node-4.11.jar).
+Download the latest version of Corda from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-node/4.12/corda-node-4.12.jar).
 Make sure it’s available on your path, and that you’ve read the [Corda release notes]({{< relref "release-notes-enterprise.md" >}}). Pay particular attention to which version of Java the
 node requires.
 
@@ -332,7 +332,7 @@ Run the Transaction Validator Utility (TVU) to ensure that existing transactions
 
 ## Step 7: Update the CorDapps
 
-When upgrading from Corada 4.11 to Corda 4.12 there are specific changes that need to be made to the CorDapps contract version and minimum platform version (MPV), see [Upgrade 4.11 CorDapps]({{< relref "upgrade-guide.md#upgrade-411-cordapps">}}) for more information.
+When upgrading from Corda 4.11 to Corda 4.12 there are specific changes that need to be made to the CorDapps contract version and minimum platform version (MPV), see [Upgrade 4.11 CorDapps]({{< relref "upgrade-guide.md#upgrade-411-cordapps">}}) for more information.
 
 ## Step 8: Start the node
 
