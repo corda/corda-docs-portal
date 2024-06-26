@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NetworkMapCache - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node.services</a>&nbsp;/&nbsp;<a href="./index.html">NetworkMapCache</a><br/>
+<br/>
+<h1>NetworkMapCache</h1>
+<code><span class="keyword">interface </span><span class="identifier">NetworkMapCache</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-network-map-cache-base/index.html"><span class="identifier">NetworkMapCacheBase</span></a></code>
+<p>A network map contains lists of nodes on the network along with information about their identity keys, services
+they provide and host names or IP addresses where they can be connected to. The cache wraps around a map fetched
+from an authoritative service, and adds easy lookup of the data stored within it. Generally it would be initialised
+with a specified network map service, which it fetches data from and then subscribes to updates of.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-map-change/index.html">MapChange</a></h4>
+</td>
+<td>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">MapChange</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-node-by-legal-identity.html">getNodeByLegalIdentity</a></h4>
+</td>
+<td>
+<p>Look up the node info for a specific party. Will attempt to de-anonymise the party if applicable; if the party
+is anonymised and the well known party cannot be resolved, it is impossible ot identify the node and therefore this
+returns null.
+Notice that when there are more than one node for a given party (in case of distributed services) first service node
+found will be returned. See also: <a href="../-network-map-cache-base/get-nodes-by-legal-identity-key.html">NetworkMapCache.getNodesByLegalIdentityKey</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getNodeByLegalIdentity</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.NetworkMapCache$getNodeByLegalIdentity(net.corda.core.identity.AbstractParty)/party">party</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.node/-node-info/index.html"><span class="identifier">NodeInfo</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

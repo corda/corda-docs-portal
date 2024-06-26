@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>DeprecatedConstructorForDeserialization - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.serialization</a>&nbsp;/&nbsp;<a href="./index.html">DeprecatedConstructorForDeserialization</a><br/>
+<br/>
+<h1>DeprecatedConstructorForDeserialization</h1>
+<code><span class="identifier">@Target</span><span class="symbol">(</span>[AnnotationTarget.CONSTRUCTOR]<span class="symbol">)</span> <span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">DeprecatedConstructorForDeserialization</span></code>
+<p>This annotation is a marker to indicate which secondary constructors should be considered, and in which
+order, for evolving objects during their deserialization.</p>
+<p>Versions will be considered in descending order, currently duplicate versions will result in
+non deterministic behaviour when deserializing objects</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>This annotation is a marker to indicate which secondary constructors should be considered, and in which
+order, for evolving objects during their deserialization.</p>
+<code><span class="identifier">DeprecatedConstructorForDeserialization</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.serialization.DeprecatedConstructorForDeserialization$<init>(kotlin.Int)/version">version</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="version.html">version</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">version</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
