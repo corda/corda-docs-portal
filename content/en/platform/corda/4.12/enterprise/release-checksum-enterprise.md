@@ -30,6 +30,5 @@ The following release packs are available, along with their respective checksum 
 
 The following release packs are provided as optionals for external tools, SDKs, and CorDapps:
 * optional-sdk-4.11.1.tar.gz
-* optional-gateway-plugins-4.11.1.tar.gz
 * optional-tools-4.11.1.tar.gz
 

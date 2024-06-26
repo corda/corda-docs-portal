@@ -50,7 +50,7 @@ Download the latest version of Corda from the [Customer Hub](https://customerhub
 Make sure it’s available on your path, and that you’ve read the [Corda release notes]({{< relref "release-notes-enterprise.md" >}}). Pay particular attention to which version of Java the node requires.
 
 {{< important >}}
-Corda 4 requires Java 8u171 or any higher Java 8 patch level. Java 9+ is not currently supported.
+Corda 4 requires Java 17.0.9 or any higher Java 17 patch level. Java 18+ is not currently supported.
 {{< /important >}}
 
 ## Step 3: Start the node
