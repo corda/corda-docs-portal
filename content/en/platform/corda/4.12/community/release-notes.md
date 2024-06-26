@@ -79,7 +79,7 @@ You must review your CorDapps and check for any making the following calls:
 * `WireTransaction.toLedgerTransaction().verify()`
 * `TransactionBuilder.toLedgerTransaction().verify()`
 
-CorDapps that make the above calls, will not work for legacy transactions. To have those CorDapps work, change them to `SignedTransaction.verify()`.
+CorDapps that make the above calls will not work for legacy transactions. To make those CorDapps compatible, change them to `SignedTransaction.verify()`.
 
 ### Corda node explorer not supported on Java 17
 
