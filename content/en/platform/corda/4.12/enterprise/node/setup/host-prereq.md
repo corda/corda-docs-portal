@@ -47,12 +47,14 @@ weight: 2
 
 {{< table >}}
 
-|Vendor|CPU Architecture|Versions|JDBC Driver|
+|Vendor|CPU architecture|Versions|JDBC driver|
 |-------------------------------|------------------|------------------|------------------------|
 |Microsoft|x86-64|Azure SQL,SQL Server 2017|Microsoft JDBC Driver 6.4|
-|Oracle|x86-64|11gR2|Oracle JDBC 6|
+|Oracle|x86-64|19c|Oracle JDBC 6|
+|Oracle|x86-64|19c|Oracle JDBC 8|
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
-|PostgreSQL|x86-64|9.6, 10.10, 11.5, 13.8|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
+|Oracle|x86-64|11gR2|Oracle JDBC 6 |
+|PostgreSQL|x86-64|11.21, 13.12, 13.3, 15.3|PostgreSQL JDBC Driver 42.1.4 / 42.5.2|
 
 
 {{< /table >}}
