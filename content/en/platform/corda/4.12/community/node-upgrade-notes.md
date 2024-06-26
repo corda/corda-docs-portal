@@ -23,7 +23,7 @@ applications. It consists of the following steps:
 1. [Drain the node](#step-1-drain-the-node)
 2. [Make a backup of your node directories and/or database](#step-2-make-a-backup-of-your-node-directories-andor-database)
 3. [Download Corda Community Edition](#step-3-download-corda-community-edition)
-4. [Upgrade the node to Corda 4.0 or later](#step-4-upgrade-the-node-to-corda-40-or-later)
+4. [Upgrade the node to Corda 4.11 or later](#step-4-upgrade-the-node-to-corda-411-or-later)
 5. [Replace the corda.jar file with the new version](#step-5-replace-cordajar-with-the-new-version)
 6. [Update the configuration](#step-6-update-the-configuration)
 7. [Update the CorDapps](#step-7-update-the-cordapps).
@@ -64,9 +64,9 @@ We provide some [backup recommendations]({{< relref "node-administration.md#back
 
 Download the required version of Corda Community Edition; for more information, see [Release packs and checksums]({{< relref "release-checksum-os.md" >}}).
 
-## Step 4: Upgrade the node to Corda 4.12 or later
+## Step 4: Upgrade the node to Corda 4.11 or later
 
-Ensure your node is running Corda 4.12.
+Ensure your node is running Corda 4.11 or later.
 
 ## Step 5: Replace `corda.jar` with the new version
 
