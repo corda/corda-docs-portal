@@ -16,10 +16,10 @@ weight: 200
 # Upgrading Corda Enterprise Network Manager
 
 This document provides instructions for upgrading your network management suite - Identity Manager Service (formerly
-Doorman), Network Map Service, Signing Service, Zone Service, Auth Service, Angel Service - from previous versions to the newest version. Please consult the relevant [CENM Release Notes]({{< relref "../../../../1.5/cenm/release-notes.md" >}}) of the release in question. If not specified, you may assume the versions you are currently using are still in force.
+Doorman), Network Map Service, Signing Service, Zone Service, Auth Service, Angel Service - from previous versions to the newest version. Please consult the relevant [CENM Release Notes]({{< relref "../../../../1.6/cenm/release-notes.md" >}}) of the release in question. If not specified, you may assume the versions you are currently using are still in force.
 
 {{< warning >}}
-Before you start the upgrade, you must consult the [CENM Release Notes]({{< relref "../../../../1.5/cenm/release-notes.md" >}}) to confirm all changes between releases.
+Before you start the upgrade, you must consult the [CENM Release Notes]({{< relref "../../../../1.6/cenm/release-notes.md" >}}) to confirm all changes between releases.
 {{< /warning >}}
 
 ## 1.3.x / 1.4.x to 1.5
@@ -322,7 +322,7 @@ Ensure the services are not running before replacing the JAR files.
 CENM 1.1 supports multiple HSMs, however due to to the proprietary nature of the HSM libraries, the release does
 not work with these HSMs "out of the box". The user must provide the relevant libraries and reference them in the
 configuration of the relevant component (Signing Service or PKI Tool). For more information, see [Signing Services]({{< relref "../../../../1.3/cenm/signing-service.md" >}}).
-and [Public Key Infrastructure (PKI) Tool]({{< relref "../../../../1.5/cenm/pki-tool.md" >}}) for more information.
+and [Public Key Infrastructure (PKI) Tool]({{< relref "../../../../1.6/cenm/pki-tool.md" >}}) for more information.
 
 ## 0.3+ to 1.0
 
