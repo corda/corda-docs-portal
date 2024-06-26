@@ -13,7 +13,7 @@ weight: 60
 
 # CENM Signing Service Helm Chart
 
-This Helm chart is to configure, deploy and run the  [CENM Signing Service]({{< relref "../../../../1.5/cenm/signing-service.md" >}}) on Kubernetes.
+This Helm chart is to configure, deploy and run the  [CENM Signing Service]({{< relref "../../../../1.6/cenm/signing-service.md" >}}) on Kubernetes.
 
 As the initial step this chart runs automatically PKI tool which creates and stores certificates necessary for correct Corda Network operation.
 By default, the certificates have sample X.500 subject names (for example, the Identity Manager Service certificate has the subject name “CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US”). The subject name can be set by configuration options starting with `pki.certificates.` prefix.
@@ -22,8 +22,8 @@ Passwords to the security certificates keys and keystores cannot be configurable
 
 For more information about PKI Tool and Certificate Hierarchy refer to:
 
-* [Certificate Hierarchy Guide]({{< relref "../../../../1.5/cenm/pki-guide.md" >}})
-* [PKI Tool]({{< relref "../../../../1.5/cenm/pki-tool.md" >}})
+* [Certificate Hierarchy Guide]({{< relref "../../../../1.6/cenm/pki-guide.md" >}})
+* [PKI Tool]({{< relref "../../../../1.6/cenm/pki-tool.md" >}})
 
 ## Example usage
 
@@ -55,10 +55,10 @@ The name needs to be a valid X500 name and commas need to be escaped by a backsl
 | -------------------------------------------- | -------------------------------------------------------- | --------------------- |
 | `bashDebug`                                  | Display additional information while running bash scripts (useful while investigating issues) | `false` |
 | `signerImage.repository`                     | URL to Signing Service Docker image repository           | `corda/enterprise-signer` |
-| `signerImage.tag`                            | Docker image Tag | `1.5.9-zulu-openjdk8u382` |
+| `signerImage.tag`                            | Docker image Tag | `1.6-zulu-openjdk8u392` |
 | `signerImage.pullPolicy`                     | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `dockerImageCli.repository`                  | URL to CLI image repository | `corda/enterprise-cenm-cli` |
-| `dockerImageCli.tag`                         | Docker image tag | `1.5.9-zulu-openjdk8u382` |
+| `dockerImageCli.tag`                         | Docker image tag | `1.6-zulu-openjdk8u392` |
 | `dockerImageCli.pullPolicy`                  | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `volumeSizeSignerEtc`                        | Volume size for the `etc/` directory | `1Mi` |
 | `volumeSizeSignerLogs`                       | Volume size for the `logs/` directory | `10Gi` |
