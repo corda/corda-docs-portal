@@ -20,15 +20,15 @@ Before you start developing CorDapps, you need to download four pieces of softwa
 
 ## Install the Java 17 JDK
 
-Install the Java 17 JDK. 
+Install the Java 17 JDK. Corda requires at least version 17.0.9, but does not currently support Java 18 or higher.
 
-Corda 4.12 has been tested against the following Java builds:
+Corda has been tested against the following Java builds:
 
-  * [Oracle JDK 17.0.9](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
-  * [Zulu’s OpenJDK 17.46.19 (17.0.9+8)](https://www.azul.com/downloads/?version=java-17-lts&show-old-builds=true#zulu)
+  * [Oracle JDK](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+  * [Zulu’s OpenJDK](https://www.azul.com)
 
 {{< note >}}
-  OpenJDK builds often exclude JavaFX, which is required by the Corda GUI tools.
+  OpenJDK builds often exclude JavaFX, which is required by the Corda GUI tools. Corda supports only Java 17.
   {{< /note >}}
 
 If you are using Windows, you must also add Java to the PATH environment variable by following the instructions in the [Oracle documentation](https://docs.oracle.com/javase/7/docs/webnotes/install/windows/jdk-installation-windows.html#path).
@@ -53,7 +53,7 @@ To install Git, go to [Git](https://git-scm.com/) and install the version for yo
 Gradle is a build automation tool for multi-language software development. It controls the development process in the tasks of compilation and packaging to testing, deployment, and publishing.
 
 * If you [run the sample CorDapp]({{< relref "tutorial-cordapp.md" >}}), the included `gradlew` script installs Gradle automatically when you open the sample CorDapp in IntelliJ.
-* If you plan to start developing your own CorDapp straight away, install Gradle manually. Go to [Gradle](https://gradle.org/releases/), then locate and install Gradle **version 7.6.4**. 
+* If you plan to start developing your own CorDapp straight away, install Gradle manually. Go to [Gradle](https://gradle.org/releases/), then locate and install Gradle **version 7.6.4**. Corda requires Gradle version 7.6.x, and does not support Gradle 8.x.
 
 You now have everything you need to develop CorDapps. If you encounter any issues, please ask on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via [our Slack channels](http://slack.corda.net/).
 

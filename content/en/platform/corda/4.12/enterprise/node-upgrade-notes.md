@@ -21,21 +21,24 @@ Follow these steps to upgrade a node from Corda Enterprise Edition 4.x to Corda 
 If you are upgrading from Corda Enterprise 3.x, you must first:
 1. Upgrade your node to Corda Enterprise 3.3, if you haven't already. If your node is running on an earlier version, follow the steps in Upgrade a Corda 3.X Enterprise Node (available in the [archived-docs](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs) directory of the [corda/corda-docs-portal](https://github.com/corda/corda-docs-portal) repo).
 2. Upgrade from Corda Enterprise 3.3 to Corda Enterprise Edition 4.5.
-3. Upgrade from Corda 4.5 to Corda Enterprise Edition 4.12.
+3. Upgrade from Corda 4.5 to Corda Enterprise Edition 4.11.
+4. Upgrade from Corda 4.11 to Corda Enterprise Edition 4.12.
 
 {{< warning >}}
 Before upgrading to Corda Enterprise Edition 4.12, read the guidance on [upgrading your notary service]({{< relref "notary/upgrading-the-ha-notary-service.md" >}}).
 {{< /warning >}}
 
-Most of the Corda 4 public, non-experimental APIs are stable. See the [full list of stable APIs]({{< relref "../../../../api-ref/api-ref-corda-4.md" >}}). If you are working with a stable API, you don't need to update your CorDapps. To upgrade:
+Most of the Corda 4 public, non-experimental APIs are stable. See the [full list of stable APIs]({{< relref "../../../../api-ref/api-ref-corda-4.md" >}}). If you are working with a stable API, you only need to follow the required CorDapp updates below. To upgrade:
 
 1. [Drain the node]({{< relref "#step-1-drain-the-node" >}}).
 2. [Make a backup of the directories in your node and database]({{< relref "#step-2-make-a-backup-of-your-nodes-directories-and-database" >}}).
 3. [Update the database]({{< relref "#step-3-update-the-database" >}}).
 4. [Replace the corda.jar file with the new version]({{< relref "#step-4-replace-cordajar-with-the-new-version" >}}).
 5. [Update the configuration]({{< relref "#step-5-update-the-configuration" >}}).
-6. [Start the node]({{< relref "#step-6-start-the-node" >}}).
-7. [Undrain the node]({{< relref "#step-7-undrain-the-node" >}}).
+6. [Validate existing transactions]({{< relref "#step-6-validate-existing-transactions" >}}).
+7. [Update the CorDapps]({{< relref "#step-7-update-the-cordapps" >}}).
+8. [Start the node]({{< relref "#step-8-start-the-node" >}}).
+9. [Undrain the node]({{< relref "#step-9-undrain-the-node" >}}).
 
 {{< note >}}
 The protocol tolerates node outages. Peers on the network wait for your node to become available after upgrading.
@@ -69,7 +72,7 @@ For a detailed explanation of Corda backup and recovery guarantees, see [Backup 
 
 ## Step 3: Update the database
 
-The database update can be performed automatically or manually and must be performed incrementally for each major version. For example, if you are upgrading from version 4.8 to 4.12, you must first apply the database update from 4.8 to 4.9, and then apply the database update from 4.9 to 4.10, and then from 4.10 to 4.11. The minor version does not matter since there are no database updates contained in minor version releases.
+The database update can be performed automatically or manually and must be performed incrementally for each major version. For example, if you are upgrading from version 4.9 to 4.12, you must first apply the database update from 4.9 to 4.10, and then apply the database update from 4.10 to 4.11, and then from 4.11 to 4.12. The minor version does not matter since there are no database updates contained in minor version releases.
 
 You can perform an automatic database update when:
 
@@ -300,13 +303,13 @@ Option `-b` points to the base directory which contains a `node.conf` file and `
 
 Replace the `corda.jar` with the latest version from Corda.
 
-Download the latest version of Corda from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-node/4.11/corda-node-4.11.jar).
+Download the latest version of Corda from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-node/4.12/corda-node-4.12.jar).
 Make sure it’s available on your path, and that you’ve read the [Corda release notes]({{< relref "release-notes-enterprise.md" >}}). Pay particular attention to which version of Java the
 node requires.
 
 
 {{< important >}}
-Corda 4 requires Java 17.
+Corda 4 requires Java 17.0.9 or any higher Java 17 patch level. Java 18+ is not currently supported.
 
 
 {{< /important >}}
@@ -322,8 +325,15 @@ You only need to perform this step if you are updating from version 4.5 or older
 
 Remove any `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSchema` entries from the database section of your configuration.
 
+## Step 6: Validate existing transactions
 
-## Step 6: Start the node
+Run the Transaction Validator Utility (TVU) to ensure that existing transactions are compatible with 4.12, see [Validate transactions]({{< relref "upgrade-guide.md#validate-transactions" >}}) for more information.
+
+## Step 7: Update the CorDapps
+
+When upgrading from Corda 4.11 to Corda 4.12 there are specific changes that need to be made to the CorDapps contract version and minimum platform version (MPV), see [Upgrade 4.11 CorDapps]({{< relref "upgrade-guide.md#upgrade-411-cordapps">}}) for more information.
+
+## Step 8: Start the node
 
 If you manually updated the database in [Step 3](#step-3-update-the-database), start the node in the normal way.
 
@@ -337,7 +347,7 @@ java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
 The node will perform any automatic data migrations required, which may take some
 time. If the migration process is interrupted, restart the node to continue. The node stops automatically when migration is complete.
 
-## Step 7: Undrain the node
+## Step 9: Undrain the node
 
 Run this command in the shell:
 

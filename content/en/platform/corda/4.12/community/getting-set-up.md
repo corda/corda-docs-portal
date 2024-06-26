@@ -28,15 +28,15 @@ There are four pieces of required software for CorDapp development:
 
 ## Installing the Java 17 JDK
 
-Install the Java 17 JDK. 
+Install the Java 17 JDK. Corda requires at least version 17.0.9, but does not currently support Java 18 or higher for this version of Corda. 
 
-Corda 4.12 has been tested against the following Java builds:
+Corda has been tested against the following Java builds:
 
-  * [Oracle JDK 17.0.9](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
-  * [Zulu’s OpenJDK 17.46.19 (17.0.9+8)](https://www.azul.com/downloads/?version=java-17-lts&show-old-builds=true#zulu)
+  * [Oracle JDK](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+  * [Zulu’s OpenJDK](https://www.azul.com/)
 
 {{< note >}}
-OpenJDK builds often exclude JavaFX, which is required by the Corda GUI tools.
+OpenJDK builds often exclude JavaFX, which is required by the Corda GUI tools. Corda supports only Java 17.
 {{< /note >}}
 
 If you are using Windows, you must also add Java to the PATH environment variable by following the instructions in the [Oracle documentation](https://docs.oracle.com/javase/7/docs/webnotes/install/windows/jdk-installation-windows.html#path).
@@ -60,7 +60,7 @@ To install Git, navigate to [Git](https://git-scm.com/) and install your preferr
 
 If you intend to proceed directly to run a sample CorDapp, as described in [Running a sample CorDapp]({{< relref "tutorial-cordapp.md" >}}), the included `gradlew` script should install Gradle automatically when you open the sample CorDapp in IntelliJ.
 
-If you'd prefer to install Gradle manually, navigate to [Gradle](https://gradle.org/releases/) then locate and install Gradle **version 7.6.4**. 
+If you'd prefer to install Gradle manually, navigate to [Gradle](https://gradle.org/releases/) then locate and install Gradle **version 7.6.4**. Corda requires Gradle version 7.6.x, and does not support Gradle 8.x.
 
 ## Next steps
 

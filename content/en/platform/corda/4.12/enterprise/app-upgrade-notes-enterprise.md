@@ -42,7 +42,7 @@ To re-compile your CorDapp for Corda Enterprise Edition 4.12, you need to:
     corda_release_version = '4.12'
     corda_core_release_version = '4.12'
     corda_gradle_plugins_version = '5.0.18'
-    kotlin_version = '1.9'
+    kotlin_version = '1.9.20'
     quasar_version = '0.9.0_r3'
     ```
 
@@ -112,7 +112,7 @@ of all Corda Enterprise artifacts and their dependencies) from your R3 support c
 
 {{< warning >}}
 
-Version 4 of the finance CorDapp is split into the following two signed JAR files:
+Version 4.x of the finance CorDapp is split into the following two signed JAR files:
 
  * `corda-finance-contracts.jar`
  * `corda-finance-workflows.jar`
@@ -128,12 +128,15 @@ cordapp "$os_corda_release_distribution:corda-finance-contracts:$os_corda_releas
 
 Where:
 * ext.os_corda_release_distribution = 'net.corda'.
-* ext.os_corda_release_version = '4.0'.
+* ext.os_corda_release_version = '4.12'.
 
 
 {{< /warning >}}
 
 
+## Upgrading from Enterprise 4.11 or earlier
+
+Corda Enterprise Edition 4.12 moved to Java version 17 and Kotlin version 1.9 therefore CorDapps used with Corda 4.12 also need to be compiled with Java version 17 and Kotlin version 1.9. To make CorDapps backwards compatible there are a specific set of steps to follow, these are outlined in [Upgrade 4.11 CorDapps]({{< relref "upgrade-guide.md#upgrade-411-cordapps">}}).
 
 ## Upgrading from Enterprise 4.3 or earlier
 
