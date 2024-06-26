@@ -17,7 +17,7 @@ weight: 10
 
 # Corda Enterprise Edition 4.12 release notes
 
-The Corda Enterprise Edition 4.12 release introduces upgrades to the Java and Kotlin versions, along with associated upgrade support. Apart from the features supporting the Java and Kotlin upgrade, no other major new features have been introduced. In this release Java has been upgraded to Java 17 from Java 8 and Kotlin has been upgraded to Kotlin 1.9.20 from 1.2.71.
+The Corda Enterprise Edition 4.12 release introduces upgrades to the Java and Kotlin versions, along with associated upgrade support. Apart from the features supporting the Java and Kotlin upgrade, no other major new features have been introduced. In this release, Java has been upgraded to Java 17 from Java 8 and Kotlin has been upgraded to Kotlin 1.9.20 from 1.2.71.
 
 When a CorDapp(s) and a node are successfully upgraded to 4.12, you are able to seamlessly interoperate 4.12 and 4.11 (or earlier) nodes on the same network, including the existing transactions on the ledger.
 
@@ -39,11 +39,11 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 ### Java and Kotlin upgrade
 
-Corda 4.12 requires Java 17 and Kotlin 1.9.20. This means that you must recompile any legacy CorDapps written for 4.11 or earlier to work with Java 17 and Kotlin 1.9 to be compatible with Corda 4.12. These upgrades enhance the supportability and security of Corda.
+Corda 4.12 requires Java 17 and Kotlin 1.9.20. This means that you must recompile any legacy CorDapps written for 4.11 or earlier to work with Java 17 and Kotlin 1.9.20 to be compatible with Corda 4.12. These upgrades enhance the supportability and security of Corda.
 
 ### Java 17 compatible releases of Corda SDKs
 
-A number of SDKs and libraries are provided with the base Corda package. These are their Java 17 and Kotlin 1.9 versions:
+The base Corda package includes several SDKs and libraries. These SDKs and libraries are compatible with Java 17 and Kotlin 1.9.20:
 
 | SDK/library               | Java 17 compatible release    |
 |---------------------------|-------------------------------|
@@ -80,7 +80,7 @@ You must review your CorDapps and check for any making the following calls:
 * `WireTransaction.toLedgerTransaction().verify()`
 * `TransactionBuilder.toLedgerTransaction().verify()`
 
-CorDapps that make the above calls, will not work for legacy transactions. To have those CorDapps work, change them to `SignedTransaction.verify()`.
+CorDapps that make the above calls will not work for legacy transactions. To make those CorDapps compatible, change them to `SignedTransaction.verify()`.
 
 ### Corda node explorer not supported on Java 17
 
@@ -94,7 +94,7 @@ The following two public repositories provide various CorDapp samples (branch: r
 
 Most samples have been converted over to Java 17, Kotlin 1.9.20, and Gradle 7.6.4.
 
-The samples have been written to work with Corda Open Source. To convert a sample to work with Corda Enterprise at a minimum you need to point to a repository where your enterprise artifacts are installed and the artifact group name for ENT (`com.r3`) must be different from OS `(net.corda`). For example, switch `net.corda:corda-node-driver:4.12` (Corda OS) to `com.r3.corda:corda-node-driver:4.12` (Corda ENT).
+The samples have been written to work with Corda Open Source. To convert a sample to work with Corda Enterprise, then at a minimum you need to point to a repository where your enterprise artifacts are installed. Also, the artifact group name for ENT (`com.r3`) must be different from OS `(net.corda`). For example, switch `net.corda:corda-node-driver:4.12` (Corda OS) to `com.r3.corda:corda-node-driver:4.12` (Corda ENT).
 
 The following dependencies have been used in samples and can be switched from Corda OS to Corda Enterprise:
 * corda

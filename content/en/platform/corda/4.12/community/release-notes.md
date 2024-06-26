@@ -42,11 +42,11 @@ For more information about platform versions, see [Versioning]({{< relref "versi
 
 ### Java and Kotlin upgrade
 
-Corda 4.12 requires Java 17 and Kotlin 1.9.20. This means that you must recompile any legacy CorDapps written for 4.11 or earlier to work with Java 17 and Kotlin 1.9 to be compatible with Corda 4.12. These upgrades enhance the supportability and security of Corda.
+Corda 4.12 requires Java 17 and Kotlin 1.9.20. This means that you must recompile any legacy CorDapps written for 4.11 or earlier to work with Java 17 and Kotlin 1.9.20 to be compatible with Corda 4.12. These upgrades enhance the supportability and security of Corda.
 
 ### Java 17 compatible releases of Corda SDKs
 
-A number of SDKs and libraries are provided with the base Corda package. These are their Java 17 and Kotlin 1.9 versions:
+The base Corda package includes several SDKs and libraries. These SDKs and libraries are compatible with Java 17 and Kotlin 1.9.20:
 
 | SDK/library               | Java 17 compatible release    |
 |---------------------------|-------------------------------|
