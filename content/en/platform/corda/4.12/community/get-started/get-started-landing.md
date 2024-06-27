@@ -18,7 +18,7 @@ weight: -1
 To start using Corda Community Edition if you have never used Corda before:
 
 1. Install the required software:
-   * Java 8 JDK
+   * Java 17 JDK
    * IntelliJ IDEA
    * Git
    * Gradle

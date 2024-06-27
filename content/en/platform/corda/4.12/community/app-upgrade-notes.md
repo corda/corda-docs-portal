@@ -90,12 +90,12 @@ the node, or after upgrading but before synchronising the app schemas.
 Corda 4.6 drops the support for retro-fitting the database changelog when migrating from Corda versions older than 4.0. Thus it is required to migrate to a previous 4.x version before
 migrating to Corda 4.6 - for example, 3.3 to 4.5, and then 4.5 to 4.6.
 
-### Corda Gradle Plugins version `5.0.12`
+### Corda Gradle Plugins version `5.1.1`
 
-To successfully build a CorDapp against Platform Version 8 and Corda 4.6, you need to use version `5.0.12` of the Corda Gradle Plugins:
+To successfully build a CorDapp against Platform Version 8 and Corda 4.6, you need to use version `5.1.1` of the Corda Gradle Plugins:
 
 ```
-ext.corda_gradle_plugins_version = '5.0.12'
+ext.corda_gradle_plugins_version = '5.1.1'
 ```
 
 ## Upgrading CorDapps to Platform Versions 6 and 7

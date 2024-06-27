@@ -32,7 +32,7 @@ We use the standard [Kotlin coding style from JetBrains](https://kotlinlang.org/
 In Kotlin code, KDoc is used rather than JavaDoc. It’s very similar except it uses Markdown for formatting instead
 of HTML tags.
 
-We target Java 8 and use the latest Java APIs whenever convenient. We use `java.time.Instant` to represent timestamps
+We target Java 17 and use the latest Java APIs whenever convenient. We use `java.time.Instant` to represent timestamps
 and `java.nio.file.Path` to represent file paths.
 
 Never apply any design pattern religiously. There are no silver bullets in programming and if something is fashionable,
