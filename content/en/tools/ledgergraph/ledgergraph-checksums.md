@@ -15,6 +15,10 @@ You can download the LedgerGraph release files if you have access to the reposit
 
 Before you install the downloaded files, verify the integrity of each file to ensure that it has not been tampered with or corrupted during the download. You can do this by calculating the **checksum** of your downloaded file, then comparing its value to the checksum value provided below.
 
+## Checksums of LedgerGraph 1.3 release files
+
+The checksum information for LedgerGraph 1.3 can be found as part of the [Corda 4.12 release]({{< relref "../../platform/corda/4.12/enterprise/release-checksum-enterprise.md" >}}).
+
 ## Checksums of LedgerGraph 1.2.5 release files
 
 The checksum information for LedgerGraph 1.2.5 can be found as part of the [Corda 4.10.2 release]({{< relref "../../platform/corda/4.10/enterprise/release-checksum-enterprise.md" >}}).
@@ -22,7 +26,7 @@ The checksum information for LedgerGraph 1.2.5 can be found as part of the [Cord
 ## Checksums of LedgerGraph 1.2.4 release files
 
 * ledger-graph-1.2.4-javadoc.jar (261 bytes / 261 bytes)
-  * `aaa88c3071fa9da5b214d910c6c031c5dd535bc0` (sha1) 
+  * `aaa88c3071fa9da5b214d910c6c031c5dd535bc0` (sha1)
   * `ee1706e2c3760a1cebb8df3dc6ea68de`(md5)
   * `4c6351a0e1c1037be3c3bcacd2136ccba379aba857f298ff641df4df31ec9d70`(sha256)
 * ledger-graph-1.2.4.jar (176Kb / 179224 bytes)
@@ -39,16 +43,16 @@ The checksum information for LedgerGraph 1.2.5 can be found as part of the [Cord
   * `a9a69b8f0f0a9bd5850580545aa186bf9805921df1eaeb9a049811e2b7f47079` (sha256)
 * ledger-graph-confidential-identities-1.2.4-javadoc.jar (261 bytes / 261 bytes)
   * `aaa88c3071fa9da5b214d910c6c031c5dd535bc0` (sha1)
-  * `ee1706e2c3760a1cebb8df3dc6ea68de` (md5) 
-  * `4c6351a0e1c1037be3c3bcacd2136ccba379aba857f298ff641df4df31ec9d70` (sha256) 
+  * `ee1706e2c3760a1cebb8df3dc6ea68de` (md5)
+  * `4c6351a0e1c1037be3c3bcacd2136ccba379aba857f298ff641df4df31ec9d70` (sha256)
 * ledger-graph-confidential-identities-1.2.4.jar (13kb / 12472 bytes)
   * `b80c940e6ca846e9f59c76edacff0df3f3d7c716` (sha1)
   * `9365731193608ccf265941bbf2440d8d` (md5)
-  * `fc43aef2b1d06ead77aca2b7d32214b7af9eb8f3155ea0066a0b66c8e79ba530` (sha256) 
+  * `fc43aef2b1d06ead77aca2b7d32214b7af9eb8f3155ea0066a0b66c8e79ba530` (sha256)
 * ledger-graph-confidential-identities-1.2.4.module (4.8kb / 4915 bytes)
-  * `a64fb902f8113a36a4f832d96fc63de9cb244369` (sha1) 
-  * `4be0e4c722e9276873baa6266c4abb37` (md5) 
-  * `4a4bf9bf853ae63b04cd0fea66c43a4bdab47c31c56af11ae5475ceac3e4b26f` (sha256)  
+  * `a64fb902f8113a36a4f832d96fc63de9cb244369` (sha1)
+  * `4be0e4c722e9276873baa6266c4abb37` (md5)
+  * `4a4bf9bf853ae63b04cd0fea66c43a4bdab47c31c56af11ae5475ceac3e4b26f` (sha256)
 * ledger-graph-confidential-identities-1.2.4.pom (768 bytes / 768 bytes)
   * `996d433d1b28da01d024ab674b31bfdf3419d717` (sha1)
   * `a80fca385254792ea9514ec9f3e0ac1d` (md5)
