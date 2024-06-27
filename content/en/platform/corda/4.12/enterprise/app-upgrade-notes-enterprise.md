@@ -41,7 +41,7 @@ To re-compile your CorDapp for Corda Enterprise Edition 4.12, you need to:
     corda_core_release_distribution = 'net.corda'
     corda_release_version = '4.12'
     corda_core_release_version = '4.12'
-    corda_gradle_plugins_version = '5.0.18'
+    corda_gradle_plugins_version = '5.1.1'
     kotlin_version = '1.9.20'
     quasar_version = '0.9.0_r3'
     ```
@@ -83,7 +83,7 @@ been removed.
 
    You can find instructions for both options in [Running tests in IntelliJ]({{< relref "testing.md#running-tests-in-intellij" >}}).
 
-4. Check you're using Corda Gradle plugins version 5.0.18, and that Corda Enterprise dependencies are referenced with the right distribution.
+4. Check you're using Corda Gradle plugins version 5.1.1 and that Corda Enterprise dependencies are referenced with the right distribution.
 
 
     For example:
