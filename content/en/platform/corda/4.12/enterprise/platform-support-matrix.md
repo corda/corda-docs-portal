@@ -8,13 +8,13 @@ tags:
 - platform
 - support
 - matrix
-title: Corda Enterprise 4.11 platform support
+title: Corda Enterprise 4.12 platform support
 weight: 250
 ---
 
 # Platform support
 
-This topic lists the JDKs, operating systems and database types that support Corda Enterprise Edition 4.11, both for production and for development. For the 'end of life schedule' for Corda versions and the associated documentation, refer to the [End of Life Schedule]({{< relref "../../eol-schedule.md" >}}).
+This topic lists the JDKs, operating systems and database types that support Corda Enterprise Edition 4.12, both for production and for development. For the 'end of life schedule' for Corda versions and the associated documentation, refer to the [End of Life Schedule]({{< relref "../../eol-schedule.md" >}}).
 
 ## JDK support
 
@@ -22,29 +22,21 @@ Corda Enterprise Edition supports a subset of the platforms that are supported b
 
 ### JDK support in production
 
-Corda Enterprise Edition 4.11 has been tested and verified to work with **Oracle JDK 8 JVM 8u381** and **Azul Zulu Enterprise 8u382**, for Azure deployment downloadable from
+Corda Enterprise Edition 4.12 has been tested and verified to work with **Azul Zulu Enterprise 17.0.9**, for Azure deployment downloadable from
 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
-Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.11.
-
-{{< warning >}}
-In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/technetwork/java/java-se-support-roadmap.html),
-which outlines the end of public updates of Java SE 8 for commercial use, please ensure you have the correct Java support contract in place
-for your deployment needs.
-{{< /warning >}}
+Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.12.
 
 ### JDK support in development
 
-The following JDKs support Corda for development purposes. Corda does not currently support Java 9 or higher.
+The following JDKs support Corda for development purposes. Corda does not currently support Java 18 or higher.
 
 {{< table >}}
 
 |Supported JDKs|Latest supported version|
 |-----------------------------------|-----------|
-|[Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)|8u381|
-|[Amazon Corretto 8](https://aws.amazon.com/corretto/)|8.252.09.1|
-|[Red Hat OpenJDK](https://developers.redhat.com/products/openjdk/overview/)|8u322|
-|[Zulu OpenJDK](https://www.azul.com/)|8u382|
+|[Zulu OpenJDK](https://www.azul.com/)|17.0.9|
+|[Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)|17.0.9|
 
 {{< /table >}}
 
@@ -52,7 +44,7 @@ The following JDKs support Corda for development purposes. Corda does not curren
 
 ### Operating systems support in production
 
-Production use of Corda Enterprise Edition 4.11 is only supported on Linux OS; see details below.
+Production use of Corda Enterprise Edition 4.12 is only supported on Linux OS; see details below.
 
 {{< table >}}
 
@@ -94,7 +86,7 @@ The following database types are supported both in production and for developmen
 |Oracle|x86-64|19c|Oracle JDBC 8|
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
 |Oracle|x86-64|11gR2|Oracle JDBC 6 |
-|PostgreSQL|x86-64|11.21, 13.12|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
+|PostgreSQL|x86-64|11.21, 13.12, 13.3, 15.3|PostgreSQL JDBC Driver 42.1.4 / 42.5.2|
 
 {{< /table >}}
 
@@ -147,10 +139,10 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 |                               | Driver version 4.21.1    | Driver version 4.21.1    | Driver version 4.21.1      | Driver version 4.21.1       |
 | Gemalto Luna (firmware)       | Firmware version 7.0.3   | Firmware version 7.0.3   | Firmware version 7.0.3     | Firmware version 7.0.3      |
 | Gemalto Luna driver with Corda 4.9.6 and earlier, 4.10, 4.10.1, 4.10.2  | Driver version 7.3 | Driver version 7.3 | Driver version 7.3 | Driver version 7.3 |
-| Gemalto Luna driver with Corda 4.9.7 and later versions of 4.9.*, 4.10.2 and later versions of 4.10.*, plus 4.11 | Driver version 10.4.0 | Driver version 10.4.0 | Driver version 10.4.0 | Driver version 10.4.0 |
+| Gemalto Luna driver with Corda 4.9.7 and later versions of 4.9, 4.10.2 and later versions of 4.10, 4.11, plus 4.12 | Driver version 10.4.0 | Driver version 10.4.0 | Driver version 10.4.0 | Driver version 10.4.0 |
 | FutureX Vectera Plus          | Firmware version 6.1.5.8 | Firmware version 6.1.5.8 | Firmware version 6.1.5.8   | Firmware version 6.1.5.8    |
-|                               | PKCS#11 version 3.1      | PKCS#11 version 3.1      | PKCS#11 version 3.1        | PKCS#11 version 3.1         |
-|                               | FXJCA version 1.17       | FXJCA version 1.17       | FXJCA version 1.17         | FXJCA version 1.17          |
+|                               | PKCS#11 version 5.1      | PKCS#11 version 5.1      | PKCS#11 version 5.1        | PKCS#11 version 5.1         |
+|                               | FXJCA version 1.33       | FXJCA version 1.33       | FXJCA version 1.33         | FXJCA version 1.33          |
 | Azure Key Vault               | Driver version           | Driver version           | Driver version (SOFTWARE mode only)| Driver version      |
 |                               | azure-identity 1.2.0     | azure-identity 1.2.0     | azure-identity 1.2.0       | azure-identity 1.2.0        |
 |                               | azure-security-keyvault-keys 4.2.3| azure-security-keyvault-keys 4.2.3| azure-security-keyvault-keys 4.2.3| azure-security-keyvault-keys 4.2.3|
