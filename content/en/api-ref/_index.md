@@ -21,4 +21,4 @@ See the [Corda 4 API reference]({{< relref "api-ref-corda-4.md" >}}) page to acc
 
 ## Older Versions of Corda
 
-You can find the API reference documentation for older versions of Corda (1.0, 2.0, and 3.0 to 3.4) and Corda Enterprise (3.0 to 3.3) [directly in the documentation repository](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/).
+You can find the API reference documentation for older versions of Corda Community and Corda Enterprise [directly in the documentation repository](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/).
