@@ -37,7 +37,7 @@ If you are using Windows, you must also add Java to the PATH environment variabl
 
 IntelliJ IDEA is an integrated development environment (IDE) that offers strong support for Kotlin and Java development.
 
-Install the [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/). Corda supports IntelliJ IDEA versions **2023.x** and **2024.x**; and Kotlin plugin version 1.9.20.
+Install the [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/). Corda supports IntelliJ IDEA versions **2023.x** and **2024.x**, and Kotlin plugin version 1.9.20.
 
 
 To install IntelliJ IDEA in a Ubuntu environment, go to the [Jetbrains IntelliJ snap package](https://snapcraft.io/intellij-idea-community).
