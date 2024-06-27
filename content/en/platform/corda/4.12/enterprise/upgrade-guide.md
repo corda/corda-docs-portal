@@ -23,9 +23,9 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 
 ### Background
 
-Corda 4.12 has been upgraded to use Kotlin 1.9 and Java 17. When designing Corda 4.12, we had to take into consideration the issue of having a backchain of transactions that had been verified using Kotlin 1.2 and Java 8 by earlier versions of Corda.
+Corda 4.12 has been upgraded to use Kotlin 1.9.20 and Java 17. When designing Corda 4.12, we had to take into consideration the issue of having a backchain of transactions that had been verified using Kotlin 1.2 and Java 8 by earlier versions of Corda.
 
-If a Corda 4.12 node were to be part of a network of mixed Corda 4.x versions, a Corda 4.12 node would not be able to verify a contract compiled using Kotlin 1.2. Similarly, a Corda node running an earlier version of Kotlin would not be able to verify a new Corda 4.12 contract compiled using Kotlin 1.9.
+If a Corda 4.12 node were to be part of a network of mixed Corda 4.x versions, a Corda 4.12 node would not be able to verify a contract compiled using Kotlin 1.2. Similarly, a Corda node running an earlier version of Kotlin would not be able to verify a new Corda 4.12 contract compiled using Kotlin 1.9.20.
 
 ### The solution
 
@@ -56,7 +56,7 @@ All scenarios involving the upgrade of existing node versions from a previous ve
 ### Upgrading selected network nodes to 4.12
 
 In this scenario, you have a mixed network where only selected nodes are upgraded to Corda 4.12, while others remain on previous versions of Corda 4.x. This scenario requires you to perform the following actions:
-1. Upgrade any existing CorDapps to run on Java 17 and Kotlin 1.9.
+1. Upgrade any existing CorDapps to run on Java 17 and Kotlin 1.9.20.
 2. Keep a copy of the old CorDapp contract JAR file in the new `legacy-contracts` folder placed inside all upgraded 4.12 nodes.
 
 Any future Corda 4.12 nodes added to the network will also require the `legacy-contracts` folder, unless all nodes have been updated by that time. In the latter case, you are adding new Corda 4.12 nodes to a non-mixed network and this requirement is no longer necessary.
@@ -69,7 +69,7 @@ If any new Corda 4.12 nodes are added to this network in the future, a problem a
 
 ### Adding 4.12 nodes to a new network
 
-This scenario is the simplest, as it does not require any complex update procedures. In this scenario, all CorDapps are developed for Java 17 and Kotlin 1.9, and the process for adding new nodes is the same as setting up a new network of any previous Corda version.
+This scenario is the simplest, as it does not require any complex update procedures. In this scenario, all CorDapps are developed for Java 17 and Kotlin 1.9.20, and the process for adding new nodes is the same as setting up a new network of any previous Corda version.
 
 ## Upgrade prerequisites
 
@@ -85,7 +85,7 @@ To complete the upgrade from Corda 4.11 to Corda 4.12, you need the following co
 To upgrade your Corda node from version 4.11 to 4.12, you must perform the following steps:
 
 1. Validate all existing transactions (per node). See [Validate transactions]({{< relref "#validate-transactions" >}}).
-2. Upgrade any custom CorDapps running on the Corda 4.11 node to work with Java 17 and Kotlin 1.9. See [Upgrade 4.11 CorDapps]({{< relref "#upgrade-411-cordapps" >}}).
+2. Upgrade any custom CorDapps running on the Corda 4.11 node to work with Java 17 and Kotlin 1.9.20. See [Upgrade 4.11 CorDapps]({{< relref "#upgrade-411-cordapps" >}}).
 3. Preserve old CorDapp contracts in a new folder called `legacy-contracts`. See [Add the legacy contracts folder to mixed networks]({{< relref "#add-the-legacy-contracts-folder-to-mixed-networks" >}}).
    {{< note >}}
    This step is for mixed networks only. It is not required if you plan on upgrading all nodes on your network to 4.12.
@@ -115,7 +115,7 @@ The example use case in this guide validates the transactions without any additi
 
 ### Upgrade 4.11 CorDapps
 
-You must update all custom CorDapps being upgraded that are running on Corda 4.11 nodes so they use Java 17 and Kotlin 1.9. For steps on updating Cordapps, see [Upgrading a CorDapp to Corda Enterprise Edition 4.12]({{< relref "app-upgrade-notes-enterprise.md" >}}).
+You must update all custom CorDapps being upgraded that are running on Corda 4.11 nodes so they use Java 17 and Kotlin 1.9.20. For steps on updating Cordapps, see [Upgrading a CorDapp to Corda Enterprise Edition 4.12]({{< relref "app-upgrade-notes-enterprise.md" >}}).
 
 #### Flow versioning
 You must annotate any flow that initiates other flows with the `@InitiatingFlow` annotation, which is defined as:
