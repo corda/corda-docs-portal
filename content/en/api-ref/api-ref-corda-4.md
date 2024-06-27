@@ -16,7 +16,7 @@ This page provides links to the API reference documentation for all API modules 
 {{< table >}}
 |Corda Enterprise version|Javadoc API reference|Kotlin doc API reference|
 |:----|:----|:----|
-|4.12|<a href="../../../en/api-ref/corda/4.12/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.12/enterprise/kotlin/corda/index.html" target="_blank">Kotlin</a>|
+|4.12|<a href="../../../en/api-ref/corda/4.12/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.12/enterprise/kotlin/index.html" target="_blank">Kotlin</a>|
 |4.11|<a href="../../../en/api-ref/corda/4.11/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.11/enterprise/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 |4.10|<a href="../../../en/api-ref/corda/4.10/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.10/enterprise/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 |4.9|<a href="../../../en/api-ref/corda/4.9/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.9/enterprise/kotlin/corda/index.html" target="_blank">Kotlin</a>|
@@ -29,7 +29,7 @@ This page provides links to the API reference documentation for all API modules 
 
 |Corda Open Source Edition|Javadoc API reference|Kotlin doc API reference|
 |:----|:----|:----|
-| 4.12 Open Source |<a href="../../../en/api-ref/corda/4.12/community/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.12/community/kotlin/corda/index.html" target="_blank">Kotlin</a>|
+| 4.12 Open Source |<a href="../../../en/api-ref/corda/4.12/community/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.12/community/kotlin/index.html" target="_blank">Kotlin</a>|
 | 4.11 Community & Open Source |<a href="../../../en/api-ref/corda/4.11/community/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.11/community/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 | 4.10 Community & Open Source |<a href="../../../en/api-ref/corda/4.10/community/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.10/community/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 | 4.9 Community |<a href="../../../en/api-ref/corda/4.9/community/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.10/community/kotlin/corda/index.html" target="_blank">Kotlin</a>|
