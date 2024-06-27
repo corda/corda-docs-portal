@@ -15,16 +15,23 @@ The Archive Service is a standalone service that operates on a different release
 
 The following table shows the compatibility of the Archive Service versions with Corda Enterprise:
 
-| Archive Service version      | Corda Enterprise version    |
-|------------------------------|-----------------------------|
-| 1.0.x                        | 4.10.x and below              |
-| 1.1.x                        | 4.11.x and above              |
+| Archive Service version      | Corda Enterprise version    | JDK version      |
+|------------------------------|-----------------------------| -----------------|
+| 1.0.x                        | 4.10.x and below            | JDK 8            |
+| 1.1.x                        | 4.11.x                      | JDK 8            |
+| 1.2                          | 4.12.x                      | JDK 17           |
 
 {{< note >}}
 If you deviate from the above compatibility guidelines, for example, using the Archive Service 1.1.x with Corda Enterprise 4.10.x, the Archive Service will not work.
 {{< /note >}}
 
-## Corda Enterprise 4.11 and above
+## Corda Enterprise 4.12
+
+### Archive Service 1.2
+
+Archive Service 1.2 is a major release supporting Java 17 and Kotlin 1.9.20. If you want to use the Archive Service, this is the only release that works with Corda 4.12.
+
+## Corda Enterprise 4.11
 
 ### Archive Service 1.1.1
 
