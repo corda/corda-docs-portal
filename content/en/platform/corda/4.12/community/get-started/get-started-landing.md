@@ -13,9 +13,9 @@ tags:
 weight: -1
 ---
 
-## Setting up Corda Community Edition
+## Setting up Corda Open Source Edition
 
-To start using Corda Community Edition if you have never used Corda before:
+To start using Corda Open Source Edition if you have never used Corda before:
 
 1. Install the required software:
    * Java 17 JDK
@@ -32,9 +32,9 @@ To start using Corda Community Edition if you have never used Corda before:
 
 3. Follow the [tutorial]({{< relref "../tutorial-cordapp.md" >}}) to set up a Corda network and start coding your CorDapps.
 
-## Downloading Corda Community Edition
+## Downloading Corda Open Source Edition
 
-To download Corda Community Edition, or to upgrade from an open source version of Corda:
+To download Corda Open Source Edition, or to upgrade from an open source version of Corda:
 
 * Download the `.tar` [file](https://download.corda.net/corda-community-edition/4.12/community-4.12.tar).
 * Download the `.zip` [file](https://download.corda.net/corda-community-edition/4.12/community-4.12.zip)
@@ -48,7 +48,7 @@ If you are upgrading from an open source version of Corda, follow the upgrade gu
 2. Run a [sample CorDapp]({{< relref "../../community/tutorial-cordapp.md" >}}) to see Corda in action.
 4. [Build your own CorDapp]({{< relref "../../community/building-a-cordapp-index.md" >}}) from scratch.
 
-You can then take your Corda integration to the next level by deep-diving into specific topics in our [Corda Community Edition]({{< relref "../_index.md" >}}) documentation. You can also view the [API reference material]({{< relref "../../../../../../en/api-ref/api-ref-corda-4.md#corda-community--open-source-4x" >}}), browse [featured apps]({{< relref "../apps/apps-index.md" >}}), or browse [tools and add-ons]({{< relref "../../../../../tools/_index.md" >}}).
+You can then take your Corda integration to the next level by deep-diving into specific topics in our [Corda Open Source Edition]({{< relref "../_index.md" >}}) documentation. You can also view the [API reference material]({{< relref "../../../../../../en/api-ref/api-ref-corda-4.md#corda-community--open-source-4x" >}}), browse [featured apps]({{< relref "../apps/apps-index.md" >}}), or browse [tools and add-ons]({{< relref "../../../../../tools/_index.md" >}}).
 
 {{< note >}}
 <b>Read Corda white papers</b>

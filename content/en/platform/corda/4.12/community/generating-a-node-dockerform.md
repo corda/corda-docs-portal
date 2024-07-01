@@ -24,7 +24,7 @@ Corda's `cordformation` Gradle plugin provides the `Cordform` and `Dockerform` t
 ## Tasks using Dockerform
 
 You need both `Docker` and `docker-compose` installed and enabled to use this method. Docker CE
-(Community Edition) is sufficient. Please refer to [Docker CE documentation](https://www.docker.com/community-edition)
+(Open Source Edition) is sufficient. Please refer to [Docker CE documentation](https://www.docker.com/community-edition)
 and [Docker Compose documentation](https://docs.docker.com/compose/install/) for installation instructions for all
 major operating systems.
 

@@ -131,7 +131,7 @@ configuration here - however, this is not best practice).
 * `corda-test-utils` - Used when writing tests against Corda/Cordapps.
 * `corda-tools-network-bootstrapper` - The Network Builder tool. Useful in build scripts.
 
-Any modules marked with (*) are part of the open core and must be pulled in from the matching Corda Community Edition distribution (using
+Any modules marked with (*) are part of the open core and must be pulled in from the matching Corda Open Source Edition distribution (using
 `$corda_core_release_distribution` and `$corda_core_release_version`.
 
 The `cordapp` plugin adds additional Gradle configurations:
