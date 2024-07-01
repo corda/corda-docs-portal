@@ -66,7 +66,7 @@ Download the required version of Corda Community Edition; for more information, 
 
 ## Step 4: Upgrade the node to Corda 4.11 or later
 
-Ensure your node is running Corda 4.0 or later.
+Ensure your node is running Corda 4.11 or later.
 
 ## Step 5: Replace `corda.jar` with the new version
 
