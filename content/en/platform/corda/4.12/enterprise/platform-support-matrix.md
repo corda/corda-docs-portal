@@ -18,7 +18,7 @@ This topic lists the JDKs, operating systems and database types that support Cor
 
 ## JDK support
 
-Corda Enterprise Edition supports a subset of the platforms that are supported by [Java](http://www.oracle.com/technetwork/java/javase/certconfig-2095354.html).
+Corda Enterprise Edition supports a subset of the platforms that are supported by [Java](https://www.oracle.com/java/technologies/javase/products-doc-jdk17certconfig.html).
 
 ### JDK support in production
 

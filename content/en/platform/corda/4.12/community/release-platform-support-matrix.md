@@ -11,7 +11,7 @@ menu:
 
 # Platform support matrix
 
-Corda supports a subset of the platforms that are supported by [Java](http://www.oracle.com/technetwork/java/javase/certconfig-2095354.html).
+Corda supports a subset of the platforms that are supported by [Java](https://www.oracle.com/java/technologies/javase/products-doc-jdk17certconfig.html).
 
 Production use of Corda Open Source 4.12 is only supported on Linux OS, see details below.
 
