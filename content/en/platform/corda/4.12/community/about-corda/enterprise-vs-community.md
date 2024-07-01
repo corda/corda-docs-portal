@@ -1,12 +1,12 @@
 ---
-title: "Corda Enterprise vs Corda Community"
+title: "Corda Enterprise vs Corda Open Source"
 date: '2021-07-02'
 menu:
   corda-community-4-12:
     parent: about-corda-landing-4-12-community
     identifier: enterprise-vs-community-4-12-community
     weight: 200
-    name: "Enterprise vs Community"
+    name: "Enterprise vs Open Source"
 tags:
 - concepts
 - enterprise
@@ -14,15 +14,15 @@ tags:
 - comparison
 ---
 
-# Corda Enterprise vs Corda Community Edition
+# Corda Enterprise vs Corda Open Source Edition
 
-Details on Corda Enterprise features compared to Corda Community Edition features follow below.
+Details on Corda Enterprise features compared to Corda Open Source Edition features follow below.
 
 ## Corda Functionality
 
 {{< table >}}
 
-|Feature|Corda Community Edition|Corda Enterprise|
+|Feature|Corda Open Source Edition|Corda Enterprise|
 |:------------------------------|:-----------------------------:|:-----------------------------:|
 |Corda ledger|&#10003;|&#10003;|
 |Flow framework|&#10003;|&#10003;|
@@ -41,7 +41,7 @@ Details on Corda Enterprise features compared to Corda Community Edition feature
 
 {{< table >}}
 
-|Feature|Corda Community Edition|Corda Enterprise|
+|Feature|Corda Open Source Edition|Corda Enterprise|
 |:------------------------------|:-----------------------------:|:-----------------------------:|
 |Single node|&#10003;|&#10003;|
 |Multiple nodes for high availability/disaster recovery|&#10007;|&#10003;|
@@ -52,7 +52,7 @@ Details on Corda Enterprise features compared to Corda Community Edition feature
 
 {{< table >}}
 
-|Feature|Corda Community Edition|Corda Enterprise|
+|Feature|Corda Open Source Edition|Corda Enterprise|
 |:------------------------------|:-----------------------------:|:-----------------------------:|
 |In-process Artemis MQ|&#10003;|&#10003;|
 |External Artemis MQ|&#10007;|&#10003;|
@@ -65,7 +65,7 @@ Details on Corda Enterprise features compared to Corda Community Edition feature
 
 {{< table >}}
 
-|Feature|Corda Community Edition|Corda Enterprise|
+|Feature|Corda Open Source Edition|Corda Enterprise|
 |:------------------------------|:-----------------------------:|:-----------------------------:|
 |Java keystore file|&#10003;|&#10003;|
 |HSM support|&#10007;|&#10003;|
@@ -76,7 +76,7 @@ Details on Corda Enterprise features compared to Corda Community Edition feature
 
 {{< table >}}
 
-|Feature|Corda Community Edition|Corda Enterprise|
+|Feature|Corda Open Source Edition|Corda Enterprise|
 |:------------------------------|:-----------------------------:|:-----------------------------:|
 |H2 (development use only)|&#10003;|&#10003;|
 |Postgres|&#10003; Please note that this has been harmonised with Corda Enterprise in Corda 4.5 to allow for in-place upgrades|&#10003;|
@@ -89,7 +89,7 @@ Details on Corda Enterprise features compared to Corda Community Edition feature
 
 {{< table >}}
 
-|Feature|Corda Community Edition|Corda Enterprise|
+|Feature|Corda Open Source Edition|Corda Enterprise|
 |:------------------------------|:-----------------------------:|:-----------------------------:|
 |Simple notary|&#10003;|&#10003;|
 |Oracle RAC connectivity|&#10007;|&#10003;|
@@ -102,7 +102,7 @@ Details on Corda Enterprise features compared to Corda Community Edition feature
 
 {{< table >}}
 
-|Feature|Corda Community Edition|Corda Enterprise|
+|Feature|Corda Open Source Edition|Corda Enterprise|
 |:------------------------------|:-----------------------------:|:-----------------------------:|
 |Dynamic database caching and performance enhancements|&#10007;|&#10003;|
 |Multi-threaded flow state machine|&#10007;|&#10003;|
@@ -113,7 +113,7 @@ Details on Corda Enterprise features compared to Corda Community Edition feature
 
 {{< table >}}
 
-|Feature|Corda Community Edition|Corda Enterprise|
+|Feature|Corda Open Source Edition|Corda Enterprise|
 |:------------------------------|:-----------------------------:|:-----------------------------:|
 |Node health check tool|&#10007;|&#10003;|
 |Configuration obfuscation tool|&#10007;|&#10003;|
@@ -125,7 +125,7 @@ Details on Corda Enterprise features compared to Corda Community Edition feature
 
 {{< table >}}
 
-|Feature|Corda Community Edition|Corda Enterprise|
+|Feature|Corda Open Source Edition|Corda Enterprise|
 |:------------------------------|:-----------------------------:|:-----------------------------:|
 |Developer mailing lists (no SLA)|&#10003;|&#10003;|
 |Cordaledger slack (no SLA)|&#10003;|&#10003;|

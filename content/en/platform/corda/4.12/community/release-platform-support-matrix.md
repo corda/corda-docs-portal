@@ -13,21 +13,21 @@ menu:
 
 Corda supports a subset of the platforms that are supported by [Java](http://www.oracle.com/technetwork/java/javase/certconfig-2095354.html).
 
-Production use of Corda Community Edition 4.11 is only supported on Linux OS, see details below.
+Production use of Corda Open Source 4.12 is only supported on Linux OS, see details below.
 
 ## Network management
 
-The Community Edition of Corda does not come with network management support included. You can still consider joining the [Corda Network](https://corda.network).
+The Open Source Edition of Corda does not come with network management support included. You can still consider joining the [Corda Network](https://corda.network).
 
 If you require network management, you can consider using the [Network Map Service from Cordite](https://gitlab.com/cordite/network-map-service). Cordite Foundation is a third-party supplier, and not supported by R3.
 
 ## Notaries
 
-Experimental notaries, such as **Crash fault-tolerant** and **Byzantine fault-tolerant** notaries, are not available for support in Corda: Community Edition.
+Experimental notaries, such as **Crash fault-tolerant** and **Byzantine fault-tolerant** notaries, are not available for support in Corda: Open Source Edition.
 
 ## JDK support
 
-Corda: Community Edition 4.11 has been tested and verified to work with **Oracle JDK 8 JVM 8u381** and **Azul Zulu Enterprise 8u382**, for Azure deployment downloadable from
+Corda: Open Source Edition 4.12 has been tested and verified to work with **Oracle JDK 8 JVM 8u381** and **Azul Zulu Enterprise 8u382**, for Azure deployment downloadable from
 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.11.

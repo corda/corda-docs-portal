@@ -19,9 +19,9 @@ The best way to get started with Corda is to:
    * **Corda Enterprise** - the enterprise version of Corda, for which you require a commercial contract with R3. Corda Enterprise is accessed via R3's customer hub. If you are an existing Corda Enterprise customer, you can find all downloads on [R3 Customer Hub](https://customerhub.r3.com/s/).
 
      If you are new to Corda and would like to experience Corda Enterprise, you can [register for a trial now](https://www.corda.net/get-corda/).
-   * **Corda Community Edition** - the open source version of Corda, which you can build on now. To use Corda Community Edition, you can access the latest version in one of three ways:
+   * **Corda Open Source Edition** - the open source version of Corda, which you can build on now. To use Corda Open Source Edition, you can access the latest version in one of three ways:
      * Clone the [Github repository](https://github.com/corda/corda), then follow the tutorials to set up your nodes and developer environment.
-     * Download the latest Corda Community Edition `.tar` [file](https://download.corda.net/corda-community-edition/4.11/community-4.11.tar) that contains the required Corda `.jars`.
+     * Download the latest Corda Open Source Edition `.tar` [file](https://download.corda.net/corda-community-edition/4.11/community-4.12.tar) that contains the required Corda `.jars`.
      * Use the Docker image and accompanying guide from the [Docker Hub](https://hub.docker.com/repository/docker/corda/community).
 
 2. Familiarize yourself with the [Corda key concepts]({{< relref "../../enterprise/about-corda/corda-key-concepts.md" >}}).

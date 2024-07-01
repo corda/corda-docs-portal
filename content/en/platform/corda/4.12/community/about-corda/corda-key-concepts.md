@@ -1,5 +1,5 @@
 ---
-title: "Corda Community Edition Key Concepts"
+title: "Corda Open Source Edition Key Concepts"
 date: '2021-07-02'
 menu:
   corda-community-4-12:
@@ -58,7 +58,7 @@ Finally, some concepts that expand on other areas:
 * [Transaction tear-offs]({{< relref "../key-concepts-tearoffs.md" >}}) - transactions can be signed by parties who have access to only a limited view of the transaction parts.
 * [Trade-offs]({{< relref "../key-concepts-tradeoffs.md" >}}) that have been made in designing Corda and CorDapps.
 
-## CorDapps tutorial 
+## CorDapps tutorial
 
 After you've become familiar with the key concepts of Corda, see them in action by [running a sample CorDapp]({{< relref "../tutorial-cordapp.md" >}}).
 

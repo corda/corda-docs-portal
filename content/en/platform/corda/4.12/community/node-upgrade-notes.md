@@ -13,7 +13,7 @@ tags:
 - node
 - upgrade
 - notes
-title: Upgrading your node to Corda Community Edition 4.12
+title: Upgrading your node to Corda Open Source Edition 4.12
 ---
 
 
@@ -22,7 +22,7 @@ applications. It consists of the following steps:
 
 1. [Drain the node](#step-1-drain-the-node)
 2. [Make a backup of your node directories and/or database](#step-2-make-a-backup-of-your-node-directories-andor-database)
-3. [Download Corda Community Edition](#step-3-download-corda-community-edition)
+3. [Download Corda Open Source Edition](#step-3-download-corda-open-source-edition)
 4. [Upgrade the node to Corda 4.11 or later](#step-4-upgrade-the-node-to-corda-411-or-later)
 5. [Replace the corda.jar file with the new version](#step-5-replace-cordajar-with-the-new-version)
 6. [Update the configuration](#step-6-update-the-configuration)
@@ -60,9 +60,9 @@ user guide to learn how to make backups.
 
 We provide some [backup recommendations]({{< relref "node-administration.md#backup-recommendations" >}}) if you’d like more detail.
 
-## Step 3: Download Corda Community Edition
+## Step 3: Download Corda Open Source Edition
 
-Download the required version of Corda Community Edition; for more information, see [Release packs and checksums]({{< relref "release-checksum-os.md" >}}).
+Download the required version of Corda Open Source Edition; for more information, see [Release packs and checksums]({{< relref "release-checksum-os.md" >}}).
 
 ## Step 4: Upgrade the node to Corda 4.11 or later
 

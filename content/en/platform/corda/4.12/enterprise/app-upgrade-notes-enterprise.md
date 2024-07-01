@@ -15,16 +15,16 @@ weight: 20
 
 # Upgrading a CorDapp to Corda Enterprise Edition 4.12
 
-## Upgrading from Corda Community Edition
+## Upgrading from Corda Open Source Edition
 
-Before upgrading to Corda Enterprise Edition 4.12, upgrade your CorDapp to Corda Community Edition 4.12. See [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) for detailed instructions.
+Before upgrading to Corda Enterprise Edition 4.12, upgrade your CorDapp to Corda Open Source Edition 4.12. See [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) for detailed instructions.
 
 You don't need to re-compile your CorDapp to Corda Enterprise for it to run on Corda Enterprise. If you want your CorDapp to
-be compatible with nodes running open source, then compile it against Corda Community Edition (formerly Open Source) 4.x.
+be compatible with nodes running open source, then compile it against Corda Open Source Edition 4.x.
 However, if you want to leverage specific features of Corda Enterprise, such as third-party commercial database support, and don't envisage your CorDapp being run in an open source production environment, then follow the [re-compiling for Corda Enterprise Edition 4.12]({{< relref "#re-compiling-for-corda-enterprise-edition-411" >}}) guide.
 
 {{< note >}}
-Corda Enterprise and Corda Community Edition public APIs are currently identical. However, this may change for future releases.
+Corda Enterprise and Corda Open Source Edition public APIs are currently identical. However, this may change for future releases.
 See [Corda and Corda Enterprise compatibility]({{< relref "version-compatibility.md" >}}) guarantees for further information.
 
 {{< /note >}}
@@ -49,7 +49,7 @@ To re-compile your CorDapp for Corda Enterprise Edition 4.12, you need to:
 2. Specify an additional repository entry pointing to the location of the Corda Enterprise distribution and Corda dependencies. Any
 dependencies on `corda-core` and/or `corda-serialization` must use the `corda_core_release_distribution` and
 `corda_core_release_version`. As Corda is moving to an open core model, these core APIs are only available in open source and need to
-be imported from there. Therefore, a repository entry pointing to a matching Corda Community Edition version is required.
+be imported from there. Therefore, a repository entry pointing to a matching Corda Open Source Edition version is required.
 
 3. Update your `quasar.jar` file. If your project is based on one of the official CordApp templates, you'll likely have a `lib/quasar.jar` file checked in. You'll only use this if you use the JUnit runner in IntelliJ. In the latest release of the CorDapp templates, this directory has
 been removed.
@@ -67,7 +67,7 @@ been removed.
             url 'https://artifactory.mycompany.com/artifactory/corda-enterprise'
         }
 
-        // Dependency on Corda Community Edition
+        // Dependency on Corda Open Source Edition
         maven { url 'https://download.corda.net/maven/corda-releases' }
         maven { url 'https://download.corda.net/maven/corda-dependencies' }
 

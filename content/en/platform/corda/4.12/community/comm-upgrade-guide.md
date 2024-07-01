@@ -12,10 +12,10 @@ menu:
 tags:
 - upgrade
 - guide
-title: Corda Community Edition 4.11 to 4.12 upgrade guide
+title: Corda Open Source Edition 4.11 to 4.12 upgrade guide
 ---
 
-# Corda Community Edition 4.11 to 4.12 upgrade guide
+# Corda Open Source Edition 4.11 to 4.12 upgrade guide
 
 This upgrade guide outlines the steps for migrating your Corda 4.11 node to version 4.12 while maintaining backwards compatibility with earlier Corda 4.x versions.
 

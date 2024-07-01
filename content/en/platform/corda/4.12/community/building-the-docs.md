@@ -53,7 +53,7 @@ repository, make your changes, and submit a pull request targeting the `main` br
 
 ### Where are the files
 
-The documentation for all released versions of Corda Community Edition (formerly Corda Open Source), Corda Enterprise, Corda Enterprise Network Manager (CENM),
+The documentation for all released versions of Corda Open Source Edition, Corda Enterprise, Corda Enterprise Network Manager (CENM),
 and Corda 5 are organized in sub-directories, following the version and then the product flavor. For example:
 
 `../corda-docs-portal/content/en/platform/corda/4.12/community/`
