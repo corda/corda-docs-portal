@@ -11,7 +11,7 @@ menu:
 
 # Platform support matrix
 
-Corda supports a subset of the platforms that are supported by [Java](http://www.oracle.com/technetwork/java/javase/certconfig-2095354.html).
+Corda supports a subset of the platforms that are supported by [Java](https://www.oracle.com/java/technologies/javase/products-doc-jdk17certconfig.html).
 
 Production use of Corda Open Source 4.12 is only supported on Linux OS, see details below.
 
@@ -27,33 +27,27 @@ Experimental notaries, such as **Crash fault-tolerant** and **Byzantine fault-to
 
 ## JDK support
 
-Corda: Open Source Edition 4.12 has been tested and verified to work with **Oracle JDK 8 JVM 8u381** and **Azul Zulu Enterprise 8u382**, for Azure deployment downloadable from
+Corda Open Source Edition 4.12 has been tested and verified to work with **Azul Zulu Enterprise 17.0.9**, for Azure deployment downloadable from
 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.11.
 
-{{< warning >}}
-In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/technetwork/java/java-se-support-roadmap.html),
-which outlines the end of public updates of Java SE 8 for commercial use, please ensure you have the correct Java support contract in place
-for your deployment needs.
-{{< /warning >}}
-
 ## JDKs supported in development
 
-Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
+The following JDKs support Corda for development purposes. Corda does not currently support Java 18 or higher.
 
 {{< table >}}
 
 |Supported JDKs|Latest supported version|
 |-----------------------------------|-----------|
-|[Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)|8u381|
-|[Amazon Corretto 8](https://aws.amazon.com/corretto/)|8.252.09.1|
-|[Red Hat's OpenJDK](https://developers.redhat.com/products/openjdk/overview/)|8u322|
-|[Zulu's OpenJDK](https://www.azul.com/)|8u382|
+|[Zulu OpenJDK](https://www.azul.com/)|17.0.9|
+|[Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)|17.0.9|
 
 {{< /table >}}
 
 ## Operating systems supported in production
+
+Production use of Corda Open Source 4.12 is only supported on Linux OS; see details below.
 
 {{< table >}}
 
@@ -66,7 +60,9 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 
 {{< /table >}}
 
-## Operating systems supported in development
+## Operating systems support in development
+
+The following operating systems can be used with Corda for development purposes.
 
 {{< table >}}
 
@@ -84,6 +80,11 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 
 |Vendor|CPU architecture|Versions|JDBC driver|
 |-------------------------------|------------------|------------------|------------------------|
-|PostgreSQL|x86-64|11.21, 13.12|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
+|Microsoft|x86-64|Azure SQL,SQL Server 2017|Microsoft JDBC Driver 6.4|
+|Oracle|x86-64|19c|Oracle JDBC 6|
+|Oracle|x86-64|19c|Oracle JDBC 8|
+|Oracle|x86-64|12cR2|Oracle JDBC 8|
+|Oracle|x86-64|11gR2|Oracle JDBC 6 |
+|PostgreSQL|x86-64|11.21, 13.12, 13.3, 15.3|PostgreSQL JDBC Driver 42.1.4 / 42.5.2|
 
 {{< /table >}}
