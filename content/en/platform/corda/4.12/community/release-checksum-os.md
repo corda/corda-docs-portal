@@ -15,10 +15,10 @@ Before you install the downloaded release packs, verify the integrity of each fi
 
 ## Release packs and checksums for Corda Open Source Edition 4.12
 
-* Release pack: https://download.corda.net/corda-community-edition/4.12/community-4.12.tar
-* MD5 checksum: https://download.corda.net/corda-community-edition/4.12/community-4.12.tar.md5
-* ASC: https://download.corda.net/corda-community-edition/4.12/community-4.12.tar.asc
-* SHA-256 checksum: https://download.corda.net/corda-community-edition/4.12/community-4.12.tar.sha256
+* Release pack: https://download.corda.net/corda-open-source/4.12/corda-open-source-4.12.tar
+* MD5 checksum: https://download.corda.net/corda-open-source/4.12/corda-open-source-4.12.tar.md5
+* ASC: https://download.corda.net/corda-open-source/4.12/corda-open-source-4.12.tar.asc
+* SHA-256 checksum: https://download.corda.net/corda-open-source/4.12/corda-open-source-4.12.tar.sha256
 
 ## Checksums for expanded community-4.12.tar
 
