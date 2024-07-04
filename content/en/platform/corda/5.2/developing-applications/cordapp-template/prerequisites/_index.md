@@ -28,7 +28,7 @@ The {{< version >}} CorDapp Template has been tested with the following:
 | Intellij                                 | ~v2021.x.y Community Edition                                        |
 | git                                      | ~v2.24.1                                                            |
 | Docker                                   | Docker Engine ~v20.x.y or Docker Desktop ~v3.5.x                    |
-| {{< tooltip >}}Corda CLI{{< /tooltip >}} | See [Installing the Corda CLI]({{< relref "../../tooling/installing-corda-cli/installing-corda-cli.md" >}}) section. |
+| {{< tooltip >}}Corda CLI{{< /tooltip >}} | See [Installing the Corda CLI]({{< relref "../../tooling/installing-corda-cli.md" >}}) section. |
 
 ## Required CorDapp Template Ports
 
