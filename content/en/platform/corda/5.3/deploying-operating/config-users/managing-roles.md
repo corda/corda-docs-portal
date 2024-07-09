@@ -19,7 +19,7 @@ A user with permission to create other users cannot assign more permissions othe
 RBAC permission templates enable you to create fine-grained roles for specific actions such as:
 
 * A dedicated role which can create users, roles, and permissions and drive all the associations between them.
-* A dedicated role with a set of all the necessary permissions to create a {{< tooltip >}}virtual node{{< /tooltip >}} (including {{< tooltip >}}CPI{{< /tooltip >}} upload).
+* A dedicated role with a set of all the necessary permissions to create and onboard a {{< tooltip >}}virtual node{{< /tooltip >}}, perform [Bring Your Own Database]({{< relref "../vnodes/bring-your-own-db.md" >}}) operations and {{< tooltip >}}CPI{{< /tooltip >}} upgrade.
 * A dedicated role which allows flows to run on this virtual node.
 
 {{< note >}}
@@ -34,5 +34,5 @@ The following table lists the roles created by default by [RBAC bootstrapping as
 | <div style="width:160px">Role</div> | Description                                                                                                                                                                                       |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `UserAdminRole`                     | Permits the following:<li>Create and delete users<li>Create and delete permissions<li>Create and delete roles<li>Change the password of other users<li>Assign and un-assign roles to users<li>Assign and un-assign permissions to roles |
-| `VNodeCreatorRole`                  | Permits the following:<li>Uploading CPIs<li>Creating virtual nodes<li>Updating virtual nodes                                                                                                      |
-| `FlowExecutorRole`                  | Permits the following for a specified virtual node:<li>Start any flow<li>Enquire about the status of running flows                                                                                |
+| `VNodeCreatorRole`                  | Permits the following:<li>Uploading CPIs<li>Upgrading CPIs<li>Creating virtual nodes<li>Updating virtual nodes<li>Bring Your Own Database operations<li>Uploading certificates<li>Assign soft HSM<li>Member registration<li>Generate key pair<li>Check flow status<li>Setup network  |
+| `FlowExecutorRole`                  | Permits the following for a specified virtual node:<li>Start any flow<li>Enquire about the status of running flows      |
