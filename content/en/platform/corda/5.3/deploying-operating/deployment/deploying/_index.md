@@ -892,6 +892,21 @@ These keys are not tied to the schema names. If the schema names change, the key
 {{< /note >}}
 Additionally, a passphrase and salt for the Corda [wrapping keys]({{< relref "../../../key-concepts/cluster-admin/_index.md#key-management" >}}) must be added to the Vault `cryptosecrets` path under the keys `passphrase` and `salt` respectively.
 
+##### Using HashiCorp Vault in the OpenShift Environment
+
+When deploying Corda Enterprise on Red Hat Openshift using HashiCorp Vault as an external secret service, you must override client image for bootstrap vault populating job with specific values recommended by HashiCorp. You must provide this configuration in your `values.yaml` file. Here is an example:
+
+```yaml
+bootstrap:
+  vault:
+    clientImage:
+      registry: "registry.connect.redhat.com"
+      repository: "hashicorp/vault"
+      tag: "1.16.1-ubi"
+```
+
+This is driven by the recommended OpenShift overrides as per HashiCorp [values.openshift.yaml](https://github.com/hashicorp/vault-helm/blob/main/values.openshift.yaml#L18-L21).
+
 ### Bootstrapping
 
 By default, the Helm chart automatically configures Kafka, PostgreSQL, and a default set of Corda RBAC roles as part of the deployment process.
@@ -1050,19 +1065,6 @@ For example, when running with Red Hat OpenShift Container Platform, you must us
       serviceAccount:
         name: "corda-privileged"
    ```
-
-4. Override client image for bootstrap vault populating job with specific values recommended by Hashicorp. You must provide this configuration in your `values.yaml` file. Here is an example:
-
-   ```yaml
-   bootstrap:
-     vault:
-       clientImage:
-         registry: "registry.connect.redhat.com"
-         repository: "hashicorp/vault"
-         tag: "1.16.1-ubi"
-   ```
-
-   This is driven by the recommended OpenShift overrides as per Hashicorp [values.openshift.yaml](https://github.com/hashicorp/vault-helm/blob/main/values.openshift.yaml#L18-L21).
 
 ### Worker Pods
 
