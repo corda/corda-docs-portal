@@ -1062,7 +1062,7 @@ bootstrap:
       tag: "1.16.1-ubi"
 ```
 
-This is driven by the recommended OpenShift overrides as per Hashicorp (values.openshift.yaml)[https://github.com/hashicorp/vault-helm/blob/main/values.openshift.yaml#L18-L21].
+This is driven by the recommended OpenShift overrides as per Hashicorp [values.openshift.yaml](https://github.com/hashicorp/vault-helm/blob/main/values.openshift.yaml#L18-L21).
 
 ### Worker Pods
 
