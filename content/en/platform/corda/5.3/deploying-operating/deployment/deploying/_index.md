@@ -1051,18 +1051,18 @@ For example, when running with Red Hat OpenShift Container Platform, you must us
         name: "corda-privileged"
    ```
 
-When deploying Corda Enterprise on Red Hat Openshift using Hashicorp Vault as an external secret service, you must override client image for bootstrap vault populating job with specific values recommended by Hashicorp. You must provide this configuration in your `values.yaml` file. Here is an example:
+4. Override client image for bootstrap vault populating job with specific values recommended by Hashicorp. You must provide this configuration in your `values.yaml` file. Here is an example:
 
-```yaml
-bootstrap:
-  vault:
-    clientImage:
-      registry: "registry.connect.redhat.com"
-      repository: "hashicorp/vault"
-      tag: "1.16.1-ubi"
-```
+   ```yaml
+   bootstrap:
+     vault:
+       clientImage:
+         registry: "registry.connect.redhat.com"
+         repository: "hashicorp/vault"
+         tag: "1.16.1-ubi"
+   ```
 
-This is driven by the recommended OpenShift overrides as per Hashicorp [values.openshift.yaml](https://github.com/hashicorp/vault-helm/blob/main/values.openshift.yaml#L18-L21).
+   This is driven by the recommended OpenShift overrides as per Hashicorp [values.openshift.yaml](https://github.com/hashicorp/vault-helm/blob/main/values.openshift.yaml#L18-L21).
 
 ### Worker Pods
 
