@@ -894,7 +894,7 @@ Additionally, a passphrase and salt for the Corda [wrapping keys]({{< relref "..
 
 ##### Using HashiCorp Vault in the OpenShift Environment
 
-When deploying Corda Enterprise on Red Hat OpenShift using HashiCorp Vault as an external secret service, you must override client image for bootstrap vault populating job with specific values recommended by HashiCorp. You must provide this configuration in your `values.yaml` file. Here is an example:
+When deploying Corda Enterprise on Red Hat OpenShift using HashiCorp Vault as an external secret service, you must the override client image for the bootstrap vault populating job with specific values recommended by HashiCorp. You must provide this configuration in your `values.yaml` file. Here is an example:
 
 ```yaml
 bootstrap:
