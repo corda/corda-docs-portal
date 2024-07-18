@@ -43,6 +43,27 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 You must have the `UserAdminRole` role to create new users.
 {{< /note >}}
 
+## Deleting Users
+
+You can delete a user using the DELETE method of the [/api/v5_3/user/<login-name>](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/delete_user__loginname_) endpoint. This endpoint requires the login name. For example, to delete a user with the login name `jbloggs`:
+
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```shell
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X DELETE $REST_API_URL/user/jbloggs
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/user/jbloggs -Method Delete
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+{{< note >}}
+You must have the `UserAdminRole` role to delete users.
+{{< /note >}}
+
 ## Changing Passwords
 
 You can change your own password using the POST method of the [/api/v5_3/user/selfpassword endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/post_user_selfpassword). Use this endpoint if your password has expired, and you have the correct credentials (you cannot use any other endpoint if your password has expired). When you change your password yourself, its default expiry time is set to 90 days. For example:
