@@ -16,7 +16,7 @@ RBAC users are created and managed using the REST API. This section describes th
 
 ## Creating Users
 
-You can create a new user using the POST method of the [/api/v5_3/user endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/post_user). You must include a login name, full name, and password and also specify if the account is enabled. Optionally, you can set the `passwordExpiry` to a past date, which will require the newly-created user to change their password on the first use. If the `passwordExpiry` is not specified or set to `null`, then the password does not expire. For example:
+You can create a new user using the POST method of the [/api/v5_3/user endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User/operation/post_user). You must include a login name, full name, and password and also specify if the account is enabled. Optionally, you can set the `passwordExpiry` to a past date, which will require the newly-created user to change their password on the first use. If the `passwordExpiry` is not specified or set to `null`, then the password does not expire. For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -43,9 +43,30 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 You must have the `UserAdminRole` role to create new users.
 {{< /note >}}
 
+## Deleting Users
+
+You can delete a user using the DELETE method of the [/api/v5_3/user/<login-name>](../../reference/rest-api/openapi.html#tag/RBAC-User/operation/delete_user__loginname_) endpoint. This endpoint requires the login name. For example, to delete a user with the login name `jbloggs`:
+
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```shell
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X DELETE $REST_API_URL/user/jbloggs
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/user/jbloggs -Method Delete
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+{{< note >}}
+You must have the `UserAdminRole` role to delete users.
+{{< /note >}}
+
 ## Changing Passwords
 
-You can change your own password using the POST method of the [/api/v5_3/user/selfpassword endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/post_user_selfpassword). Use this endpoint if your password has expired, and you have the correct credentials (you cannot use any other endpoint if your password has expired). When you change your password yourself, its default expiry time is set to 90 days. For example:
+You can change your own password using the POST method of the [/api/v5_3/user/selfpassword endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User/operation/post_user_selfpassword). Use this endpoint if your password has expired, and you have the correct credentials (you cannot use any other endpoint if your password has expired). When you change your password yourself, its default expiry time is set to 90 days. For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -64,7 +85,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 {{% /tab %}}
 {{< /tabs >}}
 
-Users with the `UserAdminRole` role can change the password of other users using the POST method of the [/api/v5_3/user/otheruserpassword endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/post_user_otheruserpassword). When a user with the `UserAdminRole` role changes another user's password, its default expiry time is set to 7 days. For example:
+Users with the `UserAdminRole` role can change the password of other users using the POST method of the [/api/v5_3/user/otheruserpassword endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User/operation/post_user_otheruserpassword). When a user with the `UserAdminRole` role changes another user's password, its default expiry time is set to 7 days. For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -86,7 +107,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 
 ## Retrieving Roles
 
-You can retrieve all roles in the system using the [/api/v5_3/role endpoint](../../reference/rest-api/openapi.html#tag/RBAC-Role-API/operation/get_role). For example:
+You can retrieve all roles in the system using the [/api/v5_3/role endpoint](../../reference/rest-api/openapi.html#tag/RBAC-Role/operation/get_role). For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -111,7 +132,7 @@ This request returns the following for each role:
 
 ## Assigning Roles
 
-You can assign a role to a user using the [/api/v5_3/<login-name>/role/<role-id> endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User-API/operation/put_user__loginname__role__roleid_). This endpoint requires the login name of the user and the ID of the role. To retrieve a list of the roles in the system, including their IDs, see [Retrieving Roles](#retrieving-roles).
+You can assign a role to a user using the [/api/v5_3/<login-name>/role/<role-id> endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User/operation/put_user__loginname__role__roleid_). This endpoint requires the login name of the user and the ID of the role. To retrieve a list of the roles in the system, including their IDs, see [Retrieving Roles](#retrieving-roles).
 
 For example, to assign a role with the ID bbcc4621-d88f-4a94-ae2f-b38072bf5087 to Joe Bloggs:
 
@@ -134,7 +155,7 @@ You must have the `UserAdminRole` role to create new users.
 
 ## Querying Permissions
 
-You can retrieve the permissions in the system that match certain criteria, using the [/api/v5_3/permission endpoint](../../reference/rest-api/openapi.html#tag/RBAC-Permission-API/operation/get_permission). For example, to return 100 permissions that deny access:
+You can retrieve the permissions in the system that match certain criteria, using the [/api/v5_3/permission endpoint](../../reference/rest-api/openapi.html#tag/RBAC-Permission/operation/get_permission). For example, to return 100 permissions that deny access:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
