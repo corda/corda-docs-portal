@@ -17,9 +17,9 @@ However, you can configure the plugin to use a custom certificate using the `cor
 
 {{< note >}}
 When a custom certificate is used, it will need to be uploaded to the cluster using the
-[/api/v5_2/certificate/cluster/code-signer API endpoint](../../../reference/rest-api/openapi.html#tag/Certificate-API/operation/put_certificate_cluster__usage_).
+[/api/v5_3/certificate/cluster/code-signer API endpoint](../../../reference/rest-api/openapi.html#tag/Certificate/operation/put_certificate_cluster__usage_).
 For example:
-`curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -F alias="your-key" -F certificate=@your-key.pem https://localhost:8888/api/v5_2/certificate/cluster/code-signer`
+`curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -F alias="your-key" -F certificate=@your-key.pem https://localhost:8888/api/v5_3/certificate/cluster/code-signer`
 {{< /note >}}
 
 ```

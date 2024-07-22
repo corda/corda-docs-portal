@@ -12,7 +12,7 @@ menu:
 
 The {{< tooltip >}}MGM{{< /tooltip >}} can update the current group parameters using the REST {{< tooltip >}}API{{< /tooltip >}}. Updates to the current group parameters can only include changes to the minimum platform version and custom properties. To update the group parameters, the MGM must submit an updated version of the group parameters to the REST endpoint, which overwrites any previous properties submitted using the endpoint.
 
-To view the current group parameters use the <a href="../../reference/rest-api/openapi.html#tag/Member-Lookup-API/operation/get_members__holdingidentityshorthash__group_parameters"> GET method of the `/api/v5_2/members/{holdingidentityshorthash}/group-parameters` endpoint</a>:
+To view the current group parameters use the <a href="../../reference/rest-api/openapi.html#tag/Member-Lookup/operation/get_members__holdingidentityshorthash__group_parameters"> GET method of the `/api/v5_3/members/{holdingidentityshorthash}/group-parameters` endpoint</a>:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -30,7 +30,7 @@ curl -k -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/members/$HOLDI
 {{% /tab %}}
 {{< /tabs >}}
 
-To submit a group parameters update, use the <a href="../../reference/rest-api/openapi.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__group_parameters"> POST method of the `/api/v5_2/mgm/{holdingidentityshorthash}/group-parameters` endpoint</a>, as shown below. Keys of custom properties must have the prefix `ext.`. For the minimum platform version, use the key `corda.minimum.platform.version`. For example:
+To submit a group parameters update, use the <a href="../../reference/rest-api/openapi.html#tag/MGM/operation/post_mgm__holdingidentityshorthash__group_parameters"> POST method of the `/api/v5_3/mgm/{holdingidentityshorthash}/group-parameters` endpoint</a>, as shown below. Keys of custom properties must have the prefix `ext.`. For the minimum platform version, use the key `corda.minimum.platform.version`. For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}

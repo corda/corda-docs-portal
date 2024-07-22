@@ -22,12 +22,12 @@ A virtual node can have one of the following states:
 
     A virtual node in maintenance mode does not allow the starting or running of flows. Any activity for existing flows causes the flow to be killed and marked with a flow status of `KILLED`. Counterparty flows fail with an error message indicating that a peer is in maintenance. This state allows virtual node operators to have a static vault with which they can take backups before performing potentially destructive operations such as a virtual node upgrade for migrations. Changing a virtual node's state back to active requires that the virtual node has executed all migrations in the currently associated {{< tooltip >}}CPI{{< /tooltip >}}. This prevents a virtual node from becoming operational while migrations are in progress during a virtual node upgrade.
 
-You can put an operational virtual node into maintenance mode, or return a node from maintenance to active mode, using the PUT method of the <a href ="../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/put_virtualnode__virtualnodeshortid__state__newstate_">`api/v5_2/virtualnode/<virtualnodeshortid>/state/<newstate>` endpoint </a>:
+You can put an operational virtual node into maintenance mode, or return a node from maintenance to active mode, using the PUT method of the <a href ="../../reference/rest-api/openapi.html#tag/Virtual-Node/operation/put_virtualnode__virtualnodeshortid__state__newstate_">`api/v5_3/virtualnode/<virtualnodeshortid>/state/<newstate>` endpoint </a>:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT $REST_API_URL/api/v5_2/virtualnode/<virtualnodeshortid>/state/<newstate>
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT $REST_API_URL/api/v5_3/virtualnode/<virtualnodeshortid>/state/<newstate>
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}

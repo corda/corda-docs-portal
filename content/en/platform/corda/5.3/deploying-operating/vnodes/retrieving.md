@@ -18,17 +18,17 @@ This section describes how to retrieve information about virtual nodes in a clus
 
 ## Retrieving All Virtual Nodes
 
-To retrieve a list of all virtual nodes in the {{< tooltip >}}cluster{{< /tooltip >}}, use the GET method of the <a href ="../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/get_virtualnode">`/api/v5_2/virtualnode` endpoint </a>:
+To retrieve a list of all virtual nodes in the {{< tooltip >}}cluster{{< /tooltip >}}, use the GET method of the <a href ="../../reference/rest-api/openapi.html#tag/Virtual-Node/operation/get_virtualnode">`/api/v5_3/virtualnode` endpoint </a>:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/api/v5_2/virtualnode
+curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/api/v5_3/virtualnode
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```
-Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $REST_API_USER:$REST_API_PASSWORD)} -Uri $REST_API_URL/api/v5_2/virtualnode
+Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $REST_API_USER:$REST_API_PASSWORD)} -Uri $REST_API_URL/api/v5_3/virtualnode
 ```shell
 {{% /tab %}}
 {{< /tabs >}}
@@ -68,17 +68,17 @@ This endpoint returns the list of all virtual nodes in the cluster as an array o
 
 ## Retrieving the Virtual Node of a Specific Member
 
-To retrieve information about the {{< tooltip >}}virtual node{{< /tooltip >}} of a specific {{< tooltip >}}member{{< /tooltip >}} in the cluster, use the GET method of the <a href ="../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/get_virtualnode__holdingidentityshorthash_">`/api/v5_2/virtualnode/<holdingidentityshorthash>` endpoint </a>:
+To retrieve information about the {{< tooltip >}}virtual node{{< /tooltip >}} of a specific {{< tooltip >}}member{{< /tooltip >}} in the cluster, use the GET method of the <a href ="../../reference/rest-api/openapi.html#tag/Virtual-Node/operation/get_virtualnode__holdingidentityshorthash_">`/api/v5_3/virtualnode/<holdingidentityshorthash>` endpoint </a>:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/api/v5_2/virtualnode/<holdingidentityshorthash>
+curl -k -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/api/v5_3/virtualnode/<holdingidentityshorthash>
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $REST_API_USER:$REST_API_PASSWORD)} -Uri $REST_API_URL/api/v5_2/virtulnode/<holdingidentityshorthash>
+Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $REST_API_USER:$REST_API_PASSWORD)} -Uri $REST_API_URL/api/v5_3/virtulnode/<holdingidentityshorthash>
 ```
 {{% /tab %}}
 {{< /tabs >}}

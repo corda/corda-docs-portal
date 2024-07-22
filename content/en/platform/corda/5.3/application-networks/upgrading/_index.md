@@ -44,7 +44,7 @@ After re-registering the MGM, to retrieve the {{< tooltip >}}group policy{{< /to
    ```shell
    export MGM_REST_HOST=localhost
    export MGM_REST_PORT=8888
-   export MGM_REST_URL="https://$MGM_REST_HOST:$MGM_REST_PORT/api/v5_2"
+   export MGM_REST_URL="https://$MGM_REST_HOST:$MGM_REST_PORT/api/v5_3"
    export MGM_HOLDING_ID=<MGM-holding-ID>
    ```
    {{% /tab %}}
@@ -52,7 +52,7 @@ After re-registering the MGM, to retrieve the {{< tooltip >}}group policy{{< /to
    ```shell
    $MGM_REST_HOST = "localhost"
    $MGM_REST_PORT = "8888"
-   $MGM_REST_URL = "https://$MGM_REST_HOST:$MGM_REST_PORT/api/v5_2"
+   $MGM_REST_URL = "https://$MGM_REST_HOST:$MGM_REST_PORT/api/v5_3"
    $MGM_HOLDING_ID = <MGM-holding-ID>
    Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$MGM_REST_URL/mgm/$MGM_HOLDING_ID/info" | ConvertTo-Json -Depth 4 > $WORK_DIR/GroupPolicy.json
    ```
