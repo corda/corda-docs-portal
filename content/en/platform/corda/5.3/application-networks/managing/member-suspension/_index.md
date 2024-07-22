@@ -20,7 +20,7 @@ The commands shown in this section, use the following variables:
 
 * `MGM_HOLDING_ID` — the short hash of the MGM's {{< tooltip >}}holding identity{{< /tooltip >}}.
 * `X500_NAME` — the {{< tooltip >}}X.500{{< /tooltip >}} name of the member being suspended or re-activated.
-* `REST_API_URL` — the URL of the {{< tooltip >}}REST worker{{< /tooltip >}}. This may vary depending on where you have deployed your {{< tooltip >}}cluster{{< /tooltip >}} and how you have forwarded the ports. For example, `https://localhost:8888/api/v5_2`.
+* `REST_API_URL` — the URL of the {{< tooltip >}}REST worker{{< /tooltip >}}. This may vary depending on where you have deployed your {{< tooltip >}}cluster{{< /tooltip >}} and how you have forwarded the ports. For example, `https://localhost:8888/api/v5_3`.
 * `REST_API_USER` — your username for invoking the REST API.
 * `REST_API_PASSWORD` — your password for invoking the REST API.
 * `AUTH_INFO` — the authentication information if using PowerShell. You can set this as follows:
@@ -30,7 +30,7 @@ The commands shown in this section, use the following variables:
 
 ## Search for Members
 
-You can use the [Member Lookup REST endpoint](../../reference/rest-api/openapi.html#tag/Member-Lookup-API) to query for all members with a particular status by specifying the MGM and the status. By default, the endpoint only returns members with the status ACTIVE. You can also query for multiple statuses together. For example, to query for all members with the status SUSPENDED:
+You can use the [Member Lookup REST endpoint](../../reference/rest-api/openapi.html#tag/Member-Lookup) to query for all members with a particular status by specifying the MGM and the status. By default, the endpoint only returns members with the status ACTIVE. You can also query for multiple statuses together. For example, to query for all members with the status SUSPENDED:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -46,11 +46,11 @@ Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f
 {{% /tab %}}
 {{< /tabs >}}
 
-The GET method of the `/api/v5_2/members/{holdingidentityshorthash}` endpoint returns a list of members, specifying the `memberContext` and `mgmContext` of each. You can extract the serial number of a member from the `corda.serial` field inside the `mgmContext`. This serial number should be used when [suspending]({{< relref "#suspending-a-member">}}) or [activating]({{< relref "#activating-a-member">}}) a member.
+The GET method of the `/api/v5_3/members/{holdingidentityshorthash}` endpoint returns a list of members, specifying the `memberContext` and `mgmContext` of each. You can extract the serial number of a member from the `corda.serial` field inside the `mgmContext`. This serial number should be used when [suspending]({{< relref "#suspending-a-member">}}) or [activating]({{< relref "#activating-a-member">}}) a member.
 
 ## Suspend a Member
 
-You can use the <a href="../../reference/rest-api/openapi.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__suspend">POST method of the `/api/v5_2/members/{holdingidentityshorthash}/suspend` endpoint</a> to suspend a member of a group:
+You can use the <a href="../../reference/rest-api/openapi.html#tag/MGM/operation/post_mgm__holdingidentityshorthash__suspend">POST method of the `/api/v5_3/members/{holdingidentityshorthash}/suspend` endpoint</a> to suspend a member of a group:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -73,7 +73,7 @@ If the serial number does not match, the method returns a `409 CONFLICT`. This c
 
 ## Activate a Member
 
-You can use the <a href="../../reference/rest-api/openapi.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__activate">POST method of the `/api/v5_2/members/{holdingidentityshorthash}/activate` endpoint</a> to re-activate a suspended member of a group:
+You can use the <a href="../../reference/rest-api/openapi.html#tag/MGM/operation/post_mgm__holdingidentityshorthash__activate">POST method of the `/api/v5_3/members/{holdingidentityshorthash}/activate` endpoint</a> to re-activate a suspended member of a group:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}

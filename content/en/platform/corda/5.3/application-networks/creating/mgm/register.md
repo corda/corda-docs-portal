@@ -107,7 +107,7 @@ curl -k -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": 
   "corda.endpoints.0.connectionURL": "https://localhost:8080",
   "corda.endpoints.0.protocolVersion": "1",
   "corda.group.trustroot.tls.0" : "-----BEGIN CERTIFICATE-----\nMIIBLjCB1aADAgECAgECMAoGCCqGSM49BAMCMBAxDjAMBgNVBAYTBVVLIENOMB4X\nDTIyMDgyMzA4MDUzN1oXDTIyMDkyMjA4MDUzN1owEDEOMAwGA1UEBhMFVUsgQ04w\nWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASG6ijAvbmaIaIwKpZZqTeKmMKfoOPb\ncCK/BqdtKXVTt5AjJtiP/Uoq+481UEQyaUZYXGf5rC1owjT40U2B71qdoyAwHjAP\nBgNVHRMBAf8EBTADAQH/MAsGA1UdDwQEAwIBrjAKBggqhkjOPQQDAgNIADBFAiEA\n1h6WEfdWUXSjBcenf5ycXPkYQQzI92I54q2WaVVjQHwCIEBk1ov/hYp9RCCDPnJx\nk8WgCZIyhFe0pEmow7MuI/Zk\n-----END CERTIFICATE-----"
-} } }' https://localhost:8888/api/v5_2/membership/EF19BF67E77C
+} } }' https://localhost:8888/api/v5_3/membership/EF19BF67E77C
 ```
 
 Alternatively, using jq:

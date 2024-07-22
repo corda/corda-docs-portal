@@ -36,7 +36,7 @@ Corda exposes HTTP REST {{< tooltip >}}API{{< /tooltip >}} endpoints for interac
 
 To display the Swagger UI, use the following link:
 
-[https://localhost:8888/api/v5_2/swagger#/](https://localhost:8888/api/v5_2/swagger#/)
+[https://localhost:8888/api/v5_3/swagger#/](https://localhost:8888/api/v5_3/swagger#/)
 
 If Corda has started, the Swagger UI displays:
 {{< figure src="swagger-ui.png" width="80%" figcaption="Swagger UI showing Corda liveness" alt="Swagger UI showing Corda" >}}

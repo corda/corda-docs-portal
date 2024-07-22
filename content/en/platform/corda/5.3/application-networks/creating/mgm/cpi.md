@@ -50,12 +50,12 @@ Set the values of variables for use in later commands:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export REST_API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v5_2"
+   export REST_API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v5_3"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $REST_API_URL="https://${REST_API_HOST}:${REST_API_PORT}/api/v5_2"
+   $REST_API_URL="https://${REST_API_HOST}:${REST_API_PORT}/api/v5_3"
    ```
    {{% /tab %}}
    {{< /tabs >}}
