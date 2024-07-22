@@ -15,7 +15,7 @@ This section describes how to review and manually approve or decline registratio
 ## Viewing Requests Pending Manual Approval
 
 To view all registration requests for a {{< tooltip >}}membership group{{< /tooltip >}}, use the [GET method of the
-mgm/{holdingidentityshorthash}/approval/registrations endpoint](../../../reference/rest-api/openapi.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__registrations).
+mgm/{holdingidentityshorthash}/approval/registrations endpoint](../../../reference/rest-api/openapi.html#tag/MGM/operation/get_mgm__holdingidentityshorthash__registrations).
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -79,7 +79,7 @@ Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f
 ## Approving a Request
 
 To approve a rquest, pass the ID of the request to the [POST method of the
-mgm/{holdingidentityshorthash}/approve/{requestid} endpoint](../../../reference/rest-api/openapi.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__approve__requestid_). You can retrieve the ID of a request from the response of the GET endpoint described in [Viewing Requests Pending Manual Approval]({{< relref "#viewing-requests-pending-manual-approval" >}}).
+mgm/{holdingidentityshorthash}/approve/{requestid} endpoint](../../../reference/rest-api/openapi.html#tag/MGM/operation/post_mgm__holdingidentityshorthash__approve__requestid_). You can retrieve the ID of a request from the response of the GET endpoint described in [Viewing Requests Pending Manual Approval]({{< relref "#viewing-requests-pending-manual-approval" >}}).
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -101,7 +101,7 @@ You can only approve requests that are in the `PENDING_MANUAL_APPROVAL` status.
 ## Declining a Request
 
 To decline a request, pass the ID of the request and a reason to the [POST method of the
-mgm/{holdingidentityshorthash}/decline/{requestid} endpoint](../../../reference/rest-api/openapi.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__decline__requestid_). You can retrieve the ID of a request from the response of the GET endpoint described in [Viewing Requests Pending Manual Approval]({{< relref "#viewing-requests-pending-manual-approval" >}}).
+mgm/{holdingidentityshorthash}/decline/{requestid} endpoint](../../../reference/rest-api/openapi.html#tag/MGM/operation/post_mgm__holdingidentityshorthash__decline__requestid_). You can retrieve the ID of a request from the response of the GET endpoint described in [Viewing Requests Pending Manual Approval]({{< relref "#viewing-requests-pending-manual-approval" >}}).
 
 {{< tabs >}}
 {{% tab name="Bash"%}}

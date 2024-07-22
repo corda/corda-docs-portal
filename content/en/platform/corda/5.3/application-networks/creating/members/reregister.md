@@ -169,7 +169,7 @@ You can learn more about configuring the registration process in the [Managing M
    {{% /tab %}}
    {{< /tabs >}}
 
-4. Send a re-registration request using the common [registration/re-registration endpoint](../../../reference/rest-api/openapi.html#tag/Member-Registration-API/operation/get_membership__holdingidentityshorthash_).
+4. Send a re-registration request using the common [registration/re-registration endpoint](../../../reference/rest-api/openapi.html#tag/Member-Registration/operation/get_membership__holdingidentityshorthash_).
 
    If a member submits more than one registration request at the same time, the MGM queues the requests and processes them one by one, treating each subsequent request in the queue as a re-registration attempt.
 

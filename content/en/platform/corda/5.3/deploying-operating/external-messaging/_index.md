@@ -19,7 +19,7 @@ menu:
 ## Configuring External Messaging Routes
 
 The <a href="./config/fields/externalmessaging.html">`externalMessaging` configuration section</a> specifies how Corda creates the required messaging routes when [creating a new virtual node]({{< relref "../../application-networks/creating/members/cpi.md">}}).
-You can update these using the <a href="../reference/rest-api/openapi.html#tag/Configuration-API/operation/put_config">`config` endpoint</a> of the REST API. For example:
+You can update these using the <a href="../reference/rest-api/openapi.html#tag/Configuration/operation/put_config">`config` endpoint</a> of the REST API. For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -91,4 +91,4 @@ Corda does not create Kafka topics used for external messaging. You must manuall
    ```shell
    kafka-console-consumer --topic <topic-nam> --from-beginning --bootstrap-server localhost:9092
    ```
-   To test that everything is working correctly, start the {{< tooltip >}}flow{{< /tooltip >}} that sends external messages. For more information, see the <a href="../reference/rest-api/openapi.html#tag/Flow-Management-API/operation/post_flow__holdingidentityshorthash_">REST API documentation of the `flow` endpoint</a>.
+   To test that everything is working correctly, start the {{< tooltip >}}flow{{< /tooltip >}} that sends external messages. For more information, see the <a href="../reference/rest-api/openapi.html#tag/Flow-Management/operation/post_flow__holdingidentityshorthash_">REST API documentation of the `flow` endpoint</a>.

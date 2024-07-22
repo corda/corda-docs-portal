@@ -15,7 +15,7 @@ An {{< tooltip >}}MGM{{< /tooltip >}} may need to update its own member-provided
 
 To re-register an MGM:
 
-1. Send a re-registration request using the common [registration/re-registration endpoint](../../../reference/rest-api/openapi.html#tag/Member-Registration-API/operation/get_membership__holdingidentityshorthash_):
+1. Send a re-registration request using the common [registration/re-registration endpoint](../../../reference/rest-api/openapi.html#tag/Member-Registration/operation/get_membership__holdingidentityshorthash_):
 
    {{< tabs >}}
    {{% tab name="Bash"%}}

@@ -14,7 +14,7 @@ menu:
 
 ## Creating a Token
 
-To create a pre-auth token for a member, use the [mgm/{holdingidentityshorthash}/preauthtoken POST method](../../../../reference/rest-api/openapi.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__preauthtoken) of the REST API.
+To create a pre-auth token for a member, use the [mgm/{holdingidentityshorthash}/preauthtoken POST method](../../../../reference/rest-api/openapi.html#tag/MGM/operation/post_mgm__holdingidentityshorthash__preauthtoken) of the REST API.
 
 For example, for the member `O=Alice, L=London, C=GB`:
 
@@ -47,7 +47,7 @@ If no time-to-live value is submitted, the token only expires after it is consum
 
 ## Viewing Tokens
 
-To retrieve all valid pre-auth tokens, use the [mgm/{holdingidentityshorthash}/preauthtoken GET method](../../../../reference/rest-api/openapi.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__preauthtoken). A valid token is one that has not been consumed, revoked, or expired.
+To retrieve all valid pre-auth tokens, use the [mgm/{holdingidentityshorthash}/preauthtoken GET method](../../../../reference/rest-api/openapi.html#tag/MGM/operation/get_mgm__holdingidentityshorthash__preauthtoken). A valid token is one that has not been consumed, revoked, or expired.
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -103,7 +103,7 @@ Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f
 
 ## Revoking Tokens
 
-To revoke a pre-auth token, pass the ID of the token to the [mgm/{holdingidentityshorthash}/preauthtoken/revoke/{preauthtokenid} PUT method](../../../../reference/rest-api/openapi.html#tag/MGM-API/operation/put_mgm__holdingidentityshorthash__preauthtoken_revoke__preauthtokenid_). You can retrieve the ID of a token from the response of creating the token, or from the response of the GET method described in [Viewing Tokens]({{< relref "#viewing-tokens" >}}). This prevents the token from being used. Any registrations submitted with a revoked token are automatically declined.
+To revoke a pre-auth token, pass the ID of the token to the [mgm/{holdingidentityshorthash}/preauthtoken/revoke/{preauthtokenid} PUT method](../../../../reference/rest-api/openapi.html#tag/MGM/operation/put_mgm__holdingidentityshorthash__preauthtoken_revoke__preauthtokenid_). You can retrieve the ID of a token from the response of creating the token, or from the response of the GET method described in [Viewing Tokens]({{< relref "#viewing-tokens" >}}). This prevents the token from being used. Any registrations submitted with a revoked token are automatically declined.
 
 {{< tabs >}}
 {{% tab name="Bash"%}}

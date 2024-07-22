@@ -18,7 +18,7 @@ When you apply pre-auth rules, the member registration status is set as `PENDING
 
 ## Adding a Pre-Auth Approval Rule
 
-To add an approval rule for registrations containing a valid pre-auth token, use the [mgm/{holdingidentityshorthash}/approval/rules/preauth POST method](../../../../reference/rest-api/openapi.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__approval_rules_preauth) of the REST API.
+To add an approval rule for registrations containing a valid pre-auth token, use the [mgm/{holdingidentityshorthash}/approval/rules/preauth POST method](../../../../reference/rest-api/openapi.html#tag/MGM/operation/post_mgm__holdingidentityshorthash__approval_rules_preauth) of the REST API.
 
 For example, to specify that all requests that contain a valid pre-auth token, with changes to the endpoint information in the {{< tooltip >}}member{{< /tooltip >}}  context must be manually approved:
 
@@ -42,7 +42,7 @@ Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f
 
 ## Viewing Current Pre-Auth Approval Rules
 
-To retrieve all created pre-auth approval rules, use the [mgm/{holdingidentityshorthash}/approval/rules/preauth GET method](../../../../reference/rest-api/openapi.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__approval_rules_preauth).
+To retrieve all created pre-auth approval rules, use the [mgm/{holdingidentityshorthash}/approval/rules/preauth GET method](../../../../reference/rest-api/openapi.html#tag/MGM/operation/get_mgm__holdingidentityshorthash__approval_rules_preauth).
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -68,7 +68,7 @@ This method returns the rules in the following format:
 
 ## Deleting a Pre-Auth Approval Rule
 
-To delete a pre-auth approval rule, pass the ID of the rule to the [mgm/{holdingidentityshorthash}/approval/rules/preauth/{ruleid} DELETE method](../../../../reference/rest-api/openapi.html#tag/MGM-API/operation/delete_mgm__holdingidentityshorthash__approval_rules_preauth__ruleid_). You can retrieve the ID of a rule from the response of creating the rule, or from the response of the GET method described in [Viewing Current Pre-Auth Approval Rules]({{< relref "#viewing-current-pre-auth-approval-rules" >}}).
+To delete a pre-auth approval rule, pass the ID of the rule to the [mgm/{holdingidentityshorthash}/approval/rules/preauth/{ruleid} DELETE method](../../../../reference/rest-api/openapi.html#tag/MGM/operation/delete_mgm__holdingidentityshorthash__approval_rules_preauth__ruleid_). You can retrieve the ID of a rule from the response of creating the rule, or from the response of the GET method described in [Viewing Current Pre-Auth Approval Rules]({{< relref "#viewing-current-pre-auth-approval-rules" >}}).
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
