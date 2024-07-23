@@ -4,7 +4,19 @@
     <h1>
       R3 Technical Documentation
     </h1>
-
+    <div id="home-search">
+      <form class="navbar-form order-lg-4 order-0">
+ 
+        {{ if .Site.Params.options.flexSearch -}}
+          <input id="userinput" class="form-control is-search rounded-pill" type="search" placeholder="Search the docs" aria-label="Search the docs" autocomplete="off">
+          <button class="btn_search">
+            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
+          </button>
+          <div id="suggestions" class="shadow rounded"></div>
+        {{ end -}}
+        
+      </form>
+    </div>
   </section>
   <section class="section">
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-5">
