@@ -11,7 +11,7 @@ title: "profile"
 
 # profile
 
-This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `profile` arguments. You can use these commands to create, list, update, and delete profiles. A profile is a collection of key-value properties that you can use with other CLI plugins to provide default values for various configuration options.
+This section lists the {{< tooltip >}}Corda CLI{{< /tooltip >}} `profile` sub-commands and their arguments. You can use them to create, list, update, and delete profiles. A profile is a collection of key-value properties that you can use with other CLI plugins to provide default values for various configuration options.
 <style>
 table th:first-of-type {
     width: 30%;
@@ -24,8 +24,8 @@ table th:nth-of-type(2) {
 |-------------|-------------------------------------------------------------------------------------|
 | `create`    | Creates a new profile with the specified properties. See [create](#create).         |
 | `list`      | Lists all available profiles and their properties. See [list](#list).               |
-| `update`    | Updates an existing profile with new or modified properties. See [update](#update). |
-| `delete`    | Deletes an existing profile. See [delete](#delete).                                 |
+| `update`    | Updates existing profiles with new or modified properties. See [update](#update). |
+| `delete`    | Deletes existing profiles. See [delete](#delete).                                 |
 
 ## create
 The `create` sub-command creates new profiles with the specified properties.
@@ -63,11 +63,11 @@ For example, to create a new profile named `prod` with REST API and database pro
 
 The `list` sub-command lists all available profiles and their properties.
 
-| Argument              | Description                                                                  |
-|-----------------------|------------------------------------------------------------------------------|
-| `-e, --encrypted`     | Shows password properties in their encrypted form instead of decrypted.      |
+| Argument              | Description                                                                           |
+|-----------------------|---------------------------------------------------------------------------------------|
+| `-e, --encrypted`     | Displays password properties in their encrypted form rather than in decrypted form.   |
 
-The output displays the name of each profile and its properties. If the `-e` or `--encrypted` option is not provided, password properties are decrypted and displayed in plain text.
+The output displays the name of each profile and its properties. If the `-e` or `--encrypted` argument is not provided, password properties are decrypted and displayed in plain text.
 For example, to list all available profiles and their properties, use the following code:
 
 {{< tabs name="list-example">}}
@@ -116,7 +116,7 @@ The `delete` sub-command deletes existing profiles.
 |--------------|-----------------------------------------------------------------|
 | `-n, --name` | The name of the profile to delete. This is a required argument. |
 
-You are prompted to confirm the deletion before the profile is removed.
+You will be prompted to confirm the deletion before the profile is removed.
 For example, to delete the `prod` profile, use the following code:
 
 {{< tabs name="delete-example">}}
