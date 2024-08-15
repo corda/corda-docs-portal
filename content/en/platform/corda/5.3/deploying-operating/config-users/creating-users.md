@@ -174,3 +174,99 @@ Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f
 {{< note >}}
 Currently, Corda checks if a user can execute `startFlow` REST operations. No checks are made to whether the user can start a particular flow.
 {{< /note >}}
+
+## Managing User Properties
+
+You can add, list, or remove user properties, as well as find users with a specified key-value property using the endpoints listed in this section.
+
+{{< note >}}
+You must have the `UserAdminRole` role to be able to manage the properties of RBAC users.
+{{< /note >}}
+
+### Add User Properties
+
+You can add properties to RBAC users using the POST method of the [/api/v5_3/user/{loginName}/property endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User/operation/post_user__loginname__property). For example:
+
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```shell
+curl -k -u $REST_API_USER:$REST_API_PASSWORD \
+     -X POST "$REST_API_URL/users/${loginName}/property" \
+     -H "Content-Type: application/json" \
+     -d "${propertyData}"
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Invoke-RestMethod -SkipCertificateCheck `
+                  -Headers @{ Authorization = ("Basic {0}" -f $AUTH_INFO) } `
+                  -Uri "$REST_API_URL/users/$loginName/property" `
+                  -Method Post `
+                  -ContentType "application/json" `
+                  -Body $propertyDataJson
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+### List User Properties
+
+You can list properties of RBAC users using the GET method of the [/api/v5_3/user/{loginName}/property endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User/operation/get_user__loginname__property). For example:
+
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```shell
+curl -k -u $REST_API_USER:$REST_API_PASSWORD \
+     -X GET "$REST_API_URL/users/${loginName}/property"
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Invoke-RestMethod -SkipCertificateCheck `
+                  -Headers @{ Authorization = ("Basic {0}" -f $AUTH_INFO) } `
+                  -Uri "$REST_API_URL/users/$loginName/property" `
+                  -Method Get
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+### Remove User Properties
+
+You can remove properties of RBAC users using the DELETE method of the [/api/v5_3/user/{loginName}/property/{propertyKey} endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User/operation/delete_user__loginname__property__propertykey_). For example:
+
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```shell
+curl -k -u $REST_API_USER:$REST_API_PASSWORD \
+     -X DELETE "$REST_API_URL/users/${loginName}/property/${propertyKey}"
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Invoke-RestMethod -SkipCertificateCheck `
+                  -Headers @{ Authorization = ("Basic {0}" -f $AUTH_INFO) } `
+                  -Uri "$REST_API_URL/users/$loginName/property/$propertyKey" `
+                  -Method Delete
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+### Find Users
+
+You can find users with a specified property key and value using the GET method of the [/api/v5_3/user/findByProperty/{propertyKey}/{propertyValue} endpoint](../../reference/rest-api/openapi.html#tag/RBAC-User/operation/get_user_findbyproperty__propertykey___propertyvalue_). For example:
+
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```shell
+curl -k -u $REST_API_USER:$REST_API_PASSWORD \
+     -X GET "$REST_API_URL/users/findByProperty/${propertyKey}/${propertyValue}"
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Invoke-RestMethod -SkipCertificateCheck `
+                  -Headers @{ Authorization = ("Basic {0}" -f $AUTH_INFO) } `
+                  -Uri "$REST_API_URL/users/findByProperty/$propertyKey/$propertyValue" `
+                  -Method Get
+```
+{{% /tab %}}
+{{< /tabs >}}
