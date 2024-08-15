@@ -177,7 +177,7 @@ Currently, Corda checks if a user can execute `startFlow` REST operations. No ch
 
 ## Managing User Properties
 
-You can add, list, or remove user properties, as well as find users with a specified property using the endpoints listed in this section. Property is a key-value pair, for example, `postcode`: `SW1A 1AA`. You can have a set of standard keys such as `First Name`, `Middle Names`, `Alternative e-mail address`, `Mobile`, as well as custom keys which only apply for a particular user.
+You can add, list, or remove user properties, as well as find users with a specified key-value property using the endpoints listed in this section.
 
 {{< note >}}
 You must have the `UserAdminRole` role to be able to manage the properties of RBAC users.
