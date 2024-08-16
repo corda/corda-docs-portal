@@ -29,6 +29,10 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 and below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
 
+{{< important >}}
+When upgrading from a 4.11 Corda network, it is extremely important that you run the Transaction Validator Utility on your 4.11 node database to verify that the transactions in the 4.11 node are compatible with 4.12 nodes. For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
+{{< /important >}}
+
 ## Platform version change
 
 Corda 4.12 uses platform version 140.
