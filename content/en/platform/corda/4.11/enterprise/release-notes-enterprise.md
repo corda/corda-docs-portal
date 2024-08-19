@@ -25,10 +25,6 @@ If you are using the Archive Service with Corda Enterprise Edition 4.11, you mus
 
 Corda Enterprise Edition 4.11.4 is a patch release of Corda Enterprise Edition focused on resolving issues.
 
-### Upgrade recommendation
-
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node](upgrading-index.md).
-
 ### Fixed issues
 
 * `ReleaseFinalityFlow` was returning a transaction that was missing the notary signature. This has now been fixed. The returned transaction now includes the notary signature.
