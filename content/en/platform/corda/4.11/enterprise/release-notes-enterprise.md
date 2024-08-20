@@ -21,6 +21,17 @@ weight: 10
 If you are using the Archive Service with Corda Enterprise Edition 4.11, you must use the 1.1.x stream of the Archive Service release. For more details, see [Archive Service]({{< relref "../../../../tools/archiving-service/archiving-release-notes.md" >}}).
 {{< /note >}}
 
+## Corda Enterprise Edition 4.11.4 release notes
+
+Corda Enterprise Edition 4.11.4 is a patch release of Corda Enterprise Edition focused on resolving issues.
+
+### Fixed issues
+
+* `ReleaseFinalityFlow` was returning a transaction that was missing the notary signature. This has now been fixed. The returned transaction now includes the notary signature.
+* `ReceiveTransactionFlow` was checking that the network parameters on the transaction existed before `ResolveTransactionFlow` was executed.
+This could cause a problem in certain scenarios; for example, when sending a top-level transaction to a new node in a migrated network, as the old network parameters would not exist on this new node. This has now been fixed.
+* When resolving a party, in some code paths, `wellKnownPartyFromAnonymous` did not consider notaries from network parameters when trying to resolve an X.500 name. This scenario could occur when introducing a new node to a newly-migrated network as the new node would not have the old notary in its network map. This has now been fixed. Notaries from network parameters are now considered in the check.
+
 ## Corda Enterprise Edition 4.11.3 release notes
 
 Corda Enterprise Edition 4.11.3 is a patch release of Corda Enterprise Edition focused on resolving issues.
@@ -31,7 +42,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
-* Database upgrades failed when upgrading from a pre-4.11 node, if the database contained new-style confidential identities, that is, those without a certificate. 
+* Database upgrades failed when upgrading from a pre-4.11 node, if the database contained new-style confidential identities, that is, those without a certificate.
 
 ## Corda Enterprise Edition 4.11.2 release notes
 
