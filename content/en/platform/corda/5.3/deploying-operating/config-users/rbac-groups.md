@@ -13,11 +13,15 @@ weight: 1500
 
 RBAC groups are organizational structures used to manage user permissions efficiently. They function similarly to folders in a file system:
 
-Groups can be nested within one another, creating a hierarchical structure.
-Roles are assigned to groups and inherited by all users within that group and its subgroups.
-Users can have one parent group, allowing for flexible permission management.
+* Groups can be nested within one another, creating a hierarchical structure.
+* Roles are assigned to groups and inherited by all users within that group and its subgroups.
+* Users can have one parent group, allowing for flexible permission management.
 
 By setting a user's parent group, you can easily assign roles and permissions based on group membership. This approach allows for streamlined management of access rights across your organization.
+
+{{< note >}}
+You must have the `UserAdminRole` role to be able to manage RBAC user groups.
+{{< /note >}}
 
 RBAC groups are created and managed using the REST API. This section describes the following:
 
@@ -25,7 +29,7 @@ RBAC groups are created and managed using the REST API. This section describes t
 
 ## Creating Groups
 
-You can create a new group using the POST method of the /api/v5_3/group endpoint. You must include a name for the group and optionally specify a parent group ID. For example:
+You can create a new group using the POST method of the [/api/v5_3/group](../../reference/rest-api/openapi.html#tag/RBAC-Group/operation/post_group) endpoint. You must include a name for the group and optionally specify a parent group ID. For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -45,13 +49,9 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 {{% /tab %}}
 {{< /tabs >}}
 
-{{< note >}}
-You must have the UserAdminRole role to create new groups.
-{{< /note >}}
-
 ## Changing Parent Groups
 
-You can change the parent group of an existing group using the PUT method of the /api/v5_3/group/{groupId}/parent/changeparentid/{newParentGroupId} endpoint. For example:
+You can change the parent group of an existing group using the PUT method of the [/api/v5_3/group/{groupid}/parent/changeparentid/{newparentgroupid}](../../reference/rest-api/openapi.html#tag/RBAC-Group/operation/put_group__groupid__parent_changeparentid__newparentgroupid_) endpoint. For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -68,7 +68,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 
 ## Assigning Roles to Groups
 
-You can assign a role to a group using the PUT method of the /api/v5_3/group/{groupId}/role/{roleId} endpoint. For example:
+You can assign a role to a group using the PUT method of the [/api/v5_3/group/{groupId}/role/{roleId}](../../reference/rest-api/openapi.html#tag/RBAC-Group/operation/put_group__groupid__role__roleid_) endpoint. For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -85,7 +85,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 
 ## Removing Roles from Groups
 
-You can remove a role from a group using the DELETE method of the /api/v5_3/group/{groupId}/role/{roleId} endpoint. For example:
+You can remove a role from a group using the DELETE method of the [/api/v5_3/group/{groupId}/role/{roleId}](../../reference/rest-api/openapi.html#tag/RBAC-Group/operation/delete_group__groupid__role__roleid_) endpoint. For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -102,7 +102,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 
 ## Retrieving Group Content
 
-You can retrieve the content of a group, including its users and subgroups, using the GET method of the /api/v5_3/group/{groupId} endpoint. For example:
+You can retrieve the content of a group, including its users and subgroups, using the GET method of the [/api/v5_3/group/{groupId}](../../reference/rest-api/openapi.html#tag/RBAC-Group/operation/get_group__groupid_) endpoint. For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -124,14 +124,14 @@ This request returns the following for the group:
 * `updateTimestamp` — the date and time when the group was last updated.
 * `name` — the name of the group.
 * `parentGroupId` — the ID of the parent group.
-* `properties` — a set of key/value properties associated with the group.
+* `properties` — a set of key-value properties associated with the group.
 * `roleAssociations` — a set of roles associated with the group.
 * `users` — a set of users which have this group as their parent group.
 * `subgroups` — a set of groups which have this group as their parent group.
 
 ## Deleting Groups
 
-You can delete an empty group (a group with no users or subgroups) using the DELETE method of the /api/v5_3/group/{groupId} endpoint. For example:
+You can delete an empty group (a group with no users or subgroups) using the DELETE method of the [/api/v5_3/group/{groupId}](../../reference/rest-api/openapi.html#tag/RBAC-Group/operation/delete_group__groupid_) endpoint. For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}

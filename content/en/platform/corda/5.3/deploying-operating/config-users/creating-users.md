@@ -273,7 +273,7 @@ Invoke-RestMethod -SkipCertificateCheck `
 
 ## Setting Parent Group for Users
 
-You can set or change the parent group of a user using the PUT method of the [/api/v5_3/user/{loginName}/changeparentid/{groupId}]() endpoint. This allows you to organize users into different groups for better management and role assignment. For example:
+You can set or change the parent group of a user using the PUT method of the [/api/v5_3/group/{groupid}/parent/changeparentid/{newparentgroupid}](../../reference/rest-api/openapi.html#tag/RBAC-Group/operation/put_group__groupid__parent_changeparentid__newparentgroupid_) endpoint. This allows you to organize users into different groups for better management and role assignment. For example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -287,6 +287,10 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 ```
 {{% /tab %}}
 {{< /tabs >}}
+
+{{< note >}}
+You must have the `UserAdminRole` role to be able to set or change the parent group of a user.
+{{< /note >}}
 
 This request updates the user's parent group.
 
