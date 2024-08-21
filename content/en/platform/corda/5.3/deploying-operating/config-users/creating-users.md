@@ -296,4 +296,4 @@ This request updates the user's parent group.
 
 To remove a user from their current group and place them in the root group, you can use `null` as the group ID.
 
-Changing a user's parent group affects their permissions, as users inherit roles and permissions from their parent groups. Ensure to review the user's effective permissions after changing their group.
+Changing a user's parent group affects their permissions, as users inherit roles and permissions from their parent groups. Make sure that you review the user's effective permissions after changing their group.
