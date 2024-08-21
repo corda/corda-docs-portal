@@ -270,3 +270,30 @@ Invoke-RestMethod -SkipCertificateCheck `
 ```
 {{% /tab %}}
 {{< /tabs >}}
+
+## Setting Parent Group for Users
+
+You can set or change the parent group of a user using the PUT method of the [/api/v5_3/group/{groupid}/parent/changeparentid/{newparentgroupid}](../../reference/rest-api/openapi.html#tag/RBAC-Group/operation/put_group__groupid__parent_changeparentid__newparentgroupid_) endpoint. This allows you to organize users into different groups for better management and role assignment. For example:
+
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```shell
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT $REST_API_URL/user/jbloggs/changeparentid/marketing-group-id-123
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/user/jbloggs/changeparentid/marketing-group-id-123" -Method Put
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+{{< note >}}
+You must have the `UserAdminRole` role to be able to set or change the parent group of a user.
+{{< /note >}}
+
+This request updates the user's parent group.
+
+To remove a user from their current group and place them in the root group, you can use `null` as the group ID.
+
+Changing a user's parent group affects their permissions, as users inherit roles and permissions from their parent groups. Make sure that you review the user's effective permissions after changing their group.
