@@ -22,7 +22,7 @@ tags:
 
 ## Corda Open Source Edition 4.12.1 release notes
 
-Corda Community Edition 4.12.1 is a patch release of Corda Community Edition focused on resolving issues.
+Corda Open Source Edition 4.12.1 is a patch release of Corda Community Edition focused on resolving issues.
 
 ### Fixed issues
 
