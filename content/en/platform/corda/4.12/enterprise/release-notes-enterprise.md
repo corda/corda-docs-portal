@@ -17,13 +17,26 @@ weight: 10
 
 # Corda Enterprise Edition 4.12 release notes
 
+## Corda Enterprise Edition 4.12.1 release notes
+
+Corda Enterprise Edition 4.12.1 is a patch release of Corda Enterprise Edition focused on resolving issues.
+
+### Fixed issues
+
+* `ReleaseFinalityFlow` was returning a transaction that was missing the notary signature. This has now been fixed. The returned transaction now includes the notary signature.
+* `ReceiveTransactionFlow` was checking that the network parameters on the transaction existed before `ResolveTransactionFlow` was executed.
+    This could cause a problem in certain scenarios; for example, when sending a top-level transaction to a new node in a migrated network, as the old network parameters would not exist on this new node. This has now been fixed.
+* When resolving a party, in some code paths, `wellKnownPartyFromAnonymous` did not consider notaries from network parameters when trying to resolve an X.500 name. This scenario could occur when introducing a new node to a newly-migrated network as the new node would not have the old notary in its network map. This has now been fixed. Notaries from network parameters are now considered in the check.
+
+## Corda Enterprise Edition 4.12 release notes
+
 The Corda Enterprise Edition 4.12 release introduces upgrades to the Java and Kotlin versions, along with associated upgrade support. Apart from the features supporting the Java and Kotlin upgrade, no other major new features have been introduced. In this release, Java has been upgraded to Java 17 from Java 8 and Kotlin has been upgraded to Kotlin 1.9.20 from 1.2.71.
 
 When a CorDapp(s) and a node are successfully upgraded to 4.12, you are able to seamlessly interoperate 4.12 and 4.11 (or earlier) nodes on the same network, including the existing transactions on the ledger.
 
 Supporting new Java and Kotlin versions is a major feature, as we must also handle legacy contracts from existing backchains. The upgraded Java and Kotlin versions also have implications for CorDapp developers. Simply replacing the Corda JAR without introducing other changes is not possible.
 
-## Upgrade recommendation
+### Upgrade recommendation
 
 {{< important >}}
 When upgrading from a 4.11 Corda network, it is extremely important that you run the Transaction Validator Utility on your 4.11 node database to verify that the transactions in the 4.11 node are compatible with 4.12 nodes. For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
@@ -33,19 +46,19 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 and below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
 
-## Platform version change
+### Platform version change
 
 Corda 4.12 uses platform version 140.
 
 For more information about platform versions, see [Versioning]({{< relref "cordapps/versioning.md" >}}).
 
-## New features, enhancements and restrictions
+### New features, enhancements and restrictions
 
-### Java and Kotlin upgrade
+#### Java and Kotlin upgrade
 
 Corda 4.12 requires Java 17 and Kotlin 1.9.20. This means that you must recompile any legacy CorDapps written for 4.11 or earlier to work with Java 17 and Kotlin 1.9.20 to be compatible with Corda 4.12. These upgrades enhance the supportability and security of Corda.
 
-### Java 17 compatible releases of Corda SDKs
+#### Java 17 compatible releases of Corda SDKs
 
 The base Corda package includes several SDKs and libraries. These SDKs and libraries are compatible with Java 17 and Kotlin 1.9.20:
 
@@ -61,23 +74,23 @@ The base Corda package includes several SDKs and libraries. These SDKs and libra
 | ledger-graph              | 1.3                           |
 | r3-tools                  | 4.12                          |
 
-### Transaction Validator Utility
+#### Transaction Validator Utility
 
 Corda 4.12 introduces the Transaction Validator Utility (TVU), a tool that validates transactions committed to the database to avoid post-migration errors when upgrading to Corda 4.12. For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
 
-### Support for signature constraints only
+#### Support for signature constraints only
 
 Only CorDapps using signature constraints are supported in Corda 4.12; hash constraints are not supported. Using signature constraints has been recommended in previous releases of Corda as it eases the CorDapp upgrade process. If you have any 4.11 CorDapps using hash constraints, you must migrate them to signature constraints on 4.11 before upgrading to 4.12.
 
-### Corda 4.11 and 4.12 CorDapps must be signed by the same set of keys
+#### Corda 4.11 and 4.12 CorDapps must be signed by the same set of keys
 
 Once you have recompiled your 4.12 CorDapps for Java 17 and Kotlin 1.9.20, you must sign them using the same set of keys used by the 4.11 CorDapp.
 
-### Explicit contract upgrade is not supported
+#### Explicit contract upgrade is not supported
 
 Explicit contract upgrade is not supported in Corda 4.12.
 
-### `toLedgerTransaction.verify` does not work for legacy transactions
+#### `toLedgerTransaction.verify` does not work for legacy transactions
 
 You must review your CorDapps and check for any making the following calls:
 * `SignedTransaction.toLedgerTransaction().verify()`
@@ -86,11 +99,11 @@ You must review your CorDapps and check for any making the following calls:
 
 CorDapps that make the above calls will not work for legacy transactions. To make those CorDapps compatible, change them to `SignedTransaction.verify()`.
 
-### Corda node explorer not supported on Java 17
+#### Corda node explorer not supported on Java 17
 
 The node explorer has not been converted to use Java 17 and is not provided in the release packs. If you wish to use a node explorer, the only current option is to use a 4.11 node explorer and use it to connect to a 4.12 node.
 
-### Samples Kotlin and Java support
+#### Samples Kotlin and Java support
 
 The following two public repositories provide various CorDapp samples (branch: release/4.12):
 * [Samples Kotlin repository](https://github.com/corda/samples-kotlin/tree/release/4.12)
@@ -159,7 +172,7 @@ The samples listed below have been converted to and tested with Java 17 and Kotl
 |                    | stockpaydividend                     |
 |                    | tokentofriend                        |
 
-### Kotlin and Java CorDapp templates
+#### Kotlin and Java CorDapp templates
 
 The following Kotlin and Java CorDapp templates have been converted to Java 17, Kotlin 1.9.20, and Gradle 7.6.4. They have been written to work with Corda Open Source Edition (branch: release/4.12):
 * [Kotlin CorDapp template](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12)
@@ -169,31 +182,31 @@ The following Kotlin and Java CorDapp templates have been converted to Java 17, 
 
 The optional gateway plugins release pack contains the flow and node management plugins used by the CENM gateway service. These plugins provide GUI-based flow and node management functionality. Since CENM has not yet been converted to use Java 17, these plugins are not included in the 4.12 release. Once CENM and plugins have been converted, they will be added in a future release. If you wish to use flow and node management functionality, you can obtain the plugins from the 4.11 `optional-gateway-plugins` release pack and use them with the CENM gateway service.
 
-### CorDapp using internal APIs or reflective access
+#### CorDapp using internal APIs or reflective access
 
 If your CorDapp is using internal APIs or reflective access, then you may need to explicitly open the module on the command line. You can do this by adding one or more `–add-opens` options when starting Corda.
 
-## Fixed issues
+### Fixed issues
 
-### Thread.contextClassLoader set for resumed flow on node startup
+#### Thread.contextClassLoader set for resumed flow on node startup
 
 Previously, if a flow was resuming on node startup, the thread context class loader was not set, potentially causing `ClassNotFound` issues for CorDapp classes. This has been fixed now.
 
-## Known issues
+### Known issues
 
-### Extra stack trace output when logging level is `TRACE`
+#### Extra stack trace output when logging level is `TRACE`
 
 If you start the node with log level set to trace via the command line option `--logging-level=TRACE`, then you will see some `Unable to format stack trace` outputs from Log4j caused by a bug in Artemis. These can be ignored and have no effect on node operation. They can be removed via a custom log4j.xml where trace output from the `org.apache.activemq.artemis.core.paging.cursor.impl.PageCursorProviderImpl` logger is removed.
 
-### Startup warnings from Log4j
+#### Startup warnings from Log4j
 
 At node startup with the default Log4j, the following message appears: `main WARN The use of package scanning to locate plugins is deprecated and will be removed in a future release.` This is a warning only and can be safely ignored. We are currently investigating alternatives.
 
-### `notaryhealthcheck-client` fails to start
+#### `notaryhealthcheck-client` fails to start
 
 The Corda 4.12 `notaryhealthcheck-client` fails to start. This will be fixed in a future patch release. As an alternative, you can use the `notaryhealthcheck-client` provided with the Corda 4.11 release.
 
-### Intermittent warning from Bouncy Castle when running `deployNodes`
+#### Intermittent warning from Bouncy Castle when running `deployNodes`
 
 When running the Gradle task `deployNodes`, you may occasionally see the following warning message:
 
@@ -203,7 +216,7 @@ exception in disposal thread: org/bouncycastle/util/dispose/DisposalDaemon$3
 
 This is a warning message from the LTS version of Bouncy Castle we are currently using. There is no user impact and it is related to disposing of references with native code. This will be fixed in a future patch release.
 
-## Third party component upgrades
+### Third party component upgrades
 
 The following table lists the dependency version changes between 4.11 and 4.12 Enterprise Editions:
 
