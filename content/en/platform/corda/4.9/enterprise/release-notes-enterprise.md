@@ -21,6 +21,16 @@ weight: 10
 If you are using the Archive Service with Corda Enterprise Edition 4.9, you must use the 1.0.x stream of the Archive Service release. For more details, see [Archive Service]({{< relref "../../../../tools/archiving-service/archiving-release-notes.md" >}}).
 {{< /note >}}
 
+## Corda Enterprise Edition 4.9.10 release notes
+
+Corda Enterprise Edition 4.9.10 is a patch release of Corda Enterprise Edition focused on resolving issues.
+
+### Fixed issues
+
+* `ReceiveTransactionFlow` was checking that the network parameters on the transaction existed before `ResolveTransactionFlow` was executed.
+  This could cause a problem in certain scenarios; for example, when sending a top-level transaction to a new node in a migrated network, as the old network parameters would not exist on this new node. This has now been fixed.
+* When resolving a party, in some code paths, `wellKnownPartyFromAnonymous` did not consider notaries from network parameters when trying to resolve an X.500 name. This scenario could occur when introducing a new node to a newly-migrated network as the new node would not have the old notary in its network map. This has now been fixed. Notaries from network parameters are now considered in the check.
+
 ## Corda Enterprise Edition 4.9.9 release notes
 
 Corda Enterprise Edition 4.9.9 is a patch release of Corda Enterprise focused on resolving issues.
