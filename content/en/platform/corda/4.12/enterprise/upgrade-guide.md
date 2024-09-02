@@ -78,6 +78,7 @@ This guide assumes that you have a working Corda network with one or more Corda 
 To complete the upgrade from Corda 4.11 to Corda 4.12, you need the following components:
 * A Corda 4.12 JAR (obtained from R3).
 * A Corda Transaction Validator Utility JAR (obtained from R3, as part of the Corda 4.12 release package).
+* If pre-4.11 nodes exist on the network - a Corda 4.11 Database Manager tool JAR (obtained from R3, as part of the Corda 4.11 release package)
 * Access to, and the ability to edit the source code for any existing custom CorDapps running in the nodes to be upgraded from 4.11 to 4.12.
 
 ## Upgrade outline
@@ -93,12 +94,41 @@ To upgrade your Corda node from version 4.11 to 4.12, you must perform the follo
 
 ### Validate transactions
 
-When upgrading nodes from Corda 4.11 to Corda 4.12, R3 recommends running the Transaction Validator Utility (TVU) tool included in the Corda 4.12 release package. While this is not a strict requirement, it is a sanity check that runs all existing node transactions through the external verifier. It highlights any issues with the node’s existing backchain so you do not run into any unexpected ledger problems during or after the upgrade.
+When upgrading nodes to Corda 4.12, R3 recommends running the Transaction Validator Utility (TVU) tool included in the Corda 4.12 release package. While this is not a strict requirement, it is a sanity check that runs all existing node transactions through the external verifier. It highlights any issues with the node’s existing backchain so you do not run into any unexpected ledger problems during or after the upgrade.
 
-For more information about TVU and its features, go to the [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}) section.
+If there will be pre-4.11 nodes operating on the network following the node upgrade, it is suggested to also validate the transactions on those nodes that will likely interact with the upgraded 4.12 node. This is to ensure that if an older node sends the 4.12 node a transaction backchain that the it hasn't yet seen, then the upgraded node will be able to handle the backchain.
 
-The example use case in this guide validates the transactions without any additional options.
+The TVU is only compatible with Corda database schemas from version 4.11 onwards. Therefore in order to validate pre-4.11 databases they must be upgraded to the Corda 4.11 schema. For more information about TVU and its features, go to the [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}) section.
 
+The example use cases in this guide validates the transactions without any additional options.
+
+#### Validating Corda 4.10 nodes and earlier
+To validate a pre-4.11 node that will remain operational after a node has been upgraded to Corda 4.12:
+1. Drain the node.
+   You must perform this step so there are no in-flight transactions when the node is stopped. Not draining the node could lead to these transactions not being checked by TVU, potentially causing issues later on.
+3. Stop the node.
+4. Make a backup of the node database.
+5. Place the Database Manager JAR into the root folder of the Corda 4.x node.
+6. Run the Database Manager tool to upgrade the node database to the 4.11 schema:
+   ```
+   $ java -jar tools-database-manager-4.11.4.jar execute-migration
+   ```
+7. Place the TVU JAR into the root folder of the Corda 4.x node.
+8. Run the TVU:
+   ```
+   $ java -jar corda-tools-transaction-validator-4.12-RC01.jar
+   Starting
+   Total Transactions: 41
+   Waiting for all transactions to be processed...
+   Success, All transactions processed.
+   Total time taken: 3943ms
+   ```
+
+If there are any transactions that cannot be validated, the reported issues need to be addressed before proceeding. Otherwise, restore the database backup and defer the upgrade until the issues have been resolved.
+   If all transactions are validated then it is safe to proceed to upgrading the node to Corda 4.11, and then to Corda 4.12.
+
+### Validating Corda 4.11 nodes
+To validate a Corda 4.11 node that is about to be upgraded the 4.12:
 1. Drain the node.
    You must perform this step so there are no in-flight transactions when the node is stopped. Not draining the node could lead to these transactions not being checked by TVU, potentially causing issues later on.
 3. Stop the node.
