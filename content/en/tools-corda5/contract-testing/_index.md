@@ -4,7 +4,7 @@ title: "Contract Testing Framework"
 cascade: 
     project: corda5-tools
     section_menu: corda5-tools
-    version: tools
+    version: "Corda 5 Tools"
 menu:
   corda5-tools:
     weight: 1000
