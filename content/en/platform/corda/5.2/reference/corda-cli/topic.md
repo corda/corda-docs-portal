@@ -36,7 +36,7 @@ The following table lists the `create` sub-commands and arguments:
 | -r, \-\-replicas   | The number of replicas.                                                                                                                                                              |
 | -p, \-\-partitions | The number of partitions.                                                                                                                                                            |
 | -t, \-\-tag        | One or more tags associated with topics and their respective number of partitions. For example:<br> `-t t01=partitions:3 -t t02=partitions:599999`         |
-| -u, \-\-user       | One or more Corda workers and their respective Kafka users. For example:<br> `-u crypto=Charlie -u rest=Rob99999`<br> For more information, see [Create the Default Topics]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.mdd#creating-acl-entries" >}}). |
+| -u, \-\-user       | One or more Corda workers and their respective Kafka users. For example:<br> `-u crypto=Charlie -u rest=Rob99999`<br> For more information, see [Create the Default Topics]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md#creating-acl-entries" >}}). |
 | connect            | Connects to the specified server to create the default topics; see [Create the Default Topics]({{< relref "../../deploying-operating/deployment/deploying/manual-bootstrapping.md#create-the-default-topics" >}}). |
 | preview            | Generates a preview of the required Kafka topic configuration in YAML; see [preview](#preview).                                                                                      |
 
