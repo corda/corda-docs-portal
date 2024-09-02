@@ -130,7 +130,7 @@ If there are any transactions that cannot be validated, the reported issues need
 If the issues can't be immediately addressed, restore the database backup and defer the upgrade until the issues have been resolved.
 If all transactions are validated then it is safe to proceed to upgrading the node to Corda 4.11, and then to Corda 4.12.
 
-### Validating Corda 4.11 nodes
+#### Validating Corda 4.11 nodes
 To validate a Corda 4.11 node that is about to be upgraded to 4.12:
 1. Drain the node.
    You must perform this step so there are no in-flight transactions when the node is stopped. Not draining the node could lead to these transactions not being checked by TVU, potentially causing issues later on.
