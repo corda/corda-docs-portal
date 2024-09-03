@@ -97,9 +97,9 @@ To upgrade your Corda node from version 4.11 to 4.12, you must perform the follo
 
 ### Validate transactions
 
-When upgrading a node to Corda 4.12, R3 recommends running the Transaction Validator Utility (TVU) tool included in the Corda 4.12 release package. While this is not a strict requirement, it is a sanity check that runs all existing node transactions through the external verifier. It highlights any issues with the node’s existing backchain so you do not run into any unexpected ledger problems during or after the upgrade.
+When upgrading a node to Corda 4.12, you must run the Transaction Validator Utility (TVU) tool included in the Corda 4.12 release package. This is a sanity check that runs all existing node transactions through the external verifier. It highlights any issues with the node’s existing backchain so you do not run into any unexpected ledger problems during or after the upgrade.
 
-If there will be pre-4.11 nodes operating on the network following a node's upgrade to 4.12, it is also recommended  to validate the transactions on those older nodes that will likely interact with the upgraded one. This is to ensure that if an older node sends the upgraded node a transaction backchain that it hasn't yet seen, then it will be able to process the backchain.
+If there will be pre-4.11 nodes operating on the network following a node's upgrade to 4.12, you must also run the TVU rool on those older nodes that will likely interact with the upgraded one. This is to ensure that if an older node sends the upgraded node a transaction backchain then it will be able to process it.
 
 The TVU is only compatible with Corda database schemas from version 4.11 onwards. Therefore in order to validate a pre-4.11 database it must be upgraded to the Corda 4.11 schema. 
 
