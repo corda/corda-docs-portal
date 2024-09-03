@@ -19,8 +19,7 @@ This upgrade guide outlines the steps for migrating your Corda 4.11 node to vers
 
 {{< note >}}
 The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 and below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
-{{< /note >}}
-{{< note >}}
+
 When upgrading a node to 4.12 and the result will be a mixed network of pre-4.11 and 4.12 nodes, some validation steps must be taken on the older nodes to ensure compatibility with the upgraded node. See [Validate transactions]({{< relref "#validate-transactions" >}}) below.
 {{< /note >}}
 
@@ -99,7 +98,7 @@ To upgrade your Corda node from version 4.11 to 4.12, you must perform the follo
 
 When upgrading a node to Corda 4.12, you must run the Transaction Validator Utility (TVU) tool included in the Corda 4.12 release package. This is a sanity check that runs all existing node transactions through the external verifier. It highlights any issues with the node’s existing backchain so you do not run into any unexpected ledger problems during or after the upgrade.
 
-If there will be pre-4.11 nodes operating on the network following a node's upgrade to 4.12, you must also run the TVU rool on those older nodes that will likely interact with the upgraded one. This is to ensure that if an older node sends the upgraded node a transaction backchain then it will be able to process it.
+If there will be pre-4.11 nodes operating on the network following a node's upgrade to 4.12, you must also run the TVU tool on those older nodes that will likely interact with the upgraded one. This is to ensure that if an older node sends the upgraded node a transaction backchain then it will be able to process it.
 
 The TVU is only compatible with Corda database schemas from version 4.11 onwards. Therefore in order to validate a pre-4.11 database it must be upgraded to the Corda 4.11 schema. 
 
@@ -108,7 +107,7 @@ For more information about TVU and its features, go to the [Transaction Validato
 The example use cases in this guide validates transactions without any additional options.
 
 #### Validating Corda 4.10 nodes and earlier
-To validate a pre-4.11 node that will remain operational after another node has been upgraded to Corda 4.12:
+To validate a pre-4.11 node:
 1. Drain the node.
    You must perform this step so there are no in-flight transactions when the node is stopped. Not draining the node could lead to these transactions not being checked by TVU, potentially causing issues later on.
 3. Stop the node.
@@ -131,10 +130,10 @@ To validate a pre-4.11 node that will remain operational after another node has 
    ```
 
 If there are any transactions that cannot be validated, the reported issues need to be addressed before proceeding with the upgrade.
-If all transactions are validated then it is safe to proceed to upgrading the node to Corda 4.11, and then to Corda 4.12.
+If all transactions are validated successfully then the node can be upgraded or safely interoperate with a 4.12 node.
 
 #### Validating Corda 4.11 nodes
-To validate a Corda 4.11 node that is about to be upgraded to 4.12:
+To validate a Corda 4.11 node::
 1. Drain the node.
    You must perform this step so there are no in-flight transactions when the node is stopped. Not draining the node could lead to these transactions not being checked by TVU, potentially causing issues later on.
 3. Stop the node.
