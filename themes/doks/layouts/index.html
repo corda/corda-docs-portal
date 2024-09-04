@@ -15,6 +15,58 @@
           <div id="suggestions" class="shadow rounded"></div>
         {{ end -}}
 
+        {{ if .Site.Params.options.pagefind -}}
+          
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+        <script src="/pagefind/pagefind-ui.js"></script>
+        
+        <!-- Container for the Search Input -->
+        <div id="search-input-container"></div>
+        
+        <!-- Container for the Search Results -->
+        <div id="search-results-container"></div>
+        
+       
+        <script>
+          window.addEventListener('DOMContentLoaded', () => {
+              const pfUI = new PagefindUI({
+                  element: "#search-input-container", 
+                  showSubResults: true,
+                  pageSize: 5,
+                  showImages: false,
+                  showEmptyFilters: false
+              });
+      
+              // Monitor the document for additions of the Pagefind drawer
+              const observer = new MutationObserver((mutations) => {
+                  mutations.forEach((mutation) => {
+                      mutation.addedNodes.forEach((node) => {
+                          if (node.nodeType === 1 && node.classList.contains('pagefind-ui__drawer')) {
+                              // Separate the input and results if necessary
+                              const searchInput = node.querySelector('.pagefind-ui__search-input');
+                              const searchResults = node.querySelector('.pagefind-ui__drawer');
+      
+                              if (searchInput && searchResults) {
+                                  document.getElementById('search-input-container').appendChild(searchInput);
+                                  document.getElementById('search-results-container').appendChild(searchResults);
+                              }
+                              observer.disconnect(); // Optionally disconnect after successful relocation
+                          }
+                      });
+                  });
+              });
+      
+              observer.observe(document.body, {
+                  childList: true,
+                  subtree: true
+              });
+          });
+      </script>
+      
+      
+
+        {{ end -}}
+
         {{ if .Site.Params.options.algolia -}}
           <input id="search-input" class="form-control is-search rounded-pill" type="search" placeholder="Search the documentation..." aria-label="Search the documentation..." autocomplete="off">
           <button class="btn_search">
