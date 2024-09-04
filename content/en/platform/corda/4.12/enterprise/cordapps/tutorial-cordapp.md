@@ -21,7 +21,7 @@ weight: 20
 ---
 # Run a sample CorDapp
 
-Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try [building your own]({{< relref "../get-started/tutorials/build-basic-cordapp/basic-cordapp-intro.md" >}}), modifying a [Java](https://github.com/corda/cordapp-template-java) or [Kotlin](https://github.com/corda/cordapp-template-kotlin) template, or using a [community CorDapp](https://www.corda.net/samples/).
+Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try [building your own]({{< relref "../get-started/tutorials/build-basic-cordapp/basic-cordapp-intro.md" >}}), modifying a [Java](https://github.com/corda/cordapp-template-java/tree/release/4.12) or [Kotlin](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12) template, or using a [community CorDapp](https://www.corda.net/samples/).
 
 The local Corda network in the sample includes one notary and two nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation]({{< relref "../node/component-topology.md" >}}).
 
@@ -57,13 +57,13 @@ CorDapps can be written in any language targeting the JVM. However, source files
 {{< tabs name="tabs-1" >}}
 {{% tab name="java" %}}
 ```java
-git clone https://github.com/corda/samples-java
+git clone https://github.com/corda/samples-java/tree/release/4.12
 ```
 {{% /tab %}}
 
 {{% tab name="kotlin" %}}
 ```kotlin
-git clone https://github.com/corda/samples-kotlin
+git clone https://github.com/corda/samples-kotlin/tree/release/4.12
 ```
 {{% /tab %}}
 

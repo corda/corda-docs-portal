@@ -39,7 +39,7 @@ You will need to:
 * Set up your [development environment]({{< relref "getting-set-up.md" >}}).
 * Run a [sample CorDapp]({{< relref "tutorial-cordapp.md" >}}) to see Corda in action (optional).
 * Install the [CorDapp gradle plugin](https://plugins.gradle.org/plugin/net.corda.plugins.cordapp). To ensure you are using the correct version of Gradle, use the Gradle wrapper provided.
-* Copy across the following folder and files from the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin) or the [Java CorDapp Template](https://github.com/corda/cordapp-template-java) to your project's root directory:
+* Copy across the following folder and files from the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12) or the [Java CorDapp Template]((https://github.com/corda/cordapp-template-java/tree/release/4.12) to your project's root directory:
 
   * `gradle/`
   * `gradlew`
@@ -182,8 +182,8 @@ For further information about managing dependencies, see
 ### Example
 
 Below is a sample CorDapp Gradle dependencies block. When building your own CorDapp, use the `build.gradle` file of the
-[Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin) or the
-[Java CorDapp Template](https://github.com/corda/cordapp-template-java) as a starting point.
+[Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12) or the
+[Java CorDapp Template]((https://github.com/corda/cordapp-template-java/tree/release/4.12) as a starting point.
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="groovy" %}}

@@ -27,7 +27,7 @@ of digitally signed, de-duplicated reports useful for later processing.
 
 ## Adding support for observer nodes
 
-Adding support for observer nodes to your application is easy. The Trade reporting demo ([Kotlin](https://github.com/corda/samples-kotlin/tree/master/Features/observableStates-tradereporting), [Java](https://github.com/corda/samples-java/tree/master/Features/observablestates-tradereporting)) shows how to do so.
+Adding support for observer nodes to your application is easy. The Trade reporting demo ([Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.12/Features/observableStates-tradereporting), [Java](https://github.com/corda/samples-java/tree/release/4.12/Features/observablestates-tradereporting)) shows how to do so.
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
