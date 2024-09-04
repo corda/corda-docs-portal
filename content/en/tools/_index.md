@@ -9,7 +9,7 @@ menu:
     identifier: tools
   tools:
     weight: 10
-project: tools
+project: "Corda 4 Tools"
 version: "Corda 4 Tools"
 title: Tools and add-ons
 ---
