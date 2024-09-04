@@ -2,14 +2,14 @@
 date: '2021-04-24T00:00:00Z'
 description: "Documentation for all releases of Corda"
 title: Corda
-project: corda
+project: Corda
 version: 'Corda Index'
 section_menu: corda-index
 identifier: corda-index
 menu:
   projects:
     weight: -5000
-    project: corda
+    project: Corda
     identifier: corda-index
   versions:
     version: 'Corda Index'

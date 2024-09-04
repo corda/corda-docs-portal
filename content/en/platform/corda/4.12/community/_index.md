@@ -1,7 +1,7 @@
 ---
 cascade:
   version: 'Open Source 4.12'
-  project: corda
+  project: Corda
   section_menu: corda-community-4-12
 description: "Documentation for the 4.12 Open Source Edition release of Corda"
 title: "Corda Open Source 4.12"

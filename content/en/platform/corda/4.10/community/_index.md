@@ -8,7 +8,7 @@ menu:
     identifier: about-corda-landing-4-10-community
     weight: -5
     name: Corda Community 4.10
-project: corda
+project: Corda
 section_menu: corda-community-4-10
 title: Corda Community 4.10
 version: 'Community & Open Source 4.10'
