@@ -7,7 +7,7 @@ menu:
   cenm-1-5:
     weight: 1
     name: CENM 1.5
-project: corda
+project: Corda
 section_menu: cenm-1-5
 title: CENM 1.5
 version: 'CENM 1.5'

@@ -1,7 +1,7 @@
 ---
 title: Third-party software notices and licence information - Corda 4.9
 date: '2024-01-19'
-project: corda
+project: Corda
 section_menu: corda-enterprise-4-9
 version: 'Enterprise 4.9'
 menu:

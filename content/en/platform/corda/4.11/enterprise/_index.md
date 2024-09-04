@@ -8,7 +8,7 @@ menu:
     identifier: about-corda-landing-4-11-enterprise
     weight: -30
     name: Corda Enterprise 4.11
-project: corda
+project: Corda
 section_menu: corda-enterprise-4-11
 title: Corda Enterprise 4.11
 version: 'Enterprise 4.11'
