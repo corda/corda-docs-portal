@@ -1,7 +1,7 @@
 ---
 cascade:
   version: 'Corda 5.1'
-  project: corda
+  project: Corda
   section_menu: corda51
 description: "CorDapp Developer documentation for Corda 5.1."
 title: "Developing Applications"

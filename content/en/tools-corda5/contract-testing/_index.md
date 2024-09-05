@@ -2,7 +2,7 @@
 date: '2023-08-12'
 title: "Contract Testing Framework"
 cascade: 
-    project: corda5-tools
+    project: "Corda 5 Tools"
     section_menu: corda5-tools
     version: "Corda 5 Tools"
 menu:

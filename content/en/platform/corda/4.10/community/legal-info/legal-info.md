@@ -1,6 +1,6 @@
 ---
 title: Corda Community Edition 4.10 third-party software notices and information
-project: corda
+project: Corda
 section_menu: corda-community-4-10
 version: 'Community & Open Source 4.10'
 aliases:

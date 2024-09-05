@@ -5,7 +5,7 @@ menu:
     weight: 1000
     parent: api-ref-index
     identifier: api-ref-corda-4
-project: api-ref
+project: "API Reference"
 title: Corda 4 API references
 ---
 
