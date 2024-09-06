@@ -135,7 +135,7 @@ If there are any transactions that cannot be validated, you must address the rep
 If all transactions are validated successfully, then you can upgrade the node, or it can safely interoperate with a 4.12 node.
 
 #### Validating Corda 4.11 nodes
-To validate a Corda 4.11 node::
+To validate a Corda 4.11 node:
 1. Drain the node.
    You must perform this step so there are no in-flight transactions when the node is stopped. Not draining the node could lead to these transactions not being checked by TVU, potentially causing issues later on.
 3. Stop the node.
