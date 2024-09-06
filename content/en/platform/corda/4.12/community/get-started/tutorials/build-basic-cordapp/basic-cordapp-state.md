@@ -27,8 +27,8 @@ Before you start building states, read [Key concepts: States]({{< relref "../../
 The easiest way to write any CorDapp is to start from a template. This ensures that you have the correct files to begin building.
 
 1. Navigate to the Kotlin and Java template repositories and decide which you'd like to clone:
-* https://github.com/corda/cordapp-template-kotlin
-* https://github.com/corda/cordapp-template-java
+* https://github.com/corda/cordapp-template-kotlin/tree/release/4.12
+* (https://github.com/corda/cordapp-template-java/tree/release/4.12
 
 2. Open a terminal window in the directory where you want to download the CorDapp template.
 
@@ -37,13 +37,13 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
-git clone https://github.com/corda/cordapp-template-kotlin.git
+git clone https://github.com/corda/cordapp-template-kotlin/tree/release/4.12.git
 ```
 {{% /tab %}}
 
 {{% tab name="java" %}}
 ```java
-git clone https://github.com/corda/cordapp-template-java.git
+git clone (https://github.com/corda/cordapp-template-java/tree/release/4.12.git
 ```
 {{% /tab %}}
 

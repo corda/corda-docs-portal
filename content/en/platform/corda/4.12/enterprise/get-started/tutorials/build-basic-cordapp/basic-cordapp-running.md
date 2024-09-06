@@ -25,7 +25,7 @@ Deploy and run your CorDapp on the test nodes:
 
 ## Before you start
 
-Before you run your CorDapp, check your work against the [Apple Stamp CorDapp Java solution](https://github.com/corda/samples-java/tree/master/Basic/tutorial-applestamp).
+Before you run your CorDapp, check your work against the [Apple Stamp CorDapp Java solution](https://github.com/corda/samples-java/tree/release/4.12/Basic/tutorial-applestamp).
 
 ## Deploy the CorDapp locally
 
