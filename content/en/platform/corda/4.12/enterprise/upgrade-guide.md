@@ -104,7 +104,7 @@ The TVU is only compatible with Corda database schemas from version 4.11 onwards
 
 For more information about TVU and its features, go to the [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}) section.
 
-The example use cases in this guide validates transactions without any additional options.
+The example use cases in this guide validate transactions without any additional options.
 
 #### Validating Corda 4.10 and earlier nodes
 
