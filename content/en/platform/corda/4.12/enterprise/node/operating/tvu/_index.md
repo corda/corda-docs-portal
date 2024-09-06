@@ -19,9 +19,11 @@ tags:
 # Transaction Validator Utility
 
 {{< important >}}
-Why must you run Transaction Validator Utility (TVU) when upgrading?
+Why must you run the Transaction Validator Utility (TVU) when upgrading?
 
-If you are upgrading from a 4.11 Corda network, you must run TVU on your 4.11 node database to verify that your transactions will successfully deserialize and verify using JDK17. Some classes within the JDK or your dependencies may serialize differently on JDK17 compared to JDK8. The purpose of this tool is to certify that this is **not** the case, and that your ledger is compatible with Corda 4.12. In the rare event that an issue arises, we will collaborate with you to develop a solution that facilitates the upgrade to Corda 4.12.
+If you are upgrading from a 4.11 Corda network, you must run the TVU on your 4.11 node database to verify that your transactions will successfully deserialize and verify using JDK17. Some classes within the JDK or your dependencies may serialize differently on JDK17 compared to JDK8. The purpose of this tool is to certify that this is **not** the case, and that your ledger is compatible with Corda 4.12. In the rare event that an issue arises, we will collaborate with you to develop a solution that facilitates the upgrade to Corda 4.12.
+
+If you are upgrading from a pre-4.11 Corda network, and the result will be a mixed network of pre-4.11 and 4.12 nodes, you must perform validation steps on the older nodes to ensure compatibility with the upgraded nodes. See [Validating Corda 4.10 and earlier nodes]({{< relref "../../../upgrade-guide.html#validating-corda-410-and-earlier-nodes" >}}).
 {{< /important >}}
 
 To avoid post-migration errors when upgrading to Corda 4.12, you must first validate transactions committed to the database. You can do this by running TVU on your current Corda database. If no errors are detected during the inspection of your backchain, you can proceed with the migration.
