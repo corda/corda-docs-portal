@@ -51,9 +51,7 @@
 {{ $versionfolder := replace (index .Site.Params.corda5versions 0) "Corda " "corda/" }}
 {{ $version := string (.Page.Params.version) }}
 {{ with $version }}
-    {{ if ne $version "tools" }}
         {{ $versionfolder = replace (lower ($version)) " " "/" }}
-    {{ end }}
 {{ end }}
 
 {{ $file := printf "%s" "/glossaryitems.json" | printf "%s%s" $versionfolder | printf "%s%s" "content/en/platform/" }}

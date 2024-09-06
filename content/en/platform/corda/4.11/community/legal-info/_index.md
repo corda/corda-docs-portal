@@ -1,7 +1,7 @@
 ---
 title: Third-party software notices and licence information - Corda 4.11 Community
 date: '2024-01-31'
-project: corda
+project: Corda
 section_menu: corda-community-4-11
 version: 'Community & Open Source 4.11'
 menu:

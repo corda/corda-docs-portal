@@ -1,7 +1,7 @@
 ---
 title: Corda Enterprise Edition 4.8.3 third-party software notices and licence information
 date: '2021-04-07T12:00:00Z'
-project: corda
+project: Corda
 section_menu: corda-enterprise-4-8
 version: 'Enterprise 4.8'
 menu:

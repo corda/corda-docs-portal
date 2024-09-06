@@ -1,7 +1,7 @@
 ---
 cascade:
   version: 'Enterprise 4.12'
-  project: corda
+  project: Corda
   section_menu: corda-enterprise-4-12
 description: "Learn what the Transaction Validator Utility is and its different uses."
 title: "Transaction Validator Utility"

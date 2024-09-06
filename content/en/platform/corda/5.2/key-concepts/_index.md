@@ -1,6 +1,6 @@
 ---
 cascade:
-  project: corda
+  project: Corda
   version: 'Corda 5.2'
   section_menu: corda52
 description: "Get started with Corda 5.2 by learning the key concepts."
