@@ -41,7 +41,7 @@ Supporting new Java and Kotlin versions is a major feature, as we must also hand
 {{< important >}}
 When upgrading a node to Corda 4.12, it is extremely important that you run the Transaction Validator Utility on your node database to verify that the transactions in the old node are compatible with 4.12 nodes.
 
-The Transaction Validator Utility must also be run on any older nodes that are not being upgraded and will likely interact with any upgraded nodes, to ensure their their transactions are compatible.
+To ensure compatibility of the transactions, you must also run the Transaction Validator Utility on any older nodes that are not being upgraded and will likely interact with any upgraded nodes.
 
 For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
 {{< /important >}}
