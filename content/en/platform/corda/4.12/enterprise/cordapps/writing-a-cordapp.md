@@ -51,8 +51,8 @@ contracts and states in its own module to reduce transaction size.
 
 R3 provides CorDapp templates in Java and Kotlin to help you get started:
 
-* [Java CorDapp template ](https://github.com/corda/cordapp-template-java)
-* [Kotlin CorDapp template ](https://github.com/corda/cordapp-template-kotlin)
+* [Java CorDapp template ](https://github.com/corda/cordapp-template-java/tree/release/4.12)
+* [Kotlin CorDapp template ](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12)
 
 Use the branch of the template that corresponds to the major version of Corda that you are using. For example,
 if you are building a CorDapp on Corda 4.11, use the `release-V4` branch.
