@@ -106,12 +106,12 @@ To set up the {{< tooltip >}}TLS{{< /tooltip >}} key pair and certificate for th
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u $REST_API_USER:$REST_API_PASSWORD  -X POST -H "Content-Type: application/json" -d '{"x500Name": "CN=CordaOperator, C=GB, L=London, O=Org", "subjectAlternativeNames": ["'$P2P_GATEWAY_HOST'"]}' $REST_API_URL"/certificates/p2p/"$TLS_KEY_ID > "$WORK_DIR"/request1.csr
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD  -X POST -H "Content-Type: application/json" -d '{"x500Name": "CN=CordaOperator, C=GB, L=London, O=Org", "subjectAlternativeNames": ["'$P2P_GATEWAY_HOST'"]}' $REST_API_URL"/certificate/p2p/"$TLS_KEY_ID > "$WORK_DIR"/request1.csr
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/certificates/p2p/$TLS_KEY_ID" -Body (ConvertTo-Json @{
+   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/certificate/p2p/$TLS_KEY_ID" -Body (ConvertTo-Json @{
        x500Name = "CN=CordaOperator, C=GB, L=London, O=Org"
        subjectAlternativeNames = @($P2P_GATEWAY_HOST)
    }) > $WORK_DIR/request1.csr
@@ -155,12 +155,12 @@ To set up the {{< tooltip >}}TLS{{< /tooltip >}} key pair and certificate for th
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT  -F certificate=@<certificate-folder>/certificate.pem -F alias=p2p-tls-cert $REST_API_URL/certificates/cluster/p2p-tls
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT  -F certificate=@<certificate-folder>/certificate.pem -F alias=p2p-tls-cert $REST_API_URL/certificate/cluster/p2p-tls
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$REST_API_URL/certificates/cluster/p2p-tls"  -Form @{
+   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$REST_API_URL/certificate/cluster/p2p-tls"  -Form @{
        certificate = Get-Item -Path <CERTIFICATE_FOLDER>\certificate.pem
        alias = "p2p-tls-cert"
    }
@@ -169,7 +169,7 @@ To set up the {{< tooltip >}}TLS{{< /tooltip >}} key pair and certificate for th
    {{< /tabs >}}
 
    You can optionally omit the root certificate. If revocation is enabled and the root certificate does not have a CRL or OSCP endpoint, you must omit the root certificate.
-   
+
    {{< note >}}
    If you upload a certificate chain consisting of more than one certificate, ensure that `-----END CERTIFICATE-----` and `-----BEGIN CERTIFICATE-----` from the next certificate are separated by a new line with no empty spaces in between.
    {{< /note >}}
