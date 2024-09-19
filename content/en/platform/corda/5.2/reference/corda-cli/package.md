@@ -1,5 +1,5 @@
 ---
-description: "List of package commands for the Corda 5.2 CLI. You can use these commands to execute operations for working with CPB and CPI files. "  
+description: "List of package commands for the Corda 5.2 CLI. You can use these commands to execute operations for working with CPB and CPI files. "
 date: '2023-01-06'
 menu:
   corda52:
@@ -53,7 +53,7 @@ For example:
    {{% tab name="Bash" %}}
    ```sh
    ./corda-cli.sh package create-cpb \
-    mycpk0.cpk mycpk1.cpk \
+    mycpk0.jar mycpk1.jar \
     --cpb-name manifest-attribute-cpb-name \
     --cpb-version manifest-attribute-cpb-version \
     --file output.cpb \
@@ -65,7 +65,7 @@ For example:
    {{% tab name="PowerShell" %}}
    ```shell
     ./corda-cli.cmd package create-cpb `
-    mycpk0.cpk mycpk1.cpk `
+    mycpk0.jar mycpk1.jar `
     --cpb-name manifest-attribute-cpb-name `
     --cpb-version manifest-attribute-cpb-version `
     --file output.cpb `
