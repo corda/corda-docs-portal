@@ -1,0 +1,17 @@
+---
+aliases:
+- /config-angel-service-parameters.htmls
+date: '2024-09-24'
+menu:
+  cenm-1-6:
+    identifier: cenm-1-6-config-angel-service-parameters
+    parent: cenm-1-6-configuration
+    weight: 260
+tags:
+- config
+- angel service
+title: Angel Service Configuration Parameters
+---
+
+
+# The configuration parameters for the Angel Service:
