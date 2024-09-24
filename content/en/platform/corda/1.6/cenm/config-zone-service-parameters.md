@@ -1,6 +1,5 @@
 ---
 aliases:
-- /config-zone-service-parameters.html
   date: '2024-09-24'
   menu:
     cenm-1-6:
