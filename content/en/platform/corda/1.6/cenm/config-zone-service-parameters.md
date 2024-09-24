@@ -10,7 +10,7 @@ menu:
 tags:
 - config
 - zone service
-  title: Zone Service Configuration Parameters
+title: Zone Service Configuration Parameters
 ---
 
 
