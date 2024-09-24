@@ -1,11 +1,11 @@
 ---
 aliases:
-  date: '2024-09-24'
-  menu:
-    cenm-1-6:
-      identifier: cenm-1-6-config-zone-service-parameters
-      parent: cenm-1-6-configuration
-      weight: 256
+date: '2024-09-24'
+menu:
+  cenm-1-6:
+    identifier: cenm-1-6-config-zone-service-parameters
+    parent: cenm-1-6-configuration
+    weight: 256
   tags:
 - config
 - zone service
