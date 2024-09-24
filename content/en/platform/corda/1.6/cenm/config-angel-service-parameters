@@ -1,12 +1,12 @@
 ---
 aliases:
-- /config-angel-service-parameters.htmls
+- /config-angel-service-parameters.html
 date: '2024-09-24'
 menu:
   cenm-1-6:
     identifier: cenm-1-6-config-angel-service-parameters
     parent: cenm-1-6-configuration
-    weight: 260
+    weight: 255
 tags:
 - config
 - angel service
