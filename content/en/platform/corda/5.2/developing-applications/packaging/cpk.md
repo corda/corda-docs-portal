@@ -69,3 +69,7 @@ To sign with a key other than the default key, add a `cordapp/signing` section t
    ```
    ./gradlew jar
    ```
+
+{{< note >}}
+Starting with Corda 5.2, CPKs are now generated as `.jar` files, replacing the previous format of `.cpk` files.
+{{< /note >}}
