@@ -17,7 +17,7 @@ This section describes how to build a {{< tooltip >}}member{{< /tooltip >}} {{< 
 2. [Generate the Group Policy File]({{< relref "#generate-the-group-policy-file" >}})
 3. [Create the CPI File]({{< relref "#create-the-cpi-file" >}})
 4. [Import Code Signing Certificates]({{< relref "#import-code-signing-certificates" >}})
-5. [Import notary certificate]({{< relref "#import-notary-certificate" >}})
+5. [Import the Notary Certificate]({{< relref "#import-the-notary-certificate" >}})
 6. [Upload the CPI]({{< relref "#upload-the-cpi" >}})
 
 {{< note >}}
@@ -199,7 +199,7 @@ Corda validates that uploaded CPIs are signed with a trusted key. To trust your 
 Use an alias that will remain unique over time, taking into account that certificate expiry will require new certificates with the same X.500 name as existing certificates.
 {{< /note >}}
 
-## Import Notary Certificate
+## Import the Notary Certificate
 
 If you are using a network with a notary and your CPB has the contract validating notary plugin, you must add a certificate from that notary to the keystore used when creating the CPI.
 
