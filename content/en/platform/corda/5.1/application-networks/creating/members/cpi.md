@@ -201,7 +201,7 @@ Use an alias that will remain unique over time, taking into account that certifi
 
 ## Import the Notary Certificate
 
-If you are using a network with a notary and your CPB has the contract validating notary plugin, you must add a certificate from that notary to the keystore used when creating the CPI.
+If you are using a network with a notary and your CPB will have the contract validating notary plugin, you must add a certificate from that notary to the CPI keystore.
 
 1. Save the following text into a file named `notary-ca-root.pem`:
 
