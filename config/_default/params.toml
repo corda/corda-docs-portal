@@ -51,6 +51,7 @@ editPage = false
   instantPage = true
   flexSearch = false
   algolia = false
+  pagefind = true
   darkMode = true
   bootStrapJs = true
   breadCrumb = true
