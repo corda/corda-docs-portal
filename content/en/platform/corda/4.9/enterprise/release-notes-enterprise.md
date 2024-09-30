@@ -25,6 +25,10 @@ If you are using the Archive Service with Corda Enterprise Edition 4.9, you must
 
 Corda Enterprise Edition 4.9.10 is a patch release of Corda Enterprise Edition focused on resolving issues.
 
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "../../4.9/enterprise/upgrading-index.md" >}}).
+
 ### Fixed issues
 
 * `ReceiveTransactionFlow` was checking that the network parameters on the transaction existed before `ResolveTransactionFlow` was executed.
