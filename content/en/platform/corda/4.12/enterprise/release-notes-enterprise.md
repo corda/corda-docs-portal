@@ -21,6 +21,20 @@ weight: 10
 
 Corda Enterprise Edition 4.12.1 is a patch release of Corda Enterprise Edition focused on resolving issues.
 
+### Upgrade recommendation
+
+{{< important >}}
+When upgrading a node to Corda 4.12, it is extremely important that you run the Transaction Validator Utility on your node database to verify that the transactions in the old node are compatible with 4.12 nodes.
+
+To ensure compatibility of the transactions, you must also run the Transaction Validator Utility on any older nodes that are not being upgraded and will likely interact with any upgraded nodes.
+
+For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
+{{< /important >}}
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Corda Enterprise Edition 4.11 to 4.12 upgrade guide]({{< relref "upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
+
 ### Fixed issues
 
 * `ReceiveFinalityFlow` was returning a transaction that was missing the notary signature. This has now been fixed. The returned transaction now includes the notary signature.
