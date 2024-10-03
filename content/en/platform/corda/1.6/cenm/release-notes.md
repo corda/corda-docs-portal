@@ -14,6 +14,23 @@ title: Release notes
 
 # Corda Enterprise Network Manager release notes
 
+## Corda Enterprise Network Manager 1.6.1
+
+### New features and enhancements
+
+* `sshdHost` can now be specified within the `shell {}` config block for the CENM services that support Shell.
+* Added a new `host` option in the `enmListener` configuration.
+* Added a new `host` option in the `adminListener` configuration.
+* The Zone Service can now be started with a configuration file instead of command-line flags. However, the original method of starting the Zone Service has been unaffected.
+* The Angel Service can now be started with a configuration file instead of command-line flags. However, the original method of starting the Angel Service has been unaffected.
+
+### Fixed issues
+
+* The Angel Service can now correctly resolve argument paths when the absolute path of the Angel Service JAR file contains spaces.
+* Users can now be reset in the Auth Service.
+
+### Upgraded dependencies
+
 ## Corda Enterprise Network Manager 1.6
 
 ### New features and enhancements
