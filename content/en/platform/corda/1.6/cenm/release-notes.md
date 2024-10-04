@@ -21,8 +21,8 @@ title: Release notes
 * `sshdHost` can now be specified within the `shell {}` config block for the CENM services that support Shell.
 * Added a new `host` option in the `enmListener` configuration.
 * Added a new `host` option in the `adminListener` configuration.
-* The Zone Service can now be started with a configuration file instead of command-line flags. However, the original method of starting the Zone Service has been unaffected.
-* The Angel Service can now be started with a configuration file instead of command-line flags. However, the original method of starting the Angel Service has been unaffected.
+* The Zone Service can now be started either with a configuration file or with command-line options. Any existing deployments using the original method remain unaffected.
+* The Angel Service can now be started either with a configuration file or with command-line options. Any existing deployments using the original method remain unaffected.
 
 ### Fixed issues
 
