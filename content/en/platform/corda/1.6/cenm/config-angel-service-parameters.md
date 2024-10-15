@@ -39,7 +39,7 @@ The `networkParametersFile` property can only be specified if `service.type` is 
   Information about the way the service will communicate with the rest of the CENM deployment.
 
     * **host**:
-    The host or IP of the service.
+    *(Optional)* The host or IP of the service.
 
     * **port**:
     The port that the service will bind to, and other CENM components it will connect to.
