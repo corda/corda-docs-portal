@@ -40,6 +40,10 @@ Information about the way the service will communicate with the rest of the CENM
 * **adminListener**:
   A configuration property you must define in order to use the RPC API in the Zone Service.
   You can add `port`, `reconnect`, and `verbose`. Also, this property has an SSL field - for more information, see [SSL Settings]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-ssl.md" >}}).
+
+  * **host**:
+    *(Optional)* The host or IP of the Admin RPC service.
+
   * **port**:
     Port number to listen to for Admin RPC connections.
   * **verbose**:
