@@ -13,5 +13,80 @@ tags:
 title: Angel Service Configuration Parameters
 ---
 
+# Angel Service Configuration Parameters
 
-# The configuration parameters for the Angel Service:
+The configuration references for the Angel Service are given below:
+
+* **pollingTimeSeconds**:
+*(Optional)* The time in seconds to wait before polling the Zone Service.
+
+* **networkParametersFile**:
+The path of the network parameters file. Only used for the `NETWORK_MAP` service type.
+
+{{% important %}}
+The `networkParametersFile` property can only be specified if `service.type` is set to `NETWORK_MAP`.
+{{% /important %}}
+
+* **service**:
+
+  * **type**:
+  The main class of the plugin being loaded.
+
+  * **jarFile**:
+  *(Optional - defaults to one of: `identitymanager.jar`, `networkmap.jar`, `signer.jar`)* The path to the service JAR.
+
+  * **enmListener**:
+  Information about the way the service will communicate with the rest of the CENM deployment.
+
+    * **host**:
+    The host or IP of the service.
+
+    * **port**:
+    The port that the service will bind to, and other CENM components it will connect to.
+
+    * **verbose**:
+    *(Optional)* Enables verbose logging for the socket layer.
+
+    * **reconnect**:
+    Determines if a client should attempt to reconnect if the connection is dropped.
+
+    * **ssl**:
+    See [SSL Settings]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-ssl.md" >}}).
+
+  * **pluginJar**:
+  *(Optional)* The absolute path to the JAR file of the workflow plugin.
+  
+  * **networkRootTrustStore**:
+  Information about the network root trust store file.
+
+    * **location**:
+    The path of the network parameters file. Only used for Network Map service.
+
+    * **password**:
+    The password for the truststore file.
+
+    * **rootAlias**:
+    The root alias.
+
+    * **validate**:
+    *(Optional)* Validate the network truststore path.
+
+  {{< important >}}
+  As with the `networkParametersFile` property, this can only be specified if `service.type` is set to `NETWORK_MAP`.
+  {{< /important >}}
+
+* **zone**:
+
+  * **host**:
+  The host or IP address of the Zone Service.
+
+  * **port**:
+  The port number of the Zone Service.
+
+  * **authToken**:
+  The Authentication token used to interact with the Zone Service.
+
+## Obfuscated configuration files
+
+To view the latest changes to the obfuscated configuration files,
+see [Obfuscation configuration file changes]({{< relref "../../../../../en/platform/corda/1.6/cenm/obfuscated-config-file-changes.md" >}}).
