@@ -41,7 +41,7 @@ java -jar angel-<VERSION>.jar -f angel.conf
 OR you can start the Angel Service with the following command and arguments:
 
 ``` {.bash}
-java -jar angel-<VERSION>.jar --zone-host zone.example.org --zone-port 5050 --token topsecret --service IDENTITY_MANAGER
+java -jar angel-<VERSION>.jar --zone-host zone.example.org --zone-port 5050 --token <zone-token> --service IDENTITY_MANAGER
 ```
 
 The full list of arguments you can use when starting the Angel Service are described below:
