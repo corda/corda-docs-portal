@@ -38,8 +38,13 @@ by the Angel Service for the appropriate Network Map Service.
 
 ## Running the Zone Service
 
-The Zone Service does not have a configuration file, and is configured entirely
-from the command-line. To run the Zone Service, use a command like the one shown in the example below:
+The Zone Service can either be configured with a configuration file and can be run via the command:
+
+```bash
+java -jar zone.jar -f zone.conf
+```
+
+OR the zone service can be configured entirely from the command-line. To run the Zone Service this way, use a command like the one shown in the example below:
 
 ```bash
 java -jar zone.jar --enm-listener-port=5061 --url=\"jdbc:h2:file:/opt/zone/zone-persistence;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=10000;WRITE_DELAY=0;AUTO_SERVER_PORT=0\" --user=testuser --password=password --admin-listener-port=5063 --driver-class-name=org.h2.jdbcx.JdbcDataSource --auth-host=auth-service --auth-port=8081 --auth-trust-store-location=certificates/corda-ssl-trust-store.jks --auth-trust-store-password=trustpass --auth-issuer=http://test --auth-leeway=10 --run-migration=true
@@ -70,6 +75,118 @@ The full list of configuration options follows below:
 - `--auth-issuer`: The \"iss\" claim in the JWT - you must set the same value as in the Auth Service's configuration. Required unless authentication and authorisation are disabled.
 - `--auth-leeway`: Defines the amount of time, in seconds, allowed when checking JSON Web Token (JWT) issuance and expiration times. Required unless authentication and authorisation are disabled. R3 recommends a default time of **10 seconds**.
 - `--working-dir`: Defines the working directory to the specified directory. The service will look for files in that directory. This means certificates, configuration files etc. should be under the working directory. If not specified it will default to the current working directory (the directory from which the service has been started).
+
+## Configuration
+
+The main elements that need to be configured for the Zone Service are:
+
+
+* [Database](#database)
+* [Admin RPC Interface](#admin-rpc-interface)
+
+### Database
+
+The Zone Service is backed by a SQL database which it uses to store information such as the configuration files for each service for the Angel Service to download.
+
+The connection settings must be included within
+the `database` configuration block in the configuration file. The main options that should be included here are:
+
+* `driverClassName` - the database driver class name (e.g *com.microsoft.sqlserver.jdbc.SQLServerDriver* for Microsoft SQL Server, *org.postgresql.Driver* for postgres)
+* `jdbcDriver` - the path to the appropriate JDBC driver JAR (e.g *path/to/mssql-jdbc-7.2.2.jre8.jar*)
+* `url` - the connection string for the database
+* `user` - the username for the database
+* `password` - the password for the database
+
+
+#### Database Setup
+
+The database can either be setup prior to running the Zone Service or, alternatively, it can be
+automatically prepared on start-up via the built-in migrations. To enable the running of database migrations on start-up
+the optional `runMigration` parameter within the `database` configuration should be set to true.
+
+#### Additional Properties
+
+Additional database properties can be loaded by including an optional *additionalProperties* configuration block. Currently
+these are restricted to HikariCP configuration settings.
+
+```guess
+database {
+    ...
+    additionalProperties {
+        connectionTimeout = 60000
+        maxLifetime = 3200000
+        poolName = "myPool123"
+    }
+}
+```
+
+#### Example
+
+An example configuration for a Zone Service using a Microsoft SQL Server database, configured to run the
+migrations on start-up is:
+
+```guess
+database {
+    driverClassName = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    jdbcDriver = "path/to/mssql-<EXAMPLE_JDBC_DRIVER>.jar"
+    url = "jdbc:sqlserver://<EXAMPLE_CONNECTION_STRING>"
+    user = "example-user"
+    password = "example-password"
+    schema = "zone_service"
+    runMigration = true
+    additionalProperties {
+        connectionTimeout = 60000
+        maxLifetime = 3200000
+        poolName = "myPool123"
+    }
+}
+```
+
+### Admin RPC Interface
+
+To enable the CENM Command-Line Interface (CLI) tool to send commands to the Zone Service,
+you must enable the RPC API by defining a configuration block called `adminListener`.
+The configuration block `adminListener` is used to define the properties of this
+listener, such as the port it listens on as well as the retrying and logging behaviour, an example is provided below:
+
+```guess
+...
+adminListener {
+    port = 5050
+    reconnect = true
+    ssl {
+        keyStore {
+            location = exampleSslKeyStore.jks
+            password = "password"
+        }
+        trustStore {
+            location = exampleSslTrustStore.jks
+            password = "trustpass"
+        }
+    }
+}
+...
+```
+
+{{< note >}}
+The `reconnect` parameter is optional - it will default to `reconnect = true` if not set.
+{{< /note >}}
+
+The admin RPC interface requires an Auth Service to verify
+requests, which must be configured below in a `authServiceConfig` block, an example is provided below for reference:
+
+```guess
+authServiceConfig {
+    host = <Auth Service host>
+    port = <Auth Service port>
+    trustStore = {
+        location = /path/to/trustroot.jks
+        password = <key store password>
+    }
+    issuer = <issuer>
+    leeway = <leeway duration>
+}
+```
 
 ## Configurations for other CENM services
 
