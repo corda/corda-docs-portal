@@ -32,7 +32,13 @@ You can also provide the following:
 - A host and a port to display the health check API for the Angel Service (to be used by Kubernetes, for example).
 - A poll timeout for how often the Zone Service should be checked for changes.
 
-You can start the Angel Service with the following command:
+This should either be specified in a config file or on the command line. You can start the Angel Service with the following command:
+
+``` {.bash}
+java -jar angel-<VERSION>.jar -f angel.conf
+```
+
+OR you can start the Angel Service with the following command and arguments:
 
 ``` {.bash}
 java -jar angel-<VERSION>.jar --zone-host zone.example.org --zone-port 5050 --token topsecret --service IDENTITY_MANAGER
@@ -59,7 +65,77 @@ The full list of arguments you can use when starting the Angel Service are descr
 
 ## Configuration
 
-The Angel Service is configured via the command-line and it downloads the configuration of the managed service from the Zone Service.
+The Angel Service can either be configured via the command-line or with a configuration file. It then downloads the configuration of the managed service from the Zone Service.
+
+The main elements that need to be configured for the Angel Service are:
+
+* [Service](#service)
+  * [Type](#type)
+  * [JAR File](#jar-file)
+* [Zone](#zone)
+
+### Service
+
+The service component of the Angel Service is the service that is started and managed by the Angel Service.
+
+#### Type
+
+The service type can be one of three services that the Angel service can manage
+
+* `IDENTITY_MANAGER`
+* `NETWORK_MAP`
+* `SIGNER`
+
+The configuration for the `IDENTITY_MANAGER` and `SIGNER` managed service types are more or less the same however when running the Angel Service with the `NETWORK_MAP` as the managed service type then two additional configuration parameters need to be specified.
+
+##### networkParametersFile
+
+The network parameters are the set of values that every node participating in the network needs to agree on to interoperate with each other. See [Network Parameters Configuration Parameters]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-network-map-parameters.md" >}}) for a detailed explanation.
+
+The file specified for this parameter needs to be the plain-text version of the network parameters also used when setting the initial network parameters, this is not the binary `network-parameters` file that Corda nodes use.
+
+##### networkRootTrustStore
+
+This should be set as the path for the `network-root-truststore.jks` of the network (initially generated using the PKI tool)
+
+The network root truststore should be configured inside the `service` configuration block:
+
+```guess
+service = {
+    type = NETWORK_MAP
+    jarFile = "networkmap.jar"
+    ...
+    networkRootTrustStore = {
+        rootAlias = "cordarootca"
+        location = "./certificates/network-root-truststore.jks"
+        password = "trustpass"
+    }
+}
+```
+
+#### Jar File
+
+The `jarFile` parameter is the path to the JAR which the Angel Service will use to start a new Java process, there is a default file name for each managed service type:
+
+* `identitymanager.jar`
+* `networkmap.jar`
+* `signer.jar`
+
+### Zone
+
+The `zone` configuration block details the connection to the Zone Service, this is needed to download the configuration file for the managed service. To configure the `zone` configuration make sure you have generated a zone token for the corresponding managed service
+
+```guess
+zone = {
+    host = "localhost"
+    port = 5063
+    token = "<zone token>"
+}
+```
+
+{{< note >}}
+See [Angel Service Configuration Parameters]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-angel-service-parameters.md" >}}) for a detailed explanation about each possible parameter.
+{{< /note >}}
 
 **Workflow**
 
