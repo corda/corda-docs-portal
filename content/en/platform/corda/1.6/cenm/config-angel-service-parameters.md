@@ -21,7 +21,7 @@ The configuration references for the Angel Service are given below:
 *(Optional)* The time in seconds to wait before polling the Zone Service.
 
 * **networkParametersFile**:
-The path of the network parameters file. Only used for the `NETWORK_MAP` service type.
+The path of the network parameters file. This is the plain-text version of the network parameters also used when setting the initial network parameters, this is not the binary `network-parameters` file that Corda nodes use. Only used for the `NETWORK_MAP` service type.
 
 {{% important %}}
 The `networkParametersFile` property can only be specified if `service.type` is set to `NETWORK_MAP`.
