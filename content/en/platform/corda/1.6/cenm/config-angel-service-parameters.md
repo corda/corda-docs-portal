@@ -22,9 +22,10 @@ The configuration references for the Angel Service are given below:
 
 * **networkParametersFile**:
 The path to the network parameters file. This is the plain-text version of the network parameters also used when setting the initial network parameters, this is not the binary `network-parameters` file that Corda nodes use. Only used for the `NETWORK_MAP` service type.
-{{% important %}}
-The `networkParametersFile` property can only be specified if `service.type` is set to `NETWORK_MAP`.
-{{% /important %}}
+
+  {{< important >}}
+  The `networkParametersFile` property can only be specified if `service.type` is set to `NETWORK_MAP`.
+  {{< /important >}}
 
 * **service**:
 
@@ -69,9 +70,10 @@ The `networkParametersFile` property can only be specified if `service.type` is 
 
     * **validate**:
     *(Optional)* Validate the network truststore path.
-    {{< important >}}
-    As with the `networkParametersFile` property, the `networkRootTrustStore` can only be specified if `service.type` is set to   `NETWORK_MAP`.
-    {{< /important >}}
+
+  {{< important >}}
+  As with the `networkParametersFile` property, the `networkRootTrustStore` can only be specified if `service.type` is set to   `NETWORK_MAP`.
+  {{< important >}}
 
 * **zone**:
 
