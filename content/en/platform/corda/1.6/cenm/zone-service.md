@@ -44,7 +44,7 @@ The Zone Service can be configured with a configuration file and can be run via 
 java -jar zone.jar -f zone.conf
 ```
 
-OR the Zone Service can be configured entirely from the command-line. To run the Zone Service this way, use a command as the one shown in the example below:
+Alternatively, the Zone Service can be run with all configuration settings specified from the command-line. To run the Zone Service this way, use a command as the one shown in the example below:
 
 ```bash
 java -jar zone.jar --enm-listener-port=5061 --url=\"jdbc:h2:file:/opt/zone/zone-persistence;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=10000;WRITE_DELAY=0;AUTO_SERVER_PORT=0\" --user=testuser --password=password --admin-listener-port=5063 --driver-class-name=org.h2.jdbcx.JdbcDataSource --auth-host=auth-service --auth-port=8081 --auth-trust-store-location=certificates/corda-ssl-trust-store.jks --auth-trust-store-password=trustpass --auth-issuer=http://test --auth-leeway=10 --run-migration=true
