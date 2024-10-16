@@ -97,7 +97,7 @@ You must include the connection settings within the `database` configuration blo
 
 #### Database Setup
 
-The database can either be set up prior to running the Zone Service or it can be automatically prepared on start-up via the built-in migrations. To enable the running of database migrations on start-up, you must set the optional `runMigration` parameter within the `database` configuration to `true`.
+The database can either be set up prior to running the Zone Service, or it can be automatically prepared on start-up via the built-in migrations. To enable the running of database migrations on start-up, you must set the optional `runMigration` parameter within the `database` configuration to `true`.
 
 #### Additional Properties
 
