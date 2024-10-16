@@ -80,13 +80,13 @@ The service component of the Angel Service is the service that is started and ma
 
 #### Type
 
-The service type can be one of three services that the Angel service can manage
+The service type can be one of three services that the Angel Service can manage:
 
 * `IDENTITY_MANAGER`
 * `NETWORK_MAP`
 * `SIGNER`
 
-The configuration for the `IDENTITY_MANAGER` and `SIGNER` managed service types are more or less the same however when running the Angel Service with the `NETWORK_MAP` as the managed service type then two additional configuration parameters need to be specified.
+The configuration for the `IDENTITY_MANAGER` and `SIGNER` managed service types are more or less the same. However, when running the Angel Service with the `NETWORK_MAP` as the managed service type then two additional configuration parameters need to be specified:
 
 ##### networkParametersFile
 
@@ -96,7 +96,7 @@ The file specified for this parameter needs to be the plain-text version of the 
 
 ##### networkRootTrustStore
 
-This should be set as the path for the `network-root-truststore.jks` of the network (initially generated using the PKI tool)
+This should be set as the path for the `network-root-truststore.jks` of the network (initially generated using the PKI tool).
 
 The network root truststore should be configured inside the `service` configuration block:
 
@@ -113,9 +113,9 @@ service = {
 }
 ```
 
-#### Jar File
+#### JAR File
 
-The `jarFile` parameter is the path to the JAR which the Angel Service will use to start a new Java process, there is a default file name for each managed service type:
+The `jarFile` parameter is the path to the JAR which the Angel Service uses to start a new Java process. There is a default file name for each managed service type:
 
 * `identitymanager.jar`
 * `networkmap.jar`
@@ -123,7 +123,7 @@ The `jarFile` parameter is the path to the JAR which the Angel Service will use 
 
 ### Zone
 
-The `zone` configuration block details the connection to the Zone Service, this is needed to download the configuration file for the managed service. To configure the `zone` configuration make sure you have generated a zone token for the corresponding managed service
+The `zone` configuration block details the connection to the Zone Service. This is needed to download the configuration file for the managed service. To configure the `zone` configuration make sure you have generated a zone token for the corresponding managed service:
 
 ```guess
 zone = {
@@ -134,7 +134,7 @@ zone = {
 ```
 
 {{< note >}}
-See [Angel Service Configuration Parameters]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-angel-service-parameters.md" >}}) for a detailed explanation about each possible parameter.
+See [Angel Service Configuration Parameters]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-angel-service-parameters.md" >}}) for a detailed explanation of each possible parameter.
 {{< /note >}}
 
 **Workflow**
