@@ -117,7 +117,7 @@ database {
 
 #### Example
 
-An example configuration for a Zone Service using a Microsoft SQL Server database, configured to run the
+The following is an example configuration for a Zone Service using a Microsoft SQL Server database, configured to run the
 migrations on start-up:
 
 ```guess
