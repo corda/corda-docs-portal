@@ -18,32 +18,32 @@ title: Shell Configuration Parameters
 
 
 * **shell**:
-*(Optional)* Configuration for the embedded shell
+*(Optional)* Configuration for the embedded shell.
 
 
-* **sshdPort**:
-The port that the shell ssh daemon should listen on.
+  * **sshdPort**:
+  The port that the shell ssh daemon should listen on.
 
 
-* **sshHost**:
-*(Optional)* The host or IP for the shell ssh daemon.
+  * **sshHost**:
+  *(Optional)* The host or IP for the shell ssh daemon.
 
 
-* **user**:
-The username for connecting to the shell via SSH.
+  * **user**:
+  The username for connecting to the shell via SSH.
 
 
-* **password**:
-The password for connecting to the shell via SSH.
+  * **password**:
+  The password for connecting to the shell via SSH.
 
 
-* **commandsDirectory**:
-*(Optional)* The path to the directory containing additional CRaSH shell commands.
+  * **commandsDirectory**:
+  *(Optional)* The path to the directory containing additional CRaSH shell commands.
 
 
-* **sshHostKeyDirectory**:
-*(Optional)* The path to the directory containing the hostkey.pem file for connecting to the shell via SSH.
+  * **sshdHostKeyDirectory**:
+  *(Optional)* The path to the directory containing the hostkey.pem file for connecting to the shell via SSH.
 
 
-* **localShell**:
-*(Optional)* Boot straight into shell upon start-up
+  * **localShell**:
+  *(Optional)* Boot straight into shell upon start-up
