@@ -21,11 +21,11 @@ The configuration references for the Angel Service are given below:
 *(Optional)* The time in seconds to wait before polling the Zone Service.
 
 * **networkParametersFile**:
-The path of the network parameters file. This is the plain-text version of the network parameters also used when setting the initial network parameters, this is not the binary `network-parameters` file that Corda nodes use. Only used for the `NETWORK_MAP` service type.
+The path to the network parameters file. This is the plain-text version of the network parameters also used when setting the initial network parameters, this is not the binary `network-parameters` file that Corda nodes use. Only used for the `NETWORK_MAP` service type.
 
-{{% important %}}
-The `networkParametersFile` property can only be specified if `service.type` is set to `NETWORK_MAP`.
-{{% /important %}}
+    {{% important %}}
+    The `networkParametersFile` property can only be specified if `service.type` is set to `NETWORK_MAP`.
+    {{% /important %}}
 
 * **service**:
 
@@ -39,10 +39,10 @@ The `networkParametersFile` property can only be specified if `service.type` is 
   Information about the way the service will communicate with the rest of the CENM deployment.
 
     * **host**:
-    *(Optional)* The host or IP of the service.
+    *(Optional)* The host or IP address of the service.
 
     * **port**:
-    The port that the service will bind to, and other CENM components it will connect to.
+    The port that the service binds to, and other CENM components it connects to.
 
     * **verbose**:
     *(Optional)* Enables verbose logging for the socket layer.
@@ -55,12 +55,12 @@ The `networkParametersFile` property can only be specified if `service.type` is 
 
   * **pluginJar**:
   *(Optional)* The absolute path to the JAR file of the workflow plugin.
-  
+
   * **networkRootTrustStore**:
   Information about the network root trust store file.
 
     * **location**:
-    The path of the network parameters file. Only used for Network Map service.
+    The path to the network parameters file. Only used for the Network Map Service.
 
     * **password**:
     The password for the truststore file.
@@ -71,9 +71,9 @@ The `networkParametersFile` property can only be specified if `service.type` is 
     * **validate**:
     *(Optional)* Validate the network truststore path.
 
-  {{< important >}}
-  As with the `networkParametersFile` property, this can only be specified if `service.type` is set to `NETWORK_MAP`.
-  {{< /important >}}
+    {{< important >}}
+    As with the `networkParametersFile` property, the `networkRootTrustStore` can only be specified if `service.type` is set to `NETWORK_MAP`.
+    {{< /important >}}
 
 * **zone**:
 
