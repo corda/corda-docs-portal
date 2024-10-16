@@ -35,6 +35,8 @@ Details on how the service will communicate with the rest of the CENM deployment
   *(Optional)* Enables verbose logging for the socket layer.
   * **reconnect**:
   Informs whether a client should attempt to reconnect if the connection is dropped.
+  * **host**:
+  *(Optional)* The host or IP of the service.
   * **ssl**:
   See [SSL Settings]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-ssl.md" >}})
 * **checkRevocation** (optional, defaults to `false` if omitted):
@@ -111,6 +113,8 @@ version of Corda that does not support the new PKI structure (arbitrary length c
     *(Optional)* Enables verbose logging for the socket layer. Defaults to `false`.
   * **reconnect**:
     *(Optional)* Determines if a client should attempt to reconnect if the connection is dropped. Defaults to `true`.
+  * **host**:
+    *(Optional)* The host or IP of the Admin RPC service.
   * **ssl**:
     See [SSL Settings]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-ssl.md" >}}) for details.
 

@@ -79,6 +79,9 @@ It is needed as this URL is encoded in certificates issued by the Identity Manag
     * **reconnect**:
     Determines if a client should attempt to reconnect if the connection is dropped.
 
+    * **host**:
+    *(Optional)* The host or IP of the service.
+
     * **ssl**:
     See [SSL Settings]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-ssl.md" >}}).
 
@@ -134,6 +137,8 @@ A list of CRLs hosted by the Identity Manager Service, in addition to the CRLs h
     *(Optional)* Enables verbose logging for the socket layer. Defaults to `false`.
   * **reconnect**:
     *(Optional)* Determines if a client should attempt to reconnect if the connection is dropped. Defaults to `true`.
+  * **host**:
+    *(Optional)* The host or IP of the Admin RPC service.
   * **ssl**:
     See [SSL Settings]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-ssl.md" >}}) for details.
 
