@@ -25,6 +25,10 @@ title: Shell Configuration Parameters
 The port that the shell ssh daemon should listen on.
 
 
+* **sshHost**:
+*(Optional)* The host or IP for the shell ssh daemon.
+
+
 * **user**:
 The username for connecting to the shell via SSH.
 
