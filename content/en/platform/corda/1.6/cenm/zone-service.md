@@ -38,7 +38,7 @@ by the Angel Service for the appropriate Network Map Service.
 
 ## Running the Zone Service
 
-The Zone Service can either be configured with a configuration file and can be run via the command-line:
+The Zone Service can be configured with a configuration file and can be run via the command-line:
 
 ```bash
 java -jar zone.jar -f zone.conf
