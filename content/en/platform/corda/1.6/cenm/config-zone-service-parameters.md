@@ -67,8 +67,10 @@ Information about the way the service communicates with the rest of the CENM dep
 
   * **trustStore**:
   Trust store configuration for the SSL PKI root of trust.
+
     * **location**:
     The location in the file system of the keystore containing the Auth Service root of trust.
+
     * **password**:
     The password for the trust root keystore.
 
