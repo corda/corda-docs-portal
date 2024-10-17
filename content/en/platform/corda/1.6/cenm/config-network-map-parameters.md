@@ -29,6 +29,8 @@ See [CENM Database Configuration]({{< relref "../../../../../en/platform/corda/1
 *(Optional)*  See [Shell Configuration Parameters]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-shell.md" >}})
 * **enmListener** (optional in a simple test deployment):
 Details on how the service will communicate with the rest of the CENM deployment.
+  * **host**:
+  *(Optional)* The host or IP of the service.
   * **port**:
   The port that the service will bind to, and other CENM components will connect to.
   * **verbose**:
@@ -105,6 +107,8 @@ version of Corda that does not support the new PKI structure (arbitrary length c
 * **adminListener**:
   To use the RPC API in the Identity Manager Service, you must define a configuration property called `adminListener`.
   You can add `port`, `reconnect`, and `verbose`. Also, this property has an SSL field - see [SSL Settings]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-ssl.md" >}}) for more information.
+  * **host**:
+    *(Optional)* The host or IP of the Admin RPC service.
   * **port**:
     Port number to listen to for Admin RPC connections.
   * **verbose**:
