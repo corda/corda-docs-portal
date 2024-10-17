@@ -123,7 +123,7 @@ The `jarFile` parameter is the path to the JAR which the Angel Service uses to s
 
 ### Zone
 
-The `zone` configuration block details the connection to the Zone Service. This is needed to download the configuration file for the managed service. To configure the `zone` configuration make sure you have generated a zone token for the corresponding managed service:
+The `zone` configuration block details the connection to the Zone Service. This is needed to download the configuration file for the managed service. To configure the `zone` configuration, make sure you have generated a zone token for the corresponding managed service:
 
 ```guess
 zone = {
