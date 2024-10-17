@@ -33,7 +33,7 @@ Information about the way the service communicates with the rest of the CENM dep
   Determines if a client should attempt to reconnect if the connection is dropped.
 
   {{< note >}}
-  The `ssl` configuration is not present in the `enmListener` as the Zone Service uses the same TLS configuration for both CENM and admin listening sockets.
+  The `ssl` configuration is not present in the `enmListener`, as the Zone Service uses the same TLS configuration for both CENM and admin listening sockets.
 
   {{< /note >}}
 
