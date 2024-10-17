@@ -25,7 +25,7 @@ title: Shell Configuration Parameters
   The port that the shell ssh daemon should listen on.
 
 
-  * **sshHost**:
+  * **sshdHost**:
   *(Optional)* The host or IP for the shell ssh daemon.
 
 
