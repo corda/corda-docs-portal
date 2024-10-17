@@ -1908,6 +1908,7 @@ For example, add the following to the service configuration:
 ```guess
 ...
 adminListener {
+    host = "localhost" (Optional - default value is "0.0.0.0")
     port = 5050
     reconnect = true
     ssl {
