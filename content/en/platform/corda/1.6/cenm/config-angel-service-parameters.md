@@ -72,7 +72,7 @@ The path to the network parameters file. This is the plain-text version of the n
     *(Optional)* Validate the network truststore path.
 
   {{< important >}}
-  As with the `networkParametersFile` property, the `networkRootTrustStore` can only be specified if `service.type` is set to   `NETWORK_MAP`.
+  As with the `networkParametersFile` property, the `networkRootTrustStore` can only be specified if `service.type` is set to `NETWORK_MAP`.
   {{< /important >}}
 
 * **zone**:
