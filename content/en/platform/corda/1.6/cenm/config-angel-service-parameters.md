@@ -68,7 +68,6 @@ The path to the network parameters file. This is the plain-text version of the n
     * **rootAlias**:
     The root alias.
 
-    * **validate**:
     *(Optional)* Validate the network truststore path.
 
   {{< important >}}
