@@ -92,7 +92,7 @@ The configuration for the `IDENTITY_MANAGER` and `SIGNER` managed service types 
 
 The network parameters are the set of values that every node participating in the network needs to agree on to interoperate with each other. See [Network Parameters Configuration Parameters]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-network-map-parameters.md" >}}) for a detailed explanation.
 
-The file specified for this parameter needs to be the plain-text version of the network parameters also used when setting the initial network parameters, this is not the binary `network-parameters` file that Corda nodes use.
+The file specified for this parameter needs to be the plain-text version of the network parameters used when setting the initial network parameters. This is not the binary `network-parameters` file that Corda nodes use.
 
 ##### networkRootTrustStore
 
