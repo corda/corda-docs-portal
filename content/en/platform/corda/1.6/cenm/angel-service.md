@@ -86,7 +86,7 @@ The service type can be one of three services that the Angel Service can manage:
 * `NETWORK_MAP`
 * `SIGNER`
 
-The configuration for the `IDENTITY_MANAGER` and `SIGNER` managed service types are more or less the same. However, when running the Angel Service with the `NETWORK_MAP` as the managed service type then two additional configuration parameters need to be specified:
+The configuration for the `IDENTITY_MANAGER` and `SIGNER` managed service types are more or less the same. However, when running the Angel Service with the `NETWORK_MAP` as the managed service type, then two additional configuration parameters need to be specified:
 
 ##### networkParametersFile
 
