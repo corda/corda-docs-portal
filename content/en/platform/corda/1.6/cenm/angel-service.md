@@ -38,7 +38,7 @@ This should either be specified in a config file or on the command line. You can
 java -jar angel-<VERSION>.jar -f angel.conf
 ```
 
-OR you can start the Angel Service with the following command and arguments:
+Alternatively, you can start the Angel Service with the following command and arguments:
 
 ``` {.bash}
 java -jar angel-<VERSION>.jar --zone-host zone.example.org --zone-port 5050 --token <zone-token> --service IDENTITY_MANAGER
