@@ -32,7 +32,7 @@ title: Release notes
 ### Upgraded dependencies
 
 * Bouncy Castle has been upgraded from 1.75 to 1.78.1.
-* CENM now supports JDK Azul 8u422 and Oracle JDK 8u422.
+* CENM now supports JDK Azul 8u422 and Oracle JDK 8u421.
 
 ## Corda Enterprise Network Manager 1.6
 
