@@ -42,19 +42,20 @@ Both the Signing Service and the PKI Tool support a variety of HSMs.
 
 CENM currently supports the following databases:
 
-* PostgreSQL 11.x (JDBC 42.5.2)
-* PostgreSQL 12.x (JDBC 42.5.2)
-* PostgreSQL 13.x (JDBC 42.5.2)
-* Azure SQL (Microsoft JDBC Driver 6.4)
-* SQL Server 2017 (Microsoft JDBC Driver 6.4)
-* Oracle 11gR2 (Oracle JDBC 6)
-* Oracle 12cR2 (Oracle JDBC 8)
-* Oracle 19c (Oracle JDBC 8)
+|Vendor|CPU architecture|Versions|JDBC driver|
+|-------------------------------|------------------|------------------|------------------------|
+|Microsoft|x86-64|Azure SQL, SQL Server 2022|Microsoft JDBC Driver 6.4|
+|Oracle|x86-64|19c|Oracle JDBC 6|
+|Oracle|x86-64|19c|Oracle JDBC 8|
+|Oracle|x86-64|12cR2|Oracle JDBC 8|
+|Oracle|x86-64|11gR2|Oracle JDBC 6 |
+|Oracle|x86-64|23ai (23.4)|Oracle JDBC 8 |
+|PostgreSQL|x86-64|12.19, 13.15, 14.12, 15.7, 16.3|PostgreSQL JDBC Driver 42.1.4 / 42.5.2|
 
 
 ## JDK support
 
-Corda Enterprise Edition 4.11+ and Corda Enterprise Network Manager 1.6+ have been tested and verified to work with **Oracle JDK 8 JVM 8u381** and **Azul Zulu Enterprise 8u382**. For the Azure deployment downloadable, go to [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
+Corda Enterprise Edition 4.11+ and Corda Enterprise Network Manager 1.6+ have been tested and verified to work with **Oracle JDK 8 JVM 8u421** and **Azul Zulu Enterprise 8u422**. For the Azure deployment downloadable, go to [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported, but should be compatible with Corda Enterprise Network Manager 1.6.
 
@@ -71,9 +72,9 @@ for your deployment needs.
 
 |Platform|CPU Architecture|Versions|
 |-------------------------------|------------------|-----------|
-|Red Hat Enterprise Linux|x86-64|8.x, 7.x, 6.x|
+|Red Hat Enterprise Linux|x86-64|8.x, 7.x, 6.x, 9.x|
 |Suse Linux Enterprise Server|x86-64|12.x, 11.x|
-|Ubuntu Linux|x86-64|16.04, 18.04, 22.04|
+|Ubuntu Linux|x86-64|20.04, 22.04, 24.04|
 |Oracle Linux|x86-64|7.x, 6.x|
 
 {{< /table >}}
@@ -100,9 +101,9 @@ for your deployment needs.
 
 |Vendor|CPU Architecture|Versions|JDBC Driver|
 |-------------------------------|------------------|------------------|------------------------|
-|Microsoft|x86-64|Azure SQL,SQL Server 2017|Microsoft JDBC Driver 6.4|
+|Microsoft|x86-64|Azure SQL, SQL Server 2022|Microsoft JDBC Driver 6.4|
 |Oracle|x86-64|11gR2|Oracle JDBC 6|
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
-|PostgreSQL|x86-64|9.6, 10.10, 11.5, 13.3|PostgreSQL JDBC Driver 42.5.2|
+|PostgreSQL|x86-64|12.19, 13.3, 13.15, 14.12, 15.7, 16.3|PostgreSQL JDBC Driver 42.5.2|
 
 {{< /table >}}

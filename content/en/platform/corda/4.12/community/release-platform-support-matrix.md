@@ -41,7 +41,7 @@ The following JDKs support Corda for development purposes. Corda does not curren
 |Supported JDKs|Latest supported version|
 |-----------------------------------|-----------|
 |[Zulu OpenJDK](https://www.azul.com/)|17.0.9|
-|[Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)|17.0.9|
+|[Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)|17.0.11|
 
 {{< /table >}}
 
@@ -53,9 +53,9 @@ Production use of Corda Open Source 4.12 is only supported on Linux OS; see deta
 
 |Platform|CPU architecture|Versions|
 |-------------------------------|------------------|-----------|
-|Red Hat Enterprise Linux|x86-64|8.x, 7.x, 6.x|
+|Red Hat Enterprise Linux|x86-64|8.x, 7.x, 6.x, 9.x|
 |Suse Linux Enterprise Server|x86-64|12.x, 11.x|
-|Ubuntu Linux|x86-64|16.04, 16.10, 18.04, 20.04|
+|Ubuntu Linux|x86-64|20.04, 22.04, 24.04|
 |Oracle Linux|x86-64|7.x, 6.x|
 
 {{< /table >}}
@@ -80,11 +80,6 @@ The following operating systems can be used with Corda for development purposes.
 
 |Vendor|CPU architecture|Versions|JDBC driver|
 |-------------------------------|------------------|------------------|------------------------|
-|Microsoft|x86-64|Azure SQL,SQL Server 2017|Microsoft JDBC Driver 6.4|
-|Oracle|x86-64|19c|Oracle JDBC 6|
-|Oracle|x86-64|19c|Oracle JDBC 8|
-|Oracle|x86-64|12cR2|Oracle JDBC 8|
-|Oracle|x86-64|11gR2|Oracle JDBC 6 |
-|PostgreSQL|x86-64|11.21, 13.12, 13.3, 15.3|PostgreSQL JDBC Driver 42.1.4 / 42.5.2|
+|PostgreSQL|x86-64|12.19, 13.12, 13.15, 13.3, 14.12, 15.3, 15.7, 16.3|PostgreSQL JDBC Driver 42.1.4 / 42.5.2|
 
 {{< /table >}}
