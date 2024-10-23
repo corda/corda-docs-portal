@@ -61,7 +61,7 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 |-------------------------------|------------------|-----------|
 |Red Hat Enterprise Linux|x86-64|8.x, 7.x, 6.x, 9.x|
 |Suse Linux Enterprise Server|x86-64|12.x, 11.x|
-|Ubuntu Linux|x86-64|16.10, 20.04, 22.04, 24.04|
+|Ubuntu Linux|x86-64|20.04, 22.04, 24.04|
 |Oracle Linux|x86-64|7.x, 6.x|
 
 {{< /table >}}
