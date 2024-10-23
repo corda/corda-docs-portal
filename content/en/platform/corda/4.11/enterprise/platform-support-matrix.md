@@ -22,7 +22,7 @@ Corda Enterprise Edition supports a subset of the platforms that are supported b
 
 ### JDK support in production
 
-Corda Enterprise Edition 4.11 has been tested and verified to work with **Oracle JDK 8 JVM 8u381** and **Azul Zulu Enterprise 8u382**, for Azure deployment downloadable from
+Corda Enterprise Edition 4.11 has been tested and verified to work with **Oracle JDK 8 JVM 8u421** and **Azul Zulu Enterprise 8u422**, for Azure deployment downloadable from
 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.11.
@@ -41,10 +41,10 @@ The following JDKs support Corda for development purposes. Corda does not curren
 
 |Supported JDKs|Latest supported version|
 |-----------------------------------|-----------|
-|[Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)|8u381|
+|[Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)|8u421|
 |[Amazon Corretto 8](https://aws.amazon.com/corretto/)|8.252.09.1|
 |[Red Hat OpenJDK](https://developers.redhat.com/products/openjdk/overview/)|8u322|
-|[Zulu OpenJDK](https://www.azul.com/)|8u382|
+|[Zulu OpenJDK](https://www.azul.com/)|8u422|
 
 {{< /table >}}
 
@@ -58,9 +58,9 @@ Production use of Corda Enterprise Edition 4.11 is only supported on Linux OS; s
 
 |Platform|CPU architecture|Versions|
 |-------------------------------|------------------|-----------|
-|Red Hat Enterprise Linux|x86-64|8.x, 7.x, 6.x|
+|Red Hat Enterprise Linux|x86-64|8.x, 7.x, 6.x, 9.x|
 |Suse Linux Enterprise Server|x86-64|12.x, 11.x|
-|Ubuntu Linux|x86-64|20.04, 22.04|
+|Ubuntu Linux|x86-64|20.04, 22.04, 24.04|
 |Oracle Linux|x86-64|7.x, 6.x|
 
 {{< /table >}}
@@ -89,13 +89,13 @@ The following database types are supported both in production and for developmen
 
 |Vendor|CPU architecture|Versions|JDBC driver|
 |-------------------------------|------------------|------------------|------------------------|
-|Microsoft|x86-64|Azure SQL,SQL Server 2017|Microsoft JDBC Driver 6.4|
+|Microsoft|x86-64|Azure SQL, SQL Server 2022|Microsoft JDBC Driver 6.4|
 |Oracle|x86-64|19c|Oracle JDBC 6|
 |Oracle|x86-64|19c|Oracle JDBC 8|
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
 |Oracle|x86-64|11gR2|Oracle JDBC 6 |
 |Oracle|x86-64|23ai (23.4)|Oracle JDBC 8 |
-|PostgreSQL|x86-64|11.21, 13.12|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
+|PostgreSQL|x86-64|12.19, 13.12, 13.15, 14.12, 15.7, 16.3|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
 
 {{< /table >}}
 
