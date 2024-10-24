@@ -33,6 +33,17 @@ title: Release notes
 
 * Bouncy Castle has been upgraded from 1.75 to 1.78.1.
 * CENM now supports JDK Azul 8u422 and Oracle JDK 8u421.
+* CENM now supports version 9.x of the Red Hat Enterprise Linux production operating system.
+* CENM now supports Ubuntu Linux production operating system versions 20.04, 22.04, 24.04.
+* CENM now supports the following databases:
+  * Microsoft version: SQL Server 2022.
+  * Oracle version: 23.4.
+  * PostgreSQL versions: 12.19, 13.3, 13.15, 14.12, 15.7, 16.3.
+* CENM now supports the following node databases:
+  * Microsoft version: SQL Server 2022.
+  * PostgreSQL versions: 12.19, 13.3, 13.15, 14.12, 15.7, 16.3.
+
+For more information about CENM dependencies, see [CENM support matrix]({{< relref "cenm-support-matrix.md" >}}).
 
 ## Corda Enterprise Network Manager 1.6
 
