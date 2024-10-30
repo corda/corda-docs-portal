@@ -27,8 +27,7 @@ Experimental notaries, such as **Crash fault-tolerant** and **Byzantine fault-to
 
 ## JDK support
 
-Corda Open Source Edition 4.12 has been tested and verified to work with **Azul Zulu Enterprise 17.0.9**, for Azure deployment downloadable from
-[Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
+Corda Open Source Edition 4.12 has been tested and verified to work with **Oracle JDK 17.0.13** and **Azul Zulu Enterprise 17.0.13**.
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.11.
 
@@ -40,8 +39,8 @@ The following JDKs support Corda for development purposes. Corda does not curren
 
 |Supported JDKs|Latest supported version|
 |-----------------------------------|-----------|
-|[Zulu OpenJDK](https://www.azul.com/)|17.0.9|
-|[Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)|17.0.11|
+|[Zulu OpenJDK](https://www.azul.com/downloads/azure-only/zulu/)|17.0.13|
+|[Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)|17.0.13|
 
 {{< /table >}}
 
