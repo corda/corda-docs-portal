@@ -58,18 +58,25 @@ All scenarios involving the upgrade of existing node versions from a previous ve
 In this scenario, you have a mixed network where only selected nodes are upgraded to Corda 4.12, while others remain on previous versions of Corda 4.x. This scenario requires you to perform the following actions:
 1. Upgrade any existing CorDapps to run on Java 17 and Kotlin 1.9.20.
 2. Keep a copy of the old CorDapp contract JAR file in the new `legacy-contracts` folder placed inside all upgraded 4.12 nodes.
+3. If your contracts depend on third party dependencies or jars in the drivers folder then these must be placed in the new `legacy-jars` folder inside all upgraded 4.12 nodes.
 
-Any future Corda 4.12 nodes added to the network will also require the `legacy-contracts` folder, unless all nodes have been updated by that time. In the latter case, you are adding new Corda 4.12 nodes to a non-mixed network and this requirement is no longer necessary.
+Any future Corda 4.12 nodes added to the network will also require the `legacy-contracts` folder. All 4.12 nodes will require a `legacy-contracts` folder. This is the case even if all nodes are at 4.12. The reason for this being they are required by the external verifier in case it needs to verify a 4.11 transaction in the back chain.
+
+In addition if contracts depend on third party dependencies or jars in the drivers folder then the populated `legacy-jars` folder must exist on all 4.12 nodes.
 
 ### Upgrading all network nodes to 4.12
 
-In this scenario, you are creating a non-mixed network composed solely of nodes operating on Corda 4.12. Transactions occurring within this newly-upgraded network only have the 4.12 contract component group and therefore, you do not need the `legacy-contracts` folder. However, it is still important that you keep a copy of the old contract JAR for reference.
+In this scenario, you are creating a non-mixed network composed solely of nodes operating on Corda 4.12. Note that in this scenario the `legacy-contracts` folder is required. This is to enable the external verifier to verify 4.11 and earlier transactions.
 
-If any new Corda 4.12 nodes are added to this network in the future, a problem arises wherein new nodes won’t trust old contract attachments. For example, this happens if a new transaction contains a backchain of old Corda 4.x transactions. For this reason, you must upload the old contract JAR via RPC to the new node, ensuring it trusts the old contract version.
+The `legacy-jars` folder is also required if contracts use third party libraries of depend on jars in the drivers directory.
+
+If any new Corda 4.12 nodes are added to this network in the future then these nodes must also have the `legacy-contract` folder and `legacy-jars` folder (if required for the `legacy-jars` folder).
 
 ### Adding 4.12 nodes to a new network
 
 This scenario is the simplest, as it does not require any complex update procedures. In this scenario, all CorDapps are developed for Java 17 and Kotlin 1.9.20, and the process for adding new nodes is the same as setting up a new network of any previous Corda version.
+
+In this scenario as the ledger is new and there are no 4.11 transactions then you don't need to `legacy-contract` or `legacy-jars` folders.
 
 ## Upgrade prerequisites
 
@@ -86,9 +93,7 @@ To upgrade your Corda node from version 4.11 to 4.12, you must perform the follo
 1. Validate all existing transactions (per node) to ensure that their backchain works with 4.12.
 2. Upgrade any custom CorDapps running on the Corda 4.11 node to work with Java 17 and Kotlin 1.9.20. See [Upgrade 4.11 CorDapps]({{< relref "#upgrade-411-cordapps" >}}).
 3. Preserve old CorDapp contracts in a new folder called `legacy-contracts`. See [Add the legacy contracts folder to mixed networks]({{< relref "#add-the-legacy-contracts-folder-to-mixed-networks" >}}).
-   {{< note >}}
-   This step is for mixed networks only. It is not required if you plan on upgrading all nodes on your network to 4.12.
-   {{< /note >}}
+4. If your contracts uses third party dependencies or relies on jars in the drivers directory then create a new folder `legacy-jars` and insert the third party dependencies and required jars from the drivers folder into the `legacy-jars` folder.
 
 ### Upgrade 4.11 CorDapps
 
@@ -115,19 +120,15 @@ The new CorDapp should inherit the same minimum platform version as Corda 4.12, 
 
 Upon startup, a node verifies the signing key for the CorDapps it uses, preventing unwanted code from being executed. In Corda 4.12, nodes having both new and legacy versions of a contract CorDapp must have the same signing keys, otherwise the node will fail to start.
 
-### Add the legacy contracts folder to mixed networks
+### Add the legacy contracts folder to networks containing pre-4.12 transactions
 
-When operating a network with nodes running different versions of Corda, you must store the old CorDapp contract JAR files in the Corda 4.12 node directory (see [Legacy contracts]({{< relref "#legacy-contracts" >}})). This step is not required if all nodes in your network are being upgraded to Corda 4.12.
+When operating a network with 4.12 nodes using a ledger that existed prior to 4.12 you must store the old CorDapp contract JAR files in the Corda 4.12 node directory (see [Legacy contracts]({{< relref "#legacy-contracts" >}})).
 
-However, in both scenarios, you must keep a copy of the old CorDapp contracts JAR file. This file may be required if new Corda 4.12 nodes are introduced into a network containing nodes that have previously been upgraded. For steps describing adding a new node to an existing network of Corda 4.12 containing previously upgraded nodes, see [Adding new 4.12 nodes]({{< relref "#adding-new-412-nodes" >}}).
+You must keep a copy of the old CorDapp contracts JAR file. This file will be required if new Corda 4.12 nodes are introduced into a network containing nodes that have previously been upgraded. For steps describing adding a new node to an existing network of Corda 4.12 containing previously upgraded nodes, see [Adding new 4.12 nodes]({{< relref "#adding-new-412-nodes" >}}).
 
 #### Legacy contracts
 
-Corda 4.12 introduces the concept of *legacy contracts*. A new `legacy-contracts` folder is required when operating a network where not all nodes are running Corda 4.12.
-
-{{< note >}}
-If you are not using a mixed network, you do not need the `legacy-contracts` folder.
-{{< /note >}}
+Corda 4.12 introduces the concept of *legacy contracts*. A new `legacy-contracts` folder is required when operating a network where the ledger existed prior to 4.12.
 
 This folder contains old CorDapp contract JAR files required by the external verifier process to verify old contract attachments in new transactions. The following is an example folder structure of how to set up the node folder to include the `legacy-contracts` folder.
 
@@ -202,30 +203,7 @@ If you are operating a mixed network, then the process for adding a new Corda 4.
 
 ### Adding new 4.12 nodes to a non-mixed network
 
-Perform the following steps if you are adding a new Corda 4.12 node to a network that is only running Corda 4.12 nodes, but also contains older Corda 4.x transactions.
-
-{{< note >}}
-In this scenario, you still require a copy of the old CorDapp contract JAR file.
-{{< /note >}}
-
-1. Set up the node folder structure without the `legacy-contracts` folder.
-
-   ```
-   .
-   ├── certificates
-   ├── corda-4.12.jar
-   ├── cordapps
-   │   ├── config
-   │   ├── corda-finance-contracts-4.12.jar
-   │   └── corda-finance-workflows-4.12.jar
-   ├── drivers
-   └── node.conf
-   ```
-
-2. Register and then start the node.
-
-3. Access the Corda node either via RPC client or the standalone shell and upload the old CorDapp contract JAR as an attachment to the node.
-   For more information on uploading attachments, see [Working with attachments]({{< relref "get-started/tutorials/supplementary-tutorials/tutorial-attachments.md" >}}).
+The steps required here as the same as the steps in [Adding new 4.12 nodes to a mixed network]
 
 ## Additional release information
 
