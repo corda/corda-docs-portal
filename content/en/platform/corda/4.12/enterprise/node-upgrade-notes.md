@@ -336,7 +336,7 @@ When upgrading from Corda 4.11 to Corda 4.12 there are specific changes that nee
 
 ## Step 8: Create legacy folders
 
-When upgrading to 4.12 where the ledger contains pre-4.12 transactions you need to create a `legacy-contracts` folder and if required a `legacy-jars` folder. See [Corda Enterprise Edition 4.11 to 4.12 upgrade guide] for details.
+When upgrading to 4.12 where the ledger contains pre-4.12 transactions, you must create a `legacy-contracts` folder and, if required, a `legacy-jars` folder. See [Corda Enterprise Edition 4.11 to 4.12 upgrade guide]({{< relref "upgrade-guide.md" >}}) for details.
 
 ## Step 9: Start the node
 
