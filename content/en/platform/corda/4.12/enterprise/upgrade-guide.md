@@ -187,7 +187,7 @@ The new CorDapp should inherit the same minimum platform version as Corda 4.12, 
 
 Upon startup, a node verifies the signing key for the CorDapps it uses, preventing unwanted code from being executed. In Corda 4.12, nodes having both new and legacy versions of a contract CorDapp must have the same signing keys; otherwise the node will fail to start.
 
-### Add the legacy contracts folder to networks containing pre-4.12 transactions
+### Add the legacy contracts folder to mixed networks
 
 When operating a network with nodes running different versions of Corda, you must store the old CorDapp contract JAR files in the Corda 4.12 node directory (see [Legacy contracts]({{< relref "#legacy-contracts" >}})). This step is not required if all nodes in your network are being upgraded to Corda 4.12.
 
