@@ -171,6 +171,10 @@ To ensure compatibility, you must keep the legacy contracts. When a node operati
 
 Similarly, when a 4.12 node creates a transaction, it adds a 4.12 contract into a new component group of the transaction, reserving the existing component group for the 4.11 contract. Consequently, when a 4.11 contract gets attached to the transaction, it ends up with two sets of contract attachments (JARs): the legacy one and the new 4.12 contract. If this transaction is received by a node not running Corda 4.12, the node lacks awareness of the new component group. It disregards the 4.12 contract and proceeds to verify the legacy contract instead, which is then stored in the database.
 
+### Add the `legacy-jars` folder, if required
+
+Pre-4.12 transactions are verified in an external verifier process when encountered. By default, this process does not include all third-party libraries shipped with Corda 4.11 or earlier, nor does it have the contents of the `drivers` directory on its classpath. If your contracts in ledger attachments depend on such third-party libraries or items previously in the `drivers` directory of Corda 4.11 or earlier, you can place the required JAR files in a directory named `legacy-jars` within the node directory. Any JARs in this directory will be added to the classpath of the external verifier. The TVU will help you discover and verify resolution of such issues.
+
 ## Starting 4.12 nodes
 
 1. Run the database migration scripts. See [Use run-migration-scripts]({{< relref "deploying-a-node.html#use-run-migration-scripts" >}}).
