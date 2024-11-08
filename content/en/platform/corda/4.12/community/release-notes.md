@@ -30,7 +30,33 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
 
+### New features, enhancements and restrictions
+
+#### New `legacy-jars` directory
+
+A new `legacy-jars` directory has been introduced to improve backward compatibility with earlier versions of Corda.
+
+When upgrading from earlier versions of Corda, there may be scenarios where the contracts on the ledger expect certain third-party dependencies, bundled with earlier Corda versions, to be present on the classpath during contract verification. The external verifier for legacy contracts in Corda 4.12 and above does not include all third-party dependencies present previous Corda versions. If additional classes are required, the JAR files containing those classes can be placed in a `legacy-jars` directory in the node's base directory.
+
+#### Contract key rotation support
+
+Corda 4.12.2 patch release introduces support for contract JAR signing key rotation of R3-provided CorDapps.
+
 ### Fixed issues
+
+* There is no need for the external verifier to use the `cordapps` folder anymore. The external verifier verifies pre-4.12 transactions and now solely uses the database to retrieve the contract attachments.
+* An open telemetry span has been added around the send to multiple parties and receive from multiple parties operations.
+* Previously, the transaction builder would log any failed verification attempts when trying to add missing dependencies. Now, these failed attempts are no longer logged if they occur while determining the missing dependencies.
+* This release contains AMQP serialisation performance improvements.
+* It is now possible to create two nodes whose X.500 names has the same O field value but different OU values when using the driver DSL for testing.
+* There's no longer a memory leak when creating a series of mock networks for testing purposes.
+* The transaction builder no longer attaches legacy attachments to a transaction if the minimum platform version is 140 (i.e., 4.12).
+
+### Third party components upgrade
+
+* Jetty was upgraded to version 12.0.14.
+* Commons IO was upgraded to version 2.17.0.
+* Upgrade to version 17.0.12 in Docker files.
 
 
 ## Corda Open Source Edition 4.12.1 release notes
