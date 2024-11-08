@@ -35,6 +35,32 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
 
+### Transaction Validator Utility Updates
+
+The following section describes the updated requirements for running the Transaction Validator Utility (TVU) and Corda 4.12 nodes. It clarifies and enhances the previous documentation. The current patch release documentation has been updated to reflect the following:
+
+* Legacy contracts directory: The legacy contracts directory is no longer required when running the TVU or when running 4.12 nodes, provided all nodes on the network are version 4.12 nodes.
+
+* 4.12 environment requirement: You must run the TVU in a 4.12 environment (excluding the database). Specifically, the `cordapps` directory must contain only 4.12-compatible CorDapps. See point 1 below.
+
+* Purpose of legacy contracts directory: The legacy contracts directory is now only needed for enabling 4.12 nodes to build transactions that include legacy contracts. This is only applicable in a mixed network of 4.12 nodes and pre-4.12 nodes.
+
+* Legacy JARs directory: You may need to include a `legacy-jars` directory when running both the TVU and the node. See point 1 below for further details.
+
+#### Transaction Validator Utility
+
+The purpose of the TVU is to mimic what a 4.12 node would do when verifying a legacy transaction, and report any errors found.
+
+1. You must run the TVU in a 4.12 node directory, using the 4.11 database to be validated (or a database upgraded to 4.11). Ensure that the CorDapps directory contains 4.12 CorDapps, and include any pre-4.12 dependencies in the `legacy-jars` directory if required by existing contract attachments on the ledger (see point 4 below). Note that the `legacy-contracts` directory is not necessary.
+
+#### Corda 4.12 nodes
+
+2. If your network includes a mix of 4.12 nodes and pre-4.12 nodes, each 4.12 node must have a `legacy-contracts` directory containing pre-4.12 contract CorDapps. This allows 4.12 nodes to build transactions that include pre-4.12 contracts, enabling interoperability with pre-4.12 nodes. In this scenario, you may also need a `legacy-jars` directory - see point 4 below.
+
+3. If your network consists solely of upgraded 4.12 nodes, there is no need for the `legacy-contracts` directory. The 4.12 nodes will create transactions without legacy contracts, which is fine as there are no pre-4.12 nodes in the network. In this scenario, since the ledger already contains pre-4.12 transactions, you may still need a `legacy-jars` directory - see point 4 below.
+
+4. Pre-4.12 transactions are verified in an external verifier process when encountered. This process does not, by default, include all third-party libraries that shipped with Corda 4.11 and earlier, nor does it have the `drivers` directory on the classpath. If your contracts in the ledger attachments depend on such third-party libraries or any contents from the `drivers` directory in Corda 4.11 or earlier, you can place the necessary JAR files in a directory called `legacy-jars` within the node directory. Any JARs in this directory will be added to the classpath of the external verifier. The TVU will assist you in identifying and verifying the resolution of such issues.
+
 ### Fixed issues
 
 
