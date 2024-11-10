@@ -30,27 +30,36 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
 
-### New features, enhancements and restrictions
+### Documentation Updates
 
-#### New `legacy-jars` directory
+The following section describes the updated requirements for running Corda 4.12 nodes. It clarifies and enhances the previous documentation. The current patch release documentation has been updated to reflect the following:
 
-A new `legacy-jars` directory has been introduced to improve backward compatibility with earlier versions of Corda.
+* Legacy contracts directory: The legacy contracts directory is no longer required when running 4.12 nodes, provided all nodes on the network are version 4.12 nodes.
 
-When upgrading from earlier versions of Corda, there may be scenarios where the contracts on the ledger expect certain third-party dependencies, bundled with earlier Corda versions, to be present on the classpath during contract verification. The external verifier for legacy contracts in Corda 4.12 and above does not include all third-party dependencies present previous Corda versions. If additional classes are required, the JAR files containing those classes can be placed in a `legacy-jars` directory in the node's base directory.
+* Purpose of legacy contracts directory: The legacy contracts directory is now only needed for enabling 4.12 nodes to build transactions that include legacy contracts. This is only applicable in a mixed network of 4.12 nodes and pre-4.12 nodes.
 
-#### Contract key rotation support
+* Legacy JARs directory: You may need to include a `legacy-jars` directory when running the node. See point 3 below for further details.
 
-Corda 4.12.2 patch release introduces support for contract JAR signing key rotation of R3-provided CorDapps.
+#### Corda 4.12 nodes
+
+1.  If your network includes a mix of 4.12 nodes and pre-4.12 nodes, each 4.12 node must have a `legacy-contracts` directory containing pre-4.12 contract CorDapps. This allows 4.12 nodes to build transactions that include pre-4.12 contracts, enabling interoperability with pre-4.12 nodes. In this scenario, you may also need a `legacy-jars` directory - see point 3 below.
+
+2.  If your network consists solely of upgraded 4.12 nodes, there is no need for the `legacy-contracts` directory. The 4.12 nodes will create transactions without legacy contracts, which is fine as there are no pre-4.12 nodes in the network. In this scenario, since the ledger already contains pre-4.12 transactions, you may still need a `legacy-jars` directory - see point 3 below.
+
+3.  Pre-4.12 transactions are verified in an external verifier process when encountered. This process does not, by default, include all third-party libraries that shipped with Corda 4.11 and earlier, nor does it have the `drivers` directory on the classpath. If your contracts in the ledger attachments depend on such third-party libraries or any contents from the `drivers` directory in Corda 4.11 or earlier, you can place the necessary JAR files in a directory called `legacy-jars` within the node directory. Any JARs in this directory will be added to the classpath of the external verifier. The TVU will assist you in identifying and verifying the resolution of such issues.
 
 ### Fixed issues
 
-* There is no need for the external verifier to use the `cordapps` folder anymore. The external verifier verifies pre-4.12 transactions and now solely uses the database to retrieve the contract attachments.
+* There is no need for the external verifier to use the `legacy-contracts` folder anymore. The external verifier verifies pre-4.12 transactions and now solely uses the database to retrieve the contract attachments.
 * An open telemetry span has been added around the send to multiple parties and receive from multiple parties operations.
 * Previously, the transaction builder would log any failed verification attempts when trying to add missing dependencies. Now, these failed attempts are no longer logged if they occur while determining the missing dependencies.
 * This release contains AMQP serialisation performance improvements.
 * It is now possible to create two nodes whose X.500 names has the same O field value but different OU values when using the driver DSL for testing.
 * There's no longer a memory leak when creating a series of mock networks for testing purposes.
 * The transaction builder no longer attaches legacy attachments to a transaction if the minimum platform version is 140 (i.e., 4.12).
+* A new `legacy-jars` directory has been introduced to improve backward compatibility with earlier versions of Corda. See the description above and the upgrade guide for details.
+* Contract JAR signing key rotation of R3-provided CorDapps is included in this patch release.
+
 
 ### Third party components upgrade
 
