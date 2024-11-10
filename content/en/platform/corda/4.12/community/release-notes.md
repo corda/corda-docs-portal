@@ -63,10 +63,10 @@ The following section describes the updated requirements for running Corda 4.12 
 
 ### Third party components upgrade
 
-* Jetty was upgraded to version 12.0.14.
-* Commons IO was upgraded to version 2.17.0.
-* Upgrade to version 17.0.12 in Docker files.
-
+| Dependency | Name                  | Bumped to: |
+|------------|-----------------------|------------|
+| 	          | Jetty	                | 12.0.14    |
+|            | commons IO            | 2.70.0     |
 
 ## Corda Open Source Edition 4.12.1 release notes
 

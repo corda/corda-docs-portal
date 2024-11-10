@@ -83,14 +83,14 @@ The purpose of the TVU is to mimic what a 4.12 node would do when verifying a le
 
 ### Third party components upgrade
 
-* commonsConfiguration2Version was upgraded to version 2.11.0.
-* Jetty was upgraded to version 12.0.14.
-* commonsIOVersion number was upgraded to 2.70.0.
-* sshdVersion was upgraded to version to 2.13.2.
-* Zookeeper was upgraded to version to 3.8.4.
-* commonsDbcp2Version was upgraded to version to 2.12.0.
-* Upgrade to version 17.0.12 in Docker files.
-
+| Dependency | Name                  | Bumped to: |
+|------------|-----------------------|------------|
+|            | commonsConfiguration2 | 2.11.0     |
+| 	          | Jetty	                | 12.0.14    |
+|            | commons IO            | 2.70.0     |
+|            | sshd                  | 2.13.2     |
+|            | Zookeeper             | 3.8.4      |
+|            | commonsDbcp2          | 2.12.0     |
 
 ## Corda Enterprise Edition 4.12.1 release notes
 
