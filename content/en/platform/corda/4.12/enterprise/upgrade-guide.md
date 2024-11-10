@@ -20,7 +20,7 @@ This upgrade guide outlines the steps for migrating your Corda 4.11 node to vers
 {{< note >}}
 The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 and below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
 
-If you are upgrading from a 4.11 or pre-4.11 Corda network, and the result will be a mixed network of 4.11 and/or pre-4.11 and 4.12 nodes, then you must perform validation steps on all the older nodes (that is, version 4.11 and below) to ensure compatibility with the upgraded nodes. See [Validate transactions]({{< relref "#validate-transactions" >}}).
+If you are upgrading from a 4.11 or pre-4.11 Corda network, then you must perform validation steps on all the older nodes (that is, version 4.11 and below) to ensure compatibility with the upgraded nodes. The validation must be done on all nodes you intend to upgrade and on older nodes not upgraded but will likely transaction with upgraded nodes. This validation must be done before any updrade is attemopted. See [Validate transactions]({{< relref "#validate-transactions" >}}).
 {{< /note >}}
 
 ### Background
@@ -35,7 +35,7 @@ To address verification issues, both earlier versions of Corda 4.x and Corda 4.1
 
 The external verifier is a process started by Corda 4.12, running Kotlin 1.2 (with Java 17). This enables Corda 4.12 to run independently of Java 8. Whenever Corda 4.12 detects an old contract version, it externally verifies this contract within the external verifier process.
 
-When upgrading to Corda 4.12, the old contract CorDapp JAR is preserved and relocated to a new directory named `legacy-contracts`. This directory is essential as it provides legacy contracts for Corda 4.12 nodes to maintain backward compatibility, as required by the external verifier.
+When upgrading to Corda 4.12, the old contract CorDapp JAR is preserved and relocated to a new directory named `legacy-contracts`. This directory is essential in a mixed network (4.12 nodes and pre-4.12 nodes) as it provides legacy contracts for Corda 4.12 nodes to maintain backward compatibility, as required by the transaction builder.
 
 Note that the external verifier process does not by default include all third-party libraries that shipped with Corda 4.11 and earlier, nor does it have the contents of the `drivers` directory on the classpath. If the contracts in the ledger attachments depend on such third-party libraries or items from the `drivers` directory in Corda 4.11 or earlier, their JAR files can be placed in a directory called `legacy-jars` within the node directory. Any JARs in this directory will be added to the external verifier’s classpath.
 
@@ -92,8 +92,8 @@ To complete the upgrade from Corda 4.11 to Corda 4.12, you need the following co
 
 To upgrade your Corda node from version 4.11 to 4.12, you must perform the following steps:
 
-1. Validate all existing transactions (per node). See [Validate transactions]({{< relref "#validate-transactions" >}}).
-2. Upgrade any custom CorDapps running on the Corda 4.11 node to work with Java 17 and Kotlin 1.9.20. See [Upgrade 4.11 CorDapps]({{< relref "#upgrade-411-cordapps" >}}).
+1. Upgrade any custom CorDapps running on the Corda 4.11 node to work with Java 17 and Kotlin 1.9.20. See [Upgrade 4.11 CorDapps]({{< relref "#upgrade-411-cordapps" >}}).
+2. Validate all existing transactions (per node). See [Validate transactions]({{< relref "#validate-transactions" >}}).
 3. Preserve old CorDapp contracts in a new folder called `legacy-contracts`. See [Add the legacy contracts folder to mixed networks]({{< relref "#add-the-legacy-contracts-folder-to-mixed-networks" >}}).
    {{< note >}}
    This step is for mixed networks only. It is not required if you plan on upgrading all nodes on your network to 4.12.
@@ -201,7 +201,7 @@ Corda 4.12 introduces the concept of *legacy contracts*. A new `legacy-contracts
 If you are not using a mixed network, you do not need the `legacy-contracts` folder.
 {{< /note >}}
 
-This folder contains old CorDapp contract JAR files required by the external verifier process to verify old contract attachments in new transactions. The following is an example folder structure of how to set up the node folder to include the `legacy-contracts` folder.
+This folder contains old CorDapp contract JAR files required by the transaction builder to include legacy contract attachments in new transactions. The following is an example folder structure of how to set up the node folder to include the `legacy-contracts` folder.
 
 Before upgrade:
 ```
@@ -229,6 +229,8 @@ After upgrade:
 ├── drivers
 ├── legacy-contracts
 │   └── corda-finance-contracts-4.11.jar
+├── legacy-jars
+│   └── third-party-dependency.jar
 └── node.conf
 ```
 
@@ -260,6 +262,7 @@ If you are operating a mixed network, then the process for adding a new Corda 4.
 
 1. Set up the node folder structure same as other Corda 4.12 nodes.
 2. Add the `legacy-contracts` folder and associated files to the node folder.
+3. Add the `legacy-jars` folder if required
 
    ```
    .
@@ -272,6 +275,8 @@ If you are operating a mixed network, then the process for adding a new Corda 4.
    ├── drivers
    ├── legacy-contracts
    │   └── corda-finance-contracts-4.11.jar
+   ├── legacy-jars
+   │   └── third-party-dependency.jar
    └── node.conf
    ```
 
@@ -286,6 +291,7 @@ In this scenario, you still require a copy of the old CorDapp contract JAR file.
 {{< /note >}}
 
 1. Set up the node folder structure without the `legacy-contracts` folder.
+2. Add the `legacy-jars` folder if required.
 
    ```
    .
@@ -295,13 +301,14 @@ In this scenario, you still require a copy of the old CorDapp contract JAR file.
    │   ├── config
    │   ├── corda-finance-contracts-4.12.jar
    │   └── corda-finance-workflows-4.12.jar
+   ├── legacy-jars
+   │   └── third-party-dependency.jar
    ├── drivers
    └── node.conf
    ```
+  3. Register and then start the node.
 
-2. Register and then start the node.
-
-3. Access the Corda node either via RPC client or the standalone shell and upload the old CorDapp contract JAR as an attachment to the node.
+4. Access the Corda node either via RPC client or the standalone shell and upload the old CorDapp contract JAR as an attachment to the node.
    For more information on uploading attachments, see [Working with attachments]({{< relref "get-started/tutorials/supplementary-tutorials/tutorial-attachments.md" >}}).
 
 ## Additional release information
