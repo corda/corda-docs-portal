@@ -64,7 +64,7 @@ The purpose of the TVU is to mimic what a 4.12 node would do when verifying a le
 ### Fixed issues
 
 * There is no need for the external verifier to use the `legacy-contracts` folder anymore. The external verifier verifies pre-4.12 transactions and now solely uses the database to retrieve the contract attachments.
-* An open telemetry span has been added around the send to multiple parties and receive from multiple parties operations.
+* An open telemetry span has been added around the Send to Multiple Parties and Receive from Multiple Parties operations.
 * Previously, the transaction builder would log any failed verification attempts when trying to add missing dependencies. Now, these failed attempts are no longer logged if they occur while determining the missing dependencies.
 * This release contains AMQP serialisation performance improvements.
 * It is now possible to create two nodes whose X.500 names has the same O field value but different OU values when using the driver DSL for testing.
