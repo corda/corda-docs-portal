@@ -67,7 +67,7 @@ The purpose of the TVU is to mimic what a 4.12 node would do when verifying a le
 * An open telemetry span has been added around the Send to Multiple Parties and Receive from Multiple Parties operations.
 * Previously, the transaction builder would log any failed verification attempts when trying to add missing dependencies. Now, these failed attempts are no longer logged if they occur while determining the missing dependencies.
 * This release contains AMQP serialisation performance improvements.
-* It is now possible to create two nodes whose X.500 names has the same O field value but different OU values when using the driver DSL for testing.
+* It is now possible to create two nodes whose X.500 names have the same Organisation (O) field value but different Organisation Unit (OU) values when using the driver DSL for testing.
 * There is no longer a memory leak when creating a series of mock networks for testing purposes.
 * The transaction builder no longer attaches legacy attachments to a transaction if the minimum platform version is 140 (i.e., 4.12).
 * If the expected subject name does not match the actual subject name and the Float disconnects, a warning is logged.
