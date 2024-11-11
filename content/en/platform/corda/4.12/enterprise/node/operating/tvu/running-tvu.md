@@ -14,7 +14,7 @@ weight: 150
 
 # Running the TVU
 
-This section describes the requirements to run the Transaction Validator Utility (TVU) to verify a pre-4.12 database of transactions. Please read this section in conjunction with [Corda Enterprise Edition 4.11 to 4.12 upgrade guide]({{< relref "../../../upgrade-guide.md" >}}) which describes in more detail the upgrade process.
+This section describes the requirements to run the Transaction Validator Utility (TVU) to verify a pre-4.12 database of transactions. Please read this section in conjunction with [Corda Enterprise Edition 4.11 to 4.12 upgrade guide]({{< relref "../../../upgrade-guide.md" >}}) which describes the upgrade process in more detail.
 
 The TVU is compatible only with 4.11 database schemas. To verify transactions on a pre-4.11 database, you must first upgrade the database to version 4.11. You must run the TVU in the same environment as a 4.12 node, in terms of `cordapps` and `legacy-jars` folders, with the exception that the database it connects to is the 4.11 database being checked. Note that you do not need to create a `legacy-contracts` folder when running the TVU. The TVU will extract what it needs from the database. Before performing the following steps, ensure everything is backed up, as changes will be made to folders as described below.
 
