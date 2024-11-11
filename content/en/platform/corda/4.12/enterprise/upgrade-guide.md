@@ -149,7 +149,7 @@ To validate a Corda 4.11 node:
    You must perform this step so there are no in-flight transactions when the node is stopped. Not draining the node could lead to these transactions not being checked by TVU, potentially causing issues later on.
 3. Stop the node.
 4. Place the TVU JAR into the root folder of the Corda 4.11 node.
-5. Back up the current `cordapps` directory, remove its contents and add the JDK17/Kotlin 1.9 CordApps to this directory.
+5. Back up the current `cordapps` directory, remove its contents, and add the JDK17/Kotlin 1.9 CordApps to this directory.
 7. If required (see above description), create a `legacy-jars` directory and add third-party dependencies to this directory.
 8. Run the TVU:
 
