@@ -72,7 +72,7 @@ In this scenario, you are creating a non-mixed network composed solely of nodes 
 
 The `legacy-jars` folder is also required if contracts use third-party libraries or depend on JARs in the `drivers` directory.
 
-If any new Corda 4.12 nodes are added to this network in the future then if required also create a `legacy-jars` folder on these new nodes.
+If any new Corda 4.12 nodes are added to this network in the future then, if required, also create a `legacy-jars` folder on these new nodes.
 
 ### Adding 4.12 nodes to a new network
 
