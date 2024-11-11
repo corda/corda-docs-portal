@@ -35,7 +35,7 @@ To address verification issues, both earlier versions of Corda 4.x and Corda 4.1
 
 The external verifier is a process started by Corda 4.12, running Kotlin 1.2 (with Java 17). This enables Corda 4.12 to run independently of Java 8. Whenever Corda 4.12 detects an old contract version, it externally verifies this contract within the external verifier process.
 
-When upgrading to Corda 4.12, the old contract CorDapp JAR is preserved and relocated to a new directory named `legacy-contracts`. This directory is essential as it provides legacy contracts for Corda 4.12 nodes to maintain backward compatibility, as required by the external verifier.
+When upgrading to Corda 4.12, the old contract CorDapp JAR is preserved and relocated to a new directory named `legacy-contracts`. This directory is essential in a mixed network (4.12 nodes and pre-4.12 nodes) as it provides legacy contracts for Corda 4.12 nodes to maintain backward compatibility, as required by the transaction builder.
 
 #### Corda 4.11 vs Corda 4.12
 
@@ -58,14 +58,20 @@ All scenarios involving the upgrade of existing node versions from a previous ve
 In this scenario, you have a mixed network where only selected nodes are upgraded to Corda 4.12, while others remain on previous versions of Corda 4.x. This scenario requires you to perform the following actions:
 1. Upgrade any existing CorDapps to run on Java 17 and Kotlin 1.9.20.
 2. Keep a copy of the old CorDapp contract JAR file in the new `legacy-contracts` folder placed inside all upgraded 4.12 nodes.
+3. If your contracts depend on third-party dependencies or JARs from the `drivers` folder, then you must place these in the new `legacy-jars` folder located inside all upgraded 4.12 nodes.
 
 Any future Corda 4.12 nodes added to the network will also require the `legacy-contracts` folder, unless all nodes have been updated by that time. In the latter case, you are adding new Corda 4.12 nodes to a non-mixed network and this requirement is no longer necessary.
+
+Additionally, if contracts depend on third-party dependencies or JARs in the `drivers` folder, then the populated `legacy-jars` folder must exist on all 4.12 nodes.
+
 
 ### Upgrading all network nodes to 4.12
 
 In this scenario, you are creating a non-mixed network composed solely of nodes operating on Corda 4.12. Transactions occurring within this newly-upgraded network only have the 4.12 contract component group and therefore, you do not need the `legacy-contracts` folder. However, it is still important that you keep a copy of the old contract JAR for reference.
 
 If any new Corda 4.12 nodes are added to this network in the future, a problem arises wherein new nodes won’t trust old contract attachments. For example, this happens if a new transaction contains a backchain of old Corda 4.x transactions. For this reason, you must upload the old contract JAR via RPC to the new node, ensuring it trusts the old contract version.
+
+The `legacy-jars` folder is also required if contracts use third-party libraries or depend on JARs in the `drivers` directory.
 
 ### Adding 4.12 nodes to a new network
 
@@ -83,12 +89,13 @@ To complete the upgrade from Corda 4.11 to Corda 4.12, you need the following co
 
 To upgrade your Corda node from version 4.11 to 4.12, you must perform the following steps:
 
-1. Validate all existing transactions (per node) to ensure that their backchain works with 4.12.
-2. Upgrade any custom CorDapps running on the Corda 4.11 node to work with Java 17 and Kotlin 1.9.20. See [Upgrade 4.11 CorDapps]({{< relref "#upgrade-411-cordapps" >}}).
+1. Upgrade any custom CorDapps running on the Corda 4.11 node to work with Java 17 and Kotlin 1.9.20. See [Upgrade 4.11 CorDapps]({{< relref "#upgrade-411-cordapps" >}}).
+2. Validate all existing transactions (per node) to ensure that their backchain works with 4.12.
 3. Preserve old CorDapp contracts in a new folder called `legacy-contracts`. See [Add the legacy contracts folder to mixed networks]({{< relref "#add-the-legacy-contracts-folder-to-mixed-networks" >}}).
    {{< note >}}
    This step is for mixed networks only. It is not required if you plan on upgrading all nodes on your network to 4.12.
    {{< /note >}}
+4. If your contracts use third-party dependencies or rely on JARs in the `drivers` directory, then create a new folder `legacy-jars` and insert the third-party dependencies and required JARs from the `drivers` folder into the `legacy-jars` folder.
 
 ### Upgrade 4.11 CorDapps
 
@@ -157,12 +164,18 @@ After upgrade:
 ├── drivers
 ├── legacy-contracts
 │   └── corda-finance-contracts-4.11.jar
+├── legacy-jars
+│   └── third-party-dependency.jar
 └── node.conf
 ```
 
 To ensure compatibility, you must keep the legacy contracts. When a node operating on a prior version of Corda 4.x wants to transact with a Corda 4.12 node, the 4.12 node identifies an old contract version attached to the transaction. To verify this old contract, Corda 4.12 initiates the external verifier process, which starts a new external process running Kotlin 1.2. Making use of the external verifier process is the way in which a 4.12 node can verify transactions from 4.11 or earlier nodes.
 
 Similarly, when a 4.12 node creates a transaction, it adds a 4.12 contract into a new component group of the transaction, reserving the existing component group for the 4.11 contract. Consequently, when a 4.11 contract gets attached to the transaction, it ends up with two sets of contract attachments (JARs): the legacy one and the new 4.12 contract. If this transaction is received by a node not running Corda 4.12, the node lacks awareness of the new component group. It disregards the 4.12 contract and proceeds to verify the legacy contract instead, which is then stored in the database.
+
+### Add the `legacy-jars` folder, if required
+
+Pre-4.12 transactions are verified in an external verifier process when encountered. By default, this process does not include all third-party libraries shipped with Corda 4.11 or earlier, nor does it have the contents of the `drivers` directory on its classpath. If your contracts in ledger attachments depend on such third-party libraries or items previously in the `drivers` directory of Corda 4.11 or earlier, you can place the required JAR files in a directory named `legacy-jars` within the node directory. Any JARs in this directory will be added to the classpath of the external verifier. The TVU will help you discover and verify resolution of such issues.
 
 ## Starting 4.12 nodes
 
@@ -183,6 +196,7 @@ If you are operating a mixed network, then the process for adding a new Corda 4.
 
 1. Set up the node folder structure same as other Corda 4.12 nodes.
 2. Add the `legacy-contracts` folder and associated files to the node folder.
+3. Add the `legacy-jars` folder if required.
 
    ```
    .
@@ -195,6 +209,8 @@ If you are operating a mixed network, then the process for adding a new Corda 4.
    ├── drivers
    ├── legacy-contracts
    │   └── corda-finance-contracts-4.11.jar
+   ├── legacy-jars
+   │   └── third-party-dependency.jar
    └── node.conf
    ```
 
@@ -209,6 +225,7 @@ In this scenario, you still require a copy of the old CorDapp contract JAR file.
 {{< /note >}}
 
 1. Set up the node folder structure without the `legacy-contracts` folder.
+2. Add the `legacy-jars` folder if required.
 
    ```
    .
@@ -218,13 +235,15 @@ In this scenario, you still require a copy of the old CorDapp contract JAR file.
    │   ├── config
    │   ├── corda-finance-contracts-4.12.jar
    │   └── corda-finance-workflows-4.12.jar
+   ├── legacy-jars
+   │   └── third-party-dependency.jar
    ├── drivers
    └── node.conf
    ```
 
-2. Register and then start the node.
+3. Register and then start the node.
 
-3. Access the Corda node either via RPC client or the standalone shell and upload the old CorDapp contract JAR as an attachment to the node.
+4. Access the Corda node either via RPC client or the standalone shell and upload the old CorDapp contract JAR as an attachment to the node.
    For more information on uploading attachments, see [Working with attachments]({{< relref "get-started/tutorials/supplementary-tutorials/tutorial-attachments.md" >}}).
 
 ## Additional release information
