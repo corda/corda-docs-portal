@@ -20,7 +20,7 @@ This upgrade guide outlines the steps for migrating your Corda 4.11 node to vers
 {{< note >}}
 The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 and below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
 
-If you are upgrading from a 4.11 or pre-4.11 Corda network, then you must perform validation steps on all the older nodes (that is, version 4.11 and below) to ensure compatibility with the upgraded nodes. The validation must be done on all nodes you intend to upgrade and on older nodes not upgraded but will likely transaction with upgraded nodes. This validation must be done before any updrade is attemopted. See [Validate transactions]({{< relref "#validate-transactions" >}}).
+If you are upgrading from a 4.11 or pre-4.11 Corda network, then you must perform validation steps on all the older nodes (that is, version 4.11 and below) to ensure compatibility with the upgraded nodes. You must validate all the nodes that you intend to upgrade as well as older, not upgraded nodes that will likely transaction with the upgraded ones. You must perform this validation, before attempting an upgrade. See [Validate transactions]({{< relref "#validate-transactions" >}}).
 {{< /note >}}
 
 ### Background
