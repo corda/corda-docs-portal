@@ -63,10 +63,12 @@ The following section describes the updated requirements for running Corda 4.12 
 
 ### Third party components upgrade
 
-| Dependency | Name                  | Bumped to: |
-|------------|-----------------------|------------|
-| 	          | Jetty	                | 12.0.14    |
-|            | commons IO            | 2.70.0     |
+The following table lists the dependency version changes between 4.12.1 and 4.12.2 Open Source Editions:
+
+| Dependency                                     | Name                   | Version 4.12.1 Open Source   | Version 4.12.2 Open Source    |
+|------------------------------------------------|------------------------|---------------------------|----------------------------------|
+| org.eclipse.jetty:*                            | Jetty                  | 12.0.7                      | 12.0.14                        |
+| commons-io:commons-io                          | commons IO             | 2.7                         | 2.17.0                         |
 
 ## Corda Open Source Edition 4.12.1 release notes
 
@@ -261,7 +263,7 @@ This is a warning message from the LTS version of Bouncy Castle we are currently
 
 The following table lists the dependency version changes between 4.11 and 4.12 Open Source Editions:
 
-| Dependency                                     | Name                   | Version 4.11 Enterprise   | Version 4.12 Enterprise  |
+| Dependency                                     | Name                   | Version 4.11 Open Source  | Version 4.12 Open Source |
 |------------------------------------------------|------------------------|---------------------------|------------------------- |
 | com.google.guava:guava                         | Guava                  | 28.0-jre                  | 33.1.0-jre               |
 | co.paralleluniverse:quasar-core	               | Quasar	                | 0.7.16_r3	                | 0.9.0_r3                 |

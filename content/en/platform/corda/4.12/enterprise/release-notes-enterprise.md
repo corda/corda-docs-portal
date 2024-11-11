@@ -83,14 +83,15 @@ The purpose of the TVU is to mimic what a 4.12 node would do when verifying a le
 
 ### Third party components upgrade
 
-| Dependency | Name                  | Bumped to: |
-|------------|-----------------------|------------|
-|            | commonsConfiguration2 | 2.11.0     |
-| 	          | Jetty	                | 12.0.14    |
-|            | commons IO            | 2.70.0     |
-|            | sshd                  | 2.13.2     |
-|            | Zookeeper             | 3.8.4      |
-|            | commonsDbcp2          | 2.12.0     |
+The following table lists the dependency version changes between 4.12.1 and 4.12.2 Enterprise Editions:
+
+| Dependency                                     | Name                   | Version 4.12.1 Enterprise   | Version 4.12.2 Enterprise      |
+|------------------------------------------------|------------------------|-----------------------------|--------------------------------|
+| org.eclipse.jetty:*                            | Jetty                  | 12.0.7                      | 12.0.14                        |
+| commons-io:commons-io                          | commons IO             | 2.7                         | 2.17.0                         |
+| org.apache.commons:commons-configuration2      | commonsConfiguration2  | 2.10.1                      | 2.11.0                         |
+| org.apache.sshd:sshd-common                    | sshd                   | 2.12.1                      | 2.13.2                         |
+| org.apache.zookeeper:*                         | Zookeeper              | 3.8.3                       |  3.8.4                         |
 
 ## Corda Enterprise Edition 4.12.1 release notes
 
