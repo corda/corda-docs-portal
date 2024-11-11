@@ -20,6 +20,56 @@ tags:
 
 # Corda Open Source Edition 4.12 release notes
 
+## Corda Open Source Edition 4.12.2 release notes
+
+Corda Open Source Edition 4.12.2 is a patch release of Corda Community Edition focused on resolving issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../community/_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Corda Open Source Edition 4.11 to 4.12 upgrade guide]({{< relref "comm-upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
+
+### Documentation Updates
+
+The following section describes the updated requirements for running Corda 4.12 nodes. It clarifies and enhances the previous documentation. The current patch release documentation has been updated to reflect the following:
+
+* Legacy contracts directory: The legacy contracts directory is no longer required when running 4.12 nodes, provided all nodes on the network are version 4.12 nodes.
+
+* Purpose of legacy contracts directory: The legacy contracts directory is now only needed for enabling 4.12 nodes to build transactions that include legacy contracts. This is only applicable in a mixed network of 4.12 nodes and pre-4.12 nodes.
+
+* Legacy JARs directory: You may need to include a `legacy-jars` directory when running the node. See point 3 below for further details.
+
+#### Corda 4.12 nodes
+
+1.  If your network includes a mix of 4.12 nodes and pre-4.12 nodes, each 4.12 node must have a `legacy-contracts` directory containing pre-4.12 contract CorDapps. This allows 4.12 nodes to build transactions that include pre-4.12 contracts, enabling interoperability with pre-4.12 nodes. In this scenario, you may also need a `legacy-jars` directory - see point 3 below.
+
+2.  If your network consists solely of upgraded 4.12 nodes, there is no need for the `legacy-contracts` directory. The 4.12 nodes will create transactions without legacy contracts, which is fine as there are no pre-4.12 nodes in the network. In this scenario, since the ledger already contains pre-4.12 transactions, you may still need a `legacy-jars` directory - see point 3 below.
+
+3.  Pre-4.12 transactions are verified in an external verifier process when encountered. This process does not, by default, include all third-party libraries that shipped with Corda 4.11 and earlier, nor does it have the `drivers` directory on the classpath. If your contracts in the ledger attachments depend on such third-party libraries or any contents from the `drivers` directory in Corda 4.11 or earlier, you can place the necessary JAR files in a directory called `legacy-jars` within the node directory. Any JARs in this directory will be added to the classpath of the external verifier. The TVU will assist you in identifying and verifying the resolution of such issues.
+
+### Fixed issues
+
+* There is no need for the external verifier to use the `legacy-contracts` folder anymore. The external verifier verifies pre-4.12 transactions and now solely uses the database to retrieve the contract attachments.
+* An open telemetry span has been added around the send to multiple parties and receive from multiple parties operations.
+* Previously, the transaction builder would log any failed verification attempts when trying to add missing dependencies. Now, these failed attempts are no longer logged if they occur while determining the missing dependencies.
+* This release contains AMQP serialisation performance improvements.
+* It is now possible to create two nodes whose X.500 names have the same Organisation (O) field value but different Organisation Unit (OU) values when using the driver DSL for testing.
+* There is no longer a memory leak when creating a series of mock networks for testing purposes.
+* The transaction builder no longer attaches legacy attachments to a transaction if the minimum platform version is 140 (i.e., 4.12).
+* A new `legacy-jars` directory has been introduced to improve backward compatibility with earlier versions of Corda. See the description above and the upgrade guide for details.
+* Contract JAR signing key rotation of R3-provided CorDapps is included in this patch release.
+
+
+### Third party components upgrade
+
+The following table lists the dependency version changes between 4.12.1 and 4.12.2 Open Source Editions:
+
+| Dependency                                     | Name                   | Version 4.12.1 Open Source   | Version 4.12.2 Open Source    |
+|------------------------------------------------|------------------------|---------------------------|----------------------------------|
+| org.eclipse.jetty:*                            | Jetty                  | 12.0.7                      | 12.0.14                        |
+| commons-io:commons-io                          | commons IO             | 2.7                         | 2.17.0                         |
+
 ## Corda Open Source Edition 4.12.1 release notes
 
 Corda Open Source Edition 4.12.1 is a patch release of Corda Community Edition focused on resolving issues.
@@ -213,7 +263,7 @@ This is a warning message from the LTS version of Bouncy Castle we are currently
 
 The following table lists the dependency version changes between 4.11 and 4.12 Open Source Editions:
 
-| Dependency                                     | Name                   | Version 4.11 Enterprise   | Version 4.12 Enterprise  |
+| Dependency                                     | Name                   | Version 4.11 Open Source  | Version 4.12 Open Source |
 |------------------------------------------------|------------------------|---------------------------|------------------------- |
 | com.google.guava:guava                         | Guava                  | 28.0-jre                  | 33.1.0-jre               |
 | co.paralleluniverse:quasar-core	               | Quasar	                | 0.7.16_r3	                | 0.9.0_r3                 |
