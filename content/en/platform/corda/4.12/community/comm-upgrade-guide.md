@@ -95,7 +95,7 @@ To upgrade your Corda node from version 4.11 to 4.12, you must perform the follo
    {{< note >}}
    This step is for mixed networks only. It is not required if you plan on upgrading all nodes on your network to 4.12.
    {{< /note >}}
-4. If your contracts uses third party dependencies or relies on jars in the drivers directory then create a new folder `legacy-jars` and insert the third party dependencies and required jars from the drivers folder into the `legacy-jars` folder.
+4. If your contracts use third-party dependencies or rely on JARs in the `drivers` directory, then create a new folder `legacy-jars` and insert the third-party dependencies and required JARs from the `drivers` folder into the `legacy-jars` folder.
 
 ### Upgrade 4.11 CorDapps
 
