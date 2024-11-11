@@ -17,6 +17,82 @@ weight: 10
 
 # Corda Enterprise Edition 4.12 release notes
 
+## Corda Enterprise Edition 4.12.2 release notes
+
+Corda Enterprise Edition 4.12.2 is a patch release of Corda Enterprise Edition focused on resolving issues.
+
+### Upgrade recommendation
+
+{{< important >}}
+When upgrading a node to Corda 4.12, it is extremely important that you run the Transaction Validator Utility on your node database to verify that the transactions in the old node are compatible with 4.12 nodes.
+
+To ensure compatibility of the transactions, you must also run the Transaction Validator Utility on any older nodes that are not being upgraded and will likely interact with any upgraded nodes.
+
+For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
+{{< /important >}}
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Corda Enterprise Edition 4.11 to 4.12 upgrade guide]({{< relref "upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
+
+### Transaction Validator Utility Updates
+
+The following section describes the updated requirements for running the Transaction Validator Utility (TVU) and Corda 4.12 nodes. It clarifies and enhances the previous documentation. The current patch release documentation has been updated to reflect the following:
+
+* Legacy contracts directory: The legacy contracts directory is no longer required when running the TVU or when running 4.12 nodes, provided all nodes on the network are version 4.12 nodes.
+
+* 4.12 environment requirement: You must run the TVU in a 4.12 environment (excluding the database). Specifically, the `cordapps` directory must contain only 4.12-compatible CorDapps. See point 1 below.
+
+* Purpose of legacy contracts directory: The legacy contracts directory is now only needed for enabling 4.12 nodes to build transactions that include legacy contracts. This is only applicable in a mixed network of 4.12 nodes and pre-4.12 nodes.
+
+* Legacy JARs directory: You may need to include a `legacy-jars` directory when running both the TVU and the node. See point 4 below for further details.
+
+#### Transaction Validator Utility
+
+The purpose of the TVU is to mimic what a 4.12 node would do when verifying a legacy transaction, and report any errors found.
+
+1. You must run the TVU in a 4.12 node directory, using the 4.11 database to be validated (or a database upgraded to 4.11). Ensure that the CorDapps directory contains 4.12 CorDapps, and include any pre-4.12 dependencies in the `legacy-jars` directory if required by existing contract attachments on the ledger (see point 4 below). Note that the `legacy-contracts` directory is not necessary.
+
+#### Corda 4.12 nodes
+
+2. If your network includes a mix of 4.12 nodes and pre-4.12 nodes, each 4.12 node must have a `legacy-contracts` directory containing pre-4.12 contract CorDapps. This allows 4.12 nodes to build transactions that include pre-4.12 contracts, enabling interoperability with pre-4.12 nodes. In this scenario, you may also need a `legacy-jars` directory - see point 4 below.
+
+3. If your network consists solely of upgraded 4.12 nodes, there is no need for the `legacy-contracts` directory. The 4.12 nodes will create transactions without legacy contracts, which is fine as there are no pre-4.12 nodes in the network. In this scenario, since the ledger already contains pre-4.12 transactions, you may still need a `legacy-jars` directory - see point 4 below.
+
+4. Pre-4.12 transactions are verified in an external verifier process when encountered. This process does not, by default, include all third-party libraries that shipped with Corda 4.11 and earlier, nor does it have the `drivers` directory on the classpath. If your contracts in the ledger attachments depend on such third-party libraries or any contents from the `drivers` directory in Corda 4.11 or earlier, you can place the necessary JAR files in a directory called `legacy-jars` within the node directory. Any JARs in this directory will be added to the classpath of the external verifier. The TVU will assist you in identifying and verifying the resolution of such issues.
+
+### Fixed issues
+
+* There is no need for the external verifier to use the `legacy-contracts` folder anymore. The external verifier verifies pre-4.12 transactions and now solely uses the database to retrieve the contract attachments.
+* An open telemetry span has been added around the Send to Multiple Parties and Receive from Multiple Parties operations.
+* Previously, the transaction builder would log any failed verification attempts when trying to add missing dependencies. Now, these failed attempts are no longer logged if they occur while determining the missing dependencies.
+* This release contains AMQP serialisation performance improvements.
+* It is now possible to create two nodes whose X.500 names have the same Organisation (O) field value but different Organisation Unit (OU) values when using the driver DSL for testing.
+* There is no longer a memory leak when creating a series of mock networks for testing purposes.
+* The transaction builder no longer attaches legacy attachments to a transaction if the minimum platform version is 140 (i.e., 4.12).
+* If the expected subject name does not match the actual subject name and the Float disconnects, a warning is logged.
+* The TVU now includes the CorDapps class loader when deserializing output states as part of its deserialization test. Additionally, the TVU now also includes the same set of add-opens options as the node.
+* The TVU is no longer writing the JDK17 attachments to the database when verifying transactions.
+* A memory leak in the TVU has been resolved.
+* A null pointer exception from the TVU (when resolving some parent paths) has been resolved.
+* The TVU is no longer raising an exception when outputting a JSON representation of another exception.
+* The TVU now parses configuration files in the same way as the node.
+* A new `legacy-jars` directory has been introduced to improve backward compatibility with earlier versions of Corda. See the description above and the upgrade guide for details.
+* Contract JAR signing key rotation of R3-provided CorDapps is included in this patch release.
+
+
+### Third party components upgrade
+
+The following table lists the dependency version changes between 4.12.1 and 4.12.2 Enterprise Editions:
+
+| Dependency                                     | Name                   | Version 4.12.1 Enterprise   | Version 4.12.2 Enterprise      |
+|------------------------------------------------|------------------------|-----------------------------|--------------------------------|
+| org.eclipse.jetty:*                            | Jetty                  | 12.0.7                      | 12.0.14                        |
+| commons-io:commons-io                          | commons IO             | 2.7                         | 2.17.0                         |
+| org.apache.commons:commons-configuration2      | commonsConfiguration2  | 2.10.1                      | 2.11.0                         |
+| org.apache.sshd:sshd-common                    | sshd                   | 2.12.1                      | 2.13.2                         |
+| org.apache.zookeeper:*                         | Zookeeper              | 3.8.3                       |  3.8.4                         |
+
 ## Corda Enterprise Edition 4.12.1 release notes
 
 Corda Enterprise Edition 4.12.1 is a patch release of Corda Enterprise Edition focused on resolving issues.
