@@ -55,7 +55,7 @@ The following section describes the updated requirements for running Corda 4.12 
 * Previously, the transaction builder would log any failed verification attempts when trying to add missing dependencies. Now, these failed attempts are no longer logged if they occur while determining the missing dependencies.
 * This release contains AMQP serialisation performance improvements.
 * It is now possible to create two nodes whose X.500 names have the same O field value but different OU values when using the driver DSL for testing.
-* There's no longer a memory leak when creating a series of mock networks for testing purposes.
+* There is no longer a memory leak when creating a series of mock networks for testing purposes.
 * The transaction builder no longer attaches legacy attachments to a transaction if the minimum platform version is 140 (i.e., 4.12).
 * A new `legacy-jars` directory has been introduced to improve backward compatibility with earlier versions of Corda. See the description above and the upgrade guide for details.
 * Contract JAR signing key rotation of R3-provided CorDapps is included in this patch release.
