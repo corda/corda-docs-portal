@@ -20,6 +20,6 @@ The TVU is compatible only with 4.11 database schemas. To verify transactions on
 
 1. Place the TVU JAR in your Corda 4.11 node directory.
 2. In the `cordapps` directory, remove the existing JARs and replace them with the 4.12 JDK17/Kotlin 1.9 equivalent JARs.
-3. If needed, create a `legacy-jars` directory and place into this directory third-party dependencies and any JARs you were dependent upon located in the `drivers` directory. See [Corda Enterprise Edition 4.11 to 4.12 upgrade guide]({{< relref "../../../upgrade-guide.md" >}}) for details.
+3. If needed, create a `legacy-jars` directory, then copy the third-party dependencies and any JARs you were dependent upon from the `drivers` directory to the `legacy-jars` directory . See [Corda Enterprise Edition 4.11 to 4.12 upgrade guide]({{< relref "../../../upgrade-guide.md" >}}) for details.
 
 You can now run the TVU using the command lines described in the [TVU CLI parameters]({{< relref "tvu-cli.md" >}}) section.
