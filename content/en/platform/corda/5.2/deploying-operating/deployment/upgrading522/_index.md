@@ -6,7 +6,7 @@ menu:
   corda52:
     parent: corda52-cluster-deploy
     identifier: corda52-cluster-upgrade522
-    weight: 5000
+    weight: 6000
 ---
 # Upgrading from 5.2.1 to 5.2.2
 
@@ -76,8 +76,8 @@ done
 
 
 
-## Launch the Corda 5.2.1 Workers
+## Launch the Corda 5.2.2 Workers
 
-If Corda 5.2.1 was deployed using Corda Helm chart, you can deploy Corda 5.2.2 the same way. This updates the deployments with the new image versions and scales them to the defined replica counts. Corda version is overridden at the command line and selecting the 5.2.2 Corda Helm chart defaults to the 5.2.2 worker images. If you provide your own values in a YAML file, ensure it does not refer to 5.2.1 images.
+If Corda 5.2.1 was deployed using Corda Helm chart, you can deploy Corda 5.2.2 the same way. This updates the deployments with the new image versions and scales them to the defined replica counts. The Corda version is overridden at the command line, and selecting the 5.2.2 Corda Helm chart defaults to the 5.2.2 worker images. If you provide your own values in a YAML file, ensure it does not refer to 5.2.1 images.
 
 For more information, see the [Corda Helm chart]({{< relref "../deploying/_index.md#download-the-corda-helm-chart" >}}) instructions.
