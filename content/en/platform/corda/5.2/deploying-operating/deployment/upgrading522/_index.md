@@ -13,7 +13,10 @@ menu:
 This section describes how to upgrade a Corda cluster from version 5.2.1 to 5.2.2.
 
 {{< note >}}
-You cannot upgrade Corda 5.1 to 5.2.2. You must upgrade Corda to version 5.2 first. For information on how to do it, see [Upgrading from 5.1 to 5.2]({{< relref "../upgrading/_index.md" >}}).
+You cannot upgrade Corda 5.1 directly to 5.2.2. You must first upgrade Corda 5.1 to version 5.2, then to 5.2.1, and finally to 5.2.2. For information on the previous upgrade processes, see:
+* [Upgrading from 5.1 to 5.2]({{< relref "../upgrading/_index.md" >}})
+* [Upgrading from 5.2 to 5.2.1]({{< relref "../upgrading521/_index.md" >}})
+
 {{< /note >}}
 
 The examples provided in this section assume that you installed Corda 5.2.1 in a namespace called `corda`. This is different to other deployments.
@@ -40,7 +43,6 @@ Customers in production are not expected to follow this path, and generally use 
 ### Downloads
 
 Install PostgreSQL interface (`psql`) and Kubernetes command line tool (`kubectl`) on your local machine.
-
 
 ## Scale Down the Running Corda Worker Instances
 
@@ -73,8 +75,6 @@ do
 sleep 1
 done
 ```
-
-
 
 ## Launch the Corda 5.2.2 Workers
 

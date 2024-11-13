@@ -24,10 +24,10 @@ To bring Corda 5.2.1 workers back, perform one of the following actions:
 * You can use `kubectl scale` with a replica count greater than one, reversing the step below where they were scaled to zero replicas.
 * Or you can issue a Helm upgrade command which resets the values you installed Corda 5.2.1 with, including replica counts, for example:
 
-   ```
-	helm upgrade corda -n corda \
-	helm fetch oci://registry-1.docker.io/corda/corda --version 5.2.1
-	--version "5.2.1" \
-	--values artifactory_values.yaml \
-	--wait
-   ```
+```
+helm upgrade corda -n corda \
+helm fetch oci://registry-1.docker.io/corda/corda --version 5.2.1
+--version "5.2.1" \
+--values artifactory_values.yaml \
+--wait
+```
