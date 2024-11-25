@@ -1,5 +1,5 @@
 ---
-description: "Learn how to roll back the Corda 5.2.1 to Corda 5.2.1 upgrade process if an issue occurs."
+description: "Learn how to roll back the Corda 5.2.1 to Corda 5.2.2 upgrade process if an issue occurs."
 date: '2024-11-13'
 title: "Rolling Back"
 menu:
