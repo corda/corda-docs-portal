@@ -95,7 +95,7 @@ The following database types are supported both in production and for developmen
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
 |Oracle|x86-64|11gR2|Oracle JDBC 6 |
 |Oracle|x86-64|23ai (23.4)|Oracle JDBC 8 |
-|PostgreSQL|x86-64|12.19, 13.15, 14.12, 15.7, 16.3|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
+|PostgreSQL|x86-64|12.x, 13.x, 14.x, 15.x, 16.x| PostgreSQL JDBC Driver 42.7.3 |
 
 {{< /table >}}
 
