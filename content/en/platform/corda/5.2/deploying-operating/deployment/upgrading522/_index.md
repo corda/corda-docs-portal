@@ -42,13 +42,9 @@ Customers in production are not expected to follow this path, and generally use 
 
 ### Downloads
 
-Install PostgreSQL interface (`psql`) and Kubernetes command line tool (`kubectl`) on your local machine.
+Install Kubernetes command line tool (`kubectl`) on your local machine.
 
 ## Scale Down the Running Corda Worker Instances
-
-{{< important >}}
-After completing this step and until you finish the last step in these instructions, Corda 5.2 becomes unresponsive. To reduce Corda downtime, R3 recommends that you test the database migration and become fully familiar with the next set of steps before proceeding with this one.
-{{< /important >}}
 
 You can scale down the workers using any tool of your choice. For example, run the following commands if using `kubectl`:
 
