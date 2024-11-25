@@ -727,8 +727,6 @@ Before you install the downloaded release packs, verify the integrity of each fi
   * `881061e09c44fd0df936f5ec0cd4d1b73fb2e642b469dc9656787324699ff7a9` (sha256)
   * `24924975cfc3a34310c850f249f5d1ba` (md5)
 
-
-
 ## Release packs and checksums for Corda Open Source Edition 4.12.1
 
 * Release pack: https://download.corda.net/corda-open-source/4.12.1/corda-open-source-4.12.1.tar
@@ -736,7 +734,7 @@ Before you install the downloaded release packs, verify the integrity of each fi
 * ASC: https://download.corda.net/corda-open-source/4.12.1/corda-open-source-4.12.1.tar.asc
 * SHA-256 checksum: https://download.corda.net/corda-open-source/4.12.1/corda-open-source-4.12.1.tar.sha256
 
-## ### Checksums for 4.12.1
+### Checksums for 4.12.1
 
 * corda-4.12.1.jar (103 Mb / 108638187 bytes)
   * `c0abab44cf294b4fb784beb0855f598e9cda387b` (sha1)
