@@ -631,7 +631,7 @@ workers:
         valueFrom:
           secretKeyRef:
             key: <POSTGRESQL_CRYPTO_CONFIG_PASSWORD_SECRET_KEY>
-            name: <POSTGRESQL_CRYPTO_CONFIG_PASSWORD_SECRET_NAME>      
+            name: <POSTGRESQL_CRYPTO_CONFIG_PASSWORD_SECRET_NAME>
     stateManager:
       keyRotation:
         username:
@@ -655,7 +655,7 @@ workers:
         valueFrom:
           secretKeyRef:
             key: <POSTGRESQL_FLOW_CONFIG_PASSWORD_SECRET_KEY>
-            name: <POSTGRESQL_FLOW_CONFIG_PASSWORD_SECRET_NAME>  
+            name: <POSTGRESQL_FLOW_CONFIG_PASSWORD_SECRET_NAME>
     stateManager:
       flowCheckpoint:
         username:
@@ -679,7 +679,7 @@ workers:
         valueFrom:
           secretKeyRef:
             key: <POSTGRESQL_FLOW_MAPPER_CONFIG_PASSWORD_SECRET_KEY>
-            name: <POSTGRESQL_FLOW_MAPPER_CONFIG_PASSWORD_SECRET_NAME>  
+            name: <POSTGRESQL_FLOW_MAPPER_CONFIG_PASSWORD_SECRET_NAME>
     stateManager:
       flowMapping:
         username:
@@ -703,7 +703,7 @@ workers:
         valueFrom:
           secretKeyRef:
             key: <POSTGRESQL_P2P_SESSION_CONFIG_PASSWORD_SECRET_KEY>
-            name: <POSTGRESQL_P2P_SESSION_CONFIG_PASSWORD_SECRET_NAME>  
+            name: <POSTGRESQL_P2P_SESSION_CONFIG_PASSWORD_SECRET_NAME>
     stateManager:
       p2pSession:
         username:
@@ -727,7 +727,7 @@ workers:
         valueFrom:
           secretKeyRef:
             key: <POSTGRESQL_TOKEN_CONFIG_PASSWORD_SECRET_KEY>
-            name: <POSTGRESQL_TOKEN_CONFIG_PASSWORD_SECRET_NAME>  
+            name: <POSTGRESQL_TOKEN_CONFIG_PASSWORD_SECRET_NAME>
     stateManager:
       tokenPoolCache:
         username:
@@ -751,7 +751,7 @@ workers:
         valueFrom:
           secretKeyRef:
             key: <POSTGRESQL_REST_WORKER_CONFIG_PASSWORD_SECRET_KEY>
-            name: <POSTGRESQL_REST_WORKER_CONFIG_PASSWORD_SECRET_NAME>  
+            name: <POSTGRESQL_REST_WORKER_CONFIG_PASSWORD_SECRET_NAME>
     stateManager:
       keyRotation:
         username:
@@ -948,6 +948,8 @@ config:
 
 * `<vault-URL>` — the full URL including the port at which the Vault instance is reachable, not including any path.
 * `<vault-token>` — the token that Corda uses for accessing Vault. This must allow sufficient permissions to read from Vault at the Corda configured paths and also write to the `<path-to-corda-created-secrets>`. This requires your Vault administrator to grant more permissions than typically given to applications using Vault, but only for writing to one specific path. This is necessary to allow Corda to save encrypted database user passwords for the databases created for every new virtual node.
+
+  The Vault token requires the following capabilities: `read`, `create`, `path`.
 * `createdSecretPath` — the path on Vault where Corda writes new secrets. Secrets should be created at a point in the hierarchy that is specific to that particular Corda deployment, keeping keys for different Corda deployments separate.
 
 R3 recommends injecting Vault secrets into Kubernetes pods using a sidecar technique. For more information, see the HashiCorp Vault Developer documentation. This provides a private channel for Corda worker containers to another container which in turn securely authenticates with Vault.
