@@ -106,6 +106,7 @@ The following sections describe the minimal set of configuration options require
 
 * [Image Registry]({{< relref "#image-registry" >}})
 * [Replica Counts]({{< relref "#replica-counts" >}})
+* [Sharding]({{< relref "#sharding" >}})
 * [Resource Requests and Limits]({{< relref "#resource-requests-and-limits" >}})
 * [REST API]({{< relref "#rest-api" >}})
 * [P2P Gateway]({{< relref "#p2p-gateway" >}})
@@ -200,6 +201,9 @@ workers:
 {{< important >}}
 These numbers are only suggestions and you should make your own decisions about scaling depending on your application workload.
 {{< /important >}}
+
+### Sharding
+
 
 ### Resource Requests and Limits
 
