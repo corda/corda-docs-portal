@@ -6,7 +6,7 @@ menu:
   corda52:
     parent: corda52-release-notes-tpn
     identifier: corda522-release-notes-tpn
-    weight: 1500
+    weight: 3000
 ---
 # Corda 5.2.2 Third-Party Software Notices and Information
 {{< childpages >}}
