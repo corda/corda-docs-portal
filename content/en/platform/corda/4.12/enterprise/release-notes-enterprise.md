@@ -37,15 +37,15 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 
 ### Fixed issues
 
-* CorDapp builds do not fail with the error `java.lang.NoSuchFieldError: id_ml_dsa_44` anymore. This issue arose from a version mismatch in Bouncy Castle libraries. A new LTS version of Bouncy Castle introduced this field, and it was inadvertently being picked up due to version ranges specified in the dependencies. The issue has now been resolved by locking the Bouncy Castle dependencies to a specific version within Corda.
+* Fixed an issue where CorDapp builds may fail to build with the error `java.lang.NoSuchFieldError: id_ml_dsa_44`. This issue arose from a version mismatch in Bouncy Castle libraries. A new LTS version of Bouncy Castle introduced this field, and it was being picked up due to version ranges specified in the Bouncy Castle dependencies. The issue has now been resolved by locking the Bouncy Castle dependencies to a specific version within Corda.
 
-* A `ClassNotFound` error, causing transaction verification to fail, does no longer occur when deserializing commands from a legacy transaction in the external verifier. This happened because the class loader used during deserialization did not include any CorDapps. In cases where it did work, it was only because Corda managed to construct the missing class. This issue has now been resolved by ensuring that CorDapp classes are available during deserialization. Additionally, the external verifier's ability to auto-construct missing classes has been disabled.
+* A `ClassNotFound` error, causing transaction verification to fail, does no longer occur when deserializing commands from a legacy transaction in the external verifier. This would sometimes happen because the class loader used during deserialization did not include any CorDapps and the missing class could not be auto-constructed. In cases where it did work, it was only because Corda managed to construct the missing class. This issue has now been resolved by ensuring that CorDapp classes are available during deserialization. Additionally, the external verifier's ability to auto-construct missing classes has been disabled.
 
-* The in-flight transaction state, introduced in Corda version 4.11 to support transaction recovery, is no longer included when the Ledger Graph CorDapp builds a transaction graph. Instead, the CorDapp now ignores any transactions with an in-flight status.
+* Transactions with the in-flight transaction state, introduced in Corda version 4.11 to support transaction recovery, are no longer included when the Ledger Graph CorDapp builds a transaction graph. Instead, the CorDapp now ignores any transactions with an in-flight status.
 
 * The notary health check client tool now starts without any issues.
 
-* The Transaction Validator Utility (TVU) accurately reports the number of discovered transactions, even when the provided reverification file includes blank lines.
+* The Transaction Validator Utility (TVU) with a provided reverification file accurately reports the number of discovered transactions, even when the provided reverification file includes blank lines.
 
 ## Corda Enterprise Edition 4.12.2 release notes
 
