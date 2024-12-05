@@ -2,7 +2,7 @@
 date: '2023-11-08'
 menu:
   corda-enterprise-4-12:
-    parent: corda-enterprise-4-12-ledger-recovery
+    parent: corda-enterprise-4-12-corda-ledger-recovery
 tags:
 - ledger recovery performance
 title: Performance

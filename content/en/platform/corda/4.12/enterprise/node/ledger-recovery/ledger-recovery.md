@@ -1,13 +1,15 @@
 ---
-date: '2023-11-08'
+date: '2023-11-20'
 menu:
   corda-enterprise-4-12:
-    identifier: corda-enterprise-4-12-ledger-recovery
-    parent: corda-enterprise-4-12-corda-nodes-collaborative-recovery
+    identifier: corda-enterprise-4-12-corda-ledger-recovery
+    name: "Ledger Recovery"
+    parent: corda-enterprise-4-12-corda-nodes
 tags:
 - ledger recovery
+
 title: Ledger Recovery
-weight: 5
+weight: 100
 ---
 
 # Ledger Recovery
@@ -43,7 +45,7 @@ A `SenderDistribution` record contains the following transaction metadata:
 The `SendTransactionFlow` infers the value for receiver `StatesToRecord` based on the type of sessions passed into its constructor:
 * `val participantSessions: Set<FlowSession>` defaults to `ONLY_RELEVANT`
 * `val observerSessions: Set<FlowSession>` defaults to `ALL_VISIBLE`
-{{< /note >}}
+  {{< /note >}}
 
 Upon storing the `SenderDistribution` records for a transaction, the sender node also generates a single `ReceiverDistribution` record.
 A `ReceiverDistribution` record contains the following transaction metadata:
