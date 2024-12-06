@@ -29,7 +29,7 @@ in subsequent transactions with other nodes in the network, yet.
 
 ## Transaction distribution records
 
-Ledger Recovery builds on the foundations established in [Two Phase Finality]({{< relref "../../../two-phase-finality.md" >}}),
+Ledger Recovery builds on the foundations established in [Two Phase Finality]({{< relref "../../two-phase-finality.md" >}}),
 where recovery metadata is stored for transactions at both the sender's and receiver's side of a transaction flow.
 
 For any given transaction, the sender's side stores one or more `SenderDistribution` records in its local
