@@ -198,6 +198,10 @@ The base Corda package includes several SDKs and libraries. These SDKs and libra
 | ledger-graph              | 1.3                           |
 | r3-tools                  | 4.12                          |
 
+#### Collaborative Recovery removed
+
+The Collaborative Recovery solution, along with the associated CorDapps (LedgerSync and LedgerRecover), was removed in Corda 4.12. You must now use the new recovery tools introduced in version 4.11, as described in the [Corda Enterprise Edition 4.11 release notes]({{< relref "../../4.11//enterprise/release-notes-enterprise.html#corda-enterprise-edition-411-release-notes-1" >}}).
+
 #### Transaction Validator Utility
 
 Corda 4.12 introduces the Transaction Validator Utility (TVU), a tool that validates transactions committed to the database to avoid post-migration errors when upgrading to Corda 4.12. For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
