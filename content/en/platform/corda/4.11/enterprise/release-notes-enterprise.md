@@ -103,7 +103,7 @@ Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
 
 ### Collaborative Recovery deprecated
 
-The Collaborative Recovery solution, along with the associated CorDapps (LedgerSync and LedgerRecover), was deprecated in Corda 4.11 and will be removed in Corda 4.12. You must now use the new recovery tools introduced in version 4.11, as detailed in the following 4.11 release notes.
+The Collaborative Recovery solution, along with the associated CorDapps (LedgerSync and LedgerRecover), is deprecated in Corda 4.11 and will be removed in Corda 4.12. You must now use the new recovery tools introduced in version 4.11, as detailed in the following 4.11 release notes.
 
 ### Ledger Recovery
 
