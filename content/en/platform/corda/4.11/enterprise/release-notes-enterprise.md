@@ -91,7 +91,7 @@ Corda 4.11 uses platform version 13.
 
 For more information about platform versions, see [Versioning]({{< relref "cordapps/versioning.md" >}}).
 
-## New features and enhancements
+## New features, enhancements and restrictions
 
 ### Archive Service and Corda Enterprise compatibility
 
@@ -100,6 +100,10 @@ The [Archive Service]({{< relref "../../../../tools/archiving-service/archiving-
 ### JDK Azul and Oracle JDK upgrade
 
 Corda now supports JDK Azul 8u382 and Oracle JDK 8u381.
+
+### Collaborative Recovery deprecated
+
+The Collaborative Recovery solution, along with the associated CorDapps (LedgerSync and LedgerRecover), is deprecated in Corda 4.11 and will be removed in Corda 4.12. You are now advised to use the new recovery tools introduced in version 4.11, as detailed in the following 4.11 release notes.
 
 ### Ledger Recovery
 

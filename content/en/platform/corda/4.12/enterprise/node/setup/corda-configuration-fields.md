@@ -390,7 +390,7 @@ Allows fine-grained controls of various features only available in the enterpris
 
 * `ledgerRecoveryConfiguration`
 
-    * This configuration allows you to tailor Ledger Recovery behavior for your Corda node. It offers flexibility in defining parameters related to key pair pre-generation, backup intervals, and confidential identity backup options. For a detailed description of Ledger Recovery that uses this configuration, see [Ledger Recovery]({{< relref "../collaborative-recovery/ledger-recovery/overview.md" >}}).
+    * This configuration allows you to tailor Ledger Recovery behavior for your Corda node. It offers flexibility in defining parameters related to key pair pre-generation, backup intervals, and confidential identity backup options. For a detailed description of Ledger Recovery that uses this configuration, see [Ledger Recovery]({{< relref "../ledger-recovery/ledger-recovery.md" >}}).
 
     - `noOfPreGeneratedKeys`
 
