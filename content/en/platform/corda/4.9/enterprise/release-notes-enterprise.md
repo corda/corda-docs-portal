@@ -41,16 +41,17 @@ As a developer or node operator, you should upgrade to the [latest released vers
 * Contract JAR signing key rotation of R3-provided CorDapps is included in this patch release.
 * Docker images are now based on Java 8 build 432.
 
-### Third party components upgrade
+### Third-party components upgrade
 
 The following table lists the dependency version changes between 4.9.10 and 4.9.11 Enterprise Editions:
 
-| Dependency                   | Name                | Version 4.12.1 Enterprise   | Version 4.12.2 Enterprise      |
+| Dependency                   | Name                | Version 4.9.10 Enterprise   | Version 4.9.11 Enterprise      |
 |------------------------------|---------------------|-----------------------------|--------------------------------|
 | org.eclipse.jetty:*          | Jetty               | 9.4.53.v20231009            | 9.4.56.v20240826               |
 | commons-io:commons-io        | commons IO          | 2.6                         | 2.17.0                         |
 | com.fasterxml.jackson.*:*    | Jackson             | 2.17.2                      | 2.14.0                         |
 | com.zaxxer:HikariCP          | Hikari              | 3.3.1                       | 4.0.3                          |
+| org.apache.sshd:sshd-common  | sshd                | 2.9.2                       | 2.13.2                         |
 
 ## Corda Enterprise Edition 4.9.10 release notes
 
