@@ -35,7 +35,6 @@ Corda Community Edition 4.10.6 is a patch release of Corda Community Edition foc
 
 * Contract JAR signing key rotation of R3-provided CorDapps is included in this patch release.
 * Docker images are now based on Java 8 build 432.
-* An OpenTelemetry span has been added to the "send to multiple parties" and "receive from multiple parties" operations.
 
 ### Third-party components upgrade
 
