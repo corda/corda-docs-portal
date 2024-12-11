@@ -13,6 +13,24 @@ menu:
 
 Before you install the downloaded release packs, verify the integrity of each file to ensure it has not been tampered with or corrupted during the download. You can do this by calculating the checksum of your downloaded file, then comparing its value to the checksum values provided below.
 
+## Release packs and checksums for Corda Community Edition 4.11.5
+
+* Release pack: https://download.corda.net/corda-open-source/4.11.5/corda-open-source-4.11.5.tar
+* MD5 checksum: https://download.corda.net/corda-open-source/4.11.5/corda-open-source-4.11.5.tar.md5
+* ASC: https://download.corda.net/corda-open-source/4.11.5/corda-open-source-4.11.5.tar.asc
+* SHA-256 checksum: https://download.corda.net/corda-open-source/4.11.5/corda-open-source-4.11.5.tar.sha256
+
+Checksums for expanded corda-open-source-4.11.5.tar:
+
+## Release packs and checksums for Corda Community Edition 4.11.4
+
+* Release pack: https://download.corda.net/corda-open-source/4.11.4/corda-open-source-4.11.4.tar
+* MD5 checksum: https://download.corda.net/corda-open-source/4.11.4/corda-open-source-4.11.4.tar.md5
+* ASC: https://download.corda.net/corda-open-source/4.11.4/corda-open-source-4.11.4.tar.asc
+* SHA-256 checksum: https://download.corda.net/corda-open-source/4.11.4/corda-open-source-4.11.4.tar.sha256
+
+Checksums for expanded corda-open-source-4.11.4.tar:
+
 ## Release packs and checksums for Corda Community Edition 4.11.3
 
 * Release pack: https://download.corda.net/corda-community-edition/4.11.3/community-4.11.3.tar
