@@ -37,6 +37,7 @@ The following table lists the dependency version changes between 4.12.3 and 4.12
 | Dependency                   | Name                | Version 4.12.3 Open Source   | Version 4.12.4 Open Source      |
 |------------------------------|---------------------|-----------------------------|--------------------------------|
 | io.netty:netty-buffer <br> io.netty:netty-codec* <br> io.netty:netty-common <br> io.netty:netty-handler* <br> io.netty:netty-resolver <br> io.netty:netty-transport* | Netty               | 4.1.109.Final         | 4.1.115.Final             |
+| org.apache.logging.log4j:*   | Apache                | 2.23.1           | 2.23.0          |
 
 ## Corda Open Source Edition 4.12.3 release notes
 
