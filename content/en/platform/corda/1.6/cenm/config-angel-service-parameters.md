@@ -27,6 +27,12 @@ The path to the network parameters file. This is the plain-text version of the n
   The `networkParametersFile` property can only be specified if `service.type` is set to `NETWORK_MAP`.
   {{< /important >}}
 
+* **webServiceHost**:
+*(Optional)* The IP address for the Angel web service to bind to.
+
+* **webServicePort**:
+*(Optional)* The port for the Angel web service to run. Must be specified for the web service to be started.
+
 * **service**:
 
   * **type**:
