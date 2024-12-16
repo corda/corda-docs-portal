@@ -137,6 +137,9 @@ The purpose of the TVU is to mimic what a 4.12 node would do when verifying a le
 * A new `legacy-jars` directory has been introduced to improve backward compatibility with earlier versions of Corda. See the description above and the upgrade guide for details.
 * Contract JAR signing key rotation of R3-provided CorDapps is included in this patch release.
 
+### Known issues
+
+* The Finance Contracts CorDapp was inadvertently embedded in the Corda Enterprise 4.12 node JAR, causing issues with various tests and potentially affecting anyone using these contracts in transactions. If you are using the Finance CorDapp, R3 strongly recommends upgrading to this patch release, preferably before going live on version 4.12.
 
 ### Third party components upgrade
 
