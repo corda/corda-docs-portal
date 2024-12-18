@@ -21,6 +21,40 @@ weight: 10
 If you are using the Archive Service with Corda Enterprise Edition 4.11, you must use the 1.1.x stream of the Archive Service release. For more details, see [Archive Service]({{< relref "../../../../tools/archiving-service/archiving-release-notes.md" >}}).
 {{< /note >}}
 
+## Corda Enterprise Edition 4.11.5 release notes
+
+Corda Enterprise Edition 4.11.5 is a patch release of Corda Enterprise Edition focused on resolving issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node](upgrading-index.md).
+
+### Fixed issues
+
+* When deploying a test node using DriverDSL, the node now starts successfully without encountering a `NoSuchMethodError` exception.
+* You can now create two nodes with identical `O` field values but different `OU` values in their X.500 names when using the DriverDSL for testing.
+* `ReceiveTransactionFlow` has been improved to address potential issues when handling network parameters. Previously, it verified the existence of network parameters on a transaction before executing `ResolveTransactionFlow`. This could cause issues in scenarios such as sending a top-level transaction to a new node in a migrated network, where the old network parameters might not be available on the new node. This behavior has now been corrected.
+* When resolving a party, certain code paths in `wellKnownPartyFromAnonymous` did not account for notaries specified in the network parameters when attempting to resolve an X.500 name. This issue could arise when introducing a new node to a recently migrated network, as the new node might not have the old notary listed in its network map. This has now been resolved — `wellKnownPartyFromAnonymous` correctly includes notaries from the network parameters in the check.
+*  There is no longer a memory leak when creating a series of mock networks for testing purposes.
+* Transactions with the in-flight transaction state, introduced in Corda version 4.11 to support transaction recovery, are no longer included when the Ledger Graph CorDapp builds a transaction graph. Instead, the CorDapp now ignores any transactions with an in-flight status.
+
+### New features, enhancements and restrictions
+
+* Contract JAR signing key rotation of R3-provided CorDapps is included in this patch release.
+* Docker images are now based on Java 8 build 432.
+
+### Third-party components upgrade
+
+The following table lists the dependency version changes between 4.11.4 and 4.11.5 Enterprise Editions:
+
+| Dependency                   | Name                | Version 4.11.4 Enterprise   | Version 4.11.5 Enterprise      |
+|------------------------------|---------------------|-----------------------------|--------------------------------|
+| org.eclipse.jetty:*          | Jetty               | 9.4.53.v20231009            | 9.4.56.v20240826               |
+| commons-io:commons-io        | commons IO          | 2.6                         | 2.17.0                         |
+| com.zaxxer:HikariCP          | Hikari              | 3.3.1                       | 4.0.3                          |
+| org.apache.sshd:sshd-common  | sshd                | 2.9.2                       | 2.13.2                         |
+| org.apache.commons:commons-configuration2   | commonsConfiguration2       | 2.10.0          | 2.11.0              |
+
 ## Corda Enterprise Edition 4.11.4 release notes
 
 Corda Enterprise Edition 4.11.4 is a patch release of Corda Enterprise Edition focused on resolving issues.
