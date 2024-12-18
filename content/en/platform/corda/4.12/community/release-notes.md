@@ -20,6 +20,29 @@ tags:
 
 # Corda Open Source Edition 4.12 release notes
 
+## Corda Open Source Edition 4.12.4 release notes
+
+Corda Open Source Edition 4.12.4 is a patch release of Corda Open Source Edition focused on upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../community/_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Corda Open Source Edition 4.11 to 4.12 upgrade guide]({{< relref "comm-upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
+
+### Known issues
+
+* Log4j has been downgraded from version 2.23.1 to 2.23.0 to avoid a defect in Log4j that could cause excessive messages to be written to the log file. This will be updated to a later version when a fixed Log4j is available.
+
+### Third-party components upgrade
+
+The following table lists the dependency version changes between 4.12.3 and 4.12.4 Open Source Editions:
+
+| Dependency                   | Name                | Version 4.12.3 Open Source   | Version 4.12.4 Open Source      |
+|------------------------------|---------------------|-----------------------------|--------------------------------|
+| io.netty:netty-buffer <br> io.netty:netty-codec* <br> io.netty:netty-common <br> io.netty:netty-handler* <br> io.netty:netty-resolver <br> io.netty:netty-transport* | Netty               | 4.1.109.Final         | 4.1.115.Final             |
+| org.apache.logging.log4j:*   | Apache                | 2.23.1           | 2.23.0          |
+
 ## Corda Open Source Edition 4.12.3 release notes
 
 Corda Open Source Edition 4.12.3 is a patch release of Corda Community Edition focused on resolving issues.
