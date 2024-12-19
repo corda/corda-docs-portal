@@ -106,6 +106,7 @@ The following sections describe the minimal set of configuration options require
 
 * [Image Registry]({{< relref "#image-registry" >}})
 * [Replica Counts]({{< relref "#replica-counts" >}})
+* [Token Selection Worker Sharding]({{< relref "#token-selection-worker-sharding" >}})
 * [Resource Requests and Limits]({{< relref "#resource-requests-and-limits" >}})
 * [REST API]({{< relref "#rest-api" >}})
 * [P2P Gateway]({{< relref "#p2p-gateway" >}})
@@ -200,6 +201,23 @@ workers:
 {{< important >}}
 These numbers are only suggestions and you should make your own decisions about scaling depending on your application workload.
 {{< /important >}}
+
+### Token Selection Worker Sharding
+
+Where high throughput requires multiple token selection workers, sharding tokens across them can improve performance by making more efficient use of the cache. Setting `workers.tokenSelection.sharding.enabled` to `true` deploys NGINX in front of these workers. The `workers.tokenSelection.sharding.replicaCount` specifies the number of NGINX instances to deploy.
+
+For high availability, starting with three replicas is a reasonable choice, with adjustments made as needed to address resource contention. However, the number of NGINX instances does not need to match the number of token selection workers. Typically, the `workers.tokenSelection.replicaCount` will be higher than the `workers.tokenSelection.sharding.replicaCount`.
+
+For example:
+
+```yaml
+workers:
+  tokenSelection:
+    sharding:
+      enabled: true
+      replicaCount: 3
+```
+
 
 ### Resource Requests and Limits
 
