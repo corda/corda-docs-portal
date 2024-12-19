@@ -204,7 +204,7 @@ These numbers are only suggestions and you should make your own decisions about 
 
 ### Token Selection Worker Sharding
 
-Sharding tokens across the token selection workers can optimize their performance and make more efficient use of their cache. Setting `workers.tokenSelection.sharding.enabled` to `true` deploys NGINX in front of these workers. The `workers.tokenSelection.sharding.replicaCount` specifies the number of NGINX instances to deploy.
+Where high throughput requires multiple token selection workers, sharding tokens across them can improve performance by making more efficient use of the cache. Setting `workers.tokenSelection.sharding.enabled` to `true` deploys NGINX in front of these workers. The `workers.tokenSelection.sharding.replicaCount` specifies the number of NGINX instances to deploy.
 
 For high availability, starting with three replicas is a reasonable choice, with adjustments made as needed to address resource contention. However, the number of NGINX instances does not need to match the number of token selection workers. Typically, the `workers.tokenSelection.replicaCount` will be higher than the `workers.tokenSelection.sharding.replicaCount`.
 
