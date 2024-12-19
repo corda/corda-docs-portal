@@ -13,6 +13,739 @@ menu:
 
 Before you install the downloaded release packs, verify the integrity of each file to ensure it has not been tampered with or corrupted during the download. You can do this by calculating the checksum of your downloaded file, then comparing its value to the checksum values provided below.
 
+## Release packs and checksums for Corda Open Source Edition 4.12.4
+
+* Release pack: https://download.corda.net/corda-open-source/4.12.4/corda-open-source-4.12.4.tar
+* MD5 checksum: https://download.corda.net/corda-open-source/4.12.4/corda-open-source-4.12.4.tar.md5
+* ASC: https://download.corda.net/corda-open-source/4.12.4/corda-open-source-4.12.4.tar.asc
+* SHA-256 checksum: https://download.corda.net/corda-open-source/4.12.4/corda-open-source-4.12.4.tar.sha256
+
+### Checksums for 4.12.4
+
+## Release packs and checksums for Corda Open Source Edition 4.12.3
+
+* Release pack: https://download.corda.net/corda-open-source/4.12.3/corda-open-source-4.12.3.tar
+* MD5 checksum: https://download.corda.net/corda-open-source/4.12.3/corda-open-source-4.12.3.tar.md5
+* ASC: https://download.corda.net/corda-open-source/4.12.3/corda-open-source-4.12.3.tar.asc
+* SHA-256 checksum: https://download.corda.net/corda-open-source/4.12.3/corda-open-source-4.12.3.tar.sha256
+
+### Checksums for 4.12.3
+
+* corda-4.12.3.jar (103 Mb / 108916940 bytes)
+  * `66f342d6d4af80b3037d40c23330670413c825fa` (sha1)
+  * `f5aa505ca77ee7e65cf49c380f7ba551013cf55be9dc9c6ba1e489b5f5aacf61` (sha256)
+  * `459eeff41f12fa75f82704e2a385b234` (md5)
+
+* corda-4.12.3-javadoc.jar (80 Kb / 82266 bytes)
+  * `590b325e876555ea070dc1abde94f639555bffa1` (sha1)
+  * `fd7e38ed98797d9e96ab10410c0bd48853eb3074d3302b805c813c94e49fae5a` (sha256)
+  * `5acafac065e7427902af28c9f6e4e1e1` (md5)
+
+* corda-4.12.3.pom (896 bytes / 896 bytes)
+  * `741569864938838d0082d288a849e9717575517e` (sha1)
+  * `8407361e503ce5acdff4dc8ff781fff2c00d973a0168804a44ee8b79bf4eefb3` (sha256)
+  * `c79f759bf2e704db4fab1288697d9224` (md5)
+
+* corda-4.12.3-sources.jar (4 Kb / 4503 bytes)
+  * `a0681e41030582657f936839574abb8a813059e2` (sha1)
+  * `053f1a7ebef35c1e0f74b8ebf9e459d3335491d343d6640248be659da0bdcd43` (sha256)
+  * `e72dc7d7e0a7e0c581299a56d5397b42` (md5)
+
+* corda-common-configuration-parsing-4.12.3.jar (272 Kb / 278880 bytes)
+  * `c44aeb79c5dc7a96b0c14df84a74a089154c6d9f` (sha1)
+  * `9acb944f22f58af2835b08c48f365fadb79ce4b73cb8b204df6fa4280d3c91bf` (sha256)
+  * `670b2dfabd749a3ed569fb8f81570d92` (md5)
+
+* corda-common-configuration-parsing-4.12.3-javadoc.jar (443 bytes / 443 bytes)
+  * `53417b9accbf99b822a14309a9d3acecfddcd9d6` (sha1)
+  * `ec50e0ccc0a0cdf9aa89f34d59dc1202b50f80e553944776129ece7389d4c39a` (sha256)
+  * `6d412c52a840f523b43dd79e77daf052` (md5)
+
+* corda-common-configuration-parsing-4.12.3.pom (2 Kb / 2086 bytes)
+  * `b3d411b6392750f40f536426df2c788f971a1f6a` (sha1)
+  * `9bb73f3b987842ebfeba9f32443f0dd7d3a09bba730ddf3985603394f33fbe7a` (sha256)
+  * `6da19d856d43b91154b6d5699417c4be` (md5)
+
+* corda-common-configuration-parsing-4.12.3-sources.jar (14 Kb / 14407 bytes)
+  * `b8f0326d4063fe3a0b7b1872d64d67496544950b` (sha1)
+  * `2ddd3f80557023621b80d6ef39ac600039d908d45faef0976ce25daf15ef20b5` (sha256)
+  * `6703ebc9d6a6f8b92aa949c8b9873ce5` (md5)
+
+* corda-common-logging-4.12.3.jar (51 Kb / 53164 bytes)
+  * `681327b52e6d088fcb099c03d9b022e92de8b3b8` (sha1)
+  * `7d04322ae405ef03a8ce92491981930ec63515cf575b3e06c1131eac56ff0ad3` (sha256)
+  * `96445f49b1deecfedb6132b295d8f433` (md5)
+
+* corda-common-logging-4.12.3-javadoc.jar (433 bytes / 433 bytes)
+  * `5a4c70d649d596e0761bdc396146d87b891aef68` (sha1)
+  * `83aedcba58bb86dea1146a60f7fa9108462dc02d692b45c0437665ee18002926` (sha256)
+  * `d62f3c818c0e27fc7663f187196a4477` (md5)
+
+* corda-common-logging-4.12.3.pom (2 Kb / 2221 bytes)
+  * `6168044a8fe45ff3d9c64ee66eb43bfa845158b1` (sha1)
+  * `29e9e3517970320810d4ce0f73c67e29608d72d53e76da367eac58f149b0b36a` (sha256)
+  * `a25cd7915ac41b575d5095202596d524` (md5)
+
+* corda-common-logging-4.12.3-sources.jar (18 Kb / 18656 bytes)
+  * `b52c1f0596e53718e9e92226ce9905d79f32df24` (sha1)
+  * `054d0c22a530e02ffbc978fa90107523f466b634c6e205ac594938625021c3a8` (sha256)
+  * `8a2906167f275a4b496a55e2eefc2ab0` (md5)
+
+* corda-common-validation-4.12.3.jar (12 Kb / 12907 bytes)
+  * `1b5b978b8b98aa88cfac755b55b6c1f2f36b057a` (sha1)
+  * `367eff26d7ac2912ee272eef92b16cc5ccef0590e3e3e950ceced91102979e77` (sha256)
+  * `0aa30f381b1f7108d45f4d024a43f49b` (md5)
+
+* corda-common-validation-4.12.3-javadoc.jar (434 bytes / 434 bytes)
+  * `f92e52188c3ca4cca8b16c594c3dcb51607ddbc4` (sha1)
+  * `a4253944d77ea2eaed929f1fac47a769ecae25ba6d8f8756086cbd5d42ee1b4b` (sha256)
+  * `ba8234809108aab7119cf30ffe1c9d88` (md5)
+
+* corda-common-validation-4.12.3.pom (1 Kb / 1696 bytes)
+  * `babd439ca2affb1ae2c347a4a37c131e1638460a` (sha1)
+  * `82df710d236e446301229fc85ca9fe7bab165b745c02509dee9f706c514099d6` (sha256)
+  * `a328cf7d6bdb8e34cac1b449a80d97fa` (md5)
+
+* corda-common-validation-4.12.3-sources.jar (2 Kb / 2993 bytes)
+  * `63754fbefa5a1e9688d0b203515ec2a6a3810b9c` (sha1)
+  * `3efd70422d5d75e18a3121cfe102a6dd0354c88082aff9cca06dcc6def3900a2` (sha256)
+  * `af16abe84e86a064ba21d8f620faceb5` (md5)
+
+* corda-confidential-identities-4.12.3.jar (32 Kb / 33274 bytes)
+  * `0034959442a7687b873ee6e72fc2a01c3bc3b637` (sha1)
+  * `2431c005f99950dbac4370ceb3ad3b9c4ee30e56d33d33e55c056d631279eee3` (sha256)
+  * `5022436a652cf04d1084da3a8af30ed3` (md5)
+
+* corda-confidential-identities-4.12.3-javadoc.jar (437 bytes / 437 bytes)
+  * `34772b4f5c01edd6a73cd3df9218f6d93eb6e970` (sha1)
+  * `9667d593129435d764a9089bc30c159ec3737fc25135b30c5917c77b7fb4a197` (sha256)
+  * `43d260dd0052610ef7426eca431abb21` (md5)
+
+* corda-confidential-identities-4.12.3.pom (953 bytes / 953 bytes)
+  * `4c22fb3ed8cc33c241c1e66735be6770c3ab55b7` (sha1)
+  * `bf18e47ff70c76384dbd33085149c27067ff246eb7ac14c53f53a847540d5954` (sha256)
+  * `dea74a4900b9d84eba18b4ce3f770324` (md5)
+
+* corda-core-4.12.3.jar (1 Mb / 1975566 bytes)
+  * `263b08648ea3ec2c5d34cc1fe435e0c713a0f58e` (sha1)
+  * `3353d681b38dee84553eefde94c4974a81016de02f4744a8bbec8074ebfdbd0a` (sha256)
+  * `33d1e6701c233d66c93746ae1a2c46a1` (md5)
+
+* corda-core-4.12.3-javadoc.jar (92 Kb / 94786 bytes)
+  * `299044f851bd8bc40d8f9077dae7427543f5eba1` (sha1)
+  * `c81490ca028d03f25d81d47067a49f9a7a4cd2767482a2f07664378f8e283b69` (sha256)
+  * `ca91b0308fdb942b44284b1affce87a6` (md5)
+
+* corda-core-4.12.3.pom (3 Kb / 3646 bytes)
+  * `11e4036732dd59ece4d34b76f4c27fb4d6fc23c8` (sha1)
+  * `a33d5f15466e208fc3848d69c7dbd7cd07eb7af0ed7e722b103f8d9a046a988b` (sha256)
+  * `cac08e44f475ca1324d65333f1d6baa7` (md5)
+
+* corda-core-4.12.3-sources.jar (425 Kb / 435249 bytes)
+  * `81847a3b793207e1b9fa15ff2a6fb97660c2b7e5` (sha1)
+  * `e89850fd9ba7355db41f2387d047d2f8e120f9720f6d6d2ac99d6c6acf0edbe3` (sha256)
+  * `1969b84c51c1b39163a95ec174dad078` (md5)
+
+* corda-core-test-utils-4.12.3.jar (255 Kb / 261238 bytes)
+  * `163064e9e61c1bcdf31b2472685c4ff319ed63a4` (sha1)
+  * `27f678b56d4c958f87403181fe49e494d2738ba7100de2e9fddc63fed0368d8d` (sha256)
+  * `0a09c6d639921515ff17076694a01b81` (md5)
+
+* corda-core-test-utils-4.12.3-javadoc.jar (433 bytes / 433 bytes)
+  * `bb9ccf577d2d5b968a1de91831badc02f5638a65` (sha1)
+  * `74ebd34e5ed6f9bef113aea2c53bac1a37eb5f6e6aa2a2a968d48cf6caf0b744` (sha256)
+  * `a5a1203405e8f373c2a93e481376f388` (md5)
+
+* corda-core-test-utils-4.12.3.pom (4 Kb / 4870 bytes)
+  * `55e0b8292700ffa6b324fe1a7c69e1acad09601e` (sha1)
+  * `0bad0702c5713ebfdb0a22b6033302199902bbdbaaaa02a9cbe750b0efbce1bc` (sha256)
+  * `15f4347fbc6829b949eb686f9173dea1` (md5)
+
+* corda-core-test-utils-4.12.3-sources.jar (35 Kb / 35874 bytes)
+  * `f4448f2daeb403bd87c9ff28363d778dbcb18207` (sha1)
+  * `a9ec21165f4aaa86b6aace4518eedf46208132b7af0ebf758bea1ea9e583cfc4` (sha256)
+  * `d77d0658ae6335fe85db78d73b2130d5` (md5)
+
+* corda-finance-contracts-4.12.3.jar (184 Kb / 189125 bytes)
+  * `5aff9b220cd0b6ee6767e314489cdce7b57b3fdf` (sha1)
+  * `aa2fbf9a82b5f149e47f8adab81af5dc3e0cd2dcd7e7c568df4a92395c4cf3b5` (sha256)
+  * `332ca027d9e7b5382801e1a5f564ce8b` (md5)
+
+* corda-finance-contracts-4.12.3-javadoc.jar (98 Kb / 101203 bytes)
+  * `9fb213d9e32f3afd26bb66c04419fb409a73ec32` (sha1)
+  * `a1b8ff5537b06d7f54b069bc31e2c25f058949db7e90878457f6b2f35231cefa` (sha256)
+  * `66af52f963d0c710014c3d6e890973c3` (md5)
+
+* corda-finance-contracts-4.12.3.pom (923 bytes / 923 bytes)
+  * `12d9c5dc882852d345520d6f57af44ba9e87b02c` (sha1)
+  * `24cb4fad1412e32090494e86d49eb9e0f85349213926f6523b7b0b5035930ede` (sha256)
+  * `af838fe98188e2225020f621dcacbe05` (md5)
+
+* corda-finance-workflows-4.12.3.jar (191 Kb / 196519 bytes)
+  * `c9ecfa24d7bd3dea55a9b8e930c6198423057bd0` (sha1)
+  * `6450c730f5f54f1ddafb4fcf3d20af8fa446d2196d1109abb5f5b6c2407d0c6f` (sha256)
+  * `9b1eba6cf648a9db13a41a899cb4c5bb` (md5)
+
+* corda-finance-workflows-4.12.3-javadoc.jar (432 bytes / 432 bytes)
+  * `d3aba5402ea77e2958c3fae5d99c964a04ee1384` (sha1)
+  * `0c69ed8fdcc2afadbd3cbc2a1cd9d6977c255a99e927ab98da584cd15ad1ac8a` (sha256)
+  * `677d30873b250d71bce2abedf4efd475` (md5)
+
+* corda-finance-workflows-4.12.3.pom (919 bytes / 919 bytes)
+  * `da185b16e69976dfd460f2f0b501e72a11b4bb04` (sha1)
+  * `a5e371052bce79886dcc1a26b16b17a3ce974e9bd86a01fccf0f48335d50d268` (sha256)
+  * `51190484460b182ec087b392d81cc217` (md5)
+
+* corda-jackson-4.12.3.jar (167 Kb / 171721 bytes)
+  * `775b6b3db1de9978a955c2a3d5cd29d3d57478fc` (sha1)
+  * `1a6f5b6f34c0fcdb9a8dcc6905f56a8d96d5e970ec485594f36a12685053bf4a` (sha256)
+  * `e7aa2128cb0055c656ff14706cbb5fac` (md5)
+
+* corda-jackson-4.12.3-javadoc.jar (431 bytes / 431 bytes)
+  * `7c4bf04e881a16d222f16181f399c4e7d4a3a012` (sha1)
+  * `f796a8b523f48db91e0cd5c3be29ab8e22346f14fa0fe7274745f4d9ee58787d` (sha256)
+  * `66136a8d8328cb5e6b409ce4424b3eb3` (md5)
+
+* corda-jackson-4.12.3.pom (3 Kb / 3515 bytes)
+  * `beff053fd4e13ab0a3e92d6765cfe4a427a79538` (sha1)
+  * `f2310d54573cdbfca1f65f4cb96d2fe22bddff18c4a742d22002e8544e56502c` (sha256)
+  * `2db6827a08f1cba38841720d41d5da52` (md5)
+
+* corda-jackson-4.12.3-sources.jar (17 Kb / 17686 bytes)
+  * `a7918d31878ba8dbc90edd23962e8025e3b48822` (sha1)
+  * `75d975c35c9c778970f97bd8f796b1498dbf4abd032c7c12ccdcb7df1fbad2e8` (sha256)
+  * `780bdc525f879911acd9423b0b976443` (md5)
+
+* corda-jfx-4.12.3.jar (218 Kb / 223971 bytes)
+  * `f0af10f1aea659e3bbe2a62569758e83ce46cb9a` (sha1)
+  * `adbd8a5e17b85bc48192af52b017730fa154c01db24419c6f2fe950e59c8f113` (sha256)
+  * `e577697a405aa793e14fc138304c67ec` (md5)
+
+* corda-jfx-4.12.3-javadoc.jar (96 Kb / 98431 bytes)
+  * `9b607cae0ea5dde10549ddbd3c9784b0c7c03612` (sha1)
+  * `4c555c06d0f22e50d3af1ffff25a0ecfbb12a56ce7239f6ab85c38e88e3a9455` (sha256)
+  * `beba14892383166341ef21084adbab48` (md5)
+
+* corda-jfx-4.12.3.pom (4 Kb / 4864 bytes)
+  * `c7642479c8aad4fe824091ca263bc8d38ddf1e8a` (sha1)
+  * `94fd0c252e9b35ef344097762a0754609a9e5c25de1b6b072ca46d23a73b5c03` (sha256)
+  * `e31c04178c6fdb30246104122f5c44f6` (md5)
+
+* corda-jfx-4.12.3-sources.jar (32 Kb / 33532 bytes)
+  * `8bdcb859cbb27c52e720903f07b7ee823337008e` (sha1)
+  * `a01399e721e7e3f7e71c31141d062c5c19378a7f51c56a2f75e91195d4136236` (sha256)
+  * `30cbdd48427ae7afc134d27ea12b62be` (md5)
+
+* corda-mock-4.12.3.jar (78 Kb / 80258 bytes)
+  * `4d0679b9c10e7f2cb43486b5240f061dcd2a57c7` (sha1)
+  * `903d7c5c6c775216b447b1ea6d6b2dc0fac2a3e1514dbc2af522498af8e43dad` (sha256)
+  * `52da2245b7eeade3074726d050f45ff1` (md5)
+
+* corda-mock-4.12.3-javadoc.jar (428 bytes / 428 bytes)
+  * `8dd6688b0385f45568ab67d31257994e21a1978e` (sha1)
+  * `eaebd7f90f51510829cc1c8828bd7db900ac4f5ccdc029624ffc83cebce38859` (sha256)
+  * `e369281e0b827c40deba9a588869f8e6` (md5)
+
+* corda-mock-4.12.3.pom (2 Kb / 2208 bytes)
+  * `7710bcdcb77db765a19dfcf12a62e0142b03bd08` (sha1)
+  * `a62d625ed4d01c6d809703ffc44ce1a394ba89884cec99b4307f2c77910dd8eb` (sha256)
+  * `8a095e3f592c53ae641d5fb1e27be706` (md5)
+
+* corda-mock-4.12.3-sources.jar (5 Kb / 5695 bytes)
+  * `a3d425e32e1c236b8cb0286267383655e54847de` (sha1)
+  * `da3a8793ffdf1e333731f17c949c7641a5b6aea1360fc582f9a330494f4f09e6` (sha256)
+  * `0542dff4e5b6150bd03faa6236840162` (md5)
+
+* corda-node-4.12.3.jar (36 Mb / 38682785 bytes)
+  * `e06f8921f230984bb1d9850bdce54269b65d9c52` (sha1)
+  * `e364edc53f6947407cefb398840efa0d7f5feb8d530b28faebcbef8e5864d54f` (sha256)
+  * `aa1783d97f77d94821e6ad16fc5b8b0b` (md5)
+
+* corda-node-4.12.3-javadoc.jar (427 bytes / 427 bytes)
+  * `f7f7b3dc0dcf9d29ba9c96a5d541c983a769a78c` (sha1)
+  * `25089a111d3e7acc0f10af7b93123a96bda12230cf1cc399ede983a6a33451f2` (sha256)
+  * `e6367fcb8ee0f32e74aaa1f68ed58800` (md5)
+
+* corda-node-4.12.3.pom (11 Kb / 12001 bytes)
+  * `f7a3aee2040da4cf7589524961a763fa4f5d7a00` (sha1)
+  * `ee80f0d65bad98f06047e8cce3547564bb82e29434a587567c5e5b848010f4b7` (sha256)
+  * `0e35c6be6e555a0abad3a5428647f249` (md5)
+
+* corda-node-4.12.3-sources.jar (520 Kb / 532648 bytes)
+  * `0baa51e7651c2296132d48af57bde228452a2aef` (sha1)
+  * `4d9b7b7b827584b33fef36cc57f5036a2bfdfb84d6660a973584bc8c23bd506a` (sha256)
+  * `c1c52cba717862d564b61ce1238eea7f` (md5)
+
+* corda-node-api-4.12.3.jar (1 Mb / 1229687 bytes)
+  * `546c42ef88f676dbf9e06a80d366383dba034b48` (sha1)
+  * `6039d4448f9d8d460ba97429012025d1835bfc9b1626008e64134163b2207654` (sha256)
+  * `f1bc51b169bf3c79c09792830d7aad54` (md5)
+
+* corda-node-api-4.12.3-javadoc.jar (430 bytes / 430 bytes)
+  * `ed55d5e47d92568aa12dd1a8530c32446f5a6542` (sha1)
+  * `8d65c7254ddab9ba4134239eae3f4276dfb95ab6d2e4b35d7de2515960c0c9f1` (sha256)
+  * `1bc98f67dc5e62466fbea108c8e4f2b4` (md5)
+
+* corda-node-api-4.12.3.pom (8 Kb / 8199 bytes)
+  * `a777741d3fb54244a791164f37ee8020cc9bb1c2` (sha1)
+  * `9642174b629b75ff0e7550d98ff89ea3d435a11a83c08e6321ad9899cfdb3f52` (sha256)
+  * `d2736b904ba5e283243c07d8ecc2c784` (md5)
+
+* corda-node-api-4.12.3-sources.jar (201 Kb / 206227 bytes)
+  * `7cf8e80308d1f70eac0a725228f78fddb7a45834` (sha1)
+  * `60718f3b3cba51cc4c6957e7c5ee0790351d8059a430a44390c46950e63d3e43` (sha256)
+  * `3ff8d7ca22260e347aea6562af12a67c` (md5)
+
+* corda-node-driver-4.12.3.jar (690 Kb / 707294 bytes)
+  * `90f576642153e000d9905fe4fcfcc10cbf90aabe` (sha1)
+  * `8468af74868bcdeaf2bc2ef0255f9be4ec895261760a6ddee9ec3cc8c8cc8b53` (sha256)
+  * `0ae45c599e7e792db105f3370ac53257` (md5)
+
+* corda-node-driver-4.12.3-javadoc.jar (430 bytes / 430 bytes)
+  * `c36d4688db3af836a69d49eddd4dbbc74d2d263d` (sha1)
+  * `746b5ad6bc9c38888bc767251ff36f29d4ea67b0138eabdcea3abf7d17529e00` (sha256)
+  * `a967f0fbeff06b088b0388875d767ca6` (md5)
+
+* corda-node-driver-4.12.3.pom (9 Kb / 9848 bytes)
+  * `f2bbbdffcb56c1139bfaec516cfb1365c80a4dca` (sha1)
+  * `29a6fe2fe783716d5535843c658a42801bf2dddad5902a58fff35f27a70b8896` (sha256)
+  * `cfd2730f8462461fcc7cba0729b67f9c` (md5)
+
+* corda-node-driver-4.12.3-sources.jar (104 Kb / 106895 bytes)
+  * `fa17dcc4a3f209382f0898ff858547b29ca20574` (sha1)
+  * `5a19e0d7727f3d6fecbd31377be0a0a9c35629efda492f32ac6f5f8cd326abcf` (sha256)
+  * `295891a0e49dc3336f487ca77eb20658` (md5)
+
+* corda-opentelemetry-4.12.3.jar (3 Kb / 3315 bytes)
+  * `1f98992b7ee89c0251c7a6439b07eff5992bef6d` (sha1)
+  * `808b3fbf890e5a41f99a96c73e8c95b431552c47a2ae0761b269a272f5c25510` (sha256)
+  * `8b734f74fb3da10576dabd4353c118ef` (md5)
+
+* corda-opentelemetry-4.12.3-javadoc.jar (433 bytes / 433 bytes)
+  * `eae3450136d8237afbe7f4331a9067ceb79a1fd6` (sha1)
+  * `cc5a058687b76c4fd1236cdd33dd3ad3c426c092d9557cf557004bc26c68ac47` (sha256)
+  * `6c5b6bf7336864a8d2d18267b74e0dda` (md5)
+
+* corda-opentelemetry-4.12.3.pom (2 Kb / 2504 bytes)
+  * `d94dbbff9d7c09c807a14d6e71b9bbe493abc324` (sha1)
+  * `b4d71251b9d52063a35566f201c989ce710bc43e4db6df156f81dcdb61d7fbce` (sha256)
+  * `8fd96c95ffc830590cedcae5ac7a36c8` (md5)
+
+* corda-opentelemetry-4.12.3-sources.jar (1 Kb / 1508 bytes)
+  * `2dc05117797df3b9ad4a649a0a669afbc90c558b` (sha1)
+  * `1a49c81686eec48ebe4150a9fadb31442c53278d7c09d9896bd8ec00e3c14a5e` (sha256)
+  * `463d874643243f523f58ac0d6b15e337` (md5)
+
+* corda-opentelemetry-driver-4.12.3-javadoc.jar (438 bytes / 438 bytes)
+  * `2b62db4732ef0dfee6ac63c66198dc5f3d2571e8` (sha1)
+  * `d5b51550edbb5bbb577005402b4e12c96c1d5b6ff6692a38a2a5f0d9b7020854` (sha256)
+  * `8e08a4102cbf9ffdfe0ff3a693e8e970` (md5)
+
+* corda-opentelemetry-driver-4.12.3.pom (1 Kb / 1715 bytes)
+  * `d02765e7b348e166f1e7d597c87faba4d8ccd877` (sha1)
+  * `251d3721122b8f8a836167d3d78140899d2ab6eebbcdf5771180c207e9354d44` (sha256)
+  * `c0c85b54a2f805fb9d5f45ec97b7dbc5` (md5)
+
+* corda-opentelemetry-driver-4.12.3-sources.jar (438 bytes / 438 bytes)
+  * `4108de04a8c1670e9f9506459aaef3198b111ff9` (sha1)
+  * `3254ea6fffe97c0a5c6582b24cea948a4b82d0ffe6a2d4dc6f726284702ceafe` (sha256)
+  * `8cfa8f3b809c4a7ad6848688b6bab7eb` (md5)
+
+* cordapp-5.0.18.jar (55 Kb / 56335 bytes)
+  * `ed102ca84c5da8b25b6fdeedf9c496fc8ee100bd` (sha1)
+  * `92163ec95e1f16f0e20b5b2dd38e24c042c701037ec4ae34089cad24f40044f4` (sha256)
+  * `4a59ef0c96feccefe737ceb51bc239d1` (md5)
+
+* cordapp-5.0.18-javadoc.jar (343 Kb / 351801 bytes)
+  * `7e404a47feb75a801b2f5f6aee7d683db8a89710` (sha1)
+  * `fc4faf615282f62e322c12938efb4b4541bbf2aa2006deb4a808a23292ad7391` (sha256)
+  * `79ede3b03d5d1e17fa0a14cfc9a9a536` (md5)
+
+* cordapp-5.0.18.pom (979 bytes / 979 bytes)
+  * `34e93fc9461c0d38133386c0049880e4d217b27c` (sha1)
+  * `7501c33621115c55777857c2c4225aef53d96f11cce212ec70a453f93628ca69` (sha256)
+  * `e7b4e140157f9110705f25c52c36d38a` (md5)
+
+* cordapp-5.1.1.jar (77 Kb / 78952 bytes)
+  * `326a74a94984404f26b5a5216a1c732c90db5fb4` (sha1)
+  * `b03220cb0cbad459f0b8d31c8091ba32a6c46cd3f0d1b3e07d44ccecd4aa3733` (sha256)
+  * `38b4cb4832fa704c1506949b928552ec` (md5)
+
+* cordapp-5.1.1-javadoc.jar (379 Kb / 388127 bytes)
+  * `1cf71155c59cbb214582721b379473c22469b985` (sha1)
+  * `dcf7f0f533dbe7bbceb99f100cd38652b2c24fc0b503e2520feb02813028121f` (sha256)
+  * `7e94950daf380db9d3928152e238d3a4` (md5)
+
+* cordapp-5.1.1.pom (979 bytes / 979 bytes)
+  * `7e4b55d725b219905d1b96530faabd96b1bee40d` (sha1)
+  * `ee87abe7fa0799ba791ff0a43df8238ef7d6b507370da97d03225c1ecf4debcb` (sha256)
+  * `ef9a4a746abb10905d470080aff2e990` (md5)
+
+* corda-rpc-4.12.3.jar (149 Kb / 153038 bytes)
+  * `8a977e021029e9aa14c5f9b60e0d16d14ee69d00` (sha1)
+  * `16141fa0001505546cb00136a07893ef0b1bf6604b6fd4f8b05bf7a2c5135a2e` (sha256)
+  * `4325e7d76c4286c17d7d8301c123291e` (md5)
+
+* corda-rpc-4.12.3-javadoc.jar (428 bytes / 428 bytes)
+  * `b275fda97734f7888fd6c79f8fbb6a57436d779a` (sha1)
+  * `ceefbd0673d6741c081c9691321bc28aeb11d19eab6f7d32ee5401b95f49918e` (sha256)
+  * `2203ad171253c32159dc355c79541c76` (md5)
+
+* corda-rpc-4.12.3.pom (3 Kb / 3284 bytes)
+  * `e8b8412a0e2cf4cf7841b5eef6c5f04ed67eeb03` (sha1)
+  * `20bd2101d4ad33ce1fc76a78f730bc5bc2757f4ea23899f779969a073dceccc3` (sha256)
+  * `86529deca71138d6b720d6b8f6500c06` (md5)
+
+* corda-rpc-4.12.3-sources.jar (37 Kb / 38125 bytes)
+  * `3fce42e438c505695df34e6ea50ecbf9fd891627` (sha1)
+  * `8d5bc2ea1e9ef0f64e7c6c197442684c1c6e3103c913bdf69b1058f3a19db667` (sha256)
+  * `bbd74b513066b6f8a8e00690175fac22` (md5)
+
+* corda-serialization-4.12.3.jar (1 Mb / 1140340 bytes)
+  * `852c50fbc4fdb57cbdb8c9bd4857bd0d3c465c6e` (sha1)
+  * `550dd0d200343a69d94dfa2201aacb1a8b2d265a55dd600bd0c70b2e8ec9b42f` (sha256)
+  * `b634d1c14bcc9f7f0ef8d7371ae25954` (md5)
+
+* corda-serialization-4.12.3-javadoc.jar (433 bytes / 433 bytes)
+  * `dcd794a83c76835f4097d4217fa3efa60c0c5dde` (sha1)
+  * `7fcb5311e5e3d984f069651c6d80f254be11eb021aabece835fe6a6302ef9c95` (sha256)
+  * `b5cadea8d5ee685bce0006a34e38cc6d` (md5)
+
+* corda-serialization-4.12.3.pom (3 Kb / 3277 bytes)
+  * `f3017049d6545cc7be7904f17e73ee4b15ddf1a7` (sha1)
+  * `a8892c9477ef5c860b64e0208fa1bb9c038cb1521ffd1dc78337275b2d15c8d1` (sha256)
+  * `d5c3760c80446d0c74199a5304f7f659` (md5)
+
+* corda-serialization-4.12.3-sources.jar (156 Kb / 160175 bytes)
+  * `253d26dd5174ed79349a7cdec6444fef115ef7d6` (sha1)
+  * `51a036217067aa6cdfffb79cdd3d91d3e288c0d8c41b058751f5dcb89c0e9618` (sha256)
+  * `96295eafbe087565bd7dfa59dc1f2824` (md5)
+
+* corda-shell-4.12.3.jar (73 Mb / 77262807 bytes)
+  * `157bb294401c635d8560c793b9e12481d4f5e40f` (sha1)
+  * `ca7cfdde5d961c61ba01d31060a4b2479ae57840861cb98240ef448cf4f5e4e8` (sha256)
+  * `852e4c92f67957380097aee0a68bec48` (md5)
+
+* corda-shell-4.12.3-javadoc.jar (387 bytes / 387 bytes)
+  * `609e5b02a1dae2ae496e4d61ff8441c285692840` (sha1)
+  * `67c0559819634a0bc22f69a9dddecafeea7d99cadb0da44f59a9904abb634d2f` (sha256)
+  * `a67f030210a2b89211b1bdd2f2a81245` (md5)
+
+* corda-shell-4.12.3.pom (904 bytes / 904 bytes)
+  * `00379f4a5b4ed7b9f5bf28fa0ffe5ddcca731c16` (sha1)
+  * `3669c1e581dc28959ddc48eafd6e458185366ff5f8392b599a13bd002d6ec9e0` (sha256)
+  * `3e54fbeae4af5f91f08e182ae6102949` (md5)
+
+* corda-standalone-shell-4.12.3.jar (73 Mb / 77281871 bytes)
+  * `06e3511e3442c95e00c5f2388ae0b1dd099d039d` (sha1)
+  * `633c245b5dcb5b82eebd63fc45ac06e2fb4aa6c418f649ed17293c63f81c4c90` (sha256)
+  * `109edcde6e1446091679efe35b9fdb58` (md5)
+
+* corda-standalone-shell-4.12.3-javadoc.jar (394 bytes / 394 bytes)
+  * `b8b76bb226b4014552af3aa298d95df5daa38a5b` (sha1)
+  * `2182ec39cd0e55334943bbebcce22d22430bb69ccdbd85cbe34d457ef33e3dfc` (sha256)
+  * `4437e107fefc0ed1bda116e0bf8c2ccd` (md5)
+
+* corda-standalone-shell-4.12.3.pom (937 bytes / 937 bytes)
+  * `8ef969e18ae780427d30b24f6d14c7c9722584c0` (sha1)
+  * `24bc4d82ae19e68e9845076138fc0f167cae04fcd0b3a2bff9fd6fb40ea0d8e5` (sha256)
+  * `40f6028e57ce4d47eaf0f8328b080482` (md5)
+
+* corda-test-common-4.12.3.jar (11 Kb / 11647 bytes)
+  * `f9e5862949a559bcb7b0a6e402ec532ff35e4143` (sha1)
+  * `1086e615577b9c3755a3970a1a22afbb3d3a6cda21b09ae26e98f8ad3bbf356e` (sha256)
+  * `d1666946a449ed27ccfb417f062c7876` (md5)
+
+* corda-test-common-4.12.3-javadoc.jar (432 bytes / 432 bytes)
+  * `a32ad84ace551593d7da88fec6d71135a3f5b7c1` (sha1)
+  * `da7b40f9b39795ba0420d962e244f100e2a5ff14e14f122b93f4b3fb9985e844` (sha256)
+  * `7ae0007e2f49d2d397260f226b1ec15f` (md5)
+
+* corda-test-common-4.12.3.pom (3 Kb / 3843 bytes)
+  * `76b3259a3b77dff440fd4bdc2b3557ef6ce118f9` (sha1)
+  * `dafce0c7fd0a062d101edda4693d1c33f0266dd0a420f6f42d8a0aba607faa54` (sha256)
+  * `d769df98a318bfcd4c3393cdfb7e1853` (md5)
+
+* corda-test-common-4.12.3-sources.jar (5 Kb / 5664 bytes)
+  * `8ffeae553eab76a1461ae29e4887b3bb4bb7458e` (sha1)
+  * `041bc22484b13cd1dd5421efad7ad138adc5ea5bbdc57b9cbe28cdc4d4052965` (sha256)
+  * `9dd0712a643fe08d2e4a194db876c597` (md5)
+
+* corda-test-db-4.12.3.jar (441 bytes / 441 bytes)
+  * `bdd68bb9bdebd1c030ba6aaa3c8ad15ffb9a640f` (sha1)
+  * `8ecd3487e2d7a9d83237fbd9aa9e68055958bc6c6a756661cd47c222328c9b71` (sha256)
+  * `f1711f355be47777c72bffe4ec30ceb7` (md5)
+
+* corda-test-db-4.12.3-javadoc.jar (429 bytes / 429 bytes)
+  * `78c26b04d31e36737dd1dcb1f17a79494ce3d759` (sha1)
+  * `bffc10991d4165f755a94504651a1b722186a6bd7af709363b2de82af5d0963a` (sha256)
+  * `bfd01d8dc824a4b0a13adee637ed102e` (md5)
+
+* corda-test-db-4.12.3.pom (1 Kb / 1486 bytes)
+  * `b8c6b693211343dc3cbef0a53f992dfa42af1ba7` (sha1)
+  * `0a1692b220f8df4b6998b4463cb41da895d34d83120c10ea24dfe71ce53f7fbf` (sha256)
+  * `f1e3fee31f5bc314ae3a51e2bd58df51` (md5)
+
+* corda-test-db-4.12.3-sources.jar (429 bytes / 429 bytes)
+  * `78c26b04d31e36737dd1dcb1f17a79494ce3d759` (sha1)
+  * `bffc10991d4165f755a94504651a1b722186a6bd7af709363b2de82af5d0963a` (sha256)
+  * `bfd01d8dc824a4b0a13adee637ed102e` (md5)
+
+* corda-testserver-4.12.3-javadoc.jar (431 bytes / 431 bytes)
+  * `d68b9d559f46b8fa38f5f9ad1f2eb921765c8c1d` (sha1)
+  * `73242377a2cc57d425a0d36da0d555fce048e3c42c7f215f599e7dfe905d1d39` (sha256)
+  * `d9bed0cdb926d44250e94cd5213e3b71` (md5)
+
+* corda-testserver-4.12.3.pom (1 Kb / 1305 bytes)
+  * `82755744f6fd4656de92a53cc4019f269e803653` (sha1)
+  * `6d534a19632f8e4cfbaebf623bc3fb990997e3aeaf0684b531416a744dde81a6` (sha256)
+  * `ea4feaf5c46288635101afddc1bec5d9` (md5)
+
+* corda-testserver-4.12.3-sources.jar (431 bytes / 431 bytes)
+  * `d68b9d559f46b8fa38f5f9ad1f2eb921765c8c1d` (sha1)
+  * `73242377a2cc57d425a0d36da0d555fce048e3c42c7f215f599e7dfe905d1d39` (sha256)
+  * `d9bed0cdb926d44250e94cd5213e3b71` (md5)
+
+* corda-testserver-impl-4.12.3.jar (91 Kb / 93200 bytes)
+  * `05efb705a965c0a7f58dd53d26b067a98114bd0c` (sha1)
+  * `22afecf630c3d1df2168861b8cf14f701a22c870bd505a2ef9edcf3fb7681ec4` (sha256)
+  * `c2f7ba697dd6eb65efab2cbe363c9319` (md5)
+
+* corda-testserver-impl-4.12.3-javadoc.jar (80 Kb / 82169 bytes)
+  * `12d26b738d1163116fa3826b8b18fff6838b7850` (sha1)
+  * `2c65847685eb739ce29953635c92c080a4c59bd29222c73ca17b4456c403ca15` (sha256)
+  * `d14dab1d7bcdddf9e15bf00981764a72` (md5)
+
+* corda-testserver-impl-4.12.3.pom (5 Kb / 5642 bytes)
+  * `a0f836c71d08a8d4a3a7dc6253e0d4d914025c0c` (sha1)
+  * `7d263c08242ab19e43f0f6be5ef73bbe7f90ceb3ff4645543b9704d216abe47e` (sha256)
+  * `2c87e7fb96d82fa0a743eab6177fa2c4` (md5)
+
+* corda-testserver-impl-4.12.3-sources.jar (19 Kb / 19819 bytes)
+  * `fbc4e8e1c36aa6fb56df0214cc00c86dd894672d` (sha1)
+  * `e27bfe9b8c0dd6ec0d4a4f7f02eab086156f7ad585964482dec6c418008f35b6` (sha256)
+  * `942c94d624350c7a5b2f8e45fb414d63` (md5)
+
+* corda-test-utils-4.12.3.jar (195 Kb / 200598 bytes)
+  * `c0f5f17a3e8bbc8dfd5a382a85f356424beccb7a` (sha1)
+  * `b8ce3ab18e68ee232730f28ed5c91a3f5f853889e8dd428d328ce89a1adb1a1f` (sha256)
+  * `126bd27fc405f5004f28c502ac6b5ca0` (md5)
+
+* corda-test-utils-4.12.3-javadoc.jar (432 bytes / 432 bytes)
+  * `66bb71061f98da235c62604dacd8255128dc5888` (sha1)
+  * `0eb9db08a9ba631483365ea5fb99c400e0c605b14c71fe0477172c1f9a9fc569` (sha256)
+  * `ea655b9eb9a40b3e1c8ffcc54a4c22bd` (md5)
+
+* corda-test-utils-4.12.3.pom (6 Kb / 6214 bytes)
+  * `6e3555769698787e930e3255a52b554ba4ba43ed` (sha1)
+  * `eca9f7988ac77ae2b82ce4db12afccb1bb3ae752f13e084329eff63f333e4cd9` (sha256)
+  * `7c68f4255e01d86a4fb6fe896199b69a` (md5)
+
+* corda-test-utils-4.12.3-sources.jar (36 Kb / 37438 bytes)
+  * `8426033ff837996f29b21ba6aa6c51e9445e06ad` (sha1)
+  * `b932532250c57403b9603205f0a7e13c7db662b769a1695981def64b3fe15210` (sha256)
+  * `f26f2d911f333972032b7d0cfb70dee4` (md5)
+
+* corda-tools-blob-inspector-4.12.3.jar (45 Mb / 47437091 bytes)
+  * `f4de003f29ed76cd192f6648ff628711312ceeec` (sha1)
+  * `b6fcbede5c57f679700216e970d125202c5b4ba14d88384a8ca437cae2d6d747` (sha256)
+  * `6f78054998be07835357f69573394334` (md5)
+
+* corda-tools-blob-inspector-4.12.3-javadoc.jar (433 bytes / 433 bytes)
+  * `86e6275f31a33601c370bf23e51e5f976222235a` (sha1)
+  * `7715e840791ca3819a14f5e9413fdcd9e7c37c638ac17dd7c2d834f5487f2cb2` (sha256)
+  * `c995e770150eb67377c06edff46ed111` (md5)
+
+* corda-tools-blob-inspector-4.12.3.pom (3 Kb / 3700 bytes)
+  * `d558f22533017968530cb2cae2d444db8d1581b4` (sha1)
+  * `c452c588c2949a14a1db90316edf5277f56ee3d6191559859828032e9d391372` (sha256)
+  * `f50282726a45c5245bc40d72a55caeac` (md5)
+
+* corda-tools-blob-inspector-4.12.3-sources.jar (3 Kb / 3427 bytes)
+  * `c63e183b9fef29057ecf85af6ae65703273bab39` (sha1)
+  * `91d982cd184ac823cd8abb18b4229298f68e08a3cd8dbddc88cb7623cec41dcf` (sha256)
+  * `8629eeac3590e9b39c4f41f5af0f7dd0` (md5)
+
+* corda-tools-checkpoint-agent-4.12.3.jar (2 Mb / 2567368 bytes)
+  * `35fe39bdb6a94c472e48ff81f8adf3c6f87f6ecb` (sha1)
+  * `89f120ba1dec8ab5073cd7ce530709af572cefa54a4bd6522d1df2964c728920` (sha256)
+  * `3b2bbf047685da8771a46b7c79b708be` (md5)
+
+* corda-tools-checkpoint-agent-4.12.3-javadoc.jar (436 bytes / 436 bytes)
+  * `9d2f042113850b4cfa7ad40f105b11a13b600d9f` (sha1)
+  * `8915278f99a69b05ad1f2843b85d48a486c17edcb8c490f4f739faf611ef9d45` (sha256)
+  * `9471e3cb8141e7f7b3b2c829ea045c16` (md5)
+
+* corda-tools-checkpoint-agent-4.12.3.pom (1 Kb / 1711 bytes)
+  * `4067a9345a03e9817b1132081f586e68f30e9127` (sha1)
+  * `d7e9e489af8aad559073a08d5221d7fc4faee64bbf44f78a32c011e71f8d99a9` (sha256)
+  * `1ad0a917f8e91ae56a46d2148fd7c55d` (md5)
+
+* corda-tools-checkpoint-agent-4.12.3-sources.jar (5 Kb / 5830 bytes)
+  * `25ba214ea1ca97c9a0015c954c4d887d2f1bf1fa` (sha1)
+  * `c27768b1e3c1287a7fcdb1bb767c1586a130cc2fbe487e96707137806c28863a` (sha256)
+  * `0a3268832ad77b7c6e70e8d8bf658888` (md5)
+
+* corda-tools-cliutils-4.12.3.jar (45 Kb / 46329 bytes)
+  * `e9ea49aecdfb4b2ec74f2145243f5102f84e06a5` (sha1)
+  * `c3b537c1076543716c9feb806f03ec5b564347836ef32d01bc0a30e706d953c6` (sha256)
+  * `c2dda51093ad7890614d75078c9a5753` (md5)
+
+* corda-tools-cliutils-4.12.3-javadoc.jar (431 bytes / 431 bytes)
+  * `14b87452e80dd5b4b582477157ce90b18b0982a4` (sha1)
+  * `fa717dd929c08ba4566b2befd7c464a8a8de0b3072c69e9113cbbfb4b6165204` (sha256)
+  * `5e4b234e93e08d56ed1b3fb2e96c5a12` (md5)
+
+* corda-tools-cliutils-4.12.3.pom (2 Kb / 2890 bytes)
+  * `0397eba472f0e8fc2920ce6feaab0ce17382051d` (sha1)
+  * `22193be0c871daa81620e660377fefbf4ac313b0122451558179e4d79964d58a` (sha256)
+  * `e6b1231444e0edd81371387cb3aea8d3` (md5)
+
+* corda-tools-cliutils-4.12.3-sources.jar (7 Kb / 7445 bytes)
+  * `478be18167614dbd0462005c8651a11bea8eb3a8` (sha1)
+  * `2ca4b3b35b5f04e9c6b0eaf42471476c6b6e637e6376b385468cf306afc8d005` (sha256)
+  * `a726f3b3ae49c11c1cd2cd7cc3f2d3c5` (md5)
+
+* corda-tools-explorer-4.12.3-javadoc.jar (430 bytes / 430 bytes)
+  * `1c5847933532bfd506ca7893399cf4160b46c24b` (sha1)
+  * `fabf94f1cdbca3b6e817123943c8fbdd9fdaf601acb7a8e1ea106b38ad20d748` (sha256)
+  * `ee655296835ff11a5c9af460e0958495` (md5)
+
+* corda-tools-explorer-4.12.3.pom (1 Kb / 1260 bytes)
+  * `4c88965e5a676450e3dace6432928aae260f204c` (sha1)
+  * `f8002da2fdafca77eda1d3558c879132ec494a8bc47d6fdfb2d75a1a4d93bc56` (sha256)
+  * `a7b86092fdad85044e0e828314dfde9a` (md5)
+
+* corda-tools-explorer-4.12.3-sources.jar (430 bytes / 430 bytes)
+  * `1c5847933532bfd506ca7893399cf4160b46c24b` (sha1)
+  * `fabf94f1cdbca3b6e817123943c8fbdd9fdaf601acb7a8e1ea106b38ad20d748` (sha256)
+  * `ee655296835ff11a5c9af460e0958495` (md5)
+
+* corda-tools-network-bootstrapper-4.12.3.jar (163 Mb / 170988591 bytes)
+  * `18144691b44c8dd49eefeb1bc454a2fc6dd4f9e2` (sha1)
+  * `fbd4e9da23d4478f4d524b274132d0943bcc537f938c8eda89705bf093e6d6e7` (sha256)
+  * `d7c250612c2d98dfa06ab48e306e660c` (md5)
+
+* corda-tools-network-bootstrapper-4.12.3-javadoc.jar (432 bytes / 432 bytes)
+  * `6e92abec0b6fa7ebfda3372c965bc3393f41aa16` (sha1)
+  * `98d9d0600a313e06dc7b388323818a362bb227003a24a22fcfd0dbd7ce4eda82` (sha256)
+  * `166fc2d16d2c7101760ee8bebbcbe999` (md5)
+
+* corda-tools-network-bootstrapper-4.12.3.pom (3 Kb / 3139 bytes)
+  * `2d1b50eacc44c79b185688b0bc01f85267670a43` (sha1)
+  * `9297ff9bc105c075de7171b9ed425005360c919ab6d4719c06b3e801f8e4731e` (sha256)
+  * `ecc04b8fe6df98684133eb003ea0c0b9` (md5)
+
+* corda-tools-network-bootstrapper-4.12.3-sources.jar (2 Kb / 2691 bytes)
+  * `ab5a530152ab66c0a5f6544834a56fc619f9912f` (sha1)
+  * `08c1c2ac1d92e76a4e3d99253890f1f0452531edeeb59ac350b3aa5506a70739` (sha256)
+  * `17472d07b00549d37c48ed29c5fbbe18` (md5)
+
+* corda-tools-network-builder-4.12.3.pom (976 bytes / 976 bytes)
+  * `554933a3bf92aee93ef786ace16ff83cc29c39a2` (sha1)
+  * `b18cfeda8898e82a7bbbab5fae3664731acab63249276eff6348d5f0651ae122` (sha256)
+  * `1881e248c7d7818aa43f9c7fe5ac310e` (md5)
+
+* cordformation-5.0.18.jar (1 Mb / 1480582 bytes)
+  * `6a09420264e8c57908c830c5f94d44e24cc677f1` (sha1)
+  * `f7f46ddbeeb7227191c0b419e643d9ed6fe965132c41337860661b14a6abeca8` (sha256)
+  * `fa088af7c04990d7b08eb5c4fd88f853` (md5)
+
+* cordformation-5.0.18-javadoc.jar (507 Kb / 519723 bytes)
+  * `02a7e46c277ddc6cf285e99bf60c2e053b6c7ef2` (sha1)
+  * `84d18d196760c3f4115f695e1bf3e8730bbf3ae312e406a3eb693703d361fab6` (sha256)
+  * `ee10f8ef7b0699f1ac43366804c22157` (md5)
+
+* cordformation-5.0.18.pom (4 Kb / 4381 bytes)
+  * `e18ee1ca55a037eddc953bee2aa970e9e3a5442a` (sha1)
+  * `a823fec43065efdf53755b19120a6f65cd2de5959a35b507313ebdbb193ff058` (sha256)
+  * `600f42a49f2fdf9afd239c125462cb1f` (md5)
+
+* cordformation-5.1.1.jar (1 Mb / 1790146 bytes)
+  * `309aa57aba297fd4a50e19e75d549ae065c5b1fe` (sha1)
+  * `cdfd032b48228bef4879c3947982c9754517e0be93bf317725587ffb85aef840` (sha256)
+  * `87003e02e4a808d0eca7a7ec368e9050` (md5)
+
+* cordformation-5.1.1-javadoc.jar (598 Kb / 612642 bytes)
+  * `951e449285740f72ac082e439f15313e1836468b` (sha1)
+  * `77d3f8baa300efe5e2f1a5001423cf5d07e3ad56ef84aad126529e60976f789a` (sha256)
+  * `06f55e75dcba55ac9a9acb415174c41d` (md5)
+
+* cordformation-5.1.1.pom (3 Kb / 4005 bytes)
+  * `3bee4211d9c12e71e4850c3c39c87bb5be0317ff` (sha1)
+  * `9ba4e6222c6de00739e7f9adec11f036aa572107f707901cde3aa864c2a1beaf` (sha256)
+  * `4931a396984ca2b53b7f0cecc1fa2f09` (md5)
+
+* library-master-v1.1-beta-g6215ec8-87.jar (357 Kb / 365733 bytes)
+  * `f1b33486539b936c69cbb87f0452e416f4ae70e0` (sha1)
+  * `6ca9531c5f4cb5f0e2ee564dfbda8e25e4f36a19f1f07f9ff30148624a8383cb` (sha256)
+  * `bc9c9186c8aacdaca77fe6cbbd80dbeb` (md5)
+
+* library-master-v1.1-beta-g6215ec8-87.pom (423 bytes / 423 bytes)
+  * `c9787884f3b23556ca1e9bfda7c8dc5a9a47e048` (sha1)
+  * `297629e72496bd25e5fae6b60da88b869afe679075bd8623d39113c373d35d80` (sha256)
+  * `5f7a3fedb6073e32fca45a212aead7df` (md5)
+
+* quasar-core-0.9.0_r3.jar (1 Mb / 1381165 bytes)
+  * `2a7c1ced68f427a0409125d1062682da20053e95` (sha1)
+  * `aac0ebfd798aef970143111820677bdeae257e1fa85daf44fd9cc440da873bce` (sha256)
+  * `2f8c468e64a870d8d65ae2ce0f6c8f10` (md5)
+
+* quasar-core-0.9.0_r3-javadoc.jar (1 Mb / 1420438 bytes)
+  * `d99a18259773bddc252bbd97b327522ecdf4167d` (sha1)
+  * `056b3e669da5672a1d2980b437284acf6a0fdf182737d013a3e61039a0dd8533` (sha256)
+  * `eee0469857d6f65a6b2a9606c439d861` (md5)
+
+* quasar-core-0.9.0_r3.pom (2 Kb / 2673 bytes)
+  * `6210cc875426dabae1f33f52ffd1a291f363d929` (sha1)
+  * `8e5ce52785b7f024afbe7175296e5b1d2e58b9891918f50e2ef6d40db210fa94` (sha256)
+  * `2cd95cc888a5a7332d9f02aa6a8c0695` (md5)
+
+* quasar-osgi-annotations-0.9.0_r3.jar (4 Kb / 4105 bytes)
+  * `3f965289a2535e764f0f3af3793b2761b8439bf3` (sha1)
+  * `e68f29bd08592dddb35e44e8040019c15a8b6c0af3823cf015d990323519d467` (sha256)
+  * `8307f6db48bbce528cfc4912c8ca9361` (md5)
+
+* quasar-osgi-annotations-0.9.0_r3-javadoc.jar (123 Kb / 126279 bytes)
+  * `5238455900f8657829385411121bcd018ea2b170` (sha1)
+  * `29d4a973aea3f537b24374788445d4c2e07289ae688b54ef3c8b9c43a039a3d4` (sha256)
+  * `c37a5d585cec4c77c9ef657941b50024` (md5)
+
+* quasar-osgi-annotations-0.9.0_r3.pom (1 Kb / 1407 bytes)
+  * `7f49bf04b790bd71e9b572cf83b7647d72819efa` (sha1)
+  * `e01870e058e12c0edb8acc0d83d88a560cd93e63d85523c73a89a0079608ed66` (sha256)
+  * `1b61c811d9646475b23cd23dbe78dcc5` (md5)
+
+* quasar-utils-5.0.18.jar (31 Kb / 32472 bytes)
+  * `65befb54d2f36516c6b2cba8199ec5f12aee2d83` (sha1)
+  * `3b66accb7284fdb13799135a2662db84108c0f224260c21e7db032f027c4c854` (sha256)
+  * `b696b7e80807cfe5864ca668e2aa53da` (md5)
+
+* quasar-utils-5.0.18-javadoc.jar (261 bytes / 261 bytes)
+  * `c6ac53184dcc374cf3db55a5ecbfbeb7edd837be` (sha1)
+  * `df150fddccbe8db2a246e1f7fa4d462a0be089e23bbea3ea11fb9044538a194e` (sha256)
+  * `184a6f43ea6f681ee65a92d18054f8a3` (md5)
+
+* quasar-utils-5.0.18.pom (1 Kb / 1029 bytes)
+  * `ba18efe50abee9e58fbb073ab7c1d7822d8a60e3` (sha1)
+  * `c9e1ca43bbf5e9b9de8621c54fa06219430c8920377e4b0246c612099fac76b1` (sha256)
+  * `706fa8277fead171ae90eca1418c3b71` (md5)
+
+* quasar-utils-5.1.1.jar (31 Kb / 32307 bytes)
+  * `8bd2fda425ed0f49f13bc66f3bdd971c29127fc4` (sha1)
+  * `b28b5dc748b1add662cea0ee1e953837967003af6173107ec473308eb77893ef` (sha256)
+  * `8ad624cbfd6b9cbae90cf9e88ed2e6d9` (md5)
+
+* quasar-utils-5.1.1-javadoc.jar (261 bytes / 261 bytes)
+  * `714ee1621d42b843c5de8f83ab82ef6821b0fe7d` (sha1)
+  * `c6511c409ab40bb17194bee8adc4e365fefea56765f025b61684be8a44ac392f` (sha256)
+  * `218f273c441340779650bc7918e501c5` (md5)
+
+* quasar-utils-5.1.1.pom (1 Kb / 1029 bytes)
+  * `c24b2d08defcd9f263df6967ec8f45e655c811fa` (sha1)
+  * `881061e09c44fd0df936f5ec0cd4d1b73fb2e642b469dc9656787324699ff7a9` (sha256)
+  * `24924975cfc3a34310c850f249f5d1ba` (md5)
+
 ## Release packs and checksums for Corda Open Source Edition 4.12.2
 
 * Release pack: https://download.corda.net/corda-open-source/4.12.2/corda-open-source-4.12.2.tar
@@ -727,6 +1460,719 @@ Before you install the downloaded release packs, verify the integrity of each fi
   * `881061e09c44fd0df936f5ec0cd4d1b73fb2e642b469dc9656787324699ff7a9` (sha256)
   * `24924975cfc3a34310c850f249f5d1ba` (md5)
 
+## Release packs and checksums for Corda Open Source Edition 4.12.1
+
+* Release pack: https://download.corda.net/corda-open-source/4.12.1/corda-open-source-4.12.1.tar
+* MD5 checksum: https://download.corda.net/corda-open-source/4.12.1/corda-open-source-4.12.1.tar.md5
+* ASC: https://download.corda.net/corda-open-source/4.12.1/corda-open-source-4.12.1.tar.asc
+* SHA-256 checksum: https://download.corda.net/corda-open-source/4.12.1/corda-open-source-4.12.1.tar.sha256
+
+### Checksums for 4.12.1
+
+* corda-4.12.1.jar (103 Mb / 108638187 bytes)
+  * `c0abab44cf294b4fb784beb0855f598e9cda387b` (sha1)
+  * `92968cf619580c325d46a92edd89649d8c2335a3019f2b828c20cc3092cb11e8` (sha256)
+  * `a04afe8ff595b300ea85146c63dcb4a1` (md5)
+
+* corda-4.12.1-javadoc.jar (80 Kb / 82261 bytes)
+  * `c968d4adff1a614a5d278218cccfcc1bafa28946` (sha1)
+  * `16ef36dd18a44c1de30a0084e84579cf7523ea5ce79fc67b1d6e1e10e2c37fea` (sha256)
+  * `7638e28983d9ef64688f1b856aba8c62` (md5)
+
+* corda-4.12.1.pom (896 bytes / 896 bytes)
+  * `539e3a2799f58cb23121eb875bbe11ad51706924` (sha1)
+  * `0606744ba85d9bedd666202bfd2f64565e0562e67f13dc086105aa03f09dc325` (sha256)
+  * `b7540a95f836e05d369c660ba19e6d8f` (md5)
+
+* corda-4.12.1-sources.jar (4 Kb / 4501 bytes)
+  * `e0e3d632c92595e6fd1b1e4d5522dace27a69dbd` (sha1)
+  * `b7f543c3f85dc5b80a6460d5e81e1340845526b22ddbd05f4ea226ec1d0c12d0` (sha256)
+  * `bfcbb17cefc6b887990a2d584274dde5` (md5)
+
+* corda-common-configuration-parsing-4.12.1.jar (272 Kb / 278877 bytes)
+  * `234979d4d394397f8eaba72e83b0593c9b371b93` (sha1)
+  * `d3066099baddc675ccbac5d28ed0a105bebf0c9650d2013504ec9d90c354a7e1` (sha256)
+  * `55d4057ae54418c5ed0d14ce1f3b9590` (md5)
+
+* corda-common-configuration-parsing-4.12.1-javadoc.jar (440 bytes / 440 bytes)
+  * `86cd1620c96fb288ebde30d1ec7520c8e251390b` (sha1)
+  * `9dc7f5e305d53027132e6c2d548cc5624acd23c4342d33ae38d95a67903c4a9d` (sha256)
+  * `6710e178b7e7e59a010ed012fd526bcc` (md5)
+
+* corda-common-configuration-parsing-4.12.1.pom (2 Kb / 2086 bytes)
+  * `65a8c41593e5c0c91512e92634b2d852a257d6d7` (sha1)
+  * `1596525ad5a539f7e9e4a105a39f3f2405d26c0f29bd699b7787a0b546ea5d7c` (sha256)
+  * `05e5eb5d712cc24d9ec60289bf8d8fde` (md5)
+
+* corda-common-configuration-parsing-4.12.1-sources.jar (14 Kb / 14404 bytes)
+  * `309e4d4ed1b02330d08a34a003cba25af34dc14b` (sha1)
+  * `f16f14de4a8148860789309bb360f86535704897c1ce9d1e71ef93b0dfac8772` (sha256)
+  * `def014a995cfaaa93410700aa736e254` (md5)
+
+* corda-common-logging-4.12.1.jar (51 Kb / 53163 bytes)
+  * `02814a40568ae414a204e8879f51fc17afd0c7f6` (sha1)
+  * `f06b8e92b57eb2ea279ddeedde88b4be2a9fb03df4e1ba65c7a1666862e09373` (sha256)
+  * `935174e02ac0e6be89808af06f474505` (md5)
+
+* corda-common-logging-4.12.1-javadoc.jar (432 bytes / 432 bytes)
+  * `9440afc0bc91feedd8a3a0f119bbde869e86137b` (sha1)
+  * `59542aff675746988bebeb36095c74c04da33dd2b83bb281389efedd188b8eb6` (sha256)
+  * `fdc5a5723e79dc0b6ac1c6622bea7993` (md5)
+
+* corda-common-logging-4.12.1.pom (2 Kb / 2221 bytes)
+  * `e40c7d4c46587959015e815a036e593a5292da13` (sha1)
+  * `8d5c4ae6f2ceed7309be3d25c8ba54fa737a7170da4bb87b389ecdec5927ed57` (sha256)
+  * `c286ce84a18a738fc849244b1b52c9c0` (md5)
+
+* corda-common-logging-4.12.1-sources.jar (18 Kb / 18655 bytes)
+  * `239cb9d0a69f9616fd0a51f3271b5ff7000482a8` (sha1)
+  * `4c790a1caca5e94c3d3791ea2fe7650d2d87fb1f3797b30d85438f50d457a0d5` (sha256)
+  * `5d68767c3f5d3c951c9336a27e61daa7` (md5)
+
+* corda-common-validation-4.12.1.jar (12 Kb / 12906 bytes)
+  * `9e419a5197cb6967374df328d740f5c65acd11ec` (sha1)
+  * `d621c5c25c1eeebf0aaee51243c798182784c5c38b68f45c52b7cc85e98ebc1c` (sha256)
+  * `f5f4f28ae6eee58f372c69af110b87c8` (md5)
+
+* corda-common-validation-4.12.1-javadoc.jar (433 bytes / 433 bytes)
+  * `52839ed0b629e76b20c5b0e3dfac130d9fc83f0e` (sha1)
+  * `15e3b50906839f61463291edca39a04c601479f19f939920d80d745ec0124c6d` (sha256)
+  * `fcfe17bbc4d5e571bf799f9b7f3f5037` (md5)
+
+* corda-common-validation-4.12.1.pom (1 Kb / 1696 bytes)
+  * `6296f4a5b1c8ab7438cfd65b60a5bf16dcbe11dd` (sha1)
+  * `a83c38ef0d1eea77d97734d91bcba59d7e271cef543f8d715e7b4cbffbf1aa20` (sha256)
+  * `e8d13515f18405f48300da04261097c1` (md5)
+
+* corda-common-validation-4.12.1-sources.jar (2 Kb / 2992 bytes)
+  * `920c7e5bc0096d40b5d5e9287411171a1c11d358` (sha1)
+  * `d6889d330adb6f76d449fba55b936ac03d833d018063ec460d98c2a2ce02d54b` (sha256)
+  * `ac93a1a0537e34623b258e628a35d8dd` (md5)
+
+* corda-confidential-identities-4.12.1.jar (32 Kb / 33277 bytes)
+  * `464410f1c975a71d379be3790de989ef5c7936c8` (sha1)
+  * `ab0584c74d37908b9cea90c3e97db3f64bc2a87f4e94ad353706e8fe673bec74` (sha256)
+  * `b6dea56ba683242e38201724364b7982` (md5)
+
+* corda-confidential-identities-4.12.1-javadoc.jar (435 bytes / 435 bytes)
+  * `2ace1e4255bb9e6e3aae4f02398d6ff623f7ead5` (sha1)
+  * `55aca7794f9820b30370ff0ed24206c98e62b7ac48ecf4116a5f7ab244b692b2` (sha256)
+  * `23a8484be2d51beff78e1cd9f0970cea` (md5)
+
+* corda-confidential-identities-4.12.1.pom (953 bytes / 953 bytes)
+  * `545890eafb54a51185f9fd778a10ffea79a85a1e` (sha1)
+  * `91a58384ee0ef274f2c80e97b1e4b0478f989373cbb87982de460f45c8cce12f` (sha256)
+  * `a854746582623aed31cab5315b77c885` (md5)
+
+* corda-core-4.12.1.jar (1 Mb / 1958169 bytes)
+  * `718562269a19310f029197ece4ac7f9b74e267ef` (sha1)
+  * `57ebfea37081dfacf1d483108ac80b7940a5e0b4e7b104de68c596958353d593` (sha256)
+  * `0982be4ca4efc256014e129c8f2cd4d6` (md5)
+
+* corda-core-4.12.1-javadoc.jar (92 Kb / 94774 bytes)
+  * `99dab0d40b7bc1e22d47f7754f61a74a856373d1` (sha1)
+  * `c33257fcbb4208045b5632d9b6e750d8c3428d9905a01090e0b546a3f1d02972` (sha256)
+  * `371a9a0c4c801920f93ffd9a652a5b6d` (md5)
+
+* corda-core-4.12.1.pom (3 Kb / 3646 bytes)
+  * `4d356d39992cbd3901689f3b723b32ad70445e5c` (sha1)
+  * `46d4b90d1ad50ae69367133d85e6f59a4066b5b6daa392add8a73e9c40611d0a` (sha256)
+  * `3d8a674926e65ebea0925757ee897e3d` (md5)
+
+* corda-core-4.12.1-sources.jar (422 Kb / 432281 bytes)
+  * `c7d165980becbbf4a9ebc75014a089e5b4f7ae21` (sha1)
+  * `6acdd2f7c08e23dfff6ecceb5d6eb8540348d94b7a673dd4214f384ad8329372` (sha256)
+  * `46e6b2eb30d18f27f9123189c98fa73b` (md5)
+
+* corda-core-test-utils-4.12.1.jar (255 Kb / 261237 bytes)
+  * `d32dcc782fee2b8dd8a4ea2035c05a468f8a5b35` (sha1)
+  * `11d05fd1e4bd1108fb7a42b3485b3cc86adf46840e29b54c0741a08250bfc85d` (sha256)
+  * `1f42d3ecfd161eeef61f2c8f56cbfbb1` (md5)
+
+* corda-core-test-utils-4.12.1-javadoc.jar (431 bytes / 431 bytes)
+  * `3e83f2db242333815f7321ae43cf568d880bf7e9` (sha1)
+  * `734a0b523710892e65070c64c8729e874d5fa42ab01d24175a2e5af419893862` (sha256)
+  * `827d79472c60e8651d7190efedcf6352` (md5)
+
+* corda-core-test-utils-4.12.1.pom (4 Kb / 4687 bytes)
+  * `ca49f937bf54120091ca1a22010a8c74648fa54f` (sha1)
+  * `a1c2f1d7cf9868cca89d049a47b0a84c86e572edf122388e67f2ab8935d1d1fc` (sha256)
+  * `93f9bc570fed55defd58870659a53050` (md5)
+
+* corda-core-test-utils-4.12.1-sources.jar (35 Kb / 35872 bytes)
+  * `9138c2d609848946017feddf18359013f95554f4` (sha1)
+  * `50dc66351e867fcebcff1ab977efc062c2cb98cca1decf30d60b3a4ed161f9eb` (sha256)
+  * `b7defe33f0e67c102f58424b11949ac4` (md5)
+
+* corda-finance-contracts-4.12.1.jar (184 Kb / 189126 bytes)
+  * `110f596f91c8a4a39fa15199fe602847deaf7e94` (sha1)
+  * `6a95743172a659e6b2f9f98bdd1640e0c4cfe562a6b724ba590ff46ef80a590e` (sha256)
+  * `3e715df285fb6d6d80eec4f69769bc65` (md5)
+
+* corda-finance-contracts-4.12.1-javadoc.jar (98 Kb / 101197 bytes)
+  * `8f15671f67b2b55c7a12232845d6ab2f41a85534` (sha1)
+  * `34ecf509f28ba83b9a6a5e1ecb40eb7d0903a3c05def961fc05c0584104b9c82` (sha256)
+  * `3eab5613f219311c4874cc6035c5f02c` (md5)
+
+* corda-finance-contracts-4.12.1.pom (923 bytes / 923 bytes)
+  * `195dad42be17bb193d24b545efbe80665438cd59` (sha1)
+  * `7cf32ae8d1c6d9581fa596bb40b734ac0871b5a3b13d79971dc2f4abd704a154` (sha256)
+  * `fd4a4c000107d70765327597ee7bf1c0` (md5)
+
+* corda-finance-workflows-4.12.1.jar (191 Kb / 196517 bytes)
+  * `9c5a7995b6dc3b4fef419d45e764f7b7c37aa14b` (sha1)
+  * `01f9833706ba6bf90ea40e5d69519b2ea46aafd5ec706fe273ea69a0281b85a4` (sha256)
+  * `c1696e7c97a27f48fe6ce6396da8f7b2` (md5)
+
+* corda-finance-workflows-4.12.1-javadoc.jar (430 bytes / 430 bytes)
+  * `8430c42a955e1fedd02bc7a1d33b19902689be4f` (sha1)
+  * `10a319aa2dca2a74ee4c135e28b7cb974134d9282eb24473cd6cf4e90daec937` (sha256)
+  * `ff45f568638687712f064edcc006c124` (md5)
+
+* corda-finance-workflows-4.12.1.pom (919 bytes / 919 bytes)
+  * `44abed9cd0f28dacc64e6e8bea189f1ff7b80893` (sha1)
+  * `92b72b6c5b16d45b7cff9a64c3cabe466124b55f22b6db411412d606ebc3fb7d` (sha256)
+  * `c997b4a8be102648e0e109fd5bdbe60b` (md5)
+
+* corda-jackson-4.12.1.jar (167 Kb / 171719 bytes)
+  * `5873f9643321b93504b141178a79999c311555fa` (sha1)
+  * `116bcc768f76732cd4f57c6c3dfd11b67cafd2b0603db59350e45dc55bf2f3d8` (sha256)
+  * `ef243dcc49a9976d56316bc28d110d0b` (md5)
+
+* corda-jackson-4.12.1-javadoc.jar (427 bytes / 427 bytes)
+  * `d2fd1c509f296753c3269518a46d82771db13754` (sha1)
+  * `a4e9d881d96510b491b48c433ce8c4052bdb2be7b3b570ba9d4ad86d07cc8ffd` (sha256)
+  * `68498444ed7284363b038b81df103178` (md5)
+
+* corda-jackson-4.12.1.pom (3 Kb / 3332 bytes)
+  * `81c2c216956e064f3cec275c39683688e9c9bf62` (sha1)
+  * `3449f8322b7461e3e477eff08c1d42dd83289c42cff729c325cf0fefe2b73668` (sha256)
+  * `ec02f7700ba3ce4e90e21ebc9b57bb5e` (md5)
+
+* corda-jackson-4.12.1-sources.jar (17 Kb / 17682 bytes)
+  * `49a12d34b1b70ba3495d2580d45c9612d9d8ab90` (sha1)
+  * `551397027f0906f81273f4e36823e26d34d71b2c4f7b481cfd25ceddb8899275` (sha256)
+  * `7ba614dc959089e67d0e313c044b0ad5` (md5)
+
+* corda-jfx-4.12.1.jar (218 Kb / 223968 bytes)
+  * `5e65743ce33d48013195dcaa449562ab90269a5f` (sha1)
+  * `1fccdedabecb4dbde90e7fa155593c658437473ed8a2267c1f9b24c4e13957f1` (sha256)
+  * `80347ead8c463c76724c2c696e1d8d69` (md5)
+
+* corda-jfx-4.12.1-javadoc.jar (96 Kb / 98427 bytes)
+  * `b3b9cda652482db778958dedf769201aad4e5646` (sha1)
+  * `9a22f28f84674b930ada36ce570db93b5a6e01aeedca4766c9113a559eb2f788` (sha256)
+  * `25b7f080d023c030c9b3ad6f1eb556a3` (md5)
+
+* corda-jfx-4.12.1.pom (4 Kb / 4864 bytes)
+  * `723bbc4ce8c4934e98ce32a524897009d90dae47` (sha1)
+  * `ae42ab58213f8a823a9ebd5b9f0c8ba79b5a3d8053d1c233c8e0d0c62dfdad3b` (sha256)
+  * `2820dc05784d8e29ebe13878294d2565` (md5)
+
+* corda-jfx-4.12.1-sources.jar (32 Kb / 33530 bytes)
+  * `2905ccc330e1304edb056363f8808ac38ac9dc59` (sha1)
+  * `75fe10019ed4bfad176904f344da275e941dae2b221bbb8662eaabb252e08857` (sha256)
+  * `60d63a1bf5aac0e9c88b5d2f909221c1` (md5)
+
+* corda-mock-4.12.1.jar (78 Kb / 80256 bytes)
+  * `2963dd3c26742055031586e50017633ff7704827` (sha1)
+  * `062e7225bd9a375347bd15392c411917af2fc7801394c1ce7b252b30be866304` (sha256)
+  * `27afc1b88450776646768c6655320966` (md5)
+
+* corda-mock-4.12.1-javadoc.jar (426 bytes / 426 bytes)
+  * `571b795265b491cb83029a46adcc6fb582e302c1` (sha1)
+  * `89d0c4787de4544ee17e83916116613b011bb06332492796562ddb667fcc2825` (sha256)
+  * `a0da79e1d278148df1993552cc45ebfd` (md5)
+
+* corda-mock-4.12.1.pom (2 Kb / 2208 bytes)
+  * `fbfa743e23a1dcb7635bb188ab5c133b776f3cb6` (sha1)
+  * `7e18387f9987b047ea904f45637aabbdd768a85c11b12466626e3c369e6af2a2` (sha256)
+  * `d0d9d019e393325b8c3c91a331e602b1` (md5)
+
+* corda-mock-4.12.1-sources.jar (5 Kb / 5693 bytes)
+  * `28f1e27ee452de0776c90bcaa62c9aa0fce205cf` (sha1)
+  * `8da566794db6d81dbd3b54986aab7bf2b4142c76b3553b1f90c4476d5c9b2c13` (sha256)
+  * `730e8c06b8aa95d6a6aacc34e3efa3e9` (md5)
+
+* corda-node-4.12.1.jar (36 Mb / 38642129 bytes)
+  * `50370f13dbbcd0552d09b06105aceac9049ed481` (sha1)
+  * `ee681aab1c535278f3ecc1fbf4da43950b89eb05aca1aaf8b8c735e6d5394817` (sha256)
+  * `af21d1b599c0e531ef69902247d45378` (md5)
+
+* corda-node-4.12.1-javadoc.jar (425 bytes / 425 bytes)
+  * `02d007f6094b549cb30cbbf1df7a25fe2d518952` (sha1)
+  * `c309db01c4ea5a0f5ad2a3633e05266e428822186e68e77e39b45ea0f6b8a3a4` (sha256)
+  * `e2cd777d38ff9be5f24e36426229c165` (md5)
+
+* corda-node-4.12.1.pom (11 Kb / 11815 bytes)
+  * `9b5cdc249fd44a8630511b03cae67c5939cf2d5b` (sha1)
+  * `ef7efbdec8b7ae3c007b2eafc20065183fc02fae72087730557b57f1fd59357c` (sha256)
+  * `ab208999d1b5fe80166bd42b398b039a` (md5)
+
+* corda-node-4.12.1-sources.jar (519 Kb / 531652 bytes)
+  * `da1b460c9bec575de3da8b94235af9b8a9817fa2` (sha1)
+  * `24a7f5263959813e1db40a4c46bf53db96dbf284a80ca6ea6f05c54e4a66fb45` (sha256)
+  * `a86a4717d144f14ad4a4f1a0e9b9522c` (md5)
+
+* corda-node-api-4.12.1.jar (1 Mb / 1229685 bytes)
+  * `b1f2fa5046f85fd1f91cb376bdf4fa0753bc45e4` (sha1)
+  * `e11cea36029c2b43524ea6eabf79240ff4234699dcc72ec34565a352a4857c8a` (sha256)
+  * `b0c2607f61c94871adfe4ae97baab729` (md5)
+
+* corda-node-api-4.12.1-javadoc.jar (428 bytes / 428 bytes)
+  * `6569fc41a02e21c2e55b992b336a9aabfc70efff` (sha1)
+  * `86a8f106b2945c6cc77d6bd488b131acd2762e6ba43c60eb4f07a546b459cd64` (sha256)
+  * `e9130e74e009513a4cb9cb00faddd29e` (md5)
+
+* corda-node-api-4.12.1.pom (7 Kb / 8016 bytes)
+  * `55865f59632312e0774adbbe85fd263ce0d6ab46` (sha1)
+  * `f0b47b13237ba0735b874977f687684a4a69d5a21bef1b0143c35e9ba73a3061` (sha256)
+  * `50d52d7f33633b52b6cc9d2b85dadf1c` (md5)
+
+* corda-node-api-4.12.1-sources.jar (201 Kb / 206225 bytes)
+  * `144922b4ac2b18780c2d2c59507df3a96e32f97c` (sha1)
+  * `95e1d16e2d7c477cf727459276c381f6a806f44eb03a79fb1ed71d79932aa11a` (sha256)
+  * `62f6994036d6fcfb1da38a3d9e4d3314` (md5)
+
+* corda-node-driver-4.12.1.jar (690 Kb / 706593 bytes)
+  * `ceba3339d6311de1e52f541cadd3657a18974664` (sha1)
+  * `17154814312327074cef55cdd0551cd6c6e2933f6894d513bca0d697637ace35` (sha256)
+  * `4d5d9d379cce29ae7e274277733725c6` (md5)
+
+* corda-node-driver-4.12.1-javadoc.jar (429 bytes / 429 bytes)
+  * `ee14d43f9ee7e61bcb6976559067547a8d4162e0` (sha1)
+  * `dc3a4f43107ee441df916459c8a9c66e7f746d21dd330cb4639110fd6be42798` (sha256)
+  * `422f32ef3d053eec3b07b52c8974c3b6` (md5)
+
+* corda-node-driver-4.12.1.pom (9 Kb / 9659 bytes)
+  * `40eb418d435b1247c88130fc18b56b9ecc4270cd` (sha1)
+  * `84790f4dd4e831cd38d96b6dfc0d988cc1de4a2e1912d2948d95544beceb9c2d` (sha256)
+  * `40f781bcf836a59fa89b46a3f728cf6d` (md5)
+
+* corda-node-driver-4.12.1-sources.jar (104 Kb / 106681 bytes)
+  * `2943dd40218771129b8b3016ad63c60e5bbc6ed3` (sha1)
+  * `e110696068b7e49ffb439679b08142fadbc8d282fcf1aef26e1916059ff641f5` (sha256)
+  * `a174c1b861c98c075f328b8fd466de63` (md5)
+
+* corda-opentelemetry-4.12.1.jar (3 Kb / 3313 bytes)
+  * `99f2595cd75ac060aaf92ba638c1c199c0aa93d9` (sha1)
+  * `ec0422b7052a55b1cd6f9ed27d15ad886832ec52622aa1ae7775d5d5048b2056` (sha256)
+  * `8587c0ef37898d516da55a4e8f1e0566` (md5)
+
+* corda-opentelemetry-4.12.1-javadoc.jar (431 bytes / 431 bytes)
+  * `9a2a55ed38e13b8300f221e12e7e2148ba04834b` (sha1)
+  * `6c0355ecc2c78f38e8d0c27e19652b4b1d8cdd98534dfcbb18aeeaa1af30e9f2` (sha256)
+  * `d53b6f58a8be74aa8638ad444300d867` (md5)
+
+* corda-opentelemetry-4.12.1.pom (2 Kb / 2504 bytes)
+  * `db982905f2c2ac0456a9cfe3ab737deb6c8f9e70` (sha1)
+  * `079f2cbffebeb68ccf047b525cadd065d3949b841ff0fe434090a56a53ae689c` (sha256)
+  * `28a9499b5380ddf739d9189a306e2c36` (md5)
+
+* corda-opentelemetry-4.12.1-sources.jar (1 Kb / 1506 bytes)
+  * `11bc45687c7819c3d3702e2fbc0bcf2fc101ae5e` (sha1)
+  * `7fb741cab8e38504f25c676ffd0e6b483c85af5b7d020661a392aec60a0c413e` (sha256)
+  * `4a2e76857d7abfd91c6b3bd477bb953e` (md5)
+
+* corda-opentelemetry-driver-4.12.1-javadoc.jar (436 bytes / 436 bytes)
+  * `b47a0535ecea25dfb3f6e10f7e2d2337057ee86c` (sha1)
+  * `7cccd096c849f3a568f8a7f392f756cef08a5d4729ea479061d7e8ad6705e46a` (sha256)
+  * `1189330f8bbd476db698e4951e42ff80` (md5)
+
+* corda-opentelemetry-driver-4.12.1.pom (1 Kb / 1715 bytes)
+  * `59e9aaccb6d9eb9bbfba003f526df8d2194c1c51` (sha1)
+  * `fcce7a9797d87e0bb423d57bb3680dfbc075c28521993f673b73aba6a1fd5eb8` (sha256)
+  * `51032c10c478244dad665208d49c81d1` (md5)
+
+* corda-opentelemetry-driver-4.12.1-sources.jar (436 bytes / 436 bytes)
+  * `b47a0535ecea25dfb3f6e10f7e2d2337057ee86c` (sha1)
+  * `7cccd096c849f3a568f8a7f392f756cef08a5d4729ea479061d7e8ad6705e46a` (sha256)
+  * `1189330f8bbd476db698e4951e42ff80` (md5)
+
+* cordapp-5.0.18-SNAPSHOT.jar (55 Kb / 56335 bytes)
+  * `31d6f4aece3494353a5eb28e52b5dc60e13a88d2` (sha1)
+  * `f52ad423a0c97dd5019cd251a51bc484383ac29b923aa51238fbe47e8d2f8a05` (sha256)
+  * `04b8c17f0f3c8657a11389c60a2211fe` (md5)
+
+* cordapp-5.0.18-SNAPSHOT-javadoc.jar (343 Kb / 351801 bytes)
+  * `4806c5f5142cef584fea4f71ce84b650b55ee0f8` (sha1)
+  * `257f17b5ad8d50e4abfa87f6b565f5be554acf1d1cf518833d304a8eef1a8425` (sha256)
+  * `6fcdfc578dc97257e5c695cefaf1482a` (md5)
+
+* cordapp-5.0.18-SNAPSHOT.pom (988 bytes / 988 bytes)
+  * `8942691679b4f69ca12423d788861881307c29e8` (sha1)
+  * `c07d6f2e00fd4cbc7983e872e41c0629d47fbb7bbc7da5dd9e899f7f38c24397` (sha256)
+  * `53bfbabd594d660138477ef07ef8258a` (md5)
+
+* cordapp-5.1.1.jar (77 Kb / 78952 bytes)
+  * `326a74a94984404f26b5a5216a1c732c90db5fb4` (sha1)
+  * `b03220cb0cbad459f0b8d31c8091ba32a6c46cd3f0d1b3e07d44ccecd4aa3733` (sha256)
+  * `38b4cb4832fa704c1506949b928552ec` (md5)
+
+* cordapp-5.1.1-javadoc.jar (379 Kb / 388127 bytes)
+  * `1cf71155c59cbb214582721b379473c22469b985` (sha1)
+  * `dcf7f0f533dbe7bbceb99f100cd38652b2c24fc0b503e2520feb02813028121f` (sha256)
+  * `7e94950daf380db9d3928152e238d3a4` (md5)
+
+* cordapp-5.1.1.pom (979 bytes / 979 bytes)
+  * `7e4b55d725b219905d1b96530faabd96b1bee40d` (sha1)
+  * `ee87abe7fa0799ba791ff0a43df8238ef7d6b507370da97d03225c1ecf4debcb` (sha256)
+  * `ef9a4a746abb10905d470080aff2e990` (md5)
+
+* corda-rpc-4.12.1.jar (149 Kb / 153036 bytes)
+  * `868558b3ed962f265a29390996860ab9ef604e1b` (sha1)
+  * `9b9571eb256e87edbba346e6006b8368f64e92416fec7adc89cc715e1fcaaf13` (sha256)
+  * `2366cb518f404dd6488e5279af758a65` (md5)
+
+* corda-rpc-4.12.1-javadoc.jar (426 bytes / 426 bytes)
+  * `0ec896b0bd9b9f3d0e7c7c9269a9ebf456b5c026` (sha1)
+  * `bb059337222a33b919fd121060644cc7b14d86219344cafc34a6d8a723748c66` (sha256)
+  * `16ca2c5d6130186034302f69a8c0319f` (md5)
+
+* corda-rpc-4.12.1.pom (3 Kb / 3284 bytes)
+  * `d68a5d20a2cd4a5f61b1a8c96b3d7835164f852f` (sha1)
+  * `ebe47b432099dfa114cfbc870e1445a316c0a3042e417b9282fc4d14e2ee336b` (sha256)
+  * `af9e633bc7fac55835acef3e3b038511` (md5)
+
+* corda-rpc-4.12.1-sources.jar (37 Kb / 38123 bytes)
+  * `ce4ae423a293298dec693ce3a3bbe08bb7804988` (sha1)
+  * `faa93f51fa79fe49c0bbb3629c24d0f27942154454ffd5a208da4a93768b97f6` (sha256)
+  * `0f3c57d0792da8d82b92ae72b6a27fb8` (md5)
+
+* corda-serialization-4.12.1.jar (1 Mb / 1124979 bytes)
+  * `9e1325a33c1106c44f341e57d9025cada98acaa9` (sha1)
+  * `01c01469f165e9a46f4c74d7129697e0cc9040a76dcd7b455062f5c5659f9fc6` (sha256)
+  * `8e7001eedcb8fd5138ce543e301dafb5` (md5)
+
+* corda-serialization-4.12.1-javadoc.jar (432 bytes / 432 bytes)
+  * `de502806ede3b6eb7b7fb0d0e7698edcd2897c0e` (sha1)
+  * `8c2e3c87109986fc0d5441ab0b6d2936c178fe11a4727ec3c0a438531580f60b` (sha256)
+  * `c0fc5f3db245c3f2ebb0cd80aac0c176` (md5)
+
+* corda-serialization-4.12.1.pom (3 Kb / 3277 bytes)
+  * `9718eef9557d932ad95455d386775ac2e00845ce` (sha1)
+  * `68c34e73699cadef1f8be0dafbdfc0b1defed51f9e7856431bf209bacb1ba207` (sha256)
+  * `f66b803b80a8511946b395cc06afe815` (md5)
+
+* corda-serialization-4.12.1-sources.jar (154 Kb / 158291 bytes)
+  * `8aaa242d9b28c3093d0d1e8c47eaa3b861debc0a` (sha1)
+  * `85fdf166fc44bf7526da7f27e0d2825e5c03b9bbc0b789f4d07033887b584951` (sha256)
+  * `b56057e7683d2e87e441fe003bed44bf` (md5)
+
+* corda-shell-4.12.1.jar (73 Mb / 76997085 bytes)
+  * `e5dfb4394990c9d6372c7b26daa94e2c51bff871` (sha1)
+  * `0e83ecede21b9b05809bead8c00f7df2e7c946c4331de108c8d3a6b50a9d85d7` (sha256)
+  * `6234aa40bae72379c7cfcc4d991a2c92` (md5)
+
+* corda-shell-4.12.1.pom (391 bytes / 391 bytes)
+  * `d6ccd44d984a332d210ab95d1b70743dc59b95b2` (sha1)
+  * `3f5917f9111d784c2d603b6e337ea70d8e3ff68a4788f1bf6ecc42f031b44c85` (sha256)
+  * `896362ded3e8f5cf39cc1dffe9178906` (md5)
+
+* corda-standalone-shell-4.12.1.jar (73 Mb / 77016149 bytes)
+  * `c57b74d2fdb49df697a8c1d269c202a1a41f07c6` (sha1)
+  * `8cba878e78333eb908988c3cc0cd298248467903c9c7963826609d7ca44b3da9` (sha256)
+  * `03d9a1ed8dff51cf31fdf9923e51de27` (md5)
+
+* corda-standalone-shell-4.12.1.pom (402 bytes / 402 bytes)
+  * `e270ca1002b01b13072f664cfdbec60f7ed5501a` (sha1)
+  * `e4897f271958797711bd2da92c352d64ecb2ce75564a860781a82e5788f0a0cb` (sha256)
+  * `949382c97902caa79dd451bfc9e9a35c` (md5)
+
+* corda-test-common-4.12.1.jar (11 Kb / 11646 bytes)
+  * `b1485835e7bd82197f00d77226c68a7a51abe943` (sha1)
+  * `d8c3db26d4f0dc671340ef7d007822c9099528d4d13b42f48719c63150ae1246` (sha256)
+  * `09fed3f0b31c3eecb41221007fff23ce` (md5)
+
+* corda-test-common-4.12.1-javadoc.jar (429 bytes / 429 bytes)
+  * `c9f4826df4f1b9ce8dcf4cdc4173cdff9588a4bb` (sha1)
+  * `d742df4973b2487a39e15ac7c6a9ff371a06244d1a98ea01a8557afe394a5018` (sha256)
+  * `b174b9049805b02658a018c3ffd5925f` (md5)
+
+* corda-test-common-4.12.1.pom (3 Kb / 3843 bytes)
+  * `14207e776901fbd33da3d191d1d74d2b96527681` (sha1)
+  * `c01d588b846bad2f1a4b84c4fe2d41a80e1283c3269d46db81851b5dd2a33087` (sha256)
+  * `1a315590d380590f0740824a77c3e6cc` (md5)
+
+* corda-test-common-4.12.1-sources.jar (5 Kb / 5661 bytes)
+  * `00abbfbd416ff0270b78a9e93bb1693e8ca2871c` (sha1)
+  * `96cd48bf9be508f482965ce56fe056514cea098c653925b44dba915f4f3f3305` (sha256)
+  * `e0eba7e096f841dd87a1b7eb5690372d` (md5)
+
+* corda-test-db-4.12.1.jar (439 bytes / 439 bytes)
+  * `531c7d643a9fe9b77489a4056eed4ebd922ee415` (sha1)
+  * `3e91c90b9256a492288ef32237496c3b6567986323a3cd2e34f492a72249b057` (sha256)
+  * `abd14c1e1242cf3a7f5555638fa7090a` (md5)
+
+* corda-test-db-4.12.1-javadoc.jar (427 bytes / 427 bytes)
+  * `ba530662c07d83f72feda038c5a2147f37309745` (sha1)
+  * `ee2245d3c19b0578340ca8b23183adb8bcd2163aeaf8e4a5c519394fc67042ed` (sha256)
+  * `7183be1e4ab4f77903d39d937edb8f04` (md5)
+
+* corda-test-db-4.12.1.pom (1 Kb / 1486 bytes)
+  * `92042a09188beb526503f454a2d2dadf86bb058e` (sha1)
+  * `0a0d69cebd5f263c5cc74f841a0d1a339a72d21c42bb9d5f219cd5b6a8c3c79c` (sha256)
+  * `78deafd8a9cce168db429da2698fa719` (md5)
+
+* corda-test-db-4.12.1-sources.jar (427 bytes / 427 bytes)
+  * `ba530662c07d83f72feda038c5a2147f37309745` (sha1)
+  * `ee2245d3c19b0578340ca8b23183adb8bcd2163aeaf8e4a5c519394fc67042ed` (sha256)
+  * `7183be1e4ab4f77903d39d937edb8f04` (md5)
+
+* corda-testserver-4.12.1-javadoc.jar (429 bytes / 429 bytes)
+  * `ba278434ed8c8a81dc704311eb7183210a851a83` (sha1)
+  * `c759495e2cfd37862e7ce5d0f070a4f9ad0f29e072deb2c2fe069e25c8a37335` (sha256)
+  * `4a2780b8fdb1c637b5ae71a4de5bc4b9` (md5)
+
+* corda-testserver-4.12.1.pom (1 Kb / 1305 bytes)
+  * `df2876f64f2d5176ea1399d6a58945cb354e1ede` (sha1)
+  * `c52fac466ad9613358cd4e3b2f3f8e97226fcb0d467c5f46d600815b2046fcb0` (sha256)
+  * `b3161d5d87150d63c7d486ec6d38e484` (md5)
+
+* corda-testserver-4.12.1-sources.jar (429 bytes / 429 bytes)
+  * `ba278434ed8c8a81dc704311eb7183210a851a83` (sha1)
+  * `c759495e2cfd37862e7ce5d0f070a4f9ad0f29e072deb2c2fe069e25c8a37335` (sha256)
+  * `4a2780b8fdb1c637b5ae71a4de5bc4b9` (md5)
+
+* corda-testserver-impl-4.12.1.jar (91 Kb / 93198 bytes)
+  * `973b94db406f13716af2ca5e6b6ad8c077d0b676` (sha1)
+  * `3304270a09eafeb08c67224b770eed30ce0ed4b24075b897b7a884096161d1c4` (sha256)
+  * `3b298bff0512475156954dfc283d97b2` (md5)
+
+* corda-testserver-impl-4.12.1-javadoc.jar (80 Kb / 82162 bytes)
+  * `f810bf4097ad673f976ed299711b53839b454a94` (sha1)
+  * `96729e26cacc69ab0c0fc6b9d6efb938a94664121ab07f12353361bcbf9ef495` (sha256)
+  * `002bcf97f8ecf5657175caf98f9d98f2` (md5)
+
+* corda-testserver-impl-4.12.1.pom (5 Kb / 5640 bytes)
+  * `cf1943150698996d000cf788230a4e6df35243ae` (sha1)
+  * `50fe5dfb7380347be323d6597fa31401808ad2614650797ca6963280a3894bfc` (sha256)
+  * `e75323ab78c6c87c60aa7e1d5c77a531` (md5)
+
+* corda-testserver-impl-4.12.1-sources.jar (19 Kb / 19817 bytes)
+  * `bc790b1cdaab734fc6472e1c30f2584c6f18ef70` (sha1)
+  * `74c5daa3942ca4261ea75c226360aeec63f1fd4964078c2a1c014fdc3536a3d2` (sha256)
+  * `c013c7103d844f81385caba649087e4b` (md5)
+
+* corda-test-utils-4.12.1.jar (195 Kb / 200421 bytes)
+  * `6ddf9ceda717dfc48b5ed4ca3b2b3383f3c2cef1` (sha1)
+  * `8154b02d0256aa40c9e02550c19f2b9858dc3f3687894d7ade3e88dbe3084c59` (sha256)
+  * `649ec1074fb766ebc0752a15f0830bac` (md5)
+
+* corda-test-utils-4.12.1-javadoc.jar (430 bytes / 430 bytes)
+  * `33c776b97989afc3aa22fe3f5ca1c595f4c2cbbd` (sha1)
+  * `a183c433182d5a1d9e2057653843f7d9be331536e446354c52d27413260836b1` (sha256)
+  * `ae4fd56bdf3b24a73807efc3f569ce39` (md5)
+
+* corda-test-utils-4.12.1.pom (5 Kb / 6031 bytes)
+  * `55b7bd54b9b7e96525a99245ff2bb8f956d33ad3` (sha1)
+  * `21231e0a87945d8abd81a75c469f4f3289edc28cab20a5900886b75eef018cdb` (sha256)
+  * `4f78c1fd5c19b4129fab74ec8d608867` (md5)
+
+* corda-test-utils-4.12.1-sources.jar (36 Kb / 37400 bytes)
+  * `161f5e192bb7916f8b967c5b9dc5f64db7f9a3b6` (sha1)
+  * `4899fdc616bdc385812b38d8f153d2e27d76d8b024bcffb810035378f812acd3` (sha256)
+  * `cc47b61c3413d9f241940fedb0cf4140` (md5)
+
+* corda-tools-blob-inspector-4.12.1.jar (44 Mb / 47171366 bytes)
+  * `23b0e535507c021af5e6f60f469cac08388c9136` (sha1)
+  * `2e45969d786feb02f7883a3ff6cfe81a40ea83420dab68ecf790888c8449cbaf` (sha256)
+  * `e788a99f16ff2e628f197173145d767f` (md5)
+
+* corda-tools-blob-inspector-4.12.1-javadoc.jar (432 bytes / 432 bytes)
+  * `ffc29e29ca9989fedabda892cf773422cb9af732` (sha1)
+  * `00556f9b49989e6d15dbe086f1e34e39749fe07eaa3403ceffe6e2f17e7d5844` (sha256)
+  * `6fdd5c2571a0d8fe144c6ae69afa2f2e` (md5)
+
+* corda-tools-blob-inspector-4.12.1.pom (3 Kb / 3700 bytes)
+  * `a236e5a737e14980e703230e32a91aa012d0fcf1` (sha1)
+  * `5b60cb1a99b423b6e097f3f65489d26c5e3b0372b51a885f49d38eb570ba0577` (sha256)
+  * `34180e583edb5bbb1425f047d025d3fe` (md5)
+
+* corda-tools-blob-inspector-4.12.1-sources.jar (3 Kb / 3426 bytes)
+  * `7b7751509daca48fb4be24bb45bf96d15aa852b1` (sha1)
+  * `9e4fb89871039c1091d7d88bcc3347e961073b8bd6c025a2f8f86a04da884aac` (sha256)
+  * `7a49792c0672f84edfb80403d1782e2f` (md5)
+
+* corda-tools-checkpoint-agent-4.12.1.jar (4 Mb / 4590509 bytes)
+  * `5a4cfcbc388cfbb4caaed40f7e3d7a472945d0d8` (sha1)
+  * `5c8c2bd45a6d697d15084057727d5dba260979a8341baad39a108763436e801b` (sha256)
+  * `d9aa3d84598657908f288600dfb1ba7a` (md5)
+
+* corda-tools-checkpoint-agent-4.12.1-javadoc.jar (434 bytes / 434 bytes)
+  * `cbca17b2bc8a669e0d840adc3ba87dfb7e1efc19` (sha1)
+  * `b8db6189c4acbef3439e4fd34392b0c777bdcb1727766e8179101d239e52d56f` (sha256)
+  * `d38c65f7e3204a8caf0a4fa0c298c04d` (md5)
+
+* corda-tools-checkpoint-agent-4.12.1.pom (2 Kb / 2204 bytes)
+  * `61a8f0561094273f34e6982c3df1fc3994e13771` (sha1)
+  * `5e3064b44d38aa8bfa0f3ee0a5a13934d6c7ff5fe3b33e643258bd43dfc336c2` (sha256)
+  * `704f693cb4a3f00863810a813e885aa9` (md5)
+
+* corda-tools-checkpoint-agent-4.12.1-sources.jar (5 Kb / 5828 bytes)
+  * `f2f20f30abbc832a6002be15522f054c9c1843e1` (sha1)
+  * `332b4b1e3a25044981a82be2e6cc9b0e7e4b700ed632a575ba795a73d8bf7c10` (sha256)
+  * `9a8811dba85fed10daca9e5e3bb75c7d` (md5)
+
+* corda-tools-cliutils-4.12.1.jar (45 Kb / 46327 bytes)
+  * `9885c0009582613649d2c9cfb43b8607847cfd17` (sha1)
+  * `f91828561a1968fdb5f54b6bc25d630a45693eeff8ea2d9c785065ea745679a6` (sha256)
+  * `c6b68addcbbecee92a13187e2ae0acc7` (md5)
+
+* corda-tools-cliutils-4.12.1-javadoc.jar (429 bytes / 429 bytes)
+  * `f60467423286609454a56dd4d130f8dcf98288a6` (sha1)
+  * `d18cbe092a86eba93d89f424ba2e2330a55ac51c365f389ee2384f886ef33002` (sha256)
+  * `458f8adb04c277fa4f96c74f57803f85` (md5)
+
+* corda-tools-cliutils-4.12.1.pom (2 Kb / 2887 bytes)
+  * `084e8fc4a6393021d394c34e377bc71a8c14e1c3` (sha1)
+  * `065b89ad2ab20713c2bae6fcd5f3f366e617dd622b3b95bc6a298e733f678e20` (sha256)
+  * `d021d6cca281b2b04b06a28f8b2bef00` (md5)
+
+* corda-tools-cliutils-4.12.1-sources.jar (7 Kb / 7443 bytes)
+  * `0c0f36ed64240a51696241b8f52ec1fe97f3dcf2` (sha1)
+  * `66f41a96805eb8209f2c15dee6e410ee52a30ad973d71b106b3dc7dbf8084226` (sha256)
+  * `bd5dbeb1412c8a21cc807819b319a159` (md5)
+
+* corda-tools-explorer-4.12.1-javadoc.jar (428 bytes / 428 bytes)
+  * `a79d3ad725baf6adbdfb776663691221380a2160` (sha1)
+  * `bceb09bc9f6efa979d57876c40195324ed5caffe65d9d41eb412355fbbb58750` (sha256)
+  * `bf3480b7a0f86b73164e326b894a5160` (md5)
+
+* corda-tools-explorer-4.12.1.pom (1 Kb / 1260 bytes)
+  * `050866c8863fbc07345d8ea0e6f65845321a4de4` (sha1)
+  * `bd800acc9b820091c23e7012bbd60db29c83cecc0571131b4272ce8a827da99d` (sha256)
+  * `e97c0c855f2fb04c1ce71ffba5765412` (md5)
+
+* corda-tools-explorer-4.12.1-sources.jar (428 bytes / 428 bytes)
+  * `a79d3ad725baf6adbdfb776663691221380a2160` (sha1)
+  * `bceb09bc9f6efa979d57876c40195324ed5caffe65d9d41eb412355fbbb58750` (sha256)
+  * `bf3480b7a0f86b73164e326b894a5160` (md5)
+
+* corda-tools-network-bootstrapper-4.12.1.jar (162 Mb / 170443857 bytes)
+  * `e4036ac1775af0bb931de13e4693cd3aa34bf833` (sha1)
+  * `3ebfe972d412d09090d24636f3b9bd833223cc38507326b361d0075b0eed98b8` (sha256)
+  * `00ad58ba0de5e07b55a732bf0a2d1316` (md5)
+
+* corda-tools-network-bootstrapper-4.12.1-javadoc.jar (431 bytes / 431 bytes)
+  * `3e31bc8ccd6ff41f418cb6cce2029c33938c65f5` (sha1)
+  * `1edd958ccca7c08afb758c3ddb9a39fe89d986ebb4d1682dc992b237c3f7c618` (sha256)
+  * `b7fb1bd96ad60252af42a753ab5c94fb` (md5)
+
+* corda-tools-network-bootstrapper-4.12.1.pom (3 Kb / 3139 bytes)
+  * `4a111dbf0091f704e2dc6bcc78929cb3801d2ae6` (sha1)
+  * `5c30d5aaead737c0db6ac2988983ef55155f42daf96da503f68ea8524c917dd5` (sha256)
+  * `410c8dbd704816cb647117e9c9053b0d` (md5)
+
+* corda-tools-network-bootstrapper-4.12.1-sources.jar (2 Kb / 2690 bytes)
+  * `829c9a4669e2fd0d05b3ccf6c33c308652911440` (sha1)
+  * `851cf6fcc0c2f1c5d7a3139c0bff7b8aacd0e299cdd38e812f5f0379899b1802` (sha256)
+  * `d6a0059f17256b0e65ae4f0d36bed881` (md5)
+
+* corda-tools-network-builder-4.12.1.pom (976 bytes / 976 bytes)
+  * `e2acad8404732c6aad955f5ffbba0630a1bbf2f0` (sha1)
+  * `0873dcb7f3f6ac672db81460ec9b921daeb6398b62fc1680375a69a76ba15c74` (sha256)
+  * `877c0d9781f5f87f09fdb5008ba0401b` (md5)
+
+* cordformation-5.0.18-SNAPSHOT.jar (1 Mb / 1480566 bytes)
+  * `63680389adeaa0f8936bceedc84dd07f2c6ebacc` (sha1)
+  * `c2835a3ee7dec58582ca0b4c3bffce3e5dd2aa3af4a320c913f33db3d33eb32a` (sha256)
+  * `3568e9a660b98d3a4665bac6283e3364` (md5)
+
+* cordformation-5.0.18-SNAPSHOT-javadoc.jar (507 Kb / 519723 bytes)
+  * `afafeacccb13ce34767a3b70b4b88aa12722d427` (sha1)
+  * `a4d1755b939fa5fce5f5b392bf61f74740eb1f764526dc04a2156072f1120e1a` (sha256)
+  * `d0b29058a58b6ac2fdf4ec576809191f` (md5)
+
+* cordformation-5.0.18-SNAPSHOT.pom (4 Kb / 4390 bytes)
+  * `210dc93913bff82f0f1286938ddb5ec83af98def` (sha1)
+  * `1d52c915032671318b8f7f80df1c17428034af2dc7ad402c3859f66188a17518` (sha256)
+  * `cffcf40f5950bf4eef2efebda04fa79d` (md5)
+
+* cordformation-5.1.1.jar (1 Mb / 1790146 bytes)
+  * `309aa57aba297fd4a50e19e75d549ae065c5b1fe` (sha1)
+  * `cdfd032b48228bef4879c3947982c9754517e0be93bf317725587ffb85aef840` (sha256)
+  * `87003e02e4a808d0eca7a7ec368e9050` (md5)
+
+* cordformation-5.1.1-javadoc.jar (598 Kb / 612642 bytes)
+  * `951e449285740f72ac082e439f15313e1836468b` (sha1)
+  * `77d3f8baa300efe5e2f1a5001423cf5d07e3ad56ef84aad126529e60976f789a` (sha256)
+  * `06f55e75dcba55ac9a9acb415174c41d` (md5)
+
+* cordformation-5.1.1.pom (3 Kb / 4005 bytes)
+  * `3bee4211d9c12e71e4850c3c39c87bb5be0317ff` (sha1)
+  * `9ba4e6222c6de00739e7f9adec11f036aa572107f707901cde3aa864c2a1beaf` (sha256)
+  * `4931a396984ca2b53b7f0cecc1fa2f09` (md5)
+
+* library-master-v1.1-beta-g6215ec8-87.jar (357 Kb / 365733 bytes)
+  * `f1b33486539b936c69cbb87f0452e416f4ae70e0` (sha1)
+  * `6ca9531c5f4cb5f0e2ee564dfbda8e25e4f36a19f1f07f9ff30148624a8383cb` (sha256)
+  * `bc9c9186c8aacdaca77fe6cbbd80dbeb` (md5)
+
+* library-master-v1.1-beta-g6215ec8-87.pom (423 bytes / 423 bytes)
+  * `c9787884f3b23556ca1e9bfda7c8dc5a9a47e048` (sha1)
+  * `297629e72496bd25e5fae6b60da88b869afe679075bd8623d39113c373d35d80` (sha256)
+  * `5f7a3fedb6073e32fca45a212aead7df` (md5)
+
+* quasar-core-0.9.0_r3.jar (1 Mb / 1381165 bytes)
+  * `2a7c1ced68f427a0409125d1062682da20053e95` (sha1)
+  * `aac0ebfd798aef970143111820677bdeae257e1fa85daf44fd9cc440da873bce` (sha256)
+  * `2f8c468e64a870d8d65ae2ce0f6c8f10` (md5)
+
+* quasar-core-0.9.0_r3-javadoc.jar (1 Mb / 1420438 bytes)
+  * `d99a18259773bddc252bbd97b327522ecdf4167d` (sha1)
+  * `056b3e669da5672a1d2980b437284acf6a0fdf182737d013a3e61039a0dd8533` (sha256)
+  * `eee0469857d6f65a6b2a9606c439d861` (md5)
+
+* quasar-core-0.9.0_r3.pom (2 Kb / 2673 bytes)
+  * `6210cc875426dabae1f33f52ffd1a291f363d929` (sha1)
+  * `8e5ce52785b7f024afbe7175296e5b1d2e58b9891918f50e2ef6d40db210fa94` (sha256)
+  * `2cd95cc888a5a7332d9f02aa6a8c0695` (md5)
+
+* quasar-osgi-annotations-0.9.0_r3.jar (4 Kb / 4105 bytes)
+  * `3f965289a2535e764f0f3af3793b2761b8439bf3` (sha1)
+  * `e68f29bd08592dddb35e44e8040019c15a8b6c0af3823cf015d990323519d467` (sha256)
+  * `8307f6db48bbce528cfc4912c8ca9361` (md5)
+
+* quasar-osgi-annotations-0.9.0_r3-javadoc.jar (123 Kb / 126279 bytes)
+  * `5238455900f8657829385411121bcd018ea2b170` (sha1)
+  * `29d4a973aea3f537b24374788445d4c2e07289ae688b54ef3c8b9c43a039a3d4` (sha256)
+  * `c37a5d585cec4c77c9ef657941b50024` (md5)
+
+* quasar-osgi-annotations-0.9.0_r3.pom (1 Kb / 1407 bytes)
+  * `7f49bf04b790bd71e9b572cf83b7647d72819efa` (sha1)
+  * `e01870e058e12c0edb8acc0d83d88a560cd93e63d85523c73a89a0079608ed66` (sha256)
+  * `1b61c811d9646475b23cd23dbe78dcc5` (md5)
+
+* quasar-utils-5.0.18-SNAPSHOT.jar (31 Kb / 32472 bytes)
+  * `f196887b65e496ae2b03bdc572197deed071a894` (sha1)
+  * `2da6c39c1f00c2db44b8976f147112119520831df28575283b321ce2f62ee391` (sha256)
+  * `7ac28573b1193f8d057a45c7af3a9a10` (md5)
+
+* quasar-utils-5.0.18-SNAPSHOT-javadoc.jar (261 bytes / 261 bytes)
+  * `4d87f933df7c9206c9d40a82de802dfd9964ca4d` (sha1)
+  * `11da7804a424ce792d26e26a453edc8070da92fb63907235432fa60129ebd9d0` (sha256)
+  * `7539bf2c2c5dfe84ef9b7f7a0ebe5c9a` (md5)
+
+* quasar-utils-5.0.18-SNAPSHOT.pom (1 Kb / 1038 bytes)
+  * `a4db094237f8b20485277eed90a8e79903334415` (sha1)
+  * `d30ed140a818b7ae1230e1aa77bce5969ea3b21a1dcb979bd7cc1d4e73bf5367` (sha256)
+  * `0e015654cae91e5f980a9a36ef71933f` (md5)
+
+* quasar-utils-5.1.1.jar (31 Kb / 32307 bytes)
+  * `8bd2fda425ed0f49f13bc66f3bdd971c29127fc4` (sha1)
+  * `b28b5dc748b1add662cea0ee1e953837967003af6173107ec473308eb77893ef` (sha256)
+  * `8ad624cbfd6b9cbae90cf9e88ed2e6d9` (md5)
+
+* quasar-utils-5.1.1-javadoc.jar (261 bytes / 261 bytes)
+  * `714ee1621d42b843c5de8f83ab82ef6821b0fe7d` (sha1)
+  * `c6511c409ab40bb17194bee8adc4e365fefea56765f025b61684be8a44ac392f` (sha256)
+  * `218f273c441340779650bc7918e501c5` (md5)
+
+* quasar-utils-5.1.1.pom (1 Kb / 1029 bytes)
+  * `c24b2d08defcd9f263df6967ec8f45e655c811fa` (sha1)
+  * `881061e09c44fd0df936f5ec0cd4d1b73fb2e642b469dc9656787324699ff7a9` (sha256)
+  * `24924975cfc3a34310c850f249f5d1ba` (md5)
 
 ## Release packs and checksums for Corda Open Source Edition 4.12
 

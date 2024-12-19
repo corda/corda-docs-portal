@@ -2,7 +2,7 @@
 date: '2023-11-08'
 menu:
   corda-enterprise-4-12:
-    parent: corda-enterprise-4-12-ledger-recovery
+    parent: corda-enterprise-4-12-corda-ledger-recovery
 tags:
 - ledger recovery flow
 - ledger recovery flow parameters
@@ -67,7 +67,7 @@ available on a node host.
 ## `alsoFinalize`
 
 `alsoFinalize` specifies whether to attempt recovery of any `IN_FLIGHT` transactions recovered from a peer.
-It defaults to `false`. See also [Finality Flow Recovery]({{< relref "../../../finality-flow-recovery.md" >}}).
+It defaults to `false`. See also [Finality Flow Recovery]({{< relref "../../finality-flow-recovery.md" >}}).
 {{< note >}}
 If set to `true`, this option attempts to finalize any `FAILED` in-flight transactions (either recovered as part of the previous
 ledger recovery step or already existent within the local database) within the recovery `timeWindow`.
