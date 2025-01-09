@@ -28,6 +28,8 @@ title: Release notes
 
 * The Angel Service can now correctly resolve argument paths when the absolute path of the Angel Service JAR file contains spaces.
 * Users can now be reset in the Auth Service.
+* Resolved an issue where audit log messages were not generated when users were added to a group.
+* Resolved an issue where the OPS logger did not respect a custom `log4j2.xml` file.
 
 ### Upgraded dependencies
 
