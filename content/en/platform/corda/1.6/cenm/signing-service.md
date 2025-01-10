@@ -181,11 +181,11 @@ See the [Example Signing Service Configuration](#example-signing-service-configu
 To keep inline with the other HSMs, the Azure Key Vault client JAR needs to be provided as above. Unlike the other HSMs,
 there are many dependent libraries. The top-level dependencies are:
 
-* `azure-keyvault` and `msal4j` to use the new Microsoft MSAL authentication library.
-* `azure-keyvault` and `adal4j` to use Microsoft ADAL authentication library.
+* `azure-keyvault` and `msal4j` to use the new Microsoft Authentication Library (MSAL).
+* `azure-keyvault` and `adal4j` to use Azure Active Directory Authentication Library (ADAL).
 
 {{< note >}}
-R3 recommends using the MSAL dependency as a way of authenticating as MS ADAL has been deprecated by Microsoft. You can read more about migrating your applications to MSAL in the [Microsoft documentation]({{< relref "https://learn.microsoft.com/en-us/entra/identity-platform/msal-migration" >}}).
+R3 recommends using the MSAL dependency as a way of authenticating as ADAL has been deprecated by Microsoft. You can read more about migrating your applications to MSAL in the [Microsoft documentation]({{< relref "https://learn.microsoft.com/en-us/entra/identity-platform/msal-migration" >}}).
 {{</ note >}}
 
 ###### Using `msal4j`
