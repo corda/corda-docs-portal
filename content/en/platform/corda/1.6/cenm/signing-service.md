@@ -464,7 +464,7 @@ List of configurations for any third party HSM libraries.
 
 
   * **type**:
-  The HSM type for the library (`UTIMACO_HSM`, `GEMALTO_HSM`, `SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM`).
+  The HSM type for the library (`UTIMACO_HSM`, `GEMALTO_HSM`, `SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM`, `AZURE_MSAL_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM`).
 
 
   * **jars**:
@@ -1018,6 +1018,10 @@ hsmLibraries = [
     jars = ["/path/to/akvLibraries.jar"]
   },
   {
+    type = AZURE_MSAL_KEY_VAULT_HSM
+    jars = ["/path/to/akvLibraries.jar"]
+  },
+  {
       type = AMAZON_CLOUD_HSM
       jars = ["/opt/cloudhsm/java/cloudhsm-3.2.1.jar"]
       sharedLibDir = "/opt/cloudhsm/lib"
@@ -1130,6 +1134,21 @@ signingKeys = {
             keyStorePassword = "example-password"
             keyStoreAlias = "example-alias"
             clientId = "12345-abcde-54321"
+        }
+    },
+    "ExampleAzureMsalKeyVaultHsmSigningKey" = {
+        alias = "example-parameter-key-alias"
+        type = AZURE_MSAL_KEY_VAULT_HSM # New type to use with MSAL authentication library
+        keyStore {
+            keyVaultUrl = "http://example.com"
+            protection = SOFTWARE
+        }
+        credentials {
+            keyStorePath = "path/to/keystore"
+            keyStorePassword = "example-password"
+            keyStoreAlias = "example-alias"
+            clientId = "12345-abcde-54321"
+            tenantId = "54321-abcde-12345" # New parameter to use with MSAL authentication library
         }
     },
     "ExampleAwsCloudHsmSigningKey" = {
