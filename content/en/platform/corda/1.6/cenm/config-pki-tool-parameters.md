@@ -212,12 +212,17 @@ HSM username. This user needs the appropriate permissions for key generation and
 Password associated with the user for the HSM. This can be omitted from the configuration and input at runtime.
 
 
-
-
-
-
 ### Azure Key Vault HSM Key Store Configuration
 
+PKI Tool supports two ways of configuring Azure Key Vault HSM key stores:
+* using the Azure Active Directory Authentication Library (ADAL), or
+* using Microsoft Authentication Library (MSAL).
+
+{{< note >}}
+R3 recommends using the MSAL dependency as a way of authenticating as MS ADAL has been deprecated by Microsoft. You can read more about migrating your applications to MSAL in the [Microsoft documentation]({{< relref "https://learn.microsoft.com/en-us/entra/identity-platform/msal-migration" >}}).
+{{</ note >}}
+
+#### Azure Active Directory Authentication Library (ADAL)
 
 * **type**:
 Key store type. `AZURE_KEY_VAULT_HSM` in this case.

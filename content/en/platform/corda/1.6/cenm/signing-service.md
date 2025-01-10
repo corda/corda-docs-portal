@@ -181,14 +181,18 @@ See the [Example Signing Service Configuration](#example-signing-service-configu
 To keep inline with the other HSMs, the Azure Key Vault client JAR needs to be provided as above. Unlike the other HSMs,
 there are many dependent libraries. The top-level dependencies are:
 
-* `azure-keyvault` and `adal4j`to use Microsoft ADAL authentication library.
-* `msal4j` to use the new Microsoft MSAL authentication library.
+* `azure-keyvault` and `msal4j` to use the new Microsoft MSAL authentication library.
+* `azure-keyvault` and `adal4j` to use Microsoft ADAL authentication library.
+
+{{< note >}}
+R3 recommends using the MSAL dependency as a way of authenticating as MS ADAL has been deprecated by Microsoft. You can read more about migrating your applications to MSAL in the [Microsoft documentation]({{< relref "https://learn.microsoft.com/en-us/entra/identity-platform/msal-migration" >}}).
+{{</ note >}}
 
 ###### Using `msal4j`
 
-{{< note >}}
-R3 recommends using the MSAL dependency as a way of authenticating as MS ADAL is deprecated by Microsoft.
-{{</ note >}}
+Both `azure-keyvault` and `msal4j` have transitive dependencies that need to be included. That is, either all JARs need to be provided separately (via a comma-separated list) or an uber JAR needs to be provided.
+
+The gradle script below will build an uber JAR. First copy the following text in to a new file called `build.gradle` anywhere on your file system. Do not change any of your existing `build.gradle` files.
 
 ```docker
 plugins {
@@ -210,11 +214,21 @@ shadowJar {
 }
 ```
 
-###### Using `adal4j`
+Then, if gradle is on the path, run the following command.
 
-{{< note >}}
-R3 recommends using the MSAL dependency as a way of authenticating as MS ADAL is deprecated by Microsoft.
-{{</ note >}}
+```bash
+gradle shadowJar
+```
+
+Or if gradle is not on the path but gradlew is in the current directory, run the following command.
+
+```bash
+./gradlew shadowJar
+```
+
+This will create a JAR called `azure-keyvault-with-deps.jar` which can be referenced in the configuration.
+
+###### Using `adal4j`
 
 Both `azure-keyvault` and `adal4j` have transitive dependencies that need to be included. That is, either all JARs need to be provided separately (via a comma-separated list) or an uber JAR needs to be provided.
 
@@ -241,13 +255,13 @@ shadowJar {
 }
 ```
 
-Then if gradle is on the path run the following command.
+Then, if gradle is on the path, run the following command.
 
 ```bash
 gradle shadowJar
 ```
 
-or if gradle is not on the path but gradlew is in the current directory then run the following command.
+Or if gradle is not on the path but gradlew is in the current directory, run the following command.
 
 ```bash
 ./gradlew shadowJar
