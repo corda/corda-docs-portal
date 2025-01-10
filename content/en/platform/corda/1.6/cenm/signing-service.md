@@ -178,13 +178,48 @@ See the [Example Signing Service Configuration](#example-signing-service-configu
 
 ##### Azure Key Vault
 
-To keep inline with the other HSMs, the Azure Key Vault client JAR needs to provided as above. Unlike the other HSMs,
-there are many dependent libraries. The top-level dependencies are `azure-keyvault` and `adal4j`, however these both
-have transitive dependencies that need to be included. That is, either all jars need to be provided separately (via a
-comma-separated list) or an uber JAR needs to be provided.
+To keep inline with the other HSMs, the Azure Key Vault client JAR needs to be provided as above. Unlike the other HSMs,
+there are many dependent libraries. The top-level dependencies are:
 
-The gradle script below will build an uber jar. First copy the following text in to a new file called build.gradle
-anywhere on your file system. Please do not change any of your existing build.gradle files.
+* `azure-keyvault` and `adal4j`to use Microsoft ADAL authentication library.
+* `msal4j` to use the new Microsoft MSAL authentication library.
+
+###### Using `msal4j`
+
+{{< note >}}
+R3 recommends using the MSAL dependency as a way of authenticating as MS ADAL is deprecated by Microsoft.
+{{</ note >}}
+
+```docker
+plugins {
+    id 'com.github.johnrengelman.shadow' version '4.0.4'
+    id 'java'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'com.microsoft.azure:azure-keyvault:1.2.2'
+    compile 'com.microsoft.azure:msal4j:1.7.1'
+}
+
+shadowJar {
+    archiveName = 'azure-keyvault-with-deps.jar'
+}
+```
+
+###### Using `adal4j`
+
+{{< note >}}
+R3 recommends using the MSAL dependency as a way of authenticating as MS ADAL is deprecated by Microsoft.
+{{</ note >}}
+
+Both `azure-keyvault` and `adal4j` have transitive dependencies that need to be included. That is, either all JARs need to be provided separately (via a comma-separated list) or an uber JAR needs to be provided.
+
+The gradle script below will build an uber JAR. First copy the following text in to a new file called `build.gradle`
+anywhere on your file system. Do not change any of your existing `build.gradle` files.
 
 ```docker
 plugins {
