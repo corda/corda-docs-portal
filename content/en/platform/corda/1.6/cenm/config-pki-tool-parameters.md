@@ -73,7 +73,7 @@ existing) certificate entry in the corresponding certificate store. See the belo
 
 The key store configuration defines the type of the underlying key store along with any type specific information. The
 possible key store types are currently the same set as the possible key types. That is, `LOCAL`, `UTIMACO_HSM`,
-`GEMALTO_HSM`, `SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM`.
+`GEMALTO_HSM`, `SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM`, `AZURE_MSAL_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM`.
 
 
 ### Local Key Store Configuration
@@ -498,7 +498,7 @@ to specify the CRL endpoints without having to configure or generate a CRL file.
 The key configuration defines the properties of the key pair associated with the entity. This key pair can be generated
 (or already exist) in either a local key store or a supported HSM. Similar to the key store configuration above, each
 key configuration has an associated type, with possible values: `LOCAL`, `UTIMACO_HSM`, `GEMALTO_HSM`,
-`SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM`.
+`SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM`, `AZURE_MSAL_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM`.
 
 
 #### Local Key Configuration
@@ -586,7 +586,7 @@ The remaining HSM key configurations follow the similar format:
 
 
 * **type**:
-Key type. `GEMALTO_HSM`, `SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM` in this case.
+Key type. `GEMALTO_HSM`, `SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM`, `AZURE_MSAL_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM` in this case.
 
 
 * **alias**:
