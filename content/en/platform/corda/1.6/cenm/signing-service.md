@@ -232,7 +232,7 @@ This will create a JAR called `azure-keyvault-with-deps.jar` which can be refere
 
 Both `azure-keyvault` and `adal4j` have transitive dependencies that need to be included. That is, either all JARs need to be provided separately (via a comma-separated list) or an uber JAR needs to be provided.
 
-The gradle script below will build an uber JAR. First copy the following text in to a new file called `build.gradle`
+The Gradle script below will build an uber JAR. First copy the following text in to a new file called `build.gradle`
 anywhere on your file system. Do not change any of your existing `build.gradle` files.
 
 ```docker
