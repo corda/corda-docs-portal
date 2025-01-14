@@ -23,6 +23,7 @@ title: Release notes
 * Added a new optional `host` parameter in the `adminListener` configuration.
 * The Zone Service can now be started either with a configuration file or with the existing command-line options. Any current deployments using the original method remain unaffected.
 * The Angel Service can now be started either with a configuration file or with the existing command-line options. Any current deployments using the original method remain unaffected.
+* Added Azure cloud HSM integration with the MSAL (Microsoft Authentication Library) dependency. While users can continue to use integration through ADAL (Azure Active Directory Authentication Library), it is now marked as deprecated.
 
 ### Fixed issues
 
