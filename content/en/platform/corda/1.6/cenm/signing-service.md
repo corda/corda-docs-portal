@@ -255,7 +255,7 @@ shadowJar {
 }
 ```
 
-Then, if gradle is on the path, run the following command.
+Then, if `gradle` is on the path, run the following command.
 
 ```bash
 gradle shadowJar
