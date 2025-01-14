@@ -41,22 +41,7 @@ The path to the network parameters file. This is the plain-text version of the n
   * **jarFile**:
   *(Optional - defaults to one of: `identitymanager.jar`, `networkmap.jar`, `signer.jar`)* The path to the service JAR.
 
-  * **enmListener**:
-  Information about the way the service will communicate with the rest of the CENM deployment.
-
-    * **host**:
-    *(Optional)* The host or IP address of the service.
-
-    * **port**:
-    The port that the service binds to, and other CENM components it connects to.
-
-    * **verbose**:
-    *(Optional)* Enables verbose logging for the socket layer.
-
-    * **reconnect**:
-    Determines if a client should attempt to reconnect if the connection is dropped.
-
-    * **ssl**:
+  * **ssl**:
     See [SSL Settings]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-ssl.md" >}}).
 
   * **pluginJar**:
@@ -89,6 +74,99 @@ The path to the network parameters file. This is the plain-text version of the n
 
   * **authToken**:
   The Authentication token used to interact with the Zone Service.
+
+## Example Angel Service configuration files
+
+### For Identity Manager Service
+
+```
+pollingTimeSeconds = 10 // Optional
+webServiceHost = "127.0.0.1" // Optional
+webServicePort = "6000" // Optional
+
+service = {
+  type = IDENTITY_MANAGER
+  jarFile = "identitymanager.jar"
+  ssl = {
+    keyStore = {
+      location = "exampleSslKeyStore.jks"
+      password = "password"
+    }
+    trustStore = {
+      location = "exampleSslTrustStore.jks"
+      password = "trustpass"
+    }
+  }
+}
+
+zone = {
+  host = "127.0.0.1"
+  port = 5061
+  authToken = d63d091c-2e1a-4323-8db2-11e9c5b9e804
+}
+```
+
+### For Network Map Service
+
+```
+pollingTimeSeconds = 10 // Optional
+webServiceHost = "127.0.0.1" // Optional
+webServicePort = "6000" // Optional
+networkParametersFile = "network-parameters"
+
+service = {
+  type = NETWORK_MAP
+  jarFile = "networkmap.jar"
+  ssl = {
+    keyStore = {
+      location = "exampleSslKeyStore.jks"
+      password = "password"
+    }
+    trustStore = {
+      location = "exampleSslTrustStore.jks"
+      password = "trustpass"
+    }
+  }
+  networkRootTrustStore = {
+    rootAlias = "cordarootca"
+    location = "exampleNetworkRootTrustStore.jks"
+    password = "trustpass"
+  }
+}
+
+zone = {
+  host = "127.0.0.1"
+  port = 5061
+  authToken = d63d091c-2e1a-4323-8db2-11e9c5b9e804
+}
+```
+
+### For Signing Service
+
+```
+pollingTimeSeconds = 10 // Optional
+
+service = {
+  type = SIGNER
+  jarFile = "signer.jar"
+  ssl = {
+    keyStore = {
+      location = "exampleSslKeyStore.jks"
+      password = "password"
+    }
+    trustStore = {
+      location = "exampleSslTrustStore.jks"
+      password = "trustpass"
+    }
+  }
+}
+
+zone = {
+  host = "127.0.0.1"
+  port = 5061
+  authToken = d63d091c-2e1a-4323-8db2-11e9c5b9e804
+}
+```
 
 ## Obfuscated configuration files
 
