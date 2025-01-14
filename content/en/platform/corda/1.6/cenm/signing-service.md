@@ -261,7 +261,7 @@ Then, if `gradle` is on the path, run the following command.
 gradle shadowJar
 ```
 
-Or if gradle is not on the path but gradlew is in the current directory, run the following command.
+Or if `gradle` is not on the path but `gradlew` is in the current directory, run the following command.
 
 ```bash
 ./gradlew shadowJar
