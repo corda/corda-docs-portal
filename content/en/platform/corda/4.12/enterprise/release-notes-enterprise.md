@@ -35,9 +35,9 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
 
-### Passing system properties to the external verifier process
+### Fixed issues
 
-You can now configure a list of JVM arguments for the external verifier process through the node configuration settings. This process is responsible for verifying legacy transactions. To apply these arguments, use the new custom.externalVerifierJvmArgs configuration field. For more information, see the `custom` configuration field in the [Configuration fields]({{< relref "node/setup/corda-configuration-fields.html#custom" >}}) section.
+* You can now configure a list of JVM arguments for the external verifier process through the node configuration settings. This process is responsible for verifying legacy transactions. To apply these arguments, use the new custom.externalVerifierJvmArgs configuration field. For more information, see the `custom` configuration field in the [Configuration fields]({{< relref "node/setup/corda-configuration-fields.html#custom" >}}) section.
 
 ## Corda Enterprise Edition 4.12.4 release notes
 
@@ -57,7 +57,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
 
-### Known issues
+### Fixed issues
 
 * Log4j has been downgraded from version 2.23.1 to 2.23.0 to avoid a defect in Log4j that could cause excessive messages to be written to the log file. This will be updated to a later version when a fixed Log4j is available.
 
