@@ -17,6 +17,28 @@ weight: 10
 
 # Corda Enterprise Edition 4.12 release notes
 
+## Corda Enterprise Edition 4.12.5 release notes
+
+Corda Enterprise Edition 4.12.5 is a patch release of Corda Enterprise Edition focused on resolving issues.
+
+### Upgrade recommendation
+
+{{< important >}}
+When upgrading a node to Corda 4.12, it is extremely important that you run the Transaction Validator Utility on your node database to verify that the transactions in the old node are compatible with 4.12 nodes.
+
+To ensure compatibility of the transactions, you must also run the Transaction Validator Utility on any older nodes that are not being upgraded and will likely interact with any upgraded nodes.
+
+For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
+{{< /important >}}
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Corda Enterprise Edition 4.11 to 4.12 upgrade guide]({{< relref "upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
+
+### Fixed issues
+
+* You can now configure a list of JVM arguments for the external verifier process through the node configuration settings. This process is responsible for verifying legacy transactions. To apply these arguments, use the new custom.externalVerifierJvmArgs configuration field. For more information, see the `custom` configuration field in the [Configuration fields]({{< relref "node/setup/corda-configuration-fields.html#custom" >}}) section.
+
 ## Corda Enterprise Edition 4.12.4 release notes
 
 Corda Enterprise Edition 4.12.4 is a patch release of Corda Enterprise Edition focused on upgrading dependencies to address security updates.
@@ -35,7 +57,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
 
-### Known issues
+### Fixed issues
 
 * Log4j has been downgraded from version 2.23.1 to 2.23.0 to avoid a defect in Log4j that could cause excessive messages to be written to the log file. This will be updated to a later version when a fixed Log4j is available.
 
