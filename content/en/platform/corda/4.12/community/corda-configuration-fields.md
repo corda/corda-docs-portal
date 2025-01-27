@@ -85,18 +85,21 @@ Deprecated. Use `networkServices` instead.
 
 ## `custom`
 
-  Set custom command line attributes (e.g. Java system properties) on the node process via the capsule launcher
+Set custom command line attributes (for example, Java system properties) on the node process via the capsule launcher (`jvmArgs`) or the external verifier (`externalVerifierJvmArgs`).
 
 * `jvmArgs`
   * A list of JVM arguments to apply to the node process. This removes any defaults specified from `corda.jar`, but can be overridden from the command line.
-  * Default: not defined
+  * *Default:* not defined
+* `externalVerifierJvmArgs`
+  * A list of JVM arguments to apply to the external verifier process.
+  *	*Default:* not defined
 
 ## `database`
   Database configuration
 
 * `exportHibernateJMXStatistics`
   * Whether to export Hibernate JMX statistics. **Caution: enabling this option causes expensive run-time overhead**
-  * Default false
+  * *Default:* false
 
 ## `dataSourceProperties`
 

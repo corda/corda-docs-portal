@@ -143,11 +143,9 @@ Set custom command line attributes (for example, Java system properties) on the 
 * `jvmArgs`
   * A list of JVM arguments to apply to the node process. This removes any defaults specified from `corda.jar`, but can be overridden from the command line.
   * *Default:* not defined
-
 * `externalVerifierJvmArgs`
   * A list of JVM arguments to apply to the external verifier process.
   *	*Default:* not defined
-
 
 ## `database`
 
