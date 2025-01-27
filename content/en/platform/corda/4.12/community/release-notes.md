@@ -20,6 +20,20 @@ tags:
 
 # Corda Open Source Edition 4.12 release notes
 
+## Corda Open Source Edition 4.12.5 release notes
+
+Corda Open Source Edition 4.12.5 is a patch release of Corda Open Source Edition focused on upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../community/_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Corda Open Source Edition 4.11 to 4.12 upgrade guide]({{< relref "comm-upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
+
+### Fixed issues
+
+* You can now configure a list of JVM arguments for the external verifier process through the node configuration settings. This process is responsible for verifying legacy transactions. To apply these arguments, use the new custom.externalVerifierJvmArgs configuration field. For more information, see the `custom` configuration field in the [Configuration fields]({{< relref "corda-configuration-fields.html#custom" >}}) section.
+
 ## Corda Open Source Edition 4.12.4 release notes
 
 Corda Open Source Edition 4.12.4 is a patch release of Corda Open Source Edition focused on upgrading dependencies to address security updates.
@@ -30,7 +44,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
 
-### Known issues
+### Fixed issues
 
 * Log4j has been downgraded from version 2.23.1 to 2.23.0 to avoid a defect in Log4j that could cause excessive messages to be written to the log file. This will be updated to a later version when a fixed Log4j is available.
 
