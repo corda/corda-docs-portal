@@ -138,14 +138,17 @@ Optional time-out value of actions sent to the CryptoService (HSM). If the HSM t
 
 ## `custom`
 
-Set custom command line attributes (for example, Java system properties) on the node process via the capsule launcher (`jvmArgs`) or the external verifier (`externalVerifierJvmArgs`).
+Set custom command line attributes (for example, Java system properties) on the node process via the capsule launcher or on the external verifier process.
 
 * `jvmArgs`
   * A list of JVM arguments to apply to the node process. This removes any defaults specified from `corda.jar`, but can be overridden from the command line.
   * *Default:* not defined
 * `externalVerifierJvmArgs`
+  {{< important >}}
+  This configuration field is only available from Corda 4.12.5 onwards. For more information, see the [4.12.5 release notes]({{< relref "../../release-notes-enterprise.html#fixed-issues" >}}).
+  {{< /important >}}
   * A list of JVM arguments to apply to the external verifier process.
-  *	*Default:* not defined
+  * *Default:* not defined
 
 ## `database`
 
