@@ -37,7 +37,9 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 
 ### Fixed issues
 
-* You can now configure a list of JVM arguments for the external verifier process through the node configuration settings. This process is responsible for verifying legacy transactions. To apply these arguments, use the new custom.externalVerifierJvmArgs configuration field. For more information, see the `custom` configuration field in the [Configuration fields]({{< relref "node/setup/corda-configuration-fields.html#custom" >}}) section.
+* In Corda 4.11 and earlier, when the node verified contracts, they were all verified within the Corda node process. This meant that any custom command line attributes defined on the node process via the capsule would be visible to contract verification; for example, system properties. In Corda 4.12, the 4.12 contracts are still verified in the Corda node process, but legacy (that is, 4.11 and earlier) contracts are now verified in the new external verifier process. This external verifier is a separate process, so it does not receive the custom command line attributes set on the Corda node process. To rectify this, a new configuration field has been defined to allow custom command line attributes to be passed to the external verifier process. This new configuration field is `custom.externalVerifierJvmArgs`.
+
+  For more information, see the `custom` configuration field in the [Configuration fields]({{< relref "node/setup/corda-configuration-fields.html#custom" >}}) section.
 
 ## Corda Enterprise Edition 4.12.4 release notes
 
