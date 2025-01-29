@@ -7,7 +7,7 @@ menu:
   cenm-1-6:
     identifier: cenm-1-6-legal-info
     parent: cenm-1-6-cenm-releases
-    weight: 90
+    weight: 87
     name: "Third-party software licence information"
 tags:
 - legal
