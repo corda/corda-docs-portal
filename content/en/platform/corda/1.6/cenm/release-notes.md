@@ -32,6 +32,7 @@ title: Release notes
 * Resolved an issue where audit log messages were not generated when users were added to a group.
 * Resolved an issue where the CENM logger ignored custom `log4j2.xml` files. You can now provide custom `log4j2.xml` files and CENM will use the custom logging configuration.
 * A warning emitted by Hibernate about equality of `SignedNodeInfo` has been eliminated.
+* Authentication Service: HTTP metrics have been disabled by default to secure CENM from the [CVE-2023-34055](https://spring.io/security/cve-2023-34055) security vulnerability in Spring. The metrics can be enabled by setting the `corda.management.metrics.enable.http.server.requests` property to `true`.
 
 ### Upgraded dependencies
 
