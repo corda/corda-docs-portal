@@ -615,3 +615,17 @@ the following is returned:
 </tr>
 </tbody>
 </table>
+
+## Performance Considerations: Indexing JSON Fields
+
+If you frequently query states based on data inside their JSON representation (custom_representation), adding a JSON index can significantly improve query performance. When large volumes of states are stored in the vault, the lack of an index on frequently queried JSON fields can cause slower throughput in flows.
+
+For example, if you commonly query a field named identifier inside ```com.example.token.states.FungibleToken```, you might consider an index like the following on PostgreSQL (adjust the path and table name for your actual state and schema):
+
+```sql
+CREATE INDEX utxo_transaction_output_idx_custom_jsonb_token_identifier 
+ ON vnode_vault_{holdingidentityshorthash}.utxo_visible_transaction_output 
+ ((custom_representation -> 'com.example.token.states.FungibleToken' ->> 'identifier'));
+```
+
+Consult your database documentation for additional JSON indexing strategies and performance tuning.
