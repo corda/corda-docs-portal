@@ -30,37 +30,31 @@ title: Release notes
 
 * The Angel Service can now correctly resolve argument paths when the absolute path of the Angel Service JAR file contains spaces.
 * Users can now be reset in the Auth Service.
-* Audit log messages are now correctly generated when users are added to a group.
-* The CENM logger respects custom `log4j2.xml` files now. You can now provide custom `log4j2.xml` files and CENM will use the custom logging configuration.
+* Resolved an issue where audit log messages were not generated when users were added to a group.
+* Resolved an issue where the CENM logger ignored custom `log4j2.xml` files. You can now provide custom `log4j2.xml` files and CENM will use the custom logging configuration.
 * A warning emitted by Hibernate about equality of `SignedNodeInfo` has been eliminated.
 
 ### Upgraded dependencies
 
-The following table lists the dependency version changes between CENM 1.6 and CENM 1.6.1:
-
-| Dependency                                                | Name                       | CENM 1.6       | CENM 1.6.1    |
-|-----------------------------------------------------------|----------------------------|----------------|---------------|
-| org.bouncycastle                                          | Bouncy Castle              | 1.75           | 1.78.1        |
-| org.springframework.security.oauth:spring-security-oauth2 | Spring Security            | 2.5.0.RELEASE  | 2.5.2.RELEASE |
-| org.springframework:spring-*                              | Spring Framework           | 5.3.27         | 5.3.39        |
-| org.springframework.security:*                            | Spring Framework Security  | 5.5.8          | 5.8.16        |
-| com.nimbusds:nimbus-jose-jwt                              | Nimbus JOSE+JWT            | 8.19           | 9.48          |
-| com.fasterxml.jackson.core:*                              | Jackson                    | 2.14.2         | 2.18.2        |
-| org.pf4j:pf4j	                                            | PF4J	                      | 3.3.1	         | 3.13.0        |
-| com.azure:azure-security-keyvault-secrets	                | MS Azure Keyvault Secrets	 | 4.3.4	         | 4.9.1         |
-| com.azure:azure-security-keyvault-keys	                   | MS Azure Keyvault Keys	    | 4.3.4	         | 4.9.1         |
-| com.azure:azure-identity	                                 | MS Azure Identity	         | 1.1.3	         | 1.15.0        |
-| io.projectreactor:reactor-core	                           | Project Reactor Core	      | 3.4.11	        | 3.4.41        |
-| org.apache.tomcat.embed:tomcat-embed-*	                   | Apache Tomcat	             | 9.0.81	        | 9.0.98        |
-| org.yaml:snakeyaml	                                       | Snake YAML	                | 1.33	          | 2.3           |
-| commons-io:commons-io	                                    | Apache Commons IO	         | 2.11.0	        | 2.18.0        |
-| info.picocli:picocli	                                     | PicoCLI	                   | 3.9.6	         | 4.1.4         |
-| com.typesafe:config	                                      | Typesafe Config		          | 1.3.4	         | 1.4.0         |
-| org.testcontainers:testcontainers	                        | TestContainers	            | 1.14.3	        | 1.15.2        |
-| org.mockito.kotlin:mockito-kotlin		                       | Mockito Kotlin	            | 2.0.0-alpha01	 | 2.2.0         |
-| org.junit.jupiter:junit-jupiter-api		                     | JUnit Jupiter API	         | 5.6.1	         | 5.6.2         |
-| commons-codec:commons-codec		                             | Apache Commons Codec	      | 1.13           | 1.14          |
-
+* Bouncy Castle has been upgraded from 1.75 to 1.78.1.
+* Spring Security OAuth2 has been upgraded from 2.5.0.RELEASE to 2.5.2.RELEASE
+* Spring Framework version has been upgraded from 5.3.27 to 5.3.39
+* Spring Framework Security version has been upgraded from 5.5.8 to 5.8.16
+* Nimbus JOSE+JWT version has been upgraded from 8.19 to 9.48.
+* Jackson version has been upgraded from 2.14.2 to 2.18.2
+* PF4J version has been upgraded from 3.3.1 to 3.13.0
+* Microsoft Azure Client Library For KeyVault Secrets version has been upgraded from 4.3.4 to 4.9.1
+* Microsoft Azure Client Library For Identity version has been upgraded from 1.1.3 to 1.15.0
+* Non-Blocking Reactive Foundation for the JVM version has been upgraded from 3.4.11 to 3.4.41
+* Apache Tomcat version has been upgraded from 9.0.81 to 9.0.98
+* SnakeYAML version has been upgraded from 1.33 to 2.3
+* Apache Commons IO version has been upgraded from 2.11.0 to 2.18.0
+* PicoCLI version has been upgraded from 3.9.6 to 4.1.4
+* Typesafe Config version has been upgraded from 1.3.4 to 1.4.0
+* TestContainers version has been upgraded from 1.14.3 to 1.15.2
+* Mockito Kotlin version has been upgraded from 2.0.0-alpha01 to 2.2.0
+* JUnit Jupiter API version has been upgraded from 5.6.1 to 5.6.2
+* Apache Commons Codec version has been upgraded from 1.13 to 1.14
 * CENM now supports JDK Azul 8u422 and Oracle JDK 8u421.
 * CENM now supports version 9.x of the Red Hat Enterprise Linux production operating system.
 * CENM now supports Ubuntu Linux production operating system versions 20.04, 22.04, 24.04.
