@@ -24,6 +24,7 @@ title: Release notes
 * The Zone Service can now be started either with a configuration file or with the existing command-line options. Any current deployments using the original method remain unaffected.
 * The Angel Service can now be started either with a configuration file or with the existing command-line options. Any current deployments using the original method remain unaffected.
 * Added Azure cloud HSM integration with the MSAL (Microsoft Authentication Library) dependency. While users can continue to use integration through ADAL (Azure Active Directory Authentication Library), it is now marked as deprecated.
+* Made the logging in CENM more consistent with Corda node logging. Errors appearing in CENM log files will be by default printed to the console now. This behaviour can be modified by providing a custom `log4j2.xml` file.
 
 ### Fixed issues
 
@@ -36,6 +37,24 @@ title: Release notes
 ### Upgraded dependencies
 
 * Bouncy Castle has been upgraded from 1.75 to 1.78.1.
+* Spring Security OAuth2 has been upgraded from 2.5.0.RELEASE to 2.5.2.RELEASE
+* Spring Framework version has been upgraded from 5.3.27 to 5.3.39
+* Spring Framework Security version has been upgraded from 5.5.8 to 5.8.16
+* Nimbus JOSE+JWT version has been upgraded from 8.19 to 9.48.
+* Jackson version has been upgraded from 2.14.2 to 2.18.2
+* PF4J version has been upgraded from 3.3.1 to 3.13.0
+* Microsoft Azure Client Library For KeyVault Secrets version has been upgraded from 4.3.4 to 4.9.1
+* Microsoft Azure Client Library For Identity version has been upgraded from 1.1.3 to 1.15.0
+* Non-Blocking Reactive Foundation for the JVM version has been upgraded from 3.4.11 to 3.4.41
+* Apache Tomcat version has been upgraded from 9.0.81 to 9.0.98
+* SnakeYAML version has been upgraded from 1.33 to 2.3
+* Apache Commons IO version has been upgraded from 2.11.0 to 2.18.0
+* PicoCLI version has been upgraded from 3.9.6 to 4.1.4
+* Typesafe Config version has been upgraded from 1.3.4 to 1.4.0
+* TestContainers version has been upgraded from 1.14.3 to 1.15.2
+* Mockito Kotlin version has been upgraded from 2.0.0-alpha01 to 2.2.0
+* JUnit Jupiter API version has been upgraded from 5.6.1 to 5.6.2
+* Apache Commons Codec version has been upgraded from 1.13 to 1.14
 * CENM now supports JDK Azul 8u422 and Oracle JDK 8u421.
 * CENM now supports version 9.x of the Red Hat Enterprise Linux production operating system.
 * CENM now supports Ubuntu Linux production operating system versions 20.04, 22.04, 24.04.
