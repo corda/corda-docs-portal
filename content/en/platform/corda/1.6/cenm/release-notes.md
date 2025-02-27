@@ -46,10 +46,6 @@ The following table lists the dependency version changes between CENM 1.6 and CE
 | org.springframework.security:*                            | Spring Framework Security  | 5.5.8          | 5.8.16        |
 | com.nimbusds:nimbus-jose-jwt                              | Nimbus JOSE+JWT            | 8.19           | 9.48          |
 | com.fasterxml.jackson.core:*                              | Jackson                    | 2.14.2         | 2.18.2        |
-| org.pf4j:pf4j	                                            | PF4J	                      | 3.3.1	         | 3.13.0        |
-| com.azure:azure-security-keyvault-secrets	                | MS Azure Keyvault Secrets	 | 4.3.4	         | 4.9.1         |
-| com.azure:azure-security-keyvault-keys	                   | MS Azure Keyvault Keys	    | 4.3.4	         | 4.9.1         |
-| com.azure:azure-identity	                                 | MS Azure Identity	         | 1.1.3	         | 1.15.0        |
 | io.projectreactor:reactor-core	                           | Project Reactor Core	      | 3.4.11	        | 3.4.41        |
 | org.apache.tomcat.embed:tomcat-embed-*	                   | Apache Tomcat	             | 9.0.81	        | 9.0.98        |
 | org.yaml:snakeyaml	                                       | Snake YAML	                | 1.33	          | 2.3           |
