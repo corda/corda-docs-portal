@@ -1142,8 +1142,97 @@ certificates = {
 }
 ```
 
+#### Azure Key Vault HSM Configuration Using MSAL
 
-#### Azure Key Vault HSM Configuration
+{{< note >}}
+R3 recommends using the MSAL dependency as a way of authenticating as MS ADAL has been deprecated by Microsoft. You can read more about migrating your applications to MSAL in the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/msal-migration).
+{{</ note >}}
+
+```docker
+hsmLibraries = [{
+    type = AZURE_MSAL_KEY_VAULT_HSM
+    jars = ["/path/to/azure-keyvault-with-deps.jar"]
+}]
+
+defaultPassword = "password"
+defaultKeyStores = ["example-hsm-key-store"]
+
+keyStores = {
+    "example-hsm-key-store" = {
+        type = AZURE_MSAL_KEY_VAULT_HSM
+        keyVaultUrl = "http://example.com"
+        protection = "HARDWARE"
+        credentials = {
+            keyStorePath = "/path/to/keystore.pem"
+            keyStorePassword = "example-password"
+            keyStoreAlias = "example-alias"
+            clientId = "01234567-89ab-cdef-0123-456789abcdef"
+            tenantId = "76543210-ab12-abcd-1234-abcdef123456"
+        }
+    }
+}
+
+certificatesStores = {
+    "network-truststore" = {
+        file = "./trust-stores/network-trust-store.jks"
+    },
+    "certificate-store" = {
+        file = "./trust-stores/certificate-store.jks"
+    }
+}
+
+certificates = {
+    "cordatlscrlsigner" = {
+        isSelfSigned = true
+        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["network-truststore", "certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/tls"
+            file = "./crl-files/tls.crl"
+            indirectIssuer = true
+            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        }
+    },
+    "cordarootca" = {
+        isSelfSigned = true
+        subject = "CN=Test Foundation Service Root Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["network-truststore", "certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/root"
+            file = "./crl-files/root.crl"
+        }
+    },
+    "cordasubordinateca" = {
+        signedBy = "cordarootca"
+        subject = "CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/subordinate"
+            file = "./crl-files/subordinate.crl"
+        }
+    },
+    "cordaidentitymanagerca" = {
+        signedBy = "cordasubordinateca"
+        subject = "CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        role = DOORMAN_CA
+    },
+    "cordanetworkmap" = {
+        signedBy = "cordasubordinateca"
+        issuesCertificates = false
+        subject = "CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        role = NETWORK_MAP
+    }
+}
+```
+
+
+#### Azure Key Vault HSM Configuration Using ADAL
+
+{{< note >}}
+R3 recommends using the MSAL dependency as a way of authenticating as MS ADAL has been deprecated by Microsoft. You can read more about migrating your applications to MSAL in the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/msal-migration).
+{{</ note >}}
 
 ```docker
 hsmLibraries = [{
