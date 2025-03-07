@@ -222,7 +222,7 @@ PKI Tool supports two ways of configuring Azure Key Vault HSM key stores:
 R3 recommends using the MSAL dependency as a way of authenticating as MS ADAL has been deprecated by Microsoft. You can read more about migrating your applications to MSAL in the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/msal-migration).
 {{</ note >}}
 
-#### Microsoft Authentication Library (MSAL)
+#### Microsoft Authentication Library (MSAL) (_available from CENM 1.6.1_)
 
 * **type**: Key store type. `AZURE_MSAL_KEY_VAULT_HSM` in this case.
 

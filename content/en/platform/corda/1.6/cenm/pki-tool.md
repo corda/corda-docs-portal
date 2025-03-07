@@ -1142,7 +1142,7 @@ certificates = {
 }
 ```
 
-#### Azure Key Vault HSM Configuration Using MSAL
+#### Azure Key Vault HSM Configuration Using MSAL (_available from CENM 1.6.1_)
 
 {{< note >}}
 R3 recommends using the MSAL dependency as a way of authenticating as MS ADAL has been deprecated by Microsoft. You can read more about migrating your applications to MSAL in the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/msal-migration).
