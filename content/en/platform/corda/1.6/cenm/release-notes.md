@@ -14,6 +14,11 @@ title: Release notes
 
 # Corda Enterprise Network Manager release notes
 
+## Corda Enterprise Network Manager 1.6.2
+
+### Fixed issues
+* Signing Service now starts correctly when used with the MSAL (Microsoft Authentication Library) for Azure Cloud HSM integration.
+
 ## Corda Enterprise Network Manager 1.6.1
 
 ### New features and enhancements
