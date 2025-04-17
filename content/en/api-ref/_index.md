@@ -1,9 +1,10 @@
 ---
+cascade:
+  project: "API Reference"
+  version: "API Reference"
+  section_menu: api-ref
 date: '2021-04-24T00:00:00Z'
 description: "API reference documentation for all versions of Corda"
-section_menu: api-ref
-project: api-ref
-version: 'api-ref'
 title: API References
 menu:
   api-ref:

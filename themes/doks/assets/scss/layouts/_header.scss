@@ -516,3 +516,74 @@ header {
     }
   }
 }
+
+/* The Modal (background) */
+
+input#search-trigger:focus {
+  background: #fff;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #0009;
+  
+  .searchHeader{
+    border-bottom: solid 0px;
+  }
+ 
+  .pagefind-ui{
+    max-height: 650px;
+    overflow: auto;
+  }
+
+  .modal-content {
+      position: relative;
+      background-color: var(--bs-body-bg);
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #ffffff;
+      width: 80%; // Adjust based on your preference
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      animation: fadeIn 0.4s;
+      h2{
+        margin-top: 0px;
+        margin-bottom: 10px;
+      }
+      
+      .close-button {
+          color: #000;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+
+          &:hover,
+          &:focus {
+              color: #000;;
+              text-decoration: none;
+              cursor: pointer;
+          }
+      }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; } 
+  to { opacity: 1; }
+}
+
+.search-container{
+  .input-group-text{
+    background-color: #FFF !important;
+    border: 1px solid #FFF !important;
+  }
+  .form-control{
+    background-color:#fff !important;
+  }
+}

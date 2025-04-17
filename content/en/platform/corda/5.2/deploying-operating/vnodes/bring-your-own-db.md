@@ -72,7 +72,7 @@ For example, to create the required databases for a virtual node:
 
 ## Connecting a Virtual Node to Your Own Database
 
-To update an existing virtual node to connect to your own database, use the PUT method of the [/api/v5_2/virtualnode_virtualnodeshortid_db endpoint](../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/put_virtualnode__virtualnodeshortid__db). This method requires the short hash ID of the virtual node as a path parameter and the connection strings as parameters in the request body. For example:
+To update an existing virtual node to connect to your own database, use the PUT method of the [/api/v5_2/virtualnode/<virtualnodeshortid>/db endpoint](../../reference/rest-api/openapi.html#tag/Virtual-Node-API/operation/put_virtualnode__virtualnodeshortid__db). This method requires the short hash ID of the virtual node as a path parameter and the connection strings as parameters in the request body. For example:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell

@@ -8,6 +8,9 @@
   {{ if .Site.Params.options.algolia -}}
     {{ block "head/algolia" . }}{{ partial "head/algolia.html" . }}{{ end }}
   {{ end -}}
+  {{ if .Site.Params.options.pagefind -}}
+    {{ block "head/pagefind" . }}{{ partial "head/pagefind.html" . }}{{ end }}
+  {{ end -}}
   {{ block "head/favicons" . }}{{ partialCached "head/favicons.html" . }}{{ end }}
   {{ block "head/stylesheet" . }}{{ partialCached "head/stylesheet.html" . }}{{ end }}
   {{ block "head/script-header" . }}{{ partial "head/script-header.html" . }}{{ end }}

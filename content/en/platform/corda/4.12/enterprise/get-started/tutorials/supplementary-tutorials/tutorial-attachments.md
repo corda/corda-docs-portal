@@ -134,7 +134,7 @@ that isn’t used as part of the contract logic.
 
 ## Example
 
-Here is a simple example of how to attach a file to a transaction and send it to the counterparty. The full code for this demo can be found in the [Kotlin](https://github.com/corda/samples-kotlin/tree/master/Features/attachment-sendfile) and [Java](https://github.com/corda/samples-java/tree/master/Features/attachment-sendfile) sample repositories.
+Here is a simple example of how to attach a file to a transaction and send it to the counterparty. The full code for this demo can be found in the [Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.12/Features/attachment-sendfile) and [Java](https://github.com/corda/samples-java/tree/release/4.12/Features/attachment-sendfile) sample repositories.
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}

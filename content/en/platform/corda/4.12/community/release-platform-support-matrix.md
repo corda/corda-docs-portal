@@ -27,8 +27,7 @@ Experimental notaries, such as **Crash fault-tolerant** and **Byzantine fault-to
 
 ## JDK support
 
-Corda Open Source Edition 4.12 has been tested and verified to work with **Azul Zulu Enterprise 17.0.9**, for Azure deployment downloadable from
-[Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
+Corda Open Source Edition 4.12 has been tested and verified to work with **Oracle JDK 17.0.13** and **Azul Zulu Enterprise 17.0.13**.
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.11.
 
@@ -40,8 +39,8 @@ The following JDKs support Corda for development purposes. Corda does not curren
 
 |Supported JDKs|Latest supported version|
 |-----------------------------------|-----------|
-|[Zulu OpenJDK](https://www.azul.com/)|17.0.9|
-|[Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)|17.0.9|
+|[Zulu OpenJDK](https://www.azul.com/downloads/azure-only/zulu/)|17.0.13|
+|[Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)|17.0.13|
 
 {{< /table >}}
 
@@ -53,10 +52,10 @@ Production use of Corda Open Source 4.12 is only supported on Linux OS; see deta
 
 |Platform|CPU architecture|Versions|
 |-------------------------------|------------------|-----------|
-|Red Hat Enterprise Linux|x86-64|8.x, 7.x, 6.x|
-|Suse Linux Enterprise Server|x86-64|12.x, 11.x|
-|Ubuntu Linux|x86-64|16.04, 16.10, 18.04, 20.04|
-|Oracle Linux|x86-64|7.x, 6.x|
+|Red Hat Enterprise Linux|x86-64|6.x, 7.x, 8.x, 9.x|
+|Suse Linux Enterprise Server|x86-64|11.x, 12.x|
+|Ubuntu Linux|x86-64|20.04, 22.04, 24.04|
+|Oracle Linux|x86-64|6.x, 7.x|
 
 {{< /table >}}
 
@@ -68,8 +67,8 @@ The following operating systems can be used with Corda for development purposes.
 
 |Platform|CPU architecture|Versions|
 |-------------------------------|------------------|-----------|
-|Microsoft Windows|x86-64|10, 8.x|
-|Microsoft Windows Server|x86-64|2016, 2012 R2, 2012|
+|Microsoft Windows|x86-64|8.x, 10|
+|Microsoft Windows Server|x86-64|2012, 2012 R2, 2016|
 |Apple macOS|x86-64|10.9 and above|
 
 {{< /table >}}
@@ -80,11 +79,6 @@ The following operating systems can be used with Corda for development purposes.
 
 |Vendor|CPU architecture|Versions|JDBC driver|
 |-------------------------------|------------------|------------------|------------------------|
-|Microsoft|x86-64|Azure SQL,SQL Server 2017|Microsoft JDBC Driver 6.4|
-|Oracle|x86-64|19c|Oracle JDBC 6|
-|Oracle|x86-64|19c|Oracle JDBC 8|
-|Oracle|x86-64|12cR2|Oracle JDBC 8|
-|Oracle|x86-64|11gR2|Oracle JDBC 6 |
-|PostgreSQL|x86-64|11.21, 13.12, 13.3, 15.3|PostgreSQL JDBC Driver 42.1.4 / 42.5.2|
+|PostgreSQL|x86-64|12.x, 13.x, 14.x, 15.x, 16.x| PostgreSQL JDBC Driver 42.7.3 |
 
 {{< /table >}}

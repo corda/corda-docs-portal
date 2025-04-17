@@ -109,7 +109,7 @@ for the interest rate before indicating an error.
 
 ## Example 2
 
-Let’s take the example of heartbeat sample in our `samples` repositories ([Kotlin](https://github.com/corda/samples-kotlin/tree/master/Features/schedulableState-heartbeat), [Java](https://github.com/corda/samples-java/tree/master/Features/schedulablestate-heartbeat)). The first task is to implement the
+Let’s take the example of heartbeat sample in our `samples` repositories ([Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.12/Features/schedulableState-heartbeat), [Java](https://github.com/corda/samples-java/tree/release/4.12/Features/schedulablestate-heartbeat)). The first task is to implement the
 `nextScheduledActivity` method on the `State`.
 
 {{< tabs name="tabs-1" >}}

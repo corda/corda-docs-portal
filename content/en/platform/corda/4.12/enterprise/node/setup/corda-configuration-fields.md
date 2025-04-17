@@ -72,7 +72,7 @@ This setting is only relevant for node configurations with no Corda Firewall ena
 
 ## `crlCheckSoftFail`
 
-This is a boolean flag that when enabled (i.e. `true` value is set) causes certificate revocation list (CRL) checking to use soft fail mode.
+This is a boolean flag that when enabled (that is, `true` value is set) causes certificate revocation list (CRL) checking to use soft fail mode.
 Soft fail mode allows the revocation check to succeed if the revocation status cannot be determined because of a network error.
 If this parameter is set to `false` rigorous CRL checking takes place. This involves each certificate in the certificate path being checked for a CRL distribution point extension, and that this extension points to a URL serving a valid CRL.
 This means that if any CRL URL in the certificate path is inaccessible, the connection with the other party will fail and be marked as bad.
@@ -138,10 +138,16 @@ Optional time-out value of actions sent to the CryptoService (HSM). If the HSM t
 
 ## `custom`
 
-Set custom command line attributes (e.g. Java system properties) on the node process via the capsule launcher
+Set custom command line attributes (for example, Java system properties) on the node process via the capsule launcher or on the external verifier process.
 
 * `jvmArgs`
   * A list of JVM arguments to apply to the node process. This removes any defaults specified from `corda.jar`, but can be overridden from the command line.
+  * *Default:* not defined
+* `externalVerifierJvmArgs`
+  {{< important >}}
+  This configuration field is only available from Corda 4.12.5 onwards. For more information, see the [4.12.5 release notes]({{< relref "../../release-notes-enterprise.html#fixed-issues" >}}).
+  {{< /important >}}
+  * A list of JVM arguments to apply to the external verifier process.
   * *Default:* not defined
 
 ## `database`
@@ -390,7 +396,7 @@ Allows fine-grained controls of various features only available in the enterpris
 
 * `ledgerRecoveryConfiguration`
 
-    * This configuration allows you to tailor Ledger Recovery behavior for your Corda node. It offers flexibility in defining parameters related to key pair pre-generation, backup intervals, and confidential identity backup options. For a detailed description of Ledger Recovery that uses this configuration, see [Ledger Recovery]({{< relref "../collaborative-recovery/ledger-recovery/overview.md" >}}).
+    * This configuration allows you to tailor Ledger Recovery behavior for your Corda node. It offers flexibility in defining parameters related to key pair pre-generation, backup intervals, and confidential identity backup options. For a detailed description of Ledger Recovery that uses this configuration, see [Ledger Recovery]({{< relref "../ledger-recovery/ledger-recovery.md" >}}).
 
     - `noOfPreGeneratedKeys`
 

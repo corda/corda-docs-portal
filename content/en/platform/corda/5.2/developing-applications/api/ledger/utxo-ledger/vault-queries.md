@@ -98,15 +98,15 @@ class TestStateJsonFactory : ContractStateVaultJsonFactory<TestState> {
 {{% /tab %}}
 {{% tab name="Java" %}}
 ```java
-class TestUtxoStateJsonFactory implements ContractStateVaultJsonFactory<TestUtxoState> {
+class TestStateJsonFactory implements ContractStateVaultJsonFactory<TestState> {
     @NotNull
     @Override
-    public Class<TestUtxoState> getStateType() {
-        return TestUtxoState.class;
+    public Class<TestState> getStateType() {
+        return TestState.class;
     }
     @Override
     @NotNull
-    public String create(@NotNull TestUtxoState state, @NotNull JsonMarshallingService jsonMarshallingService) {
+    public String create(@NotNull TestState state, @NotNull JsonMarshallingService jsonMarshallingService) {
         return jsonMarshallingService.format(state);
     }
 }
@@ -224,7 +224,7 @@ In this example, keep the elements that have “Alice” in their participant li
 {{% tab name="Kotlin" %}}
 ```kotlin
 class DummyCustomQueryFilter : VaultNamedQueryStateAndRefFilter<TestState> {
-    override fun filter(data: StateAndRef<TestUtxoState>, parameters: MutableMap<String, Any>): Boolean {
+    override fun filter(data: StateAndRef<TestState>, parameters: MutableMap<String, Any>): Boolean {
         return data.state.contractState.participantNames.contains("Alice")
     }
 }
@@ -232,10 +232,10 @@ class DummyCustomQueryFilter : VaultNamedQueryStateAndRefFilter<TestState> {
 {{% /tab %}}
 {{% tab name="Java" %}}
 ```java
-class DummyCustomQueryFilter implements VaultNamedQueryStateAndRefFilter<TestUtxoState> {
+class DummyCustomQueryFilter implements VaultNamedQueryStateAndRefFilter<TestState> {
     @NotNull
     @Override
-    public Boolean filter(@NotNull StateAndRef<TestUtxoState> data, @NotNull Map<String, Object> parameters) {
+    public Boolean filter(@NotNull StateAndRef<TestState> data, @NotNull Map<String, Object> parameters) {
         return data.getState().getContractState().getParticipantNames().contains("Alice");
     }
 }
@@ -272,10 +272,10 @@ class DummyCustomQueryTransformer : VaultNamedQueryStateAndRefTransformer<TestSt
 {{% /tab %}}
 {{% tab name="Java" %}}
 ```java
-class DummyCustomQueryMapper implements VaultNamedQueryStateAndRefTransformer<TestUtxoState, String> {
+class DummyCustomQueryMapper implements VaultNamedQueryStateAndRefTransformer<TestState, String> {
     @NotNull
     @Override
-    public String transform(@NotNull StateAndRef<TestUtxoState> data, @NotNull Map<String, Object> parameters) {
+    public String transform(@NotNull StateAndRef<TestState> data, @NotNull Map<String, Object> parameters) {
         return data.getRef().getTransactionId().toString();
     }
 }
@@ -615,3 +615,17 @@ the following is returned:
 </tr>
 </tbody>
 </table>
+
+## Performance Considerations: Indexing JSON Fields
+
+If you frequently query states based on data inside their JSON representation (custom_representation), adding a JSON index can significantly improve query performance. When large volumes of states are stored in the vault, the lack of an index on frequently queried JSON fields can cause slower throughput in flows.
+
+For example, if you commonly query a field named identifier inside ```com.example.token.states.FungibleToken```, you might consider an index like the following on PostgreSQL (adjust the path and table name for your actual state and schema):
+
+```sql
+CREATE INDEX utxo_transaction_output_idx_custom_jsonb_token_identifier 
+ ON vnode_vault_{holdingidentityshorthash}.utxo_visible_transaction_output 
+ ((custom_representation -> 'com.example.token.states.FungibleToken' ->> 'identifier'));
+```
+
+Consult your database documentation for additional JSON indexing strategies and performance tuning.

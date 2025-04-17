@@ -20,6 +20,7 @@
     "start": "hugo server --disableFastRender",
     "prebuild": "npm run clean",
     "build": "hugo --gc --minify",
+    "postbuild": "npx pagefind --site public",
     "build:preview": "npm run build -D -F",
     "clean": "rimraf public resources functions",
     "server": "hugo server --buildFuture --buildDrafts --disableFastRender --bind 0.0.0.0",
