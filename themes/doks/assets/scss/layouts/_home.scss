@@ -35,6 +35,7 @@ body.home {
 
     h1 {
       margin-bottom: 0.5rem;
+      text-align: center;
     }
 
     .subtitle {
@@ -43,12 +44,15 @@ body.home {
 
     #home-search {
       padding-top: 1rem;
+        .pagefind-ui__drawer{
+        margin-top: 5rem !important;
+      }
 
       form {
         margin: 0 auto;
         max-width: 54rem;
 
-        input {
+        .pagefind-ui__search-input {
           padding: 0.563rem 4rem 0.563rem 2rem;
         }
 

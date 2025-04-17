@@ -20,6 +20,42 @@ tags:
 
 # Corda Community Edition 4.11 release notes
 
+## Corda Community Edition 4.11.5 release notes
+
+Corda Community Edition 4.11.5 is a patch release of Corda Community Edition focused on resolving issues.
+
+### Fixed issues
+
+* When deploying a test node using DriverDSL, the node now starts successfully without encountering a `NoSuchMethodError` exception.
+* You can now create two nodes with identical `O` field values but different `OU` values in their X.500 names when using the DriverDSL for testing.
+* `ReceiveTransactionFlow` has been improved to address potential issues when handling network parameters. Previously, it verified the existence of network parameters on a transaction before executing `ResolveTransactionFlow`. This could cause issues in scenarios such as sending a top-level transaction to a new node in a migrated network, where the old network parameters might not be available on the new node. This behavior has now been corrected.
+
+### New features, enhancements and restrictions
+
+* Contract JAR signing key rotation of R3-provided CorDapps is included in this patch release.
+* Docker images are now based on Java 8 build 432.
+
+### Third party components upgrade
+
+The following table lists the dependency version changes between 4.11.4 and 4.11.5 Community Editions:
+
+| Dependency                   | Name                | Version 4.11.4 Community    | Version 4.11.5 Community       |
+|------------------------------|---------------------|-----------------------------|--------------------------------|
+| org.eclipse.jetty:*          | Jetty               | 9.4.53.v20231009            | 9.4.56.v20240826               |
+| commons-io:commons-io        | commons IO          | 2.6                         | 2.17.0                         |
+| com.zaxxer:HikariCP          | Hikari              | 3.3.1                       | 4.0.3                          |
+
+## Corda Community Edition 4.11.4 release notes
+
+Corda Community Edition 4.11.4 is a patch release of Corda Community Edition focused on resolving issues.
+
+### Fixed issues
+
+* `ReceiveFinalityFlow` was returning a transaction that was missing the notary signature. This has now been fixed. The returned transaction now includes the notary signature.
+* `ReceiveTransactionFlow` was checking that the network parameters on the transaction existed before `ResolveTransactionFlow` was executed.
+  This could cause a problem in certain scenarios; for example, when sending a top-level transaction to a new node in a migrated network, as the old network parameters would not exist on this new node. This has now been fixed.
+* When resolving a party, in some code paths, `wellKnownPartyFromAnonymous` did not consider notaries from network parameters when trying to resolve an X.500 name. This scenario could occur when introducing a new node to a newly-migrated network as the new node would not have the old notary in its network map. This has now been fixed. Notaries from network parameters are now considered in the check.
+
 ## Corda Community Edition 4.11.3 release notes
 
 Corda Community Edition 4.11.3 is a patch release of Corda Community Edition to keep it synchronised with the release of Corda Enterprise Edition 4.11.3.

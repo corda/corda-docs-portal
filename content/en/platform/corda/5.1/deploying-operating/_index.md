@@ -1,7 +1,7 @@
 ---
 cascade:
   version: 'Corda 5.1'
-  project: corda
+  project: Corda
   section_menu: corda51
 description: "Cluster Administrator documentation for Corda 5.1."
 title: "Administering Corda Clusters"

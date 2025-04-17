@@ -13,7 +13,7 @@ weight: 40
 
 # CENM Network Map Service Helm Chart
 
-This Helm chart is to configure, deploy, and run the [CENM Network Map Service]({{< relref "../../../../1.5/cenm/network-map.md" >}}) on Kubernetes.
+This Helm chart is to configure, deploy, and run the [CENM Network Map Service]({{< relref "../../../../1.6/cenm/network-map.md" >}}) on Kubernetes.
 
 ## Example usage
 
@@ -39,10 +39,10 @@ helm install nmap nmap --set shell.password="superDifficultPassword"
 | `volumeSizeNmapLogs`          | Volume size for the `logs/` directory                    | `10Gi` |
 | `volumeSizeNmapH2`            | Volume size for the `h2/` directory                      | `10Gi` |
 | `dockerImage.repository`      | URL to Network Map Docker image repository               | `corda/enterprise-networkmap` |
-| `dockerImage.tag`             | Docker image tag | `1.5.9-zulu-openjdk8u382` |
+| `dockerImage.tag`             | Docker image tag | `1.6-zulu-openjdk8u392` |
 | `dockerImage.pullPolicy`      | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `dockerImageCli.repository`   | URL to CLI image repository | `corda/enterprise-cenm-cli` |
-| `dockerImageCli.tag`          | Docker image tag | `1.5.9-zulu-openjdk8u382` |
+| `dockerImageCli.tag`          | Docker image tag | `1.6-zulu-openjdk8u392` |
 | `dockerImageCli.pullPolicy`   | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `nmapJar.xmx`                 | Value for java -Xmx memory settings | `1G` |
 | `nmapJar.path`                | The directory where the Network Map Service JAR file is stored | `bin` |
@@ -62,4 +62,4 @@ helm install nmap nmap --set shell.password="superDifficultPassword"
 | `logsContainersEnabled`       | Enable container displaying live logs | `true`
 {{< /table >}}
 
-For additional information on database connection details refer to the official documentation: [database documentation]({{< relref "../../../../1.5/cenm/config-database.md" >}}).
+For additional information on database connection details refer to the official documentation: [database documentation]({{< relref "../../../../1.6/cenm/config-database.md" >}}).
