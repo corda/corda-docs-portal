@@ -1,6 +1,6 @@
 ---
 cascade:
-  project: corda
+  project: Corda
   version: 'Corda 5.2'
   section_menu: corda52
 description: "Network Operator documentation for Corda 5.2."

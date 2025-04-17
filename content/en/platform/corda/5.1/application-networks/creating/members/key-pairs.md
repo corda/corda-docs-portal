@@ -26,7 +26,7 @@ To assign a soft hardware security module (HSM) and generate a {{< tooltip >}}se
 {{% tab name="Bash"%}}
 ```Bash
 curl -k -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/hsm/soft/$HOLDING_ID/SESSION_INIT
-curl -k -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL'/keys/'$HOLDING_ID'/alias/'$HOLDING_ID'-session/category/SESSION_INIT/scheme/CORDA.ECDSA.SECP256R1'
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL'/key/'$HOLDING_ID'/alias/'$HOLDING_ID'-session/category/SESSION_INIT/scheme/CORDA.ECDSA.SECP256R1'
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}

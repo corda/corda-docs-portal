@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<!-- NewPage -->
+<html lang="en"><head>
+    <title>Package net.corda.finance.contracts.asset </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="dc.created" content="2020-03-25">
+    <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../../dokka-javadoc-stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../../jquery/jquery-ui.css" title="Style">
+    <script type="text/javascript" src="../../../../../jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../../../jquery/jquery-migrate-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../../../../../jquery/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../../../../search.js"></script>
+    <script async type="text/javascript" src="../../../../../module-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../package-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../type-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../member-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../tag-search-index.js"></script>
+</head><body>
+<script type="text/javascript">
+var pathtoroot = "../../../../../";
+</script>
+<noscript>
+    <div>JavaScript is disabled on your browser.</div>
+</noscript><header role="banner">
+    <nav role="navigation">
+        <div class="fixedNav">
+            <!-- ========= START OF TOP NAVBAR ======= -->
+            <div class="topNav"><a id="navbar.top">
+                <!--   -->
+            </a>
+                <div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a>
+                </div>
+                <a id="navbar.top.firstrow">
+                    <!--   -->
+                </a>
+                <ul class="navList" title="Navigation">
+    <li><a href="../../../../../index.html">Overview</a></li>
+    
+    <li class="navBarCell1Rev">Package</li>
+    
+    <li>Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+            <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" class="ui-autocomplete-input" autocomplete="off" placeholder="Search">
+<input type="reset" id="reset" value="reset">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ========= END OF TOP NAVBAR ========= -->
+        </div>
+        <div class="navPadding">&nbsp;</div>
+        <script type="text/javascript"><!--
+        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
+        //-->
+        </script>
+    </nav>
+</header>
+<main role="main">
+    <div class="header">
+        <h1 title="Package" class="title">Package net.corda.finance.contracts.asset </h1>
+    </div>
+        <div class="header">
+            <div class="subtitle">
+                <div class="block"></div>
+            </div>
+            <p>See: <a href="#overview_description">Description</a></p>
+        </div>
+    <div class="contentContainer">
+        
+            <ul class="blockList">
+                
+                <li class="blockList">
+                    
+                    
+                    
+                    
+                    
+    <div class="typeSummary">
+
+<table>
+<caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=Cash.State.html>State</a></th><td class="colLast">A state representing a cash claim against some party.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=Cash.Commands.Move.html>Move</a></th><td class="colLast">A command stating that money has been moved, optionally to fulfil another contract.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=Cash.Commands.Issue.html>Issue</a></th><td class="colLast">Allows new cash states to be issued into existence.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=Cash.Commands.Exit.html>Exit</a></th><td class="colLast">A command stating that money has been withdrawn from the shared ledger and is now accounted for in some other way.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=Cash.html>Cash</a></th><td class="colLast">A cash transaction may split and merge money represented by a set of (issuer, depositRef) pairs, across multiple input and output states.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=BilateralNetState.html>BilateralNetState</a></th><td class="colLast">Subset of state, containing the elements which must match for two obligation transactions to be nettable.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=MultilateralNetState.html>MultilateralNetState</a></th><td class="colLast">Subset of state, containing the elements which must match for two or more obligation transactions to be candidates for netting (this does not include the checks to enforce that everyone's amounts received are the same at the end, which is handled under the verify() function).</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=Obligation.Terms.html>Terms</a></th><td class="colLast">Subset of state, containing the elements specified when issuing a new settlement contract.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=Obligation.State.html>State</a></th><td class="colLast">A state representing the obligation of one party (obligor) to deliver a specified number of units of an underlying asset (described as token.acceptableIssuedProducts) to the beneficiary no later than the specified time.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=Obligation.Commands.Net.html>Net</a></th><td class="colLast">Net two or more obligation states together in a close-out netting style.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=Obligation.Commands.Move.html>Move</a></th><td class="colLast">A command stating that a debt has been moved, optionally to fulfil another contract.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=Obligation.Commands.Issue.html>Issue</a></th><td class="colLast">Allows new obligation states to be issued into existence.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=Obligation.Commands.Settle.html>Settle</a></th><td class="colLast">A command stating that the obligor is settling some or all of the amount owed by transferring a suitable state object to the beneficiary.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=Obligation.Commands.SetLifecycle.html>SetLifecycle</a></th><td class="colLast">A command stating that the beneficiary is moving the contract into the defaulted state as it has not been settled by the due date, or resetting a defaulted contract back to the issued state.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=Obligation.Commands.Exit.html>Exit</a></th><td class="colLast">A command stating that the debt is being released by the beneficiary.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=Obligation.html>Obligation</a></th><td class="colLast">An obligation contract commits the obligor to delivering a specified amount of a fungible asset (for example the <a href=Cash.html>Cash</a> contract) at a specified future point in time.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=PartyAndAmount.html>PartyAndAmount</a></th><td class="colLast">A simple holder for a (possibly anonymous) <a href=../../../core/identity/AbstractParty.html>AbstractParty</a> and a quantity of tokens</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=OnLedgerAsset.html>OnLedgerAsset</a></th><td class="colLast">An asset transaction may split and merge assets represented by a set of (issuer, depositRef) pairs, across multiple input and output states.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=CashKt.html>CashKt</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=ObligationKt.html>ObligationKt</a></th><td class="colLast"></td></tr>
+</tbody>
+</table>
+
+    </div>
+
+                </li>
+                
+                <li class="blockList">
+                    
+                    
+                    
+                    
+                    
+    <div class="typeSummary">
+
+<table>
+<caption><span>Interface Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Interface</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=Cash.Commands.html>Commands</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=NetState.html>NetState</a></th><td class="colLast">Common interface for the state subsets used when determining nettability of two or more states.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=Obligation.Commands.html>Commands</a></th><td class="colLast"></td></tr>
+</tbody>
+</table>
+
+    </div>
+
+                </li>
+                
+                <li class="blockList">
+                    
+                    
+                    
+                    
+                    
+    <div class="typeSummary">
+
+<table>
+<caption><span>Enum Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Enum</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=Obligation.Lifecycle.html>Lifecycle</a></th><td class="colLast">Represents where in its lifecycle a contract state is, which in turn controls the commands that can be applied to the state.</td></tr>
+</tbody>
+</table>
+
+    </div>
+
+                </li>
+                
+                <li class="blockList">
+                    
+                    
+                    
+                    
+                    
+    <div class="typeSummary">
+
+<table>
+<caption><span>Object Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Object</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=OnLedgerAsset.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+</tbody>
+</table>
+
+    </div>
+
+                </li>
+                
+            </ul>
+        
+    </div>
+</main>
+<footer role="contentinfo">
+    <nav role="navigation">
+        <!-- ======= START OF BOTTOM NAVBAR ====== -->
+        <div class="bottomNav"><a id="navbar.bottom">
+            <!--   -->
+        </a>
+            <div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a>
+            </div>
+            <a id="navbar.bottom.firstrow">
+                <!--   -->
+            </a>
+            <ul class="navList" title="Navigation">
+    <li><a href="../../../../../index.html">Overview</a></li>
+    
+    <li class="navBarCell1Rev">Package</li>
+    
+    <li>Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+        <a id="skip.navbar.bottom">
+            <!--   -->
+        </a>
+        <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ======== END OF BOTTOM NAVBAR ======= -->
+    </nav>
+</footer><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+    style="display: none;"></ul>
+<span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+</body>
+</html>

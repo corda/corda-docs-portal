@@ -326,7 +326,7 @@ subFlow(ApproveOverdraftFlow(accountId, amount))
 
 The Bank in a Box application uses [Oracles]({{< relref "../../key-concepts-oracles.md" >}}) in various contexts, one of which is in the issuance of loans. A dummy Oracle is used to call external services based on a customer ID and sign off on the loan. The response is then embedded in the transaction that issues the loan. This mimics a real-life scenario where a bank calls a rating provider before giving a customer a loan.
 
-Oracle signatures use [partial Merkle tree signing]({{< relref "../../key-concepts-tearoffs.mdl#merkle-trees-on-corda" >}}), which provides privacy for the transaction. In this way, the external party present in the loan issuance transaction can only see the contents of the transaction that they must confirm before signing the transaction.
+Oracle signatures use [partial Merkle tree signing]({{< relref "../../key-concepts-tearoffs.md#merkle-trees-on-corda" >}}), which provides privacy for the transaction. In this way, the external party present in the loan issuance transaction can only see the contents of the transaction that they must confirm before signing the transaction.
 
 When a loan is issued, money is transferred to the customer's current account. In the background, this transaction uses [Corda scheduled states]({{< relref "../../../enterprise/event-scheduling.md#how-to-implement-scheduled-events" >}}) to create a recurring payment for that loan, into the loan account.
 
