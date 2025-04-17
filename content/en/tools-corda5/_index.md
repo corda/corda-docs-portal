@@ -1,8 +1,8 @@
 ---
 date: '2023-08-22'
 title: "Corda 5 Tools & Add-Ons"
-project: corda5-tools
-version: tools
+project: "Corda 5 Tools"
+version: "Corda 5 Tools"
 menu:
   projects:
     weight: 2000

@@ -1,6 +1,6 @@
 ---
 date: '2023-01-20'
-project: corda
+project: Corda
 section_menu: cenm-1-5
 version: 'CENM 1.5'
 menu:

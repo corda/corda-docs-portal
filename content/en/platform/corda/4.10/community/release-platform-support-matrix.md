@@ -27,7 +27,7 @@ Experimental notaries, such as **Crash fault-tolerant** and **Byzantine fault-to
 
 ## JDK support
 
-Corda: Community Edition 4.10 has been tested and verified to work with **Oracle JDK 8 JVM 8u351** and **Azul Zulu Enterprise 8u352**, for Azure deployment downloadable from
+Corda: Community Edition 4.10 has been tested and verified to work with **Oracle JDK 8 JVM 8u421** and **Azul Zulu Enterprise 8u422**, for Azure deployment downloadable from
 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.10.
@@ -46,10 +46,10 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 
 |Supported JDKs|Latest supported version|
 |-----------------------------------|-----------|
-|[Oracle JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)|8u351|
+|[Oracle JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)|8u421|
 |[Amazon Corretto 8](https://aws.amazon.com/corretto/)|8.252.09.1|
 |[Red Hat's OpenJDK](https://developers.redhat.com/products/openjdk/overview/)|8u322|
-|[Zulu's OpenJDK](https://www.azul.com/)|8u352|
+|[Zulu's OpenJDK](https://www.azul.com/)|8u422|
 
 {{< /table >}}
 
@@ -59,9 +59,9 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 
 |Platform|CPU architecture|Versions|
 |-------------------------------|------------------|-----------|
-|Red Hat Enterprise Linux|x86-64|8.x, 7.x, 6.x|
+|Red Hat Enterprise Linux|x86-64|8.x, 7.x, 6.x, 9.x|
 |Suse Linux Enterprise Server|x86-64|12.x, 11.x|
-|Ubuntu Linux|x86-64|16.04, 16.10, 18.04, 20.04|
+|Ubuntu Linux|x86-64|20.04, 22.04, 24.04|
 |Oracle Linux|x86-64|7.x, 6.x|
 
 {{< /table >}}
@@ -84,6 +84,6 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 
 |Vendor|CPU architecture|Versions|JDBC driver|
 |-------------------------------|------------------|------------------|------------------------|
-|PostgreSQL|x86-64|9.6, 10.10, 11.5, 13.8|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
+|PostgreSQL|x86-64|12.x, 13.x, 14.x, 15.x, 16.x| PostgreSQL JDBC Driver 42.7.3 |
 
 {{< /table >}}

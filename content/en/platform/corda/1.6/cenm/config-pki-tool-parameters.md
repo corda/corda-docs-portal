@@ -73,7 +73,7 @@ existing) certificate entry in the corresponding certificate store. See the belo
 
 The key store configuration defines the type of the underlying key store along with any type specific information. The
 possible key store types are currently the same set as the possible key types. That is, `LOCAL`, `UTIMACO_HSM`,
-`GEMALTO_HSM`, `SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM`.
+`GEMALTO_HSM`, `SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM`, `AZURE_MSAL_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM`.
 
 
 ### Local Key Store Configuration
@@ -212,57 +212,58 @@ HSM username. This user needs the appropriate permissions for key generation and
 Password associated with the user for the HSM. This can be omitted from the configuration and input at runtime.
 
 
-
-
-
-
 ### Azure Key Vault HSM Key Store Configuration
 
+PKI Tool supports two ways of configuring Azure Key Vault HSM key stores:
+* using Microsoft Authentication Library (MSAL), or
+* using the Azure Active Directory Authentication Library (ADAL).
 
-* **type**:
-Key store type. `AZURE_KEY_VAULT_HSM` in this case.
+{{< note >}}
+R3 recommends using the MSAL dependency as a way of authenticating as MS ADAL has been deprecated by Microsoft. You can read more about migrating your applications to MSAL in the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/msal-migration).
+{{</ note >}}
 
+#### Microsoft Authentication Library (MSAL) (_available from CENM 1.6.1_)
 
-* **keyVaultUrl**:
-URL of the Azure Key Vault resource.
+* **type**: Key store type. `AZURE_MSAL_KEY_VAULT_HSM` in this case.
 
+* **keyVaultUrl**: URL of the Azure Key Vault resource.
 
-* **protection**:
-Type of key protection to be used. This depends on the setup of the Azure Key Vault resource and can either be
+* **protection**: Type of key protection to be used. This depends on the setup of the Azure Key Vault resource and can either be `SOFTWARE`, corresponding to software-backed keys, or `HARDWARE`, corresponding to hardware-backed keys (via a physical HSM).
+
+* **credentials**: The authentication credentials for the key vault. Currently, the only supported authentication method is via a Service Principal and corresponding authentication key store.
+
+* **keyStorePath**: Path of the key store that contains the certificate and key pair of the Service Principal used to authenticate against the key vault. Note that this file should be PKCS12 standard. One way of achieving this is by using openssl to convert the Service Principal `.pem` file: `openssl pkcs12 -export -in path/to/serviceprincipal.pem -out keyvault_login.p12`
+
+* **keyStorePassword**: Password of the key store.
+
+* **keyStoreAlias**: Alias of the Service Principal key entry within the key store.
+
+* **clientId**: ID of the client used during initial authentication.
+
+* **tenantId**: Tenant ID associated with the service principal
+
+#### Azure Active Directory Authentication Library (ADAL)
+
+* **type**: Key store type. `AZURE_KEY_VAULT_HSM` in this case.
+
+* **keyVaultUrl**: URL of the Azure Key Vault resource.
+
+* **protection**: Type of key protection to be used. This depends on the setup of the Azure Key Vault resource and can either be
 `SOFTWARE`, corresponding to software-backed keys, or `HARDWARE`, corresponding to hardware-backed keys (via a
 physical HSM).
 
-
-* **credentials**:
-The authentication credentials for the key vault. Currently, the only supported authentication method is via a
+* **credentials**: The authentication credentials for the key vault. Currently, the only supported authentication method is via a
 Service Principal and corresponding authentication key store.
 
-
-* **keyStorePath**:
-Path of the key store that contains the certificate and key pair of the Service Principal used to authenticate
+* **keyStorePath**: Path of the key store that contains the certificate and key pair of the Service Principal used to authenticate
 against the key vault. Note that this file should be PKCS12 standard. One way of achieving this is by using
-openssl to convert the Service Principal .pem file:
+openssl to convert the Service Principal `.pem` file: `openssl pkcs12 -export -in path/to/serviceprincipal.pem -out keyvault_login.p12`
 
-`openssl pkcs12 -export -in path/to/serviceprincipal.pem -out keyvault_login.p12`
+* **keyStorePassword**: Password of the key store.
 
+* **keyStoreAlias**: Alias of the Service Principal key entry within the key store.
 
-* **keyStorePassword**:
-Password of the key store.
-
-
-* **keyStoreAlias**:
-Alias of the Service Principal key entry within the key store.
-
-
-* **clientId**:
-ID of the client used during initial authentication.
-
-
-
-
-
-
-
+* **clientId**: ID of the client used during initial authentication.
 
 ### AWS CloudHSM Key Store Configuration
 
@@ -497,7 +498,7 @@ to specify the CRL endpoints without having to configure or generate a CRL file.
 The key configuration defines the properties of the key pair associated with the entity. This key pair can be generated
 (or already exist) in either a local key store or a supported HSM. Similar to the key store configuration above, each
 key configuration has an associated type, with possible values: `LOCAL`, `UTIMACO_HSM`, `GEMALTO_HSM`,
-`SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM`.
+`SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM`, `AZURE_MSAL_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM`.
 
 
 #### Local Key Configuration
@@ -585,7 +586,7 @@ The remaining HSM key configurations follow the similar format:
 
 
 * **type**:
-Key type. `GEMALTO_HSM`, `SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM` in this case.
+Key type. `GEMALTO_HSM`, `SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM`, `AZURE_MSAL_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM` in this case.
 
 
 * **alias**:

@@ -16,6 +16,25 @@ weight: 10
 
 # Corda Enterprise Edition 4.8 release notes
 
+## Corda Enterprise Edition 4.8.12 release notes
+
+Corda Enterprise Edition 4.8.12 is a patch release of Corda Enterprise Edition focused on resolving issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.10/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../4.10/enterprise/upgrading-index.md" >}}).
+
+### Fixed issues
+
+* `ReceiveTransactionFlow` was checking that the network parameters on the transaction existed before `ResolveTransactionFlow` was executed.
+  This could cause a problem in certain scenarios; for example, when sending a top-level transaction to a new node in a migrated network, as the old network parameters would not exist on this new node. This has now been fixed.
+* When resolving a party, in some code paths, `wellKnownPartyFromAnonymous` did not consider notaries from network parameters when trying to resolve an X.500 name. This scenario could occur when introducing a new node to a newly-migrated network as the new node would not have the old notary in its network map. This has now been fixed. Notaries from network parameters are now considered in the check.
+* Delays when performing an SSL handshake with new nodes no longer impacts existing connections with other nodes.
+* Previously, the order of the states in vault query results would sometimes be incorrect if they belonged to the same transaction. This issue has been resolved.
+* Added improvements to node thread names to make logging and debugging clearer.
+* Vault queries have been optimised to avoid the extra SQL query for the total state count where possible.
+* Some log messages at warning level relating to failed SSL handshakes were accidentally introduced as part of improvements to SSL certificate handling in the previous patch release, and would appear frequently in the logs as part of connectivity tests of traffic load balancers and system monitoring. These log messages have been silenced to reduce “noise” in the logs.
+
 ## Corda Enterprise Edition 4.8.11 release notes
 
 Corda Enterprise Edition 4.8.11 is a patch release of Corda Enterprise focused on new functionality and resolving issues.
@@ -67,6 +86,10 @@ As a developer or node operator, you should upgrade to the [latest released vers
 * The default SSL handshake timeout for inbound connections has been increased to 60 seconds. If during SSL handshake, certificate revocation lists (CRLs) take a long time to download, or are unreachable, then this 60 seconds gives the node enough time to establish the connection if `crlCheckSoftFail` is enabled.
 
 * Compatibility when using the performance test suite from Apple silicon Macs has been improved.
+
+* The default SSL handshake timeout for inbound connections has been increased to 60 seconds. If during SSL handshake, certificate revocation lists (CRLs) take a long time to download, or are unreachable, then this 60 seconds gives the node enough time to establish the connection if crlCheckSoftFail is enabled.
+
+* Debug logging of the Artemis server has been added.
 
 ## Corda Enterprise Edition 4.8.10 release notes
 

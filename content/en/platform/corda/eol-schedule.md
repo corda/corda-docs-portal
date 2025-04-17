@@ -1,12 +1,12 @@
 ---
-date: 
+date:
 menu:
 tags:
 - end of life
 - schedule
 - support
 title: End of Life Schedule
-weight: 
+weight:
 ---
 
 Use the following table to track the end of life schedule for each version of Corda. Each version of Corda Enterprise, Corda Community Edition, and CENM has support available from R3 for a fixed period. After this period has ended, these versions are no longer supported by R3 and associated documentation is archived. You should always aim to upgrade to the latest version of Corda whenever possible.
@@ -19,6 +19,10 @@ Definitions:
 
 {{< note >}}
 All dates refer to the end of the month indicated.
+{{< /note >}}
+
+{{< note >}}
+The highest released version of Corda 4 Enterprise Edition at any point in time will be supported, including maintenance, until at least 31st December 2029 or until superseded by a higher version number of Corda 4 Enterprise Edition, at which point the dates in the table take precedence.
 {{< /note >}}
 
 ## Corda 5

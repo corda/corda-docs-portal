@@ -26,7 +26,7 @@ To assign a soft hardware security module (HSM) and generate a {{< tooltip >}}se
 {{% tab name="Bash"%}}
 ```Bash
 curl -k -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/hsm/soft/$HOLDING_ID/SESSION_INIT
-curl -k -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL'/keys/'$HOLDING_ID'/alias/'$HOLDING_ID'-session/category/SESSION_INIT/scheme/CORDA.ECDSA.SECP256R1'
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL'/key/'$HOLDING_ID'/alias/'$HOLDING_ID'-session/category/SESSION_INIT/scheme/CORDA.ECDSA.SECP256R1'
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -173,7 +173,7 @@ If using mutual {{< tooltip >}}TLS{{< /tooltip >}}, you must add the certificate
    {{< /tabs >}}
 
    You can optionally omit the root certificate. If revocation is enabled and the root certificate does not have a CRL or OSCP endpoint, you must omit the root certificate.
-   
+
    {{< note >}}
    If you upload a certificate chain consisting of more than one certificate, ensure that `-----END CERTIFICATE-----` and `-----BEGIN CERTIFICATE-----` from the next certificate are separated by a new line with no empty spaces in between.
    {{< /note >}}

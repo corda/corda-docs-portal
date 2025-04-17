@@ -8,7 +8,7 @@ menu:
     identifier: about-corda-landing-4-8-enterprise
     weight: -5
     name: Corda Enterprise 4.8
-project: corda
+project: Corda
 section_menu: corda-enterprise-4-8
 title: Corda Enterprise 4.8
 version: 'Enterprise 4.8'

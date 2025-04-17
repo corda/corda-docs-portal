@@ -49,7 +49,7 @@ To build a CPB using the {{< tooltip >}}Corda CLI{{< /tooltip >}}:
    keytool -genkeypair -alias "<key-alias>" -keystore <signingkeys.pfx> -storepass "<keystore-password>" -dname "cn=<CPI Plugin Example - Signing Key 1, o=R3, L=London, c=GB>" -keyalg <RSA> -storetype <pkcs12> -validity <4000>
    ```
    {{< note >}}
-CPBs for deployment on a dynamic network must be signed with a key that you can share with the Network Operator responsible for building the CPI from the CPB. 
+CPBs for deployment on a dynamic network must be signed with a key that you can share with the Network Operator responsible for building the CPI from the CPB.
 You should always sign test CPBs with a different key used only for testing. The final key that the Network Operator uses should not be used for signing until you are ready to release.
    {{< /note >}}
 
@@ -63,7 +63,7 @@ You should always sign test CPBs with a different key used only for testing. The
    {{% tab name="Bash" %}}
    ```sh
    ./corda-cli.sh package create-cpb \
-    <mycpk0.cpk> <mycpk1.cpk> \
+    <mycpk0.jar> <mycpk1.jar> \
     --cpb-name <manifest-attribute-cpb-name> \
     --cpb-version <manifest-attribute-cpb-version> \
     --file <output.cpb> \
@@ -75,7 +75,7 @@ You should always sign test CPBs with a different key used only for testing. The
    {{% tab name="PowerShell" %}}
    ```shell
     ./corda-cli.cmd package create-cpb `
-    <mycpk0.cpk> <mycpk1.cpk> `
+    <mycpk0.jar> <mycpk1.jar> `
     --cpb-name <manifest-attribute-cpb-name> `
     --cpb-version <manifest-attribute-cpb-version> `
     --file <output.cpb> `
