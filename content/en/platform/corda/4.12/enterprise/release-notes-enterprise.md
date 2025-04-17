@@ -17,6 +17,91 @@ weight: 10
 
 # Corda Enterprise Edition 4.12 release notes
 
+## Corda Enterprise Edition 4.12.5 release notes
+
+Corda Enterprise Edition 4.12.5 is a patch release of Corda Enterprise Edition focused on resolving issues.
+
+### Upgrade recommendation
+
+{{< important >}}
+When upgrading a node to Corda 4.12, it is extremely important that you run the Transaction Validator Utility on your node database to verify that the transactions in the old node are compatible with 4.12 nodes.
+
+To ensure compatibility of the transactions, you must also run the Transaction Validator Utility on any older nodes that are not being upgraded and will likely interact with any upgraded nodes.
+
+For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
+{{< /important >}}
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Corda Enterprise Edition 4.11 to 4.12 upgrade guide]({{< relref "upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
+
+### Fixed issues
+
+* In Corda 4.11 and earlier, when the node verified contracts, they were all verified within the Corda node process. This meant that any custom command line attributes defined on the node process via the capsule would be visible to contract verification; for example, system properties. In Corda 4.12, the 4.12 contracts are still verified in the Corda node process, but legacy (that is, 4.11 and earlier) contracts are now verified in the new external verifier process. This external verifier is a separate process, so it does not receive the custom command line attributes set on the Corda node process. To rectify this, a new configuration field has been defined to allow custom command line attributes to be passed to the external verifier process. This new configuration field is `custom.externalVerifierJvmArgs`.
+
+  For more information, see the `custom` configuration field in the [Configuration fields]({{< relref "node/setup/corda-configuration-fields.html#custom" >}}) section.
+
+## Corda Enterprise Edition 4.12.4 release notes
+
+Corda Enterprise Edition 4.12.4 is a patch release of Corda Enterprise Edition focused on upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+{{< important >}}
+When upgrading a node to Corda 4.12, it is extremely important that you run the Transaction Validator Utility on your node database to verify that the transactions in the old node are compatible with 4.12 nodes.
+
+To ensure compatibility of the transactions, you must also run the Transaction Validator Utility on any older nodes that are not being upgraded and will likely interact with any upgraded nodes.
+
+For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
+{{< /important >}}
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Corda Enterprise Edition 4.11 to 4.12 upgrade guide]({{< relref "upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
+
+### Fixed issues
+
+* Log4j has been downgraded from version 2.23.1 to 2.23.0 to avoid a defect in Log4j that could cause excessive messages to be written to the log file. This will be updated to a later version when a fixed Log4j is available.
+
+### Third-party components upgrade
+
+The following table lists the dependency version changes between 4.12.3 and 4.12.4 Enterprise Editions:
+
+| Dependency                   | Name                | Version 4.12.3 Enterprise   | Version 4.12.4 Enterprise      |
+|------------------------------|---------------------|-----------------------------|--------------------------------|
+| io.netty:netty-buffer <br> io.netty:netty-codec* <br> io.netty:netty-common <br> io.netty:netty-handler* <br> io.netty:netty-resolver <br> io.netty:netty-transport* | Netty               | 4.1.109.Final         | 4.1.115.Final             |
+| org.apache.logging.log4j:*   | Apache                | 2.23.1           | 2.23.0          |
+
+## Corda Enterprise Edition 4.12.3 release notes
+
+Corda Enterprise Edition 4.12.3 is a patch release of Corda Enterprise Edition focused on resolving issues.
+
+### Upgrade recommendation
+
+{{< important >}}
+When upgrading a node to Corda 4.12, it is extremely important that you run the Transaction Validator Utility on your node database to verify that the transactions in the old node are compatible with 4.12 nodes.
+
+To ensure compatibility of the transactions, you must also run the Transaction Validator Utility on any older nodes that are not being upgraded and will likely interact with any upgraded nodes.
+
+For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
+{{< /important >}}
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Corda Enterprise Edition 4.11 to 4.12 upgrade guide]({{< relref "upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
+
+### Fixed issues
+
+* Fixed an issue where CorDapp builds may fail to build with the error `java.lang.NoSuchFieldError: id_ml_dsa_44`. This issue arose from a version mismatch in Bouncy Castle libraries. A new LTS version of Bouncy Castle introduced this field, and it was being picked up due to version ranges specified in the Bouncy Castle dependencies. The issue has now been resolved by locking the Bouncy Castle dependencies to a specific version within Corda.
+
+* A `ClassNotFound` error, causing transaction verification to fail, does no longer occur when deserializing commands from a legacy transaction in the external verifier. This would sometimes happen because the class loader used during deserialization did not include any CorDapps and the missing class could not be auto-constructed. In cases where it did work, it was only because Corda managed to construct the missing class. This issue has now been resolved by ensuring that CorDapp classes are available during deserialization. Additionally, the external verifier's ability to auto-construct missing classes has been disabled.
+
+* Transactions with the in-flight transaction state, introduced in Corda version 4.11 to support transaction recovery, are no longer included when the Ledger Graph CorDapp builds a transaction graph. Instead, the CorDapp now ignores any transactions with an in-flight status.
+
+* The notary health check client tool now starts without any issues.
+
+* The Transaction Validator Utility (TVU) with a provided reverification file accurately reports the number of discovered transactions, even when the provided reverification file includes blank lines.
+
 ## Corda Enterprise Edition 4.12.2 release notes
 
 Corda Enterprise Edition 4.12.2 is a patch release of Corda Enterprise Edition focused on resolving issues.
@@ -80,6 +165,9 @@ The purpose of the TVU is to mimic what a 4.12 node would do when verifying a le
 * A new `legacy-jars` directory has been introduced to improve backward compatibility with earlier versions of Corda. See the description above and the upgrade guide for details.
 * Contract JAR signing key rotation of R3-provided CorDapps is included in this patch release.
 
+### Known issues
+
+* The Finance Contracts CorDapp was inadvertently embedded in the Corda Enterprise 4.12 node JAR, causing issues with various tests and potentially affecting anyone using these contracts in transactions. If you are using the Finance CorDapp, R3 strongly recommends upgrading to this patch release, preferably before going live on version 4.12.
 
 ### Third party components upgrade
 
@@ -167,6 +255,10 @@ The base Corda package includes several SDKs and libraries. These SDKs and libra
 | archiving                 | 1.2                           |
 | ledger-graph              | 1.3                           |
 | r3-tools                  | 4.12                          |
+
+#### Collaborative Recovery removed
+
+The Collaborative Recovery solution, along with the associated CorDapps (LedgerSync and LedgerRecover), is deprecated, and has been removed in Corda 4.12. You are now advised to use the new recovery tools introduced in version 4.11, as described in the [Corda Enterprise Edition 4.11 release notes]({{< relref "../../4.11//enterprise/release-notes-enterprise.html#corda-enterprise-edition-411-release-notes-1" >}}).
 
 #### Transaction Validator Utility
 

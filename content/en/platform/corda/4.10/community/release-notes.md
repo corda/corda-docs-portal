@@ -20,6 +20,32 @@ tags:
 
 # Corda Community Edition 4.10 release notes
 
+## Corda Community Edition 4.10.6 release notes
+
+Corda Community Edition 4.10.6 is a patch release of Corda Community Edition focused on resolving issues.
+
+### Fixed issues
+
+* When deploying a test node using DriverDSL, the node now starts successfully without encountering a `NoSuchMethodError` exception.
+* You can now create two nodes with identical `O` field values but different `OU` values in their X.500 names when using the DriverDSL for testing.
+* `ReceiveTransactionFlow` has been improved to address potential issues when handling network parameters. Previously, it verified the existence of network parameters on a transaction before executing `ResolveTransactionFlow`. This could cause issues in scenarios such as sending a top-level transaction to a new node in a migrated network, where the old network parameters might not be available on the new node. This behavior has now been corrected.
+
+### New features, enhancements and restrictions
+
+* Contract JAR signing key rotation of R3-provided CorDapps is included in this patch release.
+* Docker images are now based on Java 8 build 432.
+
+### Third-party components upgrade
+
+The following table lists the dependency version changes between 4.10.5 and 4.10.6 Community Editions:
+
+| Dependency                   | Name                | Version 4.10.5 Community    | Version 4.10.6 Community       |
+|------------------------------|---------------------|-----------------------------|--------------------------------|
+| org.eclipse.jetty:*          | Jetty               | 9.4.53.v20231009            | 9.4.56.v20240826               |
+| commons-io:commons-io        | commons IO          | 2.6                         | 2.17.0                         |
+| com.fasterxml.jackson.\*:\*  | Jackson             | 2.17.2                      | 2.14.0                         |
+| com.zaxxer:HikariCP          | Hikari              | 3.3.1                       | 4.0.3                          |
+
 ## Corda Community Edition 4.10.5 release notes
 
 Corda Community Edition 4.10.5 is a patch release of Corda Community Edition focused on resolving issues.

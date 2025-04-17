@@ -49,10 +49,10 @@ Production use of Corda Enterprise Edition 4.12 is only supported on Linux OS; s
 
 |Platform|CPU architecture|Versions|
 |-------------------------------|------------------|-----------|
-|Red Hat Enterprise Linux|x86-64|8.x, 7.x, 6.x|
-|Suse Linux Enterprise Server|x86-64|12.x, 11.x|
+|Red Hat Enterprise Linux|x86-64|6.x, 7.x, 8.x, 9.x|
+|Suse Linux Enterprise Server|x86-64|11.x, 12.x|
 |Ubuntu Linux|x86-64|20.04, 22.04|
-|Oracle Linux|x86-64|7.x, 6.x|
+|Oracle Linux|x86-64|6.x, 7.x|
 
 {{< /table >}}
 
@@ -64,8 +64,8 @@ The following operating systems can be used with Corda for development purposes.
 
 |Platform|CPU architecture|Versions|
 |-------------------------------|------------------|-----------|
-|Microsoft Windows|x86-64|10, 8.x|
-|Microsoft Windows Server|x86-64|2016, 2012 R2, 2012|
+|Microsoft Windows|x86-64|8.x, 10|
+|Microsoft Windows Server|x86-64|2012, 2012 R2, 2016|
 |Apple macOS|x86-64|10.9 and above|
 
 {{< /table >}}
@@ -86,7 +86,7 @@ The following database types are supported both in production and for developmen
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
 |Oracle|x86-64|11gR2|Oracle JDBC 6 |
 |Oracle|x86-64|23ai (23.4)|Oracle JDBC 11 |
-|PostgreSQL|x86-64|12.19, 13.12, 13.15, 13.3, 14.12, 15.3, 15.7, 16.3|PostgreSQL JDBC Driver 42.1.4 / 42.5.2|
+|PostgreSQL|x86-64|12.x, 13.x, 14.x, 15.x, 16.x| PostgreSQL JDBC Driver 42.7.3 |
 
 {{< /table >}}
 
@@ -106,7 +106,7 @@ The following database types are supported both in production and for developmen
 
 |Vendor|CPU architecture|Versions|JDBC driver|
 |-------------------------------|------------------|------------------|--------------------|
-|CockroachDB|x86-64|23.1.x|PostgreSQL JDBCDriver 42.5.0|
+|CockroachDB|x86-64|23.1.x, 23.2.x, 24.1.x, 24.3.x|PostgreSQL JDBCDriver 42.5.0|
 |Oracle RAC|x86-64|19c|Oracle JDBC 8|
 
 {{< /table >}}

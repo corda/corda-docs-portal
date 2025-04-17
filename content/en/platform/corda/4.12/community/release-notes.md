@@ -20,6 +20,61 @@ tags:
 
 # Corda Open Source Edition 4.12 release notes
 
+## Corda Open Source Edition 4.12.5 release notes
+
+Corda Open Source Edition 4.12.5 is a patch release of Corda Open Source Edition focused on upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../community/_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Corda Open Source Edition 4.11 to 4.12 upgrade guide]({{< relref "comm-upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
+
+### Fixed issues
+
+* In Corda 4.11 and earlier, when the node verified contracts, they were all verified within the Corda node process. This meant that any custom command line attributes defined on the node process via the capsule would be visible to contract verification; for example, system properties. In Corda 4.12, the 4.12 contracts are still verified in the Corda node process, but legacy contracts (that is, 4.11 and earlier) are now verified in the new external verifier process. This external verifier is a separate process, so it does not receive the custom command line attributes set on the Corda node process. To rectify this, a new configuration field has been defined to allow custom command line attributes to be passed to the external verifier process. This new configuration field is `custom.externalVerifierJvmArgs`.
+
+  For more information, see the `custom` configuration field in the [Configuration fields]({{< relref "corda-configuration-fields.html#custom" >}}) section.
+
+## Corda Open Source Edition 4.12.4 release notes
+
+Corda Open Source Edition 4.12.4 is a patch release of Corda Open Source Edition focused on upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../community/_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Corda Open Source Edition 4.11 to 4.12 upgrade guide]({{< relref "comm-upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
+
+### Fixed issues
+
+* Log4j has been downgraded from version 2.23.1 to 2.23.0 to avoid a defect in Log4j that could cause excessive messages to be written to the log file. This will be updated to a later version when a fixed Log4j is available.
+
+### Third-party components upgrade
+
+The following table lists the dependency version changes between 4.12.3 and 4.12.4 Open Source Editions:
+
+| Dependency                   | Name                | Version 4.12.3 Open Source   | Version 4.12.4 Open Source      |
+|------------------------------|---------------------|-----------------------------|--------------------------------|
+| io.netty:netty-buffer <br> io.netty:netty-codec* <br> io.netty:netty-common <br> io.netty:netty-handler* <br> io.netty:netty-resolver <br> io.netty:netty-transport* | Netty               | 4.1.109.Final         | 4.1.115.Final             |
+| org.apache.logging.log4j:*   | Apache                | 2.23.1           | 2.23.0          |
+
+## Corda Open Source Edition 4.12.3 release notes
+
+Corda Open Source Edition 4.12.3 is a patch release of Corda Community Edition focused on resolving issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../community/_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Corda Open Source Edition 4.11 to 4.12 upgrade guide]({{< relref "comm-upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
+
+### Fixed issues
+
+* Fixed an issue where CorDapp builds may fail to build with the error `java.lang.NoSuchFieldError: id_ml_dsa_44`. This issue arose from a version mismatch in Bouncy Castle libraries. A new LTS version of Bouncy Castle introduced this field, and it was being picked up due to version ranges specified in the Bouncy Castle dependencies. The issue has now been resolved by locking the Bouncy Castle dependencies to a specific version within Corda.
+
+* A `ClassNotFound` error, causing transaction verification to fail, does no longer occur when deserializing commands from a legacy transaction in the external verifier. This would sometimes happen because the class loader used during deserialization did not include any CorDapps and the missing class could not be auto-constructed. In cases where it did work, it was only because Corda managed to construct the missing class. This issue has now been resolved by ensuring that CorDapp classes are available during deserialization. Additionally, the external verifier's ability to auto-construct missing classes has been disabled.
+
 ## Corda Open Source Edition 4.12.2 release notes
 
 Corda Open Source Edition 4.12.2 is a patch release of Corda Community Edition focused on resolving issues.

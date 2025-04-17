@@ -413,48 +413,95 @@ See the example configurations below to see these configuration blocks being use
 ###### Azure Key Vault
 
 To keep inline with the other HSMs, the Azure Key Vault client JAR needs to provided as above. Unlike the other HSMs,
-there are many dependent libraries. The top-level dependencies are `azure-keyvault` and `adal4j`, however these both
-have transitive dependencies that need to be included. That is, either all jars need to be provided separately (via a
-comma-separated list) or an uber JAR needs to be provided.
+there are many dependent libraries. The top-level dependencies are:
 
-The gradle script below will build an uber jar. First copy the following text in to a new file called build.gradle
-anywhere on your file system. Please do not change any of your existing build.gradle files.
+* `azure-keyvault` and `msal4j` to use the new Microsoft Authentication Library (MSAL).
+* `azure-keyvault` and `adal4j` to use Azure Active Directory Authentication Library (ADAL).
 
-```kotlin
+{{< note >}}
+R3 recommends using the MSAL dependency as a way of authenticating as ADAL has been deprecated by Microsoft. You can read more about migrating your applications to MSAL in the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/msal-migration).
+{{</ note >}}
+
+###### Using `msal4j` (_available from CENM 1.6.1_)
+
+Both `azure-keyvault` and `msal4j` have transitive dependencies that need to be included. That is, either all JARs need to be provided separately (via a comma-separated list) or an uber JAR needs to be provided.
+
+The gradle script below will build an uber JAR. First copy the following text in to a new file called `build.gradle` anywhere on your file system. Do not change any of your existing `build.gradle` files.
+
+```docker
 plugins {
-id 'com.github.johnrengelman.shadow' version '5.1.0'
-id 'java'
+    id 'com.github.johnrengelman.shadow' version '4.0.4'
+    id 'java'
 }
 
 repositories {
-jcenter()
+    jcenter()
 }
 
 dependencies {
-compile 'com.microsoft.azure:azure-keyvault:1.2.1'
-compile 'com.microsoft.azure:adal4j:1.6.4'
-compile 'com.nimbusds:oauth2-oidc-sdk:7.1.1'
+    compile 'com.microsoft.azure:azure-keyvault:1.2.2'
+    compile 'com.microsoft.azure:msal4j:1.7.1'
 }
 
 shadowJar {
-relocate 'okhttp3', 'shadow.okhttp3'
-archiveName = 'azure-keyvault-with-deps.jar'
+    archiveName = 'azure-keyvault-with-deps.jar'
 }
 ```
 
-Then if gradle is on the path run the following command.
+Then, if gradle is on the path, run the following command.
 
-```kotlin
+```bash
 gradle shadowJar
 ```
 
-or if gradle is not on the path but gradlew is in the current directory then run the following command.
+Or if gradle is not on the path but gradlew is in the current directory, run the following command.
 
-```kotlin
+```bash
 ./gradlew shadowJar
 ```
 
-This will create a JAR called `azure-keyvault-with-deps.jar` which can be referenced in the config.
+This will create a JAR called `azure-keyvault-with-deps.jar` which can be referenced in the configuration.
+
+###### Using `adal4j`
+
+Both `azure-keyvault` and `adal4j` have transitive dependencies that need to be included. That is, either all JARs need to be provided separately (via a comma-separated list) or an uber JAR needs to be provided.
+
+The Gradle script below will build an uber JAR. First copy the following text in to a new file called `build.gradle`
+anywhere on your file system. Do not change any of your existing `build.gradle` files.
+
+```docker
+plugins {
+  id 'com.github.johnrengelman.shadow' version '4.0.4'
+  id 'java'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'com.microsoft.azure:azure-keyvault:1.2.1'
+    compile 'com.microsoft.azure:adal4j:1.6.4'
+}
+
+shadowJar {
+    archiveName = 'azure-keyvault-with-deps.jar'
+}
+```
+
+Then, if `gradle` is on the path, run the following command.
+
+```bash
+gradle shadowJar
+```
+
+Or if `gradle` is not on the path but `gradlew` is in the current directory, run the following command.
+
+```bash
+./gradlew shadowJar
+```
+
+This will create a JAR called `azure-keyvault-with-deps.jar` which can be referenced in the configuration.
 
 
 ##### Generating SSL Keys
@@ -1142,8 +1189,97 @@ certificates = {
 }
 ```
 
+#### Azure Key Vault HSM Configuration Using MSAL (_available from CENM 1.6.1_)
 
-#### Azure Key Vault HSM Configuration
+{{< note >}}
+R3 recommends using the MSAL dependency as a way of authenticating as MS ADAL has been deprecated by Microsoft. You can read more about migrating your applications to MSAL in the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/msal-migration).
+{{</ note >}}
+
+```docker
+hsmLibraries = [{
+    type = AZURE_MSAL_KEY_VAULT_HSM
+    jars = ["/path/to/azure-keyvault-with-deps.jar"]
+}]
+
+defaultPassword = "password"
+defaultKeyStores = ["example-hsm-key-store"]
+
+keyStores = {
+    "example-hsm-key-store" = {
+        type = AZURE_MSAL_KEY_VAULT_HSM
+        keyVaultUrl = "http://example.com"
+        protection = "HARDWARE"
+        credentials = {
+            keyStorePath = "/path/to/keystore.pem"
+            keyStorePassword = "example-password"
+            keyStoreAlias = "example-alias"
+            clientId = "01234567-89ab-cdef-0123-456789abcdef"
+            tenantId = "76543210-ab12-abcd-1234-abcdef123456"
+        }
+    }
+}
+
+certificatesStores = {
+    "network-truststore" = {
+        file = "./trust-stores/network-trust-store.jks"
+    },
+    "certificate-store" = {
+        file = "./trust-stores/certificate-store.jks"
+    }
+}
+
+certificates = {
+    "cordatlscrlsigner" = {
+        isSelfSigned = true
+        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["network-truststore", "certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/tls"
+            file = "./crl-files/tls.crl"
+            indirectIssuer = true
+            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        }
+    },
+    "cordarootca" = {
+        isSelfSigned = true
+        subject = "CN=Test Foundation Service Root Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["network-truststore", "certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/root"
+            file = "./crl-files/root.crl"
+        }
+    },
+    "cordasubordinateca" = {
+        signedBy = "cordarootca"
+        subject = "CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/subordinate"
+            file = "./crl-files/subordinate.crl"
+        }
+    },
+    "cordaidentitymanagerca" = {
+        signedBy = "cordasubordinateca"
+        subject = "CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        role = DOORMAN_CA
+    },
+    "cordanetworkmap" = {
+        signedBy = "cordasubordinateca"
+        issuesCertificates = false
+        subject = "CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        role = NETWORK_MAP
+    }
+}
+```
+
+
+#### Azure Key Vault HSM Configuration Using ADAL
+
+{{< note >}}
+R3 recommends using the MSAL dependency as a way of authenticating as MS ADAL has been deprecated by Microsoft. You can read more about migrating your applications to MSAL in the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/msal-migration).
+{{</ note >}}
 
 ```docker
 hsmLibraries = [{
