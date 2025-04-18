@@ -17,7 +17,7 @@ weight: 11
 
 Follow these steps to upgrade a node from Corda Enterprise Edition 4.10 to Corda Enterprise Edition 4.10.x.
 
-Most of the Corda 4 public, non-experimental APIs are stable. See the [full list of stable APIs]({{< relref "../../../../api-ref/api-ref-corda-4.md" >}}). If you are working with a stable API, you don't need to update your CorDapps. To upgrade:
+Most of the Corda 4 public, non-experimental APIs are stable. See the [full list of stable APIs]({{< relref "../../../../api-ref/_index.md" >}}). If you are working with a stable API, you don't need to update your CorDapps. To upgrade:
 
 1. [Drain the node]({{< relref "#step-1-drain-the-node" >}}).
 2. [Replace the corda.jar file with the new version]({{< relref "#step-2-replace-cordajar-with-the-new-version" >}}).
