@@ -3,7 +3,7 @@ aliases:
 - /head/key-concepts-flows.html
 - /HEAD/key-concepts-flows.html
 - /key-concepts-flows.html
-date: '2023-02-1'
+date: '2023-02-01'
 menu:
   corda-enterprise-4-9:
     identifier: corda-enterprise-4-9-key-concepts-flows
