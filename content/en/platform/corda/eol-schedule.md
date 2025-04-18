@@ -25,10 +25,6 @@ All dates refer to the end of the month indicated.
 The highest released version of Corda 4 Enterprise Edition at any point in time will be supported, including maintenance, until at least 31st December 2029 or until superseded by a higher version number of Corda 4 Enterprise Edition, at which point the dates in the table take precedence.
 {{< /note >}}
 
-## Corda 5
-
-{{< snippet "corda-5.2/end-of-life-corda5.md" >}}
-
 ## Corda 4
 
 {{< snippet "corda-4/end-of-life-corda4.md" >}}
