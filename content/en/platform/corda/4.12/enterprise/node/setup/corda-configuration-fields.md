@@ -346,8 +346,12 @@ Allows fine-grained controls of various features only available in the enterpris
 
 * `tuning`
 
-    * The Corda Node configuration file section that contains performance tuning parameters for Corda Enterprise Nodes.
+    * The Corda Node configuration file section that contains performance tuning parameters for Corda Enterprise nodes.
 
+    - `additionalFlowThreadPools`
+    
+       * The default Corda configuration creates a single thread pool, whose size is configured by the *[flowThreadPoolSize]({{< relref "#enterpriseconfiguration" >}})* parameter. You can define *multiple* thread pools and assign flows to them; for example, to prioritize particular flows and to segregate them from other flows. For more information, see [Setting thread pools](../../cordapps/thread-pools.md).
+  
     - `backchainFetchBatchSize`
 
         * This is an optimization for sharing transaction backchains. Corda Enterprise nodes can request backchain items in bulk instead of one at a time. This field specifies the size of the batch. The value is just an integer indicating the maximum number of states that can be requested at a time during backchain resolution.
