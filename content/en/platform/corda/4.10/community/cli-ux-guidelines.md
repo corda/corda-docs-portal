@@ -178,7 +178,7 @@ fun main(args: Array<String>) {
 
 ## Backwards compatibility
 
-Our commitment to API stability (see [Checking API stability](api-scanner.md) for more information) extends to new versions of our CLI tools. Removing and renaming
+Our commitment to API stability (see [Checking API stability]({{< relref "api-scanner.md" >}}) for more information) extends to new versions of our CLI tools. Removing and renaming
 parameters may cause existing scripts users may have written to fail, and should be avoided unless absolutely necessary.
 
 

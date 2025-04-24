@@ -503,7 +503,7 @@ Some information regarding the progress of recovery can be found in a node's `CR
 
 ## JMX metrics
 
-The JMX metrics for LedgerRecover (Automatic) are identical to those of [LedgerRecover (Manual)](ledger-recovery-manual.html#jmx-metrics).
+The JMX metrics for LedgerRecover (Automatic) are identical to those of [LedgerRecover (Manual)]({{< relref "ledger-recovery-manual.md#jmx-metrics" >}}).
 
 {{< note >}}
 The metrics do not distinguish between automatic and manual recoveries - the results returned are aggregated over both types.
@@ -511,7 +511,7 @@ The metrics do not distinguish between automatic and manual recoveries - the res
 
 ## System requirements
 
-System requirements for LedgerRecover (Automatic) are identical to those of [LedgerRecover (Manual)](ledger-recovery-manual.html#system-requirements).
+System requirements for LedgerRecover (Automatic) are identical to those of [LedgerRecover (Manual)]({<< relref "ledger-recovery-manual.md#system-requirements" >}}).
 
 ## Log messages
 

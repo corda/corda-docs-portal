@@ -16,7 +16,7 @@ title: Dockerform task
 
 # Dockerform task
 
-Corda's `cordformation` Gradle plugin provides the `Cordform` and `Dockerform` tasks. They both allow you to run tasks that automatically generate and configure a local set of nodes for testing and demonstration purposes. This page contains information about the operation of the Dockerform task. Visit the [Cordform](generating-a-node-cordform.md) page for Cordform configuration options.
+Corda's `cordformation` Gradle plugin provides the `Cordform` and `Dockerform` tasks. They both allow you to run tasks that automatically generate and configure a local set of nodes for testing and demonstration purposes. This page contains information about the operation of the Dockerform task. Visit the [Cordform]({{< relref "generating-a-node-cordform.md" >}}) page for Cordform configuration options.
 
 * Nodes deployed via `Dockerform` use Docker containers. A `Dockerform` task is similar to `Cordform` but it provides an extra file that enables you to easily spin up nodes using `docker-compose`. This creates a `docker-compose` file that enables you to run a single command to control the deployment of Corda nodes and databases (instead of deploying each node/database manually).
 * `Dockerform` tasks require Docker to be installed on the local host.
@@ -38,7 +38,7 @@ Dockerform supports the following configuration options for each node:
 
 You do not need to specify the node ports because every node has a separate container so no ports conflicts will occur. Every node will expose port `10003` for RPC connections. Docker will then map these to available ports on your host machine.
 
-You should interact with each node via its shell over SSH - see the [node configuration options](corda-configuration-file.md) for more information.
+You should interact with each node via its shell over SSH - see the [node configuration options]({{< relref "corda-configuration-file.md" >}}) for more information.
 
 To enable the shell, you need to set the `sshdPort` number for each node in the gradle task - this is explained in the section [run the Dockerform task](#run-the-dockerform-task) further below. For example:
 

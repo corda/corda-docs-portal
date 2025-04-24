@@ -14,7 +14,7 @@ weight: 800
 # Performance-tuning a node
 
 Great, so we have set up a test cluster, have all the CorDapps and JMeter installed, sorted out the firewall rules, we can get a request
-go through via the JMeter GUI (see [View Results in Table](practical-considerations.html#interpreting-and-trouble-shooting-jmeter-output) for details how to verify that), we have sorted
+go through via the JMeter GUI (see [View Results in Table]({{< relref "practical-considerations.md#interpreting-and-trouble-shooting-jmeter-output" >}}) for details how to verify that), we have sorted
 out an initial test plan and have run a performance test, but these throughput numbers are not quite what we would like to see there.
 Time to tune the node.
 
@@ -45,7 +45,7 @@ control so it is easy to go back and check settings for previous results.
 The first tweak should be to give the node more memory - the instructions  how to deploy a node recommend at
 least 2GB of memory. Performance tests at R3 typically use 8GB of memory for one node. This depends on the available memory and
 how many nodes (and other processes) are run on the same machine. There are various ways to set the heap memory of the node documented at
-[Setting JVM arguments](../node/deploy/running-a-node.html#setting-jvm-arguments). The recommended approach for performance optimisation work is to use the JVM argument section in the node
+[Setting JVM arguments]({{< relref "../node/deploy/running-a-node.md#setting-jvm-arguments" >}}). The recommended approach for performance optimisation work is to use the JVM argument section in the node
 config file as this captures the memory setting along with any other settings.
 
 Be careful with the total amount of memory allocated to processes - if the total memory allocated to all processes on one machine exceeds
@@ -64,7 +64,7 @@ to run a few tests checking whether the amount of memory can be reduced without 
 Especially on large server machines, the default number of flow threads might be on the upper limit of what is sensible. In order to find
 the optimal number, it is necessary to tweak that number via the configuration, restart the node(s), and rerun a test plan to see how the
 numbers have changed. In order to keep the tests reproducible, it might be a good idea to wipe the database between tests so index sizes
-and query times do not skew the test results for later runs (see [Resetting a Node](practical-considerations.html#resetting-a-node)).
+and query times do not skew the test results for later runs (see [Resetting a node]({{< relref "practical-considerations.md#resetting-a-node" >}})).
 
 Flow and RPC threads can be set explicitly using the [tuning section]({{< relref "../node/setup/corda-configuration-file.md" >}}) of the enterprise configuration. Add the following section to your
 node configuration file:

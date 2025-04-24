@@ -159,13 +159,13 @@ then determine the logging module name from the console output.
 
 ## SSH access
 
-Node can be configured to run SSH server. See [Node shell](shell.md) for details.
+Nodes can be configured to run SSH server. See [Node shell]({{< relref "shell.md" >}}) for details.
 
 
 ## Database access
 
 When running a node backed with a H2 database, the node can be configured to expose the database over a socket
-(see node-database-access-h2).
+(see [Database access when running H2]{{< relref "../../node-database-access-h2" >}}).
 
 Note that in a production set up, it is highly recommended to use an enterprise grade database, and access to the
 database should be via the usual database tools mechanisms, including access control and restrictions.
@@ -214,7 +214,7 @@ In order to ensure that a Jolokia agent is instrumented with the JVM run-time, y
 The following JMX statistics are exported:
 
 
-* Corda specific metrics: see [Node metrics](monitoring-and-logging/node-metrics.md) for a list.
+* Corda specific metrics: see [Node metrics]({{< relref "monitoring-and-logging/node-metrics.md" >}}) for a list.
 * Apache Artemis metrics: queue information for P2P and RPC services.
 * JVM statistics: classloading, garbage collection, memory, runtime, threading, operating system.
 
@@ -261,7 +261,7 @@ graphiteOptions = {
 }
 ```
 
-The prefix should clearly indicate the node where the metrics are coming from, as this will be the top level discrimator in the graphite metric hierarchy.
+The prefix should clearly indicate the node where the metrics are coming from, as this will be the top level discriminator in the graphite metric hierarchy.
 The graphite server must be running with python pickle transport enabled. Please refer to the documentation on
 [https://graphiteapp.org](https://graphiteapp.org) on how to install and run a graphite server.  Note that the default pickle receiver port on Graphite is 2004.
 
@@ -301,7 +301,7 @@ Unfortunately the JVM does not let you limit the total memory usage of Java prog
 A node which is running out of memory is expected to stop immediately to preserve ledger consistency and avoid flaws in operations.
 Note that it’s a responsibility of a client application to handle RPC reconnection in case this happens. It’s also advised to have
 necessary JVM monitoring and restart infrastructure in place.
-See [Setting JVM arguments](../deploy/running-a-node.html#setting-jvm-arguments) for further details on JVM out-of-memory related parameters.
+See [Setting JVM arguments]({{< relref "../deploy/running-a-node.md#setting-jvm-arguments" >}}) for further details on JVM out-of-memory related parameters.
 
 
 ## Hiding sensitive data
@@ -478,8 +478,8 @@ that were received over the network.
 A Contract CorDapp (an attachment) received over the network, is only allowed to be evaluated if there are other Contract
 CorDapps installed in the node that have been signed by at least one of the received CorDapp’s keys.
 
-See [Signature Constraints](../../cordapps/api-contract-constraints.html#signature-constraints) and
-[Signing CorDapps for use with Signature Constraints](../../cordapps/api-contract-constraints.html#signing-cordapps-for-use-with-signature-constraints) for more information
+See [Signature Constraints]({{< relref "../../cordapps/api-contract-constraints.md#signature-constraints" >}}) and
+[Signing CorDapps for use with Signature Constraints]({{< relref "../../cordapps/api-contract-constraints.md#signing-cordapps-for-use-with-signature-constraints" >}}) for more information
 
 {{< /note >}}
 

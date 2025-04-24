@@ -30,7 +30,7 @@ separate server.
 
 {{< /note >}}
 There are multiple ways of interacting with the network. When writing an application you typically won’t use the
-messaging subsystem directly. Instead you will build on top of the [flow framework](api-flows.md),
+messaging subsystem directly. Instead you will build on top of the [flow framework]({{< relref "api-flows.md" >}}),
 which adds a layer on top of raw messaging to manage multi-step flows and let you think in terms of identities
 rather than specific network endpoints.
 

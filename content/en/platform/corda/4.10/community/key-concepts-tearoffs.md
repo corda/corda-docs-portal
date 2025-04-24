@@ -20,16 +20,16 @@ title: Transaction tear-offs
 
 ## Summary
 
-* [Transaction](key-concepts-transactions.md) tear-offs hide components of the transaction for privacy purposes.
-* Use them to make sure [oracles](key-concepts-oracles.md) and non-validating [notaries](key-concepts-notaries.md) can only see transaction components relevant to them.
+* [Transaction]({{< relref "key-concepts-transactions.md" >}}) tear-offs hide components of the transaction for privacy purposes.
+* Use them to make sure [oracles]({{< relref "key-concepts-oracles.md" >}}) and non-validating [notaries]({{< relref "key-concepts-notaries.md" >}}) can only see transaction components relevant to them.
 
 ## Use cases
 
 You may want to limit some entities interacting with a transaction to specific parts of it to preserve privacy. For example:
-* An [oracle](key-concepts-oracles.md) only needs to see the commands specific to it.
-* A [non-validating notary](key-concepts-notaries.md) only needs to see a transaction’s [input states](key-concepts-states.md).
+* An [oracle]({{< relref "key-concepts-oracles.md" >}}) only needs to see the commands specific to it.
+* A [non-validating notary]({{< relref "key-concepts-notaries.md" >}}) only needs to see a transaction’s [input states]({{< relref "key-concepts-states.md" >}}).
 
-You can achieve this using **Merkle trees**. These let the node proposing the transaction “tear off” any parts of the transaction that the oracle or notary doesn’t need to see before presenting it to them for signing. Merkel trees are a cryptographic scheme that provides proofs of inclusion and data integrity. They guarantee that the parts of the transaction you tore off cannot later be changed without invalidating the oracle’s digital signature. Merkle trees are widely used in peer-to-peer networks, blockchain systems, and Git.
+You can achieve this using *Merkle trees*. These let the node proposing the transaction “tear off” any parts of the transaction that the oracle or notary does not need to see before presenting it to them for signing. Merkle trees are a cryptographic scheme that provides proofs of inclusion and data integrity. They guarantee that the parts of the transaction you tore off cannot later be changed without invalidating the oracle’s digital signature. Merkle trees are widely used in peer-to-peer networks, blockchain systems, and Git.
 
 
 
@@ -58,7 +58,7 @@ verification of data integrity. Any change in a transaction on a leaf level chan
 ### Hiding data
 
 To hide data and provide proof that it formed a part of a transaction, you can construct partial Merkle trees,
-or **Merkle branches**. A Merkle branch is a set of hashes, that given the leaves’ data, is used to calculate the
+or *Merkle branches*. A Merkle branch is a set of hashes, that given the leaves’ data, is used to calculate the
 root’s hash. Then, you can compare that hash with the hash of a whole transaction. If they match, it means that the data
 obtained belongs to that particular transaction.
 

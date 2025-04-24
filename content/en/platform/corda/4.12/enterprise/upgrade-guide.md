@@ -245,7 +245,7 @@ Pre-4.12 transactions are verified in an external verifier process when encounte
 
 ## Starting 4.12 nodes
 
-1. Run the database migration scripts. See [Use run-migration-scripts]({{< relref "node/deploy/deploying-a-node.html#use-run-migration-scripts" >}}).
+1. Run the database migration scripts. See [Use run-migration-scripts]({{< relref "node/deploy/deploying-a-node.md#use-run-migration-scripts" >}}).
 2. Start your node in the usual way:
 
    ```

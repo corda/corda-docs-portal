@@ -12,13 +12,13 @@ weight: 300
 ---
 
 {{< note >}}
-All mentions of `jmeter-corda.jar` on this page refer to the `jmeter-corda-<version>-capsule.jar` - see [Obtaining and Installing the Performance Test Suite](installation.md) for more information.
+All mentions of `jmeter-corda.jar` on this page refer to the `jmeter-corda-<version>-capsule.jar` - see [Obtaining and Installing the Performance Test Suite]({{< relref "installation.md" >}}) for more information.
 {{< /note >}}
 
 # Running JMeter Corda
 
-Jmeter Corda is distributed as a runnable “fat” JAR containing all the dependencies required to run the application.
-It comes prepacked with Corda [JMeter Samplers](jmeter-samplers.md) and a wrapper that sets up a basic configuration and allows
+JMeter Corda is distributed as a runnable “fat” JAR containing all the dependencies required to run the application.
+It comes prepacked with Corda [JMeter Samplers]({{< relref "jmeter-samplers.md" >}}) and a wrapper that sets up a basic configuration and allows
 configuration of SSH tunnels. The arguments for the `jmeter-corda` command line fall into two categories: there are
 a number of arguments that are consumed by the custom wrapper, followed by a double dash `--`. Anything after this
 will be passed on to the JMeter code as JMeter arguments (though the wrapper can add more arguments to this). The typical
@@ -45,7 +45,7 @@ In your command on the command prompt, you must place these arguments first. The
 * `-p`: This argument instructs JMeter what properties file to use. This will **always** be set by the wrapper code -
 you must **not** set it in your command on the command prompt. Use the `-XjmeterProperties` argument to the wrapper instead.
 * `-s`: This argument makes JMeter run in server mode - it will run headless and wait for instructions from a client via remote
-method invocation. See also [Installing JMeter server](installation.html#installing-jmeter-server).
+method invocation. See also [Installing JMeter server]({{< relref "installation.md#installing-jmeter-server" >}}).
 
 ## Running the JMeter GUI
 
@@ -59,7 +59,7 @@ The *clear current view* button only clears the data in the currently viewed out
 output listeners defined (as in the example above, we have *Aggregate Graph*, *Graph Results* and *View Results in Table*),
 any collector not currently selected is not affected. *Clear all data* will clear the results from all collectors.
 
-See [Understanding and Creating Testplans](jmeter-testplans.md) for details on the testplan, and how to create one.
+See [Understanding and Creating Testplans]({{< relref "jmeter-testplans.md" >}}) for details on the testplan, and how to create one.
 
 
 ## Running JMeter headless

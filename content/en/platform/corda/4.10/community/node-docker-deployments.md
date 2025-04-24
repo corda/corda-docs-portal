@@ -18,10 +18,10 @@ title: Docker deployments
 # Docker deployments
 
 This page contains a repository of example manual node operations using Docker. Before executing any of these commands,
-ensure the [Corda Docker image](docker-image.md) has been correctly configured.
+ensure the [Corda Docker image]({{< relref "docker-image.md" >}}) has been correctly configured.
 
 The node runs in a container. This is similar to executing the JAR directly, except with the need to mount directories into the container that a Corda node would normally have. It is also necessary to set up
-port-forwarding and environment variables. The same command variables can be used in running the container as when running the JAR. See the [Generating a node](generating-a-node.md) and [Running nodes locally](running-a-node.md) pages.
+port-forwarding and environment variables. The same command variables can be used in running the container as when running the JAR. See the [Generating a node]({{< relref "generating-a-node.md" >}}) and [Running nodes locally]({{< relref "running-a-node.md" >}}) pages.
 
 ## Running a node connected to a Compatibility Zone in Docker
 
@@ -100,7 +100,7 @@ It is possible to utilize the image to automatically generate a sensible minimal
 Requirements: A Compatibility Zone, the Zone Trust Root and authorisation to join said Zone.
 
 {{< /note >}}
-It is possible to use the image to automate the process of joining an existing Zone as detailed [here](compatibility-zones.md)
+It is possible to use the image to automate the process of joining an existing Zone as detailed [here]({{< relref "compatibility-zones.md" >}})
 
 The first step is to obtain the Zone Trust Root, and place it within a directory. In the below example, the Trust Root is stored at `/home/user/docker/certificates/network-root-truststore.jks`.
 It is possible to configure the name of the Trust Root file by setting the `TRUST_STORE_NAME` environment variable in the container.

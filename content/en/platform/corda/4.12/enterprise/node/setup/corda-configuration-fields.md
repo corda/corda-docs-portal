@@ -145,7 +145,7 @@ Set custom command line attributes (for example, Java system properties) on the 
   * *Default:* not defined
 * `externalVerifierJvmArgs`
   {{< important >}}
-  This configuration field is only available from Corda 4.12.5 onwards. For more information, see the [4.12.5 release notes]({{< relref "../../release-notes-enterprise.html#fixed-issues" >}}).
+  This configuration field is only available from Corda 4.12.5 onwards. For more information, see the [4.12.5 release notes]({{< relref "../../release-notes-enterprise.md#fixed-issues" >}}).
   {{< /important >}}
   * A list of JVM arguments to apply to the external verifier process.
   * *Default:* not defined

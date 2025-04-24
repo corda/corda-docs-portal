@@ -108,7 +108,7 @@ Corda Community Edition 4.10 includes several new features, enhancements, and fi
 
 Corda 4.10 uses platform version 12.
 
-For more information about platform versions, see [Versioning](versioning.md).
+For more information about platform versions, see [Versioning]({{< relref "versioning.md" >}}).
 
 ## New features and enhancements
 
@@ -134,7 +134,7 @@ Postgres 13.8 is now supported.
 
 ### Flows can now generate OpenTelemetry spans
 
-The OpenTelemetry tracing signal is now supported in flows across nodes. For more information, see [OpenTelemetry](opentelemetry.md).
+The OpenTelemetry tracing signal is now supported in flows across nodes. For more information, see [OpenTelemetry]({{< relref "opentelemetry.md" >}}).
 
 ### Improved node diagnostics
 

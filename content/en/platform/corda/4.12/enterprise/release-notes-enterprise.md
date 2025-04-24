@@ -39,7 +39,7 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 
 * In Corda 4.11 and earlier, when the node verified contracts, they were all verified within the Corda node process. This meant that any custom command line attributes defined on the node process via the capsule would be visible to contract verification; for example, system properties. In Corda 4.12, the 4.12 contracts are still verified in the Corda node process, but legacy (that is, 4.11 and earlier) contracts are now verified in the new external verifier process. This external verifier is a separate process, so it does not receive the custom command line attributes set on the Corda node process. To rectify this, a new configuration field has been defined to allow custom command line attributes to be passed to the external verifier process. This new configuration field is `custom.externalVerifierJvmArgs`.
 
-  For more information, see the `custom` configuration field in the [Configuration fields]({{< relref "node/setup/corda-configuration-fields.html#custom" >}}) section.
+  For more information, see the `custom` configuration field in the [Configuration fields]({{< relref "node/setup/corda-configuration-fields.md#custom" >}}) section.
 
 ## Corda Enterprise Edition 4.12.4 release notes
 
@@ -258,7 +258,7 @@ The base Corda package includes several SDKs and libraries. These SDKs and libra
 
 #### Collaborative Recovery removed
 
-The Collaborative Recovery solution, along with the associated CorDapps (LedgerSync and LedgerRecover), is deprecated, and has been removed in Corda 4.12. You are now advised to use the new recovery tools introduced in version 4.11, as described in the [Corda Enterprise Edition 4.11 release notes]({{< relref "../../4.11//enterprise/release-notes-enterprise.html#corda-enterprise-edition-411-release-notes-1" >}}).
+The Collaborative Recovery solution, along with the associated CorDapps (LedgerSync and LedgerRecover), is deprecated, and has been removed in Corda 4.12. You are now advised to use the new recovery tools introduced in version 4.11, as described in the [Corda Enterprise Edition 4.11 release notes]({{< relref "../../4.11//enterprise/release-notes-enterprise.md#corda-enterprise-edition-411-release-notes-1" >}}).
 
 #### Transaction Validator Utility
 

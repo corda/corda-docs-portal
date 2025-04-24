@@ -40,8 +40,8 @@ You will deploy and run the sample CorDapp on the following test nodes:
 
 ## Before you start
 
-* Learn [what a CorDapp is](cordapp-overview.md).
-* Set up your [development environment](getting-set-up.md).
+* Learn [what a CorDapp is]({{< relref "cordapp-overview.md" >}}).
+* Set up your [development environment]({{< relref "getting-set-up.md" >}}).
 
 
 ## Step 1: Download the sample CorDapp
@@ -276,7 +276,7 @@ You can connect directly to your node’s database to see its stored states, tra
 
 ## Step 6: Test the CorDapp
 
-Corda provides several frameworks for writing unit and integration tests for CorDapps. To access test flows in IntelliJ, select an option from the ‘Run Configurations’ dropdown next to the **hammer icon**.  For a general guide, see [Running tests in IntelliJ](../testing.html#running-tests-in-intellij).
+Corda provides several frameworks for writing unit and integration tests for CorDapps. To access test flows in IntelliJ, select an option from the ‘Run Configurations’ dropdown next to the **hammer icon**.  For a general guide, see [Running tests in IntelliJ]({{< relref "../testing.md#running-tests-in-intellij" >}}).
 
 ### Integration tests
 
@@ -314,9 +314,9 @@ If your test fails, run a Gradle test instead of a unit test.
 
 ## Related Content
 
-* [Debugging a CorDapp](debugging-a-cordapp.md)
-* [Writing a CorDapp](writing-a-cordapp.md)
-* [Build a CorDapp](cordapp-build-systems.md)
+* [Debugging a CorDapp]({{< relref "debugging-a-cordapp.md" >}})
+* [Writing a CorDapp]({{< relref "writing-a-cordapp.md" >}})
+* [Build a CorDapp]({{< relref "cordapp-build-systems.md" >}})
 
 
 ## Appendix A: Project structure

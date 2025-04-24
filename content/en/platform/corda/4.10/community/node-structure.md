@@ -58,5 +58,5 @@ The keystores store the key pairs and certificates under the following aliases:
 All the keystores use the password provided in the node’s configuration file using the `keyStorePassword` attribute.
 If no password is configured, it defaults to `cordacadevpass`.
 
-To learn more, see [Network certificates](permissioning.md).
+To learn more, see [Network certificates]({{< relref "permissioning.md" >}}).
 
