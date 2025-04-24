@@ -252,7 +252,7 @@ safe manner.
 
 {{< note >}}
 A limit of **five** non-whitelisted arguments can be passed to the flow constructor using the `CordaRPCOps.startFlow` method.
-Compound objects can be passed as long as they are [whitelisted](serialization.html#whitelisting) using the `@CordaSerializable` annotation.
+Compound objects can be passed as long as they are [whitelisted]({{< relref "serialization.md#whitelisting" >}}) using the `@CordaSerializable` annotation.
 {{< /note >}}
 
 The process of starting a flow returns a `FlowHandle` that you can use to observe the result, and which also contains

@@ -34,7 +34,7 @@ Since some recovery flows have been designed to be run manually, you can set ale
 ## Monitor reconciliation and receive alerts using metrics
 
 The Collaborative Recovery CorDapps expose a number of JMX metrics via Jolokia. You can see the full list of the exposed metrics for
-[LedgerSync here](ledger-sync.html#jmx-metrics), and [LedgerRecover here]{{< relref "ledger-recovery-automatic.md" >}}). These are exposed alongside metrics from the node.
+[LedgerSync here]({{< relref "ledger-sync.md#jmx-metrics" >}}), and [LedgerRecover here]{{< relref "ledger-recovery-automatic.md" >}}). These are exposed alongside metrics from the node.
 You can also [monitor via Jolokia](../operating/node-administration.html#monitoring-via-jolokia).
 
 

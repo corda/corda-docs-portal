@@ -45,7 +45,7 @@ In your command on the command prompt, you must place these arguments first. The
 * `-p`: This argument instructs JMeter what properties file to use. This will **always** be set by the wrapper code -
 you must **not** set it in your command on the command prompt. Use the `-XjmeterProperties` argument to the wrapper instead.
 * `-s`: This argument makes JMeter run in server mode - it will run headless and wait for instructions from a client via remote
-method invocation. See also [Installing JMeter server](installation.html#installing-jmeter-server).
+method invocation. See also [Installing JMeter server]({{< relref "installation.md#installing-jmeter-server" >}}).
 
 ## Running the JMeter GUI
 
