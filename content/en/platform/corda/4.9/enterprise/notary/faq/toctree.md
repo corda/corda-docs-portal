@@ -16,7 +16,7 @@ Frequently asked questions for anything notary related:
 
 
 
-* [Backpressure Mechanism Overview](eta-mechanism.md)
+* [Backpressure Mechanism Overview]{{< relref "eta-mechanism.md" >}})
     * [What is the backpressure mechanism?](eta-mechanism.html#what-is-the-backpressure-mechanism)
     * [How is the backpressure calculated?](eta-mechanism.html#how-is-the-retry-time-calculated)
     * [Why is there a backpressure mechanism?](eta-mechanism.html#why-is-there-a-backpressure-mechanism)
@@ -24,7 +24,7 @@ Frequently asked questions for anything notary related:
     * [How can I configure backpressure threshold?](eta-mechanism.html#how-can-i-configure-backpressure-threshold)
 
 
-* [Notary Load Balancing](notary-load-balancing.md)
+* [Notary Load Balancing]{{< relref "notary-load-balancing.md" >}})
     * [How are clustered notaries resolved by Artemis?](notary-load-balancing.html#how-are-clustered-notaries-resolved-by-artemis)
     * [Why is the load balancing on the client side?](notary-load-balancing.html#why-is-the-load-balancing-on-the-client-side)
     * [What happens if a notary in cluster becomes unavailable and does not respond?](notary-load-balancing.html#what-happens-if-a-notary-in-cluster-becomes-unavailable-and-does-not-respond)
@@ -32,7 +32,7 @@ Frequently asked questions for anything notary related:
     * [In what order are notarisation requests processed?](notary-load-balancing.html#in-what-order-are-notarisation-requests-processed)
 
 
-* [Notary Failover](notary-failover.md)
+* [Notary Failover]{{< relref "notary-failover.md" >}})
     * [How does the timeout work?](notary-failover.html#how-does-the-timeout-work)
     * [What is the backpressure mechanism?](notary-failover.html#what-is-the-backpressure-mechanism)
     * [What happens on multiple successful responses caused by retrying?](notary-failover.html#what-happens-on-multiple-successful-responses-caused-by-retrying)

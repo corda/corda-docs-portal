@@ -97,11 +97,11 @@ Each Network Map requires:
 
 ## More in this section
 
-* [What is a compatibility zone?](compatibility-zones.md)
+* [What is a compatibility zone?]{{< relref "compatibility-zones.md" >}})
     * [How do I become part of a compatibility zone?](compatibility-zones.html#how-do-i-become-part-of-a-compatibility-zone)
         * [Bootstrapping a compatibility zone](compatibility-zones.html#bootstrapping-a-compatibility-zone)
         * [Joining an existing compatibility zone](compatibility-zones.html#joining-an-existing-compatibility-zone)
-        * [Setting up a dynamic compatibility zone](setting-up-a-dynamic-compatibility-zone.md) (in detail)
+        * [Setting up a dynamic compatibility zone]{{< relref "setting-up-a-dynamic-compatibility-zone.md" >}}) (in detail)
             * [Do you need to create your own dynamic compatibility zone?](setting-up-a-dynamic-compatibility-zone.html#do-you-need-to-create-your-own-dynamic-compatibility-zone)
             * [Why create your own zone?](setting-up-a-dynamic-compatibility-zone.html#why-create-your-own-zone)
             * [How to create your own compatibility zone](setting-up-a-dynamic-compatibility-zone.html#how-to-create-your-own-compatibility-zone)
@@ -111,11 +111,11 @@ Each Network Map requires:
                     * [Writing a doorman server](setting-up-a-dynamic-compatibility-zone.html#writing-a-doorman-server)
                     * [Setting zone parameters](setting-up-a-dynamic-compatibility-zone.html#setting-zone-parameters)
                 * [Selecting parameter values](setting-up-a-dynamic-compatibility-zone.html#selecting-parameter-values)
-* [Network certificates](permissioning.md)
+* [Network certificates]{{< relref "permissioning.md" >}})
     * [Certificate hierarchy](permissioning.html#certificate-hierarchy)
     * [Key pair and certificate formats](permissioning.html#key-pair-and-certificate-formats)
     * [Certificate role extension](permissioning.html#certificate-role-extension)
-* [The network map](network-map.md)
+* [The network map]{{< relref "network-map.md" >}})
     * [HTTP network map protocol](network-map.html#http-network-map-protocol)
         * [Additional endpoints from R3](network-map.html#additional-endpoints-from-r3)
     * <a href="network-map.html#the-additional-node-infos-directory">The `additional-node-infos` directory</a>
@@ -125,6 +125,6 @@ Each Network Map requires:
         * [Manual Acceptance](network-map.html#manual-acceptance)
     * [Private networks](network-map.html#private-networks)
     * [Cleaning the network map cache](network-map.html#cleaning-the-network-map-cache)
-* [Cipher suites supported by Corda](cipher-suites.md)
+* [Cipher suites supported by Corda]{{< relref "cipher-suites.md" >}})
     * [Certificate hierarchy](cipher-suites.html#certificate-hierarchy)
     * [Supported cipher suites](cipher-suites.html#supported-cipher-suites)

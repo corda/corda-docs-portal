@@ -13,7 +13,7 @@ weight: 900
 
 # Performance benchmarking results
 
-This page captures the results of historical benchmarking measurements performed by R3. Unless otherwise stated, the necessary tooling is available as part of the [performance test suite](installation.md) and it can be used to reproduce the same work.
+This page captures the results of historical benchmarking measurements performed by R3. Unless otherwise stated, the necessary tooling is available as part of the [performance test suite]{{< relref "installation.md" >}}) and it can be used to reproduce the same work.
 
 ## Comparing Corda Enterprise Edition 4.0 vs Corda Enterprise 3.x and Corda Community Edition
 

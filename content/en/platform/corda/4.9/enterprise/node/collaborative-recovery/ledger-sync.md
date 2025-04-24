@@ -20,7 +20,7 @@ weight: 400
 * Business Network Operators (BNOs)
 * Corda developers
 
-Part of [Collaborative Recovery](introduction-cr.md), LedgerSync is a CorDapp used to discover any differences between the common ledger data held by two nodes that exist on the same Business Network. This is called the **Reconciliation** stage of collaborative recovery.
+Part of [Collaborative Recovery]{{< relref "introduction-cr.md" >}}), LedgerSync is a CorDapp used to discover any differences between the common ledger data held by two nodes that exist on the same Business Network. This is called the **Reconciliation** stage of collaborative recovery.
 
 It uses an efficient set reconciliation algorithm to minimise the amount of network communication required. Reconciliations can be configured to run both on-demand, and at a given time (through the use of scheduled states).
 
@@ -585,7 +585,7 @@ In all cases, it may be necessary to *kill* the flow. See below for the details 
 
 ### Step 3. Transaction recovery
 
-If differences were found during the reconciliation, the next step will be to perform an [Automatic Recovery](ledger-recovery-automatic.md) or a [ManualRecovery](ledger-recovery-manual.md).
+If differences were found during the reconciliation, the next step will be to perform an [Automatic Recovery]{{< relref "ledger-recovery-automatic.md" >}}) or a [ManualRecovery]{{< relref "ledger-recovery-manual.md" >}}).
 
 #### Killing Reconciliation Flows
 

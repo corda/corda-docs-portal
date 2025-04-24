@@ -36,7 +36,7 @@ The performance test suite is shipped as a `.zip` file containing the following 
 Simply create a working directory for JMeter Corda on the client machine and unzip the performance test suite to this
 directory. This app requires an Oracle JRE version 1.8 build 172 or later. After unpacking,
 you should immediately be able to run it from a shell by typing `java -jar jmeter-corda.jar`. Please refer to
-[Running JMeter Corda](running-jmeter-corda.md) for details and command line options.
+[Running JMeter Corda]{{< relref "running-jmeter-corda.md" >}}) for details and command line options.
 
 
 
@@ -49,7 +49,7 @@ installed.
 If SSH tunneling is in use, the server will also need access to the same RMI port mappings file used on the client side.
 Also, if the client side uses a customised JMeter properties file that differs from the default one baked into the JMeter
 JAR file by more than just the
-list of remote host names from, this needs to be used on the server side as well. See [Running JMeter Corda](running-jmeter-corda.md)
+list of remote host names from, this needs to be used on the server side as well. See [Running JMeter Corda]{{< relref "running-jmeter-corda.md" >}})
 for details on the command line options required. A typical command line might look like this:
 
 ```kotlin

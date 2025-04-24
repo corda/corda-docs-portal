@@ -80,7 +80,7 @@ When building the `LedgerTransaction`, the `inputs` and `references` are resolve
 fetched from previous transactions that were in turn serialized in that context (within the classloader of that transaction - introduced here: [Contract execution in the AttachmentsClassloader and the no-overlap rule.](#contract-execution-in-the-attachmentsclassloader-and-the-no-overlap-rule)).
 This model has consequences when it comes to how states can be evolved. Removing a field from a newer version of a state would mean
 that when deserializing that state in the context of a transaction using the more recent code, that field could just disappear.
-In Corda 4 we implemented the no-data loss rule, which prevents this to happen. See [Default Class Evolution](serialization-default-evolution.md).
+In Corda 4 we implemented the no-data loss rule, which prevents this to happen. See [Default Class Evolution]{{< relref "serialization-default-evolution.md" >}}).
 
 {{< /note >}}
 

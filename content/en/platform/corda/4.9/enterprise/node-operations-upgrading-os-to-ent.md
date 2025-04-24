@@ -95,8 +95,8 @@ Please contact R3 for further advice.
 
 CorDapps, contracts and states written for Corda 4.x are compatible with Corda Enterprise Edition 4.9, so upgrading
 existing Corda Community Edition nodes should be a simple case of updating the Corda JAR file.
-See [Upgrading a node](node-upgrade-notes.md) for general instructions on upgrading your node.
-For developer information on recompiling CorDapps against Corda Enterprise, See [Upgrading a CorDapp to a newer platform version](app-upgrade-notes.md).
+See [Upgrading a node]{{< relref "node-upgrade-notes.md" >}}) for general instructions on upgrading your node.
+For developer information on recompiling CorDapps against Corda Enterprise, See [Upgrading a CorDapp to a newer platform version]{{< relref "app-upgrade-notes.md" >}}).
 
 ### Reusing an existing database
 

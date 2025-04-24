@@ -119,7 +119,7 @@ the `TLS` socket server key and certificates into the `FloatOuter`. The process 
 
 ## Fields
 
-The configuration fields are listed in [Corda Enterprise Firewall configuration fields](corda-firewall-configuration-fields.md).
+The configuration fields are listed in [Corda Enterprise Firewall configuration fields]{{< relref "corda-firewall-configuration-fields.md" >}}).
 
 
 ## Complete example
