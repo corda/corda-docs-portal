@@ -26,8 +26,7 @@ that are otherwise available from [Corda Network](https://corda.network), which 
 **Release notes**
 
 * For all Corda Enterprise Network Manager release notes, see the [Corda Enterprise Network Manager release notes]({{< relref "../../../../../en/platform/corda/1.6/cenm/release-notes.md" >}}) page.
-* For all Corda 4 Enterprise Edition release notes, see [Welcome to Corda - Corda 4 Enterprise]({{< relref "../../../../../en/platform/corda.md#corda-4-enterprise" >}}).
-* For all Corda 4 Community Edition release notes, see [Welcome to Corda - Corda 4 Community Edition (Formerly Open Source)]({{< relref "../../../../../en/platform/corda.md#corda-4-community-edition-formerly-open-source" >}}).
+* For all Corda 4 Enterprise Edition and Community/Open Source release notes, see [Welcome to Corda]({{< relref "../../../../../en/platform/corda/_index.md" >}}).
 
 {{< /note >}}
 
