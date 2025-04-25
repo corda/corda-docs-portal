@@ -185,7 +185,7 @@ database {
 
 ### Embedded shell (optional)
 
-See [Shell Configuration](../../../../../en/platform/corda/1.6/cenm/shell.html#shell-config) for more information on how to configure the shell.
+See [Shell Configuration]({{< relref "../../../../../en/platform/corda/1.6/cenm/shell.md#shell-config" >}}) for more information on how to configure the shell.
 
 
 ### Issuance Workflow

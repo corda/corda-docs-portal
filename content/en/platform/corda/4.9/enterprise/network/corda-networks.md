@@ -117,7 +117,7 @@ Each Network Map requires:
     * [Certificate role extension]({{< relref "permissioning.md#certificate-role-extension" >}})
 * [The network map]{{< relref "network-map.md" >}})
     * [HTTP network map protocol]({{< relref "network-map.md#http-network-map-protocol" >}})
-        * [Additional endpoints from R3](network-map.html#additional-endpoints-from-r3)
+        * [Additional endpoints from R3]({{< relref "network-map.md#additional-endpoints-from-r3" >}})
     * <a href="network-map.html#the-additional-node-infos-directory">The `additional-node-infos` directory</a>
     * [Network parameters]({{< relref "network-map.md#network-parameters" >}})
     * [Network parameters update process]({{< relref "network-map.md#network-parameters-update-process" >}})

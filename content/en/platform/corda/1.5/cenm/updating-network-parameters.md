@@ -40,7 +40,7 @@ At a high level, the process is as follows:
 
 ## Editing network parameters configuration
 
-See [Setting the Network Parameters](../../../../../en/platform/corda/1.5/cenm/network-map.html#network-parameters)
+See [Setting the Network Parameters]({{< relref "../../../../../en/platform/corda/1.5/cenm/network-map.md#network-parameters" >}})
 for information on the network parameters configuration file format and options.
 
 When updating the network parameters, ensure that the network parameters file has the

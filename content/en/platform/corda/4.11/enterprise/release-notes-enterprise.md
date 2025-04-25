@@ -289,7 +289,7 @@ for traffic load balancers and system monitoring. To reduce log noise, we have n
 
 ## Database schema changes
 
-For a complete description of all database tables, see [Database tables]({{< relref "node/operating/node-database-tables.html" >}}).
+For a complete description of all database tables, see [Database tables]({{< relref "node/operating/node-database-tables.md" >}}).
 
 The following database changes have been applied:
 

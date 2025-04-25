@@ -47,7 +47,7 @@ Note the `.0`.
 
 You have installed the Docker image with CENM CLI tool.
 
-To get the tool ready to use from within the Docker container, check the [Kubernetes deployment guide](../../../../../en/platform/corda/1.6/cenm/deployment-kubernetes.html#network-operations).
+To get the tool ready to use from within the Docker container, check the [Kubernetes deployment guide]({{< relref "../../../../../en/platform/corda/1.6/cenm/deployment-kubernetes.md#network-operations" >}}).
 
 ## Set up the CENM CLI Tool
 

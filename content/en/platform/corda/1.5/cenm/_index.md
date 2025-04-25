@@ -26,8 +26,8 @@ that are otherwise available from [Corda Network](https://corda.network), which 
 **Release notes**
 
 * For all Corda Enterprise Network Manager release notes, see the [Corda Enterprise Network Manager release notes]({{< relref "../../../../../en/platform/corda/1.5/cenm/release-notes.md" >}}) page.
-* For all Corda 4 Enterprise Edition release notes, see [Welcome to Corda - Corda 4 Enterprise](../../../../../en/platform/corda.html#corda-4-enterprise).
-* For all Corda 4 Community Edition release notes, see [Welcome to Corda - Corda 4 Community Edition (Formerly Open Source)](../../../../../en/platform/corda.html#corda-4-community-edition-formerly-open-source).
+* For all Corda 4 Enterprise Edition release notes, see [Welcome to Corda - Corda 4 Enterprise]({{< relref "../../../../../en/platform/corda.md#corda-4-enterprise" >}}).
+* For all Corda 4 Community Edition release notes, see [Welcome to Corda - Corda 4 Community Edition (Formerly Open Source)]({{< relref "../../../../../en/platform/corda.md#corda-4-community-edition-formerly-open-source" >}}).
 
 {{< /note >}}
 
@@ -53,10 +53,10 @@ For a quick start guide on deploying Corda Enterprise Network Manager services a
 
 * [Corda Networks]({{< relref "../../../../../en/platform/corda/1.5/cenm/corda-networks.md" >}})
 * [Components of the Corda Enterprise Network Manager]({{< relref "../../../../../en/platform/corda/1.5/cenm/enm-components.md" >}})
-* [The workflow](../../../../../en/platform/corda/1.5/cenm/enm-components.html#the-workflow)
-* [Databases](../../../../../en/platform/corda/1.5/cenm/enm-components.html#databases)
-* [Public Key Infrastructure (PKI)](../../../../../en/platform/corda/1.5/cenm/enm-components.html#public-key-infrastructure-pki)
-* [The node](../../../../../en/platform/corda/1.5/cenm/enm-components.html#the-node)
+* [The workflow]({{< relref "../../../../../en/platform/corda/1.5/cenm/enm-components.md#the-workflow" >}})
+* [Databases]({{< relref "../../../../../en/platform/corda/1.5/cenm/enm-components.md#databases" >}})
+* [Public Key Infrastructure (PKI)]({{< relref "../../../../../en/platform/corda/1.5/cenm/enm-components.md#public-key-infrastructure-pki" >}})
+* [The node]({{< relref "../../../../../en/platform/corda/1.5/cenm/enm-components.md#the-node" >}})
 * [Sub Zones]({{< relref "../../../../../en/platform/corda/1.5/cenm/sub-zones.md" >}})
 * [Network Map overview]({{< relref "../../../../../en/platform/corda/1.5/cenm/network-map-overview.md" >}})
 * [Certificate Revocation List]({{< relref "../../../../../en/platform/corda/1.5/cenm/certificate-revocation.md" >}})

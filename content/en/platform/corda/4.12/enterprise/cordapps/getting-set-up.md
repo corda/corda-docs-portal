@@ -64,7 +64,7 @@ R3 recommends [running a sample CorDapp]({{< relref "tutorial-cordapp.md" >}}) t
 ## Resources
 
 * [Sample CorDapps, templates, and community projects](https://www.corda.net/samples/)
-* [Corda API documentation](../../../../../../en/api-ref.md)
+* [Corda API documentation]({{< relref "../../../../../../en/api-ref/_index.md" >}})
 * [Flow cookbook]({{< relref "flow-cookbook.md" >}})
 * CorDapp [Java](https://github.com/corda/samples-java/tree/release/4.12) and [Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.12) sample repositories - contain multiple sample CorDapps, from those to get you started, to those which demonstrate specific features and advanced usage
 * CorDapp [Java](https://github.com/corda/cordapp-template-java/tree/release/4.12) and [Kotlin](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12) templates - a stubbed-out CorDapp that you can use to bootstrap your own CorDapps

@@ -139,7 +139,7 @@ For a given flow checkpoint, the agent reports:
 * Information about the checkpoint such as its `flowId`.
 * A nested hierarchical view of its reachable objects and their associated sizes, including the state of any flows held within the checkpoint.
 
-The checkpoint agent writes information to standard Log4j2 log files in the node's `log` directory. This tool is particularly useful when used in conjunction with the `checkpoints dump` [CRaSH shell command](../../../../../../../../en/platform/corda/4.9/enterprise/node/operating/shell.html#output-information-about-the-flows-running-on-the-node) to identify and troubleshoot problems associated with flows not completing. When a checkpoint is serialized to disk the checkpoint agent has access to all checkpoint data, including the fiber it was running on and the checkpoint ID. When a checkpoint is deserialized from disk the checkpoint agent only has access to the stack class hierarchy.
+The checkpoint agent writes information to standard Log4j2 log files in the node's `log` directory. This tool is particularly useful when used in conjunction with the `checkpoints dump` [CRaSH shell command]({{< relref "../../../../../../../../en/platform/corda/4.9/enterprise/node/operating/shell.md#output-information-about-the-flows-running-on-the-node" >}}) to identify and troubleshoot problems associated with flows not completing. When a checkpoint is serialized to disk the checkpoint agent has access to all checkpoint data, including the fiber it was running on and the checkpoint ID. When a checkpoint is deserialized from disk the checkpoint agent only has access to the stack class hierarchy.
 
 To use the checkpoint agent:
 

@@ -24,7 +24,7 @@ title: Nodes
 * The node interfaces with the outside world through:
   * The [network]{{< relref "key-concepts-ecosystem.md" >}}), which lets it interact with other nodes.
   * Remote procedure Call (RPC), which lets the node's owner interact with it.
-* You can add extra functions to your node by installing [CorDapps](cordapps/cordapp-overview.md) in the plugin registry. CorDapps are distributed applications that let you accomplish different objectives with Corda.
+* You can add extra functions to your node by installing [CorDapps]({{< relref "cordapps/cordapp-overview.md" >}}) in the plugin registry. CorDapps are distributed applications that let you accomplish different objectives with Corda.
 
 ## Video
 
@@ -102,4 +102,4 @@ Draining mode ensures that before shutting down:
 Once the number of active flows reaches zero, it is safe to shut the node down.
 The draining mode property is durable, meaning that restarting the node does not reset it to its default value and that an RPC command is required.
 
-The node can be safely shut down via a drain using the [shell](node/operating/shell.md), Corda's embedded command line.
+The node can be safely shut down via a drain using the [shell]({{< relref "node/operating/shell.md" >}}), Corda's embedded command line.

@@ -121,7 +121,7 @@ node {
 
 ## Required configuration
 
-* `name` &lt;string&gt; - use this configuration option to specify the legal identity name of the Corda node. For more information, see [myLegalName]({{< relref "../setup/corda-configuration-fields.html#mylegalname" >}}). For example:
+* `name` &lt;string&gt; - use this configuration option to specify the legal identity name of the Corda node. For more information, see [myLegalName]({{< relref "../setup/corda-configuration-fields.md#mylegalname" >}}). For example:
 
 ```kotlin
 name "O=PartyA,L=London,C=GB"

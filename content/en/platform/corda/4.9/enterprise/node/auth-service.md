@@ -235,6 +235,6 @@ Reset user (**initializer**): Use this command group to reset, re-enable, and un
 Auth Service needs to be set up with baseline permission data for each application.
 {{< /note >}}
 
-* [CENM management console](../../../../../../en/platform/corda/1.5/cenm/cenm-console.html#installation)
-* [Node management console](../../../../../../en/platform/corda/4.9/enterprise/node/management-console.html#installation)
-* [Flow management console](../../../../../../en/platform/corda/4.9/enterprise/node/node-flow-management-console.html#installation)
+* [CENM management console]({{< relref "../../../../../../en/platform/corda/1.5/cenm/cenm-console.md#installation" >}})
+* [Node management console]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/node/management-console.md#installation" >}})
+* [Flow management console]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/node/node-flow-management-console.md#installation" >}})
