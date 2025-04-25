@@ -24,7 +24,7 @@ With Corda Enterprise, you can query flow data in the following ways:
 
 ## Querying flow data via RPC
 
-Corda Enterprise exposes a number of custom, remote RPC interfaces, which enable you to interact with your node. For a list of all the remote interfaces that are available in Corda Enterprise, see [Building a Multi RPC Client](../../../../../../../en/platform/corda/4.8/enterprise/node/operating/clientrpc.html#building-the-multi-rpc-client).
+Corda Enterprise exposes a number of custom, remote RPC interfaces, which enable you to interact with your node. For a list of all the remote interfaces that are available in Corda Enterprise, see [Building a Multi RPC Client]({{< relref "clientrpc.md#building-the-multi-rpc-client" >}}).
 
 The `net.corda.client.rpc.proxy.NodeFlowStatusRpcOps` interface is an RPC extension which enables external applications to query and view the status of the flows which are currently being monitored by the Flow Hospital.
 

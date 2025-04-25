@@ -51,7 +51,7 @@ This change does not remove the file size limit from a network, so if the export
 
 ### Changes in V1.2
 
-In Collaborative Recovery V1.2, LedgerSync has been modified to be compatible with the [Archive Service]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/archiving/archiving-setup.md" >}}).
+In Collaborative Recovery V1.2, LedgerSync has been modified to be compatible with the [Archive Service]({{< relref "../archiving/archiving-setup.md" >}}).
 
 ### Changes from V1.0 to V1.1
 

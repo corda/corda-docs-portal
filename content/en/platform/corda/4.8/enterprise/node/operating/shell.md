@@ -337,7 +337,7 @@ otherResults: []
 
 ### Upload and download attachments
 
-The shell can be used to upload and download attachments from the node. To learn how, see the [Working with attachments](../../get-started/tutorials/supplementary-tutorials/tutorial-attachments.html#uploading-an-attachment) tutorial.
+The shell can be used to upload and download attachments from the node. To learn how, see the [Working with attachments]({{< relref "../../get-started/tutorials/supplementary-tutorials/tutorial-attachments.md#uploading-an-attachment" >}}) tutorial.
 
 
 ### Extract attachment information
@@ -496,7 +496,7 @@ Use the different flow commands available to make changes on the ledger. You can
 
 #### Query flow data
 
-The shell can be used to query flow data. For more information on the types of data that can be queried and instructions for doing so, see the documentation on [Querying flow data](../../../../../../../en/platform/corda/4.8/enterprise/node/operating/querying-flow-data.html#querying-flow-data-via-the-node-shell).
+The shell can be used to query flow data. For more information on the types of data that can be queried and instructions for doing so, see the documentation on [Querying flow data]({{< relref "querying-flow-data.md#querying-flow-data-via-the-node-shell" >}}).
 
 
 #### Start a flow

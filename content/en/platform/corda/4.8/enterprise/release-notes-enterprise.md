@@ -22,7 +22,7 @@ Corda Enterprise Edition 4.8.12 is a patch release of Corda Enterprise Edition f
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.10/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../4.10/enterprise/upgrading-index.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -41,7 +41,7 @@ Corda Enterprise Edition 4.8.11 is a patch release of Corda Enterprise focused o
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.10/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../4.10/enterprise/upgrading-index.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -97,7 +97,7 @@ Corda Enterprise Edition 4.8.10 is a patch release of Corda Enterprise focused o
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -121,7 +121,7 @@ Corda Enterprise Edition 4.8.9 is a patch release of Corda Enterprise focused on
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -133,7 +133,7 @@ Corda Enterprise Edition 4.8.8 is a patch release of Corda Enterprise focused on
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -161,9 +161,9 @@ Corda Enterprise Edition 4.8.7 is a patch release of Corda Enterprise that ensur
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../4.9/enterprise/upgrading-index.md" >}}).
+As a developer, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
 
-As a node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}).
+As a node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}).
 
 ### Fixed issues
 
@@ -176,15 +176,15 @@ Corda Enterprise Edition 4.8.6 is a patch release of Corda Enterprise which incl
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../4.8/enterprise/upgrading-index.md" >}}).
+As a developer, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
 
-As a node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}).
+As a node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}).
 
 ### Fixed issues
 
 In this patch release:
 
-* Artemis keystore details have been added to the bridge configuration example in the [Firewall component overview](node/corda-firewall-component.html#full-production-ha-dmz-ready-mode-hotcold-node-hotwarm-bridge).
+* Artemis keystore details have been added to the bridge configuration example in the [Firewall component overview]({{< relref "node/corda-firewall-component.md#full-production-ha-dmz-ready-mode-hotcold-node-hotwarm-bridge" >}}).
 * Serializer configuration updated to fix an issue where a node could not restore its flow from checkpoints in cases of failure.
 * Instances of the `ValidatingNotaryFlow` being incorrectly marked as an `IdempotentFlow` has been fixed.
 * A rare issue where records could show up in the vault in an inconsistent state has been resolved. On failed database entries, the vault cache is now invalidated and re-synced with the database.
@@ -208,8 +208,8 @@ Upgrade to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https:
 
 ### Upgrade recommendation
 
-As a developer, you should urgently upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../4.8/enterprise/upgrading-index.md" >}}).
-As a node operator, you should urgently upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}).
+As a developer, you should urgently upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
+As a node operator, you should urgently upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}).
 
 ### Fixed issues
 
@@ -235,9 +235,9 @@ Corda Enterprise Edition 4.8.3 is a patch release of Corda Enterprise that fixes
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../4.8/enterprise/upgrading-index.md" >}}).
+As a developer, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
 
-As a node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
@@ -252,9 +252,9 @@ Corda Enterprise Edition 4.8.2 is a patch release of Corda Enterprise that fixes
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../4.8/enterprise/upgrading-index.md" >}}).
+As a developer, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
 
-As a node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
@@ -280,9 +280,9 @@ Corda Enterprise Edition 4.8.1 is a patch release of Corda Enterprise that fixes
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../4.8/enterprise/upgrading-index.md" >}}).
+As a developer, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
 
-As a node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.8/enterprise/_index.md" >}}) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
@@ -294,8 +294,8 @@ In this patch release:
 * Performance verification of the HA Notary with CockroachDB 20.2.8 has been carried out - performance is not worse in comparison to the HA Notary configured on CockroachDB 20.1.6.
 * Support for PostgreSQL 13.8 for node databases has been added.
 * Hibernate ORM has been updated to version to 5.4.32 to remove a security concern.
-* The [Node management console](../../../../../en/platform/corda/4.8/enterprise/node/management-console.html#node-management-console) configuration has been updated. Configuration is now set in `node.management.plugin.middleware`, no longer `node.admin.middleware`.
-* The [Flow management console](../../../../../en/platform/corda/4.8/enterprise/node/node-flow-management-console.html#flow-management-console) configuration has been updated. Configuration is now set in `flow.management.plugin.middleware`, no longer `flow.admin.middleware`.
+* The [Node management console]({{< relref "node/management-console.md#node-management-console" >}}) configuration has been updated. Configuration is now set in `node.management.plugin.middleware`, no longer `node.admin.middleware`.
+* The [Flow management console]({{< relref "node/node-flow-management-console.md#flow-management-console" >}}) configuration has been updated. Configuration is now set in `flow.management.plugin.middleware`, no longer `flow.admin.middleware`.
 * LedgerGraph has been updated to version 1.2.2. This upgrade minimizes memory footprint, and is not a functional change.
 
 ## Corda Enterprise Edition 4.8  release notes
@@ -331,19 +331,19 @@ R3 provides LTS for this release for 30 months starting April 21st 2021. This is
 
 Corda 4.8 uses platform version 10.
 
-For more information about platform versions, see [Versioning]({{< relref "../../../../../en/platform/corda/4.8/enterprise/cordapps/versioning.md" >}}).
+For more information about platform versions, see [Versioning]({{< relref "cordapps/versioning.md" >}}).
 
 ## New features and enhancements
 
 ### Notary database support update
 
-The [JPA notary]({{< relref "../../../../../en/platform/corda/4.8/enterprise/notary/installing-jpa.md" >}}) now supports [Oracle DB version 19c](../../../../../en/platform/corda/4.8/enterprise/platform-support-matrix.html#jpa-notary-databases). This database is supported until April 30th 2027.
+The [JPA notary]({{< relref "notary/installing-jpa.md" >}}) now supports [Oracle DB version 19c]({{< relref "platform-support-matrix.md#jpa-notary-databases" >}}). This database is supported until April 30th 2027.
 
 ### Azure managed identities authentication
 
 If you use an Azure Key Vault HSM with Corda Enterprise, you can now use an existing Azure Managed Identities service as authentication.
 
-See [Using an HSM with Corda Enterprise](../../../../../en/platform/corda/4.8/enterprise/node/operating/cryptoservice-configuration.html#azure-keyvault) for more information.
+See [Using an HSM with Corda Enterprise]({{< relref "node/operating/cryptoservice-configuration.md#azure-keyvault" >}}) for more information.
 
 ### Time-window metrics gathering
 
@@ -365,8 +365,8 @@ See [Monitoring Notary Latency]({{< relref "notary/faq/notary-latency-monitoring
 
 Corda Enterprise Edition 4.8 fixes:
 
-* A security issue that affects notary systems that use the JPA notary implementation in an HA configuration and when the notary backing database has been set up using the Corda database management tool. The new version of the Corda [database management tool]({{< relref "../../../../../en/platform/corda/4.8/enterprise/database-management-tool.md" >}}) must be re-run for the fix to take effect.
-* Several issues that cause memory leaks. As a result, we have added a new node configuration field - `enableURLConnectionCache` - and we have modified the `attachmentClassLoaderCacheSize` node configuration field. See the [node configuration fields page](../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration) for details.
+* A security issue that affects notary systems that use the JPA notary implementation in an HA configuration and when the notary backing database has been set up using the Corda database management tool. The new version of the Corda [database management tool]({{< relref "database-management-tool.md" >}}) must be re-run for the fix to take effect.
+* Several issues that cause memory leaks. As a result, we have added a new node configuration field - `enableURLConnectionCache` - and we have modified the `attachmentClassLoaderCacheSize` node configuration field. See the [node configuration fields page]({{< relref "node/setup/corda-configuration-fields.md#enterpriseconfiguration" >}}) for details.
 * An issue where the node is unable to resolve transaction chains that contain states or contracts that it did not relate to installed CorDapps.
 * Flow state, invocation source, and suspension source filters breaking in the node GUI.
 * Transaction verification being performed outside of the attachments class loader.
