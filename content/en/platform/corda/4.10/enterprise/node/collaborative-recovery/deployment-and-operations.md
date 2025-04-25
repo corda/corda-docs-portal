@@ -74,7 +74,7 @@ The database tables are managed via Liquibase migration scripts that are shipped
 {{< note >}}
 No manual schema alterations should be performed at any time.
 {{< /note >}}
-[Database Management Tool](../operating/node-database.md#database-management-tool)
+[Database Management Tool]({{< relref "../operating/node-database.md#database-management-tool" >}})
 that is shipped as a part of Corda Enterprise.
 
 Collaborative Recovery CorDapps are compatible with the full range of the [databases supported by Corda Enterprise]({{< relref "../../platform-support-matrix.md#node-databases" >}}).

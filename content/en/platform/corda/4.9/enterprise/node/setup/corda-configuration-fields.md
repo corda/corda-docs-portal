@@ -945,6 +945,6 @@ Internal option.
   This option is disabled by default and is independent from `devMode`.
   {{< /note >}}
 
-  For full details, see [Automatic detection of unrestorable checkpoints](../operating/monitoring-and-logging/checkpoint-tooling.html#automatic-detection-of-unrestorable-checkpoints).
+  For full details, see [Automatic detection of unrestorable checkpoints]({{< relref "../operating/monitoring-and-logging/checkpoint-tooling.md#automatic-detection-of-unrestorable-checkpoints" >}}).
 
   *Default:* not defined

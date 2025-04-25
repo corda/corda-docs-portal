@@ -35,7 +35,7 @@ Since some recovery flows have been designed to be run manually, you can set ale
 
 The Collaborative Recovery CorDapps expose a number of JMX metrics via Jolokia. You can see the full list of the exposed metrics for
 [LedgerSync here]({{< relref "ledger-sync.md#jmx-metrics" >}}), and [LedgerRecover here]{{< relref "ledger-recovery-automatic.md" >}}). These are exposed alongside metrics from the node.
-You can also [monitor via Jolokia](../operating/node-administration.html#monitoring-via-jolokia).
+You can also [monitor via Jolokia]({{< relref "../operating/node-administration.md#monitoring-via-jolokia" >}}).
 
 
 As part of your disaster recovery strategy, you can set up alerts for LedgerSync's `NumberOfFailedReconciliations` and `NumberOfReconciliationsWithDifferences` metrics.
@@ -74,10 +74,10 @@ The database tables are managed via Liquibase migration scripts that are shipped
 {{< note >}}
 No manual schema alterations should be performed at any time.
 {{< /note >}}
-[Database Management Tool](../operating/node-database.html#database-management-tool)
+[Database Management Tool]({{< relref "../operating/node-database.md#database-management-tool" >}})
 that is shipped as a part of Corda Enterprise.
 
-Collaborative Recovery CorDapps are compatible with the full range of the [databases supported by Corda Enterprise](../../platform-support-matrix.html#node-databases).
+Collaborative Recovery CorDapps are compatible with the full range of the [databases supported by Corda Enterprise]({{< relref "../../platform-support-matrix.md#node-databases" >}}).
 
 The contents of the Collaborative Recovery tables should *not* be altered manually. The tables are not envisioned to grow large in size.
 The space complexities are outlined below:

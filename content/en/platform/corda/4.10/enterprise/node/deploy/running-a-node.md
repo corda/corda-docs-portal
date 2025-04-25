@@ -213,7 +213,7 @@ This command will start the node with JMX metrics accessible via HTTP on port 70
 
 The status is published as: `net.corda.Node.Status`, and is available almost immediately at startup.
 
-See [Monitoring via Jolokia](../operating/node-administration.md#monitoring-via-jolokia) for further details.
+See [Monitoring via Jolokia]({{< relref "../operating/node-administration.md#monitoring-via-jolokia" >}}) for further details.
 
 
 ## Starting all nodes at once on a local machine from the command prompt

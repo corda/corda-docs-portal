@@ -560,4 +560,4 @@ kubectl get svc --namespace cenm nmap --template "{{ range (index .status.loadBa
 
 ## Appendix A: Docker Images
 
-Visit the [platform support matrix](../../platform-support-matrix.html#docker-images) for information on Corda docker images.
+Visit the [platform support matrix]({{< relref "../../platform-support-matrix.md#docker-images" >}}) for information on Corda docker images.

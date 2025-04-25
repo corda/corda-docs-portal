@@ -20,7 +20,7 @@ These endpoints and their corresponding flows are described below, organised by 
 
 ## Base URL
 
-As Bank in a Box is used for testing and learning, the base URL is `localhost` with the [port assigned during installation](./getting-started.html#service-endpoints-display-logs-and-exec-into-container) using the Kubernetes port forward feature.
+As Bank in a Box is used for testing and learning, the base URL is `localhost` with the [port assigned during installation]({{< relref "./getting-started.md#service-endpoints-display-logs-and-exec-into-container" >}}) using the Kubernetes port forward feature.
 
 For the examples shown below, the base URL is: `http://localhost:7777/`
 

@@ -45,7 +45,7 @@ control so it is easy to go back and check settings for previous results.
 The first tweak should be to give the node more memory - the instructions  how to deploy a node recommend at
 least 2GB of memory. Performance tests at R3 typically use 8GB of memory for one node. This depends on the available memory and
 how many nodes (and other processes) are run on the same machine. There are various ways to set the heap memory of the node documented at
-[Setting JVM arguments](../node/deploy/running-a-node.html#setting-jvm-arguments). The recommended approach for performance optimisation work is to use the JVM argument section in the node
+[Setting JVM arguments]({{< relref "../node/deploy/running-a-node.md#setting-jvm-arguments" >}}). The recommended approach for performance optimisation work is to use the JVM argument section in the node
 config file as this captures the memory setting along with any other settings.
 
 Be careful with the total amount of memory allocated to processes - if the total memory allocated to all processes on one machine exceeds
