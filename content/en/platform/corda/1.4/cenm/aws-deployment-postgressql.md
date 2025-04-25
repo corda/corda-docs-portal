@@ -48,7 +48,7 @@ To set up each database:
 
 1. Set up a PostgreSQL database in AWS - follow the instructions in the [AWS documentation](https://aws.amazon.com/rds/postgresql).
 2. Connect to the database, using the details of the database in AWS.
-3. Create a database user and a schema namespace [with restricted permissions](database-set-up.html#1-create-a-database-user-with-schema-permissions). Follow the [steps for PostgreSQL](database-set-up.html#postgresql).
+3. Create a database user and a schema namespace [with restricted permissions](database-set-up.html#1-create-a-database-user-with-schema-permissions). Follow the [steps for PostgreSQL]({{< relref "database-set-up.md#postgresql" >}}).
 4. Create the [database schema](database-set-up.html#2-database-schema-creation) for each service.
 5. Perform [CENM Service configuration](database-set-up.html#3-cenm-service-configuration) - follow the [steps for PostgreSQL](database-set-up.html#postgresql-1). See also the [database configuration documentation](config-database.html).
 
@@ -62,4 +62,4 @@ In step 4 above, you must create a schema for each CENM service. The guide provi
 2. Deploy the [Identity Manager Service](identity-manager.html) using PostgreSQL on AWS.
 3. Deploy the [Network Map Service](network-map.html) using PostgreSQL on AWS.
 4. Deploy the [Zone Service](zone-service.html) using PostgreSQL on AWS.
-5. Deploy the [Signing Service](signing-service.html#signing-service) (it does not use a database).
+5. Deploy the [Signing Service]({{< relref "signing-service.md#signing-service" >}}) (it does not use a database).

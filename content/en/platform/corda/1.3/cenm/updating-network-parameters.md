@@ -40,7 +40,7 @@ At a high level, the process is as follows:
 
 ## Editing network parameters configuration
 
-See [Setting the Network Parameters](network-map.html#network-parameters)
+See [Setting the Network Parameters]({{< relref "network-map.md#network-parameters" >}})
 for information on the network parameters configuration file format and options.
 
 When updating the network parameters, ensure that the network parameters file has the

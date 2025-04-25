@@ -43,7 +43,7 @@ To install using Docker:
 
 You have installed the Docker image with CENM CLI tool.
 
-To get the tool ready to use from within the Docker container, check the [Kubernetes deployment guide](deployment-kubernetes.html#network-operations).
+To get the tool ready to use from within the Docker container, check the [Kubernetes deployment guide]({{< relref "deployment-kubernetes.md#network-operations" >}}).
 
 ## Set up the CENM CLI Tool
 
