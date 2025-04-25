@@ -41,7 +41,7 @@ For example:
 
 ### First login
 
-Your initialisation credentials for logging in for the first time are established using the `--initial-user-name` and `--initial-user-password` commands when managing the configuration of the [Auth Service](auth-service.md).
+Your initialisation credentials for logging in for the first time are established using the `--initial-user-name` and `--initial-user-password` commands when managing the configuration of the [Auth Service]({{< relref "auth-service.md" >}}).
 
 If you do not have these, you need to access them from the operator who configured your Auth Service.
 

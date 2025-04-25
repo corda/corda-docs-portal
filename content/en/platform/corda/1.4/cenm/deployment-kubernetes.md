@@ -65,7 +65,7 @@ Recommended production specification for CENM components running on separate VMs
 ### Deployment overview
 
 The provided deployment runs all CENM services run inside a single, dedicated Kubernetes namespace (default name:`cenm`).
-Each service runs in its own dedicated Kubernetes pod, with the exception of the [Angel Service](angel-service.md), which runs in the same pod as its managed service.
+Each service runs in its own dedicated Kubernetes pod, with the exception of the [Angel Service]({{< relref "angel-service.md" >}}), which runs in the same pod as its managed service.
 
 {{< note >}}
 Naturally, the following command will not show a dedicated Angel Service pod:
@@ -77,7 +77,7 @@ The Angel Service and its managed service must both be healthy in order for the 
 The CENM network is bootstrapped with PKI certificates, and sample X.500 subject names are provided as defaults
 (for example, the Identity Manager Service certificate subject is
 “CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US”).
-These can be configured in the [Signing Service Helm chart](deployment-kubernetes-signer.md).
+These can be configured in the [Signing Service Helm chart]({{< relref "deployment-kubernetes-signer.md" >}}).
 
 There are two ways of bootstrapping a new CENM environment:
 
@@ -116,7 +116,7 @@ The deployment steps are given below:
 
 - Install [Docker](https://www.docker.com/get-started). Docker is required to run the CENM CLI tool.
 
-- Download the Docker image with CENM [Command-Line Interface (CLI) tool](cenm-cli-tool.md) so you can manage CENM services:
+- Download the Docker image with CENM [Command-Line Interface (CLI) tool]({{< relref "cenm-cli-tool.md" >}}) so you can manage CENM services:
 
 ```bash
   docker pull corda/enterprise-cenm-cli:1.4.4-zulu-openjdk8u242
@@ -210,7 +210,7 @@ cd k8s/helm
 
 ## Network operations
 
-Use the CENM [Command Line Interface (CLI) Tool](cenm-cli-tool.md) to access the [Gateway Service](gateway-service.md) from your local machine.
+Use the CENM [Command Line Interface (CLI) Tool]({{< relref "cenm-cli-tool.md" >}}) to access the [Gateway Service]({{< relref "gateway-service.md" >}}) from your local machine.
 
 To start CENM CLI Tool, run Docker command starting Docker container with the tool:
 
@@ -234,7 +234,7 @@ You can now use `cemn` commands from within the running Docker container:
   ./cenm context login -s -u <USER> -p <PASSWORD> http://<GATEWAY-SERVICE-IP>:8080
   ```
 
-The [Gateway Service](gateway-service.md) is a gateway between the [Auth Service](auth-service.md) and front end services in CENM. It allows you to perform all network operations on the [Identity Manager Service](identity-manager.md), the [Network Map Service](network-map.md), and the [Signing Service](signing-service.md).
+The [Gateway Service]({{< relref "gateway-service.md" >}}) is a gateway between the [Auth Service]({{< relref "auth-service.md" >}}) and front end services in CENM. It allows you to perform all network operations on the [Identity Manager Service]({{< relref "identity-manager.md" >}}), the [Network Map Service]({{< relref "network-map.md" >}}), and the [Signing Service]({{< relref "signing-service.md" >}}).
 The IP address is dynamically allocated for each deployment and can be found with `kubectl get svc`.
 Use the following command to ensure that you are pointing at the correct namespace:
 
@@ -358,7 +358,7 @@ database {
 
 ### Update network parameters
 
-Use the CENM [Command-Line (CLI) tool](cenm-cli-tool.md) to run commands to update the network parameters.
+Use the CENM [Command-Line (CLI) tool]({{< relref "cenm-cli-tool.md" >}}) to run commands to update the network parameters.
 
 See the CENM documentation for more information about the list of available [network parameters]({{< relref "./config-network-parameters.md" >}})
 and instructions on [updating network parameters]({{< relref "./updating-network-parameters.md" >}}).
@@ -373,7 +373,7 @@ This operation is scheduled to take place at regular intervals (by default, once
 
 ### Signing Service configuration
 
-The Signing Service is not managed by the [Angel Service](angel-service.md) in this deployment, therefore any CENM Command-Line Interface (CLI) tool commands trying to change the Signing Service configuration will take no effect.
+The Signing Service is not managed by the [Angel Service]({{< relref "angel-service.md" >}}) in this deployment, therefore any CENM Command-Line Interface (CLI) tool commands trying to change the Signing Service configuration will take no effect.
 To change the Singing Service configuration, you must log in to a Kubernetes pod, update the configuration file, and restart the service.
 
 ## Delete Network
@@ -457,13 +457,13 @@ You must modify the following values in the `values.yaml` file:
 There are a number of settings provided on each Helm chart, which allow easy customisation of
 common options. Each CENM service has its own dedicated page with more detailed documentation:
 
-* [Auth Service](deployment-kubernetes-auth.md)
-* [Gateway Service](deployment-kubernetes-gateway.md)
-* [Identity Manager Service](deployment-kubernetes-idman.md)
-* [Network Map Service](deployment-kubernetes-nmap.md)
-* [Corda Notary](deployment-kubernetes-notary.md)
-* [Signing Service](deployment-kubernetes-signer.md)
-* [Zone Service](deployment-kubernetes-zone.md)
+* [Auth Service]({{< relref "deployment-kubernetes-auth.md" >}})
+* [Gateway Service]({{< relref "deployment-kubernetes-gateway.md" >}})
+* [Identity Manager Service]({{< relref "deployment-kubernetes-idman.md" >}})
+* [Network Map Service]({{< relref "deployment-kubernetes-nmap.md" >}})
+* [Corda Notary]({{< relref "deployment-kubernetes-notary.md" >}})
+* [Signing Service]({{< relref "deployment-kubernetes-signer.md" >}})
+* [Zone Service]({{< relref "deployment-kubernetes-zone.md" >}})
 
 ### Overriding Service Configuration
 
@@ -493,7 +493,7 @@ helm install cenm-database bitnami/postgresql
 
 Follow the instructions displayed by the script output to connect to the database server via `psql`.
 You can create a separate database server for each CENM service by running the Helm script multiple times with different names
-and then setting up the database user/schema, following the instructions in the [CENM database setup](database-set-up.md) section.
+and then setting up the database user/schema, following the instructions in the [CENM database setup]({{< relref "database-set-up.md" >}}) section.
 Alternatively, you can create several databases inside the single PostgresSQL server you have just deployed, by running
 the following DDL commands:
 

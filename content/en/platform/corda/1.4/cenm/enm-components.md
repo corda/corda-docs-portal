@@ -108,7 +108,7 @@ environments:
 * Postgres
 * SQL Server
 
-For details of supported versions and configuration, see [CENM Databases](database-set-up.md).
+For details of supported versions and configuration, see [CENM Databases]({{< relref "database-set-up.md" >}}).
 
 
 # Public Key Infrastructure (PKI)
@@ -120,7 +120,7 @@ By design, they only have the ability to talk *to* the other CENM components, th
 In addition, signing a CRR or CSR, and potentially the Network Parameters, *should* require a human to interact with
 the HSM via some manual authentication mechanism.
 
-See [Certificate Hierarchy Guide](pki-guide.md) for a detailed guide to PKI.
+See [Certificate Hierarchy Guide]({{< relref "pki-guide.md" >}}) for a detailed guide to PKI.
 
 
 # The Node

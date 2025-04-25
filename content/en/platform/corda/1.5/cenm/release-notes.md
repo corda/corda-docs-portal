@@ -113,7 +113,7 @@ Upgrade to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https:
 
 ### Fixed issues
 
-We have updated the Log4j dependency to version 2.16.0 to mitigate CVE-2021-44228. This includes an update to the [CENM Management Console](cenm-console.md).
+We have updated the Log4j dependency to version 2.16.0 to mitigate CVE-2021-44228. This includes an update to the [CENM Management Console]({{< relref "cenm-console.md" >}}).
 
 ## Corda Enterprise Network Manager 1.5.1
 
@@ -123,7 +123,7 @@ CENM 1.5.1 introduces fixes to known issues in CENM 1.5.
 
 * CENM 1.5.1 now supports [Oracle Database 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/index.html).
 * We have bumped the supported version of the AWS CloudHSM client library from 3.0.0 to 3.2.1.
-* Configuration passwords are now hidden in both **CODE VIEW** and **FORM VIEW** modes in the [CENM management console](cenm-console.md) **CONFIGURATION**.
+* Configuration passwords are now hidden in both **CODE VIEW** and **FORM VIEW** modes in the [CENM management console]({{< relref "cenm-console.md" >}}) **CONFIGURATION**.
 
 ### Fixed issues
 
@@ -140,7 +140,7 @@ CENM 1.5.1 introduces fixes to known issues in CENM 1.5.
 
 #### Fixed issues specific to the CENM management console
 
-We have also fixed the following issues specific to the [CENM management console](cenm-console.md):
+We have also fixed the following issues specific to the [CENM management console]({{< relref "cenm-console.md" >}}):
 
 * We have fixed an issue where removing scheduled times in **FORM VIEW** mode in the **SIGNER** tab of **CONFIGURATION** showed configuration details in **CODE VIEW** mode, which might result is Signing Service configuration failures.
 * We have fixed an issue where the **Remove Edits** option in **CONFIGURATION** did not work for a number of fields for all configuration types.
@@ -166,7 +166,7 @@ We have also fixed the following issues specific to the [CENM management console
 
 ### Known issues
 
-* There is still an option to view configuration passwords in **FORM VIEW** mode in the [CENM management console](cenm-console.md) **CONFIGURATION**.
+* There is still an option to view configuration passwords in **FORM VIEW** mode in the [CENM management console]({{< relref "cenm-console.md" >}}) **CONFIGURATION**.
 
 {{< note >}}
 The known issue listed above is specific to CENM 1.5.1. See the release notes for previous CENM releases further down on this page for information about known issues specific to those versions.
@@ -174,19 +174,19 @@ The known issue listed above is specific to CENM 1.5.1. See the release notes fo
 
 ## Corda Enterprise Network Manager 1.5
 
-Corda Enterprise Network Manager (CENM) 1.5 introduces a number of new features and enhancements, including a new [CENM management console](cenm-console.md), single sign-on for Azure AD for Corda services, and the ability to reissue node legal identity keys and certificates.
+Corda Enterprise Network Manager (CENM) 1.5 introduces a number of new features and enhancements, including a new [CENM management console]({{< relref "cenm-console.md" >}}), single sign-on for Azure AD for Corda services, and the ability to reissue node legal identity keys and certificates.
 
 While this release is backward-compatible, you should consider upgrading to this release from earlier versions of the Corda Enterprise Network Manager.
 
 {{< warning >}}
-Make sure to check out the [Upgrading Corda Enterprise Network Manager](upgrade-notes.md) page.
+Make sure to check out the [Upgrading Corda Enterprise Network Manager]({{< relref "upgrade-notes.md" >}}) page.
 {{< /warning >}}
 
 ### New features and enhancements
 
 #### CENM management console
 
-The [CENM management console](cenm-console.md) is a new CENM web UI that enables you to view CSR and CRR requests, display nodes in the network map, run a flag day, and update services configuration.
+The [CENM management console]({{< relref "cenm-console.md" >}}) is a new CENM web UI that enables you to view CSR and CRR requests, display nodes in the network map, run a flag day, and update services configuration.
 
 #### Single sign-on for Azure AD
 
@@ -197,7 +197,7 @@ CENM 1.5 introduces support for Azure Active Directory (AAD) as a single sign-on
 Corda Enterprise Edition 4.7 introduces a capability for reissuing node legal identity keys and certificates, allowing CENM to re-register a node (including a notary node) with a new certificate in the Network Map. You must not change the node's `myLegalName` during certificate rotation.
 
 {{< warning >}}
-The introduction of this functionality may require changes to your custom Identity Manager Workflow Plugins, regardless of using certificate reissuance functionality in your system. Make sure to check the [Upgrading Corda Enterprise Network Manager](upgrade-notes.md) page.
+The introduction of this functionality may require changes to your custom Identity Manager Workflow Plugins, regardless of using certificate reissuance functionality in your system. Make sure to check the [Upgrading Corda Enterprise Network Manager]({{< relref "upgrade-notes.md" >}}) page.
 {{< /warning >}}
 
 For more information about this feature, contact your R3 account manager.

@@ -378,7 +378,7 @@ database = {
 
 
 {{< note >}}
-The [CENM Database Configuration](config-database.md) doc page contains a complete list of database specific properties.{{< /note >}}
+The [CENM Database Configuration]({{< relref "config-database.md" >}}) doc page contains a complete list of database specific properties.{{< /note >}}
 
 * The restricted CENM service instance database user has no permissions to alter a database schema, so `runMigration` is set to `false`.
 * The CENM distribution does not include any JDBC drivers with the exception of the H2 driver.

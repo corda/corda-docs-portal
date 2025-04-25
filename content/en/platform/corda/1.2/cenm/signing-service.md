@@ -27,7 +27,7 @@ Corda Enterprise Network Manager, alongside the Identity Operator and Network Ma
 a bridge between the main CENM services and PKI/HSM infrastructure, enabling a network operator
 to verify and sign incoming requests and changes to the network.
 
-As mentioned in the CENM service documentation ([Identity Manager Service](identity-manager.md) and [Network Map Service](network-map.md)), the main CENM services
+As mentioned in the CENM service documentation ([Identity Manager Service]({{< relref "identity-manager.md" >}}) and [Network Map Service]({{< relref "network-map.md" >}})), the main CENM services
 can be configured with an integrated *local signer* that will automatically sign all unsigned data using a provided key.
 While this is convenient, it is intended for use within for development and testing environments, and **should not** be used in
 production environments. Instead, large and important changes to the network should go through a series of checks before
@@ -38,7 +38,7 @@ particular data to require authentication from multiple users.
 
 ## Signing Service
 
-CENM’s Signing Service supports the following HSMs (see [CENM support matrix](cenm-support-matrix.md) for more information):
+CENM’s Signing Service supports the following HSMs (see [CENM support matrix]({{< relref "cenm-support-matrix.md" >}}) for more information):
 
 
 * Utimaco
@@ -76,7 +76,7 @@ for the configured signing keys. The overall flow of communication can be seen i
 ![Signing Service communication](/en/images/signing-service-communication.png "Signing Service communication")
 {{< note >}}
 All inter-service communication can be configured with SSL support to ensure the connection is encrypted. See
-[Configuring the ENM services to use SSL](enm-with-ssl.md)
+[Configuring the ENM services to use SSL]({{< relref "enm-with-ssl.md" >}})
 
 {{< /note >}}
 {{< note >}}
@@ -290,7 +290,7 @@ locations.
 
 {{< note >}}
 Communication with the configured service locations can be configured to use SSL for a secure, encrypted
-connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL](enm-with-ssl.md) for more
+connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL]({{< relref "enm-with-ssl.md" >}}) for more
 information.
 
 {{< /note >}}
@@ -306,7 +306,7 @@ Material Retriever Service.
 
 {{< note >}}
 Communication with the configured SMR service location can be configured to use SSL for a secure, encrypted
-connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL](enm-with-ssl.md) for more
+connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL]({{< relref "enm-with-ssl.md" >}}) for more
 information.
 
 {{< /note >}}
@@ -348,7 +348,7 @@ not be configured in production environments.
 Even though scheduled signing of CRLs should not be configured in production environment, they should be signed
 manually from time to time depending on its’ `nextUpdate` property. This is to ensure an up-to-date CRL is
 distributed in the network before the previous one expires. Conventionally they have a lifecycle of 6 months
-and are manually signed every 3 months. See [CRL Endpoint Check Tool](crl-endpoint-check-tool.md) for more information how to check
+and are manually signed every 3 months. See [CRL Endpoint Check Tool]({{< relref "crl-endpoint-check-tool.md" >}}) for more information how to check
 CRLs’ update deadlines.
 
 {{< /note >}}
@@ -1436,7 +1436,7 @@ as a map of human-readable aliases (referenced by the material management task c
 
 {{< note >}}
 Communication with the configured SMR service location can be configured to use SSL for a secure, encrypted
-connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL](enm-with-ssl.md) for more
+connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL]({{< relref "enm-with-ssl.md" >}}) for more
 information.
 
 {{< /note >}}
@@ -1977,4 +1977,4 @@ Non CA Plugin’s configuration file must be in the same directory as the servic
 
 ### Other Sample Plugins
 
-See [EJBCA Sample Plugin](ejbca-plugin.md) for sample open source CA implementation.
+See [EJBCA Sample Plugin]({{< relref "ejbca-plugin.md" >}}) for sample open source CA implementation.

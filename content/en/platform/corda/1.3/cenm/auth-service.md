@@ -22,9 +22,9 @@ The Auth Service is the user authentication and authorization service for CENM. 
 * Signing Service
 * Network map Service (and associated network configurations and node info).
 
-Whenever you use the [User admin tool](user-admin.md) to create new users, groups or roles, the Auth Service is updated to authenticate those users and their permissions. If you use the [CENM Command Line Interface](cenm-cli-tool.md), the Auth Service verifies your security clearance to operate on the required context of the service.
+Whenever you use the [User admin tool]({{< relref "user-admin.md" >}}) to create new users, groups or roles, the Auth Service is updated to authenticate those users and their permissions. If you use the [CENM Command Line Interface]({{< relref "cenm-cli-tool.md" >}}), the Auth Service verifies your security clearance to operate on the required context of the service.
 
-When you use any front end interface for CENM, the Auth Service is activated and updated via a front-end gateway, called the [FARM Service](gateway-service.md).
+When you use any front end interface for CENM, the Auth Service is activated and updated via a front-end gateway, called the [FARM Service]({{< relref "gateway-service.md" >}}).
 
 You do not need to interact directly with the Auth Service once it has been installed and configured. To protect the integrity of this secure service, there is no direct API contact with the Auth Service - all front-end communications go via the FARM Service.
 
@@ -70,7 +70,7 @@ Before you can configure the Auth Service, you need to prepare SSL certificates,
 
 To do this:
 
-1. Create a SSL certificate in a `.jks` file using the [CENM PKI tool](pki-tool.md).
+1. Create a SSL certificate in a `.jks` file using the [CENM PKI tool]({{< relref "pki-tool.md" >}}).
 
 2. Generate a `jwt` signing key (RSA keypair) in a jks file with the following command line command:
 `keytool -genkeypair -alias mytest -keyalg RSA -keypass mypass -keystore mytest.jks -storepass mypass`.
@@ -81,14 +81,14 @@ To do this:
 
 To deploy the Auth Service, you need to create a configuration file.
 
-When you create your config file, you establish its connection to your [FARM Service](gateway-service.md). Make sure you know:
+When you create your config file, you establish its connection to your [FARM Service]({{< relref "gateway-service.md" >}}). Make sure you know:
 
 * Your FARM Service ID
 * Your FARM Service secret
 
 In the sample below, you can see the initial configuration process:
 
-1. [Database configuration](database-set-up.md). Add the name, address and login credentials for the SQL database that supports the Auth Service.
+1. [Database configuration]({{< relref "database-set-up.md" >}}). Add the name, address and login credentials for the SQL database that supports the Auth Service.
 
 2. JSON Web Key configuration. Set the username, password, and location of the RSA keypair store for signing. The location must be the absolute path.
 

@@ -17,10 +17,10 @@ title: Upgrading Corda Enterprise Network Manager
 # Upgrading Corda Enterprise Network Manager
 
 This document provides instructions for upgrading your network management suite - Identity Manager Service (formerly
-Doorman), Network Map Service, Signing Service, Zone Service, Auth Service, Angel Service - from previous versions to the newest version. Please consult the relevant [release notes](release-notes.md) of the release in question. If not specified, you may assume the versions you are currently using are still in force.
+Doorman), Network Map Service, Signing Service, Zone Service, Auth Service, Angel Service - from previous versions to the newest version. Please consult the relevant [release notes]({{< relref "release-notes.md" >}}) of the release in question. If not specified, you may assume the versions you are currently using are still in force.
 
 {{< warning >}}
-Before you start the upgrade, you must consult the [CENM Release Notes](release-notes.md) to confirm all changes between releases.
+Before you start the upgrade, you must consult the [CENM Release Notes]({{< relref "release-notes.md" >}}) to confirm all changes between releases.
 {{< /warning >}}
 
 ## 1.3.x / 1.4.x to 1.5

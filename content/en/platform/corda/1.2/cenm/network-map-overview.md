@@ -194,7 +194,7 @@ parameters change.
 List of whitelisted versions of contract code. For each contract class there is a
 list of hashes of the approved CorDapp jar versions containing that contract. Read
 more about *contract constraints* in the [contract constraints doc](https://docs.corda.net/api-contract-constraints.html). See
-[Contract Whitelist Generation](contract-whitelisting.md) for how to configure this in the network parameters
+[Contract Whitelist Generation]({{< relref "contract-whitelisting.md" >}}) for how to configure this in the network parameters
 configuration file.
 
 

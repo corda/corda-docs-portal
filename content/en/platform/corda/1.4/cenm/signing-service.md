@@ -19,9 +19,9 @@ title: Signing Service
 
 The Signing Service acts as a bridge between the main CENM services and the PKI/HSM infrastructure, enabling a network operator to verify and sign incoming requests and changes to the network.
 
-The Signing Service forms a part of the main Corda Enterprise Network Manager (CENM) services, alongside the [Identity Manager Service](identity-manager.md) and the [Network Map Service](network-map.md) (and complemented by the [Auth Service](auth-service.md), the [Zone Service](zone-service.md), the [Angel Service](angel-service.md), and the [Gateway Service](gateway-service.md)).
+The Signing Service forms a part of the main Corda Enterprise Network Manager (CENM) services, alongside the [Identity Manager Service]({{< relref "identity-manager.md" >}}) and the [Network Map Service]({{< relref "network-map.md" >}}) (and complemented by the [Auth Service]({{< relref "auth-service.md" >}}), the [Zone Service]({{< relref "zone-service.md" >}}), the [Angel Service]({{< relref "angel-service.md" >}}), and the [Gateway Service]({{< relref "gateway-service.md" >}})).
 
-As mentioned in other CENM service documentation ([Identity Manager Service](identity-manager.md) and [Network Map Service](network-map.md)), the main CENM services
+As mentioned in other CENM service documentation ([Identity Manager Service]({{< relref "identity-manager.md" >}}) and [Network Map Service]({{< relref "network-map.md" >}})), the main CENM services
 can be configured with an integrated *local signer* that will automatically sign all unsigned data using a provided key.
 While this is convenient, it is intended for use for development and testing environments, and **should not** be used in
 production environments. Instead, large and important changes to the network should go through a series of checks before
@@ -65,7 +65,7 @@ for the configured signing keys. The overall flow of communication can be seen i
 
 {{< note >}}
 All inter-service communication can be configured with SSL support to ensure the connection is encrypted. See
-[Configuring the CENM services to use SSL](enm-with-ssl.md) for more information.
+[Configuring the CENM services to use SSL]({{< relref "enm-with-ssl.md" >}}) for more information.
 {{< /note >}}
 
 {{< note >}}
@@ -314,7 +314,7 @@ not be configured in production environments.
 Even though scheduled signing of CRLs should not be configured in production environment, they should be signed
 manually from time to time depending on its’ `nextUpdate` property. This is to ensure an up-to-date CRL is
 distributed in the network before the previous one expires. Conventionally they have a lifecycle of 6 months
-and are manually signed every 3 months. See [CRL Endpoint Check Tool](crl-endpoint-check-tool.md) for more information how to check
+and are manually signed every 3 months. See [CRL Endpoint Check Tool]({{< relref "crl-endpoint-check-tool.md" >}}) for more information how to check
 CRLs’ update deadlines.
 
 {{< /note >}}
@@ -1896,7 +1896,7 @@ However, the tracking ID will still be returned and the request can be tracked v
 
 ### Other Sample Plugins
 
-See [EJBCA Sample Plugin](ejbca-plugin.md) for sample open source CA implementation.
+See [EJBCA Sample Plugin]({{< relref "ejbca-plugin.md" >}}) for sample open source CA implementation.
 
 ### Admin RPC Interface
 
@@ -1952,4 +1952,4 @@ authServiceConfig {
 
 ## Obfuscated configuration files
 
-To view the latest changes to the obfuscated configuration files, see [Obfuscation configuration file changes](obfuscated-config-file-changes.md).
+To view the latest changes to the obfuscated configuration files, see [Obfuscation configuration file changes]({{< relref "obfuscated-config-file-changes.md" >}}).
