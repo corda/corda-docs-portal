@@ -571,7 +571,7 @@ such as a string.
 By default, all state objects are serialized to the database as a string of bytes and referenced by their `StateRef`.
 However, it is also possible to define custom schemas for serializing particular properties or combinations of
 properties, so that they can be queried from a source other than the Corda Vault. This is done by implementing the
-`QueryableState` interface and creating a custom object relational mapper for the state. See [state persistence](state-persistence.html) for details.
+`QueryableState` interface and creating a custom object relational mapper for the state. See [state persistence]({{< relref "state-persistence.md" >}}) for details.
 
 For backwards compatible changes such as adding columns, the procedure for upgrading a state schema is to extend the
 existing object relational mapper. For example, we can update:

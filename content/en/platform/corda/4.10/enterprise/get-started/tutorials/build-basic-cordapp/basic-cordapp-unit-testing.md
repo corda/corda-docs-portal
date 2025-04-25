@@ -260,4 +260,4 @@ public class ContractTests {
 
 ## Next steps
 
-Now that you know how to write unit tests, learn how to [run your CorDapp]({{< relref "basic-cordapp-running.md" >}}) then write [Integration tests](basic-cordapp-int-testing.md).
+Now that you know how to write unit tests, learn how to [run your CorDapp]({{< relref "basic-cordapp-running.md" >}}) then write [Integration tests]({<< relref "basic-cordapp-int-testing.md" >}}).

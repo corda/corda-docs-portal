@@ -41,7 +41,7 @@ The Corda Network Operator will ensure customers are fully aware of impending an
 
 * Publicise 12 month forward calendar and explanatory notes for next update:
 * Production calendar on [https://corda.network](https://corda.network)
-* UAT calendar on [https://docs.corda.net](https://docs.corda.net)
+* UAT calendar on [https://docs.r3.com](https://docs.r3.com)
 
 
 * Event Communications

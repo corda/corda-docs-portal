@@ -200,7 +200,7 @@ parameters change.
 * **whitelistedContractImplementations**:
 List of whitelisted versions of contract code. For each contract class there is a
 list of hashes of the approved CorDapp JAR versions containing that contract. Read
-more about *contract constraints* in the [contract constraints doc](https://docs.corda.net/api-contract-constraints.html). See
+more about *contract constraints* in the [contract constraints doc](https://docs.r3.com/api-contract-constraints.html). See
 [Contract Whitelist Generation]({{< relref "contract-whitelisting.md" >}}) for how to configure this in the network parameters
 configuration file.
 
