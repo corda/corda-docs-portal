@@ -318,7 +318,7 @@ See the [Corda open source release notes](https://github.com/corda/corda-docs-po
 You can use states and CorDapps valid in Corda 3.0 and above with Corda 4.8 and Corda Enterprise Edition 4.8.
 
 
-For the commitment Corda makes to wire and API stability, see [API stability guarantees](cordapps/api-stability-guarantees.md).
+For the commitment Corda makes to wire and API stability, see [API stability guarantees]({{< relref "cordapps/api-stability-guarantees.md" >}}).
 {{< /note >}}
 
 ## Long-term support release
@@ -349,7 +349,7 @@ See [Using an HSM with Corda Enterprise](../../../../../en/platform/corda/4.8/en
 
 You can now configure timer and histogram metrics to use time-window data gathering. Time-window data gathering collects all data points for a given time window, allowing outlying data points to be properly represented.
 
-See [Node metrics](node/operating/monitoring-and-logging/node-metrics.md) for more information.
+See [Node metrics]({{< relref "node/operating/monitoring-and-logging/node-metrics.md" >}}) for more information.
 
 ### Additional notary metrics
 
@@ -358,7 +358,7 @@ You can use `StartupQueueTime` and `BatchSignLatency` metrics to help calculate 
 * `StartupQueueTime` represents the time a flow has been queued before starting, in milliseconds.
 * `BatchSignLatency` represents the time elapsed during a batch signature, in milliseconds.
 
-See [Monitoring Notary Latency](notary/faq/notary-latency-monitoring.md) for more information.
+See [Monitoring Notary Latency]({{< relref "notary/faq/notary-latency-monitoring.md" >}}) for more information.
 
 
 ## Fixed issues

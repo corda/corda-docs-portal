@@ -15,13 +15,13 @@ weight: 30
 # Upgrading a CorDapp to a newer platform version
 
 {{< warning >}}
-Corda Enterprise Edition 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.8, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md).
+Corda Enterprise Edition 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.8, read the guidance on [upgrading your notary service]({{< relref "notary/upgrading-the-ha-notary-service.md" >}}).
 {{< /warning >}}
 
 This guide shows you how to upgrade your CorDapp from previous platform versions to benefit
 from the new features in the latest release.
 
-Most of the Corda 4 public, non-experimental APIs are stable. See the [full list of stable APIs](cordapps/api-stability-guarantees.html). If you are working with a stable API, you don't need to update your CorDapps. However, there are usually new features and other opt-in changes that may improve the security, performance, or usability of your
+Most of the Corda 4 public, non-experimental APIs are stable. See the [full list of stable APIs]({{< relref "cordapps/api-stability-guarantees.md" >}}). If you are working with a stable API, you don't need to update your CorDapps. However, there are usually new features and other opt-in changes that may improve the security, performance, or usability of your
 CorDapp that are worth considering for any actively maintained software.
 
 
@@ -66,7 +66,7 @@ Follow the steps below for each upgrade path.
 
 #### Upgrade a node from Corda 4.5 (or earlier 4.x version)
 
-1. Remove any entries of `transactionIsolationLevel`, `initialiseSchema`, `initialiseAppSchema`, and `runMigration` from the database section of your [node configuration file](node/setup/corda-configuration-file.md).
+1. Remove any entries of `transactionIsolationLevel`, `initialiseSchema`, `initialiseAppSchema`, and `runMigration` from the database section of your [node configuration file]({{< relref "node/setup/corda-configuration-file.md" >}}).
 2. Update any missing core schema changes by either running the [Database Management Tool]({{< relref "database-management-tool.md" >}}) (recommended) or running the node in `run-migration-scripts` mode: `java -jar corda.jar run-migration-scripts --core-schemas`.
 
 #### Upgrade a node from Corda 3.x or Corda Enterprise 3.x

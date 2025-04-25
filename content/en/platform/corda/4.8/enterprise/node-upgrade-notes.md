@@ -24,10 +24,10 @@ If you are upgrading from Corda Enterprise 3.x, you must first:
 3. Upgrade from Corda 4.5 to Corda Enterprise Edition 4.8.
 
 {{< warning >}}
-Corda Enterprise Edition 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.8, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md).
+Corda Enterprise Edition 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.8, read the guidance on [upgrading your notary service]({{< relref "notary/upgrading-the-ha-notary-service.md" >}}).
 {{< /warning >}}
 
-Most of the Corda 4 public, non-experimental APIs are stable. See the [full list of stable APIs](cordapps/api-stability-guarantees.md). If you are working with a stable API, you don't need to update your CorDapps. To upgrade:
+Most of the Corda 4 public, non-experimental APIs are stable. See the [full list of stable APIs]({{< relref "cordapps/api-stability-guarantees.md" >}}). If you are working with a stable API, you don't need to update your CorDapps. To upgrade:
 
 1. [Drain the node](#step-1-drain-the-node).
 2. [Make a backup of the directories in your node and database](#step-2-make-a-backup-of-your-nodes-directories-and-database).
@@ -43,7 +43,7 @@ The protocol tolerates node outages. Peers on the network wait for your node to 
 
 ## Step 1: Drain the node
 
-Node operators must drain nodes (or CorDapps on nodes) before they can upgrade them. Draining brings all [flows](cordapps/api-flows.md) that are currently running to a smooth halt. The node finishes any work already in progress, and queues any new work. This process frees CorDapps from the requirement to migrate workflows from an arbitrary point to another arbitrary point—a task that would rapidly become unfeasible as workflow
+Node operators must drain nodes (or CorDapps on nodes) before they can upgrade them. Draining brings all [flows]({{< relref "cordapps/api-flows.md" >}}) that are currently running to a smooth halt. The node finishes any work already in progress, and queues any new work. This process frees CorDapps from the requirement to migrate workflows from an arbitrary point to another arbitrary point—a task that would rapidly become unfeasible as workflow
 and protocol complexity increases.
 
 To drain a node, run `gracefulShutdown`. This waits for the all currently running flows to be completed and then shuts the node down.
@@ -352,5 +352,5 @@ Your upgrade is complete.
 ## Notes
 
 {{< warning >}}
-You must align the multi-RPC client version with the node version. That means that both must be running the same version of Corda Enterprise. See [Querying flow data](node/operating/querying-flow-data.md) for more information.
+You must align the multi-RPC client version with the node version. That means that both must be running the same version of Corda Enterprise. See [Querying flow data]({{< relref "node/operating/querying-flow-data.md" >}}) for more information.
 {{< /warning >}}

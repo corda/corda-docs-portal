@@ -301,7 +301,7 @@ It contains the following fields:
 * [conf](#conf).
 
 ### name
-The name of HSM provider to be used. E.g.: `UTIMACO`, `GEMALTO_LUNA`, etc. See [Using an HSM with Corda Enterprise](operating/cryptoservice-configuration.md).
+The name of HSM provider to be used. E.g.: `UTIMACO`, `GEMALTO_LUNA`, etc. See [Using an HSM with Corda Enterprise]({{< relref "operating/cryptoservice-configuration.md" >}}).
 
 ### conf
 Absolute path to HSM provider specific configuration that will contain everything necessary to establish connection with HSM.

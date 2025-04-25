@@ -34,7 +34,7 @@ The Network Bootstrapper automates the processes of creating and distributing th
 
 ## Test deployments
 
-Nodes within a network see each other using the [network map](network/network-map.md). This is a collection of statically-signed `node-info` files, one for each node. Most production deployments use a highly-available, secure distribution of the network map via HTTP.
+Nodes within a network see each other using the [network map]({{< relref "network/network-map.md" >}}). This is a collection of statically-signed `node-info` files, one for each node. Most production deployments use a highly-available, secure distribution of the network map via HTTP.
 
 If you are creating a test deployment that stores the nodes on the same filesystem, place the `node-info` files into the node’s `additional-node-infos` directory. The node picks them up and stores them in its local network map cache, then generates its own `node-info` file on startup.
 
@@ -100,7 +100,7 @@ added to the [contract whitelist](#create-a-contracts-whitelist).
 
 
 ### Create a contracts whitelist
-If you provide a CorDapp, the boostrapper will hash it, then scan it for instances of the `contacts` class. If it finds contracts, it will use them to create a [compatibility zone whitelist](cordapps/api-contract-constraints.md) for the network.
+If you provide a CorDapp, the boostrapper will hash it, then scan it for instances of the `contacts` class. If it finds contracts, it will use them to create a [compatibility zone whitelist]({{< relref "cordapps/api-contract-constraints.md" >}}) for the network.
 
 {{< note >}}
 If you want to whitelist the CorDapps without copying them to each node, run them using the `--copy-cordapps=No` option.
@@ -124,7 +124,7 @@ net.corda.finance.contracts.asset.Cash
 net.corda.finance.contracts.asset.CommercialPaper
 ```
 
-Before you add `exclude_whitelist.txt` or `include_whitelist.txt` files, refer to [contract constraints](cordapps/api-contract-constraints.html) to understand different constraint types.
+Before you add `exclude_whitelist.txt` or `include_whitelist.txt` files, refer to [contract constraints]({{< relref "cordapps/api-contract-constraints.md" >}}) to understand different constraint types.
 
 
 
@@ -135,7 +135,7 @@ The Network Bootstrapper is a tool for setting up Corda networks for development
 * Add a new node to the network.
 * Update the contract whitelist for bootstrapped networks.
 
-If you need to make more complicated changes, use a [Network Map server](network/network-map.md).
+If you need to make more complicated changes, use a [Network Map server]({{< relref "network/network-map.md" >}}).
 
 Make sure all `node-info` files are in one directory when running the Network Bootstrapper. If you are running
 the nodes on different machines:

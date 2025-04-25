@@ -17,7 +17,7 @@ weight: 2
 * [Upgrading a CorDapp to a newer platform version]({{< relref "app-upgrade-notes.md" >}})
 * [Upgrading a Corda OS Node to Corda Enterprise]({{< relref "node-operations-upgrading-os-to-ent.md" >}})
 * [Upgrading deployed CorDapps]({{< relref "node-operations-upgrade-cordapps.md" >}})
-* [Upgrading a running CorDapp](cordapps/upgrading-cordapp.md)
+* [Upgrading a running CorDapp]({{< relref "cordapps/upgrading-cordapps.md" >}})
 
 ## Features, versions, and compatibility
 
