@@ -230,7 +230,7 @@ If you run the DDL and DML statements separately (for example, if the database a
 
 {{< /note >}}
 
-For more information about the Database Management Tool including available options and commands, see [Corda Database Management Tool](database-management-tool.md).
+For more information about the Database Management Tool including available options and commands, see [Corda Database Management Tool]({{< relref "database-management-tool.md" >}}).
 
 
 ### 3.3. Apply DDL scripts to a database
@@ -305,7 +305,7 @@ Option `-b` points to the base directory which contains a `node.conf` file and `
 Replace the `corda.jar` with the latest version of Corda.
 
 Download the latest version of Corda from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-node/4.8.11/corda-node-4.8.11.jar).
-Make sure it’s available on your path, and that you’ve read the [Corda release notes](release-notes-enterprise.md). Pay particular attention to which version of Java the
+Make sure it’s available on your path, and that you’ve read the [Corda release notes]({{< relref "release-notes-enterprise.md" >}}). Pay particular attention to which version of Java the
 node requires.
 
 

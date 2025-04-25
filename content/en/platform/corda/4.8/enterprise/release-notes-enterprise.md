@@ -97,7 +97,7 @@ Corda Enterprise Edition 4.8.10 is a patch release of Corda Enterprise focused o
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](upgrading-index.md).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -121,7 +121,7 @@ Corda Enterprise Edition 4.8.9 is a patch release of Corda Enterprise focused on
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](upgrading-index.md).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -133,7 +133,7 @@ Corda Enterprise Edition 4.8.8 is a patch release of Corda Enterprise focused on
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](upgrading-index.md).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -306,7 +306,7 @@ Corda Enterprise Edition 4.8, released on April 21st 2021, includes several new 
 * You can use Azure-managed identities to authenticate [Azure Key Vault HSM](#azure-managed-identities-authentication)s.
 * You can configure metrics to use [time-window reservoirs](#time-window-metrics-gathering) for data collection.
 * Additional metrics have been added for [tracking notary latency](#additional-notary-metrics).
-* Confidential identities support has been added via [Utimaco and Gemalto Luna HSMs](platform-support-matrix.html#hardware-security-modules-hsm).
+* Confidential identities support has been added via [Utimaco and Gemalto Luna HSMs]({{< relref "platform-support-matrix.md#hardware-security-modules-hsm" >}}).
 
 {{< note >}}
 This page only describes functionality specific to Corda Enterprise Edition 4.8. However, as a Corda Enterprise customer, you can also make full use of the features available as part of the Corda open source releases.

@@ -34,7 +34,7 @@ A Corda vault is a database containing all data from the ledger relevant to a no
 * Transaction reporting
 * Audit and archives, including the ability to perform joins with app-private data, like customer notes
 
-You can use data in your vault to create transactions that send value to another party by combining [fungible states](key-concepts-states.md), and possibly adding a change output that makes the values balance. This process is referred to as ‘coin selection’.
+You can use data in your vault to create transactions that send value to another party by combining [fungible states]({{< relref "key-concepts-states.md" >}}), and possibly adding a change output that makes the values balance. This process is referred to as ‘coin selection’.
 
 Spending from the vault in this way ensures that transactions respect fungibility rules. The issuer and reference data is preserved as the assets pass between parties.
 

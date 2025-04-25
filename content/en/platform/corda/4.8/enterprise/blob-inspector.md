@@ -14,7 +14,7 @@ weight: 100
 # Blob inspector
 
 The Corda blob inspector tool gives you a human-readable view of content stored in a [custom binary serialization format]({{< relref "../../../../../en/platform/corda/4.8/enterprise/serialization.md" >}}).
-The blob inspector shows you the output of binary blob files (or URL end-points) in YAML or JSON using `JacksonSupport` (see [JSON](json.md) for more on Jackson serialization).
+The blob inspector shows you the output of binary blob files (or URL end-points) in YAML or JSON using `JacksonSupport` (see [JSON]({{< relref "json.md" >}}) for more on Jackson serialization).
 
 The tool is distributed as a `.jar.` file - `corda-tools-blob-inspector-4.8.jar`. To run it, pass in the file or URL as the first parameter:
 

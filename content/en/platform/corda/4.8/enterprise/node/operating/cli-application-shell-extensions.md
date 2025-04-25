@@ -83,7 +83,7 @@ restart the shell or see [above](#installing-shell-extensions) for instructions 
 |---------------------------------------------------------|------------------------------|----------------------------------------------------------|
 |[Corda node](../deploy/running-a-node.html#starting-an-individual-corda-node)|`corda --<option>`|`corda-4.8.jar`|
 |Network bootstrapper|`bootstrapper --<option>`|`corda-tools-network-bootstrapper-4.8.jar`|
-|[Standalone shell](shell.html#standalone-shell)|`corda-shell --<option>`|`corda-tools-shell-cli-4.8.jar`|
+|[Standalone shell]({{< relref "shell.md#standalone-shell" >}})|`corda-shell --<option>`|`corda-tools-shell-cli-4.8.jar`|
 |Blob inspector|`blob-inspector --<option>`|`corda-tools-blob-inspector-4.8.jar`|
 
 {{< /table >}}

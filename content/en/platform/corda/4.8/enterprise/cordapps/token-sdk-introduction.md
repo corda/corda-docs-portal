@@ -461,7 +461,7 @@ To choose only tokens from one issuer, you can provide optional [queryCriteria] 
 
 {{< note >}}
 
-This method always uses database token selection, to use [in-memory selection](token-selection.html), use `addMoveTokens` with already selected input and output states.
+This method always uses database token selection, to use [in-memory selection]({{< relref "token-selection.md" >}}), use `addMoveTokens` with already selected input and output states.
 
 {{< /note >}}
 

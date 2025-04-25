@@ -238,7 +238,7 @@ when messages arrive. It provides the send/receive/sendAndReceive calls that let
 interaction and it will save/restore serialised versions of the fiber at the right times.
 
 Flows can be invoked in several ways. For instance, they can be triggered by scheduled events (in which case they need to
-be annotated with `@SchedulableFlow`), see [Scheduling events](event-scheduling.md) to learn more about this. They can also be triggered
+be annotated with `@SchedulableFlow`), see [Scheduling events]({{< relref "event-scheduling.md" >}}) to learn more about this. They can also be triggered
 directly via the node’s RPC API from your app code (in which case they need to be annotated with *StartableByRPC*). It’s
 possible for a flow to be of both types.
 
@@ -252,7 +252,7 @@ safe manner.
 
 {{< note >}}
 A limit of **five** non-whitelisted arguments can be passed to the flow constructor using the `CordaRPCOps.startFlow` method.
-Compound objects can be passed as long as they are [whitelisted](serialization.html#whitelisting) using the `@CordaSerializable` annotation.
+Compound objects can be passed as long as they are [whitelisted]({{< relref "serialization.md#whitelisting" >}}) using the `@CordaSerializable` annotation.
 {{< /note >}}
 
 The process of starting a flow returns a `FlowHandle` that you can use to observe the result, and which also contains
