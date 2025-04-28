@@ -33,9 +33,9 @@ The Collaborative Recovery CorDapps use flows to initiate and execute the recove
 
 To validate these parties, you need to write and distribute simple wrapping flows for these reconciliation and recovery flows:
 
-- [ScheduleReconciliationFlow]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/collaborative-recovery/ledger-sync.md#schedulereconciliationflow" >}}) - This flow schedules regular reconciliation checks.
-- [AutomaticRecoveryFlow]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/collaborative-recovery/ledger-recovery-automatic.md#automaticledgerrecoverflow" >}}) - This flow initiates automatic data recovery.
-- [InitiateManualRecoveryFlow]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/collaborative-recovery/ledger-recovery-manual.md#initiatemanualrecoveryflow" >}}) - This flow initiates manual data recovery.
+- [ScheduleReconciliationFlow]({{< relref "ledger-sync.md#schedulereconciliationflow" >}}) - This flow schedules regular reconciliation checks.
+- [AutomaticRecoveryFlow]({{< relref "ledger-recovery-automatic.md#automaticledgerrecoverflow" >}}) - This flow initiates automatic data recovery.
+- [InitiateManualRecoveryFlow]({{< relref "ledger-recovery-manual.md#initiatemanualrecoveryflow" >}}) - This flow initiates manual data recovery.
 
 These wrapping flows should be bundled into a single CorDapp that can be distributed to relevant parties on your network.
 
@@ -315,7 +315,7 @@ Another option available to node operators is to initiate manual recovery of led
 outlines a simple wrapping flow that initiates manual recovery, persisting a record or `RecoveryRequest`
 on both the initiating and responding nodes.
 
-The participating nodes may then continue with the processes described [here]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/collaborative-recovery/ledger-recovery-manual.md" >}})
+The participating nodes may then continue with the processes described [here]({{< relref "ledger-recovery-manual.md" >}})
 to export, transfer and eventually import the missing transaction data.
 
 ```kotlin

@@ -159,7 +159,7 @@ then determine the logging module name from the console output.
 
 ## SSH access
 
-Node can be configured to run SSH server. See [Node shell]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/operating/shell.md" >}}) for details.
+Node can be configured to run SSH server. See [Node shell]({{< relref "shell.md" >}}) for details.
 
 
 ## Database access
@@ -214,7 +214,7 @@ In order to ensure that a Jolokia agent is instrumented with the JVM run-time, y
 The following JMX statistics are exported:
 
 
-* Corda specific metrics: see [Node metrics]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/operating/monitoring-and-logging/node-metrics.md" >}}) for a list.
+* Corda specific metrics: see [Node metrics]({{< relref "monitoring-and-logging/node-metrics.md" >}}) for a list.
 * Apache Artemis metrics: queue information for P2P and RPC services.
 * JVM statistics: classloading, garbage collection, memory, runtime, threading, operating system.
 
@@ -478,8 +478,8 @@ that were received over the network.
 A Contract CorDapp (an attachment) received over the network, is only allowed to be evaluated if there are other Contract
 CorDapps installed in the node that have been signed by at least one of the received CorDapp’s keys.
 
-See [Signature Constraints]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-contract-constraints.md#signature-constraints" >}}) and
-[Signing CorDapps for use with Signature Constraints]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-contract-constraints.md#signing-cordapps-for-use-with-signature-constraints" >}}) for more information
+See [Signature Constraints]({{< relref "../../cordapps/api-contract-constraints.md#signature-constraints" >}}) and
+[Signing CorDapps for use with Signature Constraints]({{< relref "../../cordapps/api-contract-constraints.md#signing-cordapps-for-use-with-signature-constraints" >}}) for more information
 
 {{< /note >}}
 

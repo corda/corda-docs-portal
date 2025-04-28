@@ -31,7 +31,7 @@ An optional configuraton field that specifies the file from which SSL keys store
 An optional configuration field that specifies the file from which truststore keys will be loaded. The default value is `<certificatesDirectory>/truststore.jks`.
 
 ## firewallMode
-Determines operating mode of the firewall. See [Firewall operating modes]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/node/corda-firewall-configuration-file.md#firewall-operating-modes" >}}).
+Determines operating mode of the firewall. See [Firewall operating modes]({{< relref "corda-firewall-configuration-file.md#firewall-operating-modes" >}}).
 
 ## keyStorePassword
 The password to unlock the TLS keystore file (`<workspace>/<certificatesDirectory>/sslkeystore.jks`) containing the node certificate and private key. Due to limitations in the Artemis libraries, the private key password must be the same.
@@ -290,7 +290,7 @@ If the `revocationConfig` field is missing this will be the default method in `F
 
 ## p2pTlsSigningCryptoServiceConfig
 This is an optional crypto service configuration that will be used for HSM TLS signing when incoming P2P connection by external party attempted into
-Float.  See [Use of HSM in Corda Firewall]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/node/corda-firewall-component.md#use-of-hsm-in-corda-firewall" >}}) for an overview.
+Float.  See [Use of HSM in Corda Firewall]({{< relref "corda-firewall-component.md#use-of-hsm-in-corda-firewall" >}}) for an overview.
 
 Since Float is by design a lightweight component that does not store any sensitive information locally, when it comes to TLS signing, Float will talk to the Bridge for TLS signing to take place.
 Therefore, this option only makes sense for `BridgeInner` and `SenderReceiver` modes.
