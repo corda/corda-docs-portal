@@ -5,7 +5,7 @@ date: '2023-05-08'
 menu:
   corda-enterprise-4-13:
     identifier: corda-enterprise-4-13-release-notes
-    parent: about-corda-landing-4-12-enterprise
+    parent: about-corda-landing-4-13-enterprise
     name: "Release notes"
 tags:
 - release

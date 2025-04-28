@@ -2,7 +2,7 @@
 date: '2023-01-13'
 menu:
   corda-community-4-13:
-    parent: tutorials-corda-4-12-community
+    parent: tutorials-corda-4-13-community
     name: Building your first basic CorDapp
     weight: 60
     identifier: corda-community-4-13-tutorial-basic-cordapp-intro

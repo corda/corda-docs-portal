@@ -7,7 +7,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-13:
     identifier: corda-enterprise-4-13-key-concepts-transactions
-    parent: corda-enterprise-key-concepts-4-12
+    parent: corda-enterprise-key-concepts-4-13
     weight: 1040
 tags:
 - concepts

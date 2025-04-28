@@ -3,7 +3,7 @@ title: "Corda Payments Legal Info"
 date: '2023-02-14'
 menu:
   corda-enterprise-4-13:
-    parent: payments-4-12
+    parent: payments-4-13
     weight: 600
     name: "Legal information"
 section_menu: corda-enterprise-4-13

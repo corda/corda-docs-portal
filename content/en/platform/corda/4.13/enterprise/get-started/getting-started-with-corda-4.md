@@ -4,7 +4,7 @@ date: '2023-01-27'
 
 menu:
   corda-enterprise-4-13:
-    identifier: get-started-landing-4-12
+    identifier: get-started-landing-4-13
     name: "Getting started"
 tags:
 - started

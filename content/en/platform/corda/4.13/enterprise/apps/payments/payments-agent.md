@@ -3,7 +3,7 @@ title: "Payments agent"
 date: '2023-02-14'
 menu:
   corda-enterprise-4-13:
-    parent: payments-4-12
+    parent: payments-4-13
     weight: 500
     name: "Payments agent"
 section_menu: corda-enterprise-4-13

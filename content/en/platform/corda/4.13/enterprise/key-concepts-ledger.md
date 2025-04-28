@@ -7,7 +7,7 @@ date: '2023-01-25'
 menu:
   corda-enterprise-4-13:
     identifier: corda-enterprise-4-13-key-concepts-ledger
-    parent: corda-enterprise-key-concepts-4-12
+    parent: corda-enterprise-key-concepts-4-13
     weight: 1020
 tags:
 - concepts

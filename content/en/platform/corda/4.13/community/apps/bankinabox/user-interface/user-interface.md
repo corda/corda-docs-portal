@@ -3,8 +3,8 @@ title: "User interface (UI)"
 date: '2023-02-14'
 menu:
   corda-community-4-13:
-    parent: bankinabox-4-12-community
-    identifier: bank-in-a-box-user-interface-4-12-community
+    parent: bankinabox-4-13-community
+    identifier: bank-in-a-box-user-interface-4-13-community
 tags:
 - Bank in a Box
 - UI

@@ -2,8 +2,8 @@
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-community-4-13:
-    parent: bank-in-a-box-user-interface-4-12-community
-    identifier: bank-in-a-box-admin-ui-4-12-community
+    parent: bank-in-a-box-user-interface-4-13-community
+    identifier: bank-in-a-box-admin-ui-4-13-community
 tags:
 - Bank in a Box
 - UI

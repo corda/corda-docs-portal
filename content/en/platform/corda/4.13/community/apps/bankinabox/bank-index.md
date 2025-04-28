@@ -2,10 +2,10 @@
 date: '2023-02-14'
 menu:
   corda-community-4-13:
-    parent: apps-4-12-community
+    parent: apps-4-13-community
     weight: 200
     name: Bank in a Box
-    identifier: bankinabox-4-12-community
+    identifier: bankinabox-4-13-community
 title: Bank in a Box
 section_menu: corda-community-4-13
 ---

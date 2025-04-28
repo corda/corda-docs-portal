@@ -3,7 +3,7 @@ title: "Payment service flows"
 date: '2023-02-14'
 menu:
   corda-community-4-13:
-    parent: payments-4-12-community
+    parent: payments-4-13-community
     weight: 400
     name: "Payments service"
 section_menu: corda-community-4-13

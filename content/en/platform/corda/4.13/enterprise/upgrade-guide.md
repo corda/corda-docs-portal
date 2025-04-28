@@ -2,7 +2,7 @@
 date: '2024-05-07'
 menu:
   corda-enterprise-4-13:
-    identifier: "corda-enterprise-4-12-upgrade-guide"
+    identifier: "corda-enterprise-4-13-upgrade-guide"
     parent: corda-enterprise-4-13-upgrading-menu
 tags:
 - upgrading

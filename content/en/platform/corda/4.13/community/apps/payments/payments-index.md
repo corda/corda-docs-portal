@@ -2,10 +2,10 @@
 date: '2023-02-14'
 menu:
   corda-community-4-13:
-    parent: apps-4-12-community
+    parent: apps-4-13-community
     weight: 100
     name: "Corda Payments Preview"
-    identifier: payments-4-12-community
+    identifier: payments-4-13-community
 title: Corda Payments Technical Preview
 section_menu: corda-community-4-13
 ---

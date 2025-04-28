@@ -3,8 +3,8 @@ title: "Corda Enterprise vs Corda Open Source"
 date: '2021-07-02'
 menu:
   corda-community-4-13:
-    parent: about-corda-landing-4-12-community
-    identifier: enterprise-vs-community-4-12-community
+    parent: about-corda-landing-4-13-community
+    identifier: enterprise-vs-community-4-13-community
     weight: 200
     name: "Enterprise vs Open Source"
 tags:

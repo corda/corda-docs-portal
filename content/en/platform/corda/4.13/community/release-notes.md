@@ -8,7 +8,7 @@ date: '2024-06-04'
 menu:
   corda-community-4-13:
     identifier: corda-community-4-13-release-notes
-    parent: about-corda-landing-4-12-community
+    parent: about-corda-landing-4-13-community
     weight: 10
     name: "Release notes"
 tags:

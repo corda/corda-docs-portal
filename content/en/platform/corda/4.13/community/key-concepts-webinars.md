@@ -3,7 +3,7 @@ date: '2022-02-15'
 menu:
   corda-community-4-13:
     identifier: corda-community-4-13-key-concepts-webinar
-    parent: corda-key-concepts-4-12-community
+    parent: corda-key-concepts-4-13-community
     weight: 1500
 tags:
 - concepts

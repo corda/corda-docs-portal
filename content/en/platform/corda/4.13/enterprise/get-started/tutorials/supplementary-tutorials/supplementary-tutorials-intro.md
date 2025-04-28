@@ -3,7 +3,7 @@ date: '2023-01-12'
 menu:
   corda-enterprise-4-13:
     identifier: corda-enterprise-4-13-supplementary-tutorials-index
-    parent: tutorials-corda-4-12-enterprise
+    parent: tutorials-corda-4-13-enterprise
     weight: 130
 tags:
 - tutorials

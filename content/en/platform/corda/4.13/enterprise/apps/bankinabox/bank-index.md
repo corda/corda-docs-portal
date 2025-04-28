@@ -2,10 +2,10 @@
 date: '2023-02-14'
 menu:
   corda-enterprise-4-13:
-    parent: apps-4-12
+    parent: apps-4-13
     weight: 200
     name: Bank in a Box
-    identifier: bankinabox-4-12
+    identifier: bankinabox-4-13
 title: Bank in a Box
 section_menu: corda-enterprise-4-13
 ---

@@ -2,10 +2,10 @@
 date: '2023-02-14'
 menu:
   corda-community-4-13:
-    parent: apps-4-12-community
+    parent: apps-4-13-community
     weight: 300
     name: State reissuance
-    identifier: apps-reissuance-4-12-community
+    identifier: apps-reissuance-4-13-community
 title: State reissuance
 section_menu: corda-community-4-13
 ---

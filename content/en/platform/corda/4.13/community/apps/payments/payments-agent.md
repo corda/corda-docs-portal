@@ -3,7 +3,7 @@ title: "Payments agent"
 date: '2023-02-14'
 menu:
   corda-community-4-13:
-    parent: payments-4-12-community
+    parent: payments-4-13-community
     weight: 500
     name: "Payments agent"
 section_menu: corda-community-4-13

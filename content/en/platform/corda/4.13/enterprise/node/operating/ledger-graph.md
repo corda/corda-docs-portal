@@ -3,7 +3,7 @@ date: '2020-04-24T12:00:00Z'
 menu:
   corda-enterprise-4-13:
     parent: corda-enterprise-4-13-corda-nodes-operating
-    identifer: corda-enterprise-4-12-ledger-graph
+    identifer: corda-enterprise-4-13-ledger-graph
 tags:
 - in memory
 - transaction data
