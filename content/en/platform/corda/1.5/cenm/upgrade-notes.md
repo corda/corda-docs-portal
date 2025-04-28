@@ -178,14 +178,14 @@ The key steps for the upgrade are:
 You must generate SSL key pairs and certificates for the new services before deploying them.
 You can do this using the PKI tool, and it is best to replace the
 SSL certificates and keys for all services during this process. A draft PKI tool configuration
-for generating the full SSL hierarchy is provided under [config-samples/upgrade-pki-tool-1.3.conf](../../../../../en/platform/corda/1.3/cenm/config-samples/upgrade-pki-tool.conf/).
+for generating the full SSL hierarchy is provided under [config-samples/upgrade-pki-tool.conf](config-samples/upgrade-pki-tool.conf/).
 
 {{% important %}}
 You must replace the `subject` and `crlDistributionUrl` entries in this configuration with values
 appropriate to your deployment.
 {{% /important %}}
 
-To generate the JWT, refer to the [Auth Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md" >}}) documentation.
+To generate the JWT, refer to the [Auth Service]({{< relref "../../4.8/enterprise/node/auth-service.md" >}}) documentation.
 
 The generated keys and certificates will then need to be distributed to the service hosts,
 replacing the existing SSL (but not network trust root or other signing key/certificates).
@@ -194,9 +194,9 @@ replacing the existing SSL (but not network trust root or other signing key/cert
 
 To deploy the new services, follow the guides in the service documentation:
 
-* [Gateway Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md" >}})
-* [Auth Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md" >}})
-* [Zone Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/zone-service.md" >}})
+* [Gateway Service]({{< relref "../../4.8/enterprise/node/gateway-service.md" >}})
+* [Auth Service]({{< relref "../../4.8/enterprise/node/auth-service.md" >}})
+* [Zone Service]({{< relref "../../1.5/cenm/zone-service.md" >}})
 
 {{< note >}}
 You should deploy two Gateway Service instances - one for general access, accessible from user
