@@ -37,7 +37,7 @@ not the recommended deployment model outside of a testing setup.{{< /note >}}
 this service should be deployed (for more details on this see the Signing Service documentation), in brief, it is the
 intention that, unlike the Identity Manager, the signer is completely isolated from external communication. It only
 addresses a data source it shares with the Identity Manager. This ensure no hostile entity can penetrate the system
-and force the signing of a certificate. See [Signing Services](signing-service.md)
+and force the signing of a certificate. See [Signing Services]({{< relref "signing-service.md" >}})
 * The signed certificates are recognised by the Identity Manager and returned to the requesting node (Nodes poll the
 Identity Manager periodically to see if their signature request has been fulfilled).
 
@@ -82,7 +82,7 @@ one sub zone
 
 {{< /important >}}
 
-For more information, see [Sub Zones](sub-zones.md)
+For more information, see [Sub Zones]({{< relref "sub-zones.md" >}})
 
 
 ### Operating a Segregated Sub Zone

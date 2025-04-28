@@ -253,7 +253,7 @@ flows (see [Versioning]({{< relref "../enterprise/cordapps/versioning.md" >}})).
 
 The `cordapp` plugin can sign the generated CorDapp JAR file using the [JAR signing and verification tool](https://docs.oracle.com/javase/tutorial/deployment/jar/signing.html).
 Signing the CorDapp enables its contract classes to use signature constraints instead of other types of constraints.
-See [Contract Constraints](api-contract-constraints.md) for more information.
+See [Contract Constraints]({{< relref "api-contract-constraints.md" >}}) for more information.
 The JAR file is signed by the Corda development certificate by default.
 
 {{< warning >}}
@@ -322,7 +322,7 @@ You could sign the CorDapp automatically by:
 
 ### Run development and production modes
 Nodes only accept CorDapps signed by Corda development certificates when running in development mode. If you need to run a CorDapp signed by the (default) development key in the production mode (for example, for testing), add the `cordappSignerKeyFingerprintBlacklist = []` property set to an empty list. See
-[Configuring a node](corda-configuration-file.html#limitations)).
+[Configuring a node]({{< relref "corda-configuration-file.md#limitations" >}})).
 
 You can use one `build.gradle` file for both a development build (defaulting to the Corda development keystore) and for a production build (using an external keystore) by contexually overwriting signing options using system properties.
 
@@ -458,7 +458,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-You can find an example project that demonstrates this in the `samples` folder of the Corda Git repository, `cordapp-configuration` . You can also refer to the [API documentation](../../../../../../en/api-ref/api-ref-corda-4.html).
+You can find an example project that demonstrates this in the `samples` folder of the Corda Git repository, `cordapp-configuration` . You can also refer to the [API documentation]({{< relref "../../../../../../en/api-ref/api-ref-corda-4.md" >}}).
 
 
 ## Minimum and target platform version

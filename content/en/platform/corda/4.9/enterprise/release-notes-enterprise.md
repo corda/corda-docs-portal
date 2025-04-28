@@ -110,7 +110,7 @@ Corda Enterprise Edition 4.9.7 is a patch release of Corda Enterprise focused on
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node](upgrading-index.md).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]{{< relref "upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -184,7 +184,7 @@ Corda Enterprise Edition 4.9.6 is a patch release of Corda Enterprise focused on
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node](upgrading-index.md).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]{{< relref "upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -309,7 +309,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 
 In this release:
 
-* Corda shell has been removed to its own repository for improved security. You can now use a standalone shell outside of the node, or from within the node's drivers. For more information about using the standalone shell, see [The standalone shell](./node/operating/shell.html#the-standalone-shell). For information on adding the shell to the node's drivers, see [Upgrading a node to Corda Enterprise Edition 4.9](node-upgrade-notes.html).
+* Corda shell has been removed to its own repository for improved security. You can now use a standalone shell outside of the node, or from within the node's drivers. For more information about using the standalone shell, see [The standalone shell]({{< relref "./node/operating/shell.md#the-standalone-shell" >}}). For information on adding the shell to the node's drivers, see [Upgrading a node to Corda Enterprise Edition 4.9]({{< relref "node-upgrade-notes.md" >}}).
 {{< note >}}
 The Corda shell has a dependency on Groovy that the Corda API does not. As a result, for any flows dependent on Groovy, you must now add the dependency to the CorDapp or the drivers' directory.
 {{< /note >}}

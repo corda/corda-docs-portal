@@ -92,7 +92,7 @@ issue_transaction_output_id|
 ### Procedure
 
 
-* Use the [Corda Database Management Tool](../node/operating/node-database.html#database-management-tool) to prepare the schema in the target database.
+* Use the [Corda Database Management Tool]({{< relref "../node/operating/node-database.md#database-management-tool" >}}) to prepare the schema in the target database.
 * Obtain the latest backup of the source database.
 * Extract the data from the source database, transform it and load the data into the target database.
 * Loading this older copy of the data from the source database into the target database reduces the time taken for the final step.

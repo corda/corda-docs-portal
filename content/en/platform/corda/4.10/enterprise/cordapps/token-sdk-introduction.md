@@ -119,7 +119,7 @@ An `EvolvableTokenType` has properties that can change over time. This is repres
 * Define the evolvable attributes that can change over time.
 * Identify at least one signatory service that can approve the newly evolved state. This is called a `Maintainer`.
 
-In the example below, the evolvable token is for a diamond. You can see the evolvable attributes, which are the attributes included in a grading report for a diamond. You can also see a full [walk-through of this example](token-diamond-example.md) for a fuller picture.
+In the example below, the evolvable token is for a diamond. You can see the evolvable attributes, which are the attributes included in a grading report for a diamond. You can also see a full [walk-through of this example]({{< relref "token-diamond-example.md" >}}) for a fuller picture.
 
 {{< tabs name="tabs-1234" >}}
 {{% tab name="kotlin" %}}
@@ -461,7 +461,7 @@ To choose only tokens from one issuer, you can provide optional [queryCriteria] 
 
 {{< note >}}
 
-This method always uses database token selection, to use [in-memory selection](token-selection.html), use `addMoveTokens` with already selected input and output states.
+This method always uses database token selection, to use [in-memory selection]({{< relref "token-selection.md" >}}), use `addMoveTokens` with already selected input and output states.
 
 {{< /note >}}
 
@@ -496,7 +496,7 @@ To choose only tokens from one issuer, you can provide optional [queryCriteria] 
 
 {{< note >}}
 
-This method always uses database token selection, to use in-memory [token selection](token-selection.md), use `addMoveTokens` with already selected input and output states.
+This method always uses database token selection, to use in-memory [token selection]({{< relref "token-selection.md" >}}), use `addMoveTokens` with already selected input and output states.
 
 {{< /note >}}
 

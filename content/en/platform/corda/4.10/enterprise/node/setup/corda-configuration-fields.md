@@ -253,7 +253,7 @@ Allows fine-grained controls of various features only available in the enterpris
   * The alias of the distributed notary signing key alias (used if this node is a notary). Allowed are up to 100 lower case alphanumeric    characters and the hyphen (-).
   * *Default:* distributed-notary-private-key
 * `messagingServerSslConfiguration`
-  * TLS configuration used to connect to external P2P Artemis message server. Required when `messagingServerExternal` = `true`. Also, it can be used optionally with embedded Artemis when external Bridge is configured. For more information, see [Storing node TLS keys in HSM](tls-keys-in-hsm.md).
+  * TLS configuration used to connect to external P2P Artemis message server. Required when `messagingServerExternal` = `true`. Also, it can be used optionally with embedded Artemis when external Bridge is configured. For more information, see [Storing node TLS keys in HSM]({{< relref "tls-keys-in-hsm.md" >}}).
   * `sslKeystore`
     * The path to the KeyStore file to use in Artemis connections.
     * *Default:* not defined
@@ -292,17 +292,17 @@ Allows fine-grained controls of various features only available in the enterpris
     * `eventsToRecord` defines which types of events will be recorded by the audit service - currently supported types are `{NONE, RPC, ALL}`
     * *Default:* `NONE`
 * `maintenanceMode`
-  * An optional field used by [Node Maintenance Mode](../operating/maintenance-mode.html#configuration-of-node-maintenance-mode), which enables you to run certain house-keeping events automatically within Corda at specific times of the day or week, using a "_cron-like_" scheduling algorithm.
+  * An optional field used by [Node Maintenance Mode]({{< relref "../operating/maintenance-mode.md#configuration-of-node-maintenance-mode" >}}), which enables you to run certain house-keeping events automatically within Corda at specific times of the day or week, using a "_cron-like_" scheduling algorithm.
   * *Default:* Not present. By default, no maintenance activities will be performed if the `maintenanceMode` section is not provided. Without the new parameter, Corda will behave as if maintenance mode is not available.
   * If the `maintenanceMode` sub-section is provided, then **ALL** `maintenanceMode` parameters (as described below) must be supplied and must also pass configuration validation at start-up.
   * Parameters:
-    * `schedule` is a *“cron-like”* expression, which is used to control at what time(s) the maintenance tasks are run. The format follows the existing cron standards using a 6-part time specification but omits the command line part of the expression as would be present in a Unix cron expression. Times are in **UTC**. See an example in [Node Maintenance Mode](../operating/maintenance-mode.html#configuration-of-node-maintenance-mode). For more information on *cron* (with examples) please see [cron-wiki](https://en.wikipedia.org/wiki/Cron) and note that the examples shown will include the *<command to execute>* part which is not present in the Corda `schedule`. The tasks that get run are not dependent on this configuration item and are determined *within* Corda. The following example will run maintenance at 14:30 and 15:30 (UTC) on Fridays (‘5’ in final column): `schedule = "00 30 14,15 * * 5"`.
+    * `schedule` is a *“cron-like”* expression, which is used to control at what time(s) the maintenance tasks are run. The format follows the existing cron standards using a 6-part time specification but omits the command line part of the expression as would be present in a Unix cron expression. Times are in **UTC**. See an example in [Node Maintenance Mode]({{< relref "../operating/maintenance-mode.md#configuration-of-node-maintenance-mode" >}}). For more information on *cron* (with examples) please see [cron-wiki](https://en.wikipedia.org/wiki/Cron) and note that the examples shown will include the *<command to execute>* part which is not present in the Corda `schedule`. The tasks that get run are not dependent on this configuration item and are determined *within* Corda. The following example will run maintenance at 14:30 and 15:30 (UTC) on Fridays (‘5’ in final column): `schedule = "00 30 14,15 * * 5"`.
     * `duration` is the maximum time that a maintenance window is expected to take to run all tasks. At start-up, Corda will check for all maintenance events that occur within the following week. If there is an overlap (due the specified duration being longer than the interval between any two adjacent maintenance windows), Corda Enterprise will emit a *warning* to the log which will precisely specify the overlap scenario but no further action will be taken. Additionally, if the time that the maintenance tasks *actually* take to run exceeds the specified duration, a warning will be emitted to the log but the maintenance tasks will not be interrupted. The purpose of the duration parameter is to allow the user to check that there are no overlaps and to allow monitoring of overrunning activities via log messaging and monitoring. The duration is specified in HOCON *duration* format with suffixes of `‘h’ (hours), ‘m’ (minutes) and ‘s’ (seconds)` - for example, `‘1h’` to mean one hour. For additional information on HOCON duration format parsing, see [HOCON-duration-format](https://github.com/lightbend/config/blob/master/HOCON.md#duration-format).
     * `rpcAuditDataRetentionPeriod` is a parameter to the RPC table maintenance task and specifies how long records should be kept for within the table for. The parameter is in HOCON *period* format - for example, `‘365d’, ‘1w’`. In general, the following suffixes should be sufficient: `‘d’ (days), ‘w’ (weeks), ‘m’ (months), ‘y’ (years)`. For more information on the HOCON period format see [HOCON-period-format](https://github.com/lightbend/config/blob/master/HOCON.md#period-format). The end of the retention period will be the current time (in UTC) minus the duration.
-  * [Node Maintenance Mode](../operating/maintenance-mode.html#configuration-of-node-maintenance-mode) uses the `processedMessageCleanup` parameters (see below).
+  * [Node Maintenance Mode]({{< relref "../operating/maintenance-mode.md#configuration-of-node-maintenance-mode" >}}) uses the `processedMessageCleanup` parameters (see below).
 * `processedMessageCleanup`
   * An optional field that allows you to run the message ID cleanup task at shutdown. The same rules will apply for calculation of default values as when the activity runs at shutdown.
-  * This field and its parameters are also used by the [Node Maintenance Mode](../operating/maintenance-mode.html#configuration-of-node-maintenance-mode) (`maintenanceMode` just above) functionality.
+  * This field and its parameters are also used by the [Node Maintenance Mode]({{< relref "../operating/maintenance-mode.md#configuration-of-node-maintenance-mode" >}}) (`maintenanceMode` just above) functionality.
   * Parameters:
     * `generalRetentionPeriodInDays` indicates the number of days a message (sent during recovery) will be retained. If not specified, it will default to the specified `senderRetentionPeriodInDays` value plus the event horizon duration (or 365 days, if the event horizon is larger than 365 days).
     * `senderRetentionPeriodInDays` indicates the number of days a message (sent during normal operation) will be retained. If not specified, it will default to 7 days.
@@ -545,7 +545,7 @@ The legal identity of the node.
 This acts as a human-readable alias to the node's public key and can be used with the network map to look up the node's info.
 This is the name that is used in the node's certificates (either when requesting them from the doorman, or when auto-generating them in dev mode).
 At runtime, Corda checks whether this name matches the name in the node's certificates.
-The name must be a valid X.500 distinguished name, as per the [node naming constraints](node-naming.md).
+The name must be a valid X.500 distinguished name, as per the [node naming constraints]({{< relref "node-naming.md" >}}).
 
 *Default:* not defined
 
@@ -989,6 +989,6 @@ Internal option.
   This option is disabled by default and is independent from `devMode`.
   {{< /note >}}
 
-  For full details, see [Automatic detection of unrestorable checkpoints](../operating/monitoring-and-logging/checkpoint-tooling.html#automatic-detection-of-unrestorable-checkpoints).
+  For full details, see [Automatic detection of unrestorable checkpoints]({{< relref "../operating/monitoring-and-logging/checkpoint-tooling.md#automatic-detection-of-unrestorable-checkpoints" >}}).
 
   *Default:* not defined

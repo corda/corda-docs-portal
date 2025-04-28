@@ -20,7 +20,7 @@ These endpoints and their corresponding flows are described below, organised by 
 
 ## Base URL
 
-As Bank in a Box is used for testing and learning, the base URL is `localhost` with the [port assigned during installation](./getting-started.html#service-endpoints-display-logs-and-exec-into-container) using the Kubernetes port forward feature.
+As Bank in a Box is used for testing and learning, the base URL is `localhost` with the [port assigned during installation]({{< relref "./getting-started.md#service-endpoints-display-logs-and-exec-into-container" >}}) using the Kubernetes port forward feature.
 
 For the examples shown below, the base URL is: `http://localhost:7777/`
 
@@ -1315,7 +1315,7 @@ Sample response:
 
 ### Get customer by customer ID
 
-Send a `GET` request to the `/customers/{customerId}` endpoint to invoke the [GetCustomerByIDFlow](back-end-guide.html#getcustomerbyidflow). This flow retrieves the `CustomerSchemaV1.Customer`, which stores personal details and contact information along with creation and modification timestamps, for a given `customerId`. This request requires authorization. It can be sent by an admin user.
+Send a `GET` request to the `/customers/{customerId}` endpoint to invoke the [GetCustomerByIDFlow]({{< relref "back-end-guide.md#getcustomerbyidflow" >}}). This flow retrieves the `CustomerSchemaV1.Customer`, which stores personal details and contact information along with creation and modification timestamps, for a given `customerId`. This request requires authorization. It can be sent by an admin user.
 
  - Request type: `GET`.
  - Path: `/customers/{customerId}`.

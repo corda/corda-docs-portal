@@ -47,7 +47,7 @@ Note the `.0`.
 
 You have installed the Docker image with CENM CLI tool.
 
-To get the tool ready to use from within the Docker container, check the [Kubernetes deployment guide](../../../../../en/platform/corda/1.5/cenm/deployment-kubernetes.html#network-operations).
+To get the tool ready to use from within the Docker container, check the [Kubernetes deployment guide]({{< relref "../../../../../en/platform/corda/1.5/cenm/deployment-kubernetes.md#network-operations" >}}).
 
 ## Set up the CENM CLI Tool
 
@@ -79,7 +79,7 @@ To set up a new network with the CLI:
 
     `./cenm identity-manager config set-admin-address -a=identity-manager:5053`
 
-3. Set the Identity Manager config. This command returns a **Zone token** which you should pass to your [Angel Service](angel-service.md):
+3. Set the Identity Manager config. This command returns a **Zone token** which you should pass to your [Angel Service]({{< relref "angel-service.md" >}}):
 
     `./cenm identity-manager config set -f config/identitymanager.conf --zone-token`
 

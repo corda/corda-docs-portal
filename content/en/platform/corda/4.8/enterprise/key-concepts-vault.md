@@ -34,7 +34,7 @@ A Corda vault is a database containing all data from the ledger relevant to a no
 * Transaction reporting
 * Audit and archives, including the ability to perform joins with app-private data, like customer notes
 
-You can use data in your vault to create transactions that send value to another party by combining [fungible states](key-concepts-states.md), and possibly adding a change output that makes the values balance. This process is referred to as ‘coin selection’.
+You can use data in your vault to create transactions that send value to another party by combining [fungible states]({{< relref "key-concepts-states.md" >}}), and possibly adding a change output that makes the values balance. This process is referred to as ‘coin selection’.
 
 Spending from the vault in this way ensures that transactions respect fungibility rules. The issuer and reference data is preserved as the assets pass between parties.
 
@@ -56,7 +56,7 @@ You can see:
 * The vault performs fungible state spending (and in future, fungible state optimisation management including merging, splitting and re-issuance).
 * Vault extensions represent additional custom plugin code a developer may write to query specific custom contract state attributes.
 * Customer “Off Ledger” (private store) represents internal organisational data that may be joined with the vault data to perform additional reporting or processing.
-* A [Vault Query API](cordapps/api-vault-query.md) is exposed to developers using standard Corda RPC and CorDapp plugin mechanisms.
+* A [Vault Query API]({{< relref "cordapps/api-vault-query.md" >}}) is exposed to developers using standard Corda RPC and CorDapp plugin mechanisms.
 * Transaction recording flows use a vault update API internally.
 * The vault database schemas are directly accessible via JDBC for customer joins and queries.
 
@@ -64,7 +64,7 @@ You can see:
 
 To prevent a node database from becoming too large, you can use the Archive service to remove all but the minimum required data relating to consumed transactions. If you plan your CorDapp design accordingly, you can ensure that your spent states are moved to the archive regularly. By using the archive, your vault does not get weighed down by the full backchain data, but retains the essential information to maintain ledger integrity.
 
-Find out more about the [Archive Service](node/archiving/archiving-setup.md).
+Find out more about the [Archive Service]({{< relref "node/archiving/archiving-setup.md" >}}).
 
 ## Soft locking to prevent double spend attempts
 

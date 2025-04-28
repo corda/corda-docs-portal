@@ -18,7 +18,7 @@ title: Changelog
 # Changelog
 
 Here’s a summary of what’s changed in each Enterprise Network Manager release. For guidance on how to upgrade code from
-the previous release, see [Upgrading Corda Enterprise Network Manager](upgrade-notes.md).
+the previous release, see [Upgrading Corda Enterprise Network Manager]({{< relref "upgrade-notes.md" >}}).
 
 ## CENM 1.2
 

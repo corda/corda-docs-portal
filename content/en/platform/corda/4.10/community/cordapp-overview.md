@@ -32,11 +32,11 @@ These class definitions will commonly include the following elements:
 
 
 * Flows: Define a routine for the node to run, usually to update the ledger
-(see [Key Concepts - Flows](key-concepts-flows.md)). They subclass `FlowLogic`
-* States: Define the facts over which agreement is reached (see [Key Concepts - States](key-concepts-states.md)).
+(see [Key Concepts - Flows]({{< relref "key-concepts-flows.md" >}})). They subclass `FlowLogic`
+* States: Define the facts over which agreement is reached (see [Key Concepts - States]({{< relref "key-concepts-states.md" >}})).
 They implement the `ContractState` interface
 * Contracts, defining what constitutes a valid ledger update (see
-[Key Concepts - Contracts](key-concepts-contracts.md)). They implement the `Contract` interface
+[Key Concepts - Contracts]({{< relref "key-concepts-contracts.md" >}})). They implement the `Contract` interface
 * Services, providing long-lived utilities within the node. They subclass `SingletonSerializationToken`
 * Serialization whitelists, restricting what types your node will receive off the wire. They implement the
 `SerializationWhitelist` interface
@@ -76,30 +76,30 @@ Source Corda core library, as Corda Enterprise itself is compiled against the Co
 To make this work in practice you should follow these steps:
 
 
-* Ensure your CorDapp is designed per [Structuring a CorDapp](writing-a-cordapp.md) and annotated according to [CorDapp separation](cordapp-build-systems.md).
+* Ensure your CorDapp is designed per [Structuring a CorDapp]({{< relref "writing-a-cordapp.md" >}}) and annotated according to [CorDapp separation]({{< relref "cordapp-build-systems.md" >}}).
 In particular, it is critical to separate the consensus-critical parts of your application (contracts, states and their dependencies) from
 the rest of the business logic (flows, APIs, etc).
-The former - the **CorDapp kernel** - is the Jar that will be attached to transactions creating/consuming your states and is the Jar
+The former - the **CorDapp kernel** - is the JAR that will be attached to transactions creating/consuming your states and is the JAR
 that any node on the network verifying the transaction must execute.
 
 {{< note >}}
-It is also important to understand how to manage any dependencies a CorDapp may have on 3rd party libraries and other CorDapps.
-Please read [Setting your dependencies](cordapp-build-systems.md) to understand the options and recommendations with regards to correctly Jar’ing CorDapp dependencies.
+It is also important to understand how to manage any dependencies a CorDapp may have on third-party libraries and other CorDapps.
+Please read [Setting your dependencies]({{< relref "cordapp-build-systems.md" >}}) to understand the options and recommendations with regards to correctly adding CorDapp dependencies to JARs.
 
 {{< /note >}}
 
-* Compile this **CorDapp kernel** Jar once, and then depend on it from your workflows Jar. In terms of Corda depdendencies,this should only
+* Compile this **CorDapp kernel** JAR once, and then depend on it from your workflows JAR. In terms of Corda dependencies, this should only
 depend on the `corda-core` package from the Corda Community Edition distribution.
 
 {{< note >}}
-As of Corda 4 R3 recommends to use [CorDapp Jar signing](cordapp-build-systems.md) to leverage the new signature constraints functionality.
+As of Corda 4, R3 recommends to use [CorDapp Jar signing]({{< relref "cordapp-build-systems.md" >}}) to leverage the new signature constraints functionality.
 
 {{< /note >}}
 
 * Your workflow Jar(s) should depend on the **CorDapp kernel** (contract, states and dependencies). Importantly, you can create different workflow
 Jars for Corda and Corda Enterprise, because the workflows Jar is not consensus critical. For example, you may wish to add additional features
 to your CorDapp for when it is run on Corda Enterprise (perhaps it uses advanced features of one of the supported enterprise databases or includes
-advanced database migration scripts, or some other Enterprise-only feature).When building a CorDapp against Corda Enterprise, please note that the `corda-core` library still needs to come from the Corda Community Edition
+advanced database migration scripts, or some other Enterprise-only feature). When building a CorDapp against Corda Enterprise, please note that the `corda-core` library still needs to come from the Corda Community Edition
 distribution, so you will have dependencies on Corda Enterprise and a matching open core distribution. Specifically, any CorDapp targeted
 to run on Corda Enterprise should have unit and integration tests using Corda Enterprise.
 

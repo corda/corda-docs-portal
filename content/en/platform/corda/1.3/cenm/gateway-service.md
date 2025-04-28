@@ -17,9 +17,9 @@ title: FARM Service
 
 # FARM Service
 
-The Front-end Applications for Remote Management (FARM) Service provides a gateway between front-end CENM service interfaces, and the [Auth Service](auth-service.md) that underpins authentication and authorisation in CENM services.
+The Front-end Applications for Remote Management (FARM) Service provides a gateway between front-end CENM service interfaces, and the [Auth Service]({{< relref "auth-service.md" >}}) that underpins authentication and authorisation in CENM services.
 
-Once installed and configured, users can connect with the FARM Service via the [CENM CLI Tool](cenm-cli-tool.md) to manage CENM service tasks. Administrators can use the FARM Service address plus `/admin` to access the (CENM User Admin Tool)[user-admin] via a web browser.
+Once installed and configured, users can connect with the FARM Service via the [CENM CLI Tool]({{< relref "cenm-cli-tool.md" >}}) to manage CENM service tasks. Administrators can use the FARM Service address plus `/admin` to access the (CENM User Admin Tool)[user-admin] via a web browser.
 
 {{< note >}}
 As a gateway service, FARM does not need its own database - so there is no database configuration required when you are setting up.
@@ -37,9 +37,9 @@ When you configure the FARM Service, you need to:
 
 1. Specify the endpoint where the Auth Service is exposed - this must match the IP or host name of the machine/VM/container and the port that is configured in the Auth Service config file.
 
-2. Specify the SSL configuration for connecting to the Auth Service. You can do this using the [PKI tool](pki-tool.md).
+2. Specify the SSL configuration for connecting to the Auth Service. You can do this using the [PKI tool]({{< relref "pki-tool.md" >}}).
 
-3. Your authentication credentials, as specified in your [Auth Service configuration](auth-service.md).
+3. Your authentication credentials, as specified in your [Auth Service configuration]({{< relref "auth-service.md" >}}).
 
 4. Your Zone Service address.
 

@@ -609,4 +609,4 @@ echo ${idmanPublicIP}
 
 ## Appendix A: Docker Images
 
-Visit the [platform support matrix](../../../../../en/platform/corda/4.11/enterprise/platform-support-matrix.html#docker-images) for information on Corda Docker Images for version 1.6.
+Visit the [platform support matrix]({{< relref "../../../../../en/platform/corda/4.11/enterprise/platform-support-matrix.md#docker-images" >}}) for information on Corda Docker Images for version 1.6.

@@ -15,7 +15,7 @@ weight: 20
 # Configuring a JPA notary backend
 
 Prior to using the JPA notary, the database must be prepared. This can be performed using the
-[Corda Database Management Tool](../node/operating/node-database.html#database-management-tool). If preferred, the required tables can be manually
+[Corda Database Management Tool]({{< relref "../node/operating/node-database.md#database-management-tool" >}}). If preferred, the required tables can be manually
 created. See below for example database scripts. Note that in these examples, a database named “corda” is created to
 house the tables - this is purely for example purposes. The database name could be any string supported by your
 database vendor - ensure that the configuration matches the database name.
@@ -101,7 +101,7 @@ notary {
 
 If the Corda Database Management Tool’s `dry-run` mode is used, the `databasechangelog` and `databasechangeloglock` tables must already exist
 and the database user would need read and write permissions. If the tool’s `execute-migration` mode is used, the database user would require
-schema modification rights. For more information, see [Corda Database Management Tool](../node/operating/node-database.html#database-management-tool).
+schema modification rights. For more information, see [Corda Database Management Tool]({{< relref "../node/operating/node-database.md#database-management-tool" >}}).
 
 
 ### Database users
@@ -298,7 +298,7 @@ The `dataSource.url` property must specify a _minimum_ of three nodes. Each node
 dataSource.url="jdbc:postgresql://<CockroachDB-node1-IP-address>:26257,<CockroachDB-node2-IP-address>:26257,<CockroachDB-node3-IP-address>:26257/corda?sslmode=require&sslrootcert=certificates/ca.crt&sslcert=certificates/client.corda.crt&sslkey=certificates/client.corda.key.pk8"
 ```
 
-Refer to the section [Configuring the notary worker nodes](installing-the-notary-service.md) for more details on configuring the JPA notary.
+Refer to the section [Configuring the notary worker nodes]{{< relref "installing-the-notary-service.md" >}}) for more details on configuring the JPA notary.
 
 
 ## Configuring notary backend - Oracle RAC 19c

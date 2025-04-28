@@ -60,18 +60,18 @@ To install Git, navigate to [Git](https://git-scm.com/) and install your preferr
 
 ## Installing Gradle
 
-If you intend to proceed directly to run a sample CorDapp, as described in [Running a sample CorDapp](tutorial-cordapp.md), the included `gradlew` script should install Gradle automatically when you open the sample CorDapp in IntelliJ.
+If you intend to proceed directly to run a sample CorDapp, as described in [Running a sample CorDapp]({{< relref "tutorial-cordapp.md" >}}), the included `gradlew` script should install Gradle automatically when you open the sample CorDapp in IntelliJ.
 
 If you'd prefer to install Gradle manually, navigate to [Gradle](https://gradle.org/releases/) then locate and install Gradle **version 5.6.4**. Corda requires a Gradle version between 5.1 and 5.6.4, and does not support Gradle 6.x.
 
 ## Next steps
 
-First, run the [sample CorDapp](tutorial-cordapp.md).
+First, run the [sample CorDapp]({{< relref "tutorial-cordapp.md" >}}).
 
 Next, read through the [Corda Key Concepts]({{< relref "about-corda/corda-key-concepts.md" >}}) to understand how Corda works.
 
 By then, you’ll be ready to start writing your own CorDapps. You may want to refer to the
-API documentation, the [flow cookbook](flow-cookbook.md) and the
+API documentation, the [flow cookbook]({{< relref "flow-cookbook.md" >}}) and the
 [samples](https://www.corda.net/samples/) along the way.
 
 If you encounter any issues, please ask on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via [our Slack channels](http://cordaledger.slack.com).

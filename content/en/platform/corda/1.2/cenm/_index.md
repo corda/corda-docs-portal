@@ -45,7 +45,7 @@ Concepts and Overview
 * [The workflow]({{< relref "../../../../../en/platform/corda/1.2/cenm/workflow.md" >}})
 * [Databases]({{< relref "../../../../../en/platform/corda/1.2/cenm/database-set-up.md" >}})
 * [Public Key Infrastructure (PKI)]({{< relref "../../../../../en/platform/corda/1.2/cenm/pki-tool.md" >}})
-* [The node](../../../../../en/platform/corda/1.2/cenm/network-map.html#node-certificate-revocation-checking)
+* [The node]({{< relref "../../../../../en/platform/corda/1.2/cenm/network-map.md#node-certificate-revocation-checking" >}})
 * [Sub Zones]({{< relref "../../../../../en/platform/corda/1.2/cenm/sub-zones.md" >}})
 * [Network Map overview]({{< relref "../../../../../en/platform/corda/1.2/cenm/network-map-overview.md" >}})
 * [Certificate Revocation List]({{< relref "../../../../../en/platform/corda/1.2/cenm/certificate-revocation.md" >}})

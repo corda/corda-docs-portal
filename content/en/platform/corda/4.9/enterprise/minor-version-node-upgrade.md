@@ -30,7 +30,7 @@ The protocol tolerates node outages. Peers on the network wait for your node to 
 
 ## Step 1: Drain the node
 
-Node operators must drain nodes (or CorDapps on nodes) before they can upgrade them. Draining brings all [flows](cordapps/api-flows.md) that are currently running to a smooth halt. The node finishes any work already in progress, and queues any new work. This process frees CorDapps from the requirement to migrate workflows from an arbitrary point to another arbitrary point—a task that would rapidly become unfeasible as workflow
+Node operators must drain nodes (or CorDapps on nodes) before they can upgrade them. Draining brings all [flows]({{< relref "cordapps/api-flows.md" >}}) that are currently running to a smooth halt. The node finishes any work already in progress, and queues any new work. This process frees CorDapps from the requirement to migrate workflows from an arbitrary point to another arbitrary point—a task that would rapidly become unfeasible as workflow
 and protocol complexity increases.
 
 To drain a node, run `gracefulShutdown`. This waits for all running flows to be completed and then shuts the node down.
@@ -48,7 +48,7 @@ For a smooth node draining process, avoid long-running flows.
 Replace the `corda.jar` with the latest version of Corda.
 
 Download the latest version of Corda from the [Customer Hub](https://customerhub.r3.com).
-Make sure it’s available on your path, and that you’ve read the [Corda release notes](release-notes-enterprise.md). Pay particular attention to which version of Java the
+Make sure it’s available on your path, and that you’ve read the [Corda release notes]{{< relref "release-notes-enterprise.md" >}}). Pay particular attention to which version of Java the
 node requires.
 
 {{< important >}}
@@ -73,5 +73,5 @@ Your upgrade is complete.
 ## Notes
 
 {{< warning >}}
-You must align the multi-RPC client version with the node version. Both must be running the same version of Corda Enterprise. See [Querying flow data](node/operating/querying-flow-data.md) for more information.
+You must align the multi-RPC client version with the node version. Both must be running the same version of Corda Enterprise. See [Querying flow data]({{< relref "node/operating/querying-flow-data.md" >}}) for more information.
 {{< /warning >}}

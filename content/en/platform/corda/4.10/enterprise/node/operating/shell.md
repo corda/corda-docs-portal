@@ -507,7 +507,7 @@ Use the different flow commands available to make changes on the ledger. You can
 
 #### Query flow data
 
-The shell can be used to query flow data. For more information on the types of data that can be queried and instructions for doing so, see the documentation on [Querying flow data](querying-flow-data.html#querying-flow-data-via-the-node-shell).
+The shell can be used to query flow data. For more information on the types of data that can be queried and instructions for doing so, see the documentation on [Querying flow data]({{< relref "querying-flow-data.md#querying-flow-data-via-the-node-shell" >}}).
 
 
 #### Start a flow
@@ -699,7 +699,7 @@ class is referenced as `net.corda.finance.contracts.asset.Cash$State` (note the 
 
 {{< note >}}
 If your CorDapp is written in Java, named arguments won’t work unless you compiled the node using the
-`-parameters` argument to `javac`. See the documentation on [Creating nodes locally](generating-a-node.md) to learn how to specify it via Gradle.
+`-parameters` argument to `javac`. See the documentation on [Creating nodes locally]({{< relref "../deploy/generating-a-node.md" >}}) to learn how to specify it via Gradle.
 {{< /note >}}
 
 

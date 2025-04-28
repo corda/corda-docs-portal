@@ -34,7 +34,7 @@ When you configure the Gateway Service, you need to:
 
 2. Specify the SSL configuration for connecting to the Auth Service. You can do this using the [PKI tool]({{< relref "../../../../../../en/platform/corda/1.5/cenm/pki-tool.md" >}}).
 
-3. Your authentication credentials, as specified in your [Auth Service configuration]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md" >}}).
+3. Your authentication credentials, as specified in your [Auth Service configuration]({{< relref "auth-service.md" >}}).
 
 4. Your Zone Service address.
 
@@ -99,9 +99,9 @@ Command line arguments:
 ## Installing applications onto the Gateway Service
 
 {{< note >}}
-[Auth Service](auth-service.md) needs to be set up with baseline permission data for each application.
+[Auth Service]({{< relref "auth-service.md" >}}) needs to be set up with baseline permission data for each application.
 {{< /note >}}
 
-* [CENM management console](../../../../../../en/platform/corda/1.5/cenm/cenm-console.html#installation)
-* [Node management console](../../../../../../en/platform/corda/4.8/enterprise/node/management-console.html#installation)
-* [Flow management console](../../../../../../en/platform/corda/4.8/enterprise/node/node-flow-management-console.html#installation)
+* [CENM management console]({{< relref "../../../1.5/cenm/cenm-console.md#installation" >}})
+* [Node management console]({{< relref "management-console.md#installation" >}})
+* [Flow management console]({{< relref "node-flow-management-console.md#installation" >}})

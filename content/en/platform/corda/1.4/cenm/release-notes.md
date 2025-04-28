@@ -54,7 +54,7 @@ We have updated the default value of the optional `timeout` parameter, introduce
 
 * We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool]({{< relref "../../../../../en/platform/corda/1.4/cenm/pki-tool.md" >}}) now generates certificates with serial number sizes of up to 16 octets/bytes.
 * We have fixed an issue where the [PKI Tool]({{< relref "../../../../../en/platform/corda/1.4/cenm/pki-tool.md" >}}) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
-* We have fixed an issue where the [signing request status command](#check-the-connection-status-of-the-signing-service) in the [CENM Command-line Interface Tool](cenm-cli-tool.md) did not work for requests with `COMPLETED` status.
+* We have fixed an issue where the [signing request status command](#check-the-connection-status-of-the-signing-service) in the [CENM Command-line Interface Tool]({{< relref "cenm-cli-tool.md" >}}) did not work for requests with `COMPLETED` status.
 * We have fixed an issue where the `APP VERSION` column was not shown when running helm charts while bootstrapping CENM.
 
 ## Corda Enterprise Network Manager 1.4
@@ -71,11 +71,11 @@ Upgrading from CENM 1.3 to CENM 1.4 requires the following actions:
 
 * Manual update of all existing Signing Service configurations.
 
-  The SMR (Signable Material Retriever) Service, which prior to CENM 1.4 was used to handle plug-ins for signing data, [has been replaced](#new-signing-service-plug-in-functionality-replaces-the-smr-signable-material-retriever-service) by a plug-in loading logic inside the Signing Service. As a result, **all users must update their existing Signing Service configuration** when upgrading to CENM 1.4 - see the [CENM Upgrade Guide](../../../../../en/platform/corda/1.4/cenm/upgrade-notes.html#manual-update-of-all-existing-signing-service-configurations) for details.
+  The SMR (Signable Material Retriever) Service, which prior to CENM 1.4 was used to handle plug-ins for signing data, [has been replaced](#new-signing-service-plug-in-functionality-replaces-the-smr-signable-material-retriever-service) by a plug-in loading logic inside the Signing Service. As a result, **all users must update their existing Signing Service configuration** when upgrading to CENM 1.4 - see the [CENM Upgrade Guide]({{< relref "../../../../../en/platform/corda/1.4/cenm/upgrade-notes.md#manual-update-of-all-existing-signing-service-configurations" >}}) for details.
 
 * Zone Service database migration.
 
-  If you are upgrading to CENM 1.4 from CENM 1.3, you **must** set `runMigration = true` in the database configuration. See the [CENM Upgrade Guide](../../../../../en/platform/corda/1.4/cenm/upgrade-notes.html#zone-service-database-migration) for details. This is required due to a [Zone Service database schema change](#network-map-service-performance-enhancements).
+  If you are upgrading to CENM 1.4 from CENM 1.3, you **must** set `runMigration = true` in the database configuration. See the [CENM Upgrade Guide]({{< relref "../../../../../en/platform/corda/1.4/cenm/upgrade-notes.md#zone-service-database-migration" >}}) for details. This is required due to a [Zone Service database schema change](#network-map-service-performance-enhancements).
 
 {{< /warning >}}
 
@@ -87,7 +87,7 @@ Read more about improvements of this release below.
 
 In CENM 1.4, we have adapted to CENM the internal Corda error handling logic introduced in Corda 4.5 and Corda Enterprise Edition 4.5 for Corda nodes.
 
-As a result, CENM exceptions are now treated as CENM error codes and an error code is generated for each exception. The initial set of error codes, related to configuration parsing/validation errors, are described in the new [CENM error codes documentation page](cenm-error-codes.md). This is the start of a growing CENM error condition knowledge base, which will expand in future releases.
+As a result, CENM exceptions are now treated as CENM error codes and an error code is generated for each exception. The initial set of error codes, related to configuration parsing/validation errors, are described in the new [CENM error codes documentation page]({{< relref "cenm-error-codes.md" >}}). This is the start of a growing CENM error condition knowledge base, which will expand in future releases.
 
 #### Network Map Service performance enhancements
 
@@ -97,11 +97,11 @@ Performance and reliability improvements can be observed on the unsigned Network
 
 Performance is enhanced through the following combination of changes:
 
-* A new, optional `timeout` parameter now enables you to set specific [Signing Service timeouts](../../../../../en/platform/corda/1.4/cenm/signing-service.html#signing-service-configuration-parameters) for communication to each of the services used within the signing processes defined in the network map, in a way that allows high node count network maps to get signed and to operate at reliable performance levels. You can also use the `timeout` parameter to set specific Network Map Service timeouts for communication to the [Identity Manager and Revocation services](../../../../../en/platform/corda/1.4/cenm/network-map.html#identity-manager--revocation-communication). The `timeout` parameter's values are stored in a new `timeout` column in the [Zone Service](../../../../../en/platform/corda/1.4/cenm/zone-service.html#signing-services-configuration)'s database tables `socket_config` and `signer_config` (refer to the [CENM Upgrade Guide](../../../../../en/platform/corda/1.4/cenm/upgrade-notes.html#zone-service-database-migration) for important details about migrating the Zone Service database from CENM 1.3).
+* A new, optional `timeout` parameter now enables you to set specific [Signing Service timeouts]({{< relref "../../../../../en/platform/corda/1.4/cenm/signing-service.md#signing-service-configuration-parameters" >}}) for communication to each of the services used within the signing processes defined in the network map, in a way that allows high node count network maps to get signed and to operate at reliable performance levels. You can also use the `timeout` parameter to set specific Network Map Service timeouts for communication to the [Identity Manager and Revocation services]({{< relref "../../../../../en/platform/corda/1.4/cenm/network-map.md#identity-manager--revocation-communication" >}}). The `timeout` parameter's values are stored in a new `timeout` column in the [Zone Service]({{< relref "../../../../../en/platform/corda/1.4/cenm/zone-service.md#signing-services-configuration" >}})'s database tables `socket_config` and `signer_config` (refer to the [CENM Upgrade Guide]({{< relref "../../../../../en/platform/corda/1.4/cenm/upgrade-notes.md#zone-service-database-migration" >}}) for important details about migrating the Zone Service database from CENM 1.3).
 
-* A [new API endpoint](../../../../../en/platform/corda/1.4/cenm/network-map-overview.html#http-network-map-protocol), `GET network-map/node-infos`, enables you to retrieve a list of all signed `NodeInfo` objects for _all_ the nodes in the network at once.
+* A [new API endpoint]({{< relref "../../../../../en/platform/corda/1.4/cenm/network-map-overview.md#http-network-map-protocol" >}}), `GET network-map/node-infos`, enables you to retrieve a list of all signed `NodeInfo` objects for _all_ the nodes in the network at once.
 
-* The following [new headers](../../../../../en/platform/corda/1.4/cenm/network-map-overview.html#http-network-map-protocol) for Network Map API responses now make headers more closely aligned with HTTP standards:
+* The following [new headers]({{< relref "../../../../../en/platform/corda/1.4/cenm/network-map-overview.md#http-network-map-protocol" >}}) for Network Map API responses now make headers more closely aligned with HTTP standards:
   * The new header `X-Corda-Server-Version` has been added for all Network Map API responses (except for internal error responses with code 5xx) indicates the version of the Network Map and the available calls. It has a default value of `2`.
   * The new header `X-Corda-Platform-Version` replaces `Platform-version`. The old header name continues to be supported.
   * The new header `X-Corda-Client-Version` replaces `Client-version`. The old header name continues to be supported.
@@ -112,7 +112,7 @@ The SMR (Signable Material Retriever) Service was introduced in CENM 1.2 with th
 
 As a result we have removed the SMR Service completely, thus reducing the number of CENM services and eliminating the need to maintain RPC servers and storage previously created by the default SMR plug-in.
 
-A range of new functionality and changes, introduced to that effect, are described below. See the [Signing Service](signing-service.md) documentation for full details.
+A range of new functionality and changes, introduced to that effect, are described below. See the [Signing Service]({{< relref "signing-service.md" >}}) documentation for full details.
 
 **Configuration changes**
 
@@ -139,7 +139,7 @@ The following changes have been made as a result of the introduction of asynchro
 
 * API changes. To allow the Signing Service to query the signing status from the plug-in, new functions have been added for CA and non-CA plug-ins. In addition, all response classes now contain an optional `requestId` that is filled in by the plug-in - if the status is returned as `PENDING` but no `requestId` (tracking id) is provided, the signing will stop and the request will be discarded.
 * Shell signing. If the signing is done via Shell, the asynchronous tracking ids and statuses are printed to the console. In addition, new Shell menu items have been added for each signing task, which allow you to track the Asynchronous Signing request status.
-* RPC function changes. To enable the complex task of returning Asynchronous Signing tracking ids and statuses when the signing is done via RPC, a number of changes have been made to RPC functions, including changes to requests and the addition of four new RPC requests used to query the status of each request via RPC. See the [Signing Service](signing-service.md) documentation for more information.
+* RPC function changes. To enable the complex task of returning Asynchronous Signing tracking ids and statuses when the signing is done via RPC, a number of changes have been made to RPC functions, including changes to requests and the addition of four new RPC requests used to query the status of each request via RPC. See the [Signing Service]({{< relref "signing-service.md" >}}) documentation for more information.
 
 **Code changes**
 
@@ -148,7 +148,7 @@ The following changes have been made as a result of the introduction of asynchro
 
 **Example CA plug-in**
 
-CENM 1.4 ships with an example CA plug-in, which equips users with everything they need to know when creating their own plug-in. See the [Signing Service](signing-service.md) documentation for more information.
+CENM 1.4 ships with an example CA plug-in, which equips users with everything they need to know when creating their own plug-in. See the [Signing Service]({{< relref "signing-service.md" >}}) documentation for more information.
 
 
 #### AWS native network deployment - reference deployment on AWS EKS, CloudHSM, PostgreSQL
@@ -169,20 +169,20 @@ Not supported in CENM 1.4:
 See the [CENM deployment]({{< relref "../../../../../en/platform/corda/1.4/cenm/aws-deployment-guide.md" >}}) section for more information.
 
 #### Other changes
-* We have added support for PostgreSQL 10.10 and 11.5 (JDBC 42.2.8), as noted in [CENM Databases](../../../../../en/platform/corda/1.4/cenm/database-set-up.html#supported-databases) and [CENM support matrix](../../../../../en/platform/corda/1.4/cenm/cenm-support-matrix.html#cenm-databases).
+* We have added support for PostgreSQL 10.10 and 11.5 (JDBC 42.2.8), as noted in [CENM Databases]({{< relref "../../../../../en/platform/corda/1.4/cenm/database-set-up.md#supported-databases" >}}) and [CENM support matrix]({{< relref "../../../../../en/platform/corda/1.4/cenm/cenm-support-matrix.md#cenm-databases" >}}).
 * A `non-ca-plugin.jar` has been added to `signing-service-plugins` in Artifactory.
 * We have renamed the FARM Service, introduced in CENM 1.3, to [Gateway Service]({{< relref "../../../../../en/platform/corda/1.4/cenm/gateway-service.md" >}}). As a result, if you are [upgrading]({{< relref "../../../../../en/platform/corda/1.4/cenm/upgrade-notes.md" >}}) from CENM 1.3 to CENM 1.4, the FARM Service JAR file used in CENM 1.3 should be replaced with the Gateway Service JAR file used in CENM 1.4.
-* In CENM 1.4 we have changed the way `subZoneID` is set in Signing Service configurations - see the [CENM upgrade guide](../../../../../en/platform/corda/1.4/cenm/upgrade-notes.html#change-in-setting-subzoneid-in-signing-service-configurations) for more details.
+* In CENM 1.4 we have changed the way `subZoneID` is set in Signing Service configurations - see the [CENM upgrade guide]({{< relref "../../../../../en/platform/corda/1.4/cenm/upgrade-notes.md#change-in-setting-subzoneid-in-signing-service-configurations" >}}) for more details.
 
 ### Fixed issues
 
-* We have fixed an issue where the [Auth Service](auth-service.md) could not start during database schema initialisation for PostgreSQL.
+* We have fixed an issue where the [Auth Service]({{< relref "auth-service.md" >}}) could not start during database schema initialisation for PostgreSQL.
 * We have fixed an issue where the Signing Service failed to start, following setup without the SMR (Signable Material Retriever) Service, producing a `serviceLocations` configuration error. Note that the SMR Service has been removed in CENM 1.4 and its functionality has been merged with the Signing Service - see the [New features and enhancements](#new-features-and-enhancements) section above for more details.
 * We have fixed an issue where the `azure-keyvault-with-deps.jar` and `out.pkcs12` files were not copied to the `pki-pod` and PKI generation failed as a result.
 * We have fixed an issue where HSM passwords were not hidden in service logs.
 * We have fixed an issue where the Zone Service removed the `mode` field from the Signing Service's configuration with Utimaco and then failed to return this field to the Angel Service.
 * Commands for the Identity Manager Service and the Network Map Service, which previously returned no information, now indicate when no data is available.
-* We have fixed an issue where [Gateway Service](gateway-service.md) (previously called FARM Service in CENM 1.2) logs were not available in the `logs-farm` container.
+* We have fixed an issue where [Gateway Service]({{< relref "gateway-service.md" >}}) (previously called FARM Service in CENM 1.2) logs were not available in the `logs-farm` container.
 * We have fixed an issue where submitting a CRR request with CENM Command-line Interface Tool failed with the unexpected error `method parameters invalid`.
 * When using the Signing Service to manually perform signing tasks with multiple accounts for each task and the option to authenticate `ALL` users is selected, the Signing Service now indicates which user should enter their password.
 with multiple accounts for each task The Signing Service now prompts a specific user to login in while all are being authenticated.
@@ -204,8 +204,8 @@ CENM 1.3.2 introduces fixes to known issues in CENM 1.3.
 
 ### Fixed issues
 
-* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool](pki-tool.md) now generates certificates with serial number sizes of up to 16 octets/bytes.
-* We have fixed an issue where the [PKI Tool](pki-tool.md) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
+* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool]({{< relref "pki-tool.md" >}}) now generates certificates with serial number sizes of up to 16 octets/bytes.
+* We have fixed an issue where the [PKI Tool]({{< relref "pki-tool.md" >}}) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
 
 ## Corda Enterprise Network Manager 1.3.1
 
@@ -280,8 +280,8 @@ CENM 1.2.3 introduces fixes to known issues in CENM 1.2.
 
 ### Fixed issues
 
-* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool](pki-tool.md) now generates certificates with serial number sizes of up to 16 octets/bytes.
-* We have fixed an issue where the [PKI Tool](pki-tool.md) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
+* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool]({{< relref "pki-tool.md" >}}) now generates certificates with serial number sizes of up to 16 octets/bytes.
+* We have fixed an issue where the [PKI Tool]({{< relref "pki-tool.md" >}}) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
 
 ## Corda Enterprise Network Manager 1.2.2
 
@@ -302,7 +302,7 @@ We are expanding our support for Docker to Corda Enterprise Network Manager.
 Furthermore, we are introducing a first reference deployment with Helm and Kubernetes.
 Out of the box - you will be able to deploy in minutes an ephemeral representative test network to complement your development cycle.
 
-See [Kubernetes deployment documentation](deployment-kubernetes.md) for more details.
+See [Kubernetes deployment documentation]({{< relref "deployment-kubernetes.md" >}}) for more details.
 
 **Support for third party CAs**
 
@@ -310,7 +310,7 @@ To satisfy clients who wish to use third party software or service providers to 
 
 The new service (SMR) extracts signable material from the Identity Manager and Network Map Services, and then delegates signing to a plug-in. Customers can implement their own plug-ins to integrate with external signing infrastructure and return signed material back to SMR to pass to the relevant CENM service.
 
-See [Signing Services](signing-service.md) for more details. Also see [EJBCA Sample plug-in](ejbca-plugin.md) for a sample open source CA implementation.
+See [Signing Services]({{< relref "signing-service.md" >}}) for more details. Also see [EJBCA Sample plug-in]({{< relref "ejbca-plugin.md" >}}) for a sample open source CA implementation.
 
 **CRL Endpoint Check tool**
 
@@ -318,7 +318,7 @@ As a diagnostic aid in case of problems with TLS connections, CENM 1.2 introduce
 This stand alone tool checks CRL endpoint health of all certificates in a provided keystore, as a simpler
 alternative to manually extracting CRL endpoints individually from the certificate and then verifying them.
 
-See [CRL Endpoint Check Tool](crl-endpoint-check-tool.md) for usage and further details.
+See [CRL Endpoint Check Tool]({{< relref "crl-endpoint-check-tool.md" >}}) for usage and further details.
 
 
 ### Minor Features
@@ -358,10 +358,10 @@ the logs files do not conflict.
 * Correct service healthcheck command when executed from the CRaSH shell.
 * Add new command to Network Map shell to view list of nodes that have accepted (or haven’t) a given parameters update
 (“view nodesAcceptedParametersUpdate accepted: <true/false>, parametersHash: <parameters update hash value>”),
-which can help to monitor the procedure of [Updating the network parameters](updating-network-parameters.md).
+which can help to monitor the procedure of [Updating the network parameters]({{< relref "updating-network-parameters.md" >}}).
 * Add working directory argument for CENM services, which is a path prefix for config and certificate files.
 * Add `run networkParametersRegistration`, `run flagDay` and `run cancelUpdate` commands to the Network Map
-service shell, to enable running flag days without restarting the service. See [Updating the network parameters](updating-network-parameters.md) for
+service shell, to enable running flag days without restarting the service. See [Updating the network parameters]({{< relref "updating-network-parameters.md" >}}) for
 full details.
 * Add `view publicNetworkNodeInfos` command to Network Map Service shell, to see all public network participants’ node
 infos, including its’ platform version.
@@ -405,14 +405,14 @@ configurations to be compatible with 1.1.
 **Oracle Database Support**
 
 Support has been added for Oracle DB versions 12cR2 and 11gR2 as a backend data store.
-For full setup instructions see [CENM Databases](database-set-up.md).
+For full setup instructions see [CENM Databases]({{< relref "database-set-up.md" >}}).
 
 **Configuration Migration Tool**
 
 To simplify the upgrade process from early versions of CENM a configuration migration tool has been
 added. This is intended to upgrade v0.2.2 / v0.3+ configurations to v1.1, including both restructuring
 changes to the configuration file and updating the value of fields (such as database driver class).
-See [Config migration tool](tool-config-migration.md) for details on this tool.
+See [Config migration tool]({{< relref "tool-config-migration.md" >}}) for details on this tool.
 
 **Hardware Security Module Support**
 
@@ -471,18 +471,18 @@ fresh to the product but also those who are upgrading from pre-release versions.
 The Signing Service is a new addition to the suite of CENM services, sitting alongside the Identity Manager and Network
 Map. It provides a network operator with full control over the signing of node identity data (CSRs and CRRs) and global
 network data (Network Map and Network Parameters) and includes features such as HSM integration, signing scheduling and
-support for multiple Network Map Services. See [Signing Services](signing-service.md) to learn more about this service.
+support for multiple Network Map Services. See [Signing Services]({{< relref "signing-service.md" >}}) to learn more about this service.
 
 **Brand new PKI tooling**
 
 The PKI Tool enables a network operator to easily generate Corda-compliant certificate hierarchy (keys and
 certificates) as well as certificate revocation lists. The tool supports both local and HSM key stores and can be
-customized with the configuration file. See [Public Key Infrastructure (PKI) Tool](pki-tool.md) to learn about all the features of the PKI Tool.
+customized with the configuration file. See [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool.md" >}}) to learn about all the features of the PKI Tool.
 
 **Full End to End SSL communication**
 
 All CENM components now communicate over SSL with one another, this completes the removal of the “database as message
-queue” of older versions. See [Configuring the CENM services to use SSL](enm-with-ssl.md) for more information.
+queue” of older versions. See [Configuring the CENM services to use SSL]({{< relref "enm-with-ssl.md" >}}) for more information.
 
 **Security And Performance Fixes**
 
@@ -510,13 +510,13 @@ versioned changes to the protocol without changing that which the Corda nodes de
 The Signing Service is a new addition to the suite of CENM services, sitting alongside the Identity Manager and Network
 Map. It provides a network operator with full control over the signing of node identity data (CSRs and CRRs) and global
 network data (Network Map and Network Parameters) and includes features such as HSM integration, signing scheduling and
-support for multiple Network Map Services. See [Signing Services](signing-service.md) to learn more about this service.
+support for multiple Network Map Services. See [Signing Services]({{< relref "signing-service.md" >}}) to learn more about this service.
 
 **Epoch Control**
 
 The PKI Tool enables a network operator to easily generate Corda-compliant certificate hierarchy (keys and
 certificates) as well as certificate revocation lists. The tool supports both local and HSM key stores and can be
-customized with the configuration file. See [Public Key Infrastructure (PKI) Tool](pki-tool.md) to learn about all the features of the PKI Tool.
+customized with the configuration file. See [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool.md" >}}) to learn about all the features of the PKI Tool.
 
 **Shell**
 
@@ -541,7 +541,7 @@ sub-zones of nodes that operate in what appear to the nodes to be isolated netwo
 network parameters. Critically, however, their certificate governance remains under the jurisdiction of a global
 Doorman. This way, temporary benefits such as higher privacy, differential network parameters upgrade schedules or use
 of temporary private notaries can be delivered. Note that the ability to merge one sub-zone into another is not
-currently supported. See the [Sub Zones](sub-zones.md) documentation for more information.
+currently supported. See the [Sub Zones]({{< relref "sub-zones.md" >}}) documentation for more information.
 
 **Protocol Separation**
 
@@ -556,12 +556,12 @@ The two top-level endpoints are now
 * `/network-map`
 * `/network-map-user`
 
-see [Network Map Overview](network-map-overview.md) for more information.
+see [Network Map Overview]({{< relref "network-map-overview.md" >}}) for more information.
 
 Another change that is introduced in the newest release is the ability to interact with the Doorman and Network Map
 services via a shell. The commands available currently mainly allow an operator to inspect the state of the service,
 for example by viewing the current set of nodes within the public network, or viewing the list of Certificate Signing
-Requests that are awaiting approval. See the [Embedded Shell](shell.md) documentation for more information.
+Requests that are awaiting approval. See the [Embedded Shell]({{< relref "shell.md" >}}) documentation for more information.
 
 Added support for overriding the default “increment previous value by 1” behaviour for epoch values during network
 parameter updates/initialisation. This allows a user to specify the epoch within the parameter config file and it

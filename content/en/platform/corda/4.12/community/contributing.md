@@ -62,7 +62,7 @@ according to the release that it represents. The following pattern is used for b
 *release/os/{major version}.{minor version}*
 
 Note that *release* is always part of the name of the branch, even for unreleased versions of Corda. The default
-Github branch is always the current development branch of Corda. Development work should target the default branch
+GitHub branch is always the current development branch of Corda. Development work should target the default branch
 unless the work is needed in a specific version of Corda. In that case, development work should target the oldest version
 of Corda for which the work would be appropriate. For instance, if a pull request would be applicable to Corda 4.6 and
 Corda 4.12, it would be appropriate to open a pull request for *release/os/4.6*. That work would then be merged forward
@@ -133,7 +133,7 @@ the [Community Maintainers]({{< relref "contributing-philosophy.md#community-mai
     * Leave comments requesting changes via the GitHub PR interface.
 
 3. Make the changes by pushing directly to your existing PR branch. The PR updates automatically.
-4. *Optional:* Open an additional PR to add yourself to the [contributors list](https://github.com/corda/corda/blob/release/os/4.4/CONTRIBUTORS.md). The format is generally `firstname surname (company)`. You can omit the company name.
+4. *Optional:* Open an additional PR to add yourself to the [contributors list](https://github.com/corda/corda/blob/release/os/4.12/CONTRIBUTORS.md). The format is generally `firstname surname (company)`. You can omit the company name.
 
 ## Large contributions
 

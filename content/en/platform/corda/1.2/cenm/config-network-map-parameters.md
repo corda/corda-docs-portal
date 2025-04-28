@@ -28,11 +28,11 @@ The host and port on which the service runs
 
 
 * **database**:
-See [CENM Database Configuration](config-database.md)
+See [CENM Database Configuration]({{< relref "config-database.md" >}})
 
 
 * **shell**:
-*(Optional)*  See [Shell Configuration Parameters](config-shell.md)
+*(Optional)*  See [Shell Configuration Parameters]({{< relref "config-shell.md" >}})
 
 
 * **enmListener**:
@@ -52,7 +52,7 @@ Whether a client should be attempt to reconnect if the connection is dropped.
 
 
 * **ssl**:
-See [SSL Settings](config-ssl.md)
+See [SSL Settings]({{< relref "config-ssl.md" >}})
 
 
 
@@ -79,7 +79,7 @@ To which port it’s enmListener is bound
 
 
 * **ssl**:
-See [SSL Settings](config-ssl.md)
+See [SSL Settings]({{< relref "config-ssl.md" >}})
 
 
 
@@ -97,7 +97,7 @@ To which port it’s enmListener is bound
 
 
 * **ssl**:
-See [SSL Settings](config-ssl.md)
+See [SSL Settings]({{< relref "config-ssl.md" >}})
 
 
 

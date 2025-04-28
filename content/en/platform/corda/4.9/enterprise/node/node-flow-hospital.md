@@ -43,7 +43,7 @@ Flow hospital functionality is enabled by default in Corda Enterprise Edition 4.
 There are two aspects to the flow hospital:
 
 * run-time behaviour in the node upon failure, including retry and recovery transitions and policies.
-* visualization of failed flows in the [flow management console]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/node/node-flow-management-console.md" >}}).
+* visualization of failed flows in the [flow management console]({{< relref "node-flow-management-console.md" >}}).
 
 ### Run-time behaviour
 
@@ -83,7 +83,7 @@ Some errors will be generated on failed HSM operations.  After retrying for a nu
 the flow hospital and the error will be allowed to propagate.
 - Error type: `CryptoServiceException`
     * HSM timeouts:
-These errors will be generated when the HSM takes too long to respond to an action.  The timeout value is defined in [Node configuration](setup/corda-configuration-file.md).
+These errors will be generated when the HSM takes too long to respond to an action.  The timeout value is defined in [Node configuration]({{< relref "setup/corda-configuration-file.md" >}}).
 - Error type: `TimedCryptoServiceException`
 
 * `HospitalizeFlowException`:

@@ -93,7 +93,7 @@ As such, in Corda, the certificate revocation list for the TLS level is signed b
 which is then added to node’s trust store (in a similar way as the Corda Root certificate - distributed with the `network-trust-store.jks`).
 During the certificate revocation list validation process the trust store is consulted for the presence of the TLS Signer certificate.
 
-See [Certificate Revocation List](certificate-revocation.md) for instructions on revoking certificates, and [Signing Services](signing-service.md) for
+See [Certificate Revocation List]({{< relref "certificate-revocation.md" >}}) for instructions on revoking certificates, and [Signing Services]({{< relref "signing-service.md" >}}) for
 configuration of the signer for CRLs (especially the “updatePeriod” option).
 
 
@@ -237,6 +237,6 @@ is only required to provide only essential information to the tool. At the same 
 defaults and have the configuration adjusted to the specific needs of different scenarios.
 
 {{< note >}}
-To learn more about running the tool, see [Public Key Infrastructure (PKI) Tool](pki-tool.md).
+To learn more about running the tool, see [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool.md" >}}).
 
 {{< /note >}}

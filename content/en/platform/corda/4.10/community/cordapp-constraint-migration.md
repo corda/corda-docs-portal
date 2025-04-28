@@ -22,7 +22,7 @@ title: CorDapp constraints migration
 # CorDapp constraints migration
 
 {{< note >}}
-Before reading this page, you should be familiar with the key concepts of [Contract Constraints](api-contract-constraints.md).
+Before reading this page, you should be familiar with the key concepts of [Contract Constraints]({{< relref "api-contract-constraints.md" >}}).
 {{< /note >}}
 
 Corda 4 introduces and recommends building signed CorDapps that issue states with signature constraints. When building transactions in Corda 4, existing on-ledger states that were issued before Corda 4 are only automatically transitioned to the new Signature Constraint if they were originally using the CZ Whitelisted Constraint. Here, we explain how to modify existing CorDapp flows to explicitly consume and evolve pre Corda 4 states.
@@ -49,13 +49,13 @@ For the purposes of constraints migration, it is desirable that any new output s
 
 ### Should I use the **implicit** or **explicit** upgrade path?
 
-The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](api-contract-constraints.html#implicit-and-explicit-contract-upgrades). **Implicit** upgrades allow pre-authorising multiple implementations of the contract ahead of time. They do not require additional coding and do not incur a complex choreographed operational upgrade process.
+The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here]({{< relref "api-contract-constraints.md#implicit-and-explicit-contract-upgrades" >}}). **Implicit** upgrades allow pre-authorising multiple implementations of the contract ahead of time. They do not require additional coding and do not incur a complex choreographed operational upgrade process.
 
 
 {{< warning >}}
 The steps outlined in this page assume you are using the same CorDapp Contract (for example, same state definition, commands and verification code) and
 wish to use that CorDapp to leverage the upgradeability benefits of Corda 4 signature constraints. If you are looking to upgrade code within an existing
-Contract CorDapp please read [Contract and state versioning](upgrading-cordapps.html#contract-and-state-versioning) and [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) to understand your options.
+Contract CorDapp please read [Contract and state versioning]({{< relref "upgrading-cordapps.md#contract-and-state-versioning" >}}) and [CorDapp Upgradeability Guarantees]({{< relref "cordapp-upgradeability.md" >}}) to understand your options.
 {{< /warning >}}
 
 
@@ -78,7 +78,7 @@ Corda 4.8 requires some additional steps to consume and evolve pre-existing on-l
 
 
 * All Corda Nodes in the same CZ or business network that may encounter a transaction chain with a hash constrained state must be started using
-relaxed hash constraint checking mode as described in [Hash constrained states in private networks](api-contract-constraints.md).
+relaxed hash constraint checking mode as described in [Hash constrained states in private networks]({{< relref "api-contract-constraints.md" >}}).
 * CorDapp flows that build transactions using pre-existing *hash-constrained* states must explicitly set output states to use *signature constraints*
 and specify the related public key(s) used in signing the associated CorDapp Contract JAR:
 
@@ -133,9 +133,9 @@ These instructions only apply to CorDapp Contract JARs (unless otherwise stated)
 Corda 4.5 requires some additional steps to consume and evolve pre-existing on-ledger **CZ whitelisted** constrained states:
 
 
-* As the original developer of the CorDapp, the first step is to sign the latest version of the JAR that was released (see [Building and installing a CorDapp](cordapp-build-systems.md)).
+* As the original developer of the CorDapp, the first step is to sign the latest version of the JAR that was released (see [Building and installing a CorDapp]({{< relref "cordapp-build-systems.md" >}})).
 The key used for signing will be used to sign all subsequent releases, so it should be stored appropriately. The JAR can be signed by multiple keys owned
-by different parties and it will be expressed as a `CompositeKey` in the `SignatureAttachmentConstraint` (See [API: Core types](api-core-types.md)).
+by different parties and it will be expressed as a `CompositeKey` in the `SignatureAttachmentConstraint` (See [API: Core types]({{< relref "api-core-types.md" >}})).
 * The new Corda 4 signed CorDapp JAR must be registered with the CZ network operator (as whitelisted in the network parameters which are distributed
 to all nodes in that CZ). The CZ network operator should check that the JAR is signed and not allow any more versions of it to be whitelisted in the future.
 From now on the development organisation that signed the JAR is responsible for signing new versions.The process of CZ network CorDapp whitelisting depends on how the Corda network is configured:

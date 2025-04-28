@@ -48,8 +48,8 @@ CENM 1.3.2 introduces fixes to known issues in CENM 1.3.
 
 ### Fixed issues
 
-* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool](pki-tool.md) now generates certificates with serial number sizes of up to 16 octets/bytes.
-* We have fixed an issue where the [PKI Tool](pki-tool.md) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
+* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool]({{< relref "pki-tool.md" >}}) now generates certificates with serial number sizes of up to 16 octets/bytes.
+* We have fixed an issue where the [PKI Tool]({{< relref "pki-tool.md" >}}) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
 
 ## Corda Enterprise Network Manager 1.3.1
 
@@ -124,8 +124,8 @@ CENM 1.2.3 introduces fixes to known issues in CENM 1.2.
 
 ### Fixed issues
 
-* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool](pki-tool.md) now generates certificates with serial number sizes of up to 16 octets/bytes.
-* We have fixed an issue where the [PKI Tool](pki-tool.md) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
+* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool]({{< relref "pki-tool.md" >}}) now generates certificates with serial number sizes of up to 16 octets/bytes.
+* We have fixed an issue where the [PKI Tool]({{< relref "pki-tool.md" >}}) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
 
 ## Corda Enterprise Network Manager 1.2.2
 
@@ -146,7 +146,7 @@ We are expanding our support for Docker to Corda Enterprise Network Manager.
 Furthermore, we are introducing a first reference deployment with Helm and Kubernetes.
 Out of the box - you will be able to deploy in minutes an ephemeral representative test network to complement your development cycle.
 
-See [Kubernetes deployment documentation](deployment-kubernetes.md) for more details.
+See [Kubernetes deployment documentation]({{< relref "deployment-kubernetes.md" >}}) for more details.
 
 **Support for third party CAs**
 
@@ -154,7 +154,7 @@ To satisfy clients who wish to use third party software or service providers to 
 
 The new service (SMR) extracts signable material from the Identity Manager and Network Map Services, and then delegates signing to a plugin. Customers can implement their own plugins to integrate with external signing infrastructure and return signed material back to SMR to pass to the relevant CENM service.
 
-See [Signing Services](signing-service.md) for more details. Also see [EJBCA Sample Plugin](ejbca-plugin.md) for a sample open source CA implementation.
+See [Signing Services]({{< relref "signing-service.md" >}}) for more details. Also see [EJBCA Sample Plugin]({{< relref "ejbca-plugin.md" >}}) for a sample open source CA implementation.
 
 **CRL Endpoint Check tool**
 
@@ -162,7 +162,7 @@ As a diagnostic aid in case of problems with TLS connections, CENM 1.2 introduce
 This stand alone tool checks CRL endpoint health of all certificates in a provided keystore, as a simpler
 alternative to manually extracting CRL endpoints individually from the certificate and then verifying them.
 
-See [CRL Endpoint Check Tool](crl-endpoint-check-tool.md) for usage and further details.
+See [CRL Endpoint Check Tool]({{< relref "crl-endpoint-check-tool.md" >}}) for usage and further details.
 
 
 ### Minor Features
@@ -202,10 +202,10 @@ the logs files do not conflict.
 * Correct service healthcheck command when executed from the CRaSH shell.
 * Add new command to Network Map shell to view list of nodes that have accepted (or haven’t) a given parameters update
 (“view nodesAcceptedParametersUpdate accepted: <true/false>, parametersHash: <parameters update hash value>”),
-which can help to monitor the procedure of [Updating the network parameters](updating-network-parameters.md).
+which can help to monitor the procedure of [Updating the network parameters]({{< relref "updating-network-parameters.md" >}}).
 * Add working directory argument for CENM services, which is a path prefix for config and certificate files.
 * Add `run networkParametersRegistration`, `run flagDay` and `run cancelUpdate` commands to the Network Map
-service shell, to enable running flag days without restarting the service. See [Updating the network parameters](updating-network-parameters.md) for
+service shell, to enable running flag days without restarting the service. See [Updating the network parameters]({{< relref "updating-network-parameters.md" >}}) for
 full details.
 * Add `view publicNetworkNodeInfos` command to Network Map Service shell, to see all public network participants’ node
 infos, including its’ platform version.
@@ -249,14 +249,14 @@ configurations to be compatible with 1.1.
 **Oracle Database Support**
 
 Support has been added for Oracle DB versions 12cR2 and 11gR2 as a backend data store.
-For full setup instructions see [CENM Databases](database-set-up.md).
+For full setup instructions see [CENM Databases]({{< relref "database-set-up.md" >}}).
 
 **Configuration Migration Tool**
 
 To simplify the upgrade process from early versions of CENM a configuration migration tool has been
 added. This is intended to upgrade v0.2.2 / v0.3+ configurations to v1.1, including both restructuring
 changes to the configuration file and updating the value of fields (such as database driver class).
-See [Config migration tool](tool-config-migration.md) for details on this tool.
+See [Config migration tool]({{< relref "tool-config-migration.md" >}}) for details on this tool.
 
 **Hardware Security Module Support**
 
@@ -315,18 +315,18 @@ fresh to the product but also those who are upgrading from pre-release versions.
 The Signing Service is a new addition to the suite of CENM services, sitting alongside the Identity Manager and Network
 Map. It provides a network operator with full control over the signing of node identity data (CSRs and CRRs) and global
 network data (Network Map and Network Parameters) and includes features such as HSM integration, signing scheduling and
-support for multiple Network Map Services. See [Signing Services](signing-service.md) to learn more about this service.
+support for multiple Network Map Services. See [Signing Services]({{< relref "signing-service.md" >}}) to learn more about this service.
 
 **Brand new PKI tooling**
 
 The PKI Tool enables a network operator to easily generate Corda-compliant certificate hierarchy (keys and
 certificates) as well as certificate revocation lists. The tool supports both local and HSM key stores and can be
-customized with the configuration file. See [Public Key Infrastructure (PKI) Tool](pki-tool.md) to learn about all the features of the PKI Tool.
+customized with the configuration file. See [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool.md" >}}) to learn about all the features of the PKI Tool.
 
 **Full End to End SSL communication**
 
 All CENM components now communicate over SSL with one another, this completes the removal of the “database as message
-queue” of older versions. See [Configuring the CENM services to use SSL](enm-with-ssl.md) for more information.
+queue” of older versions. See [Configuring the CENM services to use SSL]({{< relref "enm-with-ssl.md" >}}) for more information.
 
 **Security And Performance Fixes**
 
@@ -354,13 +354,13 @@ versioned changes to the protocol without changing that which the Corda nodes de
 The Signing Service is a new addition to the suite of CENM services, sitting alongside the Identity Manager and Network
 Map. It provides a network operator with full control over the signing of node identity data (CSRs and CRRs) and global
 network data (Network Map and Network Parameters) and includes features such as HSM integration, signing scheduling and
-support for multiple Network Map Services. See [Signing Services](signing-service.md) to learn more about this service.
+support for multiple Network Map Services. See [Signing Services]({{< relref "signing-service.md" >}}) to learn more about this service.
 
 **Epoch Control**
 
 The PKI Tool enables a network operator to easily generate Corda-compliant certificate hierarchy (keys and
 certificates) as well as certificate revocation lists. The tool supports both local and HSM key stores and can be
-customized with the configuration file. See [Public Key Infrastructure (PKI) Tool](pki-tool.md) to learn about all the features of the PKI Tool.
+customized with the configuration file. See [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool.md" >}}) to learn about all the features of the PKI Tool.
 
 **Shell**
 
@@ -385,7 +385,7 @@ sub-zones of nodes that operate in what appear to the nodes to be isolated netwo
 network parameters. Critically, however, their certificate governance remains under the jurisdiction of a global
 Doorman. This way, temporary benefits such as higher privacy, differential network parameters upgrade schedules or use
 of temporary private notaries can be delivered. Note that the ability to merge one sub-zone into another is not
-currently supported. See the [Sub Zones](sub-zones.md) documentation for more information.
+currently supported. See the [Sub Zones]({{< relref "sub-zones.md" >}}) documentation for more information.
 
 **Protocol Separation**
 
@@ -400,12 +400,12 @@ The two top-level endpoints are now
 * `/network-map`
 * `/network-map-user`
 
-see [Network Map Overview](network-map-overview.md) for more information.
+see [Network Map Overview]({{< relref "network-map-overview.md" >}}) for more information.
 
 Another change that is introduced in the newest release is the ability to interact with the Doorman and Network Map
 services via a shell. The commands available currently mainly allow an operator to inspect the state of the service,
 for example by viewing the current set of nodes within the public network, or viewing the list of Certificate Signing
-Requests that are awaiting approval. See the [Embedded Shell](shell.md) documentation for more information.
+Requests that are awaiting approval. See the [Embedded Shell]({{< relref "shell.md" >}}) documentation for more information.
 
 Added support for overriding the default “increment previous value by 1” behaviour for epoch values during network
 parameter updates/initialisation. This allows a user to specify the epoch within the parameter config file and it

@@ -21,12 +21,12 @@ title: Running nodes locally
 This page contains information on three methods for locally running nodes:
 
 * Nodes can be run manually from a local machine.
-* The [Dockerform](generating-a-node-dockerform.md) or [Cordform](generating-a-node-cordform.md) gradle plugins can also be used to run nodes locally.
-* Running nodes remotely is also possible - find instructions on how to do this [here](running-a-node-remotely.md).
+* The [Dockerform]({{< relref "generating-a-node-dockerform.md" >}}) or [Cordform]({{< relref "generating-a-node-cordform.md" >}}) Gradle plugins can also be used to run nodes locally.
+* [Running nodes remotely]({{< relref "running-a-node-remotely.md" >}}) is also possible.
 
 {{< note >}}
 You should already have generated your node(s) with their CorDapps installed by following the instructions in
-[Creating nodes locally](generating-a-node.md). For node operations using Docker, visit the [Docker deployments](node-docker-deployments.md) page.
+[Creating nodes locally]({{< relref "generating-a-node.md" >}}). For node operations using Docker, visit the [Docker deployments]({{< relref "node-docker-deployments.md" >}}) page.
 {{< /note >}}
 
 There are several ways to run a Corda node locally for testing purposes:
@@ -58,7 +58,7 @@ One way of doing so is with
 java -jar corda.jar run-migration-scripts --core-schemas --app-schemas`.
  ```
 
-See [Node command-line options](node-commandline.md) for more options and further details.
+See [Node command-line options]({{< relref "node-commandline.md" >}}) for more options and further details.
 
 ## Setting JVM arguments
 
@@ -162,7 +162,7 @@ Parameters:
 
 `generate-rpc-ssl-settings`: Generates the SSL keystore and truststore for a secure RPC connection.
 
-`install-shell-extensions`: Installs a `corda` alias and auto-completion for `bash` and `zsh`. For more information, see [Shell extensions for CLI Applications](cli-application-shell-extensions.md).
+`install-shell-extensions`: Installs a `corda` alias and auto-completion for `bash` and `zsh`. For more information, see [Shell extensions for CLI Applications]({{< relref "cli-application-shell-extensions.md" >}}).
 
 `validate-configuration`: Validates the actual configuration without starting the node.
 
@@ -184,13 +184,13 @@ To enable export of JMX metrics over HTTP via [Jolokia](https://jolokia.org/), r
 
 This command will start the node with JMX metrics accessible via HTTP on port 7005.
 
-See [Monitoring via Jolokia](node-administration.html#monitoring-jolokia) for further details.
+See [Monitoring via Jolokia]({{< relref "node-administration.md#monitoring-via-jolokia" >}}) for further details.
 
 ## Starting all nodes at once on a local machine from the command prompt
 
 ### Cordform
 
-The [Cordform](generating-a-node-cordform.md) gradle plugin (as used by the `deployNodes` gradle task)  generates a `runnodes` script. Executing
+The [Cordform]({{< relref "generating-a-node-cordform.md" >}}) Gradle plugin (as used by the `deployNodes` Gradle task)  generates a `runnodes` script. Executing
 this allows you to quickly start up all nodes. Only use`runnodes` for testing purposes.
 
 
@@ -214,7 +214,7 @@ Java heap memory available to them, which you can do when running them individua
 
 ### Dockerform
 
-If you created your nodes using [Dockerform](generating-a-node-dockerform.md), a `docker-compose.yml` file has been created. You can use `docker-compose` to bring up a cluster of Corda nodes. See `prepareDockerNodes` in the [generating nodes locally](generating-a-node.md) for more information on this.
+If you created your nodes using [Dockerform]({{< relref "generating-a-node-dockerform.md" >}}), a `docker-compose.yml` file has been created. You can use `docker-compose` to bring up a cluster of Corda nodes. See `prepareDockerNodes` in the [generating nodes locally]({{< relref "generating-a-node.md" >}}) for more information on this.
 In order to start up the nodes in a new, internal network, go to the `build/nodes` directory and run the `docker-compose up` command. After the nodes are started, you can use the `docker ps` command to see how the ports are mapped.
 
 {{< warning >}}
@@ -234,9 +234,9 @@ As an alternative, you can specify this parameter when running the `docker-compo
 ## Database migrations
 
 Depending on the versions of Corda and of the CorDapps used, database migration scripts might need to run before a node is able to start.
-For more information, see [Database management](node-database-access-h2.md).
+For more information, see [Database management]({{< relref "node-database-access-h2.md" >}}).
 
-From Corda 4.6, if you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options](node-commandline.md) for details.
+From Corda 4.6, if you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options]({{< relref "node-commandline.md" >}}) for details.
 
 
 ## Stability of the Corda Node

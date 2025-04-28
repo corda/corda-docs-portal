@@ -26,7 +26,7 @@ carefully selected based on various factors, such as provided security-level and
 with various HSM vendors, algorithm standardisation, variety of cryptographic primitives, business demand, option for
 post-quantum resistance, side channel security, efficiency and rigorous testing.
 
-Before we present the pool of supported schemes it is useful to be familiar with [Network certificates](permissioning.md)
+Before we present the pool of supported schemes it is useful to be familiar with [Network certificates]{{< relref "permissioning.md" >}})
 and api-identity. An important design decision in Corda is its shared hierarchy between the
 TLS and Node Identity certificates.
 
@@ -52,7 +52,7 @@ A Corda network has 8 types of keys and a regular node requires 4 of them:
 * The **confidential identity** key(s) (per node)
 
 We can visualise the certificate structure as follows (for a detailed description of cert-hierarchy,
-see [Network certificates](permissioning.md)):
+see [Network certificates]{{< relref "permissioning.md" >}})):
 
 {{< figure alt="certificate structure" width=80% zoom="../resources/certificate_structure.png" >}}
 

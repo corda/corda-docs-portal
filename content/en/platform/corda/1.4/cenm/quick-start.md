@@ -33,12 +33,12 @@ deployment.
 
 For a full production environment you would need to modify this deployment to add:
 
-* A [Signing Service](signing-service.md) deployment to replace the built-in (local) signing component of the Identity Manager and Network Map Services.
-* A [Zone Service](zone-service.md) deployment to manage configuration deployment.
-* [Angel Services](angel-service.md) around the [Identity Manager](identity-manager.md), [Network Map](network-map.md),
+* A [Signing Service]({{< relref "signing-service.md" >}}) deployment to replace the built-in (local) signing component of the Identity Manager and Network Map Services.
+* A [Zone Service]({{< relref "zone-service.md" >}}) deployment to manage configuration deployment.
+* [Angel Services]({{< relref "angel-service.md" >}}) around the [Identity Manager]({{< relref "identity-manager.md" >}}), [Network Map]({{< relref "network-map.md" >}}),
   and Signing Services to fetch configurations from the Zone Service.
-* An [Auth Service](auth-service.md) deployment to handle user authentication and authorisation.
-* A [Gateway Service](gateway-service.md) deployment to act as a gateway from the user interface (CLI) to the back-end services.
+* An [Auth Service]({{< relref "auth-service.md" >}}) deployment to handle user authentication and authorisation.
+* A [Gateway Service]({{< relref "gateway-service.md" >}}) deployment to act as a gateway from the user interface (CLI) to the back-end services.
 
 ### Prerequisites
 
@@ -83,7 +83,7 @@ You need to generate the PKI (key pairs and certificates each service will use)
 first before starting any services.
 
 {{< note >}}
-For more information on the certificate hierarchy, see [Certificate Hierarchy Guide](pki-guide.md).
+For more information on the certificate hierarchy, see [Certificate Hierarchy Guide]({{< relref "pki-guide.md" >}}).
 {{< /note >}}
 
 #### Example Configuration
@@ -134,13 +134,13 @@ certificates = {
 ```
 
 {{< note >}}
-The passwords for the key stores are defaulted to “password” and the passwords for the trust stores are defaulted to “trustpass”. To change them in the configuration setting, see [Public Key Infrastructure (PKI) Tool](pki-tool.md)).
+The passwords for the key stores are defaulted to “password” and the passwords for the trust stores are defaulted to “trustpass”. To change them in the configuration setting, see [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool.md" >}})).
 {{< /note >}}
 
 #### Run the PKI Tool
 
 This step generates the required certificate stores and key pairs using the
-[Public Key Infrastructure (PKI) Tool](pki-tool.md). You will need to
+[Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool.md" >}}). You will need to
 extract the PKI tool distribution zip archive to a chosen location, and run it
 using a command such as:
 
@@ -210,7 +210,7 @@ workflows {
 
 {{< note >}}
 The example uses a local H2 database. You can modify this to point to a separate database instance by modifying the `database` section.
-See the “Database properties” section of [Identity Manager Service](identity-manager.md) for more information.
+See the “Database properties” section of [Identity Manager Service]({{< relref "identity-manager.md" >}}) for more information.
 {{< /note >}}
 
 ### Run The Service
@@ -344,7 +344,7 @@ checkRevocation = false
 ```
 
 {{< note >}}
-This example uses a local H2 database. You can modify this to point to a separate database instance by modifying the `database` section. See the “Database properties” section of [Network Map Service](network-map.md) for more information.
+This example uses a local H2 database. You can modify this to point to a separate database instance by modifying the `database` section. See the “Database properties” section of [Network Map Service]({{< relref "network-map.md" >}}) for more information.
 
 {{< /note >}}
 
@@ -393,7 +393,7 @@ NetworkParameters {
 }
 ```
 
-See [Updating the network parameters](updating-network-parameters.md) for more information on the process for setting and updating the parameters.
+See [Updating the network parameters]({{< relref "updating-network-parameters.md" >}}) for more information on the process for setting and updating the parameters.
 
 ### Start the Network Map Service
 
@@ -438,11 +438,11 @@ ssh testuser@localhost -p 20002
 ```
 Note: For the purpose of this exercise, the simplest settings have been used for all the services. However, you can configure them to run with more features, such as the following:
 
-* Certificate revocation support (“Revocation workflow ” section within [Identity Manager Service](identity-manager.md))
-* More advanced CSR approval workflows (“Certificate approval mechanism” section within [Identity Manager Service](identity-manager.md))
-* External signing of CSRs/Network Map updates including HSM integration ([Signing Service](signing-service.md))
+* Certificate revocation support (“Revocation workflow ” section within [Identity Manager Service]({{< relref "identity-manager.md" >}}))
+* More advanced CSR approval workflows (“Certificate approval mechanism” section within [Identity Manager Service]({{< relref "identity-manager.md" >}}))
+* External signing of CSRs/Network Map updates including HSM integration ([Signing Service]({{< relref "signing-service.md" >}}))
 
-{{< note >}}For more information, see the configuration sections within [Identity Manager Service](identity-manager.md) and [Network Map Service](network-map.md). {{< /note >}}
+{{< note >}}For more information, see the configuration sections within [Identity Manager Service]({{< relref "identity-manager.md" >}}) and [Network Map Service]({{< relref "network-map.md" >}}). {{< /note >}}
 
 ## Bundled Service alternative
 
