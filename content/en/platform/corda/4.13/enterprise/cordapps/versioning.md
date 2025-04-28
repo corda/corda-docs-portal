@@ -56,6 +56,7 @@ The table below highlights key features and the corresponding version numbers.
 {{< table >}}
 |Feature|Corda platform version |Minimum network platform version |Introduced in OS version|Introduced in Enterprise version|
 |--------------------|--------------------|--------------------|--------------------|--------------------|
+|API update|150|4|4.13|4.13|
 |API update|140|4|4.12|4.12|
 |API update|13|4|4.11|4.11|
 |API update|12|4|4.10|4.10|
@@ -119,7 +120,7 @@ In the `build.gradle` file for your contract JAR, add a block like this:
 
 ```kotlin
 cordapp {
-    targetPlatformVersion 140
+    targetPlatformVersion 150
     minimumPlatformVersion 5
     contract {
         name "MegaApp Contracts"
@@ -137,7 +138,7 @@ In the `build.gradle` file for your workflows JAR, add a block like this:
 
 ```kotlin
 cordapp {
-    targetPlatformVersion 140
+    targetPlatformVersion 150
     minimumPlatformVersion 5
     workflow {
         name "MegaApp"

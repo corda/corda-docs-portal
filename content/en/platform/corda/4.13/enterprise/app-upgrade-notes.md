@@ -30,6 +30,7 @@ If you do use them, re-namespace them to a package namespace you control and sig
 {{< table >}}
 | Corda release  | Platform version |
 | :------------- | :------------- |
+| 4.13| 150 |
 | 4.12| 140 |
 | 4.11| 13 |
 | 4.10| 12 |
@@ -45,6 +46,9 @@ If you do use them, re-namespace them to a package namespace you control and sig
 | 4.0 | 4 |
 | 3.3 | 3 |
 {{< /table >}}
+
+## Upgrading CorDapps to platform version 150
+
 
 ## Upgrading CorDapps to platform version 140
 
