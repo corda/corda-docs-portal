@@ -54,20 +54,20 @@ To install Git, go to [Git](https://git-scm.com/) and install the version for yo
 
 Gradle is a build automation tool for multi-language software development. It controls the development process in the tasks of compilation and packaging to testing, deployment, and publishing.
 
-* If you [run the sample CorDapp]{{< relref "tutorial-cordapp.md" >}}), the included `gradlew` script installs Gradle automatically when you open the sample CorDapp in IntelliJ.
+* If you [run the sample CorDapp]({{< relref "tutorial-cordapp.md" >}}), the included `gradlew` script installs Gradle automatically when you open the sample CorDapp in IntelliJ.
 * If you plan to start developing your own CorDapp straight away, install Gradle manually. Go to [Gradle](https://gradle.org/releases/), then locate and install Gradle **version 5.6.4**. Corda requires a Gradle version between 5.1 and 5.6.4, and does not support Gradle 6.x.
 
 You now have everything you need to develop CorDapps. If you encounter any issues, please ask on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via [our Slack channels](http://slack.corda.net/).
 
 ## Run a sample CorDapp *(optional)*
 
-R3 recommends [running a sample CorDapp]{{< relref "tutorial-cordapp.md" >}}) to see Corda in action before you start developing.
+R3 recommends [running a sample CorDapp]({{< relref "tutorial-cordapp.md" >}}) to see Corda in action before you start developing.
 
 ## Resources
 
 * [Sample CorDapps, templates, and community projects](https://www.corda.net/samples/).
 * [Corda API documentation]({{< relref "../../../../../../en/api-ref/_index.md" >}}).
-* [Flow cookbook]{{< relref "flow-cookbook.md" >}}).
+* [Flow cookbook]({{< relref "flow-cookbook.md" >}}).
 * CorDapp [Java](https://github.com/corda/samples-java) and [Kotlin](https://github.com/corda/samples-kotlin) sample repositories - contain multiple sample CorDapps, from those to get you started, to those which demonstrate specific features and advanced usage.
 * CorDapp [Java](https://github.com/corda/cordapp-template-java) and [Kotlin](https://github.com/corda/cordapp-template-kotlin) templates - a stubbed-out CorDapp that you can use to bootstrap your own CorDapps.
 

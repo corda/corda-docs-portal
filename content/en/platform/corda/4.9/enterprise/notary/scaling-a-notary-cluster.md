@@ -14,7 +14,7 @@ weight: 8
 
 # Scaling a notary cluster
 
-As described in the [Corda Enterprise notary service overview]{{< relref "ha-notary-service-overview.md" >}}), a HA notary cluster is made up of two main components, each of which can be scaled
+As described in the [Corda Enterprise notary service overview]({{< relref "ha-notary-service-overview.md" >}}), a HA notary cluster is made up of two main components, each of which can be scaled
 up or down to facilitate the operators needs.
 
 

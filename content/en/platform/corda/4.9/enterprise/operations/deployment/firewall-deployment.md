@@ -35,7 +35,7 @@ a different file location. Paths are relative to the current working directory
 configuration file is then expected in the root of this workspace
 * `--verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
 * `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
-* `--install-shell-extensions`: Install `corda-firewall` alias and auto completion for bash and zsh. See cli-application-shell-extensions for more info.
+* `--install-shell-extensions`: Install `corda-firewall` alias and auto completion for bash and zsh. See ({{< relref "../../node/operating/cli-application-shell-extensions.md" >}}) for more info.
 * `--help`, `-h`: Show this help message and exit.
 * `--version`, `-V`: Print version information and exit.
 

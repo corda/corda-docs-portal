@@ -100,7 +100,7 @@ This what your code should look like so far:
 ```
 
 {{< note >}}
-Adding this annotation triggers an error in IntelliJ because you haven't created the `AppleStampContract` yet. Ignore this error for now - you will add the contract class in the [Write the contract]{{< relref "basic-cordapp-contract.md" >}}) tutorial.
+Adding this annotation triggers an error in IntelliJ because you haven't created the `AppleStampContract` yet. Ignore this error for now - you will add the contract class in the [Write the contract]({{< relref "basic-cordapp-contract.md" >}}) tutorial.
 {{< /note >}}
 
 When naming your CorDapp files, it's best practice to match your contract and state names. In this case the state is called `AppleStamp`, so the contract is called `AppleStampContract`. Follow this naming convention when you write an original CorDapp to avoid confusion.
@@ -476,7 +476,7 @@ public class BasketOfApples implements ContractState {
 
 ## Next steps
 
-Follow the [Write the contracts]{{< relref "basic-cordapp-contract.md" >}}) tutorial to continue on this learning path.
+Follow the [Write the contracts]({{< relref "basic-cordapp-contract.md" >}}) tutorial to continue on this learning path.
 
 ## Related content
 
