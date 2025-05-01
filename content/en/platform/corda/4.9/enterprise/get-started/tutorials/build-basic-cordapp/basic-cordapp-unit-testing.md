@@ -19,7 +19,7 @@ You will be creating your unit tests in these directories:
 * Contract tests - `contracts/src/test/java/com/tutorial/contracts`.
 
 {{< note >}}
-You cannot create unit tests with flows because they depend on states and contracts to run. Use integration tests to test the functionality of your flows and entire CorDapp. Learn how to create an integration test in the [Write integration tests]{{< relref "basic-cordapp-int-testing.md" >}}) tutorial.
+You cannot create unit tests with flows because they depend on states and contracts to run. Use integration tests to test the functionality of your flows and entire CorDapp. Learn how to create an integration test in the [Write integration tests]({{< relref "basic-cordapp-int-testing.md" >}}) tutorial.
 {{< /note >}}
 
 ## Learning objectives
@@ -260,4 +260,4 @@ public class ContractTests {
 
 ## Next steps
 
-Now that you know how to write unit tests, learn how to [run your CorDapp]{{< relref "basic-cordapp-running.md" >}}) then write [Integration tests]{{< relref "basic-cordapp-int-testing.md" >}}).
+Now that you know how to write unit tests, learn how to [run your CorDapp]({{< relref "basic-cordapp-running.md" >}}) then write [Integration tests]({{< relref "basic-cordapp-int-testing.md" >}}).

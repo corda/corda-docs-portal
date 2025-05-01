@@ -37,7 +37,8 @@ a different file location. Paths are relative to the current working directory
 configuration file is then expected in the root of this workspace
 * `--verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
 * `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
-* `--install-shell-extensions`: Install `corda-firewall` alias and auto completion for bash and zsh. See cli-application-shell-extensions for more info.
+* `--install-shell-extensions`: Install `corda-firewall` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications
+]({{< relref "operating/cli-application-shell-extensions.md" >}}) for more info.
 * `--help`, `-h`: Show this help message and exit.
 * `--version`, `-V`: Print version information and exit.
 
@@ -119,7 +120,7 @@ the `TLS` socket server key and certificates into the `FloatOuter`. The process 
 
 ## Fields
 
-The configuration fields are listed in [Corda Enterprise Firewall configuration fields]{{< relref "corda-firewall-configuration-fields.md" >}}).
+The configuration fields are listed in [Corda Enterprise Firewall configuration fields]({{< relref "corda-firewall-configuration-fields.md" >}}).
 
 
 ## Complete example

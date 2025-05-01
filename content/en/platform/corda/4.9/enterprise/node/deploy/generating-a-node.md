@@ -54,4 +54,4 @@ Corda provides two `gradle` plug-ins: `Cordform` and `Dockerform`. They both all
 * A `Cordform` task creates nodes in the `build/nodes` directory. The example `Cordform` task used in this document creates three nodes: `Notary`, `PartyA`, and `PartyB`, however you are free to spin up more nodes, specify what nodes you need on the network, change node names, and update node configurations.
                                
 * Nodes deployed via `Dockerform` use Docker containers. A `Dockerform` task is similar to `Cordform` but it provides an extra file that enables you to easily spin up nodes using `docker-compose`. This creates a `docker-compose` file that enables you to run a single command to control the deployment of Corda nodes and databases (instead of deploying each node/database manually).
-* For more information about the plugins, visit the [Dockerform]{{< relref "generating-a-node-dockerform.md" >}}) and [Cordform]{{< relref "generating-a-node-cordform.md" >}}) pages.
+* For more information about the plugins, visit the [Dockerform]({{< relref "generating-a-node-dockerform.md" >}}) and [Cordform]({{< relref "generating-a-node-cordform.md" >}}) pages.

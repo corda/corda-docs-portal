@@ -14,7 +14,7 @@ weight: 120
 
 
 {{< warning >}}
-The MySQL notary service is deprecated and will be removed in the future. A [JPA notary service]{{< relref "installing-jpa.md" >}})
+The MySQL notary service is deprecated and will be removed in the future. A [JPA notary service]({{< relref "installing-jpa.md" >}})
 should be used instead.
 {{< /warning >}}
 
@@ -307,4 +307,4 @@ mysql> use corda;
 # The output should be `Database changed`.
 ```
 
-In the next section, we’re [Configuring the notary worker nodes]{{< relref "installing-the-notary-service.md" >}}).
+In the next section, we’re [Configuring the notary worker nodes]({{< relref "installing-the-notary-service.md" >}}).

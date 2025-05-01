@@ -66,7 +66,7 @@ The `initiator`:
 
 The `initiator`:
 
-1. Runs the [contracts]{{< relref "api-contracts.md" >}}) contained in the CorDapp.
+1. Runs the [contracts]({{< relref "api-contracts.md" >}}) contained in the CorDapp.
 2. Verifies that the transaction is valid based on the contracts.
 
 
@@ -103,7 +103,7 @@ The `responder`:
 
 1. Receives the transaction from the counterparty.
 2. Verifies the transaction’s existing signatures.
-3. Runs the [contracts]{{< relref "api-contracts.md" >}}) contained in the CorDapp.
+3. Runs the [contracts]({{< relref "api-contracts.md" >}}) contained in the CorDapp.
 4. Verifies that the transaction is valid based on the contracts.
 
 
@@ -268,15 +268,15 @@ public static class InitiatorFlow extends FlowLogic<Void> {
 ### Accessing the node's `ServiceHub`
 
 You can access the node's `ServiceHub` within `FlowLogic.call`. The `ServiceHub` provides access to the
-node's services. See [Accessing node services]{{< relref "api-service-hub.md" >}}) for more information.
+node's services. See [Accessing node services]({{< relref "api-service-hub.md" >}}) for more information.
 
 ### Common flow tasks
 
 To agree ledger updates, you need to perform a number of common tasks within `FlowLogic.call`:
 
-* **Transaction building:** The majority of the work performed during a flow is building, verifying, and signing a transaction. See [Understanding transactions]{{< relref "api-transactions.md" >}}).
-* **Extracting states from the vault:**: When building a transaction, you’ll often need to extract the states you wish to consume from the vault. See [Writing vault queries]{{< relref "api-vault-query.md" >}}).
-* **Extracting states from the vault:**: When building a transaction, you’ll often need to extract the states you wish to consume from the vault. See [Writing vault queries]{{< relref "api-vault-query.md" >}}).
+* **Transaction building:** The majority of the work performed during a flow is building, verifying, and signing a transaction. See [Understanding transactions]({{< relref "api-transactions.md" >}}).
+* **Extracting states from the vault:**: When building a transaction, you’ll often need to extract the states you wish to consume from the vault. See [Writing vault queries]({{< relref "api-vault-query.md" >}}).
+* **Extracting states from the vault:**: When building a transaction, you’ll often need to extract the states you wish to consume from the vault. See [Writing vault queries]({{< relref "api-vault-query.md" >}}).
 * **Retrieving information about other nodes:**: You can retrieve information about other nodes on the network and the services they offer using `ServiceHub.networkMapCache`.
 
 ### Notaries
@@ -661,7 +661,7 @@ counterparty.
 
 {{< warning >}}
 `SwapIdentitiesFlow` and `SwapIdentitiesHandler` are only installed if you include the `confidential-identities` module. The `confidential-identities` module is not yet stabilized, so the
-`SwapIdentitiesFlow`/`SwapIdentitiesHandler` API may change in future releases. See [API stability guarantees]{{< relref "api-stability-guarantees.md" >}}).
+`SwapIdentitiesFlow`/`SwapIdentitiesHandler` API may change in future releases. See [API stability guarantees]({{< relref "api-stability-guarantees.md" >}}).
 
 {{< /warning >}}
 

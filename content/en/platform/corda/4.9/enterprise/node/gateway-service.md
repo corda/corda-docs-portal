@@ -99,7 +99,7 @@ Command line arguments:
 ## Installing applications onto the Gateway Service
 
 {{< note >}}
-[Auth Service]{{< relref "auth-service.md" >}}) needs to be set up with baseline permission data for each application.
+[Auth Service]({{< relref "auth-service.md" >}}) needs to be set up with baseline permission data for each application.
 {{< /note >}}
 
 * [CENM management console]({{< relref "../../../1.5/cenm/cenm-console.md#installation" >}})

@@ -66,7 +66,7 @@ The Angel Service and its managed service must both be healthy in order for the 
 The CENM network is bootstrapped with PKI certificates, and sample X.500 subject names are provided as defaults
 (for example, the Identity Manager Service certificate subject is
 “CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US”).
-These can be configured in the [Signing Service Helm chart]{{< relref "deployment-kubernetes-signer.md" >}}).
+These can be configured in the [Signing Service Helm chart]({{< relref "deployment-kubernetes-signer.md" >}}).
 
 There are two ways of bootstrapping a new CENM environment:
 
@@ -427,13 +427,13 @@ You must modify the following values in the `values.yaml` file:
 There are a number of settings provided on each Helm chart, which allow easy customisation of
 common options. Each CENM service has its own dedicated page with more detailed documentation:
 
-* [Auth Service]{{< relref "deployment-kubernetes-auth.md" >}})
-* [Gateway Service]{{< relref "deployment-kubernetes-gateway.md" >}})
-* [Identity Manager Service]{{< relref "deployment-kubernetes-idman.md" >}})
-* [Network Map Service]{{< relref "deployment-kubernetes-nmap.md" >}})
-* [Corda Notary]{{< relref "deployment-kubernetes-notary.md" >}})
-* [Signing Service]{{< relref "deployment-kubernetes-signer.md" >}})
-* [Zone Service]{{< relref "deployment-kubernetes-zone.md" >}})
+* [Auth Service]({{< relref "deployment-kubernetes-auth.md" >}})
+* [Gateway Service]({{< relref "deployment-kubernetes-gateway.md" >}})
+* [Identity Manager Service]({{< relref "deployment-kubernetes-idman.md" >}})
+* [Network Map Service]({{< relref "deployment-kubernetes-nmap.md" >}})
+* [Corda Notary]({{< relref "deployment-kubernetes-notary.md" >}})
+* [Signing Service]({{< relref "deployment-kubernetes-signer.md" >}})
+* [Zone Service]({{< relref "deployment-kubernetes-zone.md" >}})
 
 ### Overriding Service Configuration
 

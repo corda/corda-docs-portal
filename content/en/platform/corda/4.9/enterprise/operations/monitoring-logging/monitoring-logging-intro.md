@@ -29,9 +29,9 @@ Monitoring and logging topics:
 
 * [Basics of logging on your node](#logging---the-basics).
 * [Basics of monitoring your node](#monitoring---the-basics).
-* [Node metrics]{{< relref "metrics-monitoring-scenarios.md" >}}).
-* [Node monitoring scenarios]{{< relref "metrics-monitoring-scenarios.md" >}}).
-* [Troubleshooting Corda Enterprise Network Manager (CENM) services on your node]{{< relref "monitoring-trouble-shooting.md" >}}).
+* [Node metrics]({{< relref "metrics-monitoring-scenarios.md" >}}).
+* [Node monitoring scenarios]({{< relref "metrics-monitoring-scenarios.md" >}}).
+* [Troubleshooting Corda Enterprise Network Manager (CENM) services on your node]({{< relref "monitoring-trouble-shooting.md" >}}).
 * [The Corda Enterprise Health Survey tool]({{< relref "monitoring-trouble-shooting.md#corda-health-survey-tool" >}}).
 * [Using Ledger Sync to check the status of data on your node and the rest of the ledger]({{< relref "monitoring-trouble-shooting.md#ledger-sync" >}}).
 

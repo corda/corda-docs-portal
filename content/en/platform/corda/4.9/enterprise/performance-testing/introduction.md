@@ -46,7 +46,7 @@ Apache JMeter runs tests that repeatedly trigger an action, wait for a response 
 timings and so on, and allow to view the result data interactively or rendered as reports in various formats. Run controls
 like parallelising tasks, running tasks in a specific order and count and time based repetitions are already built in.
 
-The interactions with the system under test are done via so called *samplers* (see [JMeter Samplers]{{< relref "jmeter-samplers.md" >}})) that can be
+The interactions with the system under test are done via so called *samplers* (see [JMeter Samplers]({{< relref "jmeter-samplers.md" >}})) that can be
 triggered by JMeter and then
 run an action. JMeter has a number of built-in samplers, mostly around web technology, for example - for HTTP requests, database
 queries, starting scripts and so on. It is also possible to provide custom samplers that can run Java code when invoked.

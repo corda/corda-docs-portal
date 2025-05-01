@@ -131,7 +131,7 @@ Because the transaction is sent to the oracle for signing, ordinarily the oracle
 of that transaction including the inputs, output contract states and all the commands, not just the one (in this case)
 relevant command.  This is an obvious privacy leak for the other participants.  We currently solve this using a
 `FilteredTransaction`, which implements a Merkle Tree.  These reveal only the necessary parts of the transaction to the
-oracle but still allow it to sign it by providing the Merkle hashes for the remaining parts.  See [Oracles]{{< relref "key-concepts-oracles.md" >}}) for more details.
+oracle but still allow it to sign it by providing the Merkle hashes for the remaining parts.  See [Oracles]({{< relref "key-concepts-oracles.md" >}}) for more details.
 
 
 ### Pay-per-play oracles
@@ -217,7 +217,7 @@ transaction and return it
 
 {{< note >}}
 Before reading any further, we advise that you understand the concept of flows and how to write them and use
-them. See [Writing flows]{{< relref "flow-state-machines.md" >}}).  Likewise some understanding of Cordapps, plugins and services will be helpful.
+them. See [Writing flows]({{< relref "flow-state-machines.md" >}}).  Likewise some understanding of Cordapps, plugins and services will be helpful.
 See [Running a node]({{< relref "node/deploy/running-a-node.md" >}}).
 
 {{< /note >}}
@@ -326,7 +326,7 @@ class FixSignFlow(val tx: TransactionBuilder, val oracle: Party,
 [RatesFixFlow.kt](https://github.com/corda/corda/blob/release/os/4.9/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/RatesFixFlow.kt)
 
 You’ll note that the `FixSignFlow` requires a `FilterTransaction` instance which includes only `Fix` commands.
-You can find a further explanation of this in [Oracles]{{< relref "key-concepts-oracles.md" >}}). Below you will see how to build such a
+You can find a further explanation of this in [Oracles]({{< relref "key-concepts-oracles.md" >}}). Below you will see how to build such a
 transaction with hidden fields.
 
 
