@@ -690,7 +690,7 @@ dataSourceProperties = {
 
 
 {{< note >}}
-`maximumPoolSize` cannot be less than `enterpriseConfiguration.tuning.flowThreadPoolSize + enterpriseConfiguration.tuning.rpcThreadPoolSize + 2`. See sizing-and-performance for more details. Their defaults depend on the machine they are being run, but if the `maximumPoolSize` a error will appear showing what is the minimum required.{{< /note >}}
+`maximumPoolSize` cannot be less than `enterpriseConfiguration.tuning.flowThreadPoolSize + enterpriseConfiguration.tuning.rpcThreadPoolSize + 2`. See [Performance tuning]({{< relref "../../performance-testing/performance-tuning.md" >}}) for more details. Their defaults depend on the machine they are being run, but if the `maximumPoolSize` a error will appear showing what is the minimum required.{{< /note >}}
 
 
 

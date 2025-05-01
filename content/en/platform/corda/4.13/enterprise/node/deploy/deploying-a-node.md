@@ -243,8 +243,8 @@ only visible to the permissioning service.
 * If required, add RPC users
 
 
-* Copy the required Java keystores to the node. See permissioning
-* Download the [NSSM service manager](https://nssm.cc/)
+* Copy the required Java keystores to the node; see [Permissioning]({{< relref "../../network/permissioning.md" >}}).
+* Download the [NSSM service manager](https://nssm.cc/).
 * Unzip `nssm-2.24\win64\nssm.exe` to `C:\Corda`
 * Save the following as `C:\Corda\nssm.bat`:
 

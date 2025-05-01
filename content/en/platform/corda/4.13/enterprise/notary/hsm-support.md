@@ -119,8 +119,7 @@ To register a second notary worker, copy the `notary-service-keystore.jks` to th
 ## Using Multiple HSMs
 
 A highly-available HSM can be shared between notary workers in the current version of Corda, however each worker needs to be configured
-to use a unique alias for the identity and client ca key. See the *enterpriseConfiguration* section of the corda-configuration-file
-doc for more information on how to configure this.
+to use a unique alias for the identity and client ca key. See [Enterprise configuration]({{< relref "../node/setup/corda-configuration-file.md#enterpriseConfiguration" >}}) for more information on how to configure this.
 
 If custom aliases have not been configured then, as each worker will attempt to create their identity and CA keys using the default alias,
 separate HSMs must be used. Also, as noted above, if a HA HSM is not available then each worker should be setup with its own HSM.
