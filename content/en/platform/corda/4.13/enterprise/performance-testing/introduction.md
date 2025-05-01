@@ -11,8 +11,7 @@ weight: 400
 ---
 
 
-# Introduction
-
+# Performance Testing
 
 ## Corda Performance Test Suite
 
