@@ -38,7 +38,7 @@ Each Notary workers needs access to three private key entries, corresponding to 
 * The node legal identity, which represents the unique identity of the notary worker.
 
 
-See the *enterpriseConfiguration* section of the corda-configuration-file doc for more information on how to configure each alias.
+See the *[enterpriseConfiguration]({{< relref "../node/setup/corda-configuration-fields.md#enterpriseconfiguration" >}})* configuration field for more information on how to configure each alias.
 When the private keys are stored in a HSM, only the certificates are stored in the keystore file.
 
 The associated certificates for the distributed notary identity and node certificate authority are issued by the Identity Manager on the
