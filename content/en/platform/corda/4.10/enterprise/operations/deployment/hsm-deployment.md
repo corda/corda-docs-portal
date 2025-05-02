@@ -18,7 +18,7 @@ weight: 50
 By default, the private keys that belong to the node CA and legal identity are stored in a key store file in the node’s certificates
 directory. Users may wish to instead store this key in a hardware security module (HSM) or similar.
 
-See the [Hardware Security Modules (HSM)](../../platform-support-matrix.html#hardware-security-modules-hsm) for supported HSMs and their features.
+See the [Hardware Security Modules (HSM)]({{< relref "../../platform-support-matrix.md#hardware-security-modules-hsm" >}}) for supported HSMs and their features.
 
 The cryptographic operations that are performed by the HSM are key generation and signing. The private key material is stored in the HSM if the node is configured to use an HSM. The public keys are stored in the HSM (if configured for the node) and the respective key stores, which is the node key store (nodekeystore.jks) for the node CA key (nodeca) and legal identity (identity-private-key). The certificate chain is stored there as well. The certificate chain is not stored in the HSM.
 

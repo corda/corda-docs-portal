@@ -3,7 +3,7 @@ aliases:
 - /head/key-concepts-contracts.html
 - /HEAD/key-concepts-contracts.html
 - /key-concepts-contracts.html
-date: '2023-1-30'
+date: '2023-01-30'
 menu:
   corda-enterprise-4-12:
     identifier: corda-enterprise-4-12-key-concepts-contracts

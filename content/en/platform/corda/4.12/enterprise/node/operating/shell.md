@@ -147,7 +147,7 @@ Where:
 
 You can install the shell in your node in two different ways:
 
-* [Download](https://download.corda.net/maven/corda-releases/net/corda/corda-shell/4.11/corda-shell-4.11.jar) the `corda-shell` JAR from Maven and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node.
+* [Download](https://download.corda.net/maven/corda-releases/net/corda/corda-shell/4.12/corda-shell-4.11.jar) the `corda-shell` JAR from Maven and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node.
 
 * When using `cordaformation`, the shell can be included in the generated nodes by adding the following in the `dependencies` block. The `dependencies` block must be in the same `build.gradle` file as the `deployNodes` task:
 
@@ -261,7 +261,7 @@ You can use the shell to:
 The shell interacts with the node by issuing RPCs (remote procedure calls). You make an RPC from the shell by typing `run`, followed by the name of the desired RPC method.
 
 You can find a list of the available RPC methods
-[here](https://docs.corda.net/api/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/index.html).
+[here]({{ https://docs.r3.com/api/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/index.html).
 
 Some RPCs return a stream of events that will be shown on screen until you press Ctrl-C.
 

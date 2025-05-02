@@ -24,14 +24,14 @@ By following this guide, you can:
 You must have:
 
 * Access to the [Corda Enterprise Customer Hub](https://customerhub.r3.com/s/r3-customcommunitylogin) Trial area.
-* A [Corda Payments-enabled CorDapp](payments-sdk.md).
+* A [Corda Payments-enabled CorDapp]({{< relref "payments-sdk.md" >}}).
 * Modulr sandbox credentials.
 
 ## Set up Modulr Sandbox for Payments Agent
 
 Corda Payments is dependent on integration with a Payment Service Provider (PSP). In this technical preview, you can only use Modulr as the PSP. Your payments are simulated using the Modulr Sandbox environment. This is a mock environment, so no real money is paid to anyone.
 
-To run the Payments Agent, you must have a **Partner Account** for your Modulr Sandbox. This involves contacting Modulr by email. You can follow the Modulr instructions to do this here: https://secure-sandbox.modulrfinance.com/sandbox/onboarding.
+To run the Payments Agent, you must have a **partner account** for your Modulr Sandbox. This involves contacting Modulr by email. You can follow the Modulr instructions to do this here: https://secure-sandbox.modulrfinance.com/sandbox/onboarding.
 
 Once you have registered, Modulr will communicate your API key and secret. The Payments Agent holds these keys. Customers of the Payments Agent (anyone on the network who wants to use Corda Payments) do not require Modulr accounts with API key or secret.
 

@@ -64,10 +64,10 @@ Each CENM service has its own dedicated folder with more detailed documentation.
 
 | Helm Chart                                         |
 | -------------------------------------------------- |
-| [Identity Manager](deployment-kubernetes-idman.md) |
-| [Signer](deployment-kubernetes-signer.md)          |
-| [Network Map](deployment-kubernetes-nmap.md)       |
-| [Corda Notary](deployment-kubernetes-notary.md)    |
+| [Identity Manager]({{< relref "deployment-kubernetes-idman.md" >}}) |
+| [Signer]({{< relref "deployment-kubernetes-signer.md" >}})          |
+| [Network Map]({{< relref "deployment-kubernetes-nmap.md" >}})       |
+| [Corda Notary]({{< relref "deployment-kubernetes-notary.md" >}})    |
 
 The charts are currently developed and tested against
 [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-gb/services/kubernetes-service/).
@@ -86,7 +86,7 @@ X.500 subject names (e.g. Identity Manager certificate subject is
 “CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US”).
 The subject names of the whole PKI Certificate Hierarchy can be configured in
 the Signer Helm chart. For more information about Signer helm chart refer to
-[Signer](deployment-kubernetes-signer.md).
+[Signer]({{< relref "deployment-kubernetes-signer.md" >}}).
 
 There are three ways of bootstrapping a new CENM environment:
 
@@ -417,5 +417,5 @@ DATA/trust-stores/network-root-truststore.jks
 
 Visit CENM official documentation for more information about network parameters:
 
-- [Updating Network Parameters](updating-network-parameters.md)
-- [Network Parameters List](config-network-parameters.md)
+- [Updating Network Parameters]({{< relref "updating-network-parameters.md" >}})
+- [Network Parameters List]({{< relref "config-network-parameters.md" >}})

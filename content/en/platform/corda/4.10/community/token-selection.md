@@ -20,7 +20,7 @@ title: Selection in the Tokens SDK
 
 When you move or redeem tokens using the Tokens SDK, you can choose which balance of tokens you want to use, and how much from each reserve, in any given transaction.
 
-This process is called **Selection**.
+This process is called *selection*.
 
 You can write flows for moving your tokens that allow selection from either:
 
@@ -39,9 +39,9 @@ In addition, if you use Tokens SDK 1.2.2, token selection also checks whether it
 
 ## Token selection with multithreaded SMM
 
-A multithreaded environment is characterised by running tokens with Corda Enterprise where the number of flow workers is configured to be > 1.
+A multi-threaded environment is characterized by running tokens with Corda Enterprise where the number of flow workers is configured to be > 1.
 
-You can only use in-memory selection in a multithreaded environment. This is  because a cache of available tokens balances are maintained for querying in the JVM. This means the query time to select available tokens is extremely fast, preventing the need for soft-locking tokens in the DB. Tokens are simply selected, added to a transaction and spent.
+You can only use in-memory selection in a multi-threaded environment. This is  because a cache of available tokens balances are maintained for querying in the JVM. This means the query time to select available tokens is extremely fast, preventing the need for soft-locking tokens in the DB. Tokens are simply selected, added to a transaction and spent.
 
 In DB selection, token states must be queried from the vault and “selected” by soft-locking the record in the database. This doesn’t work in a multi-threaded environment and multiple threads running at the same time may end up selecting the same token state to be spent. This will lead to the node throwing an `InsufficientBalanceException` or `InsufficientNotLockedBalanceException` as all available token states (and associated records) are reserved for other concurrent transactions. While this won’t jeopardize data, it could impact the performance of your application.
 

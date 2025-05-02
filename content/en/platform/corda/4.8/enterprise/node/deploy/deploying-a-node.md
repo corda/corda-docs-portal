@@ -16,7 +16,7 @@ weight: 2
 
 {{< note >}}
 These instructions are intended for people who want to deploy a Corda node to a server,
-whether they have developed and tested a CorDapp following the instructions in [Creating nodes locally](generating-a-node.md)
+whether they have developed and tested a CorDapp following the instructions in [Creating nodes locally]({{< relref "generating-a-node.md" >}})
 or are deploying a third-party CorDapp.
 
 {{< /note >}}
@@ -54,7 +54,7 @@ handling, and ensures the Corda service is run at boot.
 * Place the Enterprise Corda JAR `corda-4.8.jar` in `/opt/corda`
 * Create a directory called `cordapps` in `/opt/corda` and save your CorDapp jar file to it. Alternatively, download one of
 our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory
-* Save the below as `/opt/corda/node.conf`. See [Node configuration]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-file.md" >}}) for a description of these options:
+* Save the below as `/opt/corda/node.conf`. See [Node configuration]({{< relref "../setup/corda-configuration-file.md" >}}) for a description of these options:
 
 ```none
 p2pAddress = "example.com:10002"
@@ -209,7 +209,7 @@ copy PATH_TO_CORDA_JAR/corda-4.8.jar C:\Corda\corda.jar
 
 * Create a directory called `cordapps` in `C:\Corda\` and save your CorDapp jar file to it. Alternatively,
 download one of our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory
-* Save the below as `C:\Corda\node.conf`. See [Node configuration]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-file.md" >}}) for a description of these options:
+* Save the below as `C:\Corda\node.conf`. See [Node configuration]({{< relref "../setup/corda-configuration-file.md" >}}) for a description of these options:
 
 ```none
  p2pAddress = "example.com:10002"
@@ -244,7 +244,7 @@ only visible to the permissioning service.
 * If required, add RPC users
 
 
-* Copy the required Java keystores to the node. See permissioning
+* Copy the required Java keystores to the node; see [Permissioning]({{< relref "../../network/permissioning.md" >}})
 * Download the [NSSM service manager](https://nssm.cc/)
 * Unzip `nssm-2.24\win64\nssm.exe` to `C:\Corda`
 * Save the following as `C:\Corda\nssm.bat`:
@@ -319,7 +319,7 @@ Start the node with the `run-migration-scripts` sub-command with `--core-schemas
 java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
 ```
 
-See [Node command-line options]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/node-commandline.md" >}}) for more details.
+See [Node command-line options]({{< relref "../node-commandline.md" >}}) for more details.
 
 ### Database schema migration
 

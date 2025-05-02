@@ -29,7 +29,7 @@ initiation key must not be the same key. This is the only supported mode at the 
 
 {{< note >}}
 
-* If you want to use certificates for session initiation keys for peer-to-peer communication, see [Configuring Optional Session Certificates]({{< relref "../optional/session-certificates.html#build-registration-context-for-mgm-registration" >}}) for information about the additional JSON fields required in the registration context.
+* If you want to use certificates for session initiation keys for peer-to-peer communication, see [Configuring Optional Session Certificates]({{< relref "../optional/session-certificates.md#build-registration-context-for-mgm-registration" >}}) for information about the additional JSON fields required in the registration context.
 * If you want to use mutual TLS, see [Configuring Mutual TLS]({{< relref "../optional/mutual-tls-connections.md#set-the-tls-type-in-the-mgm-context" >}}) for additional configuration steps.
 {{< /note >}}
 
@@ -177,7 +177,7 @@ The only remaining step is for the MGM to complete an automated approval before 
 * `PENDING_MANUAL_APPROVAL`: The MGM has received the registration request and all automated validations were successful.
 The only remaining step is for the Network Operator to review and approve the registration via the
 REST API before the member's registration request takes effect. To view requests pending manual approval, see
-[Viewing Requests Pending Manual Approval]({{< relref "../../managing/registration-requests/reviewing-registration-requests.html#viewing-requests-pending-manual-approval" >}}).
+[Viewing Requests Pending Manual Approval]({{< relref "../../managing/registration-requests/reviewing-registration-requests.md#viewing-requests-pending-manual-approval" >}}).
 * `PENDING_MEMBER_VERIFICATION`: The MGM has completed initial validation of the registration request and is now waiting
 for the registering member to respond to a P2P message in order to validate the provided {{< tooltip >}}session initiation key{{< /tooltip >}} and P2P endpoint.
 * `FAILED`: The registration request submitted via the REST API passed initial validation on the member’s cluster but failed to be sent to the MGM.

@@ -31,7 +31,7 @@ You can find out more about network maps and network parameters from [network ma
 
 ## Bootstrapping a test network
 
-The Corda Network Bootstrapper can be downloaded [here](https://download.corda.net/maven/corda-releases/net/corda/corda-tools-network-bootstrapper/4.11/corda-tools-network-bootstrapper-4.11.jar).
+The Corda Network Bootstrapper can be downloaded [here](https://download.corda.net/maven/corda-releases/net/corda/corda-tools-network-bootstrapper/4.12/corda-tools-network-bootstrapper-4.11.jar).
 
 Create a directory containing a node config file, ending in `_node.conf`, for each node you want to create. `devMode` must be set to true. Then run the following command:
 
@@ -217,7 +217,7 @@ are updating an existing network, the value in the existing network parameters f
 
 {{< note >}}
 All fields can be used with placeholders for environment variables. For example: `${KEY_STORE_PASSWORD}` would be replaced by the contents of environment
-variable `KEY_STORE_PASSWORD`. See: corda-configuration-hiding-sensitive-data .
+variable `KEY_STORE_PASSWORD`. See [Hiding sensitive data]({{< relref "../operating/node-administration.md#hiding-sensitive-data.md" >}}) for more information.
 
 {{< /note >}}
 The available configuration fields are listed below:

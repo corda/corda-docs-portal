@@ -21,7 +21,7 @@ title: 'API: Persistence'
 Corda offers developers the option to expose all or some parts of a contract state to an *Object Relational Mapping*
 (ORM) tool to be persisted in a *Relational Database Management System* (RDBMS).
 
-The purpose of this, is to assist [Vault](key-concepts-vault.md)
+The purpose of this, is to assist [Vault]({{< relref "key-concepts-vault.md" >}})
 development and allow for the persistence of state data to a custom database table. Persisted states held in the
 vault are indexed for the purposes of executing queries. This also allows for relational joins between Corda tables
 and the organization’s existing data.
@@ -33,7 +33,7 @@ automatically every time a state is recorded in the node’s local vault as part
 {{< note >}}
 By default, nodes use an H2 database which is accessed using *Java Database Connectivity* JDBC. Any database
 with a JDBC driver is a candidate and several integrations have been contributed to by the community.
-Please see the info in “[Node database](node-database-access-h2.md)” for details.
+Please see the info in [Node database]({{< relref "node-database-access-h2.md" >}}) for details.
 
 {{< /note >}}
 
@@ -367,7 +367,7 @@ database.transaction {
 
 [HibernateConfigurationTest.kt](https://github.com/corda/corda/blob/release/os/4.10/node/src/test/kotlin/net/corda/node/services/persistence/HibernateConfigurationTest.kt)
 
-JDBC sessions can be used in flows and services (see “[Writing flows](api-flows.md)”).
+JDBC sessions can be used in flows and services (see [Writing flows]({{< relref "api-flows.md" >}})).
 
 The following example illustrates the creation of a custom Corda service using a `jdbcSession`:
 
@@ -445,7 +445,7 @@ override fun call(): List<SignedTransaction> {
 }
 ```
 
-For examples on testing `@CordaService` implementations, see the oracle example [here](key-concepts-oracles.md).
+For examples on testing `@CordaService` implementations, see the oracle example [here]({{< relref "key-concepts-oracles.md" >}}).
 
 ### Restricted control of connections
 

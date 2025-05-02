@@ -25,7 +25,7 @@ from the proxy object.
 
 ## Serializer location
 
-Custom serializer classes should follow the [rules for including classes](cordapps/cordapp-build-systems.md).
+Custom serializer classes should follow the [rules for including classes]({{< relref "cordapps/cordapp-build-systems.md" >}}).
 
 
 ## Writing a custom serializer

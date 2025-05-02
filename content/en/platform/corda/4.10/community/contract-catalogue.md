@@ -70,7 +70,7 @@ interest rate swap. In general, an IRS allows two counterparties to modify their
 interest rate. They are often used as a hedging instrument, convert a fixed rate loan to a floating rate loan, vice
 versa etc.
 
-See “[Interest rate swaps](contract-irs.md)” for full details on the IRS contract.
+See [Interest rate swaps]({{< relref "contract-irs.md" >}}) for full details on the IRS contract.
 
 
 ## Obligation

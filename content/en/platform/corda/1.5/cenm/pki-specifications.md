@@ -21,7 +21,7 @@ Specifications and instructions are referenced here for the four scenarios below
 
 ## Generating root, subordinate, and network certificates
 
-For instructions on generating certificates, see the [PKI Tool](../../../../../en/platform/corda/1.5/cenm/pki-tool.html#running-the-pki-tool) documentation.
+For instructions on generating certificates, see the [PKI Tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/pki-tool.md#running-the-pki-tool" >}}) documentation.
 
 ## Setting up a network under an existing root
 
@@ -31,8 +31,8 @@ If you wish to set up a Corda network under an existing root and therefore are n
 
 If you wish to delegate network signing to a third party software provider, this can be done partially (with the Certificate Authority only) or fully (with the Certificate Authority and the non-Certificate Authority).
 
-[Use a signing plugin](../../../../../en/platform/corda/1.5/cenm/signing-service.html#using-a-signing-plugin) to delegate this task to a third party software provider. See the [Developing Signing Plugins](../../../../../en/platform/corda/1.5/cenm/signing-service.html#developing-signing-plugins) and the [EJBCA Sample Plugin]({{< relref "../../../../../en/platform/corda/1.5/cenm/ejbca-plugin.md" >}}) documentation for guidance on creating a plugin that suits your needs.
+[Use a signing plugin]({{< relref "../../../../../en/platform/corda/1.5/cenm/signing-service.md#using-a-signing-plugin" >}}) to delegate this task to a third party software provider. See the [Developing Signing Plugins]({{< relref "../../../../../en/platform/corda/1.5/cenm/signing-service.md#developing-signing-plugins" >}}) and the [EJBCA Sample Plugin]({{< relref "../../../../../en/platform/corda/1.5/cenm/ejbca-plugin.md" >}}) documentation for guidance on creating a plugin that suits your needs.
 
 ## Using your own Certificate Authority software
 
-To set up a Corda network using your own Certificate Authority software, [use a signing plugin](../../../../../en/platform/corda/1.5/cenm/signing-service.html#using-a-signing-plugin). A signing plugin acts as a bridge between CENM services and one or more Signing Services. See the [Developing Signing Plugins](../../../../../en/platform/corda/1.5/cenm/signing-service.html#developing-signing-plugins) and the [EJBCA Sample Plugin]({{< relref "../../../../../en/platform/corda/1.5/cenm/ejbca-plugin.md" >}}) documentation for guidance on creating a plugin that suits your needs.
+To set up a Corda network using your own Certificate Authority software, [use a signing plugin]({{< relref "../../../../../en/platform/corda/1.5/cenm/signing-service.md#using-a-signing-plugin" >}}). A signing plugin acts as a bridge between CENM services and one or more Signing Services. See the [Developing Signing Plugins]({{< relref "../../../../../en/platform/corda/1.5/cenm/signing-service.md#developing-signing-plugins" >}}) and the [EJBCA Sample Plugin]({{< relref "../../../../../en/platform/corda/1.5/cenm/ejbca-plugin.md" >}}) documentation for guidance on creating a plugin that suits your needs.

@@ -40,7 +40,7 @@ These are tables that store the node info of other network participants.
 They are just a local cache that is kept in sync with the network map server.
 By calling `rpc.clearNetworkMapCache()` all these tables will be cleared and recreated from the network map server.
 
-Read more in [Network map]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/network/network-map.md" >}}).
+Read more in [Network map]({{< relref "../../network/network-map.md" >}}).
 
 {{< figure alt="node info tables" width=80% zoom="/en/images/node_info_tables.png" >}}
 
@@ -95,7 +95,7 @@ Read more in [Network map]({{< relref "../../../../../../../en/platform/corda/4.
 The following four tables are used by the `IdentityService` and are created from the NodeInfos.
 They are append only tables used for persistent caching.
 They will also be cleared on `rpc.clearNetworkMapCache()`.
-Read more in [CorDapp identities]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/cordapps/api-identity.md" >}}) and [Node services]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node-services.md" >}}).
+Read more in [CorDapp identities]({{< relref "../../cordapps/api-identity.md" >}}) and [Node services]({{< relref "../../node-services.md" >}}).
 
 
 {{< table >}}
@@ -140,7 +140,7 @@ Read more in [CorDapp identities]({{< relref "../../../../../../../en/platform/c
 
 ### Network parameters
 
-Read more in [Network map]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/network/network-map.md" >}}).
+Read more in [Network map]({{< relref "../../network/network-map.md" >}}).
 Each downloaded network parameters file will create an entry in this table.
 The historical network parameters are used when validating transactions, which makes this table logically part of the `Ledger`.
 It is an append only table and the size will be fairly small.
@@ -168,7 +168,7 @@ Read more in [Ledger]({{< relref "../../key-concepts-ledger.md" >}}).
 
 
 ### Attachments
-Read more in [Working with attachments]({{< relref "../../get-started/tutorials/supplementary-tutorials/tutorial-attachments.md" >}}) and [Node services]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node-services.md" >}}).
+Read more in [Working with attachments]({{< relref "../../get-started/tutorials/supplementary-tutorials/tutorial-attachments.md" >}}) and [Node services]({{< relref "../../node-services.md" >}}).
 
 {{< figure alt="attachments tables" width=80% zoom="/en/images/attachments_tables.png" >}}
 
@@ -191,7 +191,7 @@ Read more in [Working with attachments]({{< relref "../../get-started/tutorials/
 |NODE_ATTACHMENTS_CONTRACTS|Many-to-one contracts per attachment. Empty for non-contract attachments.|
 |------------------------------|--------------------------------------------------------------------------------------------|
 |ATT_ID|Foreign key|
-|CONTRACT_CLASS_NAME|The fully qualified contract class name. E.g.: `net.corda.finance.contracts.asset.Cash`|
+|CONTRACT_CLASS_NAME|The fully qualified contract class name; e.g: `net.corda.finance.contracts.asset.Cash`|
 
 {{< /table >}}
 
@@ -210,7 +210,7 @@ Read more in [Working with attachments]({{< relref "../../get-started/tutorials/
 
 These are all the transactions that the node has created or has ever downloaded as part of transaction resolution. This table can grow very large.
 It is an append-only table, and the data will never change.
-Read more in [Node services]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node-services.md" >}}) - `DBTransactionStorage`.
+Read more in [Node services]({{< relref "../../node-services.md" >}}) - `DBTransactionStorage`.
 This is the key ledger table used as a source of truth. In the future the content will be encrypted to preserve confidentiality.
 
 
@@ -277,14 +277,14 @@ This table should be empty when no events are scheduled.
 {{< /table >}}
 
 The columns `PRIVATE_KEY_MATERIAL_WRAPPED` and `SCHEME_CODE_NAME` are populated, instead of the column `PRIVATE_KEY`,
-if an HSM is configured for anonymous identities. For more details about this feature, read [Using an HSM with confidential identities]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/operating/confidential-identities-hsm.md" >}}).
+if an HSM is configured for anonymous identities. For more details about this feature, read [Using an HSM with confidential identities]({{< relref "confidential-identities-hsm.md" >}}).
 
 
 {{< table >}}
 
 |PK_HASH_TO_EXT_ID_MAP|Maps public keys to external ids. Mainly used by CorDapps that need to simulate accounts.|
 |------------------------------|--------------------------------------------------------------------------------------------|
-|EXTERNAL_ID|External id|
+|EXTERNAL_ID|External ID|
 |PUBLIC_KEY_HASH|Public key hash|
 
 {{< /table >}}
@@ -294,7 +294,7 @@ These tables should be append only.
 
 ### Node state machine
 
-Read more in [Node services]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node-services.md" >}}).
+Read more in [Node services]({{< relref "../../node-services.md" >}}).
 
 {{< table >}}
 
@@ -364,7 +364,7 @@ Read more in [Node services]({{< relref "../../../../../../../en/platform/corda/
 
 These tables will see the most intense read-write activity, especially `NODE_CHECKPOINTS` and `NODE_CHECKPOINT_BLOBS`. Depending on the installed flows and the traffic on the node, the I/O operations on this table will be the main bottleneck of the node performance.
 There will be an entry for every running flow.
-Draining the node means waiting for this table to become empty. Read more in [Upgrading deployed CorDapps]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node-operations-upgrade-cordapps.md" >}}).
+Draining the node means waiting for this table to become empty. Read more in [Upgrading deployed CorDapps]({{< relref "../../node-operations-upgrade-cordapps.md" >}}).
 
 
 {{< table >}}
@@ -604,7 +604,7 @@ The actual content of the states can be retrieved from the `NODE_TRANSACTIONS` t
 
 RPC actions play a vital part in the process of triggering commands and flows on a node. In a variety of cases you will need to track the usage of RPC actions - for example, when there are security and regulatory concerns. To do so, you can use the Corda Enterprise node's capability to record audit information about RPC actions as they are received, prior to executing each action.
 
-Read more in [Recording of RPC audit data]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/setup/rpc-audit-data-recording.md" >}})
+Read more in [Recording of RPC audit data]({{< relref "../setup/rpc-audit-data-recording.md" >}})
 
 {{< table >}}
 

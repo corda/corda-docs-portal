@@ -104,7 +104,7 @@ Once the node has been successfully drained of any pending activity you will be 
 checkpoints dump
 ```
 
-If this list is empty, the node has been successfully drained. If the list contains representations of in-flight flows, and continues to do so for an unreasonable amount of time, the flows may have become stuck. At this point you may wish to kill the flows explicitly using the `killFlow` api. To learn more about this and the associated risks you can review the documentation found [here](../../../en/platform/corda/4.9/enterprise/cordapps/upgrading-cordapps.html#flow-drains).
+If this list is empty, the node has been successfully drained. If the list contains representations of in-flight flows, and continues to do so for an unreasonable amount of time, the flows may have become stuck. At this point you may wish to kill the flows explicitly using the `killFlow` api. To learn more about this and the associated risks you can review the documentation found [here]({{< relref "../../../en/platform/corda/4.9/enterprise/cordapps/upgrading-cordapps.md#flow-drains" >}}).
 
 ### Uninstall Old Versions
 

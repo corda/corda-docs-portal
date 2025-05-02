@@ -67,7 +67,7 @@ class XContract : Contract {
 ```
 
 {{< note >}}
-See [Reissuing states](reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which lets you break transaction backchains.
+See [Reissuing states]({{< relref "reissuing-states.md" >}}) for information about reissuing states with a guaranteed state replacement, which lets you break transaction backchains.
 {{< /note >}}
 
 ## The `Contract` class
@@ -235,6 +235,6 @@ class XContract : Contract {
 
 ## Further reading
 
-* [Contract Constraints](api-contract-constraints.md)
-* [Write CorDapp States](api-states.md)
-* [Writing CorDapp Flows](api-flows.md)
+* [Contract Constraints]({{< relref "api-contract-constraints.md" >}})
+* [Write CorDapp States]({{< relref "api-states.md" >}})
+* [Writing CorDapp Flows]({{< relref "api-flows.md" >}})

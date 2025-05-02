@@ -24,7 +24,7 @@ With Corda Enterprise, you can query flow data in the following ways:
 
 ## Querying flow data via RPC
 
-Corda Enterprise exposes a number of custom, remote RPC interfaces, which enable you to interact with your node. For a list of all the remote interfaces that are available in Corda Enterprise, see [Building a Multi RPC Client](../../../../../../../en/platform/corda/4.8/enterprise/node/operating/clientrpc.html#building-the-multi-rpc-client).
+Corda Enterprise exposes a number of custom, remote RPC interfaces, which enable you to interact with your node. For a list of all the remote interfaces that are available in Corda Enterprise, see [Building a Multi RPC Client]({{< relref "clientrpc.md#building-the-multi-rpc-client" >}}).
 
 The `net.corda.client.rpc.proxy.NodeFlowStatusRpcOps` interface is an RPC extension which enables external applications to query and view the status of the flows which are currently being monitored by the Flow Hospital.
 
@@ -50,7 +50,7 @@ To view the full code sample, see [NodeFlowStatusRpcOps.kt](../../resources/exte
 The Multi RPC Client version must be aligned with the node version, meaning that both must be running the same Corda Enterprise version.
 {{< /warning >}}
 
-For details of how to build a Multi RPC Client, see [Building a Multi RPC Client](clientrpc.html#building-the-multi-rpc-client). See also [MultiRPCClient](../../../../../../../en/api-ref/corda/4.8/open-source/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) in the API documentation.
+For details of how to build a Multi RPC Client, see [Building a Multi RPC Client]({{< relref "clientrpc.md#building-the-multi-rpc-client" >}}). See also [MultiRPCClient](../../../../../../../en/api-ref/corda/4.8/open-source/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) in the API documentation.
 
 ### Specifying the query criteria
 

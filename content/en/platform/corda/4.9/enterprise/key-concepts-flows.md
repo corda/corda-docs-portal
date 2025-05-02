@@ -3,7 +3,7 @@ aliases:
 - /head/key-concepts-flows.html
 - /HEAD/key-concepts-flows.html
 - /key-concepts-flows.html
-date: '2023-02-1'
+date: '2023-02-01'
 menu:
   corda-enterprise-4-9:
     identifier: corda-enterprise-4-9-key-concepts-flows
@@ -84,7 +84,7 @@ logic behind common processes such as:
 * Gathering signatures from counterparty nodes.
 * Verifying a chain of transactions.
 
-For further information on the available built-in flows, go to [API: Flows](api-flows.md).
+For further information on the available built-in flows, go to [API: Flows]({{< relref "cordapps/api-flows.md" >}}).
 
 ## Concurrency
 

@@ -23,7 +23,7 @@ weight: 20
 
 Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try [building your own]({{< relref "../get-started/tutorials/build-basic-cordapp/basic-cordapp-intro.md" >}}), modifying a [Java](https://github.com/corda/cordapp-template-java) or [Kotlin](https://github.com/corda/cordapp-template-kotlin) template or using a [community CorDapp](https://www.corda.net/samples/).
 
-The local Corda network in the sample includes one notary and two nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/node/component-topology.md" >}}).
+The local Corda network in the sample includes one notary and two nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation]({{< relref "../node/component-topology.md" >}}).
 
 The sample CorDapp allows nodes to reach loan agreements with each other, as long as they obey the following contract rules:
 
@@ -40,8 +40,8 @@ You will deploy and run the sample CorDapp on the following test nodes:
 
 ## Before you start
 
-* Learn [what a CorDapp is]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/cordapps/cordapp-overview.md" >}}).
-* Set up your [development environment]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md" >}}).
+* Learn [what a CorDapp is]({{< relref "cordapp-overview.md" >}}).
+* Set up your [development environment]({{< relref "getting-set-up.md" >}}).
 
 
 ## Step 1: Download the sample CorDapp
@@ -133,7 +133,7 @@ Look for the `Started Server in X seconds` message &mdash; don’t rely on the %
 
 
 {{< warning >}}
-On Unix/macOS, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `workflows-java/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/node/operating/shell.md" >}}).
+On Unix/macOS, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `workflows-java/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell]({{< relref "../node/operating/shell.md" >}}).
 {{< /warning >}}
 
 
@@ -270,12 +270,12 @@ You can see the newly-created IOU by running `run vaultQuery contractStateType: 
 ### Via the h2 web console
 
 
-You can connect directly to your node’s database to see its stored states, transactions and attachments. Follow the instructions in [Node database]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/node/operating/node-database.md" >}}).
+You can connect directly to your node’s database to see its stored states, transactions and attachments. Follow the instructions in [Node database]({{< relref "../node/operating/node-database.md" >}}).
 
 
 ## Step 6: Test the CorDapp
 
-Corda provides several frameworks for writing unit and integration tests for CorDapps. To access test flows in IntelliJ, select an option from the ‘Run Configurations’ dropdown next to the **hammer icon**.  For a general guide, see [Running tests in IntelliJ](../testing.html#running-tests-in-intellij).
+Corda provides several frameworks for writing unit and integration tests for CorDapps. To access test flows in IntelliJ, select an option from the ‘Run Configurations’ dropdown next to the **hammer icon**.  For a general guide, see [Running tests in IntelliJ]({{< relref "../testing.md#running-tests-in-intellij" >}}).
 
 ### Integration tests
 
@@ -313,9 +313,9 @@ If your test fails, run a Gradle test instead of a unit test.
 
 ## Related Content
 
-* [Debugging a CorDapp]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/cordapps/debugging-a-cordapp.md" >}})
-* [Writing a CorDapp]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/cordapps/writing-a-cordapp.md" >}})
-* [Build a CorDapp]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/cordapps/cordapp-build-systems.md" >}})
+* [Debugging a CorDapp]({{< relref "debugging-a-cordapp.md" >}})
+* [Writing a CorDapp]({{< relref "writing-a-cordapp.md" >}})
+* [Build a CorDapp]({{< relref "cordapp-build-systems.md" >}})
 
 
 ## Appendix A: Project structure

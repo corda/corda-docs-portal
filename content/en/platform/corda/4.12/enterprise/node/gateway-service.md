@@ -102,6 +102,6 @@ Command line arguments:
 [Auth Service]({{< relref "auth-service.md" >}}) needs to be set up with baseline permission data for each application.
 {{< /note >}}
 
-* [CENM management console](../../../../../../en/platform/corda/1.6/cenm/cenm-console.html#installation)
+* [CENM management console]({{< relref "../../../../../../en/platform/corda/1.6/cenm/cenm-console.md#installation" >}})
 * [Node management console]({{< relref "management-console.md#installation" >}})
 * [Flow management console]({{< relref "node-flow-management-console.md#installation" >}})

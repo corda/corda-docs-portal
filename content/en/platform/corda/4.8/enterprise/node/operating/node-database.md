@@ -14,7 +14,7 @@ weight: 1
 
 
 
-The Corda platform, and the installed CorDapps store their data in a relational database (see [State Persistence]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/cordapps/state-persistence.md" >}})).
+The Corda platform, and the installed CorDapps store their data in a relational database (see [State Persistence]({{< relref "../../cordapps/state-persistence.md" >}})).
 
 Corda Enterprise supports a range of commercial 3rd party databases: Azure SQL, SQL Server, Oracle, and PostgreSQL.
 This document provides an overview of required database permissions, related ways to create database schema objects,
@@ -40,8 +40,8 @@ A Corda node with full control of the database schema can create or upgrade sche
 This eases the operational maintenance for development and testing.
 
 
-Database setup for production systems (with **restricted permissions**) is described in [Database schema setup]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/operating/node-database-admin.md" >}}),
-and the recommended setup for development/testing environments are described in [Simplified database schema setup for development]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/operating/node-database-developer.md" >}}).
+Database setup for production systems (with **restricted permissions**) is described in [Database schema setup]({{< relref "node-database-admin.md" >}}),
+and the recommended setup for development/testing environments are described in [Simplified database schema setup for development]({{< relref "node-database-developer.md" >}}).
 
 
 ## Database schema objects management
@@ -80,7 +80,7 @@ but will check the database “version” and halt if the database is not in syn
 To bring the database to the correct state we provide a [Database Management Tool](#database-management-tool).
 This setup/procedure is recommended for production systems.
 
-Running the migration at startup automatically can only be configured by using the `initial registration` sub-command when running the node. The standard way of running the schema initialisation / migration scripts is to run the `run-migration-scripts` sub-command - see [Node command-line options]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/node-commandline.md" >}}).
+Running the migration at startup automatically can only be configured by using the `initial registration` sub-command when running the node. The standard way of running the schema initialisation / migration scripts is to run the `run-migration-scripts` sub-command - see [Node command-line options]({{< relref "../node-commandline.md" >}}).
 R3 recommends enabling database schema auto-creation/upgrade for development or test purposes only.
 It is safe to run at startup if you have implemented the usual best practices for database management
 (e.g. running a backup before installing a new version).
@@ -100,7 +100,7 @@ The database management tool is for production databases only. H2 databases cann
 
 {{< /note >}}
 
-You can review all available commands and options in the [Database Management Tool documentation]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/database-management-tool.md" >}}).
+You can review all available commands and options in the [Database Management Tool documentation]({{< relref "../../database-management-tool.md" >}}).
 
 ## Node database tables
 
@@ -155,7 +155,7 @@ By default, the node database has the following tables:
 
 {{< /table >}}
 
-For more details, see [Database tables]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/operating/node-database-tables.md" >}}).
+For more details, see [Database tables]({{< relref "node-database-tables.md" >}}).
 
 The node database for a Simple Notary has additional tables:
 
@@ -170,7 +170,7 @@ The node database for a Simple Notary has additional tables:
 
 {{< /table >}}
 
-The structure of the tables of JPA notaries are described at [Configuring a JPA notary backend](../../../../../../../en/platform/corda/4.8/enterprise/notary/installing-jpa.html#configuring-jpa-notary-backend).
+The structure of the tables of JPA notaries are described at [Configuring a JPA notary backend]({{< relref "../../notary/installing-jpa.md#configuring-jpa-notary-backend" >}}).
 
 The tables for other experimental notary implementations are not described here.
 
@@ -178,4 +178,4 @@ The tables for other experimental notary implementations are not described here.
 ### Database Schema Migration Logging
 
 Database migration logs for Corda internal tables follow a structured format
-described in [Database Schema Migration Logging](../../../../../../../en/platform/corda/4.8/enterprise/node-database-migration-logging.html#database-schema-migration-logging).
+described in [Database Schema Migration Logging]({{< relref "../../node-database-migration-logging.md#database-schema-migration-logging" >}}).

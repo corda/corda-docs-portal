@@ -14,12 +14,12 @@ title: Notary Failover
 # Notary failover
 
 Corda has built-in features to allow for the retrying of flows in specific cases of failure.
-See [Flow Hospital](content/en/platform/corda/4.8/enterprise/node/node-flow-hospital.md) for information that applies
+See [Flow Hospital]({{< relref "../../node/node-flow-hospital.md" >}}) for information that applies
 to all flows.
 
 The FinalityFlow contains notary-specific logic which can initiate a backpressure-aware sub-flow since minimum platform version 4.
 The backpressure aware subflow has configured timeout and retry with specific logic relating
-to the [backpressure mechanism](eta-mechanism.md).
+to the [backpressure mechanism]({{< relref "eta-mechanism.md" >}}).
 
 
 ## How does the timeout work?
@@ -30,7 +30,7 @@ time. Information can be found in the [Corda configuration file]({{< relref "../
 
 ## What is the backpressure mechanism?
 
-The backpressure mechanism is described in [backpressure mechanism overview](eta-mechanism.md).
+The backpressure mechanism is described in [backpressure mechanism overview]({{< relref "eta-mechanism.md" >}}).
 
 
 ## What happens on multiple successful responses caused by retrying?
