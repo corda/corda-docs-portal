@@ -21,13 +21,13 @@ This document provides instructions for upgrading your network management suite 
 Signing Service from previous versions to the newest version. Please consult the relevant release notes of the release
 in question. If not specified, you may assume the versions you are currently using are still in force.
 
-We also strongly recommend cross referencing with the [Changelog](changelog.md) to confirm changes.
+We also strongly recommend cross referencing with the [Changelog]({{< relref "changelog.md" >}}) to confirm changes.
 
 ## 1.2 to 1.2.1
 
  **Identity Manager Service**
 
-  The release includes changes to database schemas (see [Changelog](changelog.md)) for Oracle databases;
+  The release includes changes to database schemas (see [Changelog]({{< relref "changelog.md" >}})) for Oracle databases;
   new columns are created automatically upon each service start-up.
   Ensure the Identity Manager Service is configured to perform this migration
   by setting the `runMigration` property to `true`.
@@ -43,7 +43,7 @@ We also strongly recommend cross referencing with the [Changelog](changelog.md) 
 ## 1.1 to 1.2
 
 
-The release includes changes to database schemas (see [Changelog](changelog.md)); new columns are created automatically
+The release includes changes to database schemas (see [Changelog]({{< relref "changelog.md" >}})); new columns are created automatically
 upon each service startup. Ensure the Identity Manager and Network Map are configured to perform this migration
 by setting `runMigration` property to `true`.
 
@@ -83,8 +83,8 @@ This step doesn’t relate to Signing Service as it doesn’t use a database.The
 Ensure to stop the services before replacing the JAR files.
 * **Dynamic loading of HSM Jars**CENM 1.1 now supports multiple HSMs, however due to to the proprietary nature of the HSM libraries, the release does
 not work out of the box with these HSMs. The relevant libraries need to be provided by the user and referenced in the
-configuration of the relevant component (Signing Service or PKI Tool). See the relevant docs at [Signing Services](signing-service.md)
-and [Public Key Infrastructure (PKI) Tool](pki-tool.md) for more information.
+configuration of the relevant component (Signing Service or PKI Tool). See the relevant docs at [Signing Services]({{< relref "signing-service.md" >}})
+and [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool.md" >}}) for more information.
 
 
 ## 0.3+ to 1.0
@@ -133,7 +133,7 @@ database {
 
 
 * **Config Files**CENM 1.0 Identity Manager and Network Map Services are not backwards compatible with 0.x Doorman and Network Map
-config files. 0.2.2 and 0.3 / 0.4 config files can be migrated to 1.0 using the [Config migration tool](tool-config-migration.md).
+config files. 0.2.2 and 0.3 / 0.4 config files can be migrated to 1.0 using the [Config migration tool]({{< relref "tool-config-migration.md" >}}).
 Using the generated 1.0 configs, the services can be upgraded by: stopping the services, swapping out the JAR and
 config files and restarting the services.
 
@@ -190,7 +190,7 @@ and Revocation services cannot be known by the upgrader.
 {{< warning >}}
 If you require private network functionality or node certificate revocation checking then the configuration
 should be updated to include the appropriate settings. See the *Doorman & Revocation Communication* section
-of the [Network Map Service](network-map.md) doc for more information.
+of the [Network Map Service]({{< relref "network-map.md" >}}) doc for more information.
 
 {{< /warning >}}
 
@@ -201,20 +201,20 @@ of the [Network Map Service](network-map.md) doc for more information.
 The release modifies the Network Map Signing Service to request data through the Network Map Service rather than going
 directly to the database. Therefore the configuration needs to change to remove the redundant DB configuration and
 instead adding the service endpoint. As this information cannot be known by the config upgrader, this has to be added
-manually. See [Signing Services](signing-service.md) for more information on how to configure this.
+manually. See [Signing Services]({{< relref "signing-service.md" >}}) for more information on how to configure this.
 
 
 #### The Certificate Revocation Request service requires a configuration update to specify communication the Revocation service
 
 Similarly to above, the CRR Signing Service now pulls data through the Revocation service and therefore requires a
-configuration modification. See [Signing Services](signing-service.md) for more information on how to configure this.
+configuration modification. See [Signing Services]({{< relref "signing-service.md" >}}) for more information on how to configure this.
 
 
 #### Setting the network parameters requires passing the root certificate
 
 When setting network parameters, the Network Map Service cannot validate the proposed notary certificates using the Doorman DB.
 Hence the trusted root certificate now needs to be passed during setting of parameters.
-See the “Setting the Network Parameters” section of the [Network Map Service](network-map.md) doc for more information.
+See the “Setting the Network Parameters” section of the [Network Map Service]({{< relref "network-map.md" >}}) doc for more information.
 
 
 ## 0.1 to 0.2.1

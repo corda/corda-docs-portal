@@ -13,7 +13,7 @@ weight: 155
 
 # Flow management console
 
-The flow management console allows you to see the state of the flows running on a node and perform some operations on them. It runs as part of the [Gateway Service](gateway-service.md).
+The flow management console allows you to see the state of the flows running on a node and perform some operations on them. It runs as part of the [Gateway Service]({{< relref "gateway-service.md" >}}).
 
 It has a front end written in React, and a REST service written in Kotlin, which makes RPC calls to Corda Enterprise.
 
@@ -74,7 +74,7 @@ The **Dashboard** tab displays two charts:
 
 ## Query flows tab
 
-The **Query flows** tab shows the flows on the node and allows you to filter them. The filter options are shown on the left-hand side and the results panel on the right. If you do not have permission to view this tab, you will see a message that says you do not have permission to view it. For more information on the filter options, see [Specifying the query criteria](operating/querying-flow-data.html#specifying-the-query-criteria).
+The **Query flows** tab shows the flows on the node and allows you to filter them. The filter options are shown on the left-hand side and the results panel on the right. If you do not have permission to view this tab, you will see a message that says you do not have permission to view it. For more information on the filter options, see [Specifying the query criteria]({{< relref "operating/querying-flow-data.md#specifying-the-query-criteria" >}}).
 
 In the results panel, a table shows the flows that match the filter (or all the flows if no filter is set). Each entry can be expanded to show more information about the flow and show the commands panel.
 

@@ -252,7 +252,7 @@ migration.
 * Adding support for new supported backends and modules.
 * Changing the Gradle build DSL.
 
-You should additionally update the [Release Notes](release-notes.md) if a change is risky or may in some way be of interest to users, even if
+You should additionally update the [release notes]({{< relref "release-notes.md" >}}) if a change is risky or may in some way be of interest to users, even if
 not directly visible.
 
 Because this is a developer platform, *many* changes are user visible. That means *many* PRs will require docsite changes.

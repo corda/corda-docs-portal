@@ -20,7 +20,7 @@ All code samples are in Kotlin.
 You must have access to:
 
 * The [Corda Customer Hub](https://customerhub.r3.com/s/r3-customcommunitylogin) trial area.
-* Modulr Sandbox. This is so you can [test your CorDapp on a local environment](send-payments.html#set-up-modulr-sandbox-for-payments-agent).
+* Modulr Sandbox. This is so you can [test your CorDapp on a local environment]({{< relref "send-payments.md#set-up-modulr-sandbox-for-payments-agent" >}}).
 
 ## Access Corda Payments on Corda Customer Hub
 

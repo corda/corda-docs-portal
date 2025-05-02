@@ -16,7 +16,7 @@ weight: 5
 
 {{< note >}}
 You should already have generated your node(s) with their CorDapps installed by following the instructions in
-[Creating nodes locally](generating-a-node.md).
+[Creating nodes locally]({{< relref "generating-a-node.md" >}}).
 {{< /note >}}
 
 There are several ways to run a Corda node locally for testing purposes.
@@ -145,7 +145,7 @@ You can optionally start a node using the following command-line options:
 * `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: `ERROR`, `WARN`, `INFO` (default), `DEBUG`, `TRACE`.
 * `--help`, `-h`: Show this help message and exit.
 * `--version`, `-V`: Print version information and exit.
-* `--pause-all-flows`: Paused all flows when the node starts up. Starting a node with the `--pause-all-flows` command-line option automatically enables flow draining mode but does not modify the node's configuration file. See [Pause and resume flows](../../../../../../../en/platform/corda/4.9/enterprise/flow-pause-and-resume.html#starting-the-node-and-pausing-all-flows) for more information.
+* `--pause-all-flows`: Paused all flows when the node starts up. Starting a node with the `--pause-all-flows` command-line option automatically enables flow draining mode but does not modify the node's configuration file. See [Pause and resume flows]({{< relref "../../flow-pause-and-resume.md#starting-the-node-and-pausing-all-flows" >}}) for more information.
 * `--allow-hibernate-to-manage-app-schema`: enable this option to make the node manage app schemas automatically using Hibernate
 with H2 in dev mode.
 
@@ -211,7 +211,7 @@ To enable export of JMX metrics over HTTP via [Jolokia](https://jolokia.org/), r
 
 This command will start the node with JMX metrics accessible via HTTP on port 7005. 
 
-See [Monitoring via Jolokia](../operating/node-administration.html#monitoring-via-jolokia) for further details.
+See [Monitoring via Jolokia]({{< relref "../operating/node-administration.md#monitoring-via-jolokia" >}}) for further details.
 
 ## Starting all nodes at once on a local machine from the command prompt
 
@@ -243,7 +243,7 @@ Java heap memory available to them, which you can do when running them individua
 
 ### docker-compose
 
-If you created your nodes using [Dockerform](generating-a-node.md), the `docker-compose.yml` file has been created and configured appropriately. Navigate to `build/nodes` directory and run the `docker-compose up` command. This will start up nodes inside a new, internal network. After the nodes are started, you can use the `docker ps` command to see how the ports are mapped.
+If you created your nodes using [Dockerform]({{< relref "generating-a-node.md" >}}), the `docker-compose.yml` file has been created and configured appropriately. Navigate to `build/nodes` directory and run the `docker-compose up` command. This will start up nodes inside a new, internal network. After the nodes are started, you can use the `docker ps` command to see how the ports are mapped.
 
 {{< warning >}}
 You need both `Docker` and `docker-compose` installed and enabled to use this method. Docker CE
@@ -261,13 +261,13 @@ As an alternative, you can specify this parameter when running the `docker-compo
 
 ## Starting all nodes at once on a remote machine from the command line
 
-By default, a [Cordform](generating-a-node.md) task will run all the generated nodes on the same host machine.
+By default, a [Cordform]({{< relref "generating-a-node.md" >}}) task will run all the generated nodes on the same host machine.
 In order to run the nodes remotely, you can deploy them locally and then copy them to a remote server.
 If after copying the nodes to the remote machine you encounter errors related to a `localhost` resolution, you should follow the additional steps below.
 
 To create nodes locally and run on a remote machine, perform the following steps:
 
-* Configure a Cordform task and deploy the nodes locally as described in [Creating nodes locally](generating-a-node.md).
+* Configure a Cordform task and deploy the nodes locally as described in [Creating nodes locally]({{< relref "generating-a-node.md" >}}).
 * Copy the generated directory structure to a remote machine, for example using Secure Copy.
 * Optionally, add database configuration settings if they could not be configured in the first step and the local machine does not have access to the remote database.
 In each top-level `[NODE NAME]_node.conf` configuration file, add the database settings and copy the JDBC driver JAR file (if required).

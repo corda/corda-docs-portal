@@ -133,7 +133,7 @@ the [Community Maintainers]({{< relref "contributing-philosophy.md#community-mai
     * Leave comments requesting changes via the GitHub PR interface.
 
 3. Make the changes by pushing directly to your existing PR branch. The PR updates automatically.
-4. *Optional:* Open an additional PR to add yourself to the [contributors list](https://github.com/corda/corda/blob/release/os/4.4/CONTRIBUTORS.md). The format is generally `firstname surname (company)`. You can omit the company name.
+4. *Optional:* Open an additional PR to add yourself to the [contributors list](https://github.com/corda/corda/blob/release/os/4.11/CONTRIBUTORS.md). The format is generally `firstname surname (company)`. You can omit the company name.
 
 ## Large contributions
 

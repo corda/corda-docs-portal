@@ -47,7 +47,7 @@ These are tables that store the NodeInfo of other network participants.
 They are just a local cache that is kept in sync with the network map server.
 By calling `rpc.clearNetworkMapCache()` all these tables will be cleared and recreated from the network map server.
 
-Read more here: [The network map](network-map.md)
+Read more here: [The network map]({{< relref "network-map.md" >}})
 
 {{< figure alt="node info tables" width=80% zoom="/en/images/node_info_tables.png" >}}
 
@@ -102,7 +102,7 @@ Read more here: [The network map](network-map.md)
 The following four tables are used by the `IdentityService` and are created from the NodeInfos.
 They are append only tables used for persistent caching.
 They will also be cleared on `rpc.clearNetworkMapCache()`.
-Read more in [API: Identity](api-identity.md) and [Node services](node-services.md)
+Read more in [API: Identity]({{< relref "api-identity.md" >}}) and [Node services]({{< relref "node-services.md" >}})
 
 
 {{< table >}}
@@ -147,7 +147,7 @@ Read more in [API: Identity](api-identity.md) and [Node services](node-services.
 
 ### Network parameters
 
-Read more here: [The network map](network-map.md).
+Read more here: [The network map]({{< relref "network-map.md" >}}).
 Each downloaded network parameters file will create an entry in this table.
 The historical network parameters are used when validating transactions, which makes this table logically part of the `Ledger`.
 It is an append only table and the size will be fairly small.
@@ -171,12 +171,12 @@ It is an append only table and the size will be fairly small.
 
 The ledger data is formed of transactions and attachments.
 In future versions this data will be encrypted using SGX.
-Read more in [the ledger](key-concepts-ledger.md)
+Read more in [the ledger]({{< relref "key-concepts-ledger.md" >}})
 
 
 ### Attachments
 
-Read more in [Working with attachments]({{< relref "../enterprise/get-started/tutorials/supplementary-tutorials/tutorial-attachments.md" >}}) and [Node services](node-services.md)
+Read more in [Working with attachments]({{< relref "../enterprise/get-started/tutorials/supplementary-tutorials/tutorial-attachments.md" >}}) and [Node services]({{< relref "node-services.md" >}})
 
 {{< figure alt="attachments tables" width=80% zoom="/en/images/attachments_tables.png" >}}
 
@@ -218,7 +218,7 @@ Read more in [Working with attachments]({{< relref "../enterprise/get-started/tu
 
 These are all the transactions that the node has created or has ever downloaded as part of transaction resolution. This table can grow very large.
 It is an append-only table, and the data will never change.
-Read more in [Node services](node-services.md) - `DBTransactionStorage`
+Read more in [Node services]({{< relref "node-services.md" >}}) - `DBTransactionStorage`
 This is the key ledger table used as a source of truth. In the future the content will be encrypted to preserve confidentiality.
 
 
@@ -287,9 +287,9 @@ This table should be empty when no events are scheduled.
 
 {{< table >}}
 
-|PK_HASH_TO_EXT_ID_MAP|Maps public keys to external ids. Mainly used by CorDapps that need to simulate accounts.|
+|PK_HASH_TO_EXT_ID_MAP|Maps public keys to external IDs. Mainly used by CorDapps that need to simulate accounts.|
 |------------------------------|--------------------------------------------------------------------------------------------|
-|EXTERNAL_ID|External id|
+|EXTERNAL_ID|External ID|
 |PUBLIC_KEY_HASH|Public key hash|
 
 {{< /table >}}
@@ -299,7 +299,7 @@ These tables should be append only.
 
 ### Node state machine
 
-Read more in [Node services](node-services.md)
+Read more in [Node services]({{< relref "node-services.md" >}})
 
 {{< table >}}
 
@@ -370,7 +370,7 @@ Read more in [Node services](node-services.md)
 These tables will see the most intense read-write activity, especially `NODE_CHECKPOINTS` and `NODE_CHECKPOINT_BLOBS`. Depending on the installed flows and the traffic on the node the I/O operations on this
 table will be the main bottleneck of the node performance.
 There will be an entry for every running flow.
-Draining the node means waiting for this table to become emtpy. Read more in: [Upgrading CorDapps on a node](node-operations-upgrade-cordapps.md).
+Draining the node means waiting for this table to become empty. Read more in: [Upgrading CorDapps on a node]({{< relref "node-operations-upgrade-cordapps.md" >}}).
 
 
 {{< table >}}
@@ -400,7 +400,7 @@ Draining the node means waiting for this table to become emtpy. Read more in: [U
 
 ## Vault tables
 
-Read more about the vault here [Vault](key-concepts-vault.md).
+Read more about the vault here [Vault]({{< relref "key-concepts-vault.md" >}}).
 
 Note that the vault tables are guaranteed to remain backwards compatible and are safe to be used directly by third party applications.
 

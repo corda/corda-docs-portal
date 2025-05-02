@@ -84,13 +84,13 @@ logic behind common processes such as:
 * Gathering signatures from counterparty nodes.
 * Verifying a chain of transactions.
 
-For further information on the available built-in flows, go to [API: Flows](api-flows.md).
+For further information on the available built-in flows, go to [API: Flows]({{< relref "api-flows.md" >}}).
 
 ## Concurrency
 
 Nodes can have multiple active flows running at once.
 
-Flows are serialized to disk whenever they enter a blocking state. For example, when they're waiting on I/O or a
+Flows are serialized to disk whenever they enter a blocking state. For example, when they are waiting on I/O or a
 networking call. This allows flows to be active for long periods of time, even during interruptions such as node restarts
 and upgrades. Instead of waiting for the flow to become unblocked, the node immediately starts work on any
 other scheduled flows, returning to the original flow at a later date.

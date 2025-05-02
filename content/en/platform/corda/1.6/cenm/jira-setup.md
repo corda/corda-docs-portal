@@ -35,7 +35,7 @@ At present, there is no roadmap for the implementation of Jira Cloud plugin supp
 
 3. Assign the user to the CSR and CRR projects.
 
-4. Supply the user credentials to the [CENM identity manager configuration](identity-manager.html#jira-workflow).
+4. Supply the user credentials to the [CENM identity manager configuration]({{< relref "identity-manager.md#jira-workflow" >}}).
 
 ## Configure projects' workflow
 

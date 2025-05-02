@@ -205,7 +205,7 @@ A generated script named *migration/*.sql* will be present in the base directory
 This script contains all statements to create data structures (e.g. tables/indexes) for CorDapps
 and inserts to the Liquibase management table *DATABASECHANGELOG*.
 The command doesn’t alter any tables.
-Refer to [Corda Database Management Tool]({{< relref "../../../../../../../en/platform/corda/4.11/enterprise/node/operating/node-database.md#database-management-tool" >}})manual for a description of the options.
+Refer to [Corda Database Management Tool]({{< relref "node-database.md#database-management-tool" >}})manual for a description of the options.
 
 
 ### 4. Apply DDL scripts on a database

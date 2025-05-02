@@ -29,11 +29,11 @@ Monitoring and logging topics:
 
 * [Basics of logging on your node](#logging---the-basics).
 * [Basics of monitoring your node](#monitoring---the-basics).
-* [Node metrics](metrics-monitoring-scenarios.md).
-* [Node monitoring scenarios](metrics-monitoring-scenarios.md).
-* [Troubleshooting Corda Enterprise Network Manager (CENM) services on your node](monitoring-trouble-shooting.md).
-* [The Corda Enterprise Health Survey tool](monitoring-trouble-shooting.html#corda-health-survey-tool).
-* [Using Ledger Sync to check the status of data on your node and the rest of the ledger](monitoring-trouble-shooting.html#ledger-sync).
+* [Node metrics]({{< relref "metrics-monitoring-scenarios.md" >}}).
+* [Node monitoring scenarios]({{< relref "metrics-monitoring-scenarios.md" >}}).
+* [Troubleshooting Corda Enterprise Network Manager (CENM) services on your node]({{< relref "monitoring-trouble-shooting.md" >}}).
+* [The Corda Enterprise Health Survey tool]({{< relref "monitoring-trouble-shooting.md#corda-health-survey-tool" >}}).
+* [Using Ledger Sync to check the status of data on your node and the rest of the ledger]({{< relref "monitoring-trouble-shooting.md#ledger-sync" >}}).
 
 ## Logging - the basics
 
@@ -47,7 +47,7 @@ To understand the information in the logs, which data is important, and what can
 
 ## Monitoring - the basics
 
-You can monitor the health and performance of your node using tools such as [Jolokia and Graphite](../../node/operating/monitoring-and-logging/overview.html#node-monitoring).. Whenever using these tools, you should follow best-practice steps such as setting up TCP checks for the ports the node communicates on, database health checks etc.
+You can monitor the health and performance of your node using tools such as [Jolokia and Graphite]({{< relref "../../node/operating/monitoring-and-logging/overview.md#node-monitoring" >}}).. Whenever using these tools, you should follow best-practice steps such as setting up TCP checks for the ports the node communicates on, database health checks etc.
 
 ### Monitoring via Jolokia
 

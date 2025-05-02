@@ -31,7 +31,7 @@ The Zone Service stores relevant configurations for the following services:
 * Network Map Service
 * Signing Services
 
-It uses the associated [Angel Service](angel-service.md) to deploy those configurations as needed.
+It uses the associated [Angel Service]({{< relref "angel-service.md" >}}) to deploy those configurations as needed.
 Each Angel Service identifies itself to the Zone Service via an authentication
 token, referred to as the "zone token". The Zone Service also coordinates actions
 needed on Sub Zones (for example, new network parameters), which are executed
@@ -62,7 +62,7 @@ The full list of configuration options follows below:
 - `--user`: The user for the Zone Service's database.
 - `--password`: The password for the Zone Service's database.
 - `--admin-listener-port`: The port where Angel Services connect to the Zone Service.
-- `--disable-authentication`: Allows you to disable authentication and authorisation via the [Auth Service](auth-service.md). Only use this option in development environments. Defaults to `false` if no value is provided.
+- `--disable-authentication`: Allows you to disable authentication and authorisation via the [Auth Service]({{< relref "auth-service.md" >}}). Only use this option in development environments. Defaults to `false` if no value is provided.
 - `--auth-host`: The hostname of the Auth Service. Required unless authentication and authorisation are disabled.
 - `--auth-port`: The port number of the Auth Service. Required unless authentication and authorisation are disabled.
 - `--auth-trust-store-location`: The location of the Auth Service trust root keystore. Required unless authentication and authorisation are disabled.

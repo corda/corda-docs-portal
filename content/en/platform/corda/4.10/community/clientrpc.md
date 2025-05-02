@@ -597,7 +597,7 @@ any resources.
 
 ## Versioning
 
-The client RPC protocol is versioned using the node’s platform version number (see [Versioning](versioning.md)). When a proxy is created,
+The client RPC protocol is versioned using the node’s platform version number (see [Versioning]({{< relref "versioning.md" >}})). When a proxy is created,
 the server is queried for its version, and you can specify your minimum requirement. Methods added in later versions
 are tagged with the `@RPCSinceVersion` annotation. If you try to use a method that the server isn’t advertising support
 for, an `UnsupportedOperationException` is thrown. If you want to know the version of the server, just use the
@@ -633,7 +633,7 @@ side as if it were thrown from inside the called RPC method. These exceptions ca
 ## Configuring wire security
 
 If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [rpcSettings]({{< relref "corda-configuration-fields.md#rpcsettings" >}})).
-The node admin must then create a node-specific RPC certificate and key, by running the node once with the `generate-rpc-ssl-settings` command specified (see [Node command-line options](node-commandline.md)).
+The node admin must then create a node-specific RPC certificate and key, by running the node once with the `generate-rpc-ssl-settings` command specified (see [Node command-line options]({{< relref "node-commandline.md" >}})).
 
 The generated RPC TLS trust root certificate is exported to a `certificates/export/rpcssltruststore.jks` file, which should be distributed to the authorised RPC clients.
 
@@ -646,4 +646,4 @@ Note that RPC TLS does not use mutual authentication, and delegates fine-grained
 
 CorDapps must whitelist any classes used over RPC with Corda’s serialization framework, unless they are whitelisted by
 default in `DefaultWhitelist`. The whitelisting is done either via the plugin architecture or by using the
-`@CordaSerializable` annotation (see [Object serialization](serialization.md)). An example is shown in [Working with the CordaRPCClient API]({{< relref "../enterprise/get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}).
+`@CordaSerializable` annotation (see [Object serialization]({{< relref "serialization.md" >}})). An example is shown in [Working with the CordaRPCClient API]({{< relref "../enterprise/get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}).

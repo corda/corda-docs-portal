@@ -24,7 +24,7 @@ If you are upgrading from Corda Enterprise 3.x, you must first:
 3. Upgrade from Corda 4.5 to Corda Enterprise Edition 4.9.
 
 {{< warning >}}
-Corda Enterprise Edition 4.9 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.9, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md).
+Corda Enterprise Edition 4.9 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.9, read the guidance on [upgrading your notary service]({{< relref "notary/upgrading-the-ha-notary-service.md" >}}).
 {{< /warning >}}
 
 Most of the Corda 4 public, non-experimental APIs are stable. See the [full list of stable APIs]({{< relref "../../../../api-ref/_index.md" >}}). If you are working with a stable API, you don't need to update your CorDapps. To upgrade:
@@ -44,7 +44,7 @@ The protocol tolerates node outages. Peers on the network wait for your node to 
 
 ## Step 1: Drain the node
 
-Node operators must drain nodes (or CorDapps on nodes) before they can upgrade them. Draining brings all [flows](cordapps/api-flows.md) that are currently running to a smooth halt. The node finishes any work already in progress, and queues any new work. This process frees CorDapps from the requirement to migrate workflows from an arbitrary point to another arbitrary point—a task that would rapidly become unfeasible as workflow
+Node operators must drain nodes (or CorDapps on nodes) before they can upgrade them. Draining brings all [flows]({{< relref "cordapps/api-flows.md" >}}) that are currently running to a smooth halt. The node finishes any work already in progress, and queues any new work. This process frees CorDapps from the requirement to migrate workflows from an arbitrary point to another arbitrary point—a task that would rapidly become unfeasible as workflow
 and protocol complexity increases.
 
 To drain a node, run `gracefulShutdown`. This waits for the all currently running flows to be completed and then shuts the node down.
@@ -61,7 +61,7 @@ For a smooth node draining process avoid long-running flows.
 
 Back up your data before upgrading, in case you need to roll back if there’s a problem. Make a copy of the node’s data directory or, if you use an external non-H2 database, consult your database user guide to learn how to make backups.
 
-For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations](../../../../../en/platform/corda/4.9/enterprise/node/operating/node-administration.html#backup-recommendations).
+For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations]({{< relref "../../../../../en/platform/corda/4.9/enterprise/node/operating/node-administration.md#backup-recommendations" >}}).
 
 ## Step 3: Update the database
 
@@ -217,7 +217,7 @@ If you run the DDL and DML statements separately (for example, if the database a
 
 {{< /note >}}
 
-For more information about the Database Management Tool including available options and commands, see [Corda Database Management Tool](database-management-tool.md).
+For more information about the Database Management Tool including available options and commands, see [Corda Database Management Tool]({{< relref "database-management-tool.md" >}}).
 
 ### 3.3. Apply DDL scripts to a database
 
@@ -278,7 +278,7 @@ Option `-b` points to the base directory which contains a `node.conf` file and `
 Replace corda.jar with its latest version.
 
 Download the latest version of Corda from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-node/4.9.8/corda-node-4.9.8.jar).
-Make sure it’s available on your path, and that you’ve read the [Corda release notes](release-notes-enterprise.md). Pay particular attention to which version of Java that the node requires.
+Make sure it’s available on your path, and that you’ve read the [Corda release notes]({{< relref "release-notes-enterprise.md" >}}). Pay particular attention to which version of Java that the node requires.
 
 {{< important >}}
 Corda 4 requires Java 8u171 or any higher Java 8 patch level. Java 9+ is not currently supported.
@@ -294,7 +294,7 @@ Install `corda-shell.jar` as a driver within your node.
 
 [Download](https://download.corda.net/maven/corda-releases/net/corda/corda-shell/4.9/corda-shell-4.9.jar) the `corda-shell` JAR from Maven and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node. By default, a Corda node does not run the shell.
 
-For more information, see [Node Shell](node/operating/shell.html).
+For more information, see [Node Shell]({{< relref "node/operating/shell.md" >}}).
 
 
 ## Step 6: Update the configuration
@@ -329,5 +329,5 @@ Your upgrade is complete.
 ## Notes
 
 {{< warning >}}
-You must align the multi-RPC client version with the node version. That means that both must be running the same version of Corda Enterprise. See [Querying flow data](node/operating/querying-flow-data.md) for more information.
+You must align the multi-RPC client version with the node version. That means that both must be running the same version of Corda Enterprise. See [Querying flow data]({{< relref "node/operating/querying-flow-data.md" >}}) for more information.
 {{< /warning >}}

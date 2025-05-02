@@ -24,7 +24,7 @@ If you are upgrading from Corda Enterprise 3.x, you must first:
 3. Upgrade from Corda 4.5 to Corda Enterprise Edition 4.10.
 
 {{< warning >}}
-Corda Enterprise Edition 4.10 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.10, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md).
+Corda Enterprise Edition 4.10 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.10, read the guidance on [upgrading your notary service]({{< relref "notary/upgrading-the-ha-notary-service.md" >}}).
 {{< /warning >}}
 
 Most of the Corda 4 public, non-experimental APIs are stable. See the [full list of stable APIs]({{< relref "../../../../api-ref/_index.md" >}}). If you are working with a stable API, you don't need to update your CorDapps. To upgrade:
@@ -301,7 +301,7 @@ Option `-b` points to the base directory which contains a `node.conf` file and `
 Replace the `corda.jar` with the latest version of Corda.
 
 [Download](https://download.corda.net/maven/corda-releases/net/corda/corda-node/4.10.3/corda-node-4.10.3.jar) the latest version of Corda from Maven.
-Make sure it’s available on your path, and that you’ve read the [Corda release notes](release-notes-enterprise.md). Pay particular attention to which version of Java the
+Make sure it’s available on your path, and that you’ve read the [Corda release notes]({{< relref "release-notes-enterprise.md" >}}). Pay particular attention to which version of Java the
 node requires.
 
 

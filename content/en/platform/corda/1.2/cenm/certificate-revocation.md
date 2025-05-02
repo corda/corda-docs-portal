@@ -23,7 +23,7 @@ It is used by nodes when they establish a TLS connection between each other and 
 In order to add entries to the certificate revocation list there is the certificate revocation process that resembles
 the one from the certificate signing request (CSR).
 
-For context on how the certificate revocation list fits into the wider context, please see [Certificate Hierarchy Guide](pki-guide.md).
+For context on how the certificate revocation list fits into the wider context, please see [Certificate Hierarchy Guide]({{< relref "pki-guide.md" >}}).
 
 Note that, once added the entries cannot be removed from the certificate revocation list.
 
@@ -171,6 +171,6 @@ an up-to-date CRL is distributed in the network before the previous one expires.
 lifecycle of 6 months and are manually signed every 3 months. Such a schedule gives plenty of time for
 any signing issues to be resolved.
 
-See [Signing Services](signing-service.md) for details on building and signing CRLs, and especially the “updatePeriod”
-configuration field which is used to determine the next update deadline. See also [CRL Endpoint Check Tool](crl-endpoint-check-tool.md)
+See [Signing Services]({{< relref "signing-service.md" >}}) for details on building and signing CRLs, and especially the “updatePeriod”
+configuration field which is used to determine the next update deadline. See also [CRL Endpoint Check Tool]({{< relref "crl-endpoint-check-tool.md" >}})
 for more information how to check CRLs’ update deadlines.

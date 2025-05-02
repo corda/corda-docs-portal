@@ -227,7 +227,7 @@ service.
 Service locations in the Signing Service configuration are provided automatically by the
 Zone Service in CENM 1.3. However, to enable this, the service aliases have strictly defined
 formats. You must update the task configurations to refer to service aliases matching
-these names. The names are specified in [service aliases](../../../../1.3/cenm/signing-service.html#direct-cenm-service-locations).
+these names. The names are specified in [service aliases]({{< relref "../../../../1.3/cenm/signing-service.md#direct-cenm-service-locations" >}}).
 
 ### Push configurations to Zone Service
 

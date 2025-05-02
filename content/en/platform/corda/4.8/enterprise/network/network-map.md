@@ -110,7 +110,7 @@ the network, along with the network parameters file and identity certificates. G
 online at once - an offline node that isn’t being interacted with doesn’t impact the network in any way. So a test
 cluster generated like this can be sized for the maximum size you may need, and then scaled up and down as necessary.
 
-More information can be found in [Network Bootstrapper]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/network-bootstrapper.md" >}}).
+More information can be found in [Network Bootstrapper]({{< relref "../network-bootstrapper.md" >}}).
 
 
 
@@ -188,7 +188,7 @@ Any CorDapp JAR that offers contracts and states in any of these packages must b
 This ensures that when a node encounters an owned contract it can uniquely identify it and knows that all other nodes can do the same.
 Encountering an owned contract in a JAR that is not signed by the rightful owner is most likely a sign of malicious behaviour, and should be reported.
 The transaction verification logic will throw an exception when this happens.
-Read more about package ownership in the [Package namespace ownership](../node/deploy/env-dev.html#package-namespace-ownership) section.
+Read more about package ownership in the [Package namespace ownership]({{< relref "../node/deploy/env-dev.md#package-namespace-ownership" >}}) section.
 
 
 

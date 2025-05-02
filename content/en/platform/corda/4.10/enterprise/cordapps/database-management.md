@@ -16,7 +16,7 @@ Corda and your installed CorDapps store their data in a relational database. Whe
 but the existing data needs to be preserved or changed accordingly.
 
 In Corda Enterprise, CorDapps’ custom tables are created or upgraded automatically based on
-database management scripts written in [Liquibase](../node/operating/node-database.html#liquibase-ref) format and embedded in CorDapp JARs.
+database management scripts written in [Liquibase]({{< relref "../node/operating/node-database.md#liquibase-ref" >}}) format and embedded in CorDapp JARs.
 Any CorDapp with custom tables (`MappedSchema`)  must contain a matching database management script.
 
 
@@ -326,7 +326,7 @@ Any custom tables (which are required by CorDapps) were created manually or by H
 Therefore, the database doesn’t contain an entry in the *DATABASECHANGELOG* table, which is created by the Liquibase runner.
 You need to create the entries and provide them to a node operator to run them manually.
 
-See the  [Liquibase Sql Format](http://www.liquibase.org/documentation/sql_format.html) documents and Corda's [upgrade procedure](../node-operations-upgrading-os-to-ent.html#upgrade-from-corda-open-source-to-corda-enterprise) to learn how to obtain SQL statements.
+See the  [Liquibase Sql Format](http://www.liquibase.org/documentation/sql_format.html) documents and Corda's [upgrade procedure]({{< relref "../node-operations-upgrading-os-to-ent.md#upgrade-from-corda-open-source-to-corda-enterprise" >}}) to learn how to obtain SQL statements.
 
 
 
@@ -341,7 +341,7 @@ When writing data migrations, certain databases may have particular limitations.
 ## Example Liquibase with specialised logic
 
 When using Liquibase to work around the issue of VARCHAR length, you could create a changeset
-specific to Oracle using the <changeset … dbms=”oracle”> with the supported Oracle value type. Liquibase
+specific to Oracle using the `<changeset … dbms=”oracle”>` with the supported Oracle value type. Liquibase
 does not do the conversion automatically.
 
 ```xml

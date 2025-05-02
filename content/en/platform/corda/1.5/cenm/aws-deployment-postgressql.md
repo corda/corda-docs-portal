@@ -47,9 +47,9 @@ To set up each database:
 
 1. Set up a PostgreSQL database in AWS - follow the instructions in the [AWS documentation](https://aws.amazon.com/rds/postgresql).
 2. Connect to the database, using the details of the database in AWS.
-3. Create a database user and a schema namespace [with restricted permissions](../../../../../en/platform/corda/1.5/cenm/database-set-up.html#1-create-a-database-user-with-schema-permissions). Follow the [steps for PostgreSQL](../../../../../en/platform/corda/1.5/cenm/database-set-up.html#postgresql).
-4. Create the [database schema](../../../../../en/platform/corda/1.5/cenm/database-set-up.html#2-database-schema-creation) for each service.
-5. Perform [CENM Service configuration](../../../../../en/platform/corda/1.5/cenm/database-set-up.html#3-cenm-service-configuration) - follow the [steps for PostgreSQL](../../../../../en/platform/corda/1.5/cenm/database-set-up.html#postgresql-1). See also the [database configuration documentation]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-database.md" >}}).
+3. Create a database user and a schema namespace [with restricted permissions]({{< relref "../../../../../en/platform/corda/1.5/cenm/database-set-up.md#1-create-a-database-user-with-schema-permissions" >}}). Follow the [steps for PostgreSQL]({{< relref "../../../../../en/platform/corda/1.5/cenm/database-set-up.md#postgresql" >}}).
+4. Create the [database schema]({{< relref "../../../../../en/platform/corda/1.5/cenm/database-set-up.md#2-database-schema-creation" >}}) for each service.
+5. Perform [CENM Service configuration]({{< relref "../../../../../en/platform/corda/1.5/cenm/database-set-up.md#3-cenm-service-configuration" >}}) - follow the [steps for PostgreSQL]({{< relref "../../../../../en/platform/corda/1.5/cenm/database-set-up.md#postgresql-1" >}}). See also the [database configuration documentation]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-database.md" >}}).
 
 {{< note >}}
 In step 4 above, you must create a schema for each CENM service. The guide provided has steps for a restricted database schema that is used in a live production environment. You may prefer to use a less restricted database to reduce complexity in this reference environment setup.
@@ -61,4 +61,4 @@ In step 4 above, you must create a schema for each CENM service. The guide provi
 2. Deploy the [Identity Manager Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/identity-manager.md" >}}) using PostgreSQL on AWS.
 3. Deploy the [Network Map Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/network-map.md" >}}) using PostgreSQL on AWS.
 4. Deploy the [Zone Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/zone-service.md" >}}) using PostgreSQL on AWS.
-5. Deploy the [Signing Service](../../../../../en/platform/corda/1.5/cenm/signing-service.html#signing-service) (it does not use a database).
+5. Deploy the [Signing Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/signing-service.md#signing-service" >}}) (it does not use a database).

@@ -21,7 +21,7 @@ Database migrations for the Corda node’s internal database objects are recorde
 The detailed, unstructured logs produced by Liquibase can be enabled by providing additional log4j2 configuration.
 
 The setup of CorDapps’ custom tables (which only happens automatically when using H2) are not recorded in the node’s logs
-by default. Enabling the Hibernate logger will produce these logs (see [Node administration](../../../../../en/platform/corda/4.9/enterprise/node/operating/node-administration.html#logging)).
+by default. Enabling the Hibernate logger will produce these logs (see [Node administration]({{< relref "../../../../../en/platform/corda/4.9/enterprise/node/operating/node-administration.md#logging" >}})).
 
 
 ## Log format
@@ -208,4 +208,4 @@ When starting the Corda node the extra config file need to be provided:
 java -jar -Dlog4j.configurationFile=log4j2.xml,path_to_custom_file.xml corda.jar
 ```
 
-Enabling custom logging is also described in [Node administration](../../../../../en/platform/corda/4.9/enterprise/node/operating/node-administration.html#logging).
+Enabling custom logging is also described in [Node administration]({{< relref "../../../../../en/platform/corda/4.9/enterprise/node/operating/node-administration.md#logging" >}}).

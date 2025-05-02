@@ -39,7 +39,7 @@ transactions. A notary cluster can be registered, but not run, without a databas
 Please note that you must register the notary service identity **before** the initial notary worker registration.
 {{< /note >}}
 
-1. Register the notary service identity using the [HA Utilities tool](../notary/ha-notary-service-setup.html#ha-notary-registration-process).
+1. Register the notary service identity using the [HA Utilities tool]({{< relref "../notary/ha-notary-service-setup.md#ha-notary-registration-process" >}}).
 
 2. Register each worker node in the notary cluster using the Corda Network process.
 
@@ -48,4 +48,4 @@ Please note that you must register the notary service identity **before** the in
 
 3. Add the notary service identity to the network parameters by sending the `nodeInfo-xxx` file using the [Corda Network support portal](https://r3-cev.atlassian.net/servicedesk/customer/portal/7) using either a segregated network request form, or by creating a new task.
 
-4. After the network parameters have been updated, [start the notary worker nodes](../node/deploy/starting-components.html#starting-a-corda-node).
+4. After the network parameters have been updated, [start the notary worker nodes]({{< relref "../node/deploy/starting-components.md#starting-a-corda-node" >}}).

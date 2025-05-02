@@ -586,7 +586,7 @@ to use native features of a particular database). The finance CorDapp provides a
 CorDapp Contract JARs must be installed on a node by a trusted uploader, either by:
 
 * Installing manually as per [Installing the CorDapp JAR](#install-the-cordapp) and re-starting the node.
-* Uploading the attachment JAR to the node via RPC, either programmatically (see [Connecting to a node via RPC]({{< relref "../enterprise/node/operating/clientrpc.html#connecting-to-a-node-with-cordarpcclient" >}}))
+* Uploading the attachment JAR to the node via RPC, either programmatically (see [Connecting to a node via RPC]({{< relref "../enterprise/node/operating/clientrpc.md#connecting-to-a-node-with-cordarpcclient" >}}))
   or via the shell using the command: `>>> run uploadAttachment jar: path/to/the/file.jar`.
 
 Contract attachments received over the p2p network are **untrusted** and throw a *UntrustedAttachmentsException* exception if they are processed by a listening flow that cannot resolve the attachment with its local attachment storage. The flow will be suspended and sent to the node's `node-flow-hospital` for recovery and retry.

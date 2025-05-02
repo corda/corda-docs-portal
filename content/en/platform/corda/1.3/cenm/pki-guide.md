@@ -125,9 +125,9 @@ Certificate revocation is typically required if a certificate was incorrectly is
 **What is the recommended configuration for the CRL?*
 
 You should use a High Availability deployment in order to avoid any impact caused by temporary downtimes.
-See [Identity Manager Service](identity-manager.md) for an example configuration of such a deployment.
+See [Identity Manager Service]({{< relref "identity-manager.md" >}}) for an example configuration of such a deployment.
 
-See [Certificate Revocation List](certificate-revocation.md) for instructions on revoking certificates, and [Signing Services](signing-service.md) for
+See [Certificate Revocation List]({{< relref "certificate-revocation.md" >}}) for instructions on revoking certificates, and [Signing Services]({{< relref "signing-service.md" >}}) for
 configuration of the Signing Service for CRLs (especially the `updatePeriod` option).
 
 
@@ -270,6 +270,6 @@ is only required to provide only essential information to the tool. At the same 
 defaults and have the configuration adjusted to the specific needs of different scenarios.
 
 {{< note >}}
-To learn more about running the tool, see [Public Key Infrastructure (PKI) Tool](pki-tool.md).
+To learn more about running the tool, see [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool.md" >}}).
 
 {{< /note >}}

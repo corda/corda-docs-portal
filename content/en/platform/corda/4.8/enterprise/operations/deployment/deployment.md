@@ -15,4 +15,4 @@ weight: 20
 
 # Corda Deployment
 
-This section describes how to configure and deploy Corda Enterprise. It has information about node [configuration](configuration.md) and [deployment](node-deployment.md), [Notary deployment](notary-deployment.md), [firewall deployment](firewall-deployment.md), [CENM deployment](cenm-deployment.md), and [HSM deployment](hsm-deployment.md).
+This section describes how to configure and deploy Corda Enterprise. It has information about node [configuration]({{< relref "configuration.md" >}}) and [deployment]({{< relref "node-deployment.md" >}}), [Notary deployment]({{< relref "notary-deployment.md" >}}), [firewall deployment]({{< relref "firewall-deployment.md" >}}), [CENM deployment]({{< relref "cenm-deployment.md" >}}), and [HSM deployment]({{< relref "hsm-deployment.md" >}}).

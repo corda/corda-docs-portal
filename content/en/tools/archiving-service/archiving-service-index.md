@@ -30,12 +30,12 @@ Due to its in-memory design, the Archive Service is most effective and efficient
 The Archive Service consists of the following:
 
 * [Archive Service CorDapp](#archive-service-cordapp) - contains the necessary flows to mark and archive transactions.
-* [Archive Service Client Library](archive-library.md) - provides programmatic access to the archive service, and [exposes relevant APIs](archiving-apis.md).
-* [Archive Service Command Line Interface](archiving-cli.md) - allows you to perform archiving tasks from the command line.
+* [Archive Service Client Library]({{< relref "archive-library.md" >}}) - provides programmatic access to the archive service, and [exposes relevant APIs]({{< relref "archiving-apis.md" >}}).
+* [Archive Service Command Line Interface]({{< relref "archiving-cli.md" >}}) - allows you to perform archiving tasks from the command line.
 
-It also makes use of the [Application Entity Manager](app-entity-manager.md), which allows CorDapps to access off-ledger databases using JPA APIs.
+It also makes use of the [Application Entity Manager]({{< relref "app-entity-manager.md" >}}), which allows CorDapps to access off-ledger databases using JPA APIs.
 
-The Archive Service archives [Ledger Recovery](../../platform/corda/4.11/enterprise/ledger-recovery-flow.md) distribution records associated with the archived transactions. (The tables `node_sender_distribution_records` and `node_receiver_distribution_records` are included in the archiving process.)
+The Archive Service archives [Ledger Recovery]({{< relref "../../platform/corda/4.11/enterprise/node/collaborative-recovery/ledger-recovery/ledger-recovery-flow.md" >}}) distribution records associated with the archived transactions. (The tables `node_sender_distribution_records` and `node_receiver_distribution_records` are included in the archiving process.)
 
 {{< note >}}
 
@@ -308,7 +308,7 @@ Commands:
 ```
 
 {{< note >}}
-A detailed explanation on each sub-command can be found in the [Archive Service CLI documentation](archiving-cli.md).
+A detailed explanation on each sub-command can be found in the [Archive Service CLI documentation]({{< relref "archiving-cli.md" >}}).
 {{< /note >}}
 
 ## Filters
@@ -321,7 +321,7 @@ Each filter has its own configuration requirements, which it takes either from t
 command line or from the CorDapp configuration file.
 
 Custom filters can be implemented by using the Archive Service Library.
-For more details see the [Archive Service Library documentation](archive-library.md).
+For more details see the [Archive Service Library documentation]({{< relref "archive-library.md" >}}).
 
 ### Filter configuration
 
@@ -384,7 +384,7 @@ Each exporter has its own configuration requirements, which it takes either from
 command line or from the CorDapp configuration file.
 
 Custom exporters can be implemented for individual archive solutions.
-For more details see the [Archive Service Library documentation](archive-library.md).
+For more details see the [Archive Service Library documentation]({{< relref "archive-library.md" >}}).
 
 ## Queryable state tables
 

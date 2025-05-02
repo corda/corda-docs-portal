@@ -22,7 +22,7 @@ recommendations when submitting patches for review. Please take the time to read
 time during code review.
 
 What follows are mostly *recommendations* and not *rules*. They are in places intentionally vague, so use your good judgement
-when interpreting them. The rules that are currently being enforced via the Detekt PR gateway can be found [here](https://github.com/corda/corda/blob/release/os/4.3/detekt-config.yml).
+when interpreting them. The rules that are currently being enforced via the Detekt PR gateway can be found [here](https://github.com/corda/corda/blob/release/os/4.11/detekt-config.yml).
 
 
 ## 1. General style

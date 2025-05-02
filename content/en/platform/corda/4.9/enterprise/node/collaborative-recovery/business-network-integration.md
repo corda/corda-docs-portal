@@ -33,9 +33,9 @@ The Collaborative Recovery CorDapps use flows to initiate and execute the recove
 
 To validate these parties, you need to write and distribute simple wrapping flows for these reconciliation and recovery flows:
 
-- [ScheduleReconciliationFlow](../../../../../../../en/platform/corda/4.9/enterprise/node/collaborative-recovery/ledger-sync.html#schedulereconciliationflow) - This flow schedules regular reconciliation checks.
-- [AutomaticRecoveryFlow](../../../../../../../en/platform/corda/4.9/enterprise/node/collaborative-recovery/ledger-recovery-automatic.html#automaticledgerrecoverflow) - This flow initiates automatic data recovery.
-- [InitiateManualRecoveryFlow](../../../../../../../en/platform/corda/4.9/enterprise/node/collaborative-recovery/ledger-recovery-manual.html#initiatemanualrecoveryflow) - This flow initiates manual data recovery.
+- [ScheduleReconciliationFlow]({{< relref "ledger-sync.md#schedulereconciliationflow" >}}) - This flow schedules regular reconciliation checks.
+- [AutomaticRecoveryFlow]({{< relref "ledger-recovery-automatic.md#automaticledgerrecoverflow" >}}) - This flow initiates automatic data recovery.
+- [InitiateManualRecoveryFlow]({{< relref "ledger-recovery-manual.md#initiatemanualrecoveryflow" >}}) - This flow initiates manual data recovery.
 
 These wrapping flows should be bundled into a single CorDapp that can be distributed to relevant parties on your network.
 
@@ -193,7 +193,7 @@ basis of a previous reconciliation record or `ReconciliationStatus`, uses built-
 to request and retrieve the appropriate transactions from a counterparty.
 
 For more information on this process and how it may be further configured, see the
-[docs](ledger-recovery-automatic.md).
+[docs]({{< relref "ledger-recovery-automatic.md" >}}).
 
 
 ```kotlin
@@ -315,7 +315,7 @@ Another option available to node operators is to initiate manual recovery of led
 outlines a simple wrapping flow that initiates manual recovery, persisting a record or `RecoveryRequest`
 on both the initiating and responding nodes.
 
-The participating nodes may then continue with the processes described [here]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/collaborative-recovery/ledger-recovery-manual.md" >}})
+The participating nodes may then continue with the processes described [here]({{< relref "ledger-recovery-manual.md" >}})
 to export, transfer and eventually import the missing transaction data.
 
 ```kotlin

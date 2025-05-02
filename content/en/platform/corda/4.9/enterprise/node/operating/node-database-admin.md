@@ -17,7 +17,7 @@ weight: 30
 Corda Enterprise supports the commercial 3rd party databases: Azure SQL, SQL Server, Oracle, and PostgreSQL.
 This document provides instructions describing how to create database schemas (user permissions, the Corda node’s tables, and other database objects),
 and how to configure Corda nodes to connect to a database with *restricted permissions* for production use.
-If you just need a quick database setup for testing/development, please refer to [Simplified database schema setup for development](node-database-developer.md).
+If you just need a quick database setup for testing/development, please refer to [Simplified database schema setup for development]({{< relref "node-database-developer.md" >}}).
 
 Setting up a Corda node to connect to a database requires:
 
@@ -34,7 +34,7 @@ Setting up a Corda node to connect to a database requires:
 A database administrator must create a database user and a schema namespace with **restricted permissions**.
 This grants the user access to DML execution only (to manipulate data itself e.g. select/delete rows).
 This permission set is recommended for Corda nodes hot-cold-deployment and production environments.
-The less restricted permission set for a database user with **administrative permissions** is described in [Simplified database schema setup for development](node-database-developer.md)
+The less restricted permission set for a database user with **administrative permissions** is described in [Simplified database schema setup for development]({{< relref "node-database-developer.md" >}})
 (this is recommended for development purposes only).
 
 {{< note >}}
@@ -182,7 +182,7 @@ after the database objects are created.
 
 The last permission for the *v_$parameter* view is needed when a database is running in
 [Database Compatibility mode](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/upgrd/what-is-oracle-database-compatibility.html).
-If the permission is not granted then [Corda Database Management Tool](node-database.html#database-management-tool) will output the message
+If the permission is not granted then [Corda Database Management Tool]({{< relref "node-database.md#database-management-tool" >}}) will output the message
 *‘Could not set check compatibility mode on OracleDatabase, assuming not running in any sort of compatibility mode …’* in a log file,
 the message can be ignored.
 
@@ -226,7 +226,7 @@ ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences 
 
 All data structures (tables, indexes) must be created before the Corda node connects to a database with **restricted permissions**.
 Corda is released without a separate set of DDL scripts, instead a database administrator needs to use
-the [Corda Database Management Tool](node-database.html#database-management-tool) to output the DDL scripts and run the scripts against a database.
+the [Corda Database Management Tool]({{< relref "node-database.md#database-management-tool" >}}) to output the DDL scripts and run the scripts against a database.
 Each Corda release version has the associated Corda Database Management Tool release which outputs a compatible set of DDL scripts.
 The DDL scripts contain the history of a database evolution - series of table alterations leading to the current state, using the
 functionality of [Liquibase](http://www.liquibase.org) which is used by Corda for database schema management.
@@ -500,7 +500,7 @@ A script will be generated named *migration/*.sql* in the base directory.
 This script contains all the statements to create/modify data structures (e.g. tables/indexes)
 and inserts to the Liquibase management table *DATABASECHANGELOG*.
 The command doesn’t alter any tables.
-Refer to the [Corda Database Management Tool](node-database.html#database-management-tool) manual for more detail.
+Refer to the [Corda Database Management Tool]({{< relref "node-database.md#database-management-tool" >}}) manual for more detail.
 
 
 ### 2.4. Apply DDL scripts on a database
@@ -690,7 +690,7 @@ dataSourceProperties = {
 
 
 {{< note >}}
-`maximumPoolSize` cannot be less than `enterpriseConfiguration.tuning.flowThreadPoolSize + enterpriseConfiguration.tuning.rpcThreadPoolSize + 2`. See sizing-and-performance for more details. Their defaults depend on the machine they are being run, but if the `maximumPoolSize` a error will appear showing what is the minimum required.{{< /note >}}
+`maximumPoolSize` cannot be less than `enterpriseConfiguration.tuning.flowThreadPoolSize + enterpriseConfiguration.tuning.rpcThreadPoolSize + 2`. See [Performance testing]({{< relref "../../performance-testing/performance-results.md" >}}) for more details. Their defaults depend on the machine they are being run, but if the `maximumPoolSize` a error will appear showing what is the minimum required.{{< /note >}}
 
 
 

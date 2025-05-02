@@ -24,7 +24,7 @@ Whenever you use the [User Administration Tool]({{< relref "../../../1.5/cenm/us
 
 You do not need to interact directly with the Auth Service once it has been installed and configured. To protect the integrity of this secure service, there is no direct API contact with the Auth Service: all front-end communications go via the Gateway Service.
 
-Auth Service can also be configured to use [Azure AD SSO]({{< relref "../../../4.9/enterprise/node/azure-ad-sso/_index.md" >}}).
+Auth Service can also be configured to use [Azure AD SSO]({{< relref "azure-ad-sso/_index.md" >}}).
 
 ## Install the Auth service
 
@@ -80,7 +80,7 @@ of available permissions and predefined roles. Copy this file to a directory cal
 
 To deploy the Auth service, you need to create a configuration file.
 
-When you create your config file, you establish its connection to your [Gateway Service]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/node/gateway-service.md" >}}). Make sure you know:
+When you create your config file, you establish its connection to your [Gateway Service]({{< relref "gateway-service.md" >}}). Make sure you know:
 
 * Your Gateway service ID.
 * Your Gateway service secret.
@@ -235,6 +235,6 @@ Reset user (**initializer**): Use this command group to reset, re-enable, and un
 Auth Service needs to be set up with baseline permission data for each application.
 {{< /note >}}
 
-* [CENM management console](../../../../../../en/platform/corda/1.5/cenm/cenm-console.html#installation)
-* [Node management console](../../../../../../en/platform/corda/4.9/enterprise/node/management-console.html#installation)
-* [Flow management console](../../../../../../en/platform/corda/4.9/enterprise/node/node-flow-management-console.html#installation)
+* [CENM management console]({{< relref "../../../1.5/cenm/cenm-console.md#installation" >}})
+* [Node management console]({{< relref "management-console.md#installation" >}})
+* [Flow management console]({{< relref "node-flow-management-console.md#installation" >}})

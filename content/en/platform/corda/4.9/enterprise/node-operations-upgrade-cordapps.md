@@ -28,7 +28,7 @@ To be compatible with Corda Enterprise, CorDapps need to bundle database migrati
 Before you upgrade a CorDapp on a node, you need to determine if any backwards-compatible
 changes have been made, such as  database changes or changes in the protocol.
 
-If any backwards-incompatible changes have been made (see [what constitutes a non-backwards compatible flow change?](../../../../../en/platform/corda/4.9/enterprise/cordapps/upgrading-cordapps.html#what-constitutes-a-non-backwards-compatible-flow-change)
+If any backwards-incompatible changes have been made (see [what constitutes a non-backwards compatible flow change?]({{< relref "../../../../../en/platform/corda/4.9/enterprise/cordapps/upgrading-cordapps.md#what-constitutes-a-non-backwards-compatible-flow-change" >}})
 for more information), you need to follow the upgrade method detailed below. Otherwise, the CorDapp JAR can just
 be replaced with the new version.
 
@@ -39,7 +39,7 @@ There are two types of contract and state upgrade that you can perform.
 
 
 1. *Implicit* upgrades allow multiple implementations of the contract ahead of time, using constraints. See
-[Contract Constraints](cordapps/api-contract-constraints.md) to learn more.
+[Contract Constraints]({{< relref "cordapps/api-contract-constraints.md" >}}) to learn more.
 2. *Explicit* upgrades create a special *contract upgrade transaction* and require all participants of a state to sign it using the
 contract upgrade flows.
 
@@ -63,7 +63,7 @@ time.
 To perform the upgrade:
 
 
-1. Drain the node to avoid the definition of states or contracts changing whilst a flow is in progress. See [flow drains](../../../../../en/platform/corda/4.9/enterprise/cordapps/upgrading-cordapps.html#flow-drains) for more information. There are two ways you can drain the node:
+1. Drain the node to avoid the definition of states or contracts changing whilst a flow is in progress. See [flow drains]({{< relref "../../../../../en/platform/corda/4.9/enterprise/cordapps/upgrading-cordapps.md#flow-drains" >}}) for more information. There are two ways you can drain the node:
     * By RPC using the `setFlowsDrainingModeEnabled` method with the parameter `true`.
     * Via the shell by issuing the command `run setFlowsDrainingModeEnabled enabled: true`.
 

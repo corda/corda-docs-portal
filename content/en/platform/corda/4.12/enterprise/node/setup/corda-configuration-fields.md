@@ -145,7 +145,7 @@ Set custom command line attributes (for example, Java system properties) on the 
   * *Default:* not defined
 * `externalVerifierJvmArgs`
   {{< important >}}
-  This configuration field is only available from Corda 4.12.5 onwards. For more information, see the [4.12.5 release notes]({{< relref "../../release-notes-enterprise.html#fixed-issues" >}}).
+  This configuration field is only available from Corda 4.12.5 onwards. For more information, see the [4.12.5 release notes]({{< relref "../../release-notes-enterprise.md#fixed-issues" >}}).
   {{< /important >}}
   * A list of JVM arguments to apply to the external verifier process.
   * *Default:* not defined
@@ -652,7 +652,7 @@ This allows the address and port advertised in `p2pAddress` to differ from the l
 0.0.0.0 is not a valid host setting since p2pAddress must be an external client address.
 
 {{< note >}}
-When `messagingServerExternal` = `true`, `messagingServerSslConfiguration` is required for TLS configuration used to connect to external P2P Artemis message server. For more information, see [Storing node TLS keys in HSM]({{< relref "../../../../../../../en/platform/corda/4.11/enterprise/node/setup/tls-keys-in-hsm.md" >}}).
+When `messagingServerExternal` = `true`, `messagingServerSslConfiguration` is required for TLS configuration used to connect to external P2P Artemis message server. For more information, see [Storing node TLS keys in HSM]({{< relref "tls-keys-in-hsm.md" >}}).
 {{< /note >}}
 
 *Default:* not defined
@@ -718,7 +718,7 @@ Once a notary is configured with a default value, it cannot be reconfigured. To 
     * Exponential back-off multiplier base for use in determining time increment between reconnection attempts.
     * *Default:* 1.5
   * `maxBatchSize`
-    * The maximum number of transactions processed in a single batch. Larger batches are generally processed more efficiently than smaller batches; however, larger batches may worsen latency. Monitor the `ProcessedBatchSize` metric exposed by the notary to determine batch utilisation. For more information, see [Highly-available notary metrics]({{< relref "../../../../../../../en/platform/corda/4.11/enterprise/notary/notary-metrics.md" >}}).
+    * The maximum number of transactions processed in a single batch. Larger batches are generally processed more efficiently than smaller batches; however, larger batches may worsen latency. Monitor the `ProcessedBatchSize` metric exposed by the notary to determine batch utilisation. For more information, see [Highly-available notary metrics]({{< relref "../../notary/notary-metrics.md" >}}).
     * *Default:* 500
   * `maxBatchInputStates`
     * The maximum combined number of input states processed in a single batch. If the number of transactions in a batch is equal to `maxBatchSize`, but the number of states in the batch is greater than `maxBatchInputStates`, that batch will  be split into two smaller batches.
