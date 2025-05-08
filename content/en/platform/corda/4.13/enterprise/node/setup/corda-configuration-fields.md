@@ -350,7 +350,14 @@ Allows fine-grained controls of various features only available in the enterpris
 
     - `additionalFlowThreadPools`
 
-       * The default Corda configuration creates a single thread pool whose size is configured by the *[flowThreadPoolSize]({{< relref "#enterpriseconfiguration" >}})* parameter. You can define *multiple* thread pools and assign flows to them; for example, to prioritize particular flows and to segregate them from other flows. For more information, see [Setting thread pools]({{< relref "../../cordapps/thread-pools.md" >}}).
+       * The default Corda configuration creates a single thread pool whose size is configured by the *[flowThreadPoolSize]({{< relref "#enterpriseconfiguration" >}})* parameter. You can define *multiple* thread pools and assign flows to them; for example, to prioritize particular flows and to segregate them from other flows. 
+       
+         For more information and examples, see [Setting thread pools]({{< relref "../../cordapps/thread-pools.md" >}}).
+       
+       * `threadpool`
+         * The name for the thread pool
+       * `size`
+         * The number of threads in the thread pool
        
     - `backchainFetchBatchSize`
 
