@@ -31,7 +31,7 @@ and loads associated with their deployments.  The numbers here are for a limited
 was achieved with the test setup and the sample flows we use in our benchmarking.  These numbers should be treated
 as an approximate guide only and actual performance of your CorDapp will depend on many factors.  Those flows
 and other elements of our performance testing tool set are now available as part of this release to help calibrate
-infrastructure configurations and to help stress CorDapps through generated load. See the performance-testing/introduction here.
+infrastructure configurations and to help stress CorDapps through generated load. See [Performance testing]({{< relref "introduction.md" >}}) for more information.
 
 {{< /note >}}
 Figure 1 below compares the number of Transactions Per Second (TPS) carried out by a single node, either locally with no other nodes and no notary
@@ -237,7 +237,7 @@ The thread pool, which the node utilises for running flows in parallel, is key t
 are for the number of threads to be 2x the number of cores, but capped at 30. The Corda Enterprise requirements are for a database connection per flow, so this cap helps to reduce unexpected
 incidents of running out of database connections.  If your database server is configured to allow many more connections, and you have plenty of cores, then the flow thread
 pool should be configured to be much larger.  A good starting point is to go with 4x core count. For example, on a 32-core host, set the `flowThreadPoolSize` to 128.
-See corda-configuration-file for more information on how to configure this setting.
+See [Node configuration]({{< relref "../node/setup/corda-configuration-file.md" >}}) for more information on how to configure this setting.
 
 The performance tests shown in the chart above were carried out following this ratio of 4x cores for `flowThreadPoolSize`. Increasing the number of threads for flows and the number of RPC clients currently just leads to an offsetting increase in database query times (and a decrease in database throughput).
 
