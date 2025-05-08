@@ -64,7 +64,7 @@ There are two types of caches: *size-based* and *weight-based*. Size-based cache
 of entries in the cache, while weight-based caches are measured in the bytes of memory occupied by the entries.
 
 {{< note >}}
-The avalable set of metrics depends on the cache type. The `maximum-size` and `sizePercent` metrics are only available for size-based caches, while `maximum-weight`, `weight`, and `weightPercent` metrics are only available for weight-based caches.
+The available set of metrics depends on the cache type. The `maximum-size` and `sizePercent` metrics are only available for size-based caches, while `maximum-weight`, `weight`, and `weightPercent` metrics are only available for weight-based caches.
 {{< /note >}}
 
 {{< table >}}
@@ -111,7 +111,10 @@ The avalable set of metrics depends on the cache type. The `maximum-size` and `s
 |net.corda:type=Flows,name=StartupQueueTime{threadpool} |This timer measures the time a flow spends queued before it is executed for the specified thread pool. |
 |net.corda:type=Flows,name=Success|The total number of successful flows.|
 |net.corda:type=Flows,name=<action_name>|A histogram indicating the time taken to execute a particular action. See the following section for more details.|
-
+|net.corda:type=Flows,name=FlowDuration.Success.{flowclassname} | The flow duration for the default thread pool of the specified flow, if successful. | 
+|net.corda:type=Flows,name=FlowDuration.Failure.{flowclassname}|  The flow duration for the default thread pool of the specified flow, if failed. | 
+|net.corda:type=Flows,name=FlowDuration.Success.{flowclassname}.{threadpoolname} |  The flow duration for the specified thread pool of the specified flow, if successful. | 
+|net.corda:type=Flows,name=FlowDuration.Failure.{flowclassname}.{threadpoolname} | The flow duration for the specified thread pool of the specified flow, if failed. |  
 
 {{< /table >}}
 

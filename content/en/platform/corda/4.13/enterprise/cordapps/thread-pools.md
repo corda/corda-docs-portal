@@ -20,34 +20,71 @@ For example, if there are slow-running reporting flows and more important transa
 
 ## Configuring thread pools
 
-Thread pools are defined in the [node configuration]({{< relref "../node/setup/corda-configuration-file.md" >}}) using `additionalFlowThreadPools`. The following example defines two thread pools, `pool1` and `pool2`, each with three available threads:
+Thread pools are defined in the [node configuration]({{< relref "../node/setup/corda-configuration-file.md" >}}) using `additionalFlowThreadPools`. 
+
+### Example 1: Two Defined Thread Pools
+
+The following sample configuration defines two thread pools based on the example above, `reporting` and `transactions`, each with three available threads:
 
 ```json
 enterpriseConfiguration {
-  tuning {
-    additionalFlowThreadPools= [
-      {
-        threadPool=pool1,
-        size=3
-      },
-      {
-        threadPool=pool2,
-        size=3
-      },
-    ]
-  }
+    ` {
+        additionalFlowThreadPools= [
+            {
+                threadPool=reporting,
+                size=3
+            },
+            {
+                threadPool=transactions,
+                size=3
+            },
+        ]
+    }
 }
 ```
 
-**(TODO: Related configuration sections need to be adjusted accordingly.)**
+The related flows then need to be tagged accordingly:
 
-As in previous versions of Corda, the size of the default pool (name: "default") is still specified by the *[flowThreadPoolSize]({{< relref "../node/setup/corda-configuration-fields.html#enterpriseconfiguration" >}})* parameter. 
+```
+@FlowThreadPool("reporting")
+```
 
+and
+
+```
+@FlowThreadPool("transactions")
+```
+
+### Example 2: One Defined Thread Pool and Default Thread Pool
+
+An alternative configuration, rather than defining two thread pools, would instead define one thread pool (in this case, `reporting`) but also use the default thread pool, defining its size using `flowThreadPoolSize`. As in previous versions of Corda, the size of the default pool (name: "default") is still specified by the *[flowThreadPoolSize]({{< relref "../node/setup/corda-configuration-fields.html#enterpriseconfiguration" >}})* parameter. 
+
+```json
+enterpriseConfiguration {
+    tuning {
+        flowThreadPoolSize = 3,
+        additionalFlowThreadPools= [
+            {
+                threadPool=reporting,
+                size=3
+            },
+        ]
+    }
+}
+```
+
+Only the flows related to reporting then need to be tagged accordingly:
+
+```
+@FlowThreadPool("reporting")
+```
+
+## Logging
 
 The Corda node's [startup log]({{< relref "../node/operating/monitoring-and-logging/overview.md" >}}) outputs the defined thread pools and their sizes; for example:
 
 ```
-Created flow thread pools: pool1(3), pool2(3), default(20)
+Created flow thread pools: reporting(3), transactions(3), default(20)
 ```
 
 ## Default flow-to-thread pool mapping rules
@@ -60,7 +97,6 @@ How flows are mapped to thread pools depends on:
 The Corda default FlowSchedulerMapper follows these rules, in order of highest priority first:
 
 1. If a flow is annotated with `@FlowThreadPool("threadpoolname")` and the referenced thread pool is defined in the configuration, then that flow is executed in the specified pool. 
-
    If the specified thread pool is not present in the node configuration, then the default pool is used instead.
 
 2. If a thread pool named `Peer-Origin` is defined, then all flows started via a peer Corda node and **not** annotated with a specific thread pool will be executed in that thread pool. Otherwise, such flows are executed in the default thread pool.
@@ -113,15 +149,15 @@ The following [metric]({{< relref "../node/operating/monitoring-and-logging/node
 |--------------------------|-------------------------------------|
 | QueueSizeTotal           | The sum of all thread pool queues   |
 
-The following metrics are now divided by thread pool:
+The following metrics have now been updated to be divided by thread pool:
 
-| Previously                                 | Corda 4.13 onward                                             |
-|--------------------------------------------|---------------------------------------------------------------|
-| ActiveThread                               | ActiveThread.{threadpoolname}                                 | 
-| QueueSize                                  | QueueSize.{threadpoolname}                                    | 
-| QueueSizeOnInsert                          | QueueSizeOnInsert.{threadpoolname}                            |
-| StartupQueueTime                           | StartupQueueTime.{threadpoolname}                             |
-| FlowDuration.{Success/Failure}.{FlowClass} | FlowDuration.{Success/Failure}.{FlowClass}.{threadpoolname>}  |
+| Previously                                 | Corda 4.13 onward                                                  |
+|--------------------------------------------|--------------------------------------------------------------------|
+| ActiveThreads                              | ActiveThreads.{threadpoolname}                                     | 
+| QueueSize                                  | QueueSize.{threadpoolname}                                         | 
+| QueueSizeOnInsert                          | QueueSizeOnInsert.{threadpoolname}                                 |
+| StartupQueueTime                           | StartupQueueTime.{threadpoolname}                                  |
+| FlowDuration.{Success/Failure}.{FlowClass} | FlowDuration.{Success/Failure}.{flowclassname}.{threadpoolname>}   |
 
 Metrics related to the default pool do not have a *.default* suffix; this is for backward compatibility.
 
