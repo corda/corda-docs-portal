@@ -12,7 +12,7 @@ title: Using thread pools
 weight: 10
 ---
 
-Corda executes flows in *thread pools*. A thread pool is a group of pre-created, idle threads, ready to execute tasks. The default Corda configuration creates a single thread pool, whose size is configured by the *[flowThreadPoolSize]({{< relref "../node/setup/corda-configuration-fields.html#enterpriseconfiguration" >}})* parameter.
+Corda Enterprise executes flows in *thread pools*. A thread pool is a group of pre-created, idle threads, ready to execute tasks. The default Corda Enterprise configuration creates a single thread pool, whose size is configured by the *[flowThreadPoolSize]({{< relref "../node/setup/corda-configuration-fields.html#enterpriseconfiguration" >}})* parameter. Open Source Corda is single-threaded.
 
 From Corda 4.13 onward, the Enterprise version enables operators to define *multiple* thread pools and assign flows to them. The reason for this is to enable operators to prioritize particular flows and to segregate them from other flows.
 
