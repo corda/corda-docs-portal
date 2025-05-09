@@ -28,7 +28,7 @@ The following sample configuration defines two thread pools based on the example
 
 ```json
 enterpriseConfiguration {
-    ` {
+     {
         additionalFlowThreadPools= [
             {
                 threadPool=reporting,
