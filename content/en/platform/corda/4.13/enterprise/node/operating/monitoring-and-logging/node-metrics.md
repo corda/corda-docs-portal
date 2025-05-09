@@ -104,7 +104,7 @@ The available set of metrics depends on the cache type. The `maximum-size` and `
 |net.corda:type=Flows,name=Finished|The total number of completed flows (both successfully and unsuccessfully).|
 |net.corda:type=Flows,name=InFlight|The number of in-flight flows.|
 |net.corda:type=Flows,name=QueueSize.{threadpool}|The current size of the queue for flows waiting to be executed for the specified thread pool|
-|net.corda:type=Flows,name=QueueSizeOnInsert{threadpool}|A histogram showing the queue size at the point new flows are added for the specified thread pool|
+|net.corda:type=Flows,name=QueueSizeOnInsert.{threadpool}|A histogram showing the queue size at the point new flows are added for the specified thread pool|
 |net.corda:type=Flows,name=QueueSizeTotal | The sum of all thread pool queues. | 
 |net.corda:type=Flows,name=Started|The total number of flows started.|
 |net.corda:type=Flows,name=StartedPerMinute|The rate at which flows are started.|
