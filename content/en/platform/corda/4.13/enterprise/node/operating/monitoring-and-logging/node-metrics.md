@@ -108,7 +108,7 @@ The available set of metrics depends on the cache type. The `maximum-size` and `
 |net.corda:type=Flows,name=QueueSizeTotal | The sum of all thread pool queues. | 
 |net.corda:type=Flows,name=Started|The total number of flows started.|
 |net.corda:type=Flows,name=StartedPerMinute|The rate at which flows are started.|
-|net.corda:type=Flows,name=StartupQueueTime{threadpool} |This timer measures the time a flow spends queued before it is executed for the specified thread pool. |
+|net.corda:type=Flows,name=StartupQueueTime.{threadpool} |This timer measures the time a flow spends queued before it is executed for the specified thread pool. |
 |net.corda:type=Flows,name=Success|The total number of successful flows.|
 |net.corda:type=Flows,name=<action_name>|A histogram indicating the time taken to execute a particular action. See the following section for more details.|
 |net.corda:type=Flows,name=FlowDuration.Success.{flowclassname} | The flow duration for the default thread pool of the specified flow, if successful. | 
