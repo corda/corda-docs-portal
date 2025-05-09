@@ -11,7 +11,7 @@ weight: 500
 
 ---
 
-# Business Network membership management V1.1
+# Business network membership management V1.1
 
 This Corda platform extension allows you to create and manage business networks - as a node operator, this means you can define and create a logical network based on a set of common CorDapps as well as a shared business context.
 
@@ -588,7 +588,7 @@ val updatedMember = ... // get the linear ID of the membership state associated 
 subflow(UpdateCordaIdentityFlow(updatedMember, notary))
 ```
 
-## Business Network management demo
+## Business network management demo
 
 This [demo](https://github.com/corda/bn-extension) showcases integration of Business Networks solution inside a CorDapp designed for issuing and settling loans between banks. It brings up 4 nodes: a notary and 3 nodes representing banks. Each bank node must be active member of the same Business Network, have a Swift Business Identifier Code (BIC) as their business identity and loan issuance initiators must be granted permission to do so.
 

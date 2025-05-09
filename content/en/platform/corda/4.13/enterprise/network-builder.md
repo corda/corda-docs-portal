@@ -61,7 +61,7 @@ An easy way to build a valid set of nodes is by running `deployNodes`. In this d
 
 ### Starting the nodes
 
-#### Quickstart Local Docker
+#### Quickstart local Docker
 
 * `cd workflows-java/build/nodes`
 * `java -jar <path/to/corda-tools-network-builder.jar> -d .`
@@ -79,7 +79,7 @@ cf7ab689f493        node-notary:corda-network   "run-corda"     30 seconds ago  
 Depending on you machine performance, even after all containers are reported as running,
 the underlying Corda nodes may be still starting and SSHing to a node may be not available immediately.
 
-#### Quickstart Remote Azure
+#### Quickstart remote Azure
 
 * `cd kotlin-source/build/nodes`
 * `java -jar <path/to/corda-tools-network-builder.jar> -b AZURE -d .`

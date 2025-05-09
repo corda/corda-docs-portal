@@ -59,7 +59,7 @@ You can see:
 * Transaction recording flows use a vault update API internally.
 * The vault database schemas are directly accessible via JDBC for customer joins and queries.
 
-## The Archive
+## The Archive 
 
 To prevent a node database from becoming too large, you can use the Archive service to remove all but the minimum required data relating to consumed transactions. If you plan your CorDapp design accordingly, you can ensure that your spent states are moved to the archive regularly. By using the archive, your vault does not get weighed down by the full backchain data, but retains the essential information to maintain ledger integrity.
 
@@ -138,7 +138,7 @@ By default, vault queries always include locked states in its result sets. Custo
 [QueryCriteria.kt](https://github.com/corda/corda/blob/release/os/4.13/core/src/main/kotlin/net/corda/core/node/services/vault/QueryCriteria.kt)
 
 
-### Explicit Usage
+### Explicit usage
 
 Soft locks are associated with transactions, typically within the lifecycle of a flow. Every time a
 flow starts, a soft lock identifier is associated with that flow for its duration and released upon its natural

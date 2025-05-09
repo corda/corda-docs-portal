@@ -6,12 +6,12 @@ menu:
 tags:
 - pki
 - guide
-title: Certificate Hierarchy Guide
+title: Certificate hierarchy guide
 weight: 110
 ---
 
 
-# Certificate Hierarchy Guide
+# Certificate hierarchy guide
 
 
 
@@ -39,7 +39,7 @@ The PKI Tool is intended to make it easy to generate all the certificates needed
 The tool generates the keys in the desired key store(s) and outputs a set of certificates necessary for correct Corda Network operation.
 
 
-## Corda Requirements
+## Corda requirements
 
 Corda nodes operate with the following assumptions on the certificates hierarchy:
 
@@ -58,7 +58,7 @@ Other than that, Corda nodes stay agnostic to the certificate hierarchy (in part
 At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found in the [Certificate Hierarchy Guide]({{< relref "../network/permissioning.md#certificate-hierarchy" >}}).
 
 
-### Certificate Revocation List
+### Certificate revocation list
 
 Every time two nodes communicate with each other they exchange their certificates and validate them against the Certificate Revocation List.
 In Corda, the certificate chains of the nodes are validated only during the SSL handshake.
@@ -83,7 +83,7 @@ which is then added to node’s trust store (in a similar way as the Corda Root 
 During the certificate revocation list validation process the trust store is consulted for the presence of the TLS Signer certificate.
 
 
-## Example Scenario
+## Example scenario
 
 As an example, let us consider the following certificate hierarchy:
 

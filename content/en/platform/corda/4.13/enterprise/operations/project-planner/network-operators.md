@@ -83,7 +83,7 @@ All Corda Nodes have a database. A range of third-party databases are supported 
 
 {{< /table >}}
 
-## Hardware Security Modules (HSM)
+## Hardware security modules (HSM)
 
 {{< table >}}
 

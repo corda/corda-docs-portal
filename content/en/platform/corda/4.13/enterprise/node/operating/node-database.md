@@ -87,7 +87,7 @@ It is safe to run at startup if you have implemented the usual best practices fo
 
 
 
-### Database Management Tool
+### Database management tool
 
 The database management tool is distributed as a standalone JAR file named `tools-database-manager-${corda_version}.jar`.
 It is intended to be used by Corda Enterprise node administrators who want more control over database changes made in production
@@ -175,7 +175,7 @@ The structure of the tables of JPA notaries are described at [Configuring a JPA 
 The tables for other experimental notary implementations are not described here.
 
 
-### Database Schema Migration Logging
+### Database schema migration logging
 
 Database migration logs for Corda internal tables follow a structured format
 described in [Database Schema Migration Logging]({{< relref "../../node-database-migration-logging.md#database-schema-migration-logging" >}}).

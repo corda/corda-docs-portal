@@ -5,15 +5,15 @@ menu:
     parent: corda-enterprise-4-13-corda-networks
 tags:
 - network
-title: Corda Network Considerations
+title: Corda network considerations
 weight: 20
 ---
 
 
-# Corda Network Considerations
+# Corda network considerations
 
 
-## Corda Network Parameters
+## Corda network parameters
 
 There is a set of network parameters that all nodes on the network must agree on in order to interoperate. For more information, see [Network parameters]({{< relref "network-parameters.md" >}}).
 

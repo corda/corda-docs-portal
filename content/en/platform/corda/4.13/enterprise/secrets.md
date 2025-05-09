@@ -3,7 +3,7 @@ date: '2020-09-29T12:00:00Z'
 menu:
   corda-enterprise-4-13:
     identifier: corda-enterprise-4-13-corda-nodes-secrets
-    name: "Corda Secrets"
+    name: "Corda secrets"
     parent: corda-enterprise-4-13-corda-nodes
 
 title: Corda secrets

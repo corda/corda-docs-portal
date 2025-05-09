@@ -3,8 +3,8 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-13:
     identifier: corda-enterprise-4-13-corda-network
-    name: "Corda Network"
-title: Corda Network
+    name: "The Corda Network"
+title: The Corda Network
 weight: 500
 ---
 

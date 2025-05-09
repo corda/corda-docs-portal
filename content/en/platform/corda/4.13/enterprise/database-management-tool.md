@@ -6,11 +6,11 @@ menu:
 tags:
 - tool
 - database
-title: Database Management Tool
+title: Database management tool
 weight: 60
 ---
 
-# Database Management Tool
+# Database management tool
 
 {{< warning >}}
 Corda Enterprise Edition 4.11 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.10 please read the guidance on [upgrading your notary service]({{< relref "notary/upgrading-the-ha-notary-service.md" >}}).
@@ -145,7 +145,7 @@ Additional options:
 * `--version`, `-V`: Print version information.
 
 
-## Database Manager shell extensions
+## Database manager shell extensions
 
 The `install-shell-extensions` subcommand can be used to install the `database-manager` alias and auto completion for
 bash and zsh. See [Shell extensions for CLI Applications]({{< relref "node/operating/cli-application-shell-extensions.md" >}}) for more info.

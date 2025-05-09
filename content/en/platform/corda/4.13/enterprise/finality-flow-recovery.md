@@ -9,11 +9,11 @@ tags:
 - phase
 - finality
 - recovery
-title: Finality Flow Recovery
+title: Finality flow recovery
 weight: 45
 ---
 
-# Finality Flow Recovery
+# Finality flow recovery
 
 [Two Phase Finality]({{< relref "two-phase-finality.md" >}}) introduces recovery metadata and a new transaction status of `IN_FLIGHT` to denote that a transaction has not yet been fully finalized. The protocol stores the additional flow transaction recovery metadata upon initially recording an unnotarized transaction. This metadata is used to enable **initiator** and **receiver** recovery should a flow fail at some point within the finality protocol.
 

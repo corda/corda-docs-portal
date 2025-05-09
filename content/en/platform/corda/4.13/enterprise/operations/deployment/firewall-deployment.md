@@ -212,7 +212,7 @@ For this setup, each machine is powerful enough to host nodes for both entities 
 #### Prerequisites
 
 
-##### Corda Network connectivity
+##### Corda network connectivity
 
 Before nodes can be configured, Corda Network administrator will need to provide:
 

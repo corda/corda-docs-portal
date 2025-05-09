@@ -106,10 +106,10 @@ The `AppServiceHub` also provides access to `database` which will enable the Ser
 managed by the Service.
 
 Also the `AppServiceHub` provides ability for `CordaService` to subscribe for lifecycle events of the node, such that it will get notified
-about node finishing initialisation and when the node is shutting down such that `CordaService` will be able to perform clean-up of some
+about node finishing initialization and when the node is shutting down such that `CordaService` will be able to perform clean-up of some
 critical resources. For more details please have refer to KDocs for `ServiceLifecycleObserver`.
 
-## Service Lifecycle Events
+## Service lifecycle events
 
 A Corda node will notify services when significant events occur via *service lifecycle events*. Upon initialization, a service can register a function to receive the events and act in whatever way is required. Handler functions do not need to handle every single type of event, merely the events that the service is interested in.
 
@@ -149,7 +149,7 @@ needed or set after the flow’s `call` function has been triggered.
 
 {{< /warning >}}
 
-## Starting Flows from a Service
+## Starting flows from a service
 
 Starting flows via a service can lead to deadlock within the node’s flow worker queue, which will prevent new flows from
 starting. To avoid this, the rules below should be followed:

@@ -142,11 +142,11 @@ docker run -ti \
         corda/corda-zulu-java1.8-4.8:latest
 ```
 
-# Performing Database Migrations
+# Performing database migrations
 
 The image contains the database-migration tool. It is possible to run this in two modes within a container.
 
-## Generating Migration Jars
+## Generating migration JARs
 
 In this mode, the database-migration tool will scan the provided CorDapps, and generate corresponding migration jars. These jars will be placed alongside
 the source CorDapps. In this example, there are two CorDapps provided `corda-insurance.jar` and `corda-kyc.jar`
@@ -164,7 +164,7 @@ docker run -ti \
 After the container has finished executing, there will be two new jars in `/home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps`: `migration-corda-insurance.jar` and `migration-corda-kyc.jar`.
 These will then be loaded as normal CorDapps by the node on next launch.
 
-## Executing Migrations on the Database
+## Executing migrations on the database
 
 It is also possible to use the image to directly perform the migration of the database.
 

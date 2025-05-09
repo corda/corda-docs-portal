@@ -96,7 +96,7 @@ This configuration file contains specifies the location of:
 You can find examples of configuration files [available here]({{< relref "../corda-firewall-configuration-file.md" >}}).
 
 
-### Installing the Corda Node
+### Installing the Corda node
 
 
 * Upload the appropriate `corda-<version>.jar` file to the Node root directory.
@@ -202,7 +202,7 @@ This is a sample `node.conf` which details a configuration connecting to the Cor
 [nodefull.conf](../../resources/nodefull.conf)
 
 
-### Implementing the Corda Firewall PKI
+### Implementing the Corda firewall PKI
 
 In a bank environment there will typically be several layers of security protecting the firms data.
 
@@ -250,7 +250,7 @@ For Float and Bridge to communicate a tunnel keystore must be created. To create
 `java -jar corda-tools-ha-utilities-4.1.jar generate-internal-tunnel-ssl-keystores -p tunnelStorePass -e tunnelPrivateKeyPassword -t tunnelTrustpass`
 
 
-### Bridge Installation
+### Bridge installation
 
 
 * Upload the `corda-firewall-4.1.jar` to the /opt/cordabridge directory.
@@ -304,7 +304,7 @@ networkParametersPath = network-parameters // The network-parameters file is exp
 [bridge.conf](../../resources/bridge.conf)
 
 
-### Float Installation
+### Float installation
 
 
 * Create an /opt/cordafloat directory on your VM
@@ -342,12 +342,12 @@ networkParametersPath = network-parameters // The network-parameters file is exp
 A full list of the parameters that can be utilized in these configuration files can be found in [Configuring the Corda Enterprise Firewall]({{< relref "../corda-firewall-configuration-file.md" >}}).
 
 
-### Corda 3.x vs Corda 4.x Firewall Upgrade
+### Corda 3.x vs Corda 4.x firewall upgrade
 
 In Corda 4.x it is possible to for multiple Nodes representing multiple identities to reside behind the same Corda Firewall. Details on setup can be found in [Firewall upgrade]({{< relref "../corda-firewall-upgrade.md" >}}).
 
 
-### Port Policy and Network Configuration
+### Port policy and network configuration
 
 Connections with the Corda Network Doorman and Network Map services (inbound and outbound traffic) will be over HTTP/HTTPS on ports 80 and 443.
 
@@ -358,7 +358,7 @@ Connections with local applications connecting with the CorDapp via the Corda No
 Administrative logins with the Corda Node happen via ssh whose port is configured in the node.conf file, typically port 2222.
 
 
-### Suggested Work flow for Corda Node & Corda Firewall Installation
+### Suggested workflow for Corda node & Corda firewall installation
 
 
 * Run ifconfig on Node VM.
@@ -381,7 +381,7 @@ The following image may be helpful in ensuring alignment between the Node, Bridg
 
 {{< /note >}}
 
-### Proxy Configurations
+### Proxy configurations
 
 You will likely need to establish proxy servers, one for HTTP connection to the Doorman and Network Map services, and Socks proxy to be used with the Corda Firewall for P2P communication Corda Nodes. Please note the examples below are for demonstration purposes only, it is assumed most financial institutions will already have Enterprise Proxy Server deployments in place and available for use by the Corda Firewall.
 
@@ -391,7 +391,7 @@ You will likely need to establish proxy servers, one for HTTP connection to the 
 
 
 
-## Using HTTP Proxy with Corda
+## Using HTTP proxy with Corda
 
 Many financial institutions will use an HTTP Proxy Server to monitor connections going out to the Internet. Corda facilitates the use of an HTTP Proxy to access the Doorman & Network map via HTTPS GET requests.
 
@@ -488,7 +488,7 @@ Mar 13 18:44:10 corda-firewall-proxies squid[14261]: Squid Parent: (squid-1) pro
 [access.conf](../../resources/access.conf)
 
 
-## Using Socks Proxy with Corda Bridge
+## Using SOCKS proxy with Corda bridge
 
 R3 strongly recommend the use of a SOCKS Proxy in conjunction with the Corda Firewall to access peers on the network for P2P communication.
 

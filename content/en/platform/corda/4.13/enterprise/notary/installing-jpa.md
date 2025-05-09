@@ -112,7 +112,7 @@ security reasons. R3 recommends the creation of a user with more limited permiss
 would be set in the configuration of the notary in the `dataSourceProperties` section.
 
 
-## Database Tables
+## Database tables
 
 
 ### Notary Committed States

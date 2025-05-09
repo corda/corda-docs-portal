@@ -121,7 +121,7 @@ of CorDapp developers, to allow CorDapps to take into consideration the future s
 continue to apply the whitelisting functionality that is already in place and described in this page.
 
 
-## Core Types
+## Core types
 
 This section describes the classes and interfaces that the AMQP serialization format supports.
 
@@ -590,7 +590,7 @@ The following rules apply to supported `Throwable` implementations.
 
 
 
-### Kotlin Objects
+### Kotlin objects
 
 Kotlin’s non-anonymous `object` s (i.e. constructs like `object foo : Contract {...}`) are singletons and
 treated differently.  They are recorded into the stream with no properties, and deserialize back to the

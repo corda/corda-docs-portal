@@ -3,12 +3,12 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-13:
     identifier: corda-enterprise-4-13-corda-nodes
-    name: "Corda Nodes"
+    name: "Corda nodes"
 tags:
 - node
 - overview
 - concept
-title: What is a Corda node
+title: What is a Corda node?
 weight: 30
 ---
 

@@ -7,7 +7,7 @@ tags:
 - api
 - contract
 - constraints
-title: Contract Constraints
+title: Contract constraints
 weight: 10
 ---
 

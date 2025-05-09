@@ -673,7 +673,7 @@ val allCashStates = vaultService.queryBy<Cash.State>(allCashCriteria).states
 
 [VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.11/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
 
-### Aggregate Function queries using `VaultCustomQueryCriteria`:
+### Aggregate function queries using `VaultCustomQueryCriteria`:
 
 {{< note >}}
 Query results for aggregate functions are contained in the `otherResults` attribute of a results page.
@@ -873,7 +873,7 @@ while (true) {
 
 [VaultQueryJavaTests.java](https://github.com/corda/corda/blob/release/os/4.11/node/src/test/java/net/corda/node/services/vault/VaultQueryJavaTests.java)
 
-### Aggregate Function queries using `VaultCustomQueryCriteria`:
+### Aggregate function queries using `VaultCustomQueryCriteria`:
 
 #### Aggregations on cash using various functions:
 

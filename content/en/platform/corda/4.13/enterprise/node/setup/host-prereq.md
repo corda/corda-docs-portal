@@ -14,7 +14,7 @@ weight: 2
 # Host prerequisites and database requirements
 
 
-## Operating Systems Supported in Production
+## Operating systems supported in production
 
 
 {{< table >}}
@@ -29,7 +29,7 @@ weight: 2
 {{< /table >}}
 
 
-## Operating Systems Supported in Development
+## Operating systems supported in development
 
 
 {{< table >}}
@@ -103,7 +103,7 @@ Recommended production specification for multiple nodes
 * Corda Float(s) 2 CPU Core, 4 GB Memory
 
 
-### Additional Details
+### Additional details
 
 JDBC Connectivity from the Corda node to the Corda vault is required to create Corda system tables on startup as well as storing application tables/logic. Corda stores information about several aspects of the Corda node and network in tables in the vault.
 

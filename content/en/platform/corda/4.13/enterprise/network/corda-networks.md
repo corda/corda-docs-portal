@@ -6,11 +6,11 @@ menu:
 tags:
 - corda
 - networks
-title: Understanding Corda Networks
+title: Understanding Corda networks
 weight: 10
 ---
 
-# Corda Networks
+# Corda networks
 
 A Corda network is a collection of nodes with a vetted, unique identity that share a common “root of trust”
 upon which all certificates and signatures are ultimately chained back to. The tooling that enables this infrastructure
@@ -40,7 +40,7 @@ on behalf of with the Zone. However, that node now needs to join one of the sub 
 whole.
 
 
-## Sub Zones
+## Sub zones
 
 {{< note >}}
 This is an internal feature. Running a network with multiple sub-zones is not a supported configuration.

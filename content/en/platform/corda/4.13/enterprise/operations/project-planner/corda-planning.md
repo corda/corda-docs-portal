@@ -9,7 +9,7 @@ tags:
 - operations
 - deployment
 - planning
-title: Corda Enterprise Operations Guide
+title: Corda Enterprise operations guide
 weight: 10
 ---
 

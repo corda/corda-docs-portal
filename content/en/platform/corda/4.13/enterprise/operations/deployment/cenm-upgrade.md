@@ -396,7 +396,7 @@ separation change, the Network Map heavily utilised the Doorman database tables.
 the data should first be migrated.
 
 
-### Migration Of Existing Data
+### Migrating existing data
 
 To upgrade an existing Doorman or Network Map Service, a new database instance must first be created for the service to use.
 Once this has been done the following steps should be followed to upgrade the service:
@@ -478,7 +478,7 @@ but comes with backward compatibility along with a configuration upgrade tool.
 There are two ways to upgrade your old 0.1 network services environment:
 
 
-### Without Upgrading Your Configuration
+### Without upgrading your configuration
 
 The 0.2.1 Doorman/Network Map Service and Signing Service JAR files will work in place of their 0.1 counterparts, but
 require an additional `--config-is-old` command-line flag to be passed upon start-up. This allows you to use you old
@@ -489,7 +489,7 @@ java -jar doorman-0.1.jar --config-file doorman-0.1.conf --config-is-old
 ```
 
 
-### Upgrading Your Configuration File
+### Upgrading your configuration file
 
 You can also use the configuration file upgrade tool to create a new configuration file from your old 0.1 file.
 

@@ -5,12 +5,12 @@ menu:
     parent: corda-enterprise-4-13-cordapps
 tags:
 - cordapp
-title: CorDapp Structure
+title: CorDapp structure
 weight: 30
 ---
 
 
-# CorDapp Structure
+# CorDapp structure
 
 In this document, you will find:
 * A description of CorDapp structures and why specific structures work.

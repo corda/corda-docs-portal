@@ -337,9 +337,9 @@ Use the CENM [Command-Line (CLI) tool]({{< relref "../../../../1.6/cenm/cenm-cli
 See the CENM documentation for more information about the list of available [network parameters]({{< relref "../../../../1.6/cenm/config-network-parameters.md" >}})
 and instructions on [updating network parameters]({{< relref "./updating-network-parameters.md" >}}).
 
-### Run Flag Day
+### Run flag day
 
-Use the following CENM Command-Line Interface (CLI) tool command to run a Flag Day:
+Use the following CENM Command-Line Interface (CLI) tool command to run a flag day:
 
 {{< note >}} For the changes to be advertised to the nodes, the new network map must be signed by the Signing Service.
 This operation is scheduled to take place at regular intervals (by default, once every 10 seconds), as defined in the network map configuration.
@@ -350,7 +350,8 @@ This operation is scheduled to take place at regular intervals (by default, once
 The Signing Service is not managed by the [Angel Service]({{< relref "../../../../1.6/cenm/angel-service.md" >}}) in this deployment, therefore any CENM Command-Line Interface (CLI) tool commands trying to change the Signing Service configuration will take no effect.
 To change the Singing Service configuration, you must log in to a Kubernetes pod, update the configuration file, and restart the service.
 
-## Delete Network
+## Delete network
+
 There are two ways to delete your permissioned network (intended for development
 environments, which are rebuilt regularly), as follows:
 
@@ -375,7 +376,7 @@ export CENM_PREFIX=cenm
 helm delete ${CENM_PREFIX}-auth ${CENM_PREFIX}-gateway ${CENM_PREFIX}-idman ${CENM_PREFIX}-nmap ${CENM_PREFIX}-notary ${CENM_PREFIX}-pki ${CENM_PREFIX}-hsm ${CENM_PREFIX}-signer ${CENM_PREFIX}-zone
 ```
 
-## Deployment Customisation
+## Deployment customization
 
 The Kubernetes scripts provided are intended to be customised depending on customer requirements.
 The following sections describes how to customise various aspects of the deployment.
@@ -422,7 +423,7 @@ You must modify the following values in the `values.yaml` file:
 `signingKeys.credentials.keyStorePassword: <the password of the .pkcs12 file>`
 `signingKeys.credentials.keyStoreAlias: <the alias of the .pkcs12 file>`
 
-### Service Chart Settings
+### Service chart settings
 
 There are a number of settings provided on each Helm chart, which allow easy customisation of
 common options. Each CENM service has its own dedicated page with more detailed documentation:
@@ -435,7 +436,7 @@ common options. Each CENM service has its own dedicated page with more detailed 
 * [Signing Service]({{< relref "deployment-kubernetes-signer.md" >}})
 * [Zone Service]({{< relref "deployment-kubernetes-zone.md" >}})
 
-### Overriding Service Configuration
+### Overriding service configuration
 
 The default settings used in a CENM service's configuration values can be altered as described in
 [Helm guide](https://helm.sh/docs/chart_template_guide/values_files/).
@@ -506,7 +507,7 @@ database:
 In this example, `<HOST>` is a placeholder for the host name of the server, `<PORT>` is a placeholder for the port number the server is listening on (typically `5432` for PostgreSQL),
 `<DATABASE>` is a placeholder for the database name, and `<USER>` and `<PASSWORD>` are placeholders for the access credentials of the database user.
 
-### Memory Allocation
+### Memory allocation
 
 Default memory settings used should be adequate for most deployments, but may need to be increased for
 networks with large numbers of nodes (over a thousand). The `cordaJarMx` value for each Helm chart
@@ -558,6 +559,6 @@ helm install cenm-gateway gateway --set prefix=cenm --set acceptLicense=YES --se
 kubectl get svc --namespace cenm nmap --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"
 ```
 
-## Appendix A: Docker Images
+## Appendix A: Docker images
 
 Visit the [platform support matrix]({{< relref "../../platform-support-matrix.md#docker-images" >}}) for information on Corda Docker Images.

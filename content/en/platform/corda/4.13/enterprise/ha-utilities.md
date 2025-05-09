@@ -39,7 +39,7 @@ Use the `--help` flag for a full list of command line options.
 * `notary-registration`: Corda registration tool for registering a single HA notary service identity, using provided worker node configuration.
 
 
-## Node Registration Tool
+## Node registration tool
 
 The registration tool can be used to register multiple Corda nodes with the network operator, it is useful when managing multiple identities and setting up multiple Corda nodes sharing Corda firewall infrastructures.
 For convenience the tool is also downloading network parameters. Additionally, the tool can use the crypto services configured in the bridge (if any) to generate SSL keys and import them into the bridge.
@@ -403,7 +403,7 @@ This key store contains the service identity certificate (and key if not using a
 Due to HSM restrictions around storing certificate chains, the key store will still be generated when using a HSM however it will only
 contain the notary service certificate chain. See [HSM Support]({{< relref "notary/hsm-support.md#hsm-support" >}}) for more information.
 
-## Node Certificate Rotation Tool
+## Node certificate rotation tool
 
 This tool enables the reissuing of node legal identity keys and certificates, allowing for re-registration of a node (including a notary node) with a new certificate in the Network Map in [Corda Enterprise Network Manager]({{< relref "../../1.6/cenm/_index.md" >}}). You must not change the node's `myLegalName` during certificate rotation.
 

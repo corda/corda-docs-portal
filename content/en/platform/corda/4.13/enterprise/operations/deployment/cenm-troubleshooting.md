@@ -13,11 +13,11 @@ title: Troubleshooting common issues
 ---
 
 
-# Troubleshooting Common Issues
+# Troubleshooting common issues
 
 
 
-## General Debugging
+## General debugging
 
 
 ### Enabling debug/trace logging
@@ -57,7 +57,7 @@ Manager is reachable on `im-host.com:1234` then the status endpoint would be `im
 The Network Map Service and node is up and running, but the node cannot be seen from any other nodes on the network.
 
 
-### Solution/Explanation
+### Solution/explanation
 
 There are a few different reasons why this could be:
 
