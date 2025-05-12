@@ -27,7 +27,7 @@ The Object Relational Mapping is specified using [Java Persistence API](https://
 {{< note >}}
 By default, nodes use an H2 database which is accessed using *Java Database Connectivity* JDBC. Any database
 with a JDBC driver is a candidate and several integrations have been contributed to by the community.
-Please see the info in “node-database” for details.
+See [Corda node database]({{< relref "../node/operating/node-database.md" >}}) for details.
 
 {{< /note >}}
 

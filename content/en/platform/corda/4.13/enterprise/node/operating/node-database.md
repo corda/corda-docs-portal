@@ -14,7 +14,7 @@ weight: 1
 
 
 
-The Corda platform, and the installed CorDapps store their data in a relational database (see [State Persistence]({{< relref "../../cordapps/state-persistence.md" >}})).
+The Corda platform, and the installed CorDapps store their data in a relational database (see [State persistence]({{< relref "../../cordapps/state-persistence.md" >}})).
 
 Corda Enterprise supports a range of commercial 3rd party databases: Azure SQL, SQL Server, Oracle, and PostgreSQL.
 This document provides an overview of required database permissions, related ways to create database schema objects,
@@ -30,17 +30,17 @@ Depending on how the schema objects are created, a Corda node can connect to the
 
 
 
-* **restricted permissions** This grants the database user access to DML execution only (to manipulate data itself e.g. select/delete rows),
+* **Restricted permissions** This grants the database user access to DML execution only (to manipulate data itself e.g. select/delete rows),
 and a database administrator needs to create database schema objects before running the Corda node.
 This permission set is recommended for a Corda node in a production environment (including hot-cold-deployment).
-* **administrative permissions** This grants the database user full access to a Corda node, such that it can execute both DDL statements
+* **Administrative permissions** This grants the database user full access to a Corda node, such that it can execute both DDL statements
 (to define data structures/schema content e.g. tables) and DML queries (to manipulate data itself e.g. select/delete rows).
 This permission set is more permissive and should be used with caution in production environments.
 A Corda node with full control of the database schema can create or upgrade schema objects automatically upon node startup.
 This eases the operational maintenance for development and testing.
 
 
-Database setup for production systems (with **restricted permissions**) is described in [Database schema setup]({{< relref "node-database-admin.md" >}}),
+Database setup for production systems (with *restricted permissions*) is described in [Database schema setup]({{< relref "node-database-admin.md" >}}),
 and the recommended setup for development/testing environments are described in [Simplified database schema setup for development]({{< relref "node-database-developer.md" >}}).
 
 

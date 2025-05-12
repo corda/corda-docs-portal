@@ -85,7 +85,7 @@ See [notary registration]({{< relref "../ha-utilities.md#notary-registration" >}
 2. Register the notary workers
 
 After the notary service is registered with the Identity Manager, each notary worker must be registered with the Identity
-Manager. This process is similar to registering a standard Corda Node, but the notary workers also require access to the
+Manager. This process is similar to registering a standard Corda node, but the notary workers also require access to the
 notary service key and certificate.
 
 Copy the `.jks` file created when registering the notary service identity, and create a copy in the `certificates/nodekeystore.jks`

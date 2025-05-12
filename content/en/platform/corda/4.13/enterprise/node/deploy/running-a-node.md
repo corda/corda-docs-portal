@@ -288,7 +288,7 @@ For more information, see [Database management]({{< relref "../../node-database-
 If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options]({{< relref "../node-commandline.md" >}}) for details.
 
 
-## Stability of the Corda Node
+## Stability of the Corda node
 
 There are a number of critical resources that a Corda node needs to operate in order to ensure the transactional consistency of the ledger.
 These critical resources include:

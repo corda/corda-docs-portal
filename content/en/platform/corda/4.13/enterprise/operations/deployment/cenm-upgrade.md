@@ -19,7 +19,7 @@ This document provides instructions for upgrading your network management suite 
 Doorman), Network Map Service, Signing Service, Zone Service, Auth Service, Angel Service - from previous versions to the newest version. Please consult the relevant [CENM Release Notes]({{< relref "../../../../1.6/cenm/release-notes.md" >}}) of the release in question. If not specified, you may assume the versions you are currently using are still in force.
 
 {{< warning >}}
-Before you start the upgrade, you must consult the [CENM Release Notes]({{< relref "../../../../1.6/cenm/release-notes.md" >}}) to confirm all changes between releases.
+Before you start the upgrade, you must consult the [CENM release notes]({{< relref "../../../../1.6/cenm/release-notes.md" >}}) to confirm all changes between releases.
 {{< /warning >}}
 
 ## 1.3.x / 1.4.x to 1.5
@@ -232,7 +232,7 @@ these names. The names are specified in [service aliases]({{< relref "../../../.
 ### Push configurations to Zone Service
 
 Once you finish updating the configurations, you must set them on the Zone Service. An example of
-how to do this is shown below, but please see the CENM CLI tool documentation for details on what these
+how to do this is shown below, but please see the [CENM CLI tool documentation]({{< relref "../../../../1.6/cenm/cenm-cli-tool.md" >}}) for details on what these
 commands do, and adapt them to your deployment:
 
 ```bash

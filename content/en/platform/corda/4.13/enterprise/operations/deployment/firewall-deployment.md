@@ -160,7 +160,7 @@ as well as no proxy at all. For more information please see [proxyConfig]({{< re
 
 ### Keystores generation
 
-A special tool was created to simplify generation of the keystores. For more information please see HA Utilities.
+A special tool was created to simplify generation of the keystores. For more information, see [HA Utilities]({{< relref "../../ha-utilities.md" >}}). 
 This section explains how to generate a number of internally used keystores. Commands below can be executed on any machine as long as it will
 be easy enough to copy results to the other machines including DMZ hosts.
 
@@ -205,8 +205,8 @@ This should produce files: `artemis/artemis-truststore.jks`, `artemis/artemis.jk
 
 ### Node VMs setup
 
-As shown on the Physical deployment diagram above there will be two separate machines in two distinct data centres hosting Corda Nodes for Legal Entity A and Legal Entity B.
-For this setup, each machine is powerful enough to host nodes for both entities with all the CorDapps and two datacentres are used for High Availability purposes.
+As shown on the physical deployment diagram above, there will be two separate machines in two distinct data centers hosting Corda nodes for Legal Entity A and Legal Entity B.
+For this setup, each machine is powerful enough to host nodes for both entities with all the CorDapps and two data centers are used for High Availability purposes.
 
 
 #### Prerequisites
@@ -245,7 +245,7 @@ Each legal entity is supposed to have it is own database(DB) schema in order to 
 should have different DB connectivity URLs.
 
 For nodes’ High Availability(HA) functionality to work properly, databases the nodes connect to should be remote databases with transactional guarantees.
-Please see Hot-cold high availability deployment. I.e. HA nodes cannot be using local H2 database.
+See [Hot-cold high-availability deployment]({{< relref "../../node/deploy/hot-cold-deployment.md" >}}). HA nodes cannot be using local H2 database.
 
 In the example below we will be using Azure SQL DB, however it can be any database Corda Enterprise supports.
 
@@ -265,7 +265,7 @@ Any CorDapps the node is meant to be working with should be installed into `cord
 
 #### Creating node configuration files
 
-Since there will be two distinct nodes serving two different legal entities they are meant to have two difference X.500 names, please see
+Since there will be two distinct nodes serving two different legal entities they are meant to have two difference X.500 names; see the
 `myLegalName` field in the config files below.
 
 Also these two separate node may have different passwords to protected their keystore (`keyStorePassword`) and their trust store (`trustStorePassword`).
@@ -466,7 +466,7 @@ In this example we are going to use Finance CorDapp which is supplied as part of
 #### DB drivers installation
 
 As discussed above each of the nodes will be using database to store node’s data. Corda Enterprise supports a number of databases, however in order
-for a Corda Node to store its data in the DB, a JDBC driver needs to be installed into `drivers` sub-directory.
+for a Corda node to store its data in the DB, a JDBC driver needs to be installed into `drivers` sub-directory.
 
 In this example we are using MSSql Server DB, therefore `mssql-jdbc-6.4.0.jre8.jar` will be installed.
 
@@ -690,8 +690,8 @@ Artemis will be deployed as a standalone process cluster and will be used as a c
 the `ha-utilities` command line tool. The tool can also install a configured Artemis instance provided that a distribution already exists. For the purpose of this example, commands are provided
 to use the `ha-utilities` to install and configure 2 Artemis instances in HA mode.
 
-`ha-utilities` with `configure-artemis` option will create two configurations for two processes known as `master` and `slave`. For more information please see:
-[Artemis HA Documentation](https://activemq.apache.org/artemis/docs/latest/ha.html)
+`ha-utilities` with `configure-artemis` option will create two configurations for two processes known as `master` and `slave`. For more information, see the
+[Artemis HA Documentation](https://activemq.apache.org/artemis/docs/latest/ha.html).
 
 Apache Artemis distribution can be downloaded from [here](https://activemq.apache.org/artemis/download.html).
 
@@ -929,12 +929,13 @@ Each of the boxes `vmNodesPrimary` and `vmNodesSecondary` is capable of hosting 
 `vmNodesPrimary` and `vmNodesSecondary` are meant to be located in different datacentres and in case when one of the datacentres is unavailable, the whole application plant will be running
 on the other datacentre’s hardware.
 
-In this setup Corda Nodes for each of the entities work in Hot-Cold mode. Which means that if the node is running on `vmNodesPrimary`, the node for the same identity on `vmNodesSecondary` cannot even be started.
-For more information, please see Hot-cold high availability deployment.
+In this setup, Corda nodes for each of the entities work in Hot-Cold mode. Which means that if the node is running on `vmNodesPrimary`, the node for the same identity on `vmNodesSecondary` cannot even be started.
+See [Hot-cold high-availability deployment]({{< relref "../../node/deploy/hot-cold-deployment.md" >}}).
+
 
 This implies that when starting nodes they should be running in re-start loop.
 
-In order to start Corda Node normally on any of the hosts (`vmNodesPrimary` or `vmNodesSecondary`) for either of the entities (`Entity A` or `Entity B`) the following command should
+In order to start a Corda node normally on any of the hosts (`vmNodesPrimary` or `vmNodesSecondary`) for either of the entities (`Entity A` or `Entity B`) the following command should
 be used from the base directory:
 
 ```bash

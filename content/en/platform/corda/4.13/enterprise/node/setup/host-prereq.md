@@ -70,7 +70,7 @@ The recommended minimum vault database size is 2GB. As with the Corda node, the 
 Corda Enterprise uses Liquibase to generate the requisite database schemas for both the Corda node the CorDapps the node has installed. The `run-migration-scripts` sub-command controls whether these database schemas are generated automatically. In many production scenarios, you may require more control over the creation and running of those scripts. In these cases, simply do not run the `run-migration-scripts` sub-command. The [Corda Enterprise Database Management Tool]({{< relref "../../cordapps/database-management.md#creating-script-for-initial-table-creation-using-corda-database-management-tool" >}}) can assist a database administrator by creating scripts for initial table creation.
 
 
-## Corda Node, Bridge and Float
+## Corda nNode, Bridge and Float
 
 Prerequisite and sizing information for the Corda Node, Bridge and Float components.
 

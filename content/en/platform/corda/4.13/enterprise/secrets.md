@@ -28,7 +28,7 @@ The relationships between the secrets and Corda components is shown in the follo
 
 ## Node
 
-Secrets managed by a Corda Node
+Secrets managed by a Corda node
 
 {{< table >}}
 | Secret | Location | Path | Protection | Accessible by | Description |

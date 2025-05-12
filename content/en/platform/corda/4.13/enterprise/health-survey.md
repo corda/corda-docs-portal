@@ -120,7 +120,7 @@ The tool generates the archive of the collected files in the same directory it i
 
 ## Deployment health check
 
-The Corda Health Survey is designed to perform connectivity and configuration checks on a Corda Enterprise Node. The tool supports the following deployment configurations:
+The Corda Health Survey is designed to perform connectivity and configuration checks on a Corda Enterprise node. The tool supports the following deployment configurations:
 
 * Node with internal Artemis broker
 * Node with external Artemis broker

@@ -38,9 +38,9 @@ FloatSupervisorService: active = true
 ```
 
 
-## Starting the Corda Node
+## Starting the Corda node
 
-To start the Node run the following command from the Node VM:
+To start the node, run the following command from the Node VM:
 
 `/usr/bin/java -Xmx2048m -jar /opt/corda/corda-4.11.jar --config-file node.conf`
 

@@ -97,6 +97,6 @@ The diagram below outlines the overview of SSZ.
 * No nodes (including notaries) can exist in more than one sub-zone
 * There must be no asymmetry of identification
 * The identity service for sub-zones must be managed by a single Doorman
-* Should require no changes to the Corda Node
+* Should require no changes to the Corda node
 * Notaries will not exist in multiple sub-zones
 
