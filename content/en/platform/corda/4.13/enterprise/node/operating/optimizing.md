@@ -17,9 +17,9 @@ Node performance optimisation can be achieved by adjusting node configuration, n
 
 ## Adjusting the node settings
 
-The main parameters that can be tweaked for a Corda Enterprise node are
+The main parameters that can be tweaked for a Corda Enterprise node are:
 
-
+* The number of thread pools used; for more information, see [thread pools]({{< relref "../../cordapps/thread-pools.md" >}}).
 * The number of flow threads (the number of flows that can be live and active in the state machine at the same time). The default value for this is twice the number of processor cores available on the machine, capped at 30.
 * The number of RPC threads (the number of calls the RPC server can handle in parallel, enqueuing requests to the state machine). The default for this is the number of processor cores available on the machine
 * The amount of heap space the node process can allocate. The default for this is 512 megabytes.
@@ -55,6 +55,7 @@ enterpriseConfiguration = {
 
 The recommended approach is to start with a low number of flow threads (e.g. 1 per gigabyte of heap memory), and increase the number of threads over a number of runs. In tests at R3, it seems that giving a node twice the number of flow threads than RPC threads seemed a sensible number, but that might depend on the hardware and the use case, so it is worthwhile to experiment with this ratio.
 
+You can also define additional thread pools; for more information, see [Using additional thread pools]({{< relref "../../cordapps/thread-pools.md" >}}).
 
 ## Disk access
 
