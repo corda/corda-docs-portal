@@ -55,7 +55,7 @@ enterpriseConfiguration = {
 
 The recommended approach is to start with a low number of flow threads (e.g. 1 per gigabyte of heap memory), and increase the number of threads over a number of runs. In tests at R3, it seems that giving a node twice the number of flow threads than RPC threads seemed a sensible number, but that might depend on the hardware and the use case, so it is worthwhile to experiment with this ratio.
 
-You can also define additional thread pools; for more information, see [Using thread pools]({{< relref "../../cordapps/thread-pools.md" >}}).
+You can also define additional thread pools; for more information, see [Using additional thread pools]({{< relref "../../cordapps/thread-pools.md" >}}).
 
 ## Disk access
 

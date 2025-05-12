@@ -90,6 +90,7 @@ The available set of metrics depends on the cache type. The `maximum-size` and `
 
 ## Flows
 
+Note that metrics related to the default thread pool do not have a *.default* suffix; this is for backward compatibility.
 
 {{< table >}}
 

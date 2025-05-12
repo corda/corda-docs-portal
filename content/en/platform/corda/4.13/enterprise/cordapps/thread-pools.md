@@ -8,19 +8,19 @@ tags:
 - api
 - service
 - classes
-title: Using thread pools
+title: Using additional thread pools
 weight: 10
 ---
 
 Corda Enterprise executes flows in *thread pools*. A thread pool is a group of pre-created, idle threads, ready to execute tasks. The default Corda Enterprise configuration creates a single thread pool, whose size is configured by the *[flowThreadPoolSize]({{< relref "../node/setup/corda-configuration-fields.html#enterpriseconfiguration" >}})* parameter. Open Source Corda is single-threaded.
 
-In Corda 4.12 and previous to that, only a single, default thread pool was supported. From Corda 4.13 onward, the Enterprise version enables operators to define *multiple* thread pools and assign flows to them. The reason for this is to enable operators to prioritize particular flows and to segregate them from other flows.
+In Corda 4.12 and previous versions, only the single, default thread pool described above was supported. From Corda 4.13 onward, the Enterprise version enables operators to define *multiple* thread pools and assign flows to them. The reason for this is to enable operators to prioritize particular flows and to segregate them from other flows.
 
 For example, if there are slow-running reporting flows and more important transactional flows on the same system, the reporting flows can be separated into a dedicated thread pool so that they do not block the transactional flows.
 
 ## Configuring thread pools
 
-Thread pools are defined in the [node configuration]({{< relref "../node/setup/corda-configuration-file.md" >}}) using `additionalFlowThreadPools`. 
+Thread pools are defined in the [node configuration]({{< relref "../node/setup/corda-configuration-file.md" >}}) by adding an `additionalFlowThreadPools` array within the `tuning` object. The `additionalFlowThreadPools` array can contain one or more objects, each specifying the details of an additional thread pool. Each object contains a `threadpool` and `size` property, respectively defining the name of the thread pool and its size in number of threads.
 
 ### Example 1: Two Defined Thread Pools
 
@@ -28,7 +28,7 @@ The following sample configuration defines two thread pools based on the example
 
 ```json
 enterpriseConfiguration {
-     {
+    tuning {
         additionalFlowThreadPools= [
             {
                 threadPool=reporting,
@@ -57,7 +57,7 @@ and
 
 ### Example 2: One Defined Thread Pool and Default Thread Pool
 
-An alternative configuration, rather than defining two thread pools, would instead define one thread pool (in this case, `reporting`) but also use the default thread pool, defining its size using `flowThreadPoolSize`. As in previous versions of Corda, the size of the default pool (name: "default") is still specified by the *[flowThreadPoolSize]({{< relref "../node/setup/corda-configuration-fields.html#enterpriseconfiguration" >}})* parameter. 
+An alternative configuration, rather than defining two thread pools, could instead define one thread pool (in this case, `reporting`) but also use the default thread pool, defining its size using `flowThreadPoolSize`. As in previous versions of Corda, the size of the default thread pool (name: "default") is still specified by the *[flowThreadPoolSize]({{< relref "../node/setup/corda-configuration-fields.html#enterpriseconfiguration" >}})* parameter. 
 
 ```json
 enterpriseConfiguration {
@@ -97,7 +97,7 @@ How flows are mapped to thread pools depends on:
 The Corda default FlowSchedulerMapper follows these rules, in order of highest priority first:
 
 1. If a flow is annotated with `@FlowThreadPool("threadpoolname")` and the referenced thread pool is defined in the configuration, then that flow is executed in the specified pool. 
-   If the specified thread pool is not present in the node configuration, then the default pool is used instead.
+   If the specified thread pool is not present in the node configuration, then the default thread pool is used instead.
 
 2. If a thread pool named `Peer-Origin` is defined, then all flows started via a peer Corda node and **not** annotated with a specific thread pool will be executed in that thread pool. Otherwise, such flows are executed in the default thread pool.
 
@@ -151,13 +151,13 @@ The following [metric]({{< relref "../node/operating/monitoring-and-logging/node
 
 The following metrics have now been updated to be divided by thread pool:
 
-| Previously                                 | Corda 4.13 onward                                                  |
-|--------------------------------------------|--------------------------------------------------------------------|
-| ActiveThreads                              | ActiveThreads.{threadpoolname}                                     | 
-| QueueSize                                  | QueueSize.{threadpoolname}                                         | 
-| QueueSizeOnInsert                          | QueueSizeOnInsert.{threadpoolname}                                 |
-| StartupQueueTime                           | StartupQueueTime.{threadpoolname}                                  |
-| FlowDuration.{Success/Failure}.{FlowClass} | FlowDuration.{Success/Failure}.{flowclassname}.{threadpoolname>}   |
+| Previously                                     | Corda 4.13 onward                                                  |
+|------------------------------------------------|--------------------------------------------------------------------|
+| ActiveThreads                                  | ActiveThreads.{threadpoolname}                                     | 
+| QueueSize                                      | QueueSize.{threadpoolname}                                         | 
+| QueueSizeOnInsert                              | QueueSizeOnInsert.{threadpoolname}                                 |
+| StartupQueueTime                               | StartupQueueTime.{threadpoolname}                                  |
+| FlowDuration.{Success/Failure}.{flowclassname} | FlowDuration.{Success/Failure}.{flowclassname}.{threadpoolname>}   |
 
-Metrics related to the default pool do not have a *.default* suffix; this is for backward compatibility.
+Metrics related to the default thread pool do not have a *.default* suffix; this is for backward compatibility.
 
