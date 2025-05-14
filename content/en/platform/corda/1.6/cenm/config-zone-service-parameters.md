@@ -10,15 +10,15 @@ menu:
 tags:
 - config
 - zone service
-title: Zone Service Configuration Parameters
+title: Zone Service configuration parameters
 ---
 
-# Zone Service Configuration Parameters
+# Zone Service configuration parameters
 
 The configuration references for the Zone Service are given below:
 
 * **database**:
-See [CENM Database Configuration]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-database.md" >}})
+See [CENM database configuration]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-database.md" >}})
 
 * **enmListener**:
 Information about the way the service communicates with the rest of the CENM deployment.
@@ -39,7 +39,7 @@ Information about the way the service communicates with the rest of the CENM dep
 
 * **adminListener**:
   A configuration property you must define in order to use the RPC API in the Zone Service.
-  You can add `port`, `reconnect`, and `verbose`. Also, this property has an SSL field - for more information, see [SSL Settings]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-ssl.md" >}}).
+  You can add `port`, `reconnect`, and `verbose`. Also, this property has an SSL field - for more information, see [SSL settings]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-ssl.md" >}}).
 
   * **host**:
     *(Optional)* The host or IP of the Admin RPC service.
@@ -54,7 +54,7 @@ Information about the way the service communicates with the rest of the CENM dep
     *(Optional)* Determines if a client should attempt to reconnect if the connection is dropped. Defaults to `true`.
 
   * **ssl**:
-    See [SSL Settings]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-ssl.md" >}}) for details.
+    See [SSL settings]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-ssl.md" >}}) for details.
 
 * **authServiceConfig**:
   The admin RPC interface requires an Auth Service to verify requests, which must be configured below in an `authServiceConfig` block. Typically, this is provided automatically by the [Zone Service]({{< relref "zone-service.md" >}}) (via an [Angel Service]({{< relref "angel-service.md" >}})). However, the parameters are detailed below for reference:

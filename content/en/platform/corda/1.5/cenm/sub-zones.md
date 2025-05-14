@@ -20,7 +20,7 @@ This is an internal feature. Running a network with multiple subzones is not a s
 
 {{< /note >}}
 
-## Network from a Node’s Perspective
+## Network from a node’s perspective
 
 From the perspective of a node, a network is defined by the Identity Manager and Network Map Services it is configured
 to connect to. It has no comprehension of subzones. It simply connects to the services configured within its
@@ -32,7 +32,7 @@ RPC clients. This is summarised below:
 	 src="resources/node-zone-view.png"
 	 zoom="resources/node-zone-view.png"
    width=90%
-	 figcaption="Network from a Node's Perspective"
+	 figcaption="Network from a node's Perspective"
 	 alt="node zone view"
 >}}
 
@@ -40,7 +40,7 @@ The node is unaware of other subzones - it sees only those nodes registered with
 registered with itself.
 
 
-## Network from a Zone's Perspective
+## Network from a zone's perspective
 
 From the perspective of the operator of that zone however, things are a lot more interesting:
 
@@ -71,7 +71,7 @@ Interesting features:
 * Nodes 2 and 3 and Notary 2 can all intercommunicate as one would expect.
 
 
-## Segregated Subzones
+## Segregated subzones
 
 The fundamental difference between a public subzone and a segregated one is that the operation of the notaries is
 deferred to a third party. The relationship between the zone operator and the notary operator is left to the discretion

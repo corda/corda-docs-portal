@@ -59,7 +59,7 @@ following table gives approximate sizings for typical node deployments.
 
 {{< /table >}}
 
-All Corda Nodes have a database. A range of third-party databases are supported by Corda, shown in the following table:
+All Corda nodes have a database. A range of third-party databases are supported by Corda, shown in the following table:
 
 {{< table >}}
 

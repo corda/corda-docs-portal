@@ -138,7 +138,7 @@ By default, vault queries always include locked states in its result sets. Custo
 [QueryCriteria.kt](https://github.com/corda/corda/blob/release/os/4.10/core/src/main/kotlin/net/corda/core/node/services/vault/QueryCriteria.kt)
 
 
-### Explicit Usage
+### Explicit usage
 
 Soft locks are associated with transactions, typically within the lifecycle of a flow. Every time a
 flow starts, a soft lock identifier is associated with that flow for its duration and released upon its natural

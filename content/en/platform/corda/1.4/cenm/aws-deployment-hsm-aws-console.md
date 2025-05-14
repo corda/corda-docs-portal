@@ -55,7 +55,7 @@ To create subnets under the VPC:
 
 5. Once this subnet is created, repeat the steps above to create a second one with another IP subset of the VPC's range (for example, `10.0.128.0/20`).
 
-## Create an Internet Gateway
+## Create an internet gateway
 
 An Internet Gateway enables communication between your VPC and the outside world (Internet).
 

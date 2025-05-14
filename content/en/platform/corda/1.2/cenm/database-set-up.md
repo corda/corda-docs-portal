@@ -12,11 +12,11 @@ menu:
 tags:
 - database
 - set
-title: CENM Databases
+title: CENM databases
 ---
 
 
-# CENM Databases
+# CENM databases
 
 There are currently two types of Corda Enterprise Network Manager database:
 
@@ -33,7 +33,7 @@ or in completely separate instances). Attempting to run an Identity Manager and 
 DB schema will result in errors.
 
 
-## Supported Databases
+## Supported databases
 
 Corda Enterprise Network Manager currently supports the following databases:
 
@@ -60,7 +60,7 @@ any potential errors stemming from the former.
 
 {{< /note >}}
 
-## Database Schema Setup
+## Database schema setup
 
 This document provides instructions describing how to create database schemas (user permissions, the CENM service
 tables, and other database objects), and how to configure CENM services to connect to a database with *restricted
@@ -73,15 +73,13 @@ in more depth further down.
 
 Setting up a CENM service (Identity Manager / Network Map) to connect to a database requires:
 
-
-* [Creating a database user with schema permissions](#1-creating-a-database-user-with-schema-permissions)
-* [Database table creation](#2-database-schema-creation)
-* [CENM service configuration changes](#3-cenm-service-configuration)
-* [Database configuration](#4-database-configuration)
-
+1. [Creating a database user with schema permissions](creating-a-database-user-with-schema-permissions)
+2. [Database table creation](creating-database-schema)
+3. [CENM service configuration changes](configuring-cenm-service)
+4. [Database configuration](configuring-database)
 
 
-### 1. Creating a database user with schema permissions
+### Creating a database user with schema permissions
 
 A database administrator must create a database user and a schema namespace with **restricted permissions**.
 This grants the user access to DML execution only (to manipulate data itself e.g. select/delete rows).
@@ -273,7 +271,7 @@ prevents querying the different default schema search path
 
 
 
-## 2. Database schema creation
+## Create database schema
 
 The CENM services should first be deployed with database administrator credentials specified in the config files (`database.user`, `database.password`).
 Given that the schema exists and the user has administrative permissions, the Liquibase migrations will run on
@@ -353,7 +351,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.REVINFO TO my_user;
 
 
 
-## 3. CENM service configuration
+## Configure CENM service
 
 The following updates are required to the filesystem of a CENM service instance:
 
@@ -378,7 +376,7 @@ database = {
 
 
 {{< note >}}
-The [CENM Database Configuration]({{< relref "config-database.md" >}}) doc page contains a complete list of database specific properties.{{< /note >}}
+The [CENM database configuration]({{< relref "config-database.md" >}}) doc page contains a complete list of database specific properties.{{< /note >}}
 
 * The restricted CENM service instance database user has no permissions to alter a database schema, so `runMigration` is set to `false`.
 * The CENM distribution does not include any JDBC drivers with the exception of the H2 driver.
@@ -580,7 +578,7 @@ The value of `database.schema` is automatically wrapped in double quotes to pres
 
 
 
-## 4. Database configuration
+## Configure database
 
 Additional vendor specific database configuration.
 
@@ -597,7 +595,7 @@ To allow *VARCHAR2* and *NVARCHAR2* column types to store more than 2000 charact
 extended data types. For example, for Oracle 12.1 refer to [MAX_STRING_SIZE](https://docs.oracle.com/database/121/REFRN/GUID-D424D23B-0933-425F-BC69-9C0E6724693C.htm#REFRN10321).
 
 
-## 5. Tables
+### Tables Created
 
 Note that `<SCHEMA_NAME>` below is a placeholder value representing the actual name for the appropriate schema.
 

@@ -60,7 +60,7 @@ Make sure your contracts are secure. Check that:
 
 
 
-## Related Content
+## Related content
 Learn more about:
 * [Writing flows]({{< relref "../enterprise/flow-state-machines.md" >}})
 * [Contracts]({{< relref "../enterprise/cordapps/api-contracts.md" >}})

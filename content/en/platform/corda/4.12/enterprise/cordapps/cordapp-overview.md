@@ -45,7 +45,7 @@ A Corda Distributed Application (CorDapp) solves a specific problem using the Co
 
 *Contracts*
   Contracts define the shared rules for updating the ledger. Contracts implement the `Contract` interface. To learn
-  more about implementing contracts, see [Writing CorDapp Contracts]({{< relref "api-contracts.md" >}}).
+  more about implementing contracts, see [Writing CorDapp contracts]({{< relref "api-contracts.md" >}}).
 
 *Services*
   Services provide long-lived utilities that don’t need to run on the network. Services subclass `SingletonSerializationToken`.

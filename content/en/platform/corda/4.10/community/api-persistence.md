@@ -202,7 +202,7 @@ unconsumed states in the vault.
 
 The `PersistentState` subclass should be marked up as a JPA 2.1 *Entity* with a defined table name and having
 properties (in Kotlin, getters/setters in Java) annotated to map to the appropriate columns and SQL types. Additional
-entities can be included to model these properties where they are more complex, for example collections (Persisting Hierarchical Data), so
+entities can be included to model these properties where they are more complex, for example collections (Persisting hierarchical data), so
 the mapping does not have to be *flat*. The `MappedSchema` constructor accepts a list of all JPA entity classes for that schema in
 the `MappedTypes` parameter. It must provide this list in order to initialise the ORM layer.
 
@@ -278,7 +278,7 @@ e.g. for Oracle database, prior to version 12.2 the maximum length of table/colu
 
 {{< /note >}}
 
-## Persisting Hierarchical Data
+## Persisting hierarchical data
 
 You may want to persist hierarchical relationships within state data using multiple database tables.
 To facilitate this, you must implement all queries making use of hierarchical relations as native SQL.
@@ -471,7 +471,7 @@ setAutoCommit(autoCommit: Boolean)
 setReadOnly(readOnly: Boolean)
 ```
 
-## JPA Support
+## JPA support
 
 In addition to `jdbcSession`, `ServiceHub` also exposes the Java Persistence API to flows via the `withEntityManager`
 method. This method can be used to persist and query entities which inherit from `MappedSchema`. This is particularly

@@ -319,7 +319,7 @@ SecureHash ourAttachment = SecureHash.sha256("DummyAttachment");
 The attachment with the corresponding hash must have been uploaded ahead of time via the node’s RPC interface.
 
 
-### Time-windows
+### Time windows
 
 Time windows represent the period during which the transaction must be notarised. They can have a start and an end
 time, or be open at either end:

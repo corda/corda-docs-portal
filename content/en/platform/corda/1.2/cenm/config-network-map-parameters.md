@@ -14,11 +14,11 @@ tags:
 - network
 - map
 - parameters
-title: Network Map Configuration Parameters
+title: Network Map configuration parameters
 ---
 
 
-# Network Map Configuration Parameters
+# Network Map configuration parameters
 
 Configuration reference for the Network Map Service
 
@@ -28,11 +28,11 @@ The host and port on which the service runs
 
 
 * **database**:
-See [CENM Database Configuration]({{< relref "config-database.md" >}})
+See [CENM database configuration]({{< relref "config-database.md" >}})
 
 
 * **shell**:
-*(Optional)*  See [Shell Configuration Parameters]({{< relref "config-shell.md" >}})
+*(Optional)*  See [Shell configuration parameters]({{< relref "config-shell.md" >}})
 
 
 * **enmListener**:
@@ -52,7 +52,7 @@ Whether a client should be attempt to reconnect if the connection is dropped.
 
 
 * **ssl**:
-See [SSL Settings]({{< relref "config-ssl.md" >}})
+See [SSL settings]({{< relref "config-ssl.md" >}})
 
 
 
@@ -79,7 +79,7 @@ To which port it’s enmListener is bound
 
 
 * **ssl**:
-See [SSL Settings]({{< relref "config-ssl.md" >}})
+See [SSL settings]({{< relref "config-ssl.md" >}})
 
 
 
@@ -97,7 +97,7 @@ To which port it’s enmListener is bound
 
 
 * **ssl**:
-See [SSL Settings]({{< relref "config-ssl.md" >}})
+See [SSL settings]({{< relref "config-ssl.md" >}})
 
 
 

@@ -12,11 +12,11 @@ tags:
 - identity
 - manager
 - parameters
-title: Identity Manager Configuration Parameters
+title: Identity Manager configuration parameters
 ---
 
 
-# Identity Manager Configuration Parameters
+# Identity Manager configuration parameters
 
 The Configuration references for the Identity Manager Service are given below:
 
@@ -26,11 +26,11 @@ The host and port on which the service runs
 
 
 * **database**:
-See [CENM Database Configuration]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-database.md" >}})
+See [CENM database configuration]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-database.md" >}})
 
 
 * **shell**:
-  *(Optional)* See [Shell Configuration Parameters]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-shell.md" >}}) for more information. Note that
+  *(Optional)* See [Shell configuration parameters]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-shell.md" >}}) for more information. Note that
                we are planning to deprecate the shell and the recommended path for interacting with CENM services
                is the admin RPC interface detailed below.
 
@@ -80,7 +80,7 @@ It is needed as this URL is encoded in certificates issued by the Identity Manag
     Determines if a client should attempt to reconnect if the connection is dropped.
 
     * **ssl**:
-    See [SSL Settings]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-ssl.md" >}}).
+    See [SSL settings]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-ssl.md" >}}).
 
 
 * **plugin**:
@@ -127,7 +127,7 @@ It is needed as this URL is encoded in certificates issued by the Identity Manag
 A list of CRLs hosted by the Identity Manager Service, in addition to the CRLs hosted by node operators. This allows the Identity Manager Service to host the CRLs for node operators that will not host their own CRL infrastructure, at the cost of not being able to revoke TLS certificates issued by the node.
 * **adminListener**:
   A configuration property you must define in order to use the RPC API in the Identity Manager Service.
-  You can add `port`, `reconnect`, and `verbose`. Also, this property has an SSL field - for more information, see [SSL Settings]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-ssl.md" >}}).
+  You can add `port`, `reconnect`, and `verbose`. Also, this property has an SSL field - for more information, see [SSL settings]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-ssl.md" >}}).
   * **port**:
     Port number to listen to for Admin RPC connections.
   * **verbose**:
@@ -135,7 +135,7 @@ A list of CRLs hosted by the Identity Manager Service, in addition to the CRLs h
   * **reconnect**:
     *(Optional)* Determines if a client should attempt to reconnect if the connection is dropped. Defaults to `true`.
   * **ssl**:
-    See [SSL Settings]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-ssl.md" >}}) for details.
+    See [SSL settings]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-ssl.md" >}}) for details.
 
 {{% important %}}
 If the `adminListener` property is present in the configuration, this means that the service must only be used via Admin RPC. In this case, the `shell` configuration property will be disabled. The `shell` and `adminListener` properties cannot be used in the configuration at the same time.
