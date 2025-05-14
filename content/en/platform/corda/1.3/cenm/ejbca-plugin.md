@@ -10,11 +10,11 @@ menu:
 tags:
 - ejbca
 - plugin
-title: EJBCA Sample Plugin
+title: EJBCA sample plugin
 ---
 
 
-# EJBCA Sample Plugin
+# EJBCA sample plugin
 
 
 

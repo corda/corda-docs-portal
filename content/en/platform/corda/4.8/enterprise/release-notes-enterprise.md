@@ -358,7 +358,7 @@ You can use `StartupQueueTime` and `BatchSignLatency` metrics to help calculate 
 * `StartupQueueTime` represents the time a flow has been queued before starting, in milliseconds.
 * `BatchSignLatency` represents the time elapsed during a batch signature, in milliseconds.
 
-See [Monitoring Notary Latency]({{< relref "notary/faq/notary-latency-monitoring.md" >}}) for more information.
+See [Monitoring notary latency]({{< relref "notary/faq/notary-latency-monitoring.md" >}}) for more information.
 
 
 ## Fixed issues

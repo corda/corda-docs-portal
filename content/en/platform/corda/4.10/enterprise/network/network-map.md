@@ -228,7 +228,7 @@ know about the details of the impending change, along with the justification, ho
 and a replacement is registered to the network, the original notary will continue to appear in the list of available
 notaries. Use explicit notary selection in your CordApp to avoid issues when adding a new notary to the network parameters. {{< /note >}}
 
-### Automatic Acceptance
+### Automatic acceptance
 
 If the only changes between the current and new parameters are for auto-acceptable parameters then, unless configured otherwise, the new
 parameters will be accepted without user input. The following parameters with the `@AutoAcceptable` annotation are auto-acceptable:
@@ -260,7 +260,7 @@ networkParameterAcceptanceSettings {
 ```
 
 
-### Manual Acceptance
+### Manual acceptance
 
 If the auto-acceptance behaviour is turned off via the configuration or the network parameters change involves parameters that are
 not auto-acceptable then manual approval is required.

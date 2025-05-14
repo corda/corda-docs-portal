@@ -43,13 +43,13 @@ same module or create separate modules that depend on each other.
 transactions.
 
 
-## Template CorDapps
+## CorDapps Templates
 
 You should base your project on one of the following templates:
 
 
-* [Java Template CorDapp](https://github.com/corda/cordapp-template-java) (for CorDapps written in Java)
-* [Kotlin Template CorDapp](https://github.com/corda/cordapp-template-kotlin) (for CorDapps written in Kotlin)
+* [Java CorDapp template](https://github.com/corda/cordapp-template-java) (for CorDapps written in Java)
+* [Kotlin CorDapp template ](https://github.com/corda/cordapp-template-kotlin) (for CorDapps written in Kotlin)
 
 Please use the branch of the template that corresponds to the major version of Corda you are using. For example,
 someone building a CorDapp on Corda 4.10 should use the `release-V4` branch of the template.

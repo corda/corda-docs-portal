@@ -18,10 +18,10 @@ title: Zone Service
 ## Overview
 
 The Zone Service is a central store of configuration for other CENM services
-for one or more zones, and optionally for their Sub Zones. These CENM services
+for one or more zones, and optionally for their subzones. These CENM services
 can fetch their configuration from the Zone Service and therefore simplify change
 management. They also provide functionality for managing
-lifecycle events of Sub Zones, such as updating network parameters via
+lifecycle events of subzones, such as updating network parameters via
 flag days.
 
 The Zone Service stores relevant configurations for the following services:
@@ -33,10 +33,10 @@ The Zone Service stores relevant configurations for the following services:
 It uses the associated [Angel Service]({{< relref "angel-service.md" >}}) to deploy those configurations as needed.
 Each Angel Service identifies itself to the Zone Service via an authentication
 token, referred to as the "zone token". The Zone Service also coordinates actions
-needed on Sub Zones (for example, new network parameters), which are executed
+needed on subzones (for example, new network parameters), which are executed
 by the Angel Service for the appropriate Network Map Service.
 
-## Running the Zone Service
+## Running the Zone service
 
 The Zone Service does not have a configuration file, and is configured entirely
 from the command-line. To run the Zone Service, use a command like the one shown in the example below:
@@ -75,7 +75,7 @@ The full list of configuration options follows below:
 
 To ensure consistency and correctness of the configurations it sends to other CENM services, the Zone Service edits them before sending. The following sections describe these changes for each affected service.
 
-### Identity Manager Service configuration
+### Identity Manager service configuration
 
 The Zone Service sets the Auth Service configuration for the Identity Manager Service based on the Auth Service configuration options provided when running the Zone Service (see the previous section).
 
@@ -85,13 +85,13 @@ The Auth Service trust store location and password must match on the hosts of th
 The shell UI used in CENM 1.2 (and below) is not supported in combination with the RPC API functionality in CENM 1.3 and above, so configurations *must not* specify a shell configuration or they will be rejected by the respected services.
 {{< /note >}}
 
-### Network Map Service configuration
+### Network Map service configuration
 
 The Zone Service sets the authentication configuration for the Network Map Service based on the Auth Service configuration options provided when running the Zone Service. The same guidance on sharing values applies as described for the Identity Manager Service above.
 
-The Zone Service also sets the Sub Zone ID (`authObjectId`) for the Network Map Service. The Sub Zone ID is used to support permissioning per Sub Zone for users. It is set automatically so no user action is required.
+The Zone Service also sets the Sub Zone ID (`authObjectId`) for the Network Map Service. The Sub Zone ID is used to support permissioning per subzone for users. It is set automatically so no user action is required.
 
-### Signing Services configuration
+### Signing services configuration
 
 The service locations for the Signing Services are set by the Zone Service using the external addresses and the CENM ports configured for the Identity Manager Service and Network Map Service. Any service locations provided in Signing Services configurations, sent to the Zone Service, are overwritten.
 
@@ -179,4 +179,4 @@ Angel Services regularly poll the network's Zone Service for jobs.
 
 The Zone Service maintains its database and decides if a configuration update or a lifecycle event is needed for the underlying Angel Service. If needed, it sends the relevant response.
 
-If a Flag Day is triggered, the Zone Service sends the required step (initiate, start, or cancel Flag Day) to the Angel Service that manages the Network Map. The Angel Service always reports the status of the current action back to the Zone Service.
+If a flag day is triggered, the Zone Service sends the required step (initiate, start, or cancel Flag Day) to the Angel Service that manages the Network Map. The Angel Service always reports the status of the current action back to the Zone Service.

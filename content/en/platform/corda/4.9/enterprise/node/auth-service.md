@@ -12,7 +12,7 @@ title: Auth service
 
 # Auth Service
 
-The Auth Service is the user authentication and authorisation service for managing Corda Nodes and networks (CENM). It stores and controls secure user-access to network services, such as:
+The Auth Service is the user authentication and authorisation service for managing Corda nodes and networks (CENM). It stores and controls secure user-access to network services, such as:
 
 * Nodes.
 * Identity Manager

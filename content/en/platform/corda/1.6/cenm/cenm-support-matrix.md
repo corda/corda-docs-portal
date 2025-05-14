@@ -21,7 +21,7 @@ Production use of Corda Enterprise Network Manager 1.3+ is only supported on Lin
 
 For information about supported Operating Systems for Corda Enterprise, see the Corda Enterprise Edition 4.12 [platform support matrix]({{< relref "../../4.12/enterprise/platform-support-matrix.md" >}}) section or check the relevant [support documentation]({{< relref "../../4.12/enterprise/_index.md" >}}) for previous versions of Corda Enterprise.
 
-## Hardware Security Modules (HSMs)
+## Hardware security modules (HSMs)
 
 Both the Signing Service and the PKI Tool support a variety of HSMs.
 

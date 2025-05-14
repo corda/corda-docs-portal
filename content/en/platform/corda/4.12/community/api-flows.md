@@ -764,7 +764,7 @@ Once a transaction is notarized and its input states consumed by the flow initia
 transaction fail to verify it, or the receiving flow (the finality handler) fails due to some other error, then
 all parties will not have the up-to-date view of the ledger.
 
-To recover from this scenario, the receiver’s finality handler is automatically sent to the `node-flow-hospital`. There, it is suspended and retried from its last checkpoint upon node restart, or according to other conditional retry rules. For more information, see [flow hospital runtime behavior]({{< relref "node-flow-hospital.md#run-time-behaviour" >}}).
+To recover from this scenario, the receiver’s finality handler is automatically sent to the `node-flow-hospital`. There, it is suspended and retried from its last checkpoint upon node restart, or according to other conditional retry rules. For more information, see [Flow hospital: Runtime behavior]({{< relref "node-flow-hospital.md#run-time-behaviour" >}}).
 This gives the node operator the opportunity to recover from the error. Until the issue is resolved, the node will continue to retry the flow
 on each startup. Upon successful completion by the receiver’s finality flow, the ledger will become fully consistent.
 
@@ -1831,7 +1831,7 @@ You can kill a flow using:
 
 Exceptions are only propagated between flows (either from a flow initiator to its responder, or vice versa) when there is an active session established between them. A session is considered active if there are further calls to functions that interact with it within the flow's execution, such as `send`, `receive`, and `sendAndReceive`. If a flow’s counterparty flow is killed, it only receives an `UnexceptedFlowEndException` once it interacts with the failed session again.
 
-A `FlowKilledException` is propagated to the client that started the initiating flow. You cannot catch the `KilledFlowException` unless it is thrown manually - see [cooperating with a killed flow](#cooperating-with-a-killed-flow).
+A `FlowKilledException` is propagated to the client that started the initiating flow. You cannot catch the `KilledFlowException` unless it is thrown manually - see [Cooperating with a killed flow](#cooperating-with-a-killed-flow).
 
 ### Cooperating with a killed flow
 

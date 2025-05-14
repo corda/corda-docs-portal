@@ -14,7 +14,7 @@ weight: 2
 # Host prerequisites and database requirements
 
 
-## Operating Systems Supported in Production
+## Operating systems supported in production
 
 
 {{< table >}}
@@ -29,7 +29,7 @@ weight: 2
 {{< /table >}}
 
 
-## Operating Systems Supported in Development
+## Operating systems supported in development
 
 
 {{< table >}}
@@ -63,45 +63,45 @@ Third-party managed service variants are not supported unless explicitly stated.
 
 ## Sizing
 
-The recommended minimum vault database size is 2GB. As with the Corda node, the use case determines the sizing needs for the database. When testing in your development environment, pay attention to the size of objects created in the `NODE_CHECKPOINT_BLOBS` and `NODE_TRANSACTIONS` tables, to inform the sizing requirements of your use case. Some guidance on this is provided in the [Performance benchmarking results]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/performance-testing/performance-results.md#sizing" >}}) documentation. In a production implementation, a separate high availability database instance should be deployed for each Corda node. However, it’s possible to create a separate schema for each node within a single database instance subject to performance, availability, and security constraints (the schema to be used is defined in the node configuration file).
+The recommended minimum vault database size is 2GB. As with the Corda node, the use case determines the sizing needs for the database. When testing in your development environment, pay attention to the size of objects created in the `NODE_CHECKPOINT_BLOBS` and `NODE_TRANSACTIONS` tables, to inform the sizing requirements of your use case. Some guidance on this is provided in the [Performance benchmarking results]({{< relref "../../performance-testing/performance-results.md#sizing" >}}) documentation. In a production implementation, a separate high availability database instance should be deployed for each Corda node. However, it’s possible to create a separate schema for each node within a single database instance subject to performance, availability, and security constraints (the schema to be used is defined in the node configuration file).
 
-Corda Enterprise uses Liquibase to generate the requisite database schemas for both the Corda node the CorDapps the node has installed. The `run-migration-scripts` sub-command controls whether these database schemas are generated automatically. In many production scenarios, you may require more control over the creation and running of those scripts. In these cases, simply do not run the `run-migration-scripts` sub-command. The [Corda Enterprise Database Management Tool]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/cordapps/database-management.md#creating-script-for-initial-table-creation-using-corda-database-management-tool" >}}) can assist a database administrator by creating scripts for initial table creation.
-
-
-## Corda Node, Bridge and Float
-
-Prerequisite and sizing information for the Corda Node, Bridge and Float components.
+Corda Enterprise uses Liquibase to generate the requisite database schemas for both the Corda node the CorDapps the node has installed. The `run-migration-scripts` sub-command controls whether these database schemas are generated automatically. In many production scenarios, you may require more control over the creation and running of those scripts. In these cases, simply do not run the `run-migration-scripts` sub-command. The [Corda Enterprise Database Management Tool]({{< relref "../../cordapps/database-management.md#creating-script-for-initial-table-creation-using-corda-database-management-tool" >}}) can assist a database administrator by creating scripts for initial table creation.
 
 
-### VM Sizing Guidelines
+## Corda node, Bridge and Float
+
+Prerequisite and sizing information for the Corda node, Bridge and Float components.
+
+
+### VM sizing guidelines
 
 {{< note >}}
-You should allocate a minimum Java heap memory size of 4 GB to a Corda Node running in a production environment.
+You should allocate a minimum Java heap memory size of 4 GB to a Corda node running in a production environment.
 
 {{< /note >}}
 Minimum specification for a testing environment with components on separate VMs:
 
 
-* Corda Node 2 CPU Core, 4 GB Memory
-* Corda Bridge 2 CPU Core, 2 GB Memory
-* Corda Float 2 CPU Core, 2 GB Memory
+* Corda node: 2 CPU Core, 4 GB Memory
+* Corda Bridge: 2 CPU Core, 2 GB Memory
+* Corda Float: 2 CPU Core, 2 GB Memory
 
 Recommended production specification for components on separate VMs:
 
 
-* Corda Node 4 CPU Core, 8 GB Memory
-* Corda Bridge 2 CPU Core, 2 GB Memory
-* Corda Float 2 CPU Core, 2 GB Memory
+* Corda node: 4 CPU Core, 8 GB Memory
+* Corda Bridge: 2 CPU Core, 2 GB Memory
+* Corda Float: 2 CPU Core, 2 GB Memory
 
 Recommended production specification for multiple nodes
 
 
-* Corda Node(s) 8 CPU Core, 16 GB Memory, assuming two nodes, scale linearly for more
-* Corda Bridge(s) 4 CPU Core, 4 GB Memory
-* Corda Float(s) 2 CPU Core, 4 GB Memory
+* Corda node(s): 8 CPU Core, 16 GB Memory, assuming two nodes, scale linearly for more
+* Corda Bridge(s): 4 CPU Core, 4 GB Memory
+* Corda Float(s): 2 CPU Core, 4 GB Memory
 
 
-### Additional Details
+### Additional details
 
 JDBC Connectivity from the Corda node to the Corda vault is required to create Corda system tables on startup as well as storing application tables/logic. Corda stores information about several aspects of the Corda node and network in tables in the vault.
 
@@ -147,6 +147,6 @@ During deployment the following system (not user) tables will be created in the 
 * VAULT_TRANSACTION_NOTES
 * V_PKEY_HASH_EX_ID_MAP
 
-Detailed information on the Corda Vault can be found [here]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/operating/node-database.md" >}}).
+Detailed information on the Corda Vault can be found [here]({{< relref "../operating/node-database.md" >}}).
 
 JDBC Connectivity to the Corda Vault is handled in the Corda Enterprise `node.conf` file in `/opt/corda`. Here are examples for each supported RDBMS.

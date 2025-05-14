@@ -9,7 +9,7 @@ tags:
 - install
 - node operator
 
-title: The Ledger Sync CorDapp
+title: The LedgerSync CorDapp
 weight: 400
 ---
 
@@ -28,7 +28,7 @@ All reconciliations are added to a bounded execution pool, which is configurable
 
 This means the node that requested the reconciliation will be notified if the responding node has transactions that the requesting node does not. The responding node will not be notified if the requesting node has transactions that the responding node does not.
 
-{{< figure alt="Ledger Sync Flow" width=80% zoom="../../../resources/collaborative-recovery/ledger-sync-flow.png" >}}
+{{< figure alt="LedgerSync Flow" width=80% zoom="../../../resources/collaborative-recovery/ledger-sync-flow.png" >}}
 
 ### Integration with Archiving
 

@@ -9,7 +9,7 @@ menu:
 tags:
 - config
 - kubernetes
-title: CENM Deployment with Docker, Kubernetes, and Helm charts
+title: CENM deployment with Docker, Kubernetes, and Helm charts
 weight: 20
 ---
 
@@ -233,7 +233,7 @@ You can now use `cemn` commands from within the running Docker container:
   ./cenm context login -s -u <USER> -p <PASSWORD> http://<FARM-SERVICE-IP>:8080
   ```
 
-The [FARM Service]({{< relref "gateway-service.md" >}}) is a gateway between the [Auth Service]({{< relref "auth-service.md" >}}) and front end services in CENM. It allows you to perform all network operations on the [Identity Manager Service]({{< relref "identity-manager.md" >}}), the [Network Map Service]({{< relref "network-map.md" >}}), and the [Signing Service]({{< relref "signing-service.md" >}}).
+The [FARM Service]({{< relref "gateway-service.md" >}}) is a gateway between the [Auth Service]({{< relref "auth-service.md" >}}) and front end services in CENM. It allows you to perform all network operations on the [Identity Manager service]({{< relref "identity-manager.md" >}}), the [Network Map service]({{< relref "network-map.md" >}}), and the [Signing Service]({{< relref "signing-service.md" >}}).
 The IP address is dynamically allocated for each deployment and can be found with `kubectl get svc`.
 Use the following command to ensure that you are pointing at the correct namespace:
 
@@ -363,9 +363,9 @@ Use the CENM [Command-Line (CLI) tool]({{< relref "cenm-cli-tool.md" >}}) to run
 See the CENM documentation for more information about the list of available [network parameters]({{< relref "./config-network-parameters.md" >}})
 and instructions on [updating network parameters]({{< relref "./updating-network-parameters.md" >}}).
 
-### Run Flag Day
+### Run flag day
 
-Use the following CENM Command-Line Interface (CLI) tool command to run a Flag Day:
+Use the following CENM Command-Line Interface (CLI) tool command to run a flag day:
 
 {{< note >}} For the changes to be advertised to the nodes, the new network map must be signed by the Signing Service.
 This operation is scheduled to take place at regular intervals (by default, once every 10 seconds), as defined in the network map configuration.
@@ -459,8 +459,8 @@ common options. Each CENM service has its own dedicated page with more detailed 
 
 * [Auth Service]({{< relref "deployment-kubernetes-auth.md" >}})
 * [FARM Service]({{< relref "deployment-kubernetes-farm.md" >}})
-* [Identity Manager Service]({{< relref "deployment-kubernetes-idman.md" >}})
-* [Network Map Service]({{< relref "deployment-kubernetes-nmap.md" >}})
+* [Identity Manager service]({{< relref "deployment-kubernetes-idman.md" >}})
+* [Network Map service]({{< relref "deployment-kubernetes-nmap.md" >}})
 * [Corda Notary]({{< relref "deployment-kubernetes-notary.md" >}})
 * [Signing Service]({{< relref "deployment-kubernetes-signer.md" >}})
 * [Zone Service]({{< relref "deployment-kubernetes-zone.md" >}})

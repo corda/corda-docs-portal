@@ -14,7 +14,7 @@ weight: 4
 # CorDapp constraints migration
 
 {{< note >}}
-Before reading this page, you should be familiar with the key concepts of [Contract Constraints]({{< relref "api-contract-constraints.md" >}}).
+Before reading this page, you should be familiar with the key concepts of [Contract constraints]({{< relref "api-contract-constraints.md" >}}).
 {{< /note >}}
 
 Corda 4 introduces and recommends building signed CorDapps that issue states with signature constraints. When building transactions in Corda 4, existing on-ledger states that were issued before Corda 4 are only automatically transitioned to the new Signature Constraint if they were originally using the CZ Whitelisted Constraint. Here, we explain how to modify existing CorDapp flows to explicitly consume and evolve pre Corda 4 states.
@@ -47,7 +47,7 @@ The general recommendation for Corda 4 is to use **implicit** upgrades for the r
 {{< warning >}}
 The steps outlined in this page assume you are using the same CorDapp Contract (for example, same state definition, commands and verification code) and
 wish to use that CorDapp to leverage the upgradeability benefits of Corda 4 signature constraints. If you are looking to upgrade code within an existing
-Contract CorDapp please read [Contract and state versioning]({{< relref "upgrading-cordapps.md#contract-and-state-versioning" >}}) and [CorDapp Upgradeability Guarantees]({{< relref "cordapp-upgradeability.md" >}}) to understand your options.
+Contract CorDapp please read [Contract and state versioning]({{< relref "upgrading-cordapps.md#contract-and-state-versioning" >}}) and [CorDapp upgradeability guarantees]({{< relref "cordapp-upgradeability.md" >}}) to understand your options.
 {{< /warning >}}
 
 
@@ -68,7 +68,7 @@ These instructions only apply to CorDapp Contract JARs (unless otherwise stated)
 Corda 4.9 requires some additional steps to consume and evolve pre-existing on-ledger **hash** constrained states:
 
 
-* All Corda Nodes in the same CZ or business network that may encounter a transaction chain with a hash constrained state must be started using
+* All Corda nodes in the same CZ or business network that may encounter a transaction chain with a hash constrained state must be started using
 relaxed hash constraint checking mode as described in [Hash constrained states in private networks]({{< relref "api-contract-constraints.md#types-of-contract-constraints" >}}).
 * CorDapp flows that build transactions using pre-existing *hash-constrained* states must explicitly set output states to use *signature constraints*
 and specify the related public key(s) used in signing the associated CorDapp Contract JAR:
