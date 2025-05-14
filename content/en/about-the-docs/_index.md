@@ -8,7 +8,6 @@ The following topics are explained on this page:
 
 * [Reading the Docs]({{< relref "#reading-the-docs">}})
 * [Documentation End of Life Strategy]({{< relref "#documentation-end-of-life-strategy">}})
-* [Documenting Corda 5]({{< relref "#documenting-corda-5">}})
 * [Reporting an Error in the Docs]({{< relref "#reporting-an-error-in-the-docs">}})
 
 ## Reading the Docs
@@ -24,10 +23,10 @@ The Corda documentation is written from the perspectives of a collection of peop
 
 As an Architect considering or planning a project with Corda, you:
 
-* are curious about the benefits of adopting {{< tooltip >}}DLT{{< /tooltip >}} technology, but also concerned about any risks.
+* are curious about the benefits of adopting DLT technology, but also concerned about any risks.
 * want to know why DLT is a better fit for your business problem than a centralized solution.
 * are for looking for answers and guidance to the following questions:
-  * Who has access to my {{< tooltip >}}vault{{< /tooltip >}} data and how is privacy preserved in Corda?
+  * Who has access to my vault data and how is privacy preserved in Corda?
   * How do I manage the compromising of cryptographic key material?
   * How do I maintain compliance with GDPR (and other data protection regulations) if personal data is stored in Corda?
   * How do I scale Corda?
@@ -36,7 +35,7 @@ As an Architect considering or planning a project with Corda, you:
 
 ### CorDapp Developer
 
-A {{< tooltip >}}CorDapp{{< /tooltip >}} Developer uses Corda to:
+A CorDapp Developer uses Corda to:
 
 * explore DLT and create their own chain of shared facts to experiment with.
 * design an enterprise production-grade distributed application.
@@ -91,29 +90,9 @@ All dates refer to the end of the month indicated.
 The highest released version of Corda 4 Enterprise Edition at any point in time will be supported, including maintenance, until at least 31st December 2029 or until superseded by a higher version number of Corda 4 Enterprise Edition, at which point the dates in the table take precedence.
 {{< /note >}}
 
-### Corda 5
-
-{{< snippet "corda-5.2/end-of-life-corda5.md" >}}
-
-### Corda 4
+### Corda
 
 {{< snippet "corda-4/end-of-life-corda4.md" >}}
-
-## Documenting Corda 5
-
-The Corda 5 documentation is structured differently to previous versions of Corda. Previously, Corda Enterprise and Corda Community content was published in separate documentation sets.
-From Corda 5.0 onwards, there is one documentation set, but the features that relate only to Corda Enterprise are marked to avoid confusion.
-
-{{<
-  figure
-	 src="docs-enterprise-icon-use-case.png"
-   width=55%
-	 figcaption="Documentation heading with Enterprise icon"
-	 alt="Enterprise icon"
->}}
-
-* **A**: The heading without the 'Enterprise only' icon is the most common and it is used where the content applies to all Corda users.
-* **B**: The ‘Enterprise only' icon is used mostly in headings, indicating that the content under that heading relates to a Corda Enterprise feature. On occasions, the icon may be used inline to identify sentences, paragraphs, or tables that apply to a Corda Enterprise feature.
 
 ## Reporting an Error in the Docs
 
