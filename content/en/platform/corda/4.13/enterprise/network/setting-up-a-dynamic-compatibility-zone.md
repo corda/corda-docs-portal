@@ -78,7 +78,7 @@ hardware security module (as the main Corda network and test networks do).
 ### Using an existing network map implementation
 
 You can use an existing network map implementation such as the
-[Cordite Network Map Service](https://gitlab.com/cordite/network-map-service) to create a dynamic compatibility zone.
+[Cordite Network Map service](https://gitlab.com/cordite/network-map-service) to create a dynamic compatibility zone.
 
 
 ### Creating your own network map implementation
@@ -147,7 +147,7 @@ resulting file is just a few lines of code. A full example can be found in `Netw
 tree, but a flavour of it looks like this:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 NetworkParameters networkParameters = new NetworkParameters(
           4,                        // minPlatformVersion
@@ -164,7 +164,7 @@ Files.copy(bytes.open(), Paths.get("params-file"));
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val networkParameters = NetworkParameters(
    minimumPlatformVersion = 4,

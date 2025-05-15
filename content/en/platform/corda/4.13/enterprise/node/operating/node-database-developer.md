@@ -390,7 +390,7 @@ See the [Corda node upgrade notes]({{< relref "../../node-upgrade-notes.md" >}})
 
 ## Database schema setup when deploying a new CorDapp
 
-The procedure for Cordapp deployment is the same as for production systems
+The procedure for CorDapp deployment is the same as for production systems
 apart from a simplified database update step.
 A CorDapp, which stores data in a custom table, should contain an embedded Liquibase database migration script.
 [Liquibase](http://www.liquibase.org) is used by Corda for the database schema management.

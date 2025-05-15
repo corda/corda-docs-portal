@@ -129,45 +129,29 @@ also distributes the node info files to the node directories.
 The current set of network parameters:
 
 
-* **minimumPlatformVersion**:
+- **minimumPlatformVersion**:
 The minimum platform version that the nodes must be running. Any node which is below this will
 not start.
-
-
-* **notaries**:
+- **notaries**:
 List of identity and validation type (either validating or non-validating) of the notaries which are permitted
 in the compatibility zone.
-
-
-* **maxMessageSize**:
+- **maxMessageSize**:
 Maximum allowed size in bytes of an individual message sent over the wire.
-
-
-* **maxTransactionSize**:
+- **maxTransactionSize**:
 Maximum allowed size in bytes of a transaction. This is the size of the transaction object and its attachments.
-
-
-* **modifiedTime**:
+- **modifiedTime**:
 The time when the network parameters were last modified by the compatibility zone operator.
-
-
-* **epoch**:
+- **epoch**:
 Version number of the network parameters. Starting from 1, this will always increment whenever any of the
 parameters change.
-
-
-* **whitelistedContractImplementations**:
+- **whitelistedContractImplementations**:
 List of whitelisted versions of contract code.
 For each contract class there is a list of SHA-256 hashes of the approved CorDapp jar versions containing that contract.
-Read more about *Zone constraints* here [API: Contract Constraints]({{< relref "api-contract-constraints.md" >}})
-
-
-* **eventHorizon**:
+For more information on zone constraints, see [API: Contract constraints]({{< relref "api-contract-constraints.md" >}}).
+- **eventHorizon**:
 Time after which nodes are considered to be unresponsive and removed from network map. Nodes republish their
 `NodeInfo` on a regular interval. Network map treats that as a heartbeat from the node.
-
-
-* **packageOwnership**:
+- **packageOwnership**:
 List of the network-wide java packages that were successfully claimed by their owners.
 Any CorDapp JAR that offers contracts and states in any of these packages must be signed by the owner.
 This ensures that when a node encounters an owned contract it can uniquely identify it and knows that all other nodes can do the same.
@@ -236,7 +220,7 @@ data class ParametersUpdateInfo(
 [CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.13/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
 
 
-### Automatic Acceptance
+### Automatic acceptance
 
 If the only changes between the current and new parameters are for auto-acceptable parameters then, unless configured otherwise, the new
 parameters will be accepted without user input. The following parameters with the `@AutoAcceptable` annotation are auto-acceptable:
@@ -306,7 +290,7 @@ networkParameterAcceptanceSettings {
 ```
 
 
-### Manual Acceptance
+### Manual acceptance
 
 If the auto-acceptance behaviour is turned off via the configuration or the network parameters change involves parameters that are
 not auto-acceptable then manual approval is required.

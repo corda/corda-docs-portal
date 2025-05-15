@@ -35,7 +35,7 @@ To define a Service class:
 Below is an empty implementation of a Service class:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @CordaService
 class MyCordaService(private val serviceHub: AppServiceHub) : SingletonSerializeAsToken() {
@@ -65,7 +65,7 @@ class MyCordaService(private val serviceHub: AppServiceHub) : SingletonSerialize
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @CordaService
 public class MyCordaService extends SingletonSerializeAsToken {
@@ -128,13 +128,13 @@ The node issues this event asynchronously to each service, meaning that the node
 A Service class can be retrieved by calling `ServiceHub.cordaService` which returns the single instance of the class passed into the function:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val service: MyCordaService = serviceHub.cordaService(MyCordaService::class.java)
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 MyCordaService service = serviceHub.cordaService(MyCordaService.class);
 ```

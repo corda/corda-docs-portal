@@ -75,7 +75,7 @@ Below is an example configuration file for the Database Management Tool:
 {{< tabs name="tabs-1" >}}
 dbm.conf
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 notary {
     validating = false

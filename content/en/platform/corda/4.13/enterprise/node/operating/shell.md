@@ -547,7 +547,7 @@ No matching constructor found:
 The above command for `CashIssueFlow` invokes the following `CashIssueFlow` constructor:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 class CashIssueFlow(val amount: Amount<Currency>,
                     val issuerBankPartyRef: OpaqueBytes,

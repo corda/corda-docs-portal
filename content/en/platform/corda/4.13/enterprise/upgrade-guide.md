@@ -164,7 +164,7 @@ To validate a Corda 4.11 node:
 
 ### Upgrade 4.11 CorDapps
 
-You must update all custom CorDapps being upgraded that are running on Corda 4.11 nodes so they use Java 17 and Kotlin 1.9.20. For steps on updating Cordapps, see [Upgrading a CorDapp to Corda Enterprise Edition 4.12]({{< relref "app-upgrade-notes-enterprise.md" >}}).
+You must update all custom CorDapps being upgraded that are running on Corda 4.11 nodes so they use Java 17 and Kotlin 1.9.20. For steps on updating CorDapps, see [Upgrading a CorDapp to Corda Enterprise Edition 4.12]({{< relref "app-upgrade-notes-enterprise.md" >}}).
 
 #### Flow versioning
 You must annotate any flow that initiates other flows with the `@InitiatingFlow` annotation, which is defined as:

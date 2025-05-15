@@ -148,7 +148,7 @@ Additional options:
 ## Database manager shell extensions
 
 The `install-shell-extensions` subcommand can be used to install the `database-manager` alias and auto completion for
-bash and zsh. See [Shell extensions for CLI Applications]({{< relref "node/operating/cli-application-shell-extensions.md" >}}) for more info.
+bash and zsh. See [Shell extensions for CLI applications]({{< relref "node/operating/cli-application-shell-extensions.md" >}}) for more info.
 
 {{< note >}}
 When running the database management tool, it is preferable to use absolute paths when specifying the “base-directory”.

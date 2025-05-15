@@ -108,7 +108,7 @@ The `CordaCliWrapper` base class from the `cliutils` module should be used as a 
 In order to use it, create a class containing your command line options using the syntax provided at (see the [picocli](https://picocli.info/) website for more information)
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 import net.corda.cliutils.ExitCodes
 import net.corda.cliutils.CordaCliWrapper
@@ -147,7 +147,7 @@ class UsefulUtility : CordaCliWrapper(
 Then in your `main()` method:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 import net.corda.cliutils.start
 
@@ -188,7 +188,7 @@ Command line parameters that are no longer necessary should be deprecated rather
 of the `hidden` option, for example:
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 import net.corda.cliutils.CordaCliWrapper
 
@@ -228,7 +228,7 @@ When adding a new command line tool, a backwards compatibility test should be cr
 and then creating a test class that extends `CliBackwardsCompatibleTest` for the class, like so:
 
 {{< tabs name="tabs-4" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 import net.corda.testing.CliBackwardsCompatibleTest
 

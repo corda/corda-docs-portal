@@ -72,7 +72,7 @@ The set of REST end-points for the network map service are as follows.
 {{< /table >}}
 
 {{< warning >}}
-**The Network Map Service cannot be redirected. Only HTTP OK (response code 200) is supported - any other kind of response codes, including HTTP redirects (for example, response code 301), are NOT supported.**
+**The Network Map service cannot be redirected. Only HTTP OK (response code 200) is supported - any other kind of response codes, including HTTP redirects (for example, response code 301), are NOT supported.**
 {{< /warning >}}
 
 

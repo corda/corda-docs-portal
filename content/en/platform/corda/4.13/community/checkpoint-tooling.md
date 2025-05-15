@@ -12,17 +12,17 @@ menu:
 tags:
 - checkpoint
 - tooling
-title: Checkpoint Tooling
+title: Checkpoint tooling
 ---
 
 
-# Checkpoint Tooling
+# Checkpoint tooling
 
 This page contains information about checkpoint tooling. These tools can be used to debug the causes of stuck flows.
 
 Before reading this page, please ensure you understand the mechanics and principles of Corda Flows by reading [Flows]({{< relref "key-concepts-flows.md" >}}) and [Writing flows]({{< relref "api-flows.md" >}}).
-It is also recommended that you understand the purpose and behaviour of the [Flow Hospital]({{< relref "node-flow-hospital.md" >}}) in relation to *checkpoints* and flow recovery.
-An advanced explanation of checkpoints within the flow state machine can be found here: [Flow framework internals]({{< relref "contributing-flow-internals.md#checkpoints" >}}).
+It is also recommended that you understand the purpose and behaviour of the [Flow hospital]({{< relref "node-flow-hospital.md" >}}) in relation to *checkpoints* and flow recovery.
+An advanced explanation of checkpoints within the flow state machine can be found in [Flow framework internals]({{< relref "contributing-flow-internals.md#checkpoints" >}}).
 
 
 As a recap, a flow *checkpoint* is a serialised snapshot of the flow’s stack frames and any objects reachable from the stack. Checkpoints are saved to the database automatically when a flow suspends or resumes, which typically happens when sending or receiving messages. A flow may be replayed
@@ -231,7 +231,7 @@ Arguments may be passed into the agent in any order and should **not** contain s
 
 {{< /note >}}
 
-### Checkpoint Dump support
+### Checkpoint dump support
 
 When used in combination with the `checkpoints dump` shell command (see [Checkpoint Dumper](#checkpoint-dumper)),
 the checkpoint agent will automatically output additional diagnostic information for all checkpoints dumped by the aforementioned tool.
@@ -377,240 +377,229 @@ Waiting for completion or Ctrl-C ...
 Note that “In progress” indicates the flows above have not completed (and will have been checkpointed).
 
 
-* Check the main corda node log file for *hospitalisation* and/or *flow retry* messages: `<NODE_BASE>\logs\node-<hostname>.log`
+1. Check the main Corda node log file for *hospitalisation* and/or *flow retry* messages: `<NODE_BASE>\logs\node-<hostname>.log`
+   ```none
+   [INFO ] 2019-07-11T17:56:43,227Z [pool-12-thread-1] statemachine.FlowMonitor. - Flow with id 90613d6f-be78-41bd-98e1-33a756c28808 has been  waiting for 97904 seconds to receive messages from parties [O=BigCorporation, L=New York, C=US].
+   ```
 
-```none
-[INFO ] 2019-07-11T17:56:43,227Z [pool-12-thread-1] statemachine.FlowMonitor. - Flow with id 90613d6f-be78-41bd-98e1-33a756c28808 has been waiting for 97904 seconds to receive messages from parties [O=BigCorporation, L=New York, C=US].
-```
+   {{< note >}}Always search for the flow ID; in this case **90613d6f-be78-41bd-98e1-33a756c28808**{{< /note >}}
 
-{{< note >}}
-Always search for the flow id, in this case **90613d6f-be78-41bd-98e1-33a756c28808**
+2. From the CRaSH shell, run the `checkpoints dump` command to trigger diagnostics information.
 
-{{< /note >}}
+   ```none
+   Welcome to the Corda interactive shell.
+   Useful commands include 'help' to see what is available, and 'bye' to shut down the node.
 
-* From the CRaSH shell run the `checkpoints dump` command to trigger diagnostics information.
+   Thu Jul 11 18:56:48 BST 2019>>> checkpoints dump
+   ```
 
-```none
-Welcome to the Corda interactive shell.
-Useful commands include 'help' to see what is available, and 'bye' to shut down the node.
+   You will now see an addition line in the main Corda node log file as follows:
 
-Thu Jul 11 18:56:48 BST 2019>>> checkpoints dump
-```
+   ```none
+   [INFO ] 2019-07-11T18:02:47,610Z [rpc-server-handler-pool-0] rpc.CheckpointDumper. - Checkpoint agent processing checkpointId: [90613d6f-be78-41bd-98e1-33a756c28808]
+   ```
 
-You will now see an addition line in the main corda node log file as follows:
+   Two additional files will appear in the nodes logs directory:
 
-```none
-[INFO ] 2019-07-11T18:02:47,610Z [rpc-server-handler-pool-0] rpc.CheckpointDumper. - Checkpoint agent processing checkpointId: [90613d6f-be78-41bd-98e1-33a756c28808]
-```
+   - `<NODE_BASE>\logs\checkpoints_dump-20190711-180247.zip`
+   - `<NODE_BASE>\logs\checkpoints_agent-20190711-185424.log`
+3. Unzip the `<NODE_BASE>\logs\checkpoints_dump-<date>.zip` file, and you should see a file with a matching flow ID  as above:
+*CashIssueAndPaymentFlow-90613d6f-be78-41bd-98e1-33a756c28808.json*. Its contents will contain the following diagnostics information:
 
-And two additional files will appear in the nodes logs directory:
-
-
-* `<NODE_BASE>\logs\checkpoints_dump-20190711-180247.zip`
-* `<NODE_BASE>\logs\checkpoints_agent-20190711-185424.log`
-
-
-* Unzip the `<NODE_BASE>\logs\checkpoints_dump-<date>.zip` file, and you should see a file with a matching flow id as above:
-**CashIssueAndPaymentFlow-90613d6f-be78-41bd-98e1-33a756c28808.json** Its contents will contain the following diagnostics information:
-
-```json
-{
-  "flowId" : "90613d6f-be78-41bd-98e1-33a756c28808",
-  "topLevelFlowClass" : "net.corda.finance.flows.CashIssueAndPaymentFlow",
-  "topLevelFlowLogic" : {
-    "amount" : "10.00 USD",
-    "issueRef" : "MTIzNA==",
-    "recipient" : "O=BigCorporation, L=New York, C=US",
-    "anonymous" : true,
-    "notary" : "O=Notary, L=London, C=GB"
-  },
-  "flowCallStackSummary" : [
-    {
-      "flowClass" : "net.corda.finance.flows.CashIssueAndPaymentFlow",
-      "progressStep" : "Paying recipient"
-    },
-    {
-      "flowClass" : "net.corda.finance.flows.CashPaymentFlow",
-      "progressStep" : "Generating anonymous identities"
-    },
-    {
-      "flowClass" : "net.corda.confidential.SwapIdentitiesFlow",
-      "progressStep" : "Awaiting counterparty's anonymous identity"
-    }
-  ],
-  "suspendedOn" : {
-    "sendAndReceive" : [
-      {
-        "session" : {
-          "peer" : "O=BigCorporation, L=New York, C=US",
-          "ourSessionId" : -5024519991106064492
-        },
-        "sentPayloadType" : "net.corda.confidential.SwapIdentitiesFlow$IdentityWithSignature",
-        "sentPayload" : {
-          "identity" : {
-            "class" : "net.corda.core.identity.PartyAndCertificate",
-            "deserialized" : "O=BankOfCorda, L=London, C=GB"
-          },
-          "signature" : "M5DN180OeE4M8jJ3mFohjgeqNYOWXzR6a2PIclJaWyit2uLnmJcZatySoSC12b6e4rQYKIICNFUXRzJnoQTQCg=="
-        }
-      }
-    ],
-    "suspendedTimestamp" : "2019-08-12T15:38:39Z",
-    "secondsSpentWaiting" : 7
-  },
-  "flowCallStack" : [
-    {
-      "flowClass" : "net.corda.finance.flows.CashIssueAndPaymentFlow",
-      "progressStep" : "Paying recipient",
-      "flowLogic" : {
-        "amount" : "10.00 USD",
-        "issueRef" : "MTIzNA==",
-        "recipient" : "O=BigCorporation, L=New York, C=US",
-        "anonymous" : true,
-        "notary" : "O=Notary, L=London, C=GB"
-      }
-    },
-    {
-      "flowClass" : "net.corda.finance.flows.CashPaymentFlow",
-      "progressStep" : "Generating anonymous identities",
-      "flowLogic" : {
-        "amount" : "10.00 USD",
-        "recipient" : "O=BigCorporation, L=New York, C=US",
-        "anonymous" : true,
-        "issuerConstraint" : [ ],
-        "notary" : "O=Notary, L=London, C=GB"
-      }
-    },
-    {
-      "flowClass" : "net.corda.confidential.SwapIdentitiesFlow",
-      "progressStep" : "Awaiting counterparty's anonymous identity",
-      "flowLogic" : {
-        "otherSideSession" : {
-          "peer" : "O=BigCorporation, L=New York, C=US",
-          "ourSessionId" : -5024519991106064492
-        },
-        "otherParty" : null
-      }
-    }
-  ],
-  "origin" : {
-    "rpc" : "bankUser"
-  },
-  "ourIdentity" : "O=BankOfCorda, L=London, C=GB",
-  "activeSessions" : [ ],
-  "errored" : null
-}
-```
-
-
-* View the contents of the node agent diagnostics file:
-
-```none
-[INFO ] 2019-07-11T18:02:47,615Z [rpc-server-handler-pool-0] CheckpointAgent. - [READ] class net.corda.node.services.statemachine.Checkpoint
-Checkpoint id: 90613d6f-be78-41bd-98e1-33a756c28808
-000:net.corda.node.services.statemachine.Checkpoint 29,200
-001:  net.corda.node.services.statemachine.ErrorState$Clean 0
-001:  net.corda.node.services.statemachine.FlowState$Started 26,061
-002:    net.corda.core.internal.FlowIORequest$SendAndReceive 4,666
-003:      java.util.Collections$SingletonMap 4,536
-004:        net.corda.node.services.statemachine.FlowSessionImpl 500
-005:          net.corda.core.identity.Party 360
-005:          net.corda.node.services.statemachine.SessionId 28
-004:        net.corda.core.serialization.SerializedBytes 3,979
-002:    net.corda.core.serialization.SerializedBytes 21,222
-001:  net.corda.core.context.InvocationContext 905
-002:    net.corda.core.context.Actor 259
-002:    net.corda.core.context.InvocationOrigin$RPC 13
-002:    net.corda.core.context.Trace 398
-001:  net.corda.core.identity.Party 156
-002:    net.i2p.crypto.eddsa.EdDSAPublicKey 45
-002:    net.corda.core.identity.CordaX500Name 92
-001:  java.util.LinkedHashMap 327
-002:    net.corda.node.services.statemachine.SessionState$Initiating 214
-001:  java.util.ArrayList 1,214
-002:    net.corda.node.services.statemachine.SubFlow$Inlined 525
-003:      java.lang.Class 47
-003:      net.corda.node.services.statemachine.SubFlowVersion$CorDappFlow 328
-004:        net.corda.core.crypto.SecureHash$SHA256 118
-005:          [B 33
-002:    net.corda.node.services.statemachine.SubFlow$Initiating 322
-003:      java.lang.Class 39
-003:      net.corda.core.flows.FlowInfo 124
-003:      net.corda.node.services.statemachine.SubFlowVersion$CorDappFlow 11
-002:    net.corda.node.services.statemachine.SubFlow$Initiating 250
-003:      java.lang.Class 41
-003:      net.corda.core.flows.FlowInfo 99
-004:        java.lang.String 91
-005:          [C 85
-003:      net.corda.node.services.statemachine.SubFlowVersion$CoreFlow 28
-```
-
-
-* Take relevant recovery action, which may include:
-
-
-* killing and retrying the flow:
-
-```none
-Welcome to the Corda interactive shell.
-Useful commands include 'help' to see what is available, and 'bye' to shut down the node.
-
-Thu Jul 11 20:24:11 BST 2019>>> flow kill 90613d6f-be78-41bd-98e1-33a756c28808
-[ERROR] 20:24:18+0100 [Node thread-1] corda.flow. - Flow interrupted while waiting for events, aborting immediately {actor_id=bankUser, actor_owning_identity=O=BankOfCorda, L=London, C=GB, actor_store_id=NODE_CONFIG, fiber-id=10000003, flow-id=15f16740-4ea2-4e48-bcb3-fd9051d5ba59, invocation_id=45622dc7-c4cf-4d11-85ad-1c45e0943455, invocation_timestamp=2019-07-11T18:19:40.519Z, origin=bankUser, session_id=02010e15-8e7a-46f7-976b-5e0626451c54, session_timestamp=2019-07-11T18:19:32.285Z, thread-id=176}
-Killed flow [90613d6f-be78-41bd-98e1-33a756c28808]
-
-Thu Jul 11 20:26:45 BST 2019>>> flow start CashIssueAndPaymentFlow amount: $1000, issueRef: 0x01, recipient: "Bank B", anonymous: false, notary: "Notary Service"
-```
-
-
-* attempting to perform a graceful shutdown (draining all outstanding flows and preventing others from starting) and re-start of the node:
-
-```none
-Welcome to the Corda interactive shell.
-Useful commands include 'help' to see what is available, and 'bye' to shut down the node.
-
-Thu Jul 11 19:52:56 BST 2019>>> gracefulShutdown
-```
-
-Upon re-start ensure you disable flow draining mode to allow the node to continue to receive requests:
-
-```none
-Welcome to the Corda interactive shell.
-Useful commands include 'help' to see what is available, and 'bye' to shut down the node.
-
-Thu Jul 11 19:52:56 BST 2019>>> run setFlowsDrainingModeEnabled enabled: false
-```
-
-See also [Flow draining mode]({{< relref "key-concepts-node.md#draining-mode" >}}).
-
-
-* contacting other participants in the network where their nodes are not responding to an initiated flow.
-The checkpoint dump gives good diagnostics on the reason a flow may be suspended (including the destination peer participant node that is not responding):
-
-```json
-{
-  "suspendedOn" : {
-     "sendAndReceive" : [
+   ```json
+   {
+     "flowId" : "90613d6f-be78-41bd-98e1-33a756c28808",
+     "topLevelFlowClass" : "net.corda.finance.flows.CashIssueAndPaymentFlow",
+     "topLevelFlowLogic" : {
+       "amount" : "10.00 USD",
+       "issueRef" : "MTIzNA==",
+       "recipient" : "O=BigCorporation, L=New York, C=US",
+       "anonymous" : true,
+       "notary" : "O=Notary, L=London, C=GB"
+     },
+     "flowCallStackSummary" : [
        {
-         "session" : {
-           "peer" : "O=BigCorporation, L=New York, C=US",
-           "ourSessionId" : -5024519991106064492
-         },
-         "sentPayloadType" : "net.corda.confidential.SwapIdentitiesFlow$IdentityWithSignature",
-         "sentPayload" : {
-           "identity" : {
-             "class" : "net.corda.core.identity.PartyAndCertificate",
-             "deserialized" : "O=BankOfCorda, L=London, C=GB"
+         "flowClass" : "net.corda.finance.flows.CashIssueAndPaymentFlow",
+         "progressStep" : "Paying recipient"
+       },
+       {
+         "flowClass" : "net.corda.finance.flows.CashPaymentFlow",
+         "progressStep" : "Generating anonymous identities"
+       },
+       {
+         "flowClass" : "net.corda.confidential.SwapIdentitiesFlow",
+         "progressStep" : "Awaiting counterparty's anonymous identity"
+       }
+     ],
+     "suspendedOn" : {
+       "sendAndReceive" : [
+         {
+           "session" : {
+             "peer" : "O=BigCorporation, L=New York, C=US",
+             "ourSessionId" : -5024519991106064492
            },
-           "signature" : "M5DN180OeE4M8jJ3mFohjgeqNYOWXzR6a2PIclJaWyit2uLnmJcZatySoSC12b6e4rQYKIICNFUXRzJnoQTQCg=="
+           "sentPayloadType" : "net.corda.confidential.SwapIdentitiesFlow$IdentityWithSignature",
+           "sentPayload" : {
+             "identity" : {
+               "class" : "net.corda.core.identity.PartyAndCertificate",
+               "deserialized" : "O=BankOfCorda, L=London, C=GB"
+             },
+             "signature" : "M5DN180OeE4M8jJ3mFohjgeqNYOWXzR6a2PIclJaWyit2uLnmJcZatySoSC12b6e4rQYKIICNFUXRzJnoQTQCg=="
+           }
+         }
+       ],
+       "suspendedTimestamp" : "2019-08-12T15:38:39Z",
+       "secondsSpentWaiting" : 7
+     },
+     "flowCallStack" : [
+       {
+         "flowClass" : "net.corda.finance.flows.CashIssueAndPaymentFlow",
+         "progressStep" : "Paying recipient",
+         "flowLogic" : {
+           "amount" : "10.00 USD",
+           "issueRef" : "MTIzNA==",
+           "recipient" : "O=BigCorporation, L=New York, C=US",
+           "anonymous" : true,
+           "notary" : "O=Notary, L=London, C=GB"
+         }
+       },
+       {
+         "flowClass" : "net.corda.finance.flows.CashPaymentFlow",
+         "progressStep" : "Generating anonymous identities",
+         "flowLogic" : {
+           "amount" : "10.00 USD",
+           "recipient" : "O=BigCorporation, L=New York, C=US",
+           "anonymous" : true,
+           "issuerConstraint" : [ ],
+           "notary" : "O=Notary, L=London, C=GB"
+         }
+       },
+       {
+         "flowClass" : "net.corda.confidential.SwapIdentitiesFlow",
+         "progressStep" : "Awaiting counterparty's anonymous identity",
+         "flowLogic" : {
+           "otherSideSession" : {
+             "peer" : "O=BigCorporation, L=New York, C=US",
+             "ourSessionId" : -5024519991106064492
+           },
+           "otherParty" : null
          }
        }
      ],
-     "suspendedTimestamp" : "2019-08-12T15:38:39Z",
-     "secondsSpentWaiting" : 7
-  }
-}
-```
+     "origin" : {
+       "rpc" : "bankUser"
+     },
+     "ourIdentity" : "O=BankOfCorda, L=London, C=GB",
+     "activeSessions" : [ ],
+     "errored" : null
+   }
+   ```
+
+4. View the contents of the node agent diagnostics file:
+
+   ```none
+   [INFO ] 2019-07-11T18:02:47,615Z [rpc-server-handler-pool-0] CheckpointAgent. - [READ] class net.corda.node.services.statemachine.Checkpoint
+   Checkpoint id: 90613d6f-be78-41bd-98e1-33a756c28808
+   000:net.corda.node.services.statemachine.Checkpoint 29,200
+   001:  net.corda.node.services.statemachine.ErrorState$Clean 0
+   001:  net.corda.node.services.statemachine.FlowState$Started 26,061
+   002:    net.corda.core.internal.FlowIORequest$SendAndReceive 4,666
+   003:      java.util.Collections$SingletonMap 4,536
+   004:        net.corda.node.services.statemachine.FlowSessionImpl 500
+   005:          net.corda.core.identity.Party 360
+   005:          net.corda.node.services.statemachine.SessionId 28
+   004:        net.corda.core.serialization.SerializedBytes 3,979
+   002:    net.corda.core.serialization.SerializedBytes 21,222
+   001:  net.corda.core.context.InvocationContext 905
+   002:    net.corda.core.context.Actor 259
+   002:    net.corda.core.context.InvocationOrigin$RPC 13
+   002:    net.corda.core.context.Trace 398
+   001:  net.corda.core.identity.Party 156
+   002:    net.i2p.crypto.eddsa.EdDSAPublicKey 45
+   002:    net.corda.core.identity.CordaX500Name 92
+   001:  java.util.LinkedHashMap 327
+   002:    net.corda.node.services.statemachine.SessionState$Initiating 214
+   001:  java.util.ArrayList 1,214
+   002:    net.corda.node.services.statemachine.SubFlow$Inlined 525
+   003:      java.lang.Class 47
+   003:      net.corda.node.services.statemachine.SubFlowVersion$CorDappFlow 328
+   004:        net.corda.core.crypto.SecureHash$SHA256 118
+   005:          [B 33
+   002:    net.corda.node.services.statemachine.SubFlow$Initiating 322
+   003:      java.lang.Class 39
+   003:      net.corda.core.flows.FlowInfo 124
+   003:      net.corda.node.services.statemachine.SubFlowVersion$CorDappFlow 11
+   002:    net.corda.node.services.statemachine.SubFlow$Initiating 250
+   003:      java.lang.Class 41
+   003:      net.corda.core.flows.FlowInfo 99
+   004:        java.lang.String 91
+   005:          [C 85
+   003:      net.corda.node.services.statemachine.SubFlowVersion$CoreFlow 28
+   ```
+
+5. Take relevant recovery action, which may include:
+
+   * Killing and retrying the flow:
+
+      ```none
+      Welcome to the Corda interactive shell.
+      Useful commands include 'help' to see what is available, and 'bye' to shut down the node.
+
+      Thu Jul 11 20:24:11 BST 2019>>> flow kill 90613d6f-be78-41bd-98e1-33a756c28808
+      [ERROR] 20:24:18+0100 [Node thread-1] corda.flow. - Flow interrupted while waiting for events, aborting immediately {actor_id=bankUser, actor_owning_identity=O=BankOfCorda, L=London, C=GB, actor_store_id=NODE_CONFIG, fiber-id=10000003, flow-id=15f16740-4ea2-4e48-bcb3-fd9051d5ba59, invocation_id=45622dc7-c4cf-4d11-85ad-1c45e0943455, invocation_timestamp=2019-07-11T18:19:40.519Z, origin=bankUser, session_id=02010e15-8e7a-46f7-976b-5e0626451c54, session_timestamp=2019-07-11T18:19:32.285Z, thread-id=176}
+      Killed flow [90613d6f-be78-41bd-98e1-33a756c28808]
+
+      Thu Jul 11 20:26:45 BST 2019>>> flow start CashIssueAndPaymentFlow amount: $1000, issueRef: 0x01, recipient: "Bank B", anonymous: false, notary: "Notary Service"
+      ```
+
+
+   * Attempting to perform a graceful shutdown (draining all outstanding flows and preventing others from starting), then re-starting of the node:
+
+      ```none
+      Welcome to the Corda interactive shell.
+      Useful commands include 'help' to see what is available, and 'bye' to shut down the node.
+
+      Thu Jul 11 19:52:56 BST 2019>>> gracefulShutdown
+      ```
+
+      Upon re-start ensure you disable flow draining mode to allow the node to continue to receive requests:
+
+      ```none
+      Welcome to the Corda interactive shell.
+      Useful commands include 'help' to see what is available, and 'bye' to shut down the node.
+
+      Thu Jul 11 19:52:56 BST 2019>>> run setFlowsDrainingModeEnabled enabled: false
+      ```
+
+      See also [Flow draining mode]({{< relref "key-concepts-node.md#draining-mode" >}}).
+
+
+   * Contacting other participants in the network where their nodes are not responding to an initiated flow. The checkpoint dump gives good diagnostics on the reason a flow may be suspended (including the destination peer participant node that is not responding):
+
+      ```json
+      {
+        "suspendedOn" : {
+           "sendAndReceive" : [
+             {
+               "session" : {
+                 "peer" : "O=BigCorporation, L=New York, C=US",
+                 "ourSessionId" : -5024519991106064492
+               },
+               "sentPayloadType" : "net.corda.confidential.SwapIdentitiesFlow$IdentityWithSignature",
+               "sentPayload" : {
+                 "identity" : {
+                   "class" : "net.corda.core.identity.PartyAndCertificate",
+                   "deserialized" : "O=BankOfCorda, L=London, C=GB"
+                 },
+                 "signature" : "M5DN180OeE4M8jJ3mFohjgeqNYOWXzR6a2PIclJaWyit2uLnmJcZatySoSC12b6e4rQYKIICNFUXRzJnoQTQCg=="
+               }
+             }
+           ],
+           "suspendedTimestamp" : "2019-08-12T15:38:39Z",
+           "secondsSpentWaiting" : 7
+        }
+      }
+      ```
 
 ## Automatic detection of unrestorable checkpoints
 

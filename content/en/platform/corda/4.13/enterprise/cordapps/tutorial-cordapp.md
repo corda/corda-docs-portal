@@ -55,13 +55,13 @@ CorDapps can be written in any language targeting the JVM. However, source files
 3. Run the following command to clone the sample repository:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 git clone https://github.com/corda/samples-java/tree/release/4.12
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 git clone https://github.com/corda/samples-kotlin/tree/release/4.12
 ```

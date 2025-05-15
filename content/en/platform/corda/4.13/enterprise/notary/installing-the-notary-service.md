@@ -32,7 +32,7 @@ The configuration below will result in the JPA notary implementation being used:
 {{< tabs name="tabs-1" >}}
 node.conf
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 notary {
   jpa {
@@ -112,7 +112,7 @@ change.
 {{< tabs name="tabs-2" >}}
 percona.conf
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 notary {
   mysql {

@@ -27,7 +27,7 @@ To enable the collection of recorded RPC Audit Data, we have provided a new RPC 
 The action is available on the `AuditDataRPCOps` interface.
 
 {{< tabs name="signature" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 fun collectRPCAuditData(
@@ -60,7 +60,7 @@ You can use the `collectAuditData` action with the following parameters:
 #### Collecting RPC audit data for all actions over the last 7 days
 
 {{< tabs name="example-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 fun collectRpcAuditData(rpc: AuditDataRPCOps): String {
@@ -74,7 +74,7 @@ fun collectRpcAuditData(rpc: AuditDataRPCOps): String {
 ```
 
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 public String collectRpcAuditData(AuditDataRPCOps rpc) {
@@ -95,7 +95,7 @@ public String collectRpcAuditData(AuditDataRPCOps rpc) {
 #### Collecting RPC audit data for user "Alice" for the last 7 days
 
 {{< tabs name="example-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 fun collectData(rpc: AuditDataRPCOps): String {
@@ -109,7 +109,7 @@ fun collectData(rpc: AuditDataRPCOps): String {
 ```
 
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 public String collectRpcAuditData(AuditDataRPCOps rpc) {
@@ -130,7 +130,7 @@ public String collectRpcAuditData(AuditDataRPCOps rpc) {
 #### Collecting all available RPC data for a particular action
 
 {{< tabs name="example-3" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 fun collectData(rpc: AuditDataRPCOps): String {
@@ -141,7 +141,7 @@ fun collectData(rpc: AuditDataRPCOps): String {
 ```
 
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 public String collectRpcAuditData(AuditDataRPCOps rpc) {
@@ -180,7 +180,7 @@ You can use the `clearRPCAuditDataBefore` action with the following parameter:
 #### Clearing all RPC audit data over a week old
 
 {{< tabs name="example-4" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 fun clearWeekOldAuditData(rpc: AuditDataRPCOps) {
@@ -190,7 +190,7 @@ fun clearWeekOldAuditData(rpc: AuditDataRPCOps) {
 ```
 
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 public void clearWeekOldAuditData(AuditDataRPCOps rpc) {

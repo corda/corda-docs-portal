@@ -43,7 +43,7 @@ The business logic behind Bank in a Box accounts is explained below, addressing:
 - [Implementing the withdraw method with overdraft support](#implementing-the-withdraw-method-with-overdraft-support) - how overdraft support is implemented in the application.
 - [Custom serialization](#custom-serialization) - how custom serializers are implemented to generate the serialization for Kryo.
 
-#### Account Status
+#### Account status
 
 The status of an account can be `PENDING`, when an account is first created and is awaiting approval, `ACTIVE` or `SUSPENDED`, where all account activity is frozen. There is a limit to status transitions, for example, an account that has been approved can never be set to status pending. An extension function has been implemented to verify the status transitions.
 

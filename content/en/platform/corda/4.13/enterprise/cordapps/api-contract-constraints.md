@@ -78,7 +78,7 @@ You can use signature constraints to specify flexible threshold policies. Howeve
 
 You can create a more complex policy that will release the constraint with fewer signatures than the total number of possible signers. This makes it possible for multiple versions to be valid across the network as long as the designated number of signers agree with the updates.
 
-The `TransactionBuilder` uses signature constraints when adding output states for all signed transactions by default. See [Using Contract Constraints in Transactions](#using-contract-constraints-in-transactions).
+The `TransactionBuilder` uses signature constraints when adding output states for all signed transactions by default. See [Using contract constraints in transactions](#using-contract-constraints-in-transactions).
 
 ## Signing CorDapps
 
@@ -157,7 +157,7 @@ A `ContractState` must explicitly indicate which `Contract` it belongs to. The n
 There are two mechanisms for indicating ownership. One is to annotate the `ContractState` with the `BelongsToContract` annotation, indicating the `Contract` class to which it is tied:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @BelongsToContract(MyContract.class)
 public class MyState implements ContractState {
@@ -166,7 +166,7 @@ public class MyState implements ContractState {
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @BelongsToContract(MyContract::class)
 data class MyState(val value: Int) : ContractState {
@@ -180,7 +180,7 @@ data class MyState(val value: Int) : ContractState {
 The other is to define the `ContractState` class as an inner class of the `Contract` class:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 public class MyContract implements Contract {
 
@@ -193,7 +193,7 @@ public class MyContract implements Contract {
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 class MyContract : Contract {
 
@@ -225,7 +225,7 @@ and attachments to ensure they line up correctly. By default, the `TransactionBu
 To manually define the contract constraint of an output state, see the example below:
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 TransactionBuilder transaction() {
     TransactionBuilder transaction = new TransactionBuilder(notary());
@@ -246,7 +246,7 @@ TransactionBuilder transaction() {
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 private fun transaction(): TransactionBuilder {
     val transaction = TransactionBuilder(notary())
@@ -301,10 +301,10 @@ You must specify which CorDapp packages to scan when you run tests. Provide a pa
 You must also specify a package when testing using `DriverDSl`. `DriverParameters` has a property `cordappsForAllNodes` (Kotlin)
 or method `withCordappsForAllNodes` in Java. Pass the collection of `TestCordapp` created by utility method `TestCordapp.findCordapp(String)`.
 
-This is how you would create two Cordapps with Finance CorDapp flows and Finance CorDapp contracts:
+This is how you would create two CorDapps with Finance CorDapp flows and Finance CorDapp contracts:
 
 {{< tabs name="tabs-4" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 Driver.driver(DriverParameters(
     cordappsForAllNodes = listOf(
@@ -317,7 +317,7 @@ Driver.driver(DriverParameters(
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 Driver.driver(
     new DriverParameters()

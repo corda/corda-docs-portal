@@ -101,16 +101,39 @@ Any database browsing tool that supports JDBC can be used.
 
 #### Connecting using the H2 Console
 
+1. Download the **last stable** [H2 platform-independent zip](http://www.h2database.com/html/download.html), unzip the
+file, and navigate in a terminal window to the unzipped folder.
+2. Change directories to the bin folder: 
 
-* Download the **last stable** [h2 platform-independent zip](http://www.h2database.com/html/download.html), unzip the
-zip, and navigate in a terminal window to the unzipped folder
-* Change directories to the bin folder: `cd h2/bin`
-* Run the following command to open the h2 web console in a web browser tab:
-    * Unix: `sh h2.sh`
-    * Windows: `h2.bat`
+   {{< tabs name="h2consolecd" >}}
+   {{% tab name="Unix" %}}
+   ```shell
+   cd h2/bin
+   ```
+   {{% /tab %}}
+   {{% tab name="Windows" %}}
+   ```shell
+   cd h2\bin
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+   
+3. Run the following command to open the h2 web console in a web browser tab:
 
+   {{< tabs name="h2consolecom" >}}
+   {{% tab name="Unix" %}}
+   ```shell
+   sh h2.sh
+   ```
+   {{% /tab %}}
+   {{% tab name="Windows" %}}
+   ```shell
+   h2.bat
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
-* Paste the node’s JDBC URL into the JDBC URL field and click `Connect`, using the default username (`sa`) and no
+4. Paste the node’s JDBC URL into the JDBC URL field and click `Connect`, using the default username (`sa`) and no
 password (unless configured otherwise)
 
 You will be presented with a web interface that shows the contents of your node’s storage and vault, and provides an
@@ -123,9 +146,11 @@ interface for you to query them using SQL.
 You can also use the H2 Console to connect directly to the node’s `persistence.mv.db` file. Ensure the node is off
 before doing so, as access to the database file requires exclusive access. If the node is still running, the H2 Console
 will return the following error:
-`Database may be already in use: null. Possible solutions: close all other connection(s); use the server mode [90020-196]`.
 
+```
+Database may be already in use: null. Possible solutions: close all other connection(s); use the server mode [90020-196]`.
 
-`jdbc:h2:~/path/to/file/persistence`
+`jdbc:h2:~/path/to/file/persistence
+```
 
 

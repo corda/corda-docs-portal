@@ -82,7 +82,7 @@ The Identity Manager Service requires its public IP address or hostname to be kn
 
 It could take a few minutes to allocate a new IP address. For subsequent deployments, you should be able to reuse existing external IP addresses.
 
-The Network Map Service and the Signing Services have their public IP addresses allocated while bootstrapping and they do not need to be known ahead of time.
+The Network Map service and the Signing Services have their public IP addresses allocated while bootstrapping and they do not need to be known ahead of time.
 
 Public IP addresses are allocated as Kubernetes `LoadBalancer` services.
 
@@ -222,7 +222,7 @@ You can now use `cemn` commands from within the running Docker container:
   ./cenm context login -s -u <USER> -p <PASSWORD> http://<GATEWAY-SERVICE-IP>:8080
   ```
 
-The [Gateway Service]({{< relref "../../node/gateway-service.md" >}}) is a gateway between the [Auth Service]({{< relref "../../node/auth-service.md" >}}) and front-end services in CENM. It allows you to perform all network operations on the [Identity Manager Service]({{< relref "../../../../1.6/cenm/identity-manager.md" >}}), the [Network Map Service]({{< relref "../../../../1.6/cenm/network-map.md" >}}), and the [Signing Service]({{< relref "../../../../1.6/cenm/signing-service.md" >}}).
+The [Gateway Service]({{< relref "../../node/gateway-service.md" >}}) is a gateway between the [Auth Service]({{< relref "../../node/auth-service.md" >}}) and front-end services in CENM. It allows you to perform all network operations on the [Identity Manager Service]({{< relref "../../../../1.6/cenm/identity-manager.md" >}}), the [Network Map service]({{< relref "../../../../1.6/cenm/network-map.md" >}}), and the [Signing Service]({{< relref "../../../../1.6/cenm/signing-service.md" >}}).
 The IP address is dynamically allocated for each deployment and can be found with `kubectl get svc`.
 Use the following command to ensure that you are pointing at the correct namespace:
 
@@ -260,7 +260,7 @@ networkServices {
 
 Replacing placeholder values as follows:
   * the `doormanURL` property is the public IP address and port of the Identity Manager Service
-  * the `networkMapURL` is the public IP address and port of the Network Map Service.
+  * the `networkMapURL` is the public IP address and port of the Network Map service.
 
 Next, upload the `network-root-truststore.jks` to your Corda node.
 You can download it locally from the CENM Signing Service, using the following command:
@@ -271,7 +271,7 @@ kubectl cp <namespace>/<signer-pod>:DATA/trust-stores/network-root-truststore.jk
 
 Namespace is typically `cenm` for this deployment.
 
-Run the following command to obtain public IPs of the Identity Manager Service and the Network Map Service:
+Run the following command to obtain public IPs of the Identity Manager Service and the Network Map service:
 
 ```bash
 kubectl get svc idman-ip notary-ip
@@ -431,7 +431,7 @@ common options. Each CENM service has its own dedicated page with more detailed 
 * [Auth Service]({{< relref "deployment-kubernetes-auth.md" >}})
 * [Gateway Service]({{< relref "deployment-kubernetes-gateway.md" >}})
 * [Identity Manager Service]({{< relref "deployment-kubernetes-idman.md" >}})
-* [Network Map Service]({{< relref "deployment-kubernetes-nmap.md" >}})
+* [Network Map service]({{< relref "deployment-kubernetes-nmap.md" >}})
 * [Corda Notary]({{< relref "deployment-kubernetes-notary.md" >}})
 * [Signing Service]({{< relref "deployment-kubernetes-signer.md" >}})
 * [Zone Service]({{< relref "deployment-kubernetes-zone.md" >}})
@@ -525,7 +525,7 @@ where each command creates a CENM service consisting of the following:
 
 * Signing Service
 * Identity Manager Service
-* Network Map Service
+* Network Map service
 * Auth Service
 * Gateway Service
 * Corda Notary
@@ -555,7 +555,7 @@ helm install notary notary --set prefix=cenm --set acceptLicense=YES --set notar
 helm install cenm-nmap nmap --set prefix=cenm --set acceptLicense=YES
 helm install cenm-gateway gateway --set prefix=cenm --set acceptLicense=YES --set idmanPublicIP=[use IP from step 3]
 
-# Run these commands to display allocated public IP for Network Map Service:
+# Run these commands to display allocated public IP for Network Map service:
 kubectl get svc --namespace cenm nmap --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"
 ```
 

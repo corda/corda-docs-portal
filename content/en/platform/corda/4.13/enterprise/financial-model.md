@@ -44,7 +44,7 @@ a fungible asset. It is a generic class which wraps around the token. For exampl
 Here are some examples:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 // A quantity of some specific currency like pounds, euros, dollars etc.
 Amount<Currency>

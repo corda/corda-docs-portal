@@ -202,15 +202,15 @@ unconsumed states in the vault.
 
 The `PersistentState` subclass should be marked up as a JPA 2.1 *Entity* with a defined table name and having
 properties (in Kotlin, getters/setters in Java) annotated to map to the appropriate columns and SQL types. Additional
-entities can be included to model these properties where they are more complex, for example collections (Persisting Hierarchical Data), so
+entities can be included to model these properties where they are more complex, for example collections (see [Persisting hierarchical data](#persisting-hierarchical-data)), so
 the mapping does not have to be *flat*. The `MappedSchema` constructor accepts a list of all JPA entity classes for that schema in
-the `MappedTypes` parameter. It must provide this list in order to initialise the ORM layer.
+the `MappedTypes` parameter. It must provide this list in order to initialize the ORM layer.
 
 Several examples of entities and mappings are provided in the codebase, including `Cash.State` and
 `CommercialPaper.State`. For example, here’s the first version of the cash schema.
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 package net.corda.finance.schemas
 
@@ -271,14 +271,14 @@ object CashSchemaV1 : MappedSchema(schemaFamily = CashSchema.javaClass, version 
 {{< /tabs >}}
 
 {{< note >}}
-If Cordapp needs to be portable between Corda OS (running against H2) and Corda Enterprise (running against a standalone database),
+If the CorDapp needs to be portable between Corda OS (running against H2) and Corda Enterprise (running against a standalone database),
 consider database vendors specific requirements.
-Ensure that table and column names are compatible with the naming convention of the database vendors for which the Cordapp will be deployed,
+Ensure that table and column names are compatible with the naming convention of the database vendors for which the CorDapp will be deployed,
 e.g. for Oracle database, prior to version 12.2 the maximum length of table/column name is 30 bytes (the exact number of characters depends on the database encoding).
 
 {{< /note >}}
 
-## Persisting Hierarchical Data
+## Persisting hierarchical data
 
 You may want to persist hierarchical relationships within state data using multiple database tables.
 To facilitate this, you must implement all queries making use of hierarchical relations as native SQL.
@@ -471,7 +471,7 @@ setAutoCommit(autoCommit: Boolean)
 setReadOnly(readOnly: Boolean)
 ```
 
-## JPA Support
+## JPA support
 
 In addition to `jdbcSession`, `ServiceHub` also exposes the Java Persistence API to flows via the `withEntityManager`
 method. This method can be used to persist and query entities which inherit from `MappedSchema`. This is particularly
@@ -489,7 +489,7 @@ a list of mapped types which is passed to `MappedSchema`. This is exactly how st
 the entity in this case should not subclass `PersistentState` (as it is not a state object). See examples:
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 public class FooSchema {}
 
@@ -512,7 +512,7 @@ public class FooSchemaV1 extends MappedSchema {
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 object FooSchema
 
@@ -539,7 +539,7 @@ object FooSchemaV1 : MappedSchema(
 Instances of `PersistentFoo` can be manually persisted inside a flow as follows:
 
 {{< tabs name="tabs-4" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 PersistentFoo foo = new PersistentFoo(new UniqueIdentifier().getId().toString(), "Bar");
 serviceHub.withEntityManager(entityManager -> {
@@ -549,7 +549,7 @@ serviceHub.withEntityManager(entityManager -> {
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val foo = FooSchemaV1.PersistentFoo(UniqueIdentifier().id.toString(), "Bar")
 serviceHub.withEntityManager {
@@ -563,7 +563,7 @@ serviceHub.withEntityManager {
 And retrieved via a query, as follows:
 
 {{< tabs name="tabs-5" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 getServiceHub().withEntityManager((EntityManager entityManager) -> {
     CriteriaQuery<PersistentFoo> query = entityManager.getCriteriaBuilder().createQuery(PersistentFoo.class);
@@ -574,7 +574,7 @@ getServiceHub().withEntityManager((EntityManager entityManager) -> {
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 serviceHub.withEntityManager {
     val query = criteriaBuilder.createQuery(FooSchemaV1.PersistentFoo::class.java)
@@ -666,7 +666,7 @@ You can handle database errors that occur within a `withEntityManager` by catchi
 - Around the block:
 
   {{< tabs name="tabs-6" >}}
-  {{% tab name="java" %}}
+  {{% tab name="Java" %}}
   ```java
   try {
       getServiceHub().withEntityManager(entityManager -> {
@@ -679,7 +679,7 @@ You can handle database errors that occur within a `withEntityManager` by catchi
   ```
   {{% /tab %}}
 
-  {{% tab name="kotlin" %}}
+  {{% tab name="Kotlin" %}}
   ```kotlin
   try {
       serviceHub.withEntityManager {
@@ -703,7 +703,7 @@ You can handle database errors that occur within a `withEntityManager` by catchi
 - Inside the block:
 
   {{< tabs name="tabs-7" >}}
-  {{% tab name="java" %}}
+  {{% tab name="Java" %}}
   ```java
   getServiceHub().withEntityManager(entityManager -> {
       entityManager.persist(entity);
@@ -718,7 +718,7 @@ You can handle database errors that occur within a `withEntityManager` by catchi
   ```
   {{% /tab %}}
 
-  {{% tab name="kotlin" %}}
+  {{% tab name="Kotlin" %}}
   ```kotlin
   serviceHub.withEntityManager {
       persist(entity)
@@ -751,7 +751,7 @@ Manually flushing `withEntityManager` sessions was touched on in the example abo
 An example of flushing a session to survive a non-database error:
 
 {{< tabs name="tabs-8" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 try {
     getServiceHub().withEntityManager(entityManager -> {
@@ -766,7 +766,7 @@ try {
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 try {
     serviceHub.withEntityManager {

@@ -51,7 +51,7 @@ of Corda as well as opt in to newer features should they happen to be available 
 {{< table >}}
 
 
-# Corda Features
+# Corda features
 
 |Feature|Corda Platform Version (PV)|Min Network Platform Version (network mPV)|Introduced in OS version|Introduced in Enterprise version|
 |--------------------|--------------------|--------------------|--------------------|--------------------|

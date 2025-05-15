@@ -14,7 +14,7 @@ weight: 4
 # CorDapp constraints migration
 
 {{< note >}}
-Before reading this page, you should be familiar with the key concepts of [Contract Constraints]({{< relref "api-contract-constraints.md" >}}).
+Before reading this page, you should be familiar with the key concepts of [Contract constraints]({{< relref "api-contract-constraints.md" >}}).
 {{< /note >}}
 
 Corda 4 introduces and recommends building signed CorDapps that issue states with signature constraints. When building transactions in Corda 4, existing on-ledger states that were issued before Corda 4 are only automatically transitioned to the new Signature Constraint if they were originally using the CZ Whitelisted Constraint. Here, we explain how to modify existing CorDapp flows to explicitly consume and evolve pre Corda 4 states.
@@ -74,7 +74,7 @@ relaxed hash constraint checking mode as described in [Hash constrained states i
 and specify the related public key(s) used in signing the associated CorDapp Contract JAR:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 // This will read the signers for the deployed CorDapp.
 val attachment = this.serviceHub.cordappProvider.getContractAttachmentID(contractClass)
@@ -89,7 +89,7 @@ val txBuilder = TransactionBuilder(notary)
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 // This will read the signers for the deployed CorDapp.
 SecureHash attachment = this.getServiceHub().getCordappProvider().getContractAttachmentID(contractClass);
@@ -134,7 +134,7 @@ From now on the development organisation that signed the JAR is responsible for 
 
 * If using a hosted CZ network (such as [Corda Network Production environment]({{< relref "../corda-network/the-corda-network.md" >}}) or
 [Corda Network Pre-Production environment]({{< relref "../corda-network/uat.md" >}})) running an Identity Operator (formerly known as Doorman) and
-Network Map Service, you should manually send the hashes of the two JARs to the CZ network operator and request these be added using
+Network Map service, you should manually send the hashes of the two JARs to the CZ network operator and request these be added using
 their network parameter update process.
 * If using a local network created using the Network Bootstrapper tool, please follow the instructions in
 [Updating the contract whitelist for bootstrapped networks]({{< relref "../network-bootstrapper.md#bootstrapper-updating-whitelisted-contracts" >}}) to can add both CorDapp Contract JAR hashes.
@@ -149,7 +149,7 @@ no other constraint is specified and the CorDapp continues to be whitelisted. Th
 The code below details how to explicitly add a Signature Constraint:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 // This will read the signers for the deployed CorDapp.
 val attachment = this.serviceHub.cordappProvider.getContractAttachmentID(contractClass)
@@ -164,7 +164,7 @@ val txBuilder = TransactionBuilder(notary)
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 // This will read the signers for the deployed CorDapp.
 SecureHash attachment = this.getServiceHub().getCordappProvider().getContractAttachmentID(contractClass);

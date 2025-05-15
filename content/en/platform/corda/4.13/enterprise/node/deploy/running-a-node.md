@@ -189,7 +189,7 @@ Parameters:
 
 `generate-rpc-ssl-settings`: Generates the SSL keystore and truststore for a secure RPC connection.
 
-`install-shell-extensions`: Installs a `corda` alias and auto completion for `bash` and `zsh`. For more information, see [Shell extensions for CLI Applications]({{< relref "../operating/cli-application-shell-extensions.md" >}}).
+`install-shell-extensions`: Installs a `corda` alias and auto completion for `bash` and `zsh`. For more information, see [Shell extensions for CLI applications]({{< relref "../operating/cli-application-shell-extensions.md" >}}).
 
 `validate-configuration`: Validates the actual configuration without starting the node.
 

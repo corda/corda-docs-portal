@@ -153,7 +153,7 @@ locked’ (not usable by any other transaction) until the developer explicitly r
 (at which point they are automatically released).
 
 
-## An example of soft locking in action
+## Soft locking example
 
 A prime example where *soft locking* is automatically enabled is within the process of issuance and transfer of fungible
 state, like cash.

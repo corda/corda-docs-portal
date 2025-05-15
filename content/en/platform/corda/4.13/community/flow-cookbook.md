@@ -23,7 +23,7 @@ title: Flow cookbook
 This flow showcases how to use Corda’s API, in both Java and Kotlin.
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @file:Suppress("UNUSED_VARIABLE", "unused", "DEPRECATION")
 
@@ -592,7 +592,7 @@ class ResponderFlow(val counterpartySession: FlowSession) : FlowLogic<Unit>() {
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.docs.java;
 

@@ -79,7 +79,7 @@ The name needs to be a valid X500 name and commas need to be escaped by a backsl
 | `pki.certificates.cordarootca.subject`       | Subject of Corda Root certificate (alias: cordarootca) | `CN=Test Root CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
 | `pki.certificates.subordinateca.subject`     | Subject of Corda Subordinate certificate (alias: subordinateca) | `CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
 | `pki.certificates.identitymanagerca.subject` | Subject of Corda Identity Manager certificate (alias: identitymanagerca) | `CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
-| `pki.certificates.networkmap.subject`        | Subject of Corda Network Map certificate (alias: networkmap)  | `CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
+| `pki.certificates.networkmap.subject`        | Subject of Corda Network Map certificate (alias: networkmap)  | `CN=Test Network Map service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
 | `sleepTimeAfterError`                        | Sleep time (in seconds) after an error occurred | `120` |
 | `logsContainersEnabled`                      | Enable container displaying live logs | `true`
 {{< /table >}}

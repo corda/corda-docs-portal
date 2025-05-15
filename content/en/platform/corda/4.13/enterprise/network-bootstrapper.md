@@ -47,7 +47,7 @@ You can use the Network Bootstrapper to scan all the node configurations in a co
 
 To bootstrap a test network:
 
-1. Download the [Corda Network Boostrapper](https://download.corda.net/maven/corda-releases/net/corda/corda-tools-network-bootstrapper/4.13/corda-tools-network-bootstrapper-4.11.jar) for the version of Corda you want the nodes to run.
+1. Download the [Corda Network Bootstrapper ](https://download.corda.net/maven/corda-releases/net/corda/corda-tools-network-bootstrapper/4.13/corda-tools-network-bootstrapper-4.11.jar) for the version of Corda you want the nodes to run.
 2. Create a directory containing a node config file (ending in “_node.conf”) for each node you want to create.
 3. Set “devMode” to `true`.
 4. Run the command `java -jar network-bootstrapper-4.11.jar --dir <nodes-root-dir>`.
@@ -99,7 +99,7 @@ added to the [contract whitelist](#create-a-contracts-whitelist).
 
 
 ### Create a contracts whitelist
-If you provide a CorDapp, the boostrapper will hash it, then scan it for instances of the `contacts` class. If it finds contracts, it will use them to create a [compatibility zone whitelist]({{< relref "cordapps/api-contract-constraints.md" >}}) for the network.
+If you provide a CorDapp, the bootstrapper will hash it, then scan it for instances of the `contacts` class. If it finds contracts, it will use them to create a [compatibility zone whitelist]({{< relref "cordapps/api-contract-constraints.md" >}}) for the network.
 
 {{< note >}}
 If you want to whitelist the CorDapps without copying them to each node, run them using the `--copy-cordapps=No` option.
