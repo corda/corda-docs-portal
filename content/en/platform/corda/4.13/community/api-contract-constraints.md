@@ -220,7 +220,7 @@ transaction verification will fail with a `TransactionContractConflictException`
 Transactions use the CorDapp version defined in its attachments. The JAR containing the state and contract classes, and any optional dependencies, is attached to the transaction. If a node has not received a specific JAR before, it will download other copies of it from other nodes on the network for verification.
 
 The `TransactionBuilder` manages the details of constraints for you by selecting both constraints
-and attachments to ensure they line up correctly. By default, the `TransactionBuilder` uses [Signature Constraints](#signature-constraints) for any issuance transactions if the CorDapp attached to it is signed.
+and attachments to ensure they line up correctly. By default, the `TransactionBuilder` uses [Signature constraints](#signature-constraints) for any issuance transactions if the CorDapp attached to it is signed.
 
 To manually define the contract constraint of an output state, see the example below:
 

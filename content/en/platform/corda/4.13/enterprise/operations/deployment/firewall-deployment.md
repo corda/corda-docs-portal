@@ -214,7 +214,7 @@ For this setup, each machine is powerful enough to host nodes for both entities 
 
 ##### Corda network connectivity
 
-Before nodes can be configured, Corda Network administrator will need to provide:
+Before nodes can be configured, a Corda network administrator will need to provide:
 
 
 * Network root trust store file: `network-root-truststore.jks` and password for it in this example assumed to be `trustpass`;
@@ -415,7 +415,7 @@ Given two configuration files above, in order to produce node keystores the foll
 java -jar corda-tools-ha-utilities-4.11.jar node-registration --config-files=./entityA/node.conf --config-files=./entityB/node.conf --network-root-truststore=network-root-truststore.jks --network-root-truststore-password=trustpass
 ```
 
-This call will process `node.conf` files and for each legal name performs Doorman registration. Depending on Corda Network configuration this process may require manual approval
+This call will process `node.conf` files and for each legal name performs Doorman registration. Depending on the Corda network configuration, this process may require manual approval
 and the program will poll for for Certification Signing Request(CSR) completion. For more information see [Joining a compatibility zone]({{< relref "../../network/joining-a-compatibility-zone.md" >}}).
 
 After successful execution this will produce two directories `entityA/certificates` and `entityB/certificates` containing the following files:

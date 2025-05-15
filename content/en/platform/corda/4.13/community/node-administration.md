@@ -348,8 +348,8 @@ that were received over the network.
 A Contract CorDapp (an attachment) received over the network, is only allowed to be evaluated if there are other Contract
 CorDapps installed in the node that have been signed by at least one of the received CorDapp’s keys.
 
-See [Signature Constraints]({{< relref "api-contract-constraints.md#signature-constraints" >}}) and
-[Signing CorDapps for use with Signature Constraints]({{< relref "api-contract-constraints.md#signing-cordapps" >}}) for more information
+See [Signature constraints]({{< relref "api-contract-constraints.md#signature-constraints" >}}) and
+[Signing CorDapps for use with signature constraints]({{< relref "api-contract-constraints.md#signing-cordapps" >}}) for more information
 
 {{< /note >}}
 

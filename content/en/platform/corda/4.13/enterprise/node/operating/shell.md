@@ -278,7 +278,7 @@ This breaks down as follows:
 * `net.corda.finance.contracts.asset.Cash$State` is the fully-qualified name of the state type we are querying for.
 
 {{< note >}}
-For further guidance on the parameters used in shell commands, see the [Parameters Syntax section](#parameter-syntax) below.
+For further guidance on the parameters used in shell commands, see [Parameters syntax](#parameter-syntax) below.
 {{< /note >}}
 
 #### Example command output

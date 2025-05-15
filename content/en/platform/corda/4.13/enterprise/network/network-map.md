@@ -114,7 +114,7 @@ More information can be found in [Network Bootstrapper]({{< relref "../network-b
 
 ## Private network maps
 
-To allow business network operators to onboard nodes in the early period of the Corda Network and not to reveal their membership
+To allow business network operators to onboard nodes in the early period of the Corda network and not to reveal their membership
 to other entities on the network, the concept of private network maps was introduced. This is a temporary solution which will only
 be used in the early stages when it’s possible to deduce the members of a business network. Once sufficient number of entities have
 joined the Network, this feature will be turned off and previously private nodes will be made visible in the public network map.

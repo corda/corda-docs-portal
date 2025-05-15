@@ -217,14 +217,14 @@ In a bank environment there will typically be several layers of security protect
 *PKI Authentication*
 
 
-* Corda PKI Authentication issued by Corda Network can link the Node and Bridge i.e. the red keys indicated below truststore and sslkeystore
-* Local PKI Authentication issued by separate CA will link the Bridge and Float i.e the purple keys indicated below trust and Bridge.
+* Corda PKI Authentication issued by a Corda network can link the node and Bridge; that is, the red keys indicated below truststore and sslkeystore
+* Local PKI Authentication issued by separate CA will link the Bridge and Float; that is, the purple keys indicated below trust and Bridge.
 
 {{< figure alt="firewallpki" width=80% zoom="../../resources/firewallpki.png" >}}
 The key thing is to look at this from the perspective of a bank implementing these Corda and Local PKI keys.
 
 
-* Corda PKI Authentication will link the Node and Bridge and authenticate to Corda Network in the outside world. In other words, this permits mutual authentication between a Corda node and its Peer Corda nodes.
+* Corda PKI Authentication will link the Node and Bridge and authenticate to a Corda network in the outside world. In other words, this permits mutual authentication between a Corda node and its peer Corda nodes.
 * Local PKI Authentication will link the Bridge and Float and allow a secure tunnel into the Float from the outside world. In other words, this permits mutual authentication between two software components, the Bridge and the Float.
 
 

@@ -96,7 +96,7 @@ A `-v` short option should also be provided.
 ### Parameter stability
 
 
-* keep both versions of the parameter. See [Backwards Compatibility](#backwards-compatibility) for more information.
+* keep both versions of the parameter. See [Backwards compatibility](#backwards-compatibility) for more information.
 
 
 ## Notes for adding a new a command line application

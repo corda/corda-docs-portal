@@ -13,7 +13,7 @@ title: Corda Network
 ---
 
 
-# Corda Network
+# The Corda Network
 
 
 [Corda Network](https://corda.network/) is a publicly-available internet of Corda nodes operated by network participants. Each

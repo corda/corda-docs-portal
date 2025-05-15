@@ -104,7 +104,7 @@ public class MyCordaService extends SingletonSerializeAsToken {
 {{< /tabs >}}
 
 The `AppServiceHub` provides the `ServiceHub` functionality to the Service class, with the extra ability to start flows. Starting flows
-from `AppServiceHub` is explained further in [Starting Flows from a Service](#starting-flows-from-a-service).
+from `AppServiceHub` is explained further in [Starting flows from a service](#starting-flows-from-a-service).
 
 The `AppServiceHub` also provides access to `database` which will enable the Service class to perform DB transactions from the threads
 managed by the Service.

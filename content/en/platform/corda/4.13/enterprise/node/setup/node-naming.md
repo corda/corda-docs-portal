@@ -76,7 +76,7 @@ This is to avoid right-to-left issues, debugging issues when we can’t pronounc
 character confusability attacks.
 
 {{< note >}}
-The network operator of a Corda Network may put additional constraints on node naming in place.
+A Corda network operator may put additional constraints on node naming in place.
 
 {{< /note >}}
 

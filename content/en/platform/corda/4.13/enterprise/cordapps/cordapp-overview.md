@@ -23,7 +23,7 @@ In this document, you will find:
 
 CorDapps are:
 
-* Distributed applications that can be distributed on the Corda Network.
+* Distributed applications that can be distributed on a Corda network.
 * A set of JAR files containing Java or Kotlin class definitions.
 * Made up of components that work together to let nodes communicate and agree on updates to the shared ledger.
 

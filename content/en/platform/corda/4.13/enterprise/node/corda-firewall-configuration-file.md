@@ -216,9 +216,9 @@ For this setup, each machine is powerful enough to host nodes for both entities 
 #### Prerequisites
 
 
-##### Corda Network connectivity
+##### Corda network connectivity
 
-Before nodes can be configured, Corda Network administrator will need to provide:
+Before nodes can be configured, a Corda network administrator will need to provide:
 
 
 * Network root trust store file: `network-root-truststore.jks` and password for it in this example assumed to be `trustpass`;
@@ -419,7 +419,7 @@ Given two configuration files above, in order to produce node keystores the foll
 java -jar corda-tools-ha-utilities-4.12.jar node-registration --config-files=./entityA/node.conf --config-files=./entityB/node.conf --network-root-truststore=network-root-truststore.jks --network-root-truststore-password=trustpass
 ```
 
-This call will process `node.conf` files and for each legal name performs Doorman registration. Depending on Corda Network configuration this process may require manual approval
+This call will process `node.conf` files and for each legal name performs Doorman registration. Depending on the Corda network configuration, this process may require manual approval
 and the program will poll for for Certification Signing Request(CSR) completion. For more information see [Joining a compatibility zone]({{< relref "../network/joining-a-compatibility-zone.md" >}}).
 
 After successful execution this will produce two directories `entityA/certificates` and `entityB/certificates` containing the following files:
@@ -431,7 +431,7 @@ After successful execution this will produce two directories `entityA/certificat
 
 These are the keystores that will be used by each of the nodes.
 
-Also, file called `network-parameters` will be produced which represents global parameters for this Corda Network.
+Also, file called `network-parameters` will be produced which represents global parameters for this Corda network.
 
 
 {{< note >}}
@@ -554,7 +554,7 @@ For reference, base directory for `vmFloat1` and `vmFloat2` should look as follo
 
 ### Infra VMs setup
 
-`vmInfra1` and `vmInfra2` are hosting infrastructural processes which enable nodes to perform in/out communication with the rest of Corda Network.
+`vmInfra1` and `vmInfra2` are hosting infrastructural processes which enable nodes to perform in/out communication with the rest of the Corda network.
 
 The following process will be hosted by each of the VMs:
 
@@ -749,9 +749,9 @@ making same DataCentre connection a priority. This applies to Artemis connection
 
 ### Starting all up
 
-See [Http Proxy Setup](#http-proxy-setup) note above on connectivity through the proxy.
+See [HTTP proxy setup](#http-proxy-setup) note above on connectivity through the proxy.
 
-See [Capsule Cache Directory](#capsule-cache-directory) note above explaining details of running Capsule Fat Jars.
+See [Capsule cache directory](#capsule-cache-directory) note above explaining details of running Capsule Fat Jars.
 
 
 #### Starting Float processes
