@@ -36,7 +36,7 @@ The API is described in detail here:
 * [JavaDoc](../../../../api-ref/corda/4.13/community/javadoc/net/corda/client/jackson/package-summary.html)
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 import net.corda.jackson.JacksonSupport
 
@@ -45,7 +45,7 @@ val json = mapper.writeValueAsString(myCordaState)  // myCordaState can be any o
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 import net.corda.jackson.JacksonSupport
 

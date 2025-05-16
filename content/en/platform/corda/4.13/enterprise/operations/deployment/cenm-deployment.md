@@ -17,7 +17,7 @@ weight: 40
 
 ## CENM support matrix
 
-### Hardware Security Modules (HSMs)
+### Hardware security modules (HSMs)
 
 Both the Signing Service and the PKI Tool support a variety of HSMs.
 

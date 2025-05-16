@@ -75,7 +75,7 @@ Below is an example configuration file for the Database Management Tool:
 {{< tabs name="tabs-1" >}}
 dbm.conf
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 notary {
     validating = false
@@ -112,7 +112,7 @@ security reasons. R3 recommends the creation of a user with more limited permiss
 would be set in the configuration of the notary in the `dataSourceProperties` section.
 
 
-## Database Tables
+## Database tables
 
 
 ### Notary Committed States

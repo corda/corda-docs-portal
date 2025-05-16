@@ -135,7 +135,7 @@ below.
 {{< tabs name="tabs-1" >}}
 wsrep.cnf
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 [mysqld]
 # Path to Galera library

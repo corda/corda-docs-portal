@@ -15,14 +15,14 @@ weight: 60
 
 This Helm chart is to configure, deploy and run the  [CENM Signing Service]({{< relref "../../../../1.6/cenm/signing-service.md" >}}) on Kubernetes.
 
-As the initial step this chart runs automatically PKI tool which creates and stores certificates necessary for correct Corda Network operation.
+As the initial step this chart runs automatically PKI tool which creates and stores certificates necessary for correct Corda network operation.
 By default, the certificates have sample X.500 subject names (for example, the Identity Manager Service certificate has the subject name “CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US”). The subject name can be set by configuration options starting with `pki.certificates.` prefix.
 
 Passwords to the security certificates keys and keystores cannot be configurable.
 
 For more information about PKI Tool and Certificate Hierarchy refer to:
 
-* [Certificate Hierarchy Guide]({{< relref "../../../../1.6/cenm/pki-guide.md" >}})
+* [Certificate hierarchy guide]({{< relref "../../../../1.6/cenm/pki-guide.md" >}})
 * [PKI Tool]({{< relref "../../../../1.6/cenm/pki-tool.md" >}})
 
 ## Example usage
@@ -74,12 +74,12 @@ The name needs to be a valid X500 name and commas need to be escaped by a backsl
 | `signingKeys.credentials.keyStorePassword`   | The key store password, only applicable if using Azure Key Vault instead of local key store | `""` |
 | `signingKeys.credentials.keyStoreAlias`      | The key store alias, only applicable if using Azure Key Vault instead of local key store | `1` |
 | `signingKeys.credentials.clientId`           | The application client id to access the Azure Key Vault, only applicable if using Azure Key Vault instead of local key store | `abcdefgh-1234-5678-9012-123456789012` |
-| `pki.certificates.tlscrlsigner.subject`      | Subject of the certificate for signing the CRL for the Corda Node’s TLS-level certificate (alias: tlscrlsigner) | `CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
-| `pki.certificates.tlscrlsigner.crl.issuer`   | Issuer of the certificate for signing the CRL for the Corda Node’s TLS-level certificate (alias tlscrlsigner) | `CN=Corda TLS Signer Certificate, OU=Corda, O=R3 HoldCo LLC, L=New York, C=US` |
+| `pki.certificates.tlscrlsigner.subject`      | Subject of the certificate for signing the CRL for the Corda node’s TLS-level certificate (alias: tlscrlsigner) | `CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
+| `pki.certificates.tlscrlsigner.crl.issuer`   | Issuer of the certificate for signing the CRL for the Corda node’s TLS-level certificate (alias tlscrlsigner) | `CN=Corda TLS Signer Certificate, OU=Corda, O=R3 HoldCo LLC, L=New York, C=US` |
 | `pki.certificates.cordarootca.subject`       | Subject of Corda Root certificate (alias: cordarootca) | `CN=Test Root CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
 | `pki.certificates.subordinateca.subject`     | Subject of Corda Subordinate certificate (alias: subordinateca) | `CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
 | `pki.certificates.identitymanagerca.subject` | Subject of Corda Identity Manager certificate (alias: identitymanagerca) | `CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
-| `pki.certificates.networkmap.subject`        | Subject of Corda Network Map certificate (alias: networkmap)  | `CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
+| `pki.certificates.networkmap.subject`        | Subject of Corda Network Map certificate (alias: networkmap)  | `CN=Test Network Map service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
 | `sleepTimeAfterError`                        | Sleep time (in seconds) after an error occurred | `120` |
 | `logsContainersEnabled`                      | Enable container displaying live logs | `true`
 {{< /table >}}

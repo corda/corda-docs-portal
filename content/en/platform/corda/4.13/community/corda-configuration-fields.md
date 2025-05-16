@@ -57,9 +57,9 @@ Deprecated. Use `networkServices` instead.
 
 ## `cordappSignerKeyFingerprintBlacklist`
 
-  List of the public keys fingerprints (SHA-256 of public key hash) not allowed as Cordapp JARs signers.
-  The node will not load Cordapps signed by those keys.
-  The option takes effect only in production mode and defaults to Corda development keys (`["56CA54E803CB87C8472EBD3FBC6A2F1876E814CEEBF74860BD46997F40729367", "83088052AF16700457AE2C978A7D8AC38DD6A7C713539D00B897CD03A5E5D31D"]`), in development mode any key is allowed to sign Cordpapp JARs.
+  List of the public keys fingerprints (SHA-256 of public key hash) not allowed as CorDapp JARs signers.
+  The node will not load CorDapps signed by those keys.
+  The option takes effect only in production mode and defaults to Corda development keys (`["56CA54E803CB87C8472EBD3FBC6A2F1876E814CEEBF74860BD46997F40729367", "83088052AF16700457AE2C978A7D8AC38DD6A7C713539D00B897CD03A5E5D31D"]`), in development mode any key is allowed to sign CorDapp JARs.
 
   This property requires retrieving the hashes of public keys that need to be blacklisted.
 

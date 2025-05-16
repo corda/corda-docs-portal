@@ -12,7 +12,7 @@ menu:
 tags:
 - blob
 - inspector
-title: Blob Inspector
+title: Blob inspector
 ---
 
 
@@ -56,10 +56,10 @@ see this when dealing with classes such as `SignedData` or other structures that
 
 Here’s what a `node-info` file from the node’s data directory may look like:
 
+{{< tabs name="node-info" >}}
+{{% tab name="YAML" %}}
 
-* YAML:
-
-```none
+```yaml
 net.corda.nodeapi.internal.SignedNodeInfo
 ---
 raw:
@@ -75,11 +75,10 @@ signatures:
 - !!binary |-
   VFRy4frbgRDbCpK1Vo88PyUoj01vbRnMR3ROR2abTFk7yJ14901aeScX/CiEP+CDGiMRsdw01cXt\nhKSobAY7Dw==
 ```
+{{% /tab %}}
+{{% tab name="JSON" %}}
 
-
-* JSON:
-
-```none
+```json
 net.corda.nodeapi.internal.SignedNodeInfo
 {
   "raw" : {
@@ -94,6 +93,10 @@ net.corda.nodeapi.internal.SignedNodeInfo
   "signatures" : [ "VFRy4frbgRDbCpK1Vo88PyUoj01vbRnMR3ROR2abTFk7yJ14901aeScX/CiEP+CDGiMRsdw01cXthKSobAY7Dw==" ]
 }
 ```
+
+{{% /tab %}}
+
+{{< /tabs >}}
 
 Notice the file is actually a serialized `SignedNodeInfo` object, which has a `raw` property of type `SerializedBytes<NodeInfo>`.
 This property is materialized into `NodeInfo` and is output under the `deserialized` field.
@@ -134,4 +137,4 @@ blob-inspector [-hvV] [--full-parties] [--schema] [--format=type]
 
 ### Sub-commands
 
-`install-shell-extensions`: Install `blob-inspector` alias and auto-completion for bash and zsh. See [Shell extensions for CLI Applications]({{< relref "cli-application-shell-extensions.md" >}}).
+* `install-shell-extensions`: Install `blob-inspector` alias and auto-completion for bash and zsh. See [Shell extensions for CLI applications]({{< relref "cli-application-shell-extensions.md" >}}).

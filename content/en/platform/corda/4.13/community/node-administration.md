@@ -348,8 +348,8 @@ that were received over the network.
 A Contract CorDapp (an attachment) received over the network, is only allowed to be evaluated if there are other Contract
 CorDapps installed in the node that have been signed by at least one of the received CorDapp’s keys.
 
-See [Signature Constraints]({{< relref "api-contract-constraints.md#signature-constraints" >}}) and
-[Signing CorDapps for use with Signature Constraints]({{< relref "api-contract-constraints.md#signing-cordapps" >}}) for more information
+See [Signature constraints]({{< relref "api-contract-constraints.md#signature-constraints" >}}) and
+[Signing CorDapps for use with signature constraints]({{< relref "api-contract-constraints.md#signing-cordapps" >}}) for more information
 
 {{< /note >}}
 
@@ -357,26 +357,14 @@ See [Signature Constraints]({{< relref "api-contract-constraints.md#signature-co
 
 The following shell command can be used to extract information about attachments from the node:
 
+- `attachments trustInfo` Outputs to the shell a list of all attachments along with the following information:
+  - * Whether an attachment is installed locally:
+    - * `True` if the attachment is installed in the CorDapps directory or uploaded via RPC
+    - * `False` in all other scenarios, including attachments received from a peer node or uploaded via any means other than RPC
+  - If an attachment is trusted
+  - Which other attachment, if any, provided trust to an attachment
 
-
-* `attachments trustInfo`
-
-Outputs to the shell a list of all attachments along with the following information:
-
-
-
-* Whether an attachment is installed locally>
-
-    * `True` if the attachment is installed in the CorDapps directory or uploaded via RPC
-    * `False` in all other scenarios, including attachments received from a peer node or uploaded via any means other than RPC
-
-
-
-* If an attachment is trusted
-* Which other attachment, if any, provided trust to an attachment
-
-
-Below is an example out the command’s output:
+Below is an example of the command’s output:
 
 ```none
 Name                                          Attachment ID                                                        Installed             Trusted                Trust Root

@@ -130,15 +130,14 @@ To validate a pre-4.11 node, perform the following steps:
 9. Create a `cordapps` directory and add the JDK 17/Kotlin 1.9 CordApps to this directory.
 10. If required (see above description), create a `legacy-jars` directory and add third-party dependencies to this directory.
 11. Run the TVU:
-
-   ```
-   $ java -jar corda-tools-transaction-validator-4.12-RC01.jar
-   Starting
-   Total Transactions: 41
-   Waiting for all transactions to be processed...
-   Success, All transactions processed.
-   Total time taken: 3943ms
-   ```
+    ```
+    $ java -jar corda-tools-transaction-validator-4.12-RC01.jar
+    Starting
+    Total Transactions: 41
+    Waiting for all transactions to be processed...
+    Success, All transactions processed.
+    Total time taken: 3943ms
+    ```
 
 If there are any transactions that cannot be validated, you must address the reported issues before proceeding with the upgrade.
 If all transactions are validated successfully, then you can upgrade the node, or it can safely interoperate with a 4.12 node.
@@ -164,7 +163,7 @@ To validate a Corda 4.11 node:
 
 ### Upgrade 4.11 CorDapps
 
-You must update all custom CorDapps being upgraded that are running on Corda 4.11 nodes so they use Java 17 and Kotlin 1.9.20. For steps on updating Cordapps, see [Upgrading a CorDapp to Corda Enterprise Edition 4.12]({{< relref "app-upgrade-notes-enterprise.md" >}}).
+You must update all custom CorDapps being upgraded that are running on Corda 4.11 nodes so they use Java 17 and Kotlin 1.9.20. For steps on updating CorDapps, see [Upgrading a CorDapp to Corda Enterprise Edition 4.12]({{< relref "app-upgrade-notes-enterprise.md" >}}).
 
 #### Flow versioning
 You must annotate any flow that initiates other flows with the `@InitiatingFlow` annotation, which is defined as:

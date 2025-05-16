@@ -69,7 +69,7 @@ There are also operations that allow starting/killing the flows or even stopping
 * Starting flows requires `InvokeRpc.registeredFlows` and `InvokeRpc.wellKnownPartyFromX500Name`, as well as a permission for the flow being started.
 * Killing flows (`flow kill`) requires `InvokeRpc.killFlow`. This currently allows the user to kill *any* flow, so please be careful when granting it!
 
-Description of RPC operations can be found in the [RPC operations]({{< relref "api-rpc.md" >}}) documentation.
+RPC operations are described in [API: RPC operations]({{< relref "api-rpc.md" >}}).
 
 {{< note >}}
 `InvokeRpc.startTrackedFlowDynamic` permission gives permission to run all existing flows.
@@ -93,9 +93,9 @@ The standalone shell is a standalone application interacting with a Corda node v
 
 You can access the standalone shell from [software.r3.com](https://software.r3.com).
 
-Run the `corda-standalone-shell` jar using:
+Run the `corda-standalone-shell` jar using the followind command:
 
-```
+```shell
  java -jar corda-standalone-shell-4.12.jar [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
     [--truststore-file=<trustStoreFile>]
     [--truststore-password=<trustStorePassword>]
@@ -145,19 +145,19 @@ The SSH port should not be exposed publicly. Limit exposure of the SSH port as m
 
 To enable SSH access:
 
-1. Enable the SSH server in your node. By default, the SSH server is *disabled*. To enable it, configured a port in the node’s `node.conf` file:
+1. Enable the SSH server in your node. By default, the SSH server is *disabled*. To enable it, configure a port in the node’s `node.conf` file:
 
-```bash
-sshd {
-    port = 2222
-}
-```
+   ```bash
+   sshd {
+       port = 2222
+   }
+   ```
 
 2. Ensure the `corda-shell.jar` is [installed as a driver](#use-the-shell-from-a-driver-within-your-node) within your node.
 
-{{< note >}}
-If you use SSH to access your node, logs of your commands will not be stored in the node.
-{{< /note >}}
+   {{< note >}}
+   If you use SSH to access your node, logs of your commands will not be stored in the node.
+   {{< /note >}}
 
 ### Authentication
 
@@ -199,13 +199,13 @@ trusted hosts and will refuse to connect in case of a change. This check can be 
 Windows does not provide a built-in SSH tool. An alternative such as [PuTTY](https://www.putty.org/) should be used.
 
 
-## Shell Safe Mode
+## Shell safe mode
 
 This is a new mode added in the Enterprise 4.3 release to prevent the CRaSH shell embedded commands (for example, `java`, `system`) from being executed by a user with insufficient privilege. This is part of a general security-tightening initiative.
 
 When a shell is running in unsafe mode, the shell behaviour will be the same as before and will include CRaSH built-in commands. By default the internal shell will run in safe mode but will still be have the ability to execute RPC client calls as before based on existing RPC permissions. No Corda functionality is affected by this change; only the ability to access to the CRaSH shell embedded commands.
 
-When running an SSH shell, it will run in safe mode for any user that does not explicitly have permission ‘ALL’ as one the items in their RPC permission list, see [Working with the CordaRPCClient API]({{< relref "get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}) for more information about the RPC Client API. These shell changes arealso applied to the Stand Alone shell which will now run in safe mode (Enterprise 4.3 onwards). It may be possible that, in the future, the CRaSH shell embedded commands may become deprecated. Where possible, please do not write any new code that depends on them as they are technically not part of Corda functionality.
+When running an SSH shell, it will run in safe mode for any user that does not explicitly have permission ‘ALL’ as one the items in their RPC permission list, see [Working with the CordaRPCClient API]({{< relref "get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}) for more information about the RPC Client API. These shell changes arealso applied to the Stand Alone shell which will now run in safe mode (Enterprise 4.3 onward). It may be possible that, in the future, the CRaSH shell embedded commands may become deprecated. Where possible, please do not write any new code that depends on them as they are technically not part of Corda functionality.
 
 ### Getting help
 
@@ -249,7 +249,7 @@ This breaks down as follows:
 * `net.corda.finance.contracts.asset.Cash$State` is the fully-qualified name of the state type we are querying for.
 
 {{< note >}}
-For further guidance on the parameters used in shell commands, see the [Parameters Syntax section](#parameter-syntax) below.
+For further guidance on the parameters used in shell commands, see [Parameter syntax](#parameter-syntax) below.
 {{< /note >}}
 
 #### Example command output
@@ -518,7 +518,7 @@ No matching constructor found:
 The above command for `CashIssueFlow` invokes the following `CashIssueFlow` constructor:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 class CashIssueFlow(val amount: Amount<Currency>,
                     val issuerBankPartyRef: OpaqueBytes,
@@ -564,7 +564,7 @@ Use this command to display all flows currently running on the node with result 
 
 `flow watch`
 
-#### Example Output
+#### Example output
 
 The output will show results listed with flow `Id`, `Flow name`, `Initiator`, and `Status`.
 

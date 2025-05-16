@@ -97,7 +97,7 @@ Read more about package ownership in the [Package namespace ownership]({{< relre
 
 The list of whitelisted versions of contract code.
 For each contract class there is a list of SHA-256 hashes of the approved CorDapp JAR versions containing that contract.
-For more information about zone constraints, see [Contract Constraints]({{< relref "../cordapps/api-contract-constraints.md" >}}).
+For more information about zone constraints, see [Contract constraints]({{< relref "../cordapps/api-contract-constraints.md" >}}).
 
 
 

@@ -64,7 +64,7 @@ where the latest installed contract Jar is signed as per [CorDapp Jar signing]({
 where the latest installed contract Jar is signed as per [CorDapp Jar signing]({{< relref "cordapp-build-systems.md#sign-the-cordapp" >}}).
 * Explicit Contract Upgrades will be supported for all constraint types: hash, CZ whitelisted and signature.
 In practice, it should only be necessary to upgrade from hash or CZ whitelisted to new signature constrained contract types.
-signature constrained Contracts are upgradeable seamlessly (through built in serialization and code signing controls) without requiring explicit upgrades.
+signature constrained Contracts are upgradeable seamlessly (through built-in serialization and code signing controls) without requiring explicit upgrades.
 * Contract attachments will be able to explicitly declare their dependencies on other Contract attachments such that these are automatically
 loaded by the Attachments Classloader (rendering the 4.0 fallback to application classloader mechanism redundant).
 This improved modularity removes the need to “Fat JAR” all dependencies together in a single jar.

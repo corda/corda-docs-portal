@@ -52,7 +52,7 @@ The following **advanced Corda concepts** describe important conceptual informat
 
 Finally, some concepts that expand on other areas:
 
-* [Time-windows]({{< relref "../key-concepts-time-windows.md" >}}) - transactions can be validated as having fallen after, before or within a particular time-window.
+* [Time windows]({{< relref "../key-concepts-time-windows.md" >}}) - transactions can be validated as having fallen after, before or within a particular time window.
 * [Oracles]({{< relref "../key-concepts-oracles.md" >}}) - transactions can include off-ledger facts retrieved using Oracles.
 * [Nodes]({{< relref "../key-concepts-node.md" >}}) - each node contains an instance of Corda, one or more CorDapps, and so on.
 * [Transaction tear-offs]({{< relref "../key-concepts-tearoffs.md" >}}) - transactions can be signed by parties who have access to only a limited view of the transaction parts.

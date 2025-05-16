@@ -6,7 +6,7 @@ menu:
 tags:
 - blob
 - inspector
-title: Blob Inspector
+title: Blob inspector
 weight: 100
 ---
 
@@ -129,4 +129,4 @@ never normally need to specify this. Possible values [BINARY, HEX, BASE64]. Defa
 
 ### Sub-commands
 
-`install-shell-extensions`: Install `blob-inspector` alias and auto-completion for bash and zsh. See [Shell extensions for CLI Applications]({{< relref "node/operating/cli-application-shell-extensions.md" >}}).
+`install-shell-extensions`: Install `blob-inspector` alias and auto-completion for bash and zsh. See [Shell extensions for CLI applications]({{< relref "node/operating/cli-application-shell-extensions.md" >}}).

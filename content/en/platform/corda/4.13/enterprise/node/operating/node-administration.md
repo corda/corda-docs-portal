@@ -104,7 +104,7 @@ The node is using log4j2 asynchronous logging by default (configured via log4j2 
 to ensure that log message flushing is not slowing down the actual processing.
 If you need to switch to synchronous logging (e.g. for debugging/testing purposes), you can override this behaviour
 by adding `-DLog4jContextSelector=org.apache.logging.log4j.core.selector.ClassLoaderContextSelector` to the node’s
-command line or to the `jvmArgs` section of the node configuration (see [Node configuration]({{< relref "../setup/corda-configuration-file.md" >}}).
+command line or to the `jvmArgs` section of the node configuration; see [Node configuration]({{< relref "../setup/corda-configuration-file.md" >}}).
 
 Additionally, you need to override the log4j2 configuration file by specifying `-Dlog4j.configurationFile=<log4j2 config>`.
 The configuration file can be taken from the `config/dev` folder in [Corda Open Source Edition repository](https://github.com/corda/corda).
@@ -165,8 +165,7 @@ Node can be configured to run SSH server. See [Node shell]({{< relref "shell.md"
 
 ## Database access
 
-When running a node backed with a H2 database, the node can be configured to expose the database over a socket
-(see node-database-access-h2).
+When running a node backed with a H2 database, the node can be configured to expose the database over a socket; see [Database access when running H2]({{< relref "../../node-database-access-h2.md" >}}).
 
 Note that in a production set up, it is highly recommended to use an enterprise grade database, and access to the
 database should be via the usual database tools mechanisms, including access control and restrictions.
@@ -479,8 +478,8 @@ that were received over the network.
 A Contract CorDapp (an attachment) received over the network, is only allowed to be evaluated if there are other Contract
 CorDapps installed in the node that have been signed by at least one of the received CorDapp’s keys.
 
-See [Signature Constraints]({{< relref "../../cordapps/api-contract-constraints.md#signature-constraints" >}}) and
-[Signing CorDapps for use with Signature Constraints]({{< relref "../../cordapps/api-contract-constraints.md#signing-cordapps-for-use-with-signature-constraints" >}}) for more information
+See [Signature constraints]({{< relref "../../cordapps/api-contract-constraints.md#signature-constraints" >}}) and
+[Signing CorDapps for use with Signature constraints]({{< relref "../../cordapps/api-contract-constraints.md#signing-cordapps-for-use-with-signature-constraints" >}}) for more information
 
 {{< /note >}}
 

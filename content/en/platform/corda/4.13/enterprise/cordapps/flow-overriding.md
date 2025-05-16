@@ -6,14 +6,14 @@ menu:
 tags:
 - flow
 - overriding
-title: Configuring Responder Flows
+title: Configuring responder flows
 weight: 4
 ---
 
 
 
 
-# Configuring Responder Flows
+# Configuring responder flows
 
 A flow can be a fairly complex thing that interacts with many backend systems, and so it is likely that different users
 of a specific CorDapp will require differences in how flows interact with their specific infrastructure.
@@ -21,13 +21,13 @@ of a specific CorDapp will require differences in how flows interact with their 
 Corda supports this functionality by providing two mechanisms to modify the behaviour of apps in your node.
 
 
-## Subclassing a Flow
+## Subclassing a flow
 
 If you have a workflow which is mostly common, but also requires slight alterations in specific situations, most developers would be familiar
 with refactoring into *Base* and *Sub* classes. A simple example is shown below.
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @InitiatedBy(Initiator::class)
 open class BaseResponder(internal val otherSideSession: FlowSession) : FlowLogic<Unit>() {
@@ -47,7 +47,7 @@ class SubResponder(otherSideSession: FlowSession) : BaseResponder(otherSideSessi
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @InitiatingFlow
 public class Initiator extends FlowLogic<String> {
@@ -162,7 +162,7 @@ node {
 This will generate the corresponding `flowOverrides` section and place it in the configuration for that node.
 
 
-## Modifying the behaviour of @InitiatingFlow(s)
+## Modifying the behavior of @InitiatingFlow(s)
 
 It is likely that initiating flows will also require changes to reflect the different systems that are likely to be encountered.
 At the moment, corda provides the ability to subclass an Initiator, and ensures that the correct responder will be invoked.

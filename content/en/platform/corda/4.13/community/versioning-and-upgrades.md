@@ -18,12 +18,7 @@ title: Versioning and upgrades
 
 # Versioning and upgrades
 
-
-*Change is inevitable, except from a vending machine*
-– Abraham Lincoln
-
-
-This section of the guide covers how CorDapps are versioned and how to manage upgrades in a decentralised network. It should be read when
+This section of the guide covers how CorDapps are versioned and how to manage upgrades in a decentralized network. It should be read when
 you’re at a stage of your development that requires planning for post-launch iteration. You will learn:
 
 
@@ -39,11 +34,11 @@ the world changes is a key part of any professionally built software.
 * [API stability guarantees]({{< relref "api-stability-guarantees.md" >}})
 * [Public API]({{< relref "api-stability-guarantees.md#public-api" >}})
 * [Non-public API (experimental)]({{< relref "api-stability-guarantees.md#non-public-api-experimental" >}})
-* [The `@DoNotImplement` annotation]({{< relref "api-stability-guarantees.md#the-donotimplement-annotation" >}})
+* [The @DoNotImplement annotation]({{< relref "api-stability-guarantees.md#the-donotimplement-annotation" >}})
 * [Versioning]({{< relref "versioning.md" >}})
 * [Release new CorDapp versions]({{< relref "upgrading-cordapps.md" >}})
 * [CorDapp constraints migration]({{< relref "cordapp-constraint-migration.md" >}})
-* [CorDapp Upgradeability Guarantees]({{< relref "cordapp-upgradeability.md" >}})
+* [CorDapp upgradeability guarantees]({{< relref "cordapp-upgradeability.md" >}})
 
 
 

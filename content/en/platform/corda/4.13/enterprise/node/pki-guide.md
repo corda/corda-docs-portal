@@ -6,12 +6,12 @@ menu:
 tags:
 - pki
 - guide
-title: Certificate Hierarchy Guide
+title: Certificate hierarchy guide
 weight: 110
 ---
 
 
-# Certificate Hierarchy Guide
+# Certificate hierarchy guide
 
 
 
@@ -36,10 +36,10 @@ With all of the above in mind, the output of the PKI Tool execution is a certifi
 accompanied with the certificates associated with those key pairs as well as signed static certificate revocation lists.
 
 The PKI Tool is intended to make it easy to generate all the certificates needed for a Corda deployment.
-The tool generates the keys in the desired key store(s) and outputs a set of certificates necessary for correct Corda Network operation.
+The tool generates the keys in the desired key store(s) and outputs a set of certificates necessary for correct Corda network operation.
 
 
-## Corda Requirements
+## Corda requirements
 
 Corda nodes operate with the following assumptions on the certificates hierarchy:
 
@@ -49,16 +49,16 @@ Corda nodes operate with the following assumptions on the certificates hierarchy
 * They need to have the common root certificate, which is present in the node’s trust store.
 The length of the certificate chain can be arbitrary. As such, there can be any number of certificates between the Identity Manager and Network Map certificates as long
 as they root to the same certificate.
-* They need to have a custom extension defining the role of the certificate in the context of Corda. See the [Certificate Hierarchy Guide]({{< relref "../network/permissioning.md#certificate-role-extension" >}}) for more details.
+* They need to have a custom extension defining the role of the certificate in the context of Corda. See the [Certificate hierarchy guide]({{< relref "../network/permissioning.md#certificate-role-extension" >}}) for more details.
 
 
 Other than that, Corda nodes stay agnostic to the certificate hierarchy (in particular the depth of the certificate hierarchy tree).
 
 {{< figure alt="hierarchy agnostic" width=80% zoom="../resources/hierarchy-agnostic.png" >}}
-At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found in the [Certificate Hierarchy Guide]({{< relref "../network/permissioning.md#certificate-hierarchy" >}}).
+At the time of writing this document, the Corda network assumes the certificate hierarchy that can be found in the [Certificate hierarchy guide]({{< relref "../network/permissioning.md#certificate-hierarchy" >}}).
 
 
-### Certificate Revocation List
+### Certificate revocation list
 
 Every time two nodes communicate with each other they exchange their certificates and validate them against the Certificate Revocation List.
 In Corda, the certificate chains of the nodes are validated only during the SSL handshake.
@@ -83,12 +83,12 @@ which is then added to node’s trust store (in a similar way as the Corda Root 
 During the certificate revocation list validation process the trust store is consulted for the presence of the TLS Signer certificate.
 
 
-## Example Scenario
+## Example scenario
 
 As an example, let us consider the following certificate hierarchy:
 
 {{< figure alt="example hierarchy" width=80% zoom="../resources/example-hierarchy.png" >}}
-The certificate hierarchy presented above is currently (as of the time of writing this document) used in the Corda Network.
+The certificate hierarchy presented above is currently (as of the time of writing this document) used in the Corda network.
 It follows practices applicable for certificate authorities providing a balance between security and simplicity of usage.
 In this scenario, a network operator wants to create a CA hierarchy where the self-signed Root CA issues a certificate for the Subordinate CA which in turn issues
 two certificates for both Identity Manager CA and Network Map (note that the Network Map is not a CA-type entity).

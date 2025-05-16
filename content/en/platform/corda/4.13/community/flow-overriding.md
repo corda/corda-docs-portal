@@ -12,13 +12,13 @@ menu:
 tags:
 - flow
 - overriding
-title: Configuring Responder Flows
+title: Configuring responder flows
 ---
 
 
 
 
-# Configuring Responder Flows
+# Configuring responder flows
 
 A flow can be a fairly complex thing that interacts with many backend systems, and so it is likely that different users
 of a specific CorDapp will require differences in how flows interact with their specific infrastructure.
@@ -32,7 +32,7 @@ If you have a workflow which is mostly common, but also requires slight alterati
 with refactoring into *Base* and *Sub* classes. A simple example is shown below.
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @InitiatedBy(Initiator::class)
 open class BaseResponder(internal val otherSideSession: FlowSession) : FlowLogic<Unit>() {
@@ -52,7 +52,7 @@ class SubResponder(otherSideSession: FlowSession) : BaseResponder(otherSideSessi
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @InitiatingFlow
 public class Initiator extends FlowLogic<String> {

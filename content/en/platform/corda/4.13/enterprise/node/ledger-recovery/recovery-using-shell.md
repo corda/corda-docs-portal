@@ -9,7 +9,7 @@ title: Ledger Recovery using the shell
 weight: 800
 ---
 
-# Ledger Recovery using the shell
+# Ledger recovery using the shell
 
 The following examples show the different ways to use the Ledger Recovery flow from the Corda node shell.
 

@@ -104,7 +104,7 @@ To upgrade your CorDapps to platform version 5, you need to:
 The following code (which compiled in platform version 4) will not compile in platform version 5:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 data class Obligation(val amount: Amount<Currency>, val lender: AbstractParty, val borrower: AbstractParty)
 
@@ -141,7 +141,7 @@ as `AbstractParty`.
 To fix the issue, you must provide an explicit type hint to the compiler.
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 data class Obligation(val amount: Amount<Currency>, val lender: AbstractParty, val borrower: AbstractParty)
 

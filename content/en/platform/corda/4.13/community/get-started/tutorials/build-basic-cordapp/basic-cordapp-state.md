@@ -35,13 +35,13 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
 3. Run the following command:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 git clone https://github.com/corda/cordapp-template-kotlin/tree/release/4.12.git
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 git clone (https://github.com/corda/cordapp-template-java/tree/release/4.12.git
 ```
@@ -52,13 +52,13 @@ git clone (https://github.com/corda/cordapp-template-java/tree/release/4.12.git
 3. After you have cloned the repository you wish to use, navigate to the correct subdirectory:
 
    {{< tabs name="tabs-2" >}}
-   {{% tab name="kotlin" %}}
+   {{% tab name="Kotlin" %}}
    ```kotlin
    cd cordapp-template-kotlin
    ```
    {{% /tab %}}
 
-   {{% tab name="java" %}}
+   {{% tab name="Java" %}}
    ```java
    cd cordapp-template-java
    ```
