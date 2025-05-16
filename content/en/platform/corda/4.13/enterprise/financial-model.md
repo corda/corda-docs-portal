@@ -22,14 +22,10 @@ These provide a common language for states and contracts.
 
 ## Glossary
 
-**Fungible**
-
-If you could exchange an asset for an identical asset, and the asset can be split and merged, then it is fungible. For example, US dollars are fungible because you could exchange a $5 bill for another $5 bill, which you could break down into five $1 bills. However, there is only one *Mona Lisa*, which cannot be subdivided - so the *Mona Lisa* is not a fungible asset.
-
-
-**Token**
-
-A type used to define the underlying financial product in a transaction.
+- **Fungible:**
+   If you could exchange an asset for an identical asset, and the asset can be split and merged, then it is fungible. For example, US dollars are fungible because you could exchange a $5 bill for another $5 bill, which you could break down into five $1 bills. However, there is only one *Mona Lisa*, which cannot be subdivided - so the *Mona Lisa* is not a fungible asset.
+- **Token:**
+   A type used to define the underlying financial product in a transaction.
 
 ## Amount
 

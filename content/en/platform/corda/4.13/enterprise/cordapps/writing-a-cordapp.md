@@ -19,11 +19,11 @@ In this document, you will find:
 
 ## Glossary
 
-*module*
+- **Module:**
     A module is a software component or part of a program that contains one or more routines.
-*class*
+- **Class:**
     A class defines a set of properties and methods that are common to all objects of one type. Classes are written in a defined structure to create a Java or Kotlin object.
-*dependency*
+- **Dependency:**
     When one object uses another object's function.
 
 

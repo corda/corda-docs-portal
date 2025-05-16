@@ -22,13 +22,11 @@ The Network Bootstrapper automates the processes of creating and distributing th
 
 ## Glossary
 
-| Term                          | Definition                                                                                               |
-|-------------------------------|----------------------------------------------------------------------------------------------------------|
-| network parameters            | A set of constants shared between a group of nodes to guarantee interoperability.                        |
-| `node-info` file              | A file containing information about the node.                                                            |
-| compatibility zone constraint | The compatibility zone operator lists the hashes of CorDapp versions that a contract class name can use. |
-| signature constraint           | A contract class can use any version of a CorDapp that is signed by a given `CompositeKey`.              |
-| hash constraint               | Only one version of a CorDapp can be used with a specific state.                                         |
+- **Network parameters:** A set of constants shared between a group of nodes to guarantee interoperability.
+- **node-info file:** A file containing information about the node.
+- **Compatibility zone constraint:**  The compatibility zone operator lists the hashes of CorDapp versions that a contract class name can use.
+- **Signature constraint:** A contract class can use any version of a CorDapp that is signed by a given `CompositeKey`.
+- **Hash constraint:** Only one version of a CorDapp can be used with a specific state.
 
 
 ## Test deployments

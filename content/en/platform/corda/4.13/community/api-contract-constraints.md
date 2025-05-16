@@ -34,14 +34,12 @@ This document explains:
 
 
 ## Glossary
-These terms are used throughout this document:
+These terms are used throughout this topic:
 
 - **Contract constraints:** Instructions in a CorDapp's attachments that determine which versions of a CorDapp parties in a transaction can use to provide contracts.
 - **Composite key:** A key that consists of two or more attributes that together uniquely identify an entity occurrence.
 - **Signature constraint:** A constraint that lets participants use any version of the CorDapp signed by the `CompositeKey`.
 - **Blacklisting:** A process that prevents a transaction signer from processing transactions.
-
-
 
 ## Implicit and explicit contract upgrades
 
@@ -94,7 +92,7 @@ Nodes will also trust attachments that:
 * Are installed manually.
 * Are uploaded via RPC.
 
-You can [sign a CorDapp directly from Gradle]({{< relref "cordapp-build-systems.md#signing-the-cordapp-jar" >}}).
+You can [sign a CorDapp directly from Gradle]({{< relref "cordapp-build-systems.md#sign-the-cordapp" >}}).
 
 
 ### CorDapp contract storage and retrieval

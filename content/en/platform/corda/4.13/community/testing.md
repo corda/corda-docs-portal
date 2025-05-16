@@ -35,9 +35,24 @@ There are several test suites:
 
 These tests are mostly written with JUnit and can be run via `gradle`:
 
-
-* **Windows**: Run `gradlew test integrationTest smokeTest`
-* **Unix/macOS**: Run `./gradlew test integrationTest smokeTest`
+   {{< tabs name="tabs-2" >}}
+   {{% tab name="Unix" %}}
+   ```shell
+   ./gradlew test integrationTest smokeTest
+   ```
+   {{% /tab %}}
+   {{% tab name="macOS" %}}
+   ```shell
+   ./gradlew test integrationTest smokeTest
+   ```
+   {{% /tab %}}
+   {{% tab name="Windows" %}}
+   ```shell
+   gradlew test integrationTest smokeTest
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+   
 
 Before creating a pull request please make sure these pass.
 
@@ -48,9 +63,9 @@ You should manually test anything that would be impacted by your changes. The ar
 as follows:
 
 
-* **Node startup** - changes in the `node` or `node:capsule` project in both the Kotlin or gradle or the `cordformation` gradle plugin.
-* **Sample project** - changes in the `samples` project. eg; changing the IRS demo means you should manually test the IRS demo.
-* **Explorer** - changes to the `tools/explorer` project.
+- **Node startup:** Changes in the `node` or `node:capsule` project in both the Kotlin or Gradle or the `cordformation` gradle plugin.
+- **Sample project:** Changes in the `samples` project; for example, changing the IRS demo means you should manually test the IRS demo.
+- **Explorer:** Changes to the `tools/explorer` project.
 
 How to manually test each of these areas differs and is currently not fully specified. For now the best thing to do is to ensure the
 program starts, that you can interact with it, and that no exceptions are generated in normal operation.
@@ -64,17 +79,13 @@ set for you.
 
 To switch to using the Gradle runner:
 
+1. Navigate to **Build, Execution, Deployment -> Build Tools -> Gradle -> Runner** (or search for **runner**).
+    * Windows: This is in “Settings”
+    * macOS: This is in “Preferences”
+2. Set **Delegate IDE build/run actions to gradle** to true.
+3. Set **Run test using:** to **Gradle Test Runner**.
 
-* Navigate to `Build, Execution, Deployment -> Build Tools -> Gradle -> Runner` (or search for *runner*)
-    * Windows: this is in “Settings”
-    * macOS: this is in “Preferences”
-
-
-* Set “Delegate IDE build/run actions to gradle” to true
-* Set “Run test using:” to “Gradle Test Runner”
-
-
-If you would prefer to use the built in IntelliJ JUnit test runner, you can add some code to your `build.gradle` file and
+If you would prefer to use the built-in IntelliJ JUnit test runner, you can add some code to your `build.gradle` file and
 it will copy your quasar JAR file to the lib directory.
 
 {{< note >}}

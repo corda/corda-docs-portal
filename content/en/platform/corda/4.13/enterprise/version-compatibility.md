@@ -18,7 +18,7 @@ is maintained with future versions of Corda Enterprise.
 
 Corda Enterprise Edition 4.0 can be used in mixed-version/mixed-distribution networks seamlessly, transacting with nodes running on a minimum platform version of 4.
 
-See [versioning]({{< relref "cordapps/versioning.md" >}}) for further information.
+See [Versioning]({{< relref "cordapps/versioning.md" >}}) for further information.
 
 
 {{< note >}}
@@ -49,7 +49,7 @@ You should also be aware of the following:
 
 * Corda Enterprise Edition 4.0 nodes can run CorDapps developed on and packaged for Corda 4.x, without recompilation.
   However, due to Corda Enterprise's advanced features, such as database migration scripting support, we anticipate application developers
-  will build their CorDapp kernels (contracts, states) against Corda Open Source, and supply two separate workflow JARs (that depend on the same kernel) that are optimized for each distribution. See [separation of CorDapp contracts, flows and services]({{< relref "cordapps/cordapp-build-systems.md#separate-cordapp-contracts-flows-and-services" >}}) for further information.
+  will build their CorDapp kernels (contracts, states) against Corda Open Source, and supply two separate workflow JARs (that depend on the same kernel) that are optimized for each distribution. See [Separate CorDapp contracts, flows, and services]({{< relref "cordapps/cordapp-build-systems.md#separate-cordapp-contracts-flows-and-services" >}}) for further information.
 
 {{< note >}}
 

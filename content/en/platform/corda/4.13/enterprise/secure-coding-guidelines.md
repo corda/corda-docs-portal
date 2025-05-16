@@ -16,10 +16,10 @@ weight: 40
 
 Corda is designed to be secure by default. However, the platform cannot create a secure environment on its own - you need to follow security best practices when developing CorDapps and using the Corda network.
 
-This document explains:
+This topic explains:
 * Why you should write secure CorDapps, even if you trust the counterparties you transact with.
 * Where and how security issues can be introduced to your transaction.
-* Security best practices.
+* How to use security best practices.
 
 
 ## Why write secure CorDapps when I trust the other party?
@@ -29,8 +29,8 @@ Once you have signed a transaction, there is nothing you can do to prevent the t
 
 ## Entry points for attacks
 Your CorDapp is vulnerable at two points:
-* **Flows**. Flows let your CorDapp communicate with other parties on the network. That means insecure flows can be an entry point for malicious data.
-* **Contracts**. Contracts are arbitrary functions inside a JVM sandbox, so it is important make sure they behave as expected.
+- **Flows:** Flows let your CorDapp communicate with other parties on the network. That means insecure flows can be an entry point for malicious data.
+- **Contracts:** Contracts are arbitrary functions inside a JVM sandbox, so it is important that they behave as expected.
 
 ### Secure flows
 

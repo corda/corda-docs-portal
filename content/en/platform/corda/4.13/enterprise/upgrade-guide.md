@@ -130,15 +130,14 @@ To validate a pre-4.11 node, perform the following steps:
 9. Create a `cordapps` directory and add the JDK 17/Kotlin 1.9 CordApps to this directory.
 10. If required (see above description), create a `legacy-jars` directory and add third-party dependencies to this directory.
 11. Run the TVU:
-
-   ```
-   $ java -jar corda-tools-transaction-validator-4.12-RC01.jar
-   Starting
-   Total Transactions: 41
-   Waiting for all transactions to be processed...
-   Success, All transactions processed.
-   Total time taken: 3943ms
-   ```
+    ```
+    $ java -jar corda-tools-transaction-validator-4.12-RC01.jar
+    Starting
+    Total Transactions: 41
+    Waiting for all transactions to be processed...
+    Success, All transactions processed.
+    Total time taken: 3943ms
+    ```
 
 If there are any transactions that cannot be validated, you must address the reported issues before proceeding with the upgrade.
 If all transactions are validated successfully, then you can upgrade the node, or it can safely interoperate with a 4.12 node.

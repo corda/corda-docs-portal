@@ -30,24 +30,20 @@ This document explains:
 
 
 ## Glossary
-These terms are used throughout this document:
 
-*contract constraints* Instructions in a CorDapp's attachments that determine which versions of a CorDapp parties in a transaction can use to provide contracts.
+These terms are used throughout this topic:
 
-**composite key** A key that consists of two or more attributes that together uniquely identify an entity occurrence.
-
-*signature constraint* A constraint that lets participants use any version of the CorDapp signed by the `CompositeKey`.
-
-*blacklisting* A process that prevents a transaction signer from processing transactions.
-
-
+- **Contract constraints:** Instructions in a CorDapp's attachments that determine which versions of a CorDapp parties in a transaction can use to provide contracts.
+- **Composite key:** A key that consists of two or more attributes that together uniquely identify an entity occurrence.
+- **Signature constraint:** A constraint that lets participants use any version of the CorDapp signed by the `CompositeKey`.
+- **Blacklisting:** A process that prevents a transaction signer from processing transactions.
 
 ## Implicit and explicit contract upgrades
 
 You can upgrade smart contracts via:
 
-* **Implicit upgrade**. Pre-authorise multiple implementations of the contract ahead of time using constraints. This lets you upgrade contracts without needing to upgrade transactions for every state on the ledger. However, with implicit upgrade, you place more faith in third parties, who could change the CorDapp in ways you do not expect or agree with.
-* **Explicit upgrade**. Create a special *contract upgrade transaction* and get all the participants listed on a state to sign it using the contract upgrade flows. This lets you upgrade states even if they have a constraint. Unlike implicit upgrade, this is a complex method which requires all participants to sign and manually authorise the upgrade, and consumes notary and ledger resources.
+- **Implicit upgrade:** Pre-authorise multiple implementations of the contract ahead of time using constraints. This lets you upgrade contracts without needing to upgrade transactions for every state on the ledger. However, with implicit upgrade, you place more faith in third parties, who could change the CorDapp in ways you do not expect or agree with.
+- **Explicit upgrade:** Create a special *contract upgrade transaction* and get all the participants listed on a state to sign it using the contract upgrade flows. This lets you upgrade states even if they have a constraint. Unlike implicit upgrade, this is a complex method which requires all participants to sign and manually authorise the upgrade, and consumes notary and ledger resources.
 
 
 This article focuses on implicit contract upgrades. To learn about the explicit upgrades see [Release new CorDapp versions]({{< relref "upgrading-cordapps.md" >}}).
@@ -58,21 +54,19 @@ This article focuses on implicit contract upgrades. To learn about the explicit 
 
 You can use two types of contract constraints:
 
-* **Signature constraints**: This constraint lets participants use any version of the CorDapp signed by the `CompositeKey`. This allows CorDapp issuers to express the complex social and business relationships that arise around code ownership. You could release a new version of a CorDapp and apply it to an existing state as long as it has been signed by the same key(s) as the original version.
-* **Always accept constraint**: Allows any version of the CorDapp. This is insecure and only intended for testing.
+- **Signature constraints:** This constraint lets participants use any version of the CorDapp signed by the `CompositeKey`. This allows CorDapp issuers to express the complex social and business relationships that arise around code ownership. You could release a new version of a CorDapp and apply it to an existing state as long as it has been signed by the same key(s) as the original version.
+- **Always accept constraint:** Allows any version of the CorDapp. This is insecure and only intended for testing. Before signature constraints were released with Corda 4.0, constraints were managed with hash and compatibility zone whitelist constraints. These constraints are still available, but make it difficult to upgrade your CorDapp:
 
-Before signature constraints were released with Corda 4.0, constraints were managed with hash and compatibility zone whitelist constraints. These constraints are still available, but make it difficult to upgrade your CorDapp:
+- **Hash constraint:** Participants can only use one version of the CorDapp state. This prevents the CorDapp from being upgraded in the future while still making use of any states created using the original version.
+- **Compatibility zone whitelisted (or CZ whitelisted) constraint:** The compatibility zone operator lists the hashes of the versions that can be used with a contract class name.
 
-* **Hash constraint**: Participants can only use one version of the CorDapp state. This prevents the CorDapp from being upgraded in the future while still making use of any states created using the original version.
-* **Compatibility zone whitelisted (or CZ whitelisted) constraint**: The compatibility zone operator lists the hashes of the versions that can be used with a contract class name.
-
-Learn more about constraints before Corda 4.0 in the [archived-docs](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs) directory of the [corda-docs-portal](https://github.com/corda/corda-docs-portal) repository. You can also [migrate CorDapp contraints]({{< relref "cordapp-constraint-migration.md" >}}) from older versions by consuming and evolving pre-Corda 4 issued hash or CZ whitelisted constrained states using a Corda 4 signed CorDapp with signature constraints.
+You can [migrate CorDapp contraints]({{< relref "cordapp-constraint-migration.md" >}}) from older versions by consuming and evolving pre-Corda 4 issued hash or CZ whitelisted constrained states using a Corda 4 signed CorDapp with signature constraints.
 
 
 ## Signature constraints
 
 
-**Signature constraints** let you express complex social and business relationships while allowing smooth migration of existing data to new versions of your CorDapp.
+*Signature constraints* let you express complex social and business relationships while allowing smooth migration of existing data to new versions of your CorDapp.
 
 You can use signature constraints to specify flexible threshold policies. However, if you use the automatic support, then a state requires that the attached CorDapp is signed by every key that signed the first attachment. For example, if Alice and Bob signed a CorDapp that was used to issue some states, every transaction must include an attachment signed by Alice and Bob. This allows the CorDapp to be upgraded and changed while still remaining valid for use with the previously issued states.
 
