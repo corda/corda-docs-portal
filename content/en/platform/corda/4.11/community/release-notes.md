@@ -28,7 +28,6 @@ Corda Community Edition 4.11.5 is a patch release of Corda Community Edition foc
 
 * When deploying a test node using DriverDSL, the node now starts successfully without encountering a `NoSuchMethodError` exception.
 * You can now create two nodes with identical `O` field values but different `OU` values in their X.500 names when using the DriverDSL for testing.
-* `ReceiveTransactionFlow` has been improved to address potential issues when handling network parameters. Previously, it verified the existence of network parameters on a transaction before executing `ResolveTransactionFlow`. This could cause issues in scenarios such as sending a top-level transaction to a new node in a migrated network, where the old network parameters might not be available on the new node. This behavior has now been corrected.
 
 ### New features, enhancements and restrictions
 
