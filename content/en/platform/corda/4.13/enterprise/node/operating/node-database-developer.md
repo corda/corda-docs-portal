@@ -20,7 +20,7 @@ This setup allows the auto-creation of database objects by the node upon startup
 by connecting to a database with a user with **administrative permissions**.
 Please refer to [Database schema setup]({{< relref "node-database-admin.md" >}}) if you are setting up a Corda database in a production environment.
 
-The instructions cover all commercial third-party database vendors supported by Corda Enteprise
+The instructions cover all commercial third-party database vendors supported by Corda Enterprise
 (Azure SQL, SQL Server, Oracle and PostgreSQL), and the default embedded H2 database:
 
 

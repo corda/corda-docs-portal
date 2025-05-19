@@ -16,8 +16,8 @@ weight: 3
 To interact with your node, you need to build an RPC client. This RPC client enables you to connect to a specified server and to make calls to the server that perform various useful tasks. The RPC client must be written in a JVM-compatible language.
 
 Corda Enterprise supports two types of RPC client:
-* **Corda RPC Client**, which is used if you want to interact with your node via the `CordaRPCOps` remote interface only.
-* **Multi RPC Client**, which is used if you want to interact with your node via any of the other remote interfaces that the Corda node provides.
+- **Corda RPC Client:** Used if you want to interact with your node via the `CordaRPCOps` remote interface only.
+- **Multi RPC Client:** Used if you want to interact with your node via any of the other remote interfaces that the Corda node provides.
 
 To interact with your node via HTTP, you need to start up your own webserver that connects to your node using the [CordaRPCClient](../../../../../../../en/api-ref/corda/4.13/enterprise/javadoc/net/corda/client/rpc/CordaRPCClient.html) [(Kotlin)](../../../../../../../en/api-ref/corda/4.13/enterprise/kotlin/corda/net.corda.client.rpc/-corda-r-p-c-client/index.html) class. You can find an example of how to do this using the popular Spring Boot server [here](https://github.com/corda/samples-java/tree/release/4.13/Advanced/obligation-cordapp/clients).
 

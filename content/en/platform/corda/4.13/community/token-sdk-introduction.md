@@ -77,8 +77,8 @@ Before upgrading, make sure the platform database schema is properly migrated an
 
 The Tokens SDK is contained in two JAR  files which includes all the required dependencies for your CorDapp, including:
 
-* **Contracts**, which contains the base token types, states and contracts needed to create a token, including token type definitions for fiat and digital currencies.
-* **Workflows**, which contains the flows for issuing, moving, redeeming tokens, and selection workflows, which allow a party to select which source of fungible tokens they will use to pay with in a transaction.
+* **Contracts:** Contain the base token types, states and contracts needed to create a token, including token type definitions for fiat and digital currencies.
+* **Workflows:** Contain the flows for issuing, moving, redeeming tokens, and selection workflows, which allow a party to select which source of fungible tokens they will use to pay with in a transaction.
 
 As the **Contracts** JAR file contains the ability to define and create tokens, and the **Workflows** JAR file contains the flows required to use them, you must add both JAR files to your CorDapp's folder in order to use the Tokens SDK.
 

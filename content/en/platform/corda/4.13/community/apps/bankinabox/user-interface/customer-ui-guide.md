@@ -26,11 +26,11 @@ The descriptions below apply to the customer user interface. See the [Admin user
 
 The navigation on the left-hand side allows a Customer to access the following:
 
-* **Update My Profile**.
-* **Accounts**.
-* **Transactions**.
-* **Intrabank payment**.
-* **Recurring payments**.
+* **Update My Profile**
+* **Accounts**
+* **Transactions**
+* **Intrabank payment**
+* **Recurring payments**
 
 {{< note >}}
 The guest user interface has the same log in screen and navigation menu as the customer user role. However, a guest user will not have access to these screens until an Admin user has assigned them the role of Customer.

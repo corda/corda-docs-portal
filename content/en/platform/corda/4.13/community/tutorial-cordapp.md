@@ -30,7 +30,7 @@ The sample CorDapp allows nodes to reach loan agreements with each other, as lon
 
 You will deploy and run the sample CorDapp on the following test nodes:
 
-* **Notary**, which runs a notary service
+* **Notary:** Runs a notary service
 * **PartyA**
 * **PartyB**
 

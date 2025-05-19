@@ -21,7 +21,7 @@ A Corda Open Source Edition node can be upgraded to Corda Enterprise.
 If the same database is to be reused, the most complicated steps are ensuring custom CorDapps contain
 Liquibase database management scripts and adding these scripts into the database change log table.
 
-The migration from an H2 database to a 3rd party commercial database, while upgrading to Corda Enteprise,
+The migration from an H2 database to a 3rd party commercial database, while upgrading to Corda Enterprise,
 requires a third party tool to migrate data.
 
 ## Upgrade from Corda Open Source Edition to Corda Enterprise

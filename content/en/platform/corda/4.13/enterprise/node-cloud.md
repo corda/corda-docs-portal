@@ -13,7 +13,7 @@ weight: 130
 
 # Corda Enterprise cloud images
 
-Corda Enteprise is avaliable as a Virtual Machine image on AWS and Azure.
+Corda Enterprise is avaliable as a Virtual Machine image on AWS and Azure.
 These are simple Linux VM images with a JDK supported by both cloud providers and Corda Enterprise.
 Alongside the Corda Enterprise JAR the image contains an example `node.conf` file and `dbconfig.conf` file for H2 DB.
 There is also the systemd service (called `corda`) ready to use.
