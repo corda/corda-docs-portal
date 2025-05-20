@@ -273,8 +273,7 @@ object CashSchemaV1 : MappedSchema(schemaFamily = CashSchema.javaClass, version 
 {{< note >}}
 If the CorDapp needs to be portable between Corda OS (running against H2) and Corda Enterprise (running against a standalone database),
 consider database vendors specific requirements.
-Ensure that table and column names are compatible with the naming convention of the database vendors for which the CorDapp will be deployed,
-e.g. for Oracle database, prior to version 12.2 the maximum length of table/column name is 30 bytes (the exact number of characters depends on the database encoding).
+Ensure that table and column names are compatible with the naming convention of the database vendors for which the CorDapp will be deployed. For example, for Oracle databases, prior to version 12.2 the maximum length of table/column name is 30 bytes (the exact number of characters depends on the database encoding).
 
 {{< /note >}}
 

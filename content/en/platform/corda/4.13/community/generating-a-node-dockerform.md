@@ -40,7 +40,7 @@ You do not need to specify the node ports because every node has a separate cont
 
 You should interact with each node via its shell over SSH - see the [node configuration options]({{< relref "corda-configuration-file.md" >}}) for more information.
 
-To enable the shell, you need to set the `sshdPort` number for each node in the gradle task - this is explained in the section [run the Dockerform task](#run-the-dockerform-task) further below. For example:
+To enable the shell, you need to set the `sshdPort` number for each node in the Gradle task - this is explained in the section [run the Dockerform task](#run-the-dockerform-task) further below. For example:
 
 ```groovy
 node {
@@ -56,7 +56,7 @@ node {
 ```
 
 {{< note >}}
-Make sure to use Corda gradle plugin version 5.0.10 or above. If you do not specify the `sshd` port number for a node, it will use the default value `2222`. Please run the `docker ps` command to check the allocated port on your host that maps to this port.
+Make sure to use Corda Gradle plugin version 5.0.10 or above. If you do not specify the `sshd` port number for a node, it will use the default value `2222`. Please run the `docker ps` command to check the allocated port on your host that maps to this port.
 {{< /note >}}
 
 The Docker image associated with each node can be configured in the `Dockerform` task. This will initialise *every* node in the `Dockerform` task with the specified Docker image. If you need nodes with different Docker images, you can edit the `docker-compose.yml` file with your preferred image.
@@ -238,7 +238,7 @@ You can configure `Dockerform` to use a standalone database to test with non-H2 
    ```
 
 The `postgres.gradle` file includes the following:
-* A gradle task called `generateInitScripts` used to generate the Postgres Docker image files.
+* A Gradle task called `generateInitScripts` used to generate the Postgres Docker image files.
 * A set of variables used to initialise the Postgres Docker image.
 
 To set up the external database, you must place the following two files in the `build` directory:
@@ -344,7 +344,7 @@ If the external database is not defined and configured properly, as described in
 
 In this case, each Corda node is associated with a Postgres database. Only one Corda node can connect to the same database. While there is no maximum number of nodes you can deploy with `Dockerform`, you are constrained by the maximum available resources on the machine running this task, as well as the overhead introduced by every Docker container that is started. All the started nodes run in the same Docker overlay network.
 
-The connection settings to the Postgres database are provided to each node through the `postgres.gradle` file. The Postgres JDBC driver is provided via Maven as part of the `cordaDrive` gradle configuration, which is also specified in the dependencies block of the `postgres.gradle` file.
+The connection settings to the Postgres database are provided to each node through the `postgres.gradle` file. The Postgres JDBC driver is provided via Maven as part of the `cordaDrive` Gradle configuration, which is also specified in the dependencies block of the `postgres.gradle` file.
 
 Note that this feature is not designed for users to access the database via elevated or admin rights - you must only use such configuration changes for testing/development purposes.
 {{< /note >}}

@@ -171,7 +171,7 @@ To be deemed valid, most transactions have many requirements or verification sta
 * There should only be one output state.
 
 You could write verification logic that throws an error for each of these requirements. However, it would be more efficient to
-use a `requireThat` function to list a series of requirements as string/boolean pairs:
+use a `requireThat` function to list a series of requirements as string/Boolean pairs:
 
 ```kotlin
 requireThat {
@@ -184,7 +184,7 @@ requireThat {
 }
 ```
 
-The function checks each string and boolean pair within the `requireThat` function. If the boolean condition is false, the function throws an `IllegalArgumentException`
+The function checks each string and Boolean pair within the `requireThat` function. If the Boolean condition is false, the function throws an `IllegalArgumentException`
 with the corresponding string as the exception message. This exception causes the transaction to be rejected.
 
 

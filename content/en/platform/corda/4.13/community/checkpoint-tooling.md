@@ -65,7 +65,7 @@ Below are some of the more important fields included in the output:
 * `topLevelFlowClass`: The name of the original flow that was invoked (by RPC or a service)
 * `topLevelFlowLogic`: Detailed view of the top level flow
 * `flowCallStackSummary`: A summarised list of the current stack of sub flows along with any progress tracker information
-* `suspendedOn`: The command that the flow is suspended on (e.g. `SuspendAndReceive`) which includes the `suspendedTimestamp`
+* `suspendedOn`: The command that the flow is suspended on (for example, `SuspendAndReceive`) which includes the `suspendedTimestamp`
 * `flowCallStack` A detailed view of the of the current stack of sub flows
 
 
@@ -190,7 +190,7 @@ The checkpoint agent can be downloaded from [here](https://download.corda.net/ma
 To run simply pass in the following jar to the JVM used to start a Corda node: `-Dcapsule.jvm.args=-javaagent:<PATH>/checkpoint-agent.jar[=arg=value,...]`
 
 {{< note >}}
-As above also ensure to use the jar when using corda gradle plugin configuration tasks: e.g. `cordformation deployNodes` task.
+As above also ensure to use the jar when using corda gradle plugin configuration tasks; for example, `cordformation deployNodes` task.
 See [Generating a node]({{< relref "generating-a-node.md" >}}).
 
 {{< /note >}}
@@ -349,13 +349,14 @@ Checkpoint id: 15f16740-4ea2-4e48-bcb3-fd9051d5ba59
 etc ...
 ```
 
-Note,
+
+#### Note
 
 
-* on WRITE (eg. a checkpoint is being serialized to disk), we have complete information of the checkpoint object including the Fiber it is
-running on and its checkpoint id (43c7d5c8-aa66-4a98-beed-dc91354d0353)
-* on READ (eg. a checkpoint is being deserialized from disk), we only have information about the stack class hierarchy.
-Additionally, if we are using the CRaSH shell `checkpoints dump` command, we also see a flows checkpoint id.
+* On WRITE (for example, a checkpoint is being serialized to disk), we have complete information of the checkpoint object including the Fiber it is
+running on and its checkpoint ID (43c7d5c8-aa66-4a98-beed-dc91354d0353)
+* On READ (for example, a checkpoint is being deserialized from disk), we only have information about the stack class hierarchy.
+Additionally, if we are using the CRaSH shell `checkpoints dump` command, we also see a flows checkpoint ID.
 
 
 ## Flow diagnostic process

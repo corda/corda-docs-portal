@@ -949,7 +949,7 @@ If not provided then the node will run without RPC.
 
 Options for the RPC server exposed by the Node.
 
-**Important: The RPC SSL certificate is used by RPC clients to authenticate the connection.  The Node operator must provide RPC clients with a truststore containing the certificate they can trust.  We advise Node operators to not use the P2P keystore for RPC.  The node can be run with the "generate-rpc-ssl-settings" command, which generates a secure keystore and truststore that can be used to secure the RPC connection. You can use this if you have no special requirements.**
+**Important:** The RPC SSL certificate is used by RPC clients to authenticate the connection.  The node operator must provide RPC clients with a truststore containing the certificate they can trust.  We advise node operators to not use the P2P keystore for RPC.  The node can be run with the "generate-rpc-ssl-settings" command, which generates a secure keystore and truststore that can be used to secure the RPC connection. You can use this if you have no special requirements.
 
 * `address`
   * host and port for the RPC server binding. Specifying 0.0.0.0 (as host) is a convention allowing the host to bind all of its network interfaces when listening on a socket. By itself 0.0.0.0 is non-routable; i.e., not a proper address.
@@ -1014,13 +1014,13 @@ Internal option.
 ## `systemProperties`
 
 An optional map of additional system properties to be set when launching via `corda.jar` only.
-Keys and values of the map should be strings. e.g. `systemProperties = { "visualvm.display.name" = FooBar }`
+Keys and values of the map should be strings; for example, `systemProperties = { "visualvm.display.name" = FooBar }`
 
 *Default:* not defined
 
 ## `telemetry`
 
-There are new configuration fields for telemetry. See the [OpenTelemetry]({{< relref "../../../enterprise/node/operating/monitoring-and-logging/opentelemetry.md" >}}) section for more information.
+There are new configuration fields for telemetry. See the [OpenTelemetry]({{< relref "../operating/monitoring-and-logging/opentelemetry.md" >}}) section for more information.
 
 * `openTelemetryEnabled`
   * Specifies if the node should generate spans to be sent to a collector. The node will only generate spans if this property is set to `true` and an OpenTelemetry SDK is on the node classpath. By default, no OpenTelemetry SDK is on the node classpath, meaning by default no spans are actually generated. To prevent spans being generated regardless of whether the OpenTelemetry SDK is on the classpath, this configuration field should be set to `false`.

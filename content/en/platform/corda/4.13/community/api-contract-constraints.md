@@ -46,7 +46,7 @@ These terms are used throughout this topic:
 You can upgrade smart contracts via:
 
 - **Implicit upgrade:** Pre-authorise multiple implementations of the contract ahead of time using constraints. This lets you upgrade contracts without needing to upgrade transactions for every state on the ledger. However, with implicit upgrade, you place more faith in third parties, who could change the CorDapp in ways you do not expect or agree with.
-- **Explicit upgrade:** Create a special *contract upgrade transaction* and get all the participants listed on a state to sign it using the contract upgrade flows. This lets you upgrade states even if they have a constraint. Unlike implicit upgrade, this is a complex method which requires all participants to sign and manually authorise the upgrade, and consumes notary and ledger resources.
+- **Explicit upgrade:** Create a special *contract upgrade transaction* and get all the participants listed on a state to sign it using the contract upgrade flows. This lets you upgrade states even if they have a constraint. Unlike implicit upgrade, this is a complex method which requires all participants to sign and manually authorize the upgrade, and consumes notary and ledger resources.
 
 
 This article focuses on implicit contract upgrades. To learn about the explicit upgrades see [Release new CorDapp versions]({{< relref "upgrading-cordapps.md" >}}).

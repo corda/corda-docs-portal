@@ -127,7 +127,7 @@ The transaction is now part of the ledger.
 ## The `FlowLogic` class
 
 You can implement flows as one or more communicating `FlowLogic` subclasses. The `FlowLogic`
-subclass’s constructor can take any number of arguments of any type. The generic `FlowLogic` (e.g.
+subclass’s constructor can take any number of arguments of any type. The generic `FlowLogic` (for example, 
 `FlowLogic<SignedTransaction>`) indicates the flow’s return type.
 
 {{< tabs name="tabs-1" >}}

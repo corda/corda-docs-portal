@@ -75,7 +75,7 @@ Behind the scenes, the matter is more complex. As can be seen in this illustrati
 
 {{< note >}}
 Corda’s design is based on the UTXO model. In a serialized transaction the input and reference states are *StateRefs* - only references
-to output states from previous transactions (see api-transactions).
+to output states from previous transactions (see [API: transactions]({{< relref "cordapps/api-transactions.md" >}}).
 When building the `LedgerTransaction`, the `inputs` and `references` are resolved to Java objects created by deserialising blobs of data
 fetched from previous transactions that were in turn serialized in that context (within the classloader of that transaction - introduced here: [Contract execution in the AttachmentsClassloader and the no-overlap rule.](#contract-execution-in-the-attachmentsclassloader-and-the-no-overlap-rule)).
 This model has consequences when it comes to how states can be evolved. Removing a field from a newer version of a state would mean

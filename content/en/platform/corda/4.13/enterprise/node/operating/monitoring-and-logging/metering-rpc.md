@@ -75,9 +75,9 @@ The designated collector node is the node which collects the data from the desti
 
 ```
 nodeRpcLogin {
-    address = "<hostname>:<port>"   // e.g., address = "localhost:10009"
-    username = "<username>"         // e.g., username = "rpcUsername"
-    password = "<password>"         // e.g., password = "rpcPassword"
+    address = "<hostname>:<port>"   // for example, address = "localhost:10009"
+    username = "<username>"         // for example, username = "rpcUsername"
+    password = "<password>"         // for example, password = "rpcPassword"
 }
 ```
 

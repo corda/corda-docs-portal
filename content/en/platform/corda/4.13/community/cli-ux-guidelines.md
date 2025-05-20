@@ -30,8 +30,8 @@ Command line utilities should use picocli ([http://picocli.info](http://picocli.
 ### Option names
 
 
-* Options should be specified on the command line using a double dash, e.g. `--parameter`.
-* Options that consist of multiple words should be separated via hyphens e.g. `--my-multiple-word-parameter-name`.
+* Options should be specified on the command line using a double dash; for example, `--parameter`.
+* Options that consist of multiple words should be separated via hyphens; for example, `--my-multiple-word-parameter-name`.
 
 
 ### Short names
@@ -51,7 +51,7 @@ Command line utilities should use picocli ([http://picocli.info](http://picocli.
 
 
 * Parameters specified without an option should ideally all be part of a list.
-    * For example, in `java -jar test.jar file1 file2 file3`, the parameters file1, file2 and file3 should be a list of files that are all acted on together (e.g. a list of CorDapps).
+    * For example, in `java -jar test.jar file1 file2 file3`, the parameters file1, file2 and file3 should be a list of files that are all acted on together (for example, a list of CorDapps).
 
 
 * Avoid using positional parameters to mean different things, which involves someone remembering in which order things need to be specified.

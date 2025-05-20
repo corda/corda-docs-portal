@@ -347,7 +347,7 @@ TimeWindow ourBefore = TimeWindow.untilOnly(Instant.MAX);
 
 {{< /tabs >}}
 
-We can also define a time window as an `Instant` plus/minus a time tolerance (e.g. 30 seconds):
+We can also define a time window as an `Instant` plus/minus a time tolerance (for example, 30 seconds):
 
 {{< tabs name="tabs-10" >}}
 {{% tab name="Kotlin" %}}
@@ -692,7 +692,7 @@ txBuilder.setTimeWindow(ourTimeWindow);
 
 {{< /tabs >}}
 
-Or define the time window as a time plus a duration (e.g. 45 seconds):
+Or define the time window as a time plus a duration (for example, 45 seconds):
 
 {{< tabs name="tabs-23" >}}
 {{% tab name="Kotlin" %}}

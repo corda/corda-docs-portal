@@ -88,8 +88,8 @@ explanations of things.
 When writing code, imagine that you have an intelligent colleague looking over your shoulder asking you questions
 as you go. Think about what they might ask, and then put your answers in the code.
 
-Don’t be afraid of redundancy, many people will start reading your code in the middle with little or no idea of what
-it’s about (e.g. due to a bug or a need to introduce a new feature). It’s OK to repeat basic facts or descriptions in
+Do not be afraid of redundancy, many people will start reading your code in the middle with little or no idea of what
+it is about (for example, due to a bug or a need to introduce a new feature). It is OK to repeat basic facts or descriptions in
 different places if that increases the chance developers will see something important.
 
 API docs: all public methods, constants and classes **must** have doc comments in either JavaDoc or KDoc. API docs should:
@@ -141,12 +141,12 @@ should describe how threads are expected to interact with your code, unless it�
 (for example) a simple immutable data holder.
 
 Code that supports callbacks or event listeners should always accept an `Executor` argument that defaults to
-`MoreExecutors.directThreadExecutor()` (i.e. the calling thread) when registering the callback. This makes it easy
-to integrate the callbacks with whatever threading environment the calling code expects, e.g. serialised onto a single
+`MoreExecutors.directThreadExecutor()` (that is, the calling thread) when registering the callback. This makes it easy
+to integrate the callbacks with whatever threading environment the calling code expects; for example, serialised onto a single
 worker thread if necessary, or run directly on the background threads used by the class if the callback is thread safe
 and doesn’t care in what context it’s invoked.
 
-In the prototyping code it’s OK to use synchronised methods i.e. with an exposed lock when the use of locking is quite
+In the prototyping code it’s OK to use synchronised methods; that is, with an exposed lock when the use of locking is quite
 trivial. If the synchronisation in your code is getting more complex, consider the following:
 
 

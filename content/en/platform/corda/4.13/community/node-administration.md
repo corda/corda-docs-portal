@@ -29,7 +29,7 @@ will be logged to the diagnostic log file, which is stored in the same location 
 by default). This is because Hibernate may log messages at WARN and ERROR that are handled internally by Corda and do not
 need operator attention. If they do, they will be logged by Corda itself in the main node log file.
 
-It may be the case that you require to amend the log level of a particular subset of modules (e.g., if you’d like to take a
+It may be the case that you require to amend the log level of a particular subset of modules (for example, if you’d like to take a
 closer look at hibernate activity). So, for more bespoke logging configuration, the logger settings can be completely overridden
 with a [Log4j2](https://logging.apache.org/log4j/2.x) configuration file assigned to the `log4j.configurationFile` system property.
 
@@ -79,7 +79,7 @@ Now start the node as usual but with the additional parameter `log4j.configurati
 
 `java <Your existing startup options here> -Dlog4j.configurationFile=sql.xml -jar corda.jar`
 
-To determine the name of the logger, for Corda objects, use the fully qualified name (e.g., to look at node output
+To determine the name of the logger, for Corda objects, use the fully qualified name (for example, to look at node output
 in more detail, use `net.corda.node.internal.Node` although be aware that as we have marked this class `internal` we
 reserve the right to move and rename it as it’s not part of the public API as yet). For other libraries, refer to their
 logging name construction. If you can’t find what you need to refer to, use the `--logging-level` option as above and
@@ -135,7 +135,7 @@ be configured to collect data from Jolokia and write to DataDog web api.
 In order to ensure that a Jolokia agent is instrumented with the JVM run-time, you can choose one of these options:
 
 
-* Specify the Node configuration parameter `jmxMonitoringHttpPort` which will attempt to load the jolokia driver.
+* Specify the node configuration parameter `jmxMonitoringHttpPort` which will attempt to load the jolokia driver.
 * Start the node with `java -Dcapsule.jvm.args="-javaagent:path/to/jolokia-jvm-{VERSION}-agent.jar=port=7777,host=localhost" -jar corda.jar` where `path/to/jolokia-jvm-{VERSION}-agent.jar` is the path to the driver, and `{VERSION}` is the version required by Corda, currently 1.6.1.
 
 The following JMX statistics are exported:
@@ -262,7 +262,7 @@ If this approach is taken, the passwords will appear in the windows command prom
 ## Backup recommendations
 
 Various components of the Corda platform read their configuration from the file system, and persist data to a database or into files on disk.
-Given that hardware can fail, operators of IT infrastructure must have a sound backup strategy in place. Whilst blockchain platforms can sometimes recover some lost data from their peers, it is rarely the case that a node can recover its full state in this way because real-world blockchain applications invariably contain private information (e.g., customer account information). Moreover, this private information must remain in sync with the ledger state. As such, we strongly recommend implementing a comprehensive backup strategy.
+Given that hardware can fail, operators of IT infrastructure must have a sound backup strategy in place. Whilst blockchain platforms can sometimes recover some lost data from their peers, it is rarely the case that a node can recover its full state in this way because real-world blockchain applications invariably contain private information (for example, customer account information). Moreover, this private information must remain in sync with the ledger state. As such, we strongly recommend implementing a comprehensive backup strategy.
 
 The following elements of a backup strategy are recommended:
 
@@ -292,7 +292,7 @@ If the above holds, Corda components will benefit from the following:
 
 
 * Guaranteed eventual processing of acknowledged client messages, provided that the backlog of persistent queues is not lost irremediably.
-* A timely recovery from deletion or corruption of configuration files (e.g., `node.conf`, `node-info` files, etc.), database drivers, CorDapps binaries and configuration, and certificate directories, provided backups are available to restore from.
+* A timely recovery from deletion or corruption of configuration files (for example, `node.conf`, `node-info` files, etc.), database drivers, CorDapps binaries and configuration, and certificate directories, provided backups are available to restore from.
 
 
 {{< warning >}}

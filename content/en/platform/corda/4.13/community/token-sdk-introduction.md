@@ -23,9 +23,7 @@ With the SDK, you can define your token and its attributes, then add functionali
 Use this guide to:
 
 1. Determine the type of token you want to create.
-
 2. Design a token with the correct characteristics for its intended use.
-
 3. Create flows that issue your token correctly onto the ledger, move it from party to party, and have it redeemed.
 
 {{< note >}}
@@ -66,7 +64,7 @@ Before upgrading, make sure the platform database schema is properly migrated an
 
 1. Change the V number (version number) in your CorDapp's relevant Gradle file to the version you are upgrading to - such as 1.2.2
 
-2. Remove all references to `selection` and `money` JAR files from your build function (in many cases, Gradle). The functions of these JAR files have been moved into `workflows` in versions 1.2 onwards.
+2. Remove all references to `selection` and `money` JAR files from your build function (in many cases, Gradle). The functions of these JAR files have been moved into `workflows` in versions 1.2 onward.
 
 3. Recompile your CorDapp.
 
@@ -114,7 +112,7 @@ Use the list below to understand what needs to be included in the token you want
 
 Once you have established what type of token you want to create, you can use the Tokens SDK to perform the following key tasks:
 
-* **Define** your token. Using the readymade utilities contained in the contract JAR file, you can define all the required attributes and custom attributes of your tokens.
+* **Define** your token. Using the ready-made utilities contained in the contract JAR file, you can define all the required attributes and custom attributes of your tokens.
 
 * **Issue** tokens onto your ledger so they can be used as part of a transaction.
 
