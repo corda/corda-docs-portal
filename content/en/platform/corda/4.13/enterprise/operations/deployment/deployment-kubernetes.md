@@ -82,7 +82,7 @@ The Identity Manager Service requires its public IP address or hostname to be kn
 
 It could take a few minutes to allocate a new IP address. For subsequent deployments, you should be able to reuse existing external IP addresses.
 
-The Network Map Service and the Signing Services have their public IP addresses allocated while bootstrapping and they do not need to be known ahead of time.
+The Network Map service and the Signing Services have their public IP addresses allocated while bootstrapping and they do not need to be known ahead of time.
 
 Public IP addresses are allocated as Kubernetes `LoadBalancer` services.
 
@@ -222,7 +222,7 @@ You can now use `cemn` commands from within the running Docker container:
   ./cenm context login -s -u <USER> -p <PASSWORD> http://<GATEWAY-SERVICE-IP>:8080
   ```
 
-The [Gateway Service]({{< relref "../../node/gateway-service.md" >}}) is a gateway between the [Auth Service]({{< relref "../../node/auth-service.md" >}}) and front-end services in CENM. It allows you to perform all network operations on the [Identity Manager Service]({{< relref "../../../../1.6/cenm/identity-manager.md" >}}), the [Network Map Service]({{< relref "../../../../1.6/cenm/network-map.md" >}}), and the [Signing Service]({{< relref "../../../../1.6/cenm/signing-service.md" >}}).
+The [Gateway Service]({{< relref "../../node/gateway-service.md" >}}) is a gateway between the [Auth Service]({{< relref "../../node/auth-service.md" >}}) and front-end services in CENM. It allows you to perform all network operations on the [Identity Manager Service]({{< relref "../../../../1.6/cenm/identity-manager.md" >}}), the [Network Map service]({{< relref "../../../../1.6/cenm/network-map.md" >}}), and the [Signing Service]({{< relref "../../../../1.6/cenm/signing-service.md" >}}).
 The IP address is dynamically allocated for each deployment and can be found with `kubectl get svc`.
 Use the following command to ensure that you are pointing at the correct namespace:
 
@@ -260,7 +260,7 @@ networkServices {
 
 Replacing placeholder values as follows:
   * the `doormanURL` property is the public IP address and port of the Identity Manager Service
-  * the `networkMapURL` is the public IP address and port of the Network Map Service.
+  * the `networkMapURL` is the public IP address and port of the Network Map service.
 
 Next, upload the `network-root-truststore.jks` to your Corda node.
 You can download it locally from the CENM Signing Service, using the following command:
@@ -271,7 +271,7 @@ kubectl cp <namespace>/<signer-pod>:DATA/trust-stores/network-root-truststore.jk
 
 Namespace is typically `cenm` for this deployment.
 
-Run the following command to obtain public IPs of the Identity Manager Service and the Network Map Service:
+Run the following command to obtain public IPs of the Identity Manager Service and the Network Map service:
 
 ```bash
 kubectl get svc idman-ip notary-ip
@@ -337,9 +337,9 @@ Use the CENM [Command-Line (CLI) tool]({{< relref "../../../../1.6/cenm/cenm-cli
 See the CENM documentation for more information about the list of available [network parameters]({{< relref "../../../../1.6/cenm/config-network-parameters.md" >}})
 and instructions on [updating network parameters]({{< relref "./updating-network-parameters.md" >}}).
 
-### Run Flag Day
+### Run flag day
 
-Use the following CENM Command-Line Interface (CLI) tool command to run a Flag Day:
+Use the following CENM Command-Line Interface (CLI) tool command to run a flag day:
 
 {{< note >}} For the changes to be advertised to the nodes, the new network map must be signed by the Signing Service.
 This operation is scheduled to take place at regular intervals (by default, once every 10 seconds), as defined in the network map configuration.
@@ -350,7 +350,8 @@ This operation is scheduled to take place at regular intervals (by default, once
 The Signing Service is not managed by the [Angel Service]({{< relref "../../../../1.6/cenm/angel-service.md" >}}) in this deployment, therefore any CENM Command-Line Interface (CLI) tool commands trying to change the Signing Service configuration will take no effect.
 To change the Singing Service configuration, you must log in to a Kubernetes pod, update the configuration file, and restart the service.
 
-## Delete Network
+## Delete network
+
 There are two ways to delete your permissioned network (intended for development
 environments, which are rebuilt regularly), as follows:
 
@@ -375,7 +376,7 @@ export CENM_PREFIX=cenm
 helm delete ${CENM_PREFIX}-auth ${CENM_PREFIX}-gateway ${CENM_PREFIX}-idman ${CENM_PREFIX}-nmap ${CENM_PREFIX}-notary ${CENM_PREFIX}-pki ${CENM_PREFIX}-hsm ${CENM_PREFIX}-signer ${CENM_PREFIX}-zone
 ```
 
-## Deployment Customisation
+## Deployment customization
 
 The Kubernetes scripts provided are intended to be customised depending on customer requirements.
 The following sections describes how to customise various aspects of the deployment.
@@ -422,7 +423,7 @@ You must modify the following values in the `values.yaml` file:
 `signingKeys.credentials.keyStorePassword: <the password of the .pkcs12 file>`
 `signingKeys.credentials.keyStoreAlias: <the alias of the .pkcs12 file>`
 
-### Service Chart Settings
+### Service chart settings
 
 There are a number of settings provided on each Helm chart, which allow easy customisation of
 common options. Each CENM service has its own dedicated page with more detailed documentation:
@@ -430,12 +431,12 @@ common options. Each CENM service has its own dedicated page with more detailed 
 * [Auth Service]({{< relref "deployment-kubernetes-auth.md" >}})
 * [Gateway Service]({{< relref "deployment-kubernetes-gateway.md" >}})
 * [Identity Manager Service]({{< relref "deployment-kubernetes-idman.md" >}})
-* [Network Map Service]({{< relref "deployment-kubernetes-nmap.md" >}})
+* [Network Map service]({{< relref "deployment-kubernetes-nmap.md" >}})
 * [Corda Notary]({{< relref "deployment-kubernetes-notary.md" >}})
 * [Signing Service]({{< relref "deployment-kubernetes-signer.md" >}})
 * [Zone Service]({{< relref "deployment-kubernetes-zone.md" >}})
 
-### Overriding Service Configuration
+### Overriding service configuration
 
 The default settings used in a CENM service's configuration values can be altered as described in
 [Helm guide](https://helm.sh/docs/chart_template_guide/values_files/).
@@ -506,7 +507,7 @@ database:
 In this example, `<HOST>` is a placeholder for the host name of the server, `<PORT>` is a placeholder for the port number the server is listening on (typically `5432` for PostgreSQL),
 `<DATABASE>` is a placeholder for the database name, and `<USER>` and `<PASSWORD>` are placeholders for the access credentials of the database user.
 
-### Memory Allocation
+### Memory allocation
 
 Default memory settings used should be adequate for most deployments, but may need to be increased for
 networks with large numbers of nodes (over a thousand). The `cordaJarMx` value for each Helm chart
@@ -524,7 +525,7 @@ where each command creates a CENM service consisting of the following:
 
 * Signing Service
 * Identity Manager Service
-* Network Map Service
+* Network Map service
 * Auth Service
 * Gateway Service
 * Corda Notary
@@ -554,10 +555,10 @@ helm install notary notary --set prefix=cenm --set acceptLicense=YES --set notar
 helm install cenm-nmap nmap --set prefix=cenm --set acceptLicense=YES
 helm install cenm-gateway gateway --set prefix=cenm --set acceptLicense=YES --set idmanPublicIP=[use IP from step 3]
 
-# Run these commands to display allocated public IP for Network Map Service:
+# Run these commands to display allocated public IP for Network Map service:
 kubectl get svc --namespace cenm nmap --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"
 ```
 
-## Appendix A: Docker Images
+## Appendix A: Docker images
 
 Visit the [platform support matrix]({{< relref "../../platform-support-matrix.md#docker-images" >}}) for information on Corda Docker Images.

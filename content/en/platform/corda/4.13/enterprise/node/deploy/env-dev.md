@@ -246,7 +246,7 @@ A list of package owners. For each package owner, the following fields are requi
 
 
   * **packageName**:
-Java package name (e.g *com.my_company* ).
+Java package name (for example, *com.my_company* ).
 
 
   * **keystore**:
@@ -297,7 +297,7 @@ For each package to be registered, the following are required:
 
 
 * **packageName**:
-Java package name (e.g *com.my_company* ).
+Java package name (for example, *com.my_company* ).
 
 
 * **keystore**:

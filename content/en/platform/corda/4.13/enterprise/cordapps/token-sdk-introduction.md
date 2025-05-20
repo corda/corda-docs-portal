@@ -53,8 +53,8 @@ Before upgrading, make sure the platform database schema is properly migrated an
 
 The Tokens SDK is contained in two JAR  files which includes all the required dependencies for your CorDapp, including:
 
-* **Contracts**, which contains the base token types, states and contracts needed to create a token, including token type definitions for fiat and digital currencies.
-* **Workflows**, which contains the flows for issuing, moving, redeeming tokens, and selection workflows, which allow a party to select which source of fungible tokens they will use to pay with in a transaction.
+* **Contracts:** Contains the base token types, states and contracts needed to create a token, including token type definitions for fiat and digital currencies.
+* **Workflows:** Contains the flows for issuing, moving, redeeming tokens, and selection workflows, which allow a party to select which source of fungible tokens they will use to pay with in a transaction.
 
 As the **Contracts** JAR file contains the ability to define and create tokens, and the **Workflows** JAR file contains the flows required to use them, you must add both JAR files to your CorDapp's folder in order to use the Tokens SDK.
 
@@ -122,7 +122,7 @@ An `EvolvableTokenType` has properties that can change over time. This is repres
 In the example below, the evolvable token is for a diamond. You can see the evolvable attributes, which are the attributes included in a grading report for a diamond. You can also see a full [walk-through of this example]({{< relref "token-diamond-example.md" >}}) for a fuller picture.
 
 {{< tabs name="tabs-1234" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 /** Creating an evolveable TokenType */
 @BelongsToContract(DiamondGradingReportContract::class)
@@ -145,7 +145,7 @@ val diamond = DiamondGradingReport("1.0", DiamondGradingReport.ColorScale.A, Dia
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 public final class DiamondGradingReport extends EvolvableTokenType {
     private final BigDecimal caratWeight;
@@ -240,12 +240,12 @@ Fungible tokens can be split using a flow initiated by the **Move** command. Thi
 In the below example, Alice instantiates a token representing a BitCoin. This token is generated using the Tokens SDK's built-in `money` library.
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val fungibleToken = 1 of DigitalCurrency.getInstance("BTC") issuedBy aliceParty heldBy aliceParty
 ```
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 FungibleToken fungibleToken = new FungibleTokenBuilder()
         .withAmount(1)

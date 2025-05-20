@@ -166,7 +166,7 @@ class DummyContractV2 : UpgradedContractWithLegacyConstraint<DummyContract.State
 * Bank A instructs its node to accept the contract upgrade to `DummyContractV2` for the contract state.
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val rpcClient : CordaRPCClient = << Bank A's Corda RPC Client >>
 val rpcA = rpcClient.proxy()
@@ -182,7 +182,7 @@ participants of the contract state will sign and return the contract state upgra
 and agreed with the upgrade. The upgraded transaction will be recorded in every participant’s node by the flow.
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val rpcClient : CordaRPCClient = << Bank B's Corda RPC Client >>
 val rpcB = rpcClient.proxy()

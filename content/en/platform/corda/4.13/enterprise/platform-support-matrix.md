@@ -129,7 +129,7 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 {{< /table >}}
 
 
-## Hardware Security Modules (HSM)
+## Hardware security modules (HSM)
 
 {{< table >}}
 

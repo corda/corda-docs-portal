@@ -40,10 +40,10 @@ This document provides the information you need in order to understand what happ
 Corda transactions evolve input states into output states. A state is a data structure containing: the actual data fact (that is expressed as a
 strongly typed serialized java object) and a reference to the logic (contract) that needs to verify a transition to and from this state.
 Corda does not embed the actual verification bytecode in transactions. The logic is expressed as a Java class name and a contract constraint
-(read more in [Contract Constraints]({{< relref "cordapps/api-contract-constraints.md" >}})), and the actual code is contained in a JAR  file that is referenced by the transaction.
+(read more in [Contract constraints]({{< relref "cordapps/api-contract-constraints.md" >}})), and the actual code is contained in a JAR  file that is referenced by the transaction.
 
 
-### The basic threat model and security requirement.
+### Basic threat model and security requirement
 
 Being a decentralized system, anyone who can build transactions can create `.java` files, compile and bundle them in a JAR, and then reference
 this code in the transaction he created. If it were possible to do this without any restrictions, an attacker seeking to steal your money,
@@ -75,12 +75,12 @@ Behind the scenes, the matter is more complex. As can be seen in this illustrati
 
 {{< note >}}
 Corda’s design is based on the UTXO model. In a serialized transaction the input and reference states are *StateRefs* - only references
-to output states from previous transactions (see api-transactions).
+to output states from previous transactions (see [API: transactions]({{< relref "cordapps/api-transactions.md" >}}).
 When building the `LedgerTransaction`, the `inputs` and `references` are resolved to Java objects created by deserialising blobs of data
 fetched from previous transactions that were in turn serialized in that context (within the classloader of that transaction - introduced here: [Contract execution in the AttachmentsClassloader and the no-overlap rule.](#contract-execution-in-the-attachmentsclassloader-and-the-no-overlap-rule)).
 This model has consequences when it comes to how states can be evolved. Removing a field from a newer version of a state would mean
 that when deserialising that state in the context of a transaction using the more recent code, that field could just disappear.
-In Corda 4 we implemented the no-data loss rule, which prevents this to happen. See [Default Class Evolution]({{< relref "serialization-default-evolution.md" >}}).
+In Corda 4 we implemented the no-data loss rule, which prevents this to happen. See [Default class evolution]({{< relref "serialization-default-evolution.md" >}}).
 
 {{< /note >}}
 
@@ -314,13 +314,13 @@ All the described drawbacks will apply.
 Add this to the flow:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 builder.addAttachment(hash_of_the_fruit_jar)
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 builder.addAttachment(hash_of_the_fruit_jar);
 ```
@@ -333,7 +333,7 @@ And in the contract code verify that there is one attachment that contains the d
 In case the contract depends on a specific version:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 requireThat {
     "the correct fruit jar was attached to the transaction" using (tx.attachments.find {it.id == hash_of_fruit_jar} !=null)
@@ -341,7 +341,7 @@ requireThat {
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 requireThat(require -> {
     require.using("the correct fruit jar was attached to the transaction", tx.getAttachments().contains(hash_of_fruit_jar));
@@ -355,7 +355,7 @@ requireThat(require -> {
 In case the dependency has to be signed by a known public key the contract must check that there is a JAR attached that contains that class name and is signed by the right key:
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 requireThat {
     "the correct my_reusable_cordapp jar was attached to the transaction" using (tx.attachments.find {attch -> attch.containsClass(dependentClass) && SignatureAttachmentConstraint(my_public_key).isSatisfiedBy(attch)} !=null)
@@ -363,7 +363,7 @@ requireThat {
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 requireThat(require -> {
     require.using("the correct my_reusable_cordapp jar was attached to the transaction", tx.getAttachments().stream().anyMatch(attch -> containsClass(attch, dependentClass)  new SignatureAttachmentConstraint(my_public_key).isSatisfiedBy(attch))));

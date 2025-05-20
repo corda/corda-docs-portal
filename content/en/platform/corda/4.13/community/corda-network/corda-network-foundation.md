@@ -13,7 +13,7 @@ title: Corda Network
 ---
 
 
-# Corda Network
+# The Corda Network
 
 
 [Corda Network](https://corda.network/) is a publicly-available internet of Corda nodes operated by network participants. Each
@@ -47,12 +47,12 @@ information submitted. A digitally signed participation certificate is returned 
 * The participant meets the requirements specified in the [Corda Network Rulebook](https://corda.network/corda-network-rulebook/introduction).
 * The participant agrees to Corda Network participant terms of use.
 
-The Corda Network node can then use the participation certificate to register itself with the Network Map Service.
+The Corda Network node can then use the participation certificate to register itself with the Network Map service.
 
 
-## Network Map Service
+## Network Map service
 
-The Network Map Service accepts digitally signed documents describing network routing and identifying information from
+The Network Map service accepts digitally signed documents describing network routing and identifying information from
 nodes, based on the participation certificates signed by the Identity Service, and makes this information available to all
 Corda Network nodes.
 
@@ -71,4 +71,4 @@ otherwise rely, is to be treated as ‘confirmed’ in accordance with the terms
 ## Support Service
 
 The Support Service is provided to participants and business network operators to manage and resolve inquiries and incidents
-relating to the Identity Service, Network Map Service and Notary Service.
+relating to the Identity Service, Network Map service and Notary Service.

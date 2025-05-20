@@ -130,36 +130,25 @@ directory:
    exec java -jar /opt/corda/corda.jar
    ```
 10. Make the following changes to `corda.service` or `corda.conf`:
-
-
-    a. Make sure the service description is informative, particularly if you plan to run multiple nodes.
-
-    b. Change the username to the user account you want to use to run Corda. **R3 recommends that this user account is not root.**
-
+    1. Make sure the service description is informative, particularly if you plan to run multiple nodes.
+    2. Change the username to the user account you want to use to run Corda. **R3 recommends that this user account is not root.**
 11. **SystemD**: Make sure the `corda.service` file is owned by root with the correct permissions:
-
     ```shell
     sudo chown root:root /etc/systemd/system/corda.service
     sudo chmod 644 /etc/systemd/system/corda.service
     ```
-
-
 12. **Upstart**: Make sure the `corda.conf` file is owned by root with the correct permissions:>
-
     ```shell
     sudo chown root:root /etc/init/corda.conf
     sudo chmod 644 /etc/init/corda.conf
     ```
-
 13. Provision the required certificates to your node. Contact the network permissioning service or see [Network certificates]({{< relref "permissioning.md" >}}).
 14. **SystemD**: You can now start a node and set the services to start on boot by running the following `systemctl` commands:
-
     ```shell
     sudo systemctl daemon-reload
     sudo systemctl enable --now corda
     ```
 15. **Upstart**: You can now start a node by running the following commands:
-
     ```shell
     sudo start corda
     ```
@@ -174,21 +163,16 @@ You can run multiple nodes by creating multiple directories and Corda services, 
 R3 recommends running Corda as a Windows service. This provides service handling, ensures the Corda service is run at boot, and means the Corda service stays running with no users connected to the server.
 
 1. Install a supported Java distribution. The supported versions are listed in [Getting set up for CorDapp development]({{< relref "getting-set-up.md" >}}).
-
 2. Create a `Corda\cordapps` directory:
-
    ```shell
    mkdir C:\Corda\cordapps
    ```
-
 3. Download the following JAR file:
-
    https://download.corda.net/maven/corda-releases/net/corda/corda/4.13/corda-4.12.jar
 
 4. Copy the file to the `Corda/cordapps` directory, and rename it `corda.jar`.
 5. Alternatively, download one of our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory.
 6. Save the following configuration as the file `C:\Corda\node.conf`. See [Node configuration]({{< relref "corda-configuration-file.md" >}}) for a description of these options:
-
     ```none
      p2pAddress = "example.com:10002"
      rpcSettings {
@@ -209,24 +193,16 @@ R3 recommends running Corda as a Windows service. This provides service handling
     }
     custom { jvmArgs = [ '-Xmx2048m', '-XX:+UseG1GC' ] }
     ```
-
 7. Make the following changes to `C:\Corda\node.conf`:
-
-   a. Change the `p2pAddress`, `rpcSettings.address` and `rpcSettings.adminAddress` values to match your server’s hostname or external IP address. These are the addresses other nodes or RPC interfaces will use to communicate with your node.
-
-   b. Change the ports if necessary; for example, if you are running multiple nodes on one server (see below).
-
-   c. Enter an email address which will be used as an administrative contact during the registration process. This is only visible to the permissioning service.
-
-   d. Enter your node’s desired legal name; see [Node identity]({{< relref "node-naming.md#node-identity" >}}) for more details.
-
-   e. If required, add RPC users.
-
+   1. Change the `p2pAddress`, `rpcSettings.address` and `rpcSettings.adminAddress` values to match your server’s hostname or external IP address. These are the addresses other nodes or RPC interfaces will use to communicate with your node.
+   2. Change the ports if necessary; for example, if you are running multiple nodes on one server (see below).
+   3. Enter an email address which will be used as an administrative contact during the registration process. This is only visible to the permissioning service.
+   4. Enter your node’s desired legal name; see [Node identity]({{< relref "node-naming.md#node-identity" >}}) for more details.
+   5. If required, add RPC users.
 8. Copy the required Java keystores to the node; see [Network certificates]({{< relref "permissioning.md" >}}).
 9. Download the [NSSM service manager](https://nssm.cc/).
 10. Unzip `nssm-2.24\win64\nssm.exe` to `C:\Corda`.
 11. Save the following configuration as `C:\Corda\nssm.bat`:
-
     ```none
     nssm install cordanode1 java.exe
     nssm set cordanode1 AppParameters "-jar corda.jar"
@@ -238,13 +214,9 @@ R3 recommends running Corda as a Windows service. This provides service handling
     nssm set cordanode1 Start SERVICE_AUTO_START
     sc start cordanode1
     ```
-
 12. Edit the `nssm.bat` file:
-
-    a. If you are installing multiple nodes, use a different service name (`cordanode1`), and modify *AppDirectory*, *AppStdout* and *AppStderr* for each node accordingly.
-
-    b. Set an informative description.
-
+    1. If you are installing multiple nodes, use a different service name (`cordanode1`), and modify *AppDirectory*, *AppStdout* and *AppStderr* for each node accordingly.
+    2. Set an informative description.
 13. Provision the required certificates to your node. Contact the network permissioning service or see [Network certificates]({{< relref "permissioning.md" >}}).
 14. Run the batch file by clicking on it or from a command prompt.
 15. Run `services.msc` and verify that a service called `cordanode1` is present and running.

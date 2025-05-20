@@ -22,18 +22,18 @@ This section explains how to apply random load to nodes to stress test them. It 
 The load-testing framework is incomplete and is not part of CI currently, but the basic pieces are there.
 
 
-## Configuration of the load testing cluster
+## Configuring the load testing cluster
 
 The load-testing framework currently assumes the following about the node cluster:
 
 
-* The nodes are managed as a systemd service
-* The node directories are the same across the cluster
-* The messaging ports are the same across the cluster
-* The executing identity of the load-test has SSH access to all machines
-* There is a single network map service node
-* There is a single notary node
-* Some disruptions also assume other tools (like openssl) to be present
+* The nodes are managed as a systemd service.
+* The node directories are the same across the cluster.
+* The messaging ports are the same across the cluster.
+* The executing identity of the load-test has SSH access to all machines.
+* There is a single network map service node.
+* There is a single notary node.
+* Some disruptions also assume other tools (like openssl) to be present.
 
 Note that these points could and should be relaxed as needed.
 
@@ -63,9 +63,9 @@ In order to run the loadtests you need to have an active SSH-agent running with 
 
 You can use either IntelliJ or the gradle command line to start the tests.
 
-To use gradle with configuration file: `./gradlew tools:loadtest:run -Ploadtest-config=PATH_TO_LOADTEST_CONF`
+To use Gradle with configuration file: `./gradlew tools:loadtest:run -Ploadtest-config=PATH_TO_LOADTEST_CONF`
 
-To use gradle with system properties: `./gradlew tools:loadtest:run -Dloadtest.mode=LOAD_TEST -Dloadtest.nodeHosts.0=node0.myhost.com`
+To use Gradle with system properties: `./gradlew tools:loadtest:run -Dloadtest.mode=LOAD_TEST -Dloadtest.nodeHosts.0=node0.myhost.com`
 
 {{< note >}}
 You can provide or override any configuration using the system properties, all properties will need to be prefixed with `loadtest.`.
@@ -74,7 +74,7 @@ You can provide or override any configuration using the system properties, all p
 To use IntelliJ simply run Main.kt with the config path supplied as an argument or system properties as vm options.
 
 
-## Configuration of individual load tests
+## Configuring the load tests
 
 The load testing configurations are not set-in-stone and are meant to be played with to see how the nodes react.
 
@@ -153,7 +153,7 @@ We can use this by specifying a `DisruptionSpec` in the load test’s `RunParame
 This means every 5-10 seconds at least one randomly chosen nodes’ cores will be spinning 100% for 10 seconds.
 
 
-## How to write a load test
+## Writing load tests
 
 A load test is basically defined by a random datastructure generator that specifies a unit of work a node should perform, a function that performs this work, and a function that predicts what state the node should end up in by doing so:
 
@@ -219,10 +219,13 @@ The reason it gets the previous state boils down to allowing non-deterministic p
 The last parameter `isConsistent` is used to poll for eventual consistency at the end of a load test. This is not needed for self-issuance.
 
 
-## Stability Test
+## Running stability tests
 
-Stability test is one variation of the load test, instead of flooding the nodes with request, the stability test uses execution frequency limit to achieve a constant execution rate.
+Stability test is one variation of the load test. Instead of flooding the nodes with requests, the stability test uses execution frequency limit to achieve a constant execution rate.
 
-To run the stability test, set the load test mode to STABILITY_TEST (`mode=STABILITY_TEST` in config file or `-Dloadtest.mode=STABILITY_TEST` in system properties).
+To run the stability test, set the load test mode to STABILITY_TEST:
 
-The stability test will first self issue cash using `StabilityTest.selfIssueTest` and after that it will randomly pay and exit cash using `StabilityTest.crossCashTest` for P2P testing, unlike the load test, the stability test will run without any disruption.
+- `mode=STABILITY_TEST` in config file, or
+- `-Dloadtest.mode=STABILITY_TEST` in system properties
+
+The stability test will first self issue cash using `StabilityTest.selfIssueTest` and after that it will randomly pay and exit cash using `StabilityTest.crossCashTest` for P2P testing. Unlike the load test, the stability test will run without any disruption.

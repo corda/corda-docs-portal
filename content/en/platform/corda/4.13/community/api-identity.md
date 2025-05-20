@@ -32,7 +32,7 @@ Parties on the network are represented using the `AbstractParty` class. There ar
 
 Using `AnonymousParty` to identify parties in states and commands prevents nodes from learning the identities
 of the parties involved in a transaction when they verify the transaction’s dependency chain. When preserving the
-anonymity of each party is not required (e.g. for internal processing), `Party` can be used instead.
+anonymity of each party is not required (for example, for internal processing), `Party` can be used instead.
 
 The identity service allows flows to resolve `AnonymousParty` to `Party`, but only if the anonymous party’s
 identity has already been registered with the node (typically handled by `SwapIdentitiesFlow` or
@@ -91,7 +91,7 @@ identities with multiple parties at once.
 You can see an example of using `SwapIdentitiesFlow` in `TwoPartyDealFlow.kt`:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @Suspendable
 override fun call(): SignedTransaction {
@@ -141,7 +141,7 @@ process. You can see an example of its use in `TwoPartyTradeFlow.kt`.
 `IdentitySyncFlow.Send` is invoked by the party initiating the identity synchronization:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 // Now sign the transaction with whatever keys we need to move the cash.
 val partSignedTx = serviceHub.signInitialTransaction(ptx, cashSigningPubKeys)
@@ -189,7 +189,7 @@ Meanwhile, `IdentitySyncFlow.Receive` is invoked by all the other (non-initiatin
 synchronization process:
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 // Sync identities to ensure we know all of the identities involved in the transaction we're about to
 // be asked to sign

@@ -11,9 +11,9 @@ title: CENM Network Map Helm chart
 weight: 40
 ---
 
-# CENM Network Map Service Helm Chart
+# CENM Network Map service Helm Chart
 
-This Helm chart is to configure, deploy, and run the [CENM Network Map Service]({{< relref "../../../../1.6/cenm/network-map.md" >}}) on Kubernetes.
+This Helm chart is to configure, deploy, and run the [CENM Network Map service]({{< relref "../../../../1.6/cenm/network-map.md" >}}) on Kubernetes.
 
 ## Example usage
 
@@ -45,14 +45,14 @@ helm install nmap nmap --set shell.password="superDifficultPassword"
 | `dockerImageCli.tag`          | Docker image tag | `1.6-zulu-openjdk8u392` |
 | `dockerImageCli.pullPolicy`   | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `nmapJar.xmx`                 | Value for java -Xmx memory settings | `1G` |
-| `nmapJar.path`                | The directory where the Network Map Service JAR file is stored | `bin` |
-| `nmapJar.configPath`          | The directory where the Network Map Service configuration is stored | `etc` |
-| `database.driverClassName`    | Network Map Service database connection details | `org.h2.Driver` |
-| `database.jdbcDriver`         | Network Map Service database connection details | `""`
-| `database.url`                | Network Map Service database connection details | `jdbc:h2:file:./h2/networkmap-persistence;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=10000;WRITE_DELAY=0;AUTO_SERVER_PORT=0` |
-| `database.user`               | Network Map Service database connection details | `example-db-user` |
-| `database.password`           | Network Map Service database connection details | `example-db-password` |
-| `database.runMigration`       | Network Map Service database connection details | `true` |
+| `nmapJar.path`                | The directory where the Network Map service JAR file is stored | `bin` |
+| `nmapJar.configPath`          | The directory where the Network Map service configuration is stored | `etc` |
+| `database.driverClassName`    | Network Map service database connection details | `org.h2.Driver` |
+| `database.jdbcDriver`         | Network Map service database connection details | `""`
+| `database.url`                | Network Map service database connection details | `jdbc:h2:file:./h2/networkmap-persistence;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=10000;WRITE_DELAY=0;AUTO_SERVER_PORT=0` |
+| `database.user`               | Network Map service database connection details | `example-db-user` |
+| `database.password`           | Network Map service database connection details | `example-db-password` |
+| `database.runMigration`       | Network Map service database connection details | `true` |
 | `checkRevocation`             | Flag indicating whether or not the certificate revocation list status check should be performed | `true` |
 | `sleepTimeAfterError`         | Sleep time (in seconds) after an error occurred | `120` |
 | `authPort`                    | Auth Service port | `8081` |

@@ -30,7 +30,7 @@ At a high level, the process is as follows:
 1. Edit the network parameters configuration. This includes setting an update deadline by which
    nodes are expected to have accepted the new parameters.
 2. Set the network parameters configuration in the Zone Service.
-3. Advertise the new network parameters from the Network Map Service.
+3. Advertise the new network parameters from the Network Map service.
 4. Sign the new network parameters from the Signing Service.
 5. Wait for the update deadline to pass.
 6. Execute the network parameter update.
@@ -68,12 +68,12 @@ Push the new network parameters to the Zone Service, using a command like the on
 cenm netmap netparams update submit -p config/parameters.conf
 ```
 
-The Angel Service of the Network Map Service will pick up the new network parameters
+The Angel Service of the Network Map service will pick up the new network parameters
 from the Zone service automatically.
 
 ## Advertise network parameter update
 
-The next step is to tell the Network Map Service to advertise the update to
+The next step is to tell the Network Map service to advertise the update to
 nodes, using the following command:
 
 ```bash
@@ -97,7 +97,7 @@ security actions:
 
 Before the `updateDeadline` time, nodes will have to run the `acceptNewNetworkParameters()` RPC command to accept
 new parameters. This will not
-activate the new network parameters on the nodes - it will only inform the Network Map Service that the node has agreed to the
+activate the new network parameters on the nodes - it will only inform the Network Map service that the node has agreed to the
 update. See [the Corda node RPC API]({{< relref "../../get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}) for further details.
 
 To list network participants that have or have not accepted the new network parameters,
@@ -141,7 +141,7 @@ It is possible to cancel a previously scheduled update. To do so, run the follow
 cenm signer netmap netparams update cancel
 ```
 
-The Network Map Service will continue to advertise the cancelled update until a new network map is signed.
+The Network Map service will continue to advertise the cancelled update until a new network map is signed.
 
 {{< note >}}
 You should avoid advertising new parameters or cancelling the update during the period between Flag Day

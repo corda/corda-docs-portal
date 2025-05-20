@@ -20,7 +20,7 @@ This setup allows the auto-creation of database objects by the node upon startup
 by connecting to a database with a user with **administrative permissions**.
 Please refer to [Database schema setup]({{< relref "node-database-admin.md" >}}) if you are setting up a Corda database in a production environment.
 
-The instructions cover all commercial third-party database vendors supported by Corda Enteprise
+The instructions cover all commercial third-party database vendors supported by Corda Enterprise
 (Azure SQL, SQL Server, Oracle and PostgreSQL), and the default embedded H2 database:
 
 
@@ -390,7 +390,7 @@ See the [Corda node upgrade notes]({{< relref "../../node-upgrade-notes.md" >}})
 
 ## Database schema setup when deploying a new CorDapp
 
-The procedure for Cordapp deployment is the same as for production systems
+The procedure for CorDapp deployment is the same as for production systems
 apart from a simplified database update step.
 A CorDapp, which stores data in a custom table, should contain an embedded Liquibase database migration script.
 [Liquibase](http://www.liquibase.org) is used by Corda for the database schema management.

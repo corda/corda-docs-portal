@@ -303,17 +303,16 @@ In the above example, the script would fail on an Oracle database, due to the in
 
 If a CorDapp does not include the required migration scripts for each `MappedSchema`, you can generate and inspect them before they are applied:
 
-
 1. Deploy the CorDapp on your node (copy the JAR into the `cordapps` folder).
 2. Locate the name of the `MappedSchema` object containing the new contract state entities.
 3. Call the database management tool:
-`java -jar corda-tools-database-manager-${corda_version}.jar --base-directory /path/to/node --create-migration-sql-for-cordapp com.example.MyMappedSchema`.
-This generates a file called `my-mapped-schema.changelog-master.sql` in a folder called `migration` in the `base-directory`.
-If no `MappedSchema` object is specified, the tool generates one SQL file for each schema defined in the CorDapp.
+
+   `java -jar corda-tools-database-manager-${corda_version}.jar --base-directory /path/to/node --create-migration-sql-for-cordapp com.example.MyMappedSchema`.
+
+    This command generates a file called `my-mapped-schema.changelog-master.sql` in a folder called `migration` in the `base-directory`. If no `MappedSchema` object is specified, the tool generates one SQL file for each schema defined in the CorDapp.
 4. Inspect the file(s) to ensure correctness. This is a standard SQL file with some Liquibase metadata as comments.
 5. Create a JAR containing the `migration` folder (`originalCorDappName-migration.jar`).
 6. Execute this command in the `cordapps` folder for each node requiring migration SQL to be applied:
-
    `jar cvf [cordapp name]-migration.jar ../migration`
 
 Test the migration by running with the database management tool and inspecting the output file.

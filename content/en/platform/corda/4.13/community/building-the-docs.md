@@ -12,10 +12,10 @@ menu:
 tags:
 - building
 - docs
-title: Build the documentation
+title: Building the documentation
 ---
 
-# Build the docs
+# Building the documentation
 
 The documentation source files are under the `../content` directory in the [corda-docs-portal](https://github.com/corda/corda-docs-portal/)
 repository, and are written in `markdown` format.
@@ -23,27 +23,23 @@ repository, and are written in `markdown` format.
 The documentation output in HTML format is generated using [Hugo](https://github.com/gohugoio/hugo/releases). You can build
 and edit the docs locally using `npm` and a `markdown` editor.
 
-## Build the docs locally
-
-Steps:
+## Building the documentation locally
 
 1. Install [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 2. Install a markdown editor of your choice.
 3. Fork the `corda/corda-docs-portal` repository, and clone your fork.
-4. From the root directory of the repository, run `npm install`. This installs all the required modules to build the documentation locally.
-5. Open a new branch and create/edit the relevant markdown file(s) in the `content` directory.
-6. Run `hugo server` to build the documentation locally. After you make changes, the content should refresh dynamically.
-7. If the `hugo server` command didn't work, run `hugo server --watch=false`. Please note that due to an existing unresolved Hugo bug that manifests for larger websites like `docs.r3.com`, it may not possible to build the documentation locally with dynamic content refresh - you need to `CTRL-C` and run the build again after you make changes to your content.
+4. On Windows, exclude your local repo directory from the list of directories that Windows Defender scans; otherwise, local builds will take a long time, or hang altogether.
+5. From the root directory of the repository, run `npm install`. This installs all the required modules to build the documentation locally.
+6. Open a new branch and create/edit the relevant markdown file(s) in the `content` directory.
+7. Run `hugo server` to build the documentation locally. Each time you make changes, the content should refresh dynamically.
 8. Navigate to `https://localhost:1313` to view the locally built documentation.
 9. Push your changes to GitHub and open a pull request.
 
-
-## Contribute to documentation updates
+## Contributing  to documentation updates
 
 To propose an update to the public released Corda docs, fork the [corda-docs-portal](https://github.com/corda/corda-docs-portal/)
 repository, make your changes, and submit a pull request targeting the `main` branch in the upstream repository from your fork.
 
-### Steps
 1. Fork the [corda-docs-portal](https://github.com/corda/corda-docs-portal/) repository and add it as upstream (or sync your existing
    fork with the upstream repo’s `main` branch - see below for instructions).
 2. Edit the documentation files in a new branch in your fork.
@@ -51,18 +47,18 @@ repository, make your changes, and submit a pull request targeting the `main` br
 4. Create a pull request targeting the `main` branch in the upstream repo. Your pull request will be auto-assigned to R3's
    Technical Writing Team for review.
 
-### Where are the files
+### Where are the files?
 
 The documentation for all released versions of Corda Open Source Edition, Corda Enterprise, Corda Enterprise Network Manager (CENM),
 and Corda 5 are organized in sub-directories, following the version and then the product flavor. For example:
 
 `../corda-docs-portal/content/en/platform/corda/4.13/community/`
 
-## Edit web pages directly in Visual Studio Code
+## Editing web pages directly in Visual Studio Code
 
 After installing Hugo and Visual Studio Code, run the following commands per operating system.
 
-Windows Powershell (assuming there are no spaces in your directory names):
+Windows PowerShell (assuming there are no spaces in your directory names):
 
 `.\serve_and_edit.ps1`
 
@@ -78,13 +74,13 @@ As a result, there will be an extra icon in the title bar of your local docs sit
 
 {{< figure alt="Visual Studio Code" width=80% zoom="/en/images/hugo-vscode-page-edit.png" >}}
 
-## Edit web pages directly in Atom
+## Editing web pages directly in Atom
 
 After installing Hugo and Atom (you need to install the open package!), run the following commands per operating system.
 
 If this is your preferred editor, then consider setting `HUGO_PARAMS_EDITOR` in your environment.
 
-Windows Powershell:
+Windows PowerShell:
 
 ```
 $env:HUGO_PARAMS_EDITOR="atom"
@@ -105,7 +101,7 @@ export HUGO_PARAMS_EDITOR=atom
 make hugo-serve-and-edit
 ```
 
-## Keep your fork in sync with the upstream repo
+## Keeping your fork in sync with the upstream repo
 
 The best way to keep your fork in sync with the main documentation repository is to add it as the `upstream` repository after
 you create the fork.

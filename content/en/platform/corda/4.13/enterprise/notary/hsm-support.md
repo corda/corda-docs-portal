@@ -6,7 +6,7 @@ menu:
 tags:
 - hsm
 - support
-title: HSM support for Notaries
+title: HSM support for notaries
 weight: 3
 ---
 
@@ -116,7 +116,7 @@ To register a second notary worker, copy the `notary-service-keystore.jks` to th
 `certificates/nodekeystore.jks` and repeat the above command.
 
 
-## Using Multiple HSMs
+## Using multiple HSMs
 
 A highly-available HSM can be shared between notary workers in the current version of Corda, however each worker needs to be configured
 to use a unique alias for the identity and client ca key. See [Enterprise configuration]({{< relref "../node/setup/corda-configuration-file.md#enterpriseConfiguration" >}}) for more information on how to configure this.

@@ -85,7 +85,7 @@ Let’s take an example of the interest rate swap fixings for our scheduled even
 `nextScheduledActivity` method on the `State`.
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 override fun nextScheduledActivity(thisStateRef: StateRef, flowLogicRefFactory: FlowLogicRefFactory): ScheduledActivity? {
     val nextFixingOf = nextFixingOf() ?: return null
@@ -113,7 +113,7 @@ Let’s take the example of heartbeat sample in our `samples` repositories ([Kot
 `nextScheduledActivity` method on the `State`.
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 // Defines the scheduled activity to be conducted by the SchedulableState.
     override fun nextScheduledActivity(thisStateRef: StateRef, flowLogicRefFactory: FlowLogicRefFactory): ScheduledActivity? {
@@ -125,7 +125,7 @@ Let’s take the example of heartbeat sample in our `samples` repositories ([Kot
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 // Defines the scheduled activity to be conducted by the SchedulableState.
     @Nullable

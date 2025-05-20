@@ -162,7 +162,7 @@ Parameters:
 
 `generate-rpc-ssl-settings`: Generates the SSL keystore and truststore for a secure RPC connection.
 
-`install-shell-extensions`: Installs a `corda` alias and auto-completion for `bash` and `zsh`. For more information, see [Shell extensions for CLI Applications]({{< relref "cli-application-shell-extensions.md" >}}).
+`install-shell-extensions`: Installs a `corda` alias and auto-completion for `bash` and `zsh`. For more information, see [Shell extensions for CLI applications]({{< relref "cli-application-shell-extensions.md" >}}).
 
 `validate-configuration`: Validates the actual configuration without starting the node.
 
@@ -238,7 +238,7 @@ For more information, see [Database management]({{< relref "node-database-access
 From Corda 4.6, if you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options]({{< relref "node-commandline.md" >}}) for details.
 
 
-## Stability of the Corda Node
+## Stability of the Corda node
 
 There are a number of critical resources that a Corda node needs to operate in order to ensure the transactional consistency of the ledger.
 These critical resources include:

@@ -13,7 +13,7 @@ weight: 130
 
 # Corda Enterprise cloud images
 
-Corda Enteprise is avaliable as a Virtual Machine image on AWS and Azure.
+Corda Enterprise is available as a Virtual Machine image on AWS and Azure.
 These are simple Linux VM images with a JDK supported by both cloud providers and Corda Enterprise.
 Alongside the Corda Enterprise JAR the image contains an example `node.conf` file and `dbconfig.conf` file for H2 DB.
 There is also the systemd service (called `corda`) ready to use.
@@ -56,10 +56,10 @@ curl -H Metadata:true http://169.254.169.254/metadata/instance?api-version=2017-
 Note that only the p2p port (10002) is opened by default in a Network Security Group attached to the VM.
 To enable RPC communication from a remote machine the firewall has to be adjusted.
 
-For proudction usage, copy the required database drivers (e.g. Azure DB) into the `drivers` directory.
+For production usage, copy the required database drivers (for example, Azure DB) into the `drivers` directory.
 More information on database configuration can be found at node-database
 
-Copy the selected CorDapps into the cordapps directory and their configuration to the `cordapps/config` subdirectory.
+Copy the selected CorDapps into the `cordapps` directory and their configuration to the `cordapps/config` subdirectory.
 
 Copy the network root trust store for a Corda network you plan to join into the `certificates` directory.
 
@@ -122,7 +122,7 @@ curl http://169.254.169.254/latest/meta-data/public-ipv4
 Note that only the p2p port (10002) is opened by default in a Security Group attached to the VM.
 To enable RPC communication from a remote machine the firewall has to be adjusted.
 
-For proudction usage, copy the required database drivers into the `drivers` directory.
+For production usage, copy the required database drivers into the `drivers` directory.
 More information on database configuration can be found at node-database
 
 Copy the selected CorDapps into the cordapps directory and their configuration to the `cordapps/config` subdirectory.

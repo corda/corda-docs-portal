@@ -13,7 +13,7 @@ weight: 20
 
 # Pause and resume flows
 
-This state machine feature enables you to pause `RUNNING` flows and flows `UNDER OBSERVATION` (by the [Flow Hospital]({{< relref "node/node-flow-hospital.md" >}})) without needing to restart the node.
+This state machine feature enables you to pause `RUNNING` flows and flows `UNDER OBSERVATION` (by the [Flow hospital]({{< relref "node/node-flow-hospital.md" >}})) without needing to restart the node.
 
 It also allows you to resume (retry) a `PAUSED` flow or a flow `UNDER OBSERVATION`.
 

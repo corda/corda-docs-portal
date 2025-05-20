@@ -54,7 +54,7 @@ If a flow with the provided `clientId` exists, then the API return its future. O
 To start a flow with a `clientId`:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val clientId = UUID.randomUUID().toString()
 val flowHandleWithClientIdA = cordaRpcOps.startFlowDynamicWithClientId(clientId, ResultFlow::class.java, flowArgA, flowArgB, flowArgC)
@@ -62,7 +62,7 @@ val flowHandleWithClientIdB = cordaRpcOps.startFlowWithClientId(clientId, ::Resu
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 String clientId = UUID.randomUUID().toString();
 FlowHandleWithClientId flowHandleWithClientId = cordaRpcOps.startFlowDynamicWithClientId(clientId, ResultFlow.class, flowArgA, flowArgB, flowArgC);
@@ -78,7 +78,7 @@ This API only uses the `clientId` to re-hook to an existing flow. This enables a
 To re-hook to a flow previously started with a `clientId`:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val clientId = UUID.randomUUID().toString()
 cordaRpcOps.startFlowWithClientId(clientId, ::ResultFlow, flowArgA, flowArgB, flowArgC)
@@ -86,7 +86,7 @@ val flowHandleWithClientId = cordaRpcOps.reattachFlowWithClientId<Int>(clientId)
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 String clientId = UUID.randomUUID().toString();
 cordaRpcOps.startFlowDynamicWithClientId(clientId, ResultFlow.class, flowArgA, flowArgB, flowArgC);
@@ -111,7 +111,7 @@ The `removeClientId` API frees resources held on the node's side for a flow prev
 To free up the resources held for a `clientId` in the node and the database:
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val clientId = UUID.randomUUID().toString()
 cordaRpcOps.startFlowWithClientId(clientId, ::ResultFlow, flowArgA, flowArgB, flowArgC)
@@ -119,7 +119,7 @@ val removed = cordaRpcOps.removeClientId(clientId)
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 String clientId = UUID.randomUUID().toString();
 cordaRpcOps.startFlowDynamicWithClientId(clientId, ResultFlow.class, flowArgA, flowArgB, flowArgC);
@@ -139,13 +139,13 @@ The `finishedFlowsWithClientIds` API returns back to the client a `clientId`-to-
 To get all flows that have started with a `clientId` and have finished:
 
 {{< tabs name="tabs-4" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val finishedFlowsWithClientIds = cordaRpcOps.finishedFlowsWithClientIds()
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 Map<String, Boolean> finishedFlowsWithClientIds = cordaRpcOps.finishedFlowsWithClientIds();
 ```
@@ -156,7 +156,7 @@ Map<String, Boolean> finishedFlowsWithClientIds = cordaRpcOps.finishedFlowsWithC
 The example below demonstrates how to use this feature to make client code, interacting with a Corda node, safer if the client's JVM shuts down unexpectedly. The client process can safely recover its previous state and resume from where it left off.
 
 {{< tabs name="tabs-5" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 class FlowExecutor(private val proxy: CordaRPCOps, private val dbClientStorage: DBClientStorage) {
 

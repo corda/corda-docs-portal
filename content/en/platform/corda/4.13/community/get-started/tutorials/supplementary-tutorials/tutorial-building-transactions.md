@@ -54,7 +54,7 @@ state consumption (if the transaction’s input states are registered with diffe
 notary nodes the flow will have to insert additional `NotaryChange`
 transactions to migrate the states across to a consistent notary node
 before being allowed to mutate any states)
-* Optionally, a time-window that can used by the notary to bound the
+* Optionally, a time window that can used by the notary to bound the
 period during which the proposed transaction can be committed to the
 ledger
 

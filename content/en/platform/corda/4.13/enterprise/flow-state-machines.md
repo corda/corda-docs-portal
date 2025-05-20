@@ -121,7 +121,7 @@ write them and the approach is the same.
 
 {{< /note >}}
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 object TwoPartyTradeFlow {
     class UnacceptablePriceException(givenPrice: Amount<Currency>) : FlowException("Unacceptable price: $givenPrice")
@@ -269,7 +269,7 @@ function for it. Otherwise the unused observable will waste resources back in th
 Let’s implement the `Seller.call` method that will be run when the flow is invoked.
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @Suspendable
 override fun call(): SignedTransaction {
@@ -342,7 +342,7 @@ Next, we call another subflow called `SignTransactionFlow`. `SignTransactionFlow
 * Sending the transaction back to the buyer.
 
 The transaction then needs to be finalized. This is the the process of sending the transaction to a notary to assert
-(with another signature) that the time-window in the transaction (if any) is valid and there are no double spends.
+(with another signature) that the time window in the transaction (if any) is valid and there are no double spends.
 In this flow, finalization is handled by the buyer, we just wait for them to send it to us. It will have the same ID as
 the one we started with but more signatures.
 
@@ -352,7 +352,7 @@ the one we started with but more signatures.
 OK, let’s do the same for the buyer side:
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @Suspendable
 override fun call(): SignedTransaction {
@@ -488,7 +488,7 @@ flow session as the annotation parameter.
 Flows can be composed via nesting. Invoking a sub-flow looks similar to an ordinary function call:
 
 {{< tabs name="tabs-4" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @Suspendable
 fun call() {
@@ -498,7 +498,7 @@ fun call() {
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @Suspendable
 public void call() throws FlowException {
@@ -598,7 +598,7 @@ We cannot instantiate `SignTransactionFlow` itself, as it’s an abstract class.
 override `checkTransaction()` to add our own custom validation logic:
 
 {{< tabs name="tabs-5" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val signTransactionFlow = object : SignTransactionFlow(otherSideSession, VERIFYING_AND_SIGNING.childProgressTracker()) {
     override fun checkTransaction(stx: SignedTransaction) {
@@ -716,7 +716,7 @@ approved”, “Downloading and verifying data” etc.
 A flow might declare some steps with code inside the flow class like this:
 
 {{< tabs name="tabs-6" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 object RECEIVING : ProgressTracker.Step("Waiting for seller trading info")
 
@@ -738,7 +738,7 @@ override val progressTracker = ProgressTracker(RECEIVING, VERIFYING, SIGNING, CO
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 private final ProgressTracker progressTracker = new ProgressTracker(
     RECEIVING,
@@ -780,7 +780,7 @@ is a good idea, as that will help the users see what is coming up. You can pre-c
 `Step` class like this:
 
 {{< tabs name="tabs-7" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 object VERIFYING_AND_SIGNING : ProgressTracker.Step("Verifying and signing transaction proposal") {
     override fun childProgressTracker() = SignTransactionFlow.tracker()
@@ -791,7 +791,7 @@ object VERIFYING_AND_SIGNING : ProgressTracker.Step("Verifying and signing trans
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 private static final ProgressTracker.Step VERIFYING_AND_SIGNING = new ProgressTracker.Step("Verifying and signing transaction proposal") {
     @Nullable

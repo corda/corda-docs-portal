@@ -18,7 +18,7 @@ tags:
 
 Details on Corda Enterprise features compared to Corda Open Source Edition features follow below.
 
-## Corda Functionality
+## Corda functionality
 
 {{< table >}}
 

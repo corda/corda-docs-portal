@@ -218,7 +218,7 @@ transaction and return it
 
 {{< note >}}
 Before reading any further, we advise that you understand the concept of flows and how to write them and use
-them. See [Writing flows]({{< relref "flow-state-machines.md" >}}).  Likewise some understanding of Cordapps, plugins and services will be helpful.
+them. See [Writing flows]({{< relref "flow-state-machines.md" >}}).  Likewise some understanding of CorDapps, plugins and services will be helpful.
 See [Running a node]({{< relref "node/deploy/running-a-node.md" >}}).
 
 {{< /note >}}
@@ -404,7 +404,7 @@ checkpointed.
 
 ## Testing
 
-The `MockNetwork` allows the creation of `MockNode` instances, which are simplified nodes which can be used for testing (see api-testing).
+The `MockNetwork` allows the creation of `MockNode` instances, which are simplified nodes which can be used for testing; see [Testing CorDapps]({{< relref "cordapps/api-testing.md" >}}).
 When creating the `MockNetwork` you supply a list of `TestCordapp` objects which point to CorDapps on
 the classpath. These CorDapps will be installed on each node on the network. Make sure the packages you provide reference to the CorDapp
 containing your oracle service.
