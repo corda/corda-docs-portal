@@ -424,10 +424,10 @@ Have each node operator stop their node. If you are also changing flow definitio
 in progress.
 
 
-#### 6. Re-run the network bootstrapper (only if you want to whitelist the new contract)
+#### 6. Re-run the Network Bootstrapper (only if you want to whitelist the new contract)
 
-If you’re using the network bootstrapper instead of a network map server and have defined any new contracts, you need to
-re-run the network bootstrapper to whitelist the new contracts. See [network bootstrapper]({{< relref "../network-bootstrapper.md" >}}).
+If you’re using the Network Bootstrapper instead of a network map server and have defined any new contracts, you need to
+re-run the Network Bootstrapper to whitelist the new contracts. See [Network Bootstrapper]({{< relref "../network-bootstrapper.md" >}}).
 
 
 #### 7. Restart the nodes
@@ -553,7 +553,7 @@ wildcard
 ### Write enums
 
 Elements cannot be added to enums in a new version of the code. Hence, enums are only a good fit for genuinely static
-data that will never change (e.g. days of the week). A `Buy` or `Sell` flag is another. However, something like
+data that will never change (for example, days of the week). A `Buy` or `Sell` flag is another. However, something like
 `Trade Type` or `Currency Code` will likely change. For those, it is preferable to choose another representation,
 such as a string.
 

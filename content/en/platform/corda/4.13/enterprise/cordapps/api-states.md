@@ -72,7 +72,7 @@ The `LinearState` interface is defined as follows:
 /**
  * A state that evolves by superseding itself, all of which share the common "linearId".
  *
- * This simplifies the job of tracking the current version of certain types of state in e.g. a vault.
+ * This simplifies the job of tracking the current version of certain types of state in, for example, a vault.
  */
 @KeepForDJVM
 interface LinearState : ContractState {
@@ -181,7 +181,7 @@ You can customize your state by implementing the following interfaces:
 
 * `QueryableState`, which allows the state to be queried in the node’s database using custom attributes (see
 api-persistence).
-* `SchedulableState`, which allows us to schedule future actions for the state (e.g. a coupon payment on a bond) (see
+* `SchedulableState`, which allows us to schedule future actions for the state (for example, a coupon payment on a bond) (see
 [Event Scheduling]({{< relref "../event-scheduling.md" >}}).
 
 

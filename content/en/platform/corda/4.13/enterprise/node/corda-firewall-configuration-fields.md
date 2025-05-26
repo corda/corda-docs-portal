@@ -11,12 +11,12 @@ tags:
 - firewall
 - configuration
 - file
-title: Configuration fields
+title: Corda Firewall configuration fields
 weight: 1
 ---
-# Corda Enterprise Firewall configuration fields
+# Corda Firewall configuration fields
 
-The available configuration fields are listed below. `baseDirectory` is available as a substitution value and contains the absolute path to the firewall’s base directory.
+The available Corda Firewall configuration fields are listed below. `baseDirectory` is available as a substitution value and contains the absolute path to the firewall’s base directory.
 
 ## healthCheck
 An optional configuration field that specifies whether the firewall can process requests sent by the [Health Survey Tool]({{< relref "../health-survey.md" >}}). The default is `true`.
@@ -202,7 +202,7 @@ Currently, the leader election process can be delegated to Zookeeper, or the fir
 
 For production R3 recommends that a Zookeeper cluster be used as this will protect against network partitioning scenarios. However, the `Bully Algorithm` mode does not require any additional server processes.
 
-Eventually other electors may be supported e.g. `etcd`.
+Eventually other electors may be supported, such as `etcd`.
 
 This configuration field contains the following fields:
 
@@ -222,7 +222,7 @@ The implementation uses a prioritise leader election algorithm, so that a prefer
 At the same level of priority, it is random which instance wins the leader election. If a `bridge` instance dies another will have the opportunity to become master in instead.
 
 ### haTopic
-Sets the zookeeper topic that the nodes used in resolving the election and must be the same for all `bridge` instances competing for master status. This is available to allow a single zookeeper cluster to be reused with multiple sets of `bridges` (e.g. in test environments).
+Sets the zookeeper topic that the nodes used in resolving the election and must be the same for all `bridge` instances competing for master status. This is available to allow a single zookeeper cluster to be reused with multiple sets of `bridges` (for example, in test environments).
 
 The default value is `bridge/ha` and would not normally need to be changed if the cluster is not shared.
 
@@ -265,7 +265,7 @@ Allows a list of jvm argument overrides to be sent to the Corda firewall process
 
 For instance `custom.jvmArgs = ["-Xmx2G"]` in the configuration file will set 2GByte of memory for the firewall.
 
-This is equivalent to specifying `-Dcapsule.jvm.args="-Xmx2G"` on the command line, but is easier to track with other configuration and does not risk accidentally setting the properties onto the capsule parent process (e.g. wasting 2Gbyte of memory).
+This is equivalent to specifying `-Dcapsule.jvm.args="-Xmx2G"` on the command line, but is easier to track with other configuration and does not risk accidentally setting the properties onto the capsule parent process (for example, wasting 2Gbyte of memory).
 
 See [Setting JVM arguments]({{< relref "deploy/running-a-node.md#setting-jvm-arguments" >}}) for examples and details on the precedence of the different approaches to settings arguments.
 
@@ -301,7 +301,7 @@ It contains the following fields:
 * [conf](#conf).
 
 ### name
-The name of HSM provider to be used. E.g.: `UTIMACO`, `GEMALTO_LUNA`, etc. See [Using an HSM with Corda Enterprise]({{< relref "operating/cryptoservice-configuration.md" >}}).
+The name of HSM provider to be used; for example, `UTIMACO` or `GEMALTO_LUNA`. See [Using an HSM with Corda Enterprise]({{< relref "operating/cryptoservice-configuration.md" >}}).
 
 ### conf
 Absolute path to HSM provider specific configuration that will contain everything necessary to establish connection with HSM.

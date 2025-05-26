@@ -97,5 +97,5 @@ Each node owner installs this CorDapp onto their node. They can then issue, trad
 Ready to get started with CorDapps?
 
 * [Get set up for CorDapp development]({{< relref "getting-set-up.md" >}})
-* [Run a sample CorDapp]({{< relref "tutorial-cordapp.md" >}})
-* [Build a CorDapp]({{< relref "cordapp-build-systems.md" >}})
+* [Running a sample CorDapp]({{< relref "tutorial-cordapp.md" >}})
+* [Building a CorDapp]({{< relref "cordapp-build-systems.md" >}})

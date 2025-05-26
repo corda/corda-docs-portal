@@ -17,36 +17,36 @@ weight: 30
 Corda Enterprise supports the commercial 3rd party databases: Azure SQL, SQL Server, Oracle, and PostgreSQL.
 This document provides instructions describing how to create database schemas (user permissions, the Corda node’s tables, and other database objects),
 and how to configure Corda nodes to connect to a database with *restricted permissions* for production use.
-If you just need a quick database setup for testing/development, please refer to [Simplified database schema setup for development]({{< relref "node-database-developer.md" >}}).
 
-Setting up a Corda node to connect to a database requires:
+If you just need a quick database setup for testing/development, see [Simplified database schema setup for development]({{< relref "node-database-developer.md" >}}).
 
-
-* [Creating a database user with schema permissions](#1-creating-a-database-user-with-schema-permissions)
-* [Database schema creation](#2-database-schema-creation) with Corda Database Management Tool
-* [Corda node configuration changes](#3-corda-node-configuration)
-* [Database configuration](#4-database-configuration)
+To set up a Corda node to connect to a database, perform the following steps:
 
 
+* [Create a database user with schema permissions](#step-1-create-a-database-user-with-schema-permissions)
+* [Create the database schema](#step-2-create-the-database-schema)
+* [Configure the Corda node](#step-3-configure-the-corda-node)
+* [Configure the database](#step-4-configure-the-database)
 
-## 1. Creating a database user with schema permissions
+
+
+## Step 1: Create a database user with schema permissions
 
 A database administrator must create a database user and a schema namespace with **restricted permissions**.
-This grants the user access to DML execution only (to manipulate data itself e.g. select/delete rows).
+This grants the user access to DML execution only (to manipulate data itself; for example, to select and delete rows).
 This permission set is recommended for Corda nodes hot-cold-deployment and production environments.
 The less restricted permission set for a database user with **administrative permissions** is described in [Simplified database schema setup for development]({{< relref "node-database-developer.md" >}})
 (this is recommended for development purposes only).
 
 {{< note >}}
 This step refers to *schema* as a namespace with a set of permissions,
-the schema content (tables, indexes) is created in [the next step](#2-database-schema-creation).
+the schema content (tables, indexes) is created in [the next step](#step-2-creating-the-database-schema).
 
 {{< /note >}}
 Variants of Data Definition Language (DDL) scripts are provided for each supported database vendor.
-The example permissions scripts have no group roles and do not specify physical database settings (such as the max disk space quota for a user).
+The example permissions scripts have no group roles and do not specify physical database settings, such as the maximum disk space quota for a user.
 The scripts and node configuration snippets contain placeholder values; *my_login* for login, *my_user*/*my_admin_user* for users,
-*my_password* for password, and *my_schema* for the schema name. These values are for illustrative purposes only,
-please replace them with the actual values configured for your environment or environments.
+*my_password* for password, and *my_schema* for the schema name. These values are for illustrative purposes only: replace them with the actual values configured for your environment(s).
 
 
 {{< warning >}}
@@ -70,86 +70,86 @@ Creating database users with schema permissions for:
 Two database users need to be created; the first one with administrative permissions to create schema objects,
 and the second with restrictive permissions for a Corda node.
 The schema objects are created by a separate user rather than a default database administrator. This ensures the correct schema namespace
-is used (the Corda Database Management Tool may not add a schema namespace prefix to each DDL statement).
+is used (the Corda database management tool may not add a schema namespace prefix to each DDL statement).
 
-Connect to the master database as an administrator
-(e.g. *jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=master;[…]*).
-Run the following script to create both users and their logins:
+1. Connect to the master database as an administrator; for example, `jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=master;[…]*`.
+2. Run the following script to create both users and their logins:
 
-```sql
-CREATE LOGIN my_admin_login WITH PASSWORD = 'my_password';
-CREATE USER my_admin_user FOR LOGIN my_admin_login;
-CREATE LOGIN my_login WITH PASSWORD = 'my_password';
-CREATE USER my_user FOR LOGIN my_login;
-```
+   ```sql
+   CREATE LOGIN my_admin_login WITH PASSWORD = 'my_password';
+   CREATE USER my_admin_user FOR LOGIN my_admin_login;
+   CREATE LOGIN my_login WITH PASSWORD = 'my_password';
+   CREATE USER my_user FOR LOGIN my_login;
+   ```
 
-By default the password must contain characters from three of the following four sets:
+   By default the password must contain characters from three of the following four sets:
 
-* Uppercase letters
-* Lowercase letters
-* Digits
-* Symbols
+   * Uppercase letters
+   * Lowercase letters
+   * Digits
+   * Symbols
 
-For example, *C0rdaAP4ssword* is a valid password. Passwords are delimited with single quotes. See the [Azure SQL password policy](https://docs.microsoft.com/en-us/sql/relational-databases/security/password-policy?view=sql-server-ver15#password-complexity) for more information.
+   For example, *C0rdaAP4ssword* is a valid password. Passwords are delimited with single quotes. See the [Azure SQL password policy](https://docs.microsoft.com/en-us/sql/relational-databases/security/password-policy?view=sql-server-ver15#password-complexity) for more information.
 
-Use different passwords for *my_admin_user* and *my_user*.
+   Use different passwords for *my_admin_user* and *my_user*.
 
-Connect to a user database as the administrator (replace *master* with a user database in the connection string).
-Run the following script to create a schema and assign user permissions:
+3. Connect to a user database as the administrator (replace *master* with a user database in the connection string).
+4. Run the following script to create a schema and assign user permissions:
 
-```sql
-CREATE SCHEMA my_schema;
-GO
-CREATE USER my_admin_user FOR LOGIN my_admin_login WITH DEFAULT_SCHEMA = my_schema;
-GRANT ALTER ON SCHEMA::my_schema TO my_admin_user;
-GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_admin_user;
-GRANT CREATE TABLE TO my_admin_user;
-GRANT CREATE VIEW TO my_admin_user;
-CREATE USER my_user FOR LOGIN my_login WITH DEFAULT_SCHEMA = my_schema;
-GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_user;
-```
+   ```sql
+   CREATE SCHEMA my_schema;
+   GO
+   CREATE USER my_admin_user FOR LOGIN my_admin_login WITH DEFAULT_SCHEMA = my_schema;
+   GRANT ALTER ON SCHEMA::my_schema TO my_admin_user;
+   GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_admin_user;
+   GRANT CREATE TABLE TO my_admin_user;
+   GRANT CREATE VIEW TO my_admin_user;
+   CREATE USER my_user FOR LOGIN my_login WITH DEFAULT_SCHEMA = my_schema;
+   GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_user;                      
+   ```
 
 
 
 ### SQL Server
 
-Two database users need to be created; the first with administrative permissions to create schema objects,
-the second with restrictive permissions for a Corda node.
+Two database users need to be created: 
+- the first with administrative permissions to create schema objects
+- the second with restrictive permissions for a Corda node
+
 The schema objects are created by a separate user rather than a default database administrator. This ensures the correct schema namespace
-is used (the Corda Database Management Tool may not add a schema namespace prefix to each DDL statement).
+is used (the Corda database management tool may not add a schema namespace prefix to each DDL statement).
 
-Connect to a master database as an administrator (e.g. *jdbc:sqlserver://<host>:<port>;databaseName=master*).
-Run the following script to create a database, a user and a login:
+1. Connect to the master database as an administrator; for example, `jdbc:sqlserver://<host>:<port>;databaseName=master*`.
+2. Run the following script to create a database, a user and a login:
 
-```sql
-CREATE DATABASE my_database;
-CREATE LOGIN my_admin_login WITH PASSWORD = 'my_password', DEFAULT_DATABASE = my_database;
-CREATE USER my_admin_user FOR LOGIN my_admin_login;
-CREATE LOGIN my_login WITH PASSWORD = 'my_password', DEFAULT_DATABASE = my_database;
-CREATE USER my_user FOR LOGIN my_login;
-```
+   ```sql
+   CREATE DATABASE my_database;
+   CREATE LOGIN my_admin_login WITH PASSWORD = 'my_password', DEFAULT_DATABASE = my_database;
+   CREATE USER my_admin_user FOR LOGIN my_admin_login;
+   CREATE LOGIN my_login WITH PASSWORD = 'my_password', DEFAULT_DATABASE = my_database;
+   CREATE USER my_user FOR LOGIN my_login;
+   ```
 
-By default the password must contain characters from three of the following four sets: uppercase letters, lowercase letters, digits, and symbols,
-e.g. *C0rdaAP4ssword* is a valid password. Passwords are delimited with single quotes.
-Use different passwords for *my_admin_user* and *my_user*.
+   By default the password must contain characters from three of the following four sets: uppercase letters, lowercase letters, digits, and symbols. For example, *C0rdaAP4ssword* is a valid password. Passwords are delimited with single quotes.
+   Use different passwords for *my_admin_user* and *my_user*.
 
-You can create schemas for several Corda nodes within the same database (*my_database*),
-in which case run the first DDL statement (*CREATE DATABASE my_database;*) only once.
+   You can create schemas for several Corda nodes within the same database (*my_database*),
+   in which case run the first DDL statement (*CREATE DATABASE my_database;*) only once.
 
-Connect to a user database as the administrator (replace *master* with *my_database* in the connection string).
-Run the following script to create a schema and assign user permissions:
+3. Connect to a user database as the administrator (replace *master* with *my_database* in the connection string).
+4. Run the following script to create a schema and assign user permissions:
 
-```sql
-CREATE SCHEMA my_schema;
+   ```sql
+   CREATE SCHEMA my_schema;
 
-CREATE USER my_admin_user FOR LOGIN my_admin_login WITH DEFAULT_SCHEMA = my_schema;
-GRANT ALTER ON SCHEMA::my_schema TO my_admin_user;
-GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_admin_user;
-GRANT CREATE TABLE TO my_admin_user;
-GRANT CREATE VIEW TO my_admin_user;
-CREATE USER my_user FOR LOGIN my_login WITH DEFAULT_SCHEMA = my_schema;
-GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_user;
-```
+   CREATE USER my_admin_user FOR LOGIN my_admin_login WITH DEFAULT_SCHEMA = my_schema;
+   GRANT ALTER ON SCHEMA::my_schema TO my_admin_user;
+   GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_admin_user;
+   GRANT CREATE TABLE TO my_admin_user;
+   GRANT CREATE VIEW TO my_admin_user;
+   CREATE USER my_user FOR LOGIN my_login WITH DEFAULT_SCHEMA = my_schema;
+   GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_user;
+   ```
 
 
 
@@ -162,27 +162,27 @@ A database administrator can create schema objects (tables/sequences) via a user
 The Corda node accesses the schema created by the administrator via a user with restricted permissions, allowing them to select/insert/delete data only.
 For Oracle databases, those permissions (*SELECT*, *INSERT*, *UPDATE*, *DELETE*) need to be granted explicitly for each table.
 
-The tablespace size is unlimited, set the value (e.g. 100M, 1 GB) depending on your nodes sizing requirements.
+The tablespace size is unlimited, set the value (for example, 100M, 1 GB) depending on your nodes sizing requirements.
 The script uses the default tablespace *users* with *unlimited* database space quota assigned to the user.
 Revise these settings depending on your nodes sizing requirements.
 
-Run this script as database administrator:
+- Run this script as database administrator:
 
-```sql
-CREATE USER my_admin_user IDENTIFIED BY my_password DEFAULT TABLESPACE users QUOTA unlimited ON users;
-GRANT CREATE SESSION TO my_admin_user;
-GRANT CREATE TABLE TO my_admin_user;
-GRANT CREATE VIEW TO my_admin_user;
-GRANT CREATE SEQUENCE TO my_admin_user;
-GRANT SELECT ON v_$parameter TO my_admin_user;
-```
+   ```sql
+   CREATE USER my_admin_user IDENTIFIED BY my_password DEFAULT TABLESPACE users QUOTA unlimited ON users;
+   GRANT CREATE SESSION TO my_admin_user;
+   GRANT CREATE TABLE TO my_admin_user;
+   GRANT CREATE VIEW TO my_admin_user;
+   GRANT CREATE SEQUENCE TO my_admin_user;
+   GRANT SELECT ON v_$parameter TO my_admin_user;
+   ```
 
 The permissions for the Corda node user to access database objects will be assigned in [the following step](#oracle-1)
 after the database objects are created.
 
 The last permission for the *v_$parameter* view is needed when a database is running in
-[Database Compatibility mode](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/upgrd/what-is-oracle-database-compatibility.html).
-If the permission is not granted then [Corda Database Management Tool]({{< relref "node-database.md#database-management-tool" >}}) will output the message
+[Oracle Database Compatibility mode](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/upgrd/what-is-oracle-database-compatibility.html).
+If the permission is not granted then the [Corda database management tool]({{< relref "node-database.md#database-management-tool" >}}) will output the message
 *‘Could not set check compatibility mode on OracleDatabase, assuming not running in any sort of compatibility mode …’* in a log file,
 the message can be ignored.
 
@@ -192,49 +192,50 @@ the message can be ignored.
 
 Two database users need to be created; the first one with administrative permissions to create schema objects,
 and the second with restrictive permissions for a Corda node.
-Connect to the database as an administrator and run the following script to create both users:
 
-```sql
-CREATE USER "my_admin_user" WITH LOGIN PASSWORD 'my_password';
-CREATE USER "my_user" WITH LOGIN PASSWORD 'my_password';
-GRANT "my_user" TO "my_admin_user";
+1. Connect to the database as an administrator and run the following script to create both users:
 
-CREATE SCHEMA "my_schema";
-GRANT USAGE, CREATE ON SCHEMA "my_schema" TO "my_admin_user";
-ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON tables TO "my_admin_user";
-ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences TO "my_admin_user";
-ALTER ROLE "my_admin_user" SET search_path = "my_schema",public;
+   ```sql
+   CREATE USER "my_admin_user" WITH LOGIN PASSWORD 'my_password';
+   CREATE USER "my_user" WITH LOGIN PASSWORD 'my_password';
+   GRANT "my_user" TO "my_admin_user";
 
-GRANT USAGE ON SCHEMA "my_schema" TO "my_user";
-ALTER ROLE "my_user" SET search_path = "my_schema";
-```
+   CREATE SCHEMA "my_schema";
+   GRANT USAGE, CREATE ON SCHEMA "my_schema" TO "my_admin_user";
+   ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON tables TO "my_admin_user";
+   ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences TO "my_admin_user";
+   ALTER ROLE "my_admin_user" SET search_path = "my_schema",public;
 
-If you provide a custom schema name (different to the user name), then the last statement, setting the search_path,
+   GRANT USAGE ON SCHEMA "my_schema" TO "my_user";
+   ALTER ROLE "my_user" SET search_path = "my_schema";
+   ```
+
+   If you provide a custom schema name (different to the user name), then the last statement, setting the search_path,
 prevents querying the different default schema search path
 ([default schema search path](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH)).
 
-Connect to the database with the newly created user with the schema administrative permissions (*“my_admin_user”*) and run:
+2. Connect to the database with the newly created user with the schema administrative permissions (*“my_admin_user”*) and run:
 
-```sql
-ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON tables TO "my_user";
-ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences TO "my_user";
-```
+   ```sql
+   ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON tables TO "my_user";
+   ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences TO "my_user";
+   ```
 
 
 
-## 2. Database schema creation
+## Step 2: Create the database schema
 
 All data structures (tables, indexes) must be created before the Corda node connects to a database with **restricted permissions**.
 Corda is released without a separate set of DDL scripts, instead a database administrator needs to use
-the [Corda Database Management Tool]({{< relref "node-database.md#database-management-tool" >}}) to output the DDL scripts and run the scripts against a database.
-Each Corda release version has the associated Corda Database Management Tool release which outputs a compatible set of DDL scripts.
+the [Corda database management tool]({{< relref "node-database.md#database-management-tool" >}}) to output the DDL scripts and run the scripts against a database.
+Each Corda release version has the associated Corda database management tool release which outputs a compatible set of DDL scripts.
 The DDL scripts contain the history of a database evolution - series of table alterations leading to the current state, using the
 functionality of [Liquibase](http://www.liquibase.org) which is used by Corda for database schema management.
 
 
-### 2.1. Create Liquibase management tables
+### Step 2.1: Create Liquibase management tables
 
-The Corda Database Management Tool needs to connect to a running database instance in order to output DDL script.
+The Corda database management tool needs to connect to a running database instance in order to output DDL script.
 The presence of the *DATABASECHANGELOG* and *DATABASECHANGELOGLOCK* Liquibase management tables is required as well.
 The database administrator needs to create these tables manually.
 Replace the schema namespace *my_schema* with the schema used by the node.
@@ -343,16 +344,16 @@ REVOKE INSERT, UPDATE, DELETE ON TABLE "my_schema".databasechangelog FROM my_use
 ```
 
 
-### 2.2. Configure the Database Management Tool
+### Step 2.2: Configure the database management tool
 
-The Corda Database Management Tool needs access to a running database.
+The Corda database management tool needs access to a running database.
 The tool is configured in a similar way to the Corda node.
 A base directory needs to be provided with the following content:
 
 
-* a `node.conf` file with database connection settings containing a database user with restricted permissions
-* a `drivers` directory to place JDBC driver
-* a `cordapps` directory with CorDapps requiring custom tables.
+* A `node.conf` file with database connection settings containing a database user with restricted permissions
+* A `drivers` directory to place JDBC driver
+* A `cordapps` directory with CorDapps requiring custom tables.
 
 Copy CorDapps to the *cordapps* subdirectory, this is required to collect and extract DDL for any custom database migration scripts.
 Create a `node.conf` with properties for your database, and copy the respective driver into the `drivers` directory.
@@ -368,7 +369,7 @@ The `node.conf` templates for each database vendor are shown below:
 
 #### Azure SQL
 
-The required `node.conf` settings for the Database Management Tool using Azure SQL:
+The required `node.conf` settings for the database management tool using Azure SQL:
 
 
 ```groovy
@@ -396,7 +397,7 @@ extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* into th
 
 #### SQL Server
 
-The required `node.conf` settings for the Database Management Tool using SQL Server:
+The required `node.conf` settings for the database management tool using SQL Server:
 
 
 ```groovy
@@ -433,7 +434,7 @@ GRANT SELECT ON v_$parameter TO my_user;
 ```
 
 
-Configure the required `node.conf` settings for the Database Management Tool using Oracle as shown below:
+Configure the required `node.conf` settings for the database management tool using Oracle as shown below:
 
 
 ```groovy
@@ -459,7 +460,7 @@ Copy the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 
 
 #### PostgreSQL
 
-The required `node.conf` settings for the Database Management Tool using PostgreSQL:
+The required `node.conf` settings for the database management tool using PostgreSQL:
 
 
 ```groovy
@@ -483,27 +484,24 @@ The value of `database.schema` is automatically wrapped in double quotes to pres
 Copy PostgreSQL JDBC Driver *42.2.9* version *JDBC 4.2* into the `drivers` directory.
 
 
-### 2.3. Extract the DDL script using Database Management Tool
+### Step 2.3: Extract the DDL script using the database management tool
 
-To run the tool use the following command:
+* Run the database management tool using the following command:
 
-
-```shell
-java -jar tools-database-manager-|release|.jar dry-run -b path_to_configuration_directory
-```
-
-
+   ```shell
+   java -jar tools-database-manager-|release|.jar dry-run -b path_to_configuration_directory
+   ```
 
 The option `-b` points to the base directory with a `node.conf` file and *drivers* and *cordapps* subdirectories.
 
 A script will be generated named *migration/*.sql* in the base directory.
-This script contains all the statements to create/modify data structures (e.g. tables/indexes)
+This script contains all the statements to create/modify data structures (for example, tables/indexes)
 and inserts to the Liquibase management table *DATABASECHANGELOG*.
-The command doesn’t alter any tables.
-Refer to the [Corda Database Management Tool]({{< relref "node-database.md#database-management-tool" >}}) manual for more detail.
+The command does not alter any tables.
+See [Database management tool]({{< relref "node-database.md#database-management-tool" >}}) for more detail.
 
 
-### 2.4. Apply DDL scripts on a database
+### Step 2.4: Apply DDL scripts to the database
 
 The generated DDL script can be applied by the database administrator using their tooling of choice.
 
@@ -518,8 +516,9 @@ This is assured by connecting as a user with the administrative permissions crea
 
 {{< note >}}
 You may connect to the database as any user with administrative permissions to the schema,
-as long as you set the default schema for the sessions pointing to the schema where tables need to be created
-e.g. for PostgreSQL run the following statement before executing the DDL script:
+as long as you set the default schema for the sessions pointing to the schema where tables need to be created.
+
+For example, for PostgreSQL run the following statement before executing the DDL script:
 
 
 ```none
@@ -552,7 +551,7 @@ SET DEFINE OFF;
 
 
 
-### 2.5. Add permission to use tables
+### Step 2.5: Add permissions to use tables
 
 For some databases the specific permissions can be assigned only after the tables are created.
 This step is required for Oracle databases only.
@@ -561,7 +560,7 @@ This step is required for Oracle databases only.
 ### Oracle
 
 {{< note >}}
-For Oracle, you have already created and configured user `my_user` in [Configure the Database Management Tool](#oracle-2).
+For Oracle, you have already created and configured user `my_user` in [Configure the database management tool](#oracle-2).
 {{< /note >}}
 
 
@@ -633,7 +632,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_RAFT_COMMITTED_TXS TO
 
 
 Grant *SELECT*, *INSERT*, *UPDATE*, *DELETE* permissions to *my_user* for all custom CorDapp tables,
-e.g. Corda Finance CorDapp requires permissions for two tables:
+
+For example, the Corda Finance CorDapp requires permissions for two tables:
 
 
 ```sql
@@ -645,7 +645,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.CP_STATES TO my_user;
 
 
 
-## 3. Corda node configuration
+## Step 3: Configure the Corda node
 
 The following updates are required to the filesystem of a node:
 
@@ -654,22 +654,20 @@ The following updates are required to the filesystem of a node:
 * The Corda node configuration file `node.conf` needs to contain JDBC connection properties in the `dataSourceProperties` entry
 and other database properties in the `database` entry (passed to a node JPA persistence provider or schema creation/upgrade flag).
 
-```none
-dataSourceProperties = {
-   ...
-   dataSourceClassName = <JDBC Data Source class name>
-   dataSource.url = <JDBC database URL>
-   dataSource.user = <Database user>
-   dataSource.password = <Database password>
-}
-database = {
-   schema = <Database schema name>
-}
-```
+   ```none
+   dataSourceProperties = {
+      ...
+      dataSourceClassName = <JDBC Data Source class name>
+      dataSource.url = <JDBC database URL>
+      dataSource.user = <Database user>
+      dataSource.password = <Database password>
+   }
+   database = {
+      schema = <Database schema name>
+   }
+   ```
 
-
-{{< note >}}
-*Node configuration <database_properties_ref>* contains a complete list of database specific properties.{{< /note >}}
+   {{< note >}}Node configuration `<database_properties_ref>` contains a complete list of database specific properties.{{< /note >}}
 
 * The restricted node database user has no permissions to alter a database schema, so the `run-migration-scripts` sub-command cannot be run.
 * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
@@ -678,19 +676,19 @@ Corda will search for valid JDBC drivers under the `./drivers` subdirectory of t
 Alternatively the path can be also specified by the `jarDirs` option in [the node configuration]({{< relref "../setup/corda-configuration-fields.md#jardirs" >}}).
 The `jarDirs` property is a list of paths, separated by commas and wrapped in single quotes e.g. `jarDirs = [ '/lib/jdbc/driver' ]`.
 * Corda uses [Hikari Pool](https://github.com/brettwooldridge/HikariCP) for creating connection pools.
-To configure a connection pool, the following custom properties can be set in the `dataSourceProperties` section, e.g.:
+To configure a connection pool, the following custom properties can be set in the `dataSourceProperties` section; for example:
 
-```groovy
-dataSourceProperties = {
-   ...
-   maximumPoolSize = 10
-   connectionTimeout = 50000
-}
-```
+   ```groovy
+   dataSourceProperties = {
+      ...
+      maximumPoolSize = 10
+      connectionTimeout = 50000
+   }
+   ```
 
 
-{{< note >}}
-`maximumPoolSize` cannot be less than `enterpriseConfiguration.tuning.flowThreadPoolSize + enterpriseConfiguration.tuning.rpcThreadPoolSize + 2`. See [Performance tuning]({{< relref "../../performance-testing/performance-results.md" >}}) for more details. Their defaults depend on the machine they are being run, but if the `maximumPoolSize` a error will appear showing what is the minimum required.{{< /note >}}
+   {{< note >}}
+   `maximumPoolSize` cannot be less than `enterpriseConfiguration.tuning.flowThreadPoolSize + enterpriseConfiguration.tuning.rpcThreadPoolSize + 2`. See [Performance tuning]({{< relref "../../performance-testing/performance-results.md" >}}) for more details. Their defaults depend on the machine they are being run, but if the `maximumPoolSize` a error will appear showing what is the minimum required.{{< /note >}}
 
 
 
@@ -726,11 +724,8 @@ database = {
 Replace placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database).
 The `database.schema` is the database schema name assigned to the user.
 
-The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615),
-extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* (the archive comes with two JARs).
-The [Common Configuration Steps paragraph](#3-corda-node-configuration) explains the correct location for the driver JAR in the node installation structure.
-
-
+The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615). 
+Extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* (the archive comes with two JARs) to the `drivers` directory.
 
 ### SQL Server
 
@@ -757,11 +752,9 @@ By default the connection to the database is not SSL. To secure the JDBC connect
 
 The `database.schema` is the database schema name assigned to the user.
 
-The Microsoft JDBC 6.4 driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615),
-extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` (the archive comes with two JARs).
-The [Common Configuration Steps](#3-corda-node-configuration) section explains the correct location for the driver JAR in the node installation structure.
+The Microsoft JDBC 6.4 driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615). Extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` (the archive comes with two JARs) and copy the JAR to the `drivers` directory.
 
-Ensure JDBC connection properties match the SQL Server setup. Especially when trying to reuse Azure SQL JDBC URLs
+Ensure JDBC connection properties match the SQL Server setup, especially when trying to reuse Azure SQL JDBC URLs
 which are invalid for SQL Server. This may lead to a Corda node failing to start with message:
 *Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when ‘hibernate.dialect’ not set*.
 
@@ -795,8 +788,9 @@ Set the `database.schema` value to *my_admin_user*.
 The Corda node doesn’t guarantee to prefix all SQL queries with the schema namespace.
 The additional configuration entry `connectionInitSql` sets the current schema to the admin user (*my_user*) on connection to the database.
 
-Place the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c in the node directory `drivers` described in [Common Configuration Steps](#3-corda-node-configuration).
-Database schema name can be set in JDBC URL string e.g. currentSchema=my_schema.
+Place the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c in the node directory `drivers`.
+
+Database schema name can be set in JDBC URL string; for example, currentSchema=my_schema.
 
 
 A Corda node can also connect to an Oracle database using credentials stored in an Oracle Wallet, with the following changes:
@@ -902,13 +896,13 @@ The value of `database.schema` is automatically wrapped in double quotes to pres
 (without quotes, PostgresSQL would treat *AliceCorp* as the value *alicecorp*).
 This behaviour differs from Corda Open Source Edition where the value is not wrapped in double quotes.
 
-Place the PostgreSQL JDBC Driver *42.2.9* version *JDBC 4.2* in the node directory `drivers` described in [Common Configuration Steps](#3-corda-node-configuration).
+Place the PostgreSQL JDBC Driver *42.2.9* version *JDBC 4.2* in the node directory `drivers` described in [Step 3: Configuring the Corda node](#step-3-configuring-the-corda-node).
 
 
 
-## 4. Database configuration
+## Step 4: Configure the database
 
-Additional vendor specific database configuration.
+Perform additional vendor-specific database configuration.
 
 
 ### SQL Server

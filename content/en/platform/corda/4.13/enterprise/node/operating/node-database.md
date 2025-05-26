@@ -48,7 +48,7 @@ and the recommended setup for development/testing environments are described in 
 
 Database DDL scripts defining database tables (and other schema objects) are embedded inside the Corda distribution (`corda.jar` file)
 or within the CorDapp distributions (a JAR file). Therefore Corda, and custom CorDapps are shipped without separate DDL scripts for each database vendor.
-Whenever a node operator or database administrator needs to obtain a DDL script to be run, they can use the Corda Database Management Tool.
+Whenever a node operator or database administrator needs to obtain a DDL script to be run, they can use the Corda database management tool.
 The tool, among other functions, outputs the DDL script which is compatible with the Corda release
 and the database which the tool was running against.
 Depending on [database user permissions](#database-user-permissions) a Corda node may be configured to create database tables
@@ -59,7 +59,7 @@ DDL scripts are defined in a cross database syntax and grouped in change sets.
 When a Corda node starts, it compares the list of change sets recorded in the database with the list embedded inside the Corda node
 and associated CorDapps. Depending on the outcome and the node configuration, it will stop and report any differences or will create/update
 any missing database objects.
-Internally, the Corda node and Corda Database Management Tool use [Liquibase library/tool](http://www.liquibase.org)
+Internally, the Corda node and Corda database management tool use [Liquibase library/tool](http://www.liquibase.org)
 for versioning database schema changes.
 
 Liquibase is a tool that implements an automated, version based database migration framework with support for a large number of databases.
@@ -77,13 +77,13 @@ is highly recommended for understanding how database migrations work in Corda.
 
 By default, a node will *not* attempt to execute database migration scripts at startup (even when a new version has been deployed),
 but will check the database “version” and halt if the database is not in sync with the node, to avoid data corruption.
-To bring the database to the correct state we provide a [Database Management Tool](#database-management-tool).
+To bring the database to the correct state we provide a [database management tool](#database-management-tool).
 This setup/procedure is recommended for production systems.
 
 Running the migration at startup automatically can only be configured by using the `initial registration` sub-command when running the node. The standard way of running the schema initialisation / migration scripts is to run the `run-migration-scripts` sub-command - see [Node command-line options]({{< relref "../node-commandline.md" >}}).
 R3 recommends enabling database schema auto-creation/upgrade for development or test purposes only.
 It is safe to run at startup if you have implemented the usual best practices for database management
-(e.g. running a backup before installing a new version).
+(for example, running a backup before installing a new version).
 
 
 
@@ -93,14 +93,12 @@ The database management tool is distributed as a standalone JAR file named `tool
 It is intended to be used by Corda Enterprise node administrators who want more control over database changes made in production
 environments.
 
-The following sections document the available subcommands suitable for a node operator or database administrator.
-
 {{< note >}}
 The database management tool is for production databases only. H2 databases cannot be upgraded using the Database Management tool.
 
 {{< /note >}}
 
-You can review all available commands and options in the [Database Management Tool documentation]({{< relref "../../database-management-tool.md" >}}).
+For more information, see [Database management tool]({{< relref "../../database-management-tool.md" >}}).
 
 ## Node database tables
 

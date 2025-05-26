@@ -18,7 +18,7 @@ weight: 7
 ## Consequences of flag days for the notary
 
 A *flag day* signifies the point in time where the network stops using one set of network parameters and begins using the new, previously
-proposed set of network parameters. This is discussed in [Network parameters update process]({{< relref "../network/network-map.md#network-parameters-update-process" >}}).
+proposed set of network parameters. This is discussed in [Updating network parameters]({{< relref "../network/network-parameters.md#updating-network-parameters" >}}).
 
 Once a flag day is issued, the next time a node polls the Network Map service, it will receive the updated network parameters, in turn
 causing the node to shut down due to a parameter mismatch. As a Notary node (whether a basic Notary or a worker within a HA cluster) is built
@@ -33,14 +33,14 @@ The exception is if the parameter changes _only_ update the list of notaries. In
 
 {{< /note >}}
 Outlined below are some basic suggestions to best deal with flag days. Note that to avoid any issues restarting the Notary nodes, a Notary
-operator should ensure that all nodes have accepted the parameter update. See [Network parameters update process]({{< relref "../network/network-map.md#network-parameters-update-process" >}}) for more information.
+operator should ensure that all nodes have accepted the parameter update. See [Updating network parameters]({{< relref "../network/network-parameters.md#updating-network-parameters" >}}) for more information.
 
 
 ## Single notary
 
 With a simple non-HA Notary service, a zero-downtime parameter update is not possible. After the flag day the service must be restarted,
 either manually and immediately after the flag day (if the network operator in control of the flag day is also in control of the Notary) or
-automatically when the Notary next polls the Network Map service (e.g. using a daemon to restart the service after any shutdowns).
+automatically when the Notary next polls the Network Map service (for example, using a daemon to restart the service after any shutdowns).
 
 Although immediately restarting manually after a flag day should be preferred, there is a chance that a notarisation request is sent during
 the downtime from a node who is not yet aware of the flag day. If network participants cannot handle Notary downtime then a HA notary

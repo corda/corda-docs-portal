@@ -340,12 +340,12 @@ networkParametersPath = network-parameters // The network-parameters file is exp
 
 [float.conf](../../resources/float.conf)
 
-A full list of the parameters that can be utilized in these configuration files can be found in [Configuring the Corda Enterprise Firewall]({{< relref "../corda-firewall-configuration-file.md" >}}).
+For a full list of the parameters that can be utilized in these configuration files, see [Configuring the Corda Enterprise Firewall]({{< relref "../corda-firewall-configuration-file.md" >}}).
 
 
 ### Corda 3.x vs Corda 4.x firewall upgrade
 
-In Corda 4.x it is possible to for multiple nodes representing multiple identities to reside behind the same Corda Firewall. Details on this setup can be found in [Firewall upgrade]({{< relref "../corda-firewall-upgrade.md" >}}).
+In Corda 4.x it is possible to for multiple nodes representing multiple identities to reside behind the same Corda Firewall. See [Firewall upgrade]({{< relref "../corda-firewall-upgrade.md" >}}).
 
 
 ### Port policy and network configuration

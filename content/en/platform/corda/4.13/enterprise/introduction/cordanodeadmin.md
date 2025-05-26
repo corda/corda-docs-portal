@@ -10,7 +10,7 @@ A _Corda node admin_ is a user who sets up the Corda node on behalf of the organ
 * [Understanding the node]({{< relref "../node/component-topology.md" >}})
 * [Understanding the node database]({{< relref "../node/operating/node-database.md" >}})
 * [Using an HSM with Corda Enterprise]({{< relref "..//node/operating/cryptoservice-configuration.md" >}})
-* [Backup and restoration of a Corda node]({{< relref "../node/operating/cm-backup.md" >}})
+* [Backing up and restoring nodes]({{< relref "../node/operating/cm-backup.md" >}})
 * [Archiving transactions and attachments]({{< relref "../node/archiving/archiving-setup.md" >}})
 * [Flow management console]({{< relref "../node/node-flow-management-console.md" >}})
 * [Node management console]({{< relref "../node/management-console/_index.md" >}})

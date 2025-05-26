@@ -45,7 +45,7 @@ Adding a Liquibase migration script to a CorDapp should be done by a CorDapp dev
 
 2. Generate CorDapp changesets against an empty database.Any custom tables required by CorDapps will have been created manually or by Hibernate upon node startup.
    Because of this, the database doesn’t contain an entry in the *DATABASECHANGELOG* table (usually created by the Liquibase runner).
-   This step aims to add the required log as if these tables were created by Liquibase.First, you need to run Corda Database Management Tool to obtain DDL statements created by Liquibase.
+   This step aims to add the required log as if these tables were created by Liquibase.First, you need to run Corda database management tool to obtain DDL statements created by Liquibase.
    You should run the tool against an empty database, not the database you are reusing. 
 
    To run the tool, run the following command:
@@ -55,9 +55,9 @@ Adding a Liquibase migration script to a CorDapp should be done by a CorDapp dev
    ```
 
    The option `-b` points to the base directory (the directory containing a `node.conf` file, and the *drivers* and *cordapps* subdirectories). The generated script named *migrationYYYYMMDDHHMMSS.sql* will be present in the current directory.
-   This script contains all of the statements to create the data structures (e.g. tables/indexes) for CorDapps,
+   This script contains all of the statements to create the data structures (for example, tables/indexes) for CorDapps,
    and inserts to the Liquibase management table *DATABASECHANGELOG*.
-   For a description of the options, refer to the [Corda Database Management Tool]({{< relref "database-management-tool.md" >}}) manual.
+   For a description of the options, refer to the [Corda database management tool]({{< relref "database-management-tool.md" >}}) manual.
 
 3. Run selected insert statements to update Liquibase database change logIn the generated script, find all inserts into *DATABASECHANGELOG* table related to your CorDapp,
 you can search for *– Changeset migration/<file-name>* lines, where <file-name> references the Liquibase Script file name from the CorDapp.

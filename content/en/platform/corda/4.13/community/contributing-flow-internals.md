@@ -164,7 +164,7 @@ data. We thus get a handle to an arbitrary suspended computation.
 In the flow state machine there is a strict separation of the user-code’s state, and the flow framework’s internal state. The former is the
 serialized `Fiber`, and the latter consists of structured objects.
 
-The definition of a `Checkpoint` can be found [here](https://github.com/corda/corda/blob/dc4644643247d86b14165944f6925c2d2561eabc/node/src/main/kotlin/net/corda/node/services/statemachine/StateMachineState.kt#L55).
+The definition of a `checkpoint` can be found [here](https://github.com/corda/corda/blob/dc4644643247d86b14165944f6925c2d2561eabc/node/src/main/kotlin/net/corda/node/services/statemachine/StateMachineState.kt#L55).
 
 The “user state” can be found in `FlowState`. It is either
 

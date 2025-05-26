@@ -9,23 +9,23 @@ tags:
 - node
 - upgrade
 - notes
-title: Upgrading a node to Corda Enterprise Edition 4.12
+title: Upgrading a node to Corda Enterprise Edition 4.13
 aliases: /docs/4.13/enterprise/node/operating/cm-upgrading-node.html
 weight: 10
 ---
 
-# Upgrading a node to Corda Enterprise Edition 4.12
+# Upgrading a node to Corda Enterprise Edition 4.13
 
-Follow these steps to upgrade a node from Corda Enterprise Edition 4.x to Corda Enterprise Edition 4.12.
+Follow these steps to upgrade a node from Corda Enterprise Edition 4.x to Corda Enterprise Edition 4.13.
 
 If you are upgrading from Corda Enterprise 3.x, you must first:
 1. Upgrade your node to Corda Enterprise 3.3, if you haven't already. If your node is running on an earlier version, follow the steps in Upgrade a Corda 3.X Enterprise Node (available in the [archived-docs](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs) directory of the [corda/corda-docs-portal](https://github.com/corda/corda-docs-portal) repo).
 2. Upgrade from Corda Enterprise 3.3 to Corda Enterprise Edition 4.5.
 3. Upgrade from Corda 4.5 to Corda Enterprise Edition 4.11.
-4. Upgrade from Corda 4.11 to Corda Enterprise Edition 4.12.
+4. Upgrade from Corda 4.11 to Corda Enterprise Edition 4.13.
 
 {{< warning >}}
-Before upgrading to Corda Enterprise Edition 4.12, read the guidance on [upgrading your notary service]({{< relref "notary/upgrading-the-ha-notary-service.md" >}}).
+Before upgrading to Corda Enterprise Edition 4.13, read the guidance on [upgrading your notary service]({{< relref "notary/upgrading-the-ha-notary-service.md" >}}).
 {{< /warning >}}
 
 Most of the Corda 4 public, non-experimental APIs are stable. See the [full list of stable APIs]({{< relref "../../../../api-ref/api-ref-corda-4.md" >}}). If you are working with a stable API, you only need to follow the required CorDapp updates below. To upgrade:
@@ -73,7 +73,7 @@ For a detailed explanation of Corda backup and recovery guarantees, see [Backup 
 
 ## Step 3: Update the database
 
-The database update can be performed automatically or manually and must be performed incrementally for each major version. For example, if you are upgrading from version 4.9 to 4.12, you must first apply the database update from 4.9 to 4.10, and then apply the database update from 4.10 to 4.11, and then from 4.11 to 4.12. The minor version does not matter since there are no database updates contained in minor version releases.
+The database update can be performed automatically or manually and must be performed incrementally for each major version. For example, if you are upgrading from version 4.9 to 4.13, you must first apply the database update from 4.9 to 4.10, and then apply the database update from 4.10 to 4.11, from 4.11 to 4.12, and then from 4.12 to 4.13. The minor version does not matter since there are no database updates contained in minor version releases.
 
 You can perform an automatic database update when:
 
@@ -86,9 +86,9 @@ If you meet the above criteria, then skip steps 3.1 to 3.4 and go directly to [S
 If you can't perform an automatic update, then you must perform a manual update by following steps 3.1 to 3.4 below. You can then move on to [Step 4](#step-4-replace-cordajar-with-the-new-version).
 
 
-### Step 3.1. Configure the Database Management Tool
+### Step 3.1. Configure the database management tool
 
-The Corda Database Management Tool needs access to a running database. You set the tool up using a similar process to how you configure a node.
+The Corda database management tool needs access to a running database. You set the tool up using a similar process to how you configure a node.
 You must provide a base directory that includes:
 
 
@@ -100,7 +100,7 @@ You must provide a base directory that includes:
 
 #### Azure SQL: template file and JDBC driver
 
-The required `node.conf` settings for the Database Management Tool using Azure SQL are:
+The required `node.conf` settings for the database management tool using Azure SQL are:
 
 
 ```groovy
@@ -127,7 +127,7 @@ myLegalName = <node_legal_name>
 
 #### SQL Server: template file and JDBC driver
 
-The required `node.conf` settings for the Database Management Tool using SQL Server are:
+The required `node.conf` settings for the database management tool using SQL Server are:
 
 ```groovy
 dataSourceProperties = {
@@ -153,7 +153,7 @@ myLegalName = <node_legal_name>
 
 #### Oracle: template file and JDBC driver
 
-The required `node.conf` settings for the Database Management Tool using Oracle are:
+The required `node.conf` settings for the database management tool using Oracle are:
 
 ```groovy
 dataSourceProperties = {
@@ -176,7 +176,7 @@ myLegalName = <node_legal_name>
 
 #### PostgreSQL: template file and JDBC driver
 
-The required `node.conf` settings for the Database Management Tool using PostgreSQL are:
+The required `node.conf` settings for the database management tool using PostgreSQL are:
 
 ```groovy
 dataSourceProperties = {
@@ -199,7 +199,7 @@ myLegalName = <node_legal_name>
 2. Copy the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` directory.
 
 
-### Step 3.2. Extract the DDL and DML scripts using the Database Management Tool
+### Step 3.2. Extract the DDL and DML scripts using the database management tool
 
 To run the tool, use the command:
 
@@ -223,7 +223,7 @@ If you run the DDL and DML statements separately (for example, if the database a
 
 {{< /note >}}
 
-For more information about the Database Management Tool including available options and commands, see [Database management tool]({{< relref "database-management-tool.md" >}}).
+For more information about the database management tool including available options and commands, see [Database management tool]({{< relref "database-management-tool.md" >}}).
 
 
 ### Step 3.3. Apply DDL scripts to a database
@@ -257,9 +257,9 @@ You only need to perform this step for the H2 database.
 
 {{< /note >}}
 
-The schema structure changes in Corda 4.0 require data to be propagated to new tables and columns based on the existing rows and specific node configuration, for example, node legal name. Such migrations cannot be expressed by the DDL script, so they need to be performed by the Database Management Tool or a node. These updates are required any time you are upgrading either from an earlier version to 4.0 or from 4.x to 4.x. For example, if you're upgrading from 4.5 to 4.11.
+The schema structure changes in Corda 4.0 require data to be propagated to new tables and columns based on the existing rows and specific node configuration, for example, node legal name. Such migrations cannot be expressed by the DDL script, so they need to be performed by the database management tool or a node. These updates are required any time you are upgrading either from an earlier version to 4.0 or from 4.x to 4.x. For example, if you're upgrading from 4.5 to 4.11.
 
-The Database Management Tool can execute the remaining data upgrade.
+The database management tool can execute the remaining data upgrade.
 The tool can connect with *restricted* database permissions as the schema structure was created in step three.
 In this step, you will insert and upgrade the data rows. This process does not alter the schema.
 
@@ -292,7 +292,7 @@ If you are reusing the tool configuration directory:
 
 Replace the `corda.jar` with the latest version from Corda.
 
-Download the latest version of Corda from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-node/4.13/corda-node-4.12.jar).
+Download the latest version of Corda from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-node/4.13/corda-node-4.13.jar).
 Make sure it’s available on your path, and that you’ve read the [Corda release notes]({{< relref "release-notes-enterprise.md" >}}). Pay particular attention to which version of Java the
 node requires.
 
@@ -316,7 +316,7 @@ Remove any `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSch
 
 ## Step 6: Validate existing transactions
 
-Run the Transaction Validator Utility (TVU) to ensure that existing transactions are compatible with 4.12, see [Validate transactions]({{< relref "upgrade-guide.md#validate-transactions" >}}) for more information.
+Run the Transaction Validator Utility (TVU) to ensure that existing transactions are compatible with 4.13, see [Validate transactions]({{< relref "upgrade-guide.md#validate-transactions" >}}) for more information.
 
 ## Step 7: Update the CorDapps
 

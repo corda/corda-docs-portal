@@ -32,7 +32,7 @@ then skip it. This is deliberate, to enable other message formats in future.
 The first version byte is set to 1 and indicates the major version of the format. It should always be set to 1,
 if it isn’t that means a backwards incompatible serialisation format has been developed and you should therefore abort.
 The second byte is a minor version, you should be able to tolerate this incrementing as long as your code is robust
-to unknown data (e.g. new schema elements). The third byte is an encoding byte. This is used to indicate new features
+to unknown data (for example, new schema elements). The third byte is an encoding byte. This is used to indicate new features
 like compression are active. You should abort if this isn’t zero.
 
 
@@ -155,7 +155,7 @@ Each *COMPOSITE_TYPE* record describes a single app-level type and has the follo
 * **Fields:** A list of *FIELD* records
 
 The label will typically be unused and left as null - it’s here to match the AMQP specification and could in future contain
-arbitrary unstructured text, e.g. a javadoc explaining more about the semantics of the field. The “provides list” is
+arbitrary unstructured text; for example, a Javadoc explaining more about the semantics of the field. The “provides list” is
 a set of strings naming Java interfaces that the original type implements. It can be used to work with messages generically
 in a strongly typed, safe manner. Rather than guessing whether a type is meant to be a Foo or Bar based on matching
 with the field names, the schema itself declares what contracts it is intended to meet.

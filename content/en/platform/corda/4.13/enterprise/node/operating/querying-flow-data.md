@@ -19,8 +19,8 @@ A checkpoint is a record of flow data taken at key points during a flow's operat
 
 With Corda Enterprise, you can query flow data in the following ways:
 
-* You can [query flow data via RPC](#querying-flow-data-via-rpc)
-* You can [query flow data via the node shell](#querying-flow-data-via-the-node-shell)
+* [Via RPC](#querying-flow-data-via-rpc)
+* [Via the node shell](#querying-flow-data-via-the-node-shell)
 
 ## Querying flow data via RPC
 

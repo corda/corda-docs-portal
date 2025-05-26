@@ -275,7 +275,7 @@ The node configuration described here is just an example. `Dockerform` allows yo
 
 1. Open the `build.gradle` file of your CorDapp project and add a new Gradle task, as shown in the example below.
 
-   {{< note >}}Make sure to use Corda Gradle plugin version 5.0.10 or above. The docker image name must be specified by using the `dockerImage` property. {{< /note >}}
+   {{< note >}}Make sure to use Corda Gradle plugin version 5.0.10 or above. The Docker image name must be specified by using the `dockerImage` property. {{< /note >}}
    ```groovy
    task prepareDockerNodes(type: net.corda.plugins.Dockerform, dependsOn: ['jar']) {
        // set docker image for each node

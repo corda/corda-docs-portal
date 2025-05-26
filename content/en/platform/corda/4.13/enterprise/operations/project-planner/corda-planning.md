@@ -31,7 +31,7 @@ developed by a member of the business network, by the Business Network Operator,
 When developing CorDapps, an organisation should bear in mind the [platform support matrix]({{< relref "../../platform-support-matrix.md" >}})
 and the guidance on [developing CorDapps]({{< relref "../../cordapps/cordapp-overview.md" >}}).
 
-To test CorDapps, use the network bootstrapper tool to quickly create Corda networks to test that the CorDapp performs as expected.
+To test CorDapps, use the Network Bootstrapper tool to quickly create Corda networks to test that the CorDapp performs as expected.
 
 ### Node operator
 

@@ -95,7 +95,7 @@ the network, along with the network parameters file and identity certificates. G
 online at once - an offline node that isn’t being interacted with doesn’t impact the network in any way. So a test
 cluster generated like this can be sized for the maximum size you may need, and then scaled up and down as necessary.
 
-More information can be found in [Network Bootstrapper]({{< relref "network-bootstrapper.md" >}}).
+For more information, see [Network Bootstrapper]({{< relref "network-bootstrapper.md" >}}).
 
 
 
@@ -123,7 +123,7 @@ that the parameters can be downloaded again.
 
 
 If the node isn’t using a HTTP network map service then it’s expected the signed file is provided by some other means.
-For such a scenario there is the network bootstrapper tool which in addition to generating the network parameters file
+For such a scenario there is the Network Bootstrapper tool which in addition to generating the network parameters file
 also distributes the node info files to the node directories.
 
 The current set of network parameters:
@@ -165,10 +165,10 @@ To determine which *minimumPlatformVersion* a zone must mandate in order to perm
 
 {{< /note >}}
 More parameters will be added in future releases to regulate things like allowed port numbers, whether or not IPv6
-connectivity is required for zone members, required cryptographic algorithms and roll-out schedules (e.g. for moving to post quantum cryptography), parameters related to SGX and so on.
+connectivity is required for zone members, required cryptographic algorithms and roll-out schedules (for example, for moving to post quantum cryptography), parameters related to SGX and so on.
 
 
-## Network parameters update process
+## Updating network parameters
 
 Network parameters are controlled by the zone operator of the Corda network that you are a member of. Occasionally, they may need to change
 these parameters. There are many reasons that can lead to this decision: adding a notary, setting new fields that were added to enable

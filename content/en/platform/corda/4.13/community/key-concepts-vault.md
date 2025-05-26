@@ -94,7 +94,7 @@ query soft locks associated with states as required by their CorDapp application
      * Typically, the unique identifier will refer to a [FlowLogic.runId]'s [UUID] associated with an in-flight flow.
      * In this case if the flow terminates the locks will automatically be freed, even if there is an error.
      * However, the user can specify their own [UUID] and manage this manually, possibly across the lifetime of multiple
-     * flows, or from other thread contexts e.g. [CordaService] instances.
+     * flows, or from other thread contexts; for example, [CordaService] instances.
      * In the case of coin selection, soft locks are automatically taken upon gathering relevant unconsumed input refs.
      *
      * @throws [StatesNotAvailableException] when not possible to soft-lock all of requested [StateRef].

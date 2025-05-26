@@ -106,8 +106,8 @@ Set custom command line attributes (for example, Java system properties) on the 
 
 ## `dataSourceProperties`
 
-  This section is used to configure the JDBC connection and database driver used for the node's persistence.
-  To add additional data source properties (for a specific JDBC driver) use the `dataSource.` prefix with the property name (e.g. `dataSource.customProperty = value`).
+This section is used to configure the JDBC connection and database driver used for the node's persistence.
+  To add additional data source properties (for a specific JDBC driver) use the `dataSource.` prefix with the property name (for example, `dataSource.customProperty = value`).
 
 * `dataSourceClassName`
   * JDBC Data Source class name.
@@ -236,7 +236,7 @@ Deprecated. use `h2Setting` instead.
   An optional list of file system directories containing JARs to include in the classpath when launching via `corda.jar` only.
   Each should be a string.
   Only the JARs in the directories are added, not the directories themselves.
-  This is useful for including JDBC drivers and the like. e.g. `jarDirs = [ ${baseDirectory}"/libs" ]`.
+  This is useful for including, for example, JDBC drivers: `jarDirs = [ ${baseDirectory}"/libs" ]`.
   (Note that you have to use the `baseDirectory` substitution value when pointing to a relative path).
 
 {{< warning >}}
@@ -505,14 +505,14 @@ Deprecated. Use rpcSettings instead.**
   It has one required parameter.
 
   `port`
-    The port to start SSH server on e.g. `sshd { port = 2222 }`.
+    The port to start SSH server on; for example, `sshd { port = 2222 }`.
 
   *Default:* not defined
 
 ## `systemProperties`
 
   An optional map of additional system properties to be set when launching via `corda.jar` only.
-  Keys and values of the map should be strings. e.g. `systemProperties = { "visualvm.display.name" = FooBar }`
+  Keys and values of the map should be strings; for example, `systemProperties = { "visualvm.display.name" = FooBar }`
 
   *Default:* not defined
 

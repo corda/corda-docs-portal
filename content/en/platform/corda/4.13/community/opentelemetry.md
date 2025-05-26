@@ -12,7 +12,7 @@ title: OpenTelemetry
 
 This section describes how to setup OpenTelemetry and the simple log telemetry.
 
-Telemetry has been implemented in Corda 4.11 with a pluggable architecture. There are two telemetry components:
+Telemetry has been implemented in Corda with a pluggable architecture. There are two telemetry components:
 
 * **OpenTelemetry**: This component links with the OpenTelemetry API and issues spans for flows and certain significant operations.
 * **Simple log telemetry**: This component issues log lines for flows and certain significant operations. These logs lines contain a trace ID. The complete call sequence of flows can be identified via the trace ID.
@@ -28,12 +28,16 @@ The Corda OpenTelemetry component links at compile time with the OpenTelemetry A
 
 There are two ways to make the OpenTelemetry SDK available to the Corda node:
 
-* Add the file `corda-opentelemetry-driver-%VERSION%.jar` to the `drivers` directory of the Corda node.
-* Start the Corda node with an OpenTelemetry Java agent attached.
+* [Add the driver file to the Corda node drivers directory]({{< relref "#using-the-opentelemetry-driver" >}}).
+* [Start the Corda node with an OpenTelemetry Java agent attached]({{< relref "#using-the-opentelemetry-java-agent" >}}).
 
 ## Using the OpenTelemetry driver
 
-To use the OpenTelemetry driver, copy `corda-opentelemetry-driver-%VERSION%.jar` into the drivers directory of the Corda node. This driver can be downloaded from Maven and is included in the release pack.
+To use the OpenTelemetry driver:
+
+* Copy `corda-opentelemetry-driver-%VERSION%.jar` to the drivers directory of the Corda node. 
+
+This driver can be downloaded from Maven and is included in the release pack
 
 ## Using the OpenTelemetry Java agent
 

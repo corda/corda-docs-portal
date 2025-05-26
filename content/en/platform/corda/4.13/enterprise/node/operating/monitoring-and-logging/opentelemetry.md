@@ -27,12 +27,16 @@ The Corda OpenTelemetry component links at compile time with the OpenTelemetry A
 
 There are two ways to make the OpenTelemetry SDK available to the Corda node:
 
-* Add the file `corda-opentelemetry-driver-%VERSION%.jar` to the `drivers` directory of the Corda node.
-* Start the Corda node with an OpenTelemetry Java agent attached.
+* [Add the driver file to the Corda node drivers directory]({{< relref "#using-the-opentelemetry-driver" >}}).
+* [Start the Corda node with an OpenTelemetry Java agent attached]({{< relref "#using-the-opentelemetry-java-agent" >}}).
 
 ## Using the OpenTelemetry driver
 
-To use the OpenTelemetry driver, copy `corda-opentelemetry-driver-%VERSION%.jar` into the drivers directory of the Corda node. This driver can be downloaded from Maven and is included in the release pack.
+To use the OpenTelemetry driver:
+
+* Copy `corda-opentelemetry-driver-%VERSION%.jar` to the drivers directory of the Corda node. 
+
+This driver can be downloaded from Maven and is included in the release pack.
 
 ## Using the OpenTelemetry Java agent
 

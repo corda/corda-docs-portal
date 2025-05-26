@@ -78,7 +78,7 @@ The `LinearState` interface is defined as follows:
 /**
  * A state that evolves by superseding itself, all of which share the common "linearId".
  *
- * This simplifies the job of tracking the current version of certain types of state in e.g. a vault.
+ * This simplifies the job of tracking the current version of certain types of state in, for example, a vault.
  */
 @KeepForDJVM
 interface LinearState : ContractState {

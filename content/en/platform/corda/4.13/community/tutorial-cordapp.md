@@ -12,12 +12,12 @@ menu:
 tags:
 - tutorial
 - cordapp
-title: Run a sample CorDapp
+title: Running a sample CorDapp
 ---
 
 
 
-# Run a sample CorDapp
+# Running a sample CorDapp
 
 Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try modifying a [Java]((https://github.com/corda/cordapp-template-java/tree/release/4.12) or [Kotlin](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12) template, [building your own]({{< relref "../enterprise/get-started/tutorials/build-basic-cordapp/basic-cordapp-intro.md" >}}), or using a [community CorDapp](https://www.corda.net/samples/).
 
@@ -324,7 +324,7 @@ If your test fails, run a Gradle test instead of a unit test.
 
 * [Debugging a CorDapp]({{< relref "debugging-a-cordapp.md" >}})
 * [Writing a CorDapp]({{< relref "writing-a-cordapp.md" >}})
-* [Build a CorDapp]({{< relref "cordapp-build-systems.md" >}})
+* [Building a CorDapp]({{< relref "cordapp-build-systems.md" >}})
 
 
 ## Appendix A: Projects' structure

@@ -31,11 +31,11 @@ join dynamically, instead of requiring each node to be bootstrapped and have the
 this may sound appealing, think twice before going down this route:
 
 
-* If you need to test a CorDapp, it is easier to create a test network using the network bootstrapper tool (see below)
+* If you need to test a CorDapp, it is easier to create a test network using the Network Bootstrapper tool (see below)
 * If you need to control who uses your CorDapp, it is easier to apply permissioning by creating a business network
 (see below)
 
-**Testing.** Creating a production-ready zone isn’t necessary for testing as you can use the *network bootstrapper*
+**Testing.** Creating a production-ready zone isn’t necessary for testing as you can use the *Network Bootstrapper*
 tool to create all the certificates, keys, and distribute the needed map files to run many nodes. The bootstrapper can
 create a network locally on your desktop/laptop but it also knows how to automate cloud providers via their APIs and
 using Docker. In this way you can bring up a simulation of a real Corda network with different nodes on different
@@ -152,7 +152,7 @@ be a binary X.509 certificate, and the certs are expected to be in order.
 
 Zone parameters are stored in a file containing a Corda AMQP serialised `SignedDataWithCert<NetworkParameters>`
 object. It is easy to create such a file with a small Java or Kotlin program. The `NetworkParameters` object is a
-simple data holder that could be read from e.g. a config file, or settings from a database. Signing and saving the
+simple data holder that could be read from, for example, either a config file or a setting from a database. Signing and saving the
 resulting file is just a few lines of code. A full example can be found in `NetworkParametersCopier.kt` in the source
 tree, but a flavour of it looks like this:
 

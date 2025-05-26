@@ -165,7 +165,7 @@ Database configuration
 ## `dataSourceProperties`
 
 This section is used to configure the JDBC connection and database driver used for the node's persistence.
-To add additional data source properties (for a specific JDBC driver) use the `dataSource.` prefix with the property name (e.g. `dataSource.customProperty = value`).
+To add additional data source properties (for a specific JDBC driver) use the `dataSource.` prefix with the property name (for example, `dataSource.customProperty = value`).
 
 * `dataSourceClassName`
   * JDBC Data Source class name.
@@ -344,7 +344,7 @@ Allows fine-grained controls of various features only available in the enterpris
     * `reservoirType`: Sets the reservoir type. Valid values are `EDR` (default) and `TIME_WINDOW`. For more information, see the [metrics documentation]({{< relref "../operating/monitoring-and-logging/node-metrics.md" >}}).
     * `timeWindow`: Sets the data gathering duration for `TIME_WINDOW` data reservoirs. If not set, the default is five minutes.
 
-* `tuning`
+* `tuning` <a name="tuning"> 
 
     * The Corda node configuration file section that contains performance tuning parameters for Corda Enterprise nodes.
 

@@ -411,7 +411,7 @@ partition: "hsm-w4b6nnfio7z"
 In addition to the configuration, the following steps are required:
 
 1. `cloudhsm-3.1.2.jar` from AWS CloudHSM Software Library for Java needs to be placed in the node’s `drivers` folder.
-2. Corda must be running with the system property `java.library.path` pointing to the directory that contains the AWS CloudHSM JCA provider binaries (e.g. ``libcaviumjca.so`` for Linux). For example:
+2. Corda must be running with the system property `java.library.path` pointing to the directory that contains the AWS CloudHSM JCA provider binaries (for example, ``libcaviumjca.so`` for Linux). For example:
 ```text
 java -Djava.library.path=/opt/cloudhsm/lib -jar corda.jar
 ```

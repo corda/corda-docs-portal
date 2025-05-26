@@ -102,7 +102,7 @@ logging is better structured to allow for log processing by third party tools. M
 
 The node is using log4j2 asynchronous logging by default (configured via log4j2 properties file in its resources)
 to ensure that log message flushing is not slowing down the actual processing.
-If you need to switch to synchronous logging (e.g. for debugging/testing purposes), you can override this behaviour
+If you need to switch to synchronous logging (for example, for debugging/testing purposes), you can override this behaviour
 by adding `-DLog4jContextSelector=org.apache.logging.log4j.core.selector.ClassLoaderContextSelector` to the node’s
 command line or to the `jvmArgs` section of the node configuration; see [Node configuration]({{< relref "../setup/corda-configuration-file.md" >}}).
 
@@ -173,7 +173,7 @@ database should be via the usual database tools mechanisms, including access con
 
 ## Monitoring your node
 
-This section covers monitoring performance and health of a node in Corda Enterprise with Jolokia and Graphite. General best practices for monitoring (e.g. setting up TCP checks for the ports the node communicates on, database health checks etc.) are not covered here but should be followed.
+This section covers monitoring performance and health of a node in Corda Enterprise with Jolokia and Graphite. General best practices for monitoring (for example, setting up TCP checks for the ports the node communicates on, database health checks etc.) are not covered here but should be followed.
 
 
 

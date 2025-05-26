@@ -9,7 +9,7 @@ Business network operators are the day to day managers of the network – the ta
 
 * [Understanding Corda networks]({{< relref "../network/corda-networks.md" >}})
 * [Network map]({{< relref "../network/network-map.md" >}})
-* [Corda Enterprise notary service overview]({{< relref "../notary/ha-notary-service-overview.md" >}})
+* [Notary service overview]({{< relref "../notary/ha-notary-service-overview.md" >}})
 * [Public key infrastructure (PKI) Tool]({{< relref "../../../../../../en/platform/corda/1.6/cenm/pki-tool.md" >}})
 * [Certificate hierarchy guide]({{< relref "../node/pki-guide.md" >}})
 * [Network certificates]({{< relref "../network/permissioning.md" >}})

@@ -37,17 +37,17 @@ be replaced with the new version.
 
 ## Contract and state upgrades
 
-There are two types of contract/state upgrade:
+There are two types of contract and state upgrade that you can perform:
 
 
-* **Implicit:** By allowing multiple implementations of the contract ahead of time, using constraints. See
+- **Implicit:** Allow multiple implementations of the contract ahead of time, using constraints. See
 [API: Contract constraints]({{< relref "api-contract-constraints.md" >}}) to learn more.
-* **Explicit:** By creating a special *contract upgrade transaction* and getting all participants of a state to sign it using the
+- **Explicit:** Create a special *contract upgrade transaction* and getting all participants of a state to sign it using the
 contract upgrade flows.
 
-This documentation only considers the *explicit* type of upgrade, as implicit contract upgrades are handled by the application.
+This topic covers the *explicit* type of upgrade, as implicit contract upgrades are handled by the CorDapp.
 
-In an explicit upgrade contracts and states can be changed in arbitrary ways, if and only if all of the state’s participants
+In an explicit upgrade, contracts and states can be changed in arbitrary ways, only if all of the state’s participants
 agree to the proposed upgrade. The following combinations of upgrades are possible:
 
 
@@ -56,16 +56,16 @@ agree to the proposed upgrade. The following combinations of upgrades are possib
 * The state and the contract are updated simultaneously.
 
 
-## Running the upgrade
+## Performing the upgrade
 
-If a contract or state requires an explicit upgrade then all states will need updating to the new contract at a time agreed
+If a contract or state requires an explicit upgrade, update all states to the new contract at a time all the participants agree on.
 by all participants. The updated CorDapp JAR needs to be distributed to all relevant parties in advance of the changeover
 time.
 
-In order to perform the upgrade, follow the following steps:
+To perform the upgrade:
 
 
-1. If required, do a flow drain to avoid the definition of states or contracts changing whilst a flow is in progress (see [Flow drains]({{< relref "upgrading-cordapps.md#flow-drains" >}}) for more information):
+1. Drain the node to avoid the definition of states or contracts changing whilst a flow is in progress. See [Flow drains]({{< relref "upgrading-cordapps.md#flow-drains" >}}) for more information. There are two ways you can drain the node:
    - **By RPC:** Use the `setFlowsDrainingModeEnabled` method with the parameter `true`.
    - **Via the shell:** Run the following command: `run setFlowsDrainingModeEnabled enabled: true`.
 2. Check that all the flows have completed:
@@ -73,11 +73,10 @@ In order to perform the upgrade, follow the following steps:
    - **Via the shell:** Run the following command: `run stateMachinesSnapshot`
       {{< note >}}The `stateMachinesSnapshot` method ties the flow ID with the `flowName` class. The result shows you all the flows running in your node. You can use the `flow watch` method instead. It omits all the details returned by `stateMachinesSnapshot` that you do not need.{{< /note >}}
 3. Once all flows have completed, stop the node.
-4. Replace the existing JAR with the new one.
-5. Make any database changes required to any custom vault tables for the upgraded CorDapp. The database update for a
-CorDapp upgrade follows the same steps as database setup for a new CorDapp.
-5. Restart the node.
-6. If you drained the node prior to upgrading, switch off flow draining mode to allow the node to continue to receive requests:
+4. Replace the existing JAR with the new version.
+5. Make any required database changes to any custom vault tables for the upgraded CorDapp by following the database upgrade steps in [Release new CorDapp versions]({{< relref "upgrading-cordapps.md" >}}). Database changes required for a CorDapp upgrade follow the same steps as those to set up a database for a new CorDapp.
+6. Restart the node.
+7. If you drained the node prior to upgrading, switch off flow draining mode. This allows the node to continue to receive requests. There are two ways you can switch off flow draining mode:
    - **By RPC:** Use the `setFlowsDrainingModeEnabled` method with the parameter `false`.
    - **Via the shell:** Run the following command: `run setFlowsDrainingModeEnabled enabled: false`
 7. Run the contract upgrade authorisation flow (`ContractUpgradeFlow$Initiate`) for each state that requires updating on every node.

@@ -43,7 +43,7 @@ The Corda configuration file uses the HOCON format which is a superset of JSON. 
 Please do NOT use double quotes (`"`) in configuration keys.
 
 Node setup will log `Config files should not contain " in property names. Please fix: [key]` as an error when it finds double quotes around keys.
-This prevents configuration errors when mixing keys containing `.` wrapped with double quotes and without them e.g.: The property
+This prevents configuration errors when mixing keys containing `.` wrapped with double quotes and without them. For example, the property
 `"dataSourceProperties.dataSourceClassName" = "val"` in [Reference.conf](#referenceconf) would be not overwritten by the property
 `dataSourceProperties.dataSourceClassName = "val2"` in *node.conf*.
 
@@ -298,4 +298,4 @@ Below are the steps to generate a hash for a CorDapp signed with a RSA certifica
    | openssl x509 -pubkey -noout \
    | openssl rsa -pubin -outform der | openssl dgst -sha256
    ```
-3. Copy the public key hash that is generated and place it into the required location (e.g. in `node.conf`).
+3. Copy the public key hash that is generated and place it into the required location; for example, in `node.conf`.

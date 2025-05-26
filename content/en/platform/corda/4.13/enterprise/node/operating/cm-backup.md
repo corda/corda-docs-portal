@@ -3,17 +3,17 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-13:
     identifier: corda-enterprise-4-13-corda-nodes-operating-cm
-    name: "Backup and restoration of a Corda node"
+    name: "Backing up and restoring nodes"
     parent: corda-enterprise-4-13-corda-nodes-operating
 tags:
 - cm
 - backup
-title: Backup and restoration of a Corda node
+title: Backing up and restoring nodes
 weight: 8
 ---
 
 
-# Backup and restoration of a Corda node
+# Backing up and restoring nodes
 
 
 
@@ -57,4 +57,4 @@ Private keys used to sign transactions should be preserved with the utmost care.
 
 ## Upgrading
 
-For information about upgrading, see [Upgrading a node to Corda 4.11]({{< relref "../../node-upgrade-notes.md" >}}).
+For information about upgrading, see [Upgrading a node]({{< relref "../../node-upgrade-notes.md" >}}).

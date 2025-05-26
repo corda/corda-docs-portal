@@ -673,17 +673,13 @@ the *SSL key copier* is tailored to import multiple node’s SSL keys into the b
 
 A simple procedure for adding a new node might look like the following:
 
-
-
-* Back up and shut down all Corda components - Nodes, Bridges, Artemis broker and Float.
-* Register your new entities with the network operator. See [Joining a compatibility zone]({{< relref "../network/joining-a-compatibility-zone.md" >}}).
-* Locate the SSL keystore file in node’s certificate folder. e.g. `<node base directory>/certificates/sslkeystore.jks`
-* Copy the SSL keystores generated from the registration process to Bridge if they are on a different host.
-* Using the HA Utilities, copy the newly acquired legal entity’s SSL key to the bridge’s SSL keystore.
-`ha-utilities import-ssl-key --node-keystores <<Node keystore path>> --node-keystore-passwords=<<Node keystore password>> --bridge-keystore=<<Bridge keystore path>> --bridge-keystore-password=<<Bridge keystore password>>`
-* Start the Bridge and other nodes.
-
-
+1. Back up and shut down all Corda components: nodes, Bridges, Artemis broker and Float.
+2. Register your new entities with the network operator. See [Joining a compatibility zone]({{< relref "../network/joining-a-compatibility-zone.md" >}}).
+3. Locate the SSL keystore file in the node’s certificate folder; for example, `<node base directory>/certificates/sslkeystore.jks`
+4. Copy the SSL keystores generated from the registration process to Bridge if they are on a different host.
+5. Using the HA Utilities, copy the newly acquired legal entity’s SSL key to the bridge’s SSL keystore:
+   * `ha-utilities import-ssl-key --node-keystores <<Node keystore path>> --node-keystore-passwords=<<Node keystore password>> --bridge-keystore=<<Bridge keystore path>> --bridge-keystore-password=<<Bridge keystore password>>`
+6. Start the Bridge and other nodes.
 
 ## Standalone Artemis server
 

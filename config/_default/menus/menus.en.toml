@@ -484,7 +484,7 @@ weight = 40
 
 [[corda-enterprise-4-13]]
 identifier = "corda-enterprise-4-13-corda-nodes-operating"
-name = "Operating a Corda node"
+name = "Operating a node"
 parent = "corda-enterprise-4-12-corda-nodes"
 weight = 60
 
@@ -500,7 +500,7 @@ weight = 40
 
 [[corda-enterprise-4-13]]
 identifier = "corda-enterprise-4-13-corda-nodes-operating"
-name = "Operating a Corda node"
+name = "Operating a node"
 parent = "corda-enterprise-4-13-corda-nodes"
 weight = 60
 

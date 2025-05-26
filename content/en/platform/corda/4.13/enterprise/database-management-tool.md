@@ -12,10 +12,6 @@ weight: 60
 
 # Database management tool
 
-{{< warning >}}
-Corda Enterprise Edition 4.11 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.10 please read the guidance on [upgrading your notary service]({{< relref "notary/upgrading-the-ha-notary-service.md" >}}).
-{{< /warning >}}
-
 The database management tool is distributed as a standalone JAR file named `tools-database-manager-${corda_version}.jar`.
 It is intended to be used by Corda Enterprise node administrators who want more control over database changes made in production
 environments.

@@ -4,18 +4,15 @@ menu:
   corda-enterprise-4-13:
     identifier: corda-enterprise-4-13-operations-guide-deployment-firewall
     parent: corda-enterprise-4-13-operations-guide-deployment
-    name: "Firewall deployment"
+    name: "Deploying the Corda Firewall"
 tags:
 - operations
 - deployment
 -
-title: Firewall deployment
+title: Deploying the Corda Firewall
 weight: 30
 ---
 # Configuring the Corda Enterprise Firewall
-
-
-## File location
 
 When starting a standalone firewall (in bridge, or float mode), the `corda-firewall.jar` file defaults to reading the firewall’s configuration from a `firewall.conf` file in
 the directory from which the command to launch the process is executed. The syntax is:
@@ -40,9 +37,9 @@ configuration file is then expected in the root of this workspace
 * `--version`, `-V`: Print version information and exit.
 
 
-## Format
+## Configuration File Format
 
-The firewall configuration file uses the HOCON format which is superset of JSON. Please visit
+The Corda Firewall configuration file uses the HOCON format which is superset of JSON. See
 [https://github.com/typesafehub/config/blob/master/HOCON.md](https://github.com/typesafehub/config/blob/master/HOCON.md) for further details.
 
 
@@ -57,7 +54,7 @@ This prevents configuration errors when mixing keys containing `.` wrapped with 
 
 
 
-## Defaults
+## Default Configuration Options
 
 A set of default configuration options are loaded from the built-in resource file. Any options you do not specify in
 your own `firewall.conf` file will use these defaults:
@@ -94,30 +91,20 @@ Assuming that an external firewall is to be used, the `corda-firewall.jar` opera
 The particular mode is selected via the required `firewallMode` configuration property inside `firewall.conf`:
 
 
-* **SenderReceiver**:
-selects a single process firewall solution to isolate the node and Artemis broker from direct Internet contact.
+- **SenderReceiver:** Selects a single process firewall solution to isolate the node and Artemis broker from direct Internet contact.
 It is still assumed that the firewall process is behind a firewall, but both the message sending and receiving paths will pass via the `bridge`.
-In this mode the `outboundConfig` and `inboundConfig` configuration sections of `firewall.conf` must be provided,
+In this mode the `outboundConfig` and `inboundConfig` configuration sections of `firewall.conf` must be provided, while 
 the `bridgeInnerConfig` and `floatOuterConfig` sections should not be present.
-
-
-* **BridgeInner**:
-mode runs this instance of the `corda-firewall.jar` as the trusted portion of the peer-to-peer firewall float.
+- **BridgeInner:** Runs this instance of the `corda-firewall.jar` as the trusted portion of the peer-to-peer firewall float.
 Specifically, this process runs the complete outbound message processing. For the inbound path it operates only the filtering and durable storing portions of the message processing.
 The process expects to connect through a firewall to a matched `FloatOuter` instance running in the DMZ as the actual `TLS 1.2/AMQP 1.0` termination point.
-
-
-* **FloatOuter**:
-causes this instance of the `corda-firewall.jar` to run as a protocol break proxy for inbound message path. The process
+- **FloatOuter:** This instance of the `corda-firewall.jar` runs as a protocol break proxy for inbound message path. The process
 will initialise a `TLS` control port and await connection from the `BridgeInner`. Once the control connection is successful the `BridgeInner` will securely provision
 the `TLS` socket server key and certificates into the `FloatOuter`. The process will then start listening for inbound connection from peer nodes.
 
+## Firewall configuration fields
 
-
-
-## Fields
-
-The configuration fields are listed in [Corda Enterprise Firewall configuration fields]({{< relref "../../../enterprise/node/corda-firewall-configuration-fields.md" >}}).
+The configuration fields are listed in [Corda Firewall configuration fields]({{< relref "../../../enterprise/node/corda-firewall-configuration-fields.md" >}}).
 
 ## Complete example
 

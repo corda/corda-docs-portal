@@ -241,7 +241,7 @@ possible for a flow to be of both types.
 You request a flow to be invoked by using the `CordaRPCOps.startFlowDynamic` method. This takes a
 Java reflection `Class` object that describes the flow class to use (in this case, either `Buyer` or `Seller`).
 It also takes a set of arguments to pass to the constructor. Because it’s possible for flow invocations to
-be requested by untrusted code (e.g. a state that you have been sent), the types that can be passed into the
+be requested by untrusted code (for example, a state that you have been sent), the types that can be passed into the
 flow are checked against a whitelist, which can be extended by apps themselves at load time.  There are also a series
 of inlined Kotlin extension functions of the form `CordaRPCOps.startFlow` which help with invoking flows in a type
 safe manner.
@@ -846,7 +846,7 @@ the features we have planned:
 
 
 * Exception management, with an improved node-flow-hospital facility to manually provide solutions to unavoidable
-problems (e.g. the other side doesn’t know the trade)
+problems (for example, the other side doesn’t know the trade)
 * Being able to interact with people, either via some sort of external ticketing system, or email, or a custom UI.
 For example to implement human transaction authorizations
 * A standard library of flows that can be easily sub-classed by local developers in order to integrate internal

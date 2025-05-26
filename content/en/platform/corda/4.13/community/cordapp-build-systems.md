@@ -17,7 +17,7 @@ title: Building and installing a CorDapp
 ---
 
 
-# Build a CorDapp
+# Building a CorDapp
 
 This article covers the steps you need to take to build a CorDapp from scratch. You'll learn how to:
 
@@ -104,9 +104,9 @@ There are a few guidelines to keep in mind when you set Corda dependencies.
 
 * Always include `$corda_core_release_distribution:corda-core:$corda_core_release_version` as a
   `cordaCompile` dependency, and `$corda_release_distribution:corda:$corda_release_version` as a `cordaRuntime` dependency
-* When building an RPC client that communicates with a node (e.g. a webserver), you should include
+* When building an RPC client that communicates with a node (for example, a webserver), you should include
   `$corda_release_distribution:corda-rpc:$corda_release_version` as a `cordaCompile` dependency.
-* When you need to use the network bootstrapper to bootstrap a local network (e.g. when using `Cordformation`), you
+* When you need to use the Network Bootstrapper to bootstrap a local network (for example, when using `Cordformation`), you
   should include `$corda_release_distribution:corda-node-api:$corda_release_version` as either a `cordaRuntime` or a `runtimeOnly`
   dependency. You may also wish to include an implementation of SLF4J as a `runtimeOnly` dependency for the network
   bootstrapper to use.

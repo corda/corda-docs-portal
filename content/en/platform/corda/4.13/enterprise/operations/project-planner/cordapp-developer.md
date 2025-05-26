@@ -56,7 +56,7 @@ For more information on developing CorDapps, see [developing CorDapps]({{< relre
 ### Testing environment
 
 While in development a CorDapp should be regularly tested using a local testing environment to ensure the flows CorDapp
-is delivering the intended function. Nodes can be created locally using the network bootstrapper tool.
+is delivering the intended function. Nodes can be created locally using the Network Bootstrapper tool.
 
 A local testing environment should use nodes in **devMode** with no other network components.
 

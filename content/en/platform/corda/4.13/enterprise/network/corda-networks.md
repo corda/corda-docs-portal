@@ -27,7 +27,7 @@ should be consistent with their existing policies on such things.{{< note >}}
 Alternatively, the service can be configured to automatically accept signature requests. However, this is
 not the recommended deployment model outside of a testing setup.{{< /note >}}
 
-* Once accepted the requests have a certificate signed by the PKI infrastructure that governs the network.Signing is performed by a separately deployed process called “The Signing Service”. It is important to realise how
+* Once accepted the requests have a certificate signed by the PKI infrastructure that governs the network. Signing is performed by a separately deployed process called the *Signing Service*. It is important to realise how
 this service should be deployed (for more details on this see the Signing Service documentation), in brief, it is the
 intention that, unlike the Identity Manager, the signer is completely isolated from external communication. It only
 addresses a data source it shares with the Identity Manager. This ensure no hostile entity can penetrate the system
@@ -54,11 +54,10 @@ Subzones are currently categorized in relation to the mechanism a zone operator 
 setting the network parameters for it.
 
 
-* *Public subzones* where the entirety of the network parameters are under the sole control of the zone operator
-* *Segregated subzones* where one or more of the network parameters have been delegated to the authority of some
-third party.
+* **Public subzones:** All network parameters are under the sole control of the zone operator.
+* **Segregated subzones:** One or more network parameters have been delegated to the authority of a third party.
 
-Note, in either circumstance the operation of the Network Map in question is still under the preview by the Zone
+In either circumstance, the operation of the Network Map in question is still under the authority of the Zone
 Operator, with a suitable out-of-band process established with the party to communicate the deferred parameter
 entity.
 
@@ -93,7 +92,7 @@ Each Network Map requires:
 * A signing service configured to sign the network map and network parameters
 
 
-## More in this section
+## Available topics
 
 * [What is a compatibility zone?]({{< relref "compatibility-zones.md" >}})
     * [How do I become part of a compatibility zone?]({{< relref "compatibility-zones.md#how-do-i-become-part-of-a-compatibility-zone" >}})
@@ -116,9 +115,9 @@ Each Network Map requires:
 * [The network map]({{< relref "network-map.md" >}})
     * [HTTP network map protocol]({{< relref "network-map.md#http-network-map-protocol" >}})
         * [Additional endpoints from R3]({{< relref "network-map.md#additional-endpoints-from-r3" >}})
-    * [The `additional-node-infos` directory]({{< relref "network-map.md#the-additional-node-infos-directory" >}})
+    * [The additional-node-infos directory]({{< relref "network-map.md#the-additional-node-infos-directory" >}})
     * [Network parameters]({{< relref "network-map.md#network-parameters" >}})
-    * [Network parameters update process]({{< relref "network-map.md#network-parameters-update-process" >}})
+    * [Updating network parameters]({{< relref "network-parameters.md#updating-network-parameters" >}})
         * [Automatic acceptance]({{< relref "network-map.md#automatic-acceptance" >}})
         * [Manual acceptance]({{< relref "network-map.md#manual-acceptance" >}})
     * [Private networks]({{< relref "network-map.md#private-networks" >}})

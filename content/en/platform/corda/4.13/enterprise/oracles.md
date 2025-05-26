@@ -32,7 +32,7 @@ different computer, the entire shared ledger concept wouldn’t work.
 But transaction validity does often depend on data from the outside world - verifying that an
 interest rate swap is paying out correctly may require data on interest rates, verifying that a loan has reached
 maturity requires knowledge about the current time, knowing which side of a bet receives the payment may require
-arbitrary facts about the real world (e.g. the bankruptcy or solvency of a company or country), and so on.
+arbitrary facts about the real world (for example, the bankruptcy or solvency of a company or country), and so on.
 
 We can solve this problem by introducing services that create digitally signed data structures which assert facts.
 These structures can then be used as an input to a transaction and distributed with the transaction data itself. Because
@@ -139,7 +139,7 @@ for more details.
 
 Because the signature covers the transaction, and transactions may end up being forwarded anywhere, the fact itself
 is independently checkable. However, this approach can still be useful when the data itself costs money, because the act
-of issuing the signature in the first place can be charged for (e.g. by requiring the submission of a fresh
+of issuing the signature in the first place can be charged for (for example, by requiring the submission of a fresh
 `Cash.State` that has been re-assigned to a key owned by the oracle service). Because the signature covers the
 *transaction* and not only the *fact*, this allows for a kind of weak pseudo-DRM over data feeds. Whilst a
 contract could in theory include a transaction parsing and signature checking library, writing a contract in this way

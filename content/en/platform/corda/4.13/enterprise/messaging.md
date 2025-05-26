@@ -53,7 +53,7 @@ for maintenance and other minor purposes.
 * **`p2p.inbound.$identity`**:
 The node listens for messages sent from other peer nodes on this queue. Only clients who are authenticated to be
 nodes on the same network are given permission to send. Messages which are routed internally are also sent to this
-queue (e.g. two flows on the same node communicating with each other).
+queue (for example, two flows on the same node communicating with each other).
 
 
 * **`internal.peers.$identity`**:

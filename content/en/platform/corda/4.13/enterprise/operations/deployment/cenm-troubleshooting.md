@@ -71,7 +71,7 @@ To verify that issue 1 is not the culprit - verify that the Network Map signing 
 periodically. Unless the Network Map service is configured for testing, it should have an external signing process
 configured. See the “Signing Network Map and Network Parameters” section of [Signing Services]({{< relref "../../../../1.6/cenm/signing-service.md" >}}). If the service is
 configured to run with a local signer then verify that the configured sign interval is something fairly low to ensure
-that updates to the network map are persisted often (e.g. 1 minute).
+that updates to the network map are persisted often (for example, 1 minute).
 
 To verify that issue 2 is not the culprit - the logs of the Network Map service should be checked. An error such as an
 invalid certificate is not recoverable and should be resolved out of band with the node operator and support.

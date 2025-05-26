@@ -219,7 +219,7 @@ sudo /etc/init.d/mysql bootstrap-pxc
 Watch the logs using `tail -f /var/log/mysqld.log`. Look for a log entry like
 `WSREP: Setting wsrep_ready to true`.
 
-You can now connect to the database using a standard tool (e.g. the `mysql` command line tool).
+You can now connect to the database using a standard tool (for example, the `mysql` command line tool).
 
 
 #### Create the Corda User

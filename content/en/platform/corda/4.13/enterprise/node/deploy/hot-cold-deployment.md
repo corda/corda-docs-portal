@@ -59,7 +59,7 @@ The next step is to create health probes and load balancing rules for every port
 
 When creating the health probes, there are several properties that have to be set:
 
-* name - used to identify the probe when associating it with a rule (e.g. p2p, rpc, web).
+* name - used to identify the probe when associating it with a rule (for example, p2p, rpc, web).
 * protocol - determines what kind of packets are used to assess the health of the VMs behind the balancer. Use
 TCP for the P2P and RPC probes, HTTP for the web traffic probes.
 * port - the port being checked.

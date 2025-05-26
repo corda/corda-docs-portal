@@ -19,9 +19,7 @@ There is a set of network parameters that all nodes on the network must agree on
 
 ### Flag days
 
-Network parameters are distributed alongside the network map in a separate file stored locally by each node.
-
-From time to time the Corda Network Operator (R3) will need to update parameters, for example if a new notary is added.
+Network parameters are distributed alongside the network map in a separate file stored locally by each node. From time to time the Corda network operator will need to update these parameters; for example, if a new notary is added.
 
 The current update process is a three step operation:
 
@@ -33,7 +31,7 @@ Most network parameter changes require that a node is stopped and restarted befo
 
 ### Flag day communications
 
-The Corda Network Operator will ensure customers are fully aware of impending and in-flight network parameter changes:
+The Corda network operator will ensure customers are fully aware of impending and in-flight network parameter changes:
 
 #### Forward calendars
 
@@ -68,15 +66,11 @@ The basic goals of a segregated subzone are:
 - Segregated subzones only share the Identity Operator service. Each subzone therefore has its own independent network map and set of network parameters
 - Subzones allow more flexibility in setting network parameters as each zone is able to have its own settings
 - Subzones will be able to opt out of specific events* where:
-
-
-* The parameters are not used in their business network(s) e.g. for contract constraints or private notaries
-* Opting-out does not compromise the subzone’s long term plan to join the public zone
-
-
-* It should be noted however, the more subzones diverge in parameter settings over time the harder it will be to merge back in to the public zone in future
-* Segregated subzones capability is estimated to be available in Corda Network Q3 2018
-* Production will follow after successful customer test in UAT
+  - The parameters are not used in their business networks; for example, for contract constraints or private notaries
+  - Opting-out does not compromise the subzone’s long term plan to join the public zone
+- It should be noted however, the more subzones diverge in parameter settings over time the harder it will be to merge back in to the public zone in future.
+- Segregated subzones capability is estimated to be available in Corda Network Q3 2018
+- Production will follow after successful customer test in UAT
 
 The diagram below outlines the overview of SSZ.
 

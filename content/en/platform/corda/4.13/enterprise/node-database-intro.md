@@ -25,7 +25,7 @@ or [upgrading CorDapps]({{< relref "node-operations-upgrade-cordapps.md" >}}).
 
 For development/testing purposes, the [simplified database schema setup for development]({{< relref "node/operating/node-database-developer.md" >}}) documentation covers database setup with simplified user permissions. Documentation on [understanding the node database]({{< relref "node/operating/node-database.md" >}}) explains the differences between both setups.
 
-Corda Enterprise is released with the [Database Management Tool]({{< relref "node/operating/node-database.md#database-management-tool" >}}).
+Corda Enterprise is released with the [database management tool]({{< relref "node/operating/node-database.md#database-management-tool" >}}).
 The tool is distributed as a standalone JAR file named `tools-database-manager-${corda_version}.jar`.
 It is intended to be used by Corda Enterprise node administrators during database schema creation.
 

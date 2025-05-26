@@ -20,12 +20,12 @@ title: Checkpoint tooling
 
 This page contains information about checkpoint tooling. These tools can be used to debug the causes of stuck flows.
 
-Before reading this page, please ensure you understand the mechanics and principles of Corda Flows by reading [Flows]({{< relref "key-concepts-flows.md" >}}) and [Writing flows]({{< relref "api-flows.md" >}}).
-It is also recommended that you understand the purpose and behaviour of the [Flow hospital]({{< relref "node-flow-hospital.md" >}}) in relation to *checkpoints* and flow recovery.
-An advanced explanation of checkpoints within the flow state machine can be found in [Flow framework internals]({{< relref "contributing-flow-internals.md#checkpoints" >}}).
+Before reading this page, ensure that you understand the [concept of flows]({{< relref "key-concepts-flows.md" >}}), [writing flows]({{< relref "api-flows.md" >}}), and the [flow hospital]({{< relref "node-flow-hospital.md" >}}).
+
+For an advanced explanation of checkpoints within the flow state machine, see [Flow framework internals]({{< relref "contributing-flow-internals.md#checkpoints" >}}).
 
 
-As a recap, a flow *checkpoint* is a serialised snapshot of the flow’s stack frames and any objects reachable from the stack. Checkpoints are saved to the database automatically when a flow suspends or resumes, which typically happens when sending or receiving messages. A flow may be replayed
+A *checkpoint* is a serialised snapshot of the flow’s stack frames and any objects reachable from the stack. Checkpoints are saved to the database automatically when a flow suspends or resumes, which typically happens when sending or receiving messages. A flow may be replayed
 from the last checkpoint if the node restarts. Automatic checkpointing is an unusual feature of Corda and significantly helps developers write
 reliable code that can survive node restarts and crashes. It also assists with scaling up, as flows that are waiting for a response can be flushed
 from memory.
@@ -61,7 +61,7 @@ To retrieve this information, execute `checkpoints dump` in the node’s shell. 
 Below are some of the more important fields included in the output:
 
 
-* `flowId`: The id of the flow
+* `flowId`: The flow ID
 * `topLevelFlowClass`: The name of the original flow that was invoked (by RPC or a service)
 * `topLevelFlowLogic`: Detailed view of the top level flow
 * `flowCallStackSummary`: A summarised list of the current stack of sub flows along with any progress tracker information
@@ -171,16 +171,16 @@ Below is an example of the JSON output:
 The Checkpoint Agent is a very low level diagnostics tool that can be used to output the type, size and content of flow *checkpoints* at node runtime.
 It is primarily targeted at users developing and testing code that may exhibit flow mis-behaviour (preferably before going into production).
 
-For a given flow *checkpoint*, the agent outputs:
+For a given flow checkpoint, the agent outputs:
 
 
 
-* Information about the checkpoint such as its `id` (also called a `flow id`) that can be used to correlate with that flows lifecycle details in the main Corda logs.
-* A nested hierarchical view of its reachable objects (indented and tagged with depth and size) and their associated sizes, including the state
+- Information about the checkpoint such as its ID (also called a *flow ID*) that can be used to correlate with that flows lifecycle details in the main Corda logs.
+- A nested hierarchical view of its reachable objects (indented and tagged with depth and size) and their associated sizes, including the state
 of any flows held within the checkpoint.
 
 
-Diagnostics information is written to standard log files (eg. log4j2 configured logger).
+Diagnostics information is written to standard log files (for example, log4j2 configured logger).
 
 This tool is particularly useful when used in conjunction with the `checkpoints dump` CRaSH shell command to troubleshoot and identify potential
 problems associated with checkpoints for flows that appear to not be completing.

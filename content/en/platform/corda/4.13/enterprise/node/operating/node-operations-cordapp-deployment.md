@@ -17,33 +17,33 @@ weight: 10
 
 To deploy a new CorDapp on a node:
 
+1. Stop the node.
+2. Make any database changes required to any custom vault tables for the upgraded CorDapp. Depending on the Corda node setup,
+you should either:
+   - **Production environment:** Follow [Updating the database]({{< relref "#updating-the-database" >}})
+   - **Development/test environment:** described in node-development-cordapp-deployment
+which contains a simplified database upgrade process.
+3. Copy the CorDapp JARs to the `cordapps` directory of the node.
+4. Restart the node.
 
-* Stop a Corda node
-* Make any database changes required to any custom vault tables for the upgraded CorDapp. Depending on the Corda node setup,
-you should follow a procedure for database upgrade in production system shown below,
-or for development/test environment described in node-development-cordapp-deployment
-which contains a simplified databased upgrade process.
-* Copy CorDapp JARs into `cordapps` directory of the node.
-* Restart the node
 
-
-## Database update
+## Updating the database
 
 For a Corda node connecting to a database with **restricted permissions**, any tables need to be created manually with the
-help of the Corda Database Management Tool. This requires that a custom table used by a CorDapp
+help of the Corda database management tool. This requires that a custom table used by a CorDapp
 is created before the CorDapp is deployed.
 
 A CorDapp that stores data in a custom table contains an embedded Liquibase database migration script.
 This follows the [Liquibase](http://www.liquibase.org) functionality used by Corda for the database schema management.
 
-Creating a new database table requires a similar procedure to creating a Corda database schema using Corda Database Management Tool.
+Creating a new database table requires a similar procedure to creating a Corda database schema using Corda database management tool.
 Because of that, most of the steps are similar to those described in [Database schema setup]({{< relref "node-database-admin.md" >}}).
 
 
-### 1. Check if the CorDapp requires custom tables
+### Step 1: Check if the CorDapp requires custom tables
 
 Refer to the CorDapp documentation or consult a CorDapp provider if the CorDapp requires custom backing tables.
-You can verify a CorDapp JAR manually to check the presence of script files inside *migration* director, e.g. for Linux:
+You can verify a CorDapp JAR manually to check the presence of script files inside *migration* director; for example, for Linux:
 
 
 ```bash
@@ -52,7 +52,7 @@ jar -tf <cordapp.jar> | grep -E 'migration.*\.(xml|yml|sql)'
 
 
 
-If the CorDapps don’t contain any migration scripts, then they don’t require custom tables and you may skip this step.
+If the CorDapps do not contain any migration scripts, then they do not require custom tables and you can skip this step.
 
 
 {{< note >}}
@@ -63,29 +63,29 @@ this would have already been detected in your test environment.
 {{< /note >}}
 
 
-### 2. Configure Database Management Tool
+### Step 2: Configure the database management tool
 
-Corda Database Management Tool needs access to a running database.
-The tool is configured in a similar manner to the Corda node.
-A base directory needs to be provided with he following content: a `node.conf` file with database connection settings, a
-`drivers` directory to place the JDBC driver in, and a `cordapps` directory containing the CorDapps that are being deployed.
+The Corda database management tool needs access to a running database.
+The tool is configured in a similar manner to a Corda node.
+A base directory needs to be provided with the following content: 
 
-Copy CorDapps to the *cordapps* subdirectory. This is required to collect and run any database migration scripts for CorDapps.
-Create `node.conf` with properties for your database. Copy the respective driver into the `drivers` directory.
-The `node.conf` templates for each database vendor are shown below:
+- A `node.conf` file with database connection settings
+- A `drivers` directory in which to place the JDBC driver
+- A `cordapps` directory containing the CorDapps being deployed
 
+The process is as follows:
 
-* [Azure SQL](#azure-sql)
-* [SQL Server](#sql-server)
-* [Oracle](#oracle)
-* [PostgreSQL](#postgresql)
+1. Copy the CorDapp JARs to the `cordapps` subdirectory. This is required to collect and run any database migration scripts for CorDapps.
+2. Create `node.conf` with properties for your database. The `node.conf` templates for each database vendor are shown below:
+   * [Azure SQL](#nodeconf-for-azure-sql)
+   * [SQL Server](#nodeconf-for-sql-server)
+   * [Oracle](#nodeconf-for-oracle)
+   * [PostgreSQL](#nodeconf-for-postgresql)
+3. Copy the respective driver into the `drivers` directory.
 
+#### `node.conf` for Azure SQL
 
-
-#### Azure SQL
-
-Database Management Tool settings in configuration file `node.conf` for Azure SQL:
-
+The following extract shows the database management tool settings in `node.conf` for Azure SQL:
 
 ```groovy
 dataSourceProperties = {
@@ -109,9 +109,9 @@ Extract the archive, and copy the single file *mssql-jdbc-6.4.0.jre8.jar* into t
 
 
 
-#### SQL Server
+#### `node.conf` for SQL Server
 
-Database Management Tool settings in configuration file `node.conf` for SQL Server:
+The following extract shows the database management tool settings in `node.conf` for SQL Server:
 
 
 ```groovy
@@ -135,10 +135,9 @@ Extract the archive, and copy the single file *mssql-jdbc-6.4.0.jre8.jar* into t
 
 
 
-#### Oracle
+#### `node.conf` for Oracle
 
-Database Management Tool settings in the configuration file `node.conf` for Oracle:
-
+The following extract shows the database management tool settings in `node.conf` for Oracle:
 
 ```groovy
 dataSourceProperties = {
@@ -162,10 +161,9 @@ Copy Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c 
 
 
 
-#### PostgreSQL
+#### `node.conf` for PostgreSQL
 
-Database Management Tool settings in configuration file `node.conf` for PostgreSQL:
-
+The following extract shows the database management tool settings in `node.conf` for PostgreSQL:
 
 ```groovy
 dataSourceProperties = {
@@ -188,7 +186,7 @@ The value of `database.schema` is automatically wrapped in double quotes to pres
 Copy PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` directory.
 
 
-### 3. Extract DDL script using Database Management Tool
+### Step 3: Extract DDL script using database management tool
 
 To run the tool, use the following command:
 
@@ -202,21 +200,21 @@ java -jar tools-database-manager-|release|.jar create-migration-sql-for-cordapp 
 The option `-b` points to the base directory with a `node.conf` file and *drivers* and *cordapps* subdirectories.
 
 A generated script named *migration/*.sql* will be present in the base directory.
-This script contains all statements to create data structures (e.g. tables/indexes) for CorDapps
+This script contains all statements to create data structures (for example, tables/indexes) for CorDapps
 and inserts to the Liquibase management table *DATABASECHANGELOG*.
 The command doesn’t alter any tables.
-Refer to [Corda Database Management Tool]({{< relref "node-database.md#database-management-tool" >}})manual for a description of the options.
+Refer to [Corda database management tool]({{< relref "node-database.md#database-management-tool" >}})manual for a description of the options.
 
 
-### 4. Apply DDL scripts on a database
+### Step 4: Apply DDL scripts on a database
 
 The generated DDL script can be applied by the database administrator using their tooling of choice.
 The script needs to be executed by a database user with *administrative* permissions,
 with a *<schema>* set as the default schema for that user and matching the schema used by a Corda node.
-(e.g. for Azure SQL or SQL Server you should not use the default database administrator account).
+(for example, for Azure SQL or SQL Server you should not use the default database administrator account).
 
 {{< note >}}
-You may connect as a different user to the one used by a Corda node (e.g. when a node connects via
+You may connect as a different user to the one used by a Corda node (for example, when a node connects via
 a user with *restricted permissions*), so long as the user has the same default schema as the node
 (the generated DDL script may not add schema prefix to all the statements).
 
@@ -233,7 +231,7 @@ An accidental re-run of the scripts will fail (as the tables are already there) 
 
 
 
-### 5. Add permission to use tables
+### Step 5: Add permission to use tables
 
 For some databases, the permission to use tables can only be assigned after the tables are created.
 This step is required for the Oracle database only.
@@ -251,4 +249,4 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.<cordapp_table> TO my_user
 
 
 
-Change *<cordapp_table>*  to a cordap table name.
+Change *<cordapp_table>*  to a CorDapp table name.
