@@ -258,12 +258,14 @@ If an item in a list is overridden via an environment variable/system property, 
 
 ## `keyStorePassword`
 
-  The password to unlock the KeyStore file (`<workspace>/certificates/sslkeystore.jks`) containing the node certificate and private key.
+The password to unlock the keystore file (`<workspace>/certificates/sslkeystore.jks`) containing the node certificate and private key.
 
-  **Important: This is the non-secret value for the development certificates automatically generated during the first node run.
-  Alternatively, these keys can be managed in secure hardware devices.**
+{{< important >}}This password must be the same as the password for the `nodekeystore.jks` keystore.{{< /important >}}
 
-  *Default:* cordacadevpass
+{{< important >}}This is the non-secret value for the development certificates automatically generated during the first node run.
+Alternatively, these keys can be managed in secure hardware devices.{{< /important >}}
+
+*Default:* cordacadevpass
 
 ## `lazyBridgeStart`
 
