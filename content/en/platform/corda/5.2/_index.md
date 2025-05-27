@@ -2,8 +2,8 @@
 description: "CorDapp Developer, Cluster Administrator, and Network Operator documentation for Corda 5.2."
 date: '2022-08-17'
 title: Corda 5.2
-project: Corda
 version: 'Corda 5.2'
+# project: Corda
 section_menu: corda52
 menu:
   versions:

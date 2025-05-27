@@ -4,7 +4,8 @@ cascade:
   version: "Corda 4 Tools"
   section_menu: tools
 date: '2021-04-24T00:00:00Z'
-description: "Documentation for the tools and add-ons associated with Corda"
+description: "Documentation for the tools and add-ons associated with Corda 4"
+title: Corda 4 Tools & Add-ons
 menu:
   projects:
     name: Corda 4 Tools & Add-Ons   
@@ -13,10 +14,10 @@ menu:
   tools:
     weight: 10
 
-title: Tools and add-ons
+
 ---
 
-# Tools and add-ons
+# Corda 4 Tools & Add-ons
 
 Learn how to use various tools and add-ons to help you with Corda operations and CorDapp design and development:
 
