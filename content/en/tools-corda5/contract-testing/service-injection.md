@@ -8,6 +8,8 @@ menu:
     parent: contract-testing
 ---
 
+# Service Injection
+
 Some of your contracts may contain injectable service fields that are annotated with `@CordaInject`. You can inject your own mocks into these fields using the contract testing framework.
 
 You can define two levels of service mocks:

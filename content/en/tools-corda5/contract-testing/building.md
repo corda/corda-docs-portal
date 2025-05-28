@@ -7,6 +7,7 @@ menu:
     identifier: contract-testing-building
     parent: contract-testing
 ---
+# Building and Verifying Transactions
 
 ## Building Transactions
 
