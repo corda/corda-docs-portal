@@ -1,6 +1,6 @@
 # Versions. 
 # The latest Corda 5 release must be first in the list. corda5versions is used to determine if a page is for a Corda 5 version and also to determine the newest Corda 5 version.
-corda5versions = ["Corda 5.2", "Corda 5.1", "Corda 5.0"]
+corda5versions = ["Corda 5.2", "Corda 5.1", "Corda 5.0", "Corda 5 Tools"]
 
 ## Homepage
 title = "R3 Documentation"
