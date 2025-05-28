@@ -8,6 +8,8 @@ menu:
     parent: contract-testing
 ---
 
+# Examples
+
 ## No Service Injection
 
 This example shows how to create a very simple state and a corresponding contract. The example creates an issuable state that only has a single command called `Issue`. The issuance contract validates the following:

@@ -11,6 +11,8 @@ menu:
     identifier: contract-testing
 ---
 
+# Contract Testing
+
 The Contract Testing framework enables CorDapp developers to test smart contracts locally at an early stage of the development cycle, without having to deploy a Corda network. With this framework, you can check that your CorDapp contracts behave as expected before, or after, you write the flows.
 
 {{< note >}}

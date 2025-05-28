@@ -8,6 +8,7 @@ menu:
     parent: contract-testing
 ---
 
+# Building and Verifying Transactions
 ## Building Transactions
 
 Testing your contracts requires transactions. Building a test transaction is similar to a real-world CorDapp. The following sections contain example chains of function calls:
