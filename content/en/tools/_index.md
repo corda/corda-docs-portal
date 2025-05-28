@@ -4,16 +4,16 @@ cascade:
   version: "Corda 4 Tools"
   section_menu: tools
 date: '2021-04-24T00:00:00Z'
-description: "Documentation for the tools and add-ons associated with Corda"
+description: "Documentation for the tools and add-ons associated with Corda 4"
 menu:
   projects:
-    name: Corda 4 Tools & Add-Ons   
+    name: Corda 4 tools & add-ons   
     weight: 3000
     identifier: tools
   tools:
     weight: 10
 
-title: Tools and add-ons
+title: Corda 4 tools and add-ons
 ---
 
 # Tools and add-ons
