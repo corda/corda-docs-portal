@@ -13,9 +13,9 @@ Use the following table to track the end of life schedule for each version of Co
 
 Definitions:
 
-* **End of maintenance**: This release will no longer receive functional patches after the date shown.
-* **End of security**: This release will no longer be eligible for security patches after the date shown.
-* **End of support**: Support provided by R3 is no longer available after this date.
+* **End of maintenance:** This release will no longer receive functional patches after the date shown.
+* **End of security:** This release will no longer be eligible for security patches after the date shown.
+* **End of support:** Support provided by R3 is no longer available after this date.
 
 {{< note >}}
 All dates refer to the end of the month indicated.
@@ -24,10 +24,6 @@ All dates refer to the end of the month indicated.
 {{< note >}}
 The highest released version of Corda 4 Enterprise Edition at any point in time will be supported, including maintenance, until at least 31st December 2029 or until superseded by a higher version number of Corda 4 Enterprise Edition, at which point the dates in the table take precedence.
 {{< /note >}}
-
-## Corda 5
-
-{{< snippet "corda-5.2/end-of-life-corda5.md" >}}
 
 ## Corda 4
 
