@@ -16,8 +16,8 @@ weight: 3
 To interact with your node, you need to build an RPC client. This RPC client enables you to connect to a specified server and to make calls to the server that perform various useful tasks. The RPC client must be written in a JVM-compatible language.
 
 Corda Enterprise supports two types of RPC client:
-* **Corda RPC Client**, which is used if you want to interact with your node via the `CordaRPCOps` remote interface only.
-* **Multi RPC Client**, which is used if you want to interact with your node via any of the other remote interfaces that the Corda node provides.
+- **Corda RPC Client:** Used if you want to interact with your node via the `CordaRPCOps` remote interface only.
+- **Multi RPC Client:** Used if you want to interact with your node via any of the other remote interfaces that the Corda node provides.
 
 To interact with your node via HTTP, you need to start up your own webserver that connects to your node using the [CordaRPCClient](../../../../../../../en/api-ref/corda/4.13/enterprise/javadoc/net/corda/client/rpc/CordaRPCClient.html) [(Kotlin)](../../../../../../../en/api-ref/corda/4.13/enterprise/kotlin/corda/net.corda.client.rpc/-corda-r-p-c-client/index.html) class. You can find an example of how to do this using the popular Spring Boot server [here](https://github.com/corda/samples-java/tree/release/4.13/Advanced/obligation-cordapp/clients).
 
@@ -47,7 +47,7 @@ object that you can use to interact with the node.
 Here is an example of using [CordaRPCClient](../../../../../../../en/api-ref/corda/4.13/community/javadoc/net/corda/client/rpc/CordaRPCClient.html) to connect to a node and log the current time on its internal clock:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 import net.corda.client.rpc.CordaRPCClient
 import net.corda.core.utilities.NetworkHostAndPort.Companion.parse
@@ -80,7 +80,7 @@ class ClientRpcExample {
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 import net.corda.client.rpc.CordaRPCClient;
 import net.corda.client.rpc.CordaRPCConnection;
@@ -269,7 +269,7 @@ You can enable this graceful form of reconnection by using the `gracefulReconnec
 This can be used in the following way:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 val gracefulReconnect = GracefulReconnect(onDisconnect={/*insert disconnect handling*/}, onReconnect{/*insert reconnect handling*/}, maxAttempts = 3)
@@ -279,7 +279,7 @@ val cordaRpcOps = cordaClient.start(rpcUserName, rpcUserPassword, gracefulReconn
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 private void onDisconnect() {
@@ -308,7 +308,7 @@ This retrying can be done from the application code after checking whether the f
 The following is a simplified example of what your code might look like:
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 fun runFlowWithRetries(client: CordaRPCOps) {
@@ -324,7 +324,7 @@ fun runFlowWithRetries(client: CordaRPCOps) {
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 void runFlowWithRetries(CordaRPCOps client) {
@@ -356,7 +356,7 @@ To interact with your node via any of the following interfaces, you need to buil
 
 * `net.corda.client.rpc.proxy.AuditDataRPCOps` - This interface enables you to audit the log of RPC activity.
 * `net.corda.client.rpc.proxy.FlowRPCOps` - This interface enables you to retry a previously hospitalised flow.
-* `net.corda.client.rpc.proxy.NodeFlowStatusRpcOps` - This interface enables external applications to query and view the status of the flows which are currently under monitoring by the Flow Hospital.
+* `net.corda.client.rpc.proxy.NodeFlowStatusRpcOps` - This interface enables external applications to query and view the status of the flows which are currently under monitoring by the Flow hospital.
 * `net.corda.client.rpc.proxy.NodeHealthCheckRpcOps` - This interface enables you to get a report about the health of the Corda Enterprise node.
 * `net.corda.client.rpc.proxy.notary.NotaryQueryRpcOps` - This interface enables you to perform a spend audit for a particular state reference.
 
@@ -468,7 +468,7 @@ The code snippet below demonstrates how to use the [MultiRPCClient](../../../../
 * Password
 
 {{< tabs name="tabs-4" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 val client = MultiRPCClient(rpcAddress, NodeHealthCheckRpcOps::class.java, "exampleUser", "examplePass")
@@ -484,7 +484,7 @@ client.use {
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 try(MultiRPCClient client = new MultiRPCClient(rpcAddress, NodeHealthCheckRpcOps.class, "exampleUser", "examplePass")) {

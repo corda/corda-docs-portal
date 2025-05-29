@@ -154,7 +154,7 @@ The metering sharing configuration does not apply here as it is expected that on
 The example below shows how to retrieve metering data from a node running on the local machine, for CorDapps named *myCorDapp1* and *myCorDapp2* (as well as any other CorDapp that contains those two strings in its name), for the duration of the past 7 days:
 
 {{< tabs name="tabs-NodeMeteringCollectionFlow" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 NetworkHostAndPort hostAndPort = NetworkHostAndPort.parse("127.0.0.1:10000");
 CordaRPCClient client = new CordaRPCClient(hostAndPort);
@@ -183,7 +183,7 @@ NodeMeteringData meteringData =
 
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val hostAndPort = NetworkHostAndPort.parse("127.0.0.1:10000")
 val client = CordaRPCClient(hostAndPort)
@@ -230,7 +230,7 @@ If `collectedCorDapps` is returned as an empty list, this means that the request
 The example below shows how to retrieve metering related to CorDapps with names *myCorDapp1* and *myCorDapp2* (as well as any other CorDapp with a name containing any of those two strings), connecting to a node running on the local machine, from the node ran by `O=PartyA,L=New York,C=US`, for the duration of the past 7 days:
 
 {{< tabs name="tabs-FilteredMeteringCollectionFlow" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 NetworkHostAndPort hostAndPort = NetworkHostAndPort.parse("127.0.0.1:10000");
 CordaRPCClient client = new CordaRPCClient(hostAndPort);
@@ -264,7 +264,7 @@ FilteredNodeMeteringData meteringData =
 
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val hostAndPort = NetworkHostAndPort.parse("127.0.0.1:10000")
 val client = CordaRPCClient(hostAndPort)
@@ -313,7 +313,7 @@ The result of the metering data collection with this flow depends on what the no
 The example below shows how to retrieve aggregated metering data by connecting to a node running on the local machine, from the node ran by `O=PartyA,L=New York,C=US`, for the duration of the past 7 days:
 
 {{< tabs name="tabs-AggregatedMeteringCollectionFlow" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 NetworkHostAndPort hostAndPort = NetworkHostAndPort.parse("127.0.0.1:10000");
 CordaRPCClient client = new CordaRPCClient(hostAndPort);
@@ -341,7 +341,7 @@ AggregatedNodeMeteringData meteringData =
 
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val hostAndPort = NetworkHostAndPort.parse("127.0.0.1:10000")
 val client = CordaRPCClient(hostAndPort)
@@ -376,7 +376,7 @@ Use the `MultiFilteredCollectionFlow` flow to collect metering data from multipl
 You can use this flow only from the node shell. You can use the dedicated method `FilteredMeteringCollectionFlow#multiCollect` to collect metering data from multiple nodes in parallel by using an RPC client to connect to the initiating flow - the collection process then uses the flow framework to collect metering data from the other nodes on the network.
 
 {{< tabs name="tabs-FilteredMeteringCollectionFlow.multicollect" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 Instant now = Instant.now();
 Instant sevenDaysAgo = now.minus(7, ChronoUnit.DAYS);
@@ -416,7 +416,7 @@ FilteredMeteringCollectionFlow.multiCollect(
 
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val now = Instant.now()
 val sevenDaysAgo = now.minus(7, ChronoUnit.DAYS)
@@ -461,7 +461,7 @@ Use the `MultiAggregatedCollectionFlow` flow to collect aggregated metering data
 You can use this flow only from the node shell.
 
 {{< tabs name="tabs-AggregatedMeteringCollectionFlow.multicollect" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 CordaRPCOps rpcOps = conn.getProxy();
 Instant now = Instant.now();
@@ -494,7 +494,7 @@ AggregatedMeteringCollectionFlow.multiCollect(
 
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val now = Instant.now()
 val sevenDaysAgo = now.minus(7, ChronoUnit.DAYS)
@@ -570,7 +570,7 @@ Flow completed with result: [{
 The example below shows how to invoke this flow using RPC:
 
 {{< tabs name="tabs-RetrieveCordappDataFlow" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 NetworkHostAndPort hostAndPort = NetworkHostAndPort.parse("127.0.0.1:10000");
@@ -591,7 +591,7 @@ List<? extends CordappData> corDappData =
 
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 val hostAndPort = NetworkHostAndPort.parse("127.0.0.1:10000")
@@ -805,7 +805,7 @@ This parameter requires an object created by the `filterBy` parameter that speci
 |NONE|Returns data for all CorDapps|All data for a node|None|
 |CORDAPP_NAMES|Returns data for CorDapps matching the specified names|Data for all versions of a CorDapp|List of names, as specified in the CorDapp build information|
 |CORDAPP_HASHES|Returns data for any CorDapp in the list with a JAR hash|Data for particular CorDapp versions|List of SHA256 hashes of CorDapp JAR files|
-|SIGNING_KEYS|Returns data for all CorDapps in the list signed with any key|Data for particular Cordapp owner(s)|List of SHA256 hashes of public keys used to sign JAR files|
+|SIGNING_KEYS|Returns data for all CorDapps in the list signed with any key|Data for particular CorDapp owner(s)|List of SHA256 hashes of public keys used to sign JAR files|
 
 {{< /table >}}
 

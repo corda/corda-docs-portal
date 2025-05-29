@@ -124,17 +124,17 @@ shared infrastructure.
 The results currently cover two main types of flow:
 
 
-* **Issue**. This is a flow that issues a `FungibleAsset` based on the `Cash` state and contract in the `finance` module.  The state is issued on
+- **Issue**: This is a flow that issues a `FungibleAsset` based on the `Cash` state and contract in the `finance` module.  The state is issued on
 a single node, in a single Corda transaction, is not notarised and appears in the vault of that node only thus there is no peer-to-peer communication
 taking place.
-* **Issue + Pay**. This is a more complex flow interaction made up of two high level steps of issuing a state to the local node (node A)
+- **Issue + Pay:** This is a more complex flow interaction made up of two high level steps of issuing a state to the local node (node A)
 in one Corda transaction (identical to **Issue** described above) and then transfering ownership of that state to a second node (node B).
 Additionally the contract requires that this second transfer transaction be timestamped and notarised, so the transaction is sent to the Notary by node A
 before all signatures are returned to node A who forwards to node B.   It is important to note that this flow is much more complex in terms of the peer-to-peer
 communications than that description makes clear.  Node B will never have seen the issuance transaction that contains the input state for the payment
 transaction and so node B enters transaction dependency resolution to request the first transaction from node A, resulting in additional sub-flows and
 peer-to-peer communication.
-* **Issue + Repeated Pay** This flow issues some states on Node A and then repeatedly transfers a fraction of those states to Node B via the Notary.  It is possible
+- **Issue + Repeated Pay:** This flow issues some states on Node A and then repeatedly transfers a fraction of those states to Node B via the Notary.  It is possible
 to configure the number of output states generated and transfered to Node B in each transaction in order to demonstate the effects of doing so on
 throughtput.
 
@@ -159,23 +159,23 @@ complete.
 We have established results for a number of different software configurations:
 
 
-* **Single Notary**.  In Corda Enterprise 3 this uses the simple single node notary in non-validating mode.  It persists to a **Microsoft SQL Server** database running
+- **Single notary:** In Corda Enterprise 3 this uses the simple single node notary in non-validating mode.  It persists to a **Microsoft SQL Server** database running
 on a distinct VM or server, both for notary specific data and other regular node data persistence.  In Figure 3, these notaries always ran on an 8 core VM and on
 dedicated hardware the same as the nodes in Figure 1, although it was overkill and something lesser would be suitable as the load is not as significant as it is
 for other nodes.  For Corda Enterprise Edition 4, the notary is actually using a slightly enhanced implementation that is less of a bottleneck and will be released in a
 later point release of Corda Enterprise.
-* **Highly Available Notary**.  In Figure 3, this uses a notary cluster made up of 3 nodes in non-validating mode.  Normal node persistence uses a **Microsoft SQL Server** database
+- **Highly available notary:** In Figure 3, this uses a notary cluster made up of 3 nodes in non-validating mode.  Normal node persistence uses a **Microsoft SQL Server** database
 but the notary state is maintained in a version of MySQL utilising a clustering technology as described in running-a-notary-cluster/ha-notary-service-setup.
 For full disclosure (and convenience for us) all 3 nodes are running in one data centre, which would not be a typical deployment.  Whilst the latency
 between cluster members influences the performance of the notary itself, it is not operating at its limit even in that scenario here.  These notaries always ran on an 8 core VM.
-* **Open Source**.  In Figure 3, this uses the latest available Corda Open Source Edition at the time of the test, persisting to an in-process **H2** database.
-* **External Bridge (SenderReceiver)**.  This is the Corda Firewall.  In Figure 3, this hosts the inbound and outbound peer-to-peer traffic endpoint in a separate JVM process,
+- **Open Source:** In Figure 3, this uses the latest available Corda Open Source Edition at the time of the test, persisting to an in-process **H2** database.
+- **External Bridge (SenderReceiver):**.  This is the Corda Firewall.  In Figure 3, this hosts the inbound and outbound peer-to-peer traffic endpoint in a separate JVM process,
 rather than embedded in the main node JVM process.
 
 In all cases the Artemis MQ broker is running within the node JVM.  For the Corda Enterprise Edition 4 tests in Figures 1 & 2 we used OpenSSL as
 discussed later with respect to network bandwidth.
 
-For the tests run against Corda Enteprise 4 (and the equivalent comparisons of 3.3) in Figures 1 & 2 we used dedicated hardware for the nodes.  All nodes were
+For the tests run against Corda Enterprise 4 (and the equivalent comparisons of 3.3) in Figures 1 & 2 we used dedicated hardware for the nodes.  All nodes were
 24 core (48 hyper-thread) based on 2x Intel Xeon E5-2687Wv4 with 256GB RAM and local SSDs.
 
 We used the following Azure VM types for the nodes in the original Corda Enterprise 3.0 testing shown in Figure 3:

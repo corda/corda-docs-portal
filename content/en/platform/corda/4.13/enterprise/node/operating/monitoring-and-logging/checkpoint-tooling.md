@@ -10,11 +10,12 @@ title: Checkpoint tooling
 weight: 110
 ---
 
-This page contains information about the checkpoint dumper and the checkpoint agent tools. Use these tools to debug stuck flows.
 
-Ensure that you understand the mechanics of [flows]({{< relref "../../../cordapps/api-flows.md" >}}) and [Node flow hospital]({{< relref "../../node-flow-hospital.md" >}}).
+This page contains information about checkpoint tooling. These tools can be used to debug the causes of stuck flows.
 
-A checkpoint is a serialised snapshot of the stack frames associated with the flow and any objects reachable from the stack. Checkpoints are saved to the Corda node database automatically whenever a flow suspends or resumes, which typically happens when sending or receiving messages. A flow may be replayed from the last checkpoint if the node restarts, increasing flow durability.
+Before reading this page, ensure that you understand the [concept of flows]({{< relref "../../../cordapps/api-flows.md" >}}), [writing flows]({{< relref "../../..//cordapps/api-flows.md" >}}) and the [flow hospital]({{< relref "../../node-flow-hospital.md" >}}).
+
+A *checkpoint* is a serialised snapshot of the stack frames associated with the flow and any objects reachable from the stack. Checkpoints are saved to the Corda node database automatically whenever a flow suspends or resumes, which typically happens when sending or receiving messages. A flow may be replayed from the last checkpoint if the node restarts, increasing flow durability.
 
 
 ## Use the checkpoint dumper
@@ -31,12 +32,12 @@ Inside the `.zip` checkpoint dump file there will be a `.json` file for each flo
 
 The most important fields in the output are:
 
-* The id of the flow, `flowId`.
-* The name of the original flow that was invoked (by RPC or a service), `topLevelFlowClass`.
-* A detailed view of the top level flow, `topLevelFlowLogic`.
-* A summarised list of the current stack of sub flows along with any progress tracker information, `flowCallStackSummary`.
-* The command that the flow is suspended on (for example, `SendAndReceive`), which includes the `suspendedTimestamp`, `suspendedOn`.
-* A detailed view of the of the current stack of sub flows, `flowCallStack`.
+* `flowId`: The ID of the flow
+* `topLevelFlowClass`: The name of the original flow that was invoked by RPC or a service
+* `topLevelFlowLogic`: A detailed view of the top-level flow
+* `flowCallStackSummary`: A summarised list of the current stack of sub flows along with any progress tracker information
+* The command that the flow is suspended on (for example, `SendAndReceive`), which includes the `suspendedTimestamp` and `suspendedOn`
+* `flowCallStack`: A detailed view of the of the current stack of subflows
 
 ### Sample output
 

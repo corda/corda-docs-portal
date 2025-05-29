@@ -26,7 +26,7 @@ This article explains how to extend the state machine code that underlies flow e
 contributors.
 
 
-## How to add suspending operations
+## Adding suspending operations
 
 To add a suspending operation for a simple request-response type function that perhaps involves some external IO we can
 use `FlowExternalOperation` or `FlowExternalAsyncOperation`. These interfaces represent the public versions of the internal
@@ -35,13 +35,13 @@ use `FlowExternalOperation` or `FlowExternalAsyncOperation`. These interfaces re
 See [calling external systems inside of flows]({{< relref "api-flows.md" >}}) for more information on these public interfaces.
 
 
-## How to test
+## Testing the state machine
 
 The recommended way to test flows and the state machine is using the Driver DSL. This ensures that you will test your
 flow with a full node.
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
     @Test(timeout=300_000)
 	fun summingWorks() {
@@ -60,7 +60,7 @@ flow with a full node.
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
     @Test
     public void summingWorks() {
@@ -88,12 +88,12 @@ flow with a full node.
 The above will spin up a node and run our example flow.
 
 
-## How to debug issues
+## Debugging issues
 
 Let’s assume we made a mistake in our summing operation:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 class SummingOperationThrowing(val a: Int, val b: Int) : FlowExternalAsyncOperation<Int> {
     override fun execute(deduplicationId: String): CompletableFuture<Int> {
@@ -106,7 +106,7 @@ class SummingOperationThrowing(val a: Int, val b: Int) : FlowExternalAsyncOperat
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 public final class SummingOperationThrowing implements FlowAsyncOperation<Integer> {
     private final int a;

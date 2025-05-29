@@ -7,7 +7,7 @@ menu:
 tags:
 - notary
 - metrics
-title: Notary Metrics and Performance
+title: Notary metrics and performance
 weight: 4
 ---
 
@@ -16,9 +16,9 @@ weight: 4
 
 
 ## Available metrics
-A notary exports the standard metrics exported by all Corda nodes. For more detail on this, see the [node administration page]({{< relref "../node/operating/node-administration.md" >}}), plus the
+A notary exports the standard metrics exported by all Corda nodes. For more detail on this, see [Node administration]({{< relref "../node/operating/node-administration.md" >}}), plus the
 highly-available notary metrics below. Note that all timers and histograms use exponentially decaying reservoirs, and
-all meters use exponential moving averages. These are explained in the [node metrics documentation]({{< relref "../node/operating/monitoring-and-logging/node-metrics.md" >}}).
+all meters use exponential moving averages. These are explained in [Node metrics]({{< relref "../node/operating/monitoring-and-logging/node-metrics.md" >}}).
 
 
 {{< table >}}
@@ -79,8 +79,8 @@ Artemis queue).
 Notary operators should also track non-Corda metrics of interest:
 
 
-* Notary database metrics: These will be database-specific. One area to monitor would be changes in cluster
+- **Notary database metrics:** These will be database-specific. One area to monitor would be changes in cluster
 composition, and changes in leadership in particular. For example, Percona offers notification commands.
-* JVM metrics: The node should be monitored in the same way as any critical JVM process.
+- **JVM metrics:** The node should be monitored in the same way as any critical JVM process.
 
 Although Corda exports Artemis metrics, these are for internal purposes only, as they are hard to interpret.

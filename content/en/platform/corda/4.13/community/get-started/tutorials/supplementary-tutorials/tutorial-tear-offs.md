@@ -33,7 +33,7 @@ To do so, we need to create a filtering function that specifies which fields of 
 Each field will only be included if the filtering function returns *true* when the field is passed in as input.
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val filtering = Predicate<Any> {
     when (it) {
@@ -51,7 +51,7 @@ val filtering = Predicate<Any> {
 We can now use our filtering function to construct a `FilteredTransaction`:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val ftx: FilteredTransaction = stx.buildFilteredTransaction(filtering)
 
@@ -67,7 +67,7 @@ transaction components is exactly the same. Note that unlike `WireTransaction`,
 `FilteredTransaction` only holds data that we wanted to reveal (after filtering).
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 // Direct access to included commands, inputs, outputs, attachments etc.
 val cmds: List<Command<*>> = ftx.commands

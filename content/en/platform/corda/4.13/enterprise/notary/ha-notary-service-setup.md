@@ -8,22 +8,22 @@ tags:
 - notary
 - service
 - setup
-title: Corda Enterprise HA notary service set-up
+title: Setting up the notary service as highly available
 weight: 110
 ---
 
 
-# Corda Enterprise HA notary service set-up
+# Setting up the notary service as highly available
 
-The Corda Enterprise notary service can be configured in high-availability (HA) mode. For the Corda Enterprise notary
-service to operate in HA mode, a high-availability database is required. See [Corda Enterprise notary service overview]({{< relref "ha-notary-service-overview.md" >}}) for more information.
+The Corda notary service can be configured in high-availability (HA) mode. For the notary
+service to operate in HA mode, a high-availability database is required. See [Notary service overview]({{< relref "ha-notary-service-overview.md" >}}) for more information.
 
 Running an HA notary requires the following:
 
-* JPA or MySQL notary implementations
-* A database supported by the notary implementation, configured in high-availability mode
+- JPA or MySQL notary implementations
+- A database supported by the notary implementation, configured in high-availability mode
 
-For a list of databases supported by each of the above notary implementations, please refer to the [Platform support matrix]({{< relref "../platform-support-matrix.md" >}})
+For a list of databases supported by each of the above notary implementations, see [Platform support]({{< relref "../platform-support-matrix.md" >}}).
 
 
 ## Prerequisites
@@ -35,7 +35,7 @@ configuration information, and capabilities:
 source has to be monotonic and support leap second smearing.
 * Java runtime
 * Corda Enterprise JAR
-* [Notary Health Check]({{< relref "../notary-healthcheck.md" >}}) Tool
+* [Notary health check]({{< relref "../notary-healthcheck.md" >}}) tool
 * HA Utilities JAR to run [notary registration]({{< relref "../ha-utilities.md#notary-registration" >}})
 * Root access to a Linux machine or VM to install the selected database
 * The private IP addresses of your database hosts
@@ -51,7 +51,7 @@ source has to be monotonic and support leap second smearing.
 * Notary worker configuration files
 
 If you are setting up a local network to test the HA notary setup process, use the [Network Bootstrapper]({{< relref "../network-bootstrapper.md" >}})
-instead of the [HA Utilities Tool]({{< relref "../ha-utilities.md#notary-registration" >}}). In all other implementations, the network bootstrapper is not required.
+instead of the [HA Utilities Tool]({{< relref "../ha-utilities.md#notary-registration" >}}). In all other implementations, the Network Bootstrapper is not required.
 
 Ensure that the notary worker P2P ports are reachable from any nodes that might join the network. Each notary worker also
 needs access to its individual node database, and communicates with the underlying database cluster using JDBC.
@@ -61,47 +61,55 @@ property. The `myLegalName` property must be unique to each notary worker, howev
 must share the same `notary.serviceLegalName`. For more information, see [Node configuration]({{< relref "../node/setup/corda-configuration-file.md" >}}).
 
 
-## HA Notary registration process
+## Registering a HA notary
 
-Before a HA notary cluster can be run each worker needs a valid certificate to join the network and the HA notary
-service must be included in the network parameters. The steps below assume the network includes an Identity Manager and
+Before a HA notary cluster can be run:
+- Each worker needs a valid certificate to join the network 
+- The HA notary service must be included in the network parameters. 
+
+The steps below assume the network includes an Identity Manager and
 Network Map, and that the above prerequisites have been met.
 
 
-1. Register the notary service identity
+### Step 1: Register the notary service identity
 
-Before any workers can be started up the HA notary service identity must be registered with the network's Identity Manager.
-To register the notary service identity with the Identity Manager, run the HA Utilities tool using the notary
-workers `node.conf` file.
+Before any workers can be started up, the HA notary service identity must be registered with the network's Identity Manager.
+To do this:
 
-The HA Utilities tool will generate the notary service key pair, and submit a corresponding certificate submission
-request (CSR) to the Identity Manager, then poll until it receives a successful response. Once successful, a local `.jks`
-file will be created containing the key pair and certificate chain if using a local key store, or just the certificate
+- Run the [HA Utilities tool]({{< relref "../ha-utilities.md" >}}) using the notary workers `node.conf` file.
+
+  The HA Utilities tool will generate the notary service key pair, and submit a corresponding certificate submission
+request (CSR) to the Identity Manager, then poll until it receives a successful response. 
+
+  Once successful, a local `.jks`
+file is created containing the key pair and certificate chain if using a local key store, or just the certificate
 chain if using an HSM.
 
-See [notary registration]({{< relref "../ha-utilities.md#notary-registration" >}}) for more information on using the HA Utilities tool.
+See [Notary registration]({{< relref "../ha-utilities.md#notary-registration" >}}) for more information on using the HA Utilities tool.
 
 
-2. Register the notary workers
+### Step 2: Register the notary workers
 
 After the notary service is registered with the Identity Manager, each notary worker must be registered with the Identity
-Manager. This process is similar to registering a standard Corda Node, but the notary workers also require access to the
+Manager. This process is similar to registering a standard Corda node, but the notary workers also require access to the
 notary service key and certificate.
 
-Copy the `.jks` file created when registering the notary service identity, and create a copy in the `certificates/nodekeystore.jks`
-directory for each notary worker. If using a shared HA HSM, each notary worker must have a unique key alias to ensure
+1. Copy the `.jks` file created when registering the notary service identity.
+2. Create a copy in the `certificates/nodekeystore.jks`
+directory for each notary worker. 
+3. If using a shared HA HSM, each notary worker must have a unique key alias to ensure
 that there are no identity clashes between notary workers.
+4. Register each notary worker using the Corda `initial-registration` command. 
 
-Register each notary worker using the Corda `initial-registration` command. After registration, the notary worker
+   After registration, the notary worker
 identity and node CA entries will be added to the `certificates/nodekeystore.jks` store alongside the notary service
 entry. If configured to use an HSM, the generated keys are stored in the HSM and not in the `.jks` file.
 
-
-3. Add the notary service to the network parameters
+### Step 3: Add the notary service to the network parameters
 
 In order for network participants to use the new HA notary the notary service must be present in the network parameters. This involves
 configuring and setting the initial network parameters (if setting up a new network), or modifying the existing parameters and performing a
-flag day (if using an existing network). Please refer to the [CENM documentation]({{< relref "../../../1.2/cenm/_index.md" >}}) for more information on this
+flag day (if using an existing network). See the [CENM documentation]({{< relref "../../../1.6/cenm/_index.md" >}}) for more information on this
 process.
 
 {{< note >}}

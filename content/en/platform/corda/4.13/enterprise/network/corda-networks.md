@@ -6,11 +6,11 @@ menu:
 tags:
 - corda
 - networks
-title: Understanding Corda Networks
+title: Understanding Corda networks
 weight: 10
 ---
 
-# Corda Networks
+# Corda networks
 
 A Corda network is a collection of nodes with a vetted, unique identity that share a common “root of trust”
 upon which all certificates and signatures are ultimately chained back to. The tooling that enables this infrastructure
@@ -27,7 +27,7 @@ should be consistent with their existing policies on such things.{{< note >}}
 Alternatively, the service can be configured to automatically accept signature requests. However, this is
 not the recommended deployment model outside of a testing setup.{{< /note >}}
 
-* Once accepted the requests have a certificate signed by the PKI infrastructure that governs the network.Signing is performed by a separately deployed process called “The Signing Service”. It is important to realise how
+* Once accepted the requests have a certificate signed by the PKI infrastructure that governs the network. Signing is performed by a separately deployed process called the *Signing Service*. It is important to realise how
 this service should be deployed (for more details on this see the Signing Service documentation), in brief, it is the
 intention that, unlike the Identity Manager, the signer is completely isolated from external communication. It only
 addresses a data source it shares with the Identity Manager. This ensure no hostile entity can penetrate the system
@@ -36,29 +36,28 @@ and force the signing of a certificate. See signing-service
 Identity Manager periodically to see if their signature request has been fulfilled).
 
 At the end of this process a node will have successfully registered the legal identity of the entity it is operating
-on behalf of with the Zone. However, that node now needs to join one of the sub zones that make up the network as a
+on behalf of with the Zone. However, that node now needs to join one of the subzones that make up the network as a
 whole.
 
 
-## Sub Zones
+## Subzones
 
 {{< note >}}
-This is an internal feature. Running a network with multiple sub-zones is not a supported configuration.
+This is an internal feature. Running a network with multiple subzones is not a supported configuration.
 
 {{< /note >}}
-Where the zone as a whole is defined by the unique set of identities, a sub zone is a sub grouping of those entities
+Where the zone as a whole is defined by the unique set of identities, a subzone is a sub grouping of those entities
 that agree to a common set of parameters that define the global consensus mechanisms for all members. This functionality
 is offered by one or more Network Map services.
 
-Sub Zones are currently categorised in relation to the mechanism a zone operator has in place for the process of
+Subzones are currently categorized in relation to the mechanism a zone operator has in place for the process of
 setting the network parameters for it.
 
 
-* *Public Sub Zones* where the entirety of the Network Parameters are under the sole control of the Zone Operator
-* *Segregated Sub Zones* where one or more of the Network Parameters have been delegated to the authority of some
-third party.
+* **Public subzones:** All network parameters are under the sole control of the zone operator.
+* **Segregated subzones:** One or more network parameters have been delegated to the authority of a third party.
 
-Note, in either circumstance the operation of the Network Map in question is still under the perview by the Zone
+In either circumstance, the operation of the Network Map in question is still under the authority of the Zone
 Operator, with a suitable out-of-band process established with the party to communicate the deferred parameter
 entity.
 
@@ -70,21 +69,19 @@ stratification of the min platform version applied to a network
 {{< /note >}}
 
 {{< important >}}
-Each sub zone requires it’s own notary pool as no node, including notaries, can exist in more than
-one sub zone
+Each subzone requires its own notary pool as no node, including notaries, can exist in more than
+one subzone.
 
 
 {{< /important >}}
 
-For more information, see sub-zones
 
+### Operating a segregated subzone
 
-### Operating a Segregated Sub Zone
-
-From the perspective of a mature CENM deployment, operating a sub zone post ENM 0.3 is the same as operating a single
+From the perspective of a mature CENM deployment, operating a subzone post ENM 0.3 is the same as operating a single
 network under the old paradigm where there was only the one zone.
 
-Each Network Map that represents a segregated sub zone is configured separately from the others as a distinct entity
+Each Network Map that represents a segregated subzone is configured separately from the others as a distinct entity
 unaware of one another
 
 Each Network Map requires:
@@ -95,7 +92,7 @@ Each Network Map requires:
 * A signing service configured to sign the network map and network parameters
 
 
-## More in this section
+## Available topics
 
 * [What is a compatibility zone?]({{< relref "compatibility-zones.md" >}})
     * [How do I become part of a compatibility zone?]({{< relref "compatibility-zones.md#how-do-i-become-part-of-a-compatibility-zone" >}})
@@ -118,11 +115,11 @@ Each Network Map requires:
 * [The network map]({{< relref "network-map.md" >}})
     * [HTTP network map protocol]({{< relref "network-map.md#http-network-map-protocol" >}})
         * [Additional endpoints from R3]({{< relref "network-map.md#additional-endpoints-from-r3" >}})
-    * [The `additional-node-infos` directory]({{< relref "network-map.md#the-additional-node-infos-directory" >}})
+    * [The additional-node-infos directory]({{< relref "network-map.md#the-additional-node-infos-directory" >}})
     * [Network parameters]({{< relref "network-map.md#network-parameters" >}})
-    * [Network parameters update process]({{< relref "network-map.md#network-parameters-update-process" >}})
-        * [Automatic Acceptance]({{< relref "network-map.md#automatic-acceptance" >}})
-        * [Manual Acceptance]({{< relref "network-map.md#manual-acceptance" >}})
+    * [Updating network parameters]({{< relref "network-parameters.md#updating-network-parameters" >}})
+        * [Automatic acceptance]({{< relref "network-map.md#automatic-acceptance" >}})
+        * [Manual acceptance]({{< relref "network-map.md#manual-acceptance" >}})
     * [Private networks]({{< relref "network-map.md#private-networks" >}})
     * [Cleaning the network map cache]({{< relref "network-map.md#cleaning-the-network-map-cache" >}})
 * [Cipher suites supported by Corda]({{< relref "cipher-suites.md" >}})

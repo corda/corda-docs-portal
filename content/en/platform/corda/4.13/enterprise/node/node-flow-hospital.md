@@ -7,12 +7,12 @@ tags:
 - node
 - flow
 - hospital
-title: Flow Hospital
+title: Flow hospital
 weight: 150
 ---
 
 
-# Flow Hospital
+# Flow hospital
 
 
 ## Overview

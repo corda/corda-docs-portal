@@ -32,7 +32,7 @@ The configuration below will result in the JPA notary implementation being used:
 {{< tabs name="tabs-1" >}}
 node.conf
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 notary {
   jpa {
@@ -112,7 +112,7 @@ change.
 {{< tabs name="tabs-2" >}}
 percona.conf
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 notary {
   mysql {
@@ -140,7 +140,7 @@ notary {
 {{< /tabs >}}
 
 
-## Configuration Obfuscation
+## Configuration obfuscation
 
 Corda Enterprise comes with a tool for obfuscating secret values in configuration files, which is strongly recommended for production deployments.
 For a notary worker node, the database IP addresses, database user credentials, `keyStore` and `trustStore` password fields in
@@ -183,5 +183,5 @@ dataSourceProperties = {
 
 ## Obtaining the notary service identity
 
-The notary service is registered with the CENM identity service using the registration tool as documented in [notary registration]({{< relref "../ha-utilities.md#notary-registration" >}}).
-Once the service is registered, each worker node is registered using the `initial-registration` process. See [joining a compatibility zone]({{< relref "../network/joining-a-compatibility-zone.md" >}}).
+The notary service is registered with the CENM identity service using the registration tool; see [Notary registration]({{< relref "../ha-utilities.md#notary-registration" >}}).
+Once the service is registered, each worker node is registered using the `initial-registration` process; see [Joining a compatibility zone]({{< relref "../network/joining-a-compatibility-zone.md" >}}).

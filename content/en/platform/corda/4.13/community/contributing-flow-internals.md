@@ -141,7 +141,7 @@ has access to the thread-locally constructed execution stack, as well as a way t
 list.
 
 A `Fiber` thus is nothing more than a data structure holding the execution stack, the method entry list, as well as various bookkeeping
-data related to the management of the `Fiber`, e.g. its state enum or identifier.
+data related to the management of the `Fiber`; for example, its state enum or identifier.
 
 The main try-catch that handles the yielding may be found [here](https://github.com/puniverse/quasar/blob/db0ac29f55bc0515023d67ab86a2178c5e6eeb94/quasar-core/src/main/java/co/paralleluniverse/fibers/Fiber.java#L790).
 
@@ -164,7 +164,7 @@ data. We thus get a handle to an arbitrary suspended computation.
 In the flow state machine there is a strict separation of the user-code’s state, and the flow framework’s internal state. The former is the
 serialized `Fiber`, and the latter consists of structured objects.
 
-The definition of a `Checkpoint` can be found [here](https://github.com/corda/corda/blob/dc4644643247d86b14165944f6925c2d2561eabc/node/src/main/kotlin/net/corda/node/services/statemachine/StateMachineState.kt#L55).
+The definition of a `checkpoint` can be found [here](https://github.com/corda/corda/blob/dc4644643247d86b14165944f6925c2d2561eabc/node/src/main/kotlin/net/corda/node/services/statemachine/StateMachineState.kt#L55).
 
 The “user state” can be found in `FlowState`. It is either
 
@@ -251,7 +251,7 @@ There are two functions that aid the above:
 * `FlowStateMachineImpl.processEventsUntilFlowIsResumed`: as the name suggests this is a loop that keeps popping and processing events
 from the flow’s event queue, until a `FlowContinuation.Resume` or some continuation other than `ProcessEvents` is returned.
 * `FlowStateMachineImpl.processEventImmediately`: this function skips the event queue and processes an event immediately. There are
-certain transitions (e.g. subflow enter/exit) that must be done this way, otherwise the event ordering can cause problems.
+certain transitions (such as subflow enters and exits) that must be done this way, otherwise the event ordering can cause problems.
 
 The two main functions that call the above are the top-level `run`, which is the entry point of the flow, and `suspend`, which every
 blocking API call eventually calls.
@@ -462,7 +462,7 @@ some other error condition or external event adds another error to the flow, we 
 write a special case for it.
 
 Most of the state machine logic is therefore about the handling `DoRemainingWork`. Another example is resumptions due to an IO request
-completing in some way. `DoRemainingWork` checks whether we are currently waiting for something to complete e.g. a
+completing in some way. `DoRemainingWork` checks whether we are currently waiting for something to complete; for example, a
 `FlowIORequest.Receive`. It then checks whether the state contains enough data to complete the action, in the receive case this means
 checking the relevant sessions for buffered messages, and seeing whether those messages are sufficient to resume the flow with.
 
@@ -609,4 +609,4 @@ The hospital can decide what to do with the flow: restart it from the last persi
 around pending either manual intervention or a restart of the node (in which case it will be retried from the last persisted checkpoint on
 start), or trigger error propagation, which makes the error permanent and notifies other parties the flow has sessions with of the failure.
 
-This is where we can do special logic to handle certain error conditions like notary failures in a specific way e.g. by retrying.
+This is where we can do special logic to handle certain error conditions like notary failures in a specific way; for example, by retrying.

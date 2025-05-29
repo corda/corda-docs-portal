@@ -8,12 +8,12 @@ tags:
 - notary
 - db
 - migration
-title: Notary database migration
+title: Migrating notary databases
 weight: 3
 ---
 
 
-# Notary database migration
+# Migrating notary databases
 
 With the MySQL notary being deprecated, Corda Enterprise notary operators should consider moving to a database supported by the JPA notary
 instead.
@@ -23,7 +23,6 @@ instead.
 
 Migrating from one notary implementation to another is a complex procedure and should not be attempted unless there is
 significant benefit from the migration. Possible reasons for migration include:
-
 
 * Higher performance is required than a simple notary solution, but the user wishes to use their existing database.
 * A highly available solution is required and the current database is not highly available.
@@ -37,9 +36,6 @@ still required if switching between the two.
 
 {{< /note >}}
 
-## Migration steps
-
-
 {{< warning >}}
 Any data lost during the migration process could lead to a loss of ledger integrity.
 
@@ -52,7 +48,7 @@ the notary would not change and transactions would still target it. However, the
 period of time during the migration.
 
 
-### Considerations
+## Considerations
 
 
 * The JPA notary uses a different database schema to the Simple or MySQL notaries, and thus a transformation must be applied.
@@ -60,7 +56,7 @@ period of time during the migration.
 * Depending on the number of states notarized by the notary, the amount of time taken to transfer the data could be significant.
 
 
-### Schema differences - Simple notary to JPA notary
+## Schema differences: simple notary to JPA notary
 
 
 {{< table >}}
@@ -74,7 +70,7 @@ output_index|
 {{< /table >}}
 
 
-### Schema differences - MySQL notary to JPA notary
+## Schema differences: MySQL notary to JPA notary
 
 
 {{< table >}}
@@ -89,20 +85,18 @@ issue_transaction_output_id|
 {{< /table >}}
 
 
-### Procedure
+## Migration procedure
 
 
-* Use the [Corda Database Management Tool]({{< relref "../node/operating/node-database.md#database-management-tool" >}}) to prepare the schema in the target database.
-* Obtain the latest backup of the source database.
-* Extract the data from the source database, transform it and load the data into the target database.
-* Loading this older copy of the data from the source database into the target database reduces the time taken for the final step.
-
-
-* Shutdown the notary, and when the notarisation request queue is drained, disconnect the source database to prevent any new data being written to it.
-* Perform a diff backup in order to retrieve the data that has been written to the database since the backup restored in Step 3.
-* Use the same transformation in order to load the diff backup into the target database.
-* Verify that the target database contains all of the data present in the source database.
-* Reconfigure the notary to use the JPA notary connected to the target database.
-* Restart the notary.
-* Verify that the notary operates normally.
+1. Use the [Corda database management tool]({{< relref "../node/operating/node-database.md#database-management-tool" >}}) to prepare the schema in the target database.
+2. Obtain the latest backup of the source database.
+3. Extract the data from the source database, transform it and load the data into the target database.
+4. Loading this older copy of the data from the source database into the target database reduces the time taken for the final step.
+5. Shutdown the notary, and when the notarisation request queue is drained, disconnect the source database to prevent any new data being written to it.
+6. Perform a diff backup in order to retrieve the data that has been written to the database since the backup restored in Step 3.
+7. Use the same transformation in order to load the diff backup into the target database.
+8. Verify that the target database contains all of the data present in the source database.
+9. Reconfigure the notary to use the JPA notary connected to the target database.
+10. Restart the notary.
+11. Verify that the notary operates normally.
 

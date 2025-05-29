@@ -9,7 +9,7 @@ tags:
 - operations
 - deployment
 - planning
-title: Corda Enterprise Operations Guide
+title: Corda Enterprise operations guide
 weight: 10
 ---
 
@@ -31,19 +31,19 @@ developed by a member of the business network, by the Business Network Operator,
 When developing CorDapps, an organisation should bear in mind the [platform support matrix]({{< relref "../../platform-support-matrix.md" >}})
 and the guidance on [developing CorDapps]({{< relref "../../cordapps/cordapp-overview.md" >}}).
 
-To test CorDapps, use the network bootstrapper tool to quickly create Corda networks to test that the CorDapp performs as expected.
+To test CorDapps, use the Network Bootstrapper tool to quickly create Corda networks to test that the CorDapp performs as expected.
 
 ### Node operator
 
 A member of a Corda business network has a variety of considerations:
 
-**Deployment architecture**
+#### Deployment architecture
 
 The architecture of the specific Corda deployment will change the resources required for an ongoing deployment, but for
 a production deployment, a node should have an HA implementation of the Corda Firewall, and an HSM compatible with the
 security policy of the organisation.
 
-**Testing environments**
+#### Testing environments
 
 A node operator should operate or have access to a testing network, a UAT network, and their production network.
 
@@ -52,12 +52,12 @@ informal testing environments. In some cases, a Business Network Operator will p
 node operators may connect to.
 
 
-### Business Network Operator
+### Business network operator
 
-The Business Network Operator is responsible for the infrastructure of the business network, they maintain the network map
+The business network operator is responsible for the infrastructure of the business network, they maintain the network map
 and identity services that allow parties to communicate, and - in many deployments - also operate the notary service.
 
-**Deployment architecture**
+#### Deployment architecture
 
 The Business Network Operator is responsible for all major components of the Corda network. In most enterprise deployments
 of Corda this includes: Nodes, an HA notary cluster, an HA Corda Firewall, an HSM, the certificate hierarchy of the network,
@@ -65,7 +65,7 @@ identity manager, and network map.
 
 This likely includes a Corda Enterprise Network Manager as well as Corda Enterprise.
 
-**Development and testing environments**
+#### Development and testing environments
 
 A Business Network Operator should have a variety of environments:
 

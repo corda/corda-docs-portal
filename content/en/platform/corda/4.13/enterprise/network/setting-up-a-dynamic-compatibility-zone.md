@@ -20,36 +20,37 @@ By *dynamic compatibility zone*, we mean a compatibility zone that relies on a n
 join dynamically, instead of requiring each node to be bootstrapped and have the node-infos distributed manually. While
 this may sound appealing, think twice before going down this route:
 
+- If you need to test a CorDapp, it is easier to [create a test network using the Network Bootstrapper tool]({{< relref "#use-network-bootstrapper-for-testing">}})
+- If you need to control who uses your CorDapp, it is easier to [apply permissioning by creating a business network]({{< relref "#use-business-networks-for-permissioning" >}})
 
-* If you need to test a CorDapp, it is easier to create a test network using the network bootstrapper tool (see below)
-* If you need to control who uses your CorDapp, it is easier to apply permissioning by creating a business network
-(see below)
+### Use Network Bootstrapper for testing
 
-**Testing.** Creating a production-ready zone isn’t necessary for testing as you can use the *network bootstrapper*
-tool to create all the certificates, keys, and distribute the needed map files to run many nodes. The bootstrapper can
-create a network locally on your desktop/laptop but it also knows how to automate cloud providers via their APIs and
-using Docker. In this way you can bring up a simulation of a real Corda network with different nodes on different
+If testing a CorDapp, then creating a production-ready zone is not necessary. You can use the Network Bootstrapper
+tool to create all the certificates, keys, and distribute the needed map files to run many nodes. The Network Bootstrapper can
+create a network locally on your desktop/laptop, but it also can automate cloud providers via their APIs and
+using Docker. 
+
+This way, you can bring up a simulation of a real Corda network with different nodes on different
 machines in the cloud for your own testing. Testing this way has several advantages, most obviously that you avoid
 race conditions in your tests caused by nodes/tests starting before all map data has propagated to all nodes.
-You can read more about the reasons for the creation of the bootstrapper tool
-[in a blog post on the design thinking behind Corda’s network map infrastructure](https://medium.com/corda/cordas-new-network-map-infrastructure-8c4c248fd7f3).
 
-**Permissioning.** And creating a zone is also unnecessary for imposing permissioning requirements beyond that of the
+### Use business networks for permissioning
+
+Creating a zone is also unnecessary for imposing permissioning requirements beyond that of the
 base Corda network. You can control who can use your app by creating a *business network*. A business network is what we
 call a coalition of nodes that have chosen to run a particular app within a given commercial context. Business networks
 aren’t represented in the Corda API at this time, partly because the technical side is so simple. You can create one
 via a simple three step process:
 
-
-* Distribute a list of X.500 names that are members of your business network. You can use the
+1. Distribute a list of X.500 names that are members of your business network. You can use the
 [reference Business Network Membership Service implementation](https://github.com/corda/corda-solutions/tree/master/bn-apps/memberships-management).
 Alternatively, you could do this is by hosting a text file with one name per line on your website at a fixed HTTPS
 URL. You could also write a simple request/response flow that serves the list over the Corda protocol itself,
 although this requires the business network to have its own node.
-* Write a bit of code that downloads and caches the contents of this file on disk, and which loads it into memory in
+2. Write a bit of code that downloads and caches the contents of this file on disk, and which loads it into memory in
 the node. A good place to do this is in a class annotated with `@CordaService`, because this class can expose
 a `Set<Party>` field representing the membership of your service.
-* In your flows use `serviceHub.findService` to get a reference to your `@CordaService` class, read the list of
+3. In your flows use `serviceHub.findService` to get a reference to your `@CordaService` class, read the list of
 members and at the start of each flow, throw a FlowException if the counterparty isn’t in the membership list.
 
 In this way you can impose a centrally controlled ACL that all members will collectively enforce.
@@ -63,13 +64,12 @@ how quickly users should upgrade, how long nodes can be offline before they are 
 
 Creating a zone involves the following steps:
 
-
-* Create the zone private keys and certificates. This procedure is conventional and no special knowledge is required:
+1. Create the zone private keys and certificates. This procedure is conventional and no special knowledge is required:
 any self-signed set of certificates can be used. A professional quality zone will probably keep the keys inside a
 hardware security module (as the main Corda network and test networks do).
-* Write a network map server.
-* Optionally, create a doorman server.
-* Finally, you would select and generate your network parameter file.
+2. Write a network map server.
+3. Optionally, create a doorman server.
+4. Finally, you would select and generate your network parameter file.
 
 
 ## How to create your own compatibility zone
@@ -78,7 +78,7 @@ hardware security module (as the main Corda network and test networks do).
 ### Using an existing network map implementation
 
 You can use an existing network map implementation such as the
-[Cordite Network Map Service](https://gitlab.com/cordite/network-map-service) to create a dynamic compatibility zone.
+[Cordite Network Map service](https://gitlab.com/cordite/network-map-service) to create a dynamic compatibility zone.
 
 
 ### Creating your own network map implementation
@@ -142,12 +142,12 @@ be a binary X.509 certificate, and the certs are expected to be in order.
 
 Zone parameters are stored in a file containing a Corda AMQP serialised `SignedDataWithCert<NetworkParameters>`
 object. It is easy to create such a file with a small Java or Kotlin program. The `NetworkParameters` object is a
-simple data holder that could be read from e.g. a config file, or settings from a database. Signing and saving the
+simple data holder that could be read from, for example, a config file or a setting from a database. Signing and saving the
 resulting file is just a few lines of code. A full example can be found in `NetworkParametersCopier.kt` in the source
 tree, but a flavour of it looks like this:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 NetworkParameters networkParameters = new NetworkParameters(
           4,                        // minPlatformVersion
@@ -164,7 +164,7 @@ Files.copy(bytes.open(), Paths.get("params-file"));
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val networkParameters = NetworkParameters(
    minimumPlatformVersion = 4,

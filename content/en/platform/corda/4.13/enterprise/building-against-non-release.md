@@ -13,7 +13,7 @@ weight: 110
 ---
 
 
-# Build a CorDapp against a non-release branch
+# Building a CorDapp against a non-release branch
 
 You should generally develop CorDapps against the most recent Corda stable release. However, you may need to build a CorDapp
 against an unstable non-release branch if your CorDapp uses a very recent feature, or you are using the CorDapp to test a PR

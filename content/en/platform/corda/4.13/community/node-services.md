@@ -134,9 +134,11 @@ out the requests.
 The `InMemoryNetworkMapCache` implements the `NetworkMapCache`
 interface and is responsible for tracking the identities and advertised
 services of authorised nodes provided by the remote
-`NetworkMapService`. Typical use is to search for nodes hosting
-specific advertised services e.g. a Notary service, or an Oracle
-service. Also, this service allows mapping of friendly names, or
+`NetworkMapService`. A typical use is to search for nodes hosting
+specific advertised services, such as a notary service or an Oracle
+service. 
+
+This service also allows mapping of friendly names, or
 `Party` identities to the full `NodeInfo` which is used in the
 `StateMachineManager` to convert between the `PublicKey`, or
 `Party` based addressing used in the flows/contracts and the
@@ -210,11 +212,15 @@ externally visible operation, such as sending a message, waiting for a
 message, or initiating a `subFlow`. The fiber is then suspended
 and its stack frames serialized to the database, thus ensuring that if
 the node is stopped, or crashes at this point the flow will restart
-with exactly the same action again. To further ensure consistency, every
+with exactly the same action again. 
+
+To further ensure consistency, every
 event which resumes a flow opens a database transaction, which is
 committed during this suspension process ensuring that the database
-modifications e.g. state commits stay in sync with the mutating changes
-of the flow. Having recorded the fiber state the
+modifications (for example, state commits) stay in sync with the mutating changes
+of the flow. 
+
+Having recorded the fiber state, the
 `StateMachineManager` then carries out the network actions as required
 (internally one flow message exchanged may actually involve several
 physical session messages to authenticate and invoke registered

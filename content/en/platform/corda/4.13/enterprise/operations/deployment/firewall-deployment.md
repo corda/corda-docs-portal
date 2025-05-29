@@ -4,18 +4,15 @@ menu:
   corda-enterprise-4-13:
     identifier: corda-enterprise-4-13-operations-guide-deployment-firewall
     parent: corda-enterprise-4-13-operations-guide-deployment
-    name: "Firewall deployment"
+    name: "Deploying the Corda Firewall"
 tags:
 - operations
 - deployment
 -
-title: Firewall deployment
+title: Deploying the Corda Firewall
 weight: 30
 ---
 # Configuring the Corda Enterprise Firewall
-
-
-## File location
 
 When starting a standalone firewall (in bridge, or float mode), the `corda-firewall.jar` file defaults to reading the firewall’s configuration from a `firewall.conf` file in
 the directory from which the command to launch the process is executed. The syntax is:
@@ -40,9 +37,9 @@ configuration file is then expected in the root of this workspace
 * `--version`, `-V`: Print version information and exit.
 
 
-## Format
+## Configuration File Format
 
-The firewall configuration file uses the HOCON format which is superset of JSON. Please visit
+The Corda Firewall configuration file uses the HOCON format which is superset of JSON. See
 [https://github.com/typesafehub/config/blob/master/HOCON.md](https://github.com/typesafehub/config/blob/master/HOCON.md) for further details.
 
 
@@ -57,7 +54,7 @@ This prevents configuration errors when mixing keys containing `.` wrapped with 
 
 
 
-## Defaults
+## Default Configuration Options
 
 A set of default configuration options are loaded from the built-in resource file. Any options you do not specify in
 your own `firewall.conf` file will use these defaults:
@@ -94,30 +91,20 @@ Assuming that an external firewall is to be used, the `corda-firewall.jar` opera
 The particular mode is selected via the required `firewallMode` configuration property inside `firewall.conf`:
 
 
-* **SenderReceiver**:
-selects a single process firewall solution to isolate the node and Artemis broker from direct Internet contact.
+- **SenderReceiver:** Selects a single process firewall solution to isolate the node and Artemis broker from direct Internet contact.
 It is still assumed that the firewall process is behind a firewall, but both the message sending and receiving paths will pass via the `bridge`.
-In this mode the `outboundConfig` and `inboundConfig` configuration sections of `firewall.conf` must be provided,
+In this mode the `outboundConfig` and `inboundConfig` configuration sections of `firewall.conf` must be provided, while 
 the `bridgeInnerConfig` and `floatOuterConfig` sections should not be present.
-
-
-* **BridgeInner**:
-mode runs this instance of the `corda-firewall.jar` as the trusted portion of the peer-to-peer firewall float.
+- **BridgeInner:** Runs this instance of the `corda-firewall.jar` as the trusted portion of the peer-to-peer firewall float.
 Specifically, this process runs the complete outbound message processing. For the inbound path it operates only the filtering and durable storing portions of the message processing.
 The process expects to connect through a firewall to a matched `FloatOuter` instance running in the DMZ as the actual `TLS 1.2/AMQP 1.0` termination point.
-
-
-* **FloatOuter**:
-causes this instance of the `corda-firewall.jar` to run as a protocol break proxy for inbound message path. The process
+- **FloatOuter:** This instance of the `corda-firewall.jar` runs as a protocol break proxy for inbound message path. The process
 will initialise a `TLS` control port and await connection from the `BridgeInner`. Once the control connection is successful the `BridgeInner` will securely provision
 the `TLS` socket server key and certificates into the `FloatOuter`. The process will then start listening for inbound connection from peer nodes.
 
+## Firewall configuration fields
 
-
-
-## Fields
-
-The configuration fields are listed in [Corda Enterprise Firewall configuration fields]({{< relref "../../../enterprise/node/corda-firewall-configuration-fields.md" >}}).
+The configuration fields are listed in [Corda Firewall configuration fields]({{< relref "../../../enterprise/node/corda-firewall-configuration-fields.md" >}}).
 
 ## Complete example
 
@@ -160,7 +147,7 @@ as well as no proxy at all. For more information please see [proxyConfig]({{< re
 
 ### Keystores generation
 
-A special tool was created to simplify generation of the keystores. For more information please see HA Utilities.
+A special tool was created to simplify generation of the keystores. For more information, see [HA Utilities]({{< relref "../../ha-utilities.md" >}}). 
 This section explains how to generate a number of internally used keystores. Commands below can be executed on any machine as long as it will
 be easy enough to copy results to the other machines including DMZ hosts.
 
@@ -205,16 +192,16 @@ This should produce files: `artemis/artemis-truststore.jks`, `artemis/artemis.jk
 
 ### Node VMs setup
 
-As shown on the Physical deployment diagram above there will be two separate machines in two distinct data centres hosting Corda Nodes for Legal Entity A and Legal Entity B.
-For this setup, each machine is powerful enough to host nodes for both entities with all the CorDapps and two datacentres are used for High Availability purposes.
+As shown on the physical deployment diagram above, there will be two separate machines in two distinct data centers hosting Corda nodes for Legal Entity A and Legal Entity B.
+For this setup, each machine is powerful enough to host nodes for both entities with all the CorDapps and two data centers are used for High Availability purposes.
 
 
 #### Prerequisites
 
 
-##### Corda Network connectivity
+##### Corda network connectivity
 
-Before nodes can be configured, Corda Network administrator will need to provide:
+Before nodes can be configured, a Corda network administrator will need to provide:
 
 
 * Network root trust store file: `network-root-truststore.jks` and password for it in this example assumed to be `trustpass`;
@@ -245,7 +232,7 @@ Each legal entity is supposed to have it is own database(DB) schema in order to 
 should have different DB connectivity URLs.
 
 For nodes’ High Availability(HA) functionality to work properly, databases the nodes connect to should be remote databases with transactional guarantees.
-Please see Hot-cold high availability deployment. I.e. HA nodes cannot be using local H2 database.
+See [Hot-cold high-availability deployment]({{< relref "../../node/deploy/hot-cold-deployment.md" >}}). HA nodes cannot be using local H2 database.
 
 In the example below we will be using Azure SQL DB, however it can be any database Corda Enterprise supports.
 
@@ -265,7 +252,7 @@ Any CorDapps the node is meant to be working with should be installed into `cord
 
 #### Creating node configuration files
 
-Since there will be two distinct nodes serving two different legal entities they are meant to have two difference X.500 names, please see
+Since there will be two distinct nodes serving two different legal entities they are meant to have two difference X.500 names; see the
 `myLegalName` field in the config files below.
 
 Also these two separate node may have different passwords to protected their keystore (`keyStorePassword`) and their trust store (`trustStorePassword`).
@@ -415,7 +402,7 @@ Given two configuration files above, in order to produce node keystores the foll
 java -jar corda-tools-ha-utilities-4.11.jar node-registration --config-files=./entityA/node.conf --config-files=./entityB/node.conf --network-root-truststore=network-root-truststore.jks --network-root-truststore-password=trustpass
 ```
 
-This call will process `node.conf` files and for each legal name performs Doorman registration. Depending on Corda Network configuration this process may require manual approval
+This call will process `node.conf` files and for each legal name performs Doorman registration. Depending on the Corda network configuration, this process may require manual approval
 and the program will poll for for Certification Signing Request(CSR) completion. For more information see [Joining a compatibility zone]({{< relref "../../network/joining-a-compatibility-zone.md" >}}).
 
 After successful execution this will produce two directories `entityA/certificates` and `entityB/certificates` containing the following files:
@@ -466,7 +453,7 @@ In this example we are going to use Finance CorDapp which is supplied as part of
 #### DB drivers installation
 
 As discussed above each of the nodes will be using database to store node’s data. Corda Enterprise supports a number of databases, however in order
-for a Corda Node to store its data in the DB, a JDBC driver needs to be installed into `drivers` sub-directory.
+for a Corda node to store its data in the DB, a JDBC driver needs to be installed into `drivers` sub-directory.
 
 In this example we are using MSSql Server DB, therefore `mssql-jdbc-6.4.0.jre8.jar` will be installed.
 
@@ -690,8 +677,8 @@ Artemis will be deployed as a standalone process cluster and will be used as a c
 the `ha-utilities` command line tool. The tool can also install a configured Artemis instance provided that a distribution already exists. For the purpose of this example, commands are provided
 to use the `ha-utilities` to install and configure 2 Artemis instances in HA mode.
 
-`ha-utilities` with `configure-artemis` option will create two configurations for two processes known as `master` and `slave`. For more information please see:
-[Artemis HA Documentation](https://activemq.apache.org/artemis/docs/latest/ha.html)
+`ha-utilities` with `configure-artemis` option will create two configurations for two processes known as `master` and `slave`. For more information, see the
+[Artemis HA Documentation](https://activemq.apache.org/artemis/docs/latest/ha.html).
 
 Apache Artemis distribution can be downloaded from [here](https://activemq.apache.org/artemis/download.html).
 
@@ -929,12 +916,13 @@ Each of the boxes `vmNodesPrimary` and `vmNodesSecondary` is capable of hosting 
 `vmNodesPrimary` and `vmNodesSecondary` are meant to be located in different datacentres and in case when one of the datacentres is unavailable, the whole application plant will be running
 on the other datacentre’s hardware.
 
-In this setup Corda Nodes for each of the entities work in Hot-Cold mode. Which means that if the node is running on `vmNodesPrimary`, the node for the same identity on `vmNodesSecondary` cannot even be started.
-For more information, please see Hot-cold high availability deployment.
+In this setup, Corda nodes for each of the entities work in Hot-Cold mode. Which means that if the node is running on `vmNodesPrimary`, the node for the same identity on `vmNodesSecondary` cannot even be started.
+See [Hot-cold high-availability deployment]({{< relref "../../node/deploy/hot-cold-deployment.md" >}}).
+
 
 This implies that when starting nodes they should be running in re-start loop.
 
-In order to start Corda Node normally on any of the hosts (`vmNodesPrimary` or `vmNodesSecondary`) for either of the entities (`Entity A` or `Entity B`) the following command should
+In order to start a Corda node normally on any of the hosts (`vmNodesPrimary` or `vmNodesSecondary`) for either of the entities (`Entity A` or `Entity B`) the following command should
 be used from the base directory:
 
 ```bash

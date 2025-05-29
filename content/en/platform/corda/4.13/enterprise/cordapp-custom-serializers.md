@@ -68,7 +68,7 @@ To be serializable by Corda, this example requires a custom serializer that tran
 class into a form the platform can serialize. You could write a serializer like this:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 /**
  * The class lacks a public constructor that takes parameters it can associate
@@ -145,7 +145,7 @@ public class ExampleSerializer implements SerializationCustomSerializer<Example,
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 class ExampleSerializer : SerializationCustomSerializer<Example, ExampleSerializer.Proxy> {
     /**

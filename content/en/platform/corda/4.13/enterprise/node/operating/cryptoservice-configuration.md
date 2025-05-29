@@ -18,7 +18,7 @@ By default, the private keys that belong to the node CA, legal identity and TLS 
 directory. Users may wish to instead store this key in a hardware security module (HSM) or similar.
 
 
-See the [Hardware Security Modules (HSM)]({{< relref "../../platform-support-matrix.md#hardware-security-modules-hsm" >}})for supported HSMs and their features.
+See the [Hardware security modules (HSM)]({{< relref "../../platform-support-matrix.md#hardware-security-modules-hsm" >}})for supported HSMs and their features.
 
 The cryptographic operations that are performed by the HSM are key generation and signing. The private key material is
 stored in the HSM if the node is configured to use an HSM. The public keys are stored in the HSM (if configured for the node)
@@ -411,7 +411,7 @@ partition: "hsm-w4b6nnfio7z"
 In addition to the configuration, the following steps are required:
 
 1. `cloudhsm-3.1.2.jar` from AWS CloudHSM Software Library for Java needs to be placed in the node’s `drivers` folder.
-2. Corda must be running with the system property `java.library.path` pointing to the directory that contains the AWS CloudHSM JCA provider binaries (e.g. ``libcaviumjca.so`` for Linux). For example:
+2. Corda must be running with the system property `java.library.path` pointing to the directory that contains the AWS CloudHSM JCA provider binaries (for example, ``libcaviumjca.so`` for Linux). For example:
 ```text
 java -Djava.library.path=/opt/cloudhsm/lib -jar corda.jar
 ```

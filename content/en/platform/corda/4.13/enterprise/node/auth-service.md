@@ -7,14 +7,14 @@ tags:
 - auth
 weight: 150
 aliases: "/docs/cenm/1.5/auth-service.html"
-title: Auth service
+title: Auth Service
 ---
 
 # Auth Service
 
-The Auth Service is the user authentication and authorisation service for managing Corda Nodes and networks (CENM). It stores and controls secure user-access to network services, such as:
+The Auth Service is the user authentication and authorisation service for managing Corda nodes and networks (CENM). It stores and controls secure user access to network services, such as:
 
-* Nodes.
+* Nodes
 * Identity Manager
 * Zone Service
 * Signing Service
@@ -24,81 +24,73 @@ Whenever you use the [User Administration Tool]({{< relref "../../../../../../en
 
 You do not need to interact directly with the Auth Service once it has been installed and configured. To protect the integrity of this secure service, there is no direct API contact with the Auth Service: all front-end communications go via the Gateway Service.
 
-Auth Service can also be configured to use [Azure AD SSO]({{< relref "azure-ad-sso/_index.md" >}}).
+The Auth Service can also be configured to use [Azure AD SSO]({{< relref "azure-ad-sso/_index.md" >}}).
 
-## Install the Auth service
+## Installing the Auth Service
 
-You can install the Auth service by either:
+You can install the Auth Service by either:
 
-* Installing the `accounts-application.jar`.
-* Installing the Docker image.
+- [Installing using the Docker image](#install-using-the-docker-image)
+- [Installing using the JAR file](#install-using-the-jar-file) `accounts-application.jar`
 
-### Install using the docker image
+### Install using the Docker image
 
-The docker image contains the application jar itself setup to run with the `Initial user` commands.
+The Docker image contains the application jar itself setup to run with the `Initial user` commands.
 
-To install from the docker, ensure that the config file and other required files are mounted as a shared volume when running the container.
+To install from the Docker image, ensure that the config file and other required files are mounted as a shared volume when running the container.
 
 {{< note >}}
-The docker image contains an empty plugins folder: `/opt/authsvc/plugins`. When creating a new image from this one, you only need to copy the application specific baseline into this folder, and it will be picked up automatically.
+The Docker image contains an empty plugins folder: `/opt/authsvc/plugins`. When creating a new image from this one, you only need to copy the application specific baseline into this folder, and it will be picked up automatically.
 {{< /note >}}
 
 Environment variables:
 
-* INITIAL_ADMIN_USERNAME
-  * Initial user name, defaults to `admin`
-* INITIAL_ADMIN_PASSWORD
-  * Initial user password, defaults to `password`
-* CONFIG_FILE_LOCATION
-  * Location of the configuration file, defaults to `/usr/auth/auth.conf`
-  * To use the default setting the config file should be mounted under `/usr/auth`
-* ADDITIONAL_ARGUMENTS
-  * Additional command line args passed to the service
-  * Defaults to "--verbose"
+* **INITIAL_ADMIN_USERNAME:** 
+  Initial user name, defaults to `admin`
+* **INITIAL_ADMIN_PASSWORD:** 
+  Initial user password, defaults to `password`
+* **CONFIG_FILE_LOCATION:** 
+  Location of the configuration file, defaults to `/usr/auth/auth.conf`. 
+  To use the default setting, the config file should be mounted under `/usr/auth`
+* **ADDITIONAL_ARGUMENTS:** 
+  Additional command line args passed to the service; 
+  defaults to "--verbose"
 
 
 ### Install using the JAR file
 
+To install the Auth Service using the `accounts-application.jar` JAR file:
+
 1. Add the file `accounts-application.jar` to your CENM working directory.
-2. Configure the Auth service using the command line.
+2. Configure the Auth Service using the command line.
 
-### Prepare for configuration
+## Preparing for configuration
 
-Before you can configure the Auth service, you need to prepare SSL certificates, create signing keys and add your baseline permissions JAR file so that new permissions can be added to the Auth service.
-
-To do this:
+Before you can configure the Auth Service, you need to prepare SSL certificates, create signing keys and add your baseline permissions JAR file so that new permissions can be added to the Auth Service:
 
 1. Create a SSL certificate in a `.jks` file using the [CENM PKI tool]({{< relref "../../../../../../en/platform/corda/1.6/cenm/pki-tool.md" >}}).
-
 2. Generate a JWT signing key (RSA keypair) in a `.jks` file with the following command-line command:
 `keytool -genkeypair -alias mytest -keyalg RSA -keypass mypass -keystore mytest.jks -storepass mypass`.
-
 3. Ensure you have the CENM baseline JAR file `accounts-baseline-cenm-<VERSION>.jar` that contains the set
-of available permissions and predefined roles. Copy this file to a directory called `plugins`, located inside the working directory.
+of available permissions and predefined roles. 
+4. Copy this file to a directory called `plugins`, located inside the working directory.
 
-## Configure the auth service
+## Configuring the Auth Service
 
-To deploy the Auth service, you need to create a configuration file.
+To deploy the Auth Service, you need to create a configuration file. When you create this configuration file, you must establish its connection to your [Gateway Service]({{< relref "gateway-service.md" >}}). Make sure you know:
 
-When you create your config file, you establish its connection to your [Gateway Service]({{< relref "gateway-service.md" >}}). Make sure you know:
-
-* Your Gateway service ID.
-* Your Gateway service secret.
+* Your Gateway service ID
+* Your Gateway service secret
 
 In the sample below, you can see the initial configuration process:
 
 1. [Database configuration]({{< relref "../../../../../../en/platform/corda/1.6/cenm/database-set-up.md" >}}). Add the name, address and login credentials for the SQL database that supports the Auth Service.
-
-{{<note>}}
-If multiple CENM instances are connected to the same database, setting `lockResolutionStrategy` to `SingleInstance` can cause startup problems and/or database corruption. For more information, see the [database configuration options]({{< relref "../../../../../../en/platform/corda/1.6/cenm/config-database.md" >}}).
-{{</note>}}
-
-2. JSON Web Key configuration. Set the user name, password, and location of the RSA keypair store for signing. The location must be the absolute path.
-
+   {{<note>}}
+   If multiple CENM instances are connected to the same database, setting `lockResolutionStrategy` to `SingleInstance` can cause startup problems and/or database corruption. For more information, see the [database configuration options]({{< relref "../../../../../../en/platform/corda/1.6/cenm/config-database.md" >}}).
+   {{</note>}}
+2. Configure the JSON Web Key: set the user name, password, and location of the RSA keypair store for signing. The location must be the absolute path.
 3. Configure the connection to the Gateway service. Add the ID, secret, and scope of services that you use when setting up the Gateway service.
-
 4. Configure the web server.
-
 5. Set optional password policy settings.
 
 
@@ -199,34 +191,29 @@ passwordPolicy = {
 }
 ```
 
-### Manage your configuration
+### Managing your configuration
 
-You can manage the Auth Service configuration using the command line.
+You can manage the Auth Service configuration by specifying the following command line options for `accounts-application.jar`:
 
-Command line arguments:
+- `[-f, --config-file]` Path of the service config file.
+- `[-o, --obfuscated]` Indicates an obfuscated config.
+- `[--seed]` Optional seed for config deobfuscation.
+- `[-v, --verbose]` Redirect all log output to the console. Also sets logging level to INFO.
+- `[--logging-level]` Sets logging level. Accepts Log4j Levels.
+- `[--initial-user-provider]` Sets the authentication provider for the initial user. Valid values are ```internal``` or ```azuread```; the default is ```internal```.
 
-* `[-f, --config-file]` Path of the service config file.
-* `[-o, --obfuscated]` Indicates an obfuscated config.
-* `[--seed]` Optional seed for config deobfuscation.
-* `[-v, --verbose]` Redirect all log output to the console. Also sets logging level to INFO.
-* `[--logging-level]` Sets logging level. Accepts Log4j Levels.
-* `[--initial-user-provider]` Sets the authentication provider for the initial user. Valid values are ```internal``` or ```azuread```; the default is ```internal```.
+The initial admin user of the Auth Service is *initializer*: The following command line options allow configuration of that initial admin user.
 
-Initial user **initializer**: This command group allows configuration of the initial admin user.
+- `[--initial-user-name]` Sets the name of the user.
+- `[--initial-user-password]` Sets the password of the user when provider is ```internal```.
+- `[--initial-user-external-id]` External ID of the user when using a provider other than ```internal``` that requires it. In case of AzureAD this should be the ObjectID of the user whose user name is used in the ```--initial-user-name``` parameter.
+- `[--restore-admin-capability]` (**initializer**) If all admin users are locked out, for example because of password policy, this option unlocks them.
 
-* `[--initial-user-name]` Sets the name of the user.
-* `[--initial-user-password]` Sets the password of the user when provider is ```internal```.
-* `[--initial-user-external-id]` External ID of the user when using a provider other than ```internal``` that requires it. In case of AzureAD this should be the ObjectID of the user whose user name is used in the ```--initial-user-name``` parameter.
-
-
-* `[--restore-admin-capability]` (**initializer**) If all admin users are locked out, for example because of password policy, this option unlocks them.
-
-Reset user (**initializer**): Use this command group to reset, re-enable, and unlock a user. You can also sets a user's password or force the user to become an administrator. Administrators can create and edit other users, but cannot access CENM services directly.
+The following command line options can be used to reset, re-enable, and unlock a user. You can also sets a user's password or force the user to become an administrator. Administrators can create and edit other users, but cannot access CENM services directly.
 
 * `[--reset-user-username]` Username to be reset.
 * `[--reset-user-password]` New password for the user being reset.
 * `[--reset-user-admin]` Flag to enable forcing the user to be admin.
-
 * `[--keep-running]` Enables the application to keep running after any of the **initializer** arguments have been supplied.
 
 ## Setting up applications

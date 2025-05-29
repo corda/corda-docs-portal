@@ -17,7 +17,7 @@ title: Building and installing a CorDapp
 ---
 
 
-# Build a CorDapp
+# Building a CorDapp
 
 This article covers the steps you need to take to build a CorDapp from scratch. You'll learn how to:
 
@@ -104,9 +104,9 @@ There are a few guidelines to keep in mind when you set Corda dependencies.
 
 * Always include `$corda_core_release_distribution:corda-core:$corda_core_release_version` as a
   `cordaCompile` dependency, and `$corda_release_distribution:corda:$corda_release_version` as a `cordaRuntime` dependency
-* When building an RPC client that communicates with a node (e.g. a webserver), you should include
+* When building an RPC client that communicates with a node (for example, a webserver), you should include
   `$corda_release_distribution:corda-rpc:$corda_release_version` as a `cordaCompile` dependency.
-* When you need to use the network bootstrapper to bootstrap a local network (e.g. when using `Cordformation`), you
+* When you need to use the Network Bootstrapper to bootstrap a local network (for example, when using `Cordformation`), you
   should include `$corda_release_distribution:corda-node-api:$corda_release_version` as either a `cordaRuntime` or a `runtimeOnly`
   dependency. You may also wish to include an implementation of SLF4J as a `runtimeOnly` dependency for the network
   bootstrapper to use.
@@ -121,7 +121,7 @@ There are a few guidelines to keep in mind when you set Corda dependencies.
 * `corda-confidential-identities` - A part of the core Corda libraries. Automatically pulled in by other libraries.
 * `corda-core` (*) - Usually automatically included by another dependency. Contains core Corda utilities, model, and
   functionality. Include manually if the utilities are useful or you are writing a library for Corda.
-* `corda-finance-contracts` (*), `corda-finance-workflows` and deprecated `corda-finance`. Corda finance CorDapp, use contracts and flows parts respectively. Only include as a `cordaCompile` dependency if using as a dependent Cordapp or if you need access to the Corda finance types. Use as a `cordapp` dependency if using as a CorDapp dependency (see below).
+* `corda-finance-contracts` (*), `corda-finance-workflows` and deprecated `corda-finance`. Corda finance CorDapp, use contracts and flows parts respectively. Only include as a `cordaCompile` dependency if using as a dependent CorDapp or if you need access to the Corda finance types. Use as a `cordapp` dependency if using as a CorDapp dependency (see below).
 * `corda-jackson` - Corda Jackson support. Use if you plan to serialise Corda objects to and/or from JSON.
 * `corda-jfx` - JavaFX utilities with some Corda-specific models and utilities. Only use with JavaFX apps.
 * `corda-mock` - A small library of useful mocks. Use if the classes fit your purpose.
@@ -134,7 +134,7 @@ There are a few guidelines to keep in mind when you set Corda dependencies.
 * `corda-serialization` (*) - The Corda core serialization library. Automatically included by other dependencies
 * `corda-shell` - Used by the Corda node. Never depend on this directly.
 * `corda-test-common` - A common test library. Automatically included by other test libraries.
-* `corda-test-utils` - Used when writing tests against Corda/Cordapps.
+* `corda-test-utils` - Used when writing tests against Corda/CorDapps.
 * `corda-tools-network-bootstrapper` - The Network Builder tool. Useful in build scripts.
 
 Any modules marked with (*) are part of the open core and must be pulled in from the matching Corda Open Source Edition distribution (using
@@ -249,7 +249,7 @@ flows (see [Versioning]({{< relref "versioning.md" >}})).
 
 The `cordapp` plugin can sign the generated CorDapp JAR file using the [JAR signing and verification tool](https://docs.oracle.com/javase/tutorial/deployment/jar/signing.html).
 Signing the CorDapp enables its contract classes to use signature constraints instead of other types of constraints.
-See [Contract Constraints]({{< relref "api-contract-constraints.md" >}}) for more information.
+See [Contract constraints]({{< relref "api-contract-constraints.md" >}}) for more information.
 The JAR file is signed by the Corda development certificate by default.
 
 {{< warning >}}
@@ -368,7 +368,7 @@ jarsigner --verify path/to/cordapp.jar
 
 The Cordformation plugin can also sign CorDapp JARs when [deploying a set of nodes]({{< relref "./generating-a-node.md" >}}).
 
-If your build system post-processes the Cordapp JAR, then the modified JAR content may be out of date or missing a signature file. In this case, sign the Cordapp as a separate step and disable automatic signing by the `cordapp` plugin.
+If your build system post-processes the CorDapp JAR, then the modified JAR content may be out of date or missing a signature file. In this case, sign the CorDapp as a separate step and disable automatic signing by the `cordapp` plugin.
 
 The `cordapp` plugin contains the standalone task `signJar`, which uses the same `signing` configuration. The task has two parameters:
 * `inputJars` - to pass JAR files to be signed.
