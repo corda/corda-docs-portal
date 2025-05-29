@@ -193,7 +193,7 @@ basis of a previous reconciliation record or `ReconciliationStatus`, uses built-
 to request and retrieve the appropriate transactions from a counterparty.
 
 For more information on this process and how it may be further configured, see the
-[docs]{{< relref "ledger-recovery-automatic.md" >}}).
+[docs]({{< relref "ledger-recovery-automatic.md" >}}).
 
 
 ```kotlin

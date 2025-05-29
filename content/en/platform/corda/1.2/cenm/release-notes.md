@@ -81,7 +81,7 @@ To satisfy clients who wish to use third party software or service providers to 
 
 The new service (SMR) extracts signable material from the Identity Manager and Network Map Services, and then delegates signing to a plugin. Customers can implement their own plugins to integrate with external signing infrastructure and return signed material back to SMR to pass to the relevant CENM service.
 
-See [Signing Services]({{< relref "signing-service.md" >}}) for more details. Also see [EJBCA Sample Plugin]({{< relref "ejbca-plugin.md" >}}) for a sample open source CA implementation.
+See [Signing services]({{< relref "signing-service.md" >}}) for more details. Also see [EJBCA sample plugin]({{< relref "ejbca-plugin.md" >}}) for a sample open source CA implementation.
 
 **CRL Endpoint Check tool**
 
@@ -205,7 +205,7 @@ as well as for Gemalto and Securosys HSMs in both the PKI Tool and Signing Servi
 
 * CENM now supports encryption of passwords in configuration files, using encryption keys derived from
 hardware attributes. An obfuscation tool ships with CENM, to process configuration files and encrypt
-marked fields. For more details on usage see [Config Obfuscation Tool]({{< relref "config-obfuscation-tool.md" >}}).
+marked fields. For more details on usage see [Config obfuscation tool]({{< relref "config-obfuscation-tool.md" >}}).
 * Fixed an internal error which occurred when using H2 versions below 1.4.198 due to use of unsupported
 lock types.
 * Added `run purgeAllStagedNodeInfos` and `run purgeStagedNodeInfo nodeInfoHash: <node_info_hash>` commands
@@ -246,13 +246,13 @@ fresh to the product but also those who are upgrading from pre-release versions.
 The Signing Service is a new addition to the suite of CENM services, sitting alongside the Identity Manager and Network
 Map. It provides a network operator with full control over the signing of node identity data (CSRs and CRRs) and global
 network data (Network Map and Network Parameters) and includes features such as HSM integration, signing scheduling and
-support for multiple Network Map Services. See [Signing Services]({{< relref "signing-service.md" >}}) to learn more about this service.
+support for multiple Network Map Services. See [Signing services]({{< relref "signing-service.md" >}}) to learn more about this service.
 
 **Brand new PKI tooling**
 
 The PKI Tool enables a network operator to easily generate Corda-compliant certificate hierarchy (keys and
 certificates) as well as certificate revocation lists. The tool supports both local and HSM key stores and can be
-customized with the configuration file. See [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool.md" >}}) to learn about all the features of the PKI Tool.
+customized with the configuration file. See [Public key infrastructure (PKI) tool]({{< relref "pki-tool.md" >}}) to learn about all the features of the PKI Tool.
 
 **Full End to End SSL communication**
 
@@ -282,13 +282,13 @@ versioned changes to the protocol without changing that which the Corda nodes de
 The Signing Service is a new addition to the suite of CENM services, sitting alongside the Identity Manager and Network
 Map. It provides a network operator with full control over the signing of node identity data (CSRs and CRRs) and global
 network data (Network Map and Network Parameters) and includes features such as HSM integration, signing scheduling and
-support for multiple Network Map Services. See [Signing Services]({{< relref "signing-service.md" >}}) to learn more about this service.
+support for multiple Network Map Services. See [Signing services]({{< relref "signing-service.md" >}}) to learn more about this service.
 
 **Epoch Control**
 
 The PKI Tool enables a network operator to easily generate Corda-compliant certificate hierarchy (keys and
 certificates) as well as certificate revocation lists. The tool supports both local and HSM key stores and can be
-customized with the configuration file. See [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool.md" >}}) to learn about all the features of the PKI Tool.
+customized with the configuration file. See [Public key infrastructure (PKI) tool]({{< relref "pki-tool.md" >}}) to learn about all the features of the PKI Tool.
 
 **Shell**
 
@@ -307,12 +307,12 @@ the user, eliminating the frustration from having to address errors one by one.
 
 **Postgresql Support**
 
-Due to the database schema separation outlined below, the 0.3 release now supports segregated sub zones. That is,
-sub-zones of nodes that operate in what appear to the nodes to be isolated networks, with their own notary(ies) and
+Due to the database schema separation outlined below, the 0.3 release now supports segregated subzones. That is,
+subzones of nodes that operate in what appear to the nodes to be isolated networks, with their own notary(ies) and
 network parameters. Critically, however, their certificate governance remains under the jurisdiction of a global
 Doorman. This way, temporary benefits such as higher privacy, differential network parameters upgrade schedules or use
-of temporary private notaries can be delivered. Note that the ability to merge one sub-zone into another is not
-currently supported. See the [Sub Zones]({{< relref "sub-zones.md" >}}) documentation for more information.
+of temporary private notaries can be delivered. Note that the ability to merge one subzone into another is not
+currently supported. See the [Subzones]({{< relref "sub-zones.md" >}}) documentation for more information.
 
 **Protocol Separation**
 
@@ -326,7 +326,7 @@ The two top-level endpoints are now
 * `/network-map`
 * `/network-map-user`
 
-see [Network Map Overview]({{< relref "network-map-overview.md" >}}) for more information.
+see [Network map overview]({{< relref "network-map-overview.md" >}}) for more information.
 
 Another change that is introduced in the newest release is the ability to interact with the Doorman and Network Map
 services via a shell. The commands available currently mainly allow an operator to inspect the state of the service,
@@ -335,8 +335,8 @@ Requests that are awaiting approval. See the [Embedded Shell]({{< relref "shell.
 
 Added support for overriding the default “increment previous value by 1” behaviour for epoch values during network
 parameter updates/initialisation. This allows a user to specify the epoch within the parameter config file and it
-facilitates arbitrary jumps in epoch values. This is necessary for the day-to-day management of multiple sub-zones as
-well as the merging of one sub-zone into another.
+facilitates arbitrary jumps in epoch values. This is necessary for the day-to-day management of multiple subzones as
+well as the merging of one subzone into another.
 
 **Shell**
 

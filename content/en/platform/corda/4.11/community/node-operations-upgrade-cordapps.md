@@ -41,7 +41,7 @@ There are two types of contract/state upgrade:
 
 
 * *Implicit:* By allowing multiple implementations of the contract ahead of time, using constraints. See
-[API: Contract Constraints]({{< relref "api-contract-constraints.md" >}}) to learn more.
+[API: Contract constraints]({{< relref "api-contract-constraints.md" >}}) to learn more.
 * *Explicit:* By creating a special *contract upgrade transaction* and getting all participants of a state to sign it using the
 contract upgrade flows.
 

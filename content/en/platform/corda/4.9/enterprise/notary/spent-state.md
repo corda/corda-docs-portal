@@ -9,7 +9,7 @@ tags:
 - cluster
 - tool
 - audit
-title: Spent state audit tool
+title: Spent State Audit Tool
 weight: 9.5
 ---
 
@@ -20,7 +20,7 @@ will reject transactions that attempt double-spends. The Spent State Audit Tool 
 involved in double-spend attempts.
 
 {{< note >}}
-The spend state audit tool is only compatible with a [high-availability implementation]{{< relref "ha-notary-service-overview.md" >}}) of the JPA notary.
+The spend state audit tool is only compatible with a [high-availability implementation]({{< relref "ha-notary-service-overview.md" >}}) of the JPA notary.
 {{< /note >}}
 
 ## Using the Spent State Audit Tool

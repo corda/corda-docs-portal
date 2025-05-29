@@ -40,10 +40,10 @@ This document provides the information you need in order to understand what happ
 Corda transactions evolve input states into output states. A state is a data structure containing: the actual data fact (that is expressed as a
 strongly typed serialized java object) and a reference to the logic (contract) that needs to verify a transition to and from this state.
 Corda does not embed the actual verification bytecode in transactions. The logic is expressed as a Java class name and a contract constraint
-(read more in [Contract Constraints]({{< relref "cordapps/api-contract-constraints.md" >}})), and the actual code is contained in a JAR  file that is referenced by the transaction.
+(read more in [Contract constraints]({{< relref "cordapps/api-contract-constraints.md" >}})), and the actual code is contained in a JAR  file that is referenced by the transaction.
 
 
-### The basic threat model and security requirement.
+### Basic threat model and security requirements
 
 Being a decentralized system, anyone who can build transactions can create `.java` files, compile and bundle them in a JAR, and then reference
 this code in the transaction he created. If it were possible to do this without any restrictions, an attacker seeking to steal your money,
@@ -77,14 +77,14 @@ Behind the scenes, the matter is more complex. As can be seen in this illustrati
 Corda’s design is based on the UTXO model. In a serialized transaction the input and reference states are *StateRefs* - only references
 to output states from previous transactions (see api-transactions).
 When building the `LedgerTransaction`, the `inputs` and `references` are resolved to Java objects created by deserialising blobs of data
-fetched from previous transactions that were in turn serialized in that context (within the classloader of that transaction - introduced here: [Contract execution in the AttachmentsClassloader and the no-overlap rule.](#contract-execution-in-the-attachmentsclassloader-and-the-no-overlap-rule)).
+fetched from previous transactions that were in turn serialized in that context (within the classloader of that transaction - introduced here: [Contract execution in the AttachmentsClassloader and the no-overlap rule](#contract-execution-in-the-attachmentsclassloader-and-the-no-overlap-rule)).
 This model has consequences when it comes to how states can be evolved. Removing a field from a newer version of a state would mean
 that when deserialising that state in the context of a transaction using the more recent code, that field could just disappear.
-In Corda 4 we implemented the no-data loss rule, which prevents this to happen. See [Default Class Evolution]({{< relref "serialization-default-evolution.md" >}}).
+In Corda 4 we implemented the no-data loss rule, which prevents this to happen. See [Default class evolution]({{< relref "serialization-default-evolution.md" >}}).
 
 {{< /note >}}
 
-### Simple example of transaction verification.
+### Simple example of transaction verification
 
 Let’s consider a very simple case, a transaction swapping `Apples` for `Oranges`. Each of the states that need to be swapped is the output of a previous transaction.
 Similar to the above image the `Apples` state is the output of some previous transaction, through which it came to be possessed by the party now paying it away in return for some oranges.
@@ -108,7 +108,7 @@ For example, if a state is created with a constraint that says its consumption c
 then the Corda consensus rules mean that any transaction attaching an implementation of the class that is _not_ signed by MegaCorp will not be considered valid.
 
 
-### Verify attachment constraints. Introduce constraints propagation.
+### Verify attachment constraints and introduce constraints propagation
 
 The previous discussion explained the construction of a transaction that consumes one or more states. Now let’s consider this from the perspective
 of somebody verifying a transaction they are presented with.
@@ -217,7 +217,7 @@ to be correct by the constraints mechanism, must verify that all dependencies ar
 
 
 
-### CorDapps depending on the same library.
+### CorDapps depending on same library
 
 It should be evident now that each CorDapp must add its own dependencies to the transaction, but what happens when two CorDapps depend on different versions of the same library?
 The node that is building the transaction must ensure that the attached JARs contain all code needed for all CorDapps and also do not break the *no-overlap* rule.

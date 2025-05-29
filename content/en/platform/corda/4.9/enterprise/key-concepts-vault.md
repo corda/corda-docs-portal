@@ -34,7 +34,7 @@ A Corda vault is a database containing all data from the ledger relevant to a no
 * Transaction reporting
 * Audit and archives, including the ability to perform joins with app-private data, like customer notes
 
-You can use data in your vault to create transactions that send value to another party by combining [fungible states]{{< relref "key-concepts-states.md" >}}), and possibly adding a change output that makes the values balance. This process is referred to as ‘coin selection’.
+You can use data in your vault to create transactions that send value to another party by combining [fungible states]({{< relref "key-concepts-states.md" >}}), and possibly adding a change output that makes the values balance. This process is referred to as ‘coin selection’.
 
 Spending from the vault in this way ensures that transactions respect fungibility rules. The issuer and reference data is preserved as the assets pass between parties.
 
@@ -51,7 +51,7 @@ This diagram illustrates the breakdown of the vault into sub-system components:
 
 You can see:
 
-* The vault's on-ledger store tracks unconsumed states. The node updates it internally when all participants verify and sign a [smart contract]{{< relref "key-concepts-contracts.md" >}}) and commit a transaction to the ledger.
+* The vault's on-ledger store tracks unconsumed states. The node updates it internally when all participants verify and sign a [smart contract]({{< relref "key-concepts-contracts.md" >}}) and commit a transaction to the ledger.
 * The vault “Off Ledger” store refers to additional data added by the node owner subsequent to transaction recording.
 * The vault performs fungible state spending (and in future, fungible state optimisation management including merging, splitting and re-issuance).
 * Vault extensions represent additional custom plugin code a developer may write to query specific custom contract state attributes.
@@ -139,7 +139,7 @@ By default, vault queries always include locked states in its result sets. Custo
 [QueryCriteria.kt](https://github.com/corda/corda/blob/release/os/4.9/core/src/main/kotlin/net/corda/core/node/services/vault/QueryCriteria.kt)
 
 
-### Explicit Usage
+### Explicit usage
 
 Soft locks are associated with transactions, typically within the lifecycle of a flow. Every time a
 flow starts, a soft lock identifier is associated with that flow for its duration and released upon its natural

@@ -16,7 +16,7 @@ weight: 5
 
 {{< note >}}
 You should already have generated your node(s) with their CorDapps installed by following the instructions in
-[Creating nodes locally]{{< relref "generating-a-node.md" >}}).
+[Creating nodes locally]({{< relref "generating-a-node.md" >}}).
 {{< /note >}}
 
 There are several ways to run a Corda node locally for testing purposes.
@@ -39,7 +39,7 @@ If you need to initialise or migrate the node's database schema objects, you nee
 If your node configuration file is obfuscated and you want to deobfuscate it when running the node, you need to pass the
 obfuscation seed and passphrase to the node in the node run command.
 
-To do so using the [Configuration Obfuscator]({{< relref "../../tools-config-obfuscator.md" >}}) command-line tool, use the
+To do so using the [Configuration obfuscator]({{< relref "../../tools-config-obfuscator.md" >}}) command-line tool, use the
 `--config-obfuscation-seed` and `--config-obfuscation-passphrase` flags, respectively, in your node run command.
 
 The following example shows how to pass a seed and a passphrase explicitly to a node component using the Configuration
@@ -243,7 +243,7 @@ Java heap memory available to them, which you can do when running them individua
 
 ### docker-compose
 
-If you created your nodes using [Dockerform]{{< relref "generating-a-node.md" >}}), the `docker-compose.yml` file has been created and configured appropriately. Navigate to `build/nodes` directory and run the `docker-compose up` command. This will start up nodes inside a new, internal network. After the nodes are started, you can use the `docker ps` command to see how the ports are mapped.
+If you created your nodes using [Dockerform]({{< relref "generating-a-node.md" >}}), the `docker-compose.yml` file has been created and configured appropriately. Navigate to `build/nodes` directory and run the `docker-compose up` command. This will start up nodes inside a new, internal network. After the nodes are started, you can use the `docker ps` command to see how the ports are mapped.
 
 {{< warning >}}
 You need both `Docker` and `docker-compose` installed and enabled to use this method. Docker CE
@@ -261,13 +261,13 @@ As an alternative, you can specify this parameter when running the `docker-compo
 
 ## Starting all nodes at once on a remote machine from the command line
 
-By default, a [Cordform]{{< relref "generating-a-node.md" >}}) task will run all the generated nodes on the same host machine.
+By default, a [Cordform]({{< relref "generating-a-node.md" >}}) task will run all the generated nodes on the same host machine.
 In order to run the nodes remotely, you can deploy them locally and then copy them to a remote server.
 If after copying the nodes to the remote machine you encounter errors related to a `localhost` resolution, you should follow the additional steps below.
 
 To create nodes locally and run on a remote machine, perform the following steps:
 
-* Configure a Cordform task and deploy the nodes locally as described in [Creating nodes locally]{{< relref "generating-a-node.md" >}}).
+* Configure a Cordform task and deploy the nodes locally as described in [Creating nodes locally]({{< relref "generating-a-node.md" >}}).
 * Copy the generated directory structure to a remote machine, for example using Secure Copy.
 * Optionally, add database configuration settings if they could not be configured in the first step and the local machine does not have access to the remote database.
 In each top-level `[NODE NAME]_node.conf` configuration file, add the database settings and copy the JDBC driver JAR file (if required).
@@ -286,7 +286,7 @@ For more information, see [Database management]({{< relref "../../node-database-
 If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options]({{< relref "../node-commandline.md" >}}) for details.
 
 
-## Stability of the Corda Node
+## Stability of the Corda node
 
 There are a number of critical resources that a Corda node needs to operate in order to ensure the transactional consistency of the ledger.
 These critical resources include:

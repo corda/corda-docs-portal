@@ -20,13 +20,13 @@ Artemis is hidden behind a thin interface that also has an in-memory only implem
 unit tests and visualisation tools.
 
 There are multiple ways of interacting with the network. When writing an application you typically won’t use the
-messaging subsystem directly. Instead you will build on top of the [flow framework]{{< relref "flow-state-machines.md" >}}),
+messaging subsystem directly. Instead you will build on top of the [flow framework]({{< relref "flow-state-machines.md" >}}),
 which adds a layer on top of raw messaging to manage multi-step flows and let you think in terms of identities
 rather than specific network endpoints.
 
 
 
-## Network Map Service
+## Network Map service
 
 Supporting the messaging layer is a network map service, which is responsible for tracking public nodes on the network.
 

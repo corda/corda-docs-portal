@@ -66,7 +66,7 @@ The Angel Service and its managed service must both be healthy in order for the 
 The CENM network is bootstrapped with PKI certificates, and sample X.500 subject names are provided as defaults
 (for example, the Identity Manager Service certificate subject is
 “CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US”).
-These can be configured in the [Signing Service Helm chart]{{< relref "deployment-kubernetes-signer.md" >}}).
+These can be configured in the [Signing Service Helm chart]({{< relref "deployment-kubernetes-signer.md" >}}).
 
 There are two ways of bootstrapping a new CENM environment:
 
@@ -222,7 +222,7 @@ You can now use `cemn` commands from within the running Docker container:
   ./cenm context login -s -u <USER> -p <PASSWORD> http://<GATEWAY-SERVICE-IP>:8080
   ```
 
-The [Gateway Service]({{< relref "../../node/gateway-service.md" >}}) is a gateway between the [Auth Service]({{< relref "../../node/auth-service.md" >}}) and front-end services in CENM. It allows you to perform all network operations on the [Identity Manager Service]({{< relref "../../../../1.5/cenm/identity-manager.md" >}}), the [Network Map Service]({{< relref "../../../../1.5/cenm/network-map.md" >}}), and the [Signing Service]({{< relref "../../../../1.5/cenm/signing-service.md" >}}).
+The [Gateway Service]({{< relref "../../node/gateway-service.md" >}}) is a gateway between the [Auth Service]({{< relref "../../node/auth-service.md" >}}) and front-end services in CENM. It allows you to perform all network operations on the [Identity Manager service]({{< relref "../../../../1.5/cenm/identity-manager.md" >}}), the [Network Map service]({{< relref "../../../../1.5/cenm/network-map.md" >}}), and the [Signing Service]({{< relref "../../../../1.5/cenm/signing-service.md" >}}).
 The IP address is dynamically allocated for each deployment and can be found with `kubectl get svc`.
 Use the following command to ensure that you are pointing at the correct namespace:
 
@@ -337,9 +337,9 @@ Use the CENM [Command-Line (CLI) tool]({{< relref "../../../../1.5/cenm/cenm-cli
 See the CENM documentation for more information about the list of available [network parameters]({{< relref "../../../../1.5/cenm/config-network-parameters.md" >}})
 and instructions on [updating network parameters]({{< relref "./updating-network-parameters.md" >}}).
 
-### Run Flag Day
+### Run flag day
 
-Use the following CENM Command-Line Interface (CLI) tool command to run a Flag Day:
+Use the following CENM Command-Line Interface (CLI) tool command to run a flag day:
 
 {{< note >}} For the changes to be advertised to the nodes, the new network map must be signed by the Signing Service.
 This operation is scheduled to take place at regular intervals (by default, once every 10 seconds), as defined in the network map configuration.
@@ -427,13 +427,13 @@ You must modify the following values in the `values.yaml` file:
 There are a number of settings provided on each Helm chart, which allow easy customisation of
 common options. Each CENM service has its own dedicated page with more detailed documentation:
 
-* [Auth Service]{{< relref "deployment-kubernetes-auth.md" >}})
-* [Gateway Service]{{< relref "deployment-kubernetes-gateway.md" >}})
-* [Identity Manager Service]{{< relref "deployment-kubernetes-idman.md" >}})
-* [Network Map Service]{{< relref "deployment-kubernetes-nmap.md" >}})
-* [Corda Notary]{{< relref "deployment-kubernetes-notary.md" >}})
-* [Signing Service]{{< relref "deployment-kubernetes-signer.md" >}})
-* [Zone Service]{{< relref "deployment-kubernetes-zone.md" >}})
+* [Auth Service]({{< relref "deployment-kubernetes-auth.md" >}})
+* [Gateway Service]({{< relref "deployment-kubernetes-gateway.md" >}})
+* [Identity Manager service]({{< relref "deployment-kubernetes-idman.md" >}})
+* [Network Map service]({{< relref "deployment-kubernetes-nmap.md" >}})
+* [Corda Notary]({{< relref "deployment-kubernetes-notary.md" >}})
+* [Signing Service]({{< relref "deployment-kubernetes-signer.md" >}})
+* [Zone Service]({{< relref "deployment-kubernetes-zone.md" >}})
 
 ### Overriding Service Configuration
 

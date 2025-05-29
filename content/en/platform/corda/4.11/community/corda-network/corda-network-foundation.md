@@ -50,7 +50,7 @@ information submitted. A digitally signed participation certificate is returned 
 The Corda Network node can then use the participation certificate to register itself with the Network Map Service.
 
 
-## Network Map Service
+## Network Map service
 
 The Network Map Service accepts digitally signed documents describing network routing and identifying information from
 nodes, based on the participation certificates signed by the Identity Service, and makes this information available to all

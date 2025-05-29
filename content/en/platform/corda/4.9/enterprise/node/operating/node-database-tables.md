@@ -278,7 +278,7 @@ This table should be empty when no events are scheduled.
 {{< /table >}}
 
 The columns `PRIVATE_KEY_MATERIAL_WRAPPED` and `SCHEME_CODE_NAME` are populated, instead of the column `PRIVATE_KEY`,
-if an HSM is configured for anonymous identities. For more details about this feature, read [Using an HSM with confidential identities]{{< relref "confidential-identities-hsm.md" >}}).
+if an HSM is configured for anonymous identities. For more details about this feature, read [Using an HSM with confidential identities]({{< relref "confidential-identities-hsm.md" >}}).
 
 
 {{< table >}}

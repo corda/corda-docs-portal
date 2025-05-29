@@ -20,7 +20,7 @@ weight: 2
 
 Corda Firewall 4.x brings with it an few changes, some related to deployment and configuration. The first part of the guide
 covers the upgrade of existing firewall deployments, from the simplest operating mode to the full HA DMZ ready mode. For
-more information on supported operating modes please see [Operating modes of the Bridge and Float]{{< relref "corda-firewall-component.md" >}}).
+more information on supported operating modes please see [Operating modes of the Bridge and Float]({{< relref "corda-firewall-component.md" >}}).
 The **Embedded Developer Node** is left out as it is not impacted. The second part explains the steps to evolve the upgraded
 environments to use the new 4.x features such as standalone Artemis with HA and shared bridge. For consistency, this guide uses the same
 hostname and port values as main firewall guide.

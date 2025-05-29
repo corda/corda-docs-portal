@@ -10,11 +10,11 @@ menu:
 tags:
 - network
 - map
-title: Network Map Service
+title: Network Map service
 ---
 
 
-# Network Map Service
+# Network Map service
 
 
 
@@ -22,10 +22,10 @@ title: Network Map Service
 
 The Network Map Service acts as a directory for all participants on the network. It is responsible for recording
 essential information of each participant such as connection address and available services. See
-[Network Map Overview]({{< relref "../../../../../en/platform/corda/1.6/cenm/network-map-overview.md" >}}) for an in-depth explanation.
+[Network map overview]({{< relref "../../../../../en/platform/corda/1.6/cenm/network-map-overview.md" >}}) for an in-depth explanation.
 
 
-## Running The Network Map Service
+## Running the Network Map service
 
 The Network Map Service currently has to be initialised in two stages. First, the network parameters for the global
 network have to be loaded into the database. Once complete, the service can be started.
@@ -38,7 +38,7 @@ restarts are handled automatically.
 {{< /warning >}}
 
 
-### Setting the Network Parameters
+### Setting the network parameters
 
 {{< warning >}}
 The options below have been replaced with the Admin RPC commands.
@@ -78,7 +78,7 @@ Saved initial network parameters to be signed:
 ...
 ```
 
-### Starting The Network Map Service
+### Starting the Network Map service
 
 Once you have set the network parameters, you can start the Network Map Service
 manually by running the following command:
@@ -115,7 +115,7 @@ Similar to the Identity Manager the main elements that need to be configured for
 * [Admin RPC Interface](#admin-rpc-interface)
 
 {{< note >}}
-See [Network Map Configuration Parameters]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-network-map-parameters.md" >}}) for a detailed explanation about each possible parameter.
+See [Network Map configuration parameters]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-network-map-parameters.md" >}}) for a detailed explanation about each possible parameter.
 {{< /note >}}
 
 ### Address
@@ -175,7 +175,7 @@ along with the schema see [CENM Databases]({{< relref "../../../../../en/platfor
 
 {{< /note >}}
 
-#### Additional Properties
+#### Additional properties
 
 Additional database properties can be loaded by including an optional *additionalProperties* configuration block. In CENM 1.0
 these are restricted to HikariCP configuration settings.
@@ -222,7 +222,7 @@ database {
 See [Shell Configuration]({{< relref "../../../../../en/platform/corda/1.6/cenm/shell.md#shell-config" >}}) for more information on how to configure the shell.
 
 
-### Network Data Signing Mechanism
+### Network data signing mechanism
 
 Before any changes to the network data (e.g. Network Map or Network Parameter updates) can be broadcast to the
 participants on the network, they first need to be signed. Similarly to the Identity Manager, there are currently two
@@ -239,11 +239,11 @@ The local Signing Service is recommended for testing and toy environments. Given
 relevant signing keys, it provides the functionality to automatically sign all approved Network Map and Parameter
 updates on a configured schedule. No human interaction is needed and the credentials for the key stores have to be
 provided upfront. The service is an integrated signer that is a cut-down version of the standalone
-[Signing Services]({{< relref "../../../../../en/platform/corda/1.6/cenm/signing-service.md" >}}) and provides no HSM integration or ability to manually verify changes. It is strongly recommended
+[Signing services]({{< relref "../../../../../en/platform/corda/1.6/cenm/signing-service.md" >}}) and provides no HSM integration or ability to manually verify changes. It is strongly recommended
 against using this for production environments.
 
 In order for the local signer to function, it needs to be able to access Network Map’s certificate and keypair
-which should have been previously generated (see [Certificate Hierarchy Guide]({{< relref "../../../../../en/platform/corda/1.6/cenm/pki-guide.md" >}}) for more information). The local signer uses local
+which should have been previously generated (see [Certificate hierarchy guide]({{< relref "../../../../../en/platform/corda/1.6/cenm/pki-guide.md" >}}) for more information). The local signer uses local
 key stores which should include the necessary signing keys along with their full certificate chains.
 
 To enable the local signer, the top level `localSigner` configuration block should be added to the configuration file:
@@ -266,7 +266,7 @@ signing any network map or parameter changes along with the full certificate cha
 
 #### External Signing Service
 
-The production grade signing mechanism is the external [Signing Services]({{< relref "../../../../../en/platform/corda/1.6/cenm/signing-service.md" >}}). This has all the functionality of the
+The production grade signing mechanism is the external [Signing services]({{< relref "../../../../../en/platform/corda/1.6/cenm/signing-service.md" >}}). This has all the functionality of the
 integrated local signer as well as HSM integration and the ability for a user to interactively verify and sign incoming
 network map or parameter changes. It should be used in all production environments where maximum security and validation
 checks are required.
@@ -427,7 +427,7 @@ revocation {
 
 The `host` should correspond to the host part of the `address` value in the Identity Manager configuration. The
 `port` parameter for each service should correspond with the `port` value within the `enmListener` configuration block in
-the service’s configuration. See [Network Map Configuration Parameters]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-network-map-parameters.md" >}}) for more information.
+the service’s configuration. See [Network Map configuration parameters]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-network-map-parameters.md" >}}) for more information.
 
 You can also use the optional `timeout` parameter that enables you to set specific Network Map Service timeouts for communication to the Identity Manager and Revocation services. This allows for high node count network maps to operate at reliable performance levels. The `timeout` value is set in milliseconds and the default value is 30000 milliseconds. For example:
 
@@ -451,7 +451,7 @@ All inter-service communication can be configured with SSL support. See [Configu
 
 {{< /note >}}
 
-### Restricting A Node’s Corda Version (optional)
+### Restricting node’s Corda version (optional) 
 
 The optional tpo-level configuration `versionInfoValidation` can be added to the configuration to exclude nodes
 running an old version of Corda from successfully publishing their node info to the network map. The configuration
@@ -510,7 +510,7 @@ adminListener = {
 If the `adminListener` property is present in the configuration, this means that the service must only be used via Admin RPC. In this case, the `shell` configuration property will be disabled. The `shell` and `adminListener` properties cannot be used in the configuration at the same time.
 {{% /important %}}
 
-### Example Configuration
+### Example configuration
 
 ```docker
 address = "localhost:20000"

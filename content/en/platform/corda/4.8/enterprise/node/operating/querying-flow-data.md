@@ -125,7 +125,7 @@ When this query is executed, a list of the flow IDs for all flows that did not c
 
 ## Querying flow data via the node shell
 
-To query the node for flow data via the [Node Shell]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/operating/shell.md" >}}), you must use the `flowStatus` query command.
+To query the node for flow data via the [Node Shell]({{< relref "shell.md" >}}), you must use the `flowStatus` query command.
 
 You can use the `flowStatus` query command, in combination with one or more parameters, to retrieve various types of flow data from the node's checkpoints.
 
@@ -210,7 +210,7 @@ flowStatus queryFlows flowClass: HospitalizerFlow
 
 #### Sample query to view all suspended flows within a particular time-window
 
-When specifying time-windows, all dates and times must be specified in accordance with the [ISO 8601 standard](https://www.iso.org/iso-8601-date-and-time-format.html/) as follows:
+When specifying time windows, all dates and times must be specified in accordance with the [ISO 8601 standard](https://www.iso.org/iso-8601-date-and-time-format.html/) as follows:
 
 ```
 yyyy-MM-ddTHH:mm:ss

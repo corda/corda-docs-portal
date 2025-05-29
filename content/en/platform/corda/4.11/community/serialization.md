@@ -265,7 +265,7 @@ For all classes, you must:
 
 * Include the parameter names in the `.class` file when compiling a class. This is the default in Kotlin.
   In Java, turn it on using the `-parameters` command line option to `javac`. If you cannot recompile classes, such as when using a third-party library, you can use a
-  proxy serializer. See [Pluggable Serializers for CorDapps]({{< relref "cordapp-custom-serializers.md" >}}).
+  proxy serializer. See [Pluggable serializers for CorDapps]({{< relref "cordapp-custom-serializers.md" >}}).
 * Annotate the class with `@CordaSerializable`.
 * Make sure Corda supports the declared types of constructor arguments, getters, and setters. If you use generics, the
   generic parameter must be a supported type, an open wildcard (`*`), or a bounded wildcard that has been
@@ -571,7 +571,7 @@ If mutability isn’t an issue, you can use a single constructor for data classe
 
 Corda supports all enums (provided they are annotated with `@CordaSerializable`) and the interoperability of
 enumerated type versions. That means you can change these types over time without affecting backward (or forward)
-compatibility. See [Enum Evolution]({{< relref "serialization-enum-evolution.md" >}}).
+compatibility. See [Enum evolution]({{< relref "serialization-enum-evolution.md" >}}).
 
 
 ### Exceptions
@@ -635,4 +635,4 @@ Type evolution lets you alter classes over time, while keeping them serializable
 all versions of the class. This ensures an object serialized with an older idea of what the class “looked like” can be deserialized,
 and a version of the current state of the class instantiated.
 
-More detail can be found in [Default Class Evolution]({{< relref "serialization-default-evolution.md" >}}).
+More detail can be found in [Default class evolution]({{< relref "serialization-default-evolution.md" >}}).

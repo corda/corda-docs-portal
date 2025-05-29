@@ -7,7 +7,7 @@ tags:
 - config
 - AWS
 - PostgreSQL
-title: Deploy CENM 1.4 with AWS and PostgreSQL
+title: Deploying CENM 1.4 with AWS and PostgreSQL
 weight: 300
 ---
 
@@ -31,8 +31,7 @@ Not supported:
 
 To set up a reference deployment of CENM using AWS and PostgreSQL:
 
-
-### Set up a PostgreSQL database for each CENM service
+### Set up a PostgreSQL database for each CENM service
 
 You must ensure that each CENM service has it's own PostgreSQL database. Complete the steps referenced below for each of the following:
 
@@ -59,7 +58,7 @@ In step 4 above, you must create a schema for each CENM service. The guide provi
 ### Deploy CENM services
 
 1. Deploy the [Auth Service]({{< relref "auth-service.md" >}}) using PostgreSQL on AWS.
-2. Deploy the [Identity Manager Service]({{< relref "identity-manager.md" >}}) using PostgreSQL on AWS.
-3. Deploy the [Network Map Service]({{< relref "network-map.md" >}}) using PostgreSQL on AWS.
+2. Deploy the [Identity Manager service]({{< relref "identity-manager.md" >}}) using PostgreSQL on AWS.
+3. Deploy the [Network Map service]({{< relref "network-map.md" >}}) using PostgreSQL on AWS.
 4. Deploy the [Zone Service]({{< relref "zone-service.md" >}}) using PostgreSQL on AWS.
 5. Deploy the [Signing Service]({{< relref "signing-service.md#signing-service" >}}) (it does not use a database).
