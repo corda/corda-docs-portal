@@ -1,6 +1,7 @@
 ---
 title: "About the Docs"
 date: 2023-08-16
+section_menu: about-the-docs
 ---
 # About the Docs
 
