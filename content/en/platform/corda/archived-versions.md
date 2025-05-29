@@ -5,7 +5,7 @@ tags:
 - archive
 - archived
 - docs
-title: Index of Archived Documentation
+title: Archived documentation
 weight: 
 ---
 

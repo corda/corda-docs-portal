@@ -5,7 +5,7 @@ tags:
 - end of life
 - schedule
 - support
-title: End of Life Schedule
+title: End of life schedule
 weight:
 ---
 
