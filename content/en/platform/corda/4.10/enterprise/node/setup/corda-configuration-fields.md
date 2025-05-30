@@ -495,10 +495,10 @@ The New Relic configuration leverages the Dropwizard NewRelicReporter solution.
 
 ## `keyStorePassword`
 
-The password to unlock the KeyStore file (`<workspace>/certificates/sslkeystore.jks`) containing the node certificate and private key.
+The password to unlock the keystore files `<workspace>/certificates/sslkeystore.jks` and `<workspace>/certificates/nodestore.jks` containing the node certificate and private key.
 
-**Important: This is the non-secret value for the development certificates automatically generated during the first node run.
-Alternatively, these keys can be managed in secure hardware devices.**
+{{< important >}}This is the non-secret value for the development certificates automatically generated during the first node run.
+Alternatively, these keys can be managed in secure hardware devices.{{< /important >}}
 
 *Default:* cordacadevpass
 
