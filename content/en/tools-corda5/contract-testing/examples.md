@@ -7,6 +7,7 @@ menu:
     identifier: contract-testing-examples
     parent: contract-testing
 ---
+# Examples
 
 ## No Service Injection
 

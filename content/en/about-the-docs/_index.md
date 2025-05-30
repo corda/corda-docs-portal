@@ -1,6 +1,7 @@
 ---
 title: "About the Docs"
 date: 2023-08-16
+section_menu: about-the-docs
 ---
 # About the Docs
 
@@ -8,7 +9,6 @@ The following topics are explained on this page:
 
 * [Reading the Docs]({{< relref "#reading-the-docs">}})
 * [Documentation End of Life Strategy]({{< relref "#documentation-end-of-life-strategy">}})
-* [Documenting Corda 5]({{< relref "#documenting-corda-5">}})
 * [Reporting an Error in the Docs]({{< relref "#reporting-an-error-in-the-docs">}})
 
 ## Reading the Docs
@@ -91,29 +91,9 @@ All dates refer to the end of the month indicated.
 The highest released version of Corda 4 Enterprise Edition at any point in time will be supported, including maintenance, until at least 31st December 2029 or until superseded by a higher version number of Corda 4 Enterprise Edition, at which point the dates in the table take precedence.
 {{< /note >}}
 
-### Corda 5
-
-{{< snippet "corda-5.2/end-of-life-corda5.md" >}}
-
 ### Corda 4
 
 {{< snippet "corda-4/end-of-life-corda4.md" >}}
-
-## Documenting Corda 5
-
-The Corda 5 documentation is structured differently to previous versions of Corda. Previously, Corda Enterprise and Corda Community content was published in separate documentation sets.
-From Corda 5.0 onwards, there is one documentation set, but the features that relate only to Corda Enterprise are marked to avoid confusion.
-
-{{<
-  figure
-	 src="docs-enterprise-icon-use-case.png"
-   width=55%
-	 figcaption="Documentation heading with Enterprise icon"
-	 alt="Enterprise icon"
->}}
-
-* **A**: The heading without the 'Enterprise only' icon is the most common and it is used where the content applies to all Corda users.
-* **B**: The ‘Enterprise only' icon is used mostly in headings, indicating that the content under that heading relates to a Corda Enterprise feature. On occasions, the icon may be used inline to identify sentences, paragraphs, or tables that apply to a Corda Enterprise feature.
 
 ## Reporting an Error in the Docs
 
