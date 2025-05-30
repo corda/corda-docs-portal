@@ -38,8 +38,8 @@ To work against a non-release branch, proceed as follows:
 
 
 
-* Unix/macOS: `./gradlew install`
-* Windows: `gradlew.bat install`
+* Unix/macOS: `./gradlew publishToMavenLocal`
+* Windows: `gradlew.bat publishToMavenLocal`
 
 
 {{< warning >}}
