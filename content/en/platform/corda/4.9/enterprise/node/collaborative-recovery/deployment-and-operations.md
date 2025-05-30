@@ -25,7 +25,7 @@ You can use the Collaborative Recovery CorDapps to automate the process of recov
 
 ## Schedule reconciliation
 
-If you and counterparties on your Business Network (BN) plan to use collaborative recovery as part of your disaster planning, it's a good idea to schedule regular reconciliation checks using the [LedgerSync CorDapp]({{< relref "ledger-sync.md#schedulereconciliationflow" >}}). You can achieve this by implementing a small layer to schedule and integrate ledger syncing with your Business Network services. For practical steps on scheduling recovery, use the [LedgerSync guide]{{< relref "ledger-sync.md" >}}).
+If you and counterparties on your Business Network (BN) plan to use collaborative recovery as part of your disaster planning, it's a good idea to schedule regular reconciliation checks using the [LedgerSync CorDapp]({{< relref "ledger-sync.md#schedulereconciliationflow" >}}). You can achieve this by implementing a small layer to schedule and integrate ledger syncing with your Business Network services. For practical steps on scheduling recovery, use the [LedgerSync guide]({{< relref "ledger-sync.md" >}}).
 
 How frequently you should run reconciliation checks depends on the size of your network. Since reconciliation flows carry some memory overheads, smaller networks may be able to schedule more regular reconciliation actions. For a larger network, you can implement a lighter schedule of reconciliations, or you could choose to reconcile more regularly, but with a random subset of available peers. This would give you an indication of the general health of data in the BN.
 
@@ -34,7 +34,7 @@ Since some recovery flows have been designed to be run manually, you can set ale
 ## Monitor reconciliation and receive alerts using metrics
 
 The Collaborative Recovery CorDapps expose a number of JMX metrics via Jolokia. You can see the full list of the exposed metrics for
-[LedgerSync here]({{< relref "ledger-sync.md#jmx-metrics" >}}), and [LedgerRecover here]{{< relref "ledger-recovery-automatic.md" >}}). These are exposed alongside metrics from the node.
+[LedgerSync here]({{< relref "ledger-sync.md#jmx-metrics" >}}), and [LedgerRecover here]({{< relref "ledger-recovery-automatic.md" >}}). These are exposed alongside metrics from the node.
 You can also [monitor via Jolokia]({{< relref "../operating/node-administration.md#monitoring-via-jolokia" >}}).
 
 
@@ -111,7 +111,7 @@ If you have not been able to use synchronous replication:
 * After recovering from a backup/asynchronous replica, some of the flow checkpoints may be stale, and resuming them might cause disruption.
 * In an ideal scenario, all flow checkpoints should be cleaned out manually before starting the node. You can do this using [Corda checkpoint tooling]({{< relref "../operating/monitoring-and-logging/checkpoint-tooling.md" >}}).
 * Message queue files should also be cleaned manually, as they are unlikely to match the contents of the database anymore, especially when restoring from a backup.
-* After the node has been started, you should run [LedgerSync]{{< relref "ledger-sync.md" >}}) to check whether the ledger is missing any transactions.
+* After the node has been started, you should run [LedgerSync]({{< relref "ledger-sync.md" >}}) to check whether the ledger is missing any transactions.
 
 ### What to do if ledger inconsistencies are detected
 
@@ -136,13 +136,13 @@ Inconsistencies in the ledger can indicate some serious underlying issues. If th
 The list of missing transaction IDs can be obtained from the `lastSuccessfulReconciliationStatus` field of a reconciliation status.
 `lastSuccessfulReconciliationStatus` is a binary field and can be decoded using [Corda Blob Inspector]({{< relref "../../blob-inspector.md" >}}).
 
-7. Depending on the size of the difference, either [manual]{{< relref "ledger-recovery-manual.md" >}}) or [automatic]{{< relref "ledger-recovery-automatic.md" >}}) recovery can be used. Consider using automatic LedgerRecover and switch to manual if automatic fails because there have been too many transactions or too frequent recovery requests.
+7. Depending on the size of the difference, either [manual]({{< relref "ledger-recovery-manual.md" >}}) or [automatic]({{< relref "ledger-recovery-automatic.md" >}}) recovery can be used. Consider using automatic LedgerRecover and switch to manual if automatic fails because there have been too many transactions or too frequent recovery requests.
 
 When you use manual recovery, it creates unencrypted archives with transaction data in clear-text on the filesystem of the party that supplies the data. If the requesting and responding parties have confidentiality requirements, you should both follow best practices to ensure
 the data doesn't fall into the wrong hands. At a minimum, we advise to use encrypted and secure storage to transmit the data
 (or encrypt the data on the supplier side) as well as delete the archive data from the responder and initiator filesystems.
 
-Statuses of running recoveries can be monitored via [LedgerRecover metrics]{{< relref "ledger-recovery-automatic.md" >}}). At the end of each recovery, the relevant reconciliation data is refreshed automatically by the recovery flows. This removes all transactions that now exist in the vault. If you are in a situation where more loss of data is expected, you can re-run reconciliation to confirm that the differences are gone.
+Statuses of running recoveries can be monitored via [LedgerRecover metrics]({{< relref "ledger-recovery-automatic.md" >}}). At the end of each recovery, the relevant reconciliation data is refreshed automatically by the recovery flows. This removes all transactions that now exist in the vault. If you are in a situation where more loss of data is expected, you can re-run reconciliation to confirm that the differences are gone.
 
 When using Collaborative Recovery, keep in mind:
 
@@ -156,7 +156,7 @@ When using Collaborative Recovery, keep in mind:
 Collaborative Recovery supports the resiliency of Corda nodes operating as part of a Business Network (BN). This means:
 
 * It is distributed as a CorDapp-level solution rather than being included in the Corda protocol.
-* It has been designed based on the assumption that the Business Network Operator (BNO) will assume some responsibilities in co-ordinating reconciliation
+* It has been designed based on the assumption that the Business network operator (BNO) will assume some responsibilities in co-ordinating reconciliation
 and recovery activities across the network.
 
 As a BNO planning to use Collaborative Recovery as part of your disaster recovery strategy, you are expected to:

@@ -7,7 +7,7 @@ tags:
 - notary
 - failover
 weight: 3
-title: Notary Failover
+title: Notary failover
 ---
 
 

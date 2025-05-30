@@ -22,11 +22,11 @@ Using these documents, you can:
 
 ## The Payments Agent
 
-Payments on a Corda network are facilitated by the designated Payments Agent. This must be a trusted party on the network, such as the Business Network Operator (BNO). Using the Payments Agent CorDapp, the Payments Agent is able to communicate payment requests from network members to the external PSP via an API. As the payments are processed, the Payments Agent relays updates back to the relevant parties, and updates the ledger accordingly.
+Payments on a Corda network are facilitated by the designated Payments Agent. This must be a trusted party on the network, such as the Business network operator (BNO). Using the Payments Agent CorDapp, the Payments Agent is able to communicate payment requests from network members to the external PSP via an API. As the payments are processed, the Payments Agent relays updates back to the relevant parties, and updates the ledger accordingly.
 
 In this Technical Preview, you can play the role of the Payments Agent to facilitate payments requested on a local network, via the Modulr sandbox.
 
-If you are considering setting up a payments network, read more about the [Payments Agent flows]{{< relref "payments-agent.md" >}}) to see the actions you can perform.
+If you are considering setting up a payments network, read more about the [Payments Agent flows]({{{< relref "payments-agent.md" >}}) to see the actions you can perform.
 
 ## The Payments SDK
 

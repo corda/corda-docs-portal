@@ -32,7 +32,7 @@ Typical update process is as follows:
 
 * Stop the Network Map Service.
 * Run it with `--set-network-parameters` flag, along with the network truststore related flags. See the ‘Setting
-the Network Parameters’ section within the [Network Map Service]({{< relref "network-map.md" >}}) doc for more information. The network parameters
+the Network Parameters’ section within the [Network Map service]({{< relref "network-map.md" >}}) doc for more information. The network parameters
 file must have `parametersUpdate` config block:
 
 ```guess

@@ -24,7 +24,7 @@ By following this guide, you can:
 You must have:
 
 * Access to the [Corda Enterprise Customer Hub](https://customerhub.r3.com/s/r3-customcommunitylogin) Trial area.
-* A [Corda Payments-enabled CorDapp]{{< relref "payments-sdk.md" >}}).
+* A [Corda Payments-enabled CorDapp]({{< relref "payments-sdk.md" >}}).
 * Modulr sandbox credentials.
 
 ## Set up Modulr Sandbox for Payments Agent

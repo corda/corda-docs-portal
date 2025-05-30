@@ -34,10 +34,10 @@ You can easily bootstrap a compatibility zone for testing or pre-production use 
 ### Joining an existing compatibility zone
 
 After the testing and pre-production phases, users are encouraged to join an existing compatibility zone such as Corda
-Network (the main compatibility zone). See [Joining an existing compatibility zone]{{< relref "joining-a-compatibility-zone.md" >}}).
+Network (the main compatibility zone). See [Joining an existing compatibility zone]({{< relref "joining-a-compatibility-zone.md" >}}).
 
 
 ### Setting up a dynamic compatibility zone
 
 Some users may also be interested in setting up their own dynamic compatibility zone. For instructions and a discussion
-of whether this approach is suitable for you, see [Setting up a dynamic compatibility zone]{{< relref "setting-up-a-dynamic-compatibility-zone.md" >}}).
+of whether this approach is suitable for you, see [Setting up a dynamic compatibility zone]({{< relref "setting-up-a-dynamic-compatibility-zone.md" >}}).

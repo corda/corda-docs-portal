@@ -13,17 +13,17 @@ tags:
 - config
 - obfuscation
 - tool
-title: Config Obfuscation Tool
+title: Config obfuscation tool
 ---
 
 
-# Config Obfuscation Tool
+# Config obfuscation tool
 
 
 
 ## Overview
 
-The Config Obfuscation Tool allows users to obfuscate sensitive information in configuration files, such that the
+The config obfuscation tool allows users to obfuscate sensitive information in configuration files, such that the
 data is protected at rest. The tool is an altered version of the config obfuscator used by Corda. There are two steps
 a user shall take in order to make use of this tool:
 
@@ -37,7 +37,7 @@ obfuscation flag *needs* to be set.
 The following subsections will explain in detail how each of these two steps should be performed.
 
 
-## Using the Config Obfuscation Tool
+## Using the config obfuscation tool
 
 The config obfuscation tool resides in the `configobfuscationtool.jar`. Fields in the config are obfuscated by
 encapsulating the values to be obfuscated in a `<encrypt{...}>` block.

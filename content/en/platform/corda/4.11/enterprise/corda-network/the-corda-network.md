@@ -3,16 +3,16 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-11:
     identifier: corda-enterprise-4-11-corda-network
-    name: "Corda Network"
-title: Corda Network
+    name: "The Corda Network"
+title: The Corda Network
 weight: 500
 ---
 
 
-# Corda Network
+# The Corda Network
 
 
-[Corda Network](https://corda.network/) is a publicly-available internet of Corda nodes operated by network participants. Each
+[The Corda Network](https://corda.network/) is a publicly-available internet of Corda nodes operated by network participants. Each
 node is identified by a certificate issued by the network’s identity service, and is also discoverable on a network map.
 
 Corda Network went live in December 2018.
@@ -47,7 +47,7 @@ information submitted. A digitally signed participation certificate is returned 
 The Corda Network node can then use the participation certificate to register itself with the Network Map Service.
 
 
-## Network Map Service
+## Network Map service
 
 The Network Map Service accepts digitally signed documents describing network routing and identifying information from
 nodes, based on the participation certificates signed by the Identity Service, and makes this information available to all

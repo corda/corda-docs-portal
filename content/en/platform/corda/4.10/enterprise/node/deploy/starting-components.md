@@ -38,7 +38,7 @@ FloatSupervisorService: active = true
 ```
 
 
-## Starting the Corda Node
+## Starting the Corda node
 
 To start the Node run the following command from the Node VM:
 
@@ -47,9 +47,9 @@ To start the Node run the following command from the Node VM:
 {{< note >}}
 If your node configuration file is obfuscated and you want to de-obfuscate it when running the node, you need to pass the obfuscation seed and passphrase to the node in the node run command.
 
-To do so using the [Configuration Obfuscator]({{< relref "../../tools-config-obfuscator.md" >}}) command-line tool, use the `--config-obfuscation-seed` and `--config-obfuscation-passphrase` flags, respectively, in your node run command.
+To do so using the [Configuration obfuscator]({{< relref "../../tools-config-obfuscator.md" >}}) command-line tool, use the `--config-obfuscation-seed` and `--config-obfuscation-passphrase` flags, respectively, in your node run command.
 
-The following example shows how to pass a seed and a passphrase explicitly to a node component using the Configuration Obfuscator command-line tool:
+The following example shows how to pass a seed and a passphrase explicitly to a node component using the configuration obfuscator command-line tool:
 
 ```bash
 $ /usr/bin/java -Xmx2048m -jar /opt/corda/corda-4.10.jar --config-file node.conf --config-obfuscation-seed my-seed --config-obfuscation-passphrase my-passphrase
@@ -64,7 +64,7 @@ $ export CONFIG_OBFUSCATION_SEED=my-seed; export CONFIG_OBFUSCATION_PASSPHRASE=m
 {{< /note >}}
 
 {{< note >}}
-If a node is registered but not started and the [Network Map Service]({{< relref "../../../../1.5/cenm/network-map.md#network-map-service" >}}) goes down before the first start of the node, the node will fail to restart.
+If a node is registered but not started and the [Network Map service]({{< relref "../../../../1.5/cenm/network-map.md#network-map-service" >}}) goes down before the first start of the node, the node will fail to restart.
 
                                                   
                                                                                                               

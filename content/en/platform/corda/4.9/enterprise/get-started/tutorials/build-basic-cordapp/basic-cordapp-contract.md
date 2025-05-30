@@ -11,7 +11,7 @@ tags:
 title: Write contracts
 ---
 
-This tutorial guides you through writing the two contracts you need in your CorDapp: `AppleStampContract` and `BasketOfApplesContract`. You will link these contracts to the states that you created in the [Write the states]{{< relref "basic-cordapp-state.md" >}}) tutorial.
+This tutorial guides you through writing the two contracts you need in your CorDapp: `AppleStampContract` and `BasketOfApplesContract`. You will link these contracts to the states that you created in the [Write the states]({{< relref "basic-cordapp-state.md" >}}) tutorial.
 
 You will create these contracts in the `contracts/src/main/java/com/template/contracts/` directory in this tutorial. Refer to the `TemplateContract.java` file in this directory to see a template contract.
 
@@ -323,4 +323,4 @@ public class BasketOfApplesContract implements Contract {
 
 ## Next steps
 
-Follow the [Write flows]{{< relref "basic-cordapp-flows.md" >}}) tutorial to continue on this learning path.
+Follow the [Write flows]({{< relref "basic-cordapp-flows.md" >}}) tutorial to continue on this learning path.

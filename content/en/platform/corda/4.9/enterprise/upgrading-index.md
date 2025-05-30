@@ -12,17 +12,17 @@ weight: 2
 
 # Upgrading a CorDapp or node
 
-* [Upgrading a node to Corda 4.9]{{< relref "node-upgrade-notes.md" >}})
-* [Upgrading a CorDapp to Corda Enterprise Edition 4.9]{{< relref "app-upgrade-notes-enterprise.md" >}})
-* [Upgrading a CorDapp to a newer platform version]{{< relref "app-upgrade-notes.md" >}})
-* [Upgrading a Corda OS Node to Corda Enterprise]{{< relref "node-operations-upgrading-os-to-ent.md" >}})
-* [Upgrading deployed CorDapps]{{< relref "node-operations-upgrade-cordapps.md" >}})
+* [Upgrading a node to Corda 4.9]({{< relref "node-upgrade-notes.md" >}})
+* [Upgrading a CorDapp to Corda Enterprise Edition 4.9]({{< relref "app-upgrade-notes-enterprise.md" >}})
+* [Upgrading a CorDapp to a newer platform version]({{< relref "app-upgrade-notes.md" >}})
+* [Upgrading a Corda OS Node to Corda Enterprise]({{< relref "node-operations-upgrading-os-to-ent.md" >}})
+* [Upgrading deployed CorDapps]({{< relref "node-operations-upgrade-cordapps.md" >}})
 * [Upgrading a running CorDapp]({{< relref "cordapps/upgrading-cordapps.md" >}})
 
 ## Features, versions, and compatibility
 
-* [Corda and Corda Enterprise compatibility]{{< relref "version-compatibility.md" >}})
-* [Platform support matrix]{{< relref "platform-support-matrix.md" >}})
+* [Corda and Corda Enterprise compatibility]({{< relref "version-compatibility.md" >}})
+* [Platform support matrix]({{< relref "platform-support-matrix.md" >}})
 
 ## See also
 

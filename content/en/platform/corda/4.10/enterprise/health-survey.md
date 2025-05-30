@@ -133,7 +133,7 @@ The Corda Health Survey is designed to perform connectivity and configuration ch
 {{< note >}}
 Highly available Corda Bridge/Float deployments are supported.
 
-The Corda Health Survey is designed to help operators with initial setup of a Node; it is not intended as an ongoing monitoring tool.
+The Corda Health Survey is designed to help operators with initial setup of a node; it is not intended as an ongoing monitoring tool.
 {{< /note >}}
 
 ## Report format

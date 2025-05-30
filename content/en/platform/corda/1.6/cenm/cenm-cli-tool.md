@@ -13,10 +13,10 @@ tags:
 - CENM command line interface
 - CENM command-line interface
 - shell
-title: CENM Services Command-line Interface
+title: CENM Command-line Interface
 ---
 
-# CENM Command-line Interface Tool
+# CENM Command-line Interface
 
 The CENM Command-line Interface (CLI) allows you to perform key CENM tasks remotely and securely.
 
@@ -88,7 +88,7 @@ To set up a new network with the CLI:
     `./cenm zone create-subzone --config-file=config/networkmap.conf --label=Subzone --label-color="#000000" --network-map-address=networkmap:8080 --network-parameters=config/params.conf`
 
 {{< note >}}
-You can update the Network Map admin address using a command like this: `./cenm network-map config set-admin-address -a=networkmap:8081`. If you have multiple sub-zones, you need to specify which sub-zone you are updating in the command.
+You can update the Network Map admin address using a command like this: `./cenm network-map config set-admin-address -a=networkmap:8081`. If you have multiple subzones, you need to specify which subzone you are updating in the command.
 {{< /note >}}
 
 5. Set the Network Map configuration for a subzone (the entry `1` below comes from the response to the create-subzone command):
@@ -980,7 +980,7 @@ Sets the context of the command - overrides the current context set.
 `-o, <outputType>`
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-## Network Map Service commands
+## Network Map service commands
 
 You can use the CLI to perform the following tasks on Network Map Services:
 

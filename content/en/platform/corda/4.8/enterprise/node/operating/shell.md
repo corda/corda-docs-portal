@@ -58,7 +58,7 @@ There are also operations that allow starting/killing the flows or even stopping
 * Starting flows requires `InvokeRpc.registeredFlows` and `InvokeRpc.wellKnownPartyFromX500Name`, as well as a permission for the flow being started.
 * Killing flows (`flow kill`) requires `InvokeRpc.killFlow`. This currently allows the user to kill *any* flow, so please be careful when granting it!
 
-Description of RPC operations can be found in the [RPC operations]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/api-rpc.md" >}}) documentation.
+Description of RPC operations can be found in the [RPC operations]({{< relref "../../api-rpc.md" >}}) documentation.
 
 {{< note >}}
 `InvokeRpc.startTrackedFlowDynamic` permission gives permission to run all existing flows.
@@ -175,7 +175,7 @@ Where:
 * `--help`, `-h`: Show this help message and exit.
 * `--version`, `-V`: Print version information and exit.
 
-Additionally, the `install-shell-extensions` subcommand can be used to install the `corda-shell` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/operating/cli-application-shell-extensions.md" >}}) for more info.
+Additionally, the `install-shell-extensions` subcommand can be used to install the `corda-shell` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications]({{< relref "cli-application-shell-extensions.md" >}}) for more info.
 
 The format of `config-file`:
 
@@ -684,7 +684,7 @@ If this action is not successful, you will receive an error message.
 
 #### Pause all hospitalized flows
 
-Use this command to pause all [hospitalized flows]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/node-flow-hospital.md" >}}).
+Use this command to pause all [hospitalized flows]({{< relref "../node-flow-hospital.md" >}}).
 
 ##### Command
 

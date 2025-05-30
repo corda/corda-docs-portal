@@ -28,7 +28,7 @@ This section explains how to configure the above components and the following di
 
 ![enm with ssl](/en/images/enm-with-ssl.png "enm with ssl")
 
-## Recommended Key and Cert hierarchy
+## Recommended key and cert hierarchy
 
 For SSL to work some PKI infrastructure must be in place. R3 recommends generating a self signed root key that can
 then be used to sign a key for each service. This way, all that needs distributing to the machines hosting the JVMs
@@ -79,10 +79,10 @@ acting as clients of the network.
 
 {{< /note >}}
 
-### SSL Certificate Configuring
+### Configuring SSL certificates
 
 All components should be configured to use SSL with the following configuration block. More details can be found in
-[Identity Manager Configuration Parameters]({{< relref "config-identity-manager-parameters.md" >}}) and [Network Map Configuration Parameters]({{< relref "config-network-map-parameters.md" >}}).
+[Identity Manager configuration parameters]({{< relref "config-identity-manager-parameters.md" >}}) and [Network Map configuration parameters]({{< relref "config-network-map-parameters.md" >}}).
 
 ```docker
 ssl = {
@@ -139,7 +139,7 @@ ssl = {
 ```
 
 
-### Server Side Enablement
+### Server side enablement
 
 Those services that open ports for other CENM components to talk to can enable SSL by including the above settings within
 their `enmListener` configuration block:
@@ -163,7 +163,7 @@ will be created without SSL and default to the following ports:
 * **Revocation (Identity Manager)** - 5052
 
 
-### Client Side Enablement
+### Client side enablement
 
 Those CENM services which need to talk to other services as a client are configured similarly to the above, on a
 per-service basis. For example, the Network Map is configured to talk to the Identity Manager Service:
@@ -188,7 +188,7 @@ initialise an unencrypted connection, whilst the Identity Manager will be expect
 resulting in an unsuccessful connection.
 
 
-### Sharing SSL Settings
+### Sharing SSL settings
 
 For some services, such as the Network Map, it is possible multiple SSL configuration blocks within the configuration
 file. It is considered to be most secure if each of these connections use a unique set of SSL keys, however in some
@@ -232,7 +232,7 @@ revocation = {
 ```
 
 
-## An Example
+## Example configuration
 
 The following configuration files configure a small test deployment of the CENM suite of tools on a single machine.
 This is why all of the services are binding to localhost and can refer to a central location for the PKI and
@@ -318,7 +318,7 @@ shell {
 
 ```
 
-### Network Map Service
+### Network Map service
 
 ```docker
 address = "localhost:20000"

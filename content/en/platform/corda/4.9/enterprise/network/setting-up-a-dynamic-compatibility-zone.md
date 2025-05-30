@@ -86,7 +86,7 @@ You can use an existing network map implementation such as the
 
 #### Writing a network map server
 
-This server implements a simple HTTP based protocol described in the “[The network map]{{< relref "network-map.md" >}})” page.
+This server implements a simple HTTP based protocol described in the “[The network map]({{< relref "network-map.md" >}})” page.
 The map server is responsible for gathering NodeInfo files from nodes, storing them, and distributing them back to the
 nodes in the zone. By doing this it is also responsible for choosing who is in and who is out: having a signed
 identity certificate is not enough to be a part of a Corda zone, you also need to be listed in the network map.

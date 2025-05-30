@@ -3,7 +3,7 @@ date: '2020-06-16T12:00:00Z'
 menu:
   corda-enterprise-4-11:
     identifier: corda-enterprise-4-11-operations-guide
-    name: "Corda Operations and Deployment"
+    name: "Corda operations and deployment"
 tags:
 - operations
 - deployment

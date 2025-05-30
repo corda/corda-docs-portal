@@ -546,6 +546,6 @@ url = "/en/platform/corda/5.1/reference/rest-api/openapi.html"
 [[corda52]]
 identifier = "corda52-rest-ref"
 parent = "corda52-rest-api-reference"
-name = "REST API Reference"
+name = "REST API reference"
 weight = 2000
 url = "/en/platform/corda/5.2/reference/rest-api/openapi.html"

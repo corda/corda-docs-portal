@@ -8,11 +8,11 @@ menu:
 tags:
 - identity
 - manager
-title: Identity Manager Service
+title: Identity Manager service
 ---
 
 
-# Identity Manager Service
+# Identity Manager service
 
 
 
@@ -28,7 +28,7 @@ The Identity Manager Service acts as the gatekeeper to the network. It is formed
 **The Identity Manager Service cannot be redirected. Only HTTP OK (response code 200) is supported - any other kind of response codes, including HTTP redirects (for example, response code 301), are NOT supported.**
 {{< /warning >}}
 
-## Running The Identity Manager Service
+## Running the Identity Manager service
 
 Once the Identity Manager has been configured, it can be run via the command:
 
@@ -82,7 +82,7 @@ The main elements that need to be configured for the Identity Manager are:
 
 
 {{< note >}}
-See [Identity Manager Configuration Parameters]({{< relref "config-identity-manager-parameters.md" >}}) for a detailed explanation about each possible parameter.
+See [Identity Manager configuration parameters]({{< relref "config-identity-manager-parameters.md" >}}) for a detailed explanation about each possible parameter.
 {{< /note >}}
 
 ### Address
@@ -142,7 +142,7 @@ along with the schema see [CENM Databases]({{< relref "database-set-up.md" >}}).
 
 {{< /note >}}
 
-#### Additional Properties
+#### Additional properties
 
 Additional database properties can be loaded by including an optional *additionalProperties* configuration block. Currently
 these are restricted to HikariCP configuration settings.
@@ -187,7 +187,7 @@ database {
 See [Shell Configuration]({{< relref "shell.md#shell-configuration" >}}) for more information on how to configure the shell.
 
 
-### Issuance Workflow
+### Issuance workflow
 
 The Issuance workflow is one of two components within the Identity Manager. In order for a new node to join the network,
 it first needs a certificate that is signed by the Identity Manager. It acquires this by submitting a Certificate
@@ -272,7 +272,7 @@ See [Workflow]({{< relref "workflow.md" >}}) for more information.
 
 ###### Jira Project Configuration
 
-See [Jira Set-Up]({{< relref "jira-setup.md" >}}) for more information about how to configure a Jira project for CSR approval.
+See [Jira setup]({{< relref "jira-setup.md" >}}) for more information about how to configure a Jira project for CSR approval.
 
 
 #### CSR Signing Mechanism
@@ -290,11 +290,11 @@ approval mechanism above, this can be achieved via one of two mechanisms:
 The local Signing Service is recommended for testing and toy environments. Given a local key store containing the
 relevant signing keys, it provides the functionality to automatically sign all approved CSRs on a configured schedule.
 No human interaction is needed and the credentials for the key stores have to be provided upfront. The service is an
-integrated signer that is a cut-down version of the standalone [Signing Services]({{< relref "signing-service.md" >}}) and provides no HSM integration or
+integrated signer that is a cut-down version of the standalone [Signing services]({{< relref "signing-service.md" >}}) and provides no HSM integration or
 ability to manually verify changes. It is strongly recommended against using this for production environments.
 
 In order for the local signer to function, it needs to be able to access Identity Manager’s certificate and keypair
-which should have been previously generated (see [Certificate Hierarchy Guide]({{< relref "pki-guide.md" >}}) for more information). The local signer uses local
+which should have been previously generated (see [Certificate hierarchy guide]({{< relref "pki-guide.md" >}}) for more information). The local signer uses local
 key stores which should include the necessary signing keys along with their full certificate chains.
 
 To enable the local signer, the top level `localSigner` configuration block should be added to the configuration file:
@@ -317,7 +317,7 @@ signing any CSR requests along with the full certificate chain back to the root 
 
 ##### External Signing Service
 
-The production grade signing mechanism is the external [Signing Services]({{< relref "signing-service.md" >}}). This has all the functionality of the
+The production grade signing mechanism is the external [Signing services]({{< relref "signing-service.md" >}}). This has all the functionality of the
 integrated local signer as well as HSM integration and the ability for a user to interactively verify and sign incoming
 CSRs. It should be used in all production environments where maximum security and validation checks are required.
 
@@ -361,7 +361,7 @@ All inter-service communication can be configured with SSL support. See [Configu
 
 {{< /note >}}
 
-### Restricting A Node’s Corda Version (optional)
+### Restricting node’s Corda version (optional) 
 
 The optional configuration `versionInfoValidation` can be added to the Issuance workflow configuration block to
 exclude nodes running an old version of Corda from successfully submitting a CSR. The configuration parameter
@@ -399,7 +399,7 @@ with a minimum version less than this will not work unless the nodes are running
 
 {{< /note >}}
 
-### Revocation Workflow (optional)
+### Revocation workflow (optional)
 
 The Revocation workflow is the second of the two main components in the Identity Manager Service. It is an optional
 component that is responsible for handling incoming Certificate Revocation Requests (CRRs) to revoke a node’s
@@ -501,7 +501,7 @@ Identity Manager. That is, the same key used for signing approved CSRs will be u
 
 ##### External Signing Service
 
-Also similarly to CSR signing, the production grade signing mechanism for CRRs is the external [Signing Services]({{< relref "signing-service.md" >}}).
+Also similarly to CSR signing, the production grade signing mechanism for CRRs is the external [Signing services]({{< relref "signing-service.md" >}}).
 This has all the functionality of the integrated local signer as well as HSM integration and the ability for a user to
 interactively verify and sign incoming CRRs. It should be used in all production environments where maximum security and
 validation checks are required.
@@ -783,7 +783,7 @@ a required element of the configuration that can be set to any invalid string sh
 {{< /attention >}}
 
 
-### Node Configuration
+### Node configuration
 
 Running a Revocation service does not guarantee that revoked certificates will be checked before nodes communicate with
 each other. Node configuration changes may be required to enable this behaviour. For more information see the
@@ -802,7 +802,7 @@ crlCheckSoftFail = false # strict CRL checking is enabled, meaning that the SSL 
 
 {{< /note >}}
 
-### Example Configuration
+### Example configuration
 
 
 #### Test Configuration
@@ -868,7 +868,7 @@ shell {
 
 The example below shows a more production-like configuration of the Identity Manager. It is configured with an Issuance
 and Revocation workflow, using Jira workflows for CSR/CRR approvals, no local signer, and using SSL for secure communication between CENM services. In this scenario, all approved requests would be signed using an external signing
-service (see [Signing Services]({{< relref "signing-service.md" >}})).
+service (see [Signing services]({{< relref "signing-service.md" >}})).
 
 ```docker
 address = "localhost:10000"

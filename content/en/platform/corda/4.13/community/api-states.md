@@ -187,7 +187,7 @@ You can customize your state by implementing the following interfaces:
 
 * `QueryableState`, which allows the state to be queried in the node’s database using custom attributes; see [API: Persistence]({{< relref "api-persistence.md" >}}).
 * `SchedulableState`, which allows us to schedule future actions for the state (for example, a coupon payment on a bond); see
-  [Scheduling time-based events]({{< relref "get-started\tutorials\supplementary-tutorials\event-scheduling.md" >}}).
+  [Scheduling time-based events]({{< relref "get-started/tutorials/supplementary-tutorials/event-scheduling.md" >}}).
 
 
 ## User-defined fields
