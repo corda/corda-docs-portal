@@ -159,7 +159,7 @@ parameters change.
 * **whitelistedContractImplementations**:
 List of whitelisted versions of contract code.
 For each contract class there is a list of SHA-256 hashes of the approved CorDapp jar versions containing that contract.
-Read more about *Zone constraints* here [API: Contract Constraints]({{< relref "api-contract-constraints.md" >}})
+Read more about *Zone constraints* here [API: Contract constraints]({{< relref "api-contract-constraints.md" >}})
 
 
 * **eventHorizon**:
@@ -236,7 +236,7 @@ data class ParametersUpdateInfo(
 [CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.11/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
 
 
-### Automatic Acceptance
+### Automatic acceptance
 
 If the only changes between the current and new parameters are for auto-acceptable parameters then, unless configured otherwise, the new
 parameters will be accepted without user input. The following parameters with the `@AutoAcceptable` annotation are auto-acceptable:
@@ -306,7 +306,7 @@ networkParameterAcceptanceSettings {
 ```
 
 
-### Manual Acceptance
+### Manual acceptance
 
 If the auto-acceptance behaviour is turned off via the configuration or the network parameters change involves parameters that are
 not auto-acceptable then manual approval is required.

@@ -228,7 +228,7 @@ trusted hosts and will refuse to connect in case of a change. This check can be 
 Windows does not provide a built-in SSH tool. An alternative such as [PuTTY](https://www.putty.org/) should be used.
 
 
-## Shell Safe Mode
+## Shell safe mode
 
 This is a new mode added in the Enterprise 4.3 release to prevent the CRaSH shell embedded commands (for example, `java`, `system`) from being executed by a user with insufficient privilege. This is part of a general security-tightening initiative.
 
@@ -278,7 +278,7 @@ This breaks down as follows:
 * `net.corda.finance.contracts.asset.Cash$State` is the fully-qualified name of the state type we are querying for.
 
 {{< note >}}
-For further guidance on the parameters used in shell commands, see the [Parameters Syntax section](#parameter-syntax) below.
+For further guidance on the parameters used in shell commands, see [Parameters syntax](#parameter-syntax) below.
 {{< /note >}}
 
 #### Example command output
@@ -547,7 +547,7 @@ No matching constructor found:
 The above command for `CashIssueFlow` invokes the following `CashIssueFlow` constructor:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 class CashIssueFlow(val amount: Amount<Currency>,
                     val issuerBankPartyRef: OpaqueBytes,
@@ -593,7 +593,7 @@ Use this command to display all flows currently running on the node with result 
 
 `flow watch`
 
-#### Example Output
+#### Example output
 
 The output will show results listed with flow `Id`, `Flow name`, `Initiator`, and `Status`.
 

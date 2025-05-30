@@ -27,12 +27,14 @@ This article explains:
 
 ## Glossary
 
-_Contract_
+- **Contract:** 
     A file that defines the rules for verifying transaction inputs and outputs.
-_Verify function_
+- **Verify function:**
     A function containing all the requirements a Corda node needs to verify a transaction.
-_LedgerTransaction object_
+- **LedgerTransaction object:**
     An object that contains information describing the transaction being evaluated.
+
+## Introduction to contracts
 
 In the context of a CorDapp, contracts define rules for verifying transaction inputs and outputs. A CorDapp
 can have more than one contract, and each contract defines the rules for one or more states. The goal of a contract is to ensure
@@ -110,21 +112,18 @@ These restrictions prevent the function from accessing information outside the t
 The two simplest `verify` functions:
 
 * **Accept** all possible transactions:
-
-```kotlin
-override fun verify(tx: LedgerTransaction) {
-    // Always accepts!
-}
-```
-
+  ```kotlin
+  override fun verify(tx: LedgerTransaction) {
+      // Always accepts!
+  }
+  ```
 * **Reject** all possible transactions:
 
-```kotlin
-override fun verify(tx: LedgerTransaction) {
-    throw IllegalArgumentException("Always rejects!")
-}
-```
-
+  ```kotlin
+  override fun verify(tx: LedgerTransaction) {
+      throw IllegalArgumentException("Always rejects!")
+  }
+  ```
 
 ### The `LedgerTransaction` object
 
@@ -235,6 +234,6 @@ class XContract : Contract {
 
 ## Further reading
 
-* [Contract Constraints]({{< relref "api-contract-constraints.md" >}})
-* [Write CorDapp States]({{< relref "api-states.md" >}})
-* [Writing CorDapp Flows]({{< relref "api-flows.md" >}})
+* [Contract constraints]({{< relref "api-contract-constraints.md" >}})
+* [Write CorDapp states]({{< relref "api-states.md" >}})
+* [Writing CorDapp flows]({{< relref "api-flows.md" >}})

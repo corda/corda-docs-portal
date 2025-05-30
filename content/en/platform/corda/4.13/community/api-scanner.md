@@ -23,7 +23,7 @@ new Corda release. The stable Corda modules are listed [here]({{< relref "api-st
 check for each GitHub pull request in order to check that we don’t accidentally introduce an API-breaking change.
 
 
-## Build Process
+## Build process
 
 As part of the build process the following commands are run for each PR:
 

@@ -17,7 +17,7 @@ The performance test suite contains all the code and configuration to reproduce 
 presented or published occasionally.
 
 
-## Test Network
+## Test network
 
 The performance test runs in a self-contained test network consisting of
 
@@ -53,7 +53,7 @@ The default set-up uses Microsoft SQL Server instances as databases, but some te
 and Oracle 12 databases.
 
 
-### Machines in the Test Network
+### Machines in the test network
 
 
 #### Microsoft Azure
@@ -99,7 +99,7 @@ acquired. They are all placed in the same data center, with 10Gb/s network conne
 
 Intel  2x Xeon E5-2687Wv4, 24 cores hyperthreaded, 256GB DDR4 ECC 2133 MHz, 2x 400GB NVMEIntel  Xeon E5-2687Wv4 - 12 cores hyperthreaded, 256GB DDR4 ECC 2133 MHz, 2 x 1GB NVMEIntel  Xeon E5-2687Wv4 - 12 cores hyperthreaded, 256GB DDR4 ECC 2133 MHz, 2 x 1GB NVME
 
-### Node Configuration
+### Node configuration
 
 For performance runs, the nodes run with pretty standard configuration. However, there are a few tweaks:
 
@@ -130,7 +130,7 @@ virtual cores (that is, 2 x number of cores when hyperthreading is enabled), and
 numbers can yield better performance results.
 
 
-### Notary Configuration
+### Notary configuration
 
 When using a simple, single node notary, it has the following configuration in addition to the above:
 
@@ -141,7 +141,7 @@ notary {
 ```
 
 
-### Database Configuration
+### Database configuration
 
 Each node has its own, dedicated database server running Microsoft SQL Server 2016 Standard.
 Note that the disk write latency and throughput on the database machine are critical for the node’s performance as the
@@ -152,7 +152,7 @@ instances offered by the big cloud providers) is not ideal for a busy Corda node
 R3 recommends to manage the database server manually and optimise for write throughput at least as much as for read.
 
 
-## Test Plan
+## Test plan
 
 For the test, JMeter server instances on 4 node machines and the simple notary machine all connect to one node via RPC
 to drive the tests. An external JMeter client uses the `NightlyBenchmark.jmx` test plan to run the tests.

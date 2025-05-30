@@ -8,13 +8,13 @@ tags:
 - load
 - balancing
 weight: 2
-title: Notary Load Balancing
+title: Notary load balancing
 ---
 
 
 # Notary load balancing
 
-Load balancing for notaries as mentioned in ha-notary-service-setup.rst is done in a round-robin fashion
+Load balancing for notaries as mentioned in [Setting up the notary service as highly available]({{< relref "../ha-notary-service-setup.md" >}}) is done in a round-robin fashion
 on the client side by Artemis.
 
 

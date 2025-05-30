@@ -18,7 +18,7 @@ weight: 20
 # Configuring a JPA notary backend
 
 Prior to using the JPA notary, the database must be prepared. This can be performed using the
-[Corda Database Management Tool]({{< relref "../../node/operating/node-database.md#database-management-tool" >}}). If preferred, the required tables can be manually
+[Corda database management tool]({{< relref "../../node/operating/node-database.md#database-management-tool" >}}). If preferred, the required tables can be manually
 created. See below for example database scripts. Note that in these examples, a database named “corda” is created to
 house the tables - this is purely for example purposes. The database name could be any string supported by your
 database vendor - ensure that the configuration matches the database name.
@@ -31,16 +31,16 @@ and ease of operation, the recommended database is CockroachDB 21.2.x. The full 
 listed in the [Platform support matrix]({{< relref "../../platform-support-matrix.md" >}}).
 
 {{< note >}}
-Please note that CockroachDB is not supported by the Corda Database Management Tool. R3 recommends that
+Please note that CockroachDB is not supported by the Corda database management tool. R3 recommends that
 the SQL script provided below be used as the basis for setting up a CockroachDB database. This means it will not
-be possible to setup a CockroachDB database schema using the Corda Database Management Tool, neither will it be
+be possible to setup a CockroachDB database schema using the Corda database management tool, neither will it be
 possible to upgrade an existing schema to a newer version using the tool.
 
 {{< /note >}}
 
-### Using the Corda Database Management Tool
+### Using the Corda database management tool
 
-If using the Corda Database Management Tool to perform initial schema setup, take note of the following:
+If using the Corda database management tool to perform initial schema setup, take note of the following:
 
 
 
@@ -54,7 +54,7 @@ Use the `dry-run` command to generate SQL scripts which could be inspected prior
 created. Thus, the database must already exist.
 
 {{< note >}}
-Creating the schema manually and then switching to using the Corda Database Management Tool is not supported. We
+Creating the schema manually and then switching to using the Corda database management tool is not supported. We
 recommend that one method of creating the schema be selected from the start and that this method should then be used for
 the lifetime of the notary.
 
@@ -62,7 +62,7 @@ the lifetime of the notary.
 
 #### DBM Tool configuration file format
 
-The configuration file used as an input to the Database Management Tool should closely resemble that of the notary itself.
+The configuration file used as an input to the database management tool should closely resemble that of the notary itself.
 Only some minor changes may be needed. Take note of the following:
 
 
@@ -73,12 +73,12 @@ Only some minor changes may be needed. Take note of the following:
 * Any unused configuration parameters will be ignored.
 
 
-Below is an example configuration file for the Database Management Tool:
+Below is an example configuration file for the database management tool:
 
 {{< tabs name="tabs-1" >}}
 dbm.conf
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 notary {
     validating = false
@@ -101,9 +101,9 @@ notary {
 
 {{< /tabs >}}
 
-If the Corda Database Management Tool’s `dry-run` mode is used, the `databasechangelog` and `databasechangeloglock` tables must already exist
+If the Corda database management tool’s `dry-run` mode is used, the `databasechangelog` and `databasechangeloglock` tables must already exist
 and the database user would need read and write permissions. If the tool’s `execute-migration` mode is used, the database user would require
-schema modification rights. For more information, see [Corda Database Management Tool]({{< relref "../../node/operating/node-database.md#database-management-tool" >}}).
+schema modification rights. For more information, see [Corda database management tool]({{< relref "../../node/operating/node-database.md#database-management-tool" >}}).
 
 
 ### Database users
@@ -114,7 +114,7 @@ security reasons. R3 recommends the creation of a user with more limited permiss
 would be set in the configuration of the notary in the `dataSourceProperties` section.
 
 
-## Database Tables
+## Database tables
 
 
 ### Notary Committed States
@@ -313,7 +313,7 @@ Some information specific to the configuration of the JPA notary to interact wit
 ### Database setup
 
 R3 recommends that a pluggable database be created to house the notary data. This can be done by opening a
-terminal window on the Oracle machine and running the following command in order to start sqlplus, the Oracle
+terminal window on the Oracle machine and running the following command in order to start SQL*Plus, the Oracle
 SQL command line tool.
 
 ```bash
@@ -321,7 +321,7 @@ sudo su - oracle
 sqlplus / as sysdba
 ```
 
-With sqlplus running, create a pluggable database using the following command. The database name, administrative
+With SQL*Plus running, create a pluggable database using the following command. The database name, administrative
 user name and password can all be changed as needed.
 
 ```sql
@@ -337,7 +337,7 @@ ALTER SESSION SET CONTAINER = corda_pdb;
 
 While still connected to the newly created pluggable database, run the following command in order to determine
 the service name. The service name forms part of the JDBC URL for the database and is necessary for either the
-Corda Database Management Tool or the notary worker to connect to the database. Note that the service name can
+Corda database management tool or the notary worker to connect to the database. Note that the service name can
 be specified manually during the creation of the pluggable database.
 
 ```sql
@@ -390,12 +390,12 @@ create index state_ts_tx_idx on corda_adm.notary_double_spends (state_ref,reques
 
 Once the database and tables have been created, create a user with restricted rights that the notary worker will use to
 log in to the database. This user will be a local user with access rights only to the pluggable database created above.
-Ensure that the container for the sqlplus session is still the Corda pluggable database as created above - this will make
+Ensure that the container for the SQL*Plus session is still the Corda pluggable database as created above - this will make
 sure that the user created belongs to the pluggable database. The username can be changed if desired - ensure that the
 configuration file is updated to match.
 
 This user will only be able to insert and read data. It will not be able to delete or update data, nor will it be able to modify any schemas. Ensure that
-the database name is correct if it was changed in the previous step. The tablespace size is unlimited, set the value (e.g. 100M, 1 GB) depending on your node sizing requirements.
+the database name is correct if it was changed in the previous step. The tablespace size is unlimited, set the value (for example, 100M, 1 GB) depending on your node sizing requirements.
 The script uses the default tablespace users with unlimited database space quota assigned to the user. Revise these settings depending on your node sizing requirements.
 
 ```sql

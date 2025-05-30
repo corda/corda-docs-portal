@@ -120,7 +120,7 @@ The tool generates the archive of the collected files in the same directory it i
 
 ## Deployment health check
 
-The Corda Health Survey is designed to perform connectivity and configuration checks on a Corda Enterprise Node. The tool supports the following deployment configurations:
+The Corda Health Survey is designed to perform connectivity and configuration checks on a Corda Enterprise node. The tool supports the following deployment configurations:
 
 * Node with internal Artemis broker
 * Node with external Artemis broker
@@ -151,13 +151,13 @@ After each run, the Corda Health Survey collects and packages up into a .zip fil
 Instead of zipping the reports, operators can print them to a text file using the command line option `-t`.
 
 
-## Using Health Survey Tool in HA Environments
+## Using Health Survey Tool in HA environments
 
 In deployments with separate Bridge/Float configuration the ECHO test will receive a response from the Corda node plus one echo
 from each bridge plus a single echo from the active float.
 Hence in an HA environment with two bridges and two floats the ECHO test will receive four responses.
 
-## Ping Remote Nodes
+## Pinging remote nodes
 
 The ping, notary and ping-notary commands will attempt to resolve the legal name against the node’s network map to obtain the remote
 node’s IP address and port. The Health Survey tool will then establish an AMQP connection via the active bridge and/or SOCKS proxy
@@ -169,7 +169,7 @@ If no bridge is installed then the Health Survey will attempt to connect directl
 The option `–ping-notary` should only be used to test a notary cluster. To test a single notary you can use `–ping`.
 {{< /note >}}
 
-## Toggle Active Bridge
+## Toggle active bridge
 
 The `toggle-bridge` command can be used in HA environments to temporarily shut down the active bridge to allow passive bridge
 to become the master.

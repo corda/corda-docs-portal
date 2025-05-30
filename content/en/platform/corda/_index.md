@@ -53,5 +53,5 @@ The Corda platform documentation covers the following current versions of the Co
 {{< /table >}}
 
 {{< note >}}
-Refer to the [End of Life Schedule]({{< relref "./eol-schedule.md" >}}) to know when particular versions will be archived. A list of archived documentation for non-supported versions of Corda Open Source, Corda Enterprise, and CENM, is accessible in [Archived Versions]({{< relref "./archived-versions.md" >}}).
+Refer to the [End of life schedule]({{< relref "./eol-schedule.md" >}}) to know when particular versions will be archived. A list of archived documentation for non-supported versions of Corda Open Source, Corda Enterprise, and CENM, is accessible in [Archived documentation]({{< relref "./archived-versions.md" >}}).
 {{< /note >}}

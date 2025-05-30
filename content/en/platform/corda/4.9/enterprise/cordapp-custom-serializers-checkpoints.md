@@ -28,13 +28,13 @@ If a CorDapp encounters an exception during the checkpoint process, it may need 
 {{< /warning >}}
 
 {{< note >}}
-Please read [Custom serializers for CorDapps]{{< relref "cordapp-custom-serializers.md" >}}) before you start.
+Please read [Custom serializers for CorDapps]({{< relref "cordapp-custom-serializers.md" >}}) before you start.
 {{< /note >}}
 
 
 ## Writing a custom checkpoint serializer
 
-Checkpoint serializers follow the same rules as [normal pluggable serializers]{{< relref "cordapp-custom-serializers.md" >}}).
+Checkpoint serializers follow the same rules as [normal pluggable serializers]({{< relref "cordapp-custom-serializers.md" >}}).
 
 In addition they need to implement `net.corda.core.serialization.CheckpointCustomSerializer`.
 

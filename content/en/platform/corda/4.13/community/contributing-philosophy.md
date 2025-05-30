@@ -31,21 +31,16 @@ or innovate around. The mission of Corda is further detailed in the [Corda intro
 The project is supported and maintained by [R3](https://www.r3.com).
 
 
-## Community Locations
+## Community locations
 
 The Corda maintainers, developers and extended community make active use of the following channels:
 
-
-* The [Corda Slack team](http://cordaledger.slack.com) for general community discussion, and in particular:>
-
-    * The `#contributing` channel for discussions around contributing
-    * The `#design` channel for discussions around the platform’s design
-
-
-
-* The [corda-dev mailing list](https://groups.io/g/corda-dev) for discussion regarding Corda’s design and roadmap
-* The [GitHub issues board](https://github.com/corda/corda/issues) for reporting platform bugs and potential enhancements
-* The [Stack Overflow corda tag](https://stackoverflow.com/questions/tagged/corda) for specific technical questions
+- The [Corda Slack team](http://cordaledger.slack.com) for general community discussion, and in particular:
+    - The `#contributing` channel for discussions around contributing
+    - The `#design` channel for discussions around the platform’s design
+- The [corda-dev mailing list](https://groups.io/g/corda-dev) for discussion regarding Corda’s design and roadmap
+- The [GitHub issues board](https://github.com/corda/corda/issues) for reporting platform bugs and potential enhancements
+- The [Stack Overflow corda tag](https://stackoverflow.com/questions/tagged/corda) for specific technical questions
 
 
 ## Project leadership and maintainers
@@ -63,13 +58,13 @@ merged; they are held to the same standard as all other contributions. The commu
 You can contact our community maintainers in the `#contributing` channel on the [Corda Slack team](http://cordaledger.slack.com).
 
 
-## Existing Contributors
+## Existing contributors
 
 Over two hundred individuals have contributed to the development of Corda. You can find a full list of contributors in the
 [CONTRIBUTORS.md list](https://github.com/corda/corda/blob/release/os/4.13/CONTRIBUTORS.md).
 
 
-## Transparency and Conflict Policy
+## Transparency and conflict policy
 
 The project is supported and maintained by [R3](https://www.r3.com). We develop in the open and publish our
 [Jira](https://r3-cev.atlassian.net/projects/CORDA/summary) to give everyone visibility. R3 also maintains and distributes a commercial

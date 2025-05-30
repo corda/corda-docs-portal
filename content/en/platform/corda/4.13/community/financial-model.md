@@ -42,7 +42,7 @@ a £10 note can be exchanged for two £5 notes, or vice-versa.
 Here are some examples:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 // A quantity of some specific currency like pounds, euros, dollars etc.
 Amount<Currency>
@@ -58,7 +58,7 @@ Amount<Obligation.Terms<P>>
 `Amount` represents quantities as integers. You cannot use `Amount` to represent negative quantities,
 or fractional quantities: if you wish to do this then you must use a different type, typically `BigDecimal`.
 For currencies the quantity represents pennies, cents, or whatever else is the smallest integer amount for that currency,
-but for other assets it might mean anything e.g. 1000 tonnes of coal, or kilowatt-hours. The precise conversion ratio
+but for other assets it might mean anything; for example, 1000 tonnes of coal or kilowatt-hours. The precise conversion ratio
 to displayable amounts is via the `displayTokenSize` property, which is the `BigDecimal` numeric representation of
 a single token as it would be written. `Amount` also defines methods to do overflow/underflow checked addition and subtraction
 (these are operator overloads in Kotlin and can be used as regular methods from Java). More complex calculations should typically
@@ -70,7 +70,7 @@ An issued product typically follows a lifecycle which includes issuance, movemen
 see the `Cash` contract and its associated *state* and *commands*)
 
 To represent movements of `Amount` tokens use the `AmountTransfer` type, which records the quantity and perspective
-of a transfer. Positive values will indicate a movement of tokens from a `source` e.g. a `Party`, or `CompositeKey`
+of a transfer. Positive values will indicate a movement of tokens from a `source`; for example, a `Party`, or `CompositeKey`
 to a `destination`. Negative values can be used to indicate a retrograde motion of tokens from `destination`
 to `source`. `AmountTransfer` supports addition (as a Kotlin operator, or Java method) to provide netting
 and aggregation of flows. The `apply` method can be used to process a list of attributed `Amount` objects in a

@@ -230,6 +230,6 @@ data class Example5 (val b: String, val a: Int)
 
 Learn more about:
 
-* [Serialization]{{< relref "serialization.md" >}})
-* [Enum evolution]{{< relref "serialization-enum-evolution.md" >}})
-* [Wire formatting]{{< relref "wire-format.md" >}})
+* [Serialization]({{< relref "serialization.md" >}})
+* [Enum evolution]({{< relref "serialization-enum-evolution.md" >}})
+* [Wire formatting]({{< relref "wire-format.md" >}})

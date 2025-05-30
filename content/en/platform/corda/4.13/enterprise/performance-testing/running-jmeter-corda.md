@@ -201,5 +201,5 @@ You are not required to configure any of the SSH code options provided with Cord
 java -jar jmeter-corda.jar -XjmeterProperties <property file including hostnames> [-- <jmeter arguments>]
 ```
 
-R3 recommends to consult the JMeter manual on [Remote Testing](https://jmeter.apache.org/usermanual/remote-test.html)
+R3 recommends to consult the JMeter manual on [Remote testing](https://jmeter.apache.org/usermanual/remote-test.html)
 when setting up remote testing without SSH tunneling.

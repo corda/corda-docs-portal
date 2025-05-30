@@ -397,7 +397,7 @@ deploy and test it.
 
 {{< /note >}}
 
-## Certificate Signing Request Rejection Reasons
+## Certificate signing request rejection reasons
 
 The workflow is expected to provide a valid rejection reason (see below for allowed values) for each certificate
 signing request being rejected.
@@ -437,7 +437,7 @@ being set.
 
 
 
-### Node CSR Rejection Response
+### Node CSR rejection response
 
 Node CSR rejection response follows the following format:
 

@@ -16,7 +16,7 @@ title: Nodes
 ---
 
 
-# Node Usage
+# Node usage
 
 
 
@@ -33,4 +33,4 @@ title: Nodes
 * [Interacting with a node]({{< relref "clientrpc.md" >}})
 * [Creating nodes locally]({{< relref "generating-a-node.md" >}})
 * [Running nodes locally]({{< relref "running-a-node.md" >}})
-* [Flow Hospital]({{< relref "node-flow-hospital.md" >}})
+* [Flow hospital]({{< relref "node-flow-hospital.md" >}})

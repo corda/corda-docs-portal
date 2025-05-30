@@ -12,7 +12,7 @@ weight: 110
 
 This page contains information about the checkpoint dumper and the checkpoint agent tools. Use these tools to debug stuck flows.
 
-Ensure that you understand the mechanics of [flows]({{< relref "../../../../../../../../en/platform/corda/4.10/enterprise/cordapps/api-flows.md" >}}) and [Node flow hospital]({{< relref "../../node-flow-hospital.md" >}}).
+Ensure that you understand the mechanics of [flows]({{< relref "../../../cordapps/api-flows.md" >}}) and [Node flow hospital]({{< relref "../../node-flow-hospital.md" >}}).
 
 A checkpoint is a serialised snapshot of the stack frames associated with the flow and any objects reachable from the stack. Checkpoints are saved to the Corda node database automatically whenever a flow suspends or resumes, which typically happens when sending or receiving messages. A flow may be replayed from the last checkpoint if the node restarts, increasing flow durability.
 

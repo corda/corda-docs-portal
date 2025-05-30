@@ -20,8 +20,8 @@ title: Creating nodes locally
 Local nodes are used for testing and demo purposes only.
 
 There are two ways you can create a node locally:
-* __Manually__: create a local directory, add the relevant node and CorDapp files, and configure them.
-* __Automatically__: use the `cordformation` Gradle plugin to configure and generate a local set of nodes.
+- **Manually:** Create a local directory, add the relevant node and CorDapp files, and configure them.
+- **Automatically:** Use the `cordformation` Gradle plugin to configure and generate a local set of nodes.
 
 ## Create a local node manually
 
@@ -40,10 +40,9 @@ The remaining node files and directories will be generated at runtime. These are
 
 1. Remove any `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSchema` entries from the database section of your configuration.
 2. Start the node with `run-migration-scripts` sub-command with `--core-schemas` and `--app-schemas`:
-
-```bash
-java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
-```
+   ```bash
+   java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
+   ```
 
 The node performs any automatic data migrations required, which may take some time. If the migration process is interrupted, it can be continued simply by starting the node again. The node stops automatically when migration is complete. See [Upgrading your node to Corda 4.12]({{< relref "node-upgrade-notes.md" >}}) for more information.
 

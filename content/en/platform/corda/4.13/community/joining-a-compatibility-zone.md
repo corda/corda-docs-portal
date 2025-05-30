@@ -58,7 +58,7 @@ name, as the legal name needs to be unique on the network. If another node has a
 name then the permissioning server will automatically reject the request. The request will also be rejected if it
 violates legal name rules, see node_naming for more information. You can use the X.500 schema to disambiguate
 entities that have the same or similar brand names
-  * **emailAddress** e.g. “[admin@company.com](mailto:admin@company.com)”
+  * **emailAddress** For example, “[admin@company.com](mailto:admin@company.com)”
   * **devMode** must be set to false
   * **compatibilityZoneURL** or **networkServices** The address(es) used to register with the compatibility zone and
 retrieve the network map. These should be provided to you by the operator of the zone. This must be either:

@@ -53,7 +53,7 @@ helm install cenm-notary notary --set notaryPublicIP=X.X.X.X --set prefix=cenm -
 | `sleepTimeAfterError`         | Sleep time (in seconds) after an error occurred          | `120` |
 | `jksSource`                   | URL where the network-root-truststore.jks is or would be available from | `""` |
 | `networkServices.doormanURL`  | URL for the Identity Manager Service (formerly Doorman)              | `idman-ip:10000` |
-| `networkServices.networkMapURL` | URL for the Network Map Service                        | `nmap:10000` |
+| `networkServices.networkMapURL` | URL for the Network Map service                        | `nmap:10000` |
 | `mpv`                         | Minimum platform version                                 | `3` |
 | `dataSourceProperties.dataSource.password`    | Notary database connection details       | `ziAscD0MJnj4n4xkFWY6XuMBuw9bvYC7` |
 | `dataSourceProperties.dataSource.url`    | Notary database connection details            | `jdbc:h2:file:./h2/notary-persistence;DB_CLOSE_ON_EXIT=FALSE;WRITE_DELAY=0;LOCK_TIMEOUT=10000` |

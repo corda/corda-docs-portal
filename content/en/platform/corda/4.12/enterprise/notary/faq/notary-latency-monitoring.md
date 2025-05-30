@@ -8,7 +8,7 @@ tags:
 - monitoring
 - latency
 - eta
-title: Monitoring Notary Latency
+title: Monitoring notary latency
 weight: 2
 ---
 

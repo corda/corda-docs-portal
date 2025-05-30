@@ -12,7 +12,7 @@ menu:
 tags:
 - api
 - contracts
-title: CorDapp Contracts
+title: CorDapp contracts
 ---
 
 
@@ -30,12 +30,14 @@ This article explains:
 
 ## Glossary
 
-_Contract_
-A file that defines the rules for verifying transaction inputs and outputs.
-_Verify function_
-A function containing all the requirements a Corda node needs to verify a transaction.
-_LedgerTransaction object_
-An object that contains information describing the transaction being evaluated.
+- **Contract:** 
+   A file that defines the rules for verifying transaction inputs and outputs.
+- **Verify function:** 
+   A function containing all the requirements a Corda node needs to verify a transaction.
+- **LedgerTransaction object:** 
+   An object that contains information describing the transaction being evaluated.
+
+## Introduction to contracts 
 
 In the context of a CorDapp, contracts define rules for verifying transaction inputs and outputs. A CorDapp
 can have more than one contract, and each contract defines the rules for one or more states. The goal of a contract is to ensure
@@ -113,21 +115,18 @@ These restrictions prevent the function from accessing information outside the t
 The two simplest `verify` functions:
 
 * **Accept** all possible transactions:
-
-```kotlin
-override fun verify(tx: LedgerTransaction) {
-    // Always accepts!
-}
-```
-
+  ```kotlin
+  override fun verify(tx: LedgerTransaction) {
+      // Always accepts!
+  }
+  ```
 * **Reject** all possible transactions:
 
-```kotlin
-override fun verify(tx: LedgerTransaction) {
-    throw IllegalArgumentException("Always rejects!")
-}
-```
-
+  ```kotlin
+  override fun verify(tx: LedgerTransaction) {
+      throw IllegalArgumentException("Always rejects!")
+  }
+  ```
 
 ### The `LedgerTransaction` object
 
@@ -172,7 +171,7 @@ To be deemed valid, most transactions have many requirements or verification sta
 * There should only be one output state.
 
 You could write verification logic that throws an error for each of these requirements. However, it would be more efficient to
-use a `requireThat` function to list a series of requirements as string/boolean pairs:
+use a `requireThat` function to list a series of requirements as string/Boolean pairs:
 
 ```kotlin
 requireThat {
@@ -185,7 +184,7 @@ requireThat {
 }
 ```
 
-The function checks each string and boolean pair within the `requireThat` function. If the boolean condition is false, the function throws an `IllegalArgumentException`
+The function checks each string and Boolean pair within the `requireThat` function. If the Boolean condition is false, the function throws an `IllegalArgumentException`
 with the corresponding string as the exception message. This exception causes the transaction to be rejected.
 
 
@@ -238,6 +237,6 @@ class XContract : Contract {
 
 ## Further reading
 
-* [Contract Constraints]({{< relref "api-contract-constraints.md" >}})
-* [Write CorDapp States]({{< relref "api-states.md" >}})
-* [Writing CorDapp Flows]({{< relref "api-flows.md" >}})
+* [Contract constraints]({{< relref "api-contract-constraints.md" >}})
+* [Write CorDapp states]({{< relref "api-states.md" >}})
+* [Writing CorDapp flows]({{< relref "api-flows.md" >}})

@@ -26,7 +26,7 @@ rather than specific network endpoints.
 
 
 
-## Network Map Service
+## Network Map service
 
 Supporting the messaging layer is a network map service, which is responsible for tracking public nodes on the network.
 

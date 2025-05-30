@@ -52,12 +52,12 @@
 
 [[cenm-1-2]]
 identifier = "cenm-1-2-cenm-releases"
-name = "CENM Releases"
+name = "CENM releases"
 weight = 70
 
 [[cenm-1-2]]
 identifier = "cenm-1-2-concepts-and-overview"
-name = "Concepts and Overview"
+name = "Concepts and overview"
 weight = 10
 
 [[cenm-1-2]]
@@ -72,22 +72,22 @@ weight = 110
 
 [[cenm-1-2]]
 identifier = "cenm-1-2-public-key-infrastructure"
-name = "Public Key Infrastructure"
+name = "Public key infrastructure"
 weight = 300
 
 [[cenm-1-2]]
 identifier = "cenm-1-2-signing-plugin-samples"
-name = "Signing Plugin Samples"
+name = "Signing plugin samples"
 weight = 330
 
 [[cenm-1-3]]
 identifier = "cenm-1-3-cenm-releases"
-name = "CENM Releases"
+name = "CENM releases"
 weight = 70
 
 [[cenm-1-3]]
 identifier = "cenm-1-3-concepts-and-overview"
-name = "Concepts and Overview"
+name = "Concepts and overview"
 weight = 10
 
 [[cenm-1-3]]
@@ -102,22 +102,22 @@ weight = 110
 
 [[cenm-1-3]]
 identifier = "cenm-1-3-public-key-infrastructure"
-name = "Public Key Infrastructure"
+name = "Public key infrastructure"
 weight = 300
 
 [[cenm-1-3]]
 identifier = "cenm-1-3-signing-plugin-samples"
-name = "Signing Plugin Samples"
+name = "Signing plugin samples"
 weight = 330
 
 [[cenm-1-4]]
 identifier = "cenm-1-4-cenm-releases"
-name = "CENM Releases"
+name = "CENM releases"
 weight = 70
 
 [[cenm-1-4]]
 identifier = "cenm-1-4-concepts-and-overview"
-name = "Concepts and Overview"
+name = "Concepts and overview"
 weight = 10
 
 [[cenm-1-4]]
@@ -132,22 +132,22 @@ weight = 110
 
 [[cenm-1-4]]
 identifier = "cenm-1-4-public-key-infrastructure"
-name = "Public Key Infrastructure"
+name = "Public key infrastructure"
 weight = 300
 
 [[cenm-1-4]]
 identifier = "cenm-1-4-signing-plugin-samples"
-name = "Signing Plugin Samples"
+name = "Signing plugin samples"
 weight = 330
 
 [[cenm-1-5]]
 identifier = "cenm-1-5-cenm-releases"
-name = "CENM Releases"
+name = "CENM releases"
 weight = 70
 
 [[cenm-1-5]]
 identifier = "cenm-1-5-concepts-and-overview"
-name = "Concepts and Overview"
+name = "Concepts and overview"
 weight = 10
 
 [[cenm-1-5]]
@@ -162,22 +162,22 @@ weight = 110
 
 [[cenm-1-5]]
 identifier = "cenm-1-5-public-key-infrastructure"
-name = "Public Key Infrastructure"
+name = "Public key infrastructure"
 weight = 300
 
 [[cenm-1-5]]
 identifier = "cenm-1-5-signing-plugin-samples"
-name = "Signing Plugin Samples"
+name = "Signing plugin samples"
 weight = 330
 
 [[cenm-1-6]]
 identifier = "cenm-1-6-cenm-releases"
-name = "CENM Releases"
+name = "CENM releases"
 weight = 70
 
 [[cenm-1-6]]
 identifier = "cenm-1-6-concepts-and-overview"
-name = "Concepts and Overview"
+name = "Concepts and overview"
 weight = 10
 
 [[cenm-1-6]]
@@ -192,91 +192,91 @@ weight = 110
 
 [[cenm-1-6]]
 identifier = "cenm-1-6-public-key-infrastructure"
-name = "Public Key Infrastructure"
+name = "Public key infrastructure"
 weight = 300
 
 [[cenm-1-6]]
 identifier = "cenm-1-6-signing-plugin-samples"
-name = "Signing Plugin Samples"
+name = "Signing plugin samples"
 weight = 330
 
 [[corda-enterprise-4-7]]
 identifier = "corda-enterprise-4-7-notaries"
-name = "Corda Notaries"
+name = "Corda notaries"
 weight = 35
 
 [[corda-enterprise-4-7]]
 identifier = "corda-enterprise-4-7-corda-networks"
-name = "Corda Networks"
+name = "Corda networks"
 weight = 40
 
 [[corda-enterprise-4-7]]
 identifier = "corda-enterprise-4-7-corda-nodes-operating"
-name = "Operating a Corda Node"
+name = "Operating a Corda node"
 parent = "corda-enterprise-4-7-corda-nodes"
 weight = 60
 
 [[corda-enterprise-4-8]]
 identifier = "corda-enterprise-4-8-notaries"
-name = "Corda Notaries"
+name = "Corda notaries"
 weight = 35
 
 [[corda-enterprise-4-8]]
 identifier = "corda-enterprise-4-8-corda-networks"
-name = "Corda Networks"
+name = "Corda networks"
 weight = 40
 
 [[corda-enterprise-4-8]]
 identifier = "corda-enterprise-4-8-corda-nodes-operating"
-name = "Operating a Corda Node"
+name = "Operating a Corda node"
 parent = "corda-enterprise-4-8-corda-nodes"
 weight = 60
 
 [[corda-enterprise-4-8]]
 identifier = "corda-enterprise-4-8-notaries"
-name = "Corda Notaries"
+name = "Corda notaries"
 weight = 35
 
 [[corda-enterprise-4-8]]
 identifier = "corda-enterprise-4-8-corda-networks"
-name = "Corda Networks"
+name = "Corda networks"
 weight = 40
 
 [[corda-enterprise-4-8]]
 identifier = "corda-enterprise-4-8-corda-nodes-operating"
-name = "Operating a Corda Node"
+name = "Operating a Corda node"
 parent = "corda-enterprise-4-8-corda-nodes"
 weight = 60
 
 [[corda-enterprise-4-9]]
 identifier = "corda-enterprise-4-9-notaries"
-name = "Corda Notaries"
+name = "Corda notaries"
 weight = 35
 
 [[corda-enterprise-4-9]]
 identifier = "corda-enterprise-4-9-corda-networks"
-name = "Corda Networks"
+name = "Corda networks"
 weight = 40
 
 [[corda-enterprise-4-9]]
 identifier = "corda-enterprise-4-9-corda-nodes-operating"
-name = "Operating a Corda Node"
+name = "Operating a Corda node"
 parent = "corda-enterprise-4-9-corda-nodes"
 weight = 60
 
 [[corda-enterprise-4-9]]
 identifier = "corda-enterprise-4-9-notaries"
-name = "Corda Notaries"
+name = "Corda notaries"
 weight = 35
 
 [[corda-enterprise-4-9]]
 identifier = "corda-enterprise-4-9-corda-networks"
-name = "Corda Networks"
+name = "Corda networks"
 weight = 40
 
 [[corda-enterprise-4-9]]
 identifier = "corda-enterprise-4-9-corda-nodes-operating"
-name = "Operating a Corda Node"
+name = "Operating a Corda node"
 parent = "corda-enterprise-4-9-corda-nodes"
 weight = 60
 
@@ -303,33 +303,33 @@ weight = 500
 
 [[corda-enterprise-4-10]]
 identifier = "corda-enterprise-4-10-notaries"
-name = "Corda Notaries"
+name = "Corda notaries"
 weight = 35
 
 [[corda-enterprise-4-10]]
 identifier = "corda-enterprise-4-10-corda-networks"
-name = "Corda Networks"
+name = "Corda networks"
 weight = 40
 
 [[corda-enterprise-4-10]]
 identifier = "corda-enterprise-4-10-corda-nodes-operating"
-name = "Operating a Corda Node"
+name = "Operating a Corda node"
 parent = "corda-enterprise-4-10-corda-nodes"
 weight = 60
 
 [[corda-enterprise-4-10]]
 identifier = "corda-enterprise-4-10-notaries"
-name = "Corda Notaries"
+name = "Corda notaries"
 weight = 35
 
 [[corda-enterprise-4-10]]
 identifier = "corda-enterprise-4-10-corda-networks"
-name = "Corda Networks"
+name = "Corda networks"
 weight = 40
 
 [[corda-enterprise-4-10]]
 identifier = "corda-enterprise-4-10-corda-nodes-operating"
-name = "Operating a Corda Node"
+name = "Operating a Corda node"
 parent = "corda-enterprise-4-10-corda-nodes"
 weight = 60
 
@@ -360,33 +360,33 @@ weight = 500
 
 [[corda-enterprise-4-11]]
 identifier = "corda-enterprise-4-11-notaries"
-name = "Corda Notaries"
+name = "Corda notaries"
 weight = 35
 
 [[corda-enterprise-4-11]]
 identifier = "corda-enterprise-4-11-corda-networks"
-name = "Corda Networks"
+name = "Corda networks"
 weight = 40
 
 [[corda-enterprise-4-11]]
 identifier = "corda-enterprise-4-11-corda-nodes-operating"
-name = "Operating a Corda Node"
+name = "Operating a Corda node"
 parent = "corda-enterprise-4-11-corda-nodes"
 weight = 60
 
 [[corda-enterprise-4-11]]
 identifier = "corda-enterprise-4-11-notaries"
-name = "Corda Notaries"
+name = "Corda notaries"
 weight = 35
 
 [[corda-enterprise-4-11]]
 identifier = "corda-enterprise-4-11-corda-networks"
-name = "Corda Networks"
+name = "Corda networks"
 weight = 40
 
 [[corda-enterprise-4-11]]
 identifier = "corda-enterprise-4-11-corda-nodes-operating"
-name = "Operating a Corda Node"
+name = "Operating a Corda node"
 parent = "corda-enterprise-4-11-corda-nodes"
 weight = 60
 
@@ -417,33 +417,33 @@ weight = 500
 
 [[corda-enterprise-4-12]]
 identifier = "corda-enterprise-4-12-notaries"
-name = "Corda Notaries"
+name = "Corda notaries"
 weight = 35
 
 [[corda-enterprise-4-12]]
 identifier = "corda-enterprise-4-12-corda-networks"
-name = "Corda Networks"
+name = "Corda networks"
 weight = 40
 
 [[corda-enterprise-4-12]]
 identifier = "corda-enterprise-4-12-corda-nodes-operating"
-name = "Operating a Corda Node"
+name = "Operating a Corda node"
 parent = "corda-enterprise-4-12-corda-nodes"
 weight = 60
 
 [[corda-enterprise-4-12]]
 identifier = "corda-enterprise-4-12-notaries"
-name = "Corda Notaries"
+name = "Corda notaries"
 weight = 35
 
 [[corda-enterprise-4-12]]
 identifier = "corda-enterprise-4-12-corda-networks"
-name = "Corda Networks"
+name = "Corda networks"
 weight = 40
 
 [[corda-enterprise-4-12]]
 identifier = "corda-enterprise-4-12-corda-nodes-operating"
-name = "Operating a Corda Node"
+name = "Operating a Corda node"
 parent = "corda-enterprise-4-12-corda-nodes"
 weight = 60
 
@@ -474,33 +474,33 @@ weight = 500
 
 [[corda-enterprise-4-13]]
 identifier = "corda-enterprise-4-13-notaries"
-name = "Corda Notaries"
+name = "Corda notaries"
 weight = 35
 
 [[corda-enterprise-4-13]]
 identifier = "corda-enterprise-4-13-corda-networks"
-name = "Corda Networks"
+name = "Corda networks"
 weight = 40
 
 [[corda-enterprise-4-13]]
 identifier = "corda-enterprise-4-13-corda-nodes-operating"
-name = "Operating a Corda Node"
+name = "Operating a node"
 parent = "corda-enterprise-4-12-corda-nodes"
 weight = 60
 
 [[corda-enterprise-4-13]]
 identifier = "corda-enterprise-4-13-notaries"
-name = "Corda Notaries"
+name = "Corda notaries"
 weight = 35
 
 [[corda-enterprise-4-13]]
 identifier = "corda-enterprise-4-13-corda-networks"
-name = "Corda Networks"
+name = "Corda networks"
 weight = 40
 
 [[corda-enterprise-4-13]]
 identifier = "corda-enterprise-4-13-corda-nodes-operating"
-name = "Operating a Corda Node"
+name = "Operating a node"
 parent = "corda-enterprise-4-13-corda-nodes"
 weight = 60
 
@@ -532,20 +532,20 @@ weight = 500
 [[corda5]]
 identifier = "corda5-rest-ref"
 parent = "corda5-rest-api-reference"
-name = "REST API Reference"
+name = "REST API reference"
 weight = 2000
 url = "/en/platform/corda/5.0/reference/rest-api/openapi.html"
 
 [[corda51]]
 identifier = "corda51-rest-ref"
 parent = "corda51-rest-api-reference"
-name = "REST API Reference"
+name = "REST API reference"
 weight = 2000
 url = "/en/platform/corda/5.1/reference/rest-api/openapi.html"
 
 [[corda52]]
 identifier = "corda52-rest-ref"
 parent = "corda52-rest-api-reference"
-name = "REST API Reference"
+name = "REST API reference"
 weight = 2000
 url = "/en/platform/corda/5.2/reference/rest-api/openapi.html"

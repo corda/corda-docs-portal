@@ -12,7 +12,7 @@ menu:
 tags:
 - certificate
 - revocation
-title: Certificate Revocation List
+title: Certificate revocation list
 ---
 
 
@@ -23,7 +23,7 @@ It is used by nodes when they establish a TLS connection between each other and 
 In order to add entries to the certificate revocation list there is the certificate revocation process that resembles
 the one from the certificate signing request (CSR).
 
-For context on how the certificate revocation list fits into the wider context, please see [Certificate Hierarchy Guide]({{< relref "pki-guide.md" >}}).
+For context on how the certificate revocation list fits into the wider context, please see [Certificate hierarchy guide]({{< relref "pki-guide.md" >}}).
 
 Note that, once added the entries cannot be removed from the certificate revocation list.
 
@@ -91,7 +91,7 @@ certificates = {
 {{< /table >}}
 
 
-## Empty Certificate Revocation List
+## Empty certificate revocation list
 
 The TLS-level certificate revocation check validates the entire certificate chain. It means that for each certificate in the
 certificate path the corresponding CRL will be downloaded and the certificate will be checked against that CRL.
@@ -102,7 +102,7 @@ Root CA is provided on one of the revocation service endpoints (see the table ab
 issued by the Node CA.
 
 
-## Certificate Revocation Request submission
+## Certificate revocation request submission
 
 Submission of the certificate revocation requests expects the following fields to be present in the request payload:
 
@@ -171,6 +171,6 @@ an up-to-date CRL is distributed in the network before the previous one expires.
 lifecycle of 6 months and are manually signed every 3 months. Such a schedule gives plenty of time for
 any signing issues to be resolved.
 
-See [Signing Services]({{< relref "signing-service.md" >}}) for details on building and signing CRLs, and especially the “updatePeriod”
+See [Signing services]({{< relref "signing-service.md" >}}) for details on building and signing CRLs, and especially the “updatePeriod”
 configuration field which is used to determine the next update deadline. See also [CRL Endpoint Check Tool]({{< relref "crl-endpoint-check-tool.md" >}})
 for more information how to check CRLs’ update deadlines.

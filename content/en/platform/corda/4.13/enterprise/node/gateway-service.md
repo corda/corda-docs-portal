@@ -13,35 +13,32 @@ title: Gateway Service
 
 # Gateway Service
 
-The Gateway Service acts as common entry point for remote management of Corda Nodes as well as networks using CENM - either using the available command-line tools or via the web applications hosted by the Gateway.
+The Gateway Service acts as common entry point for remote management of Corda nodes as well as networks using CENM - either using the available command-line tools or via the web applications hosted by the Gateway.
 
-{{< warning >}}
-The Gateway Service does not need its own database - so there is no database configuration required when you are setting up.
-{{< /warning >}}
+{{< note >}}
+The Gateway Service does not need its own database, so there is no database configuration required when you are setting up.
+{{< /note >}}
 
 
-## Install the Gateway Service
+## Installing the Gateway Service
 
 You can install the Gateway Service by installing the Gateway Service JAR file:
 
 `java -jar gateway-service.jar -f config.conf`
 
-## Configure the Gateway Service
+## Configuring the Gateway Service
 
-When you configure the Gateway Service, you need to:
+When you configure the Gateway Service, you need specify the following information:
 
-1. Specify the endpoint where the Auth Service is exposed - this must match the IP or host name of the machine/VM/container and the port that is configured in the Auth Service config file.
-
-2. Specify the SSL configuration for connecting to the Auth Service. You can do this using the [PKI tool]({{< relref "../../../../../../en/platform/corda/1.6/cenm/pki-tool.md" >}}).
-
-3. Your authentication credentials, as specified in your [Auth Service configuration]({{< relref "auth-service.md" >}}).
-
-4. Your Zone Service address.
+- The endpoint where the Auth Service is exposed; this must match the IP or host name of the machine/VM/container and the port that is configured in the Auth Service config file.
+- The SSL configuration for connecting to the Auth Service; You can do this using the [PKI tool]({{< relref "../../../../../../en/platform/corda/1.6/cenm/pki-tool.md" >}}).
+- Your authentication credentials, as specified in your [Auth Service configuration]({{< relref "auth-service.md" >}}).
+- Your Zone Service address.
 
 You can create a configuration file as shown in the sample, and then add this to your CENM services using the command line commands below.
 
 ```
-# Configuration dependent on the Auth service install
+# Configuration dependent on the Auth Service install
 auth {
     # This is the endpoint where the auth service is exposed, should be the IP or host name of
     # the machine/VM/container and the port that was configured in the auth service conf file
@@ -83,11 +80,9 @@ server {
 }
 ```
 
-## Manage Gateway Service configuration
+## Managing your configuration
 
-Name of the distribution: `gateway-service.jar`
-
-Command line arguments:
+You can manage the Gateway Service configuration by specifying the following command line options for `gateway-service.jar`:
 
 * `-v, --verbose` - If set, prints logging to the console as well as to a file.
 * `--logging-level=` - Enable logging at this level and higher. Defaults to INFO. Possible values: OFF, INFO, WARN, TRACE, DEBUG, ERROR, ALL
@@ -99,7 +94,7 @@ Command line arguments:
 ## Installing applications onto the Gateway Service
 
 {{< note >}}
-[Auth Service]({{< relref "auth-service.md" >}}) needs to be set up with baseline permission data for each application.
+The [Auth Service]({{< relref "auth-service.md" >}}) needs to be set up with baseline permission data for each application.
 {{< /note >}}
 
 * [CENM management console]({{< relref "../../../../../../en/platform/corda/1.6/cenm/cenm-console.md#installation" >}})

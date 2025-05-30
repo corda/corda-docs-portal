@@ -335,7 +335,7 @@ removed. This experience will be improved in the future. Making it easier to kil
 There are two types of contract/state upgrade:
 
 
-* *Implicit:* By allowing multiple implementations of the contract ahead of time, using constraints. See [API: Contract Constraints]({{< relref "api-contract-constraints.md" >}}) to learn more.
+* *Implicit:* By allowing multiple implementations of the contract ahead of time, using constraints. See [API: Contract constraints]({{< relref "api-contract-constraints.md" >}}) to learn more.
 * *Explicit:* By creating a special *contract upgrade transaction* and getting all participants of a state to sign it using the
 contract upgrade flows.
 
@@ -351,7 +351,7 @@ constraint of the states it’s allowed to replace.
 
 
 {{< warning >}}
-Corda 4 introduced the Signature Constraint (see [API: Contract Constraints]({{< relref "api-contract-constraints.md" >}})). States created or migrated to
+Corda 4 introduced the Signature Constraint (see [API: Contract constraints]({{< relref "api-contract-constraints.md" >}})). States created or migrated to
 the Signature Constraint can’t be explicitly upgraded using the Contract upgrade transaction. This feature might be added in a future version.
 Given the nature of the Signature constraint there should be little need to create a brand new contract to fix issues in the old contract.
 
@@ -384,7 +384,7 @@ interface UpgradedContract<in OldState : ContractState, out NewState : ContractS
 
 The `upgrade` method describes how the old state type is upgraded to the new state type.
 
-By default this new contract will only be able to upgrade legacy states which are constrained by the zone whitelist (see [API: Contract Constraints]({{< relref "api-contract-constraints.md" >}})).
+By default this new contract will only be able to upgrade legacy states which are constrained by the zone whitelist (see [API: Contract constraints]({{< relref "api-contract-constraints.md" >}})).
 
 {{< note >}}
 The requirement for a `legacyContractConstraint` arises from the fact that when a transaction chain is verified and a `Contract Upgrade` is
@@ -473,7 +473,7 @@ which references the new contract code.
 
 #### 10. Migrate the new upgraded state to the Signature Constraint from the zone constraint
 
-Follow the guide in [API: Contract Constraints]({{< relref "api-contract-constraints.md" >}}).
+Follow the guide in [API: Contract constraints]({{< relref "api-contract-constraints.md" >}}).
 
 
 ### Points to note

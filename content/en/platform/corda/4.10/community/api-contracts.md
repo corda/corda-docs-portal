@@ -12,7 +12,7 @@ menu:
 tags:
 - api
 - contracts
-title: CorDapp Contracts
+title: CorDapp contracts
 ---
 
 

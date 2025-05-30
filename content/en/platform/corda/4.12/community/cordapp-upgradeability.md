@@ -12,11 +12,11 @@ menu:
 tags:
 - cordapp
 - upgradeability
-title: CorDapp Upgradeability Guarantees
+title: CorDapp upgradeability guarantees
 ---
 
 
-# CorDapp Upgradeability Guarantees
+# CorDapp upgradeability guarantees
 
 
 ## Corda 4.0

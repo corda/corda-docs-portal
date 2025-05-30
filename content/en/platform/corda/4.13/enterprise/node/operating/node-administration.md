@@ -102,9 +102,9 @@ logging is better structured to allow for log processing by third party tools. M
 
 The node is using log4j2 asynchronous logging by default (configured via log4j2 properties file in its resources)
 to ensure that log message flushing is not slowing down the actual processing.
-If you need to switch to synchronous logging (e.g. for debugging/testing purposes), you can override this behaviour
+If you need to switch to synchronous logging (for example, for debugging/testing purposes), you can override this behaviour
 by adding `-DLog4jContextSelector=org.apache.logging.log4j.core.selector.ClassLoaderContextSelector` to the node’s
-command line or to the `jvmArgs` section of the node configuration (see [Node configuration]({{< relref "../setup/corda-configuration-file.md" >}}).
+command line or to the `jvmArgs` section of the node configuration; see [Node configuration]({{< relref "../setup/corda-configuration-file.md" >}}).
 
 Additionally, you need to override the log4j2 configuration file by specifying `-Dlog4j.configurationFile=<log4j2 config>`.
 The configuration file can be taken from the `config/dev` folder in [Corda Open Source Edition repository](https://github.com/corda/corda).
@@ -151,7 +151,7 @@ Now start the node as usual but with the additional parameter `log4j.configurati
 
 `java <Your existing startup options here> -Dlog4j.configurationFile=sql.xml -jar corda.jar`
 
-To determine the name of the logger, for Corda objects, use the fully qualified name (e.g., to look at node output
+To determine the name of the logger, for Corda objects, use the fully qualified name (for example, to look at node output
 in more detail, use `net.corda.node.internal.Node` although be aware that as we have marked this class `internal` we
 reserve the right to move and rename it as it’s not part of the public API as yet). For other libraries, refer to their
 logging name construction. If you can’t find what you need to refer to, use the `--logging-level` option as above and
@@ -165,8 +165,7 @@ Node can be configured to run SSH server. See [Node shell]({{< relref "shell.md"
 
 ## Database access
 
-When running a node backed with a H2 database, the node can be configured to expose the database over a socket
-(see node-database-access-h2).
+When running a node backed with a H2 database, the node can be configured to expose the database over a socket; see [Database access when running H2]({{< relref "../../node-database-access-h2.md" >}}).
 
 Note that in a production set up, it is highly recommended to use an enterprise grade database, and access to the
 database should be via the usual database tools mechanisms, including access control and restrictions.
@@ -174,7 +173,7 @@ database should be via the usual database tools mechanisms, including access con
 
 ## Monitoring your node
 
-This section covers monitoring performance and health of a node in Corda Enterprise with Jolokia and Graphite. General best practices for monitoring (e.g. setting up TCP checks for the ports the node communicates on, database health checks etc.) are not covered here but should be followed.
+This section covers monitoring performance and health of a node in Corda Enterprise with Jolokia and Graphite. General best practices for monitoring (for example, setting up TCP checks for the ports the node communicates on, database health checks etc.) are not covered here but should be followed.
 
 
 
@@ -206,16 +205,16 @@ data to their service on a regular schedule.
 It can bridge any data input to any output using their plugin system, for example, Telegraf can
 be configured to collect data from Jolokia and write to DataDog web api.
 
-In order to ensure that a Jolokia agent is instrumented with the JVM run-time, you can choose one of these options:
+In order to ensure that a Jolokia agent is instrumented with the JVM run-time, choose one of these options:
 
 
-* Specify the Node configuration parameter `jmxMonitoringHttpPort` which will attempt to load the jolokia driver.
-* Start the node with `java -Dcapsule.jvm.args="-javaagent:path/to/jolokia-jvm-{VERSION}-agent.jar=port=7777,host=localhost" -jar corda.jar` where `path/to/jolokia-jvm-{VERSION}-agent.jar` is the path to the driver, and `{VERSION}` is the version required by Corda, currently 1.6.1.
+- Specify the node configuration parameter `jmxMonitoringHttpPort` which will attempt to load the Jolokia driver.
+- Start the node with `java -Dcapsule.jvm.args="-javaagent:path/to/jolokia-jvm-{VERSION}-agent.jar=port=7777,host=localhost" -jar corda.jar` where `path/to/jolokia-jvm-{VERSION}-agent.jar` is the path to the driver, and `{VERSION}` is the version required by Corda, currently 1.6.1.
 
 The following JMX statistics are exported:
 
 
-* Corda specific metrics: see [Node metrics]({{< relref "monitoring-and-logging/node-metrics.md" >}}) for a list.
+* Corda-specific metrics: see [Node metrics]({{< relref "monitoring-and-logging/node-metrics.md" >}}) for a list.
 * Apache Artemis metrics: queue information for P2P and RPC services.
 * JVM statistics: classloading, garbage collection, memory, runtime, threading, operating system.
 
@@ -393,7 +392,7 @@ This method does not offer full protection. An adversary who knows the intrinsic
 ## Backup recommendations
 
 Various components of the Corda platform read their configuration from the file system, and persist data to a database or into files on disk.
-Given that hardware can fail, operators of IT infrastructure must have a sound backup strategy in place. Whilst blockchain platforms can sometimes recover some lost data from their peers, it is rarely the case that a node can recover its full state in this way because real-world blockchain applications invariably contain private information (e.g., customer account information). Moreover, this private information must remain in sync with the ledger state. As such, we strongly recommend implementing a comprehensive backup strategy.
+Given that hardware can fail, operators of IT infrastructure must have a sound backup strategy in place. Whilst blockchain platforms can sometimes recover some lost data from their peers, it is rarely the case that a node can recover its full state in this way because real-world blockchain applications invariably contain private information (for example, customer account information). Moreover, this private information must remain in sync with the ledger state. As such, we strongly recommend implementing a comprehensive backup strategy.
 
 The following elements of a backup strategy are recommended:
 
@@ -423,7 +422,7 @@ If the above holds, Corda components will benefit from the following:
 
 
 * Guaranteed eventual processing of acknowledged client messages, provided that the backlog of persistent queues is not lost irremediably.
-* A timely recovery from deletion or corruption of configuration files (e.g., `node.conf`, `node-info` files, etc.), database drivers, CorDapps binaries and configuration, and certificate directories, provided backups are available to restore from.
+* A timely recovery from deletion or corruption of configuration files (for example, `node.conf`, `node-info` files, etc.), database drivers, CorDapps binaries and configuration, and certificate directories, provided backups are available to restore from.
 
 
 {{< warning >}}
@@ -479,8 +478,8 @@ that were received over the network.
 A Contract CorDapp (an attachment) received over the network, is only allowed to be evaluated if there are other Contract
 CorDapps installed in the node that have been signed by at least one of the received CorDapp’s keys.
 
-See [Signature Constraints]({{< relref "../../cordapps/api-contract-constraints.md#signature-constraints" >}}) and
-[Signing CorDapps for use with Signature Constraints]({{< relref "../../cordapps/api-contract-constraints.md#signing-cordapps-for-use-with-signature-constraints" >}}) for more information
+See [Signature constraints]({{< relref "../../cordapps/api-contract-constraints.md#signature-constraints" >}}) and
+[Signing CorDapps for use with Signature constraints]({{< relref "../../cordapps/api-contract-constraints.md#signing-cordapps-for-use-with-signature-constraints" >}}) for more information
 
 {{< /note >}}
 

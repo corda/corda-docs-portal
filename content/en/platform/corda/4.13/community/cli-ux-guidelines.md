@@ -30,8 +30,8 @@ Command line utilities should use picocli ([http://picocli.info](http://picocli.
 ### Option names
 
 
-* Options should be specified on the command line using a double dash, e.g. `--parameter`.
-* Options that consist of multiple words should be separated via hyphens e.g. `--my-multiple-word-parameter-name`.
+* Options should be specified on the command line using a double dash; for example, `--parameter`.
+* Options that consist of multiple words should be separated via hyphens; for example, `--my-multiple-word-parameter-name`.
 
 
 ### Short names
@@ -51,7 +51,7 @@ Command line utilities should use picocli ([http://picocli.info](http://picocli.
 
 
 * Parameters specified without an option should ideally all be part of a list.
-    * For example, in `java -jar test.jar file1 file2 file3`, the parameters file1, file2 and file3 should be a list of files that are all acted on together (e.g. a list of CorDapps).
+    * For example, in `java -jar test.jar file1 file2 file3`, the parameters file1, file2 and file3 should be a list of files that are all acted on together (for example, a list of CorDapps).
 
 
 * Avoid using positional parameters to mean different things, which involves someone remembering in which order things need to be specified.
@@ -96,7 +96,7 @@ A `-v` short option should also be provided.
 ### Parameter stability
 
 
-* keep both versions of the parameter. See [Backwards Compatibility](#backwards-compatibility) for more information.
+* keep both versions of the parameter. See [Backwards compatibility](#backwards-compatibility) for more information.
 
 
 ## Notes for adding a new a command line application
@@ -108,7 +108,7 @@ The `CordaCliWrapper` base class from the `cliutils` module should be used as a 
 In order to use it, create a class containing your command line options using the syntax provided at (see the [picocli](https://picocli.info/) website for more information)
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 import net.corda.cliutils.ExitCodes
 import net.corda.cliutils.CordaCliWrapper
@@ -147,7 +147,7 @@ class UsefulUtility : CordaCliWrapper(
 Then in your `main()` method:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 import net.corda.cliutils.start
 
@@ -188,7 +188,7 @@ Command line parameters that are no longer necessary should be deprecated rather
 of the `hidden` option, for example:
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 import net.corda.cliutils.CordaCliWrapper
 
@@ -228,7 +228,7 @@ When adding a new command line tool, a backwards compatibility test should be cr
 and then creating a test class that extends `CliBackwardsCompatibleTest` for the class, like so:
 
 {{< tabs name="tabs-4" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 import net.corda.testing.CliBackwardsCompatibleTest
 

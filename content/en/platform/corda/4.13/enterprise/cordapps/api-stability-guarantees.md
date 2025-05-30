@@ -16,8 +16,8 @@ weight: 1
 
 Corda maintains the stability of specific Corda 4 APIs. APIs are categorized as:
 
-* **Public APIs**, which are APIs/application binary interfaces (ABIs) that are stable. See [public API]({{< relref "#public-api" >}}) for more information.
-* **Non-public APIs**. These APIs are not guaranteed to be stable. See [non-public API (experimental)]({{< relref "#non-public-api-experimental" >}}) for more information.
+- **Public APIs:** APIs/application binary interfaces (ABIs) that are stable. See [public API]({{< relref "#public-api" >}}) for more information.
+- **Non-public APIs:** These APIs are not guaranteed to be stable. See [non-public API (experimental)]({{< relref "#non-public-api-experimental" >}}) for more information.
 
 ## Public API
 

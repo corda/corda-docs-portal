@@ -41,9 +41,9 @@ Bytes Required = (Number of transactions * 1952 bytes)
 The formula assumes that you are using UTF-8 string encoding. This is mandatory if you are using Cockroach DB, but other options are available for other backends. Other string encoding formats may increase the storage requirements.
 {{< /note >}}
 
-* “Number of transactions” indicates the total number of transactions required to be notarised.
-* “States per transaction” indicates the average number of states per transaction. This will depend on the CorDapp.
-* “Percentage of transactions retried” indicates the fraction of transactions for which more than one request will be received. As even unsuccessful requests consume space, this impacts the space required.
+* **Number of transactions:** The total number of transactions required to be notarised.
+* **States per transaction:** The average number of states per transaction. This will depend on the CorDapp.
+* **Percentage of transactions retried:** The fraction of transactions for which more than one request will be received. As even unsuccessful requests consume space, this impacts the space required.
 
 The following table contains some example scenarios that could be useful in determining disk space requirements. Note
 that the disk space requirements given are always the maximum, meaning actual space required could be lower.
@@ -54,7 +54,7 @@ that the disk space requirements given are always the maximum, meaning actual sp
 
 {{< table >}}
 
-|Notarised transations|States per transaction|Percentage of transations retried|Max space required (gigabytes)|
+|Notarised transactions|States per transaction|Percentage of translations retried|Max space required (gigabytes)|
 |-----------------------|--------------------------|-------------------------------------|---------------------------------|
 |1 million|1|0%|2.09|
 |10 million|2|1%|23.82|
@@ -67,7 +67,7 @@ that the disk space requirements given are always the maximum, meaning actual sp
 
 Notary performance is defined by the ability of the notary to service incoming requests at a high enough rate that the latency
 for such requests does not grow to unacceptable levels. Thus, the throughput of the notary in terms of states per second is
-used as a proxy for the latency. For more details on notary performance measurement, see [Highly-available notary metrics]({{< relref "notary-metrics.md" >}}).
+used as a proxy for the latency. For more details on notary performance measurement, see [Notary metrics and performance]({{< relref "notary-metrics.md" >}}).
 
 Note that notary performance degrades as the database fills up. This is an unavoidable consequence of the notary having more
 states to examine when detecting double spend attempts. Some databases, notably CockroachDB, exhibit less degradation than

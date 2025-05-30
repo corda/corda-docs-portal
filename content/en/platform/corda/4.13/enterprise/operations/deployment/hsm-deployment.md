@@ -18,11 +18,11 @@ weight: 50
 By default, the private keys that belong to the node CA and legal identity are stored in a key store file in the node’s certificates
 directory. Users may wish to instead store this key in a hardware security module (HSM) or similar.
 
-See the [Hardware Security Modules (HSM)]({{< relref "../../platform-support-matrix.md#hardware-security-modules-hsm" >}})for supported HSMs and their features.
+See the [Hardware security modules (HSM)]({{< relref "../../platform-support-matrix.md#hardware-security-modules-hsm" >}})for supported HSMs and their features.
 
 The cryptographic operations that are performed by the HSM are key generation and signing. The private key material is stored in the HSM if the node is configured to use an HSM. The public keys are stored in the HSM (if configured for the node) and the respective key stores, which is the node key store (nodekeystore.jks) for the node CA key (nodeca) and legal identity (identity-private-key). The certificate chain is stored there as well. The certificate chain is not stored in the HSM.
 
-Operations involving the private keys (e.g. signature generation) will be delegated by the node to the HSMs, while operations involving the public keys (e.g. signature verification) will be performed by the node.
+Operations involving the private keys (for example, signature generation) will be delegated by the node to the HSMs, while operations involving the public keys (for example, signature verification) will be performed by the node.
 
 A Corda node, including a notary node, must have all its keys in the same keystore or HSM.
 Splitting the keys across a combination of different keystores and HSMs is not supported.
@@ -379,7 +379,7 @@ partition: "hsm-w4b6nnfio7z"
 In addition to the configuration, the following steps are required:
 
 1. `cloudhsm-3.1.2.jar` from AWS CloudHSM Software Library for Java needs to be placed in the node’s `drivers` folder.
-2. Corda must be running with the system property `java.library.path` pointing to the directory that contains the AWS CloudHSM JCA provider binaries (e.g. ``libcaviumjca.so`` for Linux). For example:
+2. Corda must be running with the system property `java.library.path` pointing to the directory that contains the AWS CloudHSM JCA provider binaries (for example, ``libcaviumjca.so`` for Linux). For example:
 ```text
 java -Djava.library.path=/opt/cloudhsm/lib -jar corda.jar
 ```

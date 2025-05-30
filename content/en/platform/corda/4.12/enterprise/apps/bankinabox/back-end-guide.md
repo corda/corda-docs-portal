@@ -1047,7 +1047,7 @@ An off-ledger schema can be defined in a similar manner to the above `MappedSche
 
 #### Querying transactions
 
-The Corda Node provides services to query and persist mapped schemas. The following is an example query for the transaction log schema:
+The Corda node provides services to query and persist mapped schemas. The following is an example query for the transaction log schema:
 
 ```kotlin
 fun getTransactionLogByTransactionType(accountId: UUID, txType: TransactionType)
@@ -1067,7 +1067,7 @@ fun getTransactionLogByTransactionType(accountId: UUID, txType: TransactionType)
 }
 ```
 
-The above queries all transactions for account with ID `accountId` and of type `transactionType` (deposit, withdrawal, transfer). The `withEntityManager` method of the Corda Node services (`serviceHub`) provides access to the JPA API. An HQL query is constructed, selecting all fields from the transaction log schema, where the "from" or "to" account is equal to the given account parameter, and the transaction type is equal to the given transaction type parameter.
+The above queries all transactions for account with ID `accountId` and of type `transactionType` (deposit, withdrawal, transfer). The `withEntityManager` method of the Corda node services (`serviceHub`) provides access to the JPA API. An HQL query is constructed, selecting all fields from the transaction log schema, where the "from" or "to" account is equal to the given account parameter, and the transaction type is equal to the given transaction type parameter.
 
 
 ## Flows for reports and views

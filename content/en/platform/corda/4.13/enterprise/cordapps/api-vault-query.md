@@ -25,7 +25,7 @@ You can use several flexible query mechanisms to access the vault, including:
 
 
 * The vault query API.
-* A JDBC session (see [State Persistence]({{< relref "state-persistence.md" >}})).
+* A JDBC session (see [State persistence]({{< relref "state-persistence.md" >}})).
 * Custom [JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html)/[JPQL](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#hql) queries.
 * Custom third-party data access frameworks such as [Spring Data](http://projects.spring.io/spring-data).
 
@@ -192,7 +192,7 @@ interfaces' common state attributes to the **VAULT_LINEAR_STATES** table.{{< /no
 
 
 * `VaultCustomQueryCriteria` provides the means to specify one or many arbitrary expressions on attributes defined
-by a custom contract state that implements its own schema as described in the [State Persistence]({{< relref "state-persistence.md" >}})
+by a custom contract state that implements its own schema as described in the [State persistence]({{< relref "state-persistence.md" >}})
 documentation. You can express custom criteria using one of these type-safe forms of
 `CriteriaExpression`: `BinaryLogical`, `Not`, `ColumnPredicateExpression`, and `AggregateFunctionExpression`. The
 `ColumnPredicateExpression` allows for the specification of arbitrary criteria using the previously enumerated operator
@@ -214,7 +214,7 @@ construction of custom criteria using any combination of `ColumnPredicate`. See 
 `QueryCriteriaUtils` for a complete specification of the DSL.
 {{< note >}}
 Custom contract schemas are automatically registered upon node startup for CorDapps. Please refer to
-[State Persistence]({{< relref "state-persistence.md" >}}) for mechanisms of registering custom schemas for different testing
+[State persistence]({{< relref "state-persistence.md" >}}) for mechanisms of registering custom schemas for different testing
 purposes.{{< /note >}}
 
 
@@ -256,7 +256,7 @@ Custom contract states that implement the `Queryable` interface may now extend t
 When specifying the `ContractType` as a parameterised type to the `QueryCriteria` in Kotlin, queries now include all concrete implementations of that type if this is an interface. Previously, it was only possible to query on concrete types (or the universe of all `ContractState`).
 {{< /note >}}
 
-The Vault Query API leverages the rich semantics of the underlying JPA [Hibernate](https://docs.jboss.org/hibernate/jpa/2.1/api/)-based [State Persistence]({{< relref "state-persistence.md" >}}) framework adopted by Corda.
+The Vault Query API leverages the rich semantics of the underlying JPA [Hibernate](https://docs.jboss.org/hibernate/jpa/2.1/api/)-based [State persistence]({{< relref "state-persistence.md" >}}) framework adopted by Corda.
 
 
 {{< note >}}
@@ -305,7 +305,7 @@ Custom queries can be either case sensitive or case insensitive. They are define
 An example of a case-sensitive custom query operator in Kotlin:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val currencyIndex = PersistentCashState::currency.equal(USD.currencyCode, true)
 ```
@@ -322,7 +322,7 @@ The `Boolean` input of `true` in this example could be removed since the functio
 An example of a case-insensitive custom query operator in Kotlin:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val currencyIndex = PersistentCashState::currency.equal(USD.currencyCode, false)
 ```
@@ -335,7 +335,7 @@ val currencyIndex = PersistentCashState::currency.equal(USD.currencyCode, false)
 An example of a case-sensitive custom query operator in Java:
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 FieldInfo attributeCurrency = getField("currency", CashSchemaV1.PersistentCashState.class);
 CriteriaExpression currencyIndex = Builder.equal(attributeCurrency, "USD", true);
@@ -349,7 +349,7 @@ CriteriaExpression currencyIndex = Builder.equal(attributeCurrency, "USD", true)
 An example of a case-insensitive custom query operator in Java:
 
 {{< tabs name="tabs-4" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 FieldInfo attributeCurrency = getField("currency", CashSchemaV1.PersistentCashState.class);
 CriteriaExpression currencyIndex = Builder.equal(attributeCurrency, "USD", false);
@@ -370,7 +370,7 @@ Here’s a query that extracts every unconsumed `ContractState` from the vault i
 default page number (page one):
 
 {{< tabs name="tabs-5" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val vaultSnapshot = proxy.vaultQueryBy<ContractState>(
     QueryCriteria.VaultQueryCriteria(Vault.StateStatus.UNCONSUMED),
@@ -673,7 +673,7 @@ val allCashStates = vaultService.queryBy<Cash.State>(allCashCriteria).states
 
 [VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.11/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
 
-### Aggregate Function queries using `VaultCustomQueryCriteria`:
+### Aggregate function queries using `VaultCustomQueryCriteria`:
 
 {{< note >}}
 Query results for aggregate functions are contained in the `otherResults` attribute of a results page.
@@ -873,7 +873,7 @@ while (true) {
 
 [VaultQueryJavaTests.java](https://github.com/corda/corda/blob/release/os/4.11/node/src/test/java/net/corda/node/services/vault/VaultQueryJavaTests.java)
 
-### Aggregate Function queries using `VaultCustomQueryCriteria`:
+### Aggregate function queries using `VaultCustomQueryCriteria`:
 
 #### Aggregations on cash using various functions:
 
@@ -1003,7 +1003,7 @@ Currently, the generation of keys for other identities is not supported.
 The code snippet below show how keys can be associated with an external ID by using the exposed JPA functionality:
 
 {{< tabs name="tabs-6" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 public AnonymousParty freshKeyForExternalId(UUID externalId, ServiceHub services) {
     // Create a fresh key pair and return the public key.
@@ -1019,7 +1019,7 @@ public AnonymousParty freshKeyForExternalId(UUID externalId, ServiceHub services
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 fun freshKeyForExternalId(externalId: UUID, services: ServiceHub): AnonymousParty {
     // Create a fresh key pair and return the public key.

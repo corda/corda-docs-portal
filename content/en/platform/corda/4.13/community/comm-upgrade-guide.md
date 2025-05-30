@@ -99,7 +99,7 @@ To upgrade your Corda node from version 4.11 to 4.12, you must perform the follo
 
 ### Upgrade 4.11 CorDapps
 
-You must update all custom CorDapps being upgraded that are running on Corda 4.11 nodes so they use Java 17 and Kotlin 1.9.20. For steps on updating Cordapps, see [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}).
+You must update all custom CorDapps being upgraded that are running on Corda 4.11 nodes so they use Java 17 and Kotlin 1.9.20. For steps on updating CorDapps, see [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}).
 
 #### Flow versioning
 You must annotate any flow that initiates other flows with the `@InitiatingFlow` annotation, which is defined as:

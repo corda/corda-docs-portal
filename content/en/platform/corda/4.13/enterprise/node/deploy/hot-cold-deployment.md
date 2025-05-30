@@ -59,7 +59,7 @@ The next step is to create health probes and load balancing rules for every port
 
 When creating the health probes, there are several properties that have to be set:
 
-* name - used to identify the probe when associating it with a rule (e.g. p2p, rpc, web).
+* name - used to identify the probe when associating it with a rule (for example, p2p, rpc, web).
 * protocol - determines what kind of packets are used to assess the health of the VMs behind the balancer. Use
 TCP for the P2P and RPC probes, HTTP for the web traffic probes.
 * port - the port being checked.
@@ -235,7 +235,7 @@ sudo bash -c 'echo "mount-target-DNS:/ efs-mount-point nfs4 nfsvers=4.1,rsize=10
 {{< /tabs >}}
 
 {{< note >}}
-EFS cannot be mounted on a Windows machine. Please see EFS limits [here](https://docs.aws.amazon.com/efs/latest/ug/limits.html).
+EFS cannot be mounted on a Windows machine. See EFS limits [here](https://docs.aws.amazon.com/efs/latest/ug/limits.html).
 
 {{< /note >}}
 `mount-target-DNS` is the address of the EFS. Example: fs-123456.efs.eu-west-1.amazonaws.com.
@@ -244,7 +244,7 @@ EFS cannot be mounted on a Windows machine. Please see EFS limits [here](https:/
 ## Node deployment
 
 This section covers the deployment of the back-up Corda instance. It is assumed that the primary has already been deployed.
-For instructions on how to do so, please see [Deploying a node to a server]({{< relref "deploying-a-node.md" >}}).
+For instructions on how to do so, see [Deploying a node to a server]({{< relref "deploying-a-node.md" >}}).
 
 The following files and directories need to be copied from the primary instance to the back-up instance as well as any
 CorDapps and jars that exist:

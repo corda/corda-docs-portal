@@ -12,13 +12,13 @@ weight: 300
 ---
 
 {{< note >}}
-All mentions of `jmeter-corda.jar` on this page refer to the `jmeter-corda-<version>-capsule.jar` - see [Obtaining and Installing the Performance Test Suite]{{< relref "installation.md" >}}) for more information.
+All mentions of `jmeter-corda.jar` on this page refer to the `jmeter-corda-<version>-capsule.jar` - see [Obtaining and installing the performance test suite]({{< relref "installation.md" >}}) for more information.
 {{< /note >}}
 
 # Running JMeter Corda
 
 Jmeter Corda is distributed as a runnable “fat” JAR containing all the dependencies required to run the application.
-It comes prepacked with Corda [JMeter Samplers]{{< relref "jmeter-samplers.md" >}}) and a wrapper that sets up a basic configuration and allows
+It comes prepacked with Corda [JMeter Samplers]({{< relref "jmeter-samplers.md" >}}) and a wrapper that sets up a basic configuration and allows
 configuration of SSH tunnels. The arguments for the `jmeter-corda` command line fall into two categories: there are
 a number of arguments that are consumed by the custom wrapper, followed by a double dash `--`. Anything after this
 will be passed on to the JMeter code as JMeter arguments (though the wrapper can add more arguments to this). The typical
@@ -34,11 +34,11 @@ java -jar jmeter-corda-jar <wrapper arguments> -- <jmeter arguments>
 The JMeter Corda wrapper understands the following optional arguments:
 
 * `-?`, `-h`, `--help`: Use any of these options to print a help text for JMeter and the JMeter Corda wrapper arguments.
-* `-Xssh`: Use this argument to instruct the wrapper to set up SSH tunnels. You should provide a list of host names as parameters. See [SSH Tunnel Set-Up](#ssh-tunnel-set-up) for details.
+* `-Xssh`: Use this argument to instruct the wrapper to set up SSH tunnels. You should provide a list of host names as parameters. See [Setting up SSH tunnel](#setting-up-ssh-tunnel) for details.
 * `-XsshUser`: The user name to use for remote servers if creating SSH tunnels. This defaults to the current user name.
 * `-XadditionalSearchPaths`: A list of directories that contain class files or JAR files that JMeter should consider for finding samplers or plug-ins. The wrapper sets up a default search path that contains the samplers included in the JAR file, and the plug-ins required to communicate with Corda. You must add to this list any custom samplers that you intend to use in tests. Multiple entries in the list must be separated by a semicolon.
 * `-XjmeterProperties`: The path to a JMeter properties file. JMeter always needs configuration via a properties file - there is a `jmeter.properties` file included in the `jmeter-corda.jar`, which sets sensible default values. If this option is not set, the wrapper will make JMeter use these pre-defined default values.
-* `-XserverRmiMappings`: The port mappings required for the remote method invocation tunnels when setting up SSH tunnels. See [SSH Tunnel Set-Up](#ssh-tunnel-set-up) for details.
+* `-XserverRmiMappings`: The port mappings required for the remote method invocation tunnels when setting up SSH tunnels. See [Setting up SSH tunnel](#setting-up-ssh-tunnel) for details.
 
 In your command on the command prompt, you must place these arguments first. They can be followed by a double dash and JMeter arguments that will be fed through to JMeter. The wrapper will add some arguments to the list passed on to JMeter. Also, the wrapper does not accept certain arguments. Some JMeter arguments used/discussed on this page are:
 
@@ -59,7 +59,7 @@ The *clear current view* button only clears the data in the currently viewed out
 output listeners defined (as in the example above, we have *Aggregate Graph*, *Graph Results* and *View Results in Table*),
 any collector not currently selected is not affected. *Clear all data* will clear the results from all collectors.
 
-See [Understanding and Creating Testplans]{{< relref "jmeter-testplans.md" >}}) for details on the testplan, and how to create one.
+See [Understanding and Creating Testplans]({{< relref "jmeter-testplans.md" >}}) for details on the testplan, and how to create one.
 
 
 ## Running JMeter headless
@@ -94,7 +94,7 @@ If the SSH tunneling set-up from the wrapper is used, this option is **not** sup
 
 
 
-### SSH Tunnel Set-Up
+### Setting up SSH tunnel
 
 The RMI traffic requires non-standard ports to be open, therefore the standard practice is to
 route it via SSH tunnels. Therefore, the remote hosts in the default configuration are all specified as `127.0.0.1`,

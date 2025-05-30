@@ -11,11 +11,11 @@ menu:
 tags:
 - config
 - kubernetes
-title: CENM Deployment with Docker, Kubernetes, and Helm charts
+title: CENM deployment with Docker, Kubernetes, and Helm charts
 weight: 20
 ---
 
-# CENM Deployment with Docker, Kubernetes and Helm charts
+# CENM deployment with Docker, Kubernetes and Helm charts
 
 ## Docker images and JDK supported
 

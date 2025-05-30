@@ -27,13 +27,12 @@ Corda Enterprise Edition 4.9.11 is a patch release of Corda Enterprise Edition f
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "../../4.9/enterprise/upgrading-index.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "upgrading-index.md" >}}).
 
 ### Fixed issues
 
 * When deploying a test node using DriverDSL, the node now starts successfully without encountering a `NoSuchMethodError` exception.
 * You can now create two nodes with identical `O` field values but different `OU` values in their X.500 names when using the DriverDSL for testing.
-* `ReceiveTransactionFlow` has been improved to address potential issues when handling network parameters. Previously, it verified the existence of network parameters on a transaction before executing `ResolveTransactionFlow`. This could cause issues in scenarios such as sending a top-level transaction to a new node in a migrated network, where the old network parameters might not be available on the new node. This behavior has now been corrected.
 * There is no longer a memory leak when creating a series of mock networks for testing purposes.
 * Transactions with the in-flight transaction state, introduced in Corda version 4.11 to support transaction recovery, are no longer included when the Ledger Graph CorDapp builds a transaction graph. Instead, the CorDapp now ignores any transactions with an in-flight status.
 
@@ -60,7 +59,7 @@ Corda Enterprise Edition 4.9.10 is a patch release of Corda Enterprise Edition f
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "../../4.9/enterprise/upgrading-index.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -74,7 +73,7 @@ Corda Enterprise Edition 4.9.9 is a patch release of Corda Enterprise focused on
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "../../4.9/enterprise/upgrading-index.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -93,7 +92,7 @@ Corda Enterprise Edition 4.9.8 is a patch release of Corda Enterprise focused on
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "../../4.9/enterprise/upgrading-index.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "upgrading-index.md" >}}).
 
 ### Fixed Issues
 
@@ -110,7 +109,7 @@ Corda Enterprise Edition 4.9.7 is a patch release of Corda Enterprise focused on
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]{{< relref "upgrading-index.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -184,7 +183,7 @@ Corda Enterprise Edition 4.9.6 is a patch release of Corda Enterprise focused on
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]{{< relref "upgrading-index.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -198,7 +197,7 @@ Corda Enterprise Edition 4.9.5 is a patch release of Corda Enterprise focused on
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "../../4.9/enterprise/upgrading-index.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -212,7 +211,7 @@ Corda Enterprise Edition 4.9.4 is a patch release of Corda Enterprise focused on
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, see [Upgrading a CorDapp or node]({{< relref "../../4.9/enterprise/upgrading-index.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, see [Upgrading a CorDapp or node]({{< relref "upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -226,13 +225,13 @@ Corda Enterprise Edition 4.9.3 is a patch release of Corda Enterprise focused on
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../4.9/enterprise/upgrading-index.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
 
 ### Fixed issues
 
 The following issues were resolved in this patch release:
 
-* Previously, both Corda Nodes certificates possessed Certificate Authority power because the CA attribute was set to true. The node registration tool now has a new  option, ```-C, --node-identity-cert-not-ca```, allowing a node legal identity certificate to be created where it is not a CA.
+* Previously, both Corda nodes certificates possessed Certificate Authority power because the CA attribute was set to true. The node registration tool now has a new  option, ```-C, --node-identity-cert-not-ca```, allowing a node legal identity certificate to be created where it is not a CA.
 
 * For CENM 1.4+, the `getNodeInfos()` bulk fetch mechanism now retrieves NodeInfos from the network map via an HTTP proxy, if a proxy has been configured.
 
@@ -250,7 +249,7 @@ Corda Enterprise Edition 4.9.2 is a patch release of Corda Enterprise which incl
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../4.9/enterprise/upgrading-index.md" >}}).
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -280,9 +279,9 @@ Corda Enterprise Edition 4.9.1 is a patch release of Corda Enterprise which incl
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../4.9/enterprise/upgrading-index.md" >}}).
+As a developer, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
 
-As a node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}).
+As a node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}).
 
 ### Fixed issues
 
@@ -301,9 +300,9 @@ Corda: Enterprise Edition  4.9 features many security improvements, along with a
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}) as soon as possible. The latest Corda: Enterprise Edition  release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../4.9/enterprise/upgrading-index.md" >}}).
+As a developer, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda: Enterprise Edition  release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "upgrading-index.md" >}}).
 
-As a node operator, you should upgrade to the [latest released version of Corda]({{< relref "../../4.9/enterprise/_index.md" >}}).
+As a node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}).
 
 ### Fixed issues
 

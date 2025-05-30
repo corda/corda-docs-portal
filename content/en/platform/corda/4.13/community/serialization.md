@@ -28,20 +28,18 @@ messages, when the node sends objects to or from RPC clients, and when you store
 Corda uses a custom form of type-safe binary serialization, which is more secure than systems that use
 weakly or untyped string-based serialization schemes, such as JSON or XML. The benefits of Corda's system include:
 
-
-* A schema describing what has been serialized included with the data. This allows:
-  * Improved versioning, enabling easier interpretation of archived data (for example, trades from
+- A schema describing what has been serialized included with the data. This allows:
+  - Improved versioning, enabling easier interpretation of archived data (for example, trades from
     a decade ago, long after the code has changed) and differing code versions.
-  * Ease of writing generic code - for example, user interfaces that can navigate the serialized form of data.
-  * Support for cross-platform (non-JVM) interaction, where the format of a class file can be difficult to interpret.
-
-* A platform-independent, documented, and static wire format that is not subject to change with third-party library upgrades.
-* Support for open-ended polymorphism, where the number of subclasses of a superclass can expand over time,
+  - Ease of writing generic code - for example, user interfaces that can navigate the serialized form of data.
+  - Support for cross-platform (non-JVM) interaction, where the format of a class file can be difficult to interpret.
+- A platform-independent, documented, and static wire format that is not subject to change with third-party library upgrades.
+- Support for open-ended polymorphism, where the number of subclasses of a superclass can expand over time,
   and subclasses do not need to be defined in the schema upfront. This is key to many Corda concepts, such as states.
-* Increased security. Deserialized objects go through supported constructors, rather than having
+- Increased security. Deserialized objects go through supported constructors, rather than having
   data inserted directly into their fields without an opportunity to validate consistency or intercept attempts to manipulate
   supposed invariants.
-* Improved digital signature handling. Binary formats work better with digital signatures than text based-formats, because it reduces the scope for
+- Improved digital signature handling. Binary formats work better with digital signatures than text based-formats, because it reduces the scope for
   changes that modify syntax but not semantics.
 
 
@@ -122,7 +120,7 @@ of CorDapp developers, to allow CorDapps to take into consideration the future s
 continue to apply the whitelisting functionality that is already in place and described in this page.
 
 
-## Core Types
+## Core types
 
 This section describes the classes and interfaces that the AMQP serialization format supports.
 
@@ -265,7 +263,7 @@ For all classes, you must:
 
 * Include the parameter names in the `.class` file when compiling a class. This is the default in Kotlin.
   In Java, turn it on using the `-parameters` command line option to `javac`. If you cannot recompile classes, such as when using a third-party library, you can use a
-  proxy serializer. See [Pluggable Serializers for CorDapps]({{< relref "cordapp-custom-serializers.md" >}}).
+  proxy serializer. See [Pluggable serializers for CorDapps]({{< relref "cordapp-custom-serializers.md" >}}).
 * Annotate the class with `@CordaSerializable`.
 * Make sure Corda supports the declared types of constructor arguments, getters, and setters. If you use generics, the
   generic parameter must be a supported type, an open wildcard (`*`), or a bounded wildcard that has been
@@ -295,7 +293,7 @@ In Kotlin, this maps cleanly to a data class where the getters are synthesized a
 have this data class:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 data class Example (val a: Int, val b: String)
 ```
@@ -309,7 +307,7 @@ However, properties not mentioned in the constructor will not be serialized. For
 property `c` will not be considered part of the serialized form:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 data class Example (val a: Int, val b: String) {
     var c: Int = 20
@@ -343,13 +341,13 @@ populate it with the correct values.
 For example:
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 class Example(var a: Int, var b: Int, var c: Int)
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 class Example {
     private int a;
@@ -380,13 +378,13 @@ the semantics of the object as written and the semantics required to serialize i
 
 
 {{< tabs name="tabs-4" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 class C(val a: Int, private val b: Int)
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 class C {
     public Integer a;
@@ -415,7 +413,7 @@ Make sure your properties have public visibility, even if your IDE indicates tha
 Providing a public getter, as per the following example, is acceptable:
 
 {{< tabs name="tabs-5" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 class C(val a: Int, b: Int) {
     var b: Int = b
@@ -424,7 +422,7 @@ class C(val a: Int, b: Int) {
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 class C {
     public Integer a;
@@ -452,7 +450,7 @@ Consider an example where you wish to ensure that a property of a class, whose t
 You could codify this as:
 
 {{< tabs name="tabs-6" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @CordaSerializable
 class ConfirmRequest(statesToConsume: List<StateRef>, val transactionId: SecureHash) {
@@ -478,7 +476,7 @@ two signatures would be the same. The best practice is to provide a getter for t
 associates it with the actual member variable.
 
 {{< tabs name="tabs-7" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @CordaSerializable
 class ConfirmRequest(statesToConsume: List<StateRef>, val transactionId: SecureHash) {
@@ -571,7 +569,7 @@ If mutability isn’t an issue, you can use a single constructor for data classe
 
 Corda supports all enums (provided they are annotated with `@CordaSerializable`) and the interoperability of
 enumerated type versions. That means you can change these types over time without affecting backward (or forward)
-compatibility. See [Enum Evolution]({{< relref "serialization-enum-evolution.md" >}}).
+compatibility. See [Enum evolution]({{< relref "serialization-enum-evolution.md" >}}).
 
 
 ### Exceptions
@@ -587,7 +585,7 @@ The following rules apply to supported `Throwable` implementations.
 
 
 
-### Kotlin Objects
+### Kotlin objects
 
 Kotlin’s non-anonymous `object` s (i.e. constructs like `object foo : Contract {...}`) are singletons and
 treated differently.  They are recorded into the stream with no properties, and deserialize back to the
@@ -635,4 +633,4 @@ Type evolution lets you alter classes over time, while keeping them serializable
 all versions of the class. This ensures an object serialized with an older idea of what the class “looked like” can be deserialized,
 and a version of the current state of the class instantiated.
 
-More detail can be found in [Default Class Evolution]({{< relref "serialization-default-evolution.md" >}}).
+More detail can be found in [Default class evolution]({{< relref "serialization-default-evolution.md" >}}).

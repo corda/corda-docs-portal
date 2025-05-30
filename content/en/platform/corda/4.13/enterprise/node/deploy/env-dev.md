@@ -246,7 +246,7 @@ A list of package owners. For each package owner, the following fields are requi
 
 
   * **packageName**:
-Java package name (e.g *com.my_company* ).
+Java package name (for example, *com.my_company* ).
 
 
   * **keystore**:
@@ -285,7 +285,7 @@ packageOwnership=[
 
 ## Package namespace ownership
 
-Package namespace ownership is a Corda feature that allows a compatibility zone to give ownership of parts of the Java package namespace to registered users (e.g. a CorDapp development organisation). The exact mechanism used to claim a namespace is up to the zone operator. A typical approach would be to accept an SSL certificate with the domain in it as proof of domain ownership, or to accept an email from that domain.
+Package namespace ownership is a Corda feature that allows a compatibility zone to give ownership of parts of the Java package namespace to registered users (for example, a CorDapp development organisation). The exact mechanism used to claim a namespace is up to the zone operator. A typical approach would be to accept an SSL certificate with the domain in it as proof of domain ownership, or to accept an email from that domain.
 
 A Java package namespace is case insensitive and cannot be a sub-package of an existing registered namespace. See [Naming a Package](https://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html) and [Naming Conventions](https://www.oracle.com/technetwork/java/javase/documentation/codeconventions-135099.html#28840forguidelinesandconventions) for guidelines on naming conventions.
 
@@ -297,7 +297,7 @@ For each package to be registered, the following are required:
 
 
 * **packageName**:
-Java package name (e.g *com.my_company* ).
+Java package name (for example, *com.my_company* ).
 
 
 * **keystore**:

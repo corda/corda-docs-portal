@@ -18,14 +18,14 @@ The Corda platform, and the installed CorDapps store their data in a relational 
 
 Corda Enterprise supports a range of commercial 3rd party databases: Azure SQL, SQL Server, Oracle and PostgreSQL.
 
-The documentation contains the required [database user permission and schema creation]({{< relref "../../../../../en/platform/corda/4.9/enterprise/node/operating/node-database-admin.md" >}}) steps
-for production systems for a new Corda installation or [database upgrade]({{< relref "../../../../../en/platform/corda/4.9/enterprise/node-upgrade-notes.md#step-3-update-the-database" >}}) for upgrading Corda nodes.
+The documentation contains the required [database user permission and schema creation]({{< relref "node/operating/node-database-admin.md" >}}) steps
+for production systems for a new Corda installation or [database upgrade]({{< relref "node-upgrade-notes.md#step-3-update-the-database" >}}) for upgrading Corda nodes.
 Database schema updates may be also required when [deploying CorDapps on a node]({{< relref "node/operating/node-operations-cordapp-deployment.md" >}})
-or [upgrading CorDapps]{{< relref "node-operations-upgrade-cordapps.md" >}}).
+or [upgrading CorDapps]({{< relref "node-operations-upgrade-cordapps.md" >}}).
 
-For development/testing purposes, the [simplified database schema setup for development]({{< relref "../../../../../en/platform/corda/4.9/enterprise/node/operating/node-database-developer.md" >}}) documentation covers database setup with simplified user permissions. Documentation on [understanding the node database]({{< relref "../../../../../en/platform/corda/4.9/enterprise/node/operating/node-database.md" >}}) explains the differences between both setups.
+For development/testing purposes, the [simplified database schema setup for development]({{< relref "node/operating/node-database-developer.md" >}}) documentation covers database setup with simplified user permissions. Documentation on [understanding the node database]({{< relref "node/operating/node-database.md" >}}) explains the differences between both setups.
 
-Corda Enterprise is released with the [Database Management Tool]({{< relref "../../../../../en/platform/corda/4.9/enterprise/node/operating/node-database.md#database-management-tool" >}}).
+Corda Enterprise is released with the [Database Management Tool]({{< relref "node/operating/node-database.md#database-management-tool" >}}).
 The tool is distributed as a standalone JAR file named `tools-database-manager-${corda_version}.jar`.
 It is intended to be used by Corda Enterprise node administrators during database schema creation.
 

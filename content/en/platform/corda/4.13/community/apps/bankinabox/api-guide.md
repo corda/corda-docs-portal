@@ -522,7 +522,7 @@ Sample response:
 ```
 
 
-### Set Account Status
+### Set account status
 
 Send a `PUT` request to the `/accounts/set-status` endpoint to invoke the [SetAccountStatusFlow]({{< relref "back-end-guide.md#setaccountstatusflow" >}}). The `SetAccountStatusFlow` updates the status of an account with a specified account ID. This request requires authorization. It can be sent by an admin user.
 

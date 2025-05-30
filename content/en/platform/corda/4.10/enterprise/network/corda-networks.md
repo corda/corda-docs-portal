@@ -6,7 +6,7 @@ menu:
 tags:
 - corda
 - networks
-title: Understanding Corda Networks
+title: Understanding Corda networks
 weight: 1
 ---
 
@@ -36,26 +36,26 @@ and force the signing of a certificate. See signing-service
 Identity Manager periodically to see if their signature request has been fulfilled).
 
 At the end of this process a node will have successfully registered the legal identity of the entity it is operating
-on behalf of with the Zone. However, that node now needs to join one of the sub zones that make up the network as a
+on behalf of with the Zone. However, that node now needs to join one of the subzones that make up the network as a
 whole.
 
 
-## Sub Zones
+## Subzones
 
 {{< note >}}
-This is an internal feature. Running a network with multiple sub-zones is not a supported configuration.
+This is an internal feature. Running a network with multiple subzones is not a supported configuration.
 
 {{< /note >}}
-Where the zone as a whole is defined by the unique set of identities, a sub zone is a sub grouping of those entities
+Where the zone as a whole is defined by the unique set of identities, a subzone is a sub grouping of those entities
 that agree to a common set of parameters that define the global consensus mechanisms for all members. This functionality
 is offered by one or more Network Map services.
 
-Sub Zones are currently categorised in relation to the mechanism a zone operator has in place for the process of
+Subzones are currently categorised in relation to the mechanism a zone operator has in place for the process of
 setting the network parameters for it.
 
 
-* *Public Sub Zones* where the entirety of the Network Parameters are under the sole control of the Zone Operator
-* *Segregated Sub Zones* where one or more of the Network Parameters have been delegated to the authority of some
+* *Public subzones* where the entirety of the Network Parameters are under the sole control of the Zone Operator
+* *Segregated subzones* where one or more of the Network Parameters have been delegated to the authority of some
 third party.
 
 Note, in either circumstance the operation of the Network Map in question is still under the perview by the Zone
@@ -70,21 +70,21 @@ stratification of the min platform version applied to a network
 {{< /note >}}
 
 {{< important >}}
-Each sub zone requires it’s own notary pool as no node, including notaries, can exist in more than
-one sub zone
+Each subzone requires it’s own notary pool as no node, including notaries, can exist in more than
+one subzone
 
 
 {{< /important >}}
 
-For more information, see sub-zones
+For more information, see subzones
 
 
-### Operating a Segregated Sub Zone
+### Operating a segregated subzone
 
-From the perspective of a mature CENM deployment, operating a sub zone post ENM 0.3 is the same as operating a single
+From the perspective of a mature CENM deployment, operating a subzone post ENM 0.3 is the same as operating a single
 network under the old paradigm where there was only the one zone.
 
-Each Network Map that represents a segregated sub zone is configured separately from the others as a distinct entity
+Each Network Map that represents a segregated subzone is configured separately from the others as a distinct entity
 unaware of one another
 
 Each Network Map requires:
@@ -100,7 +100,7 @@ Each Network Map requires:
 * [What is a compatibility zone?]({{< relref "compatibility-zones.md" >}})
     * [How do I become part of a compatibility zone?]({{< relref "compatibility-zones.md#how-do-i-become-part-of-a-compatibility-zone" >}})
         * [Bootstrapping a compatibility zone]({{< relref "compatibility-zones.md#bootstrapping-a-compatibility-zone" >}})
-        * [Joining an existing compatibility zone]({{< relref "compatibility-zones.md#joining-an-existing-compatibility-zone" >}})
+        * [Joining an existing compatibility zone]({{< relref "compatibility-zones.md#joining-compatibility-zones" >}})
         * [Setting up a dynamic compatibility zone]({{< relref "setting-up-a-dynamic-compatibility-zone.md" >}}) (in detail)
             * [Do you need to create your own dynamic compatibility zone?]({{< relref "setting-up-a-dynamic-compatibility-zone.md#do-you-need-to-create-your-own-dynamic-compatibility-zone" >}})
             * [Why create your own zone?]({{< relref "setting-up-a-dynamic-compatibility-zone.md#why-create-your-own-zone" >}})
@@ -121,8 +121,8 @@ Each Network Map requires:
     * [The additional-node-infos directory]({{< relref "network-map.md#the-additional-node-infos-directory" >}})
     * [Network parameters]({{< relref "network-map.md#network-parameters" >}})
     * [Network parameters update process]({{< relref "network-map.md#network-parameters-update-process" >}})
-        * [Automatic Acceptance]({{< relref "network-map.md#automatic-acceptance" >}})
-        * [Manual Acceptance]({{< relref "network-map.md#manual-acceptance" >}})
+        * [Automatic acceptance]({{< relref "network-map.md#automatic-acceptance" >}})
+        * [Manual acceptance]({{< relref "network-map.md#manual-acceptance" >}})
     * [Private networks]({{< relref "network-map.md#private-networks" >}})
     * [Cleaning the network map cache]({{< relref "network-map.md#cleaning-the-network-map-cache" >}})
 * [Cipher suites supported by Corda]({{< relref "cipher-suites.md" >}})

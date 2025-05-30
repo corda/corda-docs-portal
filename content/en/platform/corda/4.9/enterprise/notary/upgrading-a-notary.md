@@ -14,8 +14,8 @@ Corda Enterprise supports two highly-available notary implementations: MySQL and
 a Percona database, and is a **deprecated** implementation.
 
 To migrate from a MySQL notary to a JPA notary you must change the backend database and database schema. After
-notary data has been validated in the CockroachDB database, the [JPA Notary Setup]{{< relref "ha-notary-service-overview.md" >}}/)
-and [Notary Worker Configuration]{{< relref "installing-the-notary-service.md" >}}/) processes can be followed.
+notary data has been validated in the CockroachDB database, the [JPA Notary Setup]({{< relref "ha-notary-service-overview.md" >}}/)
+and [Notary Worker Configuration]({{< relref "installing-the-notary-service.md" >}}/) processes can be followed.
 
 ## Before you begin
 
@@ -230,5 +230,5 @@ echo --Done
     ```
 ## Next steps
 After the notary data migration is complete, at least one JPA notary node must be provisioned. To set up a JPA notary node,
-see the [JPA Notary Setup]{{< relref "ha-notary-service-overview.md" >}}/) and [Notary Worker Configuration]{{< relref "installing-the-notary-service.md" >}}/) documentation.
-After the JPA notary is operating, you should run the [Notary Health Check tool]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/notary-healthcheck.md" >}})) to ensure that the network is up and responsive.
+see the [JPA Notary Setup]({{< relref "ha-notary-service-overview.md" >}}/) and [Notary Worker Configuration]({{< relref "installing-the-notary-service.md" >}}/) documentation.
+After the JPA notary is operating, you should run the [Notary Health Check tool]({{< relref "../notary-healthcheck.md" >}})) to ensure that the network is up and responsive.
