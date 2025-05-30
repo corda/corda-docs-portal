@@ -34,7 +34,7 @@ An optional configuration field that specifies the file from which truststore ke
 Determines operating mode of the firewall. See [Firewall operating modes]({{< relref "corda-firewall-configuration-file.md#firewall-operating-modes" >}}).
 
 ## keyStorePassword
-The password to unlock the keystore files `<workspace>/certificates/sslkeystore.jks and `<workspace>/certificates/nodestore.jks` containing the node certificate and private key. Due to limitations in the Artemis libraries, the private key password must be the same.
+The password to unlock the TLS keystore file (`<workspace>/<certificatesDirectory>/sslkeystore.jks`) containing the node certificate and private key. Due to limitations in the Artemis libraries, the private key password must be the same.
 
 {{< note >}}
 This is the non-secret value for the development certificates automatically generated during the first node run. Longer term these keys will be managed in secure hardware devices.
