@@ -61,16 +61,16 @@
           <li>
             {{ if eq $similarPage.Permalink "" }}
               <a href="{{ .Page.Permalink }}" class="dropdown-item {{if $active}}active{{end}}">
-                <span>{{ .Page.Params.Version }}</span>
+                <span>{{ .Page.Params.Title }}</span>
               </a>
             {{ else }}
               {{ if eq $similarPage.RelPermalink  $currentUrl }}
                 <a href="{{ .Page.Permalink }}" class="dropdown-item {{if $active}}active{{end}}">
-                  <span>{{ .Page.Params.Version }}</span>
+                  <span>{{ .Page.Params.Title }}</span>
                 </a>
               {{ else }}
                 <a href="{{ $similarPage.Permalink }}" class="dropdown-item {{if $active}}active{{end}}">
-                  <span>{{ .Page.Params.Version }}</span>
+                  <span>{{ .Page.Params.Title }}</span>
                 </a>
               {{end}}
             {{end}}

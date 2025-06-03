@@ -1,14 +1,17 @@
 ---
 description: "CorDapp Developer, Cluster Administrator, and Network Operator documentation for Corda 5.2."
 date: '2022-08-17'
-title: Corda 5.2
-# project: Corda
+title: "C5.2"
+cordamenu: "C5.2 menu"
+project: Corda
 version: 'Corda 5.2'
 section_menu: corda52
 menu:
   versions:
-    weight: -4060
+    weight: 400
+    name: "C5.2"
   corda52:
+    name: "C5.2"
     weight: -100    
 ---
 # Next-Gen {{< version >}}
