@@ -15,7 +15,7 @@ Documentation for non-supported releases of Corda Open Source, Corda Enterprise,
 
 | Product          | Link to archived docs                                              | 
 | :--------------------- | :-------------- | 
-| **Corda 5**   | [Corda 5 Dev Preview 1](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-5/5.0-dev-preview-1) | 
+| **Corda 5**   |  [Corda 5.1]({{< relref "5.1/_index.md" >}}) |
 | **Corda Enterprise**   | [Corda Enterprise 3.0](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/3.0) | 
 |    | [Corda Enterprise 3.1](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/3.1) | 
 |    | [Corda Enterprise 3.2](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/3.2) | 
