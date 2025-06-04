@@ -6,7 +6,7 @@ menu:
     parent: corda-enterprise-4-11-corda-nodes-collaborative-recovery
 tags:
 - ledger recovery
-
+title: Ledger Recovery
 weight: 5
 ---
 

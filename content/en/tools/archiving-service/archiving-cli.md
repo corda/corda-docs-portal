@@ -460,7 +460,7 @@ The following are keys for configuring the Archive Service.
 * `target.user`: Backup schema archive database user, required if a backup schema is used.
 * `target.password`: Backup schema archive database password, required if a backup schema is used.
 
-Passwords can be obfuscated using [Corda Configuration Obfuscator tool]({{< relref "../../platform/corda/4.9/enterprise/tools-config-obfuscator.md" >}}).
+Passwords can be obfuscated using the [Corda Configuration Obfuscator tool](../../platform/corda/{{< latest-c4-version >}}/enterprise/tools-config-obfuscator.md).
 
 A sample configuration file follows below:
 
