@@ -14,7 +14,7 @@ weight: 40
 
 # Security best practices
 
-Corda is designed to be secure by default. However, the platform cannot create a secure environment on its own - you need to follow security best practices when developing CorDapps and using the Corda network.
+Corda is designed to be secure by default. However, the platform cannot create a secure environment on its own - you need to follow security best practices when developing CorDapps.
 
 This topic explains:
 * Why you should write secure CorDapps, even if you trust the counterparties you transact with.
