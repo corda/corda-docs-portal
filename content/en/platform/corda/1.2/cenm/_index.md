@@ -23,9 +23,7 @@ version: 'CENM 1.2'
 
 The Corda Enterprise Network Manager is a commercial offering from R3 that facilitates the operation of a bespoke
 Corda network that gives the operator full control over all aspects of deployment, operation, and the consensus rules.
-This is provided as an alternative to taking advantage of utilising the service-level-managed production components
-that are otherwise be available from [Corda Network](https://corda.network), governed by the independent
-Corda Network Foundation.
+
 
 The *Corda Enterprise Network Manager* encompasses three main services:
 
