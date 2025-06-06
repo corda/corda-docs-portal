@@ -44,7 +44,7 @@ The Corda platform documentation covers the following current versions of the Co
 |                                             | [CENM 1.4]({{< relref "/en/platform/corda/1.4/cenm/_index.md" >}})                                           |
 |                                             | [CENM 1.3]({{< relref "/en/platform/corda/1.3/cenm/_index.md" >}})                                           |
 |                                             | [CENM 1.2]({{< relref "/en/platform/corda/1.2/cenm/_index.md" >}})                                           |
-
+| **C5**                                      | [C5.2]({{< relref "/en/platform/corda/5.2/_index.md" >}})                                               |
 {{< /table >}}
 
 {{< note >}}
