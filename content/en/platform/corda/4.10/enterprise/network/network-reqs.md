@@ -15,7 +15,7 @@ weight: 2
 
 ## Corda network parameters
 
-There is a set of parameters that all Nodes on the network must agree on in order to interoperate. These are listed below.
+There is a set of parameters that all nodes on the network must agree on in order to interoperate. These are listed below.
 
 
 * **minimumPlatformVersion**: 

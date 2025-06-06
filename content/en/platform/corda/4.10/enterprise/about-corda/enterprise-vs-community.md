@@ -33,7 +33,7 @@ Details on Corda Enterprise features compared to Corda Community Edition feature
 |Multiple accounts|&#10003;|&#10003;|
 |Supported development languages|Java, Kotlin|Java, Kotlin|
 |Standard Corda APIs|&#10003;|&#10003;|
-|Compatible with any Corda network (including the Corda Network)|&#10003;|&#10003;|
+|Compatible with any Corda network |&#10003;|&#10003;|
 
 {{< /table >}}
 
