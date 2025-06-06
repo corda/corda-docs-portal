@@ -10,11 +10,11 @@ menu:
     weight: 280
 tags:
 - tools
-title: Tools and Utilities
+title: Tools and utilities
 ---
 
 
-# Tools and Utilities
+# Tools and utilities
 
 A small number of tools are available to help with setting up, running and testing a network.
 
@@ -23,7 +23,7 @@ A small number of tools are available to help with setting up, running and testi
 
 
 
-* [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool.md" >}})
+* [Public key infrastructure (PKI) tool]({{< relref "pki-tool.md" >}})
 
 
 
@@ -32,7 +32,7 @@ A small number of tools are available to help with setting up, running and testi
 
 
 
-* [Certificate Revocation Request Submission Tool]({{< relref "tool-crr-submission.md" >}})
+* [Certificate revocation request submission tool]({{< relref "tool-crr-submission.md" >}})
 
 
 
@@ -41,5 +41,5 @@ A small number of tools are available to help with setting up, running and testi
 
 
 
-* [Config Obfuscation Tool]({{< relref "config-obfuscation-tool.md" >}})
+* [Config obfuscation tool]({{< relref "config-obfuscation-tool.md" >}})
 * [CRL Endpoint Check Tool]({{< relref "crl-endpoint-check-tool.md" >}})

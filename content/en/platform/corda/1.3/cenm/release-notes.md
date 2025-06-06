@@ -74,7 +74,7 @@ Read more about improvements of this release below.
 ### New features and enhancements
 
 #### New Command-Line Interface (CLI) tool
- The new CENM Command-Line Interface (CLI) tool is supported by the new authentication and authorisation (Auth) service and enables users to access many of the functionalities included in this release, such as central log retrieval, configuration management, and multi-step service orchestration. Users are now able to authenticate through the new CLI tool and to perform actions according to their user-permissions (for example, run a Flag Day), thus eliminating the need to access the host of each individual service and its respective shell.
+ The new CENM Command-Line Interface (CLI) tool is supported by the new authentication and authorisation (Auth) service and enables users to access many of the functionalities included in this release, such as central log retrieval, configuration management, and multi-step service orchestration. Users are now able to authenticate through the new CLI tool and to perform actions according to their user-permissions (for example, run a flag day), thus eliminating the need to access the host of each individual service and its respective shell.
 #### New User Admin tool
 The User Admin tool that allows CENM administrators to connect securely via a web browser to create and manage new CENM users, groups, and roles for performing tasks on CENM services. The application supports the new authentication and authorisation (Auth) - which is used to check the credentials and permissions of each user.
 
@@ -88,7 +88,7 @@ The new Zone Service enables you to store configurations for the Identity Manage
 We have updated the Kubernetes reference deployment to use Helm@3 and to support the new services introduced in CENM 1.3. The updated documentation provides guidance on how to use this deployment with external databases.
 
 #### Configuration obfuscation
-Configuration obfuscation support in CENM 1.3 now involves the use of the [Corda Enterprise Configuration Obfuscator tool](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-enterprise/4.5/enterprise/tools-config-obfuscator.md). Legacy (pre-1.3) obfuscated configurations are still supported, however you should update any such configuration files using the latest version of the Corda Enterprise Configuration Obfuscator tool.
+Configuration obfuscation support in CENM 1.3 now involves the use of the [Corda Enterprise configuration obfuscator tool](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-enterprise/4.5/enterprise/tools-config-obfuscator.md). Legacy (pre-1.3) obfuscated configurations are still supported, however you should update any such configuration files using the latest version of the Corda Enterprise configuration obfuscator tool.
 
 #### Highly available Certificate Revocation List
 Our documentation now provides some deployment recommendations on how to make the CRL highly available in a typical network deployment.
@@ -96,8 +96,8 @@ Our documentation now provides some deployment recommendations on how to make th
 #### Other changes
 - We have added the new Angel Service to enable the management of the Identity Manager Service, the Network Map Service, and other services. This feature includes a standardised health check API, functionality for fetching configuration from the Zone Service, and capability to enable remote access to service logs to assist with diagnosing issues.
 - We have added the new Front-end Application for Remote Management (FARM) Service that acts as a gateway to enable the orchestration of requests from user interfaces (command-line interface or web UI) to back-end services.
-- We have added support for managing the Flag Day process via the command-line interface, replacing the need for the network operator to directly log in to the Network Map and Signing Services. However, note that in the recommended deployment, the signing of parameters is done via systems in a restricted access network, and therefore network operators still need to access the Signing Service from within that restricted network.
-- We have added support for labelling of Sub Zones (Network Map Services) in order to give them a human-readable identifier.
+- We have added support for managing the flag day process via the command-line interface, replacing the need for the network operator to directly log in to the Network Map and Signing Services. However, note that in the recommended deployment, the signing of parameters is done via systems in a restricted access network, and therefore network operators still need to access the Signing Service from within that restricted network.
+- We have added support for labelling of subzones (Network Map Services) in order to give them a human-readable identifier.
 - We have removed the `NotaryRegistrationTool`, which had been shipped as part of the Notary tools for several versions before.
 - We have updated the Corda base used in CENM from version 4.0 to version 4.3. This does not affect compatibility, but it updates a number of shared dependencies.
 - We have updated the Bouncy Castle library from version 1.60 to version 1.64.
@@ -154,7 +154,7 @@ To satisfy clients who wish to use third party software or service providers to 
 
 The new service (SMR) extracts signable material from the Identity Manager and Network Map Services, and then delegates signing to a plugin. Customers can implement their own plugins to integrate with external signing infrastructure and return signed material back to SMR to pass to the relevant CENM service.
 
-See [Signing Services]({{< relref "signing-service.md" >}}) for more details. Also see [EJBCA Sample Plugin]({{< relref "ejbca-plugin.md" >}}) for a sample open source CA implementation.
+See [Signing services]({{< relref "signing-service.md" >}}) for more details. Also see [EJBCA sample plugin]({{< relref "ejbca-plugin.md" >}}) for a sample open source CA implementation.
 
 **CRL Endpoint Check tool**
 
@@ -270,7 +270,7 @@ as well as for Gemalto and Securosys HSMs in both the PKI Tool and Signing Servi
 
 * CENM now supports encryption of passwords in configuration files, using encryption keys derived from
 hardware attributes. An obfuscation tool ships with CENM, to process configuration files and encrypt
-marked fields. For more details on usage see [Config Obfuscation Tool](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-enterprise/4.5/enterprise/tools-config-obfuscator.md).
+marked fields. For more details on usage see [Config obfuscation tool](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-enterprise/4.5/enterprise/tools-config-obfuscator.md).
 * Fixed an internal error which occurred when using H2 versions below 1.4.198 due to use of unsupported
 lock types.
 * Added `run purgeAllStagedNodeInfos` and `run purgeStagedNodeInfo nodeInfoHash: <node_info_hash>` commands
@@ -315,13 +315,13 @@ fresh to the product but also those who are upgrading from pre-release versions.
 The Signing Service is a new addition to the suite of CENM services, sitting alongside the Identity Manager and Network
 Map. It provides a network operator with full control over the signing of node identity data (CSRs and CRRs) and global
 network data (Network Map and Network Parameters) and includes features such as HSM integration, signing scheduling and
-support for multiple Network Map Services. See [Signing Services]({{< relref "signing-service.md" >}}) to learn more about this service.
+support for multiple Network Map Services. See [Signing services]({{< relref "signing-service.md" >}}) to learn more about this service.
 
 **Brand new PKI tooling**
 
 The PKI Tool enables a network operator to easily generate Corda-compliant certificate hierarchy (keys and
 certificates) as well as certificate revocation lists. The tool supports both local and HSM key stores and can be
-customized with the configuration file. See [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool.md" >}}) to learn about all the features of the PKI Tool.
+customized with the configuration file. See [Public key infrastructure (PKI) tool]({{< relref "pki-tool.md" >}}) to learn about all the features of the PKI Tool.
 
 **Full End to End SSL communication**
 
@@ -354,13 +354,13 @@ versioned changes to the protocol without changing that which the Corda nodes de
 The Signing Service is a new addition to the suite of CENM services, sitting alongside the Identity Manager and Network
 Map. It provides a network operator with full control over the signing of node identity data (CSRs and CRRs) and global
 network data (Network Map and Network Parameters) and includes features such as HSM integration, signing scheduling and
-support for multiple Network Map Services. See [Signing Services]({{< relref "signing-service.md" >}}) to learn more about this service.
+support for multiple Network Map Services. See [Signing services]({{< relref "signing-service.md" >}}) to learn more about this service.
 
 **Epoch Control**
 
 The PKI Tool enables a network operator to easily generate Corda-compliant certificate hierarchy (keys and
 certificates) as well as certificate revocation lists. The tool supports both local and HSM key stores and can be
-customized with the configuration file. See [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool.md" >}}) to learn about all the features of the PKI Tool.
+customized with the configuration file. See [Public key infrastructure (PKI) tool]({{< relref "pki-tool.md" >}}) to learn about all the features of the PKI Tool.
 
 **Shell**
 
@@ -380,12 +380,12 @@ the user, eliminating the frustration from having to address errors one by one.
 
 **Postgresql Support**
 
-Due to the database schema separation outlined below, the 0.3 release now supports segregated sub zones. That is,
-sub-zones of nodes that operate in what appear to the nodes to be isolated networks, with their own notary(ies) and
+Due to the database schema separation outlined below, the 0.3 release now supports segregated subzones. That is,
+subzones of nodes that operate in what appear to the nodes to be isolated networks, with their own notary(ies) and
 network parameters. Critically, however, their certificate governance remains under the jurisdiction of a global
 Doorman. This way, temporary benefits such as higher privacy, differential network parameters upgrade schedules or use
-of temporary private notaries can be delivered. Note that the ability to merge one sub-zone into another is not
-currently supported. See the [Sub Zones]({{< relref "sub-zones.md" >}}) documentation for more information.
+of temporary private notaries can be delivered. Note that the ability to merge one subzone into another is not
+currently supported. See the [Subzones]({{< relref "sub-zones.md" >}}) documentation for more information.
 
 **Protocol Separation**
 
@@ -400,7 +400,7 @@ The two top-level endpoints are now
 * `/network-map`
 * `/network-map-user`
 
-see [Network Map Overview]({{< relref "network-map-overview.md" >}}) for more information.
+see [Network map overview]({{< relref "network-map-overview.md" >}}) for more information.
 
 Another change that is introduced in the newest release is the ability to interact with the Doorman and Network Map
 services via a shell. The commands available currently mainly allow an operator to inspect the state of the service,
@@ -409,8 +409,8 @@ Requests that are awaiting approval. See the [Embedded Shell]({{< relref "shell.
 
 Added support for overriding the default “increment previous value by 1” behaviour for epoch values during network
 parameter updates/initialisation. This allows a user to specify the epoch within the parameter config file and it
-facilitates arbitrary jumps in epoch values. This is necessary for the day-to-day management of multiple sub-zones as
-well as the merging of one sub-zone into another.
+facilitates arbitrary jumps in epoch values. This is necessary for the day-to-day management of multiple subzones as
+well as the merging of one subzone into another.
 
 **Shell**
 

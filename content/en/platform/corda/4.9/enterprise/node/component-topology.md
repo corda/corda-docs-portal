@@ -3,7 +3,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-9:
     identifier: corda-enterprise-4-9-corda-nodes
-    name: "Corda Nodes"
+    name: "Corda nodes"
 tags:
 - node
 - overview
@@ -98,7 +98,7 @@ The diagram highlights that:
 
 1. CorDapps are the functional aspect of Corda that define the operations of a business network for a given use case.
 2. Corda nodes store states in a database (the Vault) using JDBC.
-3. Corda Nodes communicate in peer-to-peer fashion using AMQP/TLS 1.2.
+3. Corda nodes communicate in peer-to-peer fashion using AMQP/TLS 1.2.
 4. The Corda firewall is an optional reverse proxy extension of the Corda node intended to reside in the DMZ, enabling secure AMQP/TLS 1.2 interaction with peer Corda nodes.
 5. Client applications interact with Corda nodes using RPC/TLS 1.2.
 6. Administrators interact with Corda nodes over SSH.

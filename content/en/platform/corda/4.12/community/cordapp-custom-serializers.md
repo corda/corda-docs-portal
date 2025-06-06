@@ -13,7 +13,7 @@ tags:
 - cordapp
 - custom
 - serializers
-title: Pluggable Serializers for CorDapps
+title: Pluggable serializers for CorDapps
 ---
 
 

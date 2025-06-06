@@ -264,12 +264,12 @@ If an item in a list is overridden via an environment variable/system property, 
 
 ## `keyStorePassword`
 
-  The password to unlock the KeyStore file (`<workspace>/certificates/sslkeystore.jks`) containing the node certificate and private key.
+The password to unlock the keystore files `<workspace>/certificates/sslkeystore.jks` and `<workspace>/certificates/nodestore.jks` containing the node certificate and private key.
 
-  **Important: This is the non-secret value for the development certificates automatically generated during the first node run.
-  Alternatively, these keys can be managed in secure hardware devices.**
+{{< important >}}This is the non-secret value for the development certificates automatically generated during the first node run.
+Alternatively, these keys can be managed in secure hardware devices.{{< /important >}}
 
-  *Default:* cordacadevpass
+*Default:* cordacadevpass
 
 ## `lazyBridgeStart`
 
@@ -372,9 +372,7 @@ Please do not change.
 
 If both of the Corda compatibility zone services, network map and registration (doorman), are not running on the same endpoint and thus have different URLs, use this option in place of the `compatibilityZoneURL` setting.
 
-{{< attention >}}
-Important: Only one of `compatibilityZoneURL` or `networkServices` should be used.
-{{< /attention >}}
+{{< important >}}Only one of `compatibilityZoneURL` or `networkServices` should be used.{{< /important >}}
 
 * `doormanURL`
   * Root address of the network registration service.
@@ -409,7 +407,7 @@ Important: Only one of `compatibilityZoneURL` or `networkServices` should be use
 
 A list of packages to exclude from Quasar instrumentation. Wildcards are allowed, for example `org.xml**`.
 
-**Important: Do not change unless requested by support.**
+{{< important >}}Do not change unless requested by support.{{< /important >}}
 
 *Default:* empty list
 
@@ -450,9 +448,9 @@ Deprecated. Use rpcSettings instead.**
 
 ## `rpcSettings`
 
-  Options for the RPC server exposed by the Node.
+Options for the RPC server exposed by the Node.
 
-  **Important: The RPC SSL certificate is used by RPC clients to authenticate the connection.  The Node operator must provide RPC clients with a truststore containing the certificate they can trust.  We advise Node operators to not use the P2P keystore for RPC.  The node can be run with the "generate-rpc-ssl-settings" command, which generates a secure keystore and truststore that can be used to secure the RPC connection. You can use this if you have no special requirements.**
+{{< important >}}The RPC SSL certificate is used by RPC clients to authenticate the connection.  The Node operator must provide RPC clients with a truststore containing the certificate they can trust.  We advise Node operators to not use the P2P keystore for RPC.  The node can be run with the "generate-rpc-ssl-settings" command, which generates a secure keystore and truststore that can be used to secure the RPC connection. You can use this if you have no special requirements.{{< /important >}}
 
 * `address`
   * host and port for the RPC server binding.
@@ -550,21 +548,21 @@ telemetry {
 
 ## `tlsCertCrlDistPoint`
 
-  CRL distribution point (i.e. URL) for the TLS certificate.
-  Default value is NULL, which indicates no CRL availability for the TLS certificate.
+CRL distribution point (i.e. URL) for the TLS certificate.
+Default value is NULL, which indicates no CRL availability for the TLS certificate.
 
-  **Important: This needs to be set if crlCheckSoftFail is false (i.e. strict CRL checking is on).**
+{{< important >}}This needs to be set if crlCheckSoftFail is false (i.e. strict CRL checking is on).{{< /important >}}
 
-  *Default:* NULL
+*Default:* NULL
 
 ## `tlsCertCrlIssuer`
 
-  CRL issuer (given in the X500 name format) for the TLS certificate.
-  Default value is NULL, which indicates that the issuer of the TLS certificate is also the issuer of the CRL.
+CRL issuer (given in the X500 name format) for the TLS certificate.
+Default value is NULL, which indicates that the issuer of the TLS certificate is also the issuer of the CRL.
 
-  **Important: If this parameter is set then `tlsCertCrlDistPoint` needs to be set as well.**
+{{< important >}}If this parameter is set then `tlsCertCrlDistPoint` needs to be set as well.{{< /important >}}
 
-  *Default:* NULL
+*Default:* NULL
 
 ## `trustStorePassword`
 
@@ -575,19 +573,19 @@ telemetry {
 
 ## `useTestClock`
 
-  Internal option.
+Internal option.
 
-  **Important: Please do not change.**
+{{< important >}}Please do not change.{{< /important >}}
 
-  *Default:* false
+*Default:* false
 
 ## `verfierType`
 
-  Internal option.
+Internal option.
 
-  **Important: Please do not change.**
+{{< important >}}Please do not change.{{< /important >}}
 
-  *Default:* InMemory
+*Default:* InMemory
 
 ## `reloadCheckpointAfterSuspend`
 

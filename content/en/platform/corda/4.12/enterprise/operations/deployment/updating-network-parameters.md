@@ -53,7 +53,7 @@ parametersUpdate {
 
 In this example, `description` is a short description of the update that will be communicated to the nodes, and `updateDeadline` is
 the time (in ISO-8601 format) by which all nodes in the network must decide that they have accepted the new parameters.
-A Flag Day cannot be issued *before* the `updateDeadline` has passed, so make sure to set the right `updateDeadline` time.
+A flag day cannot be issued *before* the `updateDeadline` has passed, so make sure to set the right `updateDeadline` time.
 
 {{< note >}}
 Currently you can only make backward-compatible changes to the network parameters. For example, you cannot remove notaries
@@ -109,7 +109,7 @@ cenm signer netmap netparams update status --network-params-hash <parameters upd
 
 ## Execute network parameters update
 
-Once the `updateDeadline` has passed, you can issue a Flag Day. This is the act of changing the active network
+Once the `updateDeadline` has passed, you can issue a flag day. This is the act of changing the active network
 parameters to be the parameters advertised in step 2. To do so, use the following
 command:
 
@@ -144,8 +144,8 @@ cenm signer netmap netparams update cancel
 The Network Map Service will continue to advertise the cancelled update until a new network map is signed.
 
 {{< note >}}
-You should avoid advertising new parameters or cancelling the update during the period between Flag Day
+You should avoid advertising new parameters or cancelling the update during the period between flag day
 issuance and the next network map signing, especially if the scheduled network map signing task is configured.
 Otherwise you can cause an inconsistent parameters update record in the database and the implicit cancellation of the
-issued Flag Day.
+issued flag day.
 {{< /note >}}

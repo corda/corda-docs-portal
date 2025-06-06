@@ -14,11 +14,11 @@ tags:
 - pki
 - tool
 - parameters
-title: Public Key Infrastructure (PKI) Tool Configuration Parameters
+title: Public key infrastructure (PKI) tool configuration parameters
 ---
 
 
-# Public Key Infrastructure (PKI) Tool Configuration Parameters
+# Public key infrastructure (PKI) tool configuration parameters
 
 
 * **defaultPassword**:
@@ -71,14 +71,14 @@ existing) certificate entry in the corresponding certificate store. See the belo
 
 
 
-## Key Store Configuration
+## Key store configuration
 
 The key store configuration defines the type of the underlying key store along with any type specific information. The
 possible key store types are currently the same set as the possible key types. That is, `LOCAL`, `UTIMACO_HSM`,
 `GEMALTO_HSM`, `SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM`.
 
 
-### Local Key Store Configuration
+### Local key store configuration
 
 
 * **type**:
@@ -95,7 +95,7 @@ Password for the key store.
 
 
 
-### Utimaco HSM Key Store Configuration
+### Utimaco HSM key store configuration
 
 
 * **type**:
@@ -168,7 +168,7 @@ value is `:cs2:auto:USB0`.
 
 
 
-### Gemalto HSM Key Store Configuration
+### Gemalto HSM key store configuration
 
 
 * **type**:
@@ -193,7 +193,7 @@ configuration and input at runtime.
 
 
 
-### Securosys HSM Key Store Configuration
+### Securosys HSM key store configuration
 
 
 * **type**:
@@ -220,7 +220,7 @@ Password associated with the user for the HSM. This can be omitted from the conf
 
 
 
-### Azure Key Vault HSM Key Store Configuration
+### Azure Key Vault HSM key store configuration
 
 
 * **type**:
@@ -268,7 +268,7 @@ ID of the client used during initial authentication.
 
 
 
-### AWS CloudHSM Key Store Configuration
+### AWS CloudHSM key store configuration
 
 First of all AWS CloudHSM requires a UNIX client running on the machine. It will use that to connect to the HSM.
 For detailed documentation about setting up the client please visit Amazon’s

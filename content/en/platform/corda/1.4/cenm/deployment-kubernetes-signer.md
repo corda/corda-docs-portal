@@ -21,7 +21,7 @@ Passwords to the security certificates keys and keystores cannot be configurable
 
 For more information about PKI Tool and Certificate Hierarchy refer to:
 
-* [Certificate Hierarchy Guide]({{< relref "pki-guide.md" >}})
+* [Certificate hierarchy guide]({{< relref "pki-guide.md" >}})
 * [PKI Tool]({{< relref "pki-tool.md" >}})
 
 ## Example usage
@@ -73,8 +73,8 @@ The name needs to be a valid X500 name and commas need to be escaped by a backsl
 | `signingKeys.credentials.keyStorePassword`   | The key store password, only applicable if using Azure Key Vault instead of local key store | `""` |
 | `signingKeys.credentials.keyStoreAlias`      | The key store alias, only applicable if using Azure Key Vault instead of local key store | `1` |
 | `signingKeys.credentials.clientId`           | The application client id to access the Azure Key Vault, only applicable if using Azure Key Vault instead of local key store | `abcdefgh-1234-5678-9012-123456789012` |
-| `pki.certificates.tlscrlsigner.subject`      | Subject of the certificate for signing the CRL for the Corda Node’s TLS-level certificate (alias: tlscrlsigner) | `CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
-| `pki.certificates.tlscrlsigner.crl.issuer`   | Issuer of the certificate for signing the CRL for the Corda Node’s TLS-level certificate (alias tlscrlsigner) | `CN=Corda TLS Signer Certificate, OU=Corda, O=R3 HoldCo LLC, L=New York, C=US` |
+| `pki.certificates.tlscrlsigner.subject`      | Subject of the certificate for signing the CRL for the Corda node’s TLS-level certificate (alias: tlscrlsigner) | `CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
+| `pki.certificates.tlscrlsigner.crl.issuer`   | Issuer of the certificate for signing the CRL for the Corda node’s TLS-level certificate (alias tlscrlsigner) | `CN=Corda TLS Signer Certificate, OU=Corda, O=R3 HoldCo LLC, L=New York, C=US` |
 | `pki.certificates.cordarootca.subject`       | Subject of Corda Root certificate (alias: cordarootca) | `CN=Test Root CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
 | `pki.certificates.subordinateca.subject`     | Subject of Corda Subordinate certificate (alias: subordinateca) | `CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
 | `pki.certificates.identitymanagerca.subject` | Subject of Corda Identity Manager certificate (alias: identitymanagerca) | `CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |

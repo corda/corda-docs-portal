@@ -314,7 +314,7 @@ not sufficient. The only way to be sure that a piece of code is deterministic is
 as described below.
 
 
-### Enabling Use of the DJVM for a Node
+### Enabling Use of the DJVM for a node
 
 You can enable the DJVM for your node by adding the following line to your node’s `node.conf` file:
 

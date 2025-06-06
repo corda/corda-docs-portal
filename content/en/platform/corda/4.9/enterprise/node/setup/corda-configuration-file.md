@@ -62,7 +62,7 @@ for more information.
 
 ## Overriding configuration values
 
-### Placeholder Overrides
+### Placeholder overrides
 
 It is possible to add placeholders to the `node.conf` file to override particular settings via environment variables. In this case the
 `rpcSettings.address` property will be overridden by the `RPC_ADDRESS` environment variable, and the node will fail to load if this
@@ -75,7 +75,7 @@ rpcSettings {
 }
 ```
 
-### Direct Overrides
+### Direct overrides
 
 It is also possible to directly override Corda configuration (regardless of whether the setting is already in the `node.conf`), by using
 environment variables or JVM options. Simply prefix the field with `corda.` or `corda_`, using periods (`.`) or
@@ -148,7 +148,7 @@ java -Dcorda.cordappSignerKeyFingerprintBlacklist.0="000000000000000000000000000
 
 ## Configuration file fields
 
-See [Configuration file fields]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.md" >}}).
+See [Configuration file fields]({{< relref "corda-configuration-fields.md" >}}).
 
 ## Reference.conf
 

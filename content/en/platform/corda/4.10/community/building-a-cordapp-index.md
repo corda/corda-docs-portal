@@ -28,6 +28,6 @@ title: CorDapps
 * [Building Building CorDapps against a non-release branch]({{< relref "building-against-non-release.md" >}})
 * [Debugging a CorDapp]({{< relref "debugging-a-cordapp.md" >}})
 * [Secure coding guidelines]({{< relref "secure-coding-guidelines.md" >}})
-* [Configuring Responder Flows]({{< relref "flow-overriding.md" >}})
+* [Configuring responder flows]({{< relref "flow-overriding.md" >}})
 * [Starting a flow with a client-provided unique ID]({{< relref "flow-start-with-client-id.md" >}})
 * [Flow cookbook]({{< relref "flow-cookbook.md" >}})

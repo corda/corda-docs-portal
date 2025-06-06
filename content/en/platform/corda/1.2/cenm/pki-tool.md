@@ -12,17 +12,17 @@ menu:
 tags:
 - pki
 - tool
-title: Public Key Infrastructure (PKI) Tool
+title: Public key infrastructure (PKI) tool
 ---
 
 
-# Public Key Infrastructure (PKI) Tool
+# Public key infrastructure (PKI) tool
 
 
 
 ## Overview
 
-As described in the [Certificate Hierarchy Guide]({{< relref "pki-guide.md" >}}), a certificate hierarchy with certain properties is required to run a Corda
+As described in the [Certificate hierarchy guide]({{< relref "pki-guide.md" >}}), a certificate hierarchy with certain properties is required to run a Corda
 network. Specifically, the certificate hierarchy should include the two main CENM entities - the Identity Manager and
 the Network Map - and ensure that all entities map back to one common root of trust. The key pairs and certificates for
 these entities are used within the Signing Service to sign related network data such as approved CSRs, CRRs, Network Map
@@ -66,7 +66,7 @@ java -jar pkitool.jar --config-file <CONFIG_FILE>
 ```
 
 
-### Generating Certificates for non-Production Deployments
+### Generating certificates for non-production deployments
 
 By default, a check will be done on the proposed certificate hierarchy before any generation steps to ensure that CRL
 information is present for all entities. If this is not required then this check can be disabled by passing the
@@ -84,7 +84,7 @@ See [Certificate Revocation List Information](#certificate-revocation-list-infor
 ## Configuration
 
 
-### Default Configuration
+### Default configuration
 
 The PKI tool comes with the default configuration which can be used for testing. This configuration resembles a basic
 version of the Corda Network certificate hierarchy, with the key omission of any CRL information. To generate the
@@ -103,7 +103,7 @@ The generated hierarchy will not have any CRL-related extensions included, hence
 
 {{< /note >}}
 
-### Custom Configuration
+### Custom configuration
 
 For anything other than a simple test, a custom configuration file can be created to define the hierarchy. Along with
 other parameters, the configuration is composed of three main sections:
@@ -120,7 +120,7 @@ are used by the tool for storing generated certificates.
 hierarchy.
 
 {{< note >}}
-The full list of the configuration parameters can be found in [Public Key Infrastructure (PKI) Tool Configuration Parameters]({{< relref "config-pki-tool-parameters.md" >}}).
+The full list of the configuration parameters can be found in [Public key infrastructure (PKI) tool configuration parameters]({{< relref "config-pki-tool-parameters.md" >}}).
 
 {{< /note >}}
 
@@ -128,7 +128,7 @@ The full list of the configuration parameters can be found in [Public Key Infras
 
 This configuration block defines all key stores that should be used by the PKI Tool. Each key store can be either local
 (backed by a Java key store file) or HSM (backed by a LAN HSM device). For HSM key stores, the available options and
-authentication methods will depend on the HSM being used. See [Public Key Infrastructure (PKI) Tool Configuration Parameters]({{< relref "config-pki-tool-parameters.md" >}}) for more details.
+authentication methods will depend on the HSM being used. See [Public key infrastructure (PKI) tool configuration parameters]({{< relref "config-pki-tool-parameters.md" >}}) for more details.
 
 A mixture of key store types is allowed. That is, it is possible to generate some key pairs within a HSM device and
 others locally. Note that mixing key store types is not supported for a given entity.
@@ -152,7 +152,7 @@ map from the user-defined alias to certificate configuration. The alias serves t
 reference the given entity throughout the rest of the PKI Tool config. Secondly, it also defines the alias for the
 generated (or existing) certificate entry in the corresponding certificate store. The certificate configuration defines
 the entity specific properties of both the X509 certificate and associated key pair. See
-[Public Key Infrastructure (PKI) Tool Configuration Parameters]({{< relref "config-pki-tool-parameters.md" >}}) for more information.
+[Public key infrastructure (PKI) tool configuration parameters]({{< relref "config-pki-tool-parameters.md" >}}) for more information.
 
 If the desire is to use the resultant certificate hierarchy in a Corda network, this configuration block must define a
 set of certificates that meet some basic requirements. In addition to the hierarchy having to be under a single trust
@@ -177,7 +177,7 @@ The following certificate templates are available:
 
 | **Template Name**            | **Description**                                                            | **Default Alias**       |
 | ---------------------------- | -------------------------------------------------------------------------- | ----------------------- |
-| `CORDA_TLS_CRL_SIGNER`       | Certificate for signing the CRL for the Corda Node’s TLS-level certificate | cordatlscrlsigner       |
+| `CORDA_TLS_CRL_SIGNER`       | Certificate for signing the CRL for the Corda node’s TLS-level certificate | cordatlscrlsigner       |
 | `CORDA_ROOT`                 | Corda Root certificate                                                     | cordarootca             |
 | `CORDA_SUBORDINATE`          | Corda Subordinate certificate                                              | cordasubordinateca      |
 | `CORDA_IDENTITY_MANAGER`     | Corda Identity Manager certificate                                         | cordaidentitymanagerca  |
@@ -287,7 +287,7 @@ certificates = {
 ##### Free-form Certificates
 
 As an alternative to using the templates, each key pair and certificate can defined using the standard configuration
-options. See the [Public Key Infrastructure (PKI) Tool Configuration Parameters]({{< relref "config-pki-tool-parameters.md" >}}) documentation for all possible parameters, and see below for examples
+options. See the [Public key infrastructure (PKI) tool configuration parameters]({{< relref "config-pki-tool-parameters.md" >}}) documentation for all possible parameters, and see below for examples
 that use this approach. Note that the templates only support local key stores - using a HSM requires the certificate
 hierarchy to be defined without templates.
 
@@ -299,7 +299,7 @@ explicitly defines all necessary CRL file configurations or all CRL distribution
 generated without the `Certificate Revocation List Distribution Point` extension and will therefore be incompatible
 with any network using strict revocation checking.
 
-As outlined in the [Public Key Infrastructure (PKI) Tool Configuration Parameters]({{< relref "config-pki-tool-parameters.md" >}}) doc, this extension is defined using the following logic:
+As outlined in the [Public key infrastructure (PKI) tool configuration parameters]({{< relref "config-pki-tool-parameters.md" >}}) doc, this extension is defined using the following logic:
 
 
 * If the certificate configuration has the `crlDistributionUrl` parameter set then use this.
@@ -349,7 +349,7 @@ subordinate’s CRL file must be hosted, and available, on this endpoint.
 
 {{< note >}}
 Existing revocations can be added to the CRL file via the `crl.revocations` parameter. See
-[Public Key Infrastructure (PKI) Tool Configuration Parameters]({{< relref "config-pki-tool-parameters.md" >}}) for more information.
+[Public key infrastructure (PKI) tool configuration parameters]({{< relref "config-pki-tool-parameters.md" >}}) for more information.
 
 {{< /note >}}
 For a given certificate, the exact crlDistributionPoint extension can be defined explicitly (rather than inheriting from
@@ -376,7 +376,7 @@ certificates {
 
 As previously mentioned, it is up to the network operator to ensure that any configured CRL endpoints are available.
 The Identity Manager supports hosting of these CRL files (see the the “CRL Configuration” section of the
-[Identity Manager Service]({{< relref "identity-manager.md" >}}) doc).
+[Identity Manager service]({{< relref "identity-manager.md" >}}) doc).
 
 
 ##### HSM Libraries
@@ -480,12 +480,12 @@ certificates = {
 ```
 
 
-### Configuration Examples
+### Configuration examples
 
 {{< note >}}
 HSM keys used by the Signing Service require an accompanying certificate store that contains all certificates in
 the chain, from the signing entity back to the root. This is because the full chains cannot be stored within the
-HSMs. Refer to the [Signing Services]({{< relref "signing-service.md" >}}) documentation for more information.
+HSMs. Refer to the [Signing services]({{< relref "signing-service.md" >}}) documentation for more information.
 
 {{< /note >}}
 

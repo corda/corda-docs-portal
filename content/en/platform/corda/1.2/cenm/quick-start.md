@@ -12,11 +12,11 @@ menu:
 tags:
 - quick
 - start
-title: Enterprise Network Manager Quick-Start Guide
+title: Network Manager quick-start guide
 ---
 
 
-# Enterprise Network Manager Quick-Start Guide
+# Network Manager quick-start guide
 
 
 
@@ -51,10 +51,10 @@ value should be the external address of the machine along with any port defined 
 
 Before starting any services, the PKI first needs to be generated. This involves creating the certificates and key pairs
 for all ENM services and determines what entities the nodes will trust. More information on the certificate hierarchy
-is available in the [Certificate Hierarchy Guide]({{< relref "pki-guide.md" >}}) doc.
+is available in the [Certificate hierarchy guide]({{< relref "pki-guide.md" >}}) doc.
 
 
-#### Example Configuration
+#### Example configuration
 
 The following is an example configuration file (`pki-generation.conf`) using the placeholder
 `<IDENTITY_MANAGER_ADDRESS>` value. This should be replaced with the actual value.
@@ -103,13 +103,13 @@ certificates = {
 
 {{< note >}}
 The passwords for the key stores are defaulted to “password” and the passwords for the trust stores are
-defaulted to “trustpass”. These can be changed in the configuration (see [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool.md" >}})).
+defaulted to “trustpass”. These can be changed in the configuration (see [Public key infrastructure (PKI) tool]({{< relref "pki-tool.md" >}})).
 
 {{< /note >}}
 
 #### Running The Tool
 
-The required certificate stores and key pairs can be generated using the [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool.md" >}}). The PKI tool distribution zip
+The required certificate stores and key pairs can be generated using the [Public key infrastructure (PKI) tool]({{< relref "pki-tool.md" >}}). The PKI tool distribution zip
 archive should be extracted to a chosen location, after which it can be run via:
 
 ```bash
@@ -131,13 +131,13 @@ not needed to get a basic network up and running, these extra parts of the PKI c
 of more advanced features such as as certificate revocation support.
 
 
-### Start the Identity Manager Service
+### Configure the Identity Manager service
 
 Before running the service, the Identity Manager jar along with the `corda-identity-manager-keys.jks` file should be
 copied over to the Identity Manager machine (or directory location if running locally).
 
 
-#### Example Configuration
+#### Example configuration
 
 The following is an example configuration (`identity-manager.conf`) for the Identity Manager Service, using automatic
 approval and local signing for CSRs:
@@ -184,7 +184,7 @@ workflows {
 
 {{< note >}}
 The example uses a local h2 database. You can modify this to point to an separate DB instance by modifying the
-`database` section. See the “Database properties” section of [Identity Manager Service]({{< relref "identity-manager.md" >}}) for more
+`database` section. See the “Database properties” section of [Identity Manager service]({{< relref "identity-manager.md" >}}) for more
 information.
 
 {{< /note >}}
@@ -205,7 +205,7 @@ Network management web services started on <IDENTITY_MANAGER_ADDRESS> with [Regi
 ```
 
 
-### Register your Notary with the Identity Manager
+##Register notary with Identity Manager
 
 Before the Network Map Service can be initialised the Notary nodes first need to register with the Identity Manager.
 This is because the list of trusted notaries is stored within the Network Parameters, which in turn need to be passed to
@@ -215,7 +215,7 @@ The truststore containing the network root certificate (`network-root-truststore
 the Notary machine along with a valid Corda jar (e.g. Corda OS 4.0).
 
 
-#### Example Configuration
+#### Example configuration
 
 The following is an example `node.conf` file, with dummy values for the end points. These endpoints are dependent on
 the setup of the machines so should be replaced with their true values (e.g. IPs addresses for machines).
@@ -284,7 +284,7 @@ parameters configuration. See [Updating the network parameters]({{< relref "upda
 and updating the parameters.
 
 
-#### Example Configuration
+#### Example configuration
 
 
 ##### Service
@@ -324,7 +324,7 @@ checkRevocation = false
 
 {{< note >}}
 The example uses a local h2 database. You can modify this to point to an separate DB instance by modifying the
-`database` section. See the “Database properties” section of [Network Map Service]({{< relref "network-map.md" >}}) for more information.
+`database` section. See the “Database properties” section of [Network Map service]({{< relref "network-map.md" >}}) for more information.
 
 {{< /note >}}
 
@@ -376,7 +376,7 @@ NetworkParameters {
 ```
 
 
-### Start the Network Map Service
+### Start the Network Map service
 
 The Network Map Service can then be ran via:
 
@@ -420,11 +420,11 @@ The above guide also assumes the simplest possible settings for all services. Th
 more features, in particular:
 
 
-* Certificate revocation support (“Revocation workflow ” section within [Identity Manager Service]({{< relref "identity-manager.md" >}}))
-* More advanced CSR approval workflows (“Certificate approval mechanism” section within [Identity Manager Service]({{< relref "identity-manager.md" >}}))
-* External signing of CSRs/Network Map updates including HSM integration ([Signing Services]({{< relref "signing-service.md" >}}))
+* Certificate revocation support (“Revocation workflow ” section within [Identity Manager service]({{< relref "identity-manager.md" >}}))
+* More advanced CSR approval workflows (“Certificate approval mechanism” section within [Identity Manager service]({{< relref "identity-manager.md" >}}))
+* External signing of CSRs/Network Map updates including HSM integration ([Signing services]({{< relref "signing-service.md" >}}))
 
-See the configuration sections within the [Identity Manager Service]({{< relref "identity-manager.md" >}}) and [Network Map Service]({{< relref "network-map.md" >}}) docs to learn more.
+See the configuration sections within the [Identity Manager service]({{< relref "identity-manager.md" >}}) and [Network Map service]({{< relref "network-map.md" >}}) docs to learn more.
 
 
 ## Bundled Service alternative

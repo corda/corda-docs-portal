@@ -12,13 +12,13 @@ menu:
 tags:
 - flow
 - overriding
-title: Configuring Responder Flows
+title: Configuring responder flows
 ---
 
 
 
 
-# Configuring Responder Flows
+# Configuring responder flows
 
 A flow can be a fairly complex thing that interacts with many backend systems, and so it is likely that different users
 of a specific CorDapp will require differences in how flows interact with their specific infrastructure.
@@ -26,7 +26,7 @@ of a specific CorDapp will require differences in how flows interact with their 
 Corda supports this functionality by providing two mechanisms to modify the behaviour of apps in your node.
 
 
-## Subclassing a Flow
+## Subclassing a flow
 
 If you have a workflow which is mostly common, but also requires slight alterations in specific situations, most developers would be familiar
 with refactoring into *Base* and *Sub* classes. A simple example is shown below.

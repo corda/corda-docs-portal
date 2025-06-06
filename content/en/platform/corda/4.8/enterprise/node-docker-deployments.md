@@ -18,7 +18,7 @@ ensure the [Corda Docker image]({{< relref "docker-image.md" >}}) has been corre
 The node runs in a container. This works similarly to executing the JAR directly, though any node directories must be manually mounted into the container. It is also necessary to set up
 port-forwarding and environment variables. The same command variables can be used in running the container as when running the JAR. See the [generating a node]({{< relref "node/deploy/generating-a-node.md" >}}) and [running nodes locally]({{< relref "node/deploy/running-a-node.md" >}}) pages.
 
-## Running a node connected to a Compatibility Zone in Docker
+## Running a node connected to compatibility zone in Docker
 
 {{< note >}}
 Requirements: A valid node.conf and a valid set of certificates - (signed by the CZ)
@@ -55,7 +55,7 @@ If using the H2 database:
 If there is no `dataSourceProperties` key in the node.conf file, the Docker container overrides the H2 URL. The URL will point to the persistence directory by default, allowing the database to be accessed from outside the container.
 {{< /note >}}
 
-## Running a node connected to a Bootstrapped Network
+## Running a node connected to bootstrapped network
 
 To run a node connected to a Bootstrapped Network, you will need a valid node.conf, a valid set of certificates, and an existing network-parameters file.
 
@@ -84,7 +84,7 @@ As the node within the container starts up, it will place its own nodeInfo into 
 
 It is possible to utilize the image to automatically generate a sensible minimal configuration for joining an existing Corda network.
 
-## Joining an existing Compatibility Zone
+## Joining compatibility zones
 
 {{< note >}}
 Requirements: A Compatibility Zone, the Zone Trust Root and authorisation to join said Zone.
@@ -146,7 +146,7 @@ docker run -ti \
 
 The image contains the database-migration tool. It is possible to run this in two modes within a container.
 
-## Generating Migration Jars
+## Generating migration JARs
 
 In this mode, the database-migration tool will scan the provided CorDapps, and generate corresponding migration jars. These jars will be placed alongside
 the source CorDapps. In this example, there are two CorDapps provided `corda-insurance.jar` and `corda-kyc.jar`
@@ -164,7 +164,7 @@ docker run -ti \
 After the container has finished executing, there will be two new jars in `/home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps`: `migration-corda-insurance.jar` and `migration-corda-kyc.jar`.
 These will then be loaded as normal CorDapps by the node on next launch.
 
-## Executing Migrations on the Database
+## Performing database migrations
 
 It is also possible to use the image to directly perform the migration of the database.
 
