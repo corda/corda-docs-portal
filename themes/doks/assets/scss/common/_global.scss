@@ -9,6 +9,10 @@
   padding-bottom: 3rem;
 }
 
+:root {
+  --r3red: #ec1d25
+}
+
 h1,
 .h1,{
   margin: 2rem 0 1rem;
@@ -465,18 +469,73 @@ details[open] summary:after {
 }
 
 li .nav-tabs{
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 li .tab-content{
   margin-bottom: 1rem;
-}
-
-li pre{
   margin-top: 1rem;
-  margin-bottom: 1rem;
 }
 
 li ul{
-  margin-bottom: 0rem;
-};
+  margin-top: 0.0rem;
+  margin-bottom: 0.0rem;
+}
+
+li ol {
+    margin-top: 0.0rem;
+    margin-bottom: 0.0rem;
+}
+
+li ol li::marker {
+    color: black;
+}
+
+li ul li::marker {
+    color: black;
+}
+
+
+ul p {
+    margin-top: 0.0rem !important;
+    margin-bottom: 0.0rem !important;
+}
+
+ol p {
+    margin-top: 0.0rem !important;
+    margin-bottom: 0.0rem !important;
+}
+
+li pre code {
+   margin-top: 0.0rem !important;
+   margin-bottom: 0.0rem !important;
+}
+
+li pre {
+   margin-top: 0.5rem !important;
+   margin-bottom: 0.5rem !important;
+}
+
+p {
+   margin-top: 0.7rem !important;
+   margin-bottom: 0.7rem !important;
+}
+
+li {
+   margin-top: 0.0rem !important;
+   margin-bottom: 0.0rem !important;
+   padding: 0rem;
+}
+li::marker {
+    color: var(--r3red);
+}
+
+div ol {
+   margin-top: 0.5rem !important;
+   margin-bottom: 0.5rem !important;
+}
+
+div ul {
+   margin-top: 0.5rem !important;
+   margin-bottom: 0.5rem !important;
+}
