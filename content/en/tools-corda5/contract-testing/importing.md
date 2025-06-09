@@ -7,6 +7,7 @@ menu:
     identifier: contract-testing-importing
     parent: contract-testing
 ---
+# Importing the Framework
 
 ## Adding the Framework as a Dependency
 
