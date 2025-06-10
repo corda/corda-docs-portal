@@ -38,7 +38,11 @@
       {{ end -}}
 			<p class="lead">{{ .Params.lead | safeHTML }}</p>
             <!-- <algolia-content class> --> 
-			<div data-pagefind-body>
+         {{ if eq $isCorda5Version false }}   
+			  <div data-pagefind-body>
+         {{ else }}
+           <div>
+         {{ end }}
 			{{ partial "main/headline-hash.html" .Content }}
 			</div>
              <!-- </algolia-content> -->
