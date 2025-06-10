@@ -487,6 +487,16 @@ li ol {
     margin-bottom: 0.0rem;
 }
 
+p ul {
+    margin-top: 0.0rem;
+    margin-bottom: 0.0rem;
+}
+
+p ol {
+    margin-top: 0.0rem;
+    margin-bottom: 0.0rem;
+}
+
 li ol li::marker {
     color: black;
 }
@@ -496,26 +506,30 @@ li ul li::marker {
 }
 
 
-ul p {
+ul + p {
     margin-top: 0.0rem !important;
     margin-bottom: 0.0rem !important;
 }
 
-ol p {
+ol + p {
     margin-top: 0.0rem !important;
     margin-bottom: 0.0rem !important;
 }
 
-li pre code {
+li + pre + code {
    margin-top: 0.0rem !important;
    margin-bottom: 0.0rem !important;
 }
 
-li pre {
+li + pre {
    margin-top: 0.5rem !important;
    margin-bottom: 0.5rem !important;
 }
 
+p:has(+ ul) {
+   margin-top: 0.0rem !important;
+   margin-bottom: 0.0rem !important;
+}
 p {
    margin-top: 0.7rem !important;
    margin-bottom: 0.7rem !important;
@@ -530,12 +544,18 @@ li::marker {
     color: var(--r3red);
 }
 
-div ol {
+div + ol {
    margin-top: 0.5rem !important;
    margin-bottom: 0.5rem !important;
 }
 
-div ul {
+div + ul {
    margin-top: 0.5rem !important;
    margin-bottom: 0.5rem !important;
 }
+
+li p {
+   margin-top: 0.0rem !important;
+   margin-bottom: 0.0rem !important;
+}
+
