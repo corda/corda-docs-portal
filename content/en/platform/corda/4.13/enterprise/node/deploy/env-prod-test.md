@@ -122,8 +122,7 @@ node.conf
 nodeInfo-XXXXXXXXX
 ```
 
-
-This is a sample `node.conf` which details a configuration connecting to the Corda UAT Network.
+This is a sample node.conf which details a configuration connecting to a Corda UAT Network.
 
 ```javascript
 {
