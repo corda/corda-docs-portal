@@ -30,7 +30,7 @@ Use the `--help` flag for a full list of command line options.
 ## Sub-commands
 
 
-* `node-registration`: Corda registration tool for registering 1 or more node with the Corda Network, using provided node configuration.
+* `node-registration`: Corda registration tool for registering 1 or more node with a Corda network, using provided node configuration.
 * `import-ssl-key`: Key copying tool for creating bridge SSL keystore or add new node SSL identity to existing bridge SSL keystore.
 * `generate-internal-artemis-ssl-keystores`: Generate self-signed root and SSL certificates for internal communication between the services and external Artemis broker.
 * `generate-internal-tunnel-ssl-keystores`: Generate self-signed root and SSL certificates for internal communication between Bridge and Float.

@@ -15,6 +15,8 @@ weight: 9
 
 # Upgrading the notary to a new version of Corda Enterprise
 
+No additional steps are needed to upgrade the notary from a minor version of Corda Enterprise from the immediately previous minor version, with the following exceptions.
+
 ## Version 4.8
 
 {{< warning >}}

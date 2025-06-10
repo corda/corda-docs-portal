@@ -17,7 +17,7 @@ Production use of Corda Community Edition 4.11 is only supported on Linux OS, se
 
 ## Network management
 
-The Community Edition of Corda does not come with network management support included. You can still consider joining the [Corda Network](https://corda.network).
+The Community Edition of Corda does not come with network management support included. 
 
 If you require network management, you can consider using the [Network Map Service from Cordite](https://gitlab.com/cordite/network-map-service). Cordite Foundation is a third-party supplier, and not supported by R3.
 
