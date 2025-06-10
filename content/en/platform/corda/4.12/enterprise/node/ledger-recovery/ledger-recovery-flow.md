@@ -34,7 +34,7 @@ val alsoFinalize: Boolean = false
 `timeWindow` refers to the recovery time window and defines a `fromTime` and `untilTime`. This parameter is mandatory,
 if not explicitly defined in configuration.
 
-If a value is not specified by the user, the flow attempts to use the Corda Network or node configuration configured time window.
+If a value is not specified by the user, the flow attempts to use the Corda network or node configuration configured time window.
 The precedence order for this parameter is user-specified first, then node configuration, then Corda Network parameter.
 
 ## `useAllNetworkNodes`
