@@ -3,7 +3,7 @@ baseURL = "/"
 title = "R3 Documentation"
 
 theme = ['doks']
-
+timeout = 360
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 contentDir = "content/"
