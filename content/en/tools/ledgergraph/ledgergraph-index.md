@@ -17,7 +17,7 @@ title: LedgerGraph
 **LedgerGraph** enables other CorDapps to have near real-time access to data concerning all of a node's transactions and their relationships. Without it, many operations would be unacceptably slow and impractical.
 
 {{< note >}}
-LedgerGraph was a dependency for the set of Collaborative Recovery CorDapps V1.1 and above, deprecated in Corda 4.12. If you are using an earlier version of Collaborative Recovery, you should not install the stand-alone LedgerGraph.
+LedgerGraph was a dependency for the set of Collaborative Recovery CorDapps V1.1 and above, deprecated in Corda 4.11. If you are using an earlier version of Collaborative Recovery, you should not install the stand-alone LedgerGraph.
 {{< /note >}}
 
 {{< note >}}
