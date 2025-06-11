@@ -23,5 +23,5 @@ In Corda 4.11 [Collaborative Recovery V1.2.1]({{< relref "collaborative-recovery
 
 Therefore:
 
-* If using Corda 4.11 or above, use Ledger[Ledger Recovery]({{< relref "ledger-recovery/overview.md" >}}) to recover your data.
-* If using Corda 4.10 or earlier, use [Collaborative Recovery V1.2.1]({{< relref "collaborative-recovery-121/introduction-cr.md" >}}) to recover your data.
+* If using Corda 4.11 or above, use [Ledger Recovery]({{< relref "ledger-recovery/overview.md" >}}) to recover your data.
+* If using Corda 4.10 or earlier, use [Collaborative Recovery]({{< relref "collaborative-recovery-121/introduction-cr.md" >}}) to recover your data.
