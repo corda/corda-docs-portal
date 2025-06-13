@@ -35,7 +35,7 @@ The Archive Service consists of the following:
 
 It also makes use of the [Application Entity Manager]({{< relref "app-entity-manager.md" >}}), which allows CorDapps to access off-ledger databases using JPA APIs.
 
-The Archive Service archives [Ledger Recovery]({{< relref "../../platform/corda/4.11/enterprise/node/collaborative-recovery/ledger-recovery/ledger-recovery-flow.md" >}}) distribution records associated with the archived transactions. (The tables `node_sender_distribution_records` and `node_receiver_distribution_records` are included in the archiving process.)
+The Archive Service archives [Ledger Recovery](../../platform/corda/{{< latest-c4-version >}}/enterprise/node/ledger-recovery/ledger-recovery.md) distribution records associated with the archived transactions. (The tables `node_sender_distribution_records` and `node_receiver_distribution_records` are included in the archiving process.)
 
 {{< note >}}
 
@@ -72,7 +72,7 @@ Once the Archive Service has marked a transaction or attachment as archivable, y
 
 ### Archiving and Collaborative Recovery
 
-The [Collaborative Recovery CorDapp LedgerSync V1.2.1]({{< relref "../../platform/corda/4.9/enterprise/node/collaborative-recovery/ledger-sync.md" >}}) has been introduced for compatibility with the Archive Service. If you or anyone on your network uses Collaborative Recovery to recover data after a disaster scenario, archived transactions in any nodes on the network are marked as such. This means that they do not appear to be 'lost' or 'missing' data and will not be recovered automatically in the recovery process.
+The Collaborative Recovery solution, along with the associated CorDapps (LedgerSync and LedgerRecover), is deprecated, and has been removed in Corda 4.12. You are now advised to use the new recovery tools introduced in version 4.11, as described in the [Corda Enterprise Edition 4.11 release notes]({{< relref "../../platform/corda/4.11/enterprise/release-notes-enterprise.md#corda-enterprise-edition-411-release-notes-1" >}}).
 
 ### Archiving and onDemand LedgerGraph
 
