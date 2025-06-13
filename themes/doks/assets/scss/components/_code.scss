@@ -43,13 +43,13 @@ code {
 }
 
 pre {
-  margin: 2rem 0;
+  margin: 0rem 0;
 
   code {
     display: block;
     overflow-x: auto;
     line-height: $line-height-base;
-    padding: 1.25rem 1.5rem;
+    padding: 1rem 1rem;
     tab-size: 4;
     scrollbar-width: thin;
     scrollbar-color: $gray-200 transparent;

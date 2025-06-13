@@ -1,7 +1,8 @@
 .alert {
   border-radius: 4px;
-  padding: 1.5rem 1.5rem 1.5rem 4.375rem;
-  margin-bottom: 1.5rem;
+  padding: 0.7rem 0.7rem 0.7rem 4.375rem;
+  margin-top: 0.7rem;
+  margin-bottom: 0.7rem;
 
   code {
     background-color: rgba(0, 0, 0, 0.08);
@@ -41,8 +42,9 @@
 
   .r3-o-icon-warning {
     position: absolute;
+    align-items: stretch;
     left: 1.5rem;
-    top: 1.65rem;
+    /* top: 1.65rem; */
 
     &::before {
       content: url("/icons/warning.svg");
@@ -64,8 +66,9 @@
 
   .r3-o-icon-important {
     position: absolute;
+    align-items: stretch;
     left: 1.5rem;
-    top: 1.625rem;
+    /* top: 1.625rem; */
 
     &::before {
       content: url("/icons/important.svg");
@@ -88,8 +91,9 @@
 
   .r3-o-icon-note{
     position: absolute;
+    align-items: stretch;
     left: 1.5rem;
-    top: 1.675rem;
+    /* top: 1.5rem; */
 
     &::before {
       content: url("/icons/info.svg");
