@@ -7,7 +7,7 @@ menu:
 tags:
 - ledger recovery
 title: Ledger Recovery
-weight: 5
+weight: 95
 ---
 
 # Ledger Recovery

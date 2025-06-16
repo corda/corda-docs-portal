@@ -16,7 +16,7 @@ With the SDK, you can define your token and its attributes, then add functionali
 
 ## Tokens SDK Documentation
 
-Tokens SDK documentation can be found [here]({{< relref "../../../en/platform/corda/4.10/enterprise/cordapps/token-sdk-introduction.md" >}}).
+Tokens SDK documentation can be found [here](../../../en/platform/corda/{{< latest-c4-version >}}/enterprise/cordapps/token-sdk-introduction.md).
 
 ## Upgrading
 
@@ -42,7 +42,7 @@ In Tokens SDK 1.2.3, the `holder` column in the `fungible_token` and `non_fungib
 
 ## Changes in Tokens SDK 1.2.2
 
-In 1.2.2, a new [Token Selection]({{< relref "../../../../../../en/platform/corda/4.10/enterprise/cordapps/token-selection.md" >}}) feature allows the exception `InsufficientNotLockedBalanceException` to be thrown when sufficient funds appear to exist for a transaction to take place, but an excess of those funds are soft locked by other in-flight transactions. The warning tells you that there are insufficient funds that have not been soft locked to satisfy the transaction amount.
+In 1.2.2, a new [Token Selection](../../../../../../en/platform/corda/{{< latest-c4-version >}}/enterprise/cordapps/token-selection.md) feature allows the exception `InsufficientNotLockedBalanceException` to be thrown when sufficient funds appear to exist for a transaction to take place, but an excess of those funds are soft locked by other in-flight transactions. The warning tells you that there are insufficient funds that have not been soft locked to satisfy the transaction amount.
 
 ## Changes in Tokens SDK 1.2.1
 
