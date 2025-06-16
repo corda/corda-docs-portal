@@ -1,13 +1,9 @@
 ---
-aliases:
-- /head/network-builder.html
-- /HEAD/network-builder.html
-- /network-builder.html
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-8:
     identifier: corda-enterprise-4-8-network-builder
-    parent: corda-enterprise-4-8-corda-network
+    parent: corda-enterprise-4-8-tools-index
     weight: 1010
 tags:
 - network
