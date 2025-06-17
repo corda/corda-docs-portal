@@ -1,4 +1,4 @@
-The following table lists the end of life schedule for all Corda 4 versions:
+The following table lists the end of life schedules for all Corda 4 versions:
 
 <style>
 table th:first-of-type {
