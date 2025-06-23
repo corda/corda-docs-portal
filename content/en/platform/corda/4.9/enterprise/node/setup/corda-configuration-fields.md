@@ -369,7 +369,7 @@ Allows fine-grained controls of various features only available in the enterpris
 An optional list of private network map UUIDs. Your node will fetch the public network and private network maps based on these keys.
 Private network UUID should be provided by network operator and lets you see nodes not visible on public network.
 
-**Important: This is a temporary feature for onboarding network participants that limits their visibility for privacy reasons.**
+{{< important >}}This is a temporary feature for onboarding network participants that limits their visibility for privacy reasons.{{< /important >}}
 
 *Default:* not defined
 
@@ -477,10 +477,10 @@ The New Relic configuration leverages the Dropwizard NewRelicReporter solution.
 
 ## `keyStorePassword`
 
-The password to unlock the KeyStore file (`<workspace>/certificates/sslkeystore.jks`) containing the node certificate and private key.
+The password to unlock the keystore files `<workspace>/certificates/sslkeystore.jks` and `<workspace>/certificates/nodestore.jks` containing the node certificate and private key.
 
-**Important: This is the non-secret value for the development certificates automatically generated during the first node run.
-Alternatively, these keys can be managed in secure hardware devices.**
+{{< important >}}This is the non-secret value for the development certificates automatically generated during the first node run.
+Alternatively, these keys can be managed in secure hardware devices.{{< /important >}}
 
 *Default:* cordacadevpass
 
@@ -488,7 +488,7 @@ Alternatively, these keys can be managed in secure hardware devices.**
 
 Internal option.
 
-**Important: Please do not change.**
+{{< important >}}Please do not change.{{< /important >}}
 
 *Default:* true
 
@@ -729,7 +729,7 @@ If not provided then the defined defaults below are used.
 
 If both of the Corda compatibility zone services, network map and registration (doorman), are not running on the same endpoint and thus have different URLs, use this option in place of the `compatibilityZoneURL` setting.
 
-**Important: Only one of `compatibilityZoneURL` or `networkServices` should be used.**
+{{< important >}}Only one of `compatibilityZoneURL` or `networkServices` should be used.{{< /important >}}
 
 * `doormanURL`
   * Root address of the network registration service.
@@ -769,7 +769,7 @@ If the provided host is unreachable, the node will try to auto-discover its publ
 
 A list of packages to exclude from Quasar instrumentation. Wildcards are allowed, for example `org.xml**`.
 
-**Important: Do not change unless requested by support.**
+{{< important >}}Do not change unless requested by support.{{< /important >}}
 
 *Default:* empty list
 
@@ -812,7 +812,7 @@ If not provided then the node will run without RPC.
 
 Options for the RPC server exposed by the Node.
 
-**Important: The RPC SSL certificate is used by RPC clients to authenticate the connection.  The Node operator must provide RPC clients with a truststore containing the certificate they can trust.  We advise Node operators to not use the P2P keystore for RPC.  The node can be run with the "generate-rpc-ssl-settings" command, which generates a secure keystore and truststore that can be used to secure the RPC connection. You can use this if you have no special requirements.**
+{{< important >}}The RPC SSL certificate is used by RPC clients to authenticate the connection.  The Node operator must provide RPC clients with a truststore containing the certificate they can trust.  We advise Node operators to not use the P2P keystore for RPC.  The node can be run with the "generate-rpc-ssl-settings" command, which generates a secure keystore and truststore that can be used to secure the RPC connection. You can use this if you have no special requirements.{{< /important >}}
 
 * `address`
   * host and port for the RPC server binding. Specifying 0.0.0.0 (as host) is a convention allowing the host to bind all of its network interfaces when listening on a socket. By itself 0.0.0.0 is non-routable; i.e., not a proper address.
@@ -870,7 +870,7 @@ It has one required parameter.
 
 Internal option.
 
-**Important: Please do not change.**
+{{< important >}}Please do not change.{{< /important >}}
 
 *Default:* 60000 milliseconds
 
@@ -892,7 +892,7 @@ Optionally specify how much memory should be used for caching of ledger transact
 CRL distribution point (i.e. URL) for the TLS certificate.
 Default value is NULL, which indicates no CRL availability for the TLS certificate.
 
-**Important: This needs to be set if crlCheckSoftFail is false (i.e. strict CRL checking is on).**
+{{< important >}}This needs to be set if `crlCheckSoftFail` is false (that is, if strict CRL checking is on).{{< /important >}}
 
 *Default:* NULL
 
@@ -901,7 +901,7 @@ Default value is NULL, which indicates no CRL availability for the TLS certifica
 CRL issuer (given in the X500 name format) for the TLS certificate.
 Default value is NULL, which indicates that the issuer of the TLS certificate is also the issuer of the CRL.
 
-**Important: If this parameter is set then `tlsCertCrlDistPoint` needs to be set as well.**
+{{< important >}}If this parameter is set then `tlsCertCrlDistPoint` needs to be set as well.{{< /important >}}
 
 *Default:* NULL
 
@@ -921,7 +921,7 @@ Corda Enterprise is BoringSsl. The default is to use JVM SSL, i.e. the flag bein
 
 Internal option.
 
-**Important: Please do not change.**
+{{< important >}}Please do not change{{< /important >}}
 
 *Default:* false
 
@@ -929,7 +929,7 @@ Internal option.
 
 Internal option.
 
-**Important: Please do not change.**
+{{< important >}}Please do not change.{{< /important >}}
 
 *Default:* InMemory
 

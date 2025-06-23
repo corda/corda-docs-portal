@@ -105,7 +105,7 @@ You can find examples of configuration files [available here]({{< relref "../cor
 * Upload the `network-root-truststore.jks` file to this directory.
 * In the root of your Node directory, create a folder called `cordapps`.  Upload your CorDapps to this folder.
 
-Once your Node has been started it will contain the following files and directories:
+Once your node has been started, it will contain the following files and directories:
 
 ```shell
 additional-node-infos/
@@ -122,8 +122,7 @@ node.conf
 nodeInfo-XXXXXXXXX
 ```
 
-
-This is a sample `node.conf` which details a configuration connecting to the Corda UAT Network.
+This is a sample `node.conf` which details a configuration connecting to a Corda UAT network.
 
 ```javascript
 {
