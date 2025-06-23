@@ -1,17 +1,20 @@
 ---
 description: "CorDapp Developer, Cluster Administrator, and Network Operator documentation for Corda 5.2."
 date: '2022-08-17'
-title: Corda 5.2
+title: "C5.2"
+cordamenu: "C5.2 menu"
 project: Corda
 version: 'Corda 5.2'
 section_menu: corda52
 menu:
   versions:
-    weight: -4060
+    weight: 400
+    name: "C5.2"
   corda52:
+    name: "C5.2"
     weight: -100    
 ---
-# Next-Gen {{< version >}}
+# {{< version >}}
 
 Corda is a {{< tooltip >}}DLT{{< /tooltip >}} application platform for the creation and operation of decentralized applications, written using a rich Java {{< tooltip >}}API{{< /tooltip >}}.
 These applications are created using standard Java development tools and packaged using Corda tooling.
@@ -56,7 +59,7 @@ To learn more about DLT and Corda's take on DLT, see the [Key Concepts]({{< relr
 ### The Evolution of Corda
 
 R3 began the creation of Corda to deliver the above capabilities, creating the first privately permissioned DLT/Blockchain platform, with version 1 released in 2017.
-Today, Next-Gen Corda (Corda 5) represents the next step for the platform, evolving the underlying technology to better meet the needs of our customers running Corda in production.
+Today, Corda (Corda 5) represents the next step for the platform, evolving the underlying technology to better meet the needs of our customers running Corda in production.
 This evolution focuses on scaling, throughput, and availability, whilst retaining its position as a market-leading DLT solution.
 
 ## Learn More
