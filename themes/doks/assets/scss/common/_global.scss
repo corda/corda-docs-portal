@@ -478,5 +478,49 @@ li pre{
 }
 
 li ul{
+  margin-top: 0rem;
   margin-bottom: 0rem;
 };
+
+li ol {
+    margin-top: 0.0rem;
+    margin-bottom: 0.0rem;
+}
+
+p ul {
+    margin-top: 0.0rem;
+    margin-bottom: 0.0rem;
+}
+
+p ol {
+    margin-top: 0.0rem;
+    margin-bottom: 0.0rem;
+}
+
+ol + p {
+    margin-top: 0.0rem !important;
+    margin-bottom: 0.0rem !important;
+}
+
+
+li p {
+   margin-top: 0.0rem !important;
+   margin-bottom: 0.0rem !important;
+}
+
+/* Fine so far */
+
+p:has(+ ul) {
+   margin-top: 0.0rem !important;
+   margin-bottom: 0.0rem !important;
+}
+
+div + ol {
+   margin-top: 0.5rem !important;
+   margin-bottom: 0.5rem !important;
+}
+
+div + ul {
+   margin-top: 0.5rem !important;
+   margin-bottom: 0.5rem !important;
+}
