@@ -6,7 +6,7 @@ menu:
 tags:
 - config
 - AWS
-title: CENM Deployment AWS/EKS
+title: Deploying CENM on AWS/EKS
 weight: 100
 ---
 

@@ -6,7 +6,7 @@ menu:
 tags:
 - corda
 - networks
-title: Managing Business Network membership
+title: Managing business network membership
 weight: 500
 
 ---
@@ -46,7 +46,7 @@ With this extension, you can use a set of flows to:
 The code samples in this documentation show you how to run management operations using the provided primitives from the context of a tool or Cordapp. It is also possible to do these operations from an RPC client or node shell by simply invoking the supplied administrative flows using data resulted from executing vault queries.
 {{< /note >}}
 
-### Members, authorised members, and Business Network Operators
+### Members, authorised members, and business network operators
 
 In a Business Network, you can assign different roles to members of the network. In this documentation, and throughout your network in general, you may encounter the following type of members:
 
@@ -131,7 +131,7 @@ You can also onboard and activate memberships in batches using [Composite flows]
 2. As a result of a successful run, a membership is created with a `PENDING` status and all authorised members will be notified of any future operations involving it.
 3. The prospective member awaits action to activate their membership by an authorised member of the network.
 
-Until activated by an authorised party, such as a Business Network Operator (BNO), the newly generated membership can neither be used nor grant the requesting node any permissions in the business network.
+Until activated by an authorised party, such as a Business network operator (BNO), the newly generated membership can neither be used nor grant the requesting node any permissions in the business network.
 
 **RequestMembershipFlow arguments**:
 
@@ -535,7 +535,7 @@ subFlow(DeleteMembershipAttributeChangeRequestFlow(requestId, notary))
 
 ## Access control report
 
-As the Business Network Operator (BNO), you can ask for the access control report by calling `BNOAccessControlReportFlow`. You will receive the following information in the form of an `AccessControlReport`.
+As the Business network operator (BNO), you can ask for the access control report by calling `BNOAccessControlReportFlow`. You will receive the following information in the form of an `AccessControlReport`.
 
 The attributes of the report file are:
 
@@ -588,7 +588,7 @@ val updatedMember = ... // get the linear ID of the membership state associated 
 subflow(UpdateCordaIdentityFlow(updatedMember, notary))
 ```
 
-## Business Network management demo
+## Business network management demo
 
 This [demo](https://github.com/corda/bn-extension) showcases integration of Business Networks solution inside a CorDapp designed for issuing and settling loans between banks. It brings up 4 nodes: a notary and 3 nodes representing banks. Each bank node must be active member of the same Business Network, have a Swift Business Identifier Code (BIC) as their business identity and loan issuance initiators must be granted permission to do so.
 
@@ -631,7 +631,7 @@ To deploy and run nodes from the command line in Windows:
 
 Next steps are same for every OS (Windows/Mac/Linux).
 
-### Create a Business Network environment
+### Create a business network environment
 
 1. Create a Business Network from *Bank A* node by running `flow start CreateBusinessNetworkFlow`.
 

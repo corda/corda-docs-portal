@@ -12,11 +12,11 @@ menu:
 tags:
 - config
 - ssl
-title: SSL Settings
+title: SSL settings
 ---
 
 
-# SSL Settings
+# SSL settings
 
 You can configure SSL at both the client and listener ends of the CENM stack. The presence of the SSL
 configuration entity enables the SSL communication between the two parties.

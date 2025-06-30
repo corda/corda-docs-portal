@@ -12,7 +12,7 @@ menu:
 tags:
 - upgrade
 - notes
-title: Upgrading Corda Enterprise Network Manager
+title: Upgrading the Network Manager
 ---
 
 # Upgrading Corda Enterprise Network Manager
@@ -83,8 +83,8 @@ This step doesn’t relate to Signing Service as it doesn’t use a database.The
 Ensure to stop the services before replacing the JAR files.
 * **Dynamic loading of HSM Jars**CENM 1.1 now supports multiple HSMs, however due to to the proprietary nature of the HSM libraries, the release does
 not work out of the box with these HSMs. The relevant libraries need to be provided by the user and referenced in the
-configuration of the relevant component (Signing Service or PKI Tool). See the relevant docs at [Signing Services]({{< relref "signing-service.md" >}})
-and [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool.md" >}}) for more information.
+configuration of the relevant component (Signing Service or PKI Tool). See the relevant docs at [Signing services]({{< relref "signing-service.md" >}})
+and [Public key infrastructure (PKI) tool]({{< relref "pki-tool.md" >}}) for more information.
 
 
 ## 0.3+ to 1.0
@@ -190,7 +190,7 @@ and Revocation services cannot be known by the upgrader.
 {{< warning >}}
 If you require private network functionality or node certificate revocation checking then the configuration
 should be updated to include the appropriate settings. See the *Doorman & Revocation Communication* section
-of the [Network Map Service]({{< relref "network-map.md" >}}) doc for more information.
+of the [Network Map service]({{< relref "network-map.md" >}}) doc for more information.
 
 {{< /warning >}}
 
@@ -201,20 +201,20 @@ of the [Network Map Service]({{< relref "network-map.md" >}}) doc for more infor
 The release modifies the Network Map Signing Service to request data through the Network Map Service rather than going
 directly to the database. Therefore the configuration needs to change to remove the redundant DB configuration and
 instead adding the service endpoint. As this information cannot be known by the config upgrader, this has to be added
-manually. See [Signing Services]({{< relref "signing-service.md" >}}) for more information on how to configure this.
+manually. See [Signing services]({{< relref "signing-service.md" >}}) for more information on how to configure this.
 
 
 #### The Certificate Revocation Request service requires a configuration update to specify communication the Revocation service
 
 Similarly to above, the CRR Signing Service now pulls data through the Revocation service and therefore requires a
-configuration modification. See [Signing Services]({{< relref "signing-service.md" >}}) for more information on how to configure this.
+configuration modification. See [Signing services]({{< relref "signing-service.md" >}}) for more information on how to configure this.
 
 
 #### Setting the network parameters requires passing the root certificate
 
 When setting network parameters, the Network Map Service cannot validate the proposed notary certificates using the Doorman DB.
 Hence the trusted root certificate now needs to be passed during setting of parameters.
-See the “Setting the Network Parameters” section of the [Network Map Service]({{< relref "network-map.md" >}}) doc for more information.
+See the “Setting the Network Parameters” section of the [Network Map service]({{< relref "network-map.md" >}}) doc for more information.
 
 
 ## 0.1 to 0.2.1
@@ -226,7 +226,7 @@ but comes with backward compatibility along with a configuration upgrade tool.
 There are two ways to upgrade your old 0.1 network services environment:
 
 
-### Without Upgrading Your Configuration
+### Without upgrading your configuration
 
 The 0.2.1 Doorman/Network Map Service and Signing Service JARs will work in place of their 0.1 counterparts, but
 require an additional `--config-is-old` command line flag to be passed upon startup. This allows you to use you old
@@ -237,7 +237,7 @@ java -jar doorman-0.1.jar --config-file doorman-0.1.conf --config-is-old
 ```
 
 
-### Upgrading Your Configuration File
+### Upgrading your configuration file
 
 You can also use the configuration file upgrade tool to create a new config file from your old 0.1 file.
 

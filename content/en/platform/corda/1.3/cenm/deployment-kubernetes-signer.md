@@ -21,7 +21,7 @@ Passwords to the security certificates keys and keystores cannot be configurable
 
 For more information about PKI Tool and Certificate Hierarchy refer to:
 
-* [Certificate Hierarchy Guide]({{< relref "pki-guide.md" >}})
+* [Certificate hierarchy guide]({{< relref "pki-guide.md" >}})
 * [PKI Tool]({{< relref "pki-tool.md" >}})
 
 ## Example usage

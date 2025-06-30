@@ -18,9 +18,6 @@ version: 'CENM 1.6'
 
 The Corda Enterprise Network Manager (CENM) is a commercial offering from R3 that facilitates the operation of a bespoke
 Corda network that gives the user full control over all aspects of deployment, operation, and consensus rules.
-This is provided as an alternative to using the service-level-managed production components
-that are otherwise available from [Corda Network](https://corda.network), which is governed by the independent
-[Corda Network Foundation](https://corda.network/).
 
 {{< note >}}
 **Release notes**
@@ -32,12 +29,12 @@ that are otherwise available from [Corda Network](https://corda.network), which 
 
 The Corda Enterprise Network Manager provides the following services:
 
-* [Identity Manager Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/identity-manager.md" >}}) Enables nodes to join the network, and handles revocation of a node certificate.
-* [Network Map Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/network-map.md" >}}) Provides a global view of the network.
+* [Identity Manager service]({{< relref "../../../../../en/platform/corda/1.6/cenm/identity-manager.md" >}}) Enables nodes to join the network, and handles revocation of a node certificate.
+* [Network Map service]({{< relref "../../../../../en/platform/corda/1.6/cenm/network-map.md" >}}) Provides a global view of the network.
 * [Signing Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/signing-service.md" >}}) Provides a way to sign approved requests to join the network (Certificate Signing Requests - CSRs) or revoke a certificate (Certificate Revocation Requests - CRRs), as well as changes to the network map.
 * [Auth Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md" >}}) The user authentication and authorisation service. Stores and controls secure user-access to network services.
 * [Gateway Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md" >}}) Provides a transfer layer between front-end Corda Enterprise Network Manager (CENM) interfaces, and the Auth Service that underpins authentication and authorisation in CENM.
-* [Zone Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/zone-service.md" >}}) A central store of configuration for other CENM services for one or more zones, and optionally for their Sub Zones. Stores relevant configurations for the Identity Manager Service, the Network Map Service, and the Signing Service.
+* [Zone Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/zone-service.md" >}}) A central store of configuration for other CENM services for one or more zones, and optionally for their subzones. Stores relevant configurations for the Identity Manager Service, the Network Map Service, and the Signing Service.
 * [Angel Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/angel-service.md" >}}) An adapter, which manages the lifecycle of other services such as the Network Map Service or the Identity Manager Service, to make them more compatible with packaging tools such as Docker.
 
 {{< note >}}
@@ -51,12 +48,12 @@ For a quick start guide on deploying Corda Enterprise Network Manager services a
 ## Concepts and overview
 
 * [Corda Networks]({{< relref "../../../../../en/platform/corda/1.6/cenm/corda-networks.md" >}})
-* [Components of the Corda Enterprise Network Manager]({{< relref "../../../../../en/platform/corda/1.6/cenm/enm-components.md" >}})
+* [Network Manager components]({{< relref "../../../../../en/platform/corda/1.6/cenm/enm-components.md" >}})
 * [The workflow]({{< relref "../../../../../en/platform/corda/1.6/cenm/enm-components.md#the-workflow" >}})
 * [Databases]({{< relref "../../../../../en/platform/corda/1.6/cenm/enm-components.md#databases" >}})
 * [Public Key Infrastructure (PKI)]({{< relref "../../../../../en/platform/corda/1.6/cenm/enm-components.md#public-key-infrastructure-pki" >}})
 * [The node]({{< relref "../../../../../en/platform/corda/1.6/cenm/enm-components.md#the-node" >}})
-* [Sub Zones]({{< relref "../../../../../en/platform/corda/1.6/cenm/sub-zones.md" >}})
+* [Subzones]({{< relref "../../../../../en/platform/corda/1.6/cenm/sub-zones.md" >}})
 * [Network Map overview]({{< relref "../../../../../en/platform/corda/1.6/cenm/network-map-overview.md" >}})
 * [Certificate Revocation List]({{< relref "../../../../../en/platform/corda/1.6/cenm/certificate-revocation.md" >}})
 
@@ -77,8 +74,8 @@ For a quick start guide on deploying Corda Enterprise Network Manager services a
 * [CENM test environment quick start guide]({{< relref "../../1.6/cenm/quick-start.md" >}})
 * [Zone Service]({{< relref "../../1.6/cenm/zone-service.md" >}})
 * [Angel Service]({{< relref "../../1.6/cenm/angel-service.md" >}})
-* [Identity Manager Service]({{< relref "../../1.6/cenm/identity-manager.md" >}})
-* [Network Map Service]({{< relref "../../1.6/cenm/network-map.md" >}})
+* [Identity Manager service]({{< relref "../../1.6/cenm/identity-manager.md" >}})
+* [Network Map service]({{< relref "../../1.6/cenm/network-map.md" >}})
 * [Signing Service]({{< relref "../../1.6/cenm/signing-service.md" >}})
 * [Auth Service]({{< relref "../../4.8/enterprise/node/auth-service.md" >}})
 * [Gateway Service]({{< relref "../../4.8/enterprise/node/gateway-service.md" >}})
@@ -101,13 +98,13 @@ For a quick start guide on deploying Corda Enterprise Network Manager services a
 ## Tools and utilities
 
 * [Index]({{< relref "../../1.6/cenm/tools-index.md" >}})
-* [Public Key Infrastructure (PKI) Tool]({{< relref "../../1.6/cenm/pki-tool.md" >}})
-* [Certificate Revocation Request Submission Tool]({{< relref "../../1.6/cenm/tool-crr-submission.md" >}})
+* [Public key infrastructure (PKI) tool]({{< relref "../../1.6/cenm/pki-tool.md" >}})
+* [Certificate revocation request submission tool]({{< relref "../../1.6/cenm/tool-crr-submission.md" >}})
 * Node Certificate Rotation Tool (contact your R3 account manager)
-* [CENM Command-line Interface Tool]({{< relref "../../1.6/cenm/cenm-cli-tool.md" >}})
+* [CENM Command-line Interface]({{< relref "../../1.6/cenm/cenm-cli-tool.md" >}})
 * [CENM User Admin tool]({{< relref "../../1.6/cenm/user-admin.md" >}})
-* [CENM Management Console]({{< relref "../../1.6/cenm/cenm-console.md" >}})
-* [Config Obfuscation Tool]({{< relref "../../4.8/enterprise/tools-config-obfuscator.md" >}})
+* [CENM management console]({{< relref "../../1.6/cenm/cenm-console.md" >}})
+* [Config obfuscation tool]({{< relref "../../4.8/enterprise/tools-config-obfuscator.md" >}})
 * [CRL Endpoint Check Tool]({{< relref "../../1.6/cenm/crl-endpoint-check-tool.md" >}})
 * [Embedded shell]({{< relref "../../1.6/cenm/shell.md" >}})
 
@@ -115,7 +112,7 @@ For a quick start guide on deploying Corda Enterprise Network Manager services a
 
 * [Public Key Infrastructure (PKI) specifications]({{< relref "../../1.6/cenm/pki-specifications.md" >}})
 * [Certificate hierarchy guide]({{< relref "../../1.6/cenm/pki-guide.md" >}})
-* [Public Key Infrastructure (PKI) Tool]({{< relref "../../1.6/cenm/pki-tool.md" >}})
+* [Public key infrastructure (PKI) tool]({{< relref "../../1.6/cenm/pki-tool.md" >}})
 
 ## Signing Plug-in Samples
 

@@ -13,11 +13,11 @@ tags:
 - tool
 - crr
 - submission
-title: Certificate Revocation Request Submission Tool
+title: Certificate revocation request submission tool
 ---
 
 
-# Certificate Revocation Request Submission Tool
+# Certificate revocation request submission tool
 
 The purpose of the Certificate Revocation Request (CRR) Submission Tool is to facilitate the process of creating a CRR.
 The tool is designed with the support line in mind, and assumes it is for internal (i.e. within the Identity Manager Service managing company) usage.

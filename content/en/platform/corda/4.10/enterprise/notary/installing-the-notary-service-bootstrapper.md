@@ -28,7 +28,7 @@ used for P2P messaging.
 
 For more information about the bootstrapper, see [Network Bootstrapper]({{< relref "../network-bootstrapper.md" >}}).
 
-## Expected Outcome
+## Expected outcome
 
 You will go from a set of configuration files to a directory tree containing a fully functional Corda network.
 

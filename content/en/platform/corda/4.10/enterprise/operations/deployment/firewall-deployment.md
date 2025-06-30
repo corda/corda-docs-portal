@@ -206,7 +206,7 @@ This should produce files: `artemis/artemis-truststore.jks`, `artemis/artemis.jk
 
 ### Node VMs setup
 
-As shown on the Physical deployment diagram above there will be two separate machines in two distinct data centres hosting Corda Nodes for Legal Entity A and Legal Entity B.
+As shown on the Physical deployment diagram above there will be two separate machines in two distinct data centres hosting Corda nodes for Legal Entity A and Legal Entity B.
 For this setup, each machine is powerful enough to host nodes for both entities with all the CorDapps and two datacentres are used for High Availability purposes.
 
 
@@ -467,7 +467,7 @@ In this example we are going to use Finance CorDapp which is supplied as part of
 #### DB drivers installation
 
 As discussed above each of the nodes will be using database to store node’s data. Corda Enterprise supports a number of databases, however in order
-for a Corda Node to store its data in the DB, a JDBC driver needs to be installed into `drivers` sub-directory.
+for a Corda node to store its data in the DB, a JDBC driver needs to be installed into `drivers` sub-directory.
 
 In this example we are using MSSql Server DB, therefore `mssql-jdbc-6.4.0.jre8.jar` will be installed.
 
@@ -930,12 +930,12 @@ Each of the boxes `vmNodesPrimary` and `vmNodesSecondary` is capable of hosting 
 `vmNodesPrimary` and `vmNodesSecondary` are meant to be located in different datacentres and in case when one of the datacentres is unavailable, the whole application plant will be running
 on the other datacentre’s hardware.
 
-In this setup Corda Nodes for each of the entities work in Hot-Cold mode. Which means that if the node is running on `vmNodesPrimary`, the node for the same identity on `vmNodesSecondary` cannot even be started.
+In this setup, Corda nodes for each of the entities work in Hot-Cold mode. Which means that if the node is running on `vmNodesPrimary`, the node for the same identity on `vmNodesSecondary` cannot even be started.
 For more information, please see Hot-cold high availability deployment.
 
 This implies that when starting nodes they should be running in re-start loop.
 
-In order to start Corda Node normally on any of the hosts (`vmNodesPrimary` or `vmNodesSecondary`) for either of the entities (`Entity A` or `Entity B`) the following command should
+In order to start Corda node normally on any of the hosts (`vmNodesPrimary` or `vmNodesSecondary`) for either of the entities (`Entity A` or `Entity B`) the following command should
 be used from the base directory:
 
 ```bash

@@ -23,13 +23,13 @@ In this document, you will find:
 
 CorDapps are:
 
-* Distributed applications that can be distributed on the Corda Network.
+* Distributed applications that can be distributed on a Corda network.
 * A set of JAR files containing Java or Kotlin class definitions.
 * Made up of components that work together to let nodes communicate and agree on updates to the shared ledger.
 
 ## What is a CorDapp?
 
-A Corda Distributed Application (CorDapp) solves a specific problem using the Corda framework. CorDapps are stored on Corda nodes and executed on the Corda network. This *distributes* the app, allowing it to run on multiple systems simultaneously—unlike traditional apps, which utilize one dedicated system to achieve an assigned task. CorDapps let nodes communicate with each other to reach agreement on updates to the ledger by defining flows that Corda node owners can invoke over RPC:
+A Corda Distributed Application (CorDapp) solves a specific problem using the Corda framework. CorDapps are stored on Corda nodes and executed on a Corda network. This *distributes* the app, allowing it to run on multiple systems simultaneously—unlike traditional apps, which utilize one dedicated system to achieve an assigned task. CorDapps let nodes communicate with each other to reach agreement on updates to the ledger by defining flows that Corda node owners can invoke over RPC:
 
 {{< figure alt="node diagram" width=80% zoom="../resources/node-diagram.png" >}}
 
@@ -45,7 +45,7 @@ A Corda Distributed Application (CorDapp) solves a specific problem using the Co
 
 *Contracts*
   Contracts define the shared rules for updating the ledger. Contracts implement the `Contract` interface. To learn
-  more about implementing contracts, see [Writing CorDapp Contracts]({{< relref "api-contracts.md" >}}).
+  more about implementing contracts, see [Writing CorDapp contracts]({{< relref "api-contracts.md" >}}).
 
 *Services*
   Services provide long-lived utilities that don’t need to run on the network. Services subclass `SingletonSerializationToken`.

@@ -9,7 +9,7 @@ menu:
 tags:
 - config
 - kubernetes
-title: CENM Deployment with Docker, Kubernetes, and Helm charts
+title: CENM deployment with Docker, Kubernetes, and Helm charts
 weight: 20
 ---
 
@@ -235,7 +235,7 @@ You can now use `cemn` commands from within the running Docker container:
   ./cenm context login -s -u <USER> -p <PASSWORD> http://<GATEWAY-SERVICE-IP>:8080
   ```
 
-The [Gateway Service]({{< relref "../../../../../en/platform/corda/4.11/enterprise/node/gateway-service.md" >}}) is a gateway between the [Auth Service]({{< relref "../../../../../en/platform/corda/4.11/enterprise/node/auth-service.md" >}}) and front end services in CENM. It allows you to perform all network operations on the [Identity Manager Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/identity-manager.md" >}}), the [Network Map Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/network-map.md" >}}), and the [Signing Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/signing-service.md" >}}).
+The [Gateway Service]({{< relref "../../../../../en/platform/corda/4.11/enterprise/node/gateway-service.md" >}}) is a gateway between the [Auth Service]({{< relref "../../../../../en/platform/corda/4.11/enterprise/node/auth-service.md" >}}) and front end services in CENM. It allows you to perform all network operations on the [Identity Manager service]({{< relref "../../../../../en/platform/corda/1.6/cenm/identity-manager.md" >}}), the [Network Map service]({{< relref "../../../../../en/platform/corda/1.6/cenm/network-map.md" >}}), and the [Signing Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/signing-service.md" >}}).
 The IP address is dynamically allocated for each deployment and can be found with `kubectl get svc`.
 Use the following command to ensure that you are pointing at the correct namespace:
 
@@ -365,9 +365,9 @@ Use the CENM [Command-Line (CLI) tool]({{< relref "../../../../../en/platform/co
 See the CENM documentation for more information about the list of available [network parameters]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-network-parameters.md" >}})
 and instructions on [updating network parameters]({{< relref "../../../../../en/platform/corda/1.6/cenm/updating-network-parameters.md" >}}).
 
-### Run Flag Day
+### Run flag day
 
-Use the following CENM Command-Line Interface (CLI) tool command to run a Flag Day:
+Use the following CENM Command-Line Interface (CLI) tool command to run a flag day:
 
 {{< note >}} For the changes to be advertised to the nodes, the new network map must be signed by the Signing Service.
 This operation is scheduled to take place at regular intervals (by default, once every 10 seconds), as defined in the network map configuration.
@@ -461,8 +461,8 @@ common options. Each CENM service has its own dedicated page with more detailed 
 
 * [Auth Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/deployment-kubernetes-auth.md" >}})
 * [Gateway Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/deployment-kubernetes-gateway.md" >}})
-* [Identity Manager Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/deployment-kubernetes-idman.md" >}})
-* [Network Map Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/deployment-kubernetes-nmap.md" >}})
+* [Identity Manager service]({{< relref "../../../../../en/platform/corda/1.6/cenm/deployment-kubernetes-idman.md" >}})
+* [Network Map service]({{< relref "../../../../../en/platform/corda/1.6/cenm/deployment-kubernetes-nmap.md" >}})
 * [Corda Notary]({{< relref "../../../../../en/platform/corda/1.6/cenm/deployment-kubernetes-notary.md" >}})
 * [Signing Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/deployment-kubernetes-signer.md" >}})
 * [Zone Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/deployment-kubernetes-zone.md" >}})

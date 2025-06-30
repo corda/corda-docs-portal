@@ -10,11 +10,11 @@ menu:
 tags:
 - setting
 - notary
-title: Setting Up A Notary Node
+title: Setting up a notary node
 ---
 
 
-# Setting Up A Notary Node
+# Setting up a notary node
 
 
 ## Purpose
@@ -32,7 +32,7 @@ the process of adding a new one requires some manual intervention on the Network
 The exact configuration will depend on the Corda version that the notary node is running.
 
 
-### Example Configuration
+### Example configuration
 
 ```guess
 myLegalName="O=Example Notary,L=London,C=GB"
@@ -55,7 +55,7 @@ p2pAddress="<NOTARY_HOST>:<NOTARY_PORT>"
 ```
 
 
-## Initial Setup
+## Initial setup
 
 The steps to integrate the notary node into the network are:
 
@@ -68,7 +68,7 @@ The steps to integrate the notary node into the network are:
 * Start the notary node as normal
 
 
-### Create Notary Node And Register With The Identity Manager
+### Create notary node and register with Identity Manager
 
 Ensuring that the Identity Manager Service is successfully running, start the notary node for registration.
 
@@ -82,7 +82,7 @@ during the initial setup of the network and therefore should be distribute by th
 
 {{< /note >}}
 
-### Generate Node Info File
+### Generate node info file
 
 The node info file contains information such as address and certificates. The file will be used by all participants on the network to enable them to
 connect to, and trust, the new notary node.
@@ -92,12 +92,12 @@ java -jar corda.jar --config-file <NODE_CONF_FILE> --just-generate-node-info
 ```
 
 
-### Setup Network Map Service
+### Setup Network Map service
 
-Follow instructions here [Network Map Service]({{< relref "network-map.md" >}})
+Follow instructions here [Network Map service]({{< relref "network-map.md" >}})
 
 
-### Run The Notary
+### Run the notary
 
 ```bash
 java -jar corda.jar --config-file <NODE_CONF_FILE>

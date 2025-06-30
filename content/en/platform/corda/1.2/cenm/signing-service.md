@@ -12,11 +12,11 @@ menu:
 tags:
 - signing
 - service
-title: Signing Services
+title: Signing services
 ---
 
 
-# Signing Services
+# Signing services
 
 
 
@@ -27,7 +27,7 @@ Corda Enterprise Network Manager, alongside the Identity Operator and Network Ma
 a bridge between the main CENM services and PKI/HSM infrastructure, enabling a network operator
 to verify and sign incoming requests and changes to the network.
 
-As mentioned in the CENM service documentation ([Identity Manager Service]({{< relref "identity-manager.md" >}}) and [Network Map Service]({{< relref "network-map.md" >}})), the main CENM services
+As mentioned in the CENM service documentation ([Identity Manager service]({{< relref "identity-manager.md" >}}) and [Network Map service]({{< relref "network-map.md" >}})), the main CENM services
 can be configured with an integrated *local signer* that will automatically sign all unsigned data using a provided key.
 While this is convenient, it is intended for use within for development and testing environments, and **should not** be used in
 production environments. Instead, large and important changes to the network should go through a series of checks before
@@ -66,7 +66,7 @@ Each signing task is configured independently from one another, meaning differen
 different data types or data from different sources. The independence of each signing task also means that the Signing
 Service is not constrained to a given network. For a given signing task, as long as the Signing Service can reach the
 configured data source and access the configured signing key (or HSM) then the task can be executed. Therefore one
-Signing Service can be used to manage several networks/sub-zones.
+Signing Service can be used to manage several networks/subzones.
 
 Due to security concerns, the Signing Service should be hosted on private premises, **not** in a cloud environment. As
 mentioned above, the only communication requirements are outgoing connections to the CENM services as data sources
@@ -1977,4 +1977,4 @@ Non CA Plugin’s configuration file must be in the same directory as the servic
 
 ### Other Sample Plugins
 
-See [EJBCA Sample Plugin]({{< relref "ejbca-plugin.md" >}}) for sample open source CA implementation.
+See [EJBCA sample plugin]({{< relref "ejbca-plugin.md" >}}) for sample open source CA implementation.

@@ -97,14 +97,14 @@ running with `service mysql status`, start the service with `sudo service mysql 
 ## Configuration
 
 
-### Configure the MySQL Root Password (if necessary)
+### Configure the MySQL root password (if necessary)
 
 Some distributions allow root access to the database through a Unix domain socket, others
 require you to find the temporary password in the log file and change it upon
 first login.
 
 
-### Stop the Service
+### Stop the MySQL service
 
 ```sh
 sudo service mysql stop
@@ -201,7 +201,7 @@ The file `/etc/mysql/percona-xtradb-cluster.conf.d/mysqld.cnf` contains addition
 you keep the default `/var/lib/mysql`.
 
 
-### Configure AppArmor, SELinux or other Kernel Security Module
+### Configure AppArmor, SELinux or other kernel security module
 
 If you’re changing the location of the database data directory, you might need to
 configure your security module accordingly.
@@ -287,7 +287,7 @@ FLUSH PRIVILEGES;
 ```
 
 
-### On all other Nodes
+### On all other nodes
 
 Once you have updated the `wsrep.cnf` on all nodes, start MySQL on all the
 remaining nodes of your cluster. Run this command on all nodes of your cluster,

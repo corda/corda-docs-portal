@@ -13,15 +13,15 @@ tags:
 - troubleshooting
 - common
 - issues
-title: Troubleshooting Common Issues
+title: Troubleshooting common issues
 ---
 
 
-# Troubleshooting Common Issues
+# Troubleshooting common issues
 
 
 
-## General Debugging
+## General debugging
 
 
 ### Enabling debug/trace logging
@@ -73,14 +73,14 @@ Identity Manager Service.
 
 To verify that issue 1 is not the culprit - verify that the Network Map signing process is still successfully running
 periodically. Unless the Network Map Service is configured for testing, it should have an external signing process
-configured. See the “Signing Network Map and Network Parameters” section of [Signing Services]({{< relref "signing-service.md" >}}). If the service is
+configured. See the “Signing Network Map and Network Parameters” section of [Signing services]({{< relref "signing-service.md" >}}). If the service is
 configured to run with a local signer then verify that the configured sign interval is something fairly low to ensure
 that updates to the network map are persisted often (e.g. 1 minute).
 
 To verify that issue 2 is not the culprit - the logs of the Network Map Service should be checked. An error such as an
 invalid certificate is not recoverable and should be resolved out of band with the node operator and support.
 If there are any communication issues with the Identity Manager then the error will be logged and communication will be
-retried after a short break. See the “Identity Manager Communication” section of [Network Map Service]({{< relref "network-map.md" >}}) to verify that the
+retried after a short break. See the “Identity Manager Communication” section of [Network Map service]({{< relref "network-map.md" >}}) to verify that the
 Identity Manager communication is correctly configured for the Network Map Service.
 
 
@@ -140,7 +140,7 @@ IO.
 
 **Signing process is working as intended but timeout is configured too low**
 The timeout for a local signer can be configured via the service’s configuration file. See
-[Identity Manager Configuration Parameters]({{< relref "config-identity-manager-parameters.md" >}}) and [Network Map Configuration Parameters]({{< relref "config-network-map-parameters.md" >}}) for more information.
+[Identity Manager configuration parameters]({{< relref "config-identity-manager-parameters.md" >}}) and [Network Map configuration parameters]({{< relref "config-network-map-parameters.md" >}}) for more information.
 
 
 ### Explanation

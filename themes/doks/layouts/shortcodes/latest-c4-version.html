@@ -1,0 +1,4 @@
+{{/* Displays the latest Corda 4 version number as defined in config\_default\params.toml. This is particularly useful in links that should always point to content for the latest version of Corda 4. */}}
+{{- "" -}}
+{{ replace (index .Site.Params.corda4versions 0) "Corda " "" }}
+{{- "" -}}

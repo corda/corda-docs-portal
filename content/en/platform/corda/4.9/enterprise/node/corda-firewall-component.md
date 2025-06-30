@@ -152,10 +152,10 @@ where this is the only available option:
 * Corda Enterprise JAR
 * Corda Firewall JAR
 
-The next simplest deployment is when combined Bridge/Float component is segregated away from Corda Node.
+The next simplest deployment is when combined Bridge/Float component is segregated away from the Corda node.
 
 To enable this mode `node.conf` specifies `externalBridge = true`.
-In this configuration Artemis Broker will still be embedded inside the Corda Node and the combined Bridge/Float process needs to connect
+In this configuration Artemis Broker will still be embedded inside the Corda node and the combined Bridge/Float process needs to connect
 to that broker.
 
 In this mode it is possible to host both of the processes on the same machine. This might be suitable for a test environment, to conserve VMs.
@@ -164,7 +164,7 @@ In this mode it is possible to host both of the processes on the same machine. T
 {{< note >}}
 Note that to run the firewall and the node on the same machine there could be a port conflict with a naive `node.conf` setup,
 but by using the `messagingServerAddress` property to specify the bind address and port plus setting
-`messagingServerExternal = false` (Artemis Broker still within Corda Node)
+`messagingServerExternal = false` (Artemis Broker still within a Corda node)
 the embedded Artemis P2P broker can be set to listen on a different port rather than the advertised `p2paddress` port.
 Then configure an all-in-one bridge to point at this node’s `messagingServerAddress`:
 
@@ -538,7 +538,7 @@ and from Foreign Node to Float are done over WAN over which the node operator do
 More specifically, in order to ensure optimal performance it is required:
 
 
-* To deploy Float, Bridge, Artemis Broker and Corda Node in the same data center;
+* To deploy Float, Bridge, Artemis Broker and the Corda node in the same data center;
 * Network bandwidth between any two hosts where services deployed should be no less than 100 MBit (1 GBit preferred);
 * TCP packets loss ratio should be 0.1% or less;
 * Round-trip time (RTT) should be 10 milliseconds or less.
@@ -741,7 +741,7 @@ Historically, those private keys were stored in keystore files on local disk. De
 To address this requirement, Corda Firewall has a facility to enable TLS signing using HSM. The key principle here is that private key is generated on HSM and never leaves HSM to avoid being compromised.
 When it comes to use of private key for signing - this operation is performed on HSM device itself.
 
-This mode of operation is very similar to what is happening on the Corda Node for identity private key, please see: Crypto service configuration.
+This mode of operation is very similar to what is happening on the Corda node for identity private key, please see: Crypto service configuration.
 
 HA Utilities tool been extended such that during initial generation of TLS keys they are created on HSM.
 

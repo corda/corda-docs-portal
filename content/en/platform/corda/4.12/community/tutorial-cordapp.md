@@ -19,7 +19,7 @@ title: Run a sample CorDapp
 
 # Run a sample CorDapp
 
-Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try modifying a [Java]((https://github.com/corda/cordapp-template-java/tree/release/4.12) or [Kotlin](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12) template, [building your own]({{< relref "../enterprise/get-started/tutorials/build-basic-cordapp/basic-cordapp-intro.md" >}}), or using a [community CorDapp](https://www.corda.net/samples/).
+Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try modifying a [Java](https://github.com/corda/cordapp-template-java/tree/release/4.12) or [Kotlin](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12) template, [building your own]({{< relref "../enterprise/get-started/tutorials/build-basic-cordapp/basic-cordapp-intro.md" >}}), or using a [community CorDapp](https://www.corda.net/samples/).
 
 The local Corda network in the sample includes one notary and two nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation]({{< relref "key-concepts-node.md" >}}).
 
@@ -33,7 +33,6 @@ You will deploy and run the sample CorDapp on the following test nodes:
 * **Notary**, which runs a notary service
 * **PartyA**
 * **PartyB**
-
 
 ## Before you start
 
@@ -51,20 +50,19 @@ CorDapps can be written in any language targeting the JVM. However, source files
 2. Open the command line from that directory.
 3. Run the following command to clone the sample repository:
 
-{{< tabs name="tabs-1" >}}
-{{% tab name="java" %}}
-```java
-git clone https://github.com/corda/samples-java/tree/release/4.12
-```
-{{% /tab %}}
+   {{< tabs name="tabs-1" >}}
+   {{% tab name="java" %}}
+   ```java
+   git clone https://github.com/corda/samples-java/tree/release/4.12
+   ```
+   {{% /tab %}}
 
-{{% tab name="kotlin" %}}
-```kotlin
-git clone https://github.com/corda/samples-kotlin/tree/release/4.12
-```
-{{% /tab %}}
-
-{{< /tabs >}}
+   {{% tab name="kotlin" %}}
+   ```kotlin
+   git clone https://github.com/corda/samples-kotlin/tree/release/4.12
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
 The sample project folders will appear in your chosen directory.
 {{< note >}}
@@ -115,28 +113,24 @@ in [Building and installing a CorDapp]({{< relref "cordapp-build-systems.md" >}}
 To start the nodes and the sample CorDapp:
 
 1. Run the command that corresponds to your operating system:
-
-* Unix/macOS: `./build/nodes/runnodes`
-* Windows: `.\build\nodes\runnodes.bat`
+   * Unix/macOS: `./build/nodes/runnodes`
+   * Windows: `.\build\nodes\runnodes.bat`
 
 2. Start a Spring Boot server for Party A. Run the command:
-
-* Unix/macOS: `./gradlew runPartyAServer`
-* Windows: `gradlew.bat runPartyAServer`
+   * Unix/macOS: `./gradlew runPartyAServer`
+   * Windows: `gradlew.bat runPartyAServer`
 
 Look for the `Started Server in X seconds` message &mdash; don’t rely on the % indicator.
 
 3. Repeat the command to start the server for Party B:
-* Unix/macOS: `./gradlew runPartyBServer`
-* Windows: `gradlew.bat runPartyBServer`
+   * Unix/macOS: `./gradlew runPartyBServer`
+   * Windows: `gradlew.bat runPartyBServer`
 
+   {{< warning >}}
+   On Unix/macOS, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell]({{< relref "shell.md" >}}).
+   {{< /warning >}}
 
-{{< warning >}}
-On Unix/macOS, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell]({{< relref "shell.md" >}}).
-{{< /warning >}}
-
-
-The `runnodes` script creates a node tab/window for each node. It usually takes about 60 seconds for all the nodes to start. Each node displays “Welcome to the Corda interactive shell” along with a prompt. Whilst the `runnodes` script terminates, the two commands to start Party A and B do not and should be run in separate terminal windows.
+   The `runnodes` script creates a node tab/window for each node. It usually takes about 60 seconds for all the nodes to start. Each node displays “Welcome to the Corda interactive shell” along with a prompt. Whilst the `runnodes` script terminates, the two commands to start Party A and B do not and should be run in separate terminal windows.
 
 4. **Optional:** If not all the nodes start successfully the first time, close the terminals and run the script again.
 
@@ -320,7 +314,7 @@ If your test fails, run a Gradle test instead of a unit test.
 7. Select the **Gradle icon** to run your test.
 
 
-## Related Content
+## Related content
 
 * [Debugging a CorDapp]({{< relref "debugging-a-cordapp.md" >}})
 * [Writing a CorDapp]({{< relref "writing-a-cordapp.md" >}})

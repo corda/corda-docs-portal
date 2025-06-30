@@ -3,7 +3,7 @@ date: '2020-09-29T12:00:00Z'
 menu:
   corda-enterprise-4-10:
     identifier: corda-enterprise-4-10-corda-nodes-secrets
-    name: "Corda Secrets"
+    name: "Corda secrets"
     parent: corda-enterprise-4-10-corda-nodes
 
 title: Corda secrets
@@ -28,7 +28,7 @@ The relationships between the secrets and Corda components is shown in the follo
 
 ## Node
 
-Secrets managed by a Corda Node
+Secrets managed by a Corda node
 
 {{< table >}}
 | Secret | Location | Path | Protection | Accessible by | Description |

@@ -311,7 +311,7 @@ If your test fails, run a Gradle test instead of a unit test.
 7. Select the **Gradle icon** to run your test.
 
 
-## Related Content
+## Related content
 
 * [Debugging a CorDapp]({{< relref "debugging-a-cordapp.md" >}})
 * [Writing a CorDapp]({{< relref "writing-a-cordapp.md" >}})

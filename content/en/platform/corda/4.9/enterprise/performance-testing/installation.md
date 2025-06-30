@@ -25,7 +25,7 @@ The performance test suite is shipped as a `.zip` file containing the following 
 * `settlement-perftest-cordapp-<version>.jar`: A performance test CorDapp used by the built-in samplers and the included sample test plans. If you intend to use these test plans, you should deploy this CorDapp to any node of the system under test. For more information, see [introduction]({{< relref "introduction.md#performance-test-cordapp" >}}).
 * A number of test plan `.jmx` files. For more information, see [included testplans]({{< relref "jmeter-testplans.md#included-testplans" >}}).
 * `jmeter.properties`: An example of the `jmeter.properties` file used to configure JMeter. If you need a custom configuration, you should base it on this file.
-* `sample-server-rmi.config`: An annotated sample for the server RMI mapping required to use remote JMeter over SSH tunnels. For more information, see [SSH Tunnel Set-Up]({{< relref "running-jmeter-corda.md#ssh-tunnel-set-up" >}}).
+* `sample-server-rmi.config`: An annotated sample for the server RMI mapping required to use remote JMeter over SSH tunnels. For more information, see [Setting up SSH tunnel]({{< relref "running-jmeter-corda.md#setting-up-ssh-tunnel" >}}).
 
 
 ## Installation

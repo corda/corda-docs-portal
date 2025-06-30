@@ -48,9 +48,9 @@ The full list of arguments you can use when starting the Angel Service are descr
 - `--token`: Authentication token to pass to the Zone Service.
 - `--polling-interval`: Time (in seconds) to wait before polling the Zone Service.
 - `--service`: The name of the service being managed. The possible values are `IDENTITY_MANAGER`, `NETWORK_MAP`, or `SIGNER`.
-- `--network-truststore`: The network truststore file path. Optional, but must be specified if the managed service is Network Map, otherwise the Angel Service cannot execute the Flag Day workflow.
-- `--truststore-password`: The password for the network truststore file. Optional, but must be specified if the managed service is Network Map, otherwise the Angel Service cannot execute the Flag Day workflow.
-- `--root-alias`: The root alias. Optional, but must be specified if the managed service is Network Map, otherwise the Angel Service cannot execute the Flag Day workflow.
+- `--network-truststore`: The network truststore file path. Optional, but must be specified if the managed service is Network Map, otherwise the Angel Service cannot execute the flag day workflow.
+- `--truststore-password`: The password for the network truststore file. Optional, but must be specified if the managed service is Network Map, otherwise the Angel Service cannot execute the flag day workflow.
+- `--root-alias`: The root alias. Optional, but must be specified if the managed service is Network Map, otherwise the Angel Service cannot execute the flag day workflow.
 - `--tls`: Defines whether TLS is used on listening sockets (CENM and admin). Defaults to `false` if no value is provided.
 - `--tls-keystore`: The path for the TLS keystore. Required if `--tls` is set to `true`.
 - `--tls-keystore-password`: The password for the TLS keystore. Required if `--tls` is set to `true`.
@@ -71,7 +71,7 @@ The Angel Service is configured via the command-line and it downloads the config
     3. It writes the new configuration.
     4. It starts the managed service.
 
-If the managed service is Network Map, the Zone Service can reply with a lifecycle event (Flag Day). This is because only the Network Map Service holds the network parameters that Flag Days update. In this case, the Angel Service will automatically perform the [required steps]({{< relref "../../../../../en/platform/corda/1.5/cenm/updating-network-parameters.md" >}}) on the managed Network Map Service.
+If the managed service is Network Map, the Zone Service can reply with a lifecycle event (flag day). This is because only the Network Map Service holds the network parameters that flag days update. In this case, the Angel Service will automatically perform the [required steps]({{< relref "../../../../../en/platform/corda/1.5/cenm/updating-network-parameters.md" >}}) on the managed Network Map Service.
 
 ## Service health checking via API
 

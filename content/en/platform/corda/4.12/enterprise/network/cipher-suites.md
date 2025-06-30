@@ -35,7 +35,7 @@ TLS and Node Identity certificates.
 
 A Corda network has 8 types of keys and a regular node requires 4 of them:
 
-**Network Keys**
+**Network keys**
 
 
 * The **root network CA** key
@@ -43,7 +43,7 @@ A Corda network has 8 types of keys and a regular node requires 4 of them:
 * The **network map** key
 * The **service identity** key(s) (per service, such as a notary cluster; it can be a Composite key)
 
-**Node Keys**
+**Node keys**
 
 
 * The **node CA** key(s) (one per node)

@@ -79,7 +79,7 @@ You can use signature constraints to specify flexible threshold policies. Howeve
 
 You can create a more complex policy that will release the constraint with fewer signatures than the total number of possible signers. This makes it possible for multiple versions to be valid across the network as long as the designated number of signers agree with the updates.
 
-The `TransactionBuilder` uses signature constraints when adding output states for all signed transactions by default. See [Using Contract Constraints in Transactions](#using-contract-constraints-in-transactions).
+The `TransactionBuilder` uses signature constraints when adding output states for all signed transactions by default. See [Using Contract constraints in Transactions](#using-contract-constraints-in-transactions).
 
 ## Signing CorDapps
 

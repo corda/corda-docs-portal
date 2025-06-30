@@ -37,7 +37,7 @@ Importing existing keys from the file-based keystore into a HSM is not supported
 As mentioned in the description of the configuration file (corda-configuration-file), the `node.conf` has two relevant fields, `cryptoServiceName` and `cryptoServiceConf`.
 
 {{< warning >}}
-The file containing the configuration for the HSM (referenced by the `cryptoServiceConf` field) contains sensitive information. So, we strongly advise using the Configuration Obfuscator tool for it, as documented here: tools-config-obfuscator
+The file containing the configuration for the HSM (referenced by the `cryptoServiceConf` field) contains sensitive information. So, we strongly advise using the configuration obfuscator tool for it, as documented here: tools-config-obfuscator
 
 {{< /warning >}}
 

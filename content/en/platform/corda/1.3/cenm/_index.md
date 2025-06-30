@@ -23,14 +23,11 @@ version: 'CENM 1.3'
 
 The Corda Enterprise Network Manager (CENM) is a commercial offering from R3 that facilitates the operation of a bespoke
 Corda network that gives the user full control over all aspects of deployment, operation, and consensus rules.
-This is provided as an alternative to using the service-level-managed production components
-that are otherwise available from [Corda Network](https://corda.network), which is governed by the independent
-[Corda Network Foundation](https://corda.network/).
 
 The Corda Enterprise Network Manager provides three main services:
 
-* [Identity Manager Service]({{< relref "../../../../../en/platform/corda/1.3/cenm/identity-manager.md" >}}) - enables nodes to join the network, and handles revocation of a node certificate.
-* [Network Map Service]({{< relref "../../../../../en/platform/corda/1.3/cenm/network-map.md" >}}) - provides a global view of the network.
+* [Identity Manager service]({{< relref "../../../../../en/platform/corda/1.3/cenm/identity-manager.md" >}}) - enables nodes to join the network, and handles revocation of a node certificate.
+* [Network Map service]({{< relref "../../../../../en/platform/corda/1.3/cenm/network-map.md" >}}) - provides a global view of the network.
 * [Signing Service]({{< relref "../../../../../en/platform/corda/1.3/cenm/signing-service.md" >}}) - provides a way to sign approved requests to join the network (Certificate Signing Requests - CSRs) or revoke a certificate (Certificate Revocation Requests - CRRs), as well as changes to the network map.
 
 {{< note >}}
@@ -42,12 +39,12 @@ For a quick start guide on deploying Corda Enterprise Network Manager services a
 Concepts and overview
 
 * [Corda Networks]({{< relref "../../../../../en/platform/corda/1.3/cenm/corda-networks.md" >}})
-* [Components of the Corda Enterprise Network Manager]({{< relref "../../../../../en/platform/corda/1.3/cenm/enm-components.md" >}})
+* [Network Manager components]({{< relref "../../../../../en/platform/corda/1.3/cenm/enm-components.md" >}})
 * [The workflow]({{< relref "../../../../../en/platform/corda/1.3/cenm/workflow.md" >}})
 * [Databases]({{< relref "../../../../../en/platform/corda/1.3/cenm/database-set-up.md" >}})
 * [Public Key Infrastructure (PKI)]({{< relref "../../../../../en/platform/corda/1.3/cenm/pki-tool.md" >}})
 * [The node]({{< relref "../../../../../en/platform/corda/1.3/cenm/network-map.md#node-certificate-revocation-checking" >}})
-* [Sub Zones]({{< relref "../../../../../en/platform/corda/1.3/cenm/sub-zones.md" >}})
+* [Subzones]({{< relref "../../../../../en/platform/corda/1.3/cenm/sub-zones.md" >}})
 * [Network Map overview]({{< relref "../../../../../en/platform/corda/1.3/cenm/network-map-overview.md" >}})
 * [Certificate Revocation List]({{< relref "../../../../../en/platform/corda/1.3/cenm/certificate-revocation.md" >}})
 
@@ -69,8 +66,8 @@ Operations
 * [CENM test environment quick start guide]({{< relref "../../../../../en/platform/corda/1.3/cenm/quick-start.md" >}})
 * [Zone Service]({{< relref "../../../../../en/platform/corda/1.3/cenm/zone-service.md" >}})
 * [Angel Service]({{< relref "../../../../../en/platform/corda/1.3/cenm/angel-service.md" >}})
-* [Identity Manager Service]({{< relref "../../../../../en/platform/corda/1.3/cenm/identity-manager.md" >}})
-* [Network Map Service]({{< relref "../../../../../en/platform/corda/1.3/cenm/network-map.md" >}})
+* [Identity Manager service]({{< relref "../../../../../en/platform/corda/1.3/cenm/identity-manager.md" >}})
+* [Network Map service]({{< relref "../../../../../en/platform/corda/1.3/cenm/network-map.md" >}})
 * [Signing Service]({{< relref "../../../../../en/platform/corda/1.3/cenm/signing-service.md" >}})
 * [Auth Service]({{< relref "../../../../../en/platform/corda/1.3/cenm/auth-service.md" >}})
 * [FARM Service]({{< relref "../../../../../en/platform/corda/1.3/cenm/gateway-service.md" >}})
@@ -98,7 +95,7 @@ Tools and utilities
 Public Key Infrastructure
 
 * [Certificate hierarchy guide]({{< relref "../../../../../en/platform/corda/1.3/cenm/pki-guide.md" >}})
-* [Public Key Infrastructure (PKI) Tool]({{< relref "../../../../../en/platform/corda/1.3/cenm/pki-tool.md" >}})
+* [Public key infrastructure (PKI) tool]({{< relref "../../../../../en/platform/corda/1.3/cenm/pki-tool.md" >}})
 
 Signing Plug-in Samples
 

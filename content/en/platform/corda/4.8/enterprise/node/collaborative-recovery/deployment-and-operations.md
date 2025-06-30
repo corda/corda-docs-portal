@@ -156,7 +156,7 @@ When using Collaborative Recovery, keep in mind:
 Collaborative Recovery supports the resiliency of Corda nodes operating as part of a Business Network (BN). This means:
 
 * It is distributed as a CorDapp-level solution rather than being included in the Corda protocol.
-* It has been designed based on the assumption that the Business Network Operator (BNO) will assume some responsibilities in co-ordinating reconciliation
+* It has been designed based on the assumption that the Business network operator (BNO) will assume some responsibilities in co-ordinating reconciliation
 and recovery activities across the network.
 
 As a BNO planning to use Collaborative Recovery as part of your disaster recovery strategy, you are expected to:

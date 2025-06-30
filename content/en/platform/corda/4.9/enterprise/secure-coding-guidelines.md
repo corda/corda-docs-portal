@@ -55,7 +55,7 @@ Make sure your contracts are secure. Check that:
 
 
 
-## Related Content
+## Related content
 Learn more about:
-* [Writing flows]({{< relref "../../../../../en/platform/corda/4.9/enterprise/flow-state-machines.md" >}})
-* [Contracts]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-contracts.md" >}})
+* [Writing flows]({{< relref "flow-state-machines.md" >}})
+* [Contracts]({{< relref "cordapps/api-contracts.md" >}})

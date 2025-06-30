@@ -61,7 +61,7 @@ For a smooth node draining process avoid long-running flows.
 
 Back up your data before upgrading, in case you need to roll back if there’s a problem. Make a copy of the node’s data directory or, if you use an external non-H2 database, consult your database user guide to learn how to make backups.
 
-For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations]({{< relref "../../../../../en/platform/corda/4.9/enterprise/node/operating/node-administration.md#backup-recommendations" >}}).
+For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations]({{< relref "node/operating/node-administration.md#backup-recommendations" >}}).
 
 ## Step 3: Update the database
 

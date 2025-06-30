@@ -14,11 +14,11 @@ tags:
 - identity
 - manager
 - parameters
-title: Identity Manager Configuration Parameters
+title: Identity Manager configuration parameters
 ---
 
 
-# Identity Manager Configuration Parameters
+# Identity Manager configuration parameters
 
 Configuration reference for the Identity Manager Service.
 
@@ -28,11 +28,11 @@ The host and port on which the service runs
 
 
 * **database**:
-See [CENM Database Configuration]({{< relref "config-database.md" >}})
+See [CENM database configuration]({{< relref "config-database.md" >}})
 
 
 * **shell**:
-*(Optional)* See [Shell Configuration Parameters]({{< relref "config-shell.md" >}})
+*(Optional)* See [Shell configuration parameters]({{< relref "config-shell.md" >}})
 
 
 * **localSigner**:
@@ -103,7 +103,7 @@ Whether a client should be attempt to reconnect if the connection is dropped.
 
 
 * **ssl**:
-See [SSL Settings]({{< relref "config-ssl.md" >}})
+See [SSL settings]({{< relref "config-ssl.md" >}})
 
 
 

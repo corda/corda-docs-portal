@@ -33,7 +33,6 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 * When deploying a test node using DriverDSL, the node now starts successfully without encountering a `NoSuchMethodError` exception.
 * You can now create two nodes with identical `O` field values but different `OU` values in their X.500 names when using the DriverDSL for testing.
-* `ReceiveTransactionFlow` has been improved to address potential issues when handling network parameters. Previously, it verified the existence of network parameters on a transaction before executing `ResolveTransactionFlow`. This could cause issues in scenarios such as sending a top-level transaction to a new node in a migrated network, where the old network parameters might not be available on the new node. This behavior has now been corrected.
 * There is no longer a memory leak when creating a series of mock networks for testing purposes.
 * Transactions with the in-flight transaction state, introduced in Corda version 4.11 to support transaction recovery, are no longer included when the Ledger Graph CorDapp builds a transaction graph. Instead, the CorDapp now ignores any transactions with an in-flight status.
 

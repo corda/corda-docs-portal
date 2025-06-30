@@ -40,7 +40,7 @@ In general, more memory is better for the node, so it might be a good idea to st
 
 ## Adjusting the threads count
 
-Especially on large server machines, the default number of flow threads might be on the upper limit of what is sensible. In order to find the optimal number, it is necessary to tweak that number via the configuration, restart the node(s), and rerun a test plan to see how the numbers have changed. In order to keep the tests reproducible, it might be a good idea to wipe the database between tests so index sizes and query times do not skew the test results for later runs (see [Resetting a Node]({{< relref "../../performance-testing/practical-considerations.md#resetting-a-node" >}})).
+Especially on large server machines, the default number of flow threads might be on the upper limit of what is sensible. In order to find the optimal number, it is necessary to tweak that number via the configuration, restart the node(s), and rerun a test plan to see how the numbers have changed. In order to keep the tests reproducible, it might be a good idea to wipe the database between tests so index sizes and query times do not skew the test results for later runs (see [Resetting a node]({{< relref "../../performance-testing/practical-considerations.md#resetting-a-node" >}})).
 
 Flow and RPC threads can be set explicitly using the [tuning section]({{< relref "../setup/corda-configuration-fields.md#tuning" >}}) of the enterprise configuration. Add the following section to your node configuration file:
 

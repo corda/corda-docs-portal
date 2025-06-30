@@ -13,7 +13,7 @@ weight: 200
 
 # Node operator project planning
 
-A node operator is a member of a Corda business network, but does not operate any of the network services. A Corda Node
+A node operator is a member of a Corda business network, but does not operate any of the network services. A Corda node
 is the component that hosts CorDapps, and executes transactions with other network parties.
 
 A Corda node is highly configurable, and care must be taken to correctly configure your node for best performance.
@@ -39,7 +39,7 @@ following table gives approximate sizings for typical node deployments.
 
 ## Node databases
 
-All Corda Nodes have a database. A range of third-party databases are supported by Corda, shown in the following table:
+All Corda nodes have a database. A range of third-party databases are supported by Corda, shown in the following table:
 
 {{< table >}}
 

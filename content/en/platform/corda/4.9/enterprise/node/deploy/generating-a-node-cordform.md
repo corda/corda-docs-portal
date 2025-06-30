@@ -248,7 +248,7 @@ The default Cordform behaviour is to deploy CorDapp JAR files “as built”.
 * As of Corda 4.0, CorDapp JAR files created by the gradle `cordapp` plug-in are signed by a Corda development certificate by default.
 
 You can use the Cordform `signing` entry to override and customise the signing of CorDapp JAR files.
-Signing a CorDapp enables its contract classes to use signature constraints instead of other types of constraints, such as [Contract Constraints]({{< relref "../../cordapps/api-contract-constraints.md" >}}).
+Signing a CorDapp enables its contract classes to use signature constraints instead of other types of constraints, such as [Contract constraints]({{< relref "../../cordapps/api-contract-constraints.md" >}}).
 
 The signing task may use an external keystore, or create a new one.
 You can use the following parameters in the `signing` entry:
@@ -290,7 +290,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 
 Contracts classes from signed CorDapp JAR files are checked by signature constraints by default.
 You can force them to be checked by zone constraints by adding contract class names to the `includeWhitelist` entry - the list will generate an `include_whitelist.txt` file used internally by the [Network Bootstrapper]({{< relref "../..//network-bootstrapper.md" >}}) tool.
-Before you add `includeWhitelist` to the `deployNodes` task, see [Contract Constraints]({{< relref "../../cordapps/api-contract-constraints.md" >}}) to understand the implications of using different constraint types.
+Before you add `includeWhitelist` to the `deployNodes` task, see [Contract constraints]({{< relref "../../cordapps/api-contract-constraints.md" >}}) to understand the implications of using different constraint types.
 The snippet below configures contracts classes from the Finance CorDapp to be verified using zone constraints instead of signature constraints:
 
 ```groovy

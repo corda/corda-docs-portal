@@ -237,7 +237,7 @@ Allows fine-grained controls of various features only available in the enterpris
   * The alias of the distributed notary signing key alias (used if this node is a notary). Allowed are up to 100 lower case alphanumeric    characters and the hyphen (-).
   * *Default:* distributed-notary-private-key
 * `messagingServerSslConfiguration`
-  * TLS configuration used to connect to external P2P Artemis message server. Required when `messagingServerExternal` = `true`. Also, it can be used optionally with embedded Artemis when external Bridge is configured. For more information, see [Storing node TLS keys in HSM]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/setup/tls-keys-in-hsm.md" >}}).
+  * TLS configuration used to connect to external P2P Artemis message server. Required when `messagingServerExternal` = `true`. Also, it can be used optionally with embedded Artemis when external Bridge is configured. For more information, see [Storing node TLS keys in HSM]({{< relref "tls-keys-in-hsm.md" >}}).
   * `sslKeystore`
     * The path to the KeyStore file to use in Artemis connections.
     * *Default:* not defined
@@ -275,17 +275,17 @@ Allows fine-grained controls of various features only available in the enterpris
     * `eventsToRecord` defines which types of events will be recorded by the audit service - currently supported types are `{NONE, RPC, ALL}`
     * *Default:* `NONE`
 * `maintenanceMode`
-  * An optional field used by [Node Maintenance Mode]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/operating/maintenance-mode.md#configuration-of-node-maintenance-mode" >}}), which enables you to run certain house-keeping events automatically within Corda at specific times of the day or week, using a "_cron-like_" scheduling algorithm.
+  * An optional field used by [Node Maintenance Mode]({{< relref "../operating/maintenance-mode.md#configuration-of-node-maintenance-mode" >}}), which enables you to run certain house-keeping events automatically within Corda at specific times of the day or week, using a "_cron-like_" scheduling algorithm.
   * *Default:* Not present. By default, no maintenance activities will be performed if the `maintenanceMode` section is not provided. Without the new parameter, Corda will behave as if maintenance mode is not available.
   * If the `maintenanceMode` sub-section is provided, then **ALL** `maintenanceMode` parameters (as described below) must be supplied and must also pass configuration validation at start-up.
   * Parameters:
-    * `schedule` is a *“cron-like”* expression, which is used to control at what time(s) the maintenance tasks are run. The format follows the existing cron standards using a 6-part time specification but omits the command line part of the expression as would be present in a Unix cron expression. Times are in **UTC**. See an example in [Node Maintenance Mode]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/operating/maintenance-mode.md#configuration-of-node-maintenance-mode" >}}). For more information on *cron* (with examples) please see [cron-wiki](https://en.wikipedia.org/wiki/Cron) and note that the examples shown will include the *<command to execute>* part which is not present in the Corda `schedule`. The tasks that get run are not dependent on this configuration item and are determined *within* Corda. The following example will run maintenance at 14:30 and 15:30 (UTC) on Fridays (‘5’ in final column): `schedule = "00 30 14,15 * * 5"`.
+    * `schedule` is a *“cron-like”* expression, which is used to control at what time(s) the maintenance tasks are run. The format follows the existing cron standards using a 6-part time specification but omits the command line part of the expression as would be present in a Unix cron expression. Times are in **UTC**. See an example in [Node Maintenance Mode]({{< relref "../operating/maintenance-mode.md#configuration-of-node-maintenance-mode" >}}). For more information on *cron* (with examples) please see [cron-wiki](https://en.wikipedia.org/wiki/Cron) and note that the examples shown will include the *<command to execute>* part which is not present in the Corda `schedule`. The tasks that get run are not dependent on this configuration item and are determined *within* Corda. The following example will run maintenance at 14:30 and 15:30 (UTC) on Fridays (‘5’ in final column): `schedule = "00 30 14,15 * * 5"`.
     * `duration` is the maximum time that a maintenance window is expected to take to run all tasks. At start-up, Corda will check for all maintenance events that occur within the following week. If there is an overlap (due the specified duration being longer than the interval between any two adjacent maintenance windows), Corda Enterprise will emit a *warning* to the log which will precisely specify the overlap scenario but no further action will be taken. Additionally, if the time that the maintenance tasks *actually* take to run exceeds the specified duration, a warning will be emitted to the log but the maintenance tasks will not be interrupted. The purpose of the duration parameter is to allow the user to check that there are no overlaps and to allow monitoring of overrunning activities via log messaging and monitoring. The duration is specified in HOCON *duration* format with suffixes of `‘h’ (hours), ‘m’ (minutes) and ‘s’ (seconds)` - for example, `‘1h’` to mean one hour. For additional information on HOCON duration format parsing, see [HOCON-duration-format](https://github.com/lightbend/config/blob/master/HOCON.md#duration-format).
     * `rpcAuditDataRetentionPeriod` is a parameter to the RPC table maintenance task and specifies how long records should be kept for within the table for. The parameter is in HOCON *period* format - for example, `‘365d’, ‘1w’`. In general, the following suffixes should be sufficient: `‘d’ (days), ‘w’ (weeks), ‘m’ (months), ‘y’ (years)`. For more information on the HOCON period format see [HOCON-period-format](https://github.com/lightbend/config/blob/master/HOCON.md#period-format). The end of the retention period will be the current time (in UTC) minus the duration.
-  * [Node Maintenance Mode]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/operating/maintenance-mode.md#configuration-of-node-maintenance-mode" >}}) uses the `processedMessageCleanup` parameters (see below).
+  * [Node Maintenance Mode]({{< relref "../operating/maintenance-mode.md#configuration-of-node-maintenance-mode" >}}) uses the `processedMessageCleanup` parameters (see below).
 * `processedMessageCleanup`
   * An optional field that allows you to run the message ID cleanup task at shutdown. The same rules will apply for calculation of default values as when the activity runs at shutdown.
-  * This field and its parameters are also used by the [Node Maintenance Mode]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/operating/maintenance-mode.md#configuration-of-node-maintenance-mode" >}}) (`maintenanceMode` just above) functionality.
+  * This field and its parameters are also used by the [Node Maintenance Mode]({{< relref "../operating/maintenance-mode.md#configuration-of-node-maintenance-mode" >}}) (`maintenanceMode` just above) functionality.
   * Parameters:
     * `generalRetentionPeriodInDays` indicates the number of days a message (sent during recovery) will be retained. If not specified, it will default to the specified `senderRetentionPeriodInDays` value plus the event horizon duration (or 365 days, if the event horizon is larger than 365 days).
     * `senderRetentionPeriodInDays` indicates the number of days a message (sent during normal operation) will be retained. If not specified, it will default to 7 days.
@@ -323,7 +323,7 @@ Allows fine-grained controls of various features only available in the enterpris
     * `timeWindow`: Sets the data gathering duration for `TIME_WINDOW` data reservoirs. If not set, the default is five minutes.
 * `tuning`
 
-    * The Corda Node configuration file section that contains performance tuning parameters for Corda Enterprise Nodes.
+    * The Corda node configuration file section that contains performance tuning parameters for Corda Enterprise Nodes.
 
     - `backchainFetchBatchSize`
     This is an optimization for sharing transaction backchains. Corda Enterprise nodes can request backchain items in bulk instead of one at a time. This field specifies the size of the batch. The value is just an integer indicating the maximum number of states that can be requested at a time during backchain resolution.
@@ -369,7 +369,7 @@ Allows fine-grained controls of various features only available in the enterpris
 An optional list of private network map UUIDs. Your node will fetch the public network and private network maps based on these keys.
 Private network UUID should be provided by network operator and lets you see nodes not visible on public network.
 
-**Important: This is a temporary feature for onboarding network participants that limits their visibility for privacy reasons.**
+{{< important >}}This is a temporary feature for onboarding network participants that limits their visibility for privacy reasons.{{< /important >}}
 
 *Default:* not defined
 
@@ -477,10 +477,10 @@ The New Relic configuration leverages the Dropwizard NewRelicReporter solution.
 
 ## `keyStorePassword`
 
-The password to unlock the KeyStore file (`<workspace>/certificates/sslkeystore.jks`) containing the node certificate and private key.
+The password to unlock the keystore files `<workspace>/certificates/sslkeystore.jks` and `<workspace>/certificates/nodestore.jks` containing the node certificate and private key.
 
-**Important: This is the non-secret value for the development certificates automatically generated during the first node run.
-Alternatively, these keys can be managed in secure hardware devices.**
+{{< important >}}This is the non-secret value for the development certificates automatically generated during the first node run.
+Alternatively, these keys can be managed in secure hardware devices.{{< /important >}}
 
 *Default:* cordacadevpass
 
@@ -488,7 +488,7 @@ Alternatively, these keys can be managed in secure hardware devices.**
 
 Internal option.
 
-**Important: Please do not change.**
+{{< important >}}Please do not change.{{< /important >}}
 
 *Default:* true
 
@@ -516,7 +516,7 @@ This allows the address and port advertised in `p2pAddress` to differ from the l
 0.0.0.0 is not a valid host setting since p2pAddress must be an external client address.
 
 {{< note >}}
-When `messagingServerExternal` = `true`, `messagingServerSslConfiguration` is required for TLS configuration used to connect to external P2P Artemis message server. For more information, see [Storing node TLS keys in HSM]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/setup/tls-keys-in-hsm.md" >}}).
+When `messagingServerExternal` = `true`, `messagingServerSslConfiguration` is required for TLS configuration used to connect to external P2P Artemis message server. For more information, see [Storing node TLS keys in HSM]({{< relref "tls-keys-in-hsm.md" >}}).
 {{< /note >}}
 
 *Default:* not defined
@@ -527,7 +527,7 @@ The legal identity of the node.
 This acts as a human-readable alias to the node's public key and can be used with the network map to look up the node's info.
 This is the name that is used in the node's certificates (either when requesting them from the doorman, or when auto-generating them in dev mode).
 At runtime, Corda checks whether this name matches the name in the node's certificates.
-The name must be a valid X.500 distinguished name, as per the [node naming constraints]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/setup/node-naming.md" >}}).
+The name must be a valid X.500 distinguished name, as per the [node naming constraints]({{< relref "node-naming.md" >}}).
 
 *Default:* not defined
 
@@ -581,7 +581,7 @@ Once a notary is configured with a default value, it cannot be reconfigured. To 
     * Exponential back-off multiplier base for use in determining time increment between reconnection attempts.
     * *Default:* 1.5
   * `maxBatchSize`
-    * The maximum number of transactions processed in a single batch. Larger batches are generally processed more efficiently than smaller batches; however, larger batches may worsen latency. Monitor the `ProcessedBatchSize` metric exposed by the notary to determine batch utilisation. For more information, see [Highly-available notary metrics]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/notary/notary-metrics.md" >}}).
+    * The maximum number of transactions processed in a single batch. Larger batches are generally processed more efficiently than smaller batches; however, larger batches may worsen latency. Monitor the `ProcessedBatchSize` metric exposed by the notary to determine batch utilisation. For more information, see [Highly-available notary metrics]({{< relref "../../notary/notary-metrics.md" >}}).
     * *Default:* 500
   * `maxBatchInputStates`
     * The maximum combined number of input states processed in a single batch. If the number of transactions in a batch is equal to `maxBatchSize`, but the number of states in the batch is greater than `maxBatchInputStates`, that batch will  be split into two smaller batches.
@@ -644,7 +644,7 @@ Once a notary is configured with a default value, it cannot be reconfigured. To 
       * Must list the addresses of all the members in the cluster. At least one of the members must be active and be able to communicate with the cluster leader for the node to join the cluster. If  empty, a new cluster will be bootstrapped.
       * *Default:* not defined
   * `jpa`
-    * If using the JPA notary, specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/notary/installing-the-notary-service.md" >}}).
+    * If using the JPA notary, specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes]({{< relref "../../notary/installing-the-notary-service.md" >}}).
     * `connectionRetries`
       * The number of times to retry connection to the database. This should be based on the number of database servers in the replicated setup.
       * *Default:* 2
@@ -719,7 +719,7 @@ If not provided then the defined defaults below are used.
 
 * `autoAcceptEnabled`
   * This flag toggles auto accepting of network parameter changes.
-  If a network operator issues a network parameter change which modifies only auto-acceptable options and this behaviour is enabled then the changes will be accepted without any manual intervention from the node operator. See [Network map]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/network/network-map.md" >}}) for more information on the update process and current auto-acceptable parameters. Set to ``false`` to disable.
+  If a network operator issues a network parameter change which modifies only auto-acceptable options and this behaviour is enabled then the changes will be accepted without any manual intervention from the node operator. See [Network map]({{< relref "../../network/network-map.md" >}}) for more information on the update process and current auto-acceptable parameters. Set to ``false`` to disable.
   * Default: true
 * `excludedAutoAcceptableParameters`
   * List of auto-acceptable parameter names to explicitly exclude from auto-accepting. Allows a node operator to control the behaviour at a more granular level.
@@ -729,7 +729,7 @@ If not provided then the defined defaults below are used.
 
 If both of the Corda compatibility zone services, network map and registration (doorman), are not running on the same endpoint and thus have different URLs, use this option in place of the `compatibilityZoneURL` setting.
 
-**Important: Only one of `compatibilityZoneURL` or `networkServices` should be used.**
+{{< important >}}Only one of `compatibilityZoneURL` or `networkServices` should be used.{{< /important >}}
 
 * `doormanURL`
   * Root address of the network registration service.
@@ -749,7 +749,7 @@ If both of the Corda compatibility zone services, network map and registration (
 * `proxyUser`
   * Optional user name for authentication with the proxy. Note that Corda only supports username/password based basic authentication.
 * `proxyPassword`
-  * Optional password for authentication with the proxy. The password can be obfuscated using the [Configuration Obfuscator]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/tools-config-obfuscator.md" >}}).
+  * Optional password for authentication with the proxy. The password can be obfuscated using the [Configuration obfuscator]({{< relref "../../tools-config-obfuscator.md" >}}).
 * `csrToken`
   * Optional token to provide alongside the certificate signing request (CSR) as part of the HTTP header during node registration. The token can be used by certificate signing authority (or Identity Manager Service) to verify additional identity requirements. The maximum token length is limited by the maximum HTTP header size, which is normally 8KB, assuming that a few other internal attributes are also present in the header. Also, the token length itself may never exceed 8192, limited by the database structure. Only US-ASCII characters are allowed.
   * *Default:* not defined
@@ -769,7 +769,7 @@ If the provided host is unreachable, the node will try to auto-discover its publ
 
 A list of packages to exclude from Quasar instrumentation. Wildcards are allowed, for example `org.xml**`.
 
-**Important: Do not change unless requested by support.**
+{{< important >}}Do not change unless requested by support.{{< /important >}}
 
 *Default:* empty list
 
@@ -812,7 +812,7 @@ If not provided then the node will run without RPC.
 
 Options for the RPC server exposed by the Node.
 
-**Important: The RPC SSL certificate is used by RPC clients to authenticate the connection.  The Node operator must provide RPC clients with a truststore containing the certificate they can trust.  We advise Node operators to not use the P2P keystore for RPC.  The node can be run with the "generate-rpc-ssl-settings" command, which generates a secure keystore and truststore that can be used to secure the RPC connection. You can use this if you have no special requirements.**
+{{< important >}}The RPC SSL certificate is used by RPC clients to authenticate the connection.  The Node operator must provide RPC clients with a truststore containing the certificate they can trust.  We advise Node operators to not use the P2P keystore for RPC.  The node can be run with the "generate-rpc-ssl-settings" command, which generates a secure keystore and truststore that can be used to secure the RPC connection. You can use this if you have no special requirements.{{< /important >}}
 
 * `address`
   * host and port for the RPC server binding. Specifying 0.0.0.0 (as host) is a convention allowing the host to bind all of its network interfaces when listening on a socket. By itself 0.0.0.0 is non-routable; i.e., not a proper address.
@@ -870,7 +870,7 @@ It has one required parameter.
 
 Internal option.
 
-**Important: Please do not change.**
+{{< important >}}Please do not change.{{< /important >}}
 
 *Default:* 60000 milliseconds
 
@@ -892,7 +892,7 @@ Optionally specify how much memory should be used for caching of ledger transact
 CRL distribution point (i.e. URL) for the TLS certificate.
 Default value is NULL, which indicates no CRL availability for the TLS certificate.
 
-**Important: This needs to be set if crlCheckSoftFail is false (i.e. strict CRL checking is on).**
+{{< important >}}This needs to be set if `crlCheckSoftFail` is false (that is, if strict CRL checking is on).{{< /important >}}
 
 *Default:* NULL
 
@@ -901,7 +901,7 @@ Default value is NULL, which indicates no CRL availability for the TLS certifica
 CRL issuer (given in the X500 name format) for the TLS certificate.
 Default value is NULL, which indicates that the issuer of the TLS certificate is also the issuer of the CRL.
 
-**Important: If this parameter is set then `tlsCertCrlDistPoint` needs to be set as well.**
+{{< important >}}If this parameter is set then `tlsCertCrlDistPoint` needs to be set as well.{{< /important >}}
 
 *Default:* NULL
 
@@ -921,7 +921,7 @@ Corda Enterprise is BoringSsl. The default is to use JVM SSL, i.e. the flag bein
 
 Internal option.
 
-**Important: Please do not change.**
+{{< important >}}Please do not change{{< /important >}}
 
 *Default:* false
 
@@ -929,7 +929,7 @@ Internal option.
 
 Internal option.
 
-**Important: Please do not change.**
+{{< important >}}Please do not change.{{< /important >}}
 
 *Default:* InMemory
 

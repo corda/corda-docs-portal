@@ -15,7 +15,7 @@ weight: 50
 
 # Upgrading deployed CorDapps
 
-For developer information on upgrading CorDapps, see [release new CorDapp versions]({{< relref "cordapps/upgrading-cordapps.md" >}}).
+For developer information on upgrading CorDapps, see [Release new CorDapp versions]({{< relref "cordapps/upgrading-cordapps.md" >}}).
 
 {{< warning >}}
 
@@ -39,7 +39,7 @@ There are two types of contract and state upgrade that you can perform.
 
 
 1. *Implicit* upgrades allow multiple implementations of the contract ahead of time, using constraints. See
-[Contract Constraints]({{< relref "cordapps/api-contract-constraints.md" >}}) to learn more.
+[Contract constraints]({{< relref "cordapps/api-contract-constraints.md" >}}) to learn more.
 2. *Explicit* upgrades create a special *contract upgrade transaction* and require all participants of a state to sign it using the
 contract upgrade flows.
 

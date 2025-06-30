@@ -10,11 +10,11 @@ menu:
 tags:
 - config
 - shell
-title: Shell Configuration Parameters
+title: Shell configuration parameters
 ---
 
 
-# Shell Configuration Parameters
+# Shell configuration parameters
 
 
 * **shell**:

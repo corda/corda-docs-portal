@@ -64,7 +64,7 @@ to run a few tests checking whether the amount of memory can be reduced without 
 Especially on large server machines, the default number of flow threads might be on the upper limit of what is sensible. In order to find
 the optimal number, it is necessary to tweak that number via the configuration, restart the node(s), and rerun a test plan to see how the
 numbers have changed. In order to keep the tests reproducible, it might be a good idea to wipe the database between tests so index sizes
-and query times do not skew the test results for later runs (see [Resetting a Node]({{< relref "practical-considerations.md#resetting-a-node" >}})).
+and query times do not skew the test results for later runs (see [Resetting a node]({{< relref "practical-considerations.md#resetting-a-node" >}})).
 
 Flow and RPC threads can be set explicitly using the [tuning section]({{< relref "../node/setup/corda-configuration-file.md" >}}) of the enterprise configuration. Add the following section to your
 node configuration file:

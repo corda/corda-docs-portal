@@ -10,11 +10,11 @@ menu:
 tags:
 - corda
 - networks
-title: Corda Networks
+title: Corda networks
 ---
 
 
-# Corda Networks
+# Corda networks
 
 A Corda network is a collection of nodes with a vetted, unique identity that share a common “root of trust”
 upon which all certificates and signatures are ultimately chained back to. The tooling that enables this infrastructure
@@ -35,31 +35,31 @@ not the recommended deployment model outside of a testing setup.{{< /note >}}
 this service should be deployed (for more details on this see the Signing Service documentation), in brief, it is the
 intention that, unlike the Identity Manager, the signer is completely isolated from external communication. It only
 addresses a data source it shares with the Identity Manager. This ensure no hostile entity can penetrate the system
-and force the signing of a certificate. See [Signing Services]({{< relref "signing-service.md" >}})
+and force the signing of a certificate. See [Signing services]({{< relref "signing-service.md" >}})
 * The signed certificates are recognised by the Identity Manager and returned to the requesting node (Nodes poll the
 Identity Manager periodically to see if their signature request has been fulfilled).
 
 At the end of this process a node will have successfully registered the legal identity of the entity it is operating
-on behalf of with the Zone. However, that node now needs to join one of the sub zones that make up the network as a
+on behalf of with the Zone. However, that node now needs to join one of the subzones that make up the network as a
 whole.
 
 
-## Sub Zones
+## Subzones
 
 {{< note >}}
-This is an internal feature. Running a network with multiple sub-zones is not a supported configuration.
+This is an internal feature. Running a network with multiple subzones is not a supported configuration.
 
 {{< /note >}}
-Where the zone as a whole is defined by the unique set of identities, a sub zone is a sub grouping of those entities
+Where the zone as a whole is defined by the unique set of identities, a subzone is a sub grouping of those entities
 that agree to a common set of parameters that define the global consensus mechanisms for all members. This functionality
 is offered by one or more Network Map Services.
 
-Sub Zones are currently categorised in relation to the mechanism a zone operator has in place for the process of
+Subzones are currently categorised in relation to the mechanism a zone operator has in place for the process of
 setting the network parameters for it.
 
 
-* *Public Sub Zones* where the entirety of the Network Parameters are under the sole control of the Zone Operator
-* *Segregated Sub Zones* where one or more of the Network Parameters have been delegated to the authority of some
+* *Public subzones* where the entirety of the Network Parameters are under the sole control of the Zone Operator
+* *Segregated subzones* where one or more of the Network Parameters have been delegated to the authority of some
 third party.
 
 Note, in either circumstance the operation of the Network Map in question is still under the perview by the Zone
@@ -74,21 +74,21 @@ stratification of the min platform version applied to a network
 {{< /note >}}
 
 {{< important >}}
-Each sub zone requires it’s own notary pool as no node, including notaries, can exist in more than
-one sub zone
+Each subzone requires it’s own notary pool as no node, including notaries, can exist in more than
+one subzone
 
 
 {{< /important >}}
 
-For more information, see [Sub Zones]({{< relref "sub-zones.md" >}})
+For more information, see [Subzones]({{< relref "sub-zones.md" >}})
 
 
-### Operating a Segregated Sub Zone
+### Operating a segregated subzone
 
-In all supported versions (CENM 1.2 onwards), operating a sub zone is the same as operating a single
+In all supported versions (CENM 1.2 onwards), operating a subzone is the same as operating a single
 network under the old paradigm where there was only one zone.
 
-Each Network Map that represents a segregated sub zone is configured separately from the others as a distinct entity
+Each Network Map that represents a segregated subzone is configured separately from the others as a distinct entity
 unaware of one another
 
 Each Network Map Service requires:

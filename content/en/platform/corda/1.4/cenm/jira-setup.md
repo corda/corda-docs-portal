@@ -10,11 +10,11 @@ menu:
 tags:
 - jira
 - setup
-title: Jira Set-Up
+title: Jira setup
 ---
 
 
-# Jira Set-Up
+# Jira setup
 
 The following are the instructions on setting up the Jira in order to satisfy minimal requirements from the point of view
 of the Identity Manager Certificate Signing Request (CSR)/Certificate Revocation Request (CRR) approval workflow. This will enable
