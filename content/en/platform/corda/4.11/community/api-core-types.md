@@ -47,8 +47,6 @@ Trees organize values (in the form of nodes) into nonlinear, hierarchical data s
 Use the `SecureHash` class to uniquely identify objects, such as transactions and attachments, by their hash.
 Implement the `NamedByHash` interface for any object that needs to be identified by its hash:
 
-{{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
 ```kotlin
 /** Implemented by anything that can be named by a secure hash value (e.g. transactions, attachments). */
 interface NamedByHash {
@@ -56,8 +54,6 @@ interface NamedByHash {
 }
 
 ```
-{{% /tab %}}
-{{< /tabs >}}
 
 [Structures.kt](https://github.com/corda/corda/blob/release/os/4.11/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) 
 
