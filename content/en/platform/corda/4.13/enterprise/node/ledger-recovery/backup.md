@@ -14,11 +14,11 @@ weight: 400
 Ledger Recovery is intended to be used in conjunction with a holistic Corda network backup policy. The `LedgerRecoveryFlow`
 defaults to using the ledger `recoveryMaximumBackupInterval` network parameter value for its `TimeRecoveryWindow`.
 For more information on the `recoveryMaximumBackupInterval` network parameter, see
-[Available Network Parameters]({{< relref "../../network/available-network-parameters.md#recoverymaximumbackupinterval" >}}).
+[Available network parameters]({{< relref "../../network/available-network-parameters.md#recoverymaximumbackupinterval" >}}).
 
 Recovering transactions using confidential identities requires the successful backup of the previous window of auto-generated
 confidential identities. The `confidentialIdentityMinimumBackupInterval` network parameter must be configured to specify the cut-off time after
 which we assume keys have not been backed up.
 
 For more information on the `confidentialIdentityMinimumBackupInterval` network parameter, see
-[Available Network Parameters]({{< relref "../../network/available-network-parameters.md#confidentialidentityminimumbackupinterval" >}}).
+[Available network parameters]({{< relref "../../network/available-network-parameters.md#confidentialidentityminimumbackupinterval" >}}).

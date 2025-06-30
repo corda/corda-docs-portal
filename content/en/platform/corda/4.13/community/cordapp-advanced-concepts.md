@@ -42,10 +42,10 @@ This document provides the information you need in order to understand what happ
 Corda transactions evolve input states into output states. A state is a data structure containing: the actual data fact (that is expressed as a
 strongly typed serialized java object) and a reference to the logic (contract) that needs to verify a transition to and from this state.
 Corda does not embed the actual verification bytecode in transactions. The logic is expressed as a Java class name and a contract constraint
-(read more in: [API: Contract Constraints]({{< relref "api-contract-constraints.md" >}})), and the actual code lives in a JAR file that is referenced by the transaction.
+(read more in: [API: Contract constraints]({{< relref "api-contract-constraints.md" >}})), and the actual code lives in a JAR file that is referenced by the transaction.
 
 
-### The basic threat model and security requirement.
+### Basic threat model and security requirement
 
 Being a decentralized system, anyone who can build transactions can create `.java` files, compile and bundle them in a JAR, and then reference
 this code in the transaction he created. If it were possible to do this without any restrictions, an attacker seeking to steal your money,
@@ -82,13 +82,13 @@ When building the `LedgerTransaction`, the `inputs` and `references` are resolve
 fetched from previous transactions that were in turn serialized in that context (within the classloader of that transaction - introduced here: [Contract execution in the AttachmentsClassloader and the no-overlap rule.](#contract-execution-in-the-attachmentsclassloader-and-the-no-overlap-rule)).
 This model has consequences when it comes to how states can be evolved. Removing a field from a newer version of a state would mean
 that when deserialising that state in the context of a transaction using the more recent code, that field could just disappear.
-In Corda 4 we implemented the no-data loss rule, which prevents this to happen. See [Default Class Evolution]({{< relref "serialization-default-evolution.md" >}})
+In Corda 4 we implemented the no-data loss rule, which prevents this to happen. See [Default class evolution]({{< relref "serialization-default-evolution.md" >}})
 
 {{< /note >}}
 
-### Simple example of transaction verification.
+### Simple example of transaction verification
 
-Let’s consider a very simple case, a transaction swapping `Apples` for `Oranges`. Each of the states that need to be swapped is the output of a previous transaction.
+Consider a very simple case: a transaction swapping `Apples` for `Oranges`. Each of the states that need to be swapped is the output of a previous transaction.
 Similar to the above image the `Apples` state is the output of some previous transaction, through which it came to be possessed by the party now paying it away in return for some oranges.
 The `Apples` and `Oranges` states that will be consumed in this new transaction exist as serialised `TransactionState`s.
 It is these `TransactionState`s that specify the fully qualified names of the contract code that should be run to verify their consumption as well as,
@@ -110,7 +110,7 @@ For example, if a state is created with a constraint that says its consumption c
 then the Corda consensus rules mean that any transaction attaching an implementation of the class that is _not_ signed by MegaCorp will not be considered valid.
 
 
-### Verify attachment constraints. Introduce constraints propagation.
+### Verifying attachment constraints and introducing constraints propagation
 
 The previous discussion explained the construction of a transaction that consumes one or more states. Now let’s consider this from the perspective
 of somebody verifying a transaction they are presented with.
@@ -134,7 +134,7 @@ legitimate and that there is no ambiguity when it comes to what code to execute.
 
 
 
-### Contract execution in the AttachmentsClassloader and the no-overlap rule.
+### Contract execution in the AttachmentsClassloader and the no-overlap rule
 
 After ensuring that the contract code is correct the node needs to execute it to verify the business rules of the transaction.
 This is done by creating an `AttachmentsClassloader` from all the attachments listed by the transaction, then deserialising the binary
@@ -219,7 +219,7 @@ to be correct by the constraints mechanism, must verify that all dependencies ar
 
 
 
-### CorDapps depending on the same library.
+### CorDapps depending on the same library
 
 It should be evident now that each CorDapp must add its own dependencies to the transaction, but what happens when two CorDapps depend on different versions of the same library?
 The node that is building the transaction must ensure that the attached JARs contain all code needed for all CorDapps and also do not break the *no-overlap* rule.
@@ -258,7 +258,7 @@ It also supports `cordaCompile`, which assumes the dependency is available so it
 {{< /note >}}
 
 
-## CorDapp depending on other CorDapp(s)
+## CorDapps depending on other CorDapps
 
 
 We presented the “complex” business requirement earlier where the `Apples` contract has to check that it can’t allow swapping Pink Lady apples for anything
@@ -316,13 +316,13 @@ All the described drawbacks will apply.
 Add this to the flow:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 builder.addAttachment(hash_of_the_fruit_jar)
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 builder.addAttachment(hash_of_the_fruit_jar);
 ```
@@ -335,7 +335,7 @@ And in the contract code verify that there is one attachment that contains the d
 In case the contract depends on a specific version:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 requireThat {
     "the correct fruit jar was attached to the transaction" using (tx.attachments.find {it.id == hash_of_fruit_jar} !=null)
@@ -343,7 +343,7 @@ requireThat {
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 requireThat(require -> {
     require.using("the correct fruit jar was attached to the transaction", tx.getAttachments().contains(hash_of_fruit_jar));
@@ -357,7 +357,7 @@ requireThat(require -> {
 In case the dependency has to be signed by a known public key the contract must check that there is a JAR attached that contains that class name and is signed by the right key:
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 requireThat {
     "the correct my_reusable_cordapp jar was attached to the transaction" using (tx.attachments.find {attch -> attch.containsClass(dependentClass) && SignatureAttachmentConstraint(my_public_key).isSatisfiedBy(attch)} !=null)
@@ -365,7 +365,7 @@ requireThat {
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 requireThat(require -> {
     require.using("the correct my_reusable_cordapp jar was attached to the transaction", tx.getAttachments().stream().anyMatch(attch -> containsClass(attch, dependentClass)  new SignatureAttachmentConstraint(my_public_key).isSatisfiedBy(attch))));
@@ -381,7 +381,7 @@ that’s the only way to attach JARs to a transaction.
 
 {{< /note >}}
 
-## Changes between version 3 and version 4 of Corda
+## Changes between Corda version 3 and version 4
 
 In Corda v3 transactions were verified inside the System Classloader that contained all the installed CorDapps.
 This was a temporary simplification and we explained above why it could only be short-lived.
@@ -413,7 +413,7 @@ The contract code of the new version of the CorDapp should add the security chec
 
 {{< /note >}}
 
-## The demo *finance* CorDapp
+## The *finance* CorDapp demo
 
 Corda ships with a finance CorDapp demo that brings some handy utilities that can be used by code in other CorDapps, some abstract base types like `OnLedgerAsset`,
 but also comes with its own ready-to-use contracts like: `Cash`, `Obligation` and `Commercial Paper`.

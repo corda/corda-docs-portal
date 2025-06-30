@@ -35,31 +35,32 @@ TLS and Node Identity certificates.
 
 A Corda network has 8 types of keys and a regular node requires 4 of them:
 
-**Network Keys**
+- **Network keys:**
+   - The **root network CA** key
+   - The **doorman CA** key
+   - The **network map** key
+   - The **service identity** key(s) (per service, such as a notary cluster; it can be a composite key)
+- **Node keys:**
+   - The **node CA** key(s) (one per node)
+   - The **legal identity** key(s) (one per node)
+   - The **tls** key(s) (per node)
+   - The **confidential identity** key(s) (per node)
 
-
-* The **root network CA** key
-* The **doorman CA** key
-* The **network map** key
-* The **service identity** key(s) (per service, such as a notary cluster; it can be a Composite key)
-
-**Node Keys**
-
-
-* The **node CA** key(s) (one per node)
-* The **legal identity** key(s) (one per node)
-* The **tls** key(s) (per node)
-* The **confidential identity** key(s) (per node)
-
-We can visualise the certificate structure as follows (for a detailed description of cert-hierarchy,
+We can visualise the certificate structure as follows (for a detailed description of the certificate hierarchy,
 see [Network certificates]({{< relref "permissioning.md" >}})):
 
 {{< figure alt="certificate structure" width=80% zoom="../resources/certificate_structure.png" >}}
 
 ## Supported cipher suites
 
-Due to the shared certificate hierarchy, the following 4 key/certificate types: **root network CA**, **doorman CA**,
-**node CA** and **tls** should be compatible with the standard TLS 1.2 protocol. The latter is a requirement from the
+Due to the shared certificate hierarchy, the following 4 key/certificate types should be compatible with the standard TLS 1.2 protocol:
+
+- Root network CA
+- Doorman CA
+- Node CA
+- TLS 
+
+ The latter is a requirement from the
 TLS certificate-path validator. It is highlighted that the rest of the keys can be any of the 5 supported cipher suites.
 For instance, **network map** is ECDSA NIST P-256 (secp256r1) in the Corda Network (CN) as it is well-supported by the
 underlying HSM device, but the default for dev-mode is Pure EdDSA (ed25519).

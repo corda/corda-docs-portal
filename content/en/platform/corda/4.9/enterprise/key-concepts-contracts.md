@@ -25,8 +25,8 @@ title: Smart contracts
 
 * Smart contract digitize agreements by turning them into code that executes automatically if the contract terms are met.
 * Nodes don't need to trust each other to follow through on contract terms, because the terms are enforced by the code.
-* Smart contracts govern the evolution of [states]{{< relref "key-concepts-states.md" >}}) over time.
-* Even if a [transaction]{{< relref "key-concepts-transactions.md" >}}) gathers all the required signatures, it can't be committed to the ledger unless it is contractually valid.
+* Smart contracts govern the evolution of [states]({{< relref "key-concepts-states.md" >}}) over time.
+* Even if a [transaction]({{< relref "key-concepts-transactions.md" >}}) gathers all the required signatures, it can't be committed to the ledger unless it is contractually valid.
 
 ## Video
 
@@ -38,7 +38,7 @@ title: Smart contracts
 * No external enforcement is required.
 * The contract is always interpreted the same way.
 
-The contract code is replicated on the [nodes]{{< relref "key-concepts-node.md" >}}) in a [network]{{< relref "key-concepts-ecosystem.md" >}}). The network members have to reach a [consensus]{{< relref "key-concepts-consensus.md" >}}) that the terms of the agreement have been met before they execute the contract.
+The contract code is replicated on the [nodes]({{< relref "key-concepts-node.md" >}}) in a [network]({{< relref "key-concepts-ecosystem.md" >}}). The network members have to reach a [consensus]({{< relref "key-concepts-consensus.md" >}}) that the terms of the agreement have been met before they execute the contract.
 
 Putting a contract on Corda gives it unique features:
 * It can't be changed, only replaced with an updated version.
@@ -49,17 +49,17 @@ Corda smart contracts must be written in [Kotlin](https://kotlinlang.org/) or [J
 
 ## Contractual validity
 
-[Transactions]{{< relref "key-concepts-transactions.md" >}}) must be digitally signed by all required signers. However, even if a
+[Transactions]({{< relref "key-concepts-transactions.md" >}}) must be digitally signed by all required signers. However, even if a
 transaction gathers all the required signatures, it can't be executed unless it is also *contractually valid*. A transaction that is not contractually valid is not a valid proposal to update the ledger, and can never be committed to the ledger. This means that contracts can impose rules on the evolution of states over time that are independent of the willingness of the required signers to sign a given transaction.
 
-Each transaction [state]{{< relref "key-concepts-states.md" >}}) specifies a *contract type*. The contract specified takes the transaction as input, and determines if the transaction is valid based on the
+Each transaction [state]({{< relref "key-concepts-states.md" >}}) specifies a *contract type*. The contract specified takes the transaction as input, and determines if the transaction is valid based on the
 contract's internal rules. The contract must evaluate every input state and every output state.
 
 {{< figure alt="tx validation" width=80% zoom="/en/images/tx-validation.png" >}}
 The contract code can:
 
 * Check the number of inputs, outputs, commands, or attachments.
-* Check for [time windows]{{< relref "key-concepts-time-windows.md" >}}).
+* Check for [time windows]({{< relref "key-concepts-time-windows.md" >}}).
 * Check the contents of all components.
 * Evaluate looping constructs, variable assignments, function calls, helper methods, and other aspects of the transaction code.
 * Group similar states to validate them as a group. For example, it can impose a rule on the combined value of all the cash
@@ -71,13 +71,13 @@ See [Reissuing states]({{< relref "cordapps/reissuing-states.md" >}}) for inform
 
 ## Determinism
 
-For the nodes on a network to reach consensus about a proposed update to the [ledger]{{< relref "key-concepts-ledger.md" >}}), transaction verification must be *deterministic*. That means contracts must **always accept** or **always reject** a given transaction. For example, a transaction's validity cannot depend on the time it was validated, or the amount of information the node running the contract holds.
+For the nodes on a network to reach consensus about a proposed update to the [ledger]({{< relref "key-concepts-ledger.md" >}}), transaction verification must be *deterministic*. That means contracts must **always accept** or **always reject** a given transaction. For example, a transaction's validity cannot depend on the time it was validated, or the amount of information the node running the contract holds.
 
-Developers can pre-verify that their CorDapps are deterministic by linking them to [deterministic modules]{{< relref "deterministic-modules.md" >}})).
+Developers can pre-verify that their CorDapps are deterministic by linking them to [deterministic modules]({{< relref "deterministic-modules.md" >}})).
 
 ## Contract limitations
 
-By design, contracts don't have access to information from the outside world (unless they use an [oracle]{{< relref "key-concepts-oracles.md" >}}). They can only check transactions for internal validity. For example, a contract wouldn't know that the transaction is in accordance with what the parties involved originally agreed.
+By design, contracts don't have access to information from the outside world (unless they use an [oracle]({{< relref "key-concepts-oracles.md" >}}). They can only check transactions for internal validity. For example, a contract wouldn't know that the transaction is in accordance with what the parties involved originally agreed.
 
 You should check the contents of a transaction before signing it, *even if the transaction is
 contractually valid*, to see if you agree with the proposed ledger update. You have no obligation to
@@ -88,7 +88,7 @@ is too large, or may disagree on the amount of cash offered for an asset.
 
 {{% vimeo 213879293 %}}
 
-Smart contracts refer to legal prose documents that state the rules governing the evolution of the [state]{{< relref "key-concepts-states.md" >}}) over
+Smart contracts refer to legal prose documents that state the rules governing the evolution of the [state]({{< relref "key-concepts-states.md" >}}) over
 time in a way that is compatible with traditional legal systems. This document can be relied upon in the case of
 legal disputes.
 

@@ -3,21 +3,21 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-13:
     identifier: corda-enterprise-4-13-corda-nodes-operating-cm
-    name: "Backup and restoration of a Corda node"
+    name: "Backing up and restoring nodes"
     parent: corda-enterprise-4-13-corda-nodes-operating
 tags:
 - cm
 - backup
-title: Backup and restoration of a Corda node
+title: Backing up and restoring nodes
 weight: 8
 ---
 
 
-# Backup and restoration of a Corda node
+# Backing up and restoring nodes
 
 
 
-Various components of the Corda platform read their configuration from the file system, and persist data to a database or into files on disk. Given that hardware can fail, operators of IT infrastructure must have a sound backup strategy in place. Whilst blockchain platforms can sometimes recover some lost data from their peers, it is rarely the case that a node can recover its full state in this way because real-world blockchain applications invariably contain private information (e.g., customer account information). Moreover, this private information must remain in sync with the ledger state. As such, we strongly recommend implementing a comprehensive backup strategy.
+Various components of the Corda platform read their configuration from the file system, and persist data to a database or into files on disk. Given that hardware can fail, operators of IT infrastructure must have a sound backup strategy in place. Whilst blockchain platforms can sometimes recover some lost data from their peers, it is rarely the case that a node can recover its full state in this way because real-world blockchain applications invariably contain private information (for example, customer account information). Moreover, this private information must remain in sync with the ledger state. As such, we strongly recommend implementing a comprehensive backup strategy.
 
 The following elements of a backup strategy are recommended:
 
@@ -47,7 +47,7 @@ If the above holds, Corda components will benefit from the following:
 
 
 * Guaranteed eventual processing of acknowledged client messages, provided that the backlog of persistent queues is not lost irremediably.
-* A timely recovery from deletion or corruption of configuration files (e.g., `node.conf`, `node-info` files, etc.), database drivers, CorDapps binaries and configuration, and certificate directories, provided backups are available to restore from.
+* A timely recovery from deletion or corruption of configuration files (for example, `node.conf`, `node-info` files, etc.), database drivers, CorDapps binaries and configuration, and certificate directories, provided backups are available to restore from.
 
 
 {{< warning >}}
@@ -57,4 +57,4 @@ Private keys used to sign transactions should be preserved with the utmost care.
 
 ## Upgrading
 
-For information about upgrading, see [Upgrading a node to Corda 4.11]({{< relref "../../node-upgrade-notes.md" >}}).
+For information about upgrading, see [Upgrading a node]({{< relref "../../node-upgrade-notes.md" >}}).

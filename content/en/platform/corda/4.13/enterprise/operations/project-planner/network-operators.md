@@ -7,13 +7,13 @@ tags:
 - operations
 - deployment
 - planning
-title: Network operator project planning
+title: Business network operator project planning
 weight: 300
 ---
 
-# Business Network Operator project planning
+# Business network operator project planning
 
-When planning a Corda deployment as a Business Network Operator, there are several considerations:
+When planning a Corda deployment as a business network operator, there are several considerations:
 
 - Deployment environments
 - Notary compatibility
@@ -21,7 +21,7 @@ When planning a Corda deployment as a Business Network Operator, there are sever
 - Database compatibility
 - Corda Enterprise Network Manager deployment
 
-When deploying a private network, the Business Network Operator is responsible for all major components of the Corda network. In most enterprise deployments of Corda this includes:
+When deploying a private network, the business network operator is responsible for all major components of the Corda network. In most enterprise deployments of Corda this includes:
 
 * Nodes
 * An HA notary cluster
@@ -29,7 +29,7 @@ When deploying a private network, the Business Network Operator is responsible f
 * An HSM
 * The certificate hierarchy of the network
 
-The Business Network Operator also deploys Corda Enterprise Network Manager in a private network. This deployment includes an identity manager and a network map.
+The business network operator also deploys Corda Enterprise Network Manager in a private network. This deployment includes an identity manager and a network map.
 
 When deploying a public network, the Network Operator is responsible for all major components of the Corda network.
 
@@ -59,7 +59,7 @@ following table gives approximate sizings for typical node deployments.
 
 {{< /table >}}
 
-All Corda Nodes have a database. A range of third-party databases are supported by Corda, shown in the following table:
+All Corda nodes have a database. A range of third-party databases are supported by Corda, shown in the following table:
 
 {{< table >}}
 
@@ -83,7 +83,7 @@ All Corda Nodes have a database. A range of third-party databases are supported 
 
 {{< /table >}}
 
-## Hardware Security Modules (HSM)
+## Hardware security modules (HSM)
 
 {{< table >}}
 

@@ -64,7 +64,7 @@ to run a few tests checking whether the amount of memory can be reduced without 
 Especially on large server machines, the default number of flow threads might be on the upper limit of what is sensible. In order to find
 the optimal number, it is necessary to tweak that number via the configuration, restart the node(s), and rerun a test plan to see how the
 numbers have changed. In order to keep the tests reproducible, it might be a good idea to wipe the database between tests so index sizes
-and query times do not skew the test results for later runs (see [Resetting a Node]({{< relref "practical-considerations.md#resetting-a-node" >}})).
+and query times do not skew the test results for later runs (see [Resetting a node]({{< relref "practical-considerations.md#resetting-a-node" >}})).
 
 Flow and RPC threads can be set explicitly using the [tuning section]({{< relref "../node/setup/corda-configuration-file.md" >}}) of the enterprise configuration. Add the following section to your
 node configuration file:
@@ -78,7 +78,7 @@ enterpriseConfiguration = {
 }
 ```
 
-The recommended approach is to start with a low number of flow threads (e.g. 1 per gigabyte of heap memory), and increase the number of
+The recommended approach is to start with a low number of flow threads (for example, 1 per gigabyte of heap memory), and increase the number of
 threads over a number of runs. In tests at R3, it seems that giving a node twice the number of flow threads than RPC threads seemed a
 sensible number, but that might depend on the hardware and the use case, so it is worthwhile to experiment with this ratio.
 
@@ -135,8 +135,8 @@ a schema per node in the same database server.
 
 ## Node interactions
 
-For any flow that only works within one node (e.g. Cash Issuance), the above should allow to tweak the node to be performant. Any flows
-that involve connections to other nodes (e.g. to the recipient of a payment or a notary) might also be bottlenecked on the performance
+For any flow that only works within one node (for example, Cash Issuance), the above should allow to tweak the node to be performant. Any flows
+that involve connections to other nodes (for example, to the recipient of a payment or a notary) might also be bottlenecked on the performance
 of their peers, so they might need to be tweaked as well.
 
 
@@ -179,7 +179,7 @@ The *Number of Threads* setting on a *Thread Group* in the test plan controls ho
 a run and then waiting for the result. If you look at the NightlyBenchmark example test plan, you’ll notice that the same test gets
 repeated with different numbers of threads, thus creating a result that reports throughput as a function of number of clients.
 
-Increasing the number of threads too high might lead to contention on the JMeter server (e.g. on the RPC client), therefore it is also
+Increasing the number of threads too high might lead to contention on the JMeter server (for example, on the RPC client), therefore it is also
 possible to run requests from several JMeter servers. In this case, it is important that the target *host* in the testplan is an actual
 machine name or IP address, not *localhost*, as the JMeter servers might run on different machines. Each JMeter server will run the specified
 number of threads, so five servers with 200 Threads each would lead to 1000 runs in parallel.

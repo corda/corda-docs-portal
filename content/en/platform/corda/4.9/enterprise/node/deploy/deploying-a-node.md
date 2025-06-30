@@ -16,7 +16,7 @@ weight: 2
 
 {{< note >}}
 These instructions are intended for people who want to deploy a Corda node to a server,
-whether they have developed and tested a CorDapp following the instructions in [Creating nodes locally]{{< relref "generating-a-node.md" >}})
+whether they have developed and tested a CorDapp following the instructions in [Creating nodes locally]({{< relref "generating-a-node.md" >}})
 or are deploying a third-party CorDapp.
 
 {{< /note >}}

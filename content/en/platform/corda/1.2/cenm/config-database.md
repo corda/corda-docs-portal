@@ -12,11 +12,11 @@ menu:
 tags:
 - config
 - database
-title: CENM Database Configuration
+title: CENM database configuration
 ---
 
 
-# CENM Database Configuration
+# CENM database configuration
 
 A persistent layer must be available for the Identity Manager and Network Map Components to function. This is described in
 their respective configs with the following configuration states.

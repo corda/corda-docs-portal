@@ -13,11 +13,11 @@ title: Troubleshooting common issues
 ---
 
 
-# Troubleshooting Common Issues
+# Troubleshooting common issues
 
 
 
-## General Debugging
+## General debugging
 
 
 ### Enabling debug/trace logging
@@ -40,7 +40,7 @@ status of the service (whether it is executing and if it is reachable):
 |Service|Request Type|Endpoint|Return Value|
 |:--|:--|:--|:--|
 |Identity Manager Service|GET|`/status`|Status information of the Identity Manager deployment.|
-|Network Map Service|GET|`/network-map/my-hostname`|IP address of the caller.|
+|Network Map service|GET|`/network-map/my-hostname`|IP address of the caller.|
 |Revocation Workflow (sub-service of Identity Manager)|GET|`/status`|Status information of the Identity Manager deployment.|
 
 {{< /table >}}
@@ -54,30 +54,30 @@ Manager is reachable on `im-host.com:1234` then the status endpoint would be `im
 
 ### Issue
 
-The Network Map Service and node is up and running, but the node cannot be seen from any other nodes on the network.
+The Network Map service and node is up and running, but the node cannot be seen from any other nodes on the network.
 
 
-### Solution/Explanation
+### Solution/explanation
 
 There are a few different reasons why this could be:
 
 
 * The publishing of the node info was successfully, but the updated network map has not been signed yet.
 * There was an issue with the node info publishing such as the node’s certificate was not valid.
-* The publishing of a node info is still in progress, and the Network Map Service is awaiting a response from the
+* The publishing of a node info is still in progress, and the Network Map service is awaiting a response from the
 Identity Manager Service.
 
 To verify that issue 1 is not the culprit - verify that the Network Map signing process is still successfully running
-periodically. Unless the Network Map Service is configured for testing, it should have an external signing process
+periodically. Unless the Network Map service is configured for testing, it should have an external signing process
 configured. See the “Signing Network Map and Network Parameters” section of [Signing Services]({{< relref "../../../../1.6/cenm/signing-service.md" >}}). If the service is
 configured to run with a local signer then verify that the configured sign interval is something fairly low to ensure
-that updates to the network map are persisted often (e.g. 1 minute).
+that updates to the network map are persisted often (for example, 1 minute).
 
-To verify that issue 2 is not the culprit - the logs of the Network Map Service should be checked. An error such as an
+To verify that issue 2 is not the culprit - the logs of the Network Map service should be checked. An error such as an
 invalid certificate is not recoverable and should be resolved out of band with the node operator and support.
 If there are any communication issues with the Identity Manager then the error will be logged and communication will be
-retried after a short break. See the “Identity Manager Communication” section of [Network Map Service]({{< relref "../../../../1.6/cenm/network-map.md" >}}) to verify that the
-Identity Manager communication is correctly configured for the Network Map Service.
+retried after a short break. See the “Identity Manager Communication” section of [Network Map service]({{< relref "../../../../1.6/cenm/network-map.md" >}}) to verify that the
+Identity Manager communication is correctly configured for the Network Map service.
 
 
 ## The CENM Service hangs on start-up
@@ -122,7 +122,7 @@ issue. See [myths about urandom](https://www.2uo.de/myths-about-urandom/) for a 
 
 ### Issue
 
-When running the Identity Manager or Network Map Service with local signer enabled the signing process times out
+When running the Identity Manager or Network Map service with local signer enabled the signing process times out
 resulting in an error within the local signer log file.
 
 

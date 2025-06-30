@@ -57,9 +57,9 @@ Deprecated. Use `networkServices` instead.
 
 ## `cordappSignerKeyFingerprintBlacklist`
 
-  List of the public keys fingerprints (SHA-256 of public key hash) not allowed as Cordapp JARs signers.
-  The node will not load Cordapps signed by those keys.
-  The option takes effect only in production mode and defaults to Corda development keys (`["56CA54E803CB87C8472EBD3FBC6A2F1876E814CEEBF74860BD46997F40729367", "83088052AF16700457AE2C978A7D8AC38DD6A7C713539D00B897CD03A5E5D31D"]`), in development mode any key is allowed to sign Cordpapp JARs.
+  List of the public keys fingerprints (SHA-256 of public key hash) not allowed as CorDapp JARs signers.
+  The node will not load CorDapps signed by those keys.
+  The option takes effect only in production mode and defaults to Corda development keys (`["56CA54E803CB87C8472EBD3FBC6A2F1876E814CEEBF74860BD46997F40729367", "83088052AF16700457AE2C978A7D8AC38DD6A7C713539D00B897CD03A5E5D31D"]`), in development mode any key is allowed to sign CorDapp JARs.
 
   This property requires retrieving the hashes of public keys that need to be blacklisted.
 
@@ -106,8 +106,8 @@ Set custom command line attributes (for example, Java system properties) on the 
 
 ## `dataSourceProperties`
 
-  This section is used to configure the JDBC connection and database driver used for the node's persistence.
-  To add additional data source properties (for a specific JDBC driver) use the `dataSource.` prefix with the property name (e.g. `dataSource.customProperty = value`).
+This section is used to configure the JDBC connection and database driver used for the node's persistence.
+  To add additional data source properties (for a specific JDBC driver) use the `dataSource.` prefix with the property name (for example, `dataSource.customProperty = value`).
 
 * `dataSourceClassName`
   * JDBC Data Source class name.
@@ -236,7 +236,7 @@ Deprecated. use `h2Setting` instead.
   An optional list of file system directories containing JARs to include in the classpath when launching via `corda.jar` only.
   Each should be a string.
   Only the JARs in the directories are added, not the directories themselves.
-  This is useful for including JDBC drivers and the like. e.g. `jarDirs = [ ${baseDirectory}"/libs" ]`.
+  This is useful for including, for example, JDBC drivers: `jarDirs = [ ${baseDirectory}"/libs" ]`.
   (Note that you have to use the `baseDirectory` substitution value when pointing to a relative path).
 
 {{< warning >}}
@@ -264,10 +264,10 @@ If an item in a list is overridden via an environment variable/system property, 
 
 ## `keyStorePassword`
 
-  The password to unlock the KeyStore file (`<workspace>/certificates/sslkeystore.jks`) containing the node certificate and private key.
+The password to unlock the keystore files `<workspace>/certificates/sslkeystore.jks and `<workspace>/certificates/nodestore.jks` containing the node certificate and private key.
 
-  **Important: This is the non-secret value for the development certificates automatically generated during the first node run.
-  Alternatively, these keys can be managed in secure hardware devices.**
+{{< important >}}This is the non-secret value for the development certificates automatically generated during the first node run.
+Alternatively, these keys can be managed in secure hardware devices.{{< /important >}}
 
   *Default:* cordacadevpass
 
@@ -505,14 +505,14 @@ Deprecated. Use rpcSettings instead.**
   It has one required parameter.
 
   `port`
-    The port to start SSH server on e.g. `sshd { port = 2222 }`.
+    The port to start SSH server on; for example, `sshd { port = 2222 }`.
 
   *Default:* not defined
 
 ## `systemProperties`
 
   An optional map of additional system properties to be set when launching via `corda.jar` only.
-  Keys and values of the map should be strings. e.g. `systemProperties = { "visualvm.display.name" = FooBar }`
+  Keys and values of the map should be strings; for example, `systemProperties = { "visualvm.display.name" = FooBar }`
 
   *Default:* not defined
 

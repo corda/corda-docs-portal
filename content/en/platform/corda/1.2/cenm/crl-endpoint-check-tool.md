@@ -14,11 +14,11 @@ tags:
 - endpoint
 - check
 - tool
-title: CRL Endpoint Check Tool
+title: CRL endpoint check tool
 ---
 
 
-# CRL Endpoint Check Tool
+# CRL endpoint check tool
 
 
 

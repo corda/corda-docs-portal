@@ -18,20 +18,15 @@ title: Debugging a CorDapp
 
 # Debugging a CorDapp
 
-
 There are several ways to debug your CorDapp.
-
 
 ## Using a `MockNetwork`
 
 You can attach the [IntelliJ IDEA debugger](https://www.jetbrains.com/help/idea/debugging-code.html) to a
 `MockNetwork` to debug your CorDapp:
 
-
-1. Define your flow tests as per [API: Testing]({{< relref "api-testing.md" >}}):
-
+1. Define your flow tests as per [API: testing]({{< relref "api-testing.md" >}}):
     * In your `MockNetwork`, ensure that `threadPerNode` is set to `false`.
-
 2. Set your breakpoints.
 3. Run the flow tests using the debugger. When the tests hit a breakpoint, execution will pause.
 
@@ -56,19 +51,13 @@ The nodes’ webservers always run in a separate process, and cannot be attached
 
 ### With remote debugging
 
-
 1. Define a network using the node driver as per [Integration testing]({{< relref "../enterprise/get-started/tutorials/supplementary-tutorials/tutorial-integration-testing.md" >}}).
-
 2. In your `DriverParameters`, ensure that `startNodesInProcess` is set to `false` and `isDebug` is set to `true`.
-
-3. Run the driver. The remote debug ports for each node will be automatically generated and printed to the terminal.
-For example:
-
-```none
-[INFO ] 11:39:55,471 [driver-pool-thread-0] (DriverDSLImpl.kt:814) internal.DriverDSLImpl.startOutOfProcessNode -
-    Starting out-of-process Node PartyA, debug port is 5008, jolokia monitoring port is not enabled {}
-```
-
+3. Run the driver. The remote debug ports for each node will be automatically generated and printed to the terminal. For example:
+   ```none
+   [INFO ] 11:39:55,471 [driver-pool-thread-0] (DriverDSLImpl.kt:814) internal.DriverDSLImpl.startOutOfProcessNode -
+      Starting out-of-process Node PartyA, debug port is 5008, jolokia monitoring port is not enabled {}
+   ```
 4. Attach the debugger to the node of interest on its debug port.
 5. In IntelliJ IDEA, create a new run/debug configuration of type `Remote`.
 6. Set the run/debug configuration’s `Port` to the debug port.

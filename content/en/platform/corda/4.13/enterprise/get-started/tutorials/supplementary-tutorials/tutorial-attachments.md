@@ -84,7 +84,7 @@ Attachment metadata can be queried in a similar way to the vault (see [API: Vaul
 The `and` and `or` operators can be used to build complex queries. For example:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 
 attachmentStorage.queryAttachments(
@@ -99,7 +99,7 @@ attachmentStorage.queryAttachments(
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 
 attachmentStorage.queryAttachments(
@@ -137,7 +137,7 @@ that isn’t used as part of the contract logic.
 Here is a simple example of how to attach a file to a transaction and send it to the counterparty. The full code for this demo can be found in the [Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.13/Features/attachment-sendfile) and [Java](https://github.com/corda/samples-java/tree/release/4.13/Features/attachment-sendfile) sample repositories.
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 @InitiatingFlow
@@ -231,7 +231,7 @@ private fun uploadAttachment(
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 @InitiatingFlow

@@ -13,13 +13,13 @@ tags:
 - api
 - service
 - classes
-title: 'API: Service Classes'
+title: 'API: Service classes'
 ---
 
 
 
 
-# API: Service Classes
+# API: Service classes
 
 Service classes are long-lived instances that can trigger or be triggered by flows from within a node. A Service class is limited to a
 single instance per node. During startup, the node handles the creation of the service. If there is problem when instantiating service
@@ -28,7 +28,7 @@ the node will report in the log what the problem was and terminate.
 Services allow related, reusable, functions to be separated into their own class where their functionality is
 grouped together. These functions can then be called from other services or flows.
 
-## Creating a Service
+## Creating a service
 
 To define a Service class:
 
@@ -104,7 +104,7 @@ public class MyCordaService extends SingletonSerializeAsToken {
 {{< /tabs >}}
 
 The `AppServiceHub` provides the `ServiceHub` functionality to the Service class, with the extra ability to start flows. Starting flows
-from `AppServiceHub` is explained further in [Starting Flows from a Service](#starting-flows-from-a-service).
+from `AppServiceHub` is explained further in [Starting flows from a service](#starting-flows-from-a-service).
 
 The `AppServiceHub` also provides access to `database` which will enable the Service class to perform DB transactions from the threads
 managed by the Service.
@@ -113,7 +113,7 @@ Also the `AppServiceHub` provides ability for `CordaService` to subscribe for li
 about node finishing initialisation and when the node is shutting down such that `CordaService` will be able to perform clean-up of some
 critical resources. For more details please have refer to KDocs for `ServiceLifecycleObserver`.
 
-## Service Lifecycle Events
+## Service lifecycle events
 
 A Corda node will notify services when significant events occur via *service lifecycle events*. Upon initialization, a service can register a function to receive the events and act in whatever way is required. Handler functions do not need to handle every single type of event, merely the events that the service is interested in.
 
@@ -127,7 +127,7 @@ The node issues this event synchronously to each service, meaning that the State
 * **ServiceLifecycleEvent.STATE_MACHINE_STARTED:** The node is starting up and the State Machine Manager has started.
 The node issues this event asynchronously to each service, meaning that the node startup sequence will proceed regardless of whether handler functions have finished processing this event.
 
-## Retrieving a Service
+## Retrieving a service
 
 A Service class can be retrieved by calling `ServiceHub.cordaService` which returns the single instance of the class passed into the function:
 
@@ -152,7 +152,7 @@ MyCordaService service = serviceHub.cordaService(MyCordaService.class);
 needed or set after the flow’s `call` function has been triggered.
 {{< /warning >}}
 
-## Starting Flows from a Service
+## Starting flows from a service
 
 Starting flows via a service can lead to deadlock within the node’s flow worker queue, which will prevent new flows from
 starting. To avoid this, the rules bellow should be followed:

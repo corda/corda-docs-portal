@@ -12,7 +12,7 @@ title: OpenTelemetry
 
 This section describes how to setup OpenTelemetry and the simple log telemetry.
 
-Telemetry has been implemented in Corda 4.11 with a pluggable architecture. There are two telemetry components:
+Telemetry has been implemented in Corda with a pluggable architecture. There are two telemetry components:
 
 * **OpenTelemetry**: This component links with the OpenTelemetry API and issues spans for flows and certain significant operations.
 * **Simple log telemetry**: This component issues log lines for flows and certain significant operations. These logs lines contain a trace ID. The complete call sequence of flows can be identified via the trace ID.
@@ -28,12 +28,16 @@ The Corda OpenTelemetry component links at compile time with the OpenTelemetry A
 
 There are two ways to make the OpenTelemetry SDK available to the Corda node:
 
-* Add the file `corda-opentelemetry-driver-%VERSION%.jar` to the `drivers` directory of the Corda node.
-* Start the Corda node with an OpenTelemetry Java agent attached.
+* [Add the driver file to the Corda node drivers directory]({{< relref "#using-the-opentelemetry-driver" >}}).
+* [Start the Corda node with an OpenTelemetry Java agent attached]({{< relref "#using-the-opentelemetry-java-agent" >}}).
 
 ## Using the OpenTelemetry driver
 
-To use the OpenTelemetry driver, copy `corda-opentelemetry-driver-%VERSION%.jar` into the drivers directory of the Corda node. This driver can be downloaded from Maven and is included in the release pack.
+To use the OpenTelemetry driver:
+
+* Copy `corda-opentelemetry-driver-%VERSION%.jar` to the drivers directory of the Corda node. 
+
+This driver can be downloaded from Maven and is included in the release pack
 
 ## Using the OpenTelemetry Java agent
 
@@ -80,7 +84,7 @@ Alternatively, you can attach your client to the OpenTelemetry Java agent via th
 
 `java -javaagent:%PATH-TO-OT-JAVAAGENT%/opentelemetry-javaagent.jar -Dotel.service.name=YOUR-SERVICE-NAME -jar ./your-client.jar`.
 
-## Creating your own Spans
+## Creating your own spans
 
 The OpenTelemetry API may be used in your flows and in your client code to create spans and baggage. To get an instance of the OpenTelemetry API in a flow, make the following call:
 
@@ -108,7 +112,7 @@ The default value of this setting is `false`.
 When checkpointing, only the span ID is checkpointed, meaning spans do not survive a node restart. If the node restarts, the parent span information will be lost, and new spans will be generated for the flows. The root span after the node restart will not know who the parent span was before the node restart.
 {{< /note >}}
 
-## Start and End Spans
+## Start and end spans
 
 The current implementation of OpenTelemetry will send spans to the backend when the flow or operation is completed. This is handled via the OpenTelemetry SDK. If the flow somehow gets stuck or does not complete, the span representing that flow will never reach the backend. It can be difficult to figure out what went wrong by just looking at the spans, as you will only see the complete spans.
 
@@ -125,7 +129,7 @@ These start and end span events are only generated for spans that Corda has gene
 Creating these start and end span events will also cause more spans to be sent out to the network, meaning there could be a performance impact on the network. By default, this functionality is disabled, but can be enabled via the following configuration property:
 `telemetry. spanStartEndEventsEnabled = true`.
 
-## Simple Log Telemetry Component
+## Simple log telemetry component
 
 The Simple log telemetry component is the second type of telemetry supported. Instead of creating spans, this component simply writes log lines which record the trace ID. The trace ID is propagated to flows and other nodes involved in the transaction. By using grep on the trace ID, you can see all of the flows on different nodes involved in the same transaction. This component is enabled via the following configuration flag: `telemetry.simpleLogTelemetryEnabled = true`.
 

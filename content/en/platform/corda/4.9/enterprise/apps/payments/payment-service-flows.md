@@ -9,7 +9,7 @@ menu:
 section_menu: corda-enterprise-4-9
 ---
 
-Use Payment Service flows to initiate payments and account management requests from a node on a Corda network. These requests can then be picked up by the [Payments Agent]{{< relref "payments-agent.md" >}}) on your network.
+Use Payment Service flows to initiate payments and account management requests from a node on a Corda network. These requests can then be picked up by the [Payments Agent]({{< relref "payments-agent.md" >}}) on your network.
 
 Use the Payment Service flows to:
 

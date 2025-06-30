@@ -55,12 +55,13 @@ The use of read-only mode for the Percona database will require some database do
       scp dump.sql.gz $NODE:$COCKROACH_DEST_PATH
     done
     ```
-{{< warning >}}
-The export file **must** be copied into a subdirectory of `/opt/cockroachdb/cockroach-data/extern/` for each node, as described in the [CockroachDB documentation](https://www.cockroachlabs.com/docs/v20.1/import.html#import-file-urls/)
-{{</ warning >}}
+   {{< warning >}}
+   The export file **must** be copied into a subdirectory of `/opt/cockroachdb/cockroach-data/extern/` for each node, as described in the [CockroachDB documentation](https://www.cockroachlabs.com/docs/v20.1/import.html#import-file-urls/)
+   {{</ warning >}}
 3. After copying the data to CockroachDB, the data must be imported to the `corda_mysql` database. The `corda_mysql`
-   database is used to contain the MySQL data until it can be imported to the final `corda` database with the correct database
-   schema. The following command will import the Percona data in the `mysql` schema:
+   database is used to contain the MySQL data until it can be imported into the final `corda` database with the correct database
+   schema. The following command will import the Percona data into the `mysql` schema:
+
     ```bash
     # Get the first node from the previous variable.
     COCKROACH_FIRST_NODE=${COCKROACH_NODES%% *}
@@ -73,6 +74,7 @@ The export file **must** be copied into a subdirectory of `/opt/cockroachdb/cock
     IMPORT MYSQLDUMP 'nodelocal:///notary/dump.sql.gz';
     EOF
     ```
+
    The Percona data has now been imported into a Cockroach database called `corda_mysql`.
 ### Importing Percona database data as a single script
 The code blocks above can be combined into a single `bash` script. Take care to replace the Percona and CockroachDB addresses in the script before use:
@@ -114,7 +116,9 @@ echo --Done
 
 ## Migrating the database schema
 
-1. To migrate the database schema, run the following script, replacing the Cockroach node addresses:
+To migrate the database schema:
+
+1. Run the following script, replacing the Cockroach node addresses:
 
     ```bash
     #!/usr/bin/env bash
@@ -197,11 +201,11 @@ echo --Done
     EOF
     ```
    The script has four distinct operations:
-  - Creating a database named `corda`.
-  - Creating a `corda` user and giving appropriate permissions.
-  - Creating tables within the `corda` database.
-  - Importing the notary data from the `corda_mysql` database into the `corda` database.
-2. You can validate the notary data by checking the row counts in both databases. To run the row count, run the following script, replacing the Percona and Cockroach node addresses with your machine addresses:
+   - Creating a database named `corda`.
+   - Creating a `corda` user and giving appropriate permissions.
+   - Creating tables within the `corda` database.
+   - Importing the notary data from the `corda_mysql` database into the `corda` database.
+2. Validate the notary data by checking the row counts in both databases. To run the row count, run the following script, replacing the Percona and Cockroach node addresses with your machine addresses:
     ```bash
     #!/usr/bin/env bash
     # REPLACE THESE WITH YOUR MACHINE(S)
@@ -231,4 +235,4 @@ echo --Done
 ## Next steps
 After the notary data migration is complete, at least one JPA notary node must be provisioned. To set up a JPA notary node,
 see the [JPA Notary Setup]({{< relref "ha-notary-service-overview.md" >}}) and [Notary Worker Configuration]({{< relref "installing-the-notary-service.md" >}}) documentation.
-After the JPA notary is operating, you should run the [Notary Health Check tool]({{< relref "../notary-healthcheck.md" >}})) to ensure that the network is up and responsive.
+After the JPA notary is operating, you should run the [Notary health check]({{< relref "../notary-healthcheck.md" >}}) to ensure that the network is up and responsive.

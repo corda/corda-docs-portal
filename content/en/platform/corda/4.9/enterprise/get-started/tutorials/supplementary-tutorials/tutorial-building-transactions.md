@@ -412,4 +412,4 @@ overall transaction ID is still provable from the
 not expose that data to the other node directly. A full example of this
 can be found in the `NodeInterestRates` Oracle code from the
 `irs-demo` project which interacts with the `RatesFixFlow` flow.
-See also [Defining transaction tear-offs]{{< relref "tutorial-tear-offs.md" >}}).
+See also [Defining transaction tear-offs]({{< relref "tutorial-tear-offs.md" >}}).

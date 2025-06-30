@@ -3,17 +3,17 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-13:
     identifier: corda-enterprise-4-13-performance-testing
-    name: "Corda Enterprise Performance Testing"
+    name: "Corda Enterprise performance testing"
 tags:
 - introduction
-title: Introduction
+title: Performance testing
 weight: 400
 ---
 
 
-# Performance Testing
+# Performance testing
 
-## Corda Performance Test Suite
+## Corda Performance test suite
 
 Use the Corda Enterprise performance test suite to stress/soak test a Corda installation, driving either a single
 node or a small network of nodes including a notary. It uses [Apache JMeter](https://jmeter.apache.org) to start flows on nodes via RPC calls, and
@@ -27,13 +27,13 @@ impact on performance, so there is not much point in performance testing before 
 
 
 
-## Test Architecture
+## Test architecture
 
 A typical test architecture consists of the following components:
 
 
 * A Corda network to be tested. This should be a network of Corda nodes along with a notary that is self-contained
-(in other words, does not depend on any external services). See the documentation on [Corda Networks]({{< relref "../network/corda-networks.md" >}}) for information on
+(in other words, does not depend on any external services). See the documentation on [Corda networks]({{< relref "../network/corda-networks.md" >}}) for information on
 setting up a network.
 * A CorDapp that is to be tested and needs to be installed on the cluster.
 * An app to drive the test - Apache JMeter is used here.
@@ -43,7 +43,7 @@ setting up a network.
 
 Apache JMeter runs tests that repeatedly trigger an action, wait for a response and record start/success/failure
 timings and so on, and allow to view the result data interactively or rendered as reports in various formats. Run controls
-like parallelising tasks, running tasks in a specific order and count and time based repetitions are already built in.
+like parallelising tasks, running tasks in a specific order and count and time based repetitions are already built-in.
 
 The interactions with the system under test are done via so called *samplers* (see [JMeter Samplers]({{< relref "jmeter-samplers.md" >}})) that can be
 triggered by JMeter and then
@@ -55,7 +55,7 @@ calls (RPC), where all the required parameters for the flow and RPC call are pas
 the test definition.
 
 
-#### Interactive Mode
+#### Interactive mode
 
 By default, JMeter runs in interactive mode - in other words, it brings up a graphical user interface (GUI) that allows the user to
 create, view, modify and run a test definition. Tests can either be in process (i.e. the sampler runs in the GUI
@@ -63,14 +63,14 @@ process) or can be fanned out to a set of JMeter server instances that will run 
 connected to them (see [Server Mode](#server-mode)).
 
 
-#### Non-Interactive Mode
+#### Non-interactive mode
 
 Once a test definition is complete, it can be run in headless mode by providing the test definition and a report target
 directory on the command line.
 
 
 
-#### Server Mode
+#### Server mode
 
 By adding the `-s` flag,  JMeter can run as a server process that runs samplers controlled by a client connected to it
 via Java Remote Method Invocation (RMI).
@@ -87,7 +87,7 @@ Corda performance test samplers. On top of that, it supports opening SSH tunnels
 instances.
 
 
-### Performance Test CorDapps
+### Performance test CorDapps
 
 The performance test suite contains two CorDapps that can be used for performance testing:
 *  A performance test CorDapp called `perftest-cordapp.jar`, which is roughly modelled on the
@@ -98,7 +98,7 @@ and shapes.
 * A performance test CorDapp called `settlement-perftest-cordapp`, which models a digital asset exchange, where assets can be issued to nodes, transferred bilaterally between them, and exchanged in batch via atomic swap transactions. This CorDapp can be used to exercise scenarios of flows running across multiple nodes.
 
 
-### Basic Performance Test Set-Up
+### Basic performance test set-up
 
 The typical set-up used for performance tests at R3 consists of a small Corda network of 2 to 4 nodes and a notary to
 notarise transactions. These all run inside a datacenter or virtual network in the cloud with open connectivity (or at
@@ -111,7 +111,7 @@ thus saturating the RPC handler and driving the node as hard as possible. The te
 
 {{< figure alt="jmeter network overview" width=80% zoom="../resources/jmeter-network-overview.png" >}}
 
-## Performance Tests
+## Performance tests
 
 There are a number of different parts of the system that can be benchmarked with different performance tests, represented
 by different test plans and/or samplers. In general, the closer a performance test is to real world load, the less it is
@@ -130,7 +130,7 @@ The performance test suite contains test plans, CorDapp and sampler for the foll
 These tests stress components in a single node, without any dependencies on other nodes in the flow.
 
 
-#### Empty Flow
+#### Empty flow
 
 The `EmptyFlow` test is part of the `perftest-cordapp` CorDapp. As its name suggests, this flow is empty and does not have any effect of its own - its purpose is to provide a timing for the overhead involved in starting a flow, such as RPC handling, deserialization of the request, starting/winding down a flow, and sending the response. Note that a flow that requires inputs via RPC might have a larger overhead as these might need to be deserialized.
 
@@ -156,7 +156,7 @@ generated for each transaction, allowing you to measure the resulting overhead.
 To test the throughput a single node can achieve, this flow is run against a single node from all JMeter servers. In order
 to measure network throughput, it can also be run against all nodes from their respective JMeter server.
 
-#### Advanced Flows
+#### Advanced flows
 
 The `CashIssueFlow`, `CashIssueAndPaymentFlow`, and `CashIssueAndPaymentNoSelection` flows create a somewhat realistic load but still have a very uniform, artificial usage pattern of resources.
 Therefore, more advanced test flows/test plans have been developed that allow to issue a large amount of cash once and

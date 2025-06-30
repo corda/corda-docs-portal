@@ -8,11 +8,11 @@ menu:
 tags:
 - state
 - persistence
-title: State Persistence
+title: State persistence
 weight: 10
 ---
 
-# State Persistence
+# State persistence
 
 Corda offers developers the option to expose all or some parts of a contract state to an *Object Relational Mapping*
 (ORM) tool to be persisted in a *Relational Database Management System* (RDBMS).
@@ -27,7 +27,7 @@ The Object Relational Mapping is specified using [Java Persistence API](https://
 {{< note >}}
 By default, nodes use an H2 database which is accessed using *Java Database Connectivity* JDBC. Any database
 with a JDBC driver is a candidate and several integrations have been contributed to by the community.
-Please see the info in “node-database” for details.
+See [Corda node database]({{< relref "../node/operating/node-database.md" >}}) for details.
 
 {{< /note >}}
 
@@ -234,7 +234,7 @@ Make sure table and column names are compatible with the naming convention used 
 
 {{< /note >}}
 
-## Persisting Hierarchical Data
+## Persisting hierarchical data
 
 You may want to persist hierarchical relationships within state data using multiple database tables.
 To facilitate this, you must implement all queries making use of hierarchical relations as native SQL.
@@ -427,7 +427,7 @@ setAutoCommit(autoCommit: Boolean)
 setReadOnly(readOnly: Boolean)
 ```
 
-## JPA Support
+## JPA support
 
 In addition to `jdbcSession`, `ServiceHub` also exposes the Java Persistence API to flows via the `withEntityManager`
 method. This method can be used to persist and query entities which inherit from `MappedSchema`. This is particularly
@@ -443,7 +443,7 @@ a list of mapped types which is passed to `MappedSchema`. This is exactly how st
 the entity in this case should not subclass `PersistentState` as it is not a state object:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 public class FooSchema {}
 
@@ -466,7 +466,7 @@ public class FooSchemaV1 extends MappedSchema {
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 object FooSchemaV1 : MappedSchema(
     schemaFamily = FooSchema.javaClass,
@@ -491,7 +491,7 @@ object FooSchemaV1 : MappedSchema(
 Instances of `PersistentFoo` can be manually persisted inside a flow as follows:
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 PersistentFoo foo = new PersistentFoo(new UniqueIdentifier().getId().toString(), "Bar");
 serviceHub.withEntityManager(entityManager -> {
@@ -501,7 +501,7 @@ serviceHub.withEntityManager(entityManager -> {
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val foo = FooSchemaV1.PersistentFoo(UniqueIdentifier().id.toString(), "Bar")
 serviceHub.withEntityManager {
@@ -515,7 +515,7 @@ serviceHub.withEntityManager {
 And retrieved via a query, as follows:
 
 {{< tabs name="tabs-4" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 getServiceHub().withEntityManager((EntityManager entityManager) -> {
     CriteriaQuery<PersistentFoo> query = entityManager.getCriteriaBuilder().createQuery(PersistentFoo.class);
@@ -526,7 +526,7 @@ getServiceHub().withEntityManager((EntityManager entityManager) -> {
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 serviceHub.withEntityManager {
     val query = criteriaBuilder.createQuery(FooSchemaV1.PersistentFoo::class.java)
@@ -611,7 +611,7 @@ You can handle database errors that occur within a `withEntityManager` by catchi
 Around the block:
 
   {{< tabs name="tabs-5" >}}
-  {{% tab name="java" %}}
+  {{% tab name="Java" %}}
   ```java
   // try around withEntityManager block
   try {
@@ -626,7 +626,7 @@ Around the block:
   ```
   {{% /tab %}}
 
-  {{% tab name="kotlin" %}}
+  {{% tab name="Kotlin" %}}
   ```kotlin
   // try around withEntityManager block
   try {
@@ -652,7 +652,7 @@ Around the block:
 - Inside the block:
 
   {{< tabs name="tabs-6" >}}
-  {{% tab name="java" %}}
+  {{% tab name="Java" %}}
   ```java
   getServiceHub().withEntityManager(entityManager -> {
       entityManager.persist(entity);
@@ -668,7 +668,7 @@ Around the block:
   ```
   {{% /tab %}}
 
-  {{% tab name="kotlin" %}}
+  {{% tab name="Kotlin" %}}
   ```kotlin
   serviceHub.withEntityManager {
       persist(entity)
@@ -702,7 +702,7 @@ You need to manually `flush` database changes to the underlying database transac
 An example of flushing a session to survive a non-database error:
 
 {{< tabs name="tabs-7" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 try {
     getServiceHub().withEntityManager(entityManager -> {
@@ -717,7 +717,7 @@ try {
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 try {
     serviceHub.withEntityManager {

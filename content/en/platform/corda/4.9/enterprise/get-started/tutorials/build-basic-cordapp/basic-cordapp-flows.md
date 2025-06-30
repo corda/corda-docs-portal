@@ -528,4 +528,4 @@ public class RedeemApples {
 
 ## Next steps
 
-Follow the [Write unit tests]{{< relref "basic-cordapp-unit-testing.md" >}}) tutorial to continue on this learning path.
+Follow the [Write unit tests]({{< relref "basic-cordapp-unit-testing.md" >}}) tutorial to continue on this learning path.

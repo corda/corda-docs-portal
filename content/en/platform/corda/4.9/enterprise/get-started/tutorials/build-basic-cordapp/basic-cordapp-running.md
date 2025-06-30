@@ -118,4 +118,4 @@ Finally, Peter goes to the orchard to pick up his apples and redeems his voucher
 
 ## Next steps
 
-Follow the [Write integration tests]{{< relref "basic-cordapp-int-testing.md" >}}) tutorial to finish this learning path.
+Follow the [Write integration tests]({{< relref "basic-cordapp-int-testing.md" >}}) tutorial to finish this learning path.

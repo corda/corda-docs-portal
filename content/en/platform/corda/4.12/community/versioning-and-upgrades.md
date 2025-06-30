@@ -43,7 +43,7 @@ the world changes is a key part of any professionally built software.
 * [Versioning]({{< relref "versioning.md" >}})
 * [Release new CorDapp versions]({{< relref "upgrading-cordapps.md" >}})
 * [CorDapp constraints migration]({{< relref "cordapp-constraint-migration.md" >}})
-* [CorDapp Upgradeability Guarantees]({{< relref "cordapp-upgradeability.md" >}})
+* [CorDapp upgradeability guarantees]({{< relref "cordapp-upgradeability.md" >}})
 
 
 

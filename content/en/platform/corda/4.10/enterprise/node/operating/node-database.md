@@ -14,7 +14,7 @@ weight: 1
 
 
 
-The Corda platform, and the installed CorDapps store their data in a relational database (see [State Persistence]({{< relref "../../cordapps/state-persistence.md" >}})).
+The Corda platform, and the installed CorDapps store their data in a relational database (see [State persistence]({{< relref "../../cordapps/state-persistence.md" >}})).
 
 Corda Enterprise supports a range of commercial 3rd party databases: Azure SQL, SQL Server, Oracle, and PostgreSQL.
 This document provides an overview of required database permissions, related ways to create database schema objects,
@@ -175,7 +175,7 @@ The structure of the tables of JPA notaries are described at [Configuring a JPA 
 The tables for other experimental notary implementations are not described here.
 
 
-### Database Schema Migration Logging
+### Database schema migration logging
 
 Database migration logs for Corda internal tables follow a structured format
-described in [Database Schema Migration Logging]({{< relref "../../node-database-migration-logging.md#database-schema-migration-logging" >}}).
+described in [Database schema migration logging]({{< relref "../../node-database-migration-logging.md#database-schema-migration-logging" >}}).

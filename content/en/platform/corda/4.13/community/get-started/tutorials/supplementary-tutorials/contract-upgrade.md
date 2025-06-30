@@ -36,7 +36,7 @@ To upgrade a contract, the following workflow is required:
 a transaction (which is then signed and sent to the consensus service).
 * Time passes.
 * The developer of contract X discovers a bug in the contract code, and releases a new version, contract Y. The
-developer will then notify all existing users (e.g. via a mailing list or CorDapp store) to stop their nodes from
+developer will then notify all existing users (for example, via a mailing list or CorDapp store) to stop their nodes from
 issuing further states with contract X.
 * Banks A and B review the new contract via standard change control processes and identify the contract states they
 agree to upgrade (they may decide not to upgrade some contract states as these might be needed for some other
@@ -166,7 +166,7 @@ class DummyContractV2 : UpgradedContractWithLegacyConstraint<DummyContract.State
 * Bank A instructs its node to accept the contract upgrade to `DummyContractV2` for the contract state.
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val rpcClient : CordaRPCClient = << Bank A's Corda RPC Client >>
 val rpcA = rpcClient.proxy()
@@ -182,7 +182,7 @@ participants of the contract state will sign and return the contract state upgra
 and agreed with the upgrade. The upgraded transaction will be recorded in every participant’s node by the flow.
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val rpcClient : CordaRPCClient = << Bank B's Corda RPC Client >>
 val rpcB = rpcClient.proxy()

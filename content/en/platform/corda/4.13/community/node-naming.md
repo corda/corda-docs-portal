@@ -44,50 +44,38 @@ present in the majority of names, but is an option for the cases which require i
 The name must also obey the following constraints:
 
 
-* The `organisation`, `locality`, and `country` attributes are present.
-* The `state`, `organisational unit`, and `common name` attributes are optional.
-* The maximum number of characters in the whole x500 name string is 128 characters.
-* The fields of the name have character lengths **less** than the following maximum values:
+- The `organisation`, `locality`, and `country` attributes are present.
+- The `state`, `organisational unit`, and `common name` attributes are optional.
+- The maximum number of characters in the whole x500 name string is 128 characters.
+- The fields of the name have character lengths **less** than the following maximum values:
+  - Common name: 64
+  - Organisation: 128
+  - Organisation unit: 64
+  - Locality: 64
+  - State: 64
+- The `country` attribute is a valid [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) two-letter code in upper-case. See the list of [defined country codes](https://github.com/corda/corda/blob/release/os/4.13/tools/worldmap/src/main/resources/net/corda/worldmap/cities.txt).
+- The `organisation` field of the name obeys the following constraints:
+  - Has at least two letters
+- All data fields adhere to the following constraints:
+  * Upper-case first letter
+  * Does not include the following characters: `,`, `=`, `+`, `$`, `"`, `'`, `\`
+  * Is in NFKC normalization form
+  * Does not contain the null character
+  * Only the Latin, common and inherited Unicode scripts are supported
+  * No double-spacing
+  * No leading or trailing whitespace
 
-    * Common name: 64
-    * Organisation: 128
-    * Organisation unit: 64
-    * Locality: 64
-    * State: 64
-
-
-
-* The `country` attribute is a valid *ISO 3166-1<https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2>* two letter code in upper-case. See the list of [defined country codes](https://github.com/corda/corda/blob/release/os/4.13/tools/worldmap/src/main/resources/net/corda/worldmap/cities.txt).
-* The `organisation` field of the name obeys the following constraints:
-
-    * Has at least two letters
-
-
-
-* All data fields adhere to the following constraints:
-
-    * Upper-case first letter
-    * Does not include the following characters: `,`, `=`, `+`, `$`, `"`, `'`, `\`
-    * Is in NFKC normalization form
-    * Does not contain the null character
-    * Only the Latin, common and inherited unicode scripts are supported
-    * No double-spacing
-    * No leading or trailing whitespace
-
-
-
-
-This is to avoid right-to-left issues, debugging issues when we can’t pronounce names over the phone, and
+This is to avoid right-to-left issues, debugging issues when we cannot pronounce names over the phone, and
 character confusability attacks.
 
 {{< note >}}
-The network operator of a Corda Network may put additional constraints on node naming in place.
+The network operator of a Corda network may put additional constraints on node naming in place.
 
 {{< /note >}}
 
 ## External identifiers
 
-Mappings to external identifiers such as Companies House numbers, LEI, BIC, etc. should be stored in custom X.509
-certificate extensions. These values may change for operational reasons, without the identity they’re associated with
+Mappings to external identifiers such as Companies House numbers, LEI, BIC, and so on should be stored in custom X.509
+certificate extensions. These values may change for operational reasons, without the identity they are associated with
 necessarily changing, and their inclusion in the distinguished name would cause significant logistical complications.
 The OID and format for these extensions will be described in a further specification.

@@ -16,7 +16,7 @@ Frequently asked questions for anything notary related:
 
 
 
-* [Backpressure Mechanism Overview]{{< relref "eta-mechanism.md" >}})
+* [Backpressure Mechanism Overview]({{< relref "eta-mechanism.md" >}})
     * [What is the backpressure mechanism?]({{< relref "eta-mechanism.md#what-is-the-backpressure-mechanism" >}})
     * [How is the backpressure calculated?]({{< relref "eta-mechanism.md#how-is-the-retry-time-calculated" >}})
     * [Why is there a backpressure mechanism?]({{< relref "eta-mechanism.md#why-is-there-a-backpressure-mechanism" >}})
@@ -24,7 +24,7 @@ Frequently asked questions for anything notary related:
     * [How can I configure backpressure threshold?]({{< relref "eta-mechanism.md#how-can-i-configure-backpressure-threshold" >}})
 
 
-* [Notary Load Balancing]{{< relref "notary-load-balancing.md" >}})
+* [Notary load balancing]({{< relref "notary-load-balancing.md" >}})
     * [How are clustered notaries resolved by Artemis?]({{< relref "notary-load-balancing.md#how-are-clustered-notaries-resolved-by-artemis" >}})
     * [Why is the load balancing on the client side?]({{< relref "notary-load-balancing.md#why-is-the-load-balancing-on-the-client-side" >}})
     * [What happens if a notary in cluster becomes unavailable and does not respond?]({{< relref "notary-load-balancing.md#what-happens-if-a-notary-in-cluster-becomes-unavailable-and-does-not-respond" >}})
@@ -32,7 +32,7 @@ Frequently asked questions for anything notary related:
     * [In what order are notarisation requests processed?]({{< relref "notary-load-balancing.md#in-what-order-are-notarisation-requests-processed" >}})
 
 
-* [Notary Failover]{{< relref "notary-failover.md" >}})
+* [Notary failover]({{< relref "notary-failover.md" >}})
     * [How does the timeout work?]({{< relref "notary-failover.md#how-does-the-timeout-work" >}})
     * [What is the backpressure mechanism?]({{< relref "notary-failover.md#what-is-the-backpressure-mechanism" >}})
     * [What happens on multiple successful responses caused by retrying?]({{< relref "notary-failover.md#what-happens-on-multiple-successful-responses-caused-by-retrying" >}})

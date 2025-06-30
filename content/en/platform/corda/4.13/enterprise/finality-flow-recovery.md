@@ -9,11 +9,11 @@ tags:
 - phase
 - finality
 - recovery
-title: Finality Flow Recovery
+title: Finality flow recovery
 weight: 45
 ---
 
-# Finality Flow Recovery
+# Finality flow recovery
 
 [Two Phase Finality]({{< relref "two-phase-finality.md" >}}) introduces recovery metadata and a new transaction status of `IN_FLIGHT` to denote that a transaction has not yet been fully finalized. The protocol stores the additional flow transaction recovery metadata upon initially recording an unnotarized transaction. This metadata is used to enable **initiator** and **receiver** recovery should a flow fail at some point within the finality protocol.
 
@@ -64,13 +64,13 @@ For the purpose of performance optimization, issuance transactions are not inter
 All recovery metadata is directly stored as part of initiator finalization with a status of 'VERIFIED`.
 {{< /note >}}
 
-## How to recover finality flows
+## Recovering finality flows
 
 You can recover a finality flow by using any of the following methods:
 
 * The extensions `FlowRPCOps` RPC API
-* Node Shell commands
-* Directly invoking the recovery flow, either from the Node Shell or programatically within a CorDapp:
+* Node shell commands
+* Directly invoking the recovery flow, either from the Node Shell or programmatically within a CorDapp
 
 ```kotlin
 net.corda.node.internal.recovery.FinalityRecoveryFlow
@@ -322,7 +322,7 @@ flow recoverFinalityMatching \
 ```
 Note, at least one custom criteria option must be specified.
 
-### Recovering Finality flows from RPC
+### Recovering finality flows from RPC
 
 To pause and retry flows from an RPC Client using the extensions RPC Interface (`FlowRPC`), use the Multi RPC Client - `MultiRPCClient`.
 
@@ -412,7 +412,7 @@ val resultMap = flowRPC.proxy.recoverFinalityFlowsMatching(
 
 To prevent server-side resource leakage, use `flowClient.close()` to close `flowClient` when finished.
 
-### Querying Finality flows from RPC
+### Querying finality flows from RPC
 
 Instantiate a `MultiRPCClient` for `NodeFlowStatusRpcOps` as follows:
 

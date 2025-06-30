@@ -9,11 +9,11 @@ menu:
     weight: 1150
 tags:
 - shell
-title: Embedded Shell
+title: Embedded shell
 ---
 
 
-# Embedded Shell
+# Embedded shell
 
 
 The embedded shell allows an administrator to control and monitor the suite of CENM services being run (Network Map,
@@ -115,7 +115,7 @@ man notaries
 ```
 
 
-### Network Map Service
+### Network Map service
 
 The current supported commands that can be run from the shell are:
 
@@ -209,7 +209,7 @@ The current supported commands that can be run from the shell are:
 
 ```
 
-### Identity Manager Service
+### Identity Manager service
 
 The current supported commands that can be run from the shell are:
 

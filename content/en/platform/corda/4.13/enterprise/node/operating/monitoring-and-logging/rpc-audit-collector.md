@@ -14,20 +14,18 @@ weight: 300
 
 # RPC Audit Data Collection Tool
 
-In this section, you will learn how to run the RPC Audit Data Collection Tool in order to collect recorded RPC audit data.
+In this section, you will learn how to run the RPC Audit Data Collection Tool in order to collect recorded RPC audit data. This tool is distributed as part of Corda Enterprise.
 
-This tool is distributed as part of Corda Enterprise.
-
-The RPC data recorded by the node is explained in detail on the [RPC Audit Data Recording]({{< relref "../../setup/rpc-audit-data-recording.md" >}}) page.
+The RPC data recorded by the node is explained in [Recording of RPC audit data]({{< relref "../../setup/rpc-audit-data-recording.md" >}}).
 
 ## Collecting RPC audit data
 
-To enable the collection of recorded RPC Audit Data, we have provided a new RPC action with options for filtering data collection based on `username`, `action`, and a specific time range (by specifying `startTime` and `endTime`). All of these filters are optional and are not applied if not explicitly enabled.
+To enable the collection of recorded RPC Audit Data, we have provided an RPC action with options for filtering data collection based on `username`, `action`, and a specific time range (by specifying `startTime` and `endTime`). All of these filters are optional and are not applied if not explicitly enabled.
 
 The action is available on the `AuditDataRPCOps` interface.
 
 {{< tabs name="signature" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 fun collectRPCAuditData(
@@ -49,18 +47,18 @@ To use the interface to collect audit data, ensure that the following permission
 
 You can use the `collectAuditData` action with the following parameters:
 
-- `format` - either `JSON` or `CSV` (default: `JSON`)
-- `username` - filter by a specific user
-- `action` - filter by a specific action
-- `startTime` - filter RPC data after the startTime (inclusive)
-- `endTime`- filter RPC data before the endTime (exclusive)
+- `format`: Either `JSON` or `CSV` (default: `JSON`)
+- `username`: Filter by a specific user
+- `action`: Filter by a specific action
+- `startTime`: Filter RPC data after the startTime (inclusive)
+- `endTime`: Filter RPC data before the endTime (exclusive)
 
 ### Examples
 
 #### Collecting RPC audit data for all actions over the last 7 days
 
 {{< tabs name="example-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 fun collectRpcAuditData(rpc: AuditDataRPCOps): String {
@@ -74,7 +72,7 @@ fun collectRpcAuditData(rpc: AuditDataRPCOps): String {
 ```
 
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 public String collectRpcAuditData(AuditDataRPCOps rpc) {
@@ -95,7 +93,7 @@ public String collectRpcAuditData(AuditDataRPCOps rpc) {
 #### Collecting RPC audit data for user "Alice" for the last 7 days
 
 {{< tabs name="example-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 fun collectData(rpc: AuditDataRPCOps): String {
@@ -109,7 +107,7 @@ fun collectData(rpc: AuditDataRPCOps): String {
 ```
 
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 public String collectRpcAuditData(AuditDataRPCOps rpc) {
@@ -130,7 +128,7 @@ public String collectRpcAuditData(AuditDataRPCOps rpc) {
 #### Collecting all available RPC data for a particular action
 
 {{< tabs name="example-3" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 fun collectData(rpc: AuditDataRPCOps): String {
@@ -141,7 +139,7 @@ fun collectData(rpc: AuditDataRPCOps): String {
 ```
 
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 public String collectRpcAuditData(AuditDataRPCOps rpc) {
@@ -180,7 +178,7 @@ You can use the `clearRPCAuditDataBefore` action with the following parameter:
 #### Clearing all RPC audit data over a week old
 
 {{< tabs name="example-4" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 fun clearWeekOldAuditData(rpc: AuditDataRPCOps) {
@@ -190,7 +188,7 @@ fun clearWeekOldAuditData(rpc: AuditDataRPCOps) {
 ```
 
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 public void clearWeekOldAuditData(AuditDataRPCOps rpc) {

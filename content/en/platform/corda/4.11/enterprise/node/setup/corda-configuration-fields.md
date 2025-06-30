@@ -340,7 +340,7 @@ Allows fine-grained controls of various features only available in the enterpris
 
 * `tuning`
 
-    * The Corda Node configuration file section that contains performance tuning parameters for Corda Enterprise Nodes.
+    * The Corda node configuration file section that contains performance tuning parameters for Corda Enterprise Nodes.
 
     - `backchainFetchBatchSize`
 
@@ -607,10 +607,10 @@ The New Relic configuration leverages the Dropwizard NewRelicReporter solution.
 
 ### `keyStorePassword`
 
-The password to unlock the KeyStore file (`<workspace>/certificates/sslkeystore.jks`) containing the node certificate and private key.
+The password to unlock the keystore files `<workspace>/certificates/sslkeystore.jks` and `<workspace>/certificates/nodestore.jks` containing the node certificate and private key.
 
-**Important: This is the non-secret value for the development certificates automatically generated during the first node run.
-Alternatively, these keys can be managed in secure hardware devices.**
+{{< important >}}This is the non-secret value for the development certificates automatically generated during the first node run.
+Alternatively, these keys can be managed in secure hardware devices.{{< /important >}}
 
 *Default:* cordacadevpass
 
@@ -646,7 +646,7 @@ This allows the address and port advertised in `p2pAddress` to differ from the l
 0.0.0.0 is not a valid host setting since p2pAddress must be an external client address.
 
 {{< note >}}
-When `messagingServerExternal` = `true`, `messagingServerSslConfiguration` is required for TLS configuration used to connect to external P2P Artemis message server. For more information, see [Storing node TLS keys in HSM]({{< relref "../../../../../../../en/platform/corda/4.11/enterprise/node/setup/tls-keys-in-hsm.md" >}}).
+When `messagingServerExternal` = `true`, `messagingServerSslConfiguration` is required for TLS configuration used to connect to external P2P Artemis message server. For more information, see [Storing node TLS keys in HSM]({{< relref "tls-keys-in-hsm.md" >}}).
 {{< /note >}}
 
 *Default:* not defined
@@ -712,7 +712,7 @@ Once a notary is configured with a default value, it cannot be reconfigured. To 
     * Exponential back-off multiplier base for use in determining time increment between reconnection attempts.
     * *Default:* 1.5
   * `maxBatchSize`
-    * The maximum number of transactions processed in a single batch. Larger batches are generally processed more efficiently than smaller batches; however, larger batches may worsen latency. Monitor the `ProcessedBatchSize` metric exposed by the notary to determine batch utilisation. For more information, see [Highly-available notary metrics]({{< relref "../../../../../../../en/platform/corda/4.11/enterprise/notary/notary-metrics.md" >}}).
+    * The maximum number of transactions processed in a single batch. Larger batches are generally processed more efficiently than smaller batches; however, larger batches may worsen latency. Monitor the `ProcessedBatchSize` metric exposed by the notary to determine batch utilisation. For more information, see [Highly-available notary metrics]({{< relref "../../notary/notary-metrics.md" >}}).
     * *Default:* 500
   * `maxBatchInputStates`
     * The maximum combined number of input states processed in a single batch. If the number of transactions in a batch is equal to `maxBatchSize`, but the number of states in the batch is greater than `maxBatchInputStates`, that batch will  be split into two smaller batches.
@@ -880,7 +880,7 @@ If both of the Corda compatibility zone services, network map and registration (
 * `proxyUser`
   * Optional user name for authentication with the proxy. Note that Corda only supports username/password based basic authentication.
 * `proxyPassword`
-  * Optional password for authentication with the proxy. The password can be obfuscated using the [Configuration Obfuscator]({{< relref "../../tools-config-obfuscator.md" >}}).
+  * Optional password for authentication with the proxy. The password can be obfuscated using the [Configuration obfuscator]({{< relref "../../tools-config-obfuscator.md" >}}).
 * `csrToken`
   * Optional token to provide alongside the certificate signing request (CSR) as part of the HTTP header during node registration. The token can be used by certificate signing authority (or Identity Manager Service) to verify additional identity requirements. The maximum token length is limited by the maximum HTTP header size, which is normally 8KB, assuming that a few other internal attributes are also present in the header. Also, the token length itself may never exceed 8192, limited by the database structure. Only US-ASCII characters are allowed.
   * *Default:* not defined

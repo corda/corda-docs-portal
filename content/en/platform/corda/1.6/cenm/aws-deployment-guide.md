@@ -6,11 +6,11 @@ menu:
 tags:
 - config
 - kubernetes
-title: CENM Deployment on AWS
+title: Deploying CENM on AWS
 weight: 22
 ---
 
-# CENM Deployment on AWS
+# Deploying CENM on AWS
 
 You can deploy CENM on AWS with PostgreSQL. Use the guides in this section to get started with CENM on AWS, create a new HSM, and set up a reference environment using AWS and PostgreSQL.
 

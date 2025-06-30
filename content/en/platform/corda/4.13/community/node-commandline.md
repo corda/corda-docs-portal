@@ -18,6 +18,8 @@ title: Node command-line options
 
 # Node command-line options
 
+## Command-line options 
+
 The node can optionally be started with the following command-line options:
 
 
@@ -42,9 +44,13 @@ Ensure that the `[COMMAND]` precedes all options. Failing this, the provided arg
 
 ## Sub-commands
 
-`clear-network-cache`: Clears the local copy of the network map. On node startup it will be restored from the server or the file system.
+### `clear-network-cache`
 
-`initial-registration`: Starts the initial node registration with the compatibility zone to obtain a certificate from the Identity Manager Service.
+`clear-network-cache` clears the local copy of the network map. On node startup, it will be restored from the server or the file system.
+
+### `initial-registration`
+
+`initial-registration` starts the initial node registration with the compatibility zone to obtain a certificate from the Identity Manager Service.
 
 {{< warning >}}
 **Important note about running the initial node registration command**
@@ -66,7 +72,10 @@ Parameters:
 Node `initial-registration` now includes the creation of `identity-private-key` keystore alias. For more information, see [node folder structure]({{< relref "node-structure.md" >}}). Previously, only `cordaclientca` and `cordaclienttls` aliases were created during `initial-registration`, while `identity-private-key` was generated on demand on the first node run. Hence, from Corda 4.8 the content of `nodekeystore.jks` is never altered during a regular node run (except for `devMode = true`, where the certificates directory can be filled with pre-configured keystores).
 {{< /note >}}
 
-`run-migration-scripts`: From version 4.6, a Corda node can no longer modify/create schema on the fly in normal run mode - schema setup or changes must be
+
+### `run-migration-scripts` 
+
+From version 4.6, a Corda node can no longer modify/create schema on the fly in normal run mode - schema setup or changes must be
 applied deliberately using this sub-command. It runs the database migration script for the requested schema set defined in the following parameters. Once it creates or modifies the schema(s), the sub-command will exit.
 
 Parameters:
@@ -74,13 +83,21 @@ Parameters:
 * `--core-schemas`: Use to run the core database migration script for the node database. Core schemas cannot be migrated while there are checkpoints.
 * `--app-schemas`: Use to run the app database migration script for CorDapps. To force an app schema to migrate with checkpoints present, use the `--update-app-schema-with-checkpoints` flag alongside the `run-migration-scripts` sub-command.
 
-`generate-node-info`: Performs the node start-up tasks necessary to generate the `nodeInfo` file, saves it to disk, then exits.
+### `generate-node-info`
 
-`generate-rpc-ssl-settings`: Generates the SSL keystore and truststore for a secure RPC connection.
+Performs the node start-up tasks necessary to generate the `nodeInfo` file, saves it to disk, then exits.
 
-`install-shell-extensions`: Install `corda` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications]({{< relref "cli-application-shell-extensions.md" >}}) for more info.
+### `generate-rpc-ssl-settings`
 
-`validate-configuration`: Validates the actual configuration without starting the node.
+Generates the SSL keystore and truststore for a secure RPC connection.
+
+### `install-shell-extensions`
+
+Install `corda` alias and auto completion for bash and zsh. See [Shell extensions for CLI applications]({{< relref "cli-application-shell-extensions.md" >}}) for more info.
+
+### `validate-configuration`
+
+Validates the actual configuration without starting the node.
 
 ## Enabling remote debugging
 

@@ -11,7 +11,7 @@ tags:
 - config
 - network
 - parameters
-title: Network Parameters
+title: Network parameters
 ---
 
 
@@ -126,4 +126,4 @@ public keys. Optionally, the list should consist of entries with the following p
 The specified epoch for the set of network parameters (optional). If set, this should be greater than the
 previous epoch (if one exists) and always strictly positive (> 0). If not set, the previous epoch value will be
 automatically incremented. This parameter is mainly used for ensuring uniqueness across multiple segregated
-sub-zones. If only one network map is being run then it is best practice to omit this option.
+subzones. If only one network map is being run then it is best practice to omit this option.

@@ -35,7 +35,7 @@ To define a Service class:
 Below is an empty implementation of a Service class:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @CordaService
 class MyCordaService(private val serviceHub: AppServiceHub) : SingletonSerializeAsToken() {
@@ -65,7 +65,7 @@ class MyCordaService(private val serviceHub: AppServiceHub) : SingletonSerialize
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @CordaService
 public class MyCordaService extends SingletonSerializeAsToken {
@@ -100,16 +100,16 @@ public class MyCordaService extends SingletonSerializeAsToken {
 {{< /tabs >}}
 
 The `AppServiceHub` provides the `ServiceHub` functionality to the Service class, with the extra ability to start flows. Starting flows
-from `AppServiceHub` is explained further in [Starting Flows from a Service](#starting-flows-from-a-service).
+from `AppServiceHub` is explained further in [Starting flows from a service](#starting-flows-from-a-service).
 
 The `AppServiceHub` also provides access to `database` which will enable the Service class to perform DB transactions from the threads
 managed by the Service.
 
 Also the `AppServiceHub` provides ability for `CordaService` to subscribe for lifecycle events of the node, such that it will get notified
-about node finishing initialisation and when the node is shutting down such that `CordaService` will be able to perform clean-up of some
+about node finishing initialization and when the node is shutting down such that `CordaService` will be able to perform clean-up of some
 critical resources. For more details please have refer to KDocs for `ServiceLifecycleObserver`.
 
-## Service Lifecycle Events
+## Service lifecycle events
 
 A Corda node will notify services when significant events occur via *service lifecycle events*. Upon initialization, a service can register a function to receive the events and act in whatever way is required. Handler functions do not need to handle every single type of event, merely the events that the service is interested in.
 
@@ -128,13 +128,13 @@ The node issues this event asynchronously to each service, meaning that the node
 A Service class can be retrieved by calling `ServiceHub.cordaService` which returns the single instance of the class passed into the function:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val service: MyCordaService = serviceHub.cordaService(MyCordaService::class.java)
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 MyCordaService service = serviceHub.cordaService(MyCordaService.class);
 ```
@@ -149,7 +149,7 @@ needed or set after the flow’s `call` function has been triggered.
 
 {{< /warning >}}
 
-## Starting Flows from a Service
+## Starting flows from a service
 
 Starting flows via a service can lead to deadlock within the node’s flow worker queue, which will prevent new flows from
 starting. To avoid this, the rules below should be followed:

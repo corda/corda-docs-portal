@@ -8,11 +8,11 @@ menu:
 tags:
 - state
 - persistence
-title: State Persistence
+title: State persistence
 weight: 10
 ---
 
-# State Persistence
+# State persistence
 
 Corda offers developers the option to expose all or some parts of a contract state to an *Object Relational Mapping*
 (ORM) tool to be persisted in a *Relational Database Management System* (RDBMS).
@@ -234,7 +234,7 @@ Make sure table and column names are compatible with the naming convention used 
 
 {{< /note >}}
 
-### Persisting Hierarchical Data
+### Persisting hierarchical data
 
 You may want to persist hierarchical relationships within state data using multiple database tables.
 To facilitate this, you must implement all queries making use of hierarchical relations as native SQL.
@@ -427,7 +427,7 @@ setAutoCommit(autoCommit: Boolean)
 setReadOnly(readOnly: Boolean)
 ```
 
-## JPA Support
+## JPA support
 
 In addition to `jdbcSession`, `ServiceHub` also exposes the Java Persistence API to flows via the `withEntityManager`
 method. This method can be used to persist and query entities which inherit from `MappedSchema`. This is particularly

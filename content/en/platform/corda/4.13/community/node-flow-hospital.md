@@ -13,16 +13,16 @@ tags:
 - node
 - flow
 - hospital
-title: Flow Hospital
+title: Flow hospital
 ---
 
 
-# Flow Hospital
+# Flow hospital
 
 
 ## Overview
 
-The **flow hospital** refers to a built-in node service that manages flows that have encountered an error.
+The *flow hospital* refers to a built-in node service that manages flows that have encountered an error.
 
 This service is responsible for recording, tracking, diagnosing, recovering and retrying flows. It determines whether errored flows should be retried
 from their previous checkpoints or have their errors propagate. Flows may be recoverable under certain scenarios (eg. manual intervention
@@ -46,8 +46,8 @@ Flow hospital functionality is enabled by default in Master. No explicit configu
 There are two aspects to the flow hospital:
 
 
-* run-time behaviour in the node upon failure, including retry and recovery transitions and policies.
-* visualization of failed flows in the flow management console.
+* Rn-time behaviour in the node upon failure, including retry and recovery transitions and policies.
+* Visualization of failed flows in the flow management console.
 
 
 

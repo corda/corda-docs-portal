@@ -16,7 +16,7 @@ weight: 30
 
 When you are responsible for a node in a Corda Enterprise environment, you have a number of tools available to help you maintain the health and efficiency of your node. These tools range from general metrics monitoring using tools such as Jolokia or Graphite to Corda-built tools that allow you to run health-checks, and even check that your node is in sync with the rest of your ledger and help you recover data from a disaster scenario.
 
-In this operational guide, you will find introductions to the main tools available to you for logging, monitoring and maximising the performance of your Corda Node.
+In this operational guide, you will find introductions to the main tools available to you for logging, monitoring and maximizing the performance of your Corda node.
 
 You can find answers to questions like:
 
@@ -40,7 +40,7 @@ Your Corda Enterprise node automatically keeps a log of how it is performing. Yo
 
 By default the node log files are stored to the logs subdirectory of the working directory and are rotated from time to time. You can have logging printed to the console as well by passing the --log-to-console command line flag. The default logging level is INFO which can be adjusted by the --logging-level command line argument. This configuration option will affect all modules. Hibernate (the JPA provider used by Corda) specific log messages of level WARN and above will be logged to the diagnostic log file, which is stored in the same location as other log files (logs subdirectory by default). This is because Hibernate may log messages at WARN and ERROR that are handled internally by Corda and do not need operator attention. If they do, they will be logged by Corda itself in the main node log file.
 
-It may be the case that you require to amend the log level of a particular subset of modules (e.g., if you’d like to take a closer look at hibernate activity). So, for more bespoke logging configuration, the logger settings can be completely overridden with a Log4j2 configuration file assigned to the log4j.configurationFile system property.
+It may be the case that you require to amend the log level of a particular subset of modules (for example, if you’d like to take a closer look at hibernate activity). So, for more bespoke logging configuration, the logger settings can be completely overridden with a Log4j2 configuration file assigned to the log4j.configurationFile system property.
 
 To understand the information in the logs, which data is important, and what can be safely kept as a low priority, you can read the [logging documentation]({{< relref "../../node/operating/node-administration.md" >}}).
 

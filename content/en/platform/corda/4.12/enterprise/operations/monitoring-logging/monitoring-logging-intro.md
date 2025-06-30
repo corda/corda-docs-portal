@@ -16,7 +16,7 @@ weight: 30
 
 When you are responsible for a node in a Corda Enterprise environment, you have a number of tools available to help you maintain the health and efficiency of your node. These tools range from general metrics monitoring using tools such as Jolokia or Graphite to Corda-built tools that allow you to run health-checks, and even check that your node is in sync with the rest of your ledger and help you recover data from a disaster scenario.
 
-In this operational guide, you will find introductions to the main tools available to you for logging, monitoring and maximising the performance of your Corda Node.
+In this operational guide, you will find introductions to the main tools available to you for logging, monitoring and maximising the performance of your Corda node.
 
 You can find answers to questions like:
 

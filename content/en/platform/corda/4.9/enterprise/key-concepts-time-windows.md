@@ -13,7 +13,7 @@ tags:
 - concepts
 - time
 - windows
-title: Time-windows
+title: Time windows
 ---
 
 
@@ -31,10 +31,10 @@ title: Time-windows
 
 ## Time in a distributed system
 
-The [notary cluster]{{< relref "key-concepts-notaries.md" >}}) acts as the *timestamping authority*.
+The [notary cluster]({{< relref "key-concepts-notaries.md" >}}) acts as the *timestamping authority*.
 It verifies that a transaction occurred during a specific time window before notarizing it.
 
-[Nodes]{{< relref "key-concepts-node.md" >}}) get time window signatures to prove a transaction happened before, during, or after a specific time. The notary timestamps and notarizes at the same time, so if the node doesn't need to commit to the associated transaction, it can reveal the time window in the future.
+[Nodes]({{< relref "key-concepts-node.md" >}}) get time window signatures to prove a transaction happened before, during, or after a specific time. The notary timestamps and notarizes at the same time, so if the node doesn't need to commit to the associated transaction, it can reveal the time window in the future.
 
 A node may not send a transaction to the notary right away—they might need to circulate the transaction to other nodes involved in the transaction, or request human sign-off. Even if the node sends it as soon as it's generated, the node's clock and the notary's clock will never be perfectly in sync due to latency and physics. This means that the timestamp on a transaction is usually different from the time it was created.
 * Issues of physics and network latency

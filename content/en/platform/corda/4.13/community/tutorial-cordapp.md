@@ -12,12 +12,12 @@ menu:
 tags:
 - tutorial
 - cordapp
-title: Run a sample CorDapp
+title: Running a sample CorDapp
 ---
 
 
 
-# Run a sample CorDapp
+# Running a sample CorDapp
 
 Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try modifying a [Java]((https://github.com/corda/cordapp-template-java/tree/release/4.12) or [Kotlin](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12) template, [building your own]({{< relref "../enterprise/get-started/tutorials/build-basic-cordapp/basic-cordapp-intro.md" >}}), or using a [community CorDapp](https://www.corda.net/samples/).
 
@@ -30,7 +30,7 @@ The sample CorDapp allows nodes to reach loan agreements with each other, as lon
 
 You will deploy and run the sample CorDapp on the following test nodes:
 
-* **Notary**, which runs a notary service
+* **Notary:** Runs a notary service
 * **PartyA**
 * **PartyB**
 
@@ -52,13 +52,13 @@ CorDapps can be written in any language targeting the JVM. However, source files
 3. Run the following command to clone the sample repository:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 git clone https://github.com/corda/samples-java/tree/release/4.12
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 git clone https://github.com/corda/samples-kotlin/tree/release/4.12
 ```
@@ -320,11 +320,11 @@ If your test fails, run a Gradle test instead of a unit test.
 7. Select the **Gradle icon** to run your test.
 
 
-## Related Content
+## Related content
 
 * [Debugging a CorDapp]({{< relref "debugging-a-cordapp.md" >}})
 * [Writing a CorDapp]({{< relref "writing-a-cordapp.md" >}})
-* [Build a CorDapp]({{< relref "cordapp-build-systems.md" >}})
+* [Building a CorDapp]({{< relref "cordapp-build-systems.md" >}})
 
 
 ## Appendix A: Projects' structure

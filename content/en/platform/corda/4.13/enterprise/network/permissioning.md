@@ -49,27 +49,21 @@ We can visualise the permissioning structure as follows:
 The required key pairs and certificates take the form of the following Java-style keystores (this may change in future to
 support PKCS#12 keystores) in the node’s `<workspace>/certificates/` folder:
 
-
-* `network-root-truststore.jks`, the network/zone operator’s root certificate as provided by them with a standard password. Can be deleted after initial registration
-* `truststore.jks`, the network/zone operator’s root certificate in keystore with a locally configurable password as protection against certain attacks
-* `nodekeystore.jks`, which stores the node’s identity key pairs and certificates
-* `sslkeystore.jks`, which stores the node’s TLS key pair and certificate
+- `network-root-truststore.jks`, the network/zone operator’s root certificate as provided by them with a standard password. Can be deleted after initial registration
+- `truststore.jks`, the network/zone operator’s root certificate in keystore with a locally configurable password as protection against certain attacks
+- `nodekeystore.jks`, which stores the node’s identity key pairs and certificates
+- `sslkeystore.jks`, which stores the node’s TLS key pair and certificate
 
 The key pairs and certificates must obey the following restrictions:
 
-
-* The certificates must follow the [X.509v3 standard](https://tools.ietf.org/html/rfc5280)
-* The TLS certificates must follow the [TLS v1.2 standard](https://tools.ietf.org/html/rfc5246)
-* The root network CA, doorman CA, and node CA keys, as well as the node TLS keys, must follow one of the following schemes:
-
-* ECDSA using the NIST P-256 curve (secp256r1)
-* ECDSA using the Koblitz k1 curve (secp256k1)
-* RSA with 3072-bit key size or higher
-
-
-
-* The node CA certificates must have the basic constraints extension set to true
-* The TLS certificates must have the basic constraints extension set to false
+- The certificates must follow the [X.509v3 standard](https://tools.ietf.org/html/rfc5280)
+- The TLS certificates must follow the [TLS v1.2 standard](https://tools.ietf.org/html/rfc5246)
+- The root network CA, doorman CA, and node CA keys, as well as the node TLS keys, must follow one of the following schemes:
+- ECDSA using the NIST P-256 curve (secp256r1)
+- ECDSA using the Koblitz k1 curve (secp256k1)
+- RSA with 3072-bit key size or higher
+- The node CA certificates must have the basic constraints extension set to true
+- The TLS certificates must have the basic constraints extension set to false
 
 
 ## Certificate role extension

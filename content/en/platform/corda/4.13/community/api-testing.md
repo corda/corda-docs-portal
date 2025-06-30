@@ -33,7 +33,7 @@ Flow testing can be fully automated using a `MockNetwork` composed of `StartedMo
 A `MockNetwork` is created as follows:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 import net.corda.core.identity.CordaX500Name
 import net.corda.testing.node.MockNetwork
@@ -57,7 +57,7 @@ class MockNetworkTestsTutorial {
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 import net.corda.core.identity.CordaX500Name;
 import net.corda.testing.node.MockNetwork;
@@ -95,7 +95,7 @@ This includes all the associated CorDapp metadata present in its MANIFEST.
 Nodes are created on the `MockNetwork` using:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
     private lateinit var nodeA: StartedMockNode
     private lateinit var nodeB: StartedMockNode
@@ -112,7 +112,7 @@ Nodes are created on the `MockNetwork` using:
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
     private StartedMockNode nodeA;
     private StartedMockNode nodeB;
@@ -168,13 +168,13 @@ A `StartedMockNode` starts a flow using the `StartedNodeServices.startFlow` meth
 representing the output of running the flow.
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val signedTransactionFuture = nodeA.services.startFlow(IOUFlow(iouValue = 99, otherParty = nodeBParty))
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 CordaFuture<SignedTransaction> future = startFlow(a.getServices(), new ExampleFlow.Initiator(1, nodeBParty));
 ```
@@ -185,7 +185,7 @@ CordaFuture<SignedTransaction> future = startFlow(a.getServices(), new ExampleFl
 The network must then be manually run before retrieving the future’s value:
 
 {{< tabs name="tabs-4" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val signedTransactionFuture = nodeA.services.startFlow(IOUFlow(iouValue = 99, otherParty = nodeBParty))
 // Assuming network.networkSendManuallyPumped == false.
@@ -194,7 +194,7 @@ val signedTransaction = future.get();
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 CordaFuture<SignedTransaction> future = startFlow(a.getServices(), new ExampleFlow.Initiator(1, nodeBParty));
 // Assuming network.networkSendManuallyPumped == false.
@@ -214,13 +214,13 @@ SignedTransaction signedTransaction = future.get();
 Recorded states can be retrieved from the vault of a `StartedMockNode` using:
 
 {{< tabs name="tabs-5" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val myStates = nodeA.services.vaultService.queryBy<MyStateType>().states
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 List<MyStateType> myStates = node.getServices().getVaultService().queryBy(MyStateType.class).getStates();
 ```
@@ -236,13 +236,13 @@ This allows you to check whether a given state has (or has not) been stored, and
 Recorded transactions can be retrieved from the transaction storage of a `StartedMockNode` using:
 
 {{< tabs name="tabs-6" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val transaction = nodeA.services.validatedTransactions.getTransaction(transaction.id)
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 SignedTransaction transaction = nodeA.getServices().getValidatedTransactions().getTransaction(transaction.getId())
 ```
@@ -275,7 +275,7 @@ on an implementation of the `ServiceHub` interface.
 You can create dummy identities to use in test transactions using the `TestIdentity` class:
 
 {{< tabs name="tabs-7" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val bigCorp = TestIdentity((CordaX500Name("BigCorp", "New York", "GB")))
 
@@ -284,7 +284,7 @@ val bigCorp = TestIdentity((CordaX500Name("BigCorp", "New York", "GB")))
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 private static final TestIdentity bigCorp = new TestIdentity(new CordaX500Name("BigCorp", "New York", "GB"));
 
@@ -296,7 +296,7 @@ private static final TestIdentity bigCorp = new TestIdentity(new CordaX500Name("
 `TestIdentity` exposes the following fields and methods:
 
 {{< tabs name="tabs-8" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val identityParty: Party = bigCorp.party
 val identityName: CordaX500Name = bigCorp.name
@@ -306,7 +306,7 @@ val identityPartyAndCertificate: PartyAndCertificate = bigCorp.identity
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 Party identityParty = bigCorp.getParty();
 CordaX500Name identityName = bigCorp.getName();
@@ -321,13 +321,13 @@ PartyAndCertificate identityPartyAndCertificate = bigCorp.getIdentity();
 You can also create a unique `TestIdentity` using the `fresh` method:
 
 {{< tabs name="tabs-9" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val uniqueTestIdentity: TestIdentity = TestIdentity.fresh("orgName")
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 TestIdentity uniqueTestIdentity = TestIdentity.Companion.fresh("orgName");
 ```
@@ -343,7 +343,7 @@ suffices to test contract logic. It has the ability to insert states into the va
 construct and check transactions.
 
 {{< tabs name="tabs-10" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 private val ledgerServices = MockServices(
         // A list of packages to scan for cordapps
@@ -363,7 +363,7 @@ private val ledgerServices = MockServices(
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
     ledgerServices = new MockServices(
             // A list of packages to scan for cordapps
@@ -389,7 +389,7 @@ knows about. Only the calling package is scanned for cordapps and a test `Identi
 for you, using all the given identities.
 
 {{< tabs name="tabs-11" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @Suppress("unused")
 private val simpleLedgerServices = MockServices(
@@ -405,7 +405,7 @@ private val simpleLedgerServices = MockServices(
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 private final MockServices simpleLedgerServices = new MockServices(
         // This is the identity of the node
@@ -429,7 +429,7 @@ transactions using the `transaction` function. Within a transaction you can defi
 transaction has been executed, and any `attachments`, as shown in this example test:
 
 {{< tabs name="tabs-12" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @Test(timeout=300_000)
  simpleCPMoveSuccess() {
@@ -451,7 +451,7 @@ transaction has been executed, and any `attachments`, as shown in this example t
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @Test
 public void simpleCPMoveSuccess() {
@@ -484,7 +484,7 @@ assert that the transaction fails with a specific error. If you just want to ass
 verifying the message, there is also a `fails` method.
 
 {{< tabs name="tabs-13" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @Test(timeout=300_000)
  simpleCPMoveFails() {
@@ -504,7 +504,7 @@ verifying the message, there is also a `fails` method.
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @Test
 public void simpleCPMoveFails() {
@@ -537,7 +537,7 @@ fails verification. For example, you could test that a contract fails to verify 
 add the relevant output state and check that the contract verifies successfully, as in the following example:
 
 {{< tabs name="tabs-14" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @Test(timeout=300_000)
  simpleCPMoveFailureAndSuccess() {
@@ -559,7 +559,7 @@ add the relevant output state and check that the contract verifies successfully,
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @Test
 public void simpleCPMoveSuccessAndFailure() {
@@ -586,7 +586,7 @@ You can also use the `tweak` function to create a locally scoped transaction tha
 and then return to the original, unmodified transaction. As in the following example:
 
 {{< tabs name="tabs-15" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @Test(timeout=300_000)
  `simple issuance with tweak and top level transaction`() {
@@ -610,7 +610,7 @@ and then return to the original, unmodified transaction. As in the following exa
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @Test
 public void simpleIssuanceWithTweakTopLevelTx() {
@@ -643,7 +643,7 @@ it is important to note that even though a `transaction` `verifies` successfully
 be verified separately by placing a `verifies` or `fails` statement  within the `ledger` block.
 
 {{< tabs name="tabs-16" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @Test(timeout=300_000)
  `chain commercial paper double spend`() {
@@ -690,7 +690,7 @@ be verified separately by placing a `verifies` or `fails` statement  within the 
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @Test
 public void chainCommercialPaperDoubleSpend() {

@@ -77,6 +77,6 @@ transaction identifier. Then, you have proof that the command and time window be
 
 To send the same transaction to a non-validating notary, hide all components
 apart from input states, time window, and the notary information. This data is enough for the notary to know which
-input states to check for double-spending, if the time-window is valid, and if the transaction is being notarized by the correct notary.
+input states to check for double-spending, if the time window is valid, and if the transaction is being notarized by the correct notary.
 
 {{< figure alt="SubMerkleTree Notary" width=80% zoom="/en/images/SubMerkleTree_Notary.png" >}}

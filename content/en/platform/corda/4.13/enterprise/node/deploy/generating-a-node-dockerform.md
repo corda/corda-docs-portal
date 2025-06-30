@@ -62,7 +62,7 @@ As an alternative, you can specify this parameter when running the `docker-compo
 
 You can configure `Dockerform` to use a standalone database to test with non-H2 databases. For example, to use PostgresSQL, you need to make the following changes to your CorDapp project:
 
-1. Create a file called `postgres.gradle` in your Cordapp directory, and insert the following code block:
+1. Create a file called `postgres.gradle` in your CorDapp directory, and insert the following code block:
 
 ```groovy
 ext {

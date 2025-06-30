@@ -18,9 +18,10 @@ This document provides instructions on how to create database schema
 and configure a Corda node that is suitable for development and testing purposes.
 This setup allows the auto-creation of database objects by the node upon startup
 by connecting to a database with a user with **administrative permissions**.
-Please refer to [Database schema setup]({{< relref "node-database-admin.md" >}}) if you are setting up a Corda database in a production environment.
 
-The instructions cover all commercial third-party database vendors supported by Corda Enteprise
+If you are setting up a *production environment*, see [Database schema setup]({{< relref "node-database-admin.md" >}}).
+
+The instructions cover all commercial third-party database vendors supported by Corda Enterprise
 (Azure SQL, SQL Server, Oracle and PostgreSQL), and the default embedded H2 database:
 
 
@@ -39,16 +40,16 @@ The instructions cover all commercial third-party database vendors supported by 
 Setting up a Corda node to connect to a database requires:
 
 
-* [Creating a database user with schema permissions](#1-creating-a-database-user-with-schema-permissions)
-* [Corda node configuration changes](#2-corda-node-configuration)
-* [Run the node](#3-run-the-run-migration-scripts-sub-command-to-create-all-database-schema-objects) to auto-create schema objects
+* [Creating a database user with schema permissions](#step-1-create-a-database-user-with-schema-permissions)
+* [Configure the Corda node](#step-2-configure-the-corda-node)
+* [Run the node](#step-3-run-the-run-migration-scripts-sub-command-to-create-all-database-schema-objects) to auto-create schema objects
 
-Corda ships out of the box with an [H2 database](http://www.h2database.com) which doesn’t require any configuration
-(see the documentation on [Database access when running H2]({{< relref "../../node-database-access-h2.md" >}}), hence when using H2 database it’s sufficient to [start the node]({{< relref "node-database-admin.md#3-corda-node-configuration" >}}) and the database will be created.
+Corda ships out of the box with an [H2 database](http://www.h2database.com) which does not require any configuration
+(see the documentation on [Database access when running H2]({{< relref "../../node-database-access-h2.md" >}}), hence when using H2 database it is sufficient to [start the node]({{< relref "node-database-admin.md#step-3-configuring-the-corda-node" >}}) and the database will be created.
 
 
 
-### 1. Creating a database user with schema permissions
+### Step 1: Create a database user with schema permissions
 
 Before running a Corda node you must create a database user and schema namespace with **administrative permissions** (except H2 database).
 This grants the database user full access to a Corda node, such that it can execute both DDL statements
@@ -56,10 +57,14 @@ This grants the database user full access to a Corda node, such that it can exec
 This permission set is more permissive and should be used with caution in production environments.
 
 Variants of Data Definition Language (DDL) scripts to are provided for each supported database vendor.
-The example permissions scripts have no group roles nor specify physical database settings e.g. max disk space quota for a user.
-The scripts and node configuration snippets contain example values *my_login* for login, *my_user*/*my_admin_user* for user,
-*my_password* for password, and *my_schema* for schema name. These values are for illustration purposes only.
-Please substitute with actual values configured for your environment(s).
+The example permissions scripts have no group roles nor specify physical database settings, such as the maximum disk space quota for a user.
+The scripts and node configuration snippets contain placeholder values:
+- *my_login* for login
+- *my_user*/*my_admin_user* for users
+- *my_password* for password
+- *my_schema* for the schema name 
+
+These values are for illustrative purposes only: replace them with actual values configured for your environment(s).
 
 
 {{< warning >}}
@@ -70,7 +75,7 @@ Each Corda node needs to use a separate database user and schema where multiple 
 
 {{< note >}}
 For developing and testing the node using the Gradle plugin `Cordform` `deployNodes` task you need to create
-the database user/schema manually ([the first Step](#database-schema-setup)) before running the task (deploying nodes).
+the database user/schema manually in ([the first step](#database-schema-setup)) before running the task (deploying nodes).
 Also note that during re-deployment existing data in the database is retained.
 Remember to cleanup the database if required as part of the testing cycle.
 The above restrictions do not apply to the default H2 database as the relevant database data file is
@@ -89,61 +94,61 @@ Creating database user with schema permissions for:
 
 #### SQL Azure
 
-Connect to the master database as an administrator
-(e.g. *jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=master;[…]*).
-Run the following script to create a user and a login:
+1. Connect to the master database as an administrator
+(for example, `jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=master;[…]*)`.
+2. Run the following script to create a user and a login:
 
-```sql
-CREATE LOGIN my_login WITH PASSWORD = 'my_password';
-CREATE USER my_user FOR LOGIN my_login;
-```
+   ```sql
+   CREATE LOGIN my_login WITH PASSWORD = 'my_password';
+   CREATE USER my_user FOR LOGIN my_login;
+   ```
 
 By default the password must contain characters from three of the following four sets: uppercase letters, lowercase letters, digits, and symbols,
-e.g. *C0rdaAP4ssword* is a valid password. Passwords are delimited with single quotes.
+For example, *C0rdaAP4ssword* is a valid password. Passwords are delimited with single quotes. See the [Azure SQL password policy](https://docs.microsoft.com/en-us/sql/relational-databases/security/password-policy?view=sql-server-ver15#password-complexity) for more information.
 
-Connect to a user database as the administrator (replace *master* with a user database in the connection string).
-Run the following script to create a schema and assign user permissions:
+3. Connect to a user database as the administrator (replace *master* with a user database in the connection string).
+4. Run the following script to create a schema and assign user permissions:
 
-```sql
-CREATE SCHEMA my_schema;
+   ```sql
+   CREATE SCHEMA my_schema;
 
-CREATE USER my_user FOR LOGIN my_login WITH DEFAULT_SCHEMA = my_schema;
-GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, ALTER, REFERENCES ON SCHEMA::my_schema TO my_user;
-GRANT CREATE TABLE TO my_user;
-GRANT CREATE VIEW TO my_user;
-```
+   CREATE USER my_user FOR LOGIN my_login WITH DEFAULT_SCHEMA = my_schema;
+   GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, ALTER, REFERENCES ON SCHEMA::my_schema TO my_user;
+   GRANT CREATE TABLE TO my_user;
+   GRANT CREATE VIEW TO my_user;
+   ```
 
 
 
 #### SQL Server
 
-Connect to the master database as an administrator (e.g. *jdbc:sqlserver://<host>:<port>;databaseName=master*).
-Run the following script to create a database, a user and a login:
+1. Connect to the master database as an administrator; for example, `jdbc:sqlserver://<host>:<port>;databaseName=master*`.
+2. Run the following script to create a database, a user and a login:
 
-```sql
-CREATE DATABASE my_database;
+   ```sql
+   CREATE DATABASE my_database;
 
-CREATE LOGIN my_login WITH PASSWORD = 'my_password', DEFAULT_DATABASE = my_database;
-CREATE USER my_user FOR LOGIN my_login;
-```
+   CREATE LOGIN my_login WITH PASSWORD = 'my_password', DEFAULT_DATABASE = my_database;
+   CREATE USER my_user FOR LOGIN my_login;
+   ```
 
-By default the password must contain characters from three of the following four sets: uppercase letters, lowercase letters, digits, and symbols,
-e.g. *C0rdaAP4ssword* is a valid password. Passwords are delimited with single quotes.
+   By default the password must contain characters from three of the following four sets: uppercase letters, lowercase letters, digits, and symbols. 
+   For example, *C0rdaAP4ssword* is a valid password. Passwords are delimited with single quotes.
 
-You can create schemas for several Corda nodes within the same database (*my_database*),
-in which case run the first DDL statement (*CREATE DATABASE my_database;*) only once.
+   You can create schemas for several Corda nodes within the same database (*my_database*),
+   in which case run the first DDL statement (*CREATE DATABASE my_database;*) only once.
 
-Connect to a user database as the administrator (replace *master* with *my_database* in the connection string).
-Run the following script to create a schema and assign user permissions:
+3. Connect to a user database as the administrator (replace *master* with *my_database* in the connection string).
+4. Run the following script to create a schema and assign user permissions:
 
-```sql
-CREATE SCHEMA my_schema;
+   ```sql
+   CREATE SCHEMA my_schema;
 
-CREATE USER my_user FOR LOGIN my_login WITH DEFAULT_SCHEMA = my_schema;
-GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, ALTER, REFERENCES ON SCHEMA::my_schema TO my_user;
-GRANT CREATE TABLE TO my_user;
-GRANT CREATE VIEW TO my_user;
-```
+   CREATE USER my_user FOR LOGIN my_login WITH DEFAULT_SCHEMA = my_schema;
+   GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, ALTER, REFERENCES ON SCHEMA::my_schema TO my_user;
+   GRANT CREATE TABLE TO my_user;
+   GRANT CREATE VIEW TO my_user;
+   ```
 
 
 
@@ -165,18 +170,19 @@ GRANT SELECT ON v_$parameter TO my_user;
 
 #### PostgreSQL
 
-Connect to the database as an administrator and run the following script to create a node user:
+1. Connect to the database as an administrator.
+2. Run the following script to create a node user:
 
-```sql
-CREATE USER "my_user" WITH LOGIN PASSWORD 'my_password';
-CREATE SCHEMA "my_schema";
-GRANT USAGE, CREATE ON SCHEMA "my_schema" TO "my_user";
-GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON ALL tables IN SCHEMA "my_schema" TO "my_user";
-ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON tables TO "my_user";
-GRANT USAGE, SELECT ON ALL sequences IN SCHEMA "my_schema" TO "my_user";
-ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences TO "my_user";
-ALTER ROLE "my_user" SET search_path = "my_schema";
-```
+   ```sql
+   CREATE USER "my_user" WITH LOGIN PASSWORD 'my_password';
+   CREATE SCHEMA "my_schema";
+   GRANT USAGE, CREATE ON SCHEMA "my_schema" TO "my_user";
+   GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON ALL tables IN SCHEMA "my_schema" TO "my_user";
+   ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON tables TO "my_user";
+   GRANT USAGE, SELECT ON ALL sequences IN SCHEMA "my_schema" TO "my_user";
+   ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences TO "my_user";
+   ALTER ROLE "my_user" SET search_path = "my_schema";
+   ```
 
 If you provide a custom schema name (different to the user name), then the last statement, setting the search_path,
 prevents querying the different default schema search path
@@ -184,52 +190,47 @@ prevents querying the different default schema search path
 
 
 
-### 2. Corda node configuration
+### Step 2: Configure the Corda node
 
-The following updates are required to a nodes filesystem configuration:
+The following updates are required to the node's filesystem configuration:
 
-
-
-* The Corda node configuration file `node.conf` needs to contain JDBC connection properties in the `dataSourceProperties` entry
+1. Configure the Corda node configuration file `node.conf` with JDBC connection properties in the `dataSourceProperties` entry
 and other database properties (passed to nodes’ JPA persistence provider or schema creation/upgrade flag) in the `database` entry.
 For development convenience the properties are specified in the `deployNodes` Cordform task.
 
-```none
-dataSourceProperties = {
-   ...
-   dataSourceClassName = <JDBC Data Source class name>
-   dataSource.url = <JDBC database URL>
-   dataSource.user = <Database user>
-   dataSource.password = <Database password>
-}
-database = {
-   schema = <Database schema name>
-}
-```
+   ```none
+   dataSourceProperties = {
+      ...
+      dataSourceClassName = <JDBC Data Source class name>
+      dataSource.url = <JDBC database URL>
+      dataSource.user = <Database user>
+      dataSource.password = <Database password>
+   }
+   database = {
+      schema = <Database schema name>
+   }
+   ```
 
 
-See [Node configuration]({{< relref "../setup/corda-configuration-file.md#database" >}}) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
-* Run the `run-migration-scripts` sub-command to allow a Corda node to create database tables upon startup.
-* The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
-It is the responsibility of the node administrator or a developer to download the appropriate JDBC driver.
-Corda will search for valid JDBC drivers under the `./drivers` subdirectory of the node base directory.
-Corda distributed via published artifacts (e.g. added as Gradle dependency) will also search for the paths specified by the `jarDirs`
-field of the node configuration.
-The `jarDirs` property is a list of paths, separated by commas and wrapped in single quotes e.g. `jarDirs = [ '/lib/jdbc/driver' ]`.
-* Corda uses [Hikari Pool](https://github.com/brettwooldridge/HikariCP) for creating connection pools.
-To configure a connection pool, the following custom properties can be set in the `dataSourceProperties` section, e.g.:
+   See [Node configuration]({{< relref "../setup/corda-configuration-file.md#database" >}}) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
+2. Run the `run-migration-scripts` sub-command to allow a Corda node to create database tables upon startup.
+3. The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
+4. It is the responsibility of the node administrator or a developer to download the appropriate JDBC driver.
+   Corda will search for valid JDBC drivers under the `./drivers` subdirectory of the node base directory.
+   Corda distributed via published artifacts (for example, added as a Gradle dependency) will also search for the paths specified by the `jarDirs`
+   field of the node configuration.
+   The `jarDirs` property is a list of paths, separated by commas and wrapped in single quotes; for example, `jarDirs = [ '/lib/jdbc/driver' ]`.
+   Corda uses [Hikari Pool](https://github.com/brettwooldridge/HikariCP) for creating connection pools.
 
-```groovy
-dataSourceProperties = {
-   ...
-   maximumPoolSize = 10
-   connectionTimeout = 50000
-}
-```
+4. To configure a connection pool, the following custom properties can be set in the `dataSourceProperties` section; for example:
 
-
-
-
+   ```groovy
+   dataSourceProperties = {
+      ...
+      maximumPoolSize = 10
+      connectionTimeout = 50000
+   }
+   ```
 
 Configuration templates for each database vendor are shown below:
 
@@ -245,13 +246,13 @@ Configuration templates for each database vendor are shown below:
 #### H2
 
 By default, nodes store their data in an H2 database.
-No database setup is needed. Optionally remote H2 access/port can be configured. See the documentation on [Database access when running H2]({{< relref "../../node-database-access-h2.md" >}}).
+No database setup is needed. Optionally, remote H2 access/port can be configured. See the documentation on [Database access when running H2]({{< relref "../../node-database-access-h2.md" >}}).
 
 
 
 #### Azure SQL
 
-Node configuration for Azure SQL:
+The required `node.conf` settings using Azure SQL:
 
 
 ```groovy
@@ -273,10 +274,7 @@ The `database.schema` is the database schema name assigned to the user.
 You need  *administrative* permissions in order to run the `run-migration-scripts` sub-command to initialise or migrate the database schema.
 
 The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615),
-extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* as the archive comes with two JARs.
-[Common Configuration Steps paragraph](#3-run-the-run-migration-scripts-sub-command-to-create-all-database-schema-objects) explains the correct location for the driver JAR in the node installation structure.
-
-
+extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* (as the archive comes with two JARs) to the `drivers` directory.
 
 #### SQL Server
 
@@ -297,7 +295,7 @@ database = {
 
 
 
-Replace the placeholders *<host>*, *<port>* with appropriate values, the default SQL Server port is 1433.
+Replace the placeholders `<host>` and `<port>` with the appropriate values; the default SQL Server port is 1433.
 By default the connection to the database is not SSL, for securing JDBC connection refer to
 [Securing JDBC Driver Applications](https://docs.microsoft.com/en-us/sql/connect/jdbc/securing-jdbc-driver-applications?view=sql-server-2017).
 
@@ -343,10 +341,10 @@ Copy the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 
 
 #### PostgreSQL
 
-Node configuration for PostgreSQL:
+The required `node.conf` settings using PostgreSQL:
 
 
-```none
+```groovy
 dataSourceProperties = {
     dataSourceClassName = "org.postgresql.ds.PGSimpleDataSource"
     dataSource.url = "jdbc:postgresql://<host>:<port>/<database>"
@@ -363,8 +361,7 @@ database = {
 Replace the placeholders *<host>*, *<port>* and *<database>* with appropriate values.
 The `database.schema` is the database schema name assigned to the user.
 The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity
-(e.g. *AliceCorp* becomes *AliceCorp*, without quotes PostgresSQL would treat the value as *alicecorp*),
-this behaviour differs from Corda Open Source where the value is not wrapped in double quotes.
+(for example, *AliceCorp* becomes *AliceCorp*; without quotes PostgresSQL would treat the value as *alicecorp*). This behaviour differs from Corda Open Source where the value is not wrapped in double quotes.
 
 You can only run the `run-migration-scripts` sub-command when using *administrative* permissions.
 
@@ -372,7 +369,7 @@ Copy the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* to the node director
 
 
 
-### 3. Run the `run-migration-scripts` sub-command to create all database schema objects
+### Step 3: Run the `run-migration-scripts` sub-command to create all database schema objects
 
 For the node to create all database schema objects, you should run the `run-migration-scripts` sub-command.
 
@@ -390,7 +387,7 @@ See the [Corda node upgrade notes]({{< relref "../../node-upgrade-notes.md" >}})
 
 ## Database schema setup when deploying a new CorDapp
 
-The procedure for Cordapp deployment is the same as for production systems
+The procedure for CorDapp deployment is the same as for production systems
 apart from a simplified database update step.
 A CorDapp, which stores data in a custom table, should contain an embedded Liquibase database migration script.
 [Liquibase](http://www.liquibase.org) is used by Corda for the database schema management.
@@ -406,7 +403,7 @@ ensure that:
 
 
 
-Those requirements should already be set during [the initial Corda node configuration](#2-corda-node-configuration).
+Those requirements should already be set during [the initial Corda node configuration](#step-2-configuring-the-corda-node).
 
 You can optionally check if a CorDapp which is expected to store data in custom tables, is correctly built.
 To check the presence of script files inside *migration* directory,
@@ -438,7 +435,7 @@ database is automatically updated during a node restart, see:
 ## Database schema cleanup
 
 When developing/testing CorDapps you may need cleanup the database between test runs
-(e.g. when running using the Gradle plugin `Cordform` `deployNodes`).
+(for example, when running using the Gradle plugin `Cordform` `deployNodes`).
 
 
 ### SQL Azure and SQL Server

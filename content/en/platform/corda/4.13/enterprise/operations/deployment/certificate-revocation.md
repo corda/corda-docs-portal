@@ -16,8 +16,8 @@ title: Certificate revocation FAQ
 ## What is the expected behaviour if a certificate is revoked?
 
 Once a certificate is revoked (including the signing of a new CRL), nodes on the network should identify the change quickly. In CENM 1.5, this takes around 30 seconds. In future releases this time frame is likely to increase because having every node in a network poll for changes is a poor scaling experience.
-At this point Nodes will refuse to accept signatures from the revoked certificate. As a result, any transactions that have not yet been notarised, as well as any future transactions the revoked certificate would have signed, will be invalidated.
-In addition, the Network Map Service(s) will refresh their internal cache of the CRL and will refuse to serve node info for the affected nodes. As a result, any new nodes joining the network will be completely unaware of the affected node.
+At this point, nodes will refuse to accept signatures from the revoked certificate. As a result, any transactions that have not yet been notarised, as well as any future transactions the revoked certificate would have signed, will be invalidated.
+In addition, the Network Map service(s) will refresh their internal cache of the CRL and will refuse to serve node info for the affected nodes. As a result, any new nodes joining the network will be completely unaware of the affected node.
 
 ## What is the expected behaviour if a node tries to transact to a revoked certificate (irrespective of their configuration)?
 

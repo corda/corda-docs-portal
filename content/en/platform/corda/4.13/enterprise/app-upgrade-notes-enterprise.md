@@ -35,7 +35,6 @@ See [Corda and Corda Enterprise compatibility]({{< relref "version-compatibility
 To re-compile your CorDapp for Corda Enterprise Edition 4.12, you need to:
 
 1. Update your Gradle build file as follows.
-
     ```shell
     corda_release_distribution = 'com.r3.corda'
     corda_core_release_distribution = 'net.corda'
@@ -45,17 +44,12 @@ To re-compile your CorDapp for Corda Enterprise Edition 4.12, you need to:
     kotlin_version = '1.9.20'
     quasar_version = '0.9.0_r3'
     ```
-
 2. Specify an additional repository entry pointing to the location of the Corda Enterprise distribution and Corda dependencies. Any
 dependencies on `corda-core` and/or `corda-serialization` must use the `corda_core_release_distribution` and
 `corda_core_release_version`. As Corda is moving to an open core model, these core APIs are only available in open source and need to
 be imported from there. Therefore, a repository entry pointing to a matching Corda Open Source Edition version is required.
-
 3. Update your `quasar.jar` file. If your project is based on one of the official CordApp templates, you'll likely have a `lib/quasar.jar` file checked in. You'll only use this if you use the JUnit runner in IntelliJ. In the latest release of the CorDapp templates, this directory has
-been removed.
-
-    For example:
-
+been removed. For example:
     ```shell
     repositories {
         // Example for Corda Enterprise
@@ -83,7 +77,7 @@ been removed.
 
    You can find instructions for both options in [Running tests in IntelliJ]({{< relref "testing.md#running-tests-in-intellij" >}}).
 
-4. Check you're using Corda Gradle plugins version 5.1.1 and that Corda Enterprise dependencies are referenced with the right distribution.
+4. Check you are using Corda Gradle plugins version 5.1.1 and that Corda Enterprise dependencies are referenced with the right distribution.
 
 
     For example:

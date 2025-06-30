@@ -11,7 +11,7 @@ weight: 400
 ---
 
 {{< note >}}
-All mentions of `jmeter-corda.jar` on this page refer to the `jmeter-corda-<version>-capsule.jar` - see [Obtaining and Installing the Performance Test Suite]{{< relref "installation.md" >}}) for more information.
+All mentions of `jmeter-corda.jar` on this page refer to the `jmeter-corda-<version>-capsule.jar` - see [Obtaining and installing the performance test suite]({{< relref "installation.md" >}}) for more information.
 {{< /note >}}
 
 # JMeter samplers
@@ -49,7 +49,7 @@ once all thread groups have run and the test plan is terminating.
 
 ## Provided sampler clients
 
-[JMeter Corda]{{< relref "running-jmeter-corda.md" >}}) provides a number of sampler implementations that can be used with the Java Request sampler. They all
+[JMeter Corda]({{< relref "running-jmeter-corda.md" >}}) provides a number of sampler implementations that can be used with the Java Request sampler. They all
 share some common base infrastructure that allows them to invoke flows on a Corda node via RPC. All of these samplers
 are built against the included performance testing CorDapps (`perftestcordapp` and `settlement-perftest-cordapp`). On each call to run the sampler, one RPC flow to the respective flow used by this sampler is made, and the run function will block until the flow result is returned.
 
@@ -90,7 +90,7 @@ of additional problems to the processing, so it is of interest to measure its im
 
 ## Custom sampler clients
 
-The sampler clients provided with [JMeter Corda]{{< relref "running-jmeter-corda.md" >}}) all target the performance testing CorDapps developed along with the
+The sampler clients provided with [JMeter Corda]({{< relref "running-jmeter-corda.md" >}}) all target the performance testing CorDapps developed along with the
 performance test tool kit. In order to drive performance tests using different CorApps, custom samplers need to be
 used that can drive the respective CorDapp via RPC.
 

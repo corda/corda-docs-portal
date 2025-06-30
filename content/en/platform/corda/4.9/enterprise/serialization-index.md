@@ -16,11 +16,11 @@ weight: 160
 
 
 
-* [Object serialization]{{< relref "serialization.md" >}})
-* [Pluggable serializers for CorDapps]{{< relref "cordapp-custom-serializers.md" >}})
-* [Pluggable serializers for CorDapp checkpoints]{{< relref "cordapp-custom-serializers-checkpoints.md" >}})
-* [Default Class Evolution]{{< relref "serialization-default-evolution.md" >}})
-* [Enum Evolution]{{< relref "serialization-enum-evolution.md" >}})
-* [JSON]{{< relref "json.md" >}})
-* [Blob Inspector]{{< relref "blob-inspector.md" >}})
-* [Wire format]{{< relref "wire-format.md" >}})
+* [Object serialization]({{< relref "serialization.md" >}})
+* [Pluggable serializers for CorDapps]({{< relref "cordapp-custom-serializers.md" >}})
+* [Pluggable serializers for CorDapp checkpoints]({{< relref "cordapp-custom-serializers-checkpoints.md" >}})
+* [Default class evolution]({{< relref "serialization-default-evolution.md" >}})
+* [Enum evolution]({{< relref "serialization-enum-evolution.md" >}})
+* [JSON]({{< relref "json.md" >}})
+* [Blob inspector]({{< relref "blob-inspector.md" >}})
+* [Wire format]({{< relref "wire-format.md" >}})

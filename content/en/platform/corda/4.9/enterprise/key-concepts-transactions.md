@@ -31,9 +31,9 @@ title: Transactions
 
 ## Transactions on Corda
 
-You can't edit the Corda ledger—the only way to change it is to add new transactions to it. A transaction updates the [ledger]{{< relref "key-concepts-ledger.md" >}}) by consuming existing [input states]{{< relref "key-concepts-states.md" >}}) and outputting new states. The states the transaction consumes are marked "historic".
+You can't edit the Corda ledger—the only way to change it is to add new transactions to it. A transaction updates the [ledger]({{< relref "key-concepts-ledger.md" >}}) by consuming existing [input states]({{< relref "key-concepts-states.md" >}}) and outputting new states. The states the transaction consumes are marked "historic".
 
-Every [state]{{< relref "key-concepts-states.md" >}}) is *immutable*—it can't be changed. This is called an *UTXO* (unspent transaction output) model.
+Every [state]({{< relref "key-concepts-states.md" >}}) is *immutable*—it can't be changed. This is called an *UTXO* (unspent transaction output) model.
 
 Here is an example of a transaction with two inputs and two outputs:
 
@@ -49,12 +49,12 @@ Transactions are *atomic*. Either all of the transaction’s proposed changes ar
 
 There are two basic types of transactions:
 
-* Notary-change transactions, to change a state’s [notary]{{< relref "key-concepts-notaries.md" >}}).
+* Notary-change transactions, to change a state’s [notary]({{< relref "key-concepts-notaries.md" >}}).
 * General transactions, for everything else.
 
 ## Transaction backchains
 
-Transaction backchains let a [node]{{< relref "key-concepts-node.md" >}}) verify that each input was generated from a valid series of transactions. This is called "walking the chain." If you need to break this chain (for example, because you want to increase performance by reducing the number of transactions the node has to check, or because you want to keep previous transactions private) you can [reissue states]({{< relref "cordapps/reissuing-states.md" >}}).
+Transaction backchains let a [node]({{< relref "key-concepts-node.md" >}}) verify that each input was generated from a valid series of transactions. This is called "walking the chain." If you need to break this chain (for example, because you want to increase performance by reducing the number of transactions the node has to check, or because you want to keep previous transactions private) you can [reissue states]({{< relref "cordapps/reissuing-states.md" >}}).
 
 Backchains are created as *input state references* linked together over time. Input state references let you use the outputs of previous transactions as the inputs of new transactions.
 
@@ -89,9 +89,9 @@ This means that:
 
 Just gathering the required signatures is not enough to commit a transaction to the ledger. It must also be:
 
-* *Valid:* The proposed transaction and every transaction the backchain of the proposed inputs must be signed by all the required parties and [contractually valid]{{< relref "key-concepts-contracts.md" >}}).
+* *Valid:* The proposed transaction and every transaction the backchain of the proposed inputs must be signed by all the required parties and [contractually valid]({{< relref "key-concepts-contracts.md" >}}).
 * *Unique:* No other committed transaction has consumed any of the inputs to
-the proposed transaction. [Uniqueness]({{< relref "key-concepts-consensus.md#uniqueness-consensus" >}}) is determined by a [notary]{{< relref "key-concepts-notaries.md" >}}).
+the proposed transaction. [Uniqueness]({{< relref "key-concepts-consensus.md#uniqueness-consensus" >}}) is determined by a [notary]({{< relref "key-concepts-notaries.md" >}}).
 
 If the transaction gathers all the required signatures without meeting these conditions, the transaction’s outputs
 are not valid and will not be accepted as inputs to subsequent transactions.
@@ -158,7 +158,7 @@ You might have a large piece of data that can be reused for several transactions
 * A table of currency codes.
 
 You can achieve this with *attachments*. Transactions can refer to attachments by the attachment's [hash](https://www.investopedia.com/terms/h/hash.asp). These
-attachments are `.zip` or JAR files with content that the node can use when verifying a [smart contract]{{< relref "key-concepts-contracts.md" >}}).
+attachments are `.zip` or JAR files with content that the node can use when verifying a [smart contract]({{< relref "key-concepts-contracts.md" >}}).
 
 ### Time windows
 
@@ -167,11 +167,11 @@ You may only want a proposed transaction to be approved during a certain period 
 * An option that can only be exercised after a certain date.
 * A bond that may only be redeemed before its expiry date.
 
-You can enforce this by adding a [time window]{{< relref "key-concepts-time-windows.md" >}}) to the transaction, which specifies when the
-transaction can be committed. The [notary]{{< relref "key-concepts-notaries.md" >}}) enforces time window validity.
+You can enforce this by adding a [time window]({{< relref "key-concepts-time-windows.md" >}}) to the transaction, which specifies when the
+transaction can be committed. The [notary]({{< relref "key-concepts-notaries.md" >}}) enforces time window validity.
 
 ### Notary
 
-[Notaries]{{< relref "key-concepts-notaries.md" >}}) provide [uniqueness consensus]{{< relref "key-concepts-consensus.md" >}}) by attesting that, for a given transaction, it has not already signed other transactions that consume any of the proposed transaction’s input states. This is the final check before a transaction is committed to the ledger.
+[Notaries]({{< relref "key-concepts-notaries.md" >}}) provide [uniqueness consensus]({{< relref "key-concepts-consensus.md" >}}) by attesting that, for a given transaction, it has not already signed other transactions that consume any of the proposed transaction’s input states. This is the final check before a transaction is committed to the ledger.
 
 You may not need to include a notary if you are creating an issuance transaction, because they do not consume any other states and cannot double-spend.

@@ -108,7 +108,7 @@ Document any changes to Corda’s public API:
 
 
 1. Add comments and javadocs/kdocs. API functions must have javadoc/kdoc comments and sentences must be terminated with a full stop. We also start comments with capital letters, even for inline comments. Where Java APIs have
-synonyms (e.g. `%d` and `%date`), we prefer the longer form for legibility reasons. You can configure your IDE
+synonyms (for example, `%d` and `%date`), we prefer the longer form for legibility reasons. You can configure your IDE
 to highlight these in yellow.
 2. Update the relevant .md file(s).
 3. Include the change in the [changelog]({{< relref "release-notes.md" >}}) if the change is external and therefore visible to CorDapp developers and/or node operators.
@@ -141,7 +141,7 @@ A “large” contribution is one that meets one or more of the following criter
 
 * It would require users to modify or recompile their CorDapps.
 * It would introduce a new user-facing feature or configuration option.
-* It would negatively impact performance or security (e.g. by introducing a new dependency).
+* It would negatively impact performance or security (for example, by introducing a new dependency).
 * It would take a long time to implement - two weeks or more.
 * It would significantly increase the project’s QA or support costs.
 

@@ -38,9 +38,9 @@ FloatSupervisorService: active = true
 ```
 
 
-## Starting the Corda Node
+## Starting the Corda node
 
-To start the Node run the following command from the Node VM:
+To start the node, run the following command from the Node VM:
 
 `/usr/bin/java -Xmx2048m -jar /opt/corda/corda-4.11.jar --config-file node.conf`
 
@@ -64,7 +64,7 @@ $ export CONFIG_OBFUSCATION_SEED=my-seed; export CONFIG_OBFUSCATION_PASSPHRASE=m
 {{< /note >}}
 
 {{< note >}}
-If a node is registered but not started and the [Network Map Service]({{< relref "../../../../1.6/cenm/network-map.md#network-map-service" >}})goes down before the first start of the node, the node will fail to restart.
+If a node is registered but not started and the [Network Map service]({{< relref "../../../../1.6/cenm/network-map.md#network-map-service" >}})goes down before the first start of the node, the node will fail to restart.
 
 
 

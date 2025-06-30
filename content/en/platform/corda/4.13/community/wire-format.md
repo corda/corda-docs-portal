@@ -32,7 +32,7 @@ then skip it. This is deliberate, to enable other message formats in future.
 The first version byte is set to 1 and indicates the major version of the format. It should always be set to 1,
 if it isn’t that means a backwards incompatible serialisation format has been developed and you should therefore abort.
 The second byte is a minor version, you should be able to tolerate this incrementing as long as your code is robust
-to unknown data (e.g. new schema elements). The third byte is an encoding byte. This is used to indicate new features
+to unknown data (for example, new schema elements). The third byte is an encoding byte. This is used to indicate new features
 like compression are active. You should abort if this isn’t zero.
 
 
@@ -100,10 +100,9 @@ most of the lost efficiency.
 
 Serialized messages use described types extensively. There are two types of descriptor:
 
-
-* 64 bit code. In Corda, the top 32 bits are always equal to 0x0000c562 which is R3’s IANA assigned enterprise number. The
+- **64 bit code:** In Corda, the top 32 bits are always equal to 0x0000c562 which is R3’s IANA assigned enterprise number. The
 low bits define various elements in our meta-schema (i.e. the way we describe the schemas of other messages).
-* String. These always start with “net.corda:” and are then followed by either a ‘well known’ type name, or
+- **String:** These always start with `net.corda:` and are then followed by either a ‘well known’ type name, or
 a base64 encoded *fingerprint* of the underlying schema that was generated from the original class. They are
 encoded using the AMQP symbol type.
 
@@ -149,14 +148,14 @@ The *SCHEMA* record always contains a single element, which is itself another li
 Each *COMPOSITE_TYPE* record describes a single app-level type and has the following members:
 
 
-* Name: string
-* Label: nullable string
-* Provides: list of strings
-* Descriptor: An *OBJECT_DESCRIPTOR* record
-* Fields: A list of *FIELD* records
+* **Name:** String
+* **Label:** Nullable string
+* **Provides:** List of strings
+* **Descriptor:** An *OBJECT_DESCRIPTOR* record
+* **Fields:** A list of *FIELD* records
 
 The label will typically be unused and left as null - it’s here to match the AMQP specification and could in future contain
-arbitrary unstructured text, e.g. a javadoc explaining more about the semantics of the field. The “provides list” is
+arbitrary unstructured text; for example, a Javadoc explaining more about the semantics of the field. The “provides list” is
 a set of strings naming Java interfaces that the original type implements. It can be used to work with messages generically
 in a strongly typed, safe manner. Rather than guessing whether a type is meant to be a Foo or Bar based on matching
 with the field names, the schema itself declares what contracts it is intended to meet.
@@ -167,13 +166,13 @@ only one will be set. This record corresponds to the descriptor that will appear
 Finally, the fields are defined. Each *FIELD* record has the following members:
 
 
-* Name: string
-* Type: string
-* Requires: list of string
-* Default: nullable string
-* Label: nullable string
-* Mandatory: boolean
-* Multiple: boolean
+* **Name:** String
+* **Type:** String
+* **Requires:** List of strings
+* **Default:** Nullable string
+* **Label:** Nullable string
+* **Mandatory:** Boolean
+* **Multiple:** Boolean
 
 The meaning of these are defined in the AMQP specification. The type string is a Java class name *with* generic parameters.
 
@@ -196,7 +195,7 @@ part of the class file that actually matters for type information are the parame
 are stored to the wire.
 
 Source code does not have a deterministic field ordering. Developers may re-arrange fields in their classes as they refactor
-their code, which in a conventional serialisation scheme would break the wire format. Thus when mapping classes to AMQP schemas,
+their code, which in a conventional serialization scheme would break the wire format. Thus when mapping classes to AMQP schemas,
 we alphabetically sort the fields. If a new field is added, it may thus appear in the middle of the composite type list rather than
 at the end.
 
@@ -218,31 +217,28 @@ any special support to read these if you don’t care about the higher level typ
 In the binary schemas containers are represented as follows. A field in a composite type that is a list will look like this:
 
 
-* Name: “livingIn”
-* Type: “*”
-* Requires: [ “java.util.List<net.corda.tools.serialization.City>” ]
-* Default: NULL
-* Label: NULL
-* Mandatory: true
-* Multiple: false
+* **Name:** “livingIn”
+* **Type:** “*”
+* **Requires:** [ “java.util.List<net.corda.tools.serialization.City>” ]
+* **Default:** NULL
+* **Label:** NULL
+* **Mandatory:** true
+* **Multiple:** false
 
-The *requires* field is a list of *archetypes*. These are simply uninterpreted strings that refer to other schema elements, which
-list the same string in their *provides* field. In this way a form of intersection typing is implemented. We use Java type names
+The **Requires** field is a list of *archetypes*. These are simply uninterpreted strings that refer to other schema elements, which
+list the same string in their **Provides** field. In this way, a form of intersection typing is implemented. We use Java type names
 with generics to link the field to the definition of a restricted type.
 
 The list type will be defined as a restricted type, like so:
 
 
-* Name: “java.util.List<net.corda.tools.serialization.City>”
-* Label: NULL
-* Provides: []
-* Source: “list”
-*
-* Symbol: net.corda:2A8U5kaXW/lD5ns+l0xPFg==
-* Numeric: NULL
-
-]
-* Choices: []
+* **Name:** “java.util.List<net.corda.tools.serialization.City>”
+* **Label:** NULL
+* **Provides:** []
+* **Source:** “list”
+* **Symbol:** net.corda:2A8U5kaXW/lD5ns+l0xPFg==
+* **Numeric:** NULL
+* **Choices:** []
 
 
 ## Signed data
@@ -256,16 +252,12 @@ signature over the same binary data without roundtripping issues appearing.
 The following types are used for this in the current version of the protocol (correct as of Corda 4):
 
 
-* `net.corda.core.internal.SignedDataWithCert`, descriptor `net.corda:VywzVs/TR8ztvQBpYFpnlQ==`. Fields:
-    * raw: `net.corda.core.serialization.SerializedBytes<?>`
-    * sig: `net.corda.core.internal.DigitalSignatureWithCert`
-
-
-* `net.corda.core.internal.DigitalSignatureWithCert`, descriptor `net.corda:AJin3eE1QDfCwTiDWC5hJA==`. Fields:
-    * by: `java.security.cert.X509Certificate`
-    * bytes: binary
-
-
+- `net.corda.core.internal.SignedDataWithCert`, descriptor `net.corda:VywzVs/TR8ztvQBpYFpnlQ==`. Fields:
+  -   raw: `net.corda.core.serialization.SerializedBytes<?>`
+  - sig: `net.corda.core.internal.DigitalSignatureWithCert`
+- `net.corda.core.internal.DigitalSignatureWithCert`, descriptor `net.corda:AJin3eE1QDfCwTiDWC5hJA==`. Fields:
+  - by: `java.security.cert.X509Certificate`
+  - bytes: binary
 
 The signature bytes are opaque and their format depends on the cryptographic scheme identified in the X.509 certificate,
 for example, elliptic curve signatures use a standardised (non-AMQP) binary format that encodes the coordinates of the

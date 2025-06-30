@@ -60,14 +60,14 @@ Follow these tutorials in sequential order to build your CorDapp:
 
 <!---These will all link to the new tutorials when they are added.--->
 
-1. [Write states]{{< relref "basic-cordapp-state.md" >}})
+1. [Write states]({{< relref "basic-cordapp-state.md" >}})
 
-2. [Write contracts]{{< relref "basic-cordapp-contract.md" >}})
+2. [Write contracts]({{< relref "basic-cordapp-contract.md" >}})
 
-3. [Write flows]{{< relref "basic-cordapp-flows.md" >}})
+3. [Write flows]({{< relref "basic-cordapp-flows.md" >}})
 
-4. [Write unit tests]{{< relref "basic-cordapp-unit-testing.md" >}})
+4. [Write unit tests]({{< relref "basic-cordapp-unit-testing.md" >}})
 
-5. [Run your CorDapp]{{< relref "basic-cordapp-running.md" >}})
+5. [Run your CorDapp]({{< relref "basic-cordapp-running.md" >}})
 
-6. [Conduct integration testing]{{< relref "basic-cordapp-int-testing.md" >}})
+6. [Conduct integration testing]({{< relref "basic-cordapp-int-testing.md" >}})

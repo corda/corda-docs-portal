@@ -84,8 +84,8 @@ The contract itself comprises of 4 data state classes, `FixedLeg`, `FloatingLeg`
 Recall that the platform model is strictly immutable.  To further that, between states, the only class that is modified
 is the `Calculation` class.
 
-The `Common` data class contains all data that is general to the entire swap, e.g. data like trade identifier,
-valuation date, etc.
+The `Common` data class contains all data that is general to the entire swap, such as trade identifiers,
+valuation dates, and so on.
 
 The Fixed and Floating leg classes derive from a common base class `CommonLeg`. This is due to the simple reason that
 they share a lot of common fields.

@@ -23,7 +23,7 @@ ensure the [Corda Docker image]({{< relref "docker-image.md" >}}) has been corre
 The node runs in a container. This is similar to executing the JAR directly, except with the need to mount directories into the container that a Corda node would normally have. It is also necessary to set up
 port-forwarding and environment variables. The same command variables can be used in running the container as when running the JAR. See the [Generating a node]({{< relref "generating-a-node.md" >}}) and [Running nodes locally]({{< relref "running-a-node.md" >}}) pages.
 
-## Running a node connected to a Compatibility Zone in Docker
+## Running a node connected to compatibility zone in Docker
 
 {{< note >}}
 Requirements: A valid node.conf and a valid set of certificates - (signed by the CZ)
@@ -62,7 +62,7 @@ If using the H2 database:
 If there is no `dataSourceProperties` key in the node.conf, the Docker container overrides the url for H2 to point to the persistence directory by default so that the database can be accessed outside the container.
 {{< /note >}}
 
-## Running a node connected to a Bootstrapped Network
+## Running a node connected to bootstrapped network
 
 {{< note >}}
 Requirements: A valid node.conf, a valid set of certificates, and an existing network-parameters file
@@ -94,7 +94,7 @@ As the node within the container starts up, it will place its own nodeInfo into 
 
 It is possible to utilize the image to automatically generate a sensible minimal configuration for joining an existing Corda network.
 
-## Joining an existing Compatibility Zone
+## Joining compatibility zones
 
 {{< note >}}
 Requirements: A Compatibility Zone, the Zone Trust Root and authorisation to join said Zone.

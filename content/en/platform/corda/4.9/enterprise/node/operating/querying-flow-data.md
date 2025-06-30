@@ -210,7 +210,7 @@ flowStatus queryFlows flowClass: HospitalizerFlow
 
 #### Sample query to view all suspended flows within a particular time-window
 
-When specifying time-windows, all dates and times must be specified in accordance with the [ISO 8601 standard](https://www.iso.org/iso-8601-date-and-time-format.html/) as follows:
+When specifying time windows, all dates and times must be specified in accordance with the [ISO 8601 standard](https://www.iso.org/iso-8601-date-and-time-format.html/) as follows:
 
 ```
 yyyy-MM-ddTHH:mm:ss

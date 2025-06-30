@@ -243,7 +243,7 @@ flows (see [Versioning]({{< relref "versioning.md" >}})).
 
 The `cordapp` plugin can sign the generated CorDapp JAR file using the [JAR signing and verification tool](https://docs.oracle.com/javase/tutorial/deployment/jar/signing.html).
 Signing the CorDapp enables its contract classes to use signature constraints instead of other types of constraints.
-See [Contract Constraints]({{< relref "api-contract-constraints.md" >}}) for more information.
+See [Contract constraints]({{< relref "api-contract-constraints.md" >}}) for more information.
 The JAR file is signed by the Corda development certificate by default.
 
 {{< warning >}}

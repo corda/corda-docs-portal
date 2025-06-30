@@ -7,7 +7,7 @@ tags:
 - two
 - phase
 - finality
-title: Two Phase Finality
+title: Two phase finality
 weight: 40
 ---
 
@@ -35,9 +35,9 @@ Up until Corda 4.10, the finality flow protocol was implemented using a single p
 * Failure conditions may have led to ledger inconsistency, requiring manual intervention for recovery.
 {{< /note >}}
 
-## Two Phase Finality (2PF)
+## Two phase finality (2PF)
 
-To address the shortcomings of the conventional protocol, Two Phase Finality introduces a multi-phased protocol whereby:
+To address the shortcomings of the conventional protocol, Two phase finality introduces a multi-phased protocol whereby:
 
 * All parties have a copy of the unnotarized transaction. (Phase 1)
 * Additional metadata is stored with the unnotarized transaction to aid recovery.
@@ -53,7 +53,7 @@ The following diagram illustrates the Two Phase Finality protocol:
 The two primary optimizations used within the protocol are:
 
 * Usage of a *Deferred Acknowledgment* in Phase 1, where the Receiver sends back an explicit `FetchDataFlow.Request.End`
-  acknowledgement to the initiator `SendTransaction` flow.
+  acknowledgment to the initiator `SendTransaction` flow.
 
   Note that the `ReceiverTransactionFlow` is now passed an optional parameter (`deferredAck` = true) to instruct it to not perform any final acknowledging.
 
@@ -66,4 +66,4 @@ The two primary optimizations used within the protocol are:
 
 Internal R3 benchmarks indicate that 2PF incurs penalties of up to 15% increased latency, and a
 degradation in throughput of up to 15% (for the classic Cash Issue and Pay CorDapp use case scenario).
-This tradeoff in performance is outweighed by the resilience and recoverability benefits of the Two Phase Finality protocol.
+This trade-off in performance is outweighed by the resilience and recoverability benefits of the Two Phase Finality protocol.

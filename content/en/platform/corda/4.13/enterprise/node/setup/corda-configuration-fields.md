@@ -54,9 +54,9 @@ Cannot be set at the same time as the `networkServices` option.
 
 ## `cordappSignerKeyFingerprintBlacklist`
 
-List of the public keys fingerprints (SHA-256 of public key hash) not allowed as Cordapp JARs signers.
-The node will not load Cordapps signed by those keys.
-The option takes effect only in production mode and defaults to Corda development keys (`["56CA54E803CB87C8472EBD3FBC6A2F1876E814CEEBF74860BD46997F40729367", "83088052AF16700457AE2C978A7D8AC38DD6A7C713539D00B897CD03A5E5D31D"]`), in development mode any key is allowed to sign Cordpapp JARs.
+List of the public keys fingerprints (SHA-256 of public key hash) not allowed as CorDapp JARs signers.
+The node will not load CorDapps signed by those keys.
+The option takes effect only in production mode and defaults to Corda development keys (`["56CA54E803CB87C8472EBD3FBC6A2F1876E814CEEBF74860BD46997F40729367", "83088052AF16700457AE2C978A7D8AC38DD6A7C713539D00B897CD03A5E5D31D"]`), in development mode any key is allowed to sign CorDapp JARs.
 
 This property requires retrieving the hashes of public keys that need to be blacklisted.
 
@@ -132,7 +132,7 @@ For example, if `cryptoServiceFlowRetryCount` is set to `-2`, then the flow is r
 
 ## `cryptoServiceTimeout`
 
-Optional time-out value of actions sent to the CryptoService (HSM). If the HSM takes longer than this duration to respond, then a `TimedCryptoServiceException` will be thrown and handled by the Flow Hospital. You can increase it to mitigate the time-out error.
+Optional time-out value of actions sent to the CryptoService (HSM). If the HSM takes longer than this duration to respond, then a `TimedCryptoServiceException` will be thrown and handled by the Flow hospital. You can increase it to mitigate the time-out error.
 
 *Default:* 10000 milliseconds
 
@@ -165,7 +165,7 @@ Database configuration
 ## `dataSourceProperties`
 
 This section is used to configure the JDBC connection and database driver used for the node's persistence.
-To add additional data source properties (for a specific JDBC driver) use the `dataSource.` prefix with the property name (e.g. `dataSource.customProperty = value`).
+To add additional data source properties (for a specific JDBC driver) use the `dataSource.` prefix with the property name (for example, `dataSource.customProperty = value`).
 
 * `dataSourceClassName`
   * JDBC Data Source class name.
@@ -301,7 +301,7 @@ Allows fine-grained controls of various features only available in the enterpris
   * *Default:* Not present. By default, no maintenance activities will be performed if the `maintenanceMode` section is not provided. Without the new parameter, Corda will behave as if maintenance mode is not available.
   * If the `maintenanceMode` sub-section is provided, then **ALL** `maintenanceMode` parameters (as described below) must be supplied and must also pass configuration validation at start-up.
   * Parameters:
-    * `schedule` is a *“cron-like”* expression, which is used to control at what time(s) the maintenance tasks are run. The format follows the existing cron standards using a 6-part time specification but omits the command line part of the expression as would be present in a Unix cron expression. Times are in **UTC**. See an example in [Node Maintenance Mode]({{< relref "../operating/maintenance-mode.md#configuration-of-node-maintenance-mode" >}}). For more information on *cron* (with examples) please see [cron-wiki](https://en.wikipedia.org/wiki/Cron) and note that the examples shown will include the *<command to execute>* part which is not present in the Corda `schedule`. The tasks that get run are not dependent on this configuration item and are determined *within* Corda. The following example will run maintenance at 14:30 and 15:30 (UTC) on Fridays (‘5’ in final column): `schedule = "00 30 14,15 * * 5"`.
+    * `schedule` is a *“cron-like”* expression, which is used to control at what time(s) the maintenance tasks are run. The format follows the existing cron standards using a 6-part time specification but omits the command line part of the expression as would be present in a Unix cron expression. Times are in **UTC**. See an example in [Node Maintenance Mode]({{< relref "../operating/maintenance-mode.md#configuration-of-node-maintenance-mode" >}}). For more information on *cron* (with examples), see [cron-wiki](https://en.wikipedia.org/wiki/Cron) and note that the examples shown will include the *<command to execute>* part which is not present in the Corda `schedule`. The tasks that get run are not dependent on this configuration item and are determined *within* Corda. The following example will run maintenance at 14:30 and 15:30 (UTC) on Fridays (‘5’ in final column): `schedule = "00 30 14,15 * * 5"`.
     * `duration` is the maximum time that a maintenance window is expected to take to run all tasks. At start-up, Corda will check for all maintenance events that occur within the following week. If there is an overlap (due the specified duration being longer than the interval between any two adjacent maintenance windows), Corda Enterprise will emit a *warning* to the log which will precisely specify the overlap scenario but no further action will be taken. Additionally, if the time that the maintenance tasks *actually* take to run exceeds the specified duration, a warning will be emitted to the log but the maintenance tasks will not be interrupted. The purpose of the duration parameter is to allow the user to check that there are no overlaps and to allow monitoring of overrunning activities via log messaging and monitoring. The duration is specified in HOCON *duration* format with suffixes of `‘h’ (hours), ‘m’ (minutes) and ‘s’ (seconds)` - for example, `‘1h’` to mean one hour. For additional information on HOCON duration format parsing, see [HOCON-duration-format](https://github.com/lightbend/config/blob/master/HOCON.md#duration-format).
     * `rpcAuditDataRetentionPeriod` is a parameter to the RPC table maintenance task and specifies how long records should be kept for within the table for. The parameter is in HOCON *period* format - for example, `‘365d’, ‘1w’`. In general, the following suffixes should be sufficient: `‘d’ (days), ‘w’ (weeks), ‘m’ (months), ‘y’ (years)`. For more information on the HOCON period format see [HOCON-period-format](https://github.com/lightbend/config/blob/master/HOCON.md#period-format). The end of the retention period will be the current time (in UTC) minus the duration.
   * [Node Maintenance Mode]({{< relref "../operating/maintenance-mode.md#configuration-of-node-maintenance-mode" >}}) uses the `processedMessageCleanup` parameters (see below).
@@ -344,7 +344,7 @@ Allows fine-grained controls of various features only available in the enterpris
     * `reservoirType`: Sets the reservoir type. Valid values are `EDR` (default) and `TIME_WINDOW`. For more information, see the [metrics documentation]({{< relref "../operating/monitoring-and-logging/node-metrics.md" >}}).
     * `timeWindow`: Sets the data gathering duration for `TIME_WINDOW` data reservoirs. If not set, the default is five minutes.
 
-* `tuning`
+* `tuning` <a name="tuning"> 
 
     * The Corda Node configuration file section that contains performance tuning parameters for Corda Enterprise nodes.
 
@@ -621,10 +621,10 @@ The New Relic configuration leverages the Dropwizard NewRelicReporter solution.
 
 ## `keyStorePassword`
 
-The password to unlock the KeyStore file (`<workspace>/certificates/sslkeystore.jks`) containing the node certificate and private key.
+The password to unlock the keystore files `<workspace>/certificates/sslkeystore.jks and `<workspace>/certificates/nodestore.jks` containing the node certificate and private key.
 
-**Important: This is the non-secret value for the development certificates automatically generated during the first node run.
-Alternatively, these keys can be managed in secure hardware devices.**
+{{< important >}} This is the non-secret value for the development certificates automatically generated during the first node run.
+Alternatively, these keys can be managed in secure hardware devices.{{< /important >}} 
 
 *Default:* cordacadevpass
 
@@ -957,7 +957,7 @@ If not provided then the node will run without RPC.
 
 Options for the RPC server exposed by the Node.
 
-**Important: The RPC SSL certificate is used by RPC clients to authenticate the connection.  The Node operator must provide RPC clients with a truststore containing the certificate they can trust.  We advise Node operators to not use the P2P keystore for RPC.  The node can be run with the "generate-rpc-ssl-settings" command, which generates a secure keystore and truststore that can be used to secure the RPC connection. You can use this if you have no special requirements.**
+**Important:** The RPC SSL certificate is used by RPC clients to authenticate the connection.  The node operator must provide RPC clients with a truststore containing the certificate they can trust.  We advise node operators to not use the P2P keystore for RPC.  The node can be run with the "generate-rpc-ssl-settings" command, which generates a secure keystore and truststore that can be used to secure the RPC connection. You can use this if you have no special requirements.
 
 * `address`
   * host and port for the RPC server binding. Specifying 0.0.0.0 (as host) is a convention allowing the host to bind all of its network interfaces when listening on a socket. By itself 0.0.0.0 is non-routable; i.e., not a proper address.
@@ -1022,13 +1022,13 @@ Internal option.
 ## `systemProperties`
 
 An optional map of additional system properties to be set when launching via `corda.jar` only.
-Keys and values of the map should be strings. e.g. `systemProperties = { "visualvm.display.name" = FooBar }`
+Keys and values of the map should be strings; for example, `systemProperties = { "visualvm.display.name" = FooBar }`
 
 *Default:* not defined
 
 ## `telemetry`
 
-There are new configuration fields for telemetry. See the [OpenTelemetry]({{< relref "../../../enterprise/node/operating/monitoring-and-logging/opentelemetry.md" >}}) section for more information.
+There are new configuration fields for telemetry. See the [OpenTelemetry]({{< relref "../operating/monitoring-and-logging/opentelemetry.md" >}}) section for more information.
 
 * `openTelemetryEnabled`
   * Specifies if the node should generate spans to be sent to a collector. The node will only generate spans if this property is set to `true` and an OpenTelemetry SDK is on the node classpath. By default, no OpenTelemetry SDK is on the node classpath, meaning by default no spans are actually generated. To prevent spans being generated regardless of whether the OpenTelemetry SDK is on the classpath, this configuration field should be set to `false`.

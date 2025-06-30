@@ -20,7 +20,7 @@ title: Consensus
 ## Summary
 
 * Transactions must achieve *validity consensus* **and** *uniqueness consensus* to be committed to the ledger.
-* Validity consensus determines if a transaction is accepted by the [smart contracts]{{< relref "key-concepts-contracts.md" >}}) it references.
+* Validity consensus determines if a transaction is accepted by the [smart contracts]({{< relref "key-concepts-contracts.md" >}}) it references.
 * Uniqueness consensus prevents double-spends.
 
 ## Video
@@ -58,7 +58,7 @@ verifying the transaction that created the proposed transaction’s input states
 
 ## Uniqueness consensus
 
-Uniqueness consensus is when a [notary]{{< relref "key-concepts-notaries.md" >}}) checks that a [node]{{< relref "key-concepts-node.md" >}}) hasn't used the same input for multiple transactions.
+Uniqueness consensus is when a [notary]({{< relref "key-concepts-notaries.md" >}}) checks that a [node]({{< relref "key-concepts-node.md" >}}) hasn't used the same input for multiple transactions.
 
 Imagine that Alice holds a valid central-bank-issued cash state of $1,000,000. Alice can create two transaction
 proposals:
@@ -74,6 +74,6 @@ To prevent this, a valid transaction proposal must also achieve uniqueness conse
 requirement that none of the inputs to a proposed transaction have already been consumed in another transaction.
 
 If one or more of the inputs have already been consumed in another transaction, this is known as a *double spend*,
-and the [notary]{{< relref "key-concepts-notaries.md" >}}) marks the transaction proposal as invalid.
+and the [notary]({{< relref "key-concepts-notaries.md" >}}) marks the transaction proposal as invalid.
 
 

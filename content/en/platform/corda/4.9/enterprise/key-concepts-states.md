@@ -20,7 +20,7 @@ title: States
 
 ## Summary
 
-* States represent facts on the **[ledger]{{< relref "key-concepts-ledger.md" >}})**.
+* States represent facts on the **[ledger]({{< relref "key-concepts-ledger.md" >}})**.
 * Facts evolve on the ledger when participants create new states and mark outdated states as historic.
 * Each node has a vault where it stores the states it shares with other nodes.
 
@@ -38,7 +38,7 @@ This state represents an IOU—an agreement that Alice owes Bob £10:
 {{< figure alt="state" width=80% zoom="/en/images/state.png" >}}
 
 In addition to information about the fact, the state contains a reference to the
-**[contract]{{< relref "key-concepts-contracts.md" >}})**. Contracts govern the evolution of states.
+**[contract]({{< relref "key-concepts-contracts.md" >}})**. Contracts govern the evolution of states.
 
 ## State sequences
 
@@ -63,7 +63,7 @@ From each node's point of view, the ledger is the current (non-historic) states 
 Not all states need to be updated by the parties which use them. In the case of reference data, one party can create
 a state containing reference data. This state can be used (but not updated) by other parties. For this use-case, the
 states containing reference data are referred to as **reference states**. Reference states are no different
-to regular states. However, they are handled differently in Corda **[transactions]{{< relref "key-concepts-transactions.md" >}})**.
+to regular states. However, they are handled differently in Corda **[transactions]({{< relref "key-concepts-transactions.md" >}})**.
 
 ## Reissuing states
 

@@ -24,14 +24,13 @@ Corda's `cordformation` Gradle plugin provides the `Cordform` and `Dockerform` t
 ## Tasks using Cordform
 
 The following example, as defined in the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin/blob/release-V4/build.gradle#L120), shows a `Cordform` task called `deployNodes` that creates three nodes:
-* A `Notary` node, which:
-  * Provides a validating Notary service.
-  * Runs the `corda-finance` CorDapp.
-
-* `PartyA` and `PartyB` nodes, each of which:
-  * Does not provide any services.
-  * Runs the `corda-finance` CorDapp.
-  * Has an RPC (Remote Procedure Call) user (`user1`), which enables you to log in the node via RPC.
+- A `Notary` node, which:
+  - Provides a validating Notary service.
+  - Runs the `corda-finance` CorDapp.
+- `PartyA` and `PartyB` nodes, each of which:
+  - Does not provide any services.
+  - Runs the `corda-finance` CorDapp.
+  - Has an RPC (Remote Procedure Call) user (`user1`), which enables you to log in the node via RPC.
 
 All three nodes also include any CorDapps defined in the project's source directories, even if these CorDapps are not listed in each node's `cordapps` setting. As a result, if you run the `deployNodes` task from the template CorDapp, for example, it will automatically build and add the template CorDapp to each node.
 
@@ -128,30 +127,30 @@ There are four mandatory fields that must be set for the Cordform plugin:
 
 1. `name` &lt;string&gt; is used to specify the legal identity name of the Corda node. For more information, see [myLegalName]({{< relref "corda-configuration-fields.md#mylegalname" >}}). For example:
 
-```kotlin
-name "O=PartyA,L=London,C=GB"
-```
+   ```kotlin
+   name "O=PartyA,L=London,C=GB"
+   ```
 
 2. `p2pAddress` &lt;string&gt; is used to specify the address/port the node uses for inbound communication from other nodes. For more information, see [p2pAddress]({{< relref "corda-configuration-fields.md#p2paddress" >}}). **Required if `p2pPort` is not specified**. For example:
 
-```kotlin
-p2pAddress "example.com:10002"
-```
+   ```kotlin
+   p2pAddress "example.com:10002"
+   ```
 
 3. `p2pPort` &lt;integer&gt; is used to specify the port the node uses for inbound communication from other nodes. The assumed IP address is `localhost`. For more information, see [p2pAddress]({{< relref "corda-configuration-fields.md#p2paddress" >}}). For example:
 
-```kotlin
-p2pPort 10006  // "localhost:10006"
-```
+   ```kotlin
+   p2pPort 10006  // "localhost:10006"
+   ```
 
 4. `rpcSettings` &lt;config&gt; is used to specify RPC settings for the node. For more information, see [rpcSettings]({{< relref "corda-configuration-fields.md#rpcsettings" >}}). For example:
 
-```kotlin
-rpcSettings {
-  port 10006
-  adminPort 10026
-}
-```
+   ```kotlin
+   rpcSettings {
+     port 10006
+     adminPort 10026
+   }
+   ```
 
 ## Optional configuration
 
@@ -161,29 +160,29 @@ In addition to the four mandatory configuration fields, there are a number of op
 
 * `devMode` &lt;boolean&gt; is used to enable development mode when you set its value to `true`. For more information, see [devMode]({{< relref "corda-configuration-fields.md#devmode" >}}). For example:
 
-```kotlin
-devMode true
-```
+   ```kotlin
+   devMode true
+   ```
 
 * `rpcUsers` &lt;list&gt; is used to set the RPC users for the node. For more information, see [rpcUsers]({{< relref "corda-configuration-fields.md#rpcusers" >}}). You can use arbitrary values in this configuration block - "incorrect" settings will not cause a DSL error. An example follows below:
 
-```kotlin
-rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.corda.flows.MyFlow"]]]
-```
+   ```kotlin
+   rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.corda.flows.MyFlow"]]]
+   ```
 
 * `configFile` &lt;string&gt; is used to generate an extended node configuration. For example:
 
-```kotlin
-configFile = "samples/trader-demo/src/main/resources/node-b.conf"
-```
+   ```kotlin
+   configFile = "samples/trader-demo/src/main/resources/node-b.conf"
+   ```
 
 * `sshdPort` &lt;integer&gt; is used to specify the SSH port for the Docker container. This will be mapped to the same port on the host.  If `sshdPort` is specified, then that port must be available on the host and not in use by some other service. If `sshdPort` is not specified, then a default value will be used for the SSH port on the container. Use the `docker port <container_name>` command to check which port has been allocated on the host for your container. For more information, see [sshd]({{< relref "corda-configuration-fields.md#sshd" >}}). For example:
 
-```kotlin
-sshd {
-  port = 2222
-}
-```
+   ```kotlin
+   sshd {
+     port = 2222
+   }
+   ```
 
 You can extend the `deployNodes` task with more `node {}` blocks to generate as many nodes as necessary for your application.
 
@@ -254,14 +253,14 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 CorDapp JAR files created by the gradle `cordapp` plug-in are signed by a Corda development certificate by default.
 
 You can use the Cordform `signing` entry to override and customise the signing of CorDapp JAR files.
-Signing a CorDapp enables its contract classes to use signature constraints instead of other types of constraints, such as [Contract Constraints]({{< relref "api-contract-constraints.md" >}}).
+Signing a CorDapp enables its contract classes to use signature constraints instead of other types of constraints, such as [Contract constraints]({{< relref "api-contract-constraints.md" >}}).
 
 The signing task may use an external keystore, or create a new one.
 You can use the following parameters in the `signing` entry:
 
 
 * `enabled` is the control flag to enable the signing process. It is set to `false` by default. Set to `true` to enable signing.
-* `all`, if set to `true` (default), all CorDapps inside the `cordapp` sub-directory will be signed. If set to `false`, only the generated Cordapp will be signed.
+* `all`, if set to `true` (default), all CorDapps inside the `cordapp` sub-directory will be signed. If set to `false`, only the generated CorDapp will be signed.
 * `options` covers any relevant parameters of [SignJar ANT task](https://ant.apache.org/manual/Tasks/signjar.html) and [GenKey ANT task](https://ant.apache.org/manual/Tasks/genkey.html). By default, the JAR file is signed by a Corda development key. You can specify the external keystore can be specified. The minimal list of required options is shown below. For other options, see [SignJar task](https://ant.apache.org/manual/Tasks/signjar.html).
   * `keystore` is the path to the keystore file. The default setting is `cordadevcakeys.jks`. The keystore is shipped with the plug-in.
   * `alias` is the alias to sign under. The default value is `cordaintermediateca`.
@@ -297,7 +296,7 @@ The example below shows the minimal set of `options` required to create a dummy 
 
 Contract classes from signed CorDapp JAR files are checked by signature constraints by default.
 You can force them to be checked by zone constraints by adding contract class names to the `includeWhitelist` entry - the list will generate an `include_whitelist.txt` file used internally by the [Network Bootstrapper]({{< relref "network-bootstrapper.md" >}}) tool.
-Before you add `includeWhitelist` to the `deployNodes` task, see [Contract Constraints]({{< relref "api-contract-constraints.md" >}}) to understand the implications of using different constraint types.
+Before you add `includeWhitelist` to the `deployNodes` task, see [Contract constraints]({{< relref "api-contract-constraints.md" >}}) to understand the implications of using different constraint types.
 The snippet below configures contracts classes from the Finance CorDapp to be verified using zone constraints instead of signature constraints:
 
   ```groovy

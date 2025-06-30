@@ -10,7 +10,7 @@ menu:
 tags:
 - jira
 - setup
-title: Jira Set-Up
+title: Jira setup
 ---
 
 

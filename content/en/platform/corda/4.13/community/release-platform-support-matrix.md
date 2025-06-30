@@ -17,9 +17,9 @@ Production use of Corda Open Source 4.12 is only supported on Linux OS, see deta
 
 ## Network management
 
-The Open Source Edition of Corda does not come with network management support included. You can still consider joining the [Corda Network](https://corda.network).
+The Open Source Edition of Corda does not come with network management support included. 
 
-If you require network management, you can consider using the [Network Map Service from Cordite](https://gitlab.com/cordite/network-map-service). Cordite Foundation is a third-party supplier, and not supported by R3.
+If you require network management, you can consider using the [Network Map service from Cordite](https://gitlab.com/cordite/network-map-service). Cordite Foundation is a third-party supplier, and not supported by R3.
 
 ## Notaries
 

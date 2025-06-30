@@ -68,7 +68,7 @@ To set the logging level for specific modules:
     ```
 
     In this instance, the `org.hibernate` logger has been set to the `DEBUG` log level.
-4. Add a `<Logger>` entry for each module for which you intend to set a logging level. To determine the name of the logger, for Corda objects, use the fully qualified name e.g. `net.corda.node.internal.Node`. For other libraries, refer to their logging name construction. If you can’t find what you need to refer to, use the `--logging-level` option and then determine the logging module name from the console output.
+4. Add a `<Logger>` entry for each module for which you intend to set a logging level. To determine the name of the logger, for Corda objects, use the fully qualified name; for example,`net.corda.node.internal.Node`. For other libraries, refer to their logging name construction. If you can’t find what you need to refer to, use the `--logging-level` option and then determine the logging module name from the console output.
 5. Save the `sql.xml` file.
 6. Restart the node:
     `java <Your existing startup options here> -Dlog4j.configurationFile=sql.xml -jar corda.jar`
@@ -79,7 +79,9 @@ Synchronous logging provides poorer node performance, but may be useful for deve
 
 1. Safely shut down the node.
 2. Open the `node.conf` configuration file.
-3. In the `jvmArgs` section, add `-DLog4jContextSelector=org.apache.logging.log4j.core.selector.ClassLoaderContextSelector`.
+3. In the `jvmArgs` section, add:
+   
+   `-DLog4jContextSelector=org.apache.logging.log4j.core.selector.ClassLoaderContextSelector`.
 4. Save the `node.conf` file and restart the node.
 
 {{< warning >}}
@@ -129,8 +131,10 @@ To monitor your node using Jolokia you must:
 1. Acquire the Jolokia 1.6.1 agent JAR file.
 2. Save the Jolokia JAR file in the `drivers` directory of the node. The driver name must be `jolokia-jvm-1.6.1-agent.jar`.
 3. Either:
-    a. Specify the `jmxMonitoringHttpPort` parameter in the node configuration file. The `jmxMonitoringHttpPort` parameter loads the Jolokia driver from the `drivers` directory.
-    b. Start the node with `java -Dcapsule.jvm.args="-javaagent:drivers/jolokia-jvm-1.6.1-agent.jar=port=7777,host=localhost" -jar corda.jar`.
+   - Specify the `jmxMonitoringHttpPort` parameter in the node configuration file. The `jmxMonitoringHttpPort` parameter loads the Jolokia driver from the `drivers` directory.
+   - Start the node with:
+
+     `java -Dcapsule.jvm.args="-javaagent:drivers/jolokia-jvm-1.6.1-agent.jar=port=7777,host=localhost" -jar corda.jar`.
 
 The following JMX statistics are exported:
 
@@ -186,4 +190,4 @@ To publish metrics to a Graphite server:
 ## Related content
 
 * [Node metrics]({{< relref "node-metrics.md" >}})
-* [Monitoring scenarios]({{< relref "monitoring-scenarios.md" >}})
+* [Node monitoring scenarios]({{< relref "monitoring-scenarios.md" >}})

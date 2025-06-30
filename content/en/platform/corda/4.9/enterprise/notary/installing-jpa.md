@@ -298,7 +298,7 @@ The `dataSource.url` property must specify a _minimum_ of three nodes. Each node
 dataSource.url="jdbc:postgresql://<CockroachDB-node1-IP-address>:26257,<CockroachDB-node2-IP-address>:26257,<CockroachDB-node3-IP-address>:26257/corda?sslmode=require&sslrootcert=certificates/ca.crt&sslcert=certificates/client.corda.crt&sslkey=certificates/client.corda.key.pk8"
 ```
 
-Refer to the section [Configuring the notary worker nodes]{{< relref "installing-the-notary-service.md" >}}) for more details on configuring the JPA notary.
+Refer to the section [Configuring the notary worker nodes]({{< relref "installing-the-notary-service.md" >}}) for more details on configuring the JPA notary.
 
 
 ## Configuring notary backend - Oracle RAC 19c

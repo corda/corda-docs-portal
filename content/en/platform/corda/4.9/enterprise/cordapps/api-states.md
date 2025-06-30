@@ -48,7 +48,7 @@ The `participants` in a state:
 * Receive any finalized transactions as part of `FinalityFlow` / `ReceiveFinalityFlow`.
 
 {{< note >}}
-See [Reissuing states]{{< relref "reissuing-states.md" >}}) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
+See [Reissuing states]({{< relref "reissuing-states.md" >}}) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
 {{< /note >}}
 
 ## ContractState sub-interfaces

@@ -23,7 +23,7 @@ title: Flow cookbook
 This flow showcases how to use Corda’s API, in both Java and Kotlin.
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @file:Suppress("UNUSED_VARIABLE", "unused", "DEPRECATION")
 
@@ -302,7 +302,7 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
         val ourBefore: TimeWindow = TimeWindow.untilOnly(Instant.MAX)
 
         // We can also define a time window as an ``Instant`` +/- a time
-        // tolerance (e.g. 30 seconds):
+        // tolerance (for example, 30 seconds):
         val ourTimeWindow2: TimeWindow = TimeWindow.withTolerance(serviceHub.clock.instant(), 30.seconds)
         // Or as a start-time plus a duration:
         val ourTimeWindow3: TimeWindow = TimeWindow.fromStartAndDuration(serviceHub.clock.instant(), 30.seconds)
@@ -355,7 +355,7 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
 
         // We can set a time-window directly.
         txBuilder.setTimeWindow(ourTimeWindow)
-        // Or as a start time plus a duration (e.g. 45 seconds).
+        // Or as a start time plus a duration (for example, 45 seconds).
         txBuilder.setTimeWindow(serviceHub.clock.instant(), 45.seconds)
 
         /**----------------------
@@ -592,7 +592,7 @@ class ResponderFlow(val counterpartySession: FlowSession) : FlowLogic<Unit>() {
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.docs.java;
 
@@ -871,7 +871,7 @@ public class FlowCookbook {
             TimeWindow ourBefore = TimeWindow.untilOnly(Instant.MAX);
 
             // We can also define a time window as an ``Instant`` +/- a time
-            // tolerance (e.g. 30 seconds):
+            // tolerance (for example, 30 seconds):
             TimeWindow ourTimeWindow2 = TimeWindow.withTolerance(getServiceHub().getClock().instant(), Duration.ofSeconds(30));
             // Or as a start-time plus a duration:
             TimeWindow ourTimeWindow3 = TimeWindow.fromStartAndDuration(getServiceHub().getClock().instant(), Duration.ofSeconds(30));
@@ -924,7 +924,7 @@ public class FlowCookbook {
 
             // We can set a time-window directly.
             txBuilder.setTimeWindow(ourTimeWindow);
-            // Or as a start time plus a duration (e.g. 45 seconds).
+            // Or as a start time plus a duration (for example, 45 seconds).
             txBuilder.setTimeWindow(getServiceHub().getClock().instant(), Duration.ofSeconds(45));
 
             /*-----------------------

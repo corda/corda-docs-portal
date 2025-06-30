@@ -17,7 +17,10 @@ weight: 200
 
 A Corda node exports a number of metrics for the purpose of monitoring the health of the node via JMX. These metrics are described below.
 
-For more information on how to monitor a node, see [Node administration]({{< relref "../node-administration.md" >}}), [Node monitoring and logging]({{< relref "overview.md" >}}), and [Node monitoring scenarios]({{< relref "monitoring-scenarios.md" >}}).
+For more information on how to monitor a node, see:
+- [Node administration]({{< relref "../node-administration.md" >}})
+- [Node monitoring and logging]({{< relref "overview.md" >}})
+- [Node monitoring scenarios]({{< relref "monitoring-scenarios.md" >}})
 
 ## Node status
 
@@ -60,8 +63,9 @@ Using time window reservoirs increases heap memory usage proportionally to the a
 A Corda node maintains a number of caches. For each of the metrics below, the name of the cache must be supplied in the `component` field to
 show metrics for that cache.
 
-There are two types of caches: *size-based* and *weight-based*. Size-based caches are measured in the number
-of entries in the cache, while weight-based caches are measured in the bytes of memory occupied by the entries.
+There are two types of cache: 
+- **Size-based:** Measured by the number of entries in the cache
+- **Weight-based:**. Measured by the number of bytes of memory occupied by the entries
 
 {{< note >}}
 The available set of metrics depends on the cache type. The `maximum-size` and `sizePercent` metrics are only available for size-based caches, while `maximum-weight`, `weight`, and `weightPercent` metrics are only available for weight-based caches.

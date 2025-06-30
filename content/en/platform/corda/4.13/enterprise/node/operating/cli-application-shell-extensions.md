@@ -8,12 +8,12 @@ tags:
 - application
 - shell
 - extensions
-title: Shell extensions for CLI Applications
+title: Shell extensions for CLI applications
 weight: 2
 ---
 
 
-# Shell extensions for CLI Applications
+# Shell extensions for CLI applications
 
 
 
@@ -60,18 +60,18 @@ corda --<option>
 
 Once the shell extensions have been installed, you can upgrade them in one of two ways.
 
-
-* Overwrite the existing JAR with the newer version. The next time you run the application, it will automatically update
-the completion file. Either restart the shell or see [above](#installing-shell-extensions) for instructions
+- Overwrite the existing JAR with the newer version. The next time you run the application, it will automatically update
+the completion file. Either restart the shell or see [Installing shell extensions](#installing-shell-extensions) for instructions
 on making the changes take effect immediately.
-* If you wish to use a new JAR from a different directory, navigate to that directory and run:
+- If you wish to use a new JAR from a different directory, navigate to that directory and run:
 
-```shell
-java -jar <name-of-JAR>
-```
+  ```shell
+  java -jar <name-of-JAR>
+  ```
 
-Which will update the alias to point to the new location, and update command line completion functionality. Either
-restart the shell or see [above](#installing-shell-extensions) for instructions on making the changes take effect immediately.
+  The above command will update the alias to point to the new location, and update command line completion functionality. Either
+restart the shell or see [Installing shell extensions](#installing-shell-extensions) for instructions on making the changes take effect immediately.
+
 
 
 ## List of existing CLI applications

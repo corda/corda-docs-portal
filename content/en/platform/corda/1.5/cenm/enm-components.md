@@ -10,11 +10,11 @@ menu:
 tags:
 - enm
 - components
-title: Components of the Corda Enterprise Network Manager
+title: Network Manager components
 ---
 
 
-# Components of the Corda Enterprise Network Manager
+# Corda Enterprise Network Manager Components
 
 At the highest level, the CENM suite is deployed as shown in the following diagram:
 
@@ -69,7 +69,7 @@ Acts as a location service for nodes once they have an identity granted to them 
 by joining a network, a node is agreeing to a set of parameters that dictate the rules for how consensus over the
 zone is achieved. As such,the most important of those is a list of trusted notary services.
 
-A zone can play host to any number of these sets of consensus rules, each forming a distinct sub zone within the
+A zone can play host to any number of these sets of consensus rules, each forming a distinct subzone within the
 main zone as a whole.
 
 {{< warning >}}
@@ -119,7 +119,7 @@ By design, they only have the ability to talk *to* the other CENM components, th
 In addition, signing a CRR or CSR, and potentially the Network Parameters, *should* require a human to interact with
 the HSM via some manual authentication mechanism.
 
-See [Certificate Hierarchy Guide]({{< relref "../../../../../en/platform/corda/1.5/cenm/pki-guide.md" >}}) for a detailed guide to PKI.
+See [Certificate hierarchy guide]({{< relref "../../../../../en/platform/corda/1.5/cenm/pki-guide.md" >}}) for a detailed guide to PKI.
 
 
 ## The Node

@@ -152,10 +152,10 @@ where this is the only available option:
 * Corda Enterprise JAR
 * Corda Firewall JAR
 
-The next simplest deployment is when combined Bridge/Float component is segregated away from Corda Node.
+The next simplest deployment is when combined Bridge/Float component is segregated away from a Corda node.
 
 To enable this mode `node.conf` specifies `externalBridge = true`.
-In this configuration Artemis Broker will still be embedded inside the Corda Node and the combined Bridge/Float process needs to connect
+In this configuration Artemis Broker will still be embedded inside the Corda node and the combined Bridge/Float process needs to connect
 to that broker.
 
 In this mode it is possible to host both of the processes on the same machine. This might be suitable for a test environment, to conserve VMs.
@@ -164,7 +164,7 @@ In this mode it is possible to host both of the processes on the same machine. T
 {{< note >}}
 Note that to run the firewall and the node on the same machine there could be a port conflict with a naive `node.conf` setup,
 but by using the `messagingServerAddress` property to specify the bind address and port plus setting
-`messagingServerExternal = false` (Artemis Broker still within Corda Node)
+`messagingServerExternal = false` (Artemis Broker still within a Corda node)
 the embedded Artemis P2P broker can be set to listen on a different port rather than the advertised `p2paddress` port.
 Then configure an all-in-one bridge to point at this node’s `messagingServerAddress`:
 
@@ -226,7 +226,7 @@ networkParametersPath = network-parameters
 * Corda Firewall JAR
 
 This is a more complete deployment which includes a DMZ and separate processes for outbound and inbound connectivity. The process deployed into DMZ is
-called `Float`, also known as `BridgeOuter`. The process that sits along with Corda Node in the Green Zone is called `Bridge`,
+called `Float`, also known as `BridgeOuter`. The process that sits along with a Corda node in the Green Zone is called `Bridge`,
 also known as `BridgeInner`. These mode names were chosen to remind users that the `Bridge` should run in the trusted
 *inner* network zone and the `Float` should run in the less trusted *outer* zone.
 The diagram below shows such a non-HA deployment. This would not be recommended for production, unless used as part of a cold
@@ -524,7 +524,7 @@ floatOuterConfig {
 
 #### Notes on physical deployment of services
 
-In this mode of operation there will be a large amount of network traffic exchanged between: Float, Bridge, Artemis Broker and Corda Node.
+In this mode of operation there will be a large amount of network traffic exchanged between: Float, Bridge, Artemis Broker and the Corda node.
 
 In order to ensure optimal performance of this sort of deployment, it is required to have stable connectivity and to minimise latency
 between aforementioned services. Failing that, communication may lead to frequent timeouts/re-tries or even un-necessary HA cluster switchover
@@ -538,7 +538,7 @@ and from Foreign Node to Float are done over WAN over which the node operator do
 More specifically, in order to ensure optimal performance it is required:
 
 
-* To deploy Float, Bridge, Artemis Broker and Corda Node in the same data center;
+* To deploy Float, Bridge, Artemis Broker and the Corda ode in the same data center;
 * Network bandwidth between any two hosts where services deployed should be no less than 100 MBit (1 GBit preferred);
 * TCP packets loss ratio should be 0.1% or less;
 * Round-trip time (RTT) should be 10 milliseconds or less.
@@ -560,7 +560,7 @@ More specifically, in order to ensure optimal performance it is required:
 * Optional: Zookeeper v3.6.1 if using Bridge cluster
 
 It is possible to allow two or more Corda nodes (HA and/or non-HA) handle outgoing and incoming P2P communication through a shared bridge. This is possible by configuring the nodes to use
-an external Artemis messaging broker which can be easily configured using the ha-tool. For more information, please see HA Utilities. While this example is the simplest deployment
+an external Artemis messaging broker which can be easily configured using the ha-tool. For more information, see [HA Utilities]({{< relref "../ha-utilities.md" >}}). While this example is the simplest deployment
 possible with a shared bridge, any other configuration previously presented can be created.
 
 {{< figure alt="multiple nodes no ha" width=80% zoom="/en/images/multiple_nodes_no_ha.png" >}}
@@ -673,24 +673,20 @@ the *SSL key copier* is tailored to import multiple node’s SSL keys into the b
 
 A simple procedure for adding a new node might look like the following:
 
-
-
-* Back up and shut down all Corda components - Nodes, Bridges, Artemis broker and Float.
-* Register your new entities with the network operator. See [Joining a compatibility zone]({{< relref "../network/joining-a-compatibility-zone.md" >}}).
-* Locate the SSL keystore file in node’s certificate folder. e.g. `<node base directory>/certificates/sslkeystore.jks`
-* Copy the SSL keystores generated from the registration process to Bridge if they are on a different host.
-* Using the HA Utilities, copy the newly acquired legal entity’s SSL key to the bridge’s SSL keystore.
-`ha-utilities import-ssl-key --node-keystores <<Node keystore path>> --node-keystore-passwords=<<Node keystore password>> --bridge-keystore=<<Bridge keystore path>> --bridge-keystore-password=<<Bridge keystore password>>`
-* Start the Bridge and other nodes.
-
-
+1. Back up and shut down all Corda components: nodes, Bridges, Artemis broker and Float.
+2. Register your new entities with the network operator. See [Joining a compatibility zone]({{< relref "../network/joining-a-compatibility-zone.md" >}}).
+3. Locate the SSL keystore file in the node’s certificate folder; for example, `<node base directory>/certificates/sslkeystore.jks`
+4. Copy the SSL keystores generated from the registration process to Bridge if they are on a different host.
+5. Using the HA Utilities, copy the newly acquired legal entity’s SSL key to the bridge’s SSL keystore:
+   * `ha-utilities import-ssl-key --node-keystores <<Node keystore path>> --node-keystore-passwords=<<Node keystore password>> --bridge-keystore=<<Bridge keystore path>> --bridge-keystore-password=<<Bridge keystore password>>`
+6. Start the Bridge and other nodes.
 
 ## Standalone Artemis server
 
 The Corda node can be configured to use a external Artemis broker instead of embedded broker to provide messaging layer HA capability in enterprise environment.
 
 Detailed setup instructions for Apache Artemis can be found in [Apache Artemis documentation](https://activemq.apache.org/artemis/docs/latest/index.html). Also see
-HA Utilities for Artemis server configuration tool, which you can use to build a local, configured for Corda, Apache Artemis directory.
+[HA Utilities]({{< relref "../ha-utilities.md" >}}) for Artemis server configuration tool, which you can use to build a local, configured for Corda, Apache Artemis directory.
 
 {{< note >}}
 To run Apache Artemis you can use: `cd artemis && bin/artemis run`
@@ -741,12 +737,12 @@ Historically, those private keys were stored in keystore files on local disk. De
 To address this requirement, Corda Firewall has a facility to enable TLS signing using HSM. The key principle here is that private key is generated on HSM and never leaves HSM to avoid being compromised.
 When it comes to use of private key for signing - this operation is performed on HSM device itself.
 
-This mode of operation is very similar to what is happening on the Corda Node for identity private key, please see: Crypto service configuration.
+This mode of operation is very similar to what is happening on the Corda node for identity private key, see [Using an HSM with Corda Enterprise]({{< relref "operating/cryptoservice-configuration.md" >}}). 
 
 HA Utilities tool been extended such that during initial generation of TLS keys they are created on HSM.
 
 {{< note >}}
-Even though Corda Firewall has a facility to store Artemis private key in HSM, out-of-process Artemis and Corda Node do not yet have facility to store their private keys on HSM.
+Even though Corda Firewall has a facility to store Artemis private key in HSM, out-of-process Artemis and the Corda node do not yet have facility to store their private keys on HSM.
 
 {{< /note >}}
 {{< note >}}

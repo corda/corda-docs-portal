@@ -101,14 +101,10 @@ parties).
 
 A flow can become backwards-incompatible in two main ways:
 
-
-* The sequence of `send` and `receive` calls changes:
-    * A `send` or `receive` is added or removed from either the `InitiatingFlow` or `InitiatedBy` flow
-    * The sequence of `send` and `receive` calls changes
-
-
-* The types of the `send` and `receive` calls changes
-
+- The sequence of `send` and `receive` calls changes:
+  -  A `send` or `receive` is added or removed from either the `InitiatingFlow` or `InitiatedBy` flow
+  - The sequence of `send` and `receive` calls changes
+- The types of the `send` and `receive` calls changes
 
 ### What happens when running flows with incompatible versions?
 
@@ -149,7 +145,7 @@ the flow running on the other side. In particular, it has a `flowVersion` proper
 programmatically evolve flows across versions. For example:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @Suspendable
 override fun call() {
@@ -163,7 +159,7 @@ override fun call() {
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @Suspendable
 @Override public Void call() throws FlowException {
@@ -197,7 +193,7 @@ the older flow.
 Here is an example of an in-lined subflow:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @StartableByRPC
 @InitiatingFlow
@@ -224,7 +220,7 @@ class FlowB(val recipient: Party) : FlowLogic<Unit>() {
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @StartableByRPC
 @InitiatingFlow
@@ -335,11 +331,11 @@ removed. This experience will be improved in the future. Making it easier to kil
 There are two types of contract/state upgrade:
 
 
-* *Implicit:* By allowing multiple implementations of the contract ahead of time, using constraints. See [API: Contract Constraints]({{< relref "api-contract-constraints.md" >}}) to learn more.
-* *Explicit:* By creating a special *contract upgrade transaction* and getting all participants of a state to sign it using the
+* **Implicit:** By allowing multiple implementations of the contract ahead of time, using constraints. See [API: Contract constraints]({{< relref "api-contract-constraints.md" >}}) to learn more.
+* **Explicit:** By creating a special *contract upgrade transaction* and getting all participants of a state to sign it using the
 contract upgrade flows.
 
-The general recommendation for Corda is to use **implicit** upgrades for the reasons described [here]({{< relref "api-contract-constraints.md#implicit-vs-explicit-upgrades" >}}).
+The general recommendation for Corda is to use **implicit** upgrades for the reasons described in [Implicit and explicit contract upgrades]({{< relref "api-contract-constraints.md#implicit-and-explicit-contract-upgrades" >}}).
 
 
 
@@ -351,7 +347,7 @@ constraint of the states it’s allowed to replace.
 
 
 {{< warning >}}
-Corda 4 introduced the Signature Constraint (see [API: Contract Constraints]({{< relref "api-contract-constraints.md" >}})). States created or migrated to
+Corda 4 introduced the Signature Constraint (see [API: Contract constraints]({{< relref "api-contract-constraints.md" >}})). States created or migrated to
 the Signature Constraint can’t be explicitly upgraded using the Contract upgrade transaction. This feature might be added in a future version.
 Given the nature of the Signature constraint there should be little need to create a brand new contract to fix issues in the old contract.
 
@@ -384,7 +380,7 @@ interface UpgradedContract<in OldState : ContractState, out NewState : ContractS
 
 The `upgrade` method describes how the old state type is upgraded to the new state type.
 
-By default this new contract will only be able to upgrade legacy states which are constrained by the zone whitelist (see [API: Contract Constraints]({{< relref "api-contract-constraints.md" >}})).
+By default this new contract will only be able to upgrade legacy states which are constrained by the zone whitelist (see [API: Contract constraints]({{< relref "api-contract-constraints.md" >}})).
 
 {{< note >}}
 The requirement for a `legacyContractConstraint` arises from the fact that when a transaction chain is verified and a `Contract Upgrade` is
@@ -431,10 +427,10 @@ node drain first to avoid the definition of states or contracts changing whilst 
 in progress.
 
 
-#### 6. Re-run the network bootstrapper (only if you want to whitelist the new contract)
+#### 6. Re-run the Network Bootstrapper (only if you want to whitelist the new contract)
 
-If you’re using the network bootstrapper instead of a network map server and have defined any new contracts, you need to
-re-run the network bootstrapper to whitelist the new contracts. See [Network Bootstrapper]({{< relref "network-bootstrapper.md" >}}).
+If you’re using the Network Bootstrapper instead of a network map server and have defined any new contracts, you need to
+re-run the Network Bootstrapper to whitelist the new contracts. See [Network Bootstrapper]({{< relref "network-bootstrapper.md" >}}).
 
 
 #### 7. Restart the nodes
@@ -473,7 +469,7 @@ which references the new contract code.
 
 #### 10. Migrate the new upgraded state to the Signature Constraint from the zone constraint
 
-Follow the guide in [API: Contract Constraints]({{< relref "api-contract-constraints.md" >}}).
+Follow the guide in [API: Contract constraints]({{< relref "api-contract-constraints.md" >}}).
 
 
 ### Points to note
@@ -555,7 +551,7 @@ wildcard
 ### Writing enums
 
 Elements cannot be added to enums in a new version of the code. Hence, enums are only a good fit for genuinely static
-data that will never change (e.g. days of the week). A `Buy` or `Sell` flag is another. However, something like
+data that will never change (for example, days of the week). A `Buy` or `Sell` flag is another. However, something like
 `Trade Type` or `Currency Code` will likely change. For those, it is preferable to choose another representation,
 such as a string.
 
@@ -572,7 +568,7 @@ For backwards compatible changes such as adding columns, the procedure for upgra
 existing object relational mapper. For example, we can update:
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 object ObligationSchemaV1 : MappedSchema(Obligation::class.java, 1, listOf(ObligationEntity::class.java)) {
     @Entity @Table(name = "obligations")
@@ -587,7 +583,7 @@ object ObligationSchemaV1 : MappedSchema(Obligation::class.java, 1, listOf(Oblig
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 public class ObligationSchemaV1 extends MappedSchema {
     public ObligationSchemaV1() {
@@ -642,7 +638,7 @@ public class ObligationEntity extends PersistentState {
 To:
 
 {{< tabs name="tabs-4" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 object ObligationSchemaV1 : MappedSchema(Obligation::class.java, 1, listOf(ObligationEntity::class.java)) {
     @Entity @Table(name = "obligations")
@@ -658,7 +654,7 @@ object ObligationSchemaV1 : MappedSchema(Obligation::class.java, 1, listOf(Oblig
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 public class ObligationSchemaV1 extends MappedSchema {
     public ObligationSchemaV1() {
@@ -724,13 +720,13 @@ because a property was removed from a state object), the procedure is to define 
 add it to the `supportedSchemas` property of your `QueryableState`, like so:
 
 {{< tabs name="tabs-5" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 override fun supportedSchemas(): Iterable<MappedSchema> = listOf(ExampleSchemaV1, ExampleSchemaV2)
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @Override public Iterable<MappedSchema> supportedSchemas() {
     return ImmutableList.of(new ExampleSchemaV1(), new ExampleSchemaV2());
@@ -743,7 +739,7 @@ override fun supportedSchemas(): Iterable<MappedSchema> = listOf(ExampleSchemaV1
 Then, in `generateMappedObject`, add support for the new schema:
 
 {{< tabs name="tabs-6" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 override fun generateMappedObject(schema: MappedSchema): PersistentState {
     return when (schema) {
@@ -755,7 +751,7 @@ override fun generateMappedObject(schema: MappedSchema): PersistentState {
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @Override public PersistentState generateMappedObject(MappedSchema schema) {
     if (schema instanceof DummyLinearStateSchemaV1) {

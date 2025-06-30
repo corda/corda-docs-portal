@@ -12,11 +12,11 @@ menu:
 tags:
 - checkpoint
 - tooling
-title: Checkpoint Tooling
+title: Checkpoint tooling
 ---
 
 
-# Checkpoint Tooling
+# Checkpoint tooling
 
 This page contains information about checkpoint tooling. These tools can be used to debug the causes of stuck flows.
 

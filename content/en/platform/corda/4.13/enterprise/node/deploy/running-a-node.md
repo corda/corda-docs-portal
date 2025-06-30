@@ -189,7 +189,7 @@ Parameters:
 
 `generate-rpc-ssl-settings`: Generates the SSL keystore and truststore for a secure RPC connection.
 
-`install-shell-extensions`: Installs a `corda` alias and auto completion for `bash` and `zsh`. For more information, see [Shell extensions for CLI Applications]({{< relref "../operating/cli-application-shell-extensions.md" >}}).
+`install-shell-extensions`: Installs a `corda` alias and auto completion for `bash` and `zsh`. For more information, see [Shell extensions for CLI applications]({{< relref "../operating/cli-application-shell-extensions.md" >}}).
 
 `validate-configuration`: Validates the actual configuration without starting the node.
 
@@ -274,7 +274,7 @@ To create nodes locally and run on a remote machine, perform the following steps
 * Optionally, add database configuration settings if they could not be configured in the first step and the local machine does not have access to the remote database.
 In each top-level `[NODE NAME]_node.conf` configuration file, add the database settings and copy the JDBC driver JAR file (if required).
 Edit the top-level `[NODE NAME]_node.conf` files only and not the files inside the node sub-directories (for example, `node.conf`).
-* Optionally, bootstrap the network on the remote machine. This is an optional step when a remote machine does not accept `localhost` addresses, or if the generated nodes are configured to run on another host’s IP address. If needed, change the host addresses in the top-level configuration files `[NODE NAME]_node.conf` for entries `p2pAddress`, `rpcSettings.address`, and  `rpcSettings.adminAddress`. Run the network bootstrapper tool to regenerate the nodes network map: `java -jar corda-tools-network-bootstrapper-Master.jar --dir <nodes-root-dir>`. For more information, see [Network bootstrapper]({{< relref "../../network-bootstrapper.md" >}}).
+* Optionally, bootstrap the network on the remote machine. This is an optional step when a remote machine does not accept `localhost` addresses, or if the generated nodes are configured to run on another host’s IP address. If needed, change the host addresses in the top-level configuration files `[NODE NAME]_node.conf` for entries `p2pAddress`, `rpcSettings.address`, and  `rpcSettings.adminAddress`. Run the Network Bootstrapper tool to regenerate the nodes network map: `java -jar corda-tools-network-bootstrapper-Master.jar --dir <nodes-root-dir>`. For more information, see [Network bootstrapper]({{< relref "../../network-bootstrapper.md" >}}).
 * Run nodes on the remote machine using [runnodes command](#starting-all-nodes-at-once-on-a-local-machine-from-the-command-prompt).
 
 The steps described above enable you to create the same test deployment as a `deployNodes` Gradle task would create on a local machine.
@@ -288,7 +288,7 @@ For more information, see [Database management]({{< relref "../../node-database-
 If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options]({{< relref "../node-commandline.md" >}}) for details.
 
 
-## Stability of the Corda Node
+## Stability of the Corda node
 
 There are a number of critical resources that a Corda node needs to operate in order to ensure the transactional consistency of the ledger.
 These critical resources include:

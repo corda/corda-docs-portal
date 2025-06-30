@@ -11,7 +11,7 @@ tags:
 - config
 - network
 - parameters
-title: Network Parameters
+title: Network parameters
 ---
 
 
@@ -122,4 +122,4 @@ List of the network-wide Java packages that have been claimed by their owners al
 (Optional) The specified epoch for the set of network parameters. If set this should be greater than the
 previous epoch (if exists) and always strictly positive (> 0). If not set then the previous epoch value will be
 automatically incremented. This parameter is mainly used for ensuring uniqueness across multiple segregated
-sub-zones. If only one network map is being run then it is best practice to omit this option.
+subzones. If only one network map is being run then it is best practice to omit this option.

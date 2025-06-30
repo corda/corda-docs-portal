@@ -149,8 +149,8 @@ and an `InvalidCordappException` will be thrown.
 The following error message will be received before the node shuts down:
 
 ```
-[ERROR] 17:10:11+0100 [main] internal.NodeStartupLogging. - Invalid Cordapps found, that couldn't be loaded:
-[Problem: CorDapp requires minimumPlatformVersion: 7, but was: 2 in Cordapp
+[ERROR] 17:10:11+0100 [main] internal.NodeStartupLogging. - Invalid CorDapps found, that couldn't be loaded:
+[Problem: CorDapp requires minimumPlatformVersion: 7, but was: 2 in CorDapp
 file:/corda-open-source/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps/bank-of-corda-demo-4.12-SNAPSHOT.jar
 ```
 

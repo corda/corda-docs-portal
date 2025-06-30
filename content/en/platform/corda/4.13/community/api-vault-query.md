@@ -175,7 +175,7 @@ There are four implementations of this interface which can be chained together t
 
 
 * `VaultQueryCriteria` provides filterable criteria on attributes within the **VAULT_STATES** table. Filterable attributes include one or more of the following: status (`UNCONSUMED`,
-`CONSUMED`), state reference, contract state type, notary name, soft locked states, timestamps (`RECORDED`, `CONSUMED`), state constraints (see [Constraint Types]({{< relref "api-contract-constraints.md" >}})), relevancy (`ALL`, `RELEVANT`, `NON_RELEVANT`), and participants (exact or any match).
+`CONSUMED`), state reference, contract state type, notary name, soft locked states, timestamps (`RECORDED`, `CONSUMED`), state constraints (see [API: Contract constraints]({{< relref "api-contract-constraints.md" >}})), relevancy (`ALL`, `RELEVANT`, `NON_RELEVANT`), and participants (exact or any match).
 {{< note >}}
 Sensible defaults are defined for frequently used attributes (`status` = `UNCONSUMED`, always include soft
 locked states).{{< /note >}}
@@ -314,7 +314,7 @@ Custom queries can be either case sensitive or case insensitive. They are define
 An example of a case-sensitive custom query operator in Kotlin is provided below:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val currencyIndex = PersistentCashState::currency.equal(USD.currencyCode, true)
 ```
@@ -331,7 +331,7 @@ The `Boolean` input of `true` in this example could be removed since the functio
 An example of a case-insensitive custom query operator in Kotlin is provided below:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val currencyIndex = PersistentCashState::currency.equal(USD.currencyCode, false)
 ```
@@ -344,7 +344,7 @@ val currencyIndex = PersistentCashState::currency.equal(USD.currencyCode, false)
 An example of a case-sensitive custom query operator in Java is provided below:
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 FieldInfo attributeCurrency = getField("currency", CashSchemaV1.PersistentCashState.class);
 CriteriaExpression currencyIndex = Builder.equal(attributeCurrency, "USD", true);
@@ -358,7 +358,7 @@ CriteriaExpression currencyIndex = Builder.equal(attributeCurrency, "USD", true)
 An example of a case-insensitive custom query operator in Java is provided below:
 
 {{< tabs name="tabs-4" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 FieldInfo attributeCurrency = getField("currency", CashSchemaV1.PersistentCashState.class);
 CriteriaExpression currencyIndex = Builder.equal(attributeCurrency, "USD", false);
@@ -382,7 +382,7 @@ Here’s a query that extracts every unconsumed `ContractState` from the vault i
 default page number (page one):
 
 {{< tabs name="tabs-5" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val vaultSnapshot = proxy.vaultQueryBy<ContractState>(
     QueryCriteria.VaultQueryCriteria(Vault.StateStatus.UNCONSUMED),
@@ -684,7 +684,7 @@ val allCashStates = vaultService.queryBy<Cash.State>(allCashCriteria).states
 
 [VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.13/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
 
-### Aggregate Function queries using `VaultCustomQueryCriteria`:
+### Aggregate function queries using `VaultCustomQueryCriteria`:
 
 {{< note >}}
 Query results for aggregate functions are contained in the `otherResults` attribute of a results page.
@@ -882,7 +882,7 @@ while (true) {
 
 [VaultQueryJavaTests.java](https://github.com/corda/corda/blob/release/os/4.13/node/src/test/java/net/corda/node/services/vault/VaultQueryJavaTests.java)
 
-### Aggregate Function queries using `VaultCustomQueryCriteria`:
+### Aggregate function queries using `VaultCustomQueryCriteria`:
 
 {{% warning %}}
 The `COUNT` function is not compatible with the `group by` grouping clause. To use grouping with `COUNT` you must implement the `max()` source method for count:
@@ -1025,7 +1025,7 @@ Currently, the generation of keys for other identities is not supported.
 The code snippet below show how keys can be associated with an external ID by using the exposed JPA functionality:
 
 {{< tabs name="tabs-6" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 public AnonymousParty freshKeyForExternalId(UUID externalId, ServiceHub services) {
     // Create a fresh key pair and return the public key.
@@ -1041,7 +1041,7 @@ public AnonymousParty freshKeyForExternalId(UUID externalId, ServiceHub services
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 fun freshKeyForExternalId(externalId: UUID, services: ServiceHub): AnonymousParty {
     // Create a fresh key pair and return the public key.

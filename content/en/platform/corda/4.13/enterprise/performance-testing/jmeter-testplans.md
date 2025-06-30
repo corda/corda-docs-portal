@@ -41,7 +41,7 @@ of the test plan - not at the end of the thread group’s execution. It cannot b
 the next thread group is supposed to reuse.
 
 The thread group also allows to repeat the action that has been configured. Repitition can either be count based, or
-scheduler based (e.g. for 5 minutes). Counter based repition will loop the given number of times for each thread,
+scheduler based (for example, for 5 minutes). Counter based repition will loop the given number of times for each thread,
 so 10 threads with 10 repetitions means 100 runs of group content. If a test plan contains a list of thread groups, they will be run sequentially. If the runtime of the thread group
 is controlled via a scheduler, a start-up delay is configurable that the process will wait between finishing the
 previous thread group and starting the next one, e.g. to let the system under test finish any lingering requests,

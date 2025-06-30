@@ -131,7 +131,7 @@ subclass’s constructor can take any number of arguments of any type. The gener
 `FlowLogic<SignedTransaction>`) indicates the flow’s return type.
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 class Initiator(val arg1: Boolean,
@@ -143,7 +143,7 @@ class Responder(val otherParty: Party) : FlowLogic<Unit>() { }
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 public static class Initiator extends FlowLogic<SignedTransaction> {
@@ -175,7 +175,7 @@ Use annotations to track the interactions between flows.
 * `@StartableByRPC`: If you plan to start the flow via RPC, annotate it with `@StartableByRPC`:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 @InitiatingFlow
@@ -185,7 +185,7 @@ class Initiator(): FlowLogic<Unit>() { }
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 @InitiatingFlow
@@ -200,7 +200,7 @@ public static class Initiator extends FlowLogic<Unit> { }
 `@InitiatedBy`: If a flow responds to any messages from another flow, use `@InitiatedBy`. `@InitiatedBy` takes the class of the flow it is responding to as its single parameter:
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 @InitiatedBy(Initiator::class)
@@ -209,7 +209,7 @@ class Responder(val otherSideSession: FlowSession) : FlowLogic<Unit>() { }
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 @InitiatedBy(Initiator.class)
@@ -233,7 +233,7 @@ restarts, flows need to be checkpointable and serializable to disk. To do this, 
 and any function invoked from within `FlowLogic.call()`, with an `@Suspendable` annotation.
 
 {{< tabs name="tabs-4" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 class Initiator(val counterparty: Party): FlowLogic<Unit>() {
@@ -244,7 +244,7 @@ class Initiator(val counterparty: Party): FlowLogic<Unit>() {
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 public static class InitiatorFlow extends FlowLogic<Void> {
@@ -288,7 +288,7 @@ Transactions generally need a notary to:
 You can retreive a notary from the network map:
 
 {{< tabs name="tabs-5" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 val notaryName: CordaX500Name = CordaX500Name(
@@ -306,7 +306,7 @@ val firstNotary: Party = serviceHub.networkMapCache.notaryIdentities.first()
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 CordaX500Name notaryName = new CordaX500Name("Notary Service", "London", "GB");
@@ -328,7 +328,7 @@ Party firstNotary = getServiceHub().getNetworkMapCache().getNotaryIdentities().g
 You can use the network map to retrieve a specific counterparty:
 
 {{< tabs name="tabs-6" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 val counterpartyName: CordaX500Name = CordaX500Name(
@@ -344,7 +344,7 @@ val keyedCounterparty: Party = serviceHub.identityService.partyFromKey(dummyPubK
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 CordaX500Name counterPartyName = new CordaX500Name("NodeA", "London", "GB");
@@ -391,7 +391,7 @@ It's more efficient to call `sendAndReceive` instead of calling `send` and then 
 `initiateFlow` creates a communication session with the `Party` that you pass in.
 
 {{< tabs name="tabs-7" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 val counterpartySession: FlowSession = initiateFlow(counterparty)
@@ -400,7 +400,7 @@ val counterpartySession: FlowSession = initiateFlow(counterparty)
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 FlowSession counterpartySession = initiateFlow(counterparty);
@@ -422,7 +422,7 @@ When you call this function, no communication happens until the first
 Once you have a `FlowSession` object, you can send arbitrary data to a counterparty:
 
 {{< tabs name="tabs-8" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 counterpartySession.send(Any())
@@ -430,7 +430,7 @@ counterpartySession.send(Any())
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 counterpartySession.send(new Object());
@@ -458,7 +458,7 @@ If `FlowLogic` calls `receive` or `sendAndReceive`, `FlowLogic` is suspended unt
 If you receive the data wrapped in an `UntrustworthyData` instance. This is a reminder to check that the data is as expected. Unwrap the `UntrustworthyData` using a lambda to examine it:
 
 {{< tabs name="tabs-9" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 val packet1: UntrustworthyData<Int> = counterpartySession.receive<Int>()
@@ -473,7 +473,7 @@ val int: Int = packet1.unwrap { data ->
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 UntrustworthyData<Integer> packet1 = counterpartySession.receive(Integer.class);
@@ -494,7 +494,7 @@ You're not limited to exchanging data with a single counterparty. You can use fl
 as you need to. Each party can invoke a different response flow:
 
 {{< tabs name="tabs-10" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 val regulatorSession: FlowSession = initiateFlow(regulator)
@@ -505,7 +505,7 @@ val packet3: UntrustworthyData<Any> = regulatorSession.receive<Any>()
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 FlowSession regulatorSession = initiateFlow(regulator);
@@ -532,7 +532,7 @@ You can use a single call to send data to a counterparty and wait to receive dat
 type of data sent doesn’t need to match the type of the data received:
 
 {{< tabs name="tabs-11" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 val packet2: UntrustworthyData<Boolean> = counterpartySession.sendAndReceive<Boolean>("You can send and receive any class!")
@@ -546,7 +546,7 @@ val boolean: Boolean = packet2.unwrap { data ->
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 UntrustworthyData<Boolean> packet2 = counterpartySession.sendAndReceive(Boolean.class, "You can send and receive any class!");
@@ -574,7 +574,7 @@ Imagine you are now on the `Responder` side of the flow. You had this exchange w
 Our side of the flow must mirror these calls. We could do this as follows:
 
 {{< tabs name="tabs-12" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 val any: Any = counterpartySession.receive<Any>().unwrap { data -> data }
@@ -585,7 +585,7 @@ counterpartySession.send(true)
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 Object obj = counterpartySession.receive(Object.class).unwrap(data -> data);
@@ -678,7 +678,7 @@ the other side.
 the transaction’s states:
 
 {{< tabs name="tabs-13" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 val notarisedTx1: SignedTransaction = subFlow(FinalityFlow(fullySignedTx, listOf(counterpartySession), FINALISATION.childProgressTracker()))
@@ -687,7 +687,7 @@ val notarisedTx1: SignedTransaction = subFlow(FinalityFlow(fullySignedTx, listOf
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 SignedTransaction notarisedTx1 = subFlow(new FinalityFlow(fullySignedTx, singleton(counterpartySession), FINALISATION.childProgressTracker()));
@@ -701,7 +701,7 @@ SignedTransaction notarisedTx1 = subFlow(new FinalityFlow(fullySignedTx, singlet
 You can choose to send the transaction to additional parties who aren’t one of the state’s participants:
 
 {{< tabs name="tabs-14" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 val partySessions: List<FlowSession> = listOf(counterpartySession, initiateFlow(regulator))
@@ -711,7 +711,7 @@ val notarisedTx2: SignedTransaction = subFlow(FinalityFlow(fullySignedTx, partyS
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 List<FlowSession> partySessions = Arrays.asList(counterpartySession, initiateFlow(regulator));
@@ -730,7 +730,7 @@ To record a transaction for all parties:
 flow to receive the transaction:
 
 {{< tabs name="tabs-15" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 subFlow(ReceiveFinalityFlow(counterpartySession, expectedTxId = idOfTxWeSigned))
@@ -739,7 +739,7 @@ subFlow(ReceiveFinalityFlow(counterpartySession, expectedTxId = idOfTxWeSigned))
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 subFlow(new ReceiveFinalityFlow(counterpartySession, idOfTxWeSigned));
@@ -799,7 +799,7 @@ transaction, you can automatically gather the signatures of the other required s
 `CollectSignaturesFlow`:
 
 {{< tabs name="tabs-16" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 val fullySignedTx: SignedTransaction = subFlow(CollectSignaturesFlow(twiceSignedTx, setOf(counterpartySession, regulatorSession), SIGS_GATHERING.childProgressTracker()))
@@ -808,7 +808,7 @@ val fullySignedTx: SignedTransaction = subFlow(CollectSignaturesFlow(twiceSigned
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 SignedTransaction fullySignedTx = subFlow(new CollectSignaturesFlow(twiceSignedTx, emptySet(), SIGS_GATHERING.childProgressTracker()));
@@ -823,7 +823,7 @@ Each required signer will need to respond by invoking its own `SignTransactionFl
 transaction (by implementing the `checkTransaction` method) and provide their signature if they are satisfied:
 
 {{< tabs name="tabs-17" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 val signTransactionFlow: SignTransactionFlow = object : SignTransactionFlow(counterpartySession) {
@@ -840,7 +840,7 @@ val idOfTxWeSigned = subFlow(signTransactionFlow).id
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 class SignTxFlow extends SignTransactionFlow {
@@ -883,7 +883,7 @@ The sender sends the transaction using `SendTransactionFlow` to process all subs
 transaction data vending requests while the receiver walks the dependency chain using `ReceiveTransactionFlow`:
 
 {{< tabs name="tabs-18" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 subFlow(SendTransactionFlow(counterpartySession, twiceSignedTx))
@@ -899,7 +899,7 @@ subFlow(object : SendTransactionFlow(counterpartySession, twiceSignedTx) {
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 subFlow(new SendTransactionFlow(counterpartySession, twiceSignedTx));
@@ -922,7 +922,7 @@ We can receive the transaction using `ReceiveTransactionFlow`, which will automa
 dependencies and verify the transaction:
 
 {{< tabs name="tabs-19" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 val verifiedTransaction = subFlow(ReceiveTransactionFlow(counterpartySession))
@@ -931,7 +931,7 @@ val verifiedTransaction = subFlow(ReceiveTransactionFlow(counterpartySession))
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 SignedTransaction verifiedTransaction = subFlow(new ReceiveTransactionFlow(counterpartySession));
@@ -945,7 +945,7 @@ SignedTransaction verifiedTransaction = subFlow(new ReceiveTransactionFlow(count
 You can send and receive a `StateAndRef` dependency chain and automatically resolve its dependencies:
 
 {{< tabs name="tabs-20" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 subFlow(SendStateAndRefFlow(counterpartySession, dummyStates))
@@ -957,7 +957,7 @@ val resolvedStateAndRef = subFlow(ReceiveStateAndRefFlow<DummyState>(counterpart
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 subFlow(new SendStateAndRefFlow(counterpartySession, dummyStates));
@@ -1073,7 +1073,7 @@ You can give your flow a progress tracker. This lets you track the flow’s prog
 To provide a progress tracker, override the flow's `FlowLogic.progressTracker`:
 
 {{< tabs name="tabs-21" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 companion object {
@@ -1113,7 +1113,7 @@ companion object {
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 private static final Step ID_OTHER_NODES = new Step("Identifying other nodes on the network.");
@@ -1160,7 +1160,7 @@ private final ProgressTracker progressTracker = new ProgressTracker(
 Then, update the progress tracker’s current step as you progress through the flow:
 
 {{< tabs name="tabs-22" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 progressTracker.currentStep = ID_OTHER_NODES
@@ -1169,7 +1169,7 @@ progressTracker.currentStep = ID_OTHER_NODES
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 progressTracker.setCurrentStep(ID_OTHER_NODES);
@@ -1210,7 +1210,7 @@ The size of the external operation thread pool can be configured. See [the node 
 You can call `FlowExternalOperation` from a flow to run an operation on a new thread, allowing the flow to suspend:
 
 {{< tabs name="tabs-23" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 @StartableByRPC
@@ -1271,7 +1271,7 @@ data class Data(val name: String, val value: Any)
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 @StartableByRPC
@@ -1388,7 +1388,7 @@ You can chain the future to execute further operations that continue using the s
 Below is an example of how you can call `FlowExternalAsyncOperation`:
 
 {{< tabs name="tabs-24" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 @StartableByRPC
@@ -1462,7 +1462,7 @@ data class Data(val name: String, val value: Any)
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 @StartableByRPC
@@ -1619,7 +1619,7 @@ The code below demonstrates how to convert a `ListenableFuture` into a `Completa
 `FlowExternalAsyncOperation`.
 
 {{< tabs name="tabs-25" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 
 ```kotlin
 @CordaService
@@ -1679,7 +1679,7 @@ class ExternalService(serviceHub: AppServiceHub) : SingletonSerializeAsToken() {
 
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 
 ```java
 @CordaService
@@ -1837,7 +1837,7 @@ To allow a killed flow to terminate when you execute the kill flow command, make
 All suspendable functions (functions annotated with `@Suspendable`) already take this into account, and check if a flow has been killed. This allows a killed flow to terminate when reaching a suspendable function. The flow will also exit if it is currently suspended:
 
 {{< tabs name="tabs-26" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @Suspendable
 override fun call() {
@@ -1849,7 +1849,7 @@ override fun call() {
 }
 ```
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @Override
 @Suspendable
@@ -1870,7 +1870,7 @@ If your flow has functions that are not marked as `@Suspendable`, you may need t
 
 
 {{< tabs name="tabs-27" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @Suspendable
 override fun call() {
@@ -1883,7 +1883,7 @@ override fun call() {
 }
 ```
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @Override
 @Suspendable
@@ -1904,7 +1904,7 @@ The function in the example above exits the loop by checking the `isKilled` flag
 There are two overloads of `checkFlowIsNotKilled` that simplify the code above:
 
 {{< tabs name="tabs-28" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @Suspendable
 override fun call() {
@@ -1915,7 +1915,7 @@ override fun call() {
 }
 ```
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @Override
 @Suspendable

@@ -11,55 +11,55 @@ menu:
     weight: 40
 tags:
 - zones
-title: Sub Zones
+title: Subzones
 ---
 
 
-# Sub Zones
+# Subzones
 
 {{< note >}}
-This is an internal feature. Running a network with multiple sub-zones is not a supported configuration.
+This is an internal feature. Running a network with multiple subzones is not a supported configuration.
 
 {{< /note >}}
 
-## From a Node’s Perspective
+## From a node’s perspective
 
 From the perspective of a node a network is defined by the Identity Manager and Network Map Services it is configured
-to connect to. It has no comprehension of sub zones. It simply connects to the services configured within its
+to connect to. It has no comprehension of subzones. It simply connects to the services configured within its
 configuration file and, once registered with both, interacts with other nodes and the apps deployed upon it via the
 RPC clients. This is summarised below:
 
 ![node zone view](/en/images/node-zone-view.png "node zone view")
-The node is unaware of other sub zones, seeing only those nodes registered with the Network Map Service it itself has
+The node is unaware of other subzones, seeing only those nodes registered with the Network Map Service it itself has
 registered with.
 
 
-## From the Perspective of the Zone
+## From the zone's perspective
 
 From the perspective of the operator of that zone however, things are a lot more interesting:
 
-![simple sub zones](/en/images/simple-sub-zones.png "simple sub zones")
+![simple subzones](/en/images/simple-sub-zones.png "simple subzones")
 {{< note >}}
 Signing infrastructure is omitted for brevity
 
 {{< /note >}}
-In this example the zone operator is operating two public sub zones, each with a different min platform version (the
-other network parameters shared by the two zones are omitted for brevity). Each sub zone has a single notary, operated
+In this example the zone operator is operating two public subzones, each with a different min platform version (the
+other network parameters shared by the two zones are omitted for brevity). Each subzone has a single notary, operated
 by the zone operator, whose nodeInfo is included in the whitelist of the network parameters representing that zone.
 
 Interesting features
 
 
 * All nodes are registered with the zone’s Identity Manager Service. *(This includes the notaries)*
-* Each sub zone is represented by a network map, each with its own database and network parameters file
-* Node 1 is on the “older” sub zone using a minimum platform version of 3, it is unaware Nodes 2 and 3 even exist
+* Each subzone is represented by a network map, each with its own database and network parameters file
+* Node 1 is on the “older” subzone using a minimum platform version of 3, it is unaware Nodes 2 and 3 even exist
 (just as they are unaware of it) but can use Notary 1.
 * Nodes 2 and 3 and Notary 2 can all intercommunicate as one would expect
 
 
-## Segregated Sub Zones
+## Segregated subzones
 
-The fundamental difference between a public sub zone and a segregated one is the operation of the notaries is
+The fundamental difference between a public subzone and a segregated one is the operation of the notaries is
 deferred to a third party.
 
 

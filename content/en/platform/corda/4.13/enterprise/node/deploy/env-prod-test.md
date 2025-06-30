@@ -17,7 +17,7 @@ weight: 1
 These instructions will guide the user through the UAT or production configuration to deploy the following components. They are intended for firms deploying Corda Enterprise.
 
 
-* Corda Node
+* Corda node
 * Corda Vault
 * Corda Bridge and Float components of the Corda Firewall
 * Load Balancer (presenting 1 public IP to CorDapp)
@@ -44,9 +44,9 @@ When deploying Corda Enterprise in a production environment, the Node, Bridge, a
 ### Deployment details
 
 
-* Corda Nodes run in a Hot/Cold Setup.
-* The Corda Node communicates with the Doorman (authentication) and Network Map (peer addresses) over HTTPS typically through an HTTP Proxy Server.
-* The Corda Node communicates with peers on the Corda network communicating with Corda Firewall which has 2 parts, the Bridge and the Float. The Float and Bridge components also check the certificate revocation list.
+* Corda nodes run in a Hot/Cold Setup.
+* A Corda node communicates with the Doorman (authentication) and Network Map (peer addresses) over HTTPS typically through an HTTP Proxy Server.
+* A Corda node communicates with peers on the Corda network communicating with Corda Firewall which has 2 parts, the Bridge and the Float. The Float and Bridge components also check the certificate revocation list.
 * The Float’s job is to act as an inbound socket listener, capturing messages from peers and send them to the Bridge. The Float prevents the Node and Artemis server from being exposed to Peer Nodes.
 * The Bridge captures the inbound messages and sends them to the shared Artemis queue. The Bridge is typically configured to route through a SOCKS5 Proxy Server and also manages outgoing messages from the Node to Peers on the Network. The firewall between the Bridge and the DMZ is configured as an outbound only firewall. When communicating to the float, the bridge initiates the connection.
 * In an HA configuration Node A and Node B use a shared Artemis queue configured on an NFS mountpoint shared between VM A and VM B.
@@ -74,7 +74,7 @@ This configuration file contains settings for the following components and funct
 - Corda Bridge
 - Vault Database
 - RPC Port settings for client API
-- P2P address for advertising Corda Node to Peers
+- P2P address for advertising Corda node to peers
 - Crash shell port, user, and password
 
 
@@ -96,16 +96,16 @@ This configuration file contains specifies the location of:
 You can find examples of configuration files [available here]({{< relref "../corda-firewall-configuration-file.md" >}}).
 
 
-### Installing the Corda Node
+### Installing the Corda node
 
+1. Upload the appropriate `corda-<version>.jar` file to the node root directory.
+2. In the root of your node directory, create a folder called `/certificates`.
+3. The network operator will provide you with a `network-root-truststore.jks` which will be used for authentication during initial registration.
+4. Upload the `network-root-truststore.jks` file to this directory.
+5. In the root of your node directory, create a folder called `cordapps`.  
+6. Upload your CorDapps to this folder.
 
-* Upload the appropriate `corda-<version>.jar` file to the Node root directory.
-* In the root of your Node directory, create a folder called `/certificates`.
-* The network operator will provide you with a `network-root-truststore.jks` which will be used for authentication during initial registration.
-* Upload the `network-root-truststore.jks` file to this directory.
-* In the root of your Node directory, create a folder called `cordapps`.  Upload your CorDapps to this folder.
-
-Once your Node has been started it will contain the following files and directories:
+Once your node has been started, it will contain the following files and directories:
 
 ```shell
 additional-node-infos/
@@ -122,8 +122,7 @@ node.conf
 nodeInfo-XXXXXXXXX
 ```
 
-
-This is a sample `node.conf` which details a configuration connecting to the Corda UAT Network.
+This is a sample node.conf which details a configuration connecting to a Corda UAT Network.
 
 ```javascript
 {
@@ -207,60 +206,61 @@ This is a sample `node.conf` which details a configuration connecting to the Cor
 In a bank environment there will typically be several layers of security protecting the firms data.
 
 {{< figure alt="cordarch" width=80% zoom="../../resources/cordarch.png" >}}
-*Network Authentication*
+
+#### Network authentication*
 
 
-* The Corda Node may be deployed behind the inner DMZ (no access to the Internet)
+* The Corda node may be deployed behind the inner DMZ (no access to the Internet)
 * The Bridge Server may reside on a VM in front of the inner DMZ  (not addressable from the Internet)
 * The Corda Float may reside on a VM in the Outer DMZ (directly addressable from the Internet)
 
-*PKI Authentication*
+#### PKI authentication
 
 
-* Corda PKI Authentication issued by Corda Network can link the Node and Bridge i.e. the red keys indicated below truststore and sslkeystore
-* Local PKI Authentication issued by separate CA will link the Bridge and Float i.e the purple keys indicated below trust and Bridge.
+* Corda PKI Authentication issued by a Corda network can link the node and Bridge; that is, the red keys indicated below truststore and sslkeystore
+* Local PKI Authentication issued by separate CA will link the Bridge and Float; that is, the purple keys indicated below trust and Bridge.
 
 {{< figure alt="firewallpki" width=80% zoom="../../resources/firewallpki.png" >}}
 The key thing is to look at this from the perspective of a bank implementing these Corda and Local PKI keys.
 
 
-* Corda PKI Authentication will link the Node and Bridge and authenticate to Corda Network in the outside world. In other words, this permits mutual authentication between a Corda Node and its Peer Corda Nodes.
+* Corda PKI Authentication will link the node and Bridge and authenticate to a Corda network in the outside world. In other words, this permits mutual authentication between a Corda node and its peer Corda nodes.
 * Local PKI Authentication will link the Bridge and Float and allow a secure tunnel into the Float from the outside world. In other words, this permits mutual authentication between two software components, the Bridge and the Float.
 
 
-### Explanation of PKI Keys
+###  PKI Keys Explanation
 
-**Node Authentication**
+#### Node authentication
 
-`truststore.jks` - this is the same trust store that the Node is bootstrapped with during initial registration. It contains the `cordarootca` certificate - this is the public, root certificate of the entire network. It needs to be copied to the Bridge when it is set up. Note that the truststore is also dynamically copied from the Bridge to the Float at runtime (and is held in memory only on the Float). The truststore is used for authenticating Nodes that connect to the Bridge and Float.
+`truststore.jks` - this is the same trust store that the node is bootstrapped with during initial registration. It contains the `cordarootca` certificate; this is the public, root certificate of the entire network. It needs to be copied to the Bridge when it is set up. Note that the truststore is also dynamically copied from the Bridge to the Float at runtime (and is held in memory only on the Float). The truststore is used for authenticating nodes that connect to the Bridge and Float.
 
-**Node to Bridge Connection**
+#### Node to Bridge connection
 
-`sslkeystore.jks` is issued by the Node and contains just the Node’s TLS certificate. It needs to be installed on the Node and the Bridge. The Node-to-Bridge connection is mutually authenticated TLS, with sslkeystore used both sides to establish the secure tunnel and truststore.jks is required on each side to authenticate the connection.
+`sslkeystore.jks` is issued by the node and contains just the node’s TLS certificate. It needs to be installed on the node and the Bridge. The node-to-Bridge connection is mutually authenticated TLS, with `sslkeystore.jks` used on both sides to establish the secure tunnel while `truststore.jks` is required on each side to authenticate the connection.
 
-**Bridge to Float Connection**
+#### Bridge to Float connection
 
-`bridge.jks` and `float.jks` contain TLS certificates and their associated private keys. By convention they should be referred to as keystores. These TLS certificates are unrelated to any of the certificates issued by the Node. In our example documentation the Bridge & Float keys are issued by a stand-alone root certificate. This root certificate is stored in trust.jks. This is required for the Bridge and Float to authenticate each other
+`bridge.jks` and `float.jks` contain TLS certificates and their associated private keys. By convention they should be referred to as keystores. These TLS certificates are unrelated to any of the certificates issued by the node. In our example documentation, the Bridge & Float keys are issued by a stand-alone root certificate. This root certificate is stored in trust.jks. This is required for the Bridge and Float to authenticate each other.
 
 
 ### Generate Bridge and Float keystores
 
-For Float and Bridge to communicate a tunnel keystore must be created. To create a tunnel keystore, run the following command:
+For Float and Bridge to communicate, a tunnel keystore must be created. To create a tunnel keystore, run the following command:
 
 `java -jar corda-tools-ha-utilities-4.1.jar generate-internal-tunnel-ssl-keystores -p tunnelStorePass -e tunnelPrivateKeyPassword -t tunnelTrustpass`
 
 
-### Bridge Installation
+### Bridge installation
 
 
-* Upload the `corda-firewall-4.1.jar` to the /opt/cordabridge directory.
-* In the /opt/cordabridge directory, create a softlink called `certificates` linked to /opt/corda/certificates
-* In the /opt/cordabridge directory, make a directory called bridgecerts
-* In the /opt/cordabridge directory, copy /opt/corda/network-parameters back to  /opt/cordabridge
-* In the /opt/cordabridge directory, create a file called firewall.conf
-* Copy the files /opt/corda/temp/bridge.jks and  /opt/corda/temp/trust.jks into the /opt/cordabridge/bridgecerts directory
+1. Upload the `corda-firewall-4.1.jar` to the /opt/cordabridge directory.
+2. In the /opt/cordabridge directory, create a softlink called `certificates` linked to /opt/corda/certificates.
+3. In the /opt/cordabridge directory, make a directory called bridgecerts.
+4. In the /opt/cordabridge directory, copy /opt/corda/network-parameters back to  /opt/cordabridge.
+5. In the /opt/cordabridge directory, create a file called firewall.conf.
+6. Copy the files /opt/corda/temp/bridge.jks and  /opt/corda/temp/trust.jks into the /opt/cordabridge/bridgecerts directory.
 
-This is a sample firewall.conf:
+The following shows a sample `firewall.conf`:
 
 ```javascript
 firewallMode = BridgeInner
@@ -304,17 +304,17 @@ networkParametersPath = network-parameters // The network-parameters file is exp
 [bridge.conf](../../resources/bridge.conf)
 
 
-### Float Installation
+### Installing the float
 
+1. Create an `/opt/cordafloat` directory on your VM.
+2. Upload the `corda-firewall-4.1.jar` to the /opt/cordafloat directory.
+3. In the `/opt/cordafloat` directory, create a directory called `floatcerts`.
+4. In the `/opt/cordafloat` directory, create a file called float.conf.
+5. The keys were created in the node VM, so sftp from the Node VM to the Float VM and copy the files `NodeVM:/opt/corda/temp/float.jks` and  `/opt/corda/temp/trust.jks` into the `FloatVM:/opt/cordafloat/floatcerts` directory.
 
-* Create an /opt/cordafloat directory on your VM
-* Upload the `corda-firewall-4.1.jar` to the /opt/cordafloat directory.
-* In the /opt/cordafloat directory, make a directory called floatcerts.
-* In the /opt/cordafloat directory, create a file called float.conf.
-* The keys were created in the Node VM so sftp from the Node VM to the Float VM and copy the files NodeVM:/opt/corda/temp/float.jks and  /opt/corda/temp/trust.jks into the FloatVM:/opt/cordafloat/floatcerts directory.
-* You now should have the correct non Corda PKI CA authentication in place between Bridge and Float.
+   You now should have the correct non-Corda PKI CA authentication in place between Bridge and Float.
 
-This is a sample float.conf:
+The following shows a sample float.conf:
 
 ```javascript
 firewallMode = FloatOuter
@@ -339,39 +339,39 @@ networkParametersPath = network-parameters // The network-parameters file is exp
 
 [float.conf](../../resources/float.conf)
 
-A full list of the parameters that can be utilized in these configuration files can be found in [Configuring the Corda Enterprise Firewall]({{< relref "../corda-firewall-configuration-file.md" >}}).
+For a full list of the parameters that can be utilized in these configuration files, see [Configuring the Corda Enterprise Firewall]({{< relref "../corda-firewall-configuration-file.md" >}}).
 
 
-### Corda 3.x vs Corda 4.x Firewall Upgrade
+### Corda 3.x vs Corda 4.x firewall upgrade
 
-In Corda 4.x it is possible to for multiple Nodes representing multiple identities to reside behind the same Corda Firewall. Details on setup can be found in [Firewall upgrade]({{< relref "../corda-firewall-upgrade.md" >}}).
+In Corda 4.x it is possible to for multiple nodes representing multiple identities to reside behind the same Corda Firewall. See [Firewall upgrade]({{< relref "../corda-firewall-upgrade.md" >}}).
 
 
-### Port Policy and Network Configuration
+### Port policy and network configuration
 
 Connections with the Corda Network Doorman and Network Map services (inbound and outbound traffic) will be over HTTP/HTTPS on ports 80 and 443.
 
-Connections with peer Corda Nodes (including Notaries) will happen on a peer-to-peer connection using AMQP/TLS typically in a port range of 10000 - 10099, though port use is determined by the Node owner.
+Connections with peer Corda nodes (including notaries) will happen on a peer-to-peer connection using AMQP/TLS typically in a port range of 10000 - 10099, though port use is determined by the node owner.
 
-Connections with local applications connecting with the CorDapp via the Corda Node happen over RPC.
+Connections with local applications connecting with the CorDapp via the Corda node happen over RPC.
 
-Administrative logins with the Corda Node happen via ssh whose port is configured in the node.conf file, typically port 2222.
-
-
-### Suggested Work flow for Corda Node & Corda Firewall Installation
+Administrative logins with the Corda node happen via ssh, whose port is configured in the node.conf file, typically port 2222.
 
 
-* Run ifconfig on Node VM.
-* Run ifconfig on Bridge VM.
-* Run ifconfig on Float VM.
-* Ask your Infrastructure team to tell you public IP of load balancer/firewall.
-* In node.conf p2pAddress put IP from question 4.
-* In node.conf messagingServerAddress put local IP address of Node from question 1, or 0.0.0.0 for all interfaces.
-* In Bridge.conf outboundconfig put IP address of Node from question 1.
-* In Bridge.conf bridgeInnerConfig put IP address of 3, or ask infrastructure team what address is presented by firewall between Bridge and Float.
-* In Float.conf floatOuterConfig put IP address from 3 which will be routed to from Node. If machine has one NIC use that address, if it has two then use the card that has permission for access from Bridge network.
-* In Float.conf inboundConfig use IP address from 3 which faces the internet. If there is only one NIC use that value, if there are two check with Infrastructure which one is accessed from the load balancer.
-* In Float.conf floatOuterConfig put IP address from 3 which will be routed to from Node. If machine has one NIC use that address, if it has two then use the card that has permission for access from Bridge network.
+### Suggested workflow for Corda node & Corda firewall installation
+
+
+1. Run ifconfig on Node VM.
+2. Run ifconfig on Bridge VM.
+3. Run ifconfig on Float VM.
+4. Ask your Infrastructure team for the public IP of load balancer/firewall.
+5. Configure `node.conf` `p2pAddress` to be the public IP from step 4.
+6. Configure `node.conf` `messagingServerAddress` to be the local IP address of the node from step 1, or 0.0.0.0 for all interfaces.
+7. Configure `Bridge.conf` `outboundconfig` to be the IP address of the node from step 1.
+8. Configure `Bridge.conf` `bridgeInnerConfig` to be the IP address from step 3, or ask the Infrastructure team for the address presented by the firewall between Bridge and Float.
+9. Configure `Float.conf` `floatOuterConfig` to be the IP address from step 3 which will be routed to from the node. If the machine has one NIC, use that address; if it has two, then use the card that has permission for access from the Bridge network.
+10. In Float.conf inboundConfig use IP address from 3 which faces the internet. If there is only one NIC use that value, if there are two check with Infrastructure which one is accessed from the load balancer.
+11 In Float.conf floatOuterConfig put IP address from 3 which will be routed to from Node. If machine has one NIC use that address, if it has two then use the card that has permission for access from Bridge network.
 
 The following image may be helpful in ensuring alignment between the Node, Bridge and Float configuration files.
 
@@ -381,21 +381,15 @@ The following image may be helpful in ensuring alignment between the Node, Bridg
 
 {{< /note >}}
 
-### Proxy Configurations
+### Proxy configurations
 
-You will likely need to establish proxy servers, one for HTTP connection to the Doorman and Network Map services, and Socks proxy to be used with the Corda Firewall for P2P communication Corda Nodes. Please note the examples below are for demonstration purposes only, it is assumed most financial institutions will already have Enterprise Proxy Server deployments in place and available for use by the Corda Firewall.
+You will likely need to establish proxy servers, one for HTTP connection to the Doorman and Network Map services, and Socks proxy to be used with the Corda Firewall for P2P communication Corda nodes. Please note the examples below are for demonstration purposes only, it is assumed most financial institutions will already have Enterprise Proxy Server deployments in place and available for use by the Corda Firewall.
 
+## Using HTTP proxy with Corda
 
+Many financial institutions will use an HTTP proxy server to monitor connections going out to the Internet. Corda facilitates the use of an HTTP proxy to access the Doorman & Network map via HTTPS GET requests.
 
-
-
-
-
-## Using HTTP Proxy with Corda
-
-Many financial institutions will use an HTTP Proxy Server to monitor connections going out to the Internet. Corda facilitates the use of an HTTP Proxy to access the Doorman & Network map via HTTPS GET requests.
-
-The following is an example of how to set up a Squid Proxy Server and start the Corda Node to point to it as a “tunnel” to connect to Doorman and Network Map.
+The following is an example of how to set up a Squid Proxy Server and start the Corda node to point to it as a “tunnel” to connect to Doorman and Network Map.
 
 
 * Prerequisite is a VM 2 CPU Core & 2 GB RAM running Ubuntu 18.x.
@@ -470,14 +464,14 @@ Mar 13 18:44:10 corda-firewall-proxies squid[14261]: Squid Parent: (squid-1) pro
 [squidstatus.conf](../../resources/squidstatus.conf)
 
 
-* At this point you can ssh to the VM where the Corda Node is installed and run the following command:
+* At this point you can ssh to the VM where the Corda node is installed and run the following command:
 
 
 `java -Dhttps.proxyHost=your-firewall-proxy -Dhttps.proxyPort=8080 -jar corda.jar`
 
 
 
-* If the Corda Node starts up successfully you can then check `/var/log/squid/access.log` and you should see output as follows:
+* If the Corda node starts up successfully you can then check `/var/log/squid/access.log` and you should see output as follows:
 
 
 ```javascript
@@ -488,7 +482,7 @@ Mar 13 18:44:10 corda-firewall-proxies squid[14261]: Squid Parent: (squid-1) pro
 [access.conf](../../resources/access.conf)
 
 
-## Using Socks Proxy with Corda Bridge
+## Using SOCKS proxy with Corda bridge
 
 R3 strongly recommend the use of a SOCKS Proxy in conjunction with the Corda Firewall to access peers on the network for P2P communication.
 

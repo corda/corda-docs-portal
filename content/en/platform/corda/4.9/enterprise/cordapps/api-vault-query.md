@@ -25,7 +25,7 @@ You can use several flexible query mechanisms to access the vault, including:
 
 
 * The vault query API.
-* A JDBC session (see [State Persistence]{{< relref "state-persistence.md" >}})).
+* A JDBC session (see [State persistence]({{< relref "state-persistence.md" >}})).
 * Custom [JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html)/[JPQL](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#hql) queries.
 * Custom third-party data access frameworks such as [Spring Data](http://projects.spring.io/spring-data).
 
@@ -192,7 +192,7 @@ interfaces' common state attributes to the **VAULT_LINEAR_STATES** table.{{< /no
 
 
 * `VaultCustomQueryCriteria` provides the means to specify one or many arbitrary expressions on attributes defined
-by a custom contract state that implements its own schema as described in the [State Persistence]{{< relref "state-persistence.md" >}})
+by a custom contract state that implements its own schema as described in the [State persistence]({{< relref "state-persistence.md" >}})
 documentation. You can express custom criteria using one of these type-safe forms of
 `CriteriaExpression`: `BinaryLogical`, `Not`, `ColumnPredicateExpression`, and `AggregateFunctionExpression`. The
 `ColumnPredicateExpression` allows for the specification of arbitrary criteria using the previously enumerated operator
@@ -214,7 +214,7 @@ construction of custom criteria using any combination of `ColumnPredicate`. See 
 `QueryCriteriaUtils` for a complete specification of the DSL.
 {{< note >}}
 Custom contract schemas are automatically registered upon node startup for CorDapps. Please refer to
-[State Persistence]{{< relref "state-persistence.md" >}}) for mechanisms of registering custom schemas for different testing
+[State persistence]({{< relref "state-persistence.md" >}}) for mechanisms of registering custom schemas for different testing
 purposes.{{< /note >}}
 
 
@@ -256,7 +256,7 @@ Custom contract states that implement the `Queryable` interface may now extend t
 When specifying the `ContractType` as a parameterised type to the `QueryCriteria` in Kotlin, queries now include all concrete implementations of that type if this is an interface. Previously, it was only possible to query on concrete types (or the universe of all `ContractState`).
 {{< /note >}}
 
-The Vault Query API leverages the rich semantics of the underlying JPA [Hibernate](https://docs.jboss.org/hibernate/jpa/2.1/api/)-based [State Persistence]{{< relref "state-persistence.md" >}}) framework adopted by Corda.
+The Vault Query API leverages the rich semantics of the underlying JPA [Hibernate](https://docs.jboss.org/hibernate/jpa/2.1/api/)-based [State persistence]({{< relref "state-persistence.md" >}}) framework adopted by Corda.
 
 
 {{< note >}}

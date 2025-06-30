@@ -173,11 +173,11 @@ DatabaseInitialisation(id="9HBhcBgl";status="error";error_code="9";message="Migr
 * 10 - outstanding database migration change sets, for example:
 
 ```none
-DatabaseInitialisation(id="oT6igoGJ";status="error";error_code="10";message="Incompatible database schema version detected. Node is configured with option database.runMigration=false or the most recent Database Management Tool has not been run. Reason: There are 109 outstanding database changes that need to be run.") {}
+DatabaseInitialisation(id="oT6igoGJ";status="error";error_code="10";message="Incompatible database schema version detected. Node is configured with option database.runMigration=false or the most recent database management tool has not been run. Reason: There are 109 outstanding database changes that need to be run.") {}
 ```
 
 
-* 11 - no outstanding database migration change sets however mapped schema code (JPA entity) is incompatible with a database object (e.g. table) created by database management script, for example:
+* 11 - no outstanding database migration change sets however mapped schema code (JPA entity) is incompatible with a database object (for example, table) created by database management script, for example:
 
 ```none
 DatabaseInitialisation(id="e6KAmx6O";status="error";error_code="11";message="Incompatible database schema version detected. Reason: All database changes are up-to-date however JPA Entity is incompatible with database schema. Reason: Schema-validation: missing column [dummy] in table [`AliceCorp`.messages]")

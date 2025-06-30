@@ -11,11 +11,11 @@ tags:
 - network
 - map
 - overview
-title: Network Map Overview
+title: Network map overview
 ---
 
 
-# Network Map Overview
+# Network map overview
 
 The network map is a collection of signed `NodeInfo` objects. Each `NodeInfo` is signed by the node it represents and
 thus cannot be tampered with. It forms the set of reachable nodes in a network. A node can receive these objects from
@@ -201,7 +201,7 @@ parameters change.
 List of whitelisted versions of contract code. For each contract class there is a
 list of hashes of the approved CorDapp JAR versions containing that contract. Read
 more about *contract constraints* in the [contract constraints doc](https://docs.r3.com/api-contract-constraints.html). See
-[Contract Whitelist Generation]({{< relref "contract-whitelisting.md" >}}) for how to configure this in the network parameters
+[Contract whitelist generation]({{< relref "contract-whitelisting.md" >}}) for how to configure this in the network parameters
 configuration file.
 
 

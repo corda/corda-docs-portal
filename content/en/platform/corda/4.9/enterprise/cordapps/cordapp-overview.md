@@ -37,15 +37,15 @@ A Corda Distributed Application (CorDapp) solves a specific problem using the Co
 
 *Flows*
   Flows are routines for nodes to run. They can perform a variety of tasks, usually involving ledger updates. Flows
-  subclass `FlowLogic`. For more information on flows, see [Writing CorDapp Flows]{{< relref "api-flows.md" >}}).
+  subclass `FlowLogic`. For more information on flows, see [Writing CorDapp Flows]({{< relref "api-flows.md" >}}).
 
 *States*
   States define the facts that parties use to agree and transact. States implement the `ContractState` interface. For more
-  information on states, see [Writing CorDapp States]{{< relref "api-states.md" >}}).
+  information on states, see [Writing CorDapp States]({{< relref "api-states.md" >}}).
 
 *Contracts*
   Contracts define the shared rules for updating the ledger. Contracts implement the `Contract` interface. To learn
-  more about implementing contracts, see [Writing CorDapp Contracts]{{< relref "api-contracts.md" >}}).
+  more about implementing contracts, see [Writing CorDapp contracts]({{< relref "api-contracts.md" >}}).
 
 *Services*
   Services provide long-lived utilities that don’t need to run on the network. Services subclass `SingletonSerializationToken`.
@@ -96,6 +96,6 @@ Each node owner installs this CorDapp onto their node. They can then issue, trad
 
 Ready to get started with CorDapps?
 
-* [Get set up for CorDapp development]{{< relref "getting-set-up.md" >}}).
-* [Run a sample CorDapp]{{< relref "tutorial-cordapp.md" >}}).
-* [Build a CorDapp]{{< relref "cordapp-build-systems.md" >}}).
+* [Get set up for CorDapp development]({{< relref "getting-set-up.md" >}}).
+* [Run a sample CorDapp]({{< relref "tutorial-cordapp.md" >}}).
+* [Build a CorDapp]({{< relref "cordapp-build-systems.md" >}}).

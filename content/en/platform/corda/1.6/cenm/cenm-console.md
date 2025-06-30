@@ -7,7 +7,7 @@ menu:
     weight: 1020
 tags:
 - CENM management console
-title: CENM Management Console
+title: CENM management console
 ---
 
 # CENM management console
@@ -197,7 +197,7 @@ To check the status of members being removed from the network, click the **CRR/C
 
 You can access and edit the configuration files of the Identity Manager Service, the Signing Service, and the Network Map Service.
 
-#### Identity Manager Service configuration
+#### Identity Manager service configuration
 
 To access and edit the configuration files of the Identity Manager Service, click **CONFIGURATION** in the top navigation area of the screen, and then the **IDENTITY MANAGER** tab:
 
@@ -209,7 +209,7 @@ To access and edit the configuration files of the Identity Manager Service, clic
 
 {{< figure zoom="/en/images/cenm-management-console-configuration-signer.png" alt="CENM management console - Signing Service configuration" >}}
 
-#### Network Map Service configuration
+#### Network Map service configuration
 
 To access and edit the configuration files of the Identity Manager Service, click **CONFIGURATION** in the top navigation area of the screen, and then the **NETWORK MAP** tab:
 

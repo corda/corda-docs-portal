@@ -16,7 +16,7 @@ weight: 110
 # Corda Enterprise HA notary service set-up
 
 The Corda Enterprise notary service can be configured in high-availability (HA) mode. For the Corda Enterprise notary
-service to operate in HA mode, a high-availability database is required. See [Corda Enterprise notary service overview]{{< relref "ha-notary-service-overview.md" >}}) for more information.
+service to operate in HA mode, a high-availability database is required. See [Corda Enterprise notary service overview]({{< relref "ha-notary-service-overview.md" >}}) for more information.
 
 Running an HA notary requires the following:
 
@@ -85,7 +85,7 @@ See [notary registration]({{< relref "../ha-utilities.md#notary-registration" >}
 2. Register the notary workers
 
 After the notary service is registered with the Identity Manager, each notary worker must be registered with the Identity
-Manager. This process is similar to registering a standard Corda Node, but the notary workers also require access to the
+Manager. This process is similar to registering a standard Corda node, but the notary workers also require access to the
 notary service key and certificate.
 
 Copy the `.jks` file created when registering the notary service identity, and create a copy in the `certificates/nodekeystore.jks`

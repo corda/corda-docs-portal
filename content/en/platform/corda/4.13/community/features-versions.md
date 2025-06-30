@@ -51,7 +51,7 @@ of Corda as well as opt in to newer features should they happen to be available 
 {{< table >}}
 
 
-# Corda Features
+# Corda features
 
 |Feature|Corda Platform Version (PV)|Min Network Platform Version (network mPV)|Introduced in OS version|Introduced in Enterprise version|
 |--------------------|--------------------|--------------------|--------------------|--------------------|
@@ -61,7 +61,7 @@ of Corda as well as opt in to newer features should they happen to be available 
 |Whitelist Constraints|3|3|3.0|3.0|
 |Inline Finality Flow|4|3|4.0|4.0|
 |Reference States|4|4|4.0|4.0|
-|Signature Constraints|4|4|4.0|4.0|
+|Signature constraints|4|4|4.0|4.0|
 |Underlying Support for Accounts|5|4|4.3|4.3|
 |Prevent CorDapp Hosting Issue|6|4|4.4|4.4|
 |New Flow Framework APIs|7|4|4.5|4.5|

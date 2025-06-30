@@ -112,14 +112,13 @@ As mentioned above, an account can be in three states:
 
 On this tab, you can view customer information that is tied to the account. This includes:
 
-* **Customer name**.
-* **Phone number**.
-* **Email address**.
-* **Post code**.
-* **Created on** - the date the customer was created.
-* **Modified on** - the last date that the customer information was modified.
-* **Attachments** - supporting documentation uploaded previously.
-
+* **Customer name**
+* **Phone number**
+* **Email address**
+* **Post code**
+* **Created on** (the date the customer was created)
+* **Modified on** (the last date that the customer information was modified)
+* **Attachments** supporting documentation uploaded previously)
 
 {{< note >}}
 Customer information can be viewed but not modified from this tab. For instructions on modifying customer information, see the documentation on [updating a customer profile]({{< relref "./how-to.md#update-customer-profile" >}}).

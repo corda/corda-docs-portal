@@ -97,14 +97,14 @@ running with `service mysql status`, start the service with `sudo service mysql 
 ## Configuration
 
 
-### Configure the MySQL Root Password (if necessary)
+### Configure the MySQL root password (if necessary)
 
 Some distributions allow root access to the database through a Unix domain socket, others
 require you to find the temporary password in the log file and change it upon
 first login.
 
 
-### Stop the Service
+### Stop the MySQL service
 
 ```sh
 sudo service mysql stop
@@ -201,16 +201,16 @@ The file `/etc/mysql/percona-xtradb-cluster.conf.d/mysqld.cnf` contains addition
 you keep the default `/var/lib/mysql`.
 
 
-### Configure AppArmor, SELinux or other Kernel Security Module
+### Configure AppArmor, SELinux or other kernel security module
 
 If you’re changing the location of the database data directory, you might need to
 configure your security module accordingly.
 
 
-### On the first Percona node
+#### On the first Percona node
 
 
-#### Start the Database
+##### Start the database
 
 ```sh
 sudo /etc/init.d/mysql bootstrap-pxc
@@ -222,14 +222,14 @@ Watch the logs using `tail -f /var/log/mysqld.log`. Look for a log entry like
 You can now connect to the database using a standard tool (e.g. the `mysql` command line tool).
 
 
-#### Create the Corda User
+##### Create Corda user
 
 ```sql
 CREATE USER corda IDENTIFIED BY '{{ password }}';
 ```
 
 
-#### Create the Database and Tables
+##### Create database and tables
 
 We need to create three tables in our database:
 
@@ -278,7 +278,7 @@ GRANT SELECT, INSERT ON corda.notary_committed_transactions TO 'corda';
 ```
 
 
-#### Create the SST User
+##### Create SST User
 
 ```sql
 CREATE USER ‘{{ sst_user }}’@’localhost’ IDENTIFIED BY ‘{{ sst_pass }}‘;
@@ -287,7 +287,7 @@ FLUSH PRIVILEGES;
 ```
 
 
-### On all other Nodes
+#### On all other nodes
 
 Once you have updated the `wsrep.cnf` on all nodes, start MySQL on all the
 remaining nodes of your cluster. Run this command on all nodes of your cluster,

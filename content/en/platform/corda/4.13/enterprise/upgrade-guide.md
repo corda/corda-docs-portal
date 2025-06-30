@@ -130,15 +130,14 @@ To validate a pre-4.11 node, perform the following steps:
 9. Create a `cordapps` directory and add the JDK 17/Kotlin 1.9 CordApps to this directory.
 10. If required (see above description), create a `legacy-jars` directory and add third-party dependencies to this directory.
 11. Run the TVU:
-
-   ```
-   $ java -jar corda-tools-transaction-validator-4.12-RC01.jar
-   Starting
-   Total Transactions: 41
-   Waiting for all transactions to be processed...
-   Success, All transactions processed.
-   Total time taken: 3943ms
-   ```
+    ```
+    $ java -jar corda-tools-transaction-validator-4.12-RC01.jar
+    Starting
+    Total Transactions: 41
+    Waiting for all transactions to be processed...
+    Success, All transactions processed.
+    Total time taken: 3943ms
+    ```
 
 If there are any transactions that cannot be validated, you must address the reported issues before proceeding with the upgrade.
 If all transactions are validated successfully, then you can upgrade the node, or it can safely interoperate with a 4.12 node.
@@ -152,7 +151,6 @@ To validate a Corda 4.11 node:
 5. Back up the current `cordapps` directory, remove its contents, and add the JDK17/Kotlin 1.9 CordApps to this directory.
 7. If required (see above description), create a `legacy-jars` directory and add third-party dependencies to this directory.
 8. Run the TVU:
-
    ```
    $ java -jar corda-tools-transaction-validator-4.12-RC01.jar
    Starting
@@ -164,7 +162,7 @@ To validate a Corda 4.11 node:
 
 ### Upgrade 4.11 CorDapps
 
-You must update all custom CorDapps being upgraded that are running on Corda 4.11 nodes so they use Java 17 and Kotlin 1.9.20. For steps on updating Cordapps, see [Upgrading a CorDapp to Corda Enterprise Edition 4.12]({{< relref "app-upgrade-notes-enterprise.md" >}}).
+You must update all custom CorDapps being upgraded that are running on Corda 4.11 nodes so they use Java 17 and Kotlin 1.9.20. For steps on updating CorDapps, see [Upgrading a CorDapp to Corda Enterprise Edition 4.12]({{< relref "app-upgrade-notes-enterprise.md" >}}).
 
 #### Flow versioning
 You must annotate any flow that initiates other flows with the `@InitiatingFlow` annotation, which is defined as:
@@ -247,7 +245,6 @@ Pre-4.12 transactions are verified in an external verifier process when encounte
 
 1. Run the database migration scripts. See [Use run-migration-scripts]({{< relref "node/deploy/deploying-a-node.md#use-run-migration-scripts" >}}).
 2. Start your node in the usual way:
-
    ```
    java -jar corda-4.12.jar -f node.conf
    ```
@@ -263,7 +260,6 @@ If you are operating a mixed network, then the process for adding a new Corda 4.
 1. Set up the node folder structure same as other Corda 4.12 nodes.
 2. Add the `legacy-contracts` folder and associated files to the node folder.
 3. Add the `legacy-jars` folder if required
-
    ```
    .
    ├── certificates
@@ -279,7 +275,6 @@ If you are operating a mixed network, then the process for adding a new Corda 4.
    │   └── third-party-dependency.jar
    └── node.conf
    ```
-
 3. Register the node to the network and proceed to operate it as normal.
 
 ### Adding new 4.12 nodes to a non-mixed network
@@ -292,7 +287,6 @@ In this scenario, you still require a copy of the old CorDapp contract JAR file.
 
 1. Set up the node folder structure without the `legacy-contracts` folder.
 2. Add the `legacy-jars` folder if required.
-
    ```
    .
    ├── certificates
@@ -306,8 +300,7 @@ In this scenario, you still require a copy of the old CorDapp contract JAR file.
    ├── drivers
    └── node.conf
    ```
-  3. Register and then start the node.
-
+3. Register and then start the node.
 4. Access the Corda node either via RPC client or the standalone shell and upload the old CorDapp contract JAR as an attachment to the node.
    For more information on uploading attachments, see [Working with attachments]({{< relref "get-started/tutorials/supplementary-tutorials/tutorial-attachments.md" >}}).
 

@@ -16,17 +16,17 @@ weight: 200
 # Upgrading Corda Enterprise Network Manager
 
 This document provides instructions for upgrading your network management suite - Identity Manager Service (formerly
-Doorman), Network Map Service, Signing Service, Zone Service, Auth Service, Angel Service - from previous versions to the newest version. Please consult the relevant [CENM Release Notes]({{< relref "../../../../1.6/cenm/release-notes.md" >}}) of the release in question. If not specified, you may assume the versions you are currently using are still in force.
+Doorman), Network Map service, Signing Service, Zone Service, Auth Service, Angel Service - from previous versions to the newest version. Please consult the relevant [CENM Release Notes]({{< relref "../../../../1.6/cenm/release-notes.md" >}}) of the release in question. If not specified, you may assume the versions you are currently using are still in force.
 
 {{< warning >}}
-Before you start the upgrade, you must consult the [CENM Release Notes]({{< relref "../../../../1.6/cenm/release-notes.md" >}}) to confirm all changes between releases.
+Before you start the upgrade, you must consult the [CENM release notes]({{< relref "../../../../1.6/cenm/release-notes.md" >}}) to confirm all changes between releases.
 {{< /warning >}}
 
 ## 1.3.x / 1.4.x to 1.5
 
 ### Database migrations
 
-The Identity Manager Service, the Network Map Service, and the Zone Service all require database migration.
+The Identity Manager Service, the Network Map service, and the Zone Service all require database migration.
 To enable database migration, set `runMigration = true` in the database configuration. If a service is connecting to a database with restricted user,
 you must temporarily change the service settings to connect with a privileged user (a user able to modify a database schema).
 
@@ -92,11 +92,11 @@ The general procedure for upgrading from CENM 1.3 to CENM 1.4 is as follows:
 4. Replace the JAR files for all services with the latest CENM 1.4 JAR files. **ImportantL** In CENM 1.4, the FARM Service has been renamed to "Gateway Service", so the FARM Service JAR file used in CENM 1.3 should be replaced with the Gateway Service JAR file used in CENM 1.4.
 5. Start the Auth Service, the Zone Service, and the Gateway Service. **Important:** The Zone Service requires the `--run-migration` option to be set to `true`, as [described below](#zone-service-database-migration).
 6. Submit the updated configurations to the Zone Service.
-7. Start the Identity Manager Service, the Signing Service, and the Network Map Service.
+7. Start the Identity Manager Service, the Signing Service, and the Network Map service.
 
 ### Zone Service database migration
 
-If you are upgrading to CENM 1.4 from CENM 1.3, you **must** set `runMigration = true` in the database configuration. This is required due to a change in the Zone Service database schema - a new column in the database tables `socket_config` and `signer_config` called `timeout` is used to record the new optional `timeout` parameter values used in `serviceLocations` configuration blocks (Signing Services) and `identityManager` and `revocation` configuration blocks (Network Map Service). This value can remain `null`,
+If you are upgrading to CENM 1.4 from CENM 1.3, you **must** set `runMigration = true` in the database configuration. This is required due to a change in the Zone Service database schema - a new column in the database tables `socket_config` and `signer_config` called `timeout` is used to record the new optional `timeout` parameter values used in `serviceLocations` configuration blocks (Signing Services) and `identityManager` and `revocation` configuration blocks (Network Map service). This value can remain `null`,
 in which case the default 30 seconds timeout will be used wherever applicable.
 
 An example follows below:
@@ -163,10 +163,10 @@ The key steps for the upgrade are:
 4. Deploy Auth Service to provide user authentication and authorisation to other services.
 5. Deploy Zone Service to store configurations for the Identity Manager, Network Map, and Signing Services.
 6. Create users in the Auth Service, for zone and subzone management.
-7. Edit [Identity Manager Service]({{< relref "../../../../1.3/cenm/identity-manager.md" >}}), [Network Map Service]({{< relref "../../../../1.3/cenm/network-map.md" >}}), and [Signing Service]({{< relref "../../../../1.3/cenm/signing-service.md" >}}) configurations to remove shell access and add an admin listener configuration.
+7. Edit [Identity Manager Service]({{< relref "../../../../1.3/cenm/identity-manager.md" >}}), [Network Map service]({{< relref "../../../../1.3/cenm/network-map.md" >}}), and [Signing Service]({{< relref "../../../../1.3/cenm/signing-service.md" >}}) configurations to remove shell access and add an admin listener configuration.
 8. Edit the [Signing Service]({{< relref "../../../../1.3/cenm/signing-service.md" >}}) configuration so that signing tasks refer to [service aliases]({{< relref "../../../../1.3/cenm/signing-service.md#direct-cenm-service-locations" >}})generated by the Zone Service.
 9. Set Identity Manager Service configuration in the [Zone Service]({{< relref "../../../../1.3/cenm/zone-service.md" >}}).
-10. Set Network Map Service configuration(s) in the Zone Service.
+10. Set Network Map service configuration(s) in the Zone Service.
 11. Set Signing Service configuation in the Zone Service.
 12. Update existing service deployments.
 13. Add [Angel Services]({{< relref "../../../../1.3/cenm/angel-service.md" >}}) to Identity Manager, Network Map, and Signing Services, to fetch configurations from the Zone
@@ -232,7 +232,7 @@ these names. The names are specified in [service aliases]({{< relref "../../../.
 ### Push configurations to Zone Service
 
 Once you finish updating the configurations, you must set them on the Zone Service. An example of
-how to do this is shown below, but please see the CENM CLI tool documentation for details on what these
+how to do this is shown below, but please see the [CENM CLI tool documentation]({{< relref "../../../../1.6/cenm/cenm-cli-tool.md" >}}) for details on what these
 commands do, and adapt them to your deployment:
 
 ```bash
@@ -243,7 +243,7 @@ commands do, and adapt them to your deployment:
 # Set the Identity Manager config
 ./cenm identity-manager config set -f config/identitymanager.conf --zone-token
 # Create a new subzone
-./cenm zone create-subzone --config-file=config/networkmap.conf --label=Subzone --label-color="#000000" --network-map-address=<Network Map Service> --network-parameters=config/params.conf
+./cenm zone create-subzone --config-file=config/networkmap.conf --label=Subzone --label-color="#000000" --network-map-address=<Network Map service> --network-parameters=config/params.conf
 # Set the Network Map configuration for a subzone (1 was taken from the response to the create-subzone command)
 ./cenm netmap config set -s 1 -f config/networkmap.conf --zone-token
 # Set the Signer configuration last, as it depends on the first two service's locations for it to be complete
@@ -304,8 +304,8 @@ Use latest patched version (1.1.1 or higher) of the services (JAR/ZIP files) ins
 
 ### Identity Manager, Network Map and Signing Service
 
-Ensure Identity Manager and Network Map Services will be configured to upgrade the databases upon start-up.
-In the configuration files of the Identity Manager Service and the Network Map Service, set `runMigration` property to `true` - for example:
+Ensure Identity Manager and Network Map services will be configured to upgrade the databases upon start-up.
+In the configuration files of the Identity Manager Service and the Network Map service, set `runMigration` property to `true` - for example:
 
 ```guess
 database {
@@ -327,7 +327,7 @@ and [Public Key Infrastructure (PKI) Tool]({{< relref "../../../../1.6/cenm/pki-
 ## 0.3+ to 1.0
 
 CENM 1.0 introduces an overhauled Signing Service, official PostgreSQL support, and re-worked configuration files for
-Identity Manager (formerly Doorman) and Network Map Services.
+Identity Manager (formerly Doorman) and Network Map services.
 
 
 ### Identity Manager Service
@@ -338,11 +338,11 @@ has been re-worked - as a result, the service is no longer backward-compatible w
 Currently, configuration file migrations must be performed manually. Refer to the Identity Manager Service documentation
 for further guidance.
 
-### Network Map Service
+### Network Map service
 
-The Network Map Service upgrade process is similar to that for the Identity Manager Service. Replace the existing Network Map Service JAR file
-with its CENM 1.0 counterpart, and restart the service. The Network Map Service configuration file has also been re-worked.
-Configurations predating CENM 1.0 must be migrated to be compatible with CENM 1.0. Refer to the Network Map Service documentation for further guidance.
+The Network Map service upgrade process is similar to that for the Identity Manager Service. Replace the existing Network Map service JAR file
+with its CENM 1.0 counterpart, and restart the service. The Network Map service configuration file has also been re-worked.
+Configurations predating CENM 1.0 must be migrated to be compatible with CENM 1.0. Refer to the Network Map service documentation for further guidance.
 
 ### Signing Service
 
@@ -384,7 +384,7 @@ database {
 
 ### Configuration files
 
-CENM 1.0 Identity Manager and Network Map Services are not backward-compatible with configuration files for Doorman and Network Map Service versions 0.x.
+CENM 1.0 Identity Manager and Network Map services are not backward-compatible with configuration files for Doorman and Network Map service versions 0.x.
 Version 0.2.2 and 0.3 / 0.4 configuration files can be migrated to CENM 1.0 using the [configuration migration tool]({{< relref "../../../../1.3/cenm/tool-config-migration.md" >}}).
 Using the generated 1.0 configurations, the services can be upgraded by stopping the services, swapping out the JAR file and configuration files, and restarting the services.
 
@@ -396,9 +396,9 @@ separation change, the Network Map heavily utilised the Doorman database tables.
 the data should first be migrated.
 
 
-### Migration Of Existing Data
+### Migrating existing data
 
-To upgrade an existing Doorman or Network Map Service, a new database instance must first be created for the service to use.
+To upgrade an existing Doorman or Network Map service, a new database instance must first be created for the service to use.
 Once this has been done the following steps should be followed to upgrade the service:
 
 
@@ -411,7 +411,7 @@ For example for the Doorman service:
 
 {{< figure alt="doorman migration" width=80% zoom="/en/images/doorman-migration.png" >}}
 
-These steps should be followed for both the Doorman and Network Map Services. This process is *non-destructive* - it
+These steps should be followed for both the Doorman and Network Map services. This process is *non-destructive* - it
 should leave the old database untouched, only copying the data across to the new databases. Once both services have been migrated
 via the above process they will be fully functional:
 
@@ -427,14 +427,14 @@ files. Most Notably:
 
 If a node is a member of a private network, the current implementation of Corda only passes the node’s private network
 id during its registration request to the Doorman (if configured on the node side). A consequence of this design and the
-separation of Doorman and the Network Map Service is that when a node submits its node info to a Network Map Service,
-the Network Map Service needs to communicate with the Doorman service as it can no longer do the direct lookup of a
+separation of Doorman and the Network Map service is that when a node submits its node info to a Network Map service,
+the Network Map service needs to communicate with the Doorman service as it can no longer do the direct lookup of a
 node’s private network membership from within the Doorman database. This is facilitated via a new internal *CENM server* that
 lives within each CENM service.
 
 In case of a deployment scenario involving CENM upgrade from version prior to 0.3, the configuration file for the
-The Network Map Service can be automatically upgraded using the configuration upgrade tool or the `--config-is-old` flag.
-In the case of the Network Map Service, the configuration parameters `privateNetworkAutoEnrolment` and `checkRevocation`
+The Network Map service can be automatically upgraded using the configuration upgrade tool or the `--config-is-old` flag.
+In the case of the Network Map service, the configuration parameters `privateNetworkAutoEnrolment` and `checkRevocation`
 are defaulted to false, therefore switching this behaviour off. This is because the exact endpoints for the Doorman
 and Revocation services cannot be known by the upgrader.
 
@@ -442,15 +442,15 @@ and Revocation services cannot be known by the upgrader.
 {{< warning >}}
 If you require private network functionality or node certificate revocation checking then the configuration
 should be updated to include the appropriate settings. See the *Doorman & Revocation Communication* section
-of the [Network Map Service]({{< relref "../../../../1.3/cenm/network-map.md" >}}) document for more information.
+of the [Network Map service]({{< relref "../../../../1.3/cenm/network-map.md" >}}) document for more information.
 
 {{< /warning >}}
 
 
 
-#### The Network Map signing service requires a configuration update to specify communication with the Network Map Service
+#### The Network Map signing service requires a configuration update to specify communication with the Network Map service
 
-The release modifies the Network Map Signing Service to request data through the Network Map Service rather than going
+The release modifies the Network Map Signing Service to request data through the Network Map service rather than going
 directly to the database. Therefore the configuration needs to change to remove the redundant database configuration and
 instead adding the service endpoint. As this information cannot be known by the configuration upgrader, this has to be added
 manually. See [Signing Services]({{< relref "../../../../1.3/cenm/signing-service.md" >}}) for more information on how to configure this.
@@ -464,9 +464,9 @@ configuration modification. See [Signing Services]({{< relref "../../../../1.3/c
 
 #### Setting the network parameters requires passing the root certificate
 
-When setting network parameters, the Network Map Service cannot validate the proposed notary certificates using the Doorman database.
+When setting network parameters, the Network Map service cannot validate the proposed notary certificates using the Doorman database.
 Hence the trusted root certificate now needs to be passed during setting of parameters.
-See the “Setting the Network Parameters” section of the [Network Map Service]({{< relref "../../../../1.3/cenm/network-map.md" >}}) document for more information.
+See the “Setting the Network Parameters” section of the [Network Map service]({{< relref "../../../../1.3/cenm/network-map.md" >}}) document for more information.
 
 
 ## 0.1 to 0.2.1
@@ -478,9 +478,9 @@ but comes with backward compatibility along with a configuration upgrade tool.
 There are two ways to upgrade your old 0.1 network services environment:
 
 
-### Without Upgrading Your Configuration
+### Without upgrading your configuration
 
-The 0.2.1 Doorman/Network Map Service and Signing Service JAR files will work in place of their 0.1 counterparts, but
+The 0.2.1 Doorman/Network Map service and Signing Service JAR files will work in place of their 0.1 counterparts, but
 require an additional `--config-is-old` command-line flag to be passed upon start-up. This allows you to use you old
 configuration files without any further steps. For example:
 
@@ -489,7 +489,7 @@ java -jar doorman-0.1.jar --config-file doorman-0.1.conf --config-is-old
 ```
 
 
-### Upgrading Your Configuration File
+### Upgrading your configuration file
 
 You can also use the configuration file upgrade tool to create a new configuration file from your old 0.1 file.
 

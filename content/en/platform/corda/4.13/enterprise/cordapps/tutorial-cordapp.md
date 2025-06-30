@@ -15,11 +15,11 @@ tags:
 - cordapp
 - deploy
 - quickstart
-title: Run a sample CorDapp
+title: Running a sample CorDapp
 weight: 20
 
 ---
-# Run a sample CorDapp
+# Running a sample CorDapp
 
 Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try [building your own]({{< relref "../get-started/tutorials/build-basic-cordapp/basic-cordapp-intro.md" >}}), modifying a [Java](https://github.com/corda/cordapp-template-java/tree/release/4.12) or [Kotlin](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12) template, or using a [community CorDapp](https://www.corda.net/samples/).
 
@@ -33,7 +33,7 @@ The sample CorDapp allows nodes to reach loan agreements with each other, as lon
 You will deploy and run the sample CorDapp on the following test nodes:
 
 
-* **Notary**, which runs a notary service
+* **Notary:** Runs a notary service
 * **PartyA**
 * **PartyB**
 
@@ -53,21 +53,20 @@ CorDapps can be written in any language targeting the JVM. However, source files
 1. Choose a directory to store the sample CorDapp.
 2. Open the command line from that directory.
 3. Run the following command to clone the sample repository:
+   {{< tabs name="tabs-1" >}}
+   {{% tab name="Java" %}}
+   ```java
+   git clone https://github.com/corda/samples-java/tree/release/4.12
+   ```
+   {{% /tab %}}
 
-{{< tabs name="tabs-1" >}}
-{{% tab name="java" %}}
-```java
-git clone https://github.com/corda/samples-java/tree/release/4.12
-```
-{{% /tab %}}
+   {{% tab name="Kotlin" %}}
+   ```kotlin
+   git clone https://github.com/corda/samples-kotlin/tree/release/4.12
+   ```
+   {{% /tab %}}
 
-{{% tab name="kotlin" %}}
-```kotlin
-git clone https://github.com/corda/samples-kotlin/tree/release/4.12
-```
-{{% /tab %}}
-
-{{< /tabs >}}
+   {{< /tabs >}}
 
 The sample project folders will appear in your chosen directory.
 {{< note >}}
@@ -93,17 +92,30 @@ The project containing the sample CorDapp opens.
 
 1. Open the command line from the `cordapp-example` directory.
 2. Run the `deployNodes` Gradle task:
-      * Unix/macOS: `./gradlew deployNodes`
-      * Windows: `./gradlew.bat deployNodes`
-
+   {{< tabs name="tabs-2" >}}
+   {{% tab name="Unix" %}}
+   ```shell
+   ./gradlew deployNodes
+   ```
+   {{% /tab %}}
+   {{% tab name="macOS" %}}
+   ```shell
+   ./gradlew deployNodes
+   ```
+   {{% /tab %}}
+   {{% tab name="Windows" %}}
+   ```shell
+   ./gradlew.bat deployNodes
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
    This builds three nodes with the CorDapp installed on them.
-
 3. When the build finishes, go to the `samples-java/Basic/cordapp-example/build/nodes` or `samples-kotlin/Basic/cordapp-example/build/nodes` folder. You will see the following output:
       * A folder for each generated node
       * A `runnodes` shell script for running all the nodes simultaneously on macOS
       * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows
-
-    See [Appendix B]({{< relref "#appendix-b-node-structure" >}}) for the node structure.
+   
+   See [Appendix B]({{< relref "#appendix-b-node-structure" >}}) for the node structure.
 
 {{< note >}}
 `deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would instead create a single node as described in [Creating nodes locally]({{< relref "../node/deploy/generating-a-node.md" >}}), and build your CorDapp JARs as described in [Building and installing a CorDapp]({{< relref "cordapp-build-systems.md" >}}).
@@ -115,26 +127,67 @@ The project containing the sample CorDapp opens.
 To start the nodes and the sample CorDapp:
 
 1. Run the command that corresponds to your operating system:
-
-* Unix/macOS: `./build/nodes/runnodes`
-* Windows: `.\build\nodes\runnodes.bat`
+   {{< tabs name="tabs-3" >}}
+   {{% tab name="Unix" %}}
+   ```shell
+   ./build/nodes/runnodes
+   ```
+   {{% /tab %}}
+   {{% tab name="macOS" %}}
+   ```shell
+   ./build/nodes/runnodes
+   ```
+   {{% /tab %}}
+   {{% tab name="Windows" %}}
+   ```shell
+   .\build\nodes\runnodes.bat
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
 2. Start a Spring Boot server for Party A. Run the command:
-
-* Unix/macOS: `./gradlew runPartyAServer`
-* Windows: `gradlew.bat runPartyAServer`
+   {{< tabs name="tabs-4" >}}
+   {{% tab name="Unix" %}}
+   ```shell
+   ./gradlew runPartyAServer
+   ```
+   {{% /tab %}}
+   {{% tab name="macOS" %}}
+   ```shell
+   ./gradlew runPartyAServer
+   ```
+   {{% /tab %}}
+   {{% tab name="Windows" %}}
+   ```shell
+   gradlew.bat runPartyAServer
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
 Look for the `Started Server in X seconds` message &mdash; don’t rely on the % indicator.
 
 3. Repeat the command to start the server for Party B:
+   {{< tabs name="tabs-5" >}}
+   {{% tab name="Unix" %}}
+   ```shell
+   ./gradlew runPartyBServer
+   ```
+   {{% /tab %}}
+   {{% tab name="macOS" %}}
+   ```shell
+   ./gradlew runPartyBServer
+   ```
+   {{% /tab %}}
+   {{% tab name="Windows" %}}
+   ```shell
+   gradlew.bat runPartyBServer
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
-* Unix/macOS: `./gradlew runPartyBServer`
-* Windows: `gradlew.bat runPartyBServer`
-
-
-{{< warning >}}
-On Unix/macOS, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `workflows-java/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell]({{< relref "../node/operating/shell.md" >}}).
-{{< /warning >}}
+   {{< warning >}}
+   On Unix/macOS, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `workflows-java/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell]({{< relref "../node/operating/shell.md" >}}).
+   {{< /warning >}}
 
 
 The `runnodes` script creates a node tab/window for each node. It usually takes about 60 seconds for all the nodes to start. Each node displays “Welcome to the Corda interactive shell” along with a prompt.
@@ -312,11 +365,11 @@ If your test fails, run a Gradle test instead of a unit test.
 7. Select the **Gradle icon** to run your test.
 
 
-## Related Content
+## Related content
 
 * [Debugging a CorDapp]({{< relref "debugging-a-cordapp.md" >}})
 * [Writing a CorDapp]({{< relref "writing-a-cordapp.md" >}})
-* [Build a CorDapp]({{< relref "cordapp-build-systems.md" >}})
+* [Building a CorDapp]({{< relref "cordapp-build-systems.md" >}})
 
 
 ## Appendix A: Project structure

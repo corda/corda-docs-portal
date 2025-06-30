@@ -20,7 +20,7 @@ weight: 2
 
 Corda Firewall 4.x brings with it an few changes, some related to deployment and configuration. The first part of the guide
 covers the upgrade of existing firewall deployments, from the simplest operating mode to the full HA DMZ ready mode. For
-more information on supported operating modes please see [Operating modes of the Bridge and Float]({{< relref "corda-firewall-component.md" >}}).
+more information on supported operating modes, see [Operating modes of the Bridge and Float]({{< relref "corda-firewall-component.md" >}}).
 The **Embedded Developer Node** is left out as it is not impacted. The second part explains the steps to evolve the upgraded
 environments to use the new 4.x features such as standalone Artemis with HA and shared bridge. For consistency, this guide uses the same
 hostname and port values as main firewall guide.
@@ -31,8 +31,8 @@ hostname and port values as main firewall guide.
 When upgrading, it’s important to note that one of the main configuration differences is the renaming of all terms containing *bridge*
 to use *firewall*. This applies to the configuration files for the bridge and float which are now called *firewall.conf*.
 There are properties which have been renamed or reworked, such as *customSSLConfiguration* which was previously
-used to override SSL configuration for bridge-to-artemis or bridge-to-float connections. For more information on the new properties, please see
-Firewall configuration.
+used to override SSL configuration for bridge-to-artemis or bridge-to-float connections. For more information on the new properties, see
+[Firewall configuration]({{< relref "corda-firewall-configuration-file.md" >}}).
 One other major change is the binary file name has changed from  **corda-bridgeserver.jar** to **corda-firewall.jar**. Any existing deployment
 scripts will require updating as well.
 
@@ -156,8 +156,8 @@ It is guaranteed that up to ten nodes can work behind a shared firewall. Any num
 {{< /note >}}
 
 Client connections to external Artemis require separate SSL key and trust stores. These can be created using the *ha-utilities* tool
-For more information please see HA Utilities. There is also an example of keystore generation in
-Firewall configuration under the *Artemis keystore generation* section.
+For more information, see [HA Utilities]({{< relref "../ha-utilities.md" >}}). There is also an example of keystore generation in
+[Firewall configuration]({{< relref "corda-firewall-configuration-file.md#artemis-keystore-generation" >}}) under the *Artemis keystore generation* section.
 
 For the purpose of this guide, the Artemis connection key and trust stores will be named *artemis.jks* and *artemis-truststore.jks*.
 The machines hosting the Artemis instances are *artemisserver1* and *artemisserver2*.

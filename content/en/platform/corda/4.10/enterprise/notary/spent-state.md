@@ -9,7 +9,7 @@ tags:
 - cluster
 - tool
 - audit
-title: Spent state audit tool
+title: Spent State Audit Tool
 weight: 9.5
 ---
 

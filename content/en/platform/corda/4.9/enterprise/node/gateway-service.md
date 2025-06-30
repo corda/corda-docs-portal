@@ -13,7 +13,7 @@ title: Gateway Service
 
 # Gateway Service
 
-The Gateway Service acts as common entry point for remote management of Corda Nodes as well as networks using CENM - either using the available command-line tools or via the web applications hosted by the Gateway.
+The Gateway Service acts as common entry point for remote management of Corda nodes as well as networks using CENM - either using the available command-line tools or via the web applications hosted by the Gateway.
 
 {{< warning >}}
 The Gateway Service does not need its own database - so there is no database configuration required when you are setting up.
@@ -99,7 +99,7 @@ Command line arguments:
 ## Installing applications onto the Gateway Service
 
 {{< note >}}
-[Auth Service]{{< relref "auth-service.md" >}}) needs to be set up with baseline permission data for each application.
+[Auth Service]({{< relref "auth-service.md" >}}) needs to be set up with baseline permission data for each application.
 {{< /note >}}
 
 * [CENM management console]({{< relref "../../../1.5/cenm/cenm-console.md#installation" >}})

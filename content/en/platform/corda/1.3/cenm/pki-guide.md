@@ -10,11 +10,11 @@ menu:
 tags:
 - pki
 - guide
-title: Certificate Hierarchy Guide
+title: Certificate hierarchy guide
 ---
 
 
-# Certificate Hierarchy Guide
+# Certificate hierarchy guide
 
 
 
@@ -46,7 +46,7 @@ The PKI Tool is intended to make it easy to generate all the certificates needed
 The tool generates the keys in the desired key store(s) and outputs a set of certificates necessary for correct Corda Network operation.
 
 
-## Corda Requirements
+## Corda requirements
 
 Corda nodes operate with the following assumptions on the certificates hierarchy:
 
@@ -64,7 +64,7 @@ Other than that, Corda nodes stay agnostic to the certificate hierarchy (in part
 At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found [here](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.5/permissioning.md).
 
 
-### Certificate Revocation List (CRL)
+### Certificate revocation list (CRL)
 
 Every time two nodes communicate with each other they exchange their certificates and validate them against the Certificate Revocation List.
 In Corda, the certificate chains of the nodes are validated only during the TLS handshake.
@@ -125,13 +125,13 @@ Certificate revocation is typically required if a certificate was incorrectly is
 **What is the recommended configuration for the CRL?*
 
 You should use a High Availability deployment in order to avoid any impact caused by temporary downtimes.
-See [Identity Manager Service]({{< relref "identity-manager.md" >}}) for an example configuration of such a deployment.
+See [Identity Manager service]({{< relref "identity-manager.md" >}}) for an example configuration of such a deployment.
 
-See [Certificate Revocation List]({{< relref "certificate-revocation.md" >}}) for instructions on revoking certificates, and [Signing Services]({{< relref "signing-service.md" >}}) for
+See [Certificate Revocation List]({{< relref "certificate-revocation.md" >}}) for instructions on revoking certificates, and [Signing services]({{< relref "signing-service.md" >}}) for
 configuration of the Signing Service for CRLs (especially the `updatePeriod` option).
 
 
-## Example Scenario
+## Example scenario
 
 As an example, let us consider the following certificate hierarchy:
 
@@ -270,6 +270,6 @@ is only required to provide only essential information to the tool. At the same 
 defaults and have the configuration adjusted to the specific needs of different scenarios.
 
 {{< note >}}
-To learn more about running the tool, see [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool.md" >}}).
+To learn more about running the tool, see [Public key infrastructure (PKI) tool]({{< relref "pki-tool.md" >}}).
 
 {{< /note >}}

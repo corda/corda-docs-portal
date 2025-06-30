@@ -8,7 +8,7 @@ tags:
 - load
 - balancing
 weight: 2
-title: Notary Load Balancing
+title: Notary load balancing
 ---
 
 

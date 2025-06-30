@@ -9,7 +9,7 @@ tags:
 - install
 - node operator
 
-title: The Ledger Sync CorDapp
+title: The LedgerSync CorDapp
 weight: 400
 ---
 
@@ -20,7 +20,7 @@ weight: 400
 * Business Network Operators (BNOs)
 * Corda developers
 
-Part of [Collaborative Recovery]{{< relref "introduction-cr.md" >}}), LedgerSync is a CorDapp used to discover any differences between the common ledger data held by two nodes that exist on the same Business Network. This is called the **Reconciliation** stage of collaborative recovery.
+Part of [Collaborative Recovery]({{< relref "introduction-cr.md" >}}), LedgerSync is a CorDapp used to discover any differences between the common ledger data held by two nodes that exist on the same Business Network. This is called the **Reconciliation** stage of collaborative recovery.
 
 It uses an efficient set reconciliation algorithm to minimise the amount of network communication required. Reconciliations can be configured to run both on-demand, and at a given time (through the use of scheduled states).
 
@@ -28,7 +28,7 @@ All reconciliations are added to a bounded execution pool, which is configurable
 
 This means the node that requested the reconciliation will be notified if the responding node has transactions that the requesting node does not. The responding node will not be notified if the requesting node has transactions that the responding node does not.
 
-{{< figure alt="Ledger Sync Flow" width=80% zoom="../../resources/collaborative-recovery/ledger-sync-flow.png" >}}
+{{< figure alt="LedgerSync Flow" width=80% zoom="../../resources/collaborative-recovery/ledger-sync-flow.png" >}}
 
 ### Integration with Archiving
 
@@ -585,7 +585,7 @@ In all cases, it may be necessary to *kill* the flow. See below for the details 
 
 ### Step 3. Transaction recovery
 
-If differences were found during the reconciliation, the next step will be to perform an [Automatic Recovery]{{< relref "ledger-recovery-automatic.md" >}}) or a [ManualRecovery]{{< relref "ledger-recovery-manual.md" >}}).
+If differences were found during the reconciliation, the next step will be to perform an [Automatic Recovery]({{< relref "ledger-recovery-automatic.md" >}}) or a [ManualRecovery]({{< relref "ledger-recovery-manual.md" >}}).
 
 #### Killing Reconciliation Flows
 

@@ -3,18 +3,18 @@ date: '2023-11-20'
 menu:
   corda-enterprise-4-13:
     identifier: corda-enterprise-4-13-corda-ledger-recovery
-    name: "Ledger Recovery"
+    name: "Ledger recovery"
     parent: corda-enterprise-4-13-corda-nodes
 tags:
 - ledger recovery
 
-title: Ledger Recovery
+title: Ledger recovery
 weight: 100
 ---
 
-# Ledger Recovery
+# Ledger recovery
 
-Ledger Recovery complements a standardised Corda network operational backup and recovery process.
+Ledger recovery complements a standardised Corda network operational backup and recovery process.
 Its function is to re-instate a Corda database from the point of a consistent backup. It is not intended to be used
 to recover a partially corrupt database, for example, where records may be missing from a subset of tables.
 The Ledger Recovery process utilises new recovery distribution records in conjunction with the atomicity semantics

@@ -13,11 +13,11 @@ tags:
 - api
 - contract
 - constraints
-title: 'API: Contract Constraints'
+title: 'API: Contract constraints'
 ---
 
 # Contract constraints
-**Contract constraints** let users know which versions of a CorDapp they can use to provide the contract for a transaction. The constraints property is stored in each state.
+*Contract constraints* let users know which versions of a CorDapp they can use to provide the contract for a transaction. The constraints property is stored in each state.
 
 Contract constraints also solve upgrade-related security problems. If an attacker were to force an upgrade to the CorDapp, they could add security vulnerabilities and create or edit states. You can protect states from this type of attack by only allowing states to be affected by contracts in known versions of a CorDapp.
 
@@ -34,24 +34,19 @@ This document explains:
 
 
 ## Glossary
-These terms are used throughout this document:
+These terms are used throughout this topic:
 
-*contract constraints* Instructions in a CorDapp's attachments that determine which versions of a CorDapp parties in a transaction can use to provide contracts.
-
-**composite key** A key that consists of two or more attributes that together uniquely identify an entity occurrence.
-
-*signature constraint* A constraint that lets participants use any version of the CorDapp signed by the `CompositeKey`.
-
-*blacklisting* A process that prevents a transaction signer from processing transactions.
-
-
+- **Contract constraints:** Instructions in a CorDapp's attachments that determine which versions of a CorDapp parties in a transaction can use to provide contracts.
+- **Composite key:** A key that consists of two or more attributes that together uniquely identify an entity occurrence.
+- **Signature constraint:** A constraint that lets participants use any version of the CorDapp signed by the `CompositeKey`.
+- **Blacklisting:** A process that prevents a transaction signer from processing transactions.
 
 ## Implicit and explicit contract upgrades
 
 You can upgrade smart contracts via:
 
-* **Implicit upgrade**. Pre-authorise multiple implementations of the contract ahead of time using constraints. This lets you upgrade contracts without needing to upgrade transactions for every state on the ledger. However, with implicit upgrade, you place more faith in third parties, who could change the CorDapp in ways you do not expect or agree with.
-* **Explicit upgrade**. Create a special *contract upgrade transaction* and get all the participants listed on a state to sign it using the contract upgrade flows. This lets you upgrade states even if they have a constraint. Unlike implicit upgrade, this is a complex method which requires all participants to sign and manually authorise the upgrade, and consumes notary and ledger resources.
+- **Implicit upgrade:** Pre-authorise multiple implementations of the contract ahead of time using constraints. This lets you upgrade contracts without needing to upgrade transactions for every state on the ledger. However, with implicit upgrade, you place more faith in third parties, who could change the CorDapp in ways you do not expect or agree with.
+- **Explicit upgrade:** Create a special *contract upgrade transaction* and get all the participants listed on a state to sign it using the contract upgrade flows. This lets you upgrade states even if they have a constraint. Unlike implicit upgrade, this is a complex method which requires all participants to sign and manually authorize the upgrade, and consumes notary and ledger resources.
 
 
 This article focuses on implicit contract upgrades. To learn about the explicit upgrades see [Release new CorDapp versions]({{< relref "upgrading-cordapps.md" >}}).
@@ -62,31 +57,28 @@ This article focuses on implicit contract upgrades. To learn about the explicit 
 
 You can use two types of contract constraints:
 
-* **Signature constraints**: This constraint lets participants use any version of the CorDapp signed by the `CompositeKey`. This allows CorDapp issuers to express the complex social and business relationships that arise around code ownership. You could release a new version of a CorDapp and apply it to an existing state as long as it has been signed by the same key(s) as the original version.
-* **Always accept constraint**: Allows any version of the CorDapp. This is insecure and only intended for testing.
+- **Signature constraints:** This constraint lets participants use any version of the CorDapp signed by the `CompositeKey`. This allows CorDapp issuers to express the complex social and business relationships that arise around code ownership. You could release a new version of a CorDapp and apply it to an existing state as long as it has been signed by the same key(s) as the original version.
+- **Always accept constraint:** Allows any version of the CorDapp. This is insecure and only intended for testing. Before signature constraints were released with Corda 4.0, constraints were managed with hash and compatibility zone whitelist constraints. These constraints are still available, but make it difficult to upgrade your CorDapp.
+- **Hash constraint:** Participants can only use one version of the CorDapp state. This prevents the CorDapp from being upgraded in the future while still making use of any states created using the original version.
+- **Compatibility zone whitelisted (or CZ whitelisted) constraint:** The compatibility zone operator lists the hashes of the versions that can be used with a contract class name. 
 
-Before signature constraints were released with Corda 4.0, constraints were managed with hash and compatibility zone whitelist constraints. These constraints are still available, but make it difficult to upgrade your CorDapp:
-
-* **Hash constraint**: Participants can only use one version of the CorDapp state. This prevents the CorDapp from being upgraded in the future while still making use of any states created using the original version.
-* **Compatibility zone whitelisted (or CZ whitelisted) constraint**: The compatibility zone operator lists the hashes of the versions that can be used with a contract class name.
-
-You can [migrate CorDapp contraints]({{< relref "cordapp-constraint-migration.md" >}}) from older versions by consuming and evolving pre-Corda 4 issued hash or CZ whitelisted constrained states using a Corda 4 signed CorDapp with signature constraints.
+You can [migrate CorDapp constraints]({{< relref "cordapp-constraint-migration.md" >}}) from older versions by consuming and evolving pre-Corda 4 issued hash or CZ whitelisted constrained states using a Corda 4 signed CorDapp with signature constraints.
 
 
 ## Signature constraints
 
 
-**Signature constraints** let you express complex social and business relationships while allowing smooth migration of existing data to new versions of your CorDapp.
+*Signature constraints* let you express complex social and business relationships while allowing smooth migration of existing data to new versions of your CorDapp.
 
 You can use signature constraints to specify flexible threshold policies. However, if you use the automatic support, then a state requires that the attached CorDapp is signed by every key that signed the first attachment. For example, if Alice and Bob signed a CorDapp that was used to issue some states, every transaction must include an attachment signed by Alice and Bob. This allows the CorDapp to be upgraded and changed while still remaining valid for use with the previously issued states.
 
 You can create a more complex policy that will release the constraint with fewer signatures than the total number of possible signers. This makes it possible for multiple versions to be valid across the network as long as the designated number of signers agree with the updates.
 
-The `TransactionBuilder` uses signature constraints when adding output states for all signed transactions by default. See [Using Contract Constraints in Transactions](#using-contract-constraints-in-transactions).
+The `TransactionBuilder` uses signature constraints when adding output states for all signed transactions by default. See [Using contract constraints in transactions](#using-contract-constraints-in-transactions).
 
 ## Signing CorDapps
 
-CorDapps that use signature constraints must be signed by a `CompositeKey` or a simpler `PublicKey`. CorDapps can be signed by a single organisation or multiple organisations. After the CorDapp is signed, it can be distributed to the relevant Corda nodes. Signed CorDapps require a [version number]({{< relref "versioning.md" >}}).
+CorDapps that use signature constraints must be signed by a `CompositeKey` or a simpler `PublicKey`. CorDapps can be signed by a single organisation or multiple organizations. After the CorDapp is signed, it can be distributed to the relevant Corda nodes. Signed CorDapps require a [version number]({{< relref "versioning.md" >}}).
 
 {{< note >}}
 The platform currently supports `CompositeKey`s, up to a maximum of 20 keys.
@@ -100,7 +92,7 @@ Nodes will also trust attachments that:
 * Are installed manually.
 * Are uploaded via RPC.
 
-You can [sign a CorDapp directly from Gradle]({{< relref "cordapp-build-systems.md#signing-the-cordapp-jar" >}}).
+You can [sign a CorDapp directly from Gradle]({{< relref "cordapp-build-systems.md#sign-the-cordapp" >}}).
 
 
 ### CorDapp contract storage and retrieval
@@ -163,7 +155,7 @@ A `ContractState` must explicitly indicate which `Contract` it belongs to. The n
 There are two mechanisms for indicating ownership. One is to annotate the `ContractState` with the `BelongsToContract` annotation, indicating the `Contract` class to which it is tied:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @BelongsToContract(MyContract.class)
 public class MyState implements ContractState {
@@ -172,7 +164,7 @@ public class MyState implements ContractState {
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @BelongsToContract(MyContract::class)
 data class MyState(val value: Int) : ContractState {
@@ -186,7 +178,7 @@ data class MyState(val value: Int) : ContractState {
 The other is to define the `ContractState` class as an inner class of the `Contract` class:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 public class MyContract implements Contract {
 
@@ -199,7 +191,7 @@ public class MyContract implements Contract {
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 class MyContract : Contract {
 
@@ -226,12 +218,12 @@ transaction verification will fail with a `TransactionContractConflictException`
 Transactions use the CorDapp version defined in its attachments. The JAR containing the state and contract classes, and any optional dependencies, is attached to the transaction. If a node has not received a specific JAR before, it will download other copies of it from other nodes on the network for verification.
 
 The `TransactionBuilder` manages the details of constraints for you by selecting both constraints
-and attachments to ensure they line up correctly. By default, the `TransactionBuilder` uses [Signature Constraints](#signature-constraints) for any issuance transactions if the CorDapp attached to it is signed.
+and attachments to ensure they line up correctly. By default, the `TransactionBuilder` uses [Signature constraints](#signature-constraints) for any issuance transactions if the CorDapp attached to it is signed.
 
 To manually define the contract constraint of an output state, see the example below:
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 TransactionBuilder transaction() {
     TransactionBuilder transaction = new TransactionBuilder(notary());
@@ -252,7 +244,7 @@ TransactionBuilder transaction() {
 ```
 {{% /tab %}}
 
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 private fun transaction(): TransactionBuilder {
     val transaction = TransactionBuilder(notary())
@@ -307,10 +299,10 @@ You must specify which CorDapp packages to scan when you run tests. Provide a pa
 You must also specify a package when testing using `DriverDSl`. `DriverParameters` has a property `cordappsForAllNodes` (Kotlin)
 or method `withCordappsForAllNodes` in Java. Pass the collection of `TestCordapp` created by utility method `TestCordapp.findCordapp(String)`.
 
-This is how you would create two Cordapps with Finance CorDapp flows and Finance CorDapp contracts:
+This is how you would create two CorDapps with Finance CorDapp flows and Finance CorDapp contracts:
 
 {{< tabs name="tabs-4" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 Driver.driver(DriverParameters(
     cordappsForAllNodes = listOf(
@@ -323,7 +315,7 @@ Driver.driver(DriverParameters(
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 Driver.driver(
     new DriverParameters()

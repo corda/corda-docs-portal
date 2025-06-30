@@ -67,7 +67,7 @@ that the disk space requirements given are always the maximum, meaning actual sp
 
 Notary performance is defined by the ability of the notary to service incoming requests at a high enough rate that the latency
 for such requests does not grow to unacceptable levels. Thus, the throughput of the notary in terms of states per second is
-used as a proxy for the latency. For more details on notary performance measurement, see [Highly-available notary metrics]{{< relref "notary-metrics.md" >}}).
+used as a proxy for the latency. For more details on notary performance measurement, see [Highly-available notary metrics]({{< relref "notary-metrics.md" >}}).
 
 Note that notary performance degrades as the database fills up. This is an unavoidable consequence of the notary having more
 states to examine when detecting double spend attempts. Some databases, notably CockroachDB, exhibit less degradation than

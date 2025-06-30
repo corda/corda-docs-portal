@@ -23,7 +23,7 @@ In this document, you will find:
 
 CorDapps are:
 
-* Distributed applications that can be distributed on the Corda Network.
+* Distributed applications that can be distributed on a Corda network.
 * A set of JAR files containing Java or Kotlin class definitions.
 * Made up of components that work together to let nodes communicate and agree on updates to the shared ledger.
 
@@ -35,22 +35,22 @@ A Corda Distributed Application (CorDapp) solves a specific problem using the Co
 
 ## Glossary
 
-*Flows*
+- **Flows:**
   Flows are routines for nodes to run. They can perform a variety of tasks, usually involving ledger updates. Flows
-  subclass `FlowLogic`. For more information on flows, see [Writing CorDapp Flows]({{< relref "api-flows.md" >}}).
+  subclass `FlowLogic`. For more information on flows, see [Writing CorDapp flows]({{< relref "api-flows.md" >}}).
 
-*States*
+- **States:**
   States define the facts that parties use to agree and transact. States implement the `ContractState` interface. For more
-  information on states, see [Writing CorDapp States]({{< relref "api-states.md" >}}).
+  information on states, see [Writing CorDapp states]({{< relref "api-states.md" >}}).
 
-*Contracts*
+- **Contracts:**
   Contracts define the shared rules for updating the ledger. Contracts implement the `Contract` interface. To learn
-  more about implementing contracts, see [Writing CorDapp Contracts]({{< relref "api-contracts.md" >}}).
+  more about implementing contracts, see [Writing CorDapp contracts]({{< relref "api-contracts.md" >}}).
 
-*Services*
+- **Services:**
   Services provide long-lived utilities that don’t need to run on the network. Services subclass `SingletonSerializationToken`.
 
-*Serialization whitelists*
+- **Serialization whitelists:**
   Serialization whitelists restrict the objects a node can deserialize when it receives messages from other nodes.
   Serialization whitelists implement the `SerializationWhitelist` interface.
 
@@ -79,9 +79,9 @@ This example is an examination of the components of a CorDapp designed to trade 
 
 There are several components required for the minimum implementation of this CorDapp. First are the three required flows:
 
-* An *issuance flow*, for example `IssueBondFlow`, to allow new bonds to be issued onto the ledger.
-* A *bond trading flow*, `TradeBondFlow`, where bonds already issued can be exchanged between parties.
-* An *exit flow*, `ExitBondFlow` where bonds can be exited from the ledger.
+* **Issuance flow:** For example `IssueBondFlow`, to allow new bonds to be issued onto the ledger.
+* **Bond trading flow:** `TradeBondFlow`, where bonds already issued can be exchanged between parties.
+* **Exit flow:** `ExitBondFlow` where bonds can be exited from the ledger.
 
 These three flows enable a basic lifecycle of bond creation, trading, and exiting between the transacting parties.
 However, we must create two more components to implement this CorDapp:
@@ -96,6 +96,6 @@ Each node owner installs this CorDapp onto their node. They can then issue, trad
 
 Ready to get started with CorDapps?
 
-* [Get set up for CorDapp development]({{< relref "getting-set-up.md" >}}).
-* [Run a sample CorDapp]({{< relref "tutorial-cordapp.md" >}}).
-* [Build a CorDapp]({{< relref "cordapp-build-systems.md" >}}).
+* [Get set up for CorDapp development]({{< relref "getting-set-up.md" >}})
+* [Running a sample CorDapp]({{< relref "tutorial-cordapp.md" >}})
+* [Building a CorDapp]({{< relref "cordapp-build-systems.md" >}})

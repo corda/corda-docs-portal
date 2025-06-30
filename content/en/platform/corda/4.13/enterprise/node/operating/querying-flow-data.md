@@ -19,14 +19,14 @@ A checkpoint is a record of flow data taken at key points during a flow's operat
 
 With Corda Enterprise, you can query flow data in the following ways:
 
-* You can [query flow data via RPC](#querying-flow-data-via-rpc)
-* You can [query flow data via the node shell](#querying-flow-data-via-the-node-shell)
+* [Via RPC](#querying-flow-data-via-rpc)
+* [Via the node shell](#querying-flow-data-via-the-node-shell)
 
 ## Querying flow data via RPC
 
 Corda Enterprise exposes a number of custom, remote RPC interfaces, which enable you to interact with your node. For a list of all the remote interfaces that are available in Corda Enterprise, see [Building a Multi RPC Client]({{< relref "clientrpc.md#building-the-multi-rpc-client" >}}).
 
-The `net.corda.client.rpc.proxy.NodeFlowStatusRpcOps` interface is an RPC extension which enables external applications to query and view the status of the flows which are currently being monitored by the Flow Hospital.
+The `net.corda.client.rpc.proxy.NodeFlowStatusRpcOps` interface is an RPC extension which enables external applications to query and view the status of the flows which are currently being monitored by the Flow hospital.
 
 To use the `net.corda.client.rpc.proxy.NodeFlowStatusRpcOps` interface to query flow status via RPC, you need to complete the following steps:
 
@@ -79,7 +79,7 @@ The available search parameters and their required formats are outlined in the t
 | `cordapp` | The name of the CorDapp that contains the flow. You do not need to enter the full name - providing a fragment of the name is enough to identify the CorDapp. The * regex operator is applied to the start and end of the fragment. | String |
 | `compatibleWithCurrentCordaRuntime` | Indicates whether the suspended flow is compatible with and can be loaded on the current Corda runtime environment. | Boolean String |
 | `suspensionDuration` | The minimum duration for which a flow must have remained suspended (that is, "stuck") at a checkpoint. | java.time.Duration |
-| `flowStart` | Uses the `net.corda.core.contracts.TimeWindow` class to define an open or closed time window for when the flow was first started.  The start time of the time-window in which the flow was started. A start-open window will return all flows started before the Unix 0 Instant (that is, the time 00:00 on January 1, 1970). An end-open window will return all flows started after a given time and before the current Instant. All times specified are inclusive. | net.corda.core.contracts.TimeWindow |
+| `flowStart` | Uses the `net.corda.core.contracts.TimeWindow` class to define an open or closed time window for when the flow was first started.  The start time of the time window in which the flow was started. A start-open window will return all flows started before the Unix 0 Instant (that is, the time 00:00 on January 1, 1970). An end-open window will return all flows started after a given time and before the current Instant. All times specified are inclusive. | net.corda.core.contracts.TimeWindow |
 {{< /table >}}
 
 {{< warning >}}
@@ -170,8 +170,8 @@ The available search parameters and their required formats are outlined in the t
 | `compatibleWithCurrentCordaRuntime` | Indicates whether the suspended flow is compatible with and can be loaded on the current Corda runtime environment. | Boolean String |
 | `cordapp` | The name of the CorDapp that contains the flow. You do not need to enter the full name - providing a fragment of the name is enough to identify the CorDapp. | String |
 | `flowClass` | The name of the class that implements the flow. You do not need to enter the full name - providing a fragment of the class name is enough to identify the class. | String |
-| `flowStartFrom` | The start time of the time-window in which the flow was started. If you do not specify a start time value, the start time is taken to be a UNIX 0 timestamp (that is, the time 00:00 on January 1, 1970). If you specify a value for `flowStartFrom` but do not specify a value for `flowStartUntil`, the query will return a list of all flows that did not complete up until the time that the query was run. | String in ISO8601 DateTime format*. |
-| `flowStartUntil` | The end time of the time-window in which the flow was started. If you specify a value for `flowStartUntil` but do not specify a value for `flowStartFrom`, the query will return a list of all flows that did not complete since the node started up. | String in ISO8601 DateTime format*. |
+| `flowStartFrom` | The start time of the time window in which the flow was started. If you do not specify a start time value, the start time is taken to be a UNIX 0 timestamp (that is, the time 00:00 on January 1, 1970). If you specify a value for `flowStartFrom` but do not specify a value for `flowStartUntil`, the query will return a list of all flows that did not complete up until the time that the query was run. | String in ISO8601 DateTime format*. |
+| `flowStartUntil` | The end time of the time window in which the flow was started. If you specify a value for `flowStartUntil` but do not specify a value for `flowStartFrom`, the query will return a list of all flows that did not complete since the node started up. | String in ISO8601 DateTime format*. |
 | `flowState` | The state of the flow at its latest checkpoint. The state is one of the following values: `RUNNABLE`, `FAILED`, `COMPLETED`, `HOSPITALIZED`, `KILLED`, `PAUSED`. | String |
 | `progressStep` | If the flow implements progress tracking, specifies the latest step that was encountered before checkpointing. A progressStep is a user-defined value which is defined by the CorDapp developer - you can specify the name of any progressStep defined in your CorDapp. | String |
 | `suspensionDuration` | The minimum duration for which a flow must have remained suspended (that is, "stuck") at a checkpoint. This is entered in the format `"<value>, <unit>"` where `<value>` is a numerical value and `<unit>` is the unit of time, specified as `SECONDS`, `MINUTES`, `HOURS` or `DAYS`). | String |
@@ -181,7 +181,7 @@ The available search parameters and their required formats are outlined in the t
 `COMPLETED`, `FAILED` and `KILLED` flows can only be queried when started by the `startFlowWithClientId` or `startFlowDynamicWithClientId` APIs.
 {{< /warning >}}
 
-\*  See [Sample query to view all suspended flows within a particular time-window](#sample-query-to-view-all-suspended-flows-within-a-particular-time-window).
+\*  See [Sample query to view all suspended flows within a particular time window](#sample-query-to-view-all-suspended-flows-within-a-particular-time-window).
 
 #### Constructing your query
 
@@ -208,9 +208,9 @@ To return a list of all flows that have not completed and which relate to a part
 flowStatus queryFlows flowClass: HospitalizerFlow
 ```
 
-#### Sample query to view all suspended flows within a particular time-window
+#### Sample query to view all suspended flows within a particular time window
 
-When specifying time-windows, all dates and times must be specified in accordance with the [ISO 8601 standard](https://www.iso.org/iso-8601-date-and-time-format.html/) as follows:
+When specifying time windows, all dates and times must be specified in accordance with the [ISO 8601 standard](https://www.iso.org/iso-8601-date-and-time-format.html/) as follows:
 
 ```
 yyyy-MM-ddTHH:mm:ss
@@ -222,21 +222,21 @@ For example, to specify a `flowStartFrom` time of 08:45:56 on July 21, 2020, you
 2020-07-21T08:45:56
 ```
 
-You can create a query for an open or closed time-window.
+You can create a query for an open or closed time window.
 
-To return a list of all flows that did not complete within a closed time-window, specify both a start time and end time for the time-window as follows:
+To return a list of all flows that did not complete within a closed time window, specify both a start time and end time for the time-window as follows:
 
  ```
  flowStatus queryFlows flowStartFrom: 2020-05-16T09:30:00 flowStartUntil: 2020-05-17T09:30:00
  ```
 
-The following query is an example of an open time-window, where only the start-time of the time-window is specified:
+The following query is an example of an open time window, where only the start-time of the time-window is specified:
 
 ```
 flowStatus queryFlows flowStartFrom: 2020-05-16T09:30:00
 ```
 
-If running a query for an open-ended time-window, note the following:
+If running a query for an open-ended time window, note the following:
 
 * If you specify a value for `flowStartFrom` but do not specify a value for `flowStartUntil`, the query will return a list of all flows that did not complete up until the time that the query was run.
 

@@ -61,7 +61,7 @@ For a smooth node draining process avoid long-running flows.
 
 Back up your data before upgrading, in case you need to roll back if there’s a problem. Make a copy of the node’s data directory or, if you use an external non-H2 database, consult your database user guide to learn how to make backups.
 
-For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations]({{< relref "../../../../../en/platform/corda/4.9/enterprise/node/operating/node-administration.md#backup-recommendations" >}}).
+For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations]({{< relref "node/operating/node-administration.md#backup-recommendations" >}}).
 
 ## Step 3: Update the database
 
@@ -217,7 +217,7 @@ If you run the DDL and DML statements separately (for example, if the database a
 
 {{< /note >}}
 
-For more information about the Database Management Tool including available options and commands, see [Corda Database Management Tool]{{< relref "database-management-tool.md" >}}).
+For more information about the Database Management Tool including available options and commands, see [Corda Database Management Tool]({{< relref "database-management-tool.md" >}}).
 
 ### 3.3. Apply DDL scripts to a database
 
@@ -278,7 +278,7 @@ Option `-b` points to the base directory which contains a `node.conf` file and `
 Replace corda.jar with its latest version.
 
 Download the latest version of Corda from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-node/4.9.8/corda-node-4.9.8.jar).
-Make sure it’s available on your path, and that you’ve read the [Corda release notes]{{< relref "release-notes-enterprise.md" >}}). Pay particular attention to which version of Java that the node requires.
+Make sure it’s available on your path, and that you’ve read the [Corda release notes]({{< relref "release-notes-enterprise.md" >}}). Pay particular attention to which version of Java that the node requires.
 
 {{< important >}}
 Corda 4 requires Java 8u171 or any higher Java 8 patch level. Java 9+ is not currently supported.

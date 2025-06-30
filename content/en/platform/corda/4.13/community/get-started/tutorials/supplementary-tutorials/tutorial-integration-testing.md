@@ -36,7 +36,7 @@ In order to spawn nodes, you will use the Driver DSL. This DSL allows you to sta
 a local network where all the nodes see each other and enables the safe shutting down of nodes in the background.
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 driver(DriverParameters(startNodesInProcess = true, cordappsForAllNodes = FINANCE_CORDAPPS)) {
     val aliceUser = User("aliceUser", "testPassword1", permissions = setOf(
@@ -59,7 +59,7 @@ driver(DriverParameters(startNodesInProcess = true, cordappsForAllNodes = FINANC
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 driver(new DriverParameters()
         .withStartNodesInProcess(true)
@@ -104,7 +104,7 @@ The `startNode` function returns a `CordaFuture` object that completes once the 
 the local network. Returning a future allows starting of the nodes to be parallel. You must wait for the `CordaFuture` objects to complete, as to proceed, you will need the  `NodeHandles` for each object.
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val aliceClient = CordaRPCClient(alice.rpcAddress)
 val aliceProxy: CordaRPCOps = aliceClient.start("aliceUser", "testPassword1").proxy
@@ -117,7 +117,7 @@ val bobProxy: CordaRPCOps = bobClient.start("bobUser", "testPassword2").proxy
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 CordaRPCClient aliceClient = new CordaRPCClient(alice.getRpcAddress());
 CordaRPCOps aliceProxy = aliceClient.start("aliceUser", "testPassword1").getProxy();
@@ -134,7 +134,7 @@ CordaRPCOps bobProxy = bobClient.start("bobUser", "testPassword2").getProxy();
 Next, you must connect to Alice and Bob from the test process using the test users created earlier. To be able to start flows and query states, you must establish an RPC connection to each node.
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val bobVaultUpdates: Observable<Vault.Update<Cash.State>> = bobProxy.vaultTrackBy<Cash.State>().updates
 val aliceVaultUpdates: Observable<Vault.Update<Cash.State>> = aliceProxy.vaultTrackBy<Cash.State>().updates
@@ -144,7 +144,7 @@ val aliceVaultUpdates: Observable<Vault.Update<Cash.State>> = aliceProxy.vaultTr
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 Observable<Vault.Update<Cash.State>> bobVaultUpdates = bobProxy.vaultTrack(Cash.State.class).getUpdates();
 Observable<Vault.Update<Cash.State>> aliceVaultUpdates = aliceProxy.vaultTrack(Cash.State.class).getUpdates();
@@ -159,7 +159,7 @@ Observable<Vault.Update<Cash.State>> aliceVaultUpdates = aliceProxy.vaultTrack(C
 You will be interested in changes to Alice’s and Bob’s vault, so you need to set up queries to return a stream of vault updates from each.
 
 {{< tabs name="tabs-4" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val issueRef = OpaqueBytes.of(0)
 aliceProxy.startFlow(::CashIssueAndPaymentFlow,
@@ -183,7 +183,7 @@ bobVaultUpdates.expectEvents {
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 OpaqueBytes issueRef = OpaqueBytes.of((byte)0);
 aliceProxy.startFlowDynamic(
@@ -225,7 +225,7 @@ We expect a single update to Bob’s vault when it receives the $1000 from Alice
 is asserting.
 
 {{< tabs name="tabs-5" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 bobProxy.startFlow(::CashPaymentFlow, 1000.DOLLARS, alice.nodeInfo.singleIdentity()).returnValue.getOrThrow()
 
@@ -242,7 +242,7 @@ aliceVaultUpdates.expectEvents {
 
 
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 bobProxy.startFlowDynamic(
         CashPaymentFlow.class,

@@ -28,13 +28,11 @@ The Network Bootstrapper automates the processes of creating and distributing th
 
 ## Glossary
 
-| Term                          | Definition                                                                                               |
-|-------------------------------|----------------------------------------------------------------------------------------------------------|
-| network parameters            | A set of constants shared between a group of nodes to guarantee interoperability.                        |
-| `node-info` file              | A file containing information about the node.                                                            |
-| compatibility zone constraint | The compatibility zone operator lists the hashes of CorDapp versions that a contract class name can use. |
-| signature constraint           | A contract class can use any version of a CorDapp that is signed by a given `CompositeKey`.              |
-| hash constraint               | Only one version of a CorDapp can be used with a specific state.                                         |
+- **Network parameters:** A set of constants shared between a group of nodes to guarantee interoperability.
+- **node-info file:** A file containing information about the node.
+- **Compatibility zone constraint:**  The compatibility zone operator lists the hashes of CorDapp versions that a contract class name can use.
+- **Signature constraint:** A contract class can use any version of a CorDapp that is signed by a given `CompositeKey`.
+- **Hash constraint:** Only one version of a CorDapp can be used with a specific state.
 
 
 ## Test deployments
@@ -53,7 +51,7 @@ You can use the Network Bootstrapper to scan all the node configurations in a co
 
 To bootstrap a test network:
 
-1. Download the [Corda Network Boostrapper](https://download.corda.net/maven/corda-releases/net/corda/corda-tools-network-bootstrapper/4.13/corda-tools-network-bootstrapper-4.12.jar) for the version of Corda you want the nodes to run.
+1. Download the [Corda Network Bootstrapper ](https://download.corda.net/maven/corda-releases/net/corda/corda-tools-network-bootstrapper/4.13/corda-tools-network-bootstrapper-4.12.jar) for the version of Corda you want the nodes to run.
 2. Create a directory containing a node config file (ending in “_node.conf”) for each node you want to create.
 3. Set “devMode” to `true`.
 4. Run the command `java -jar network-bootstrapper-4.12.jar --dir <nodes-root-dir>`.
@@ -105,7 +103,7 @@ added to the [contract whitelist](#create-a-contracts-whitelist).
 
 
 ### Create a contracts whitelist
-If you provide a CorDapp, the boostrapper will hash it, then scan it for instances of the `contacts` class. If it finds contracts, it will use them to create a [compatibility zone whitelist]({{< relref "api-contract-constraints.md" >}}) for the network.
+If you provide a CorDapp, the bootstrapper will hash it, then scan it for instances of the `contacts` class. If it finds contracts, it will use them to create a [compatibility zone whitelist]({{< relref "api-contract-constraints.md" >}}) for the network.
 
 {{< note >}}
 If you want to whitelist the CorDapps without copying them to each node, run them using the `--copy-cordapps=No` option.
@@ -323,44 +321,27 @@ variable `KEY_STORE_PASSWORD`. See: [Hiding sensitive data]({{< relref "node-adm
 {{< /note >}}
 The available configuration fields are:
 
-
-* **minimumPlatformVersion**:
+- **minimumPlatformVersion**:
   The minimum supported version of the Corda platform that is required for nodes in the network.
-
-
-* **maxMessageSize**:
+- **maxMessageSize**:
   The maximum permitted message size, in bytes.
-
-
-* **maxTransactionSize**:
+- **maxTransactionSize**:
   The maximum permitted transaction size, in bytes.
-
-
-* **eventHorizon**:
+- **eventHorizon**:
   The time after which nodes will be removed from the network map if they have not been seen during this period. This parameter uses
   the `parse` function on the `java.time.Duration` class to interpret the data. See [Oracle's documentation](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html#parse-java.lang.CharSequence-)
   for information on valid inputs.
-
-
-* **packageOwnership**:
-  A list of package owners. See [Package namespace ownership](#package-namespace-ownership). For each package owner, these fields
+- **packageOwnership**:
+  A list of package owners; see [Package namespace ownership](#package-namespace-ownership). For each package owner, these fields
   are required:
-
-
-* **packageName**:
-  Java package name (for example, *com.my_company*).
-
-
-* **keystore**:
-  The path of the keystore file containing the signed certificate.
-
-
-* **keystorePassword**:
-  The password for the given keystore (not to be confused with the key password).
-
-
-* **keystoreAlias**:
-  The alias for the name associated with the certificate to be associated with the package namespace.
+  - **packageName**:
+    Java package name (for example, *com.my_company*).
+  - **keystore**:
+    The path of the keystore file containing the signed certificate.
+  - **keystorePassword**:
+    The password for the given keystore (not to be confused with the key password).
+  - **keystoreAlias**:
+    The alias for the name associated with the certificate to be associated with the package namespace.
 
 
 
@@ -401,21 +382,14 @@ You can register the package by supplying a network parameters override configur
 
 To register a package, you need to provide the:
 
-
-* **packageName**:
+- **packageName**:
   Java package name (for example, *com.my_company*).
-
-
-* **keystore**:
+- **keystore**:
   The path of the keystore file containing the signed certificate. If a relative path is provided, it is assumed to be relative to the
   location of the configuration file.
-
-
-* **keystorePassword**:
+- **keystorePassword**:
   The password for the given keystore (not to be confused with the key password).
-
-
-* **keystoreAlias**:
+- **keystoreAlias**:
   The alias for the name associated with the certificate to be associated with the package namespace.
 
 ### Register a namespace with a sample CorDapp
@@ -423,62 +397,38 @@ To register a package, you need to provide the:
 We've created a sample CorDapp (available in [Java](https://github.com/corda/samples-java/tree/release/4.13/Basic/cordapp-example) and [Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.13/Basic/cordapp-example)) you can use to practice initializing a simple network and registering and unregistering a package namespace.
 
 1. Check the sample CorDapp out, then follow the [instructions to build it]({{< relref "tutorial-cordapp.md" >}}).
-
-{{< note >}}
-You can point to any existing bootstrapped network on Corda. This will update the associated network parameters file for that network).
-
-{{< /note >}}
+   {{< note >}}You can point to any existing bootstrapped network on Corda. This will update the associated network parameters file for that network).{{< /note >}}
 
 2. Create a new public key. You will use this to sign the Java package namespace you want to register:
-```shell
-$JAVA_HOME/bin/keytool -genkeypair -keystore _teststore -storepass MyStorePassword -keyalg RSA -alias MyKeyAlias -keypass MyKeyPassword -dname "O=Alice Corp, L=Madrid, C=ES"
-```
-
-
-This generates a keystore file called `_teststore` in the current directory.
-
+   ```shell
+   $JAVA_HOME/bin/keytool -genkeypair -keystore _teststore -storepass MyStorePassword -keyalg RSA -alias MyKeyAlias -keypass MyKeyPassword -dname "O=Alice Corp, L=Madrid, C=ES"
+   ```
+   This generates a keystore file called `_teststore` in the current directory.
 3. Create a `network-parameters.conf` file in the same directory. Include this information:
-```kotlin
-packageOwnership=[
-    {
-        packageName="com.example"
-        keystore="_teststore"
-        keystorePassword="MyStorePassword"
-        keystoreAlias="MyKeyAlias"
-    }
-]
-```
-
-
-
-
+   ```kotlin
+   packageOwnership=[
+       {
+           packageName="com.example"
+           keystore="_teststore"
+           keystorePassword="MyStorePassword"
+           keystoreAlias="MyKeyAlias"
+       }
+   ]
+   ```
 4. Register the package namespace to be claimed by the public key generated earlier:
-```shell
-# Register the Java package namespace using the Network Bootstrapper
-java -jar network-bootstrapper.jar --dir build/nodes --network-parameter-overrides=network-parameters.conf
-```
-
-
-
-
+   ```shell
+   # Register the Java package namespace using the Network Bootstrapper
+   java -jar network-bootstrapper.jar --dir build/nodes --network-parameter-overrides=network-parameters.conf
+   ```
 5. To unregister the package namespace, edit the `network-parameters.conf` file to remove the package:
-```kotlin
-packageOwnership=[]
-```
-
-
-
-
+   ```kotlin
+   packageOwnership=[]
+   ```
 6. Unregister the package namespace:
-```shell
-# Unregister the Java package namespace using the Network Bootstrapper
-java -jar network-bootstrapper.jar --dir build/nodes --network-parameter-overrides=network-parameters.conf
-```
-
-
-
-
-
+   ```shell
+   # Unregister the Java package namespace using the Network Bootstrapper
+   java -jar network-bootstrapper.jar --dir build/nodes --network-parameter-overrides=network-parameters.conf
+   ```
 
 ## Command line options
 
@@ -512,4 +462,4 @@ bootstrapper [-hvV] [--copy-cordapps=<copyCordapps>] [--dir=<dir>]
 
 ### Sub-commands
 
-`install-shell-extensions`: Installs the `bootstrapper` alias and auto-completion for bash and zsh. See [Shell extentions for CLI applications]({{< relref "cli-application-shell-extensions.md#shell-extensions-for-cli-applications" >}}).
+- `install-shell-extensions`: Installs the `bootstrapper` alias and auto-completion for bash and zsh. See [Shell extensions for CLI applications]({{< relref "cli-application-shell-extensions.md#shell-extensions-for-cli-applications" >}}).

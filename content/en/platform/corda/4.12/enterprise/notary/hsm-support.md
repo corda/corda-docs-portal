@@ -38,7 +38,7 @@ Each Notary workers needs access to three private key entries, corresponding to 
 * The node legal identity, which represents the unique identity of the notary worker.
 
 
-See the *enterpriseConfiguration* section of the corda-configuration-file doc for more information on how to configure each alias.
+See the *[enterpriseConfiguration]({{< relref "../node/setup/corda-configuration-fields.md#enterpriseconfiguration" >}})* configuration field for more information on how to configure each alias.
 When the private keys are stored in a HSM, only the certificates are stored in the keystore file.
 
 The associated certificates for the distributed notary identity and node certificate authority are issued by the Identity Manager on the
@@ -119,8 +119,8 @@ To register a second notary worker, copy the `notary-service-keystore.jks` to th
 ## Using Multiple HSMs
 
 A highly-available HSM can be shared between notary workers in the current version of Corda, however each worker needs to be configured
-to use a unique alias for the identity and client ca key. See the *enterpriseConfiguration* section of the corda-configuration-file
-doc for more information on how to configure this.
+to use a unique alias for the identity and client ca key. 
+See the *[enterpriseConfiguration]({{< relref "../node/setup/corda-configuration-fields.md#enterpriseconfiguration" >}})* configuration field for more information on how to configure each alias.
 
 If custom aliases have not been configured then, as each worker will attempt to create their identity and CA keys using the default alias,
 separate HSMs must be used. Also, as noted above, if a HA HSM is not available then each worker should be setup with its own HSM.

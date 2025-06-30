@@ -222,7 +222,7 @@ ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences 
 
 
 
-## 2. Database schema creation
+## Create database schema
 
 All data structures (tables, indexes) must be created before the Corda node connects to a database with **restricted permissions**.
 Corda is released without a separate set of DDL scripts, instead a database administrator needs to use
@@ -690,7 +690,7 @@ dataSourceProperties = {
 
 
 {{< note >}}
-`maximumPoolSize` cannot be less than `enterpriseConfiguration.tuning.flowThreadPoolSize + enterpriseConfiguration.tuning.rpcThreadPoolSize + 2`. See sizing-and-performance for more details. Their defaults depend on the machine they are being run, but if the `maximumPoolSize` a error will appear showing what is the minimum required.{{< /note >}}
+`maximumPoolSize` cannot be less than `enterpriseConfiguration.tuning.flowThreadPoolSize + enterpriseConfiguration.tuning.rpcThreadPoolSize + 2`. See [Performance testing]({{< relref "../../performance-testing/performance-results.md" >}}) for more details. Their defaults depend on the machine they are being run, but if the `maximumPoolSize` a error will appear showing what is the minimum required.{{< /note >}}
 
 
 
@@ -906,7 +906,7 @@ Place the PostgreSQL JDBC Driver *42.2.9* version *JDBC 4.2* in the node directo
 
 
 
-## 4. Database configuration
+## Configure database
 
 Additional vendor specific database configuration.
 

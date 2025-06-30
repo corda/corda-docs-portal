@@ -10,11 +10,11 @@ menu:
 tags:
 - contract
 - whitelisting
-title: Contract Whitelist Generation
+title: Contract whitelist generation
 ---
 
 
-# Contract Whitelist Generation
+# Contract whitelist generation
 
 When setting or updating the network parameters, the Network Map Service scans the JAR files referenced in the
 configuration file (i.e. *cordappsJar* ) for the presence of any contract classes. If such a class is found then it is

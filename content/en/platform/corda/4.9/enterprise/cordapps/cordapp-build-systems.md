@@ -29,9 +29,9 @@ Code samples guide you at every step.
 
 You will need to:
 
-* Know [what a CorDapp is]{{< relref "cordapp-overview.md" >}}).
-* Set up your [development environment]{{< relref "getting-set-up.md" >}}).
-* Run a [sample CorDapp]{{< relref "tutorial-cordapp.md" >}}) to see Corda in action (optional).
+* Know [what a CorDapp is]({{< relref "cordapp-overview.md" >}}).
+* Set up your [development environment]({{< relref "getting-set-up.md" >}}).
+* Run a [sample CorDapp]({{< relref "tutorial-cordapp.md" >}}) to see Corda in action (optional).
 * Install the [CorDapp Gradle plugin](https://plugins.gradle.org/plugin/net.corda.plugins.cordapp). To ensure you are using the correct version of Gradle, use the Gradle wrapper provided. Copy across the following folder and files from the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin) or the [Java CorDapp Template](https://github.com/corda/cordapp-template-java) to your project's root directory:
 
     * `gradle/`
@@ -252,7 +252,7 @@ JAR, and not different versions of the JAR created from identical sources.
 The filename of the JAR must include a unique identifier to deduplicate it from other releases of the same CorDapp.
 This is typically done by appending the version string to the CorDapp’s name. This unique identifier should not change
 once the JAR has been deployed on a node. If it does, make sure no one is relying on `FlowContext.appName` in their
-flows (see [Versioning]{{< relref "versioning.md" >}})).
+flows (see [Versioning]({{< relref "versioning.md" >}})).
 
 
 
@@ -260,7 +260,7 @@ flows (see [Versioning]{{< relref "versioning.md" >}})).
 
 The `cordapp` plugin can sign the generated CorDapp JAR file using the [JAR signing and verification tool](https://docs.oracle.com/javase/tutorial/deployment/jar/signing.html).
 Signing the CorDapp enables its contract classes to use signature constraints instead of other types of constraints.
-See [Contract Constraints]{{< relref "api-contract-constraints.md" >}}) for more information.
+See [Contract constraints]({{< relref "api-contract-constraints.md" >}}) for more information.
 The JAR file is signed by the Corda development certificate by default.
 
 {{< warning >}}

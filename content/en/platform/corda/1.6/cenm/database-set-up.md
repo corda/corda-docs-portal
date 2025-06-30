@@ -10,19 +10,19 @@ menu:
 tags:
 - database
 - set
-title: CENM Databases
+title: CENM databases
 ---
 
 
-# CENM Databases
+# CENM databases
 
 There are currently four types of CENM database schemas:
 
-*  The **Identity Manager** database schema is used by the [Identity Manager Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/identity-manager.md" >}}). It contains information relating to:
+*  The **Identity Manager** database schema is used by the [Identity Manager service]({{< relref "../../../../../en/platform/corda/1.6/cenm/identity-manager.md" >}}). It contains information relating to:
     * Certificate signing requests of nodes wanting to join the network.
     * Requests to revocation of nodes on the network.
 
-*  The **Network Map** database schema is used by the [Network Map Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/network-map.md" >}}). It contains information relating to:
+*  The **Network Map** database schema is used by the [Network Map service]({{< relref "../../../../../en/platform/corda/1.6/cenm/network-map.md" >}}). It contains information relating to:
     * The current participants on the network.
     * The current network parameters.
     * Any pending network parameter updates.
@@ -36,7 +36,7 @@ There are currently four types of CENM database schemas:
 The services **must** use separate database schemas (either in the same database instance or in completely separate instances) due to the way the migrations are defined. If you try and run an Identity Manager Service, a Network Map Service, a Zone Service, or an Auth Service that shares the same database schema, it will result in errors.
 
 
-## Supported Databases
+## Supported databases
 
 CENM currently supports the following databases:
 
@@ -63,7 +63,7 @@ any potential errors stemming from the former version.
 
 {{< /note >}}
 
-## Database Schema Setup
+## Database schema setup
 
 This section describes the processes for:
 * Creating database schemas such as:
@@ -77,25 +77,24 @@ permissions* for production use.
 In contrast to Corda nodes, CENM schema creation/migration is done by the CENM services rather
 than a separate tool. The services are expected to be configured for you to connect as a privileged
 user when doing this creation/migration, and as a more restricted user for production use.
-This is covered in <mark>more depth</mark> under [Database Migration](#5-database-migration).
+This is covered in more depth under [Migrating the database](#migrating-the-database).
 {{< /note >}}
 
 To set up a database that the service will use, and to configure the service to connect to it after that, follow the steps below.
 
+1. [Create database user with schema permissions](#create-database-user-with-schema-permissions).
+2. [Create the database schema](#create-database-schema).
+3. [Configure the CENM service](#configure-cenm-service).
+4. [Configure the database](#configure-database).
 
-* [Create a database user with schema permissions](#1-create-a-database-user-with-schema-permissions)
-* [Create the database tables](#2-database-schema-creation)
-* [CENM service configuration changes](#3-cenm-service-configuration)
-* [Database configuration](#4-database-configuration)
 
-
-### 1. Create a database user with schema permissions
+### Create database user with schema permissions
 
 A database administrator must create a database user and a schema namespace with **restricted permissions**.
 This grants the user access to Data Manipulation Language (DML) execution only (to manipulate data itself - for example, select/delete rows). This permission set is recommended for production environments.
 
 {{< note >}}
-This step refers to *schema* as a namespace with a set of permissions. The schema content (tables, indexes) is created in [the next step](#2-database-schema-creation).
+This step refers to *schema* as a namespace with a set of permissions. The schema content (tables, indexes) is created in [the next step](#create-database-schema).
 {{< /note >}}
 
 Variants of Data Definition Language (DDL) scripts are provided for each supported database vendor.
@@ -275,7 +274,7 @@ database = {
 
 Replace the placeholders `<host>` and `<port>` in the URL with appropriate values.
 
-## 2. Database schema creation
+## Create database schema
 
 The general steps for creating database schemas are listed below, followed by specific instructions for Oracle.
 
@@ -403,7 +402,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.JWK_SETS to my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.JWKS to my_user;
 ```
 
-## 3. CENM service configuration
+## Configure CENM service
 
 The required updates to the file system of a CENM service instance are described below.
 
@@ -422,7 +421,7 @@ database = {
     }
 ```
 
-`runMigration` is set to `false` because the restricted CENM service instance database user does not have permissions to alter a database schema. See [CENM Database Configuration]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-database.md" >}}) for a complete list of database-specific properties.
+`runMigration` is set to `false` because the restricted CENM service instance database user does not have permissions to alter a database schema. See [CENM database configuration]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-database.md" >}}) for a complete list of database-specific properties.
 
 
 
@@ -483,7 +482,7 @@ database = {
 Replace the placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database). The `database.schema` is the database schema name assigned to the user.
 
 You can download the Microsoft SQL JDBC driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55539) - extract the downloaded archive and copy the file `mssql-jdbc-6.2.2.jre8.jar` (the archive comes with two JAR files).
-The [Database configuration section](#4-database-configuration) further below explains the correct location for the driver JAR file in the CENM service installation structure.
+The [Configure database](#configure-database) section further below explains the correct location for the driver JAR file in the CENM service installation structure.
 
 ### SQL Server
 
@@ -518,7 +517,7 @@ database = {
 Replace the placeholders `<host>` and `<port>` with appropriate values (the default SQL Server port is 1433). By default, the connection to the database is not SSL. To secure the JDBC connection, refer to [Securing JDBC Driver Applications](https://docs.microsoft.com/en-us/sql/connect/jdbc/securing-jdbc-driver-applications?view=sql-server-2017).
 
 You can download the Microsoft JDBC 6.2 driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55539) - extract the downloaded archive and copy the file `mssql-jdbc-6.2.2.jre8.jar` (the archive comes with two JAR files).
-The [Database configuration section](#4-database-configuration) further below explains the correct location for the driver JAR file in the CENM service installation structure.
+The [Configure database ](#configure-database) section further below explains the correct location for the driver JAR file in the CENM service installation structure.
 
 Ensure that the JDBC connection properties match the SQL Server setup, especially when trying to reuse Azure SQL JDBC URLs, which are invalid for SQL Server. This may lead to CENM failing to start with the following message:
 
@@ -583,7 +582,7 @@ Replace the placeholders `<host>` and `<port>` with appropriate values.
 The `database.schema` is the database schema name assigned to you (the user).
 The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity (without quotes, PostgresSQL would treat *AliceCorp* as the value *alicecorp*).
 
-## 4. Database configuration
+## Configure database
 
 This section provides additional vendor-specific database configuration details.
 
@@ -599,12 +598,12 @@ To allow `VARCHAR2` and `NVARCHAR2` column types to store more than 2000 charact
 For Oracle 12.1, refer to [MAX_STRING_SIZE](https://docs.oracle.com/database/121/REFRN/GUID-D424D23B-0933-425F-BC69-9C0E6724693C.htm#REFRN10321).
 {{< /note >}}
 
-## 5. Tables
+### Tables Created
 
 Note that `<SCHEMA_NAME>` below is a placeholder value representing the actual name for the appropriate schema.
 
 
-### Identity Manager
+#### Identity Manager
 
 The list of tables created by the Identity Manager Service follows below:
 
@@ -622,7 +621,7 @@ The list of tables created by the Identity Manager Service follows below:
 <SCHEMA_NAME>.REVINFO
 ```
 
-### Network Map
+#### Network Map
 
 The list of tables created by the Network Map Service follows below:
 
@@ -641,7 +640,7 @@ The list of tables created by the Network Map Service follows below:
 <SCHEMA_NAME>.REVINFO
 ```
 
-### Zone Service
+#### Zone Service
 
 The list of tables created by the Zone Service follows below:
 
@@ -681,7 +680,7 @@ The list of tables created by the Zone Service follows below:
 <SCHEMA_NAME>.ZONE
 ```
 
-### Auth Service
+#### Auth Service
 
 The list of tables created by the Auth Service follows below:
 
@@ -925,7 +924,7 @@ To remove service tables, run the following SQL script:
 DROP SCHEMA IF EXISTS "my_schema" CASCADE;
 ```
 
-## 6. Database Migration
+## Migrating the database
 
 When upgrading a CENM service, any required database schema changes are applied by the services rather than by a standalone tool. As a best practice, R3 recommends that the services are configured with a database user without permission to make schema modifications, when running normally (this is the setup described above).
 

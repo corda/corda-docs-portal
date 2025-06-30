@@ -5,12 +5,12 @@ menu:
     parent: corda-enterprise-4-9-cordapps
 tags:
 - cordapp
-title: CorDapp Structure
+title: CorDapp structure
 weight: 30
 ---
 
 
-# CorDapp Structure
+# CorDapp structure
 
 In this document, you will find:
 * A description of CorDapp structures and why specific structures work.
@@ -47,7 +47,7 @@ contracts and states in its own module to reduce transaction size.
 
 
 
-## CorDapp Templates
+## CorDapp templates
 
 R3 provides CorDapp templates in Java and Kotlin to help you get started:
 

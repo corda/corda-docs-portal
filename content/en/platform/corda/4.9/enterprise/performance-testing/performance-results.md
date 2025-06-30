@@ -13,7 +13,7 @@ weight: 900
 
 # Performance benchmarking results
 
-This page captures the results of historical benchmarking measurements performed by R3. Unless otherwise stated, the necessary tooling is available as part of the [performance test suite]{{< relref "installation.md" >}}) and it can be used to reproduce the same work.
+This page captures the results of historical benchmarking measurements performed by R3. Unless otherwise stated, the necessary tooling is available as part of the [performance test suite]({{< relref "installation.md" >}}) and it can be used to reproduce the same work.
 
 ## Comparing Corda Enterprise Edition 4.0 vs Corda Enterprise 3.x and Corda Community Edition
 
@@ -31,7 +31,7 @@ and loads associated with their deployments.  The numbers here are for a limited
 was achieved with the test setup and the sample flows we use in our benchmarking.  These numbers should be treated
 as an approximate guide only and actual performance of your CorDapp will depend on many factors.  Those flows
 and other elements of our performance testing tool set are now available as part of this release to help calibrate
-infrastructure configurations and to help stress CorDapps through generated load. See the performance-testing/introduction here.
+infrastructure configurations and to help stress CorDapps through generated load. See [Performance testing]({{< relref "introduction.md" >}}) for more information.
 
 {{< /note >}}
 Figure 1 below compares the number of Transactions Per Second (TPS) carried out by a single node, either locally with no other nodes and no notary

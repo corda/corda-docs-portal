@@ -25,7 +25,7 @@ What follows are mostly *recommendations* and not *rules*. They are in places in
 when interpreting them. The rules that are currently being enforced via the Detekt PR gateway can be found [here](https://github.com/corda/corda/blob/release/os/4.3/detekt-config.yml).
 
 
-## 1. General style
+## General style
 
 We use the standard [Kotlin coding style from JetBrains](https://kotlinlang.org/docs/reference/coding-conventions.html).
 
@@ -50,7 +50,7 @@ slow but without hotspots.
 the others. Our code uses a mix of locks, worker threads and messaging depending on the situation.
 
 
-### 1.1 Line Length and Spacing
+## Line length and spacing
 
 We aim for line widths of no more than 140 characters. That is wide enough to avoid lots of pointless wrapping but
 narrow enough that with a widescreen monitor and a 12 point fixed width font (like Menlo) you can fit two files
@@ -64,7 +64,7 @@ Code is vertically dense, blank lines in methods are used sparingly. This is so 
 We use spaces and not tabs, with indents being 4 spaces wide.
 
 
-### 1.2 Naming
+## Naming
 
 Naming generally follows Java standard style (pascal case for class names, camel case for methods, properties and
 variables). Where a class name describes a tuple, “And” should be included in order to clearly indicate the elements are
@@ -72,7 +72,7 @@ individual parts, for example `PartyAndReference`, not `PartyReference` (which s
 `Party`).
 
 
-## 2. Comments
+## Comments
 
 We like them as long as they add detail that is missing from the code. Comments that simply repeat the story already
 told by the code are best deleted. Comments should:
@@ -88,8 +88,8 @@ explanations of things.
 When writing code, imagine that you have an intelligent colleague looking over your shoulder asking you questions
 as you go. Think about what they might ask, and then put your answers in the code.
 
-Don’t be afraid of redundancy, many people will start reading your code in the middle with little or no idea of what
-it’s about (e.g. due to a bug or a need to introduce a new feature). It’s OK to repeat basic facts or descriptions in
+Do not be afraid of redundancy, many people will start reading your code in the middle with little or no idea of what
+it is about (for example, due to a bug or a need to introduce a new feature). It is OK to repeat basic facts or descriptions in
 different places if that increases the chance developers will see something important.
 
 API docs: all public methods, constants and classes **must** have doc comments in either JavaDoc or KDoc. API docs should:
@@ -134,19 +134,19 @@ When writing multi-line TODO comments, indent the body text past the TODO line, 
 ```
 
 
-## 3. Threading
+## Threading
 
 Classes that are thread safe should be annotated with the `@ThreadSafe` annotation. The class or method comments
 should describe how threads are expected to interact with your code, unless it’s obvious because the class is
 (for example) a simple immutable data holder.
 
 Code that supports callbacks or event listeners should always accept an `Executor` argument that defaults to
-`MoreExecutors.directThreadExecutor()` (i.e. the calling thread) when registering the callback. This makes it easy
-to integrate the callbacks with whatever threading environment the calling code expects, e.g. serialised onto a single
+`MoreExecutors.directThreadExecutor()` (that is, the calling thread) when registering the callback. This makes it easy
+to integrate the callbacks with whatever threading environment the calling code expects; for example, serialised onto a single
 worker thread if necessary, or run directly on the background threads used by the class if the callback is thread safe
 and doesn’t care in what context it’s invoked.
 
-In the prototyping code it’s OK to use synchronised methods i.e. with an exposed lock when the use of locking is quite
+In the prototyping code it’s OK to use synchronised methods; that is, with an exposed lock when the use of locking is quite
 trivial. If the synchronisation in your code is getting more complex, consider the following:
 
 
@@ -175,7 +175,7 @@ of a piece of code is based on expecting to be called from a single thread only 
 accidentally being used in a multi-threaded way when it didn’t expect that.
 
 
-## 4. Assertions and errors
+## Assertions and errors
 
 We use them liberally and we use them at runtime, in production. That means we avoid the “assert” keyword in Java,
 and instead prefer to use the `check()` or `require()` functions in Kotlin (for an `IllegalStateException` or
@@ -203,7 +203,7 @@ The latter is easier to catch and handle if later necessary, and the type name s
 Note that Kotlin does not require exception types to be declared in method prototypes like Java does.
 
 
-## 5. Properties
+## Properties
 
 Where we want a public property to have one super-type in public and another sub-type in private (or internal), perhaps
 to expose additional methods with a greater level of access to the code within the enclosing class, the style should be:
@@ -232,14 +232,14 @@ collection wrappers, if that is appropriate.
 put the “get()” on the line below, indented.
 
 
-## 6. Compiler warnings
+## Compiler warnings
 
 We do not allow compiler warnings, except in the experimental module where the usual standards do not apply and warnings
 are suppressed. If a warning exists it should be either fixed or suppressed using @SuppressWarnings and if suppressed
 there must be an accompanying explanation in the code for why the warning is a false positive.
 
 
-## 7. When to update the docsite
+## When to update the docsite
 
 The documentation website (this site) must be updated in any PR that adds or changes something visible to app developers,
 or people who operate a node. For the avoidance of doubt this includes the following kinds of changes:

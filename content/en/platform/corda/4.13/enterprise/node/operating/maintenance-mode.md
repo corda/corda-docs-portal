@@ -65,7 +65,7 @@ This is the *“cron-like”* expression which is used to control at what time(s
 * * * * * *
 ```
 
-For more information on *cron* (with examples) please see [cron-wiki](https://en.wikipedia.org/wiki/Cron) and note that the examples shown will include the *<command to execute>* part which is not present in the Corda `schedule`. The tasks that get run are not dependent on this configuration item and are determined *within* Corda.
+For more information on *cron* (with examples), see [cron-wiki](https://en.wikipedia.org/wiki/Cron) and note that the examples shown will include the *<command to execute>* part which is not present in the Corda `schedule`. The tasks that get run are not dependent on this configuration item and are determined *within* Corda.
 The following example will run maintenance at 14:30 and 15:30 (UTC) on Fridays (‘5’ in final column):
 
 ```

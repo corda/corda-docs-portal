@@ -117,7 +117,7 @@ If you are upgrading from a platform version older than 4, then the upgrade note
 The following code, which compiled in Platform Version 4, will not compile in Platform Version 5:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 data class Obligation(val amount: Amount<Currency>, val lender: AbstractParty, val borrower: AbstractParty)
 
@@ -151,7 +151,7 @@ as `AbstractParty`.
 To fix this, an explicit type hint must be provided to the compiler:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 data class Obligation(val amount: Amount<Currency>, val lender: AbstractParty, val borrower: AbstractParty)
 

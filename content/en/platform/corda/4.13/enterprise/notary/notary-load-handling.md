@@ -22,7 +22,7 @@ To avoid a notarisation request being lost in the event of a temporary notary wo
 
 The backpressure mechanism ensures that the retry timer is variable, and based on the timeout configuration settings `timeout` and `backoffBase`, the number of previous retry attempts for the notarisation request (capped at a maximum defined by the `maxRestartCount` configuration setting), and an additional jitter factor. The jitter factor  introduces a degree of randomness to the calculation, helping to protect the notary against sudden increases in notarisation requests causing a subsequent increase in retry attempts.
 
-## Flow Engine Behaviour
+## Flow Engine behaviour
 
 When a node makes a notarisation request it receives an estimated completion time. This value represents an upper bound value for time that it should take to process the request, based on the current throughput of the cluster. Once the notarisation request has been processed the node will receive the response, however if no response has been received before the estimated processing time is up then the the node will retry the request.
 
@@ -32,9 +32,9 @@ This mechanism means that requests should always be processed in the event of a 
 The backpressure mechanism is built into the notarisation flow logic within nodes running Corda version >= 4.
 {{< /note >}}
 
-## Artemis Messaging Layer Behaviour
+## Artemis messaging layer behavior
 
 A less common scenario that can occur is the notary workers get sent a very large amount of requests which causes the Artemis message broker to become overloaded. For example, if the notary worker receives messages at a greater rate than the maximum rate its Artemis message broker can consume messages from the queue then message processing delays can start to occur.
 
-If running a HA notary cluster then scaling up the worker cluster size will help negate this problem. See [Scaling A Notary Cluster]({{< relref "scaling-a-notary-cluster.md" >}}) for more information. The backpressure within the flow engine should also help to prevent this scenario.
+If running a HA notary cluster then scaling up the worker cluster size will help negate this problem. See [Scaling a notary cluster]({{< relref "scaling-a-notary-cluster.md" >}}) for more information. The backpressure within the flow engine should also help to prevent this scenario.
 

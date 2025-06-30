@@ -235,6 +235,6 @@ class XContract : Contract {
 
 ## Further reading
 
-* [Contract Constraints]({{< relref "api-contract-constraints.md" >}})
+* [Contract constraints]({{< relref "api-contract-constraints.md" >}})
 * [Write CorDapp States]({{< relref "api-states.md" >}})
 * [Writing CorDapp Flows]({{< relref "api-flows.md" >}})

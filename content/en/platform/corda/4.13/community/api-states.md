@@ -20,13 +20,13 @@ title: 'API: States'
 
 # CorDapp states
 
-Before you read this article, make sure you understand the [state key concepts]({{< relref "key-concepts-states.md" >}}).
+Before you read this topic, read the [states]({{< relref "key-concepts-states.md" >}}) concept topic.
 
-In Corda, a contract state (or just ‘state’) stores data that the CorDapp needs to move from one transaction to another.
+In Corda, a *contract state* (or just *state*) stores data that the CorDapp needs to move from one transaction to another. 
 
 States are:
-* Immutable. That means they can never be updated - any change to a state generates a new successor state. This is called **consuming** the state.
-* Single-use. You can only consume a state once - this prevents double-spending. The notary only signs transactions if the input states are all free.
+- **Immutable:** They can never be updated; any change to a state generates a new successor state. This is called *consuming* the state.
+- **Single-use:** A state can only be consumed once: this prevents double-spending. The notary only signs transactions if the input states are all free.
 
 States are instances of classes that implement `ContractState`:
 
@@ -78,7 +78,7 @@ The `LinearState` interface is defined as follows:
 /**
  * A state that evolves by superseding itself, all of which share the common "linearId".
  *
- * This simplifies the job of tracking the current version of certain types of state in e.g. a vault.
+ * This simplifies the job of tracking the current version of certain types of state in, for example, a vault.
  */
 @KeepForDJVM
 interface LinearState : ContractState {
@@ -99,8 +99,8 @@ To extend a `LinearState` chain (a sequence of states sharing a `linearId`):
 1. Use the `linearId` to extract the latest state in the chain from the vault.
 2. Create a new state that has the same `linearId`.
 3. Create a transaction with:
-  * The current latest state in the chain as an input.
-  * The newly-created state as an output.
+   * The current latest state in the chain as an input.
+   * The newly-created state as an output.
 
 The new state is now the latest state in the chain, representing the current state of the agreement.
 
@@ -185,10 +185,9 @@ This interface has been added in addition to `FungibleAsset` to provide some add
 
 You can customize your state by implementing the following interfaces:
 
-* `QueryableState`, which allows the state to be queried in the node’s database using custom attributes (see
-  api-persistence).
-* `SchedulableState`, which allows us to schedule future actions for the state (e.g. a coupon payment on a bond) (see
-  event-scheduling).
+* `QueryableState`, which allows the state to be queried in the node’s database using custom attributes; see [API: Persistence]({{< relref "api-persistence.md" >}}).
+* `SchedulableState`, which allows us to schedule future actions for the state (for example, a coupon payment on a bond); see
+  [Scheduling time-based events]({{< relref "get-started/tutorials/supplementary-tutorials/event-scheduling.md" >}}).
 
 
 ## User-defined fields
@@ -362,7 +361,7 @@ This enables multiple parties to reuse a state, and the state owner to update th
 The node resolves the chain of provenance for reference states and verifies all dependency transactions the same way it would for a standard state. This ensures the data is valid according to
 the contract governing it, and that all previous participants in the state approved prior updates.
 
-**Known limitations:**
+### Known limitations
 
 *Notary change:* Reference state users usually do not have permission to change the notary assigned to a reference state. If you add a reference state to a transaction that is assigned to a different notary than the input and output states, you must move the inputs and outputs to the notary used by the reference state.
 
@@ -384,8 +383,8 @@ A `StatePointer` contains a pointer to a `ContractState`. You can include a `Sta
 
 There are two types of pointers:
 
-* **`StaticPointer`s**: You can use `StaticPointer`s with any type of `ContractState`. `StaticPointer`s always point to the same `ContractState`. Use `StaticPointer`s to refer to a specific state from another transaction.
-* **`LinearPointer`s**: You can use `LinearPointer`s with `LinearStates`. `LinearPointer`s automatically point you to the latest version of a `LinearState` that the node performing `resolve`.
+* **`StaticPointer`**: You can use `StaticPointer`s with any type of `ContractState`. `StaticPointer`s always point to the same `ContractState`. Use `StaticPointer`s to refer to a specific state from another transaction.
+* **`LinearPointer`**: You can use `LinearPointer`s with `LinearStates`. `LinearPointer`s automatically point you to the latest version of a `LinearState` that the node performing `resolve`.
   is aware of. In effect, the pointer “moves” as the `LinearState` is updated. Use `LinearState` to refer to a particular lineage of states.
 
 If the node calling `resolve` has not seen any transactions containing a `ContractState` which the `StatePointer`

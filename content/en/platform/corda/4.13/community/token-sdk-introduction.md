@@ -23,9 +23,7 @@ With the SDK, you can define your token and its attributes, then add functionali
 Use this guide to:
 
 1. Determine the type of token you want to create.
-
 2. Design a token with the correct characteristics for its intended use.
-
 3. Create flows that issue your token correctly onto the ledger, move it from party to party, and have it redeemed.
 
 {{< note >}}
@@ -66,7 +64,7 @@ Before upgrading, make sure the platform database schema is properly migrated an
 
 1. Change the V number (version number) in your CorDapp's relevant Gradle file to the version you are upgrading to - such as 1.2.2
 
-2. Remove all references to `selection` and `money` JAR files from your build function (in many cases, Gradle). The functions of these JAR files have been moved into `workflows` in versions 1.2 onwards.
+2. Remove all references to `selection` and `money` JAR files from your build function (in many cases, Gradle). The functions of these JAR files have been moved into `workflows` in versions 1.2 onward.
 
 3. Recompile your CorDapp.
 
@@ -77,8 +75,8 @@ Before upgrading, make sure the platform database schema is properly migrated an
 
 The Tokens SDK is contained in two JAR  files which includes all the required dependencies for your CorDapp, including:
 
-* **Contracts**, which contains the base token types, states and contracts needed to create a token, including token type definitions for fiat and digital currencies.
-* **Workflows**, which contains the flows for issuing, moving, redeeming tokens, and selection workflows, which allow a party to select which source of fungible tokens they will use to pay with in a transaction.
+* **Contracts:** Contain the base token types, states and contracts needed to create a token, including token type definitions for fiat and digital currencies.
+* **Workflows:** Contain the flows for issuing, moving, redeeming tokens, and selection workflows, which allow a party to select which source of fungible tokens they will use to pay with in a transaction.
 
 As the **Contracts** JAR file contains the ability to define and create tokens, and the **Workflows** JAR file contains the flows required to use them, you must add both JAR files to your CorDapp's folder in order to use the Tokens SDK.
 
@@ -114,7 +112,7 @@ Use the list below to understand what needs to be included in the token you want
 
 Once you have established what type of token you want to create, you can use the Tokens SDK to perform the following key tasks:
 
-* **Define** your token. Using the readymade utilities contained in the contract JAR file, you can define all the required attributes and custom attributes of your tokens.
+* **Define** your token. Using the ready-made utilities contained in the contract JAR file, you can define all the required attributes and custom attributes of your tokens.
 
 * **Issue** tokens onto your ledger so they can be used as part of a transaction.
 
@@ -146,7 +144,7 @@ An `EvolvableTokenType` has properties that can change over time. This is repres
 In the example below, the evolvable token is for a diamond. You can see the evolvable attributes, which are the attributes included in a grading report for a diamond. You can also see a full [walk-through of this example]({{< relref "token-diamond-example.md" >}}).
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 /** Creating an evolveable TokenType */
 @BelongsToContract(DiamondGradingReportContract::class)
@@ -169,7 +167,7 @@ val diamond = DiamondGradingReport("1.0", DiamondGradingReport.ColorScale.A, Dia
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 public final class DiamondGradingReport extends EvolvableTokenType {
     private final BigDecimal caratWeight;
@@ -264,12 +262,12 @@ Fungible tokens can be split using a flow initiated by the **Move** command. Thi
 In the below example, Alice instantiates a token representing a BitCoin. This token is generated using the Tokens SDK's built-in `money` library.
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 val fungibleToken = 1 of DigitalCurrency.getInstance("BTC") issuedBy aliceParty heldBy aliceParty
 ```
 {{% /tab %}}
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 FungibleToken fungibleToken = new FungibleTokenBuilder()
         .withAmount(1)

@@ -7,14 +7,14 @@ tags:
 - notary
 - failover
 weight: 3
-title: Notary Failover
+title: Notary failover
 ---
 
 
 # Notary failover
 
 Corda has built-in features to allow for the retrying of flows in specific cases of failure.
-See [Flow Hospital]({{< relref "../../node/node-flow-hospital.md" >}}) for information that applies
+See [Flow hospital]({{< relref "../../node/node-flow-hospital.md" >}}) for information that applies
 to all flows.
 
 The FinalityFlow contains notary-specific logic which can initiate a backpressure-aware sub-flow since minimum platform version 4.

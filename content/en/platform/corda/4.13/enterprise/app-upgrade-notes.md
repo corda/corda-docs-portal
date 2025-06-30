@@ -71,7 +71,7 @@ Follow the steps below for each upgrade path.
 #### Upgrade a node from Corda 4.5 (or earlier 4.x version)
 
 1. Remove any entries of `transactionIsolationLevel`, `initialiseSchema`, `initialiseAppSchema`, and `runMigration` from the database section of your [node configuration file]({{< relref "node/setup/corda-configuration-file.md" >}}).
-2. Update any missing core schema changes by either running the [Database Management Tool]({{< relref "database-management-tool.md" >}}) (recommended) or running the node in `run-migration-scripts` mode: `java -jar corda.jar run-migration-scripts --core-schemas`.
+2. Update any missing core schema changes by either running the [database management tool]({{< relref "database-management-tool.md" >}}) (recommended) or running the node in `run-migration-scripts` mode: `java -jar corda.jar run-migration-scripts --core-schemas`.
 
 #### Upgrade a node from Corda 3.x or Corda Enterprise 3.x
 
@@ -104,7 +104,7 @@ To upgrade your CorDapps to platform version 5, you need to:
 The following code (which compiled in platform version 4) will not compile in platform version 5:
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 data class Obligation(val amount: Amount<Currency>, val lender: AbstractParty, val borrower: AbstractParty)
 
@@ -141,7 +141,7 @@ as `AbstractParty`.
 To fix the issue, you must provide an explicit type hint to the compiler.
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 data class Obligation(val amount: Amount<Currency>, val lender: AbstractParty, val borrower: AbstractParty)
 

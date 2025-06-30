@@ -12,7 +12,7 @@ menu:
 tags:
 - blob
 - inspector
-title: Blob Inspector
+title: Blob inspector
 ---
 
 

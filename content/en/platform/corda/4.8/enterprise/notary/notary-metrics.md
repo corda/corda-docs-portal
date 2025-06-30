@@ -7,7 +7,7 @@ menu:
 tags:
 - notary
 - metrics
-title: Notary Metrics and Performance
+title: Notary metrics and performance
 weight: 4
 ---
 

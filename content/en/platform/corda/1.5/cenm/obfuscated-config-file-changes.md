@@ -13,7 +13,7 @@ title: Obfuscation configuration file changes
 # Obfuscated configuration file changes
 
 When you work with obfuscated configuration files, note the following:
-1. Use the Corda Enterprise Configuration Obfuscator tool. See [Configuration Obfuscator]({{< relref "../../../../../en/platform/corda/4.8/enterprise/tools-config-obfuscator.md" >}}) for more information.
+1. Use the Corda Enterprise configuration obfuscator tool. See [Configuration obfuscator]({{< relref "../../../../../en/platform/corda/4.8/enterprise/tools-config-obfuscator.md" >}}) for more information.
 
 2. The updated arguments, required to run the service with obfuscation options, are as follows:
 
@@ -23,9 +23,9 @@ When you work with obfuscated configuration files, note the following:
 
 3. If the configuration for the given service is obfuscated, one or both of `--config-obfuscation-passphrase` and `--config-obfuscation-seed` **must** be defined, or the service will not know that the configuration is obfuscated.
 
-    If one of the above values are defined, the other one will default to the same value as in the Corda Enterprise Configuration Obfuscator tool. For example, if a configuration is obfuscated with the default seed and passphrase via the Corda Enterprise Configuration Obfuscator tool, the seed or the passphrase still has to be defined when running the CENM service.
+    If one of the above values are defined, the other one will default to the same value as in the Corda Enterprise configuration obfuscator tool. For example, if a configuration is obfuscated with the default seed and passphrase via the Corda Enterprise configuration obfuscator tool, the seed or the passphrase still has to be defined when running the CENM service.
 
-    As the default seed in the Corda Enterprise Configuration Obfuscator tool is `Corda`, the service should be run with the `--config-obfuscation-seed=Corda` option.
+    As the default seed in the Corda Enterprise configuration obfuscator tool is `Corda`, the service should be run with the `--config-obfuscation-seed=Corda` option.
 4. If a configuration is uploaded to Zone Service and it contains an obfuscated password property inside `ssl.keyStore`, then the `keyPassword` property should be provided and obfuscated as well. See the examples below.
 
     Obfuscated configuration that will be acepted:
@@ -54,7 +54,7 @@ When you work with obfuscated configuration files, note the following:
         ...
         }```
 
-5. You can obfuscate CENM 1.1 and 1.2 configuration files with CENM 1.3 (and above), but for any further obfuscation, use the new version of the Configuration Obfuscator tool.
+5. You can obfuscate CENM 1.1 and 1.2 configuration files with CENM 1.3 (and above), but for any further obfuscation, use the new version of the configuration obfuscator tool.
 
 {{< note >}}
 If a configuration file is uploaded to the Zone Service, any host fields in the configuration file must not be obfuscated.

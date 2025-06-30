@@ -43,7 +43,7 @@ The Corda configuration file uses the HOCON format which is a superset of JSON. 
 Please do NOT use double quotes (`"`) in configuration keys.
 
 Node setup will log `Config files should not contain " in property names. Please fix: [key]` as an error when it finds double quotes around keys.
-This prevents configuration errors when mixing keys containing `.` wrapped with double quotes and without them e.g.: The property
+This prevents configuration errors when mixing keys containing `.` wrapped with double quotes and without them. For example, the property
 `"dataSourceProperties.dataSourceClassName" = "val"` in [Reference.conf](#referenceconf) would be not overwritten by the property
 `dataSourceProperties.dataSourceClassName = "val2"` in *node.conf*.
 
@@ -67,11 +67,11 @@ for more information.
 
 ## Overriding configuration values
 
-### Placeholder Overrides
+### Placeholder overrides
 
 It is possible to add placeholders to the `node.conf` file to override particular settings via environment variables. In this case the
 `rpcSettings.address` property will be overridden by the `RPC_ADDRESS` environment variable, and the node will fail to load if this
-environment variable isn’t present (see: [Hiding sensitive data]({{< relref "node-administration.md#hiding-sensitive-data" >}}) for more information).
+environment variable isn’t present (see [Hiding sensitive data]({{< relref "node-administration.md#hiding-sensitive-data" >}}) for more information).
 
 ```groovy
 rpcSettings {
@@ -80,7 +80,7 @@ rpcSettings {
 }
 ```
 
-### Direct Overrides
+### Direct overrides
 
 It is also possible to directly override Corda configuration (regardless of whether the setting is already in the `node.conf`), by using
 environment variables or JVM options. Simply prefix the field with `corda.` or `corda_`, using periods (`.`) or
@@ -164,7 +164,7 @@ See [Configuration file fields]({{< relref "corda-configuration-fields.md" >}}).
 ## Reference.conf
 
 A set of default configuration options are loaded from the built-in resource file `/node/src/main/resources/reference.conf`.
-This file can be found in the `:node` gradle module of the [Corda repository](https://github.com/corda/corda).
+This file can be found in the `:node` gradle module of the [Corda repository](https://github.com/corda/corda); see [reference.conf](https://github.com/corda/corda/blob/release/os/4.13/node/src/main/resources/corda-reference.conf). 
 Any options you do not specify in your own `node.conf` file will use these defaults.
 
 Here are the contents of the `reference.conf` file:
@@ -200,11 +200,11 @@ verifierType = InMemory
 
 ```
 
-[reference.conf](https://github.com/corda/corda/blob/release/os/4.13/node/src/main/resources/corda-reference.conf)
+
 
 ## Configuration examples
 
-General node configuration file for hosting the IRSDemo services
+General node configuration file for hosting the IRSDemo services:
 
 ```none
 myLegalName = "O=Bank A,L=London,C=GB"
@@ -253,7 +253,7 @@ networkServices {
 }
 ```
 
-Configuring a node where the Corda Compatibility Zone’s registration and Network Map services exist on different URLs
+Configuring a node where the Corda compatibility zone’s registration and Network Map services exist on different URLs:
 
 ```none
 myLegalName = "O=Bank A,L=London,C=GB"
@@ -291,13 +291,11 @@ configuration properties.
 
 Below are the steps to generate a hash for a CorDapp signed with a RSA certificate. A similar process should work for other certificate types.
 
-* Extract the contents of the signed CorDapp jar.
-* Run the following command (replacing the < > variables):
-
-```none
-openssl pkcs7 -in <extract_signed_jar_directory>/META-INF/<signature_to_hash>.RSA -print_certs -inform DER -outform DER \
-| openssl x509 -pubkey -noout \
-| openssl rsa -pubin -outform der | openssl dgst -sha256
-```
-
-* Copy the public key hash that is generated and place it into the required location (e.g. in `node.conf`).
+1. Extract the contents of the signed CorDapp jar.
+2. Run the following command (replacing the `< >` variables):
+   ```shell
+   openssl pkcs7 -in <extract_signed_jar_directory>/META-INF/<signature_to_hash>.RSA -print_certs -inform DER -outform DER \
+   | openssl x509 -pubkey -noout \
+   | openssl rsa -pubin -outform der | openssl dgst -sha256
+   ```
+3. Copy the public key hash that is generated and place it into the required location; for example, in `node.conf`.

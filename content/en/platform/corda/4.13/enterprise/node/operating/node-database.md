@@ -14,7 +14,7 @@ weight: 1
 
 
 
-The Corda platform, and the installed CorDapps store their data in a relational database (see [State Persistence]({{< relref "../../cordapps/state-persistence.md" >}})).
+The Corda platform, and the installed CorDapps store their data in a relational database (see [State persistence]({{< relref "../../cordapps/state-persistence.md" >}})).
 
 Corda Enterprise supports a range of commercial 3rd party databases: Azure SQL, SQL Server, Oracle, and PostgreSQL.
 This document provides an overview of required database permissions, related ways to create database schema objects,
@@ -30,17 +30,17 @@ Depending on how the schema objects are created, a Corda node can connect to the
 
 
 
-* **restricted permissions** This grants the database user access to DML execution only (to manipulate data itself e.g. select/delete rows),
+* **Restricted permissions** This grants the database user access to DML execution only (to manipulate data itself e.g. select/delete rows),
 and a database administrator needs to create database schema objects before running the Corda node.
 This permission set is recommended for a Corda node in a production environment (including hot-cold-deployment).
-* **administrative permissions** This grants the database user full access to a Corda node, such that it can execute both DDL statements
+* **Administrative permissions** This grants the database user full access to a Corda node, such that it can execute both DDL statements
 (to define data structures/schema content e.g. tables) and DML queries (to manipulate data itself e.g. select/delete rows).
 This permission set is more permissive and should be used with caution in production environments.
 A Corda node with full control of the database schema can create or upgrade schema objects automatically upon node startup.
 This eases the operational maintenance for development and testing.
 
 
-Database setup for production systems (with **restricted permissions**) is described in [Database schema setup]({{< relref "node-database-admin.md" >}}),
+Database setup for production systems (with *restricted permissions*) is described in [Database schema setup]({{< relref "node-database-admin.md" >}}),
 and the recommended setup for development/testing environments are described in [Simplified database schema setup for development]({{< relref "node-database-developer.md" >}}).
 
 
@@ -48,7 +48,7 @@ and the recommended setup for development/testing environments are described in 
 
 Database DDL scripts defining database tables (and other schema objects) are embedded inside the Corda distribution (`corda.jar` file)
 or within the CorDapp distributions (a JAR file). Therefore Corda, and custom CorDapps are shipped without separate DDL scripts for each database vendor.
-Whenever a node operator or database administrator needs to obtain a DDL script to be run, they can use the Corda Database Management Tool.
+Whenever a node operator or database administrator needs to obtain a DDL script to be run, they can use the Corda database management tool.
 The tool, among other functions, outputs the DDL script which is compatible with the Corda release
 and the database which the tool was running against.
 Depending on [database user permissions](#database-user-permissions) a Corda node may be configured to create database tables
@@ -59,7 +59,7 @@ DDL scripts are defined in a cross database syntax and grouped in change sets.
 When a Corda node starts, it compares the list of change sets recorded in the database with the list embedded inside the Corda node
 and associated CorDapps. Depending on the outcome and the node configuration, it will stop and report any differences or will create/update
 any missing database objects.
-Internally, the Corda node and Corda Database Management Tool use [Liquibase library/tool](http://www.liquibase.org)
+Internally, the Corda node and Corda database management tool use [Liquibase library/tool](http://www.liquibase.org)
 for versioning database schema changes.
 
 Liquibase is a tool that implements an automated, version based database migration framework with support for a large number of databases.
@@ -77,30 +77,28 @@ is highly recommended for understanding how database migrations work in Corda.
 
 By default, a node will *not* attempt to execute database migration scripts at startup (even when a new version has been deployed),
 but will check the database “version” and halt if the database is not in sync with the node, to avoid data corruption.
-To bring the database to the correct state we provide a [Database Management Tool](#database-management-tool).
+To bring the database to the correct state we provide a [database management tool](#database-management-tool).
 This setup/procedure is recommended for production systems.
 
 Running the migration at startup automatically can only be configured by using the `initial registration` sub-command when running the node. The standard way of running the schema initialisation / migration scripts is to run the `run-migration-scripts` sub-command - see [Node command-line options]({{< relref "../node-commandline.md" >}}).
 R3 recommends enabling database schema auto-creation/upgrade for development or test purposes only.
 It is safe to run at startup if you have implemented the usual best practices for database management
-(e.g. running a backup before installing a new version).
+(for example, running a backup before installing a new version).
 
 
 
-### Database Management Tool
+### Database management tool
 
 The database management tool is distributed as a standalone JAR file named `tools-database-manager-${corda_version}.jar`.
 It is intended to be used by Corda Enterprise node administrators who want more control over database changes made in production
 environments.
-
-The following sections document the available subcommands suitable for a node operator or database administrator.
 
 {{< note >}}
 The database management tool is for production databases only. H2 databases cannot be upgraded using the Database Management tool.
 
 {{< /note >}}
 
-You can review all available commands and options in the [Database Management Tool documentation]({{< relref "../../database-management-tool.md" >}}).
+For more information, see [Database management tool]({{< relref "../../database-management-tool.md" >}}).
 
 ## Node database tables
 
@@ -175,7 +173,7 @@ The structure of the tables of JPA notaries are described at [Configuring a JPA 
 The tables for other experimental notary implementations are not described here.
 
 
-### Database Schema Migration Logging
+### Database schema migration logging
 
 Database migration logs for Corda internal tables follow a structured format
 described in [Database Schema Migration Logging]({{< relref "../../node-database-migration-logging.md#database-schema-migration-logging" >}}).

@@ -8,7 +8,7 @@ tags:
 - load
 - balancing
 weight: 2
-title: Notary Load Balancing
+title: Notary load balancing
 ---
 
 
@@ -34,7 +34,7 @@ cycle through them until a non-faulty one is discovered.
 
 ## What happens if a notary in cluster becomes unavailable and does not respond?
 
-As described in [Notary failover]{{< relref "notary-failover.md" >}}), the client node will retry the flow. That retry goes to Artemis, which because of the round-robin
+As described in [Notary failover]({{< relref "notary-failover.md" >}}), the client node will retry the flow. That retry goes to Artemis, which because of the round-robin
 style of communication with the cluster, would send the flow to the next notary worker. For example, a client node sends the flow to notary worker 1, which
 becomes unavailable, so the client times out while waiting for a response and retries the flow automatically. The flow now gets sent to notary worker 2.
 {{< note >}}

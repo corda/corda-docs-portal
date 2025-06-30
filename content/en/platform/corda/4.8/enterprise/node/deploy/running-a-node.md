@@ -39,7 +39,7 @@ If you need to initialise or migrate the node's database schema objects, you nee
 If your node configuration file is obfuscated and you want to deobfuscate it when running the node, you need to pass the
 obfuscation seed and passphrase to the node in the node run command.
 
-To do so using the [Configuration Obfuscator]({{< relref "../../tools-config-obfuscator.md" >}}) command-line tool, use the
+To do so using the [Configuration obfuscator]({{< relref "../../tools-config-obfuscator.md" >}}) command-line tool, use the
 `--config-obfuscation-seed` and `--config-obfuscation-passphrase` flags, respectively, in your node run command.
 
 The following example shows how to pass a seed and a passphrase explicitly to a node component using the Configuration
@@ -286,7 +286,7 @@ For more information, see [Database management]({{< relref "../../node-database-
 If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options]({{< relref "../node-commandline.md" >}}) for details.
 
 
-## Stability of the Corda Node
+## Stability of the Corda node
 
 There are a number of critical resources that a Corda node needs to operate in order to ensure the transactional consistency of the ledger.
 These critical resources include:

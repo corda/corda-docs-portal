@@ -10,10 +10,10 @@ menu:
 tags:
 - config
 - angel service
-title: Angel Service Configuration Parameters
+title: Angel Service configuration parameters
 ---
 
-# Angel Service Configuration Parameters
+# Angel Service configuration parameters
 
 The configuration references for the Angel Service are given below:
 
@@ -42,7 +42,7 @@ The path to the network parameters file. This is the plain-text version of the n
   *(Optional - defaults to one of: `identitymanager.jar`, `networkmap.jar`, `signer.jar`)* The path to the service JAR.
 
   * **ssl**:
-    See [SSL Settings]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-ssl.md" >}}).
+    See [SSL settings]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-ssl.md" >}}).
 
   * **pluginJar**:
   *(Optional)* The absolute path to the JAR file of the workflow plugin.
