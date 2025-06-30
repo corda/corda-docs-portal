@@ -21,11 +21,11 @@ Corda provides several core classes as part of its API.
 
 A mathematical function that takes a variable-length input string and converts it into a fixed-length binary sequence.
 
-**Public key cryprography**
+**Public key cryptography**
 
 A system that uses a pair of keys: a public key and private key. Anyone can encrypt a message using the receiver’s public key, but the message can only be decrypted with the receiver’s private key.
 
-**Crytographic primitive**
+**Cryptographic primitive**
 
 A low-level algorithm used to build cryptographic protocols for a security system. They are building blocks designed to do one specific task reliably.
 
@@ -40,7 +40,18 @@ Use the `SecureHash` class to uniquely identify objects, such as transactions an
 Implement the `NamedByHash` interface for any object that needs to be identified by its hash:
 
 {{< tabs name="tabs-1" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+/** Implemented by anything that can be named by a secure hash value (e.g. transactions, attachments). */
+interface NamedByHash {
+    val id: SecureHash
+}
+
+```
+{{% /tab %}}
 {{< /tabs >}}
+
+[Structures.kt](https://github.com/corda/corda/blob/release/os/4.10/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
 
 `SecureHash` is a sealed class that only defines a single subclass, `SecureHash.SHA256`. You can use utility methods
 to create and parse `SecureHash.SHA256` objects.
