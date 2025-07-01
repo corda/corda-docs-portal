@@ -346,8 +346,14 @@ Allows fine-grained controls of various features only available in the enterpris
 
 * `tuning` <a name="tuning"> 
 
-    * The Corda node configuration file section that contains performance tuning parameters for Corda Enterprise nodes.
+    * The Corda Node configuration file section that contains performance tuning parameters for Corda Enterprise nodes.
 
+    - `additionalFlowThreadPools`
+
+       * The default Corda Enterprise configuration creates a single thread pool whose size is configured by the *[flowThreadPoolSize]({{< relref "#enterpriseconfiguration" >}})* parameter. You can define *multiple* thread pools and assign flows to them; for example, to prioritize particular flows and to segregate them from other flows. Thread pools are defined by adding an `additionalFlowThreadPools` array within the `tuning` object. The `additionalFlowThreadPools` array can contain one or more objects, each specifying the details of an additional thread pool. Each object contains a `threadpool` and `size` property, respectively defining the name of the thread pool and its size in number of threads.
+       
+       For more information and examples, see [Setting thread pools]({{< relref "../../cordapps/thread-pools.md" >}}).
+       
     - `backchainFetchBatchSize`
 
         * This is an optimization for sharing transaction backchains. Corda Enterprise nodes can request backchain items in bulk instead of one at a time. This field specifies the size of the batch. The value is just an integer indicating the maximum number of states that can be requested at a time during backchain resolution.
@@ -360,18 +366,22 @@ Allows fine-grained controls of various features only available in the enterpris
 
     - `flowThreadPoolSize`
 
-      The number of threads available to handle flows in parallel. This is the number of flows
+        The number of threads available to handle flows in parallel by the default thread pool. This value does not affect [additional thread pools]({{< relref "../../cordapps/thread-pools.md" >}}). The sum of the sizes of the default thread pool plus all additional thread pools sets the upper limit for the maximum number of flows executable in parallel.
+        
+        This is the number of flows
   that can run in parallel doing something and/or holding resources like database connections.
-    A larger number of flows can be suspended, for example, waiting for reply from a counterparty.
+  
+        Note that this property does not affect the size of additional thread pools as described in [Using additional thread pools]({{< relref "../../cordapps/thread-pools.md" >}}).
+
+        A larger number of flows can be suspended; for example, waiting for reply from a counterparty.
   When a response arrives, a suspended flow will be woken up if there are any available threads in the thread pool.
 
-      Otherwise, a currently active flow must be finished or suspended before the suspended flow can be woken
+        Otherwise, a currently active flow must be finished or suspended before the suspended flow can be woken
   up to handle the event. This can have serious performance implications if the flow thread pool is too small, as a flow cannot be suspended while in a database transaction, or without checkpointing its state first.
 
-      Corda Enterprise allows the node operators to configure the number of threads the state machine manager can use to execute flows in parallel, allowing more than one flow to be active and/or use resources at the same time.
+        Corda Enterprise allows the node operators to configure the number of threads the state machine manager can use to execute flows in parallel, allowing more than one flow to be active and/or use resources at the same time.
 
-      The ideal value for this parameter depends on a number of factors. These include the hardware the node is running on, the performance profile of the flows, and the database instance backing the node as datastore. Every thread will open a database connection, so for n threads, the database system must have at least n+1 connections available. Also, the database
-  must be able to actually cope with the level of parallelism to make the number of threads worthwhile - if
+        The ideal value for this parameter depends on a number of factors. These include the hardware the node is running on, the performance profile of the flows, and the database instance backing the node as datastore. Every thread will open a database connection, so for n threads, the database system must have at least n+1 connections available. Also, the database must be able to actually cope with the level of parallelism to make the number of threads worthwhile - if
   using for example H2, any number beyond eight does not add any substantial benefit due to limitations with its internal
   architecture. For these reasons, the default size for the flow framework thread pool is the lower number between either the available number of processors times two, and 30. Overriding this value in the configuration allows you to specify any number.
 

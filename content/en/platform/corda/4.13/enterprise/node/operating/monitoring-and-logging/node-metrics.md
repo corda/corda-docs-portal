@@ -68,7 +68,7 @@ There are two types of cache:
 - **Weight-based:**. Measured by the number of bytes of memory occupied by the entries
 
 {{< note >}}
-The avalable set of metrics depends on the cache type. The `maximum-size` and `sizePercent` metrics are only available for size-based caches, while `maximum-weight`, `weight`, and `weightPercent` metrics are only available for weight-based caches.
+The available set of metrics depends on the cache type. The `maximum-size` and `sizePercent` metrics are only available for size-based caches, while `maximum-weight`, `weight`, and `weightPercent` metrics are only available for weight-based caches.
 {{< /note >}}
 
 {{< table >}}
@@ -94,12 +94,13 @@ The avalable set of metrics depends on the cache type. The `maximum-size` and `s
 
 ## Flows
 
+Note that metrics related to the default thread pool do not have a *.default* suffix; this is for backward compatibility.
 
 {{< table >}}
 
 |Metric Query|Description|
 |----------------------------------------------------------------|--------------------------------------------------------------------------------------|
-|net.corda:type=Flows,name=ActiveThreads|The total number of threads running flows.|
+|net.corda:type=Flows,name=ActiveThreads.{threadpool}|The total number of threads running flows for the specified [thread pool](../../../cordapps/thread-pools.md).|
 |net.corda:type=Flows,name=CheckpointVolumeBytesPerSecondCurrent|The current rate at which checkpoint data is being persisted.|
 |net.corda:type=Flows,name=CheckpointVolumeBytesPerSecondHist|A histogram indicating the rate at which bytes are being checkpointed.|
 |net.corda:type=Flows,name=Checkpointing Rate|The rate at which checkpoint events are occurring.|
@@ -107,14 +108,18 @@ The avalable set of metrics depends on the cache type. The `maximum-size` and `s
 |net.corda:type=Flows,name=ErrorPerMinute|The rate at which flows fail with an error.|
 |net.corda:type=Flows,name=Finished|The total number of completed flows (both successfully and unsuccessfully).|
 |net.corda:type=Flows,name=InFlight|The number of in-flight flows.|
-|net.corda:type=Flows,name=QueueSize|The current size of the queue for flows waiting to be executed.|
-|net.corda:type=Flows,name=QueueSizeOnInsert|A histogram showing the queue size at the point new flows are added.|
+|net.corda:type=Flows,name=QueueSize.{threadpool}|The current size of the queue for flows waiting to be executed for the specified thread pool|
+|net.corda:type=Flows,name=QueueSizeOnInsert.{threadpool}|A histogram showing the queue size at the point new flows are added for the specified thread pool|
+|net.corda:type=Flows,name=QueueSizeTotal | The sum of all thread pool queues. | 
 |net.corda:type=Flows,name=Started|The total number of flows started.|
 |net.corda:type=Flows,name=StartedPerMinute|The rate at which flows are started.|
-|net.corda:type=Flows,name=StartupQueueTime|This timer measures the time a flow spends queued before it is executed.|
+|net.corda:type=Flows,name=StartupQueueTime.{threadpool} |This timer measures the time a flow spends queued before it is executed for the specified thread pool. |
 |net.corda:type=Flows,name=Success|The total number of successful flows.|
 |net.corda:type=Flows,name=<action_name>|A histogram indicating the time taken to execute a particular action. See the following section for more details.|
-
+|net.corda:type=Flows,name=FlowDuration.Success.{flowclassname} | The flow duration for the default thread pool of the specified flow, if successful. | 
+|net.corda:type=Flows,name=FlowDuration.Failure.{flowclassname}|  The flow duration for the default thread pool of the specified flow, if failed. | 
+|net.corda:type=Flows,name=FlowDuration.Success.{flowclassname}.{threadpoolname} |  The flow duration for the specified thread pool of the specified flow, if successful. | 
+|net.corda:type=Flows,name=FlowDuration.Failure.{flowclassname}.{threadpoolname} | The flow duration for the specified thread pool of the specified flow, if failed. |  
 
 {{< /table >}}
 

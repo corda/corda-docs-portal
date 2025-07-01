@@ -17,9 +17,9 @@ Node performance optimisation can be achieved by adjusting node configuration, n
 
 ## Adjusting the node settings
 
-The main parameters that can be tweaked for a Corda Enterprise node are
+The main parameters that can be tweaked for a Corda Enterprise node are:
 
-
+- **The number of thread pools used:** For more information, see [thread pools]({{< relref "../../cordapps/thread-pools.md" >}}).
 - **The number of flow threads:** This is the number of flows that can be live and active in the state machine at the same time. The default value for this is twice the number of processor cores available on the machine, capped at 30.
 - **The number of RPC threads:** This is the number of calls the RPC server can handle in parallel, enqueuing requests to the state machine. The default for this is the number of processor cores available on the machine
 - **The amount of heap space the node process can allocate:** The default for this is 512 megabytes.
@@ -55,7 +55,21 @@ enterpriseConfiguration = {
 
 The recommended approach is to start with a low number of flow threads (for example, 1 per gigabyte of heap memory), and increase the number of threads over a number of runs. In tests at R3, it seems that giving a node twice the number of flow threads than RPC threads seemed a sensible number, but that might depend on the hardware and the use case, so it is worthwhile to experiment with this ratio.
 
+You can also define additional thread pools; for more information, see [Using additional thread pools]({{< relref "../../cordapps/thread-pools.md" >}}).
 
+### Fine-tuning the Artemis configuration
+
+The following configuration options control some aspects of Artemis and can affect the throughput and latency of an application:
+* `p2pConfirmationWindowSize`: The size of the in-memory buffer, used by the broker to buffer completed commands before acknowledging them to the client.
+* `brokerConnectionTtlCheckIntervalMs`: The interval at which acknowledgements of completed commands are to be sent in case `p2pConfirmationWindowSize` is not exhausted in time.
+* `journalBufferSize`: The size of the in-memory buffer used to store messages before they are flushed to disk.
+* `journalBufferTimeout`: The interval at which Artemis messages that are buffered in-memory are to be flushed to disk if the `journalBufferSize` is not exhausted in time.
+
+As a result, you can control how frequently Artemis persists messages to disk and how frequently acknowledgements are sent back to clients. These values can affect the latency of flows, since a flow is expected to wait less on Artemis if it flushes messages to disk and sends acknowledgements more frequently. However, such configuration tweaks can also affect the throughput of flows, since flushing to disk more frequently and sending acknowledgements more frequently can result in a reduced efficiency of the utilisation of the disk and network resources. It is important that you benchmark any changes to these values in order to make sure that you have achieved the desired balance between throughput and latency.
+
+### Fine-tuning transaction resolution
+
+In some cases, a node might have to resolve the provenance chain of a transaction from a counterparty. The configuration option `backchainFetchBatchSize` controls how many transactions the node will send at a time when performing this resolution. This defaults to a relatively large value, but you might need to increase it further if you have extremely large chains of transactions that nodes need to resolve. Increasing this value can reduce the latency of flows, since nodes will be able to resolve a transaction chain with fewer round trips. It might also have a positive impact on throughput because this way flows will last less and nodes will be able to complete more of them. However, this might also lead to an increase in the utilisation of network bandwidth and node resources in general. As a result, the actual results will depend on your environment.
 ## Disk access
 
 The node needs to write log files to disk, and has an Artemis spool directory that is used for the durable queues on the hard disk, so disk I/O for the node’s working directory has an impact on the node performance. For optimal performance, this should be on a fast, local disk.
