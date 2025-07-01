@@ -688,7 +688,7 @@ To configure a connection pool, the following custom properties can be set in th
 
 
    {{< note >}}
-   `maximumPoolSize` cannot be less than `enterpriseConfiguration.tuning.totalFlowThreadPoolSize + enterpriseConfiguration.tuning.rpcThreadPoolSize + 2`. See [Optimising node performance]({{< relref "../../node/operating/optimizing.md" >}}) for more details. Their defaults depend on the machine they are being run, but if the `maximumPoolSize` a error will appear showing what is the minimum required.{{< /note >}}
+   `maximumPoolSize` cannot be less than `{The sum of the configured threadpools sizes} + enterpriseConfiguration.tuning.rpcThreadPoolSize + 2`. See [Optimising node performance]({{< relref "../../node/operating/optimizing.md" >}}) for more details. Their defaults depend on the machine they are being run, but if the `maximumPoolSize` a error will appear showing what is the minimum required.{{< /note >}}
 
 
 
