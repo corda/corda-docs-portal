@@ -18,6 +18,8 @@ In Corda 4.12 and previous versions, only the single, default thread pool descri
 
 For example, if there are slow-running reporting flows and more important transactional flows on the same system, the reporting flows can be separated into a dedicated thread pool so that they do not block the transactional flows.
 
+Corda Enterprise targets the flow thread pools directly when it starts a flow. Therefore, there is no conflict between starting flows if one pool is performing badly and has a big queue.
+
 ## Configuring thread pools
 
 Thread pools are defined in the [node configuration]({{< relref "../node/setup/corda-configuration-file.md" >}}) by adding an `additionalFlowThreadPools` array within the `tuning` object. The `additionalFlowThreadPools` array can contain one or more objects, each specifying the details of an additional thread pool. Each object contains a `threadpool` and `size` property, respectively defining the name of the thread pool and its size in number of threads.
