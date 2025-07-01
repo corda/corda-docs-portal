@@ -93,7 +93,7 @@ Created flow thread pools: reporting(3), transactions(3), default(20)
 
 How flows are mapped to thread pools depends on:
 
-- The thread flow configuration
+- The thread pool configuration
 - Whether or not the CorDapps installed have customized thread pool rules
 
 The Corda default FlowSchedulerMapper follows these rules, in order of highest priority first:
@@ -110,7 +110,7 @@ The Corda default FlowSchedulerMapper follows these rules, in order of highest p
 
 ## Customizing flow-to-thread pool mapping rules
 
-CorDapps can override the above default flow mapping logic by defining a class which implements [the FlowSchedulerMapper interface](https://github.com/corda/corda/blob/feature/segregated-threadpools/core/src/main/kotlin/net/corda/core/flows/scheduler/mapper/FlowSchedulerMapper.kt); for example:
+CorDapps can override the above default flow mapping logic by defining a class which implements [the FlowSchedulerMapper interface](https://github.com/corda/corda/blob/release/os/4.13/core/src/main/kotlin/net/corda/core/flows/scheduler/mapper/FlowSchedulerMapper.kt); for example:
 
 ```java
 interface FlowSchedulerMapper {
@@ -122,9 +122,8 @@ interface FlowSchedulerMapper {
 }
 ```
 
-The default mapping logic is available [here](https://github.com/corda/corda/blob/feature/segregated-threadpools/core/src/main/kotlin/net/corda/core/flows/scheduler/mapper/FlowSchedulerMapperImpl.kt).
+The default mapping logic is available [here](https://github.com/corda/corda/blob/release/os/4.13/core/src/main/kotlin/net/corda/core/flows/scheduler/mapper/FlowSchedulerMapperImpl.kt).
 
-**(TODO: Adjust above links later to point to the release branch.)**
 
 Corda scans CorDapps at startup time for classes implementing the FlowSchedulerMapper interface.
 Corda logs this message if it finds a single candidate:

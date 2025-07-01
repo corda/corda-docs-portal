@@ -350,7 +350,7 @@ Allows fine-grained controls of various features only available in the enterpris
 
     - `additionalFlowThreadPools`
 
-       * The default Corda configuration creates a single thread pool whose size is configured by the *[flowThreadPoolSize]({{< relref "#enterpriseconfiguration" >}})* parameter. You can define *multiple* thread pools and assign flows to them; for example, to prioritize particular flows and to segregate them from other flows. Thread pools are defined by adding an `additionalFlowThreadPools` array within the `tuning` object. The `additionalFlowThreadPools` array can contain one or more objects, each specifying the details of an additional thread pool. Each object contains a `threadpool` and `size` property, respectively defining the name of the thread pool and its size in number of threads.
+       * The default Corda Enterprise configuration creates a single thread pool whose size is configured by the *[flowThreadPoolSize]({{< relref "#enterpriseconfiguration" >}})* parameter. You can define *multiple* thread pools and assign flows to them; for example, to prioritize particular flows and to segregate them from other flows. Thread pools are defined by adding an `additionalFlowThreadPools` array within the `tuning` object. The `additionalFlowThreadPools` array can contain one or more objects, each specifying the details of an additional thread pool. Each object contains a `threadpool` and `size` property, respectively defining the name of the thread pool and its size in number of threads.
        
        For more information and examples, see [Setting thread pools]({{< relref "../../cordapps/thread-pools.md" >}}).
        
@@ -366,7 +366,9 @@ Allows fine-grained controls of various features only available in the enterpris
 
     - `flowThreadPoolSize`
 
-        The number of threads available to handle flows in parallel by the default thread pool. This is the number of flows
+        The number of threads available to handle flows in parallel by the default thread pool. This value does not affect [additional thread pools]({{< relref "../../cordapps/thread-pools.md" >}}). The sum of the sizes of the default thread pool plus all additional thread pools sets the upper limit for the maximum number of flows executable in parallel.
+        
+        This is the number of flows
   that can run in parallel doing something and/or holding resources like database connections.
   
         Note that this property does not affect the size of additional thread pools as described in [Using additional thread pools]({{< relref "../../cordapps/thread-pools.md" >}}).
