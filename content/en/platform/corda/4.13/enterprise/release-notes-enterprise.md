@@ -47,6 +47,15 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 * [Multiple thread pools can now be defined and have flows assigned to them]({{< relref "cordapps/thread-pools.md" >}}). Thread pools enable operators to prioritize particular flows and to segregate them from other flows.
 
+* Corda Enterprise targets the flow thread pools directly when it starts a flow. Therefore, there is no conflict between starting flows if one pool is performing badly and has a big queue.
+
+
+
+
+
+
+
+
 ### Fixed issues
 
 
