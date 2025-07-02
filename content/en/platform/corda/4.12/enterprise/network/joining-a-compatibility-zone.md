@@ -49,7 +49,7 @@ corda-configuration-file):
   * **myLegalName** Your company’s legal name as an X.500 string. X.500 allows differentiation between entities with the same
 name, as the legal name needs to be unique on the network. If another node has already been permissioned with this
 name then the permissioning server will automatically reject the request. The request will also be rejected if it
-violates legal name rules, see node_naming for more information. You can use the X.500 schema to disambiguate
+violates legal name rules; see [Node identity]({{< relref "../node/setup/node-naming.md" >}}) for more information. You can use the X.500 schema to disambiguate
 entities that have the same or similar brand names
   * **emailAddress** e.g. “[admin@company.com](mailto:admin@company.com)”
   * **devMode** must be set to false
