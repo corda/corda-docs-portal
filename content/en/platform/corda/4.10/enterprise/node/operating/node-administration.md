@@ -164,8 +164,7 @@ Nodes can be configured to run SSH server. See [Node shell]({{< relref "shell.md
 
 ## Database access
 
-When running a node backed with a H2 database, the node can be configured to expose the database over a socket
-(see [Database access when running H2]({{< relref "../../node-database-access-h2" >}}).
+When running a node backed with a H2 database, the node can be configured to expose the database over a socket; see [Database access when running H2]({{< relref "../../node-database-access-h2" >}}).
 
 Note that in a production set up, it is highly recommended to use an enterprise grade database, and access to the
 database should be via the usual database tools mechanisms, including access control and restrictions.
