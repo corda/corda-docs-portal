@@ -95,6 +95,10 @@ The highest released version of Corda 4 Enterprise Edition at any point in time 
 
 {{< snippet "corda-4/end-of-life-corda4.md" >}}
 
+### CENM
+
+{{< snippet "cenm/end-of-life-cenm.md" >}}
+
 ## Reporting an Error in the Docs
 
 The R3 Technical Writing team continuously strive to improve our documentation and overall content strategy. As we make improvements, we would love to get your feedback on what we are doing well, and what we could be doing better.
