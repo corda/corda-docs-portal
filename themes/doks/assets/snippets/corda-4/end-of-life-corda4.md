@@ -18,7 +18,7 @@ table th:nth-of-type(5) {
 }
 </style>
 
-| **Version**                       | **Date of Release** | **End of Maintenance** | **End of Security** | **End of Support** |
+| Version                           | Date of Release     | End of Maintenance     | End of Security     | End of Support     |
 | --------------------------------- | ------------------- | ---------------------- | ------------------- | ------------------ |
 | **Corda Enterprise Edition 4.5**  | 06/2020             | 06/2022                | 06/2023             | 06/2022            |
 | **Corda Enterprise Edition 4.6**  | 09/2020             | 09/2022                | 09/2023             | 09/2022            |
