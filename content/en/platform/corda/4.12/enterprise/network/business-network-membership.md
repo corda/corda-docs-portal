@@ -97,7 +97,7 @@ To download and install the Business Network Membership Management extension:
    }
    ```
 
-4. Add both dependencies in your **Cordform** `deployNodes` task; see [Use the cordformation Gradle plugin to create a set of local nodes automatically]({{< relref "generating-a-node.md#use-the-cordformation-gradle-plugin-to-create-a-set-of-local-nodes-automatically" >}}).
+4. Add both dependencies in your **Cordform** `deployNodes` task; see [Use the cordformation Gradle plugin to create a set of local nodes automatically]({{< relref "../node/deploy/generating-a-node.md#use-cordform-or-dockerform-to-create-a-set-of-local-nodes-automatically" >}}).
 
 You have now installed the Business Network membership extension.
 
