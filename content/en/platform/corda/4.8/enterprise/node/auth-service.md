@@ -20,7 +20,7 @@ The Auth Service is the user authentication and authorisation service for managi
 * Signing Service
 * Network Map (and associated network configurations and node info)
 
-Whenever you use the [User Administration Tool]({{< relref "../../../../../../en/platform/corda/1.5/cenm/user-admin.md" >}}) to create new users, groups or roles, the Auth Service is updated to authenticate those users and their permissions. When using the remote management tools such as the [CENM Command Line Interface]({{< relref "../../../../../../en/platform/corda/1.5/cenm/cenm-cli-tool.md" >}}) or the web GUIs hosted on the Gateway Service, the Auth Service verifies your identity and security clearance as needed.
+Whenever you use the [User Administration Tool]({{< relref "../../../1.5/cenm/user-admin.md" >}}) to create new users, groups or roles, the Auth Service is updated to authenticate those users and their permissions. When using the remote management tools such as the [CENM Command Line Interface]({{< relref "../../../1.5/cenm/cenm-cli-tool.md" >}}) or the web GUIs hosted on the Gateway Service, the Auth Service verifies your identity and security clearance as needed.
 
 You do not need to interact directly with the Auth Service once it has been installed and configured. To protect the integrity of this secure service, there is no direct API contact with the Auth Service: all front-end communications go via the Gateway Service.
 
@@ -67,7 +67,7 @@ Before you can configure the Auth service, you need to prepare SSL certificates,
 
 To do this:
 
-1. Create a SSL certificate in a `.jks` file using the [CENM PKI tool]({{< relref "../../../../../../en/platform/corda/1.5/cenm/pki-tool.md" >}}).
+1. Create a SSL certificate in a `.jks` file using the [CENM PKI tool]({{< relref "../../../1.5/cenm/pki-tool.md" >}}).
 
 2. Generate a JWT signing key (RSA keypair) in a `.jks` file with the following command-line command:
 `keytool -genkeypair -alias mytest -keyalg RSA -keypass mypass -keystore mytest.jks -storepass mypass`.

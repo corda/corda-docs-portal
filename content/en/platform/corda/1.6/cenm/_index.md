@@ -32,8 +32,8 @@ The Corda Enterprise Network Manager provides the following services:
 * [Identity Manager service]({{< relref "identity-manager.md" >}}) Enables nodes to join the network, and handles revocation of a node certificate.
 * [Network Map service]({{< relref "network-map.md" >}}) Provides a global view of the network.
 * [Signing Service]({{< relref "signing-service.md" >}}) Provides a way to sign approved requests to join the network (Certificate Signing Requests - CSRs) or revoke a certificate (Certificate Revocation Requests - CRRs), as well as changes to the network map.
-* [Auth Service]({{< relref "../../4.10/enterprise/node/auth-service.md" >}}) The user authentication and authorisation service. Stores and controls secure user-access to network services.
-* [Gateway Service]({{< relref "../../4.10/enterprise/node/gateway-service.md" >}}) Provides a transfer layer between front-end Corda Enterprise Network Manager (CENM) interfaces, and the Auth Service that underpins authentication and authorisation in CENM.
+* [Auth Service]({{< relref "../../4.12/enterprise/node/auth-service.md" >}}) The user authentication and authorisation service. Stores and controls secure user-access to network services.
+* [Gateway Service]({{< relref "../../4.12/enterprise/node/gateway-service.md" >}}) Provides a transfer layer between front-end Corda Enterprise Network Manager (CENM) interfaces, and the Auth Service that underpins authentication and authorisation in CENM.
 * [Zone Service]({{< relref "zone-service.md" >}}) A central store of configuration for other CENM services for one or more zones, and optionally for their subzones. Stores relevant configurations for the Identity Manager Service, the Network Map Service, and the Signing Service.
 * [Angel Service]({{< relref "angel-service.md" >}}) An adapter, which manages the lifecycle of other services such as the Network Map Service or the Identity Manager Service, to make them more compatible with packaging tools such as Docker.
 
@@ -77,8 +77,8 @@ For a quick start guide on deploying Corda Enterprise Network Manager services a
 * [Identity Manager service]({{< relref "../../1.6/cenm/identity-manager.md" >}})
 * [Network Map service]({{< relref "../../1.6/cenm/network-map.md" >}})
 * [Signing Service]({{< relref "../../1.6/cenm/signing-service.md" >}})
-* [Auth Service]({{< relref "../../4.10/enterprise/node/auth-service.md" >}})
-* [Gateway Service]({{< relref "../../4.10/enterprise/node/gateway-service.md" >}})
+* [Auth Service]({{< relref "../../4.12/enterprise/node/auth-service.md" >}})
+* [Gateway Service]({{< relref "../../4.12/enterprise/node/gateway-service.md" >}})
 * [CENM Command-line Interface (CLI) tool]({{< relref "../../1.6/cenm/cenm-cli-tool.md" >}})
 * [Updating the network parameters]({{< relref "../../1.6/cenm/updating-network-parameters.md" >}})
 * [Upgrading Corda Enterprise Network Manager]({{< relref "../../1.6/cenm/upgrade-notes.md" >}})
@@ -104,7 +104,7 @@ For a quick start guide on deploying Corda Enterprise Network Manager services a
 * [CENM Command-line Interface]({{< relref "../../1.6/cenm/cenm-cli-tool.md" >}})
 * [CENM User Admin tool]({{< relref "../../1.6/cenm/user-admin.md" >}})
 * [CENM management console]({{< relref "../../1.6/cenm/cenm-console.md" >}})
-* [Config obfuscation tool]({{< relref "../../4.10/enterprise/tools-config-obfuscator.md" >}})
+* [Config obfuscation tool]({{< relref "../../4.12/enterprise/tools-config-obfuscator.md" >}})
 * [CRL Endpoint Check Tool]({{< relref "../../1.6/cenm/crl-endpoint-check-tool.md" >}})
 * [Embedded shell]({{< relref "../../1.6/cenm/shell.md" >}})
 

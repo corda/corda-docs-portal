@@ -37,5 +37,5 @@ For more information about this feature, contact your R3 account manager.
 
 ## Other Tools
 
-* [Config obfuscation tool]({{< relref "../../4.10/enterprise/tools-config-obfuscator.md" >}})
+* [Config obfuscation tool]({{< relref "../../4.12/enterprise/tools-config-obfuscator.md" >}})
 * [CRL Endpoint Check Tool]({{< relref "crl-endpoint-check-tool.md" >}})
