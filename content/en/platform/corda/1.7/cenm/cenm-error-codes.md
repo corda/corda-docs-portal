@@ -13,7 +13,7 @@ title: CENM error codes
 ---
 
 
-# Overview of CENM error codes
+# CENM error codes
 
 Corda Enterprise Network Manager can report a number of error codes. The tables below provide details about such error codes for errors related to configuration parsing and validation.
 
@@ -27,10 +27,11 @@ you can take to address the problem reported by the error.
 The set of error codes listed on this page is not exhaustive.
 {{< /note >}}
 
-Table contents:
- - **Error code**: the error code as reported by the Corda node.
- - **Description**: a description of what has gone wrong.
- - **Actions to fix**: what actions to take in order to address the problem (only available for the main CENM error codes in the first table below).
+The [CENM error codes table](#cenm-error-codes-table) contains the following columns:
+
+ - **Error code**: The error code as reported by the Corda node.
+ - **Description**: A description of what has gone wrong.
+ - **Actions to fix**: Which actions to take in order to address the problem (only available for the main CENM error codes in the first table below).
 
 To make use of this table, search the console or node logs for lines indicating an error has occurred. Errors that have
 corresponding codes will contain a message with the error code and a link pointing to this page.

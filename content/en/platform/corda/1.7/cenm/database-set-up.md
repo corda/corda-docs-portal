@@ -63,7 +63,7 @@ any potential errors stemming from the former version.
 
 {{< /note >}}
 
-## Database schema setup
+## Setting up the database schema
 
 This section describes the processes for:
 * Creating database schemas such as:
@@ -130,43 +130,42 @@ The schema objects are created by a separate user rather than a default database
 
 1. Connect to the master database as an administrator - for example:
 
-```sql
-jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=master;[…]
-```
+   ```sql
+   jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=master;[…]
+   ```
 
 2. Run the following script to create both users and their logins:
 
-```sql
-CREATE LOGIN my_admin_login WITH PASSWORD = 'my_password';
-CREATE USER my_admin_user FOR LOGIN my_admin_login;
-CREATE LOGIN my_login WITH PASSWORD = 'my_password';
-CREATE USER my_user FOR LOGIN my_login;
-```
+   ```sql
+   CREATE LOGIN my_admin_login WITH PASSWORD = 'my_password';
+   CREATE USER my_admin_user FOR LOGIN my_admin_login;
+   CREATE LOGIN my_login WITH PASSWORD = 'my_password';
+   CREATE USER my_user FOR LOGIN my_login;
+   ```
 
-Passwords must contain characters from three of the following four sets: uppercase letters, lowercase letters, digits, and symbols. For example, *C3NMP4ssword* is a valid password. Passwords are delimited with single quotes. Use different passwords for *my_admin_user* and *my_user*.
+   Passwords must contain characters from three of the following four sets: uppercase letters, lowercase letters, digits, and symbols. For example, *C3NMP4ssword* is a valid password. Passwords are delimited with single quotes. Use different passwords for *my_admin_user* and *my_user*.
 
 3. Connect to a user database as database administrator (replace *master* with a user database in the connection string).
 
 4. Run the following script to create a schema:
 
-```sql
-CREATE SCHEMA my_schema;
-```
+   ```sql
+   CREATE SCHEMA my_schema;
+   ```
 
-After creating the schema you may need to commit the change - for example, with the `GO`
-command on Microsoft tools, or `commit;` on other tools.
+   After creating the schema you may need to commit the change - for example, with the `GO` command on Microsoft tools, or `commit;` on other tools.
 
 5. Run the following script to assign user permissions:
 
-```sql
-CREATE USER my_admin_user FOR LOGIN my_admin_login WITH DEFAULT_SCHEMA = my_schema;
-GRANT ALTER ON SCHEMA::my_schema TO my_admin_user;
-GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_admin_user;
-GRANT CREATE TABLE TO my_admin_user;
-GRANT CREATE VIEW TO my_admin_user;
-CREATE USER my_user FOR LOGIN my_login WITH DEFAULT_SCHEMA = my_schema;
-GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_user;
-```
+   ```sql
+   CREATE USER my_admin_user FOR LOGIN my_admin_login WITH DEFAULT_SCHEMA = my_schema;
+   GRANT ALTER ON SCHEMA::my_schema TO my_admin_user;
+   GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_admin_user;
+   GRANT CREATE TABLE TO my_admin_user;
+   GRANT CREATE VIEW TO my_admin_user;
+   CREATE USER my_user FOR LOGIN my_login WITH DEFAULT_SCHEMA = my_schema;
+   GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_user;
+   ```
 
 #### SQL Server
 
@@ -176,46 +175,45 @@ is used.
 
 1. Connect to a master database as an administrator - for example:
 
-  ```sql
-  jdbc:sqlserver://<host>:<port>;databaseName=master
-  ```
+   ```sql
+   jdbc:sqlserver://<host>:<port>;databaseName=master
+   ```
 
 2. Run the following script to create a database, a user, and a login:
 
-  ```sql
-  CREATE DATABASE my_database;
-  CREATE LOGIN my_admin_login WITH PASSWORD = 'my_password', DEFAULT_DATABASE = my_database;
-  CREATE USER my_admin_user FOR LOGIN my_admin_login;
-  CREATE LOGIN my_login WITH PASSWORD = 'my_password', DEFAULT_DATABASE = my_database;
-  CREATE USER my_user FOR LOGIN my_login;
-  ```
+   ```sql
+   CREATE DATABASE my_database;
+   CREATE LOGIN my_admin_login WITH PASSWORD = 'my_password', DEFAULT_DATABASE = my_database;
+   CREATE USER my_admin_user FOR LOGIN my_admin_login;
+   CREATE LOGIN my_login WITH PASSWORD = 'my_password', DEFAULT_DATABASE = my_database;
+   CREATE USER my_user FOR LOGIN my_login;
+   ```
 
-Passwords must contain characters from three of the following four sets: uppercase letters, lowercase letters, digits, and symbols. For example, *C3NMP4ssword* is a valid password. Passwords are delimited with single quotes. Use different passwords for *my_admin_user* and *my_user*.
+   Passwords must contain characters from three of the following four sets: uppercase letters, lowercase letters, digits, and symbols. For example, *C3NMP4ssword* is a valid password. Passwords are delimited with single quotes. Use different passwords for *my_admin_user* and *my_user*.
 
-You can create schemas for several instances of CENM services within the same database (*my_database*). In that case, run the first DDL statement (`CREATE DATABASE my_database;`) only once.
+   You can create schemas for several instances of CENM services within the same database (*my_database*). In that case, run the first DDL statement (`CREATE DATABASE my_database;`) only once.
 
 3. Connect to a user database as the administrator (replace *master* with *my_database* in the connection string).
 
 4. Run the following script to create a schema:
 
-```sql
-CREATE SCHEMA my_schema;
-```
+   ```sql
+   CREATE SCHEMA my_schema;
+   ```
 
-After creating the schema you may need to commit the change - for example, with the `GO`
-command on Microsoft tools, or `commit;` on other tools.
+   After creating the schema you may need to commit the change - for example, with the `GO` command on Microsoft tools, or `commit;` on other tools.
 
 5. Run the following script to assign user permissions:
 
-```sql
-CREATE USER my_admin_user FOR LOGIN my_admin_login WITH DEFAULT_SCHEMA = my_schema;
-GRANT ALTER ON SCHEMA::my_schema TO my_admin_user;
-GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_admin_user;
-GRANT CREATE TABLE TO my_admin_user;
-GRANT CREATE VIEW TO my_admin_user;
-CREATE USER my_user FOR LOGIN my_login WITH DEFAULT_SCHEMA = my_schema;
-GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_user;
-```
+   ```sql
+   CREATE USER my_admin_user FOR LOGIN my_admin_login WITH DEFAULT_SCHEMA = my_schema;
+   GRANT ALTER ON SCHEMA::my_schema TO my_admin_user;
+   GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_admin_user;
+   GRANT CREATE TABLE TO my_admin_user;
+   GRANT CREATE VIEW TO my_admin_user;
+   CREATE USER my_user FOR LOGIN my_login WITH DEFAULT_SCHEMA = my_schema;
+   GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_user;
+   ```
 
 #### Oracle
 
@@ -227,20 +225,20 @@ In order to restrict the permissions to the database:
 
 1. Create two users where one user has administrative permissions (*my_admin_user* in the SQL script) and the other user just has read only permissions (*my_user* in the SQL script).
 
-A database administrator can create schema objects (tables/sequences) via a user with administrative permissions. The CENM service instance accesses the schema created by the administrator via a user with restricted permissions, allowing them to only select/insert/delete data. For Oracle databases, these permissions (`SELECT`, `INSERT`, `UPDATE`, `DELETE`) need to be granted explicitly for each table.
+   A database administrator can create schema objects (tables/sequences) via a user with administrative permissions. The CENM service instance accesses the schema created by the administrator via a user with restricted permissions, allowing them to only select/insert/delete data. For Oracle databases, these permissions (`SELECT`, `INSERT`, `UPDATE`, `DELETE`) need to be granted explicitly for each table.
 
-As the tablespace size in the sample script below is unlimited, adjust the value (for example, 100M, 1 GB) depending on the sizing requirements for your nodes. The script uses the default tablespace *users* with *unlimited* database space quota assigned to the user. Revise these settings depending on the sizing requirements for your nodes.
+   As the tablespace size in the sample script below is unlimited, adjust the value (for example, 100M, 1 GB) depending on the sizing requirements for your nodes. The script uses the default tablespace *users* with *unlimited* database space quota assigned to the user. Revise these settings depending on the sizing requirements for your nodes.
 
 2. Run this script as a database administrator:
 
-```sql
-CREATE USER my_admin_user IDENTIFIED BY my_password DEFAULT TABLESPACE users QUOTA unlimited ON users;
-GRANT CREATE SESSION TO my_admin_user;
-GRANT CREATE TABLE TO my_admin_user;
-GRANT CREATE VIEW TO my_admin_user;
-GRANT CREATE SEQUENCE TO my_admin_user;
-GRANT SELECT ON v_$parameter TO my_admin_user;
-```
+   ```sql
+   CREATE USER my_admin_user IDENTIFIED BY my_password DEFAULT TABLESPACE users QUOTA unlimited ON users;
+   GRANT CREATE SESSION TO my_admin_user;
+   GRANT CREATE TABLE TO my_admin_user;
+   GRANT CREATE VIEW TO my_admin_user;
+   GRANT CREATE SEQUENCE TO my_admin_user;
+   GRANT SELECT ON v_$parameter TO my_admin_user;
+   ```
 
 The assignment of permissions, required for the CENM service instance user to access database objects, is done after the database objects are created. These steps are described in [the next section](#oracle-1).
 
@@ -274,7 +272,7 @@ database = {
 
 Replace the placeholders `<host>` and `<port>` in the URL with appropriate values.
 
-## Create database schema
+### Create database schema
 
 The general steps for creating database schemas are listed below, followed by specific instructions for Oracle.
 
@@ -402,7 +400,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.JWK_SETS to my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.JWKS to my_user;
 ```
 
-## Configure CENM service
+### Configure CENM service
 
 The required updates to the file system of a CENM service instance are described below.
 
@@ -449,7 +447,7 @@ Configuration templates for each database vendor are shown below:
 * [Oracle](#oracle-2)
 * [PostgreSQL](#postgresql-1)
 
-### Azure SQL
+#### Azure SQL
 
 See below an example CENM services configuration file for Azure SQL - initial deployment with administrative permissions:
 
@@ -484,7 +482,7 @@ Replace the placeholders *<database_server>* and *<my_database>* with appropriat
 You can download the Microsoft SQL JDBC driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55539) - extract the downloaded archive and copy the file `mssql-jdbc-6.2.2.jre8.jar` (the archive comes with two JAR files).
 The [Configure database](#configure-database) section further below explains the correct location for the driver JAR file in the CENM service installation structure.
 
-### SQL Server
+#### SQL Server
 
 See below an example CENM services configuration file for SQL Server - initial deployment with administrative permissions:
 
@@ -523,7 +521,7 @@ Ensure that the JDBC connection properties match the SQL Server setup, especiall
 
 `Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when ‘hibernate.dialect’ not set`
 
-### Oracle
+#### Oracle
 
 See below an example CENM service configuration file for Oracle database - initial deployment with administrative permissions:
 
@@ -564,7 +562,7 @@ The transaction isolation level is set by CENM to `READ_COMMITTED` - an attempt 
 Use Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c and Oracle 19c. You can find links to the appropriate drivers on [Oracle's website](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html).
 The database schema name can be set in a JDBC URL string - for example, `currentSchema=my_schema`.
 
-### PostgreSQL
+#### PostgreSQL
 
 See below an example CENM service configuration for PostgreSQL:
 
@@ -582,15 +580,15 @@ Replace the placeholders `<host>` and `<port>` with appropriate values.
 The `database.schema` is the database schema name assigned to you (the user).
 The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity (without quotes, PostgresSQL would treat *AliceCorp* as the value *alicecorp*).
 
-## Configure database
+### Configuring the database
 
 This section provides additional vendor-specific database configuration details.
 
-### SQL Server
+#### SQL Server
 
 The database collation for SQL Server can be case insensitive, but CENM treats case differences in `node-info` as if they were for different nodes. See [Collations and Case Sensitivity documentation](https://docs.microsoft.com/en-us/ef/core/miscellaneous/collations-and-case-sensitivity) for more information.
 
-### Oracle
+#### Oracle
 
 To allow `VARCHAR2` and `NVARCHAR2` column types to store more than 2000 characters, ensure the database instance is configured to use extended data types.
 
@@ -598,7 +596,7 @@ To allow `VARCHAR2` and `NVARCHAR2` column types to store more than 2000 charact
 For Oracle 12.1, refer to [MAX_STRING_SIZE](https://docs.oracle.com/database/121/REFRN/GUID-D424D23B-0933-425F-BC69-9C0E6724693C.htm#REFRN10321).
 {{< /note >}}
 
-### Tables Created
+### Tables created
 
 Note that `<SCHEMA_NAME>` below is a placeholder value representing the actual name for the appropriate schema.
 
@@ -930,15 +928,15 @@ When upgrading a CENM service, any required database schema changes are applied 
 
 The typical service migration process is described below. Please read the release notes for any version-specific processes, especially when upgrading between major versions.
 
-To migrate as service:
+To migrate a service:
 
 1. Shut down the service.
 2. Back up the service database.
 3. Back up the service configuration.
 4. Update the JAR file.
 5. Edit the service configuration to:
-  * Set the user to connect to the database as an account with schema migration permissions.
-  * Set `runMigration = true` in the database configuration.
+   - Set the user to connect to the database as an account with schema migration permissions.
+   - Set `runMigration = true` in the database configuration.
 6. Start the service.
 7. Wait for the service to start completely and ensure that it is healthy.
 8. Shut down the service.
@@ -947,7 +945,7 @@ To migrate as service:
    schema migration permissions, and to set `runMigration = false` in the
    database configuration.
 
-### 6.1. Zone Service database migration in CENM 1.7
+### Zone Service database migration in CENM 1.7
 
 If you are upgrading to CENM 1.7 from CENM 1.3, you **must** set `runMigration = true` in the database configuration. This is required due to a change in the Zone Service database schema - a new column in the database tables `socket_config` and `signer_config` called `timeout` is used to record the new optional `timeout` parameter values used in `serviceLocations` configuration blocks (Signing Services) and `identityManager` and `revocation` configuration blocks (Network Map Service). This value can remain `null`,
 in which case the default 30 seconds timeout will be used wherever applicable.

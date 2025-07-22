@@ -18,15 +18,11 @@ title: CRL endpoint check tool
 
 # CRL endpoint check tool
 
-
-
-## Overview
-
-The CRL Endpoint Check Tool allows users to check health of CRL distribution endpoints in a given keystore. User
-provides keystore file’s path and password. It iterates through all alias names in the keystore and their certificate
-hierarchies. For each certificate it first checks whether it contains a CRL endpoint. If there is one, the tool
+The CRL Endpoint Check Tool allows users to check health of CRL distribution endpoints in a given keystore. The user
+provides the keystore file’s path and password. The tool then iterates through all alias names in the keystore and their certificate
+hierarchies. For each certificate, it first checks whether it contains a CRL endpoint. If there is one, the tool
 attempts to connect to it and retrieve the CRL. Upon receiving this information, a formatting check is performed and
-the revocation list’s update time is logged to console. Detailed information on certificates and their CRLs is
+the revocation list’s update time is logged to the console. Detailed information on certificates and their CRLs is
 available in the log files.
 
 

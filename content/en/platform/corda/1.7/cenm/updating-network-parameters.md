@@ -11,11 +11,11 @@ tags:
 - updating
 - network
 - parameters
-title: Updating the network parameters
+title: Updating network parameters
 ---
 
 
-# Updating the network parameters
+# Updating network parameters
 
 The initial network parameters can be subsequently changed through an update process. However, these changes must first
 be advertised to the entire network to allow nodes time to agree to the changes.
@@ -24,23 +24,23 @@ be advertised to the entire network to allow nodes time to agree to the changes.
 This process changed extensively in CENM 1.3. The legacy process is still
 supported for services which use the shell interface instead of the admin RPC
 interface - for example, in the CENM Command-Line Interface (CLI) tool. However, this document presumes  that you
-use admin RPC. For information about the legacy process, see the [CENM 1.2 documentation]({{< relref "../../../../../en/platform/corda/1.2/cenm/updating-network-parameters.md" >}}).
+use admin RPC. For information about the legacy process, see the [CENM 1.2 documentation for updating network parameters]({{< relref "../../1.2/cenm/updating-network-parameters.md" >}}).
 {{< /note >}}
 
 At a high level, the process is as follows:
 
-1. Edit the network parameters configuration. This includes setting an update deadline by which
+1. [Edit the network parameters configuration](#edit-the-network-parameters-configuration). This includes setting an update deadline by which
    nodes are expected to have accepted the new parameters.
-2. Set the network parameters configuration in the Zone Service.
-3. Advertise the new network parameters from the Network Map Service.
-4. Sign the new network parameters from the Signing Service.
-5. Wait for the update deadline to pass.
-6. Execute the network parameter update.
-7. Sign the new network map containing the new network parameters, via the Signing Service.
+2. [Push the network parameters configuration to the Zone Service](#push-the-network-parameter-update).
+3. [Advertise the new network parameters from the Network Map Service](#advertise-network-parameter-update).
+4. [Sign the new network parameters from the Signing Service](#sign-new-network-parameters).
+5. [Wait for the update deadline to pass](#node-operators-accept-the-update).
+6. [Execute the network parameter update](#execute-network-parameters-update).
+7. [Sign the new network map containing the new network parameters, via the Signing Service](#sign-the-network-map).
 
-## Editing network parameters configuration
+## Edit the network parameters configuration
 
-See [Setting the Network Parameters]({{< relref "network-map.md#network-parameters" >}})
+See [Setting the network parameters]({{< relref "network-map.md#network-parameters" >}})
 for information on the network parameters configuration file format and options.
 
 When updating the network parameters, ensure that the network parameters file has the
@@ -62,9 +62,9 @@ Currently you can only make backward-compatible changes to the network parameter
 (they will be always added to the existing list), you can only increase the max transaction size, and so on.
 {{< /note >}}
 
-## Set network parameter update
+## Push the network parameter update
 
-Push the new network parameters to the Zone Service, using a command like the one below:
+Push the network parameter update to the Zone Service, using a command like the one below:
 
 ```bash
 cenm netmap netparams update submit -p config/parameters.conf
@@ -92,15 +92,23 @@ you must run the commands from within the same secure network as the service.
 The recommended deployment includes a Gateway Service dedicated to these high
 security actions:
 
-* Fetch the unsigned network parameters - command: `cenm signer netmap netparams unsigned`.
-* Sign the updated network parameters - command: `cenm signer netmap netparams sign -h <hash>`.
+- Fetch the unsigned network parameters: 
+
+  ```
+  cenm signer netmap netparams unsigned
+  ```
+- Sign the updated network parameters: 
+
+  ```
+  cenm signer netmap netparams sign -h <hash>
+  ```
 
 ## Node operators accept the update
 
 Before the `updateDeadline` time, nodes will have to run the `acceptNewNetworkParameters()` RPC command to accept
 new parameters. This will not
 activate the new network parameters on the nodes - it will only inform the Network Map Service that the node has agreed to the
-update. See [the Corda node RPC API]({{< relref "../../4.8/enterprise/get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}) for further details.
+update. See [the Corda node RPC API]({{< relref "../../4.12/enterprise/get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}) for further details.
 
 To list network participants that have or have not accepted the new network parameters,
 run the following command:
@@ -132,10 +140,19 @@ Corda does not support hotswapping of network parameters within a node. As a res
 As with signing the network parameters, you should run the high security commands listed below
 from within the same network as the Signing Service:
 
-* Fetch the unsigned Network Map - command: `cenm signer netmap unsigned`.
-* Sign the Network Map - command: `cenm signer netmap sign -h <hash>`.
+- Fetch the unsigned network map: 
 
-# Cancelling an update
+  ```
+  cenm signer netmap unsigned
+  ```
+  
+- Sign the network map:
+
+  ```
+  cenm signer netmap sign -h <hash>
+  ```
+
+### Cancelling an update
 
 It is possible to cancel a previously scheduled update. To do so, run the following command:
 

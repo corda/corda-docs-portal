@@ -27,7 +27,7 @@ Once you have the required permissions to access the CENM service you require, y
 * Network Map
 * Signing Service
 
-## Install the CENM CLI Tool
+## Installing the CENM CLI Tool
 
 The CLI Tool comes as a part of CENM 1.7 as a JAR file. If you cannot access the JAR file, you can install via Docker image.
 
@@ -49,7 +49,7 @@ You have installed the Docker image with CENM CLI tool.
 
 To get the tool ready to use from within the Docker container, check the [Kubernetes deployment guide]({{< relref "deployment-kubernetes.md#network-operations" >}}).
 
-## Set up the CENM CLI Tool
+## Setting up the CENM CLI Tool
 
 In order to use the CLI, you must have permission to access the CENM services you plan to use.
 
@@ -62,7 +62,7 @@ Username: alice.barthes
 Password: w34rfrt45g4y65EERTR5
 
 
-### Quickstart - outline of steps to set up a new network with the CLI
+### Setting up a new network with the CLI
 
 You must set up any new network in a specific order, as some services rely on information that must be in place before they can be created.
 Most importantly, you must set the **Signing Service** configuration last - this is because you need to have configuration details for all the other services before you can access their signing requests.
@@ -73,62 +73,108 @@ To set up a new network with the CLI:
 
 1. Login by setting the [context login address](#define-contexts-and-servers), your username, and password:
 
-    `./cenm context login http://10.230.41.12 -u alice.barthes -p w34rfrt45g4y65EERTR5`
+   ```
+   cenm context login http://10.230.41.12 -u alice.barthes -p w34rfrt45g4y65EERTR5
+   ```
 
 2. Set the Identity Manager's external admin address. This must be the address that the gateway Gateway service uses to communicate with the Identity Manager:
 
-    `./cenm identity-manager config set-admin-address -a=identity-manager:5053`
+   ```
+   cenm identity-manager config set-admin-address -a=identity-manager:5053
+   ```
 
 3. Set the Identity Manager config. This command returns a **Zone token** which you should pass to your [Angel Service]({{< relref "angel-service.md" >}}):
 
-    `./cenm identity-manager config set -f config/identitymanager.conf --zone-token`
+   ```
+   cenm identity-manager config set -f config/identitymanager.conf --zone-token
+   ```
 
 4. Create a new subzone - including the admin address for Network Map. This must be the address that the gateway Gateway service uses to communicate with the Network Map:
 
-    `./cenm zone create-subzone --config-file=config/networkmap.conf --label=Subzone --label-color="#000000" --network-map-address=networkmap:8080 --network-parameters=config/params.conf`
+   ```
+   cenm zone create-subzone --config-file=config/networkmap.conf --label=Subzone --label-color="#000000" --network-map-address=networkmap:8080 --network-parameters=config/params.conf
+   ```
 
-{{< note >}}
-You can update the Network Map admin address using a command like this: `./cenm network-map config set-admin-address -a=networkmap:8081`. If you have multiple subzones, you need to specify which subzone you are updating in the command.
-{{< /note >}}
+   {{< note >}}
+   You can update the Network Map admin address using a command like this: `./cenm network-map config set-admin-address -a=networkmap:8081`. If you have multiple subzones, you need to specify which subzone you are updating in the command.
+   {{< /note >}}
 
 5. Set the Network Map configuration for a subzone (the entry `1` below comes from the response to the create-subzone command):
 
-    `./cenm netmap config set -s 1 -f config/networkmap.conf --zone-token`
+   ```
+   cenm netmap config set -s 1 -f config/networkmap.conf --zone-token
+   ```
 
 6. Set the Signing Service's external admin address. This must be the address that the gateway Gateway service uses to communicate with the Identity Manager:
 
-    `./cenm signer config set-admin-address -a=signer:9087`
+   ```
+   cenm signer config set-admin-address -a=signer:9087
+   ```
 
 7. Set the Signing Service configuration last, as it depends on the first two service's locations for it to be complete:
 
-    `./cenm signer config set -f config/signer.conf --zone-token`
+   ```
+   cenm signer config set -f config/signer.conf --zone-token
+   ```
 
 8. Set up any notaries required for your network, and update your network parameters. This process includes steps you would follow for any **Flag Day** network update:
 
     a. Fetch the node info file from the notary.
 
-    b. Upload the node info file to the Network Map - command: `cenm netmap upload-node-info -f nodeInfo`.
+    b. Upload the node info file to the Network Map: 
+    
+      ```
+      cenm netmap upload-node-info -f nodeInfo
+      ```
 
     c. Edit the network parameters configuration to add the notary to the list, specifying the path to the node info file from step b, and to set an update deadline in the near future. For example, 5 minutes from now.
 
-    d. Update network parameters in the Network Map to include the notary information - command: `cenm netmap netparams update submit -p config/parameters.conf`.
+    d. Update network parameters in the Network Map to include the notary information: 
+    
+      ```
+      cenm netmap netparams update submit -p config/parameters.conf
+      ```
 
-    e. Advertise the network parameter update to the network - command: `cenm netmap netparams update advertise`.
+    e. Advertise the network parameter update to the network:
 
-    f. Fetch the unsigned network parameters - command: `cenm signer netmap netparams unsigned`.
+      ```
+      cenm netmap netparams update advertise
+      ```
 
-    g. Sign the updated network parameters - command: `cenm signer netmap netparams sign -h <hash>`.
+    f. Fetch the unsigned network parameters: 
+    
+      ```
+      cenm signer netmap netparams unsigned
+      ```
+
+    g. Sign the updated network parameters: 
+    
+      ```
+      cenm signer netmap netparams sign -h <hash>
+      ```
 
     h. Accept the update from inside the notary.
 
-    i. Execute the network parameter updates - command: `cenm netmap netparams update execute`.
+    i. Execute the network parameter updates:
+    
+      ```
+      cenm netmap netparams update execute
+      ```
 
-    j. Fetch the unsigned Network Map - command: `cenm signer netmap unsigned`.
+    j. Fetch the unsigned network map:
 
-    k. Sign the Network Map - command: `cenm signer netmap sign -h <hash>`.
+     ```
+     cenm signer netmap unsigned
+     ```
+
+    k. Sign the network map: 
+    
+      ```
+      cenm signer netmap sign -h <hash>
+      ```
 
 
-### Get Help in the CLI
+### Getting help in the CLI
 
 To access help and get the version number, use the following command structure:
 
@@ -142,7 +188,7 @@ See a list of available commands and descriptions.
 `v, --version`
 See the current version of the CLI you are using.
 
-### Overview of available commands
+### Available commands
 
 You can use the CLI to:
 
@@ -174,7 +220,7 @@ Identity-manager management features.
 Network-map management features.
 
 
-## Define contexts and servers
+## Defining contexts and servers
 
 Your interaction with CENM services through the CLI is managed by the Front-end Application for Remote Management (Gateway) service. This service handles security checks and HTTP translation during your session, and acts as a gateway between the CLI and CENM.
 
@@ -192,15 +238,15 @@ In most commands in the CLI, you can specify the context you want to use with th
 If you work on multiple services, or need to access the same service using multiple contexts, you can use the CLI to create **context aliases**. This means you can switch between sessions and back again by switching aliases.
 
 
-## Change your password
+## Changing your password
 
 This command allows you to change the password you use to access your CENM services.
 
-{{< attention >}}
+{{< note >}}
 
 If you have been allocated a new password by an administrator using the [User admin tool]({{< relref "user-admin.md" >}}), you must change it to something only you know. You must do this before you continue to use CENM services.
 
-{{< /attention >}}
+{{< /note >}}
 
 **Sample command structure**
 
@@ -223,13 +269,13 @@ Username for password based authentication.
 URL for the targeted CENM API Gateway - the Gateway service.
 
 
-## Log in to a CENM session
+## Logging into a CENM session
 
 When you log in to a CENM session using the CLI, you do so by setting the required **Context** for your session. This ensures you are able to stay logged in to the correct server address for the duration of your work.
 
 For example, once you have accessed the correct server for the **Signing Service**, making this address the fixed context means that you no longer need to specify the server address for your subsequent commands.
 
-#### Options
+### Options
 
 **-a, --alias=<alias>**
 Optionally sets an alias for this session.
@@ -246,8 +292,9 @@ Sets the active context to the configured url.
 Username for password based authentication.
 
 #### Arguments
+
 **<server>**
-Url for the targeted CENM API Gateway (Gateway).
+URL for the targeted CENM API Gateway (Gateway).
 
 ### Example
 
@@ -300,7 +347,7 @@ Sets the context of the command to override the current context you are using.
 `-o, <outputType>`
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`
 
-### Retrieve the current Identity Manager configuration
+### Retrieving the current Identity Manager configuration
 
 Use the command `get` to retrieve the current Identity Manager configuration. You can specify the output type, and request a Zone token in place of the config file if required.
 
@@ -322,7 +369,7 @@ Default value is `pretty`
 Indicates that the zone token should be printed instead of the config, when using the 'pretty' output type.
 
 
-### Update the Identity Manager's configuration
+### Updating the Identity Manager's configuration
 
 To update the configuration of the Identity Manager, you need to include a config file with the new settings. Then use the `set` command to update the Identity Manager.
 
@@ -345,19 +392,17 @@ Specifies output format. Valid values are: json, pretty. Default value is pretty
 Indicates that the zone token should be printed instead of the config, when using the 'pretty' output type.
 
 
-### Manage Identity Manager certificate signing requests
+### Managing Identity Manager certificate signing requests
 
 You can use the CLI to see the **approved** and **pending** certificate signing requests for the Identity Manager Service.
 
 To see the requests for a different context to the one you are on, you need to specify the context you require.
 
 {{< note >}}
-
 Requesting certificate signing requests on a different context may trigger a request for login details. Make sure you have authorisation to access this context before entering the command.
-
 {{< /note >}}
 
-### Get the approved certificate signing requests
+### Getting approved certificate signing requests
 
 **Sample command structure**
 
@@ -371,38 +416,38 @@ Sets the context of the command - overrides the current context set.
 ``-o, <outputType>``
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
- ### Get the pending certificate signing requests
+### Getting pending certificate signing requests
 
- **Sample command structure**
+**Sample command structure**
 
- `cenm identity-manager csr pending [-c=<useContext>] [-o=<outputType>]`
+`cenm identity-manager csr pending [-c=<useContext>] [-o=<outputType>]`
 
- **Options**
+**Options**
 
- `-c, --use-context=<useContext>`
- Sets the context of the command - overrides the current context set.
+`-c, --use-context=<useContext>`
+Sets the context of the command - overrides the current context set.
 
- ``-o, <outputType>``
- Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
+``-o, <outputType>``
+Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
 
- ### Manage the Identity Manager certificate revocation list
+### Managing the Identity Manager certificate revocation list
 
- Identity certificates allow parties to access the network managed by CENM. Using the CLI, you can:
+Identity certificates allow parties to access the network managed by CENM. Using the CLI, you can:
 
- * Submit a certificate revocation request.
- * Get the list of **approved** certificate revocation requests.
- * Get the list of **pending** certificate revocation requests.
+* Submit a certificate revocation request.
+* Get the list of **approved** certificate revocation requests.
+* Get the list of **pending** certificate revocation requests.
 
- You can use the CLI to see the **approved** and **pending** certificate revocation requests for the Identity Manager Service.
+You can use the CLI to see the **approved** and **pending** certificate revocation requests for the Identity Manager Service.
 
- To see the requests for a different context to the one you are on, you need to specify the context you require.
+To see the requests for a different context to the one you are on, you need to specify the context you require.
 
- {{< note >}}
+{{< note >}}
 
- Requesting certificate signing requests on a different context may trigger a request for login details. Make sure you have authorisation to access this context before entering the command.
+Requesting certificate signing requests on a different context may trigger a request for login details. Make sure you have authorisation to access this context before entering the command.
 
- {{< /note >}}
+{{< /note >}}
 
 When making a request to revoke a certificate, you must provide *only one* of the following certificate identifiers:
 
@@ -410,7 +455,7 @@ When making a request to revoke a certificate, you must provide *only one* of th
 * Legal name of the party whose certificate is being revoked.
 * The serial ID of the certificate being revoked.
 
-### Request the revocation of a certificate
+### Requesting certificate revocation
 
 To request that a certificate is revoked, you must provide a reason for the revocation, and one form of certificate identifier.
 
@@ -469,7 +514,7 @@ Submits a CRR using the certificate serial.
 
 Can only be present if request id and legal name not set
 
-### See a list of approved certificate revocation requests
+### Listing approved certificate revocation requests
 
 **Sample command structure**
 
@@ -483,7 +528,7 @@ Sets the context of the command - overrides the current context set.
 `-o, <outputType>`
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### See a list of pending certificate revocation requests
+### Listing pending certificate revocation requests
 
 **Sample command structure**
 
@@ -497,7 +542,7 @@ Sets the context of the command - overrides the current context set.
 ``-o, <outputType>``
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### See the certificate path for a legal name
+### Viewing legal name certificate path
 
 You can check the location path of an Identity Manager certificate attached to any legal name in the network.
 
@@ -516,7 +561,7 @@ The legal entity name of the certificate.
 `-o, <outputType>`
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### Get the certificate revocation list
+### Getting the certificate revocation list
 
 **Sample command structure**
 
@@ -533,7 +578,7 @@ Issuer of the CRL to display.
 `-o, <outputType>`
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### Get list of issuers of the certificate revocation list
+### Listing certificate revocation list issuers
 
 **Sample command structure**
 
@@ -547,11 +592,11 @@ Sets the context of the command - overrides the current context set.
 ``-o, <outputType>``
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### See Identity Manager Service status and available plugins
+### Seeing Identity Manager Service status and available plugins
 
 You can use the CLI to check your connection to the Identity Manager Service, and see available plugins to the service.
 
-### Check Identity Manager Service status
+### Checking Identity Manager Service status
 
 **Sample command structure**
 
@@ -565,7 +610,7 @@ Sets the context of the command - overrides the current context set.
 ``-o, <outputType>``
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### Check available plugins for the Identity Manager Service
+### Checking available plugins for the Identity Manager Service
 
 **Sample command structure**
 
@@ -583,19 +628,19 @@ Specifies output format. Valid values are: json, pretty. Default value is `prett
 
 You can use the CLI to perform the following tasks related to zone management:
 
-`status`
+- `status`
 To check your connectivity to the Zone Service.
 
-`create-subzone`
+- `create-subzone`
 To create a subzone.
 
-`get-subzones`
+- `get-subzones`
 To list all subzones.
 
-`addresses`
+- `addresses`
 To list all service addresses.
 
-### Check connectivity to the Zone Service
+### Checking connectivity to the Zone Service
 
 **Sample command structure**
 
@@ -609,7 +654,7 @@ Sets the context of the command - overrides the current context set.
 `-o, <outputType>`
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### Create a subzone
+### Creating subzones
 
 To create a subzone using the CLI, you need to provide:
 
@@ -648,7 +693,7 @@ Sets the context of the command - overrides the current context set.
 `-o, <outputType>`
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### Get a list of existing subzones
+### Listing existing subzones
 
 You can use the CLI to get a list of existing subzones and their basic details.
 
@@ -664,7 +709,7 @@ Sets the context of the command - overrides the current context set.
 `-o, <outputType>`
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### Get a list of all service addresses in a subzone
+### Listing all service addresses in a subzone
 
 You can find the addresses of all the services on a specified subzone. If you only have access to one subzone, you do not need to specify the subzone option in your command.
 
@@ -706,7 +751,7 @@ You can use the CLI to perform the following tasks in the Signing Service:
 * Get zone material relating to the Signing Service.
 
 
-### See a list of outstanding certificate signing requests
+### Listing outstanding certificate signing requests
 
 **Sample command structure**
 
@@ -720,7 +765,7 @@ Sets the context of the command - overrides the current context set.
 `-o, <outputType>`
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### Sign an Identity Manager certificate
+### Signing an Identity Manager certificate
 
 When you sign Identity Manager certificate requests using the CLI, you  need to include the ID of the request you are signing.
 
@@ -741,7 +786,7 @@ Specifies output format. Valid values are: json, pretty. Default value is `prett
 `REQUEST_ID`
 The ID of the request you wish to sign.
 
-### Sign an Identity Manager certificate revocation request
+### Signing an Identity Manager certificate revocation request
 
 When using the CLI to sign a certificate revocation request, you have the option to update the list of revoked certificates. If you keep a list, you should always use this option to ensure your list remains up to date.
 
@@ -760,7 +805,7 @@ Hash of the CRL to be appended or empty if non exists.
 `-o, <outputType>`
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### Get a list of certificate revocation requests
+### Listing certificate revocation requests
 
 **Sample command structure**
 
@@ -774,7 +819,7 @@ Sets the context of the command - overrides the current context set.
 `-o, <outputType>`
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### See pending Identity Manager certificate revocation requests
+### Seeing pending Identity Manager certificate revocation requests
 
 **Sample command structure**
 
@@ -788,7 +833,7 @@ Sets the context of the command - overrides the current context set.
 `-o, <outputType>`
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### Sign network parameters
+### Signing network parameters
 
 **Sample command structure**
 
@@ -808,7 +853,7 @@ Specifies output format. Valid values are: json, pretty. Default value is `prett
 `-s, --subzone-id=<subzoneId>`
 Sets which subzone to operate on. If you are operating on just one subzone you do not need to include this option.
 
-### Get a list of unsigned network parameters
+### Listing unsigned network parameters
 
 **Sample command structure**
 
@@ -825,7 +870,7 @@ Specifies output format. Valid values are: json, pretty. Default value is `prett
 `-s, --subzone-id=<subzoneId>`
 Sets which subzone to operate on. If you are operating on just one subzone you do not need to include this option.
 
-### Sign a Network Map
+### Signing network maps
 
 **Sample command structure**
 
@@ -845,7 +890,7 @@ Specifies output format. Valid values are: json, pretty. Default value is `prett
 `-s, --subzone-id=<subzoneId>`
 Sets which subzone to operate on. If you are operating on just one subzone you do not need to include this option.
 
-### Get subzone material for a Network Map
+### Getting subzone material for a network map
 
 **Sample command structure**
 
@@ -862,7 +907,7 @@ Specifies output format. Valid values are: json, pretty. Default value is `prett
 `-s, --subzone-id=<subzoneId>`
 Sets which subzone to operate on. If you are operating on just one subzone you do not need to include this option.
 
-### See unsigned Network Map data
+### Seeing unsigned network map data
 
 **Sample command structure**
 
@@ -882,7 +927,7 @@ Specifies output format. Valid values are: json, pretty. Default value is `prett
 `-s, --subzone-id=<subzoneId>`
 Sets which subzone to operate on. If you are operating on just one subzone you do not need to include this option.
 
-### Configure the Signing Service
+### Configuring the Signing Service
 
 To configure the Signing Service, you must include a configuration file with the correct configuration data.
 
@@ -904,7 +949,7 @@ Specifies output format. Valid values are: json, pretty. Default value is `prett
 `--zone-token`
 Indicates that the zone token should be printed instead of the config, when using the `pretty` output type.
 
-### Set the address of the Signing Service
+### Setting Signing Service address
 
 **Sample command structure**
 
@@ -921,7 +966,7 @@ Sets the context of the command to override the current context you are using.
 `-o, <outputType>`
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### See the Signing Service configuration
+### Seeing the Signing Service configuration
 
 **Sample command structure**
 
@@ -938,7 +983,7 @@ Specifies output format. Valid values are: json, pretty. Default value is `prett
 `--zone-token`
 Indicates that the zone token should be printed instead of the config, when using the `pretty` output type.
 
-### Check the connection status of the Signing Service
+### Checking Signing Service connection status
 
 **Sample command structure**
 
@@ -952,7 +997,7 @@ Sets the context of the command - overrides the current context set.
 `-o, <outputType>`
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### See a list of configured signers
+### Listing configured signers
 
 **Sample command structure**
 
@@ -966,7 +1011,7 @@ Sets the context of the command - overrides the current context set.
 `-o, <outputType>`
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### Get zone material for the Signing Service
+### Getting zone material for the Signing Service
 
 **Sample command structure**
 
@@ -996,7 +1041,7 @@ You can use the CLI to perform the following tasks on Network Map Services:
 * See a list of available node information.
 * Upload new node information to a Network Map.
 
-### Get network parameters
+### Getting network parameters
 
 **Sample command structure**
 
@@ -1013,7 +1058,7 @@ Specifies output format. Valid values are: json, pretty. Default value is `prett
 `-s, --subzone-id=<subzoneId>`
 Sets which subzone to operate on. If you are operating on just one subzone you do not need to include this option.
 
-### Submit a new network parameters update
+### Submitting network parameters update
 
 To create a new parameters update, you must submit it to the Zone Service database. It can then be **Advertised**, and then **Executed** when the changes are brought into effect.
 
@@ -1037,7 +1082,7 @@ Updated network parameters.
 `-s, --subzone-id=<subzoneId>`
 Sets which subzone to operate on. If you are operating on just one subzone you do not need to include this option.
 
-### Advertise pending network parameter changes
+### Advertising pending network parameter changes
 
 You can use the CLI to advertise upcoming changes to network parameters across the network.
 
@@ -1056,7 +1101,7 @@ Specifies output format. Valid values are: json, pretty. Default value is `prett
 `-s, --subzone-id=<subzoneId>`
 Sets which subzone to operate on. If you are operating on just one subzone you do not need to include this option.
 
-### Cancel pending network parameter changes
+### Canceling pending network parameter changes
 
 Use this command to remove network parameter changes from the pending list. Canceled pending network parameter changes can no longer be executed and brought into effect.
 
@@ -1075,7 +1120,7 @@ Specifies output format. Valid values are: json, pretty. Default value is `prett
 `-s, --subzone-id=<subzoneId>`
 Sets which subzone to operate on. If you are operating on just one subzone you do not need to include this option.
 
-### Execute network parameters update - triggering a **Flag day**.
+### Executing network parameters update - triggering a **Flag day**.
 
 When you execute pending changes to the network parameters, it triggers a **Flag day**. This causes all nodes in the network to shut down. On restart, they can accept the new network parameters and continue operating.
 
@@ -1094,7 +1139,7 @@ Specifies output format. Valid values are: json, pretty. Default value is `prett
 `-s, --subzone-id=<subzoneId>`
 Sets which subzone to operate on. If you are operating on just one subzone you do not need to include this option.
 
-### Get the status of a network parameters update
+### Getting network parameters update status
 
 **Sample command structure**
 
@@ -1114,7 +1159,7 @@ Hash of the network parameter.
 `-o, <outputType>`
 Specifies output format. Valid values are: json, pretty. Default value is `pretty`.
 
-### See pending network parameter update
+### Seeing pending network parameter update
 
 **Sample command structure**
 
@@ -1131,7 +1176,7 @@ Specifies output format. Valid values are: json, pretty. Default value is `prett
 `-s, --subzone-id=<subzoneId>`
 Sets which subzone to operate on. If you are operating on just one subzone you do not need to include this option.
 
-### See the latest update stored in the Zone Service
+### Seeing latest update stored in the Zone Service
 
 **Sample command structure**
 
@@ -1148,7 +1193,7 @@ Specifies output format. Valid values are: json, pretty. Default value is `prett
 `-s, --subzone-id=<subzoneId>`
 Sets which subzone to operate on. If you are operating on just one subzone you do not need to include this option.
 
-### Get the current Network Map configuration
+### Getting the current network map configuration
 
 **Sample command structure**
 
@@ -1168,7 +1213,7 @@ Sets which subzone to operate on. If you are operating on just one subzone you d
 `--zone-token`
 Indicates that the zone token should be printed instead of the config, when using the `pretty` output type.
 
-### See the current Network Map label data
+### Seeing current network map label data
 
 Use this command to see the assigned label data used in the current Network Map configuration.
 
@@ -1187,7 +1232,7 @@ Specifies output format. Valid values are: json, pretty. Default value is `prett
 `-s, --subzone-id=<subzoneId>`
 Sets which subzone to operate on. If you are operating on just one subzone you do not need to include this option.
 
-### Update the Network Map configuration
+### Updating the network map configuration
 
 To update the Network Map configuration with the CLI, you must include a new config file as one of the options in the command.
 
@@ -1208,7 +1253,7 @@ Sets which subzone to operate on. If you are operating on just one subzone you d
 `--zone-token`
 Indicates that the zone token should be printed instead of the config, when using the `pretty` output type.
 
-### Update the address of the Network Map
+### Updating network map address 
 
 **Sample command structure**
 
@@ -1234,7 +1279,7 @@ Sets which subzone to operate on. If you are operating on just one subzone you d
 `--zone-token`
 Indicates that the zone token should be printed instead of the config, when using the `pretty` output type.
 
-### Update the Network Map label data
+### Updating the Network Map label data
 
 **Sample command structure**
 
@@ -1257,7 +1302,7 @@ Sets which subzone to operate on. If you are operating on just one subzone you d
 `--zone-token`
 Indicates that the zone token should be printed instead of the config, when using the `pretty` output type.
 
-### Check the connection status of the Network Map Service
+### Checking Network Map Service connection status
 
 **Sample command structure**
 
@@ -1274,7 +1319,7 @@ Specifies output format. Valid values are: json, pretty. Default value is `prett
 `-s, --subzone-id=<subzoneId>`
 Sets which subzone to operate on. If you are operating on just one subzone you do not need to include this option.
 
-### See the node info for the Network Map
+### Viewing network map node info
 
 **Sample command structure**
 
@@ -1291,9 +1336,9 @@ Specifies output format. Valid values are: json, pretty. Default value is `prett
 `-s, --subzone-id=<subzoneId>`
 Sets which subzone to operate on. If you are operating on just one subzone you do not need to include this option.
 
-### Add node information to the Network Map
+### Adding node information to the network map
 
-To upload node info to the Network Map, you must include an updated **Node Info file**.
+To upload node info to the network map, you must include an updated **Node Info file**.
 
 **Sample command structure**
 

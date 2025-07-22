@@ -43,7 +43,7 @@ separate HSM to only existing as offline shards distributed across different geo
 
 The PKI Tool is a CENM provided utility that can be used to generate a Corda compliant hierarchy.
 
-For more information about X.500 Name constraints, see the `Node naming` section in the [Corda documentation]({{< relref "../../../../../en/platform/corda/4.10/enterprise/node/deploy/generating-a-node.md" >}}).
+For more information about X.500 Name constraints, see the `Node naming` section in the [Corda documentation]({{< relref "../../4.12/enterprise/node/deploy/generating-a-node.md" >}}).
 
 ## Features
 
@@ -55,7 +55,7 @@ For more information about X.500 Name constraints, see the `Node naming` section
 * Certificate Revocation List (CRL) file generation.
 
 
-## Running the PKI Tool
+## Running the PKI tool
 
 The tool is designed to be executed from the command-line, where the entire certificate hierarchy is specified in the
 configuration file:
@@ -123,7 +123,7 @@ The full list of the configuration parameters can be found in [Public key infras
 
 {{< /note >}}
 
-#### Key Stores Configuration
+#### Key stores configuration
 
 This configuration block defines all key stores that should be used by the PKI Tool. Each key store can be either local
 (backed by a Java key store file) or HSM (backed by a LAN HSM device). For HSM key stores, the available options and
@@ -133,7 +133,7 @@ A mixture of key store types is allowed. That is, it is possible to generate som
 others locally. Note that mixing key store types is not supported for a given entity.
 
 
-#### Certificates Stores Configuration
+#### Certificates stores configuration
 
 This configuration block defines all certificate stores that will contain generated certificates. All certificate stores
 take the form of locally stored Java key store files, and contain no private keys.
@@ -144,7 +144,7 @@ config parameter, or alternatively via the `defaultCertificatesStore` configurat
 
 {{< /note >}}
 
-#### Certificates Configurations
+#### Certificates configurations
 
 The certificates configuration block defines the actual entities that form the desired hierarchy, It is expressed as a
 map from the user-defined alias to certificate configuration. The alias serves two purposes. Firstly, it can be used to
@@ -163,7 +163,7 @@ Corda. CRL information is also needed if revocation is being used (see the [Cert
 section below).
 
 
-##### Certificate Templates
+##### Certificate templates
 
 Out of the box, the PKI Tool comes with some predefined certificate templates that can be used to generate a basic,
 Corda compliant certificate hierarchy. Each template defines all necessary parameters, such as certificate subject, role
@@ -217,7 +217,7 @@ certificates will not support revocation. See the section below on how the templ
 
 {{< /note >}}
 
-###### Customising The Templates
+###### Customising templates
 
 Customisation of the templates is supporting, allowing the default values within each template to be overridden. This
 can be achieved by extending the template:
@@ -283,7 +283,7 @@ certificates = {
 }
 ```
 
-##### Free-form Certificates
+##### Free-form certificates
 
 As an alternative to using the templates, each key pair and certificate can defined using the standard configuration
 options. See the [Public key infrastructure (PKI) tool configuration parameters]({{< relref "config-pki-tool-parameters.md" >}}) documentation for all possible parameters, and see below for examples
@@ -291,7 +291,7 @@ that use this approach. Note that the templates only support local key stores - 
 hierarchy to be defined without templates.
 
 
-##### Certificate Revocation List Information
+##### Certificate revocation list information
 
 Unless explicitly set, all configurations will be generated without CRL information. That is, unless the configuration
 explicitly defines all necessary CRL file configurations or all CRL distribution URLs, all certificates will be
@@ -314,7 +314,7 @@ endpoints are correct. Once a certificate has been generated, this crlDistributi
 
 {{< /note >}}
 
-###### CRL File Configuration
+###### CRL file configuration
 
 As referenced above, the PKI Tool can be configured to generate an accompanying CRL file for each CA entity via the
 `crl` configuration block. This configuration determines the resulting CRL file for that entity as well as, by
@@ -378,7 +378,7 @@ The Identity Manager supports hosting of these CRL files (see the the “CRL Con
 [Identity Manager service]({{< relref "identity-manager.md" >}}) doc).
 
 
-##### HSM Libraries
+##### HSM libraries
 
 If using the PKI Tool with a HSM then, due to the proprietary nature of the HSM libraries, the appropriate jars need to
 be provided separately and referenced within the configuration file. The libraries that are required will depend on the
@@ -504,7 +504,7 @@ Or if `gradle` is not on the path but `gradlew` is in the current directory, run
 This will create a JAR called `azure-keyvault-with-deps.jar` which can be referenced in the configuration.
 
 
-##### Generating SSL Keys
+##### Generating SSL keys
 
 As outlined in the [Configuring the CENM services to use SSL]({{< relref "enm-with-ssl.md" >}}) doc, all inter-service CENM communication can be configured to encrypt their
 messages via SSL. This feature requires the operator to provide a set of SSL key pairs and certificates to each service,
@@ -537,7 +537,7 @@ HSMs. Refer to the [Signing Service]({{< relref "signing-service.md" >}}) docume
 
 {{< /note >}}
 
-#### Full Configuration (using Local key stores)
+#### Full configuration (using local key stores)
 
 ```docker
 keyStores = {
@@ -1037,7 +1037,7 @@ certificates = {
 ```
 
 
-#### Gemalto HSM Configuration
+#### Gemalto HSM configuration
 
 ```docker
 hsmLibraries = [{
@@ -1113,7 +1113,7 @@ certificates = {
 ```
 
 
-#### Securosys HSM Configuration
+#### Securosys HSM configuration
 
 ```docker
 hsmLibraries = [{
@@ -1189,7 +1189,7 @@ certificates = {
 }
 ```
 
-#### Azure Key Vault HSM Configuration Using MSAL (_available from CENM 1.6.1_)
+#### Azure Key Vault HSM configuration using MSAL (_available from CENM 1.6.1_)
 
 {{< note >}}
 R3 recommends using the MSAL dependency as a way of authenticating as MS ADAL has been deprecated by Microsoft. You can read more about migrating your applications to MSAL in the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/msal-migration).
@@ -1275,7 +1275,7 @@ certificates = {
 ```
 
 
-#### Azure Key Vault HSM Configuration Using ADAL
+#### Azure Key Vault HSM configuration using ADAL
 
 {{< note >}}
 R3 recommends using the MSAL dependency as a way of authenticating as MS ADAL has been deprecated by Microsoft. You can read more about migrating your applications to MSAL in the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/msal-migration).

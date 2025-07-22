@@ -16,10 +16,7 @@ title: Setting up a notary node
 
 # Setting up a notary node
 
-
-## Purpose
-
-A notary node is a well known and trusted node that provides uniqueness consensus. Because of this, creating and running a notary node is
+A *notary node* is a well-known and trusted node that provides uniqueness consensus. Because of this, creating and running a notary node is
 slightly more involved compared with a regular node.
 
 The Network Map Service broadcasts information (stored in the network parameters file) that every participant in the network needs to
@@ -27,12 +24,23 @@ agree on. One piece of information is the list of notaries. Because all notaries
 the process of adding a new one requires some manual intervention on the Network Map Service side.
 
 
-## Configuration
+The steps to integrate the notary node into the network are:
+
+1. [Create the notary node configuration](#create-the-notary-node-configuration).
+2. [Register the node with the Identity Manager](#register-the-node-with-the-identity-manager).
+3. [Generate the node info file](#generate-the-node-info-file).
+4. [Set up the Network Map Service](#set-up-the-network-map-service):
+   1. Copy the node info file to the Network Map Service.
+   2. Update the network parameters file on the Network Map Service to reference the new node info file.
+   3. Start (or restart) the Network Map Service.
+5. [Run the notary node](#run-the-notary-node).
+
+### Create the notary node configuration
 
 The exact configuration will depend on the Corda version that the notary node is running.
 
 
-### Example configuration
+#### Example configuration
 
 ```guess
 myLegalName="O=Example Notary,L=London,C=GB"
@@ -55,20 +63,7 @@ p2pAddress="<NOTARY_HOST>:<NOTARY_PORT>"
 ```
 
 
-## Initial setup
-
-The steps to integrate the notary node into the network are:
-
-
-* Register the node with the Identity Manager
-* Generate the node info file
-* Copy the node info file to the Network Map Service
-* Update the network parameters file on the Network Map Service to reference the new node info file
-* Start (or restart) the Network Map Service
-* Start the notary node as normal
-
-
-### Create notary node and register with Identity Manager
+### Register the node with the Identity Manager
 
 Ensuring that the Identity Manager Service is successfully running, start the notary node for registration.
 
@@ -82,7 +77,7 @@ during the initial setup of the network and therefore should be distribute by th
 
 {{< /note >}}
 
-### Generate node info file
+### Generate the node info file
 
 The node info file contains information such as address and certificates. The file will be used by all participants on the network to enable them to
 connect to, and trust, the new notary node.
@@ -92,12 +87,12 @@ java -jar corda.jar --config-file <NODE_CONF_FILE> --just-generate-node-info
 ```
 
 
-### Setup Network Map service
+### Set up the Network Map Service
 
-Follow instructions here [Network Map service]({{< relref "network-map.md" >}})
+For full instructions, see [Network Map service]({{< relref "network-map.md" >}})
 
 
-### Run the notary
+### Run the notary node
 
 ```bash
 java -jar corda.jar --config-file <NODE_CONF_FILE>

@@ -36,7 +36,7 @@ token, referred to as the "zone token". The Zone Service also coordinates action
 needed on subzones (for example, new network parameters), which are executed
 by the Angel Service for the appropriate Network Map Service.
 
-## Running the Zone service
+## Running the Zone Service
 
 The Zone Service can be configured with a configuration file and can be run via the command-line:
 
@@ -95,7 +95,7 @@ You must include the connection settings within the `database` configuration blo
 * `user`: The user name for the database.
 * `password`: The password for the database.
 
-#### Database Setup
+#### Database setup
 
 The database can either be set up prior to running the Zone Service, or it can be automatically prepared on start-up via the built-in migrations. To enable the running of database migrations on start-up, you must set the optional `runMigration` parameter within the `database` configuration to `true`.
 

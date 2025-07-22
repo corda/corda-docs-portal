@@ -13,17 +13,17 @@ weight: 200
 
 You can use the AWS Console - available online - to create a new HSM for generating encryption keys. To complete this process you will require login credentials for the AWS Console.
 
-There are nine steps to create a new HSM:
+To create a new HSM, you must:
 
-1. Create a VPC (Virtual Private Cloud).
-2. Create subnets under the VPC.
-3. Create an Internet Gateway.
-4. Create route tables per subnet.
-5. Create, initialise, and activate the HSM.
-6. Create security groups.
-7. Create the EC2 instance.
-8. Activate the HSM.
-9. Code configuration.
+1. [Create a VPC](#create-a-vpc) (Virtual Private Cloud).
+2. [Create subnets under the VPC](#create-subnets-under-the-vpc).
+3. [Create an internet gateway](#create-an-internet-gateway).
+4. [Create route tables per subnet](#create-route-tables-per-subnet).
+5. [Create, initialise, and activate the HSM](#create-initialise-and-activate-the-hsm).
+6. [Create security groups](#create-security-groups).
+7. [Create the EC2 instance](#create-the-ec2-instance).
+8. [Activate the HSM](#activate-the-hsm).
+9. [Configure code](#configure-code).
 
 {{< note >}}
 This document follows the same steps as [the Amazon guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html)
@@ -57,7 +57,7 @@ To create subnets under the VPC:
 
 ## Create an internet gateway
 
-An Internet Gateway enables communication between your VPC and the outside world (Internet).
+An *internet gateway* enables communication between your VPC and the outside world (Internet).
 
 At this stage of the setup, there are two subnets. They are in the same VPC so they can communicate with each other. As a result, only one of them needs to allow an SSH connection.
 
@@ -180,7 +180,7 @@ E2E enabled on server 0(10.0.140.211)
 
 7. Change your password, as advised in [https://docs.aws.amazon.com/cloudhsm/latest/userguide/manage-hsm-users.html](https://docs.aws.amazon.com/cloudhsm/latest/userguide/manage-hsm-users.html).
 
-## Code configuration
+## Configure code
 
 The `AmazonCloudHsmCryptoService` class implements the communication with the CloudHSM cluster.
 The configuration must include your credentials for the given cluster: a **CU** type user name, a password, and the partition name.

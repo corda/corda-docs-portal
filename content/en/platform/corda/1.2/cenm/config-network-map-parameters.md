@@ -14,14 +14,13 @@ tags:
 - network
 - map
 - parameters
-title: Network Map configuration parameters
+title: Network Map Service configuration parameters
 ---
 
 
-# Network Map configuration parameters
+# Network Map Service configuration parameters
 
-Configuration reference for the Network Map Service
-
+The following parameters are available for the Network Map Service:
 
 * **address**:
 The host and port on which the service runs

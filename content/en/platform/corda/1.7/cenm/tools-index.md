@@ -13,7 +13,7 @@ title: Tools and utilities
 
 # Tools and utilities
 
-A small number of tools and utilities are available to help with setting up, running, and testing a network.
+A number of tools and utilities are available to help with setting up, running, and testing a network.
 
 ## Public Key Infrastructure
 
@@ -25,7 +25,7 @@ This tool enables the reissuing of node legal identity keys and certificates, al
 
 For more information about this feature, contact your R3 account manager.
 
-## General running of network
+## General running of networks
 
 * [Certificate revocation request submission tool]({{< relref "tool-crr-submission.md" >}})
 
@@ -35,7 +35,7 @@ For more information about this feature, contact your R3 account manager.
 * [CENM User Admin tool]({{< relref "user-admin.md" >}})
 * [CENM management console]({{< relref "cenm-console.md" >}})
 
-## Other Tools
+## Other tools
 
 * [Config obfuscation tool]({{< relref "../../4.12/enterprise/tools-config-obfuscator.md" >}})
 * [CRL Endpoint Check Tool]({{< relref "crl-endpoint-check-tool.md" >}})

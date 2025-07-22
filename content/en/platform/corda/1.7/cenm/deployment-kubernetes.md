@@ -54,7 +54,7 @@ For the best CENM deployment performance with Kubernetes, you must set up the AK
 
 ### Compatibility
 
-The deployment scripts are compatible with Corda Enterprise Network Manager version 1.6.
+The deployment scripts are compatible with Corda Enterprise Network Manager version 1.7.
 The deployed network runs on Kubernetes minimum version 1.16.9 and Helm minimum version 3.1.1.
 
 ### VM sizing guidelines
@@ -103,67 +103,66 @@ Public IP addresses are allocated as Kubernetes `LoadBalancer` services.
 
 The deployment steps are given below:
 
-#### 1. Install tools on your local machine
+#### Part 1: Install tools on your local machine
 
-- Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-
-- Install [helm](https://helm.sh/docs/intro/install/)
-
-    Ensure that the value in the `version` field for `helm version` is equal to or greater than 3.2,
-    as shown in the example below:
+1. Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+2. Install [helm](https://helm.sh/docs/intro/install/). Ensure that the value in the `version` field for `helm version` is equal to or greater than 3.2, as shown in the example below:
 
     ```bash
     version.BuildInfo{Version:"v3.2.4", GitCommit:"0ad800ef43d3b826f31a5ad8dfbb4fe05d143688", GitTreeState:"clean", GoVersion:"go1.13.12"}
     ```
 
-- Install [Docker](https://www.docker.com/get-started). Docker is required to run the CENM CLI tool.
+3. Install [Docker](https://www.docker.com/get-started). Docker is required to run the CENM CLI tool.
+4. Download the Docker image with CENM [Command-Line Interface (CLI) tool]({{< relref "cenm-cli-tool.md" >}}) so you can manage CENM services:
 
-- Download the Docker image with CENM [Command-Line Interface (CLI) tool]({{< relref "cenm-cli-tool.md" >}}) so you can manage CENM services:
+   ```bash
+     docker pull corda/enterprise-cenm-cli:1.6-zulu-openjdk8u892
+   ```
 
-```bash
-  docker pull corda/enterprise-cenm-cli:1.6-zulu-openjdk8u892
-```
+#### Part 2: Set up the Kubernetes cluster
 
-#### 2. Set up the Kubernetes cluster
-
-- Install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) on your machine.
-
-- Create a cluster on Azure, following Microsoft's [quick start guide](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough).
+1. Install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) on your machine.
+2. Create a cluster on Azure, following Microsoft's [quick start guide](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough).
   CENM requires a Kubernetes cluster with at least 10 GB of free memory available to all CENM services.
 
-- Check that you have your cluster subscription [as your active subscription](https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az-account-set).
+3. Check that you have your cluster subscription [as your active subscription](https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az-account-set).
 
-- Connect to [your cluster](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal#connect-to-the-cluster)
+4. Connect to [your cluster](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal#connect-to-the-cluster)
   from your local machine.
 
-#### 3. Download CENM deployment scripts
+#### Part 3: Download CENM deployment scripts
 
-You can find the files required for the following steps in [CENM deployment repo](https://github.com/corda/cenm-deployment).
+You can find the files required for the following steps in the *[CENM deployment](https://github.com/corda/cenm-deployment)* repo.
 
-#### 4. Create storage class and namespace
+#### Part 4: Create storage class and namespace
 
-Run the following instruction once the previous points have been cleared. These examples use the namespace **cenm**:
+- Run the following instruction once the previous points have been cleared. These examples use the namespace **cenm**:
 
-```bash
-kubectl apply -f k8s/storage-class-[aws|azure].yaml
-kubectl apply -f k8s/cenm.yaml
-export nameSpace=cenm
-kubectl config set-context $(kubectl config current-context) --namespace=${nameSpace}
-```
+   ```bash
+   kubectl apply -f k8s/storage-class-[aws|azure].yaml
+   kubectl apply -f k8s/cenm.yaml
+   export nameSpace=cenm
+   kubectl config set-context $(kubectl config current-context) --namespace=${nameSpace}
+   ```
 
 You can verify this with the command `kubectl get ns`.
 
-#### 5. External database setup
+#### Part 5: External database setup
 
 CENM services are pre-configured to use embedded H2 databases by default.
-You can skip this step if an H2 database is sufficient for your needs. Otherwise you need to install database(s), set up users and permissions,
+You can skip this section if an H2 database is sufficient for your needs. Otherwise you need to install database(s), set up users and permissions,
 and change database configuration options for CENM services before bootstrapping CENM.
 For instructions on how to do that, refer to the "CENM configuration for external databases" section below, which contains a sample PostgreSQL installation guide
 and an explanation of CENM database configuration options.
 
-#### 6. Bootstrap CENM
+#### Part 6: Bootstrap CENM
 
-**Option 1.** Bootstrap by allocating new external IP addresses
+You can either:
+
+- [Bootstrap by allocating new external IP addresses](#bootstrap-by-allocating-new-external-ip-addresses)
+- [Bootstrap by reusing previously allocated external IP addresses](#bootstrap-by-reusing-already-allocated-external-ip-addresses)
+
+##### Bootstrap by allocating new external IP addresses
 
 To bootstrap your network, run the `bootstrap.cenm` script from the `k8s/helm` directory.
 The script includes the `--ACCEPT_LICENSE Y` argument, which is mandatory and confirms that you have read and accepted the license agreement.
@@ -201,9 +200,9 @@ The process will continue to run on the cluster after the script has exited. You
 kubectl get pods -o wide
 ```
 
- **Option 2.**  Bootstrap by reusing already allocated external IP addresses
+##### Bootstrap by reusing already allocated external IP addresses
 
-If your external IPs have been already allocated you can reuse them by specifying their services names:
+If your external IPs have been already allocated, you can reuse them by specifying their services names:
 
 ```bash
 cd k8s/helm
@@ -212,7 +211,7 @@ cd k8s/helm
 
 ## Network operations
 
-Use the CENM [Command Line Interface (CLI) Tool]({{< relref "cenm-cli-tool.md" >}}) to access the [Gateway Service]({{< relref "../../../../../en/platform/corda/4.11/enterprise/node/gateway-service.md" >}}) from your local machine.
+Use the CENM [Command Line Interface (CLI) Tool]({{< relref "cenm-cli-tool.md" >}}) to access the [Gateway Service]({{< relref "../../4.12/enterprise/node/gateway-service.md" >}}) from your local machine.
 To start the CENM CLI Tool, run Docker command starting a Docker container with the tool:
 
   ```bash
@@ -235,7 +234,7 @@ You can now use `cemn` commands from within the running Docker container:
   ./cenm context login -s -u <USER> -p <PASSWORD> http://<GATEWAY-SERVICE-IP>:8080
   ```
 
-The [Gateway Service]({{< relref "../../../../../en/platform/corda/4.11/enterprise/node/gateway-service.md" >}}) is a gateway between the [Auth Service]({{< relref "../../../../../en/platform/corda/4.11/enterprise/node/auth-service.md" >}}) and front end services in CENM. It allows you to perform all network operations on the [Identity Manager service]({{< relref "identity-manager.md" >}}), the [Network Map service]({{< relref "network-map.md" >}}), and the [Signing Service]({{< relref "signing-service.md" >}}).
+The [Gateway Service]({{< relref "../../4.12/enterprise/node/gateway-service.md" >}}) is a gateway between the [Auth Service]({{< relref "../../4.12/enterprise/node/auth-service.md" >}}) and front end services in CENM. It allows you to perform all network operations on the [Identity Manager service]({{< relref "identity-manager.md" >}}), the [Network Map service]({{< relref "network-map.md" >}}), and the [Signing Service]({{< relref "signing-service.md" >}}).
 The IP address is dynamically allocated for each deployment and can be found with `kubectl get svc`.
 Use the following command to ensure that you are pointing at the correct namespace:
 
@@ -299,7 +298,7 @@ kubectl get pods -o wide
 You will find the truststore password in the `signer/files/pki.conf`, where the default value used in this Helm chart is `trust-store-password`.
 
 {{< note >}} For more details about joining a CENM network, see:
-[Joining an existing compatibility zone]({{< relref "../../../../../en/platform/corda/4.11/enterprise/network/joining-a-compatibility-zone.md" >}}).
+[Joining an existing compatibility zone]({{< relref "../../4.12/enterprise/network/joining-a-compatibility-zone.md" >}}).
 {{< /note >}}
 
 ### Display logs
@@ -467,7 +466,7 @@ common options. Each CENM service has its own dedicated page with more detailed 
 * [Signing Service]({{< relref "deployment-kubernetes-signer.md" >}})
 * [Zone Service]({{< relref "deployment-kubernetes-zone.md" >}})
 
-### Overriding Service Configuration
+### Overriding service configuration
 
 The default settings used in a CENM service's configuration values can be altered as described in
 [Helm guide](https://helm.sh/docs/chart_template_guide/values_files/).
@@ -538,7 +537,7 @@ database:
 In this example, `<HOST>` is a placeholder for the host name of the server, `<PORT>` is a placeholder for the port number the server is listening on (typically `5432` for PostgreSQL),
 `<DATABASE>` is a placeholder for the database name, and `<USER>` and `<PASSWORD>` are placeholders for the access credentials of the database user.
 
-### Memory Allocation
+### Memory asllocation
 
 Default memory settings used should be adequate for most deployments, but may need to be increased for
 networks with large numbers of nodes (over a thousand). The `cordaJarMx` value for each Helm chart
@@ -607,6 +606,6 @@ kubectl get svc cenm-nmap -o jsonpath='{.status.loadBalancer.ingress[0].*}'
 echo ${idmanPublicIP}
 ```
 
-## Appendix A: Docker Images
+## Appendix A: Docker images
 
-Visit the [platform support matrix]({{< relref "../../../../../en/platform/corda/4.11/enterprise/platform-support-matrix.md#docker-images" >}}) for information on Corda Docker Images for version 1.6.
+Visit the [platform support matrix]({{< relref "../../4.12/enterprise/platform-support-matrix.md#docker-images" >}}) for information on Corda Docker Images for version 1.7.

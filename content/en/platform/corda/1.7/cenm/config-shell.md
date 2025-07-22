@@ -16,6 +16,7 @@ title: Shell configuration parameters
 
 # Shell configuration parameters
 
+Shell configuration parameters are listed below:
 
 * **shell**:
 *(Optional)* Configuration for the embedded shell.
@@ -42,7 +43,7 @@ title: Shell configuration parameters
 
 
   * **sshdHostKeyDirectory**:
-  *(Optional)* The path to the directory containing the hostkey.pem file for connecting to the shell via SSH.
+  *(Optional)* The path to the directory containing the `hostkey.pem` file for connecting to the shell via SSH.
 
 
   * **localShell**:

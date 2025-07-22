@@ -10,9 +10,9 @@ title: CENM Auth Service Helm chart
 weight: 20
 ---
 
-# CENM Auth Service Helm Chart
+# CENM Auth Service Helm chart
 
-This Helm chart is to configure, deploy, and run the [Auth Service]({{< relref "../../../../../en/platform/corda/4.11/enterprise/node/auth-service.md" >}}) on Kubernetes.
+This Helm chart is to configure, deploy, and run the [Auth Service]({{< relref "../../4.12/enterprise/node/auth-service.md" >}}) on Kubernetes.
 
 ## Example usage
 

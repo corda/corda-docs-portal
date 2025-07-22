@@ -32,7 +32,7 @@ With the User Admin tool, you can:
 
 You need administrator access to use the User Admin tool. If you are the first person using the tool in your organisation, you need to request access from your network owner's organisation.
 
-## Access the User Admin tool
+## Accessing the User Admin tool
 
 Access the User Admin tool from your [Gateway Service]({{< relref "../../4.12/enterprise/node/gateway-service.md" >}}) instance. Enter the full address of your Gateway Service, including the port number, followed by `/admin` into a web browser.
 
@@ -58,24 +58,21 @@ For security reasons, you must *delete* the initialising admin user account once
 3. Login with your new credentials.
 4. Delete the initialisation account.
 
-## Change your password
+## Changing your password
 
 When logging into the User Admin tool as an administrator for the first time, you must change your temporary password. You can repeat this process whenever you want.
 
 To change your password:
 
 1. Log in to the User Admin tool. If this is your first login or you have requested a new login, use the temporary password you have been given.
-
 2. On the next screen, click *user profile* in the top right-hand corner.
-
 3. On the **User Details** screen, enter and confirm your new password in the **Change user password** fields.
-
 4. Click **Submit**.
 
 You have changed your password. You are automatically logged out of the User Admin tool, and can now log back in using your new password.
 
 
-## Create a new user or administrator
+## Creating a new user or administrator
 
 Users can access network services to perform tasks. To give a user permissions, you can assign them a role, and/or add them to a group with set permissions.
 
@@ -93,11 +90,11 @@ To add a new user or administrator:
 
 2. Click **Create User**.
 
-3. Fill in the **New User Form**.
-    a. Enter a username (required).
-    b. Add an optional display name and email.
-    b. If you would like to add the user to any groups, select them from the dropdown menu.
-    c. Enter and confirm a temporary password - the user can change this when they log in for the first time.
+3. In the **New User Form**, specify the following details:
+   - Username (required).
+   - Display name and email (optional)
+   - Groups: if you would like to add the user to any groups, select them from the dropdown menu.
+   - Temporary password: the user can change this when they log in for the first time.
 
 4. If you are creating an administrator, set the **Admin** toggle to 'on'.
 
@@ -105,9 +102,9 @@ To add a new user or administrator:
 
 8. Click **Create User** to complete the registration.
 
-9. Send the user their login details. Remind them to change their password.
+9. Send the user their login details, and remind them to change their password.
 
-## Manage a user
+## Managing users
 
 You can change a user's status, password, or group membership from the **User Details** screen.
 
@@ -130,7 +127,7 @@ You can change a user's status, password, or group membership from the **User De
 5. Change a user's group membership from the **Change Groups** panel.
 
 
-## Create a group
+## Creating groups
 
 Groups let you grant multiple users the same set of permissions. Groups make it easier for you to manage permissions of future users - just add them to the relevant groups instead of configuring individual roles.
 
@@ -142,18 +139,18 @@ To create a group:
 
 2. Click **Add Group**.
 
-3. Fill in the **New Group Form**.
-    a. Enter a group name (required).
-    b. Add a description (optional).
-    c. Select group members from the dropdown.
-    d. Toggle the **Admin** option on to make all group members administrators.
-    e. Toggle the **Auto-Enroll** option on to assign this group to all new users you create.
+3. In the **New Group Form**, specify the following details:
+   - Group name (required)
+   - Description (optional)
+   - Group members: select from the dropdown.
+   - **Admin** option: toggle on to make all group members administrators.
+   - **Auto-Enroll** option: toggle on to assign this group to all new users you create.
 
 4. Click **Create Group**.
 
 You can access all your groups from the **Groups** screen.
 
-## Manage a group
+## Managing groups
 
 You can add or remove members of a group, or delete an existing group. Deleting a group does not delete the users in the group.
 
@@ -172,14 +169,14 @@ To make changes to a group:
 
     Changes save automatically.
 
-4. Edit the users in a group from the **Edit user assignment** panel.
-    a. Click the drop-down menu to see a list of all users.
-    b. Select the checkbox next to a user to add them to the group.
-    c. Click the **x** next to a user's name to remove them from the group. This will revoke any permissions associated with group membership - you can confirm this by checking the user's individual roles.
-    d. Click **Save**.
+4. Edit the users in a group from the **Edit user assignment** panel:
+    1. Click the drop-down menu to see a list of all users.
+    2. Select the checkbox next to a user to add them to the group.
+    3. Click the **x** next to a user's name to remove them from the group. This will revoke any permissions associated with group membership - you can confirm this by checking the user's individual roles.
+    4. Click **Save**.
 
 
-## Create a new role
+## Creating new roles
 
 Roles are made up of permissions that allow users to perform tasks in CENM. You can create roles by combining the required permissions, and then assigning the role to users and/or groups.
 
@@ -190,18 +187,18 @@ To create a new role:
 
 2. Click **Add Role**.
 
-3. Fill in the **New Role Form**:
-    a. Enter a role name (required).
-    b. Add a description (optional).
-    c. Assign permissions: Select a permission from the list, then choose whether you want to *allow* that permission for users with the role or *deny* that permission for all users with the role.
-    d. Assign the role to one or more users. Select the role from the **Assignment** dropdown, then choose the scope of the role from the **Effect** dropdown.
-    e. Assign the role to one or more groups, if required. Select the role from the **Assignment** dropdown, then choose the scope of the role from the **Effect** dropdown.
+3. In the **New Role Form**, specify the following details:
+    - Role name (required)
+    - Description (optional)
+    - Assign permissions: Select a permission from the list, then choose whether you want to *allow* that permission for users with the role or *deny* that permission for all users with the role.
+    - Assign the role to one or more users. Select the role from the **Assignment** dropdown, then choose the scope of the role from the **Effect** dropdown.
+    - Assign the role to one or more groups, if required. Select the role from the **Assignment** dropdown, then choose the scope of the role from the **Effect** dropdown.
 
 8. Click **Create Role**.
 
 You have added a new role. All users and groups assigned this role are granted its permissions with immediate effect.
 
-## Manage a role
+## Managing roles
 
 You can assign a role to additional users and groups, remove roles from users and groups, add and remove permissions in a role, and delete roles at any time.
 

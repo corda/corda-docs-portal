@@ -10,31 +10,30 @@ menu:
 tags:
 - network
 - map
-title: Network Map service
+title: Network Map Service
 ---
 
 
-# Network Map service
-
-
-
-## Purpose
+# Network Map Service
 
 The Network Map Service acts as a directory for all participants on the network. It is responsible for recording
 essential information of each participant such as connection address and available services. See
 [Network map overview]({{< relref "network-map-overview.md" >}}) for an in-depth explanation.
 
 
-## Running the Network Map service
+## Running the Network Map Service
 
-The Network Map Service currently has to be initialised in two stages. First, the network parameters for the global
-network have to be loaded into the database. Once complete, the service can be started.
+The Network Map Service currently has to be initialised in two stages:
+
+1. First, the network parameters for the global network have to be loaded into the database. 
+2. Once complete, the service can be started.
+
 As of CENM 1.3, the initial bootstrap is managed via the Zone Service for the
 network, along with the Angel Service of the Network Map Services. Service
 restarts are handled automatically.
 
 {{< warning >}}
-**The Network Map Service cannot be redirected. Only HTTP OK (response code 200) is supported - any other kind of response codes, including HTTP redirects (for example, response code 301), are NOT supported.**
+The Network Map Service cannot be redirected. Only HTTP OK (response code 200) is supported - any other kind of response codes, including HTTP redirects (for example, response code 301), are **not** supported.
 {{< /warning >}}
 
 

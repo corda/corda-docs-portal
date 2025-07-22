@@ -19,7 +19,7 @@ title: Signing Service
 
 The Signing Service acts as a bridge between the main CENM services and the PKI/HSM infrastructure, enabling a network operator to verify and sign incoming requests and changes to the network.
 
-The Signing Service forms a part of the main Corda Enterprise Network Manager (CENM) services, alongside the [Identity Manager service]({{< relref "identity-manager.md" >}}) and the [Network Map service]({{< relref "network-map.md" >}}) (and complemented by the [Auth Service]({{< relref "../../4.8/enterprise/node/auth-service.md" >}}), the [Zone Service]({{< relref "zone-service.md" >}}), the [Angel Service]({{< relref "angel-service.md" >}}), and the [Gateway Service]({{< relref "../../4.8/enterprise/node/gateway-service.md" >}})).
+The Signing Service forms a part of the main Corda Enterprise Network Manager (CENM) services, alongside the [Identity Manager service]({{< relref "identity-manager.md" >}}) and the [Network Map service]({{< relref "network-map.md" >}}) (and complemented by the [Auth Service]({{< relref "../../4.12/enterprise/node/auth-service.md" >}}), the [Zone Service]({{< relref "zone-service.md" >}}), the [Angel Service]({{< relref "angel-service.md" >}}), and the [Gateway Service]({{< relref "../../4.8/enterprise/node/gateway-service.md" >}})).
 
 As mentioned in other CENM service documentation ([Identity Manager service]({{< relref "identity-manager.md" >}}) and [Network Map service]({{< relref "network-map.md" >}})), the main CENM services
 can be configured with an integrated *local signer* that will automatically sign all unsigned data using a provided key.
@@ -270,7 +270,7 @@ Or if `gradle` is not on the path but `gradlew` is in the current directory, run
 This will create a JAR called `azure-keyvault-with-deps.jar` which can be referenced in the configuration.
 
 
-#### Global Certificate Store
+#### Global certificate store
 
 Signing keys that use a HSM require a certificate store to be defined also, containing all certificates to build the
 entire certificate chain from the signing key back to the root. If a global certificate store is used containing all
@@ -317,7 +317,7 @@ same location once signed.
 Service locations directly connect to the service, which manages the material
 (CSRs, Network Map).
 
-#### Signing Tasks
+#### Signing tasks
 
 This configuration section defines each signing task that can be run via the service. Each task is defined by adding an
 entry to the `signers` configuration map, keyed by the human-readable alias for the task (used when interacting with
@@ -334,7 +334,7 @@ Each signing task maps to exactly one of four possibly data types:
 * **Network Map** - building and signing a new Network Map.
 * **Network Parameters** - signing new Network Parameters and Network Parameter Updates.
 
-#### Using a Signing plugin
+#### Using a signing plugin
 
 Each entry in the `signers` map can use a plug-in for signing. If the `plugin` configuration property is defined
 the material will be retrieved from the matching service (Identity Manager or Network Map) and it will be sent
@@ -344,7 +344,7 @@ The rest depends on the plug-in's architecture. The only contract between the Si
 that the returned signing data must be a pre-defined type. For more information about these types, see the
 [Developing Signing Plugins](#developing-signing-plugins) section.
 
-#### Scheduling Signing tasks
+#### Scheduling signing tasks
 
 A signing task can be configured to automatically run on a set schedule, providing *no manual user input is required*.
 That is, the signing key that is configured for the task requires no user input to authenticate (e.g. keyfile or
@@ -398,9 +398,9 @@ authentication) will result in an error upon service start-up.
 
 {{< /note >}}
 
-### Detailed Example Signing Task Execution
+### Signing task execution example
 
-Listed below are the steps involved in signing an example Network Parameter update. The steps involved in signing other
+Listed below are the steps involved in signing an example network parameter update. The steps involved in signing other
 data types are very similar.
 
 
@@ -410,19 +410,18 @@ update is unsigned, it will not be broadcast to the network.
 The parameter update is ready to be signed.
 
 
-* A privileged user accesses the Signing Service via ssh and runs the pre-configured Network Parameter signing task for
+1. A privileged user accesses the Signing Service via ssh and runs the pre-configured Network Parameter signing task for
 the given Network Map Service.
-* A connection to the Network Map or Signable Material Retriever service is established and the unsigned Network Parameter update is
+2. A connection to the Network Map or Signable Material Retriever service is established and the unsigned Network Parameter update is
 fetched and displayed to the user.
-* The user confirms that the changes are correct and should be signed.
-* A connection to the appropriate HSM is created, and the user is prompted for their authentication credentials. The
+3. The user confirms that the changes are correct and should be signed.
+4. A connection to the appropriate HSM is created, and the user is prompted for their authentication credentials. The
 exact format of this authentication will depend on the configured signing key that the signing task uses.
-* Once the user has been successfully authenticated and their privileges are strong enough, then the signing process
+5. Once the user has been successfully authenticated and their privileges are strong enough, then the signing process
 commences using the configured signing key. If their privileges are not sufficient then the signing task will prompt
 for another user to be authenticated, repeating this process until the configured HSM authentication threshold has
 been exceeded.
-* The Network Parameter update is signed then persisted back to the appropriate Network Map Service or Signable Material Retriever service. When the Network
-Map is next updated and signed, the newly signed parameter update will be included and therefore broadcast to the
+6. The Network Parameter update is signed then persisted back to the appropriate Network Map Service or Signable Material Retriever service. When the Network Map is next updated and signed, the newly signed parameter update will be included and therefore broadcast to the
 network participants.
 
 The steps involved in signing other data types are very similar to above, mainly differing in the unsigned information
@@ -449,7 +448,7 @@ update will only be included in a network map if the update has been previously 
 
 {{< /note >}}
 
-## Signing Service Configuration Parameters
+## Signing Service configuration parameters
 
 The configuration file for the Signing Service should include the following parameters (optional arguments are marked as
 such where appropriate):
@@ -536,7 +535,7 @@ expected format.
 
 
 
-### Signing Key Map Entry Example
+### Signing key map entry example
 
 Each entry in the `signingKeys` map should be keyed on the user-defined, human-readable alias. This can be any string
 and is used only within the configuration to map the signing keys to each signing task that use it.
@@ -544,7 +543,7 @@ and is used only within the configuration to map the signing keys to each signin
 A signing key can come from two sources - a local Java key store or a HSM.
 
 
-#### Local Signing Key Example
+#### Local signing key example
 
 
 * **alias**:
@@ -565,7 +564,7 @@ Password to access the key store
 
 
 
-#### Utimaco HSM Signing Key Example
+#### Utimaco HSM signing key example
 
 If the signing key is within a Utimaco HSM then the HSM connection details needs to be included in the configuration as
 well as a list of authentication credentials. The setup of the HSM determines the authentication thresholds are required
@@ -666,7 +665,7 @@ do not contain their full certificate chains.
 
 
 
-#### Gemalto Luna HSM Signing Key Example
+#### Gemalto Luna HSM signing key example
 
 If the signing key is within a Gemalto HSM then the configuration is simpler than the Utimaco example. This is due to
 a lot of the connection logic being within the Java provider library which has to be installed and setup prior to
@@ -717,7 +716,7 @@ do not contain their full certificate chains.
 
 
 
-#### AWS CloudHSM Signing Key Example
+#### AWS CloudHSM signing key example
 
 First of all AWS CloudHSM requires a UNIX client running on the machine. It will use that to connect to the HSM.
 For detailed documentation about setting up the client please visit Amazon’s
@@ -769,7 +768,7 @@ The password for the local certificate store
 
 
 
-### Signers Map Entry Example
+### Signers map entry example
 
 Each entry in the `signers` map should be keyed on the user-defined, human-readable alias. This can be any
 string and is used by the user when viewing and invoking the signing task from within the interactive shell.
@@ -878,13 +877,13 @@ If a plugin is used the `signingKeyAlias` field must not be present.
   If it does not, an error will be thrown.
 
 
-## Example Signing Service Configuration
+## Example Signing Service configuration
 
 Below are two example configuration files, one using signing keys from local key stores and the other using signing keys
 from a HSM. If desired, any combination of local/HSM signing keys can be included within the configuration file.
 
 
-### Signing Keys From Local Key Store
+### Signing keys from local key store
 
 ```docker
 shell = {
@@ -1422,7 +1421,7 @@ authServiceConfig = {
 }
 
 ```
-## Developing Signing Plugins
+## Developing signing plugins
 
 As mentioned before, we enable possibility of writing custom plugin to support external Signing infrastructures. A plugin
 class must implement `CASigningPlugin` or `NonCASigningPlugin` interface depending on type of signable material type
@@ -1470,7 +1469,7 @@ These values are also nullable so when your plugin assembles these please use `n
 However if your plugin is asynchronous then the returned `SigningStatus` must be `PENDING` and the `requestId` must be present.
 This is the only way the Signing Service will be able to track the request.
 
-### CA Signing Plugin
+### CA signing plugin
 
 This type of plugin handles Certificate Signing Requests (CSR) and Certificate Revocation List (CRL) signing. A plugin
 class must implement following methods with predefined input and output parameters:
@@ -1689,9 +1688,9 @@ public final class CRLSigningData {
 ```
 
 
-### Non CA Signing Plugin
+### Non-CA signing plugin
 
-This type of plugin handles Network Map and Network Parameters signing. A plugin class must implement following methods
+This type of plugin handles network map and network parameters signing. A plugin class must implement following methods
 with predefined input and output parameters:
 
 ```java
@@ -1869,7 +1868,7 @@ public final class NMSigningData {
 ```
 
 
-### Example Signing Plugins
+### Example signing plugins
 
 The Signing Service ships with example plug-ins.
 
@@ -1881,7 +1880,7 @@ when developing plug-ins and they should never be used in a production environme
 Please refer to the `README` docs inside the source directories for each plug-in as they contain all the
 necessary information about the architecture and usage of those plug-ins.
 
-#### Example CA Signing Plugin
+#### Example CA signing plugin
 
 The CA plugin class name to configure is always `com.r3.enm.signingserviceplugins.exampleplugin.ca.ExampleCaSigningPlugin`.
 
@@ -1929,7 +1928,7 @@ CA Plugin’s configuration file must be in the same directory as the service’
 
 There is an example configuration attached to the source for both the CA plug-in and the third-party Signer.
 
-#### Non CA Example Signing Plugin
+#### Non-CA Example signing plugin
 
 The non-CA plug-in's class name to configure is always `com.r3.enm.signingserviceplugins.example.nonca.ExampleNonCaSigningPlugin`.
 
@@ -1962,11 +1961,11 @@ Once the signing is done, the plug-in will return a `COMPLETED` status immediate
 This means that this example does not utilise the asynchronous signing completely - so, there will be no `PENDING` status.
 However, the tracking ID will still be returned and the request can be tracked via the tracking functions.
 
-### Other Sample Plugins
+### Other sample plugins
 
 See [EJBCA sample plugin]({{< relref "ejbca-plugin.md" >}}) for sample open source CA implementation.
 
-### Admin RPC Interface
+### Admin RPC interface
 
 To enable the CENM Command-Line Interface (CLI) tool to send commands to the Signing Service,
 you must enable the RPC API by defining a configuration property called `adminListener`.
