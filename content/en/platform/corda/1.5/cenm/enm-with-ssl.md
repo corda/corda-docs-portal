@@ -83,7 +83,7 @@ acting as clients of the network.
 ### Configuring SSL certificates
 
 All components should be configured to use SSL with the following configuration block. More details can be found in
-[Identity Manager configuration parameters]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-identity-manager-parameters.md" >}}) and [Network Map configuration parameters]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-network-map-parameters.md" >}}).
+[Identity Manager configuration parameters]({{< relref "config-identity-manager-parameters.md" >}}) and [Network Map configuration parameters]({{< relref "config-network-map-parameters.md" >}}).
 
 ```docker
 ssl = {
