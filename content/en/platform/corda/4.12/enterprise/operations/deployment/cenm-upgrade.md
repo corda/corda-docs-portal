@@ -13,6 +13,8 @@ title: Upgrading CENM
 weight: 200
 ---
 
+# Upgrading Corda Enterprise Network Manager
+
 For information on upgrading CENM, see the upgrade instructions for the relevant version:
 
 - [Upgrading to v1.6]({{< relref "../../../../1.6/cenm/upgrade-notes.md" >}})
