@@ -35,21 +35,21 @@ To set up a reference deployment of CENM using AWS and PostgreSQL:
 
 You must ensure that each CENM service has it's own PostgreSQL database. Complete the steps referenced below for each of the following:
 
-* [Auth Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md" >}}).
-* [Gateway Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md" >}}).
-* [Identity Manager]({{< relref "../../../../../en/platform/corda/1.6/cenm/identity-manager.md" >}}).
-* [Network Map]({{< relref "../../../../../en/platform/corda/1.6/cenm/network-map.md" >}}).
-* [Signer Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/signing-service.md" >}}).
-* [Zone Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/zone-service.md" >}}).
-* [Angel Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/angel-service.md" >}}).
+* [Auth Service]({{< relref "../../4.12/enterprise/node/auth-service.md" >}}).
+* [Gateway Service]({{< relref "../../4.12/enterprise/node/gateway-service.md" >}}).
+* [Identity Manager]({{< relref "identity-manager.md" >}}).
+* [Network Map]({{< relref "network-map.md" >}}).
+* [Signer Service]({{< relref "signing-service.md" >}}).
+* [Zone Service]({{< relref "zone-service.md" >}}).
+* [Angel Service]({{< relref "angel-service.md" >}}).
 
 To set up each database:
 
 1. Set up a PostgreSQL database in AWS - follow the instructions in the [AWS documentation](https://aws.amazon.com/rds/postgresql).
 2. Connect to the database, using the details of the database in AWS.
-3. Create a database user and a schema namespace [with restricted permissions]({{< relref "../../../../../en/platform/corda/1.6/cenm/database-set-up.md#1-create-a-database-user-with-schema-permissions" >}}). Follow the [steps for PostgreSQL]({{< relref "../../../../../en/platform/corda/1.6/cenm/database-set-up.md#postgresql" >}}).
-4. Create the [database schema]({{< relref "../../../../../en/platform/corda/1.6/cenm/database-set-up.md#2-database-schema-creation" >}}) for each service.
-5. Perform [CENM Service configuration]({{< relref "../../../../../en/platform/corda/1.6/cenm/database-set-up.md#3-cenm-service-configuration" >}}) - follow the [steps for PostgreSQL]({{< relref "../../../../../en/platform/corda/1.6/cenm/database-set-up.md#postgresql-1" >}}). See also the [database configuration documentation]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-database.md" >}}).
+3. Create a database user and a schema namespace [with restricted permissions]({{< relref "database-set-up.md#1-create-a-database-user-with-schema-permissions" >}}). Follow the [steps for PostgreSQL]({{< relref "database-set-up.md#postgresql" >}}).
+4. Create the [database schema]({{< relref "database-set-up.md#2-database-schema-creation" >}}) for each service.
+5. Perform [CENM Service configuration]({{< relref "database-set-up.md#3-cenm-service-configuration" >}}) - follow the [steps for PostgreSQL]({{< relref "database-set-up.md#postgresql-1" >}}). See also the [database configuration documentation]({{< relref "config-database.md" >}}).
 
 {{< note >}}
 In step 4 above, you must create a schema for each CENM service. The guide provided has steps for a restricted database schema that is used in a live production environment. You may prefer to use a less restricted database to reduce complexity in this reference environment setup.
@@ -57,8 +57,8 @@ In step 4 above, you must create a schema for each CENM service. The guide provi
 
 ### Deploy CENM services
 
-1. Deploy the [Auth Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md" >}}) using PostgreSQL on AWS.
-2. Deploy the [Identity Manager service]({{< relref "../../../../../en/platform/corda/1.6/cenm/identity-manager.md" >}}) using PostgreSQL on AWS.
-3. Deploy the [Network Map service]({{< relref "../../../../../en/platform/corda/1.6/cenm/network-map.md" >}}) using PostgreSQL on AWS.
-4. Deploy the [Zone Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/zone-service.md" >}}) using PostgreSQL on AWS.
-5. Deploy the [Signing Service]({{< relref "../../../../../en/platform/corda/1.6/cenm/signing-service.md#signing-service" >}}) (it does not use a database).
+1. Deploy the [Auth Service]({{< relref "../../4.12/enterprise/node/auth-service.md" >}}) using PostgreSQL on AWS.
+2. Deploy the [Identity Manager service]({{< relref "identity-manager.md" >}}) using PostgreSQL on AWS.
+3. Deploy the [Network Map service]({{< relref "network-map.md" >}}) using PostgreSQL on AWS.
+4. Deploy the [Zone Service]({{< relref "zone-service.md" >}}) using PostgreSQL on AWS.
+5. Deploy the [Signing Service]({{< relref "signing-service.md#signing-service" >}}) (it does not use a database).

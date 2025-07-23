@@ -90,7 +90,7 @@ The configuration for the `IDENTITY_MANAGER` and `SIGNER` managed service types 
 
 ##### networkParametersFile
 
-The network parameters are the set of values that every node participating in the network needs to agree on to interoperate with each other. See [Network Parameters Configuration Parameters]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-network-map-parameters.md" >}}) for a detailed explanation.
+The network parameters are the set of values that every node participating in the network needs to agree on to interoperate with each other. See [Network Parameters Configuration Parameters]({{< relref "config-network-map-parameters.md" >}}) for a detailed explanation.
 
 The file specified for this parameter needs to be the plain-text version of the network parameters used when setting the initial network parameters. This is not the binary `network-parameters` file that Corda nodes use.
 
@@ -134,7 +134,7 @@ zone = {
 ```
 
 {{< note >}}
-See [Angel Service Configuration Parameters]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-angel-service-parameters.md" >}}) for a detailed explanation of each possible parameter.
+See [Angel Service Configuration Parameters]({{< relref "config-angel-service-parameters.md" >}}) for a detailed explanation of each possible parameter.
 {{< /note >}}
 
 **Workflow**
@@ -147,7 +147,7 @@ See [Angel Service Configuration Parameters]({{< relref "../../../../../en/platf
     3. It writes the new configuration.
     4. It starts the managed service.
 
-If the managed service is Network Map, the Zone Service can reply with a lifecycle event (flag day). This is because only the Network Map Service holds the network parameters that flag days update. In this case, the Angel Service will automatically perform the [required steps]({{< relref "../../../../../en/platform/corda/1.6/cenm/updating-network-parameters.md" >}}) on the managed Network Map Service.
+If the managed service is Network Map, the Zone Service can reply with a lifecycle event (flag day). This is because only the Network Map Service holds the network parameters that flag days update. In this case, the Angel Service will automatically perform the [required steps]({{< relref "updating-network-parameters.md" >}}) on the managed Network Map Service.
 
 ## Service health checking via API
 
