@@ -22,7 +22,7 @@ title: Network Map service
 
 The Network Map Service acts as a directory for all participants on the network. It is responsible for recording
 essential information of each participant such as connection address and available services. See
-[Network map overview]({{< relref "../../../../../en/platform/corda/1.6/cenm/network-map-overview.md" >}}) for an in-depth explanation.
+[Network map overview]({{< relref "network-map-overview.md" >}}) for an in-depth explanation.
 
 
 ## Running the Network Map service
@@ -115,7 +115,7 @@ Similar to the Identity Manager the main elements that need to be configured for
 * [Admin RPC Interface](#admin-rpc-interface)
 
 {{< note >}}
-See [Network Map configuration parameters]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-network-map-parameters.md" >}}) for a detailed explanation about each possible parameter.
+See [Network Map configuration parameters]({{< relref "config-network-map-parameters.md" >}}) for a detailed explanation about each possible parameter.
 {{< /note >}}
 
 ### Address
@@ -171,7 +171,7 @@ database {
 {{< note >}}
 Due to the way the migrations are defined, if the Identity Manager and Network Map Services are using the same
 database instance then they *must* use separate database schemas. For more information regarding the supported databases
-along with the schema see [CENM Databases]({{< relref "../../../../../en/platform/corda/1.6/cenm/database-set-up.md" >}}).
+along with the schema see [CENM Databases]({{< relref "database-set-up.md" >}}).
 
 {{< /note >}}
 
@@ -219,7 +219,7 @@ database {
 
 ### Embedded shell (optional)
 
-See [Shell Configuration]({{< relref "../../../../../en/platform/corda/1.6/cenm/shell.md#shell-config" >}}) for more information on how to configure the shell.
+See [Shell Configuration]({{< relref "shell.md#shell-config" >}}) for more information on how to configure the shell.
 
 
 ### Network data signing mechanism
@@ -239,11 +239,11 @@ The local Signing Service is recommended for testing and toy environments. Given
 relevant signing keys, it provides the functionality to automatically sign all approved Network Map and Parameter
 updates on a configured schedule. No human interaction is needed and the credentials for the key stores have to be
 provided upfront. The service is an integrated signer that is a cut-down version of the standalone
-[Signing services]({{< relref "../../../../../en/platform/corda/1.6/cenm/signing-service.md" >}}) and provides no HSM integration or ability to manually verify changes. It is strongly recommended
+[Signing services]({{< relref "signing-service.md" >}}) and provides no HSM integration or ability to manually verify changes. It is strongly recommended
 against using this for production environments.
 
 In order for the local signer to function, it needs to be able to access Network Map’s certificate and keypair
-which should have been previously generated (see [Certificate hierarchy guide]({{< relref "../../../../../en/platform/corda/1.6/cenm/pki-guide.md" >}}) for more information). The local signer uses local
+which should have been previously generated (see [Certificate hierarchy guide]({{< relref "pki-guide.md" >}}) for more information). The local signer uses local
 key stores which should include the necessary signing keys along with their full certificate chains.
 
 To enable the local signer, the top level `localSigner` configuration block should be added to the configuration file:
@@ -266,7 +266,7 @@ signing any network map or parameter changes along with the full certificate cha
 
 #### External Signing Service
 
-The production grade signing mechanism is the external [Signing services]({{< relref "../../../../../en/platform/corda/1.6/cenm/signing-service.md" >}}). This has all the functionality of the
+The production grade signing mechanism is the external [Signing services]({{< relref "signing-service.md" >}}). This has all the functionality of the
 integrated local signer as well as HSM integration and the ability for a user to interactively verify and sign incoming
 network map or parameter changes. It should be used in all production environments where maximum security and validation
 checks are required.
@@ -295,7 +295,7 @@ pollingInterval = 600000
 
 ### Node Certificate Revocation Checking
 
-In cases when the certificate revocation list infrastructure (See [Certificate Revocation List]({{< relref "../../../../../en/platform/corda/1.6/cenm/certificate-revocation.md" >}}) for more information)
+In cases when the certificate revocation list infrastructure (See [Certificate Revocation List]({{< relref "certificate-revocation.md" >}}) for more information)
 is provided, the additional validation for the node’s certificates can be enabled in the Network Map Service. This is
 achieved via the top-level `checkRevocation` flag set in the configuration file. This ensures that any node within the
 Network Map has a valid, trusted certificate.
@@ -340,7 +340,7 @@ The `reconnect` parameter is optional - it will default to `reconnect = true` if
 {{< /note >}}
 
 {{< note >}}
-All inter-service communication can be configured with SSL support. See [Configuring the CENM services to use SSL]({{< relref "../../../../../en/platform/corda/1.6/cenm/enm-with-ssl.md" >}}).
+All inter-service communication can be configured with SSL support. See [Configuring the CENM services to use SSL]({{< relref "enm-with-ssl.md" >}}).
 {{< /note >}}
 
 
@@ -427,7 +427,7 @@ revocation {
 
 The `host` should correspond to the host part of the `address` value in the Identity Manager configuration. The
 `port` parameter for each service should correspond with the `port` value within the `enmListener` configuration block in
-the service’s configuration. See [Network Map configuration parameters]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-network-map-parameters.md" >}}) for more information.
+the service’s configuration. See [Network Map configuration parameters]({{< relref "config-network-map-parameters.md" >}}) for more information.
 
 You can also use the optional `timeout` parameter that enables you to set specific Network Map Service timeouts for communication to the Identity Manager and Revocation services. This allows for high node count network maps to operate at reliable performance levels. The `timeout` value is set in milliseconds and the default value is 30000 milliseconds. For example:
 
@@ -447,7 +447,7 @@ revocation {
 ```
 
 {{< note >}}
-All inter-service communication can be configured with SSL support. See [Configuring the CENM services to use SSL]({{< relref "../../../../../en/platform/corda/1.6/cenm/enm-with-ssl.md" >}})
+All inter-service communication can be configured with SSL support. See [Configuring the CENM services to use SSL]({{< relref "enm-with-ssl.md" >}})
 
 {{< /note >}}
 
@@ -605,7 +605,7 @@ useful especially when dealing with node’s deployment in environments with IP 
 
 ## Obfuscated configuration files
 
-To view the latest changes to the obfuscated configuration files, see [Obfuscation configuration file changes]({{< relref "../../../../../en/platform/corda/1.6/cenm/obfuscated-config-file-changes.md" >}}).
+To view the latest changes to the obfuscated configuration files, see [Obfuscation configuration file changes]({{< relref "obfuscated-config-file-changes.md" >}}).
 
 {{< note >}}
 You should not obfuscate the Network Parameters configuration file as it is not yet supported.

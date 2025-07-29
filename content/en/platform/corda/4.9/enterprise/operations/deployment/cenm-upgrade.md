@@ -322,7 +322,7 @@ Ensure the services are not running before replacing the JAR files.
 CENM 1.1 supports multiple HSMs, however due to to the proprietary nature of the HSM libraries, the release does
 not work with these HSMs "out of the box". The user must provide the relevant libraries and reference them in the
 configuration of the relevant component (Signing Service or PKI Tool). For more information, see [Signing services]({{< relref "../../../../1.3/cenm/signing-service.md" >}}).
-and [Public key infrastructure (PKI) tool]({{< relref "../../../../../../../en/platform/corda/1.5/cenm/pki-tool.md" >}}) for more information.
+and [Public key infrastructure (PKI) tool]({{< relref "../../../../1.5/cenm/pki-tool.md" >}}) for more information.
 
 ## 0.3+ to 1.0
 
