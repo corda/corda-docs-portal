@@ -7,14 +7,14 @@ tags:
 - corda
 - configuration
 - file
-title: Configuration fields
+title: Node configuration fields
 weight: 4
 ---
 
-# Configuration fields
+#  Node configuration fields
 
 {{< note >}}
-The available configuration fields are listed below in alphabetic order.
+The available node configuration fields are listed below in alphabetic order.
 {{< /note >}}
 
 ## `additionalP2PAddresses`
@@ -230,8 +230,28 @@ The email address responsible for node administration, used by the Compatibility
 
 ## `enterpriseConfiguration`
 
-Allows fine-grained controls of various features only available in the enterprise version of Corda.
+Allows fine-grained controls of various features only available in the Enterprise version of Corda.
 
+- `maintenanceCustomFlow`
+  - Enables you to configure a single custom flow to be executed during [node maintenance mode]({{< relref "../operating/maintenance-mode.md" >}}). It must contain a single `flowName` parameter, as shown in the following example:
+  
+     ```  
+     enterpriseConfiguration {
+       maintenanceMode {
+         schedule = "00 30 14,15 * * 5"
+         duration = "10m"
+         rpcAuditDataRetentionPeriod = "100d"
+       }
+       maintenanceCustomFlow {
+         flowName = "net.corda.node.maintenance.package.MyFlow"
+       }
+     ```
+  - Note that `maintenanceMode` must also be configured; if `maintenanceMode` is omitted from the configuration or empty, then the flow specified in `maintenanceCustomFlow` will not run.   
+
+- `systemFlowsStuckSkipThreshold`
+
+  - This parameter specifies the number of seconds that a flows can be stuck on a suspension point during [system flows]({{< relref "../../cordapps/system-flows.md" >}}) before it is skipped. Such a flow will skip up to two times: once in checkpoint system flows, then again in startup system flows.
+  
 * `mutualExclusionConfiguration`
   * Enable the protective heartbeat logic so that only one node instance is ever running (hot-cold deployment).
 * `on`
@@ -313,16 +333,16 @@ Allows fine-grained controls of various features only available in the enterpris
     * `senderRetentionPeriodInDays` indicates the number of days a message (sent during normal operation) will be retained. If not specified, it will default to 7 days.
     * In both of these cases, these are sensible defaults and **you should only update them after serious consideration and when advised to do so by R3 support**. Reducing the value of these periods means the node will clean up records more eagerly, so storage from the table will be reclaimed more quickly. However, this also means there is a higher risk of processing some messages more than once.
   * Example:
-  ```
-  {
-      enterpriseConfiguration {
-          processedMessageCleanup {
-              generalRetentionPeriodInDays = 365
-              senderRetentionPeriodInDays = 7
-          }
-      }
-  }
-  ```
+    ```
+    {
+        enterpriseConfiguration {
+            processedMessageCleanup {
+                generalRetentionPeriodInDays = 365
+                senderRetentionPeriodInDays = 7
+            }
+        }
+    }
+    ```
 * `tlsCryptoServiceConfig`
   * Optional crypto service configuration to store node's TLS private key in HSM. If this option is missing, the TLS private key will be stored in the file-based `sslkeystore.jks`.
   * Parameters:
@@ -344,16 +364,14 @@ Allows fine-grained controls of various features only available in the enterpris
     * `reservoirType`: Sets the reservoir type. Valid values are `EDR` (default) and `TIME_WINDOW`. For more information, see the [metrics documentation]({{< relref "../operating/monitoring-and-logging/node-metrics.md" >}}).
     * `timeWindow`: Sets the data gathering duration for `TIME_WINDOW` data reservoirs. If not set, the default is five minutes.
 
-* `tuning` <a name="tuning"> 
-
-    * The Corda Node configuration file section that contains performance tuning parameters for Corda Enterprise nodes.
-
+* `tuning` <a name="tuning">
+    - The Corda Node configuration file section that contains performance tuning parameters for Corda Enterprise nodes.
     - `additionalFlowThreadPools`
 
        * The default Corda Enterprise configuration creates a single thread pool whose size is configured by the *[flowThreadPoolSize]({{< relref "#enterpriseconfiguration" >}})* parameter. You can define *multiple* thread pools and assign flows to them; for example, to prioritize particular flows and to segregate them from other flows. Thread pools are defined by adding an `additionalFlowThreadPools` array within the `tuning` object. The `additionalFlowThreadPools` array can contain one or more objects, each specifying the details of an additional thread pool. Each object contains a `threadpool` and `size` property, respectively defining the name of the thread pool and its size in number of threads.
-       
+
        For more information and examples, see [Setting thread pools]({{< relref "../../cordapps/thread-pools.md" >}}).
-       
+
     - `backchainFetchBatchSize`
 
         * This is an optimization for sharing transaction backchains. Corda Enterprise nodes can request backchain items in bulk instead of one at a time. This field specifies the size of the batch. The value is just an integer indicating the maximum number of states that can be requested at a time during backchain resolution.
@@ -367,10 +385,10 @@ Allows fine-grained controls of various features only available in the enterpris
     - `flowThreadPoolSize`
 
         The number of threads available to handle flows in parallel by the default thread pool. This value does not affect [additional thread pools]({{< relref "../../cordapps/thread-pools.md" >}}). The sum of the sizes of the default thread pool plus all additional thread pools sets the upper limit for the maximum number of flows executable in parallel.
-        
+
         This is the number of flows
   that can run in parallel doing something and/or holding resources like database connections.
-  
+
         Note that this property does not affect the size of additional thread pools as described in [Using additional thread pools]({{< relref "../../cordapps/thread-pools.md" >}}).
 
         A larger number of flows can be suspended; for example, waiting for reply from a counterparty.
@@ -404,9 +422,13 @@ Allows fine-grained controls of various features only available in the enterpris
 
       - The size of the in-memory Artemis buffer for messages, in bytes. Note that there is a lower bound to the buffer size, which is calculated based on the maximum message size of the network parameters to ensure messages of any allowed size can be stored successfully. As a result, any value lower than this bound will be ignored with the appropriate logging. This bound is also used as the default, if no value is specified.
 
+- `runSystemFlowsAtStartup`
+
+   - This Boolean value, if true, forces [system flows]({{< relref "../../cordapps/system-flows.md" >}}) to run at node startup before any user flows. This value must be set to true to enable [automatic ledger recovery]({{< relref "../ledger-recovery/automatic-ledger-recovery.md" >}}).
+
 * `ledgerRecoveryConfiguration`
 
-    * This configuration allows you to tailor Ledger Recovery behavior for your Corda node. It offers flexibility in defining parameters related to key pair pre-generation, backup intervals, and confidential identity backup options. For a detailed description of Ledger Recovery that uses this configuration, see [Ledger Recovery]({{< relref "../ledger-recovery/ledger-recovery.md" >}}).
+    * This configuration allows you to tailor [ledger recovery]({{< relref "../ledger-recovery/ledger-recovery.md" >}}) and including [automatic ledger recovery]({{< relref "../ledger-recovery/automatic-ledger-recovery.md" >}}) behavior for your Corda node. It offers flexibility in defining parameters related to key pair pre-generation, backup intervals, and confidential identity backup options.
 
     - `noOfPreGeneratedKeys`
 
@@ -432,7 +454,7 @@ Allows fine-grained controls of various features only available in the enterpris
           then you receive a confidential identity created on the fly, not a pre-generated one. If you have changed `canProvideNonBackedUpKeyPair` to `false` and if there are no backed-up keys to return, then an exception is raised.
         * *Default:* 0
 
-    - `preGeneratedKeysTopUpInterval`
+    - `preGeneratedKeysTopUpInterval` <a name="recoverymaximumbackupinterval">
 
         * Defines the time interval (in seconds) at which the pre-generated keys are topped up or refreshed.
         * *Default:* 300 seconds
@@ -626,7 +648,7 @@ The New Relic configuration leverages the Dropwizard NewRelicReporter solution.
 The password to unlock the keystore files `<workspace>/certificates/sslkeystore.jks and `<workspace>/certificates/nodestore.jks` containing the node certificate and private key.
 
 {{< important >}} This is the non-secret value for the development certificates automatically generated during the first node run.
-Alternatively, these keys can be managed in secure hardware devices.{{< /important >}} 
+Alternatively, these keys can be managed in secure hardware devices.{{< /important >}}
 
 *Default:* cordacadevpass
 
