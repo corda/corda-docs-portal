@@ -22,11 +22,11 @@ Node maintenance mode is designed in a scalable way - maintenance tasks are disc
 
 The following maintenance tasks are currently supported:
 
-- Perform RPC Audit table clean-up
+- Perform RPC audit table clean-up
 - Run message ID clean-up
-- Ledger Recovery distribution record clean-up
+- Ledger recovery distribution record clean-up
 
-You can also specify a single custom flow to be run as part of maintenance mode.
+You can also specify a single custom flow to be run as part of maintenance mode; see [Configuring custom maintenance flows]({{< relref "#configuring-custom-maintenance-flows" >}})
 
 ## Configuring node maintenance mode
 
@@ -50,9 +50,11 @@ enterpriseConfiguration {
 
 ### Configuring custom maintenance flows
 
-You can configure a single custom flow related to recovery to be run as part of node maintenance mode by configuring the `maintenanceCustomFlow` parameter, which must contain a single `flowName` parameter. 
+You can configure a single custom flow related to recovery to be run as part of node maintenance mode.  To do this, configure the `maintenanceCustomFlow` parameter, which must contain a single `flowName` parameter. 
 
-This could be used, for example, specify periodic launching of the [Ledger Recovery flow]({{< relref "../ledger-recovery/ledger-recovery-flow.md" >}}) to identify if there is a synchronization or consensus issue.
+Note that you cannot specify any parameters for the custom flow. However, the flow will work if it has a parameter or parameters that each have a default value.
+
+This custom flow could be used to, for example, periodic launch the [Ledger Recovery flow]({{< relref "../ledger-recovery/ledger-recovery-flow.md" >}}) to identify if there is a synchronization or consensus issue.
 
 For example:
 
@@ -69,7 +71,7 @@ enterpriseConfiguration {
 }
 ```
 
-Note that `maintenanceMode` must also be configured; if `maintenanceMode` is omitted from the configuration or empty, then the flow specified in `maintenanceCustomFlow` will not run. 
+Note that `maintenanceMode` must also be configured; if `maintenanceMode` is omitted from the configuration or empty, then the custom flow specified in `maintenanceCustomFlow` will not run. 
 
 ### Node maintenance mode configuration parameters
 
