@@ -250,7 +250,7 @@ Allows fine-grained controls of various features only available in the Enterpris
 
 - `systemFlowsStuckSkipThreshold`
 
-  - This parameter specifies the number of seconds that a flows can be stuck on a suspension point during [system flows]({{< relref "../../cordapps/system-flows.md" >}}) before it is skipped. Such a flow will skip up to two times: once in checkpoint system flows, then again in startup system flows.
+  - This parameter specifies the number of seconds that a flows can be stuck on a suspension point during system flows before it is skipped. Such a flow will skip up to two times: once in checkpoint system flows, then again in startup system flows.
   
 * `mutualExclusionConfiguration`
   * Enable the protective heartbeat logic so that only one node instance is ever running (hot-cold deployment).
@@ -424,7 +424,7 @@ Allows fine-grained controls of various features only available in the Enterpris
 
 - `runSystemFlowsAtStartup`
 
-   - This Boolean value, if true, forces [system flows]({{< relref "../../cordapps/system-flows.md" >}}) to run at node startup before any user flows. This value must be set to true to enable [automatic ledger recovery]({{< relref "../ledger-recovery/automatic-ledger-recovery.md" >}}).
+   - This Boolean value, if true, forces system flows to run at node startup before any user flows. This value must be set to true to enable [automatic ledger recovery]({{< relref "../ledger-recovery/automatic-ledger-recovery.md" >}}).
 
 * `ledgerRecoveryConfiguration`
 
