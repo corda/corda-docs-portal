@@ -26,7 +26,7 @@ The following maintenance tasks are currently supported:
 - Run message ID clean-up
 - Ledger recovery distribution record clean-up
 
-You can also specify a single custom flow to be run as part of maintenance mode; see [Configuring custom maintenance flows]({{< relref "#configuring-custom-maintenance-flows" >}})
+You can also specify a single custom flow to be run as part of maintenance mode; see [Configuring custom maintenance flows]({{< relref "#configuring-custom-maintenance-flows" >}}).
 
 ## Configuring node maintenance mode
 
