@@ -14,9 +14,9 @@ weight: 900
 
 # Automatic ledger recovery
 
-[Ledger recovery]({{< relref "ledger-recovery.md" >}}) was introduced to complement normal backup and recovery process. Ledger recovery involves using [the Ledger Recovery flow]({{< relref "ledger-recovery-flow.md" >}}) to enable a node to restore transactions from its peer nodes in the event of local data loss.
+[Ledger recovery]({{< relref "ledger-recovery.md" >}}) was introduced to complement the normal backup and recovery process. Ledger recovery involves using [the Ledger Recovery flow]({{< relref "ledger-recovery-flow.md" >}}) to enable a node to restore transactions from its peer nodes in the event of local data loss.
 
-*Automatic ledger recovery* enables ledger recovery to automatically run as a system flow at the startup of a node. This is done to ensure that the node will synchronize with the rest of its network on a regular basis, at startup, before proceeding to process user and customer CorDapp flows. Any time a node is restarted, the first thing it will do is identify any inconsistencies and repair them automatically (where possible). Any other flows are deferred until the ledger recovery flow is complete.
+*Automatic ledger recovery* enables ledger recovery to automatically run as a `EnterpriseLedgerRecoveryFlow` *system flow* at the startup of a node. (*System flows* are [flows]({{< relref "../../cordapps/api-flows.md" >}}) that run at node startup, before any services flows or user flows; currently, the only system flow supported is `EnterpriseLedgerRecoveryFlow`.) This is done to ensure that the node will synchronize with the rest of its network on a regular basis, at startup, before proceeding to process user and customer CorDapp flows. Any time a node is restarted, the first thing it will do is identify any inconsistencies and repair them automatically (where possible). Any other flows are deferred until the ledger recovery flow is complete.
 
 To turn on automatic ledger recovery, you must at a minimum:
 
