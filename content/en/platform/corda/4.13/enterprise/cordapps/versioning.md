@@ -72,7 +72,6 @@ The table below highlights key features and the corresponding version numbers.
 |Whitelist constraints|3|3|3.0|3.0|
 |Corda serialization framework|3|3|3.0|3.0|
 |Observer nodes|2|2|2.0|n/a|
-|Hash constraints|1|1|1.0|1.0|
 
 {{< /table >}}
 
