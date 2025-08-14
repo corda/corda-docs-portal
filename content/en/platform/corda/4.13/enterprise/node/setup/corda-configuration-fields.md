@@ -232,6 +232,9 @@ The email address responsible for node administration, used by the Compatibility
 
 Allows fine-grained controls of various features only available in the Enterprise version of Corda.
 
+- `smmStartMode`
+  - Enables you to [pause all nodes]({{< relref "../../flow-pause-and-resume.md" >}}) when they are restarted by setting this option to `"safe"`.
+  
 - `maintenanceCustomFlow`
   - Enables you to configure a single custom flow to be executed during [node maintenance mode]({{< relref "../operating/maintenance-mode.md" >}}). It must contain a single `flowName` parameter, as shown in the following example:
   
@@ -246,11 +249,11 @@ Allows fine-grained controls of various features only available in the Enterpris
          flowName = "net.corda.node.maintenance.package.MyFlow"
        }
      ```
-  - Note that `maintenanceMode` must also be configured; if `maintenanceMode` is omitted from the configuration or empty, then the flow specified in `maintenanceCustomFlow` will not run.   
+  - Note that `maintenanceMode` must also be configured; if `maintenanceMode` is omitted from the configuration or empty, then the flow specified in `maintenanceCustomFlow` will not run.  
 
 - `systemFlowsStuckSkipThreshold`
 
-  - This parameter specifies the number of seconds that a flows can be stuck on a suspension point during system flows before it is skipped. Such a flow will skip up to two times: once in checkpoint system flows, then again in startup system flows.
+  - This parameter specifies the number of seconds that a [system flow]]({{< relref "../../cordapps/system-flows.md" >}}) can be stuck on a suspension point during the system flow phase before it is skipped. Such a flow will skip up to two times: once in checkpoint system flows, then again in startup system flows.
   
 * `mutualExclusionConfiguration`
   * Enable the protective heartbeat logic so that only one node instance is ever running (hot-cold deployment).
