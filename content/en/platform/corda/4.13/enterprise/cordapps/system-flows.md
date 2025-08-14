@@ -42,8 +42,8 @@ Once a node is configured to run system flows at startup, the following sequence
 3. If there are paused flows, unpausing flows during the system flow phase will only unpause system flows. 
 4. If a system flow gets stuck on a suspension point during the system flow phase for longer than the value (in seconds) of the `systemFlowsStuckSkipThreshold` configured in the [node configuration]({{< relref "../node/setup/corda-configuration-fields.md#enterpriseconfiguration" >}}), it will skip up to two times: once for checkpoint system flows and then again for startup system flows (each system flow is checked for being stuck every one minute).
 4. If the node is configured with the "[pause all flows]({{< relref "../flow-pause-and-resume.md#starting-the-node-and-pausing-all-flows" >}})" option (`smmStartMode="Safe"`) or flow draining mode is on, then system flows will not run at startup.
-5. While system flows at startup are running, if an RPC flow is started, it will be blocked until the system flows have finished.
-6. Flows annotated with `@SystemFlow` should be able to start from RPC as normal during the the system flow phase.
-7. After the startup system flows finish, then user and non-system checkpointed flows will run, after the `SystemFlowsPhaseCompleted` event is distributed.
-9. Once system flows have finished, a `SystemFlowsPhaseCompleted` event is produced, and the metric `SystemFlows.Phase` is recorded, with values CHECKPOINT, STARTUP and USER in this order (only the latest metric is recorded).
-8. Unpausing after the system flow phase is complete will unpause only user and non-system flows.
+5. While system flows at startup are running, if [a flow is started via RPC]({{< relref "../api-rpc.md" >}}), it will be blocked until the system flows have finished.
+6. Flows annotated with `@SystemFlow` can be started via RPC during the the system flow phase.
+7. Once system flows have finished, a `SystemFlowsPhaseCompleted` event is produced, and the metric `SystemFlows.Phase` is recorded, with values CHECKPOINT, STARTUP and USER in this order (only the latest metric is recorded).
+8. After the startup system flow phase ends and the `SystemFlowsPhaseCompleted` event is distributed, user and non-system checkpointed flows will run.
+9. [Resuming or retrying nodes]({{< relref "../flow-pause-and-resume.md" >}}) after the system flow phase ends will resume/retry only user and non-system flows.
