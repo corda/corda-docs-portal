@@ -32,8 +32,10 @@ The Network Bootstrapper automates the processes of creating and distributing th
 - **node-info file:** A file containing information about the node.
 - **Compatibility zone constraint:**  The compatibility zone operator lists the hashes of CorDapp versions that a contract class name can use.
 - **Signature constraint:** A contract class can use any version of a CorDapp that is signed by a given `CompositeKey`.
-- **Hash constraint:** Only one version of a CorDapp can be used with a specific state.
 
+{{< note >}}
+Hash constraints were removed in Corda 4.12 for security reasons.
+{{</ note >}} 
 
 ## Test deployments
 

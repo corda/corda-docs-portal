@@ -267,7 +267,7 @@ As a next step, you might like to try setting up a test where Bob sends this cas
 
 ## Testing Corda 4.11 to 4.12 migration
 
-To create a transaction that is backward compatible with Corda 4.11 nodes requires attaching both the 4.11 and 4.12 contract JARs. Since a state can only have one attachment constraint, you cannot use hash constraints because they can only match one of the contracts. Therefore, backward-compatible transactions must use signature constraints, where both contract JARs are signed by a common signer. This ensures that the same signature constraint satisfies both the legacy and current transaction components.
+To create a transaction that is backward compatible with Corda 4.11 nodes requires attaching both the 4.11 and 4.12 contract JARs. Since a state can only have one attachment constraint, you cannot use hash constraints because they can only match one of the contracts and were removed in Corda 4.12. Therefore, backward-compatible transactions must use signature constraints, where both contract JARs are signed by a common signer. This ensures that the same signature constraint satisfies both the legacy and current transaction components.
 
 The problem comes during development and testing. The signing of the CorDapp may be not be possible during development but just before a release: for example, because the signing process uses a HSM. Therefore, you must be able to test that your Corda 4.11 to 4.12 migration works. You can do it using the node driver.
 
