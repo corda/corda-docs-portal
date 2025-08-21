@@ -26,6 +26,7 @@ title: Release notes
 - Fixed an issue where setting `certificates.key.type` to `AZURE_MSAL_KEY_VAULT_HSM` in the PKI tool configuration file was generating an error. <!--ENT-13898 -->
 - The [shell Signing Service]({{< relref "shell.md#signing-service" >}}) `clientHealthCheck` health checks now work correctly across all service types. <!-- ENT-13897 -->
 - Fixed an issue where an incorrect error message "No NETWORK_MAP type signing process set up" appeared when displaying unsigned network parameters data via the CENM tool. <!-- ENT-13920 -->
+- Fixed various issues related to CENM deployment using Docker, Kubernetes, and Helm charts. <!-- ENT-13988 and ENT-14010 -->
 
 ### Upgraded dependencies
 
