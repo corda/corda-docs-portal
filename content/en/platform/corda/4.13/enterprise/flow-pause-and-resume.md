@@ -108,19 +108,19 @@ To pause all hospitalised flows, call `pauseAllHospitalizedFlows`:
 val status = flowClient.proxy.pauseAllHospitalizedFlows()
 ```
 
-To retry a flow, call `retryFlow`:
+To unpause or retry a flow, call `retryFlow`:
 
 ```kotlin
 val status = flowClient.proxy.retryFlow(flowHandle.id)
 ```
 
-To retry all paused flows call `retryAllPausedFlows`:
+To unpause or retry all paused flows, call `retryAllPausedFlows`:
 
 ```kotlin
 val status = flowClient.proxy.retryAllPausedFlows()
 ```
 
-To retry all hospitalized flows that are paused call `retryAllPausedHospitalized`:
+To unpause or retry all hospitalized flows that are paused, call `retryAllPausedHospitalized`:
 
 ```kotlin
 val status = flowClient.proxy.retryAllPausedHospitalized()
