@@ -408,6 +408,9 @@ override val legacyContractConstraint: AttachmentConstraint
     get() = HashAttachmentConstraint(SecureHash.parse("E02BD2B9B010BBCE49C0D7C35BECEF2C79BEB2EE80D902B54CC9231418A4FA0C"))
 ```
 
+{{< note >}}
+Hash constraints were removed in Corda 4.12 for security reasons.
+{{</ note >}}
 
 #### 3. Create the new CorDapp JAR
 

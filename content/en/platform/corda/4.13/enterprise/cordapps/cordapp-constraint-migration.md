@@ -27,6 +27,10 @@ Faced with the exercise of upgrading an existing Corda 3.x CorDapp to Corda 4, y
 
 If you have existing hash constrained states, see [Migrating hash constraints](#migrating-hash-constraints).
 
+{{< note >}}
+Hash constraints were removed in Corda 4.12 for security reasons.
+{{</ note >}}
+
 If you have existing CZ whitelisted constrained states, see [Migrating CZ whitelisted constraints](#migrating-cz-whitelisted-constraints).
 
 If you have existing **always accept** constrained states, these are not consumable nor evolvable as they offer no security and should only be used in test environments.
@@ -62,6 +66,10 @@ the original unsigned CorDapp and re-issuing them using the new signed CorDapp).
 {{< note >}}
 These instructions only apply to CorDapp Contract JARs (unless otherwise stated).
 {{< /note >}}
+
+{{< note >}}
+Hash constraints were removed in Corda 4.12 for security reasons.
+{{</ note >}}
 
 ### Corda 4.10
 
