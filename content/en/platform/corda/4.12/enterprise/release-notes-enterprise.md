@@ -23,9 +23,31 @@ Corda Enterprise Edition 4.12.6 is a patch release of Corda Enterprise Edition f
 
 ### Upgrade recommendation
 
+{{< important >}}
+When upgrading a node to Corda 4.12, it is extremely important that you run the Transaction Validator Utility on your node database to verify that the transactions in the old node are compatible with 4.12 nodes.
 
+To ensure compatibility of the transactions, you must also run the Transaction Validator Utility on any older nodes that are not being upgraded and will likely interact with any upgraded nodes.
+
+For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
+{{< /important >}}
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Corda Enterprise Edition 4.11 to 4.12 upgrade guide]({{< relref "upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
 
 ### Fixed issues
+
+- On extremely rare occasions, a message may get stuck in Artemis. This issue has been reported to the Artemis team. As a workaround, Corda now automatically detects when this happens and resends the message. <!-- ENT-12803 -->
+
+- Previously, the wrong legacy attachment was being selected when searching for a missing class. Now, the legacy attachment JARs for any missing class must also be present in the `legacy-contracts` folder.
+ 
+  In more detail: previously, the attachment storage table was searched for an attachment containing the missing class. The only check performed was to make sure this attachment was not also in the `cordapps` folder. If it was not in the `cordapps` folder, it was assumed it was a legacy attachment. But this ignores the fact that there could be multiple JDK17 attachments in the database (the same CorDapp but different versions), with only the latest one in the `cordapps` folder.
+  
+  Now, the attachments table is checked but filtered against the contents of the `legacy-contracts` folder. <!-- ENT-12595 -->
+  
+- `newrelic-api.jar` is no longer bundled within `corda.jar`. New Relic functionality is unchanged: if the New Relic library is present on the classpath and properly configured, metrics will still be reported as before. <!-- ENT-14070 -->
+
+-  Previously, the flow `recoverAllFinalityFlows` did not treat inactive flows as active. This behavior has been corrected. <!-- ENT-13814 --> 
 
 ### Third-party components upgrade
 
