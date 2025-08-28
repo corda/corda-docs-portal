@@ -20,6 +20,43 @@ tags:
 
 # Corda Open Source Edition 4.12 release notes
 
+## Corda Open Source Edition 4.12.6 release notes
+
+Corda Open Source Edition 4.12.6 is a patch release of Corda Open Source Edition focused on addressing issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../community/_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Corda Open Source Edition 4.11 to 4.12 upgrade guide]({{< relref "comm-upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
+
+### Fixed issues
+
+- Previously, the wrong legacy attachment was being selected when searching for a missing class. Now, the legacy attachment JARs for any missing class must also be present in the `legacy-contracts` folder.
+ 
+  In more detail: previously, the attachment storage table was searched for an attachment containing the missing class. The only check performed was to make sure this attachment was not also in the `cordapps` folder. If it was not in the `cordapps` folder, it was assumed it was a legacy attachment. But this ignores the fact that there could be multiple JDK17 attachments in the database (the same CorDapp but different versions), with only the latest one in the `cordapps` folder.
+  
+  Now, the attachments table is checked but filtered against the contents of the `legacy-contracts` folder. <!-- ENT-12595 -->
+  
+- `newrelic-api.jar` is no longer bundled within `corda.jar`. New Relic functionality is unchanged: if the New Relic library is present on the classpath and properly configured, metrics will still be reported as before. <!-- ENT-14070 -->
+
+### Third-party components upgrade
+
+This table highlights the differences in dependency versions between
+Corda Open Source 4.12.5 and 4.12.6. Dependencies with unchanged versions
+are omitted. If a dependency was introduced in 4.12.6 (that it, not present
+in 4.12.5) or removed in 4.12.6, the corresponding version cell is left
+blank.
+
+ Dependency                         | Name         |  4.12.5 Enterprise   |  4.12.6 Enterprise
+-------------------------------------|--------------|----------------------|--------------------
+org.apache.activemq:\*               | Artemis      |  2.36.0              |  2.42.0
+commons-beanutils:commons-beanutils  | beanutils    |  1.9.4               |  1.11.0
+com.github.docker-java:docker-java   | docker Java  |  3.2.5               |  3.5.1
+org.apache.logging.log4j:\*          | Log4j        |  2.23.0              |  2.24.3
+io.netty:\*                          | Netty        |  4.1.115.Final       |  4.1.122.Final
+
+
 ## Corda Open Source Edition 4.12.5 release notes
 
 Corda Open Source Edition 4.12.5 is a patch release of Corda Open Source Edition focused on upgrading dependencies to address security updates.
