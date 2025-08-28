@@ -22,7 +22,7 @@ tags:
 
 ## Corda Open Source Edition 4.12.6 release notes
 
-Corda Open Source Edition 4.12.6 is a patch release of Corda Open Source Edition focused on addressing issues.
+Corda Open Source Edition 4.12.6 is a patch release of Corda Open Source Edition focused on resolving issues and upgrading dependencies to address security updates.
 
 ### Upgrade recommendation
 
@@ -44,11 +44,9 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 
 This table highlights the differences in dependency versions between
 Corda Open Source 4.12.5 and 4.12.6. Dependencies with unchanged versions
-are omitted. If a dependency was introduced in 4.12.6 (that it, not present
-in 4.12.5) or removed in 4.12.6, the corresponding version cell is left
-blank.
+are omitted.
 
- Dependency                         | Name         |  4.12.5 Enterprise   |  4.12.6 Enterprise
+  Dependency                         | Name         |  4.12.5 Enterprise   |  4.12.6 Enterprise
 -------------------------------------|--------------|----------------------|--------------------
 org.apache.activemq:\*               | Artemis      |  2.36.0              |  2.42.0
 commons-beanutils:commons-beanutils  | beanutils    |  1.9.4               |  1.11.0

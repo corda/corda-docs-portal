@@ -19,7 +19,7 @@ weight: 10
 
 ## Corda Enterprise Edition 4.12.6 release notes
 
-Corda Enterprise Edition 4.12.6 is a patch release of Corda Enterprise Edition focused on resolving issues.
+Corda Enterprise Edition 4.12.6 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
 
 ### Upgrade recommendation
 
@@ -52,8 +52,7 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 ### Third-party components upgrade
 
 The following table lists the dependency version changes between 4.12.5 and 4.12.6 Enterprise Editions. Dependencies with unchanged versions
-are omitted. If a dependency was introduced in 4.12.6 (that is, not present in 4.12.5) or removed in 4.12.6, the corresponding version cell is left
-blank.
+are omitted. 
 
  Dependency                          | Name         | 4.12.5 Enterprise    |  4.12.6 Enterprise
 -------------------------------------|--------------|----------------------|---------------

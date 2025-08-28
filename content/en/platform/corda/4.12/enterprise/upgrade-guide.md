@@ -193,10 +193,6 @@ When operating a network with nodes running different versions of Corda, you mus
 
 However, in both scenarios, you must keep a copy of the old CorDapp contracts JAR file. This file may be required if new Corda 4.12 nodes are introduced into a network containing nodes that have previously been upgraded. For steps describing adding a new node to an existing network of Corda 4.12 containing previously upgraded nodes, see [Adding new 4.12 nodes]({{< relref "#adding-new-412-nodes" >}}).
 
-When creating a transaction, it is the responsibility of the transaction builder to make sure the transaction has all required JARs attached to it. For example, if a contract JAR depends on a class in `xyz.jar` then that JAR should also be attached to the transaction for verification.
-
-If the above is not the case, then Corda tries to assist here. For example, if a class is not found when verifying a transaction, Corda will search the `cordapps` folder for other JARs containing the required class, and then attach the relevant JAR. This would be the case for a 4.12 contract JAR. When attaching the legacy contract to the transaction, Corda will look for a suitable class from the `legacy-contracts` folder.  That is to say, it would look for `xyz.jar` (the JDK8 version) from the `legacy-contracts` folder. Therefore, you must ensure the JDK8 version of `xyz.jar` is in the `legacy-contracts` directory.
-
 #### Legacy contracts
 
 Corda 4.12 introduces the concept of *legacy contracts*. A new `legacy-contracts` folder is required when operating a network where not all nodes are running Corda 4.12.
@@ -241,6 +237,10 @@ After upgrade:
 To ensure compatibility, you must keep the legacy contracts. When a node operating on a prior version of Corda 4.x wants to transact with a Corda 4.12 node, the 4.12 node identifies an old contract version attached to the transaction. To verify this old contract, Corda 4.12 initiates the external verifier process, which starts a new external process running Kotlin 1.2. Making use of the external verifier process is how a 4.12 node can verify transactions from 4.11 or earlier nodes.
 
 Similarly, when a 4.12 node creates a transaction, it adds a 4.12 contract into a new component group of the transaction, reserving the existing component group for the 4.11 contract. Consequently, when a 4.11 contract gets attached to the transaction, it ends up with two sets of contract attachments (JARs): the legacy one and the new 4.12 contract. If this transaction is received by a node not running Corda 4.12, the node lacks awareness of the new component group. It disregards the 4.12 contract and proceeds to verify the legacy contract instead, which is then stored in the database.
+
+When creating a transaction, it is the responsibility of the transaction builder to make sure the transaction has all required JARs attached to it. For example, if a contract JAR depends on a class in `xyz.jar` then that JAR should also be attached to the transaction for verification.
+
+If the above is not the case, then Corda tries to assist here. For example, if a class is not found when verifying a transaction, Corda will search the `cordapps` folder for other JARs containing the required class, and then attach the relevant JAR. This would be the case for a 4.12 contract JAR. When attaching the legacy contract to the transaction, Corda will look for a suitable class from the `legacy-contracts` folder.  That is to say, it would look for `xyz.jar` (the JDK8 version) from the `legacy-contracts` folder. Therefore, you must ensure the JDK8 version of `xyz.jar` is in the `legacy-contracts` directory.
 
 ### Add the `legacy-jars` folder, if required
 
