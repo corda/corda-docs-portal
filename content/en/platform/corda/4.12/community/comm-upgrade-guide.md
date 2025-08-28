@@ -128,6 +128,10 @@ When operating a network with nodes running different versions of Corda, you mus
 
 However, in both scenarios, you must keep a copy of the old CorDapp contracts JAR file. This file may be required if new Corda 4.12 nodes are introduced into a network containing nodes that have previously been upgraded. For steps describing adding a new node to an existing network of Corda 4.12 containing previously upgraded nodes, see [Adding new 4.12 nodes]({{< relref "#adding-new-412-nodes" >}}).
 
+When creating a transaction, it is the responsibility of the transaction builder to make sure the transaction has all required JARs attached to it. For example, if a contract JAR depends on a class in `xyz.jar` then that JAR should also be attached to the transaction for verification.
+
+If the above is not the case, then Corda tries to assist here. For example, if a class is not found when verifying a transaction, Corda will search the `cordapps` folder for other JARs containing the required class, and then attach the relevant JAR. This would be the case for a 4.12 contract JAR. When attaching the legacy contract to the transaction, Corda will look for a suitable class from the `legacy-contracts` folder.  That is to say, it would look for `xyz.jar` (the JDK8 version) from the `legacy-contracts` folder. Therefore, you must ensure the JDK8 version of `xyz.jar` is in the `legacy-contracts` directory.
+
 #### Legacy contracts
 
 Corda 4.12 introduces the concept of *legacy contracts*. A new `legacy-contracts` folder is required when operating a network where not all nodes are running Corda 4.12.
