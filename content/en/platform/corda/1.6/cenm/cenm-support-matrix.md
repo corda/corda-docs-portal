@@ -50,7 +50,7 @@ CENM currently supports the following databases:
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
 |Oracle|x86-64|11gR2|Oracle JDBC 6 |
 |Oracle|x86-64|23ai (23.4)|Oracle JDBC 8 |
-|PostgreSQL|x86-64|12.19, 13.15, 14.12, 15.7, 16.3|PostgreSQL JDBC Driver 42.1.4 / 42.5.2|
+|PostgreSQL|x86-64|12.x, 13.x, 14.x, 15.x, 16.x|PostgreSQL JDBC Driver 42.1.4 / 42.5.2|
 
 ## JDK support
 
@@ -103,6 +103,6 @@ for your deployment needs.
 |Microsoft|x86-64|Azure SQL, SQL Server 2022|Microsoft JDBC Driver 6.4|
 |Oracle|x86-64|11gR2|Oracle JDBC 6|
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
-|PostgreSQL|x86-64|12.19, 13.3, 13.15, 14.12, 15.7, 16.3|PostgreSQL JDBC Driver 42.5.2|
+|PostgreSQL|x86-64|12.x, 13.x, 14.x, 15.x, 16.x|PostgreSQL JDBC Driver 42.5.2|
 
 {{< /table >}}
