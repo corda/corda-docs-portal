@@ -59,13 +59,13 @@ Corda nodes operate with the following assumptions on the certificates hierarchy
   The length of the certificate chain can be arbitrary. As such, there can be any number of certificates between the Identity Manager Service and Network Map Service certificates as long
   as they root to the same certificate.
 * They need to have a custom extension defining the role of the certificate in the context of Corda. See
-  [here]({{< relref "../../../../../en/platform/corda/4.8/enterprise/network/permissioning.md#certificate-role-extension" >}}) for more details.
+  [here]({{< relref "../../4.10/enterprise/network/permissioning.md#certificate-role-extension" >}}) for more details.
 
 
 Other than that, Corda nodes stay agnostic to the certificate hierarchy (in particular the depth of the certificate hierarchy tree).
 
 ![hierarchy agnostic](/en/images/hierarchy-agnostic.png "hierarchy agnostic")
-At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found [here]({{< relref "../../../../../en/platform/corda/4.8/enterprise/network/permissioning.md" >}}).
+At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found [here]({{< relref "../../4.10/enterprise/network/permissioning.md" >}}).
 
 
 ### Certificate revocation list (CRL)
@@ -129,9 +129,9 @@ Certificate revocation is typically required if a certificate was incorrectly is
 **What is the recommended configuration for the CRL?*
 
 You should use a High Availability deployment in order to avoid any impact caused by temporary downtimes.
-See [Identity Manager service]({{< relref "../../../../../en/platform/corda/1.5/cenm/identity-manager.md" >}}) for an example configuration of such a deployment.
+See [Identity Manager service]({{< relref "identity-manager.md" >}}) for an example configuration of such a deployment.
 
-See [Certificate Revocation List]({{< relref "../../../../../en/platform/corda/1.5/cenm/certificate-revocation.md" >}}) for instructions on revoking certificates, and [Signing services]({{< relref "../../../../../en/platform/corda/1.5/cenm/signing-service.md" >}}) for
+See [Certificate Revocation List]({{< relref "certificate-revocation.md" >}}) for instructions on revoking certificates, and [Signing services]({{< relref "signing-service.md" >}}) for
 configuration of the Signing Service for CRLs (especially the `updatePeriod` option).
 
 
@@ -274,6 +274,6 @@ is only required to provide only essential information to the tool. At the same 
 defaults and have the configuration adjusted to the specific needs of different scenarios.
 
 {{< note >}}
-To learn more about running the tool, see [Public key infrastructure (PKI) tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/pki-tool.md" >}}).
+To learn more about running the tool, see [Public key infrastructure (PKI) tool]({{< relref "pki-tool.md" >}}).
 
 {{< /note >}}

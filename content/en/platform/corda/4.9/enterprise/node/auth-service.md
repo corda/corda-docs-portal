@@ -87,10 +87,10 @@ When you create your config file, you establish its connection to your [Gateway 
 
 In the sample below, you can see the initial configuration process:
 
-1. [Database configuration]({{< relref "../../../../../../en/platform/corda/1.5/cenm/database-set-up.md" >}}). Add the name, address and login credentials for the SQL database that supports the Auth Service.
+1. [Database configuration]({{< relref "../../../1.5/cenm/database-set-up.md" >}}). Add the name, address and login credentials for the SQL database that supports the Auth Service.
 
 {{<note>}}
-If multiple CENM instances are connected to the same database, setting `lockResolutionStrategy` to `SingleInstance` can cause startup problems and/or database corruption. For more information, see the [database configuration options]({{< relref "../../../../../../en/platform/corda/1.5/cenm/config-database.md" >}}).
+If multiple CENM instances are connected to the same database, setting `lockResolutionStrategy` to `SingleInstance` can cause startup problems and/or database corruption. For more information, see the [database configuration options]({{< relref "../../../1.5/cenm/config-database.md" >}}).
 {{</note>}}
 
 2. JSON Web Key configuration. Set the user name, password, and location of the RSA keypair store for signing. The location must be the absolute path.

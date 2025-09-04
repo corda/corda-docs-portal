@@ -16,7 +16,7 @@ These patch releases address the Log4j vulnerability discovered December 9, 2021
 
 A patch has been released to move dependencies to Log4j 2.17.1 for Corda Enterprise 4.8.6.
 
-You can find more information about this patch release in the [Corda Enterprise 4.8 release notes]({{< relref "../../../corda/4.8/enterprise/release-notes-enterprise.md" >}}).
+You can find more information about this patch release in the [Corda Enterprise 4.8 release notes]({{< relref "../../4.8/enterprise/release-notes-enterprise.md" >}}).
 
 
 ### Update February 1 2022
