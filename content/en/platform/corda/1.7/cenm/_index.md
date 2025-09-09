@@ -113,7 +113,3 @@ For a quick start guide on deploying Corda Enterprise Network Manager services a
 * [Public Key Infrastructure (PKI) specifications]({{< relref "pki-specifications.md" >}})
 * [Certificate hierarchy guide]({{< relref "pki-guide.md" >}})
 * [Public key infrastructure (PKI) tool]({{< relref "pki-tool.md" >}})
-
-## Signing Plug-in Samples
-
-* [EJBCA sample plug-in]({{< relref "ejbca-plugin.md" >}})

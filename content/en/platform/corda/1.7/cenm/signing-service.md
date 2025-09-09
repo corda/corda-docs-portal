@@ -1961,10 +1961,6 @@ Once the signing is done, the plug-in will return a `COMPLETED` status immediate
 This means that this example does not utilise the asynchronous signing completely - so, there will be no `PENDING` status.
 However, the tracking ID will still be returned and the request can be tracked via the tracking functions.
 
-### Other sample plugins
-
-See [EJBCA sample plugin]({{< relref "ejbca-plugin.md" >}}) for sample open source CA implementation.
-
 ### Admin RPC interface
 
 To enable the CENM Command-Line Interface (CLI) tool to send commands to the Signing Service,
