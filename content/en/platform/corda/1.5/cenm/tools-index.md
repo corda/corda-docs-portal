@@ -17,7 +17,7 @@ A small number of tools and utilities are available to help with setting up, run
 
 ## Public Key Infrastructure
 
-* [Public key infrastructure (PKI) tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/pki-tool.md" >}})
+* [Public key infrastructure (PKI) tool]({{< relref "pki-tool.md" >}})
 
 ## Node Certificate Rotation Tool
 
@@ -27,15 +27,15 @@ For more information about this feature, contact your R3 account manager.
 
 ## General running of network
 
-* [Certificate revocation request submission tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/tool-crr-submission.md" >}})
+* [Certificate revocation request submission tool]({{< relref "tool-crr-submission.md" >}})
 
 ## Operations and administration
 
-* [CENM Command-line Interface]({{< relref "../../../../../en/platform/corda/1.5/cenm/cenm-cli-tool.md" >}})
-* [CENM User Admin tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/user-admin.md" >}})
-* [CENM management console]({{< relref "../../../../../en/platform/corda/1.5/cenm/cenm-console.md" >}})
+* [CENM Command-line Interface]({{< relref "cenm-cli-tool.md" >}})
+* [CENM User Admin tool]({{< relref "user-admin.md" >}})
+* [CENM management console]({{< relref "cenm-console.md" >}})
 
 ## Other Tools
 
-* [Config obfuscation tool]({{< relref "../../../../../en/platform/corda/4.8/enterprise/tools-config-obfuscator.md" >}})
-* [CRL Endpoint Check Tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/crl-endpoint-check-tool.md" >}})
+* [Config obfuscation tool]({{< relref "../../4.10/enterprise/tools-config-obfuscator.md" >}})
+* [CRL Endpoint Check Tool]({{< relref "crl-endpoint-check-tool.md" >}})

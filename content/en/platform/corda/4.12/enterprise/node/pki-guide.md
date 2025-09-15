@@ -55,11 +55,8 @@ as they root to the same certificate.
 Other than that, Corda nodes stay agnostic to the certificate hierarchy (in particular the depth of the certificate hierarchy tree).
 
 {{< figure alt="hierarchy agnostic" width=80% zoom="../resources/hierarchy-agnostic.png" >}}
-<<<<<<< HEAD
-At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found in the [Certificate hierarchy guide]({{< relref "../network/permissioning.md#certificate-hierarchy" >}}).
-=======
+
 At the time of writing this document, a Corda network assumes the certificate hierarchy that can be found in the [Certificate hierarchy guide]({{< relref "../network/permissioning.md#certificate-hierarchy" >}}).
->>>>>>> 49aa4f23fc7839a731cb7bd1dd7dfeb5ca24eb47
 
 
 ### Certificate Revocation List
@@ -135,6 +132,5 @@ is only required to provide only essential information to the tool. At the same 
 defaults and have the configuration adjusted to the specific needs of different scenarios.
 
 {{< note >}}
-To learn more about running the tool, see the documentation on the [Public key infrastructure (PKI) tool]({{< relref "../../../../../../en/platform/corda/1.6/cenm/pki-tool.md" >}}).
-
+To learn more about running the tool, see the documentation on the [Public key infrastructure (PKI) tool]({{< relref "../../../1.6/cenm/pki-tool.md" >}}).
 {{< /note >}}
