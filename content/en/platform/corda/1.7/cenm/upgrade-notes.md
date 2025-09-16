@@ -33,4 +33,17 @@ Before you start the upgrade, you must consult the [CENM Release Notes]({{< relr
 
 ## 1.6.x to 1.7
 
-TO DO
+Note that when upgrading to CENM 1.7, JDK 17 must be used.
+
+The following services require migration:
+
+- Identity Manager 
+- Network Map
+- Zone 
+- Auth 
+
+To enable database migration:
+
+- Set `runMigration` to true in the database configuration. 
+
+If a service is connecting to a database with a restricted user, you must temporarily change the service settings to connect with a privileged user (that is, a user able to modify a database schema).
