@@ -19,16 +19,13 @@ title: Release notes
 ### New features and enhancements
 
 - CENM now supports JDK Azul 8uXXX and Oracle JDK 8uXXX (fill later).
-CENM now supports the following PostgreSQL versions: 12.22, 13.22, 14.19, 15.14, 16.10 (double check later). <!-- ENT 14086 --> 
+- CENM now supports the following PostgreSQL versions: 12.22, 13.22, 14.19, 15.14, 16.10 (double check later). <!-- ENT 14086 --> 
 
 ### Fixed issues
 
 - Fixed various issues related to CENM deployment using Docker, Kubernetes, and Helm charts. <!-- ENT-14010 -->
-
-- Fixed incorrect error messages appearing when displaying unsigned Network Parameters data via the CENM Tool. <!-- ENT 13944 -->
-
+- Fixed an issue where an incorrect error message "No NETWORK_MAP type signing process set up" appeared when displaying unsigned network parameters data via the CENM tool. <!-- ENT 13944 -->
 - The [shell Signing Service]({{< relref "shell.md#signing-service" >}}) `clientHealthCheck` health checks now work correctly across all service types.  <!-- ENT 13942 -->
-
 - Fixed an issue where setting `certificates.key.type` to `AZURE_MSAL_KEY_VAULT_HSM` in the PKI tool configuration file was generating an error. <!--ENT-13898 -->
 
 ## Corda Enterprise Network Manager 1.6.2
