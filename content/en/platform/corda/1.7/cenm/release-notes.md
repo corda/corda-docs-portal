@@ -21,8 +21,8 @@ title: Release notes
 - This release introduces upgrades to the Java and Kotlin versions, along with associated upgrade support. In this release:
   - Java has been upgraded from Java 8 to **Java 17.0.16**
   - Kotlin has been upgraded from Kotlin 1.3.72 to **Kotlin 1.9.23**
-- The PKI tool configuration file now has an optional `subjectAlternativeNames` field to add subject alternative names to certificates as a list. <!--ENT-13318 -->
 - The PKI tool can now generate certificates and keys using all supported algorithms, including  RSA, ECDSA (secp256k1 and secp256r1) and EdDSA (Ed25519). <!--ENT-13741-->
+- The node management console and flow management console are now bundled in the CENM release pack. Previously they were distributed as part of Corda Enterprise.
 
 ### Fixed issues
  
