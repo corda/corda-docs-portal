@@ -97,15 +97,15 @@ The following table lists the dependency version changes between CENM 1.6.3 and 
   org.testcontainers                                   | Test Containers                   | 1.15.2           |  1.20.6
   org.yaml:snakeyaml                                   | Snake YAML                        | 2.3              |  2.4
 
-* CENM now supports JDK Azul 8u422 and Oracle JDK 8u421.
+* CENM now supports JDK Zulu 17.0.16 and Oracle 17.0.16.
 * CENM now supports version 9.x of the Red Hat Enterprise Linux production operating system.
-* CENM now supports Ubuntu Linux production operating system versions 20.04, 22.04, 24.04.
+* CENM now supports Ubuntu Linux production operating system versions: 20.04, 22.04, 24.04.
 * CENM now supports the following databases:
-  * Microsoft version: SQL Server 2022.
-  * Oracle version: 23.4.
-  * PostgreSQL versions: 12.19, 13.3, 13.15, 14.12, 15.7, 16.3.
+  * Microsoft version: SQL Server 2022
+  * Oracle version: 23.4
+  * PostgreSQL versions: 12.x, 13.x, 14.x, 15.x, 16.x
 * CENM now supports the following node databases:
-  * Microsoft version: SQL Server 2022.
-  * PostgreSQL versions: 12.19, 13.3, 13.15, 14.12, 15.7, 16.3.
+  * Microsoft version: SQL Server 2022
+  * PostgreSQL versions: 12.x, 13.x, 14.x, 15.x, 16.x
 
 For more information about CENM dependencies, see [CENM support matrix]({{< relref "cenm-support-matrix.md" >}}).
