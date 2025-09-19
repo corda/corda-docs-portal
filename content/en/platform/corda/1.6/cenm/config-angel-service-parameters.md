@@ -42,7 +42,7 @@ The path to the network parameters file. This is the plain-text version of the n
   *(Optional - defaults to one of: `identitymanager.jar`, `networkmap.jar`, `signer.jar`)* The path to the service JAR.
 
   * **ssl**:
-    See [SSL settings]({{< relref "../../../../../en/platform/corda/1.6/cenm/config-ssl.md" >}}).
+    See [SSL settings]({{< relref "config-ssl.md" >}}).
 
   * **pluginJar**:
   *(Optional)* The absolute path to the JAR file of the workflow plugin.
@@ -170,4 +170,4 @@ zone = {
 ## Obfuscated configuration files
 
 To view the latest changes to the obfuscated configuration files,
-see [Obfuscation configuration file changes]({{< relref "../../../../../en/platform/corda/1.6/cenm/obfuscated-config-file-changes.md" >}}).
+see [Obfuscation configuration file changes]({{< relref "obfuscated-config-file-changes.md" >}}).

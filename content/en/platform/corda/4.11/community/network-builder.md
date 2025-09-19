@@ -24,7 +24,7 @@ containers to abstract the complexity of managing a distributed network away fro
 {{< figure alt="network builder v4" width=80% zoom="/en/images/network-builder-v4.png" >}}
 The network you build will either be made up of local `Docker` nodes *or* of nodes spread across Azure
 containers.
-For each node a separate Docker image is built based on [corda/corda-zulu-java1.8-4.4](https://hub.docker.com/r/corda/corda-zulu-java1.8-4.4).
+For each node a separate Docker image is built based on [corda/community:4.11.5-zulu-openjdk8](https://hub.docker.com/layers/corda/community/4.11.5-zulu-openjdk8/images/sha256-241351e48f0a649d4552d6951e15f09981b6fa32c112d275667d295875540275).
 Unlike the official image, a *node.conf* file and CorDapps are embedded into the image
 (they are not externally provided to the running container via volumes/mount points).
 More backends may be added in future. The tool is open source, so contributions to add more
@@ -34,8 +34,9 @@ Download the Corda Network Builder from `https://download.corda.net/maven/corda-
 
 ## Prerequisites
 
-* **Docker:** docker > 17.12.0-ce
-* **Azure:** authenticated az-cli >= 2.0 (see: [https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest))
+- **Docker:** Docker version greater than v17.12.0-ce
+- **Azure:** An authenticated Azure CLI greater than or equal to v2.0; see: [How to install the Azure CLI on Windows
+](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ## Creating the base nodes
 
@@ -49,22 +50,25 @@ the following layout:
  -- cordapps/
 ```
 
-An easy way to build a valid set of nodes is by running `deployNodes`. In this document, we will be using the output of running `deployNodes` for the [Java samples repository](https://github.com/corda/samples-java):
+An easy way to build a valid set of nodes is by running `deployNodes`. In this document, we will be using the output of running `deployNodes` for the [Java samples repository](https://github.com/corda/samples-java).
 
+Run the following commands:
 
-* `git clone https://github.com/corda/samples-java`
-* `cd samples-java/Basic/cordapp-example`
-* `./gradlew clean workflows-java:deployNodes`
+1 `git clone https://github.com/corda/samples-java`
+2 `cd samples-java/Basic/cordapp-example`
+3 `./gradlew clean workflows-java:deployNodes`
 
 
 ## Building a network via the command line
 
 ### Starting the nodes
 
-#### Quickstart Local Docker
+#### Quickstart local Docker
 
-* `cd workflows-java/build/nodes`
-* `java -jar <path/to/corda-tools-network-builder.jar> -d .`
+Run the following commands:
+
+1. `cd workflows-java/build/nodes`
+2. `java -jar <path/to/corda-tools-network-builder.jar> -d .`
 
 If you run `docker ps` to see the running containers, the following output should be displayed:
 
@@ -81,11 +85,17 @@ the underlying Corda nodes may be still starting and SSHing to a node may be not
 
 #### Quickstart Remote Azure
 
-* `cd kotlin-source/build/nodes`
-* `java -jar <path/to/corda-tools-network-builder.jar> -b AZURE -d .`
+{{< important >}}
+Before starting the deployment, ensure that you set the `AZURE_SUBSCRIPTION_ID` environment variable to your default subscription; for example, `export AZURE_SUBSCRIPTION_ID=<default_subscription_id>`. This prevents Azure API errors when calling `getDefaultSubscription()`, which will fail if multiple subscriptions exist in your tenant.
+{{</ important >}}
+
+Run the following commands:
+
+1. `cd kotlin-source/build/nodes`
+2. `java -jar <path/to/corda-tools-network-builder.jar> -b AZURE -d .`
 
 {{< note >}}
-The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#prerequisites).
+The Azure configuration is handled by the Azure CLI utility; see [Prerequisites](#prerequisites).
 
 {{< /note >}}
 
@@ -114,9 +124,17 @@ Useful commands include 'help' to see what is available, and 'bye' to shut down 
 >>>
 ```
 
-You can also run a flow from cordapp-example: `flow start com.example.flow.ExampleFlow$Initiator iouValue: 20, otherParty: "PartyB"`
+You can also run a flow from `cordapp-example`: 
 
-To verify it, connect into the `partyb0` node and run `run vaultQuery contractStateType: "com.example.state.IOUState"`.
+- `flow start net.corda.samples.example.flows.ExampleFlow$Initiator iouValue: 20, otherParty: "PartyB"`
+
+To verify it:
+
+1. Connect to the `partyb0` node.
+2. Execute:
+
+   `run vaultQuery contractStateType: "net.corda.samples.example.states.IOUState".`
+   
 The `partyb0` vault should contain `IOUState`.
 
 ### Adding additional nodes
@@ -146,13 +164,14 @@ The Corda Network Builder also provides a GUI for when automated interactions ar
 
 ### Starting the nodes
 
-* Click `Open nodes ...` and select the folder where you built your nodes in [Creating the base nodes](#creating-the-base-nodes) and
-click `Open`
-* Select `Local Docker` or `Azure`
-* Click `Build`
+1. Click `Open nodes ...`.
+2. Select the folder where you built your nodes in [Creating the base nodes](#creating-the-base-nodes).
+3. Click `Open`.
+4. Select `Local Docker` or `Azure`.
+5. Click `Build`.
 
 {{< note >}}
-The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#prerequisites).
+The Azure configuration is handled by the Azure CLI utility; see [Prerequisites](#prerequisites).
 
 {{< /note >}}
 All the nodes should eventually move to a `Status` of `INSTANTIATED`. If you run `docker ps` from the terminal to
@@ -172,9 +191,10 @@ cf7ab689f493        node-notary:corda-network   "run-corda"     30 seconds ago  
 It is possible to add additional nodes to the network by reusing the nodes you built earlier. For example, to add a
 node by reusing the existing `PartyA` node, you would:
 
-* Select `partya` in the dropdown
-* Click `Add Instance`
-* Specify the new node’s X500 name and click `OK`
+1. Select **partya** in the dropdown.
+2. Click **Add Instance**.
+3. Specify the new node’s X500 name and click **OK**.
+
 
 If you click on `partya` in the pane, you should see an additional instance listed in the sidebar. To confirm the
 node has been started correctly, run the following in the previously connected SSH session:

@@ -52,8 +52,8 @@ We have updated the default value of the optional `timeout` parameter, introduce
 
 ### Fixed issues
 
-* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool]({{< relref "../../../../../en/platform/corda/1.4/cenm/pki-tool.md" >}}) now generates certificates with serial number sizes of up to 16 octets/bytes.
-* We have fixed an issue where the [PKI Tool]({{< relref "../../../../../en/platform/corda/1.4/cenm/pki-tool.md" >}}) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
+* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool]({{< relref "pki-tool.md" >}}) now generates certificates with serial number sizes of up to 16 octets/bytes.
+* We have fixed an issue where the [PKI Tool]({{< relref "pki-tool.md" >}}) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
 * We have fixed an issue where the [signing request status command](#check-the-connection-status-of-the-signing-service) in the [CENM Command-line Interface]({{< relref "cenm-cli-tool.md" >}}) did not work for requests with `COMPLETED` status.
 * We have fixed an issue where the `APP VERSION` column was not shown when running helm charts while bootstrapping CENM.
 
@@ -71,11 +71,11 @@ Upgrading from CENM 1.3 to CENM 1.4 requires the following actions:
 
 * Manual update of all existing Signing Service configurations.
 
-  The SMR (Signable Material Retriever) Service, which prior to CENM 1.4 was used to handle plug-ins for signing data, [has been replaced](#new-signing-service-plug-in-functionality-replaces-the-smr-signable-material-retriever-service) by a plug-in loading logic inside the Signing Service. As a result, **all users must update their existing Signing Service configuration** when upgrading to CENM 1.4 - see the [CENM Upgrade Guide]({{< relref "../../../../../en/platform/corda/1.4/cenm/upgrade-notes.md#manual-update-of-all-existing-signing-service-configurations" >}}) for details.
+  The SMR (Signable Material Retriever) Service, which prior to CENM 1.4 was used to handle plug-ins for signing data, [has been replaced](#new-signing-service-plug-in-functionality-replaces-the-smr-signable-material-retriever-service) by a plug-in loading logic inside the Signing Service. As a result, **all users must update their existing Signing Service configuration** when upgrading to CENM 1.4 - see the [CENM Upgrade Guide]({{< relref "upgrade-notes.md#manual-update-of-all-existing-signing-service-configurations" >}}) for details.
 
 * Zone Service database migration.
 
-  If you are upgrading to CENM 1.4 from CENM 1.3, you **must** set `runMigration = true` in the database configuration. See the [CENM Upgrade Guide]({{< relref "../../../../../en/platform/corda/1.4/cenm/upgrade-notes.md#zone-service-database-migration" >}}) for details. This is required due to a [Zone Service database schema change](#network-map-service-performance-enhancements).
+  If you are upgrading to CENM 1.4 from CENM 1.3, you **must** set `runMigration = true` in the database configuration. See the [CENM Upgrade Guide]({{< relref "upgrade-notes.md#zone-service-database-migration" >}}) for details. This is required due to a [Zone Service database schema change](#network-map-service-performance-enhancements).
 
 {{< /warning >}}
 
@@ -97,11 +97,11 @@ Performance and reliability improvements can be observed on the unsigned Network
 
 Performance is enhanced through the following combination of changes:
 
-* A new, optional `timeout` parameter now enables you to set specific [Signing Service timeouts]({{< relref "../../../../../en/platform/corda/1.4/cenm/signing-service.md#signing-service-configuration-parameters" >}}) for communication to each of the services used within the signing processes defined in the network map, in a way that allows high node count network maps to get signed and to operate at reliable performance levels. You can also use the `timeout` parameter to set specific Network Map Service timeouts for communication to the [Identity Manager and Revocation services]({{< relref "../../../../../en/platform/corda/1.4/cenm/network-map.md#identity-manager--revocation-communication" >}}). The `timeout` parameter's values are stored in a new `timeout` column in the [Zone Service]({{< relref "../../../../../en/platform/corda/1.4/cenm/zone-service.md#signing-services-configuration" >}})'s database tables `socket_config` and `signer_config` (refer to the [CENM Upgrade Guide]({{< relref "../../../../../en/platform/corda/1.4/cenm/upgrade-notes.md#zone-service-database-migration" >}}) for important details about migrating the Zone Service database from CENM 1.3).
+* A new, optional `timeout` parameter now enables you to set specific [Signing Service timeouts]({{< relref "signing-service.md#signing-service-configuration-parameters" >}}) for communication to each of the services used within the signing processes defined in the network map, in a way that allows high node count network maps to get signed and to operate at reliable performance levels. You can also use the `timeout` parameter to set specific Network Map Service timeouts for communication to the [Identity Manager and Revocation services]({{< relref "network-map.md#identity-manager--revocation-communication" >}}). The `timeout` parameter's values are stored in a new `timeout` column in the [Zone Service]({{< relref "zone-service.md#signing-services-configuration" >}})'s database tables `socket_config` and `signer_config` (refer to the [CENM Upgrade Guide]({{< relref "upgrade-notes.md#zone-service-database-migration" >}}) for important details about migrating the Zone Service database from CENM 1.3).
 
-* A [new API endpoint]({{< relref "../../../../../en/platform/corda/1.4/cenm/network-map-overview.md#http-network-map-protocol" >}}), `GET network-map/node-infos`, enables you to retrieve a list of all signed `NodeInfo` objects for _all_ the nodes in the network at once.
+* A [new API endpoint]({{< relref "network-map-overview.md#http-network-map-protocol" >}}), `GET network-map/node-infos`, enables you to retrieve a list of all signed `NodeInfo` objects for _all_ the nodes in the network at once.
 
-* The following [new headers]({{< relref "../../../../../en/platform/corda/1.4/cenm/network-map-overview.md#http-network-map-protocol" >}}) for Network Map API responses now make headers more closely aligned with HTTP standards:
+* The following [new headers]({{< relref "network-map-overview.md#http-network-map-protocol" >}}) for Network Map API responses now make headers more closely aligned with HTTP standards:
   * The new header `X-Corda-Server-Version` has been added for all Network Map API responses (except for internal error responses with code 5xx) indicates the version of the Network Map and the available calls. It has a default value of `2`.
   * The new header `X-Corda-Platform-Version` replaces `Platform-version`. The old header name continues to be supported.
   * The new header `X-Corda-Client-Version` replaces `Client-version`. The old header name continues to be supported.
@@ -166,13 +166,13 @@ Supported deployment scenarios in CENM 1.4:
 Not supported in CENM 1.4:
 * AWS with PostgreSQL deployed in cluster.
 
-See the [CENM deployment]({{< relref "../../../../../en/platform/corda/1.4/cenm/aws-deployment-guide.md" >}}) section for more information.
+See the [CENM deployment]({{< relref "aws-deployment-guide.md" >}}) section for more information.
 
 #### Other changes
-* We have added support for PostgreSQL 10.10 and 11.5 (JDBC 42.2.8), as noted in [CENM Databases]({{< relref "../../../../../en/platform/corda/1.4/cenm/database-set-up.md#supported-databases" >}}) and [CENM support matrix]({{< relref "../../../../../en/platform/corda/1.4/cenm/cenm-support-matrix.md#cenm-databases" >}}).
+* We have added support for PostgreSQL 10.10 and 11.5 (JDBC 42.2.8), as noted in [CENM Databases]({{< relref "database-set-up.md#supported-databases" >}}) and [CENM support matrix]({{< relref "cenm-support-matrix.md#cenm-databases" >}}).
 * A `non-ca-plugin.jar` has been added to `signing-service-plugins` in Artifactory.
-* We have renamed the FARM Service, introduced in CENM 1.3, to [Gateway Service]({{< relref "../../../../../en/platform/corda/1.4/cenm/gateway-service.md" >}}). As a result, if you are [upgrading]({{< relref "../../../../../en/platform/corda/1.4/cenm/upgrade-notes.md" >}}) from CENM 1.3 to CENM 1.4, the FARM Service JAR file used in CENM 1.3 should be replaced with the Gateway Service JAR file used in CENM 1.4.
-* In CENM 1.4 we have changed the way `subZoneID` is set in Signing Service configurations - see the [CENM upgrade guide]({{< relref "../../../../../en/platform/corda/1.4/cenm/upgrade-notes.md#change-in-setting-subzoneid-in-signing-service-configurations" >}}) for more details.
+* We have renamed the FARM Service, introduced in CENM 1.3, to [Gateway Service]({{< relref "gateway-service.md" >}}). As a result, if you are [upgrading]({{< relref "upgrade-notes.md" >}}) from CENM 1.3 to CENM 1.4, the FARM Service JAR file used in CENM 1.3 should be replaced with the Gateway Service JAR file used in CENM 1.4.
+* In CENM 1.4 we have changed the way `subZoneID` is set in Signing Service configurations - see the [CENM upgrade guide]({{< relref "upgrade-notes.md#change-in-setting-subzoneid-in-signing-service-configurations" >}}) for more details.
 
 ### Fixed issues
 
