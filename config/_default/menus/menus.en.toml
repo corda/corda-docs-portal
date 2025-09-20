@@ -200,6 +200,36 @@ identifier = "cenm-1-6-signing-plugin-samples"
 name = "Signing plugin samples"
 weight = 330
 
+[[cenm-1-7]]
+identifier = "cenm-1-7-cenm-releases"
+name = "CENM releases"
+weight = 70
+
+[[cenm-1-7]]
+identifier = "cenm-1-7-concepts-and-overview"
+name = "Concepts and overview"
+weight = 10
+
+[[cenm-1-7]]
+identifier = "cenm-1-7-configuration"
+name = "Configuration"
+weight = 210
+
+[[cenm-1-7]]
+identifier = "cenm-1-7-operations"
+name = "Operations"
+weight = 110
+
+[[cenm-1-7]]
+identifier = "cenm-1-7-public-key-infrastructure"
+name = "Public key infrastructure"
+weight = 300
+
+[[cenm-1-7]]
+identifier = "cenm-1-7-signing-plugin-samples"
+name = "Signing plugin samples"
+weight = 330
+
 [[corda-enterprise-4-7]]
 identifier = "corda-enterprise-4-7-notaries"
 name = "Corda notaries"
