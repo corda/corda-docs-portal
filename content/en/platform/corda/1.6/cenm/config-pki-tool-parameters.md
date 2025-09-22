@@ -526,9 +526,7 @@ used.
 Corda signature scheme name. Default value: `ECDSA_SECP256R1_SHA256`. Allowed values are:
 
 - `RSA_SHA256`
-- `ECDSA_SECP256K1_SHA256`
 - `ECDSA_SECP256R1_SHA256`
-- `EDDSA_ED25519_SHA512`
   
 #### Utimaco HSM Key Configuration
 
