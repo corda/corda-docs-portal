@@ -39,7 +39,8 @@ The Corda platform documentation covers the following current versions of the Co
 | **Corda 4 Open Source**                     | [Corda Open Source 4.12]({{< relref "/en/platform/corda/4.12/community/_index.md" >}})                       |
 | **Corda 4 Community Edition & Open Source** | [Corda Community Edition and Open Source 4.11]({{< relref "/en/platform/corda/4.11/community/_index.md" >}}) |
 |                                             | [Corda Community Edition and Open Source 4.10]({{< relref "/en/platform/corda/4.10/community/_index.md" >}}) |
-| **Corda Enterprise Network Manager (CENM)** | [CENM 1.6]({{< relref "/en/platform/corda/1.6/cenm/_index.md" >}})                                           |
+| **Corda Enterprise Network Manager (CENM)** | [CENM 1.7]({{< relref "/en/platform/corda/1.7/cenm/_index.md" >}})                                           |
+|                                             | [CENM 1.6]({{< relref "/en/platform/corda/1.6/cenm/_index.md" >}})                                           |
 |                                             | [CENM 1.5]({{< relref "/en/platform/corda/1.5/cenm/_index.md" >}})                                           |
 |                                             | [CENM 1.4]({{< relref "/en/platform/corda/1.4/cenm/_index.md" >}})                                           |
 |                                             | [CENM 1.3]({{< relref "/en/platform/corda/1.3/cenm/_index.md" >}})                                           |

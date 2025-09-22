@@ -24,11 +24,9 @@ table th:nth-of-type(5) {
 | **Corda Enterprise Network Manager 1.4**       | 09/2020             | 09/2022                | 09/2023             | 09/2023            |
 | **Corda Enterprise Network Manager 1.5**       | 12/2020             | 12/2023                | 12/2024             | 12/2025            |
 | **Corda Enterprise Network Manager 1.6\***     | 12/2023             | 12/2026                | 12/2026             | 12/2026            |
-| **Corda Enterprise Network Manager 1.7\*\***   | 09/2025             | 09/2027                | 09/2028             | 09/2028            |
+| **Corda Enterprise Network Manager 1.7**       | 09/2025             | 09/2027                | 09/2028             | 09/2028            |
 
 \* Corda Enterprise Network Manager 1.6 is a low-risk, drop-in
 replacement for 1.5 with security related minor dependency updates,
 small additional options (see [release notes]({{< relref "/en/platform/corda/1.6/cenm/release-notes.md" >}})) and no changes to existing
-features
-
-** Not released yet. Future releases as indicative only.
+features.
