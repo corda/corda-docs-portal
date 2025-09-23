@@ -5,23 +5,27 @@ menu:
     identifier: cenm-1-7-release-notes
     parent: cenm-1-7-cenm-releases
     weight: 80
+    name: Release notes
 tags:
 - cenm
 - release
 - notes
-title: Release notes
+title: Corda Enterprise Network Manager 1.7 release notes
 ---
 
-# Corda Enterprise Network Manager release notes
+# Corda Enterprise Network Manager 1.7 release notes
 
+{{< important >}}
+The CENM 1.7.x releases upgrade the version of Java used to Java 17. This means to use CENM you must install Java 17. See below for details.
+{{</ important >}}
 
-## Corda Enterprise Network Manager 1.7.1
+## Corda Enterprise Network Manager 1.7.1 release notes 
 
 ### Fixed issues
 
-- CENM has been updated to be dependent on a released version of Corda and not on a snapshot version. 
+- When developing signer plugins, CENM previously missed some required dependencies for compilation. This issue has now been resolved.
 
-## Corda Enterprise Network Manager 1.7
+## Corda Enterprise Network Manager 1.7 release notes 
 
 ### New features and enhancements
 
