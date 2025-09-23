@@ -14,6 +14,13 @@ title: Release notes
 
 # Corda Enterprise Network Manager release notes
 
+
+## Corda Enterprise Network Manager 1.7.1
+
+### Fixed issues
+
+- CENM has been updated to be dependent on a released version of Corda and not on a snapshot version. 
+
 ## Corda Enterprise Network Manager 1.7
 
 ### New features and enhancements
