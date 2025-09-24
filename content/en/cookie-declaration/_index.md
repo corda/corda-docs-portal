@@ -10,7 +10,7 @@ date: 2020-04-15T09:59:25Z
 
 A cookie is a small file that we store on your browser or the hard drive of your computer if you agree.
 
-## We use the following types of cookies:
+We use the following types of cookies:
 
 1. **Strictly necessary cookies.** These are cookies that are required for the operation of our website. They may
     include, for example, cookies that enable you to log into secure areas of our website, use a shopping cart, or make
@@ -24,7 +24,7 @@ A cookie is a small file that we store on your browser or the hard drive of your
     personalise our content for you, greet you by name and remember your preferences (for example, your choice of
     language or region).
 
-## Third Party Cookies
+## Third party cookies
 
 Please note that the following third parties may also use cookies, over which we have no control. These named third parties may include, for example, advertising networks and providers of external services like web traffic analysis services. These third-party cookies are likely to be analytical cookies or performance cookies or targeting cookies:
 
@@ -48,7 +48,7 @@ Please note that the following third parties may also use cookies, over which we
 
 {{</table>}}
 
-## Legal Requirements
+## Legal requirements
 
 The law requires that we only store cookies on your device if they are strictly necessary for the operation of this
 site. For all other types of cookies, we need your permission.
