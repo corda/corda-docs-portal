@@ -32,11 +32,11 @@ These class definitions will commonly include the following elements:
 
 
 * Flows: Define a routine for the node to run, usually to update the ledger
-(see [Key Concepts - Flows]({{< relref "key-concepts-flows.md" >}})). They subclass `FlowLogic`
-* States: Define the facts over which agreement is reached (see [Key Concepts - States]({{< relref "key-concepts-states.md" >}})).
+(see [Key concepts - Flows]({{< relref "key-concepts-flows.md" >}})). They subclass `FlowLogic`
+* States: Define the facts over which agreement is reached (see [Key concepts - States]({{< relref "key-concepts-states.md" >}})).
 They implement the `ContractState` interface
 * Contracts, defining what constitutes a valid ledger update (see
-[Key Concepts - Contracts]({{< relref "key-concepts-contracts.md" >}})). They implement the `Contract` interface
+[Key concepts - Contracts]({{< relref "key-concepts-contracts.md" >}})). They implement the `Contract` interface
 * Services, providing long-lived utilities within the node. They subclass `SingletonSerializationToken`
 * Serialization whitelists, restricting what types your node will receive off the wire. They implement the
 `SerializationWhitelist` interface

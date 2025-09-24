@@ -1,5 +1,5 @@
 ---
-title: "Corda Community Edition Key Concepts"
+title: "Corda Community Edition key concepts"
 date: '2021-07-02'
 menu:
   corda-community-4-11:
