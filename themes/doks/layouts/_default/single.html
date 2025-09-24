@@ -11,11 +11,13 @@
 		</div>
     {{ end -}}
 		{{ $isCorda5Version := in .Site.Params.corda5versions .Page.Params.version }}
-		{{ if eq $isCorda5Version false }}
-			<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
-				{{ partial "sidebar/docs-toc.html" . }}
-			</nav>
-		{{ end -}}
+      {{ $hideSecondNav := .Page.Params.hide_secondary_nav }}
+      {{ if and (ne $isCorda5Version true) (ne $hideSecondNav true) }}
+         <!--<p>And statement true</p> -->
+         <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			   {{ partial "sidebar/docs-toc.html" . }}
+		   </nav>
+	   {{ end -}}
 		{{ if eq $isCorda5Version false }}
 			<main class="docs-content col-lg-11 col-xl-9 mx-lg-auto">
 		{{ else -}}

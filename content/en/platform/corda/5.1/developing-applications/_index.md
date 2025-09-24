@@ -13,7 +13,7 @@ menu:
 ---
 # Developing Applications
 
-This section describes the tasks performed by {{< tooltip >}}CorDapp{{< /tooltip >}} Developers. For more information about the architecture of Corda 5 from the perspective of CorDapp Developers, see the [Key Concepts section]({{< relref "../key-concepts/cordapp-dev/_index.md" >}}). Depending on the stage of development, Corda supports the following types of networks:
+This section describes the tasks performed by {{< tooltip >}}CorDapp{{< /tooltip >}} Developers. For more information about the architecture of Corda 5 from the perspective of CorDapp Developers, see [Key concepts]({{< relref "../key-concepts/cordapp-dev/_index.md" >}}). Depending on the stage of development, Corda supports the following types of networks:
 
 * [Static](#static-networks)
 * [Dynamic](#dynamic-networks)
