@@ -1,5 +1,5 @@
 ---
-title: "Corda Enterprise Edition Key Concepts"
+title: "Corda Enterprise Edition key concepts"
 date: '2021-07-02'
 menu:
   corda-enterprise-4-12:
