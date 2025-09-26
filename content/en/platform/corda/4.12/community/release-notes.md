@@ -20,6 +20,31 @@ tags:
 
 # Corda Open Source Edition 4.12 release notes
 
+## Corda Open Source Edition 4.12.7 release notes
+
+Corda Open Source Edition 4.12.7 is a patch release of Corda Open Source Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../community/_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Corda Open Source Edition 4.11 to 4.12 upgrade guide]({{< relref "comm-upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
+
+### Fixed issues
+
+- The Corda Network Builder tool now correctly deploys a Corda network both via CLI in Docker and Azure environments.
+- Netty has been upgraded to 4.1.127.Final due to a vulnerability.
+
+### Third-party components upgrade
+
+This table highlights the differences in dependency versions between
+Corda Open Source 4.12.6 and 4.12.7. Dependencies with unchanged versions
+are omitted.are omitted. 
+
+Dependency                           | Name         | 4.12.6 Open Source   | 4.12.7 Open Source
+-------------------------------------|--------------|----------------------|-------------------
+io.netty:\*                          | Netty        | 4.1.122.Final        | 4.1.127.Final  
+
 ## Corda Open Source Edition 4.12.6 release notes
 
 Corda Open Source Edition 4.12.6 is a patch release of Corda Open Source Edition focused on resolving issues and upgrading dependencies to address security updates.
@@ -46,7 +71,7 @@ This table highlights the differences in dependency versions between
 Corda Open Source 4.12.5 and 4.12.6. Dependencies with unchanged versions
 are omitted.
 
-  Dependency                         | Name         |  4.12.5 Enterprise   |  4.12.6 Enterprise
+  Dependency                         | Name         |  4.12.5 Open Source  |  4.12.6 Open Source
 -------------------------------------|--------------|----------------------|--------------------
 org.apache.activemq:\*               | Artemis      |  2.36.0              |  2.42.0
 commons-beanutils:commons-beanutils  | beanutils    |  1.9.4               |  1.11.0
