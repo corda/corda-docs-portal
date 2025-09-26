@@ -1,6 +1,7 @@
 # Version
 corda5versions = ["Corda 5.2", "Corda 5.1", "Corda 5.0", "Corda 5 Tools"]
-corda4versions = ["Corda 4.12", "Corda 4.11", "Corda 4.10"]
+corda4versions = ["Corda 4.11", "Corda 4.12", "Corda 4.11", "Corda 4.10"]
+cenmversions = ["CENM  1.7", "CENM 1.6", "CENM 1.5", "CENM 1.4", "CENM 1.3"]
 
 # Meta Data for SEO
 

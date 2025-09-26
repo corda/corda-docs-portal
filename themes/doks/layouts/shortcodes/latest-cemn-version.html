@@ -1,0 +1,4 @@
+{{/* Displays the latest CENM version number as defined in config\_default\params.toml. This is particularly useful in links that should always point to content for the latest version of CENM coming from a version of Corda. */}}
+{{- "" -}}
+{{ replace (index .Site.Params.cenmversions 0) "CENM " "" }}
+{{- "" -}}
