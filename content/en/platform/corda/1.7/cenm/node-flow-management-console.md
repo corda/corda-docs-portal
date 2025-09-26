@@ -75,7 +75,7 @@ The **Dashboard** tab displays two charts:
 
 ## Query flows tab
 
-The **Query flows** tab shows the flows on the node and allows you to filter them. The filter options are shown on the left-hand side and the results panel on the right. If you do not have permission to view this tab, you will see a message that says you do not have permission to view it. For more information on the filter options, see [Specifying the query criteria]({{< relref "../../4.12/enterprise/node/operating/querying-flow-data.md#specifying-the-query-criteria" >}}).
+The **Query flows** tab shows the flows on the node and allows you to filter them. The filter options are shown on the left-hand side and the results panel on the right. If you do not have permission to view this tab, you will see a message that says you do not have permission to view it. For more information on the filter options, see {{< cordalatestrelref "enterprise/node/operating/querying-flow-data.md#specifying-the-query-criteria" "Specifying the query criteria" >}}.
 
 In the results panel, a table shows the flows that match the filter (or all the flows if no filter is set). Each entry can be expanded to show more information about the flow and show the commands panel.
 

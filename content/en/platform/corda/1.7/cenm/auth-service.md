@@ -25,7 +25,9 @@ Whenever you use the [User Administration Tool]({{< relref "user-admin.md" >}}) 
 
 You do not need to interact directly with the Auth Service once it has been installed and configured. To protect the integrity of this secure service, there is no direct API contact with the Auth Service: all front-end communications go via the Gateway Service.
 
-The Auth Service can also be configured to use [Azure AD SSO]({{< relref "../../4.12/enterprise/node/azure-ad-sso/_index.md" >}}). 
+The Auth Service can also be configured to use {{< cordalatestrelref "enterprise/node/azure-ad-sso/_index.md" "[Azure AD SSO" >}}.
+
+Config obfuscation tool
 
 ## Installing the Auth Service
 

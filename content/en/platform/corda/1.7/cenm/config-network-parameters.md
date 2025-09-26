@@ -31,7 +31,7 @@ not start.
   Note that once a network has started, the only supported changes to notaries is the ability to add new notaries at the end of the list. Notaries must be added to the end, as flows often use the ordering of notaries during selection ("pick the first" approach),
   and therefore changing the order could cause errors elsewhere. Also note that you can provide only the file path to the node info file or the X.500 name of the notary, not both.
 
-  For guidance on using notaries in flows, see [the API Flows page]({{< relref "../../4.12/enterprise/cordapps/api-flows.md" >}}).
+  For guidance on using notaries in flows, see {{< cordalatestrelref "enterprise/cordapps/api-flows.md" "the API Flows page" >}}.
 
   - **validating:**
     A Boolean value to specify if the notary is validating (`true`) or non-validating (`false`).

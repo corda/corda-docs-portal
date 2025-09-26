@@ -19,7 +19,7 @@ title: Signing Service
 
 The Signing Service acts as a bridge between the main CENM services and the PKI/HSM infrastructure, enabling a network operator to verify and sign incoming requests and changes to the network.
 
-The Signing Service forms a part of the main Corda Enterprise Network Manager (CENM) services, alongside the [Identity Manager service]({{< relref "identity-manager.md" >}}) and the [Network Map service]({{< relref "network-map.md" >}}) (and complemented by the [Auth Service]({{< relref "../../4.12/enterprise/node/auth-service.md" >}}), the [Zone Service]({{< relref "zone-service.md" >}}), the [Angel Service]({{< relref "angel-service.md" >}}), and the [Gateway Service]({{< relref "../../4.8/enterprise/node/gateway-service.md" >}})).
+The Signing Service forms a part of the main Corda Enterprise Network Manager (CENM) services, alongside the [Identity Manager service]({{< relref "identity-manager.md" >}}) and the [Network Map service]({{< relref "network-map.md" >}}) (and complemented by the {{< cordalatestrelref "enterprise/node/auth-service.md" "Auth Service" >}}, the [Zone Service]({{< relref "zone-service.md" >}}), the [Angel Service]({{< relref "angel-service.md" >}}), and the {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}}.
 
 As mentioned in other CENM service documentation ([Identity Manager service]({{< relref "identity-manager.md" >}}) and [Network Map service]({{< relref "network-map.md" >}})), the main CENM services
 can be configured with an integrated *local signer* that will automatically sign all unsigned data using a provided key.

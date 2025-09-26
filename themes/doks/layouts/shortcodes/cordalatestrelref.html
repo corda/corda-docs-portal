@@ -11,11 +11,9 @@
 
 
 {{- $target := .Get 0 -}}
-{{- $version := .Get 2 | default (replace (index .Site.Params.corda4versions 0) "Corda " "") -}}
-{{- $combined := printf "%s/%s" $version $target -}}
-
-{{- $page := .Site.GetPage $combined -}}
 {{- $text := .Get 1  -}}
+{{- $version := .Get 2 | default (replace (index .Site.Params.corda4versions 0) "Corda " "") -}}
+{{- $combined := printf "/content/en/platform/corda/%s/%s" $version $target -}}
 {{- $rel := $combined | relref . -}}
 
 <a href="{{ $rel }}">{{ $text }}</a>
