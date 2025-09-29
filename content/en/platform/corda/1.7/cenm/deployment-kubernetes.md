@@ -234,7 +234,7 @@ You can now use `cemn` commands from within the running Docker container:
   ./cenm context login -s -u <USER> -p <PASSWORD> http://<GATEWAY-SERVICE-IP>:8080
   ```
 
-The {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}} is a gateway between the {{< cordalatestrelref "enterprise/node/auth-service.md" "Auth Service" >}} and front end services in CENM. It allows you to perform all network operations on the [Identity Manager service]({{< relref "identity-manager.md" >}}), the [Network Map service]({{< relref "network-map.md" >}}), and the [Signing Service]({{< relref "signing-service.md" >}}).
+The {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}} is a gateway between the [Auth service]({{< relref "auth-service.md" >}}) and front end services in CENM. It allows you to perform all network operations on the [Identity Manager service]({{< relref "identity-manager.md" >}}), the [Network Map service]({{< relref "network-map.md" >}}), and the [Signing Service]({{< relref "signing-service.md" >}}).
 The IP address is dynamically allocated for each deployment and can be found with `kubectl get svc`.
 Use the following command to ensure that you are pointing at the correct namespace:
 

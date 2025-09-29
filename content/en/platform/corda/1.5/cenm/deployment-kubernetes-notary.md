@@ -69,4 +69,4 @@ helm install cenm-notary notary --set notaryPublicIP=X.X.X.X --set prefix=cenm -
 | `rpcUsers.password`           | Password for the built-in SSH service                    | `notaryP` |
 {{< /table >}}
 
-For additional information on database connection details refer to the [Corda database documentation]({{< relref "../../4.10/enterprise/node/setup/corda-configuration-file.md" >}}).
+For additional information on database connection details, refer to the {{< cordalatestrelref "enterprise/node/setup/corda-configuration-file.md" "Corda database documentation" >}}. 

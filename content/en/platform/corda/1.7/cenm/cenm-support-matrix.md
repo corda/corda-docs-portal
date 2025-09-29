@@ -19,7 +19,7 @@ The operating systems supported in Corda Enterprise Network Manager are a subset
 
 Production use of Corda Enterprise Network Manager 1.3+ is only supported on Linux OS; see details below.
 
-For information about supported operating systems for Corda Enterprise, see the Corda Enterprise Edition {{< latest-c4-version >}} {{< cordalatestrelref "enterprise/platform-support-matrix.md" "platform support matrix" >}} section or check the relevant {{< cordalatestrelref "enterprise/_index.md" "support documentation" >}} for previous versions of Corda Enterprise.
+For information about supported operating systems for Corda Enterprise, see {{< cordalatestrelref "enterprise/platform-support-matrix.md" "Corda Enterprise 4.12 platform support" >}} or check the relevant support documentation for [previous versions of Corda Enterprise]({{< relref "../../_index.md" >}}).
 
 ## Hardware security modules (HSMs)
 
