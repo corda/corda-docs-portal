@@ -50,4 +50,5 @@ helm install cenm-auth auth --set prefix=cenm --set acceptLicense=Y --set volume
 | `sleepTimeAfterError`         | Sleep time (in seconds) after an error occurred | `120` |
 | `logsContainersEnabled`       | Enable container displaying live logs | `true`
 {{< /table >}}
-For additional information on database connection details refer to the official documentation: [database documentation]({{< relref "../../../../1.6/cenm/config-database.md" >}}).
+
+For additional information on database connection details, see {{< cenmlatestrelref "cenm/config-database.md" "CENM database documentation" >}}.
