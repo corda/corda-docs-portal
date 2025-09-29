@@ -332,7 +332,7 @@ database {
 
 ### Update network parameters
 
-Use the {{< cenmlatestrelref "cenm/cenm-cli-tool.md" "CENM Command Line Interface" >}}) to run commands to update the network parameters.
+Use the {{< cenmlatestrelref "cenm/cenm-cli-tool.md" "CENM Command Line Interface" >}} to run commands to update the network parameters.
 
 See the CENM documentation for more information about the list of available {{< cenmlatestrelref "cenm/config-network-parameters.md" "network parameters" >}}
 and instructions on {{< cenmlatestrelref "cenm/updating-network-parameters.md" "updating network parameters" >}}.

@@ -26,4 +26,4 @@ weight: 2
 
 ## See also
 
-* {{< cenmlatestrelref "cenm/upgrade-notes.md" "Upgrading Corda Enterprise Network Manager" >}})
+* {{< cenmlatestrelref "cenm/upgrade-notes.md" "Upgrading Corda Enterprise Network Manager" >}}
