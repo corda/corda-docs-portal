@@ -199,7 +199,7 @@ cd k8s/helm
 
 ## Network operations
 
-Use the CENM {{< cenmlatestrelref "cenm/cenm-cli-tool.md" "Command-Line Interface (CLI) tool" >}}) to access the [Gateway Service]({{< relref "../../node/gateway-service.md" >}}) from your local machine.
+Use the CENM {{< cenmlatestrelref "cenm/cenm-cli-tool.md" "Command-Line Interface (CLI) tool" >}}) to access the {{< cenmlatestrelref "cenm/gateway-service.md" "Gateway Service" >}} from your local machine.
 To start the CENM CLI Tool, run Docker command starting a Docker container with the tool:
 
   ```bash
@@ -222,7 +222,7 @@ You can now use `cemn` commands from within the running Docker container:
   ./cenm context login -s -u <USER> -p <PASSWORD> http://<GATEWAY-SERVICE-IP>:8080
   ```
 
-The [Gateway Service]({{< relref "../../node/gateway-service.md" >}}) is a gateway between the [Auth Service]({{< relref "../../node/auth-service.md" >}}) and front-end services in CENM. It allows you to perform all network operations on the {{< cenmlatestrelref "cenm/identity-manager.md" "Identity Manager service" >}}, the {{< cenmlatestrelref "cenm/network-map.md" "Network Map service" >}}, and the {{< cenmlatestrelref "cenm/signing-service.md" "Signing Service" >}}.
+The {{< cenmlatestrelref "cenm/gateway-service.md" "Gateway Service" >}} is a gateway between the {{< cenmlatestrelref "cenm/auth-service.md" "Auth Service" >}} and front-end services in CENM. It allows you to perform all network operations on the {{< cenmlatestrelref "cenm/identity-manager.md" "Identity Manager service" >}}, the {{< cenmlatestrelref "cenm/network-map.md" "Network Map service" >}}, and the {{< cenmlatestrelref "cenm/signing-service.md" "Signing Service" >}}.
 The IP address is dynamically allocated for each deployment and can be found with `kubectl get svc`.
 Use the following command to ensure that you are pointing at the correct namespace:
 

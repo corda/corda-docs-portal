@@ -13,7 +13,7 @@ weight: 10
 
 # CENM Auth Service Helm Chart
 
-This Helm chart is to configure, deploy, and run the [Auth Service]({{< relref "../../node/auth-service.md" >}}) on Kubernetes.
+This Helm chart is to configure, deploy, and run the {{< cenmlatestrelref "cenm/auth-service.md" "Auth Service" >}} on Kubernetes.
 
 ## Example usage
 

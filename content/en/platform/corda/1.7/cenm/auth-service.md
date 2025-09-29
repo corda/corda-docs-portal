@@ -8,6 +8,10 @@ tags:
 - auth
 weight: 150
 aliases: "/docs/cenm/1.7/auth-service.html"
+aliases: "/en/platform/corda/4.12/enterprise/node/auth-service.html"
+aliases: "/en/platform/corda/4.11/enterprise/node/auth-service.html"
+aliases: "/en/platform/corda/4.10/enterprise/node/auth-service.html"
+aliases: "/en/platform/corda/4.9/enterprise/node/auth-service.html"
 title: Auth Service
 ---
 
