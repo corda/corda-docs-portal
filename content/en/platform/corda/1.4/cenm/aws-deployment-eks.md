@@ -133,4 +133,4 @@ kubectl create -f storage-class-aws.yaml
 
 ## Complete CENM deployment
 
-Your AWS deployment is complete. You can now [complete the rest of your CENM deployment process]({{< relref "../../1.4/cenm/_index.md" >}}).
+Your AWS deployment is complete. You can now [complete the rest of your CENM deployment process]({{< relref "_index.md" >}}).

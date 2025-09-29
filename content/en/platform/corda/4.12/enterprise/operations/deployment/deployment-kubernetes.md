@@ -334,7 +334,7 @@ database {
 
 Use the CENM {{< cenmlatestrelref "cenm/cenm-cli-tool.md" "Command-Line Interface (CLI) tool" >}} to run commands to update the network parameters.
 
-See the CENM documentation for more information about the list of available {{< cenmlatestrelref "cenm/config-network-parameters.md" "network parameters" >}} and instructions on [updating network parameters]({{< relref "./updating-network-parameters.md" >}}).
+See the CENM documentation for more information about the list of available {{< cenmlatestrelref "cenm/config-network-parameters.md" "network parameters" >}} and instructions on {{< cenmlatestrelref "cenm/updating-network-parameters.md" "updating network parameters" >}}.
 
 ### Run flag day
 
