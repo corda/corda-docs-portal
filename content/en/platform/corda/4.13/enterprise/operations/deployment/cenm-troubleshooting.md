@@ -69,14 +69,14 @@ Identity Manager Service.
 
 To verify that issue 1 is not the culprit - verify that the Network Map signing process is still successfully running
 periodically. Unless the Network Map service is configured for testing, it should have an external signing process
-configured. See the “Signing Network Map and Network Parameters” section of [Signing Services]({{< relref "../../../../1.6/cenm/signing-service.md" >}}). If the service is
+configured. See the “Signing Network Map and Network Parameters” section of {{< cenmlatestrelref "cenm/signing-service.md" "Signing Service">}}. If the service is
 configured to run with a local signer then verify that the configured sign interval is something fairly low to ensure
 that updates to the network map are persisted often (for example, 1 minute).
 
 To verify that issue 2 is not the culprit - the logs of the Network Map service should be checked. An error such as an
 invalid certificate is not recoverable and should be resolved out of band with the node operator and support.
 If there are any communication issues with the Identity Manager then the error will be logged and communication will be
-retried after a short break. See the “Identity Manager Communication” section of [Network Map service]({{< relref "../../../../1.6/cenm/network-map.md" >}}) to verify that the
+retried after a short break. See the “Identity Manager Communication” section of {{< cenmlatestrelref "cenm/network-map.md#network-map-service" "Network Map Service" >}} to verify that the
 Identity Manager communication is correctly configured for the Network Map service.
 
 
@@ -136,7 +136,7 @@ IO.
 
 **Signing process is working as intended but timeout is configured too low**
 The timeout for a local signer can be configured via the service’s configuration file. See
-[Identity Manager Configuration Parameters]({{< relref "../../../../1.6/cenm/config-identity-manager-parameters.md" >}}) and [Network Map Configuration Parameters]({{< relref "../../../../1.6/cenm/config-network-map-parameters.md" >}}) for more information.
+{{< cenmlatestrelref "cenm/config-identity-manager-parameters.md" "Identity Manager Configuration Parameters" >}} and [Network Map Configuration Parameters]({{< relref "../../../../1.6/cenm/config-network-map-parameters.md" >}}) for more information.
 
 
 ### Explanation
