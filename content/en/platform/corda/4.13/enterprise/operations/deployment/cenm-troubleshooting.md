@@ -136,7 +136,7 @@ IO.
 
 **Signing process is working as intended but timeout is configured too low**
 The timeout for a local signer can be configured via the service’s configuration file. See
-{{< cenmlatestrelref "cenm/config-identity-manager-parameters.md" "Identity Manager Configuration Parameters" >}} and [Network Map Configuration Parameters]({{< relref "../../../../1.6/cenm/config-network-map-parameters.md" >}}) for more information.
+{{< cenmlatestrelref "cenm/config-identity-manager-parameters.md" "Identity Manager Configuration Parameters" >}} and {{< cenmlatestrelref "cenm/config-network-map-parameters.md" "Network Map Configuration Parameters" >}} for more information.
 
 
 ### Explanation

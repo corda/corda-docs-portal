@@ -152,7 +152,7 @@ To allow use of the CENM Command-line Interface Tool, you need to enable a few a
    If the custom redirect URI fails, you can select the URI: `https://login.microsoftonline.com/common/oauth2/nativeclient`.
    {{< /note >}}
 
-You can now access Azure login using the [.
+You can now access Azure login using the {{< cenmlatestrelref "cenm/cenm-cli-tool.md" "CENM Command-line Interface Tool" >}}.
 
 To log in:
 
