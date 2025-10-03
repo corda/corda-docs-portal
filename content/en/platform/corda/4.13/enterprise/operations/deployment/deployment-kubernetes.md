@@ -216,7 +216,7 @@ The welcome message will appear:
   cenm@5fdb0372b89b:~$
   ```
 
-You can now use `cemn` commands from within the running Docker container:
+You can now use `cenm` commands from within the running Docker container:
 
   ```bash
   ./cenm context login -s -u <USER> -p <PASSWORD> http://<GATEWAY-SERVICE-IP>:8080
@@ -464,7 +464,7 @@ helm install cenm-database bitnami/postgresql
 
 Follow the instructions displayed by the script output to connect to the database server via `psql`.
 You can create a separate database server for each CENM service by running the Helm script multiple times with different names
-and then setting up the database user/schema, following the instructions in the {{< cenmlatestrelref "cenm/database-set-up.md" "CEMN databases" >}} section.
+and then setting up the database user/schema, following the instructions in the {{< cenmlatestrelref "cenm/database-set-up.md" "CENM databases" >}} section.
 Alternatively, you can create several databases inside the single PostgresSQL server you have just deployed, by running
 the following DDL commands:
 
