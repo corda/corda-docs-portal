@@ -1,0 +1,19 @@
+{{/*
+  Usage:
+  {{< cordalatestrelref "my-page.md" "Link text" "1.2.3" >}}
+
+  Arguments:
+    0 = target page path (e.g. "my-page.md"), relative to the Corda version folder. For example, for "content/en/platform/corda/{latest_version}/enterprise/notary/db-guidelines.md", specify "enterprise/notary/db-guidelines.md"
+    1 = link text (currently this is NOT optional; in future, will default to title of target page)
+    2 = version (optional: defaults to latest version from the corda4versions parameter list)
+
+*/}}
+
+
+{{- $target := .Get 0 -}}
+{{- $text := .Get 1  -}}
+{{- $version := .Get 2 | default (replace (index .Site.Params.corda4versions 0) "Corda " "") -}}
+{{- $combined := printf "/content/en/platform/corda/%s/%s" $version $target -}}
+{{- $rel := $combined | relref . -}}
+
+<a href="{{ $rel }}">{{ $text }}</a>

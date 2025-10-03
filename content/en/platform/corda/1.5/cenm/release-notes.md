@@ -233,9 +233,9 @@ We have updated the default value of the optional `timeout` parameter, introduce
 
 ### Fixed issues
 
-* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool]({{< relref "../../1.4/cenm/pki-tool.md" >}}) now generates certificates with serial number sizes of up to 16 octets/bytes.
-* We have fixed an issue where the [PKI Tool]({{< relref "../../1.4/cenm/pki-tool.md" >}}) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
-* We have fixed an issue where the [signing request status command]({{< relref "../../1.4/cenm/cenm-cli-tool.md#check-the-connection-status-of-the-signing-service" >}}) in the [CENM Command-line Interface]({{< relref "../../1.4/cenm/cenm-cli-tool.md" >}}) did not work for requests with `COMPLETED` status.
+* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool]({{< relref "pki-tool.md" >}}) now generates certificates with serial number sizes of up to 16 octets/bytes.
+* We have fixed an issue where the [PKI Tool]({{< relref "pki-tool.md" >}}) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
+* We have fixed an issue where the [signing request status command]({{< relref "cenm-cli-tool.md#check-the-connection-status-of-the-signing-service" >}}) in the [CENM Command-line Interface]({{< relref "../../1.4/cenm/cenm-cli-tool.md" >}}) did not work for requests with `COMPLETED` status.
 * We have fixed an issue where the `APP VERSION` column was not shown when running helm charts while bootstrapping CENM.
 
 ## Corda Enterprise Network Manager 1.4
@@ -268,7 +268,7 @@ Read more about improvements of this release below.
 
 In CENM 1.4, we have adapted to CENM the internal Corda error handling logic introduced in [Corda 4.5](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-os/4.5/error-codes.md) and [Corda Enterprise Edition 4.5](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-enterprise/4.5/enterprise/node/operating/error-codes.md) for Corda nodes.
 
-As a result, CENM exceptions are now treated as CENM error codes and an error code is generated for each exception. The initial set of error codes, related to configuration parsing/validation errors, are described in the new [CENM error codes documentation page]({{< relref "../../1.4/cenm/cenm-error-codes.md" >}}). This is the start of a growing CENM error condition knowledge base, which will expand in future releases.
+As a result, CENM exceptions are now treated as CENM error codes and an error code is generated for each exception. The initial set of error codes, related to configuration parsing/validation errors, are described in {{< cenmlatestrelref "cenm/cenm-error-codes.md" "CENM error codes" >}}. This is the start of a growing CENM error condition knowledge base, which will expand in future releases.
 
 #### Network Map service performance enhancements
 
@@ -483,7 +483,7 @@ We are expanding our support for Docker to Corda Enterprise Network Manager.
 Furthermore, we are introducing a first reference deployment with Helm and Kubernetes.
 Out of the box - you will be able to deploy in minutes an ephemeral representative test network to complement your development cycle.
 
-See [Kubernetes deployment documentation]({{< relref "../../1.2/cenm/deployment-kubernetes.md" >}}) for more details.
+See [Kubernetes deployment documentation]({{< relref "deployment-kubernetes.md" >}}) for more details.
 
 **Support for third party CAs**
 

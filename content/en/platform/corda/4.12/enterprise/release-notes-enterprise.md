@@ -17,6 +17,38 @@ weight: 10
 
 # Corda Enterprise Edition 4.12 release notes
 
+## Corda Enterprise Edition 4.12.7 release notes
+
+Corda Enterprise Edition 4.12.7 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+{{< important >}}
+When upgrading a node to Corda 4.12, it is extremely important that you run the Transaction Validator Utility on your node database to verify that the transactions in the old node are compatible with 4.12 nodes.
+
+To ensure compatibility of the transactions, you must also run the Transaction Validator Utility on any older nodes that are not being upgraded and will likely interact with any upgraded nodes.
+
+For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
+{{< /important >}}
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Corda Enterprise Edition 4.11 to 4.12 upgrade guide]({{< relref "upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation
+
+### Fixed issues
+
+- The Corda Network Builder tool now correctly deploys a Corda network both via CLI in Docker and Azure environments.
+- Netty has been upgraded to 4.1.127.Final due to a vulnerability.
+
+### Third-party components upgrade
+
+The following table lists the dependency version changes between 4.12.6 and 4.12.7 Enterprise Editions. Dependencies with unchanged versions
+are omitted. 
+
+Dependency                           | Name         | 4.12.6 Enterprise    | 4.12.7 Enterprise
+-------------------------------------|--------------|----------------------|-------------------
+io.netty:\*                          | Netty        | 4.1.122.Final        | 4.1.127.Final  
+
 ## Corda Enterprise Edition 4.12.6 release notes
 
 Corda Enterprise Edition 4.12.6 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.

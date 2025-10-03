@@ -101,7 +101,7 @@ entry. If configured to use an HSM, the generated keys are stored in the HSM and
 
 In order for network participants to use the new HA notary the notary service must be present in the network parameters. This involves
 configuring and setting the initial network parameters (if setting up a new network), or modifying the existing parameters and performing a
-flag day (if using an existing network). Please refer to the [CENM documentation]({{< relref "../../../1.2/cenm/_index.md" >}}) for more information on this
+flag day (if using an existing network). Please refer to the {{< cenmlatestrelref "cenm/_index.md" "CENM documentation" >}} for more information on this
 process.
 
 {{< note >}}

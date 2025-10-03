@@ -22,7 +22,7 @@ title: CENM support matrix
 
 ## Hardware security modules (HSMs)
 
-Both the Signing Service and the PKI Tool support a variety of HSMs. The
+Both the Signing Service and the PKI Tool support a variety of HSMs. 
 
 
 {{< table >}}
