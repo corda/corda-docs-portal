@@ -59,13 +59,13 @@ Corda nodes operate with the following assumptions on the certificates hierarchy
   The length of the certificate chain can be arbitrary. As such, there can be any number of certificates between the Identity Manager Service and Network Map Service certificates as long
   as they root to the same certificate.
 * They need to have a custom extension defining the role of the certificate in the context of Corda. See
-  [here]({{< relref "../../4.12/enterprise/network/permissioning.md#certificate-role-extension" >}}) for more details.
+  {{< cordalatestrelref "enterprise/network/permissioning.md#certificate-role-extension" "here" >}} for more details.
 
 
 Other than that, Corda nodes stay agnostic to the certificate hierarchy (in particular the depth of the certificate hierarchy tree).
 
 ![hierarchy agnostic](/en/images/hierarchy-agnostic.png "hierarchy agnostic")
-At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found [here]({{< relref "../../4.12/enterprise/network/permissioning.md" >}}).
+At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found {{< cordalatestrelref "enterprise/network/permissioning.md" "here" >}}.
 
 
 ### Certificate revocation list (CRL)

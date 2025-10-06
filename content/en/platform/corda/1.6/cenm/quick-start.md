@@ -24,7 +24,7 @@ consisting of the following:
 
 * Identity Manager Service
 * Network Map Service
-* [Notary Service]({{< relref "../../4.12/enterprise/notary/notary-operate.md" >}})
+* {{< cordalatestrelref "enterprise/notary/notary-operate.md" "Notary Service" >}}
 
 {{% important %}}
 The deployment outlined here is significantly simplified compared to a full production
@@ -37,8 +37,8 @@ For a full production environment you would need to modify this deployment to ad
 * A [Zone Service]({{< relref "zone-service.md" >}}) deployment to manage configuration deployment.
 * [Angel Services]({{< relref "angel-service.md" >}}) around the [Identity Manager]({{< relref "identity-manager.md" >}}), [Network Map]({{< relref "network-map.md" >}}),
   and Signing Services to fetch configurations from the Zone Service.
-* An [Auth Service]({{< relref "../../4.12/enterprise/node/auth-service.md" >}}) deployment to handle user authentication and authorisation.
-* A [Gateway Service]({{< relref "../../4.12/enterprise/node/gateway-service.md" >}}) deployment to act as a gateway from the user interface (CLI) to the back-end services.
+* An {{< cordalatestrelref "enterprise/node/auth-service.md" "Auth Service" >}} deployment to handle user authentication and authorisation.
+* A {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}}) deployment to act as a gateway from the user interface (CLI) to the back-end services.
 
 ### Prerequisites
 
