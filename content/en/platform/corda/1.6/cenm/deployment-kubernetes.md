@@ -213,6 +213,7 @@ cd k8s/helm
 ## Network operations
 
 Use the CENM [Command Line Interface (CLI) Tool]({{< relref "cenm-cli-tool.md" >}}) to access the {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}} from your local machine.
+
 To start the CENM CLI Tool, run Docker command starting a Docker container with the tool:
 
   ```bash

@@ -45,7 +45,7 @@ Internet Explorer 11 is not supported for this tool.
 
 ### First login
 
-Your initialisation credentials for logging in for the first time are established using the `--initial-user-name` and `--initial-user-password` commands when managing the configuration of the{{< cordalatestrelref "enterprise/node/auth-service.md" "Auth Service" >}}.
+Your initialisation credentials for logging in for the first time are established using the `--initial-user-name` and `--initial-user-password` commands when managing the configuration of the {{< cordalatestrelref "enterprise/node/auth-service.md" "Auth Service" >}}.
 
 If you do not have these, you need to access them from the operator who configured your Auth Service.
 

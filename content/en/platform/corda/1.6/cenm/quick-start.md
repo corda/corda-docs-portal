@@ -40,6 +40,7 @@ For a full production environment you would need to modify this deployment to ad
 * An {{< cordalatestrelref "enterprise/node/auth-service.md" "Auth Service" >}} deployment to handle user authentication and authorisation.
 * A {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}} deployment to act as a gateway from the user interface (CLI) to the back-end services.
 
+
 ### Prerequisites
 
 Ensure you have copies of the following files (provided by R3), before creating your network:
