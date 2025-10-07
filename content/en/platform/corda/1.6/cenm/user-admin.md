@@ -34,7 +34,7 @@ You need administrator access to use the User Admin tool. If you are the first p
 
 ## Access the User Admin tool
 
-Access the User Admin tool from your {{< cordalatestrelref "enterprise/node/gateway-service.md" >}}) instance. Enter the full address of your Gateway Service, including the port number, followed by `/admin` into a web browser.
+Access the User Admin tool from your {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}} instance. Enter the full address of your Gateway Service, including the port number, followed by `/admin` into a web browser.
 
 For example:
 `http://10.230.41.12:8080/admin`

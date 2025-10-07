@@ -79,7 +79,7 @@ The set of REST end-points for the network map service are as follows.
 ### Additional endpoints from R3
 
 Network maps hosted by R3 or other parties using R3’s commercial network management tools typically provide some
-additional endpoints for users. These additional endpoints are described in [CENM: Network map overview]({{< relref "../../../../../../en/platform/corda/1.6/cenm/network-map-overview.md" >}}).
+additional endpoints for users. These additional endpoints are described in {{< cenmlatestrelref "cenm/network-map-overview.md" "Network map overview" >}}.
 
 HTTP is used for the network map service instead of Corda’s own AMQP based peer to peer messaging protocol to
 enable the server to be placed behind caching content delivery networks like Cloudflare, Akamai, Amazon Cloudfront and so on.

@@ -38,7 +38,7 @@ You can then take your Corda integration to the next level by deep-diving into s
 
 ## Getting started with Corda Enterprise Network Manager (CENM) 1.6
 
-Before you deploy [CENM]({{< relref "../../../1.6/cenm/_index.md" >}}), read about [Corda networks]({{< relref "../../../1.5/cenm/corda-networks.md" >}}) and the [components of CENM]({{< relref "../../../1.6/cenm/enm-components.md" >}}). For instructions on deploying:
-* CENM with Docker, Kubernetes, and Helm charts, see [CENM Deployment with Docker, Kubernetes, and Helm charts]({{< relref "../../../1.6/cenm/deployment-kubernetes.md" >}}).
-* CENM with Amazon Web Services (AWS), see [CENM Deployment on AWS]({{< relref "../../../1.6/cenm/aws-deployment-guide.md" >}}).
-* CENM services as a test environment, see the [CENM test environment quick start guide]({{< relref "../../../1.6/cenm/quick-start.md" >}}).
+Before you deploy {{< cenmlatestrelref "cenm/_index.md" "CENM" >}}, read about {{< cenmlatestrelref "cenm/corda-networks.md" "Corda networks]" >}} and the {{< cenmlatestrelref "cenm/enm-components.md" "components of CENM" >}}. For instructions on deploying, see:
+* CENM with Docker, Kubernetes, and Helm charts, see {{< cenmlatestrelref "cenm/deployment-kubernetes.md" "CENM Deployment with Docker, Kubernetes, and Helm charts" >}}.
+* CENM with Amazon Web Services (AWS), see {{< cenmlatestrelref "cenm/aws-deployment-guide.md" "CENM Deployment on AWS" >}}.
+* CENM services as a test environment, see the {{< cenmlatestrelref "cenm/quick-start.md" "CENM test environment quick start guide" >}}.
