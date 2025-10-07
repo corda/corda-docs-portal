@@ -38,7 +38,7 @@ For a full production environment you would need to modify this deployment to ad
 * [Angel Services]({{< relref "angel-service.md" >}}) around the [Identity Manager]({{< relref "identity-manager.md" >}}), [Network Map]({{< relref "network-map.md" >}}),
   and Signing Services to fetch configurations from the Zone Service.
 * An {{< cordalatestrelref "enterprise/node/auth-service.md" "Auth Service" >}} deployment to handle user authentication and authorisation.
-* A {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}}) deployment to act as a gateway from the user interface (CLI) to the back-end services.
+* A {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}} deployment to act as a gateway from the user interface (CLI) to the back-end services.
 
 ### Prerequisites
 

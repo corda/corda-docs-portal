@@ -36,12 +36,12 @@ To set up a reference deployment of CENM using AWS and PostgreSQL:
 You must ensure that each CENM service has it's own PostgreSQL database. Complete the steps referenced below for each of the following:
 
 * {{< cordalatestrelref "enterprise/node/auth-service.md" "Auth Service" >}}
-* {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}})
-* [Identity Manager]({{< relref "identity-manager.md" >}}).
-* [Network Map]({{< relref "network-map.md" >}}).
-* [Signer Service]({{< relref "signing-service.md" >}}).
-* [Zone Service]({{< relref "zone-service.md" >}}).
-* [Angel Service]({{< relref "angel-service.md" >}}).
+* {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}}
+* [Identity Manager]({{< relref "identity-manager.md" >}})
+* [Network Map]({{< relref "network-map.md" >}})
+* [Signer Service]({{< relref "signing-service.md" >}})
+* [Zone Service]({{< relref "zone-service.md" >}})
+* [Angel Service]({{< relref "angel-service.md" >}})
 
 To set up each database:
 
