@@ -201,7 +201,7 @@ $ export CONFIG_OBFUSCATION_SEED=my-seed; export CONFIG_OBFUSCATION_PASSPHRASE=m
 
 ## Deobfuscate an obfuscated configuration file
 
-You deobfuscate an obfuscated configuration file by starting the respective node, Firewall component, or service (for example, a {{< cenmlatestrelref "cenm/_index.md" "Corda Enterprise Network Manager service" >}}).
+You deobfuscate an obfuscated configuration file by starting the respective node, Firewall component, or service (for example, a {{< cenmlatestrelref "cenm/_index.md" "CENM service" >}}).
 
 When you need your node, Firewall component, or service, to deobfuscate an obfuscated configuration file, you must pass them the same seed and passhprase used when that configuration file was deobfuscated. There are two ways you can do that, as described below.
 

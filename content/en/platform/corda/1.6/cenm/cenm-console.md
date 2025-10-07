@@ -32,7 +32,7 @@ To use the CENM management console, you must install it as a *plug-in* to your G
 
 - {{< cordalatestrelref "enterprise/node/auth-service.md" "Auth Service" >}} that has been set up with at least one user (ideally an admin user) and running.
 - [Zone Service]({{< relref "zone-service.md" >}}) running.
-- {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}}) is installed and running.
+- {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}} is installed and running.
 
 ### Install the CENM management console
 
