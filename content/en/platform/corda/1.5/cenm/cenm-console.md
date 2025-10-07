@@ -30,13 +30,13 @@ To use the CENM management console, you must install it as a *plug-in* to your G
 
 ### Requirements
 
-- [Auth Service]({{< relref "../../4.10/enterprise/node/auth-service.md" >}}) that has been set up with at least one user (ideally an admin user) and running.
+- {{< cordalatestrelref "enterprise/node/auth-service.md" "Auth Service" >}} that has been set up with at least one user (ideally an admin user) and running.
 - [Zone Service]({{< relref "zone-service.md" >}}) running.
-- [Gateway Service]({{< relref "../../4.10/enterprise/node/gateway-service.md" >}}) is installed and running.
+- {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}} is installed and running.
 
 ### Install the CENM management console
 
-The CENM management console is accessed via the [Gateway Service]({{< relref "../../4.10/enterprise/node/gateway-service.md" >}}). Once you have added the plugin binaries to the correct directory on the machine that hosts your Gateway Service, you can access the web service from any browser.
+The CENM management console is accessed via the {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}}. Once you have added the plugin binaries to the correct directory on the machine that hosts your Gateway Service, you can access the web service from any browser.
 
 {{< note >}}
 Apache Log4j dependency has been updated to version 2.16.0. This is to prevent exposure to security issues raised with earlier versions of Log4j 2.

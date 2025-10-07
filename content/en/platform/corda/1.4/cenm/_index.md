@@ -25,10 +25,10 @@ Corda network that gives the user full control over all aspects of deployment, o
 {{< note >}}
 **Release notes**
 
-* For all Corda Enterprise Network Manager release notes, see the [Corda Enterprise Network Manager release notes]({{< relref "release-notes.md" >}}) page.
-* For the latest Corda Enterprise release notes, see the [Corda Enterprise Edition 4.6 release notes](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-enterprise/4.6/enterprise/release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
-* For all Corda open source release notes, see the [Corda release notes](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-os/4.6/release-notes.md) page.
-
+* For the latest CENM release notes, see the [CENM release notes]({{< relref "release-notes.md" >}}) page.
+* For the latest Corda Enterprise release notes, see the Corda Enterprise Edition {{< latest-c4-version >}} {{< cordalatestrelref "enterprise/release-notes-enterprise.md" "release notes" >}} page. 
+* For the latest Corda Open Source release notes, see the Corda Open Source {{< latest-c4-version >}} {{< cordalatestrelref "community/release-notes.md" "release notes" >}} page.
+* For release notes of all versions, see [Corda]({{< relref "../../_index.md" >}}).
 {{< /note >}}
 
 The Corda Enterprise Network Manager provides three main services:
