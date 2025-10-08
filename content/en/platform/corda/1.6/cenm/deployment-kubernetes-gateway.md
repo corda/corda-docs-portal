@@ -12,7 +12,7 @@ weight: 60
 
 # CENM Gateway Service Helm Chart
 
-This Helm chart is to configure, deploy, and run the [Gateway Service]({{< relref "../../4.12/enterprise/node/gateway-service.md" >}}) on Kubernetes.
+This Helm chart is to configure, deploy, and run the {{< cordalatestrelref "enterprise/node/gateway-service.md" >}}) on Kubernetes.
 
 ## Example usage
 

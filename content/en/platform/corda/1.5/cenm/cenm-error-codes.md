@@ -95,4 +95,4 @@ These error codes can be accessed by using the `code` property when encountering
 
 ## Corda Enterprise error codes
 
-For a list of node error codes in Corda Enterprise, see [Node error codes]({{< relref "../../4.10/enterprise/node/operating/error-codes.md" >}}).
+For a list of node error codes in Corda Enterprise, see {{< cordalatestrelref "enterprise/node/operating/error-codes.md" "Node error codes" >}}.
