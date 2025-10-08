@@ -12,7 +12,7 @@ weight: 2
 
 # Versioning
 
-As the Corda platform evolves and new features are added, it's important the versioning system allows users to easily compare versions and know what features are available.
+As the Corda platform evolves and new features are added, it is important the versioning system allows users to easily compare versions and know what features are available.
 
 Each Corda release uses the standard semantic versioning scheme of `major.minor`.
 This is useful when referring to releases in the public domain, but is not a practical platform versioning system for a developer.

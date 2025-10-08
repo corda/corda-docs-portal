@@ -48,7 +48,7 @@ class MyFirstFlowStartArgs(val otherMember: MemberX500Name)
 class Message(val sender: MemberX500Name, val message: String)
 
 
-// MyFirstFlow is an initiating flow, it's corresponding responder flow is called MyFirstFlowResponder (defined below)
+// MyFirstFlow is an initiating flow, its corresponding responder flow is called MyFirstFlowResponder (defined below)
 // to link the two sides of the flow together they need to have the same protocol.
 @InitiatingFlow(protocol = "my-first-flow")
 // MyFirstFlow should inherit from ClientStartableFlow, which tells Corda it can be started via an REST call from a client
@@ -76,7 +76,7 @@ class MyFirstFlow: ClientStartableFlow {
   @CordaInject
   lateinit var memberLookup: MemberLookup
 
-  // When a flow is invoked it's call() method is called.
+  // When a flow is invoked its call() method is called.
   // call() methods must be marked as @Suspendable, this allows Corda to pause mid-execution to wait
   // for a response from the other flows and services
   @Suspendable
@@ -119,7 +119,7 @@ class MyFirstFlow: ClientStartableFlow {
   }
 }
 
-// MyFirstFlowResponder is a responder flow, it's corresponding initiating flow is called MyFirstFlow (defined above)
+// MyFirstFlowResponder is a responder flow, its corresponding initiating flow is called MyFirstFlow (defined above)
 // to link the two sides of the flow together they need to have the same protocol.
 @InitiatedBy(protocol = "my-first-flow")
 // Responder flows must inherit from ResponderFlow

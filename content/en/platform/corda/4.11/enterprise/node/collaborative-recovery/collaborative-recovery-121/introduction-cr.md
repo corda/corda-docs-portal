@@ -78,7 +78,7 @@ There are seven stages in the Collaborative Recovery process. You should perform
 
 ## When to use Collaborative Recovery
 
-Collaborative Recovery is a last-resort option to recover your data. Whilst it provides tools to detect and recover missing ledger data, it's
+Collaborative Recovery is a last-resort option to recover your data. Whilst it provides tools to detect and recover missing ledger data, it is
 not sufficient as a disaster recovery strategy on its own. You must use Collaborative Recovery in conjunction with conventional disaster recovery strategies, such as backups and replication.
 
 Ideally, you should never need to use Collaborative Recovery. To protect the data on your node, each node you transact with should be part of a robust disaster recovery plan, agreed at the Business Network level. This strategy should mean you have backups include the following:

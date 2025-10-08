@@ -383,7 +383,7 @@ To create a communication session between your `initiator` flow and the `receive
   * Sends a potentially different payload to each `FlowSession`, as specified by the provided `payloadsPerSession`.
 
 {{% note %}}
-It's more efficient to call `sendAndReceive` instead of calling `send` and then `receive`. It's also more efficient to call `sendAll / receiveAll` instead of multiple individual `send` and `receive` calls.
+It is more efficient to call `sendAndReceive` instead of calling `send` and then `receive`. It's also more efficient to call `sendAll / receiveAll` instead of multiple individual `send` and `receive` calls.
 {{% /note %}}
 
 ### Create communication sessions with `InitiateFlow`
@@ -861,7 +861,7 @@ Check that:
 
 ### `SendTransactionFlow` and `ReceiveTransactionFlow`
 
-When you verify a transaction you've received from a counterparty, you must also verify every transaction in its
+When you verify a transaction you have received from a counterparty, you must also verify every transaction in its
 dependency chain. This means the receiving party needs to be able to ask the sender for all the details of the chain.
 The sender sends the transaction using `SendTransactionFlow` to process all subsequent
 transaction data vending requests while the receiver walks the dependency chain using `ReceiveTransactionFlow`:

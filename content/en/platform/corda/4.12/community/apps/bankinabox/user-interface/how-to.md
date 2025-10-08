@@ -282,7 +282,7 @@ An **Admin user** can set an account's **Withdrawal daily limit** or **Transfer 
 
 1. Enter an amount above zero in desired limit field (**Withdrawal daily limit** or **Transfer daily limit**). If "0" is entered or the field is left blank, the account will not have that limit applied.
 
-2. Click **Save** when you've entered the desired limits. A message will appear indicating that the limits have been saved successfully.
+2. Click **Save** when you have entered the desired limits. A message will appear indicating that the limits have been saved successfully.
 
 {{< figure alt="Set withdrawal and transfer limits - admin" width=80% zoom="/en/gifs/set-limits-admin-biab-1.0.gif" >}}
 

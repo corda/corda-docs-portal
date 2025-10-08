@@ -48,7 +48,7 @@ Your code should now look like:
 Adding this annotation triggers an error in IntelliJ because you have not created the `AppleStampContract` yet. Ignore this error for now - you will add the contract class in the [Write Contracts]({{< relref "./contract.md" >}}) tutorial.
 {{< /note >}}
 
-When naming your CorDapp files, it's best practice to match your contract and state names. In this case the state is called `AppleStamp`, so the contract is called `AppleStampContract`. Follow this naming convention when you write your own original CorDapp to avoid confusion.
+When naming your CorDapp files, it is best practice to match your contract and state names. In this case the state is called `AppleStamp`, so the contract is called `AppleStampContract`. Follow this naming convention when you write your own original CorDapp to avoid confusion.
 
 ### Implement the State
 

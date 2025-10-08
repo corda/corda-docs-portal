@@ -137,7 +137,7 @@ Where:
   - `password=<password>`: The RPC user password. If not provided it will be prompted for on startup.
   - `truststore-password=<trustStorePassword>`: The password to unlock the node's `truststore.jks` file.
   - `truststore-file=<trustStoreFile>`: The path to the node's `truststore.jks` file.
-  - `truststore-type=<trustStoreType>`: The type of the node's trustStore file (in this case, it's `.jks`).
+  - `truststore-type=<trustStoreType>`: The type of the node's trustStore file (in this case, it is `.jks`).
   - `verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
   - `logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
   - `help`, `-h`: Show this help message and exit.

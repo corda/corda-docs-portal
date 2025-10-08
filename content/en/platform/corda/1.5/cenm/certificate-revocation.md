@@ -39,7 +39,7 @@ It is assumed that the signed certificate revocation list is always available, e
 {{< /note >}}
 
 {{< note >}}
-CRLs should be signed manually from time to time depending on it's `nextUpdate` property. Further details
+CRLs should be signed manually from time to time depending on its `nextUpdate` property. Further details
 on CRL lifecycle are covered under [Lifecycle](#crl-lifecycle).
 
 {{< /note >}}

@@ -1606,7 +1606,7 @@ public interface StartablePlugin {
 
 ```
 
-Each signable material submission plugin method must return it's status:
+Each signable material submission plugin method must return its status:
 
 ```java
 
