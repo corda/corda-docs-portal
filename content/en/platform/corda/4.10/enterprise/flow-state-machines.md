@@ -110,7 +110,7 @@ You can find the implementation of this flow in the file [TwoPartyTradeFlow.kt](
 Assuming no malicious termination, they both end the flow being in possession of a valid, signed transaction that
 represents an atomic asset swap.
 
-Note that it’s the *seller* who initiates contact with the buyer, not vice-versa as you might imagine.
+Note that it is the *seller* who initiates contact with the buyer, not vice-versa as you might imagine.
 
 We start by defining two classes that will contain the flow definition. We also pick what data will be used by
 each side.
@@ -239,12 +239,12 @@ interaction and it will save/restore serialised versions of the fiber at the rig
 
 Flows can be invoked in several ways. For instance, they can be triggered by scheduled events (in which case they need to
 be annotated with `@SchedulableFlow`), see [Scheduling events]({{< relref "event-scheduling.md" >}}) to learn more about this. They can also be triggered
-directly via the node’s RPC API from your app code (in which case they need to be annotated with *StartableByRPC*). It’s
+directly via the node’s RPC API from your app code (in which case they need to be annotated with *StartableByRPC*). It is
 possible for a flow to be of both types.
 
 You request a flow to be invoked by using the `CordaRPCOps.startFlowDynamic` method. This takes a
 Java reflection `Class` object that describes the flow class to use (in this case, either `Buyer` or `Seller`).
-It also takes a set of arguments to pass to the constructor. Because it’s possible for flow invocations to
+It also takes a set of arguments to pass to the constructor. Because it is possible for flow invocations to
 be requested by untrusted code (e.g. a state that you have been sent), the types that can be passed into the
 flow are checked against a whitelist, which can be extended by apps themselves at load time.  There are also a series
 of inlined Kotlin extension functions of the form `CordaRPCOps.startFlow` which help with invoking flows in a type
@@ -335,7 +335,7 @@ the trade info, and then call `otherSideSession.send`. which takes two arguments
 `otherSideSession.send` will serialise the payload and send it to the other party automatically.
 
 Next, we call a *subflow* called `IdentitySyncFlow.Receive` (see [Sub-flows](#sub-flows)). `IdentitySyncFlow.Receive`
-ensures that our node can de-anonymise any confidential identities in the transaction it’s about to be asked to sign.
+ensures that our node can de-anonymise any confidential identities in the transaction it is about to be asked to sign.
 
 Next, we call another subflow called `SignTransactionFlow`. `SignTransactionFlow` automates the process of:
 
@@ -551,7 +551,7 @@ transaction that uses them. This flow returns a list of `LedgerTransaction` obje
 {{< note >}}
 Transaction dependency resolution assumes that the peer you got the transaction from has all of the
 dependencies itself. It must do, otherwise it could not have convinced itself that the dependencies were themselves
-valid. It’s important to realise that requesting only the transactions we require is a privacy leak, because if
+valid. It is important to realise that requesting only the transactions we require is a privacy leak, because if
 we don’t download a transaction from the peer, they know we must have already seen it before. Fixing this privacy
 leak will come later.
 
@@ -592,7 +592,7 @@ will:
 * Sending their signature back to the buyer
 * Waiting for the transaction to be recorded in their vault
 
-We cannot instantiate `SignTransactionFlow` itself, as it’s an abstract class. Instead, we need to subclass it and
+We cannot instantiate `SignTransactionFlow` itself, as it is an abstract class. Instead, we need to subclass it and
 override `checkTransaction()` to add our own custom validation logic:
 
 {{< tabs name="tabs-5" >}}
@@ -647,11 +647,11 @@ always use private methods to keep the stack uncluttered with temporary variable
 Kryo is not able to serialise correctly.
 
 The second is that as well as being kept on the heap, objects reachable from the stack will be serialised. The state
-of the function call may be resurrected much later! Kryo doesn’t require objects be marked as serialisable, but even so,
+of the function call may be resurrected much later! Kryo does not require objects be marked as serialisable, but even so,
 doing things like creating threads from inside these calls would be a bad idea. They should only contain business
 logic and only do I/O via the methods exposed by the flow framework.
 
-It’s OK to keep references around to many large internal node services though: these will be serialised using a
+It is OK to keep references around to many large internal node services though: these will be serialised using a
 special token that’s recognised by the platform, and wired up to the right instance when the continuation is
 loaded off disk again.
 
@@ -673,7 +673,7 @@ mechanism.
 
 `receive` and `sendAndReceive` return a simple wrapper class, `UntrustworthyData<T>`, which is
 just a marker class that reminds us that the data came from a potentially malicious external source and may have been
-tampered with or be unexpected in other ways. It doesn’t add any functionality, but acts as a reminder to “scrub”
+tampered with or be unexpected in other ways. It does not add any functionality, but acts as a reminder to “scrub”
 the data before use.
 
 
@@ -696,14 +696,14 @@ flows.
 {{< /note >}}
 Throwing a `FlowException` enables a flow to reject a piece of data it has received back to the sender. This is typically
 done in the `unwrap` method of the received `UntrustworthyData`. In the above example the seller checks the price
-and throws `FlowException` if it’s invalid. It’s then up to the buyer to either try again with a better price or give up.
+and throws `FlowException` if it is invalid. It is then up to the buyer to either try again with a better price or give up.
 
 
 
 ## Progress tracking
 
 Not shown in the code snippets above is the usage of the `ProgressTracker` API. Progress tracking exports information
-from a flow about where it’s got up to in such a way that observers can render it in a useful manner to humans who
+from a flow about where it is got up to in such a way that observers can render it in a useful manner to humans who
 may need to be informed. It may be rendered via an API, in a GUI, onto a terminal window, etc.
 
 A `ProgressTracker` is constructed with a series of `Step` objects, where each step is an object representing a
@@ -771,7 +771,7 @@ Each step exposes a label. By defining your own step types, you can export progr
 and machine readable.
 
 Progress trackers are hierarchical. Each step can be the parent for another tracker. By setting
-`Step.childProgressTracker`, a tree of steps can be created. It’s allowed to alter the hierarchy at runtime, on the
+`Step.childProgressTracker`, a tree of steps can be created. It is allowed to alter the hierarchy at runtime, on the
 fly, and the progress renderers will adapt to that properly. This can be helpful when you don’t fully know ahead of
 time what steps will be required. If you *do* know what is required, configuring as much of the hierarchy ahead of time
 is a good idea, as that will help the users see what is coming up. You can pre-configure steps by overriding the
@@ -828,7 +828,7 @@ step in the parent flow automatically, if the parent is using tracking in the fi
 automatically set the current step to `DONE` for you, when the flow is finished.
 
 Because a flow may sometimes wish to configure the children in its progress hierarchy *before* the sub-flow
-is constructed, for sub-flows that always follow the same outline regardless of their parameters it’s conventional
+is constructed, for sub-flows that always follow the same outline regardless of their parameters it is conventional
 to define a companion object/static method (for Kotlin/Java respectively) that constructs a tracker, and then allow
 the sub-flow to have the tracker it will use be passed in as a parameter. This allows all trackers to be built
 and linked ahead of time.
@@ -844,7 +844,7 @@ the features we have planned:
 
 
 * Exception management, with an improved node-flow-hospital facility to manually provide solutions to unavoidable
-problems (e.g. the other side doesn’t know the trade)
+problems (e.g. the other side does not know the trade)
 * Being able to interact with people, either via some sort of external ticketing system, or email, or a custom UI.
 For example to implement human transaction authorisations
 * A standard library of flows that can be easily sub-classed by local developers in order to integrate internal

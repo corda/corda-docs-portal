@@ -68,7 +68,7 @@ Add the following private variables to the subclass:
 * `holder` - The holder of the `AppleStamp`. This must be a `Party` type.
 
 {{< note >}}
-When writing flows, it's important that you consider who is calling the flow - this affects the parameters you need.
+When writing flows, it is important that you consider who is calling the flow - this affects the parameters you need.
 {{< /note >}}
 
 #### Add a constructor
@@ -289,7 +289,7 @@ public class CreateAndIssueAppleStamp {
                 protected void checkTransaction(SignedTransaction stx) throws FlowException {
                     /*
                      * SignTransactionFlow will automatically verify the transaction and its signatures before signing it.
-                     * However, just because a transaction is contractually valid doesn’t mean we necessarily want to sign.
+                     * However, just because a transaction is contractually valid does not mean we necessarily want to sign.
                      * What if we don’t want to deal with the counterparty in question, or the value is too high,
                      * or we’re not happy with the transaction’s structure? checkTransaction
                      * allows us to define these additional checks. If any of these conditions are not met,
@@ -328,7 +328,7 @@ Though you don't need a notary in a single-party flow, all standard flows includ
 
 #### Check your work
 
-After you've written the `PackageApples` flow, your code should look like this:
+After you have written the `PackageApples` flow, your code should look like this:
 
 ```java
 package com.tutorial.flows;
@@ -408,7 +408,7 @@ The `RedeemApples` flow has an additional step that you did not see in the previ
 
 #### Check your work
 
-After you've written the `PackageApples` flow, your code should look like this:
+After you have written the `PackageApples` flow, your code should look like this:
 
 ```java
 package com.tutorial.flows;

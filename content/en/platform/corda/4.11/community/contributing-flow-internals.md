@@ -63,7 +63,7 @@ fun n4() { .. }
 ```
 
 Quasar’s javaagent, when loading bytecode, will look for functions with the `@Suspendable` annotation. Furthermore within these functions
-it will look for callsites of other `@Suspendable` functions (which is why it’s important to annotate interface/abstract class methods
+it will look for callsites of other `@Suspendable` functions (which is why it is important to annotate interface/abstract class methods
 **as well as** implementations). Note how `n1`-`n4` are thus not instrumented, and their callsites aren’t relevant in the instrumentation
 of `s0`.
 
@@ -229,14 +229,14 @@ data class DeliverSessionMessage(
 The event then goes through `TopLevelTransition`, which then passes it to `DeliverSessionMessageTransition`. This transition inspects
 the event, then does the relevant bookkeeping, updating sessions, buffering messages etc. Note that we don’t do any checkpoint persistence,
 and we don’t return control to the user code afterwards, we simply schedule a `DoRemainingWork` and return a `ProcessEvents`
-continuation. This means that it’s going to be the next transition that decides whether the received message is “relevant” to the current
+continuation. This means that it is going to be the next transition that decides whether the received message is “relevant” to the current
 suspension, and whether control should thus be returned to user code with the message.
 
 
 ## FlowStateMachineImpl
 
 The state machine is a pure function, so what is the “driver” of it, that actually executes the transitions and side-effects? This is what
-`FlowStateMachineImpl` is doing, which is a `Fiber`. This class requires great care when it’s modified, as the programmer must be aware
+`FlowStateMachineImpl` is doing, which is a `Fiber`. This class requires great care when it is modified, as the programmer must be aware
 of what’s on the stack, what fields get persisted as part of the `Checkpoint`, and how the control flow is wired.
 
 The usual way to implement state machines is to create a simple event loop that keeps popping events from a queue, and executes the
@@ -416,7 +416,7 @@ interceptors. These interceptors are `TransitionExecutor` s that have access to 
 inspect it, pass it to the delegate, and do something specific to the interceptor.
 
 For example checkpoint deserializability is checked by such an [interceptor](https://github.com/corda/corda/blob/76d738c4529fd7bdfabcfd1b61d500f9259978f7/node/src/main/kotlin/net/corda/node/services/statemachine/interceptors/FiberDeserializationCheckingInterceptor.kt#L18).
-It inspects a transition, and if it contains a Fiber checkpoint then it checks whether it’s deserializable in a separate thread.
+It inspects a transition, and if it contains a Fiber checkpoint then it checks whether it is deserializable in a separate thread.
 
 The transition calculation is done in the `net.corda.node.services.statemachine.transitions` package, the top-level entry point being
 `TopLevelTransition`. There is a `TransitionBuilder` helper that makes the transition definitions a bit more readable. It contains a
@@ -442,7 +442,7 @@ This is a generic event that simply tells the state machine: inspect your curren
 event we can break down transitions into a <modify state> and <inspect and do stuff> transition, which compose well with other transitions,
 as we don’t need to add special cases everywhere in the state machine.
 
-As an example take error propagation. When a flow errors it’s put into an “errored” state, and it’s waiting for further instructions. One
+As an example take error propagation. When a flow errors it is put into an "errored" state, and it is waiting for further instructions. One
 possibility is the triggering of error propagation through the scheduling of `Event.StartErrorPropagation`. Note how the handling of this
 event simply does the following:
 
@@ -595,7 +595,7 @@ These two data structures correspond to the two `DeduplicationHandler` hooks of 
 The indirection through the in-memory map is needed because Artemis may redeliver unacked messages in certain situations, and at that point
 the message may still be “in-flight”, i.e. the ID may not be committed yet.
 
-If the message isn’t a duplicate then it’s put into `beingProcessedMessages` and forwarded to the state machine manager, which then
+If the message is not a duplicate then it is put into `beingProcessedMessages` and forwarded to the state machine manager, which then
 forwards it to the right flow or constructs one if this is an initiating message. When the next checkpoint of the relevant flow is persisted
 the message is “finalized” as discussed, using its `DeduplicationHandler`.
 

@@ -260,7 +260,7 @@ The loaded classes are further rewritten in two ways:
 
 ### Disable Synchronised Methods and Blocks
 
-The DJVM doesn’t support multi-threading and so synchronised methods and code blocks have little
+The DJVM does not support multi-threading and so synchronised methods and code blocks have little
 use in sandboxed code. Consequently, we automatically transform them into ordinary methods and code blocks instead.
 
 

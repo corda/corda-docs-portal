@@ -33,7 +33,7 @@ To set up a reference deployment of CENM using AWS and PostgreSQL:
 
 ### Set up a PostgreSQL database for each CENM service
 
-You must ensure that each CENM service has it's own PostgreSQL database. Complete the steps referenced below for each of the following:
+You must ensure that each CENM service has its own PostgreSQL database. Complete the steps referenced below for each of the following:
 
 * {{< cordalatestrelref "enterprise/node/auth-service.md" "Auth Service" >}}
 * {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}}

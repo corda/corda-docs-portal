@@ -23,7 +23,7 @@ title: EJBCA sample plugin
 ## Overview
 
 Signable Material Retriever servce (SMR) ships with default CA and Non CA plugin for the CENM provided Signing Service.
-These plugins demonstrate the connectivity to the CENM Signing Service which doesn’t persist the signable materials
+These plugins demonstrate the connectivity to the CENM Signing Service which does not persist the signable materials
 requests, and the data needs to be stored on the plugin’s side (SMR Service). To illustrate the reverse setup, where a
 signing infrastructure (the replacement of CENM Signing Service) stores internally signable material requests, we
 provide instruction how to setup EJBCA - the Open Source Certificate Authority, and sample plugin implementation.
@@ -100,7 +100,7 @@ After that edit profile to have following properties set up:
 
 EJBCA is oriented on CA related type of signable material. This is why the sample plugin implements `CASigningPlugin`
 interface. It also implements `ENMLoggable` interface which is our internal logging interface. However this is optional
-and it’s added for convenience.
+and it is added for convenience.
 
 The sample implementation follows the same steps as [the official documentation](https://doc.primekey.com/ejbca6152/ejbca-operations/ejbca-concept-guide/protocols/web-service-interface).
 The suggested approach would be to follow the given link and this document at the same time to fill in the gaps.

@@ -33,7 +33,7 @@ that the parameters can be downloaded again.
 {{< /warning >}}
 
 
-If the node isn’t using a HTTP network map service then it’s expected the signed file is provided by some other means.
+If the node isn’t using a HTTP network map service then it is expected the signed file is provided by some other means.
 For such a scenario there is the network bootstrapper tool which in addition to generating the network parameters file
 also distributes the node info files to the node directories.
 

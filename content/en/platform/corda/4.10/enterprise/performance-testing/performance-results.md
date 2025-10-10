@@ -36,7 +36,7 @@ infrastructure configurations and to help stress CorDapps through generated load
 {{< /note >}}
 Figure 1 below compares the number of Transactions Per Second (TPS) carried out by a single node, either locally with no other nodes and no notary
 (Issue) or with one other node and a notary (Issue + Repeated Pay), between Corda Enterprise Edition 4 and Corda Enterprise 3.3 (most recent release at
-the time of Corda Enterprise Edition 4 release).  This is with each node running on it’s own dedicated server against a dedicated database server
+the time of Corda Enterprise Edition 4 release).  This is with each node running on its own dedicated server against a dedicated database server
 running **Microsoft SQL Server**.  Similar results were obtained against the other supported databases.
 
 
@@ -110,7 +110,7 @@ these sizings.
 
 {{< /table >}}
 
-It’s likely you’ll have (much) more RAM in larger VMs and physical servers, so feel free to give the node more heap.  Disk requirements
+It is likely you’ll have (much) more RAM in larger VMs and physical servers, so feel free to give the node more heap.  Disk requirements
 should be sufficient to store the binaries, log files (which could be large) and the Artemis MQ journal files, the latter dependent on queued messages.  Several GB should be sufficient.
 
 {{< note >}}
@@ -203,7 +203,7 @@ In the Corda Enterprise Edition 4.0 testing for Figures 1 & 2 we have used dedic
 The servers used in the original Azure hosted tests shown in Figure 3 were 4 cores, 28GB RAM (**Azure DS12 v2 VM**).  Each had only one data
 disk (limited to 5000 IOPS).  They ran **SQL Server 2017 Standard Edition**.
 
-It’s important to note that like many applications, the node is very sensitive to latency between the node and database servers.  We kept the latency
+It is important to note that like many applications, the node is very sensitive to latency between the node and database servers.  We kept the latency
 here to a minimum, without resorting to any extreme measures, by keeping them in the same location and on the same subnet.  We have tested with
 databases separated from the node with increased latency (high single digit, low double digit millisecond - effectively cross region) and it
 significantly impacts performance, with flows taking much longer to complete and overall throughput reduced accordingly.
@@ -260,7 +260,7 @@ for a 1GB heap, this would be approximately 50MB.  You will find that the amount
 with the configured maximum heap size because of these resizing caches and so a large heap *may* result in greater node throughput if certain round trips to the
 database are hampering performance.
 
-It’s also important to take into account the memory footprint of live (i.e. incomplete) flows.  The more live flows a node has, the more memory they will consume.
+It is also important to take into account the memory footprint of live (i.e. incomplete) flows.  The more live flows a node has, the more memory they will consume.
 
 
 ### Limiting outstanding flows

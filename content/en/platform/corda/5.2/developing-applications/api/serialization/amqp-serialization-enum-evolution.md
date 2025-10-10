@@ -32,12 +32,12 @@ forward.
 The biggest hurdle to allowing enum constants to be changed is that there will exist instances of those
 classes, either serialized in a vault or on nodes with the old, unmodified, version of the class that we
 must be able to inter-operate with. Thus, if a received data structure references an enum assigned a constant
-value that doesn’t exist on the running JVM, a solution is needed.
+value that does not exist on the running JVM, a solution is needed.
 
 For this, we use the annotations to allow developers to express their backward compatible intentions.
 
 In the case of renaming constants this is somewhat obvious, the deserializing node will simply treat any
-constants it doesn’t understand as their “old” values, that is, those values that it currently knows about.
+constants it does not understand as their “old” values, that is, those values that it currently knows about.
 
 In the case of adding new constants the developer must chose which constant (that existed *before* adding
 the new one) a deserializing system should treat any instances of the new one as.

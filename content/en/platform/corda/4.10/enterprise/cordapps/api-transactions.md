@@ -788,7 +788,7 @@ transaction’s signatures.
 
 If a transaction has inputs, we need to retrieve all the states in the transaction’s dependency chain before we can
 verify the transaction’s contents. This is because the transaction is only valid if its dependency chain is also valid.
-We do this by requesting any states in the chain that our node doesn’t currently have in its local storage from the
+We do this by requesting any states in the chain that our node does not currently have in its local storage from the
 proposer(s) of the transaction. This process is handled by a built-in flow called `ReceiveTransactionFlow`.
 See [Writing CorDapp Flows]({{< relref "api-flows.md" >}}) for more details.
 

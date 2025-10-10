@@ -99,7 +99,7 @@ Certificate validity cannot exceed the validity of Doorman CA certificate.
 <a name="ha-utilities-id2"></a>
 
 \[2\]
-For Node TLS certificate it’s recommended to set 27 months validity by specifying `--tls-cert-validity 825`.
+For Node TLS certificate it is recommended to set 27 months validity by specifying `--tls-cert-validity 825`.
 
 
 

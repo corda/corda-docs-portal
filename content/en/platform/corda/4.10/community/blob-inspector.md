@@ -122,7 +122,7 @@ blob-inspector [-hvV] [--full-parties] [--schema] [--format=type]
 
 
 * `--format=type`: Output format. Possible values: [YAML, JSON]. Default: YAML.
-* `--input-format=type`: Input format. If the file can’t be decoded with the given value it’s auto-detected, so you should
+* `--input-format=type`: Input format. If the file can’t be decoded with the given value it is auto-detected, so you should
   never normally need to specify this. Possible values [BINARY, HEX, BASE64]. Default: BINARY.
 * `--full-parties`: Display the owningKey and certPath properties of Party and PartyAndReference objects respectively.
 * `--schema`: Print the blob’s schema first.

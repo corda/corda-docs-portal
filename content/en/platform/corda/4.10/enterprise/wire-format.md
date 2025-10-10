@@ -48,7 +48,7 @@ or a 64-bit value. Both types of label have a defined namespacing mechanism. Thi
 layering on top of the simple, interoperable core.
 
 AMQP defines a type system and schema representation which allows you to create app-level type layers.
-Standard AMQP defines an XML-based schema language as part of the specification, but doesn’t define a way to represent
+Standard AMQP defines an XML-based schema language as part of the specification, but does not define a way to represent
 schemas using AMQP itself.
 
 You can group fields together using *composite types*. A composite type is a

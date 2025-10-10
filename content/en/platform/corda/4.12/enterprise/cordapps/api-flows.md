@@ -383,7 +383,7 @@ To create a communication session between your `initiator` flow and the `receive
   * Sends a potentially different payload to each `FlowSession`, as specified by the provided `payloadsPerSession`.
 
 {{% note %}}
-It's more efficient to call `sendAndReceive` instead of calling `send` and then `receive`. It's also more efficient to call `sendAll / receiveAll` instead of multiple individual `send` and `receive` calls.
+It is more efficient to call `sendAndReceive` instead of calling `send` and then `receive`. It is also more efficient to call `sendAll / receiveAll` instead of multiple individual `send` and `receive` calls.
 {{% /note %}}
 
 ### Create communication sessions with `InitiateFlow`
@@ -450,7 +450,7 @@ You can choose to wait to receive arbitrary data of a specific type from a count
 * You never receive a message back. In the current design, the flow is paused until the node’s owner kills the flow.
 * Instead of sending a message back, the counterparty throws a `FlowException`. This exception is propagated back
 to you. You can use the error message to establish what happened.
-* You receive a message back, but it’s of the wrong type. In this case, a `FlowException` is thrown.
+* You receive a message back, but it is of the wrong type. In this case, a `FlowException` is thrown.
 * You receive back a message of the correct type.
 
 If `FlowLogic` calls `receive` or `sendAndReceive`, `FlowLogic` is suspended until it receives a response.
@@ -529,7 +529,7 @@ statement.
 ### SendAndReceive
 
 You can use a single call to send data to a counterparty and wait to receive data of a specific type back. The
-type of data sent doesn’t need to match the type of the data received:
+type of data sent does not need to match the type of the data received:
 
 {{< tabs name="tabs-11" >}}
 {{% tab name="kotlin" %}}
@@ -877,7 +877,7 @@ data sources to facilitate this.
 
 ### `SendTransactionFlow` and `ReceiveTransactionFlow`
 
-When you verify a transaction you've received from a counterparty, you must also verify every transaction in its
+When you verify a transaction you have received from a counterparty, you must also verify every transaction in its
 dependency chain. This means the receiving party needs to be able to ask the sender for all the details of the chain.
 The sender sends the transaction using `SendTransactionFlow` to process all subsequent
 transaction data vending requests while the receiver walks the dependency chain using `ReceiveTransactionFlow`:
@@ -997,7 +997,7 @@ The flow framework automatically propagates the `FlowException` back to the wait
 
 There are many scenarios in which throwing a `FlowException` would be appropriate:
 
-* A transaction doesn’t `verify()`.
+* A transaction does not `verify()`.
 * A transaction’s signatures are invalid.
 * The transaction does not match the parameters of the deal as discussed.
 * You are reneging on a deal.

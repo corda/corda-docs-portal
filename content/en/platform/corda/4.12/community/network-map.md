@@ -92,7 +92,7 @@ Usually, test networks have a structure that is known ahead of time. For the cre
 `network-bootstrapper` tool. This tool pre-generates node configuration directories if given the IP addresses/domain
 names of each machine in the network. The generated node directories contain the NodeInfos for every other node on
 the network, along with the network parameters file and identity certificates. Generated nodes do not need to all be
-online at once - an offline node that isn’t being interacted with doesn’t impact the network in any way. So a test
+online at once - an offline node that isn’t being interacted with does not impact the network in any way. So a test
 cluster generated like this can be sized for the maximum size you may need, and then scaled up and down as necessary.
 
 More information can be found in [Network Bootstrapper]({{< relref "network-bootstrapper.md" >}}).
@@ -122,7 +122,7 @@ that the parameters can be downloaded again.
 {{< /warning >}}
 
 
-If the node isn’t using a HTTP network map service then it’s expected the signed file is provided by some other means.
+If the node isn’t using a HTTP network map service then it is expected the signed file is provided by some other means.
 For such a scenario there is the network bootstrapper tool which in addition to generating the network parameters file
 also distributes the node info files to the node directories.
 

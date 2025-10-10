@@ -19,7 +19,7 @@ menu:
 
 # Welcome to Corda
 
-[Corda](https://www.corda.net/) is an open source trust technology. Individuals or corporations can communicate or transact securely and privately, without necessarily knowing each other's identities. Corda is inspired by the possibilities opened up by the blockchain revolution, but it's a little different—primarily because everyone interacting on Corda is a verified legal entity.
+[Corda](https://www.corda.net/) is an open source trust technology. Individuals or corporations can communicate or transact securely and privately, without necessarily knowing each other's identities. Corda is inspired by the possibilities opened up by the blockchain revolution, but it is a little different: primarily because everyone interacting on Corda is a verified legal entity.
 
 Developers can use the Corda Platform to solve problems by building Corda Distributed Applications, or **CorDapps**. People who want to communicate with each other on Corda can install the same set of CorDapps, which let them define the parameters of their interactions and exchange information and assets. Transactions on Corda are notarized by a specialized type of node, which provides a uniqueness consensus.
 

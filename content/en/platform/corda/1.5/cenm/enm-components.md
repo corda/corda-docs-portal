@@ -125,5 +125,5 @@ See [Certificate hierarchy guide]({{< relref "pki-guide.md" >}}) for a detailed 
 
 Run by entities who wish to join the network, a node submits its Legal Identity to the Identity Manager for approval.
 On success, it will receive a PKI certificate linking that legal identity with its public key. It will then use that
-certificate to sign it’s Node Info (detailing its externally addressable location on the internet) and submit that to
+certificate to sign its Node Info (detailing its externally addressable location on the internet) and submit that to
 the Network Map.
