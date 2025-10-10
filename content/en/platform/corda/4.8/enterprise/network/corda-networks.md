@@ -64,7 +64,7 @@ Operator, with a suitable out-of-band process established with the party to comm
 entity.
 
 {{< note >}}
-Realistically, a segregated zone will operate to allow a third party to operate a notary on it’s own
+Realistically, a segregated zone will operate to allow a third party to operate a notary on its own
 terms rather than submit to the scrutiny of the global zone community or where the zone operator wishes to allow
 stratification of the min platform version applied to a network
 

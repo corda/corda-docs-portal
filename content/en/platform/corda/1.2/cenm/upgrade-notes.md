@@ -126,7 +126,7 @@ database {
  }
 ```
 
-This step doesn’t relate to Signing Service as it doesn’t use a database. The upgrade process is just a drop-in replacement of the existing JAR files with `<service>-1.1.1.jar`.
+This step does not relate to Signing Service as it does not use a database. The upgrade process is just a drop-in replacement of the existing JAR files with `<service>-1.1.1.jar`.
 Ensure the services are not running before replacing the JAR files.
 
 ### Dynamic loading of HSM JAR files

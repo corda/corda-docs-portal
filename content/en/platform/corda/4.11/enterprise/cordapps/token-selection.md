@@ -43,7 +43,7 @@ A multithreaded environment is characterised by running tokens with Corda Enterp
 
 You can only use in-memory selection in a multithreaded environment. This is  because a cache of available tokens balances are maintained for querying in the JVM. This means the query time to select available tokens is extremely fast, preventing the need for soft-locking tokens in the DB. Tokens are simply selected, added to a transaction and spent.
 
-In DB selection, token states must be queried from the vault and “selected” by soft-locking the record in the database. This doesn’t work in a multi-threaded environment and multiple threads running at the same time may end up selecting the same token state to be spent. This will lead to the node throwing an `InsufficientBalanceException` or `InsufficientNotLockedBalanceException` as all available token states (and associated records) are reserved for other concurrent transactions. While this won’t jeopardize data, it could impact the performance of your application.
+In DB selection, token states must be queried from the vault and “selected” by soft-locking the record in the database. This does not work in a multi-threaded environment and multiple threads running at the same time may end up selecting the same token state to be spent. This will lead to the node throwing an `InsufficientBalanceException` or `InsufficientNotLockedBalanceException` as all available token states (and associated records) are reserved for other concurrent transactions. While this won’t jeopardize data, it could impact the performance of your application.
 
 ## Move tokens using Database Selection
 

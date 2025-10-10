@@ -1540,7 +1540,7 @@ class must implement `CASigningPlugin` or `NonCASigningPlugin` interface dependi
 it will handle.
 
 Both interfaces extend common `StartablePlugin` interface containing a single method `start()`. The method is run by
-SMR Service upon the service start-up and it’s intended to contain plugin’s initialization code (e.g. a database
+SMR Service upon the service start-up and it is intended to contain plugin’s initialization code (e.g. a database
 connection initialization).
 
 ```java

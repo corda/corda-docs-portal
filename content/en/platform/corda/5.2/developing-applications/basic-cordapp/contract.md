@@ -29,7 +29,7 @@ First, create the `AppleStampContract`. This contract verifies actions performed
 3. Create a file called `AppleStampContract`.
 
    {{< note >}}
-   When naming contracts, it’s best practice to match your contract and state names. In this case the contract is called `AppleStampContract`, and the state that links to it is called `AppleStamp`. Follow this naming convention when you write your own original CorDapp to avoid confusion.
+   When naming contracts, it is best practice to match your contract and state names. In this case the contract is called `AppleStampContract`, and the state that links to it is called `AppleStamp`. Follow this naming convention when you write your own original CorDapp to avoid confusion.
    {{< /note >}}
 
 4. Open the file.

@@ -204,7 +204,7 @@ The option `-b` points to the base directory with a `node.conf` file and *driver
 A generated script named *migration/*.sql* will be present in the base directory.
 This script contains all statements to create data structures (e.g. tables/indexes) for CorDapps
 and inserts to the Liquibase management table *DATABASECHANGELOG*.
-The command doesn’t alter any tables.
+The command does not alter any tables.
 Refer to [Corda Database Management Tool]({{< relref "node-database.md#database-management-tool" >}}) manual for a description of the options.
 
 

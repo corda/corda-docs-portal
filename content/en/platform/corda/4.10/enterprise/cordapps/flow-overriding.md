@@ -113,7 +113,7 @@ The flows do not need to be within the same CorDapp, or package, therefore to cu
 
 Whilst the subclassing approach is likely to be useful for most applications, there is another mechanism to override this behaviour.
 This would be useful if for example, a specific CorDapp user requires such a different responder that subclassing an existing flow
-would not be a good solution. In this case, it’s possible to specify a hardcoded flow via the node configuration.
+would not be a good solution. In this case, it is possible to specify a hardcoded flow via the node configuration.
 
 {{< note >}}
 A new responder written to override an existing responder must still be annotated with `@InitiatedBy` referencing the base initiator.

@@ -21,7 +21,7 @@ title: EJBCA sample plugin
 ## Overview
 
 In CENM 1.6, the Signing Service ships with default CA and non-CA plug-ins.
-These plug-ins demonstrate the connectivity to the CENM Signing Service which doesn’t persist the signable materials
+These plug-ins demonstrate the connectivity to the CENM Signing Service which does not persist the signable materials
 requests, and the data needs to be stored on the plug-in’s side. To illustrate the reverse setup, where a
 signing infrastructure (the replacement of the CENM Signing Service) stores internally signable material requests, we
 provide instruction how to setup EJBCA - the Open Source Certificate Authority, and sample plugin implementation.

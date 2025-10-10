@@ -28,7 +28,7 @@ hostname and port values as main firewall guide.
 
 ## Upgrade
 
-When upgrading, it’s important to note that one of the main configuration differences is the renaming of all terms containing *bridge*
+When upgrading, it is important to note that one of the main configuration differences is the renaming of all terms containing *bridge*
 to use *firewall*. This applies to the configuration files for the bridge and float which are now called *firewall.conf*.
 There are properties which have been renamed or reworked, such as *customSSLConfiguration* which was previously
 used to override SSL configuration for bridge-to-artemis or bridge-to-float connections. For more information on the new properties, please see
@@ -186,6 +186,6 @@ The machines hosting the Artemis instances are *artemisserver1* and *artemisserv
 
 ### Multiple nodes behind the Bridge
 
-To add additional nodes behind the same Corda firewall (either all-in-one bridge or bridge and float), it’s sufficient
+To add additional nodes behind the same Corda firewall (either all-in-one bridge or bridge and float), it is sufficient
 to configure the new nodes to connect to Artemis as shown in the previous section. The same applies for the bridge. The additional
 nodes need to set their P2P address as the shared float’s address. Furthermore, all previous floats except the shared one need to be shut down.

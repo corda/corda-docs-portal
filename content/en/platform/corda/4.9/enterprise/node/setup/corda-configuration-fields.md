@@ -456,7 +456,7 @@ If an item in a list is overridden via an environment variable/system property, 
 *Default:* not defined
 
 This property is only available for Corda distributed with Capsule. For the Corda tarball distribution this option is unavailable.
-It's advisable to copy any required JAR files to the 'drivers' subdirectory of the node base directory.
+It is advisable to copy any required JAR files to the 'drivers' subdirectory of the node base directory.
 
 ## `jmxMonitoringHttpPort`
 
