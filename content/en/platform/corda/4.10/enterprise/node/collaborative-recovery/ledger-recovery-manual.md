@@ -215,7 +215,7 @@ This flow only marks the `RecoveryRequest` as complete on behalf of the invoking
 
 #### Vault archive
 
-A `VaultArchive` is a file/folder structure representing exported data from the nodes vault. It's structured in a specific format so that the initiating node (for whom you are exporting this `VaultArchive`) is able to interpret and import the transaction data back into their vault. The data in the `VaultArchive` is stored in [Corda Wire Format]({{< relref "../../wire-format.md" >}}) and may be deserialized and inspected using the [Corda Blob Inspector]({{< relref "../../blob-inspector.md" >}}).
+A `VaultArchive` is a file/folder structure representing exported data from the nodes vault. It is structured in a specific format so that the initiating node (for whom you are exporting this `VaultArchive`) is able to interpret and import the transaction data back into their vault. The data in the `VaultArchive` is stored in [Corda Wire Format]({{< relref "../../wire-format.md" >}}) and may be deserialized and inspected using the [Corda Blob Inspector]({{< relref "../../blob-inspector.md" >}}).
 
 An example of the file folder structure of a `VaultArchive` is defined below:
 
@@ -513,7 +513,7 @@ referenced transaction data that was invalid and they may have to restart the di
 ### Step 3. Transmit the vault archive
 
 {{< warning >}}
-This step is entirely off ledger. It's important to recognize that the exported `VaultArchive` contains highly sensitive transaction data representing the *private* ledger data shared between two counterparties.
+This step is entirely off ledger. it is important to recognize that the exported `VaultArchive` contains highly sensitive transaction data representing the *private* ledger data shared between two counterparties.
 {{< /warning >}}
 
 Corda does not attempt to solve the problem of securely and privately transmitting large file payloads - operating business entities should follow their internal best practices as well as any guidelines defined by the network or business network in determining the appropriate vehicle for delivery of the `VaultArchive` with the counterparty.

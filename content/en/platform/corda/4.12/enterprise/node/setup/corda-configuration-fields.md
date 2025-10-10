@@ -201,7 +201,7 @@ does not exist, a developer keystore will be used if `devMode` is true.
 The node will exit if `devMode` is false and the keystore does not exist.
 `devMode` also turns on background checking of flow checkpoints to shake out any bugs in the checkpointing process.
 Also, if `devMode` is true, Hibernate will try to automatically create the schema required by Corda or update an existing schema in the SQL database; if `devMode` is false, Hibernate will simply validate the existing schema, failing on node start if the schema is either not present or not compatible.
-If no value is specified in the node configuration file, the node will attempt to detect if it's running on a developer machine and set `devMode=true` in that case.
+If no value is specified in the node configuration file, the node will attempt to detect if it is running on a developer machine and set `devMode=true` in that case.
 This value can be overridden from the command line using the `--dev-mode` option.
 
 This flag affects the default value for Java heap size.

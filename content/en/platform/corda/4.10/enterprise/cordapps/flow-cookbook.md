@@ -172,7 +172,7 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
         // - Instead of sending a message back, the counterparty throws a
         //   ``FlowException``. This exception is propagated back to us,
         //   and we can use the error message to establish what happened.
-        // - We receive a message back, but it's of the wrong type. In
+        // - We receive a message back, but it is of the wrong type. In
         //   this case, a ``FlowException`` is thrown.
         // - We receive back a message of the correct type. All is good.
         //
@@ -449,7 +449,7 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
         // Of course, if you are not a required signer on the transaction,
         // you have no power to decide whether it is valid or not. If it
         // requires signatures from all the required signers and is
-        // contractually valid, it's a valid ledger update.
+        // contractually valid, it is a valid ledger update.
 
         /**-----------------------
          * GATHERING SIGNATURES *
@@ -751,7 +751,7 @@ public class FlowCookbook {
             // - Instead of sending a message back, the counterparty throws a
             //   ``FlowException``. This exception is propagated back to us,
             //   and we can use the error message to establish what happened.
-            // - We receive a message back, but it's of the wrong type. In
+            // - We receive a message back, but it is of the wrong type. In
             //   this case, a ``FlowException`` is thrown.
             // - We receive back a message of the correct type. All is good.
             //
@@ -1018,7 +1018,7 @@ public class FlowCookbook {
             // Of course, if you are not a required signer on the transaction,
             // you have no power to decide whether it is valid or not. If it
             // requires signatures from all the required signers and is
-            // contractually valid, it's a valid ledger update.
+            // contractually valid, it is a valid ledger update.
 
             /*------------------------
              * GATHERING SIGNATURES *

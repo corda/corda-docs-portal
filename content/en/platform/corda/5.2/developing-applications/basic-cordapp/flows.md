@@ -536,7 +536,7 @@ Include these variables in the flow:
 
 #### Check Your Work
 
-After you've written the `PackageApplesFlow`, your code should look like this:
+After you have written the `PackageApplesFlow`, your code should look like this:
 
 ##### `PackageApplesFlow`
 

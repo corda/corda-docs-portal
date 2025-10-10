@@ -39,7 +39,7 @@ Your CorDapp is vulnerable at two points:
 
 ### Secure flows
 
-Counterparties on a network have the ability to run their own code - it's possible that they may not be running the code you provided to take part in the flow. This means it's up to you to validate everything you receive over the network.
+Counterparties on a network have the ability to run their own code - it is possible that they may not be running the code you provided to take part in the flow. This means it is up to you to validate everything you receive over the network.
 
 The `receive` methods remind you to validate this data by wrapping it in the `UntrustworthyData<T>` marker type. This type does not add any functionality, it is only a reminder.
 

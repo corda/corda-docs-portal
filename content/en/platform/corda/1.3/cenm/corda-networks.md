@@ -31,13 +31,13 @@ should be consistent with their existing policies on such things.{{< note >}}
 Alternatively, the service can be configured to automatically accept signature requests. However, this is
 not the recommended deployment model outside of a testing setup.{{< /note >}}
 
-* Once accepted the requests have a certificate signed by the PKI infrastructure that governs the network.Signing is performed by a separately deployed process called “The Signing Service”. It is important to realise how
-this service should be deployed (for more details on this see the Signing Service documentation), in brief, it is the
+* Once accepted the requests have a certificate signed by the PKI infrastructure that governs the network. Signing is performed by a separately deployed process called the *Signing Service*. It is important to realise how
+this service should be deployed. In brief, it is the
 intention that, unlike the Identity Manager, the signer is completely isolated from external communication. It only
 addresses a data source it shares with the Identity Manager. This ensure no hostile entity can penetrate the system
-and force the signing of a certificate. See [Signing services]({{< relref "signing-service.md" >}})
+and force the signing of a certificate. For more information, see [Signing services]({{< relref "signing-service.md" >}}). 
 * The signed certificates are recognised by the Identity Manager and returned to the requesting node (Nodes poll the
-Identity Manager periodically to see if their signature request has been fulfilled).
+Identity Manager periodically to see if their signature request has been fulfilled). 
 
 At the end of this process a node will have successfully registered the legal identity of the entity it is operating
 on behalf of with the Zone. However, that node now needs to join one of the subzones that make up the network as a

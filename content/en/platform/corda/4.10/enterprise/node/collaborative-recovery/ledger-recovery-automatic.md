@@ -231,7 +231,7 @@ flow start FailAutomaticRecoveryFlow requestId: a5b3d634-9d34-47e8-9733-64db7511
 #### Exceptions
 
 * `RecoveryNotFoundException` - Thrown if the `RecoveryRequest` is not found.
-* `AutomaticRecoveryException` - Thrown if the `RecoveryRequest` is not automatic or if it's not `IN_PROGRESS`.
+* `AutomaticRecoveryException` - Thrown if the `RecoveryRequest` is not automatic or if it is not `IN_PROGRESS`.
 
 ### ShowInitiatedAutomaticRecoveryProgressFlow
 
@@ -540,7 +540,7 @@ In this scenario, we'll make the following assumptions:
 
 ### Process
 
-This process, or a similar process, should be the default workflow after recovering your vault from backup. It should involve every other party you've previously transacted with. In our example, we're only recovering transactions from one other party, but it's likely you've transacted with more than one party in the past.
+This process, or a similar process, should be the default workflow after recovering your vault from backup. It should involve every other party you have previously transacted with. In our example, we're only recovering transactions from one other party, but it is likely you have transacted with more than one party in the past.
 
 The automatic LedgerRecover process facilitates the entire recovery process - including the retrieval, verification, formatting and sending of data to be recovered.
 
