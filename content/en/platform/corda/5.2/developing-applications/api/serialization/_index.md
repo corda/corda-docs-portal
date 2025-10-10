@@ -493,7 +493,7 @@ must chose whether to create mutable or immutable objects. Given the restriction
 preserve the immutability of immutable objects rather than force mutability on presumed immutable objects.
 
 {{< note >}}
-Whilst we could potentially infer mutability empirically, doing so exhaustively is impossible as it’s a design
+Whilst we could potentially infer mutability empirically, doing so exhaustively is impossible as it is a design
 decision rather than something intrinsic to the JVM. At present, we defer to simply making things immutable on reconstruction
 with the following workarounds provided for those who use them. In future, this may change, but for now use the following
 examples as a guide.

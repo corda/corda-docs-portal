@@ -29,7 +29,7 @@ will be logged to the diagnostic log file, which is stored in the same location 
 by default). This is because Hibernate may log messages at WARN and ERROR that are handled internally by Corda and do not
 need operator attention. If they do, they will be logged by Corda itself in the main node log file.
 
-It may be the case that you require to amend the log level of a particular subset of modules (e.g., if you’d like to take a
+It may be the case that you require to amend the log level of a particular subset of modules (e.g., if you would like to take a
 closer look at hibernate activity). So, for more bespoke logging configuration, the logger settings can be completely overridden
 with a [Log4j2](https://logging.apache.org/log4j/2.x) configuration file assigned to the `log4j.configurationFile` system property.
 
@@ -81,7 +81,7 @@ Now start the node as usual but with the additional parameter `log4j.configurati
 
 To determine the name of the logger, for Corda objects, use the fully qualified name (e.g., to look at node output
 in more detail, use `net.corda.node.internal.Node` although be aware that as we have marked this class `internal` we
-reserve the right to move and rename it as it’s not part of the public API as yet). For other libraries, refer to their
+reserve the right to move and rename it as it is not part of the public API as yet). For other libraries, refer to their
 logging name construction. If you can’t find what you need to refer to, use the `--logging-level` option as above and
 then determine the logging module name from the console output.
 
@@ -123,9 +123,9 @@ jolokia agent. This tool provides a nice JMX dashboard very similar to the tradi
 * [JMX2Graphite](https://github.com/logzio/jmx2graphite) is a tool that can be pointed to /monitoring/json and will
 scrape the statistics found there, then insert them into the Graphite monitoring tool on a regular basis. It runs
 in Docker and can be started with a single command.
-* [JMXTrans](https://github.com/jmxtrans/jmxtrans) is another tool for Graphite, this time, it’s got its own agent
-(JVM plugin) which reads a custom config file and exports only the named data. It’s more configurable than
-JMX2Graphite and doesn’t require a separate process, as the JVM will write directly to Graphite.
+* [JMXTrans](https://github.com/jmxtrans/jmxtrans) is another tool for Graphite, this time, it has got its own agent
+(JVM plugin) which reads a custom config file and exports only the named data. It is more configurable than
+JMX2Graphite and does not require a separate process, as the JVM will write directly to Graphite.
 * Cloud metrics services like New Relic also understand JMX, typically, by providing their own agent that uploads the
 data to their service on a regular schedule.
 * [Telegraf](https://github.com/influxdata/telegraf) is a tool to collect, process, aggregate, and write metrics.
@@ -196,7 +196,7 @@ Unfortunately the JVM does not let you limit the total memory usage of Java prog
 
 {{< /note >}}
 A node which is running out of memory is expected to stop immediately to preserve ledger consistency and avoid flaws in operations.
-Note that it’s a responsibility of a client application to handle RPC reconnection in case this happens. It’s also advised to have
+Note that it is the responsibility of a client application to handle RPC reconnection in case this happens. It is also advised to have
 necessary JVM monitoring and restart infrastructure in place.
 See [Setting JVM arguments]({{< relref "running-a-node.md" >}}) for further details on JVM out-of-memory related parameters.
 

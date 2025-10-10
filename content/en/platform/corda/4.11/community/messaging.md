@@ -82,7 +82,7 @@ session continues on as normal.
 
 
 * **`rpc.server`**:
-RPC clients send their requests here, and it’s only open for sending by clients authenticated as RPC users.
+RPC clients send their requests here, and it is only open for sending by clients authenticated as RPC users.
 
 
 * **`rpc.client.$user.$random`**:

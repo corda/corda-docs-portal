@@ -483,7 +483,7 @@ In this scenario, we'll make the following assumptions:
 
 ### Process
 
-This process, or a similar process, should be followed every time after recovering your vault from backup. It should involve every other party you've previously transacted with. In our example, we're only reconciling with one other party, but it's likely you've transacted with more than one party in the past.
+This process, or a similar process, should be followed every time after recovering your vault from backup. It should involve every other party you have previously transacted with. In our example, we're only reconciling with one other party, but it is likely you have transacted with more than one party in the past.
 
 ### Step 1. Reconciliation
 
@@ -503,7 +503,7 @@ This flow will return immediately, and should indicate success.
 
 It is possible to get an exception when executing this flow.
 
-**`ReconciliationAlreadyScheduledException`** &mdash; As the name suggests, this exception will be thrown if there is already an ongoing reconciliation with the party you've tried to reconcile with. This exception can also occur if the other party (party B) has already initiated a reconciliation with you in the other direction; B -&gt; A instead of A -&gt; B.
+**`ReconciliationAlreadyScheduledException`** &mdash; As the name suggests, this exception will be thrown if there is already an ongoing reconciliation with the party you have tried to reconcile with. This exception can also occur if the other party (party B) has already initiated a reconciliation with you in the other direction; B -&gt; A instead of A -&gt; B.
 
 **`MaxIncomingSessionsExceededException`** &mdash; This exception can be thrown if the other party (party B) is already overloaded processing reconciliations from other parties. In this event, R3 recommends that you try again at a later time.
 

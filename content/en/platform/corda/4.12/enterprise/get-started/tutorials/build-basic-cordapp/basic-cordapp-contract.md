@@ -30,7 +30,7 @@ First, create the `AppleStampContract`. This contract verifies actions performed
 3. Create a file called `AppleStampContract`.
 
    {{< note >}}
-   When naming contracts, it’s best practice to match your contract and state names. In this case the contract is called `AppleStampContract`, and the state that links to it is called `AppleStamp`. Follow this naming convention when you write an original CorDapp to avoid confusion.
+   When naming contracts, it is best practice to match your contract and state names. In this case the contract is called `AppleStampContract`, and the state that links to it is called `AppleStamp`. Follow this naming convention when you write an original CorDapp to avoid confusion.
    {{< /note >}}
 
 4. Open the file.
@@ -45,7 +45,7 @@ A Corda state typically has a corresponding contract class to document the rules
 2. Identify your contract by adding its ID.
 
    {{< note >}}
-   This ID is not used in the production environment, but it is used in the testing scenarios. It's best practice to add it to the contract.
+   This ID is not used in the production environment, but it is used in the testing scenarios. it is best practice to add it to the contract.
    {{< /note >}}
 
 This is what your code should look like now:
@@ -259,7 +259,7 @@ The rules inside the `verify` method in the `requireThat` Corda DSL helper metho
 
 ### Check your work
 
-Once you've written the `BasketOfApplesContract`, check your code against the sample below. Your code should look like this:
+Once you have written the `BasketOfApplesContract`, check your code against the sample below. Your code should look like this:
 
 ```java
 package com.tutorial.contracts;

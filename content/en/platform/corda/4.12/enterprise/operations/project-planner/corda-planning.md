@@ -16,7 +16,7 @@ weight: 10
 # Corda for Project Planners
 
 A deployment of Corda Enterprise requires a variety of machines and resources depending on the role of each member
-of the Corda project, and the architecture of the deployment. It's important to define the role your organisation
+of the Corda project, and the architecture of the deployment. it is important to define the role your organisation
 will play before beginning a project on Corda.
 
 ## Roles in a Corda business network

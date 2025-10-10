@@ -35,11 +35,11 @@ The certificate revocation list signing process requires human interaction for w
 Once signed, the certificate revocation list will replace the current one.
 
 {{< note >}}
-It is assumed that the signed certificate revocation list is always available, even if it’s empty. Nodes will refuse to make TLS connections if they cannot verify the revocation status of certificates in the remote peer’s chain. Hence, the CRL must remain available for the network to operate.
+It is assumed that the signed certificate revocation list is always available, even if it is empty. Nodes will refuse to make TLS connections if they cannot verify the revocation status of certificates in the remote peer’s chain. Hence, the CRL must remain available for the network to operate.
 {{< /note >}}
 
 {{< note >}}
-CRLs should be signed manually from time to time depending on it's `nextUpdate` property. Further details
+CRLs should be signed manually from time to time depending on its `nextUpdate` property. Further details
 on CRL lifecycle are covered under [Lifecycle](#crl-lifecycle).
 
 {{< /note >}}

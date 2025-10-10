@@ -85,7 +85,7 @@ Next, we write a test case:
 
 [ResolveTransactionsFlowTest.kt](https://github.com/corda/corda/blob/release/os/4.10/core-tests/src/test/kotlin/net/corda/coretests/internal/ResolveTransactionsFlowTest.kt)
 
-We’ll take a look at the `makeTransactions` function in a moment. For now, it’s enough to know that it returns two
+We’ll take a look at the `makeTransactions` function in a moment. For now, it is enough to know that it returns two
 `SignedTransaction` objects, the second of which spends the first. Both transactions are known by MegaCorpNode but
 not MiniCorpNode.
 
@@ -133,11 +133,11 @@ private fun makeTransactions(signFirstTX: Boolean = true, withAttachment: Secure
 
 We’re using the `DummyContract`, a simple test smart contract which stores a single number in its states, along
 with ownership and issuer information. You can issue such states, exit them and re-assign ownership (move them).
-It doesn’t do anything else. This code simply creates a transaction that issues a dummy state (the issuer is
+It does not do anything else. This code simply creates a transaction that issues a dummy state (the issuer is
 `MEGA_CORP`, a pre-defined unit test identity), signs it with the test notary and MegaCorp keys and then
 converts the builder to the final `SignedTransaction`. It then does so again, but this time instead of issuing
 it re-assigns ownership instead. The chain of two transactions is finally committed to MegaCorpNode by sending them
-directly to the `megaCorpNode.services.recordTransaction` method (note that this method doesn’t check the
+directly to the `megaCorpNode.services.recordTransaction` method (note that this method does not check the
 transactions are valid) inside a `database.transaction`.  All node flows run within a database transaction in the
 nodes themselves, but any time we need to use the database directly from a unit test, you need to provide a database
 transaction as shown here.

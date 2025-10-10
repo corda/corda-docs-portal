@@ -38,7 +38,7 @@ We can solve this problem by introducing services that create digitally signed d
 These structures can then be used as an input to a transaction and distributed with the transaction data itself. Because
 the statements are themselves immutable and signed, it is impossible for an oracle to change its mind later and
 invalidate transactions that were previously found to be valid. In contrast, consider what would happen if a contract
-could do an HTTP request: it’s possible that an answer would change after being downloaded, resulting in loss of
+could do an HTTP request: it is possible that an answer would change after being downloaded, resulting in loss of
 consensus.
 
 
@@ -64,14 +64,14 @@ Currently attachments do not support digital signing, but this is a planned feat
 
 {{< /note >}}
 As you can see, both approaches share a few things: they both allow arbitrary binary data to be provided to transactions
-(and thus contracts). The primary difference is whether the data is a freely reusable, standalone object or whether it’s
+(and thus contracts). The primary difference is whether the data is a freely reusable, standalone object or whether it is
 integrated with a transaction.
 
 Here’s a quick way to decide which approach makes more sense for your data source:
 
 
 * Is your data *continuously changing*, like a stock price, the current time, etc? If yes, use a command.
-* Is your data *commercially valuable*, like a feed which you are not allowed to resell unless it’s incorporated into
+* Is your data *commercially valuable*, like a feed which you are not allowed to resell unless it is incorporated into
 a business deal? If yes, use a command, so you can charge money for signing the same fact in each unique business
 context.
 * Is your data *very small*, like a single number? If yes, use a command.

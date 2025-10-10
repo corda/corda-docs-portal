@@ -55,7 +55,7 @@ or a 64 bit value. Both types of label have a defined namespacing mechanism. Thi
 layerings to be added on top of the simple, interoperable core.
 
 AMQP therefore also defines a type system and schema representation, that allows you to create the app-level type layer.
-Standard AMQP defines an XML based schema language as part of the specification, but doesn’t define any way to represent
+Standard AMQP defines an XML based schema language as part of the specification, but does not define any way to represent
 schemas using AMQP itself. Fields can be grouped together using *composite types*. A composite type is simply a
 described list, in which each list entry is one field of the composite. Composites are used to encode language-level
 classes, records, structs etc.
@@ -72,7 +72,7 @@ level, more strongly typed structures.
 ## Extended AMQP
 
 So far we’ve got collections that contain primitives or more collections, and any element can be labelled with a
-string or numeric code. This is good, but compared to a format like JSON or XML it’s not really self describing.
+string or numeric code. This is good, but compared to a format like JSON or XML it is not really self describing.
 A class will be mapped to a list of field contents. Even if we know the name of that class, we still won’t really know
 what the fields mean without having access to the original code of the class that the message was generated from.
 
@@ -82,10 +82,10 @@ AMQP’s type system can solve this, however, out of the box there are two probl
 * Messages don’t include their own schemas.
 * AMQP only defines an XML based representation for schemas.
 
-We’d rather not embed XML inside a binary format designed to be digitally signed, so we have defined a straightforward
+We would rather not embed XML inside a binary format designed to be digitally signed, so we have defined a straightforward
 mapping from this schema notation to AMQP encoding itself. This makes our AMQP messages self describing, by embedding a
 schema for each application or platform level type that is serialised. The schema provides information like field names,
-annotations and type variables for generic types. The schema can of course be ignored in many interop cases: it’s there
+annotations and type variables for generic types. The schema can of course be ignored in many interop cases: it is there
 to enable version evolution of persisted data structures over time.
 
 {{< note >}}
@@ -142,7 +142,7 @@ Every Corda message is at the top level an *ENVELOPE* record containing three el
 * A *SCHEMA* record.
 * A *TRANSFORM_SCHEMA* record.
 
-The transform schema will usually be empty - it’s used to describe how a data structure has evolved over time, so
+The transform schema will usually be empty - it is used to describe how a data structure has evolved over time, so
 making it easier to map to old/new code.
 
 The *SCHEMA* record always contains a single element, which is itself another list containing *COMPOSITE_TYPE* records.
@@ -155,7 +155,7 @@ Each *COMPOSITE_TYPE* record describes a single app-level type and has the follo
 * Descriptor: An *OBJECT_DESCRIPTOR* record
 * Fields: A list of *FIELD* records
 
-The label will typically be unused and left as null - it’s here to match the AMQP specification and could in future contain
+The label will typically be unused and left as null - it is here to match the AMQP specification and could in future contain
 arbitrary unstructured text, e.g. a javadoc explaining more about the semantics of the field. The “provides list” is
 a set of strings naming Java interfaces that the original type implements. It can be used to work with messages generically
 in a strongly typed, safe manner. Rather than guessing whether a type is meant to be a Foo or Bar based on matching

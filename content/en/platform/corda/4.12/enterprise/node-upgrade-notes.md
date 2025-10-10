@@ -305,7 +305,7 @@ Option `-b` points to the base directory which contains a `node.conf` file and `
 Replace the `corda.jar` with the latest version from Corda.
 
 Download the latest version of Corda from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-node/4.12/corda-node-4.12.jar).
-Make sure it’s available on your path, and that you’ve read the [Corda release notes]({{< relref "release-notes-enterprise.md" >}}). Pay particular attention to which version of Java the
+Make sure it is available on your path, and that you’ve read the [Corda release notes]({{< relref "release-notes-enterprise.md" >}}). Pay particular attention to which version of Java the
 node requires.
 
 

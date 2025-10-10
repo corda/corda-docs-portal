@@ -21,7 +21,7 @@ This tutorial will take you through the steps involved in defining a transaction
 
 ## Introduction
 
-A transaction tear-off is a form of filtered transaction, in which the transaction proposer(s) uses a nested Merkle tree approach to “tear off” any parts of the transaction that the oracle/notary doesn’t need to see before presenting it to them for signing. Transaction tear-offs are used to hide transaction components for privacy purposes. With a transaction tear-off, oracles and non-validating notaries can only see their “related” transaction components, but not the full transaction details.
+A transaction tear-off is a form of filtered transaction, in which the transaction proposer(s) uses a nested Merkle tree approach to “tear off” any parts of the transaction that the oracle/notary does not need to see before presenting it to them for signing. Transaction tear-offs are used to hide transaction components for privacy purposes. With a transaction tear-off, oracles and non-validating notaries can only see their “related” transaction components, but not the full transaction details.
 
 ## Filtering the transaction fields
 
