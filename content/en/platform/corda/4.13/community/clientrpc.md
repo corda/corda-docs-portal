@@ -580,7 +580,7 @@ This feature is off by default because tracking RPC call sites is moderately slo
 {{< /warning >}}
 
 {{< warning >}}
-The thread used to call back to the listener is provided from a finite pool that manages the RPC connection. It is therefore expected that the callback code will rapidly relinquish this thread; blocking operations may cause performance issues, or even deadlock. Similarly it is highly recommended to hand off flow starts triggered from an observable callback to a separate thread, or scheduler, to ensure that this doesn't starve the RPC thread pool of threads needed to complete the start flow call.
+The thread used to call back to the listener is provided from a finite pool that manages the RPC connection. It is therefore expected that the callback code will rapidly relinquish this thread; blocking operations may cause performance issues, or even deadlock. Similarly it is highly recommended to hand off flow starts triggered from an observable callback to a separate thread, or scheduler, to ensure that this does not starve the RPC thread pool of threads needed to complete the start flow call.
 {{< /warning >}}
 
 {{< note >}}

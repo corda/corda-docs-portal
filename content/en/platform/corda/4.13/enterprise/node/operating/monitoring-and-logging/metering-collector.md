@@ -690,10 +690,10 @@ Flow completed with result: {
     },
     "O=PartyA, L=New York, C=US" : {
       "exception" : "net.corda.core.flows.FlowException",
-      "message" : "com.r3.corda.metering.PermissionDeniedException: You don't have permission to collect aggregated metering from this node",
+      "message" : "com.r3.corda.metering.PermissionDeniedException: You do not have permission to collect aggregated metering from this node",
       "cause" : {
         "exception" : "com.r3.corda.metering.PermissionDeniedException",
-        "message" : "You don't have permission to collect aggregated metering from this node"
+        "message" : "You do not have permission to collect aggregated metering from this node"
       }
     }
   },

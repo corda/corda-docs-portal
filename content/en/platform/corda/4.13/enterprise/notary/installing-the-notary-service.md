@@ -40,7 +40,7 @@ notary {
     // Only required if using CockroachDB.
     generateNativeSql = true
 
-    // Only required if the schema isn't the default schema of the user.
+    // Only required if the schema is not the default schema of the user.
     database.schema = {{ schema name, e.g. corda_adm }}
 
     dataSourceProperties {

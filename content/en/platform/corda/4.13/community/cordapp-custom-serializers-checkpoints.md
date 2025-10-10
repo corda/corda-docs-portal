@@ -71,7 +71,7 @@ public class BrokenMapFlow extends FlowLogic<Integer> {
         HashMap<String, Integer> inputValues = new HashMap<>();
         inputValues.put("Key", 5);
 
-        // This map won't serialize correctly
+        // This map will not serialize correctly
         BrokenMapImpl<String, Integer> brokenMap = new BrokenMapImpl<>();
         brokenMap.putAll(inputValues);
 

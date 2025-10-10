@@ -452,7 +452,7 @@ fun addMoveTokens(
 Use this method to add multiple token moves to a transaction. The [partiesAndAmounts] parameter specifies which parties should receive amounts of the token, with possible change paid to [changeHolder].
 
 {{< note >}}
-Change refers to any change due to the party using their token for something that doesn't come to the full value of the token. Like when you pay in a shop with cash, and you might get change from your $100 bill.
+Change refers to any change due to the party using their token for something that does not come to the full value of the token. Like when you pay in a shop with cash, and you might get change from your $100 bill.
 {{< /note >}}
 
 You can use this method to combine multiple token amounts from different issuers if needed.
@@ -487,7 +487,7 @@ fun addMoveFungibleTokens(
 Use this method to add a single token move of `amount` to the new `holder`, with possible change paid to `changeHolder`.
 
 {{< note >}}
-Change refers to any change due to the party using their token for something that doesn't come to the full value of the token. Like when you pay in a shop with cash, and you might get change from your $100 bill.
+Change refers to any change due to the party using their token for something that does not come to the full value of the token. Like when you pay in a shop with cash, and you might get change from your $100 bill.
 {{< /note >}}
 
 You can use this method to combine multiple token amounts from different issuers if needed.
@@ -596,7 +596,7 @@ import net.corda.core.transactions.TransactionBuilder
 Use this method to write a redeeming flow of multiple `inputs` to the `transactionBuilder` with possible `changeOutput`.
 
 {{< note >}}
-Change refers to any change due to the party using their token for something that doesn't come to the full value of the token. Like when you pay in a shop with cash, and you might get change from your $100 bill.
+Change refers to any change due to the party using their token for something that does not come to the full value of the token. Like when you pay in a shop with cash, and you might get change from your $100 bill.
 {{< /note >}}
 
 ```kotlin
@@ -725,7 +725,7 @@ This flow:
 
 Key points:
 
-* If you are issuing to self, there is no need to pass in a flow session. Instead, pass in an emptyList for `participantSessions` or use one of the overloads that doesn't require sessions.
+* If you are issuing to self, there is no need to pass in a flow session. Instead, pass in an emptyList for `participantSessions` or use one of the overloads that does not require sessions.
 * This flow can only be used by one issuer at a time.
 * Tokens can be issued to well-known identities or confidential identities. To issue tokens with confidential keys, use the `ConfidentialIssueTokensFlow` as demonstrated below.
 * This flow supports issuing many tokens to a single or multiple parties, of the same or different types of tokens.

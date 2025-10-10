@@ -197,7 +197,7 @@ sell side of the flow is not trying to sell us the wrong thing, whether by accid
 * `anonymous: Boolean` - whether to generate a fresh, anonymous public key for the transaction
 
 Using this flow should not be too hard: in the simplest case, just create a buyer or seller
-with the details of the trade. Then start the flow in some way. Calling the `call` function won't work: instead you need to ask the framework to start the flow. More on that in a moment.
+with the details of the trade. Then start the flow in some way. Calling the `call` function will not work: instead you need to ask the framework to start the flow. More on that in a moment.
 
 
 ## Suspendable functions
@@ -400,7 +400,7 @@ private fun receiveAndValidateTradeRequest(): Pair<StateAndRef<OwnableState>, Se
         val assetForSaleIdentity = serviceHub.identityService.wellKnownPartyFromAnonymous(asset.owner)
         require(assetForSaleIdentity == sellerSession.counterparty){"Well known identity lookup returned identity that does not match counterparty"}
 
-        // Register the identity we're about to send payment to. This shouldn't be the same as the asset owner
+        // Register the identity we're about to send payment to. This should not be the same as the asset owner
         // identity, so that anonymity is enforced.
         val wellKnownPayToIdentity = serviceHub.identityService.verifyAndRegisterIdentity(it.payToIdentity) ?: it.payToIdentity
         require(wellKnownPayToIdentity.party == sellerSession.counterparty) { "Well known identity to pay to must match counterparty identity" }
@@ -429,7 +429,7 @@ private fun assembleSharedTX(assetForSale: StateAndRef<OwnableState>, tradeReque
     tx.addCommand(command, assetForSale.state.data.owner.owningKey)
 
     // We set the transaction's time-window: it may be that none of the contracts need this!
-    // But it can't hurt to have one.
+    // But it cannot hurt to have one.
     val currentTime = serviceHub.clock.instant()
     tx.setTimeWindow(currentTime, 30.seconds)
 

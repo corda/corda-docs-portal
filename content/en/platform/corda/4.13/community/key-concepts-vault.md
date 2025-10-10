@@ -72,7 +72,7 @@ ultimately be detected by a notary, soft locking provides a mechanism of early d
 invalid scenarios.
 
 Soft locks are automatically applied to coin selection, like cash spending, to ensure that no two transactions attempt to
-spend the same fungible states. If there aren't enough fungible states to satisfy both requests,  one of the requesters receives an `InsufficientBalanceException`.
+spend the same fungible states. If there are not enough fungible states to satisfy both requests,  one of the requesters receives an `InsufficientBalanceException`.
 
 {{< note >}}
 

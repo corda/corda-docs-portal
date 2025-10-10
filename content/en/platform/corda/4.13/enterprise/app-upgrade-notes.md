@@ -17,7 +17,7 @@ weight: 30
 This guide shows you how to upgrade your CorDapp from previous platform versions to benefit
 from the new features in the latest release.
 
-Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs]({{< relref "../../../../api-ref/api-ref-corda-4.md" >}}). If you are working with a stable API, you don't need to update your CorDapps. However, there are usually new features and other opt-in changes that may improve the security, performance, or usability of your
+Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs]({{< relref "../../../../api-ref/api-ref-corda-4.md" >}}). If you are working with a stable API, you do not need to update your CorDapps. However, there are usually new features and other opt-in changes that may improve the security, performance, or usability of your
 CorDapp that are worth considering for any actively maintained software.
 
 {{< warning >}}
@@ -75,7 +75,7 @@ Follow the steps below for each upgrade path.
 
 #### Upgrade a node from Corda 3.x or Corda Enterprise 3.x
 
-Version 4.6 doesn't retro-fit the database changelog when upgrading from versions older than 4.0. Therefore, you need to upgrade to a previous 4.x version before upgrading to 4.6. For example, 3.3 to 4.5, and then 4.5 to 4.6.
+Version 4.6 does not retro-fit the database changelog when upgrading from versions older than 4.0. Therefore, you need to upgrade to a previous 4.x version before upgrading to 4.6. For example, 3.3 to 4.5, and then 4.5 to 4.6.
 
 ### Check that you are using Corda Gradle plugins version 5.0.12
 
@@ -87,11 +87,11 @@ ext.corda_gradle_plugins_version = '5.0.12'
 
 ## Upgrade CorDapps to platform version 7
 
-You don't need to perform a manual upgrade for this platform version.
+You do not need to perform a manual upgrade for this platform version.
 
 ## Upgrade CorDapps to platform version 6
 
-You don't need to perform a manual upgrade for this platform version.
+You do not need to perform a manual upgrade for this platform version.
 
 ## Upgrade CorDapps to platform version 5
 

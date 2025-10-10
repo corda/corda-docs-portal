@@ -83,7 +83,7 @@ You can perform an automatic database update when:
 If you meet the above criteria, then skip steps 3.1 to 3.4 and go directly to [Step 4](#step-4-replace-cordajar-with-the-new-version). You'll perform the automatic update in [Step 6](#step-6-start-the-node).
 
 
-If you can't perform an automatic update, then you must perform a manual update by following steps 3.1 to 3.4 below. You can then move on to [Step 4](#step-4-replace-cordajar-with-the-new-version).
+If you cannot perform an automatic update, then you must perform a manual update by following steps 3.1 to 3.4 below. You can then move on to [Step 4](#step-4-replace-cordajar-with-the-new-version).
 
 
 ### Step 3.1. Configure the database management tool
@@ -214,7 +214,7 @@ Option `-b` points to the base directory. The directory contains a `node.conf` f
 A script named `migrationYYYYMMDDHHMMSS.sql` containing DDL and DML statements will be generated in the current directory.
 This script contains all the statements required to modify and create data structures (for example tables/indexes),
 and updates the Liquibase management table **DATABASECHANGELOG**.
-The command doesn't alter any tables.
+The command does not alter any tables.
 
 
 {{< note >}}

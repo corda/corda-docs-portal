@@ -353,7 +353,7 @@ Where:
 If you need to use reference data across multiple transactions, you can use a reference state. Reference states are `ContractState`s with unique properties:
 
 * Input and output state contracts can refer to them, but their contracts are not executed during the transaction verification process.
-* They are not consumed when the transaction is committed to the ledger. Instead, they are checked to make sure they are up-to-date.  The contract logic doesn't run for the referencing transaction.
+* They are not consumed when the transaction is committed to the ledger. Instead, they are checked to make sure they are up-to-date.  The contract logic does not run for the referencing transaction.
 * They behave as standard states when they are in an input or output position.
 
 This enables multiple parties to reuse a state, and the state owner to update the state. For example, parties holding related financial instruments could create a reference state for the financial instrument reference data.

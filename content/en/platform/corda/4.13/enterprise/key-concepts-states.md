@@ -42,7 +42,7 @@ In addition to information about the fact, the state contains a reference to the
 
 ## State sequences
 
-States are immutable: you can't change them. Corda uses **state sequences** to track the evolution of facts.
+States are immutable: you cannot change them. Corda uses **state sequences** to track the evolution of facts.
 When a fact changes, one of the state's participants creates a new state and marks the outdated state as historic.
 
 For example, if Alice pays Bob £5, the state sequence would be:

@@ -214,7 +214,7 @@ fun sign(ftx: FilteredTransaction): TransactionSignature {
     // It all checks out, so we can return a signature.
     //
     // Note that we will happily sign an invalid transaction, as we are only being presented with a filtered
-    // version so we can't resolve or check it ourselves. However, that doesn't matter much, as if we sign
+    // version so we cannot resolve or check it ourselves. However, that does not matter much, as if we sign
     // an invalid transaction the signature is worthless.
     return services.createSignature(ftx, services.myInfo.legalIdentities.first().owningKey)
 }
@@ -252,7 +252,7 @@ class Oracle(private val services: AppServiceHub) : SingletonSerializeAsToken() 
 
     init {
         // Set some default fixes to the Oracle, so we can smoothly run the IRS Demo without uploading fixes.
-        // This is required to avoid a situation where the runnodes version of the demo isn't in a good state
+        // This is required to avoid a situation where the runnodes version of the demo is not in a good state
         // upon startup.
         addDefaultFixes()
     }
@@ -394,7 +394,7 @@ Here’s an example of it in action from `FixingFlow.Fixer`.
                 newDeal.generateFix(ptx, StateAndRef(txState, handshake.payload.ref), fix)
 
                 // We set the transaction's time-window: it may be that none of the contracts need this!
-                // But it can't hurt to have one.
+                // But it cannot hurt to have one.
                 ptx.setTimeWindow(serviceHub.clock.instant(), 30.seconds)
             }
 
