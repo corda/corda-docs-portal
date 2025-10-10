@@ -452,7 +452,7 @@ You can choose to wait to receive arbitrary data of a specific type from a count
 * You never receive a message back. In the current design, the flow is paused until the node’s owner kills the flow.
 * Instead of sending a message back, the counterparty throws a `FlowException`. This exception is propagated back
 to you. You can use the error message to establish what happened.
-* You receive a message back, but it’s of the wrong type. In this case, a `FlowException` is thrown.
+* You receive a message back, but it is of the wrong type. In this case, a `FlowException` is thrown.
 * You receive back a message of the correct type.
 
 If `FlowLogic` calls `receive` or `sendAndReceive`, `FlowLogic` is suspended until it receives a response.
@@ -532,7 +532,7 @@ statement.
 ### SendAndReceive
 
 You can use a single call to send data to a counterparty and wait to receive data of a specific type back. The
-type of data sent doesn’t need to match the type of the data received:
+type of data sent does not need to match the type of the data received:
 
 {{< tabs name="tabs-11" >}}
 {{% tab name="kotlin" %}}
@@ -772,7 +772,7 @@ This gives the node operator the opportunity to recover from the error. Until th
 on each startup. Upon successful completion by the receiver’s finality flow, the ledger will become fully consistent.
 
 {{< warning >}}
-It’s possible to forcibly terminate the erroring finality handler using the `killFlow` RPC. However, this risks an inconsistent view of the ledger.
+It is possible to forcibly terminate the erroring finality handler using the `killFlow` RPC. However, this risks an inconsistent view of the ledger.
 
 {{< /warning >}}
 
@@ -983,7 +983,7 @@ The flow framework automatically propagates the `FlowException` back to the wait
 
 There are many scenarios in which throwing a `FlowException` would be appropriate:
 
-* A transaction doesn’t `verify()`.
+* A transaction does not `verify()`.
 * A transaction’s signatures are invalid.
 * The transaction does not match the parameters of the deal as discussed.
 * You are reneging on a deal.

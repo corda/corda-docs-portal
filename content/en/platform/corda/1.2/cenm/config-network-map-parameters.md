@@ -74,7 +74,7 @@ Which host  the Identity Manager is running on
 
 
 * **port**:
-To which port it’s enmListener is bound
+To which port its enmListener is bound
 
 
 * **ssl**:
@@ -92,7 +92,7 @@ Which host  the Identity Manager is running on
 
 
 * **port**:
-To which port it’s enmListener is bound
+To which port its enmListener is bound
 
 
 * **ssl**:

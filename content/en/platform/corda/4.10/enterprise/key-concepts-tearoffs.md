@@ -29,7 +29,7 @@ You may want to limit some entities interacting with a transaction to specific p
 * An [oracle]({{< relref "key-concepts-oracles.md" >}}) only needs to see the commands specific to it.
 * A [non-validating notary]({{< relref "key-concepts-notaries.md" >}}) only needs to see a transaction’s [input states]({{< relref "key-concepts-states.md" >}}).
 
-You can achieve this using *Merkle trees*. These let the node proposing the transaction “tear off” any parts of the transaction that the oracle or notary doesn’t need to see before presenting it to them for signing. Merkle trees are a cryptographic scheme that provides proofs of inclusion and data integrity. They guarantee that the parts of the transaction you tore off cannot later be changed without invalidating the oracle’s digital signature. Merkle trees are widely used in peer-to-peer networks, blockchain systems, and Git.
+You can achieve this using *Merkle trees*. These let the node proposing the transaction “tear off” any parts of the transaction that the oracle or notary does not need to see before presenting it to them for signing. Merkle trees are a cryptographic scheme that provides proofs of inclusion and data integrity. They guarantee that the parts of the transaction you tore off cannot later be changed without invalidating the oracle’s digital signature. Merkle trees are widely used in peer-to-peer networks, blockchain systems, and Git.
 
 
 

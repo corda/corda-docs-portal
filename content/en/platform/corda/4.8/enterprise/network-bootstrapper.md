@@ -77,7 +77,7 @@ Alternatively, you can structure the node directories like this:
     └── node.conf
 ```
 
-It's possible for each node directory to contain its own `corda.jar`. In this case, the bootstrapper uses the `corda.jar` file in the node directory.
+It is possible for each node directory to contain its own `corda.jar`. In this case, the bootstrapper uses the `corda.jar` file in the node directory.
 
 
 ## Include CorDapps in a generated node

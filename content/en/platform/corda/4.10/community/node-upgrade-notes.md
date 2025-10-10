@@ -55,11 +55,11 @@ an environment with well written apps and in which your counterparties are onlin
 
 ## Step 2: Make a backup of your node directories and/or database
 
-It’s always a good idea to make a backup of your data before upgrading any server. This will make it easy to roll back if there’s a problem.
+It is always a good idea to make a backup of your data before upgrading any server. This will make it easy to roll back if there’s a problem.
 You can simply make a copy of the node’s data directory to enable this. If you use an external non-H2 database please consult your database
 user guide to learn how to make backups.
 
-We provide some [backup recommendations]({{< relref "node-administration.md#backup-recommendations" >}}) if you’d like more detail.
+We provide some [backup recommendations]({{< relref "node-administration.md#backup-recommendations" >}}) if you would like more detail.
 
 ## Step 3: Download Corda Community Edition
 

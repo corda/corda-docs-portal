@@ -52,7 +52,7 @@ You can then take your Corda integration to the next level by deep-diving into s
 
 {{< note >}}
 <b>Read Corda white papers</b>
-* The [introductory white paper](https://www.r3.com/white-papers/the-corda-platform-an-introduction-whitepaper/) describes Corda’s mission and philosophy. It’s suitable for a business audience.
+* The [introductory white paper](https://www.r3.com/white-papers/the-corda-platform-an-introduction-whitepaper/) describes Corda’s mission and philosophy. It is suitable for a business audience.
 * The [technical white paper](https://www.r3.com/white-papers/corda-technical-whitepaper/) describes the architecture and protocol.
 {{< /note >}}
 

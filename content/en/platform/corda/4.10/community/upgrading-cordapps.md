@@ -347,7 +347,7 @@ The general recommendation for Corda 4.10 is to use **implicit** upgrades for th
 
 In an explicit upgrade, contracts and states can be changed in arbitrary ways, if and only if all of the state’s
 participants agree to the proposed upgrade. To ensure the continuity of the chain the upgraded contract needs to declare the contract and
-constraint of the states it’s allowed to replace.
+constraint of the states it is allowed to replace.
 
 
 {{< warning >}}

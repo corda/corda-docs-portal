@@ -36,7 +36,7 @@ to all the child certificates properly. The following constraints are imposed:
 The structure of certificates above the doorman/network map is intentionally left untouched, as they are not relevant to
 the identity service and therefore there is no advantage in enforcing a specific structure on those certificates. The
 certificate hierarchy consistency checks are required because nodes can issue their own certificates and can set
-their own role flags on certificates, and it’s important to verify that these are set consistently with the
+their own role flags on certificates, and it is important to verify that these are set consistently with the
 certificate hierarchy design. As a side-effect this also acts as a secondary depth restriction on issued
 certificates.
 

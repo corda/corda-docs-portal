@@ -38,7 +38,7 @@ cd /cordallp/corda/nodeA; java -jar transaction-validator.jar
 
 ## Progress registration
 
-You can register progress in a `.txt` file and reload it from this file using the `-l` option. If the file doesn’t exist, specifying a file path as this option’s value creates the file at this path and writes the progress into it. If the file is present, the utility loads the most recent progress from it and updates the file with the new progress.
+You can register progress in a `.txt` file and reload it from this file using the `-l` option. If the file does not exist, specifying a file path as this option’s value creates the file at this path and writes the progress into it. If the file is present, the utility loads the most recent progress from it and updates the file with the new progress.
 
 ```
 java -jar transaction-validator.jar -l register.txt
