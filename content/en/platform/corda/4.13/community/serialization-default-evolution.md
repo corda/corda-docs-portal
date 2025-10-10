@@ -128,7 +128,7 @@ Example3 (1, 2, 3, 4, 5)    // example IV
 ```
 
 
-Examples I, II, and III require evolution, so you need to select a constructor for them. Here, it's difficult to tell which constructor to use because there is no versioning. For example, example II could use ‘alt constructor 2’ which matches
+Examples I, II, and III require evolution, so you need to select a constructor for them. Here, it is difficult to tell which constructor to use because there is no versioning. For example, example II could use ‘alt constructor 2’ which matches
 its arguments most tightly. It could also use ‘alt constructor 1’ and not instantiate parameter c:
 
 `constructor (a: Int, b: Int, c: Int) : this(a, b, c, -1, -1)`
@@ -169,7 +169,7 @@ Example3 (1, 2, 3, 4, 5)    // example IV
 
 ## Removing properties
 
-Removing non-nullable properties is impossible. If a node receives a message containing a serialized form of an object that has fewer properties than it requires for construction, it can't determine sensible defaults.
+Removing non-nullable properties is impossible. If a node receives a message containing a serialized form of an object that has fewer properties than it requires for construction, it cannot determine sensible defaults.
 
 It is technically possible to [remove nullable properties](https://medium.com/corda/a-developers-primer-on-cordapp-upgrades-3806c2e7f81e) in some circumstances, but it often has unintended consequences. Deprecate the field instead.
 

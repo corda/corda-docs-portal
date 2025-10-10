@@ -383,7 +383,7 @@ To create a communication session between your `initiator` flow and the `receive
   * Sends a potentially different payload to each `FlowSession`, as specified by the provided `payloadsPerSession`.
 
 {{% note %}}
-It's more efficient to call `sendAndReceive` instead of calling `send` and then `receive`. It's also more efficient to call `sendAll / receiveAll` instead of multiple individual `send` and `receive` calls.
+It is more efficient to call `sendAndReceive` instead of calling `send` and then `receive`. It is also more efficient to call `sendAll / receiveAll` instead of multiple individual `send` and `receive` calls.
 {{% /note %}}
 
 ### Create communication sessions with `InitiateFlow`

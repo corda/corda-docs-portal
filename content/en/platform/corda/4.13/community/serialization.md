@@ -513,7 +513,7 @@ The call to `newC.l.add` throws an `UnsupportedOperationException`.
 
 You can use several workarounds to preserve the mutability of reconstituted objects.
 
-If the class *is not* a Kotlin data class, then it doesn't require a primary constructor:
+If the class *is not* a Kotlin data class, then it does not require a primary constructor:
 
 ```kotlin
 class C {

@@ -24,7 +24,7 @@ To measure notary latency, combine three metrics:
 
 `P2P.ReceiveDuration` measures the latency for a consumer to deliver the message to the state machine. At the end of the delivery, a flow state machine is created. The `Flows.StartupQueueTime` timer starts after the flow state machine is created, and ends when `FlowDuration` starts. The `FlowDuration` timer starts immediately before the flow state machine calls the flow's `call()` function.
 
-Using `Flows.StartupQueueTime` alone to measure latency doesn't take account of the queue time or the time until a flow is queued.
+Using `Flows.StartupQueueTime` alone to measure latency does not take account of the queue time or the time until a flow is queued.
 
 ## Additional performance indicators that can be monitored
 

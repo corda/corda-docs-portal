@@ -45,7 +45,7 @@ A Corda state typically has a corresponding contract class to document the rules
 2. Identify your contract by adding its ID.
 
    {{< note >}}
-   This ID is not used in the production environment, but it is used in the testing scenarios. It's best practice to add it to the contract.
+   This ID is not used in the production environment, but it is used in the testing scenarios. It is best practice to add it to the contract.
    {{< /note >}}
 
 This is what your code should look like now:

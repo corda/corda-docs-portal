@@ -41,7 +41,7 @@ represents a fact shared between two or more nodes:
 
 {{< figure alt="ledger venn" width=80% zoom="/en/images/ledger-venn.png" >}}
 
-In the diagram, facts 1 and 7 are known by both Alice and Bob. Alice only shares facts with Bob, Alice doesn't share
+In the diagram, facts 1 and 7 are known by both Alice and Bob. Alice only shares facts with Bob, Alice does not share
 any facts with Carl, Demi, or Ed.
 
 Each node only sees a subset of facts—their own facts and those that they share with others. No single node can view
@@ -60,7 +60,7 @@ vault and Bob's vault, and are therefore shared facts:
 
 When multiple nodes on a network share an evolving fact, the changes to the fact update at the same time in each node's vault. This means that Alice and Bob will both see an *identical version* of shared facts 1 and 7.
 
-On-ledger facts don't have to be shared between nodes. For example, fact 11 in Alice's vault is not shared with Bob.
+On-ledger facts do not have to be shared between nodes. For example, fact 11 in Alice's vault is not shared with Bob.
 Facts that are not shared are *unilateral facts*.
 
 Although there is no central ledger, you can broadcast a basic fact to all nodes of a network using the [network map]({{< relref "network/network-map.md" >}})

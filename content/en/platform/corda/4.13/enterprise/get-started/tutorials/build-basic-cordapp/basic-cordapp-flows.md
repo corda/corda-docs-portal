@@ -68,7 +68,7 @@ Add the following private variables to the subclass:
 * `holder` - The holder of the `AppleStamp`. This must be a `Party` type.
 
 {{< note >}}
-When writing flows, it's important that you consider who is calling the flow - this affects the parameters you need.
+When writing flows, it is important that you consider who is calling the flow - this affects the parameters you need.
 {{< /note >}}
 
 #### Add a constructor
@@ -324,7 +324,7 @@ Include these variables in the flow:
 * `appleDescription` - Relevant information, such as the type of apple. Use type `String`.
 * `weight` - The weight of the apples. Use type `int`.
 
-Though you don't need a notary in a single-party flow, all standard flows include a notary. You can add one to this flow, although it won't do anything in your transaction.
+Though you do not need a notary in a single-party flow, all standard flows include a notary. You can add one to this flow, although it will not do anything in your transaction.
 
 #### Check your work
 

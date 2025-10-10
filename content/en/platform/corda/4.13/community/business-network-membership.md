@@ -522,8 +522,8 @@ To create a request to change membership attributes:
    ```kotlin
    val authorisedParty: Party = ... // get the [Party] object of the authorised Corda node
    val networkId = "MyBusinessNetwork"
-   val updatedIdentity: BNIdentity = ... // the new business identity you want to associate the member with, if you don't want to modify your existing business identity, then simply skip this step
-   val updatedRoles: Set<BNRole> = ... // the new roles you want to associate the member with, if you don't want to modify your existing roles, then simply skip this step
+   val updatedIdentity: BNIdentity = ... // the new business identity you want to associate the member with, if you do not want to modify your existing business identity, then simply skip this step
+   val updatedRoles: Set<BNRole> = ... // the new roles you want to associate the member with, if you do not want to modify your existing roles, then simply skip this step
    val notary = serviceHub.networkMapCache.notaryIdentities.first()
 
    // Request creation

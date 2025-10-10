@@ -160,7 +160,7 @@ Database configuration
 * `schema`
   * Some database providers require a schema name when generating DDL and SQL statements. The value is passed to the Hibernate    property 'hibernate.default_schema'. This is optional.
 * `hibernateDialect`
-  * Optional property for testing/development against an unsupported database. The value is passed to Hibernate `hibernate.dialect` option.     All supported databases don't require this option, as Hibernate sets the correct dialect value out of box.
+  * Optional property for testing/development against an unsupported database. The value is passed to Hibernate `hibernate.dialect` option.     All supported databases do not require this option, as Hibernate sets the correct dialect value out of box.
 
 ## `dataSourceProperties`
 
@@ -201,7 +201,7 @@ does not exist, a developer keystore will be used if `devMode` is true.
 The node will exit if `devMode` is false and the keystore does not exist.
 `devMode` also turns on background checking of flow checkpoints to shake out any bugs in the checkpointing process.
 Also, if `devMode` is true, Hibernate will try to automatically create the schema required by Corda or update an existing schema in the SQL database; if `devMode` is false, Hibernate will simply validate the existing schema, failing on node start if the schema is either not present or not compatible.
-If no value is specified in the node configuration file, the node will attempt to detect if it's running on a developer machine and set `devMode=true` in that case.
+If no value is specified in the node configuration file, the node will attempt to detect if it is running on a developer machine and set `devMode=true` in that case.
 This value can be overridden from the command line using the `--dev-mode` option.
 
 This flag affects the default value for Java heap size.
@@ -1088,7 +1088,7 @@ This is the non-secret value for the development certificates automatically gene
 ## `useOpenSsl`
 
 If set to true, the node will use a native SSL implementation for TLS rather than the JVM SSL. The native SSL library currently shipped with
-Corda Enterprise is BoringSsl. The default is to use JVM SSL, i.e. the flag being set to `false`. This configuration offers higher performance than the built-in library, but you can't use it with the Corda Firewall or an HSM—so this configuration is only recommended for private networks where there is a requirement to extract maximum performance.
+Corda Enterprise is BoringSsl. The default is to use JVM SSL, i.e. the flag being set to `false`. This configuration offers higher performance than the built-in library, but you cannot use it with the Corda Firewall or an HSM—so this configuration is only recommended for private networks where there is a requirement to extract maximum performance.
 
 ## `useTestClock`
 

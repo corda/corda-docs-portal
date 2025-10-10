@@ -41,6 +41,6 @@ If a node wants to assert a fact when proposing a transaction (for example, Bob 
 Some oracles monetize their services. In that case, you'll need to pay the oracle before they sign the transaction.
 
 ## Oracles and privacy
-The oracle doesn't need to see the whole contract–only the part it needs to validate. The node proposing the transaction can [tear off]({{< relref "key-concepts-tearoffs.md" >}}) unrelated parts of the contract before the oracle sees it. For example, in Alice and Bob's contract, the oracle is only attesting to the temperature on Bob's farm, so it doesn't need to know how much the insurance policy is for. Bob could tear off that information.
+The oracle does not need to see the whole contract–only the part it needs to validate. The node proposing the transaction can [tear off]({{< relref "key-concepts-tearoffs.md" >}}) unrelated parts of the contract before the oracle sees it. For example, in Alice and Bob's contract, the oracle is only attesting to the temperature on Bob's farm, so it does not need to know how much the insurance policy is for. Bob could tear off that information.
 
 

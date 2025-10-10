@@ -58,7 +58,7 @@ verifying the transaction that created the proposed transaction’s input states
 
 ## Uniqueness consensus
 
-Uniqueness consensus is when a [notary]({{< relref "key-concepts-notaries.md" >}}) checks that a [node]({{< relref "key-concepts-node.md" >}}) hasn't used the same input for multiple transactions.
+Uniqueness consensus is when a [notary]({{< relref "key-concepts-notaries.md" >}}) checks that a [node]({{< relref "key-concepts-node.md" >}}) has not used the same input for multiple transactions.
 
 Imagine that Alice holds a valid central-bank-issued cash state of $1,000,000. Alice can create two transaction
 proposals:

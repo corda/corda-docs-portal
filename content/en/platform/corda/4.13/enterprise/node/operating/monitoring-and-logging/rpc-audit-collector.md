@@ -157,7 +157,7 @@ public String collectRpcAuditData(AuditDataRPCOps rpc) {
 
 ## Purging RPC audit data
 
-You can purge older audit logs that you don't need (although the collection of RPC audit data usually results in a fairly small amount of disk space). To remove older audit data, use the following action on the `AuditDataRPCOps` interface:
+You can purge older audit logs that you do not need (although the collection of RPC audit data usually results in a fairly small amount of disk space). To remove older audit data, use the following action on the `AuditDataRPCOps` interface:
 
 ```kotlin
 /**

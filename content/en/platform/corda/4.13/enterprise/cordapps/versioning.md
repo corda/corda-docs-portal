@@ -12,7 +12,7 @@ weight: 2
 
 # Versioning
 
-As the Corda platform evolves and new features are added, it's important the versioning system allows users to easily compare versions and know what features are available.
+As the Corda platform evolves and new features are added, it is important the versioning system allows users to easily compare versions and know what features are available.
 
 Each Corda release uses the standard semantic versioning scheme of `major.minor`.
 This is useful when referring to releases in the public domain, but is not a practical platform versioning system for a developer.
@@ -43,7 +43,7 @@ For a node to run on a network, the node's platform version must be greater than
 
 Features fall into one of three categories and each category has different implications for node operators, CorDapp developers, and business network operators. There are:
 
-* Changes that may affect node operators, but don't impact CorDapp developers or the Corda network protocol. For example, introducing support for a new HSM or database system.
+* Changes that may affect node operators, but do not impact CorDapp developers or the Corda network protocol. For example, introducing support for a new HSM or database system.
 * New or updated APIs.
 * Changes that affect the operation of a Corda network. For example, changes to the serialization format, flow/wire protocol, or the introduction of a new transaction component. These are changes to the core data model and should only be taken advantage of if they can be supported by all nodes on a network. Such features are only enabled in a node if the network it connects to has published a `minimumPlatformVersion` in its network parameters that is greater than or equal to the Corda platform version that introduced the feature. For example, Corda 4.0 nodes can only take advantage of the Corda reference states feature when connected to a network with a `minimumPlatformVersion` of 4 (Corda 4.0 is equivalent to Corda platform version 4).
 

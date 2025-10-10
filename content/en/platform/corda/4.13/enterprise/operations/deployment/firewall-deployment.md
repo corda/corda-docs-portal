@@ -299,7 +299,7 @@ security {
 }
 useTestClock = false
 enterpriseConfiguration = {
-    externalBridge = true // Ensure node doesn't run P2P AMQP bridge, instead delegate to the BridgeInner.
+    externalBridge = true // Ensure node does not run P2P AMQP bridge, instead delegate to the BridgeInner.
     messagingServerConnectionConfiguration = "CONTINUOUS_RETRY"
     messagingServerBackupAddresses = ["vmInfra2:11005"] // See "messagingServerAddress" above, Note: SWAP1
     mutualExclusionConfiguration = { // Enable the protective heartbeat logic so that only one node instance is ever running.
@@ -367,7 +367,7 @@ security {
 }
 useTestClock = false
 enterpriseConfiguration = {
-    externalBridge = true // Ensure node doesn't run P2P AMQP bridge, instead delegate to the BridgeInner.
+    externalBridge = true // Ensure node does not run P2P AMQP bridge, instead delegate to the BridgeInner.
     messagingServerConnectionConfiguration = "CONTINUOUS_RETRY"
     messagingServerBackupAddresses = ["vmInfra2:11005"] // See "messagingServerAddress" above, Note: SWAP1
     mutualExclusionConfiguration = { // Enable the protective heartbeat logic so that only one node instance is ever running.

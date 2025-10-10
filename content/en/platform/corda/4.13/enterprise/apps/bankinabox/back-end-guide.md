@@ -685,7 +685,7 @@ Use `WithdrawFiatFlow` to withdraw a specified amount from an account with the p
 This operation will fail if any of the following conditions is true:
 
 * The provided `accountId` is a reference to a loan account or savings account in savings period.
-* The specified account doesn't have sufficient funds on accounts balance.
+* The specified account does not have sufficient funds on accounts balance.
 * The specified account has reached daily withdrawal limit.
 * The specified account is not in `ACTIVE` status.
 

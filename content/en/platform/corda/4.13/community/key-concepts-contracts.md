@@ -24,9 +24,9 @@ title: Smart contracts
 ## Summary
 
 * Smart contract digitize agreements by turning them into code that executes automatically if the contract terms are met.
-* Nodes don't need to trust each other to follow through on contract terms, because the terms are enforced by the code.
+* Nodes do not need to trust each other to follow through on contract terms, because the terms are enforced by the code.
 * Smart contracts govern the evolution of [states]({{< relref "key-concepts-states.md" >}}) over time.
-* Even if a [transaction]({{< relref "key-concepts-transactions.md" >}}) gathers all the required signatures, it can't be committed to the ledger unless it is contractually valid.
+* Even if a [transaction]({{< relref "key-concepts-transactions.md" >}}) gathers all the required signatures, it cannot be committed to the ledger unless it is contractually valid.
 
 ## Video
 
@@ -41,7 +41,7 @@ title: Smart contracts
 The contract code is replicated on the [nodes]({{< relref "key-concepts-node.md" >}}) in a [network]({{< relref "key-concepts-ecosystem.md" >}}). The network members have to reach a [consensus]({{< relref "key-concepts-consensus.md" >}}) that the terms of the agreement have been met before they execute the contract.
 
 Putting a contract on Corda gives it unique features:
-* It can't be changed, only replaced with an updated version.
+* It cannot be changed, only replaced with an updated version.
 * Once executed, the results are irreversible.
 
 ## Smart contract languages
@@ -50,7 +50,7 @@ Corda smart contracts must be written in [Kotlin](https://kotlinlang.org/) or [J
 ## Contractual validity
 
 [Transactions]({{< relref "key-concepts-transactions.md" >}}) must be digitally signed by all required signers. However, even if a
-transaction gathers all the required signatures, it can't be executed unless it is also *contractually valid*. A transaction that is not contractually valid is not a valid proposal to update the ledger, and can never be committed to the ledger. This means that contracts can impose rules on the evolution of states over time that are independent of the willingness of the required signers to sign a given transaction.
+transaction gathers all the required signatures, it cannot be executed unless it is also *contractually valid*. A transaction that is not contractually valid is not a valid proposal to update the ledger, and can never be committed to the ledger. This means that contracts can impose rules on the evolution of states over time that are independent of the willingness of the required signers to sign a given transaction.
 
 Each transaction [state]({{< relref "key-concepts-states.md" >}}) specifies a *contract type*. The contract specified takes the transaction as input, and determines if the transaction is valid based on the
 contract's internal rules. The contract must evaluate every input state and every output state.
@@ -75,7 +75,7 @@ For the nodes on a network to reach consensus about a proposed update to the [le
 
 ## Contract limitations
 
-By design, contracts don't have access to information from the outside world (unless they use an [oracle]({{< relref "key-concepts-oracles.md" >}}). They can only check transactions for internal validity. For example, a contract wouldn't know that the transaction is in accordance with what the parties involved originally agreed.
+By design, contracts do not have access to information from the outside world (unless they use an [oracle]({{< relref "key-concepts-oracles.md" >}}). They can only check transactions for internal validity. For example, a contract would not know that the transaction is in accordance with what the parties involved originally agreed.
 
 You should check the contents of a transaction before signing it, *even if the transaction is
 contractually valid*, to see if you agree with the proposed ledger update. You have no obligation to
