@@ -1,0 +1,13 @@
+DirectoryPath: "public/"
+CheckAnchors: false
+CheckDoctype: false
+CheckExternal: false
+CheckGeneric: false
+CheckImages: true
+CheckInternal: false
+CheckLinks: false
+CheckMeta: false
+CheckMetaRefresh: false
+CheckScripts: false
+IgnoreAltMissing: true
+IgnoreAltEmpty: true
