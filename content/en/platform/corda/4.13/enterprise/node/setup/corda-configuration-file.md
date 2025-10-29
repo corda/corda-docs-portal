@@ -8,7 +8,7 @@ tags:
 - configuration
 - file
 title: Node configuration
-weight: 3
+weight: 30
 ---
 
 # Node configuration

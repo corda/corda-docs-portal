@@ -8,7 +8,7 @@ tags:
 - tls
 - keys
 title: Storing node TLS keys in HSM without running the Corda Enterprise Firewall
-weight: 40
+weight: 400
 ---
 
 # Storing node TLS keys in HSM without running the Corda Enterprise Firewall

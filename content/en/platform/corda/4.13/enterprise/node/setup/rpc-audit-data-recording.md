@@ -8,7 +8,7 @@ tags:
 - audit
 - recording
 title: Recording of RPC audit data
-weight: 4
+weight: 40
 ---
 
 # Recording of RPC audit data
