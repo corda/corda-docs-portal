@@ -33,15 +33,15 @@ To set up a reference deployment of CENM using AWS and PostgreSQL:
 
 ### Set up a PostgreSQL database for each CENM service
 
-You must ensure that each CENM service has it's own PostgreSQL database. Complete the steps referenced below for each of the following:
+You must ensure that each CENM service has its own PostgreSQL database. Complete the steps referenced below for each of the following:
 
-* [Auth Service]({{< relref "../../4.12/enterprise/node/auth-service.md" >}}).
-* [Gateway Service]({{< relref "../../4.12/enterprise/node/gateway-service.md" >}}).
-* [Identity Manager]({{< relref "identity-manager.md" >}}).
-* [Network Map]({{< relref "network-map.md" >}}).
-* [Signer Service]({{< relref "signing-service.md" >}}).
-* [Zone Service]({{< relref "zone-service.md" >}}).
-* [Angel Service]({{< relref "angel-service.md" >}}).
+* {{< cordalatestrelref "enterprise/node/auth-service.md" "Auth Service" >}}
+* {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}}
+* [Identity Manager]({{< relref "identity-manager.md" >}})
+* [Network Map]({{< relref "network-map.md" >}})
+* [Signer Service]({{< relref "signing-service.md" >}})
+* [Zone Service]({{< relref "zone-service.md" >}})
+* [Angel Service]({{< relref "angel-service.md" >}})
 
 To set up each database:
 
@@ -57,7 +57,7 @@ In step 4 above, you must create a schema for each CENM service. The guide provi
 
 ### Deploy CENM services
 
-1. Deploy the [Auth Service]({{< relref "../../4.12/enterprise/node/auth-service.md" >}}) using PostgreSQL on AWS.
+1. Deploy the {{< cordalatestrelref "enterprise/node/auth-service.md" "Auth Service" >}} using PostgreSQL on AWS.
 2. Deploy the [Identity Manager service]({{< relref "identity-manager.md" >}}) using PostgreSQL on AWS.
 3. Deploy the [Network Map service]({{< relref "network-map.md" >}}) using PostgreSQL on AWS.
 4. Deploy the [Zone Service]({{< relref "zone-service.md" >}}) using PostgreSQL on AWS.

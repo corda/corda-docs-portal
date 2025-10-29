@@ -64,7 +64,7 @@ $ export CONFIG_OBFUSCATION_SEED=my-seed; export CONFIG_OBFUSCATION_PASSPHRASE=m
 {{< /note >}}
 
 {{< note >}}
-If a node is registered but not started and the [Network Map service]({{< relref "../../../../1.5/cenm/network-map.md#network-map-service" >}}) goes down before the first start of the node, the node will fail to restart.
+If a node is registered but not started and the {{< cenmlatestrelref "cenm/network-map.md" "Network Map service" >}} goes down before the first start of the node, the node will fail to restart.
 
                                                   
                                                                                                                                                                       

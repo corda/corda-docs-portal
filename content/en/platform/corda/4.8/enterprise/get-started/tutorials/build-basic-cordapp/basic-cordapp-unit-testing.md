@@ -24,7 +24,7 @@ You cannot create unit tests with flows because they depend on states and contra
 
 ## Learning objectives
 
-After you've completed this tutorial, you will be able to write state and contract unit tests for your CorDapp.
+After you have completed this tutorial, you will be able to write state and contract unit tests for your CorDapp.
 
 ## Write state tests
 

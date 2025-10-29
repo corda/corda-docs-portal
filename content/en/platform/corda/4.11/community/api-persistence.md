@@ -156,7 +156,7 @@ a Derivative contract within the same schema. The schemas should typically not b
 to encourage re-use of a common set within a particular business area or CorDapp.
 
 {{< note >}}
-It’s advisable to avoid cross-references between different schemas as this may cause issues when evolving `MappedSchema`
+It is advisable to avoid cross-references between different schemas as this may cause issues when evolving `MappedSchema`
 or migrating its data. At startup, nodes log such violations as warnings stating that there’s a cross-reference between `MappedSchema`’s.
 The detailed messages incorporate information about what schemas, entities and fields are involved.
 
@@ -481,7 +481,7 @@ useful if off-ledger data must be maintained in conjunction with on-ledger state
 
 {{< note >}}
 Your entity must be included as a mappedType as part of a `MappedSchema` for it to be added to Hibernate
-as a custom schema. If it’s not included as a mappedType, a corresponding table will not be created. See Samples below.
+as a custom schema. If it is not included as a mappedType, a corresponding table will not be created. See Samples below.
 
 {{< /note >}}
 

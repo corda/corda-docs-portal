@@ -17,7 +17,7 @@ You will be creating your integration tests in this directory: `workflows/src/te
 
 ## Learning objectives
 
-After you've completed this tutorial, you will be able to write integration tests for your CorDapp.
+After you have completed this tutorial, you will be able to write integration tests for your CorDapp.
 
 ## Before you start
 
@@ -104,7 +104,7 @@ After your test has run, you will want the network to be torn down to free up re
 
 ### Add the test content
 
-Now that you've added steps for before and after, you can finally add the content that will test your `CreateAndIssueAppleStamp` flow.
+Now that you have added steps for before and after, you can finally add the content that will test your `CreateAndIssueAppleStamp` flow.
 
 1. Add the `@Test` annotation.
 2. Add a `public void` with the `CreateAndIssueAppleStampTest`.

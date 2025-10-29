@@ -540,7 +540,7 @@ If the user was created with *administrative* permissions, the schema name `data
 
 When connecting with a database user with restricted permissions, all queries need to be prefixed with the other schema name.
 Set the `database.schema` value to *my_admin_user*.
-CENM doesn’t guarantee prefixing all SQL queries with the schema namespace.
+CENM does not guarantee prefixing all SQL queries with the schema namespace.
 The additional configuration entry `connectionInitSql` sets the current schema to the admin user (*my_user*) on connection to the database.
 
 The transaction isolation level is set by CENM to *READ_COMMITTED*, and attempting to set another

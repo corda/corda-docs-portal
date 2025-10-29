@@ -77,8 +77,8 @@ If on the receive side of the finality flow, any error will result in the flow b
 error to be rectified (so that the transaction isn’t lost if, for example, associated contract JARs are missing).
 Intervention is expected to be “rectify error, perhaps uploading attachment, and restart node” (or alternatively reject and call *killFlow*).
 * `FlowTimeoutException`:
-This is used internally by the notary client flow when talking to an HA notary.  It’s used to cause the client to try and talk to a different
-member of the notary cluster if it doesn’t hear back from the original member it sent the request to within a “reasonable” time.
+This is used internally by the notary client flow when talking to an HA notary.  It is used to cause the client to try and talk to a different
+member of the notary cluster if it does not hear back from the original member it sent the request to within a “reasonable” time.
 The time is hard to document as the notary members, if actually alive, will inform the requester of the ETA of a response.
 This can occur an infinite number of times.  i.e. we never give up notarising.  No intervention required.
 * **HSM error handling**

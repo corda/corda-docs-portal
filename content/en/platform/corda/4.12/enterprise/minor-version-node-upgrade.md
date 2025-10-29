@@ -47,7 +47,7 @@ For a smooth node draining process, avoid long-running flows.
 Replace the `corda.jar` with the latest version from Corda.
 
 Download the latest version of Corda from the [Customer Hub](https://customerhub.r3.com).
-Make sure it’s available on your path, and that you’ve read the [Corda release notes]({{< relref "release-notes-enterprise.md" >}}). Pay particular attention to which version of Java the node requires.
+Make sure it is available on your path, and that you’ve read the [Corda release notes]({{< relref "release-notes-enterprise.md" >}}). Pay particular attention to which version of Java the node requires.
 
 {{< important >}}
 Corda 4 requires Java 17.0.9 or any higher Java 17 patch level. Java 18+ is not currently supported.

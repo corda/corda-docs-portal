@@ -36,7 +36,7 @@ and the release version - a change in the major or minor values may or may not i
 we do endeavour to keep them synchronised for now, as a convenience.
 
 The platform version is part of the node’s `NodeInfo` object, which is available from the `ServiceHub`. This enables
-a CorDapp to find out which version it’s running on and determine whether a desired feature is available. When a node
+a CorDapp to find out which version it is running on and determine whether a desired feature is available. When a node
 registers with the network map it will check its own version against the minimum version requirement for the network.
 
 ## Minimum platform version
@@ -95,7 +95,7 @@ A well structured CorDapp should be split into two separate modules:
 
 The reason for this split is that the contract JAR will be attached to transactions and sent around the network, because this code is what
 defines the data structures and smart contract logic all nodes will validate. If the rest of your app is a part of that same JAR, it’ll get
-sent around the network too even though it’s not needed and will never be used. By splitting your app into a contracts JAR and a workflows
+sent around the network too even though it is not needed and will never be used. By splitting your app into a contracts JAR and a workflows
 JAR that depends on the contracts JAR, this problem is avoided.
 
 In the `build.gradle` file for your contract module, add a block like this:
@@ -131,7 +131,7 @@ cordapp {
 }
 ```
 
-It’s entirely expected and reasonable to have an open source contracts module and a proprietary workflow module - the latter may contain
+It is entirely expected and reasonable to have an open source contracts module and a proprietary workflow module - the latter may contain
 sophisticated or proprietary business logic, machine learning models, even user interface code. There’s nothing that restricts it to just
 being Corda flows or services.
 

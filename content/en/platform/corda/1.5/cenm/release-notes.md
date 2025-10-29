@@ -190,7 +190,7 @@ The [CENM management console]({{< relref "cenm-console.md" >}}) is a new CENM we
 
 #### Single sign-on for Azure AD
 
-CENM 1.5 introduces support for Azure Active Directory (AAD) as a single sign-on (SSO) for the CENM [Auth Service]({{< relref "../../4.10/enterprise/node/auth-service.md" >}}), which supports full Role-Based Access Control (RBAC) and provides a web-based management interface for system administrators to create and manage user groups and entitlements. As a result, you can now operate an SSO set-up between Corda services and Azure AD, with a [simple configuration]({{< relref "../../4.10/enterprise/node/azure-ad-sso/_index.md" >}}) to both your Azure AD and Corda Auth services.
+CENM 1.5 introduces support for Azure Active Directory (AAD) as a single sign-on (SSO) for the CENM {{< cordalatestrelref "enterprise/node/auth-service.md" "Auth Service" >}}, which supports full Role-Based Access Control (RBAC) and provides a web-based management interface for system administrators to create and manage user groups and entitlements. As a result, you can now operate an SSO set-up between Corda services and Azure AD, with a {{< cordalatestrelref "enterprise/node/azure-ad-sso/_index.md" "simple configuration" >}} to both your Azure AD and Corda Auth services.
 
 #### Certificate rotation: ability to reissue node legal identity keys and certificates
 
@@ -233,9 +233,9 @@ We have updated the default value of the optional `timeout` parameter, introduce
 
 ### Fixed issues
 
-* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool]({{< relref "../../1.4/cenm/pki-tool.md" >}}) now generates certificates with serial number sizes of up to 16 octets/bytes.
-* We have fixed an issue where the [PKI Tool]({{< relref "../../1.4/cenm/pki-tool.md" >}}) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
-* We have fixed an issue where the [signing request status command]({{< relref "../../1.4/cenm/cenm-cli-tool.md#check-the-connection-status-of-the-signing-service" >}}) in the [CENM Command-line Interface]({{< relref "../../1.4/cenm/cenm-cli-tool.md" >}}) did not work for requests with `COMPLETED` status.
+* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool]({{< relref "pki-tool.md" >}}) now generates certificates with serial number sizes of up to 16 octets/bytes.
+* We have fixed an issue where the [PKI Tool]({{< relref "pki-tool.md" >}}) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
+* We have fixed an issue where the [signing request status command]({{< relref "cenm-cli-tool.md#check-the-connection-status-of-the-signing-service" >}}) in the [CENM Command-line Interface]({{< relref "../../1.4/cenm/cenm-cli-tool.md" >}}) did not work for requests with `COMPLETED` status.
 * We have fixed an issue where the `APP VERSION` column was not shown when running helm charts while bootstrapping CENM.
 
 ## Corda Enterprise Network Manager 1.4
@@ -268,7 +268,7 @@ Read more about improvements of this release below.
 
 In CENM 1.4, we have adapted to CENM the internal Corda error handling logic introduced in [Corda 4.5](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-os/4.5/error-codes.md) and [Corda Enterprise Edition 4.5](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-enterprise/4.5/enterprise/node/operating/error-codes.md) for Corda nodes.
 
-As a result, CENM exceptions are now treated as CENM error codes and an error code is generated for each exception. The initial set of error codes, related to configuration parsing/validation errors, are described in the new [CENM error codes documentation page]({{< relref "../../1.4/cenm/cenm-error-codes.md" >}}). This is the start of a growing CENM error condition knowledge base, which will expand in future releases.
+As a result, CENM exceptions are now treated as CENM error codes and an error code is generated for each exception. The initial set of error codes, related to configuration parsing/validation errors, are described in {{< cenmlatestrelref "cenm/cenm-error-codes.md" "CENM error codes" >}}. This is the start of a growing CENM error condition knowledge base, which will expand in future releases.
 
 #### Network Map service performance enhancements
 
@@ -352,18 +352,18 @@ See the [CENM deployment]({{< relref "../../1.4/cenm/aws-deployment-guide.md" >}
 #### Other changes
 * We have added support for PostgreSQL 10.10 and 11.5 (JDBC 42.2.8), as noted in [CENM Databases]({{< relref "../../1.4/cenm/database-set-up.md#supported-databases" >}}) and [CENM support matrix]({{< relref "../../1.4/cenm/cenm-support-matrix.md#cenm-databases" >}}).
 * A `non-ca-plugin.jar` has been added to `signing-service-plugins` in Artifactory.
-* We have renamed the FARM Service, introduced in CENM 1.3, to [Gateway Service]({{< relref "../../4.10/enterprise/node/gateway-service.md" >}}). As a result, if you are [upgrading]({{< relref "../../1.4/cenm/upgrade-notes.md" >}}) from CENM 1.3 to CENM 1.4, the FARM Service JAR file used in CENM 1.3 should be replaced with the Gateway Service JAR file used in CENM 1.4.
+* We have renamed the FARM Service, introduced in CENM 1.3, to {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}}. As a result, if you are [upgrading]({{< relref "../../1.4/cenm/upgrade-notes.md" >}}) from CENM 1.3 to CENM 1.4, the FARM Service JAR file used in CENM 1.3 should be replaced with the Gateway Service JAR file used in CENM 1.4.
 * In CENM 1.4 we have changed the way `subZoneID` is set in Signing Service configurations - see the [CENM upgrade guide]({{< relref "../../1.4/cenm/upgrade-notes.md#change-in-setting-subzoneid-in-signing-service-configurations" >}}) for more details.
 
 ### Fixed issues
 
-* We have fixed an issue where the [Auth service]({{< relref "../../4.10/enterprise/node/auth-service.md" >}}) could not start during database schema initialisation for PostgreSQL.
+* We have fixed an issue where the {{< cordalatestrelref "enterprise/node/auth-service.md" "Auth Service" >}} could not start during database schema initialisation for PostgreSQL.
 * We have fixed an issue where the Signing Service failed to start, following setup without the SMR (Signable Material Retriever) Service, producing a `serviceLocations` configuration error. Note that the SMR Service has been removed in CENM 1.4 and its functionality has been merged with the Signing Service - see the [New features and enhancements](#new-features-and-enhancements) section above for more details.
 * We have fixed an issue where the `azure-keyvault-with-deps.jar` and `out.pkcs12` files were not copied to the `pki-pod` and PKI generation failed as a result.
 * We have fixed an issue where HSM passwords were not hidden in service logs.
 * We have fixed an issue where the Zone Service removed the `mode` field from the Signing Service's configuration with Utimaco and then failed to return this field to the Angel Service.
 * Commands for the Identity Manager Service and the Network Map Service, which previously returned no information, now indicate when no data is available.
-* We have fixed an issue where [Gateway Service]({{< relref "../../4.10/enterprise/node/gateway-service.md" >}}) (previously called FARM Service in CENM 1.3) logs were not available in the `logs-farm` container.
+* We have fixed an issue where {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}} (previously called FARM Service in CENM 1.3) logs were not available in the `logs-farm` container.
 * We have fixed an issue where submitting a CRR request with CENM Command-line Interface Tool failed with the unexpected error `method parameters invalid`.
 * When using the Signing Service to manually perform signing tasks with multiple accounts for each task and the option to authenticate `ALL` users is selected, the Signing Service now indicates which user should enter their password.
 with multiple accounts for each task The Signing Service now prompts a specific user to login in while all are being authenticated.
@@ -425,7 +425,7 @@ The new Zone Service enables you to store configurations for the Identity Manage
 We have updated the Kubernetes reference deployment to use Helm@3 and to support the new services introduced in CENM 1.3. The updated documentation provides guidance on how to use this deployment with external databases.
 
 #### Configuration obfuscation
-Configuration obfuscation support in CENM 1.3 now involves the use of the [Corda Enterprise configuration obfuscator tool](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-enterprise/4.5/enterprise/tools-config-obfuscator.md). Legacy (pre-1.3) obfuscated configurations are still supported, however you should update any such configuration files using the latest version of the Corda Enterprise configuration obfuscator tool.
+Configuration obfuscation support in CENM 1.3 and above now involves the use of the {{< cordalatestrelref "enterprise/tools-config-obfuscator.md" "configuration obfuscator tool" >}}. Legacy (pre-1.3) obfuscated configurations are still supported, however you should update any such configuration files using the latest version of the Corda Enterprise configuration obfuscator tool.
 
 #### Highly available Certificate Revocation List
 Our documentation now provides some deployment recommendations on how to make the CRL highly available in a typical network deployment.
@@ -483,7 +483,7 @@ We are expanding our support for Docker to Corda Enterprise Network Manager.
 Furthermore, we are introducing a first reference deployment with Helm and Kubernetes.
 Out of the box - you will be able to deploy in minutes an ephemeral representative test network to complement your development cycle.
 
-See [Kubernetes deployment documentation]({{< relref "../../1.2/cenm/deployment-kubernetes.md" >}}) for more details.
+See [Kubernetes deployment documentation]({{< relref "deployment-kubernetes.md" >}}) for more details.
 
 **Support for third party CAs**
 
@@ -606,7 +606,7 @@ as well as for Gemalto and Securosys HSMs in both the PKI Tool and Signing Servi
 
 * CENM now supports encryption of passwords in configuration files, using encryption keys derived from
 hardware attributes. An obfuscation tool ships with CENM, to process configuration files and encrypt
-marked fields. For more details on usage see [Config obfuscation tool](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-enterprise/4.5/enterprise/tools-config-obfuscator.md).
+marked fields. For more details on usage, see {{< cordalatestrelref "enterprise/tools-config-obfuscator.md" "Config obfuscation tool" >}}.
 * Fixed an internal error which occurred when using H2 versions below 1.4.198 due to use of unsupported
 lock types.
 * Added `run purgeAllStagedNodeInfos` and `run purgeStagedNodeInfo nodeInfoHash: <node_info_hash>` commands
