@@ -97,7 +97,7 @@ Nodes will also trust attachments that:
 * Are installed manually.
 * Are uploaded via RPC.
 
-You can [sign a CorDapp directly from Gradle]({{< relref "cordapp-build-systems.md#signing-the-cordapp-jar" >}}).
+You can [sign a CorDapp directly from Gradle]({{< relref "cordapp-build-systems.md#sign-the-cordapp-jar" >}}).
 
 
 ### CorDapp contract storage and retrieval

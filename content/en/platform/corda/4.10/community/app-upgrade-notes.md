@@ -135,7 +135,7 @@ used as an `AbstractParty` but has an actual value that is one of `Party` or `An
 implement `Destination`, while the superclass does not. Kotlin must pick a type for the variable, and so chooses the most specific
 ancestor of both `AbstractParty` and `Destination`. This is `Any`, which is not a valid type for use as an `AbstractParty` later.
 For more information on `Destination`, see the KDocs for the interface
-[here]({{< relref "../../../../api-ref/api-ref-corda-4.md#corda-community-edition-4x-api-reference" >}}).
+[here]({{< relref "../../../../api-ref/api-ref-corda-4.md#corda-community-and-open-source-4x" >}}).
 
 Note that this is a Kotlin-specific issue. Java can instead choose `? extends AbstractParty & Destination` here, which can later be used
 as `AbstractParty`.

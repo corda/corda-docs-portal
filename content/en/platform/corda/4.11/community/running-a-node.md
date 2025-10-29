@@ -184,7 +184,7 @@ To enable export of JMX metrics over HTTP via [Jolokia](https://jolokia.org/), r
 
 This command will start the node with JMX metrics accessible via HTTP on port 7005.
 
-See [Monitoring via Jolokia]({{< relref "node-administration.md#monitoring-jolokia" >}}) for further details.
+See [Monitoring via Jolokia]({{< relref "node-administration.md#monitoring-via-jolokia" >}}) for further details.
 
 ## Starting all nodes at once on a local machine from the command prompt
 
