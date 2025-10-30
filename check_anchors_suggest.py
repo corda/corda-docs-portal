@@ -27,10 +27,10 @@ def normalize_heading(heading: str) -> str:
     heading_text = re.sub(r'\s*\{\{<[^>]+>\}\}\s*$', '', heading_text)
     heading_text = heading_text.lower()
 
-    # --- NEW PATCH: handle ` and @ for anchors like "@DoNotImplement" ---
-    heading_text = heading_text.replace('`', '')  # remove backticks
-    heading_text = heading_text.replace('@', '')  # remove @ symbols
-    # -------------------------------------------------------------------
+    # --- handle ` and @ for anchors like "@DoNotImplement" ---
+    heading_text = heading_text.replace('`', '')
+    heading_text = heading_text.replace('@', '')
+    # ---------------------------------------------------------
 
     heading_text = re.sub(r"[():'’,;.`?/*]", "", heading_text)
     heading_text = heading_text.replace(' ', '-')
@@ -64,13 +64,11 @@ def find_anchors_with_lines(markdown: str):
       {{< cordalatestrelref ... >}}
     """
     anchors = []
-    # Find all relrefs excluding the cenmlatestrelref and cordalatestrelref variants
     pattern = re.compile(
         r'{{<\s*(?!cenmlatestrelref|cordalatestrelref)\s*relref\s*["{<]*([^\s"\'>}]+)["}>]*'
     )
 
     for i, line in enumerate(markdown.splitlines(), start=1):
-        # Skip ignored shortcodes explicitly (for safety)
         if "cenmlatestrelref" in line or "cordalatestrelref" in line:
             continue
 
@@ -130,14 +128,12 @@ def suggest_closest(target: str, candidates: list, threshold=0.75):
 # Anchor Checking
 # ----------------------------
 
-def check_anchors_in_file(filepath: str, headings_cache: dict, all_md_files: list, threshold: float):
+def check_anchors_in_file(filepath: str, headings_cache: dict, all_md_files: list, threshold: float, folder: str):
     """Check all relref anchors in a Markdown file, with fuzzy file & heading suggestions."""
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Normalize line endings (handle Windows and Linux)
     content = content.replace('\r\n', '\n').replace('\r', '\n')
-
     anchors = find_anchors_with_lines(content)
     missing = []
 
@@ -149,28 +145,68 @@ def check_anchors_in_file(filepath: str, headings_cache: dict, all_md_files: lis
         if ref_path is None:
             target_file = os.path.abspath(filepath)
         else:
-            target_file = os.path.abspath(os.path.join(os.path.dirname(filepath), ref_path))
+            # --- NEW: correctly handle Hugo absolute paths like "/en/platform/..." ---
+            if ref_path.startswith("/"):
+                # locate actual "content" root
+                parts = os.path.abspath(folder).split(os.sep)
+                if "content" in parts:
+                    content_root = os.sep.join(parts[: parts.index("content") + 1])
+                else:
+                    content_root = os.path.abspath(folder)
+                target_file = os.path.join(content_root, ref_path.lstrip("/"))
+            else:
+                target_file = os.path.abspath(os.path.join(os.path.dirname(filepath), ref_path))
+            # ------------------------------------------------------------------------
         if not os.path.splitext(target_file)[1]:
             target_file += '.md'
 
-        # Handle missing file
+        # Handle missing file, including Hugo leaf bundle and section-relative behavior
         if not os.path.exists(target_file):
-            ref_file_name = os.path.basename(ref_path or "")
-            suggestion, score = suggest_closest(
-                ref_file_name, [os.path.basename(f) for f in all_md_files], threshold
-            )
-            if suggestion:
-                reason = f"{Colors.RED}File not found{Colors.RESET} — possible file: {Colors.YELLOW}“{suggestion}”{Colors.RESET} ({score:.0%} similar)"
+            alt_target = None
+
+            # Hugo fallback 1: index.md inside directory of same name
+            if target_file.endswith(".md"):
+                candidate_dir = target_file[:-3]
+                index_path = os.path.join(candidate_dir, "index.md")
+                if os.path.exists(index_path):
+                    alt_target = index_path
+
+            # Hugo fallback 2: _index.md / index.md dual forms
+            if not alt_target and target_file.endswith("index.md"):
+                alt_index = target_file.replace("index.md", "_index.md")
+                if os.path.exists(alt_index):
+                    alt_target = alt_index
+            elif not alt_target and target_file.endswith("_index.md"):
+                alt_index = target_file.replace("_index.md", "index.md")
+                if os.path.exists(alt_index):
+                    alt_target = alt_index
+
+            # Hugo fallback 3: check parent directory for sibling .md (section-relative)
+            if not alt_target and os.path.basename(target_file).endswith(".md"):
+                parent_dir = os.path.dirname(os.path.dirname(target_file))
+                candidate = os.path.join(parent_dir, os.path.basename(target_file))
+                if os.path.exists(candidate):
+                    alt_target = candidate
+
+            if alt_target:
+                target_file = alt_target
             else:
-                reason = f"{Colors.RED}File not found{Colors.RESET} — no similar files"
-            missing.append((line, ref_path or "(same file)", anchor, snippet, reason))
-            continue
+                ref_file_name = os.path.basename(ref_path or "")
+                suggestion, score = suggest_closest(
+                    ref_file_name, [os.path.basename(f) for f in all_md_files], threshold
+                )
+                if suggestion:
+                    reason = f"{Colors.RED}File not found{Colors.RESET} — possible file: {Colors.YELLOW}“{suggestion}”{Colors.RESET} ({score:.0%} similar)"
+                else:
+                    reason = f"{Colors.RED}File not found{Colors.RESET} — no similar files"
+                missing.append((line, ref_path or "(same file)", anchor, snippet, reason))
+                continue
 
         # Check for heading existence if anchor is given
         if anchor:
             target_headings = headings_cache.get(target_file, {})
 
-            # --- FALLBACK PATCH: reload + strip YAML front matter if needed ---
+            # Fallback: reload + strip YAML front matter if needed
             if not target_headings:
                 try:
                     with open(target_file, 'r', encoding='utf-8') as tf:
@@ -183,7 +219,6 @@ def check_anchors_in_file(filepath: str, headings_cache: dict, all_md_files: lis
                     headings_cache[target_file] = target_headings
                 except Exception:
                     target_headings = {}
-            # -------------------------------------------------------------------
 
             if anchor not in target_headings:
                 suggestion, score = suggest_closest(anchor, list(target_headings.keys()), threshold)
@@ -193,7 +228,6 @@ def check_anchors_in_file(filepath: str, headings_cache: dict, all_md_files: lis
                     reason = f"{Colors.RED}Heading not found{Colors.RESET} — no close matches"
                 missing.append((line, ref_path or "(same file)", anchor, snippet, reason))
 
-    # Only print broken anchors
     if missing:
         print(f"\n{Colors.BOLD}{Colors.CYAN}{filepath}{Colors.RESET}")
         for line, ref, anchor, snippet, reason in missing:
@@ -223,7 +257,7 @@ def main():
     args = parser.parse_args()
 
     folder = args.folder
-    threshold = max(0.0, min(args.threshold / 100.0, 1.0))  # Convert percentage to ratio
+    threshold = max(0.0, min(args.threshold / 100.0, 1.0))
 
     if not os.path.isdir(folder):
         print(f"{Colors.RED}Error:{Colors.RESET} '{folder}' is not a valid directory.")
@@ -238,7 +272,7 @@ def main():
         for filename in files:
             if filename.lower().endswith('.md'):
                 filepath = os.path.join(root, filename)
-                check_anchors_in_file(filepath, headings_cache, all_md_files, threshold)
+                check_anchors_in_file(filepath, headings_cache, all_md_files, threshold, folder)
 
 
 if __name__ == "__main__":
