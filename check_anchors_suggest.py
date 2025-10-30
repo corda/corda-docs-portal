@@ -32,17 +32,22 @@ def normalize_heading(heading: str) -> str:
     heading_text = heading_text.replace('@', '')  # remove @ symbols
     # -------------------------------------------------------------------
 
-    heading_text = re.sub(r"[():'’,;.`]", "", heading_text)
+    heading_text = re.sub(r"[():'’,;.`?/*]", "", heading_text)
     heading_text = heading_text.replace(' ', '-')
     return heading_text
 
 
 def find_headings(markdown: str):
-    """Return a dict of normalized→original heading text."""
+    """Return a dict of normalized→original heading text, handling duplicates with -1, -2, etc."""
     headings = {}
+    counts = {}
     for match in re.finditer(r'^(#+)\s+(.*)', markdown, re.MULTILINE):
         original = match.group(2).strip()
         normalized = normalize_heading(match.group(0))
+        count = counts.get(normalized, 0)
+        counts[normalized] = count + 1
+        if count > 0:
+            normalized = f"{normalized}-{count}"
         headings[normalized] = original
     return headings
 
