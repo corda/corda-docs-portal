@@ -13,7 +13,7 @@ menu:
 
 This section describes Corda 5 from the perspective of a [Corda cluster Administrator]({{< relref "../../../../../about-the-docs/_index.md#cluster-administrator" >}}). If you are new to Corda, refer to [Corda Fundamentals]({{< relref "../fundamentals/_index.md" >}}) to familiarize yourself with the key concepts. If you are familiar with Corda 4, remember that while {{< version >}} is an evolution of Corda, it is quite different from an infrastructure and administration point of view.
 
-Corda 5 is a distributed application made of multiple stateless workers, as described in the [Workers]({{< relref "./workers" >}}) section. The following sections examine the core technologies that underpin Corda:
+Corda 5 is a distributed application made of multiple stateless workers, as described in the [Workers]({{< relref "workers/_index.md" >}}) section. The following sections examine the core technologies that underpin Corda:
 
 * [Persistence](#persistence)
 * [Key Management](#key-management)
@@ -104,7 +104,7 @@ The diagram illustrates that key wrapping is hierarchical. The master wrapping k
 
 Corda uses Apache Kafka internally as a message bus and also to emit events from {{< tooltip >}}flow{{< /tooltip >}} code. For more information see:
 
-* [Configuring Kafka]({{< relref "../../deploying-operating/deployment/deploying/_index.md#kafka" >}})
+* [Configuring Kafka]({{< relref "../../deploying-operating/deployment/deploying/_index.md#kafka-bootstrap-servers" >}})
 * [External Messaging Administration]({{< relref "../../deploying-operating/external-messaging/_index.md" >}}) {{< enterprise-icon >}}
 
 ## Load Balancers

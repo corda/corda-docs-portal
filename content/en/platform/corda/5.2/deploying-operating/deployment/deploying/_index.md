@@ -508,7 +508,7 @@ If not possible due to cost restrictions, consider at least isolating the follow
 
 * Flow Mapping
 * Flow Checkpoints
-* Token Pool Cache (if [Token Selection Services]({{< relref "../../../developing-applications/api/ledger/utxo-ledger/token-selection" >}}) are used)
+* Token Pool Cache (if [Token Selection Services]({{< relref "../../../developing-applications/api/ledger/utxo-ledger/token-selection/_index.md" >}}) are used)
 
 The following table shows the relationship between Corda workers and state types and with the access type required by each one:
 

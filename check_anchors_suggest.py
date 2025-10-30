@@ -1,3 +1,16 @@
+# ----------------------------
+# check_anchors_suggest
+#
+# Will check all relref links in the project to ensure that the fragment identifier - that is, anything after the # symbol, is correct.
+# Returns an error otherwise, and if a heading closely matches, will suggest it.
+# Suggested usage: run at base of repo using the command:
+# 
+# check_anchors_suggest.py content\en\platform
+# 
+# Assumes you have Python installed.
+# ----------------------------
+
+
 import re
 import os
 import sys
@@ -22,18 +35,30 @@ class Colors:
 def normalize_heading(heading: str) -> str:
     """
     Normalize a Markdown heading to its corresponding anchor form.
+    Implements Hugo-style ID rules:
+      1. text to lowercase
+      2. non-word punctuation removed
+      3. spaces converted to hyphens
+      4. collapse multiple hyphens into one
     """
     heading_text = heading.lstrip('#').strip()
     heading_text = re.sub(r'\s*\{\{<[^>]+>\}\}\s*$', '', heading_text)
+
+    # 1. lowercase
     heading_text = heading_text.lower()
 
-    # --- handle ` and @ for anchors like "@DoNotImplement" ---
-    heading_text = heading_text.replace('`', '')
-    heading_text = heading_text.replace('@', '')
-    # ---------------------------------------------------------
+    # 2. remove non-word punctuation (keep letters, digits, hyphens, underscores, and spaces)
+    heading_text = re.sub(r'[^\w\s-]', '', heading_text)
 
-    heading_text = re.sub(r"[():'’,;.`?/*]", "", heading_text)
-    heading_text = heading_text.replace(' ', '-')
+    # 3. replace spaces with hyphens
+    heading_text = re.sub(r'\s+', '-', heading_text)
+
+    # 4. collapse multiple hyphens into one
+    heading_text = re.sub(r'-{2,}', '-', heading_text)
+
+    # strip leading/trailing hyphens (optional but harmless)
+    heading_text = heading_text.strip('-')
+
     return heading_text
 
 
@@ -164,6 +189,21 @@ def check_anchors_in_file(filepath: str, headings_cache: dict, all_md_files: lis
         if not os.path.exists(target_file):
             alt_target = None
 
+            # --- NEW: handle bare filenames like "rolling-back521.md" anywhere in the project ---
+            if "/" not in (ref_path or "") and "\\" not in (ref_path or ""):
+                matches = [f for f in all_md_files if os.path.basename(f) == ref_path]
+                if len(matches) == 1:
+                    alt_target = matches[0]
+                elif len(matches) > 1:
+                    # pick one with a similar parent directory name (e.g. upgrading521 vs upgrading522)
+                    current_dir = os.path.basename(os.path.dirname(filepath))
+                    best_match = max(
+                        matches,
+                        key=lambda f: SequenceMatcher(None, current_dir, os.path.basename(os.path.dirname(f))).ratio(),
+                    )
+                    alt_target = best_match
+            # ---------------------------------------------------------------------------
+
             # Hugo fallback 1: index.md inside directory of same name
             if target_file.endswith(".md"):
                 candidate_dir = target_file[:-3]
@@ -220,8 +260,11 @@ def check_anchors_in_file(filepath: str, headings_cache: dict, all_md_files: lis
                 except Exception:
                     target_headings = {}
 
-            if anchor not in target_headings:
-                suggestion, score = suggest_closest(anchor, list(target_headings.keys()), threshold)
+            # <<-- MINIMAL CHANGE: normalize the anchor from the link before comparing -->> 
+            normalized_anchor = normalize_heading(anchor)
+
+            if normalized_anchor not in target_headings:
+                suggestion, score = suggest_closest(normalized_anchor, list(target_headings.keys()), threshold)
                 if suggestion:
                     reason = f"{Colors.RED}Heading not found{Colors.RESET} — possible match: {Colors.YELLOW}“{target_headings[suggestion]}”{Colors.RESET} ({score:.0%} similar)"
                 else:

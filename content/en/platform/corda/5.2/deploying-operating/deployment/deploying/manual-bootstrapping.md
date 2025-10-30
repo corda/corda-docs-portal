@@ -19,7 +19,7 @@ This section describes how to configure the following:
 * [Database]({{< relref "#database" >}})
 * [RBAC Roles]({{< relref "#rbac-roles" >}})
 
-When you have completed the manual configuration of the above, you can [Deploy Corda]({{< relref "./_index.md#deployment" >}}).
+When you have completed the manual configuration of the above, you can [Deploy Corda]({{< relref "./_index.md#deploying" >}}).
 
 ## Kafka
 
