@@ -120,6 +120,9 @@ Note that metrics related to the default thread pool do not have a *.default* su
 |net.corda:type=Flows,name=FlowDuration.Failure.{flowclassname}|  The flow duration for the default thread pool of the specified flow, if failed. | 
 |net.corda:type=Flows,name=FlowDuration.Success.{flowclassname}.{threadpoolname} |  The flow duration for the specified thread pool of the specified flow, if successful. | 
 |net.corda:type=Flows,name=FlowDuration.Failure.{flowclassname}.{threadpoolname} | The flow duration for the specified thread pool of the specified flow, if failed. |  
+| net.corda:type=Flows,name=HeartbeatLatencyInMilliseconds | Indicates the time, in milliseconds, required to start a flow. |
+| net.corda:type=Flows,name=TimeSinceLastPickedUpInSeconds | Indicates the elapsed time since the last flow was picked up from the queue, assuming other flows are still waiting to be processed. A high value suggests that flows are being starved. |
+| net.corda:type=Flows,name=TimeInQueueOldestInSeconds | Indicates how long the oldest flow has been waiting in the flow executor queue. |
 
 {{< /table >}}
 
