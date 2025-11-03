@@ -35,23 +35,23 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 - Fixed an issue where the Transaction Builder was ignoring a missing class name with dots in the NoClassDefFoundError. Class names in this class can now be handled using either dots or slashes. <!-- ENT-14431 -->
 - A number of dependencies have been upgraded; see [Third-party components upgrade]({{< relref "#third-party-components-upgrade" >}}) below. <!-- ENT-13054  -->
 - Fixed an issue with attachment handling by TransactionBuilder when searching for a missing class. This is now done as follows: <!-- ENT-14451 -->
-  - Attachment lookup prioritisation: TransactionBuilder now searches installed CorDapps first, falling back to the database only when needed. Only JDK 17–compatible attachments are considered. Legacy CorDapps never use database fallback. 
-  - Deterministic selection: Depending on thre attachment type, attachments are now sorted by version (descending), ID (ascending), or insertion date (descending), ensuring consistent and predictable attachment resolution across nodes.
+  - Attachment lookup prioritization: TransactionBuilder now searches installed CorDapps first, falling back to the database only when needed. Only JDK 17–compatible attachments are considered. Legacy CorDapps never use database fallback. 
+  - Deterministic selection: Depending on the attachment type, attachments are now sorted by version (descending), ID (ascending), or insertion date (descending), ensuring consistent and predictable attachment resolution across nodes.
   For more information, see [How attachments are resolved]({{< relref "get-started/tutorials/supplementary-tutorials/tutorial-attachments.md#how-attachments-are-resolved" >}}).
 - A regression was discovered in quasar 0.9.1_r3 which is used in 4.12.6 and 4.12.7. This has now been resolved. If you were previously considering upgrading to 4.12.6 or 4.12.7, then please instead upgrade to 4.12.8 where quasar 0.9.2_r3 is used. <!-- ENT-14477 --> 
   
 ### Third-party components upgrade
 
-This table highlights the differences in dependency versions between Corda Open Source 4.12.7 and 4.12.8. Dependencies with unchanged versions are omitted.
+This table shows the updates in dependency versions for Corda Open Source 4.12.8. Dependencies with unchanged versions are omitted.
 
-| Dependency                                           | 4.12.7 OS | 4.12.8 OS |
-|------------------------------------------------------|-----------|-----------|
-| co.paralleluniverse:quasar-core                      | 0.9.1_r3  | 0.9.2_r3  |
-| com.github.docker-java:docker-java                   | 3.5.3     | 3.6.0     |
-| com.github.docker-java:docker-java-transport-httpclient5 | 3.5.3 | 3.6.0     |
-| org.bouncycastle:*                                   | 2.73.6    | 2.73.9    |
-| org.controlsfx:controlsfx                            | 8.40.15   | 11.2.2    |
-| com.nimbusds:nimbus-jose-jwt                         | 8.20.1    | 10.0.2    | 
+| Dependency                                           | 4.12.8 OS |
+|------------------------------------------------------|-----------|
+| co.paralleluniverse:quasar-core                      | 0.9.2_r3  |
+| com.github.docker-java:docker-java                   | 3.6.0     |
+| com.github.docker-java:docker-java-transport-httpclient5 | 3.6.0 |
+| org.bouncycastle:*                                   | 2.73.9    |
+| org.controlsfx:controlsfx                            | 11.2.2    |
+| com.nimbusds:nimbus-jose-jwt                         | 10.0.2    |
 
 ## Corda Open Source Edition 4.12.7 release notes
 
