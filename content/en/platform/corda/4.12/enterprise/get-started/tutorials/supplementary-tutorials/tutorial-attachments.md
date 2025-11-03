@@ -132,6 +132,37 @@ and which are shared explicitly. These are useful for attaching and signing audi
 that isn’t used as part of the contract logic.
 {{< /note >}}
 
+## How attachments are resolved
+
+When building a transaction, Corda automatically tries to resolve any missing class or contract by finding a suitable attachment, using the following order of priority:
+
+1. **Installed CorDapps first:** Corda searches the locally installed CorDapps directories first for a matching attachment.
+2. **Optional database fallback:** If no installed CorDapp is found, and database fallback is enabled, then Corda will search the attachment store (trusted uploaders only). To enable or disable database fallback, use the `net.corda.node.transactionbuilder.missingClassDbSearchDisabled` option; see [Attachment resolution configuration properties]({{< relref "#attachment-resolution-configuration-properties" >}}).
+3. **Legacy CorDapps:** Legacy contracts are only resolved using the `legacy-contracts` CorDapps folder; Corda never falls back to the database.
+4. **Compatibility filtering:** Attachments with an incompatible Kotlin version are excluded.
+
+Prior to version 4.12, only the database option was used; this behavior can be restored using the `net.corda.node.transactionbuilder.installedFirstSearchDisabled` option; see [Attachment resolution configuration properties]({{< relref "#attachment-resolution-configuration-properties" >}}).
+
+### Deterministic attachment selection
+
+If multiple attachments match, Corda uses deterministic ordering to ensure all nodes pick the same attachment.
+Attachments are sorted by:
+
+1. Version (descending)
+2. Insertion date (descending) (for database attachments)
+3. ID (ascending) (for installed attachments)
+
+This prevents runtime-dependent selection and ensures identical transaction builds across the network.
+
+### Attachment resolution configuration properties
+
+The following system properties control the lookup logic:
+
+| Property                                                                | Default Value | Description                                                                            |
+|-------------------------------------------------------------------------|---------------|----------------------------------------------------------------------------------------|
+| net.corda.node.transactionbuilder.missingClassDbSearchDisabled          | false         | If true, disables database fallback — only installed CorDapps are searched.            |
+| net.corda.node.transactionbuilder.installedFirstSearchDisabled          | false         | If true, restores the database-only lookup behavior used in versions prior to 4.12).   |
+
 ## Example
 
 Here is a simple example of how to attach a file to a transaction and send it to the counterparty. The full code for this demo can be found in the [Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.12/Features/attachment-sendfile) and [Java](https://github.com/corda/samples-java/tree/release/4.12/Features/attachment-sendfile) sample repositories.
