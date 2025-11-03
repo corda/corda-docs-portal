@@ -136,12 +136,12 @@ that isn’t used as part of the contract logic.
 
 When building a transaction, Corda automatically tries to resolve any missing class or contract by finding a suitable attachment, using the following order of priority:
 
-1. **Installed CorDapps first:** Corda searches the locally installed CorDapps directories first for a matching attachment.
+1. **Installed CorDapps first:** Corda searches the cordapps directory first, where CorDapps are locally installed, for a matching attachment.
 2. **Optional database fallback:** If no installed CorDapp is found, and database fallback is enabled, then Corda will search the attachment store (trusted uploaders only). To enable or disable database fallback, use the `net.corda.node.transactionbuilder.missingClassDbSearchDisabled` option; see [Attachment resolution configuration properties]({{< relref "#attachment-resolution-configuration-properties" >}}).
 3. **Legacy CorDapps:** Legacy contracts are only resolved using the `legacy-contracts` CorDapps folder; Corda never falls back to the database.
 4. **Compatibility filtering:** Attachments with an incompatible Kotlin version are excluded.
 
-Prior to version 4.12, only the database option was used; this behavior can be restored using the `net.corda.node.transactionbuilder.installedFirstSearchDisabled` option; see [Attachment resolution configuration properties]({{< relref "#attachment-resolution-configuration-properties" >}}).
+Prior to version 4.12.8, only the database option was used; this behavior can be restored using the `net.corda.node.transactionbuilder.installedFirstSearchDisabled` option; see [Attachment resolution configuration properties]({{< relref "#attachment-resolution-configuration-properties" >}}).
 
 ### Deterministic attachment selection
 
