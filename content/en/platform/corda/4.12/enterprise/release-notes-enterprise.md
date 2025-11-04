@@ -44,6 +44,7 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
   - Deterministic selection: Depending on the attachment type, attachments are now sorted by version (descending), ID (ascending), or insertion date (descending), ensuring consistent and predictable attachment resolution across nodes.
   For more information, see [How attachments are resolved]({{< relref "get-started/tutorials/supplementary-tutorials/tutorial-attachments.md#how-attachments-are-resolved" >}}).
 - A regression was discovered in quasar 0.9.1_r3 which is used in 4.12.6 and 4.12.7. This has now been resolved. If you were previously considering upgrading to 4.12.6 or 4.12.7, then please instead upgrade to 4.12.8 where quasar 0.9.2_r3 is used. <!-- ENT-14477 --> 
+- The notary health check contract CorDapp is now signed by the R3 production key. Previously it was signed by the R3 developer key.
 
 ### Third-party components upgrade
 
