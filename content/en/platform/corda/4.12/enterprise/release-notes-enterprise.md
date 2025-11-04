@@ -17,6 +17,49 @@ weight: 10
 
 # Corda Enterprise Edition 4.12 release notes
 
+## Corda Enterprise Edition 4.12.8 release notes
+
+Corda Enterprise Edition 4.12.8 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+{{< important >}}
+When upgrading a node to Corda 4.12, it is extremely important that you run the Transaction Validator Utility on your node database to verify that the transactions in the old node are compatible with 4.12 nodes.
+
+To ensure compatibility of the transactions, you must also run the Transaction Validator Utility on any older nodes that are not being upgraded and will likely interact with any upgraded nodes.
+
+For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
+{{< /important >}}
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Corda Enterprise Edition 4.11 to 4.12 upgrade guide]({{< relref "upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation
+
+### Fixed issues
+
+- Fixed an issue where the Transaction Builder was ignoring a missing class name with dots in the NoClassDefFoundError. Class names in this class can now be handled using either dots or slashes. <!-- ENT-14431 -->
+- A number of dependencies have been upgraded; see [Third-party components upgrade]({{< relref "#third-party-components-upgrade" >}}) below. <!-- ENT-13054  - -->
+- Fixed an issue with attachment handling by TransactionBuilder when searching for a missing class. This is now done as follows: <!-- ENT-14451 -->
+  - Attachment lookup prioritization: TransactionBuilder now searches installed CorDapps first, falling back to the database only when needed. Only JDK 17–compatible attachments are considered. Legacy CorDapps never use database fallback. 
+  - Deterministic selection: Depending on the attachment type, attachments are now sorted by version (descending), ID (ascending), or insertion date (descending), ensuring consistent and predictable attachment resolution across nodes.
+  For more information, see [How attachments are resolved]({{< relref "get-started/tutorials/supplementary-tutorials/tutorial-attachments.md#how-attachments-are-resolved" >}}).
+- A regression was discovered in quasar 0.9.1_r3 which is used in 4.12.6 and 4.12.7. This has now been resolved. If you were previously considering upgrading to 4.12.6 or 4.12.7, then please instead upgrade to 4.12.8 where quasar 0.9.2_r3 is used. <!-- ENT-14477 --> 
+- The notary health check contract CorDapp is now signed by the R3 production key. Previously it was signed by the R3 developer key.
+
+### Third-party components upgrade
+
+This table shows the updates in dependency versions for Corda Enterprise Edition 4.12.8. Dependencies with unchanged versions are omitted.
+
+| Dependency                                           | 4.12.8 Enterprise |
+|------------------------------------------------------|-------------------|
+| co.paralleluniverse:quasar-core                      | 0.9.2_r3          |
+| com.github.docker-java:docker-java                   | 3.6.0             |
+| com.github.docker-java:docker-java-transport-httpclient5 | 3.6.0         |
+| org.bouncycastle:*                                   | 2.73.9            |
+| com.nimbusds:oauth2-oidc-sdk                         | 8.36.2            |
+| com.nimbusds:nimbus-jose-jwt                         | 10.0.2            |
+| org.apache.zookeeper:zookeeper                       | 3.9.4             |
+
 ## Corda Enterprise Edition 4.12.7 release notes
 
 Corda Enterprise Edition 4.12.7 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
