@@ -20,6 +20,18 @@ The Corda Enterprise release consists of multiple release packs. You can downloa
 
 Before you install the downloaded packs, verify the integrity of each pack using the respective checksum file to ensure it has not been tampered with or corrupted during the download. You can do this by calculating the checksum of your downloaded file, then comparing its value to the checksum value provided below.
 
+## Release packs and checksums for Corda Enterprise Edition 4.12.8
+
+The release packs and checksum files for Corda Enterprise 4.12.8 can be downloaded from the [Customer Hub](https://customerhub.r3.com).
+
+The following release packs are available, along with their respective checksum files:
+
+* devtest-4.12.8.tar.gz: required for building, developing, and testing CorDapps.
+* runtime-4.12.8.tar.gz: required to run Corda.
+
+The following release packs are provided as optionals for external tools, SDKs, and CorDapps:
+* optional-sdk-4.12.8.tar.gz
+* optional-tools-4.12.8.tar.gz
 
 ## Release packs and checksums for Corda Enterprise Edition 4.12.7
 
