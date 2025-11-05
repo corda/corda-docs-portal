@@ -219,7 +219,7 @@ database {
 
 ### Embedded shell (optional)
 
-See [Shell Configuration]({{< relref "shell.md#shell-config" >}}) for more information on how to configure the shell.
+See [Shell Configuration]({{< relref "shell.md#shell-configuration" >}}) for more information on how to configure the shell.
 
 
 ### Network data signing mechanism
