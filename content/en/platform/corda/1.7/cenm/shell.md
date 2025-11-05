@@ -23,13 +23,13 @@ Manager shell) or executing signing tasks (via the Signing Service shell).
 
 
 
-## Shell Configuration
+## Shell configuration
 
 The optional `shell` configuration block can be added to the given CENM service configuration file to enable the
 embedded shell. There are two modes that the shell can run in:
 
 
-### SSH Mode
+### SSH mode
 
 The most versatile method to access the shell is via SSH. This can be configured by specifying the port, user and
 password within the `shell` configuration block:
@@ -45,7 +45,7 @@ shell {
 ```
 
 
-### Local Mode
+### Local mode
 
 The service can be configured to boot straight into the local shell upon start-up by setting the `shell.localShell`
 optional configuration parameter to be true:
@@ -59,7 +59,7 @@ shell {
 ```
 
 
-## SSH Authentication
+## SSH authentication
 
 The host key is loaded from the `<BASE_DIRECTORY>/sshkey/hostkey.pem` file, where <BASE_DIRECTORY> corresponds to the
 directory that the service is being run from. This can be overloaded with the `shell.sshHostKeyDirectory` config
@@ -90,7 +90,7 @@ trusted hosts and will refuse to connect in case of a change. This check can be 
 
 {{< /note >}}
 
-## Supported Commands
+## Supported commands
 
 The top level list of available commands can be seen by executing `help` from the shell. There are currently two types
 of commands:

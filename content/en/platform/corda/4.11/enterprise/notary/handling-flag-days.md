@@ -18,7 +18,7 @@ weight: 7
 ## Consequences of flag days for the notary
 
 A *flag day* signifies the point in time where the network stops using one set of network parameters and begins using the new, previously
-proposed set of network parameters. This is discussed in [Network parameters update process]({{< relref "../network/network-map.md#network-parameters-update-process" >}}).
+proposed set of network parameters. This is discussed in [Network parameters update process]({{< relref "../network/network-parameters.md#network-parameters-update-process" >}}).
 
 Once a flag day is issued, the next time a node polls the Network Map service, it will receive the updated network parameters, in turn
 causing the node to shut down due to a parameter mismatch. As a Notary node (whether a basic Notary or a worker within a HA cluster) is built
@@ -29,11 +29,11 @@ This shutdown occurs because, with one exception, it is not possible to hot swap
 option to refresh the parameters is a node restart. A consequence of this is that there is no way to restart the Notary in a preemptive
 manner prior to the flag day.
 
-The exception is if the parameter changes _only_ update the list of notaries. In those circumstances, the node does not need to restart. See [Hotloading]({{< relref "../network/network-map.md#hotloading" >}}) for more information.
+The exception is if the parameter changes _only_ update the list of notaries. In those circumstances, the node does not need to restart. See [Hotloading]({{< relref "../network/network-parameters.md#hotloading" >}}) for more information.
 
 {{< /note >}}
 Outlined below are some basic suggestions to best deal with flag days. Note that to avoid any issues restarting the Notary nodes, a Notary
-operator should ensure that all nodes have accepted the parameter update. See [Network parameters update process]({{< relref "../network/network-map.md#network-parameters-update-process" >}}) for more information.
+operator should ensure that all nodes have accepted the parameter update. See [Network parameters update process]({{< relref "../network/network-parameters.md#network-parameters-update-process" >}}) for more information.
 
 
 ## Single notary

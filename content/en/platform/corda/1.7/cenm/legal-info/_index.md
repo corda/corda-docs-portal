@@ -17,6 +17,6 @@ title: Third-party software licence information - CENM 1.7
 
 # CENM 1.7 third-party software notices and licence information
 
-The third-party software notices and license information for CENM 1.7 can be found here:
+The third-party software notices and license information for CENM 1.7.x can be found here:
 
 {{< childpages >}}

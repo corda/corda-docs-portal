@@ -125,7 +125,7 @@ export REGISTRATION_CONTEXT='{
 
 ## Update the MGM Allowed Certificate Subject List
 
-To add a member TLS certificate subject to the MGM allowed list, run the following, where `CN=CordaOperator,C=GB,L=London,O=Org` is the subject of the TLS certificate created as part of [member onboarding]({{< relref "../members/key-pairs.md#configure-key-pairs-and-certificates">}})
+To add a member TLS certificate subject to the MGM allowed list, run the following, where `CN=CordaOperator,C=GB,L=London,O=Org` is the subject of the TLS certificate created as part of [member onboarding]({{< relref "../members/key-pairs.md#configure-key-pairs-and-certificates-for-the-member">}})
 
 {{< tabs >}}
 {{% tab name="Bash"%}}

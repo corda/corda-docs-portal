@@ -344,7 +344,7 @@ Allows fine-grained controls of various features only available in the enterpris
     * `reservoirType`: Sets the reservoir type. Valid values are `EDR` (default) and `TIME_WINDOW`. For more information, see the [metrics documentation]({{< relref "../operating/monitoring-and-logging/node-metrics.md" >}}).
     * `timeWindow`: Sets the data gathering duration for `TIME_WINDOW` data reservoirs. If not set, the default is five minutes.
 
-* `tuning`
+# `tuning`
 
     * The Corda node configuration file section that contains performance tuning parameters for Corda Enterprise Nodes.
 
