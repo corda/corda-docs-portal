@@ -3,32 +3,34 @@ date: '2020-05-05T12:00:00Z'
 menu:
   corda-enterprise-4-13:
     identifier: corda-enterprise-4-13-node-maintenance-mode
-    name: "Node Maintenance Mode"
+    name: "Node maintenance mode"
     parent: corda-enterprise-4-13-corda-nodes-operating
     weight: 7
 tags:
 - maintenance
 - mode
-title: Node Maintenance Mode
+title: Node maintenance mode
 ---
 
-# Node Maintenance Mode
+# Node maintenance mode
 
-The Node Maintenance Mode feature enables you to run certain house-keeping events automatically within Corda at specific times of the day or week, using a cron-like scheduling algorithm.
+Node maintenance mode enables you to run certain house-keeping events automatically within Corda at specific times of the day or week, using a cron-like scheduling algorithm.
 
-Node Maintenance Mode is designed in a scalable way - maintenance tasks are discovered by Corda Enterprise through the use of an internal API.
+Node maintenance mode is designed in a scalable way - maintenance tasks are discovered by Corda Enterprise through the use of an internal API.
 
 ## Supported maintenance tasks
 
 The following maintenance tasks are currently supported:
 
-- Perform RPC Audit table clean-up
+- Perform RPC audit table clean-up
 - Run message ID clean-up
-- Ledger Recovery distribution record clean-up
+- Ledger recovery distribution record clean-up
 
-## Configuration of Node Maintenance Mode
+You can also specify a single custom flow to be run as part of maintenance mode; see [Configuring custom maintenance flows]({{< relref "#configuring-custom-maintenance-flows" >}}).
 
-You can configure Node Maintenance Mode in an optional configuration sub-section named `maintenanceMode` within the `enterpriseConfiguration` top-level [configuration section]({{< relref "../setup/corda-configuration-fields.md#enterpriseconfiguration" >}}).
+## Configuring node maintenance mode
+
+You can configure node maintenance mode in an optional configuration sub-section named `maintenanceMode` within the `enterpriseConfiguration` top-level [configuration section]({{< relref "../setup/corda-configuration-fields.md#enterpriseconfiguration" >}}).
 
 By default, no maintenance activities are performed if the `maintenanceMode` section is not provided. Without this section, Corda behaves as if maintenance mode is not available.
 
@@ -46,7 +48,32 @@ enterpriseConfiguration {
 }
 ```
 
-### Configuration parameters
+### Configuring custom maintenance flows
+
+You can configure a single custom flow related to recovery to be run as part of node maintenance mode.  To do this, configure the `maintenanceCustomFlow` parameter, which must contain a single `flowName` parameter. 
+
+Note that you cannot specify any parameters for the custom flow. However, the flow will work if it has a parameter or parameters that each have a default value.
+
+This custom flow could be used to, for example, periodic launch the [Ledger Recovery flow]({{< relref "../ledger-recovery/ledger-recovery-flow.md" >}}) to identify if there is a synchronization or consensus issue.
+
+For example:
+
+```
+enterpriseConfiguration {
+  maintenanceMode {
+    schedule = "00 30 14,15 * * 5"
+    duration = "10m"
+    rpcAuditDataRetentionPeriod = "100d"
+  }
+  maintenanceCustomFlow {
+    flowName = "net.corda.node.maintenance.package.MyFlow"
+  }
+}
+```
+
+Note that `maintenanceMode` must also be configured; if `maintenanceMode` is omitted from the configuration or empty, then the custom flow specified in `maintenanceCustomFlow` will not run. 
+
+### Node maintenance mode configuration parameters
 
 #### `schedule`
 
