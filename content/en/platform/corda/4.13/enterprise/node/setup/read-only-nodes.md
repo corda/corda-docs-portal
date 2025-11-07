@@ -119,7 +119,7 @@ The Corda node will turn on the `readOnly` property of the database connection, 
 
 ### Configure readOnlyMode to true
 
-In the [node configuration]({{< relref "corda-configuration-fields.md" >}}), set the *readOnlyMode* field to true as shown in the following example:
+In the node configuration, set *[readOnlyMode]({{< relref "corda-configuration-fields.md#readonlymode" >}})* to true as shown in the following example:
 
 ```
 enterpriseConfiguration {
