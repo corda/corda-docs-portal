@@ -168,7 +168,7 @@ The node database for a Simple Notary has additional tables:
 
 {{< /table >}}
 
-The structure of the tables of JPA notaries are described at [Configuring a JPA notary backend]({{< relref "../../notary/installing-jpa.md#configuring-jpa-notary-backend" >}}).
+The structure of the tables of JPA notaries are described at [Configuring a JPA notary backend]({{< relref "../../notary/installing-jpa.md#configuring-a-jpa-notary-backend" >}}).
 
 The tables for other experimental notary implementations are not described here.
 

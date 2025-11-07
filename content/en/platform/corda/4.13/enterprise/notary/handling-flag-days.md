@@ -29,7 +29,7 @@ This shutdown occurs because, with one exception, it is not possible to hot swap
 option to refresh the parameters is a node restart. A consequence of this is that there is no way to restart the Notary in a preemptive
 manner prior to the flag day.
 
-The exception is if the parameter changes _only_ update the list of notaries. In those circumstances, the node does not need to restart. See [Hotloading]({{< relref "../network/network-map.md#hotloading" >}}) for more information.
+The exception is if the parameter changes _only_ update the list of notaries. In those circumstances, the node does not need to restart. See [Hotloading]({{< relref "../network/network-parameters.md#hotloading" >}}) for more information.
 
 {{< /note >}}
 Outlined below are some basic suggestions to best deal with flag days. Note that to avoid any issues restarting the Notary nodes, a Notary

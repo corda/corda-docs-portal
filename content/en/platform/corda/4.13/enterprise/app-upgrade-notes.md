@@ -30,6 +30,7 @@ If you do use them, re-namespace them to a package namespace you control and sig
 {{< table >}}
 | Corda release  | Platform version |
 | :------------- | :------------- |
+| 4.13|     |
 | 4.12| 140 |
 | 4.11| 13 |
 | 4.10| 12 |
@@ -46,6 +47,8 @@ If you do use them, re-namespace them to a package namespace you control and sig
 | 3.3 | 3 |
 {{< /table >}}
 
+## Upgrading CorDapps to platform version xxx
+
 ## Upgrading CorDapps to platform version 140
 
 Platform version 140 which represents Corda 4.12 is a major platform upgrade. In this version, Corda has been upgraded to run on Java 17 and to use Kotlin 1.9.20. This also means that you must recompile Corda 4.12 CorDapps with Java 17 and Kotlin 1.9.20. Once recompiled and fully tested, you must sign CorDapps with the same key used to sign the 4.11 CorDapps.
@@ -60,7 +63,7 @@ No manual upgrade steps are required.
 
 To upgrade your CorDapps to platform version 8, you need to:
 1. [Upgrade existing nodes to version 4.6]({{< relref "#upgrade-existing-nodes-to-version-46" >}}).
-2. [Check that you are using Corda Gradle plugins version 5.1.1]({{< relref "#check-that-you-are-using-corda-gradle-plugins-version-511" >}}).
+2. [Check that you are using Corda Gradle plugins version 5.0.12]({{< relref "#check-that-you-are-using-corda-gradle-plugins-version-5012" >}}).
 
 ### Upgrade existing nodes to version 4.6
 

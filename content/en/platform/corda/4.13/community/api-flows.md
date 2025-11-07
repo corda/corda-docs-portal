@@ -1208,7 +1208,7 @@ You could use this functionality to:
   thread pool.
 
 {{< note >}}
-The size of the external operation thread pool can be configured. See [the node configuration documentation]({{< relref "corda-configuration-file.md#corda-configuration-flow-external-operation-thread-pool-size" >}}).
+The size of the external operation thread pool can be configured. See [the node configuration documentation]({{< relref "corda-configuration-fields.md#flowexternaloperationthreadpoolsize" >}}).
 
 {{< /note >}}
 You can call `FlowExternalOperation` from a flow to run an operation on a new thread, allowing the flow to suspend:
