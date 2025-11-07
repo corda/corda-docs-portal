@@ -28,26 +28,28 @@ If you do use them, re-namespace them to a package namespace you control and sig
 ## Platform version matrix
 
 {{< table >}}
-| Corda release  | Platform version |
-| :------------- | :------------- |
-| 4.13|     |
-| 4.12| 140 |
-| 4.11| 13 |
-| 4.10| 12 |
-| 4.9 | 11 |
-| 4.8 | 10 |
-| 4.7 | 9 |
-| 4.6 | 8 |
-| 4.5 | 7 |
-| 4.4 | 6 |
-| 4.3 | 5 |
-| 4.2 | 4 |
-| 4.1 | 4 |
-| 4.0 | 4 |
-| 3.3 | 3 |
+| Corda release | Platform version |
+|:--------------|:----------------|
+| 4.13          | 150             |
+| 4.12          | 140             |
+| 4.11          | 13              |
+| 4.10          | 12              |
+| 4.9           | 11              |
+| 4.8           | 10              |
+| 4.7           | 9               |
+| 4.6           | 8               |
+| 4.5           | 7               |
+| 4.4           | 6               |
+| 4.3           | 5               |
+| 4.2           | 4               |
+| 4.1           | 4               |
+| 4.0           | 4               |
+| 3.3           | 3               |
 {{< /table >}}
 
-## Upgrading CorDapps to platform version xxx
+## Upgrading CorDapps to platform version 150
+
+*X*X*
 
 ## Upgrading CorDapps to platform version 140
 

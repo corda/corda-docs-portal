@@ -54,25 +54,25 @@ When a release includes features from either of the last two categories, the [Co
 The table below highlights key features and the corresponding version numbers.
 
 {{< table >}}
-|Feature|Corda platform version |Minimum network platform version |Introduced in OS version|Introduced in Enterprise version|
-|--------------------|--------------------|--------------------|--------------------|--------------------|
-|API update|140|4|4.12|4.12|
-|API update|13|4|4.11|4.11|
-|API update|12|4|4.10|4.10|
-|API update|11|4|4.9|4.9|
-|API update|10|4|4.8|4.8|
-|API update|9|4|4.7|4.7|
-|API update|8|4|4.6|4.6|
-|New flow framework APIs|7|4|4.5|4.5|
-|Prevent CorDapp hosting issue|6|4|4.4|4.4|
-|Underlying support for accounts|5|4|4.3|4.3|
-|Signature constraints|4|4|4.0|4.0|
-|Reference states|4|4|4.0|4.0|
-|Inline finality flow|4|3|4.0|4.0|
-|Whitelist constraints|3|3|3.0|3.0|
-|Corda serialization framework|3|3|3.0|3.0|
-|Observer nodes|2|2|2.0|n/a|
-
+| Feature                         | Corda platform version | Minimum network platform version | Introduced in OS version  | Introduced in Enterprise version |
+|---------------------------------|------------------------|----------------------------------|---------------------------|----------------------------------|
+| API update                      | 150                    | 4                                | 4.13                      | 4.13                             |
+| API update                      | 140                    | 4                                | 4.12                      | 4.12                             |
+| API update                      | 13                     | 4                                | 4.11                      | 4.11                             |
+| API update                      | 12                     | 4                                | 4.10                      | 4.10                             |
+| API update                      | 11                     | 4                                | 4.9                       | 4.9                              |
+| API update                      | 10                     | 4                                | 4.8                       | 4.8                              |
+| API update                      | 9                      | 4                                | 4.7                       | 4.7                              |
+| API update                      | 8                      | 4                                | 4.6                       | 4.6                              |
+| New flow framework APIs         | 7                      | 4                                | 4.5                       | 4.5                              |
+| Prevent CorDapp hosting issue   | 6                      | 4                                | 4.4                       | 4.4                              |
+| Underlying support for accounts | 5                      | 4                                | 4.3                       | 4.3                              |
+| Signature constraints           | 4                      | 4                                | 4.0                       | 4.0                              |
+| Reference states                | 4                      | 4                                | 4.0                       | 4.0                              |
+| Inline finality flow            | 4                      | 3                                | 4.0                       | 4.0                              |
+| Whitelist constraints           | 3                      | 3                                | 3.0                       | 3.0                              |
+| Corda serialization framework   | 3                      | 3                                | 3.0                       | 3.0                              |
+| Observer nodes                  | 2                      | 2                                | 2.0                       | n/a                              |
 {{< /table >}}
 
 {{< note >}}
