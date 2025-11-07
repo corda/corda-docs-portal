@@ -46,7 +46,7 @@ Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f
 {{% /tab %}}
 {{< /tabs >}}
 
-The GET method of the `/api/v5_1/members/{holdingidentityshorthash}` endpoint returns a list of members, specifying the `memberContext` and `mgmContext` of each. You can extract the serial number of a member from the `corda.serial` field inside the `mgmContext`. This serial number should be used when [suspending]({{< relref "#suspending-a-member">}}) or [activating]({{< relref "#activating-a-member">}}) a member.
+The GET method of the `/api/v5_1/members/{holdingidentityshorthash}` endpoint returns a list of members, specifying the `memberContext` and `mgmContext` of each. You can extract the serial number of a member from the `corda.serial` field inside the `mgmContext`. This serial number should be used when [suspending]({{< relref "#suspend-a-member">}}) or [activating]({{< relref "#activate-a-member">}}) a member.
 
 ## Suspend a Member
 

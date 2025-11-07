@@ -12,7 +12,7 @@ menu:
 # Introducing the Corda APIs
 
 There are two types of Corda {{< tooltip >}}APIs{{< /tooltip >}} that are relevant to a {{< tooltip >}}CorDapp{{< /tooltip >}} Developer:
-* [CorDapp API]({{< relref "#corda-api" >}})
+* [CorDapp API]({{< relref "#cordapp-api" >}})
 * [Corda REST API]({{< relref "#corda-rest-api" >}})
 
 ## CorDapp API

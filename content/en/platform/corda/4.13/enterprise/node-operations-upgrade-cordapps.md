@@ -28,7 +28,7 @@ To be compatible with Corda Enterprise, CorDapps need to bundle database migrati
 Before you upgrade a CorDapp on a node, you need to determine if any backwards-compatible
 changes have been made, such as  database changes or changes in the protocol.
 
-If any backwards-incompatible changes have been made (see [what constitutes a non-backwards compatible flow change?]({{< relref "cordapps/upgrading-cordapps.md#what-constitutes-a-non-backwards-compatible-flow-change" >}})
+If any backwards-incompatible changes have been made (see [what constitutes a non-backwards compatible flow change?]({{< relref "cordapps/upgrading-cordapps.md#non-backwards-compatible-flow-changes" >}})
 for more information), you need to follow the upgrade method detailed below. Otherwise, the CorDapp JAR can just
 be replaced with the new version.
 

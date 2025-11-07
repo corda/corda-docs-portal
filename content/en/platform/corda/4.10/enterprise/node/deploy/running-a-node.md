@@ -240,7 +240,7 @@ fail to start.
 
 If you receive an `OutOfMemoryError` exception when interacting with the nodes, you need to increase the amount of
 Java heap memory available to them, which you can do when running them individually. See
-[Starting a Corda node from the command line](#starting-an-individual-corda-node).
+[Starting a Corda node from the command line](#starting a-corda-node-from-the-command-prompt).
 
 
 ### docker-compose

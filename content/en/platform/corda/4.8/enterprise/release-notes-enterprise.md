@@ -294,7 +294,7 @@ In this patch release:
 * Performance verification of the HA Notary with CockroachDB 20.2.8 has been carried out - performance is not worse in comparison to the HA Notary configured on CockroachDB 20.1.6.
 * Support for PostgreSQL 13.8 for node databases has been added.
 * Hibernate ORM has been updated to version to 5.4.32 to remove a security concern.
-* The [Node management console]({{< relref "node/management-console.md#node-management-console" >}}) configuration has been updated. Configuration is now set in `node.management.plugin.middleware`, no longer `node.admin.middleware`.
+* The [Node management console]({{< relref "node/management-console.md" >}}) configuration has been updated. Configuration is now set in `node.management.plugin.middleware`, no longer `node.admin.middleware`.
 * The [Flow management console]({{< relref "node/node-flow-management-console.md#flow-management-console" >}}) configuration has been updated. Configuration is now set in `flow.management.plugin.middleware`, no longer `flow.admin.middleware`.
 * LedgerGraph has been updated to version 1.2.2. This upgrade minimizes memory footprint, and is not a functional change.
 
@@ -343,7 +343,7 @@ The [JPA notary]({{< relref "notary/installing-jpa.md" >}}) now supports [Oracle
 
 If you use an Azure Key Vault HSM with Corda Enterprise, you can now use an existing Azure Managed Identities service as authentication.
 
-See [Using an HSM with Corda Enterprise]({{< relref "node/operating/cryptoservice-configuration.md#azure-keyvault" >}}) for more information.
+See [Using an HSM with Corda Enterprise]({{< relref "node/operating/cryptoservice-configuration.md#azure-key-vault" >}}) for more information.
 
 ### Time-window metrics gathering
 
