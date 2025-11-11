@@ -20,10 +20,10 @@ If a transaction contains information the Party is allowed to see, you mark the 
 
 In this diagram, these visibility permissions are illustrated by AgreeCorp who, per the requirements, is not allowed to see any Agreements on its network:
 
-{{< figure zoom="../resources/cdl-agreement-naive-billing-ledger-evolution-agreecorp.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-naive-billing-ledger-evolution-agreecorp.png" width="1000" title="Click to zoom image in new tab/window" >}}
 
 This is extended to Charlie, who is permitted to see his own Agreement, but not prior Agreements in the backchain:
 
-{{< figure zoom="../resources/cdl-agreement-naive-billing-ledger-evolution-charlie.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-naive-billing-ledger-evolution-charlie.png" width="1000" title="Click to zoom image in new tab/window" >}}
 
 You can see from this view that the initial mechanism for implementing Billing creates privacy leaks in transaction tx 4b and in the backchain. It is clear that this design requires a better mechanism.

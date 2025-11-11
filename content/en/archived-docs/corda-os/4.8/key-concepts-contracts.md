@@ -55,7 +55,7 @@ transaction gathers all the required signatures, it can't be executed unless it 
 Each transaction [state](key-concepts-states.md) specifies a *contract type*. The contract specified takes the transaction as input, and determines if the transaction is valid based on the
 contract's internal rules. The contract must evaluate every input state and every output state.
 
-{{< figure alt="tx validation" width=80% zoom="/en/images/tx-validation.png" >}}
+{{< figure alt="tx validation" width=80% src="/en/images/tx-validation.png" >}}
 The contract code can:
 
 * Check the number of inputs, outputs, commands, or attachments.

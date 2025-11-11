@@ -17,7 +17,7 @@ Status constraints are constraints over the Primary state when it is a particula
 
 They are shown as a rounded box under the status state box to which the constraints apply:
 
-{{< figure zoom="../resources/cdl-agreement-smart-contract-status-constraints.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-smart-contract-status-constraints.png" width="1000" title="Click to zoom image in new tab/window" >}}
 
 
 In the Agreement example use case, status constraints are used to show which state properties must be populated for a particular status. In particular, the aim is to:

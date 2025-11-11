@@ -53,7 +53,7 @@ For this reason, times in transactions are specified as time *windows*, not abso
 there can never be “true time”, only an approximation of it. Time windows can be open-ended (i.e. specify only one of
 “before” and “after”) or they can be fully bounded.
 
-{{< figure alt="time window" width=80% zoom="/en/images/time-window.gif" >}}
+{{< figure alt="time window" width=80% src="/en/images/time-window.gif" >}}
 
 In this way, we express the idea that the *true value* of the fact “the current time” is actually unknowable. Even when
 both a before and an after time are included, the transaction could have occurred at any point within that time-window.

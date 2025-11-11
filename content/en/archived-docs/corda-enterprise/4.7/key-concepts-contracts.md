@@ -47,7 +47,7 @@ valid
 
 We can picture this situation as follows:
 
-{{< figure alt="tx validation" width=80% zoom="/en/images/tx-validation.png" >}}
+{{< figure alt="tx validation" width=80% src="/en/images/tx-validation.png" >}}
 The contract code has access to the full capabilities of the language,
 including:
 

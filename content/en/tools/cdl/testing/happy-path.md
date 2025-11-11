@@ -14,7 +14,7 @@ title: Happy path
 
 To test the happy path we are going to use the same sequence of transactions as shown in the Ledger Evolution diagram we saw earlier:
 
-{{< figure zoom="../resources/cdl-agreement-ledger-evolution-tx5.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-ledger-evolution-tx5.png" width="1000" title="Click to zoom image in new tab/window" >}}
 
 We will use the Corda MockNetwork DSL to generate a sequence of transactions representing the transactions in the diagram:
 

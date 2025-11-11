@@ -37,7 +37,7 @@ The facts that a node knows about are those that it is involved with. For exampl
 
 Example: A network with five nodes, where each numbered circle on an intersection represents a fact shared between two or more nodes.
 
-{{< figure alt="ledger venn" width=80% zoom="/en/images/ledger-venn.png" >}}
+{{< figure alt="ledger venn" width=80% src="/en/images/ledger-venn.png" >}}
 The preceding Venn diagram represents 5 nodes (Alice, Bob, Carl, Demi and Ed) as sets. Where the sets overlap are shared facts, such as those known by both Alice and Bob (1 and 7).
 
 Notably, in this Venn diagram, Alice only shares facts with Bob. Alice does not share facts with any of Carl, Demi or Ed.
@@ -61,7 +61,7 @@ In the previous diagram, we could see that although Carl, Demi and Ed are aware 
 
 You can think of this vault as being a database or simple table.
 
-{{< figure alt="ledger table" width=80% zoom="/en/images/ledger-table.png" >}}
+{{< figure alt="ledger table" width=80% src="/en/images/ledger-table.png" >}}
 Where the rows are shared between nodes (facts 1 and 7 in this example), these are shared facts.
 
 Corda guarantees that whenever one of these facts is shared by multiple nodes on the network, it evolves in lockstep in the database of every node that is aware of it. This means that Alice and Bob will both see an **exactly identical version** of shared facts 1 and 7.

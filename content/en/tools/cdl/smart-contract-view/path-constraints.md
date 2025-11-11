@@ -36,7 +36,7 @@ Path constraints are shown on the diagram as arrows between state statuses, the 
 * Path 1: 'PROPOSED -- Agree --> AGREED'
 * Path 2: 'PROPOSED -- Reject --> REJECTED'
 
-{{< figure zoom="../resources/cdl-agreement-smart-contract-paths.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-smart-contract-paths.png" width="1000" title="Click to zoom image in new tab/window" >}}
 
 A black circle indicates no state, hence an arrow coming out of a black circle means there can be no inputs of the primary state type in the transaction. An arrow going into a black circle means there are no outputs of the primary state type in the transaction.
 

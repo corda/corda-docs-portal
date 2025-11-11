@@ -22,22 +22,22 @@ In the private Billing mechanism in the Agreement example, the dependent state i
 
 The Billing Smart Contract now looks like this diagram. You can see that there is the additional BillingChip state as well as the Primary BillingState:
 
-{{< figure zoom="../resources/cdl-private-billing-smart-contract.png" width="700" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-private-billing-smart-contract.png" width="700" title="Click to zoom image in new tab/window" >}}
 
 In the Ledger Evolution view, the generation of the BillingChip is shown as follows:
 
-{{< figure zoom="../resources/cdl-agreement-private-billing-ledger-evolution-chip1.png" width="700" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-private-billing-ledger-evolution-chip1.png" width="700" title="Click to zoom image in new tab/window" >}}
 
 The BillingChip can then go on to be used as the enabler for the dependent Agree transaction:
 
-{{< figure zoom="../resources/cdl-agreement-private-billing-ledger-evolution-tx4-a.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-private-billing-ledger-evolution-tx4-a.png" width="1000" title="Click to zoom image in new tab/window" >}}
 
 Then the same steps are repeated for Charlie's sausage transaction (Tx 4b):
 
-{{< figure zoom="../resources/cdl-agreement-private-billing-ledger-evolution-tx4-b.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-private-billing-ledger-evolution-tx4-b.png" width="1000" title="Click to zoom image in new tab/window" >}}
 
 Now you can add the Privacy Overlays for AgreeCorp and Charlie we see that privacy has been preserved:
 
-{{< figure zoom="../resources/cdl-agreement-private-billing-ledger-evolution-privacy-overlays.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-private-billing-ledger-evolution-privacy-overlays.png" width="1000" title="Click to zoom image in new tab/window" >}}
 
 Explicitly, AgreeCorp's node doesn't resolve either Tx 4a or Tx 4b and Charlies node doesn't resolve the previous agreement between Alice and Bob.

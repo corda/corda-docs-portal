@@ -90,7 +90,7 @@ The space complexities are outlined below:
 
 You can see a suggested high-level, disaster recovery setup in the diagram below.
 
-{{< figure alt="Suggested Disaster Recovery Setup" width=80% zoom="../../../resources/collaborative-recovery/dr-setup.png" >}}
+{{< figure alt="Suggested Disaster Recovery Setup" width=80% src="../../../resources/collaborative-recovery/dr-setup.png" >}}
 
 The exact setup you choose is likely to be influenced by your organisation and business requirements, but the key points are:
 

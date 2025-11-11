@@ -54,7 +54,7 @@ as they root to the same certificate.
 
 Other than that, Corda nodes stay agnostic to the certificate hierarchy (in particular the depth of the certificate hierarchy tree).
 
-{{< figure alt="hierarchy agnostic" width=80% zoom="../resources/hierarchy-agnostic.png" >}}
+{{< figure alt="hierarchy agnostic" width=80% src="../resources/hierarchy-agnostic.png" >}}
 At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found [here]({{< relref "../../../../../../en/platform/corda/4.7/enterprise/network/permissioning.md" >}}).
 
 
@@ -69,7 +69,7 @@ The network operator is responsible for certificate issuance and maintenance for
 at the Identity Manager and Network Map certificates. The rest of the certificate chain (i.e. every certificate below the Identity Manager certificate) falls into
 node operator responsibility.
 
-{{< figure alt="tls hierarchy" width=80% zoom="../resources/tls-hierarchy.png" >}}
+{{< figure alt="tls hierarchy" width=80% src="../resources/tls-hierarchy.png" >}}
 The certificate revocation list verification applies to the entire chain. This means that every certificate in the chain
 is going to be validated against the corresponding certificate revocation list during the SSL handshake.
 Consequently, this means that a node operator is expected to provide and maintain the certificate revocation list for the Node CA.
@@ -87,7 +87,7 @@ During the certificate revocation list validation process the trust store is con
 
 As an example, let us consider the following certificate hierarchy:
 
-{{< figure alt="example hierarchy" width=80% zoom="../resources/example-hierarchy.png" >}}
+{{< figure alt="example hierarchy" width=80% src="../resources/example-hierarchy.png" >}}
 The certificate hierarchy presented above is currently (as of the time of writing this document) used in the Corda Network.
 It follows practices applicable for certificate authorities providing a balance between security and simplicity of usage.
 In this scenario, a network operator wants to create a CA hierarchy where the self-signed Root CA issues a certificate for the Subordinate CA which in turn issues

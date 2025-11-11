@@ -45,7 +45,7 @@ The vault supports the management of data in both authoritative **on-ledger** fo
 
 This diagram illustrates the breakdown of the vault into sub-system components:
 
-{{< figure alt="vault" width=80% zoom="/en/images/vault.png" >}}
+{{< figure alt="vault" width=80% src="/en/images/vault.png" >}}
 
 You can see:
 

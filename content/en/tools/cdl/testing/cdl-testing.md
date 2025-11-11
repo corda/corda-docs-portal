@@ -14,7 +14,7 @@ title: Testing CDL code
 
 To test CDL Code we want to maintain and extend the structure we used to map the CDL considerations to the implemented code. We can show this diagrammatically:
 
-{{< figure zoom="../resources/cdl-to-code-testing.png" width="800" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-to-code-testing.png" width="800" title="Click to zoom image in new tab/window" >}}
 
 The ContractUtils has its own extensive testing, which can be seen in the [cdl-example](https://github.com/corda/cdl-example) `ContractUtilsTests.kt`
 

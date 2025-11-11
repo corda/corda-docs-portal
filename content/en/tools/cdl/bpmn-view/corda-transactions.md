@@ -19,7 +19,7 @@ The actions are joined with a two way dashed line. In BPMN dashed lines denote m
 The party that initiated the transaction is marked, and the message line is annotated on the Initiator end with a blue box giving more details about how the transaction was formed. This is typically what Flow is invoked and what the Command in the transaction should be.
 
 
-{{< figure zoom="../resources/cdl-bpmn-agreement-process-corda-transactions.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-bpmn-agreement-process-corda-transactions.png" width="1000" title="Click to zoom image in new tab/window" >}}
 
 
 In this example you can see that the Buyer will initiate the ProposeFlow to create a Propose transaction.

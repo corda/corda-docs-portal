@@ -14,7 +14,7 @@ title: Output states
 
 Transaction output states take a similar form to the Smart Contract view and are shown at the end of an arrow coming out of the transaction:
 
-{{< figure zoom="../resources/cdl-agreement-ledger-evolution-tx1.png" width="500" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-ledger-evolution-tx1.png" width="500" title="Click to zoom image in new tab/window" >}}
 
 You can see that whereas in the Smart Contract view the state boxes show the property types, in the Ledger Evolution view the state boxes show actual values for the properties.
 

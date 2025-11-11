@@ -75,7 +75,7 @@ severity `ERROR` will prevent execution.
 The sandbox has a configuration that applies to the execution of a specific runnable. This configuration, on a higher
 level, contains a set of rules, definition providers and emitters.
 
-{{< figure alt="djvm overview" width=80% zoom="../resources/djvm-overview.png" >}}
+{{< figure alt="djvm overview" width=80% src="../resources/djvm-overview.png" >}}
 The set of rules is what defines the constraints posed on the runtime environment. A rule can act on three different
 levels, namely on a type-, member- or instruction-level. The set of rules get processed and validated by the
 `RuleValidator` prior to execution.

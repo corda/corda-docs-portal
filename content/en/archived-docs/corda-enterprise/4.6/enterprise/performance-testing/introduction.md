@@ -109,7 +109,7 @@ The driving app sits outside the network and connects to the JMeter servers thro
 measuring the throughput of a node, the test definition instructs all JMeter servers to open RPC connections to one node,
 thus saturating the RPC handler and driving the node as hard as possible. The test might invoke a flow that can be completed locally (for example, cash issuance) or it might require exchanging P2P messages with other nodes (for example, cash payment).
 
-{{< figure alt="jmeter network overview" width=80% zoom="../resources/jmeter-network-overview.png" >}}
+{{< figure alt="jmeter network overview" width=80% src="../resources/jmeter-network-overview.png" >}}
 
 ## Performance Tests
 

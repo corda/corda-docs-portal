@@ -37,7 +37,7 @@ Every [state]({{< relref "key-concepts-states.md" >}}) is *immutable*—it can't
 
 Here is an example of a transaction with two inputs and two outputs:
 
-{{< figure alt="basic tx" width=80% zoom="/en/images/basic-tx.png" >}}
+{{< figure alt="basic tx" width=80% src="/en/images/basic-tx.png" >}}
 A transaction can contain any number of inputs, outputs and references of any type. Transactions can:
 
 * Include different types of states representing multiple financial instruments, such as cash or bonds.
@@ -65,21 +65,21 @@ Input state references consist of:
 
 You can see how this works in this example transaction:
 
-{{< figure alt="tx chain" width=80% zoom="/en/images/tx-chain.png" >}}
+{{< figure alt="tx chain" width=80% src="/en/images/tx-chain.png" >}}
 
 
 ## Committing transactions to the ledger
 
 Initially, a transaction is only a proposal to update the ledger. It represents the future state of the ledger desired by the transaction builders.
 
-{{< figure alt="uncommitted tx" width=80% zoom="/en/images/uncommitted_tx.png" >}}
+{{< figure alt="uncommitted tx" width=80% src="/en/images/uncommitted_tx.png" >}}
 To be committed to the ledger, the transaction must receive signatures from all the *required signers*. Each
 required signer appends their signature to the transaction to approve the proposal.
 
-{{< figure alt="tx with sigs" width=80% zoom="/en/images/tx_with_sigs.png" >}}
+{{< figure alt="tx with sigs" width=80% src="/en/images/tx_with_sigs.png" >}}
 If the transaction gathers the required signatures, it is committed:
 
-{{< figure alt="committed tx" width=80% zoom="/en/images/committed_tx.png" >}}
+{{< figure alt="committed tx" width=80% src="/en/images/committed_tx.png" >}}
 This means that:
 
 * The transaction’s inputs are marked as historic, and cannot be used in any future transactions.
@@ -121,7 +121,7 @@ For example, suppose Alice uses $5 cash to pay off $5 of an IOU with Bob.
 This transaction contains a *settlement command* which reduces the amount outstanding on the IOU, and a *payment command* which changes the ownership of $5 from Alice to Bob. It also has two supporting attachments, and is notarized by `NotaryClusterA` if the notary pool
 receives it within the specified time window:
 
-{{< figure alt="full tx" width=80% zoom="/en/images/full-tx.png" >}}
+{{< figure alt="full tx" width=80% src="/en/images/full-tx.png" >}}
 
 ### Commands
 
@@ -145,7 +145,7 @@ listed in the commands, you get the list of the transaction’s required signers
 
 This situation would look like this:
 
-{{< figure alt="commands" width=80% zoom="/en/images/commands.png" >}}
+{{< figure alt="commands" width=80% src="/en/images/commands.png" >}}
 
 ### Attachments
 

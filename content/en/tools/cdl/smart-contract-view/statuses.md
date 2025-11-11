@@ -15,7 +15,7 @@ title: Statuses
 
 Once you have defined the state, you need to show the different statuses that the state can be in. You do this by having a copy of the State for each status.
 
-{{< figure zoom="../resources/cdl-agreement-smart-contract-statuses.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-smart-contract-statuses.png" width="1000" title="Click to zoom image in new tab/window" >}}
 
 The properties shown in each status box may differ. This allows you to highlight the properties which are salient for that status even though they are actually a view of the same underlying class which must implement the union of all properties on the diagram.
 

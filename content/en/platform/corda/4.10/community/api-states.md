@@ -68,7 +68,7 @@ common sub-interfaces are `LinearState` and `OwnableState`.
 
 You can visualize the hierarchy like this:
 
-{{< figure alt="state hierarchy" width=80% zoom="/en/images/state-hierarchy.png" >}}
+{{< figure alt="state hierarchy" width=80% src="/en/images/state-hierarchy.png" >}}
 
 ### LinearState
 

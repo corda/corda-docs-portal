@@ -41,10 +41,9 @@ element. However, there are a few rules:
 * The value can only increase from one element to the next.
 * Once a position has been created, it cannot be changed.
 
-{{<
-  figure
+{{< figure
       src="1.png"
-      zoom="1.png"
+      
     width=80%
       figcaption="Transactional elements with positions"
       alt="Transactional elements with positions"
@@ -57,10 +56,9 @@ An HTTP-RPC client can make durable query polling requests to retrieve a sub-set
 * Position where it left off or `-1` if this is the first polling request for a set of parameters.
 * Maximum number of elements it is prepared to consume in the server response. `3` has been used in this example.
 
-{{<
-  figure
+{{< figure
       src="2.png"
-      zoom="2.png"
+      
     width=80%
       figcaption="First durable query polling request"
       alt="First durable query polling request"
@@ -74,10 +72,9 @@ and processing server side responses at varying speeds.
 A second client could make a separate polling request to the server using different parameters, resulting in a
 different set of transactional elements:
 
-{{<
-  figure
+{{< figure
       src="3.png"
-      zoom="3.png"
+      
     width=80%
       figcaption="Second client durable query polling request"
       alt="Second client durable query polling request"
@@ -90,10 +87,9 @@ server. Clients progress through the elements of the stream at their own pace.
 
 Once the first client has processed the server's reply, it can make a second polling request:
 
-{{<
-  figure
+{{< figure
       src="4.png"
-      zoom="4.png"
+      
     width=80%
       figcaption="First client, second poll"
       alt="First client, second poll"

@@ -26,20 +26,20 @@ The requirements for the Billing mechanism are:
 
 The intuitive approach to meeting these requirements is to create a BillingState which that must be included in each Agree transaction, with a cumulativeUse tracker that increments by a per transaction rate each time it is used. The Smart Contract for this BillingState might look like this:
 
-{{< figure zoom="../resources/cdl-naive-billing-smart-contract.png" width="700" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-naive-billing-smart-contract.png" width="700" title="Click to zoom image in new tab/window" >}}
 
 With a corresponding RateCard smart contract:
 
-{{< figure zoom="../resources/cdl-ratecard-smart-contract.png" width="700" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-ratecard-smart-contract.png" width="700" title="Click to zoom image in new tab/window" >}}
 
 You can show the Billing and RateCard Smart Contracts interacting with the Agreement Smart Contract using the Ledger Evolution view:
 
-{{< figure zoom="../resources/cdl-agreement-naive-billing-ledger-evolution-tx4-a.png" width="700" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-naive-billing-ledger-evolution-tx4-a.png" width="700" title="Click to zoom image in new tab/window" >}}
 
 You can see that the cumulativeUse property has increased between the input.BillingState and output.BillingState by the amount indicated in the RateCardState.
 
 You can then show what happens when the same billing token is used in another Agree transaction, this time with Charlie to buy 'One kg of sausages' for £20:
 
-{{< figure zoom="../resources/cdl-agreement-naive-billing-ledger-evolution-tx4-b.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-naive-billing-ledger-evolution-tx4-b.png" width="1000" title="Click to zoom image in new tab/window" >}}
 
 The next step is to add the privacy overlay.

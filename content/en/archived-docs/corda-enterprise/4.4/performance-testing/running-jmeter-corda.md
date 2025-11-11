@@ -55,7 +55,7 @@ interactively either locally or remotely, and view results. The UI has a set of 
 quickly create or load a testplan, control local or remote test runs, and clear any test results collected so far.
 The latter is particularly important when looking at averages, as old data might skew the results being looked at.
 
-{{< figure alt="jmeter buttons" width=80% zoom="../resources/jmeter-buttons.png" >}}
+{{< figure alt="jmeter buttons" width=80% src="../resources/jmeter-buttons.png" >}}
 The *clear current view* button only clears the data in the currently viewed output collector - if a test plan has several
 output listeners defined (as in the example above, we have *Aggregate Graph*, *Graph Results* and *View Results in Table*),
 any collector not currently selected is not affected. *Clear all data* will clear the results from all collectors.

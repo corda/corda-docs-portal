@@ -58,7 +58,7 @@ reveal the content of low-entropy hashed values (i.e., a single-word text attach
 After computing the leaves, each Merkle tree is built in the normal way by hashing the concatenation of nodes’ hashes
 below the current one together. It’s visible on the example image below, where `H` denotes sha256 function, “+” - concatenation.
 
-{{< figure alt="merkleTreeFull" width=80% zoom="/en/images/merkleTreeFull.png" >}}
+{{< figure alt="merkleTreeFull" width=80% src="/en/images/merkleTreeFull.png" >}}
 The transaction has three input states, two output states, two commands, one attachment, a notary and a time-window.
 Notice that if a tree is not a full binary tree, leaves are padded to the nearest
 power of 2 with zero hash (since finding a pre-image of sha256(x) == 0 is hard computational task) - marked light
@@ -77,7 +77,7 @@ Let’s assume that only the first command should be visible to an Oracle. We sh
 the commands requiring a signature from this oracle should be visible to the oracle entity, but not the rest. Here is how
 this filtered transaction will be represented in the Merkle tree structure.
 
-{{< figure alt="SubMerkleTree Oracle" width=80% zoom="/en/images/SubMerkleTree_Oracle.png" >}}
+{{< figure alt="SubMerkleTree Oracle" width=80% src="/en/images/SubMerkleTree_Oracle.png" >}}
 Blue nodes and `H(c2)` are provided to the Oracle service, while the black ones are omitted. `H(c2)` is required, so
 that the Oracle can compute `H(commandData)` without being to able to see the second command, but at the same time
 ensuring `CommandData1` is part of the transaction. It is highlighted that all signers are visible, so as to have a
@@ -93,4 +93,4 @@ apart from input states, time-window and the notary information. This data is en
 input states should be checked for double-spending, if the time-window is valid and if this transaction should be
 notarised by this notary.
 
-{{< figure alt="SubMerkleTree Notary" width=80% zoom="/en/images/SubMerkleTree_Notary.png" >}}
+{{< figure alt="SubMerkleTree Notary" width=80% src="/en/images/SubMerkleTree_Notary.png" >}}

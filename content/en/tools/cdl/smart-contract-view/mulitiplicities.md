@@ -36,10 +36,10 @@ For example, in the diagram below,  Path 1 'PROPOSED -- Agree --> AGREED':
 * The input multiplicity is 1, indicating there must be one and only one input state of type AgreementState in status 'PROPOSED'
 * The output multiplicity is 1: Matched, indicating there must be one and only one output state of type AgreementState and that the LinearID must match that of the input state.
 
-{{< figure zoom="../resources/cdl-agreement-smart-contract-paths.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-smart-contract-paths.png" width="1000" title="Click to zoom image in new tab/window" >}}
 
 Where the Path starts or ends at a black circle, the implied Multiplicity = 0..0
 
 The following example of a CashState shows how multiplicities can be expressed as ranges:
 
-{{< figure zoom="../resources/cdl-overview-cashstate.png" width="700" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-overview-cashstate.png" width="700" title="Click to zoom image in new tab/window" >}}

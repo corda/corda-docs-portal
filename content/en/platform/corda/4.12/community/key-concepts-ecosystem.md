@@ -32,7 +32,7 @@ title: Networks, identity, and discovery
 ## What is a network?
 On Corda, people and business interact by communicating over a peer-to-peer network of [Corda nodes]({{< relref "key-concepts-node.md" >}}). Each node represents a legal entity running Corda and one or more Corda distributed applications, known as [CorDapps]({{< relref "cordapp-overview.md" >}}).
 
-{{< figure alt="network" width=80% zoom="/en/images/network.png" >}}
+{{< figure alt="network" width=80% src="/en/images/network.png" >}}
 Corda is different from other distributed ledgers because all communication between nodes is point-to-point, and only shared on a need-to-know basis. It is also encrypted using transport-layer security. There are *no global broadcasts* to all parties on a network, but all of the nodes in a network can send messages directly to other nodes. If the recipient is offline, the message waits in an outbound queue until they are online again—just like an email.
 
 ## Join a network

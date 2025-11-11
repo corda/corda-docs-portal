@@ -27,7 +27,7 @@ One or more **receivers** use the built-in flow `ReceiveFinalityFlow` to receive
 
 Up until Corda 4.10, the finality flow protocol was implemented using a single pass transaction sharing mechanism as depicted below:
 
-{{< figure alt="Conventional Single Phase Finality Protocol" width=100% zoom="./resources/C4-finality-conventional.png" >}}
+{{< figure alt="Conventional Single Phase Finality Protocol" width=100% src="./resources/C4-finality-conventional.png" >}}
 
 {{< note >}}
 * Peers only received the finalized transaction after successful notarization.
@@ -48,7 +48,7 @@ To address the shortcomings of the conventional protocol, Two Phase Finality int
 
 The following diagram illustrates the Two Phase Finality protocol:
 
-{{< figure alt="Two Phase Finality Protocol" width=100% zoom="./resources/C4-finality-optimized-two-phase-finality.png" >}}
+{{< figure alt="Two Phase Finality Protocol" width=100% src="./resources/C4-finality-optimized-two-phase-finality.png" >}}
 
 The two primary optimizations used within the protocol are:
 

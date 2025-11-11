@@ -33,12 +33,12 @@ There are alternative approaches to how these components are deployed. For the p
 When deploying Corda Enterprise in a testing environment the Node, Bridge, and Float components should be deployed in a non-HA configuration as shown in the following diagram.
 
 
-{{< figure alt="nonha" width=80% zoom="../../resources/nonha.png" >}}
+{{< figure alt="nonha" width=80% src="../../resources/nonha.png" >}}
 
 When deploying Corda Enterprise in a production environment, the Node, Bridge, and Float components should be deployed in a high-availability configuration.
 
 
-{{< figure alt="ha" width=80% zoom="../../resources/ha.png" >}}
+{{< figure alt="ha" width=80% src="../../resources/ha.png" >}}
 
 
 ### Deployment details
@@ -206,7 +206,7 @@ This is a sample `node.conf` which details a configuration connecting to a Corda
 
 In a bank environment there will typically be several layers of security protecting the firms data.
 
-{{< figure alt="cordarch" width=80% zoom="../../resources/cordarch.png" >}}
+{{< figure alt="cordarch" width=80% src="../../resources/cordarch.png" >}}
 *Network Authentication*
 
 
@@ -220,7 +220,7 @@ In a bank environment there will typically be several layers of security protect
 * Corda PKI Authentication issued by Corda Network can link the Node and Bridge i.e. the red keys indicated below truststore and sslkeystore
 * Local PKI Authentication issued by separate CA will link the Bridge and Float i.e the purple keys indicated below trust and Bridge.
 
-{{< figure alt="firewallpki" width=80% zoom="../../resources/firewallpki.png" >}}
+{{< figure alt="firewallpki" width=80% src="../../resources/firewallpki.png" >}}
 The key thing is to look at this from the perspective of a bank implementing these Corda and Local PKI keys.
 
 
@@ -375,7 +375,7 @@ Administrative logins with the Corda node happen via ssh whose port is configure
 
 The following image may be helpful in ensuring alignment between the Node, Bridge and Float configuration files.
 
-{{< figure alt="CordaFirewallConfigAlign" width=80% zoom="../../resources/CordaFirewallConfigAlign.png" >}}
+{{< figure alt="CordaFirewallConfigAlign" width=80% src="../../resources/CordaFirewallConfigAlign.png" >}}
 {{< note >}}
 **p2pAddress** reflects the **publicly accessible address**, which may or may not be the Float inboundConfig.listeningAddress. If there is an internet firewall configured in front of the Float then ask the Network Administrator for the public address that routes to the Float’s **listeningAddress**, and use that public address for your **p2pAddress**.
 

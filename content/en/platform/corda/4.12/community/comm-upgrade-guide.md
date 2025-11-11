@@ -45,7 +45,7 @@ The different colors in the diagram indicate the elements used in each version. 
 
 The Corda 4.11 transaction verifier has also been preserved in an external process to allow Corda 4.11 transactions to be verified by Corda 4.12.
 
-{{< figure alt="Corda 4.12 vs Corda 4.11" width=75% height=75% zoom="resources/corda412vs411.png" figcaption="Corda 4.12 vs Corda 4.11">}}
+{{< figure alt="Corda 4.12 vs Corda 4.11" width=75% height=75% src="resources/corda412vs411.png" figcaption="Corda 4.12 vs Corda 4.11">}}
 
 ## Upgrade scenarios
 

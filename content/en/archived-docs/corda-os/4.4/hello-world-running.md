@@ -118,7 +118,7 @@ This will start a terminal window for each node. Give each node a moment to star
 the message “Welcome to the Corda interactive shell.”.
 
 
-{{< figure alt="running node" width=80% zoom="/en/images/running_node.png" >}}
+{{< figure alt="running node" width=80% src="/en/images/running_node.png" >}}
 
 
 ## Interacting with the nodes

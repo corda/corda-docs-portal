@@ -158,7 +158,7 @@ inbound / outbound reconciliations and also supports different throttling techni
 
 A high-level, peer-to-peer reconciliation flow is depicted in the diagram below. **LedgerSync** can run multiple reconciliations concurrently, up to the limit configured by the user.
 
-{{< figure alt="Peer-to-Peer Reconciliation Flow" width=80% zoom="../../resources/collaborative-recovery/ledger-sync-flow.png" >}}
+{{< figure alt="Peer-to-Peer Reconciliation Flow" width=80% src="../../resources/collaborative-recovery/ledger-sync-flow.png" >}}
 
 ### LedgerRecover
 
@@ -181,7 +181,7 @@ supports different types of throttling to prevent accidental abuse of the functi
 
 A high-level, peer-to-peer automatic recovery flow is depicted in the diagram below.
 
-{{< figure alt="Peer-to-Peer Automatic Recovery Flow" width=80% zoom="../../resources/collaborative-recovery/automatic-ledger-recover-flow.png" >}}
+{{< figure alt="Peer-to-Peer Automatic Recovery Flow" width=80% src="../../resources/collaborative-recovery/automatic-ledger-recover-flow.png" >}}
 
 {{< attention >}}
 Even though the recovery flow contains the word "automatic" in its name, it can only be started manually.
@@ -200,7 +200,7 @@ the import has been stopped halfway through.
 
 A high-level, peer-to-peer manual recovery flow is depicted in the diagram below.
 
-{{< figure alt="Peer-to-Peer Manual Recovery Flow" width=80% zoom="../../resources/collaborative-recovery/manual-ledger-recover-flow.png" >}}
+{{< figure alt="Peer-to-Peer Manual Recovery Flow" width=80% src="../../resources/collaborative-recovery/manual-ledger-recover-flow.png" >}}
 
 ### Supported disaster recovery scenarios
 

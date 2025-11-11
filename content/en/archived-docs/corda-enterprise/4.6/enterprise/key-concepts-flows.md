@@ -36,7 +36,7 @@ what order.
 
 Here is a visualisation of the process of agreeing a simple ledger update between Alice and Bob:
 
-{{< figure alt="flow" width=80% zoom="/en/images/flow.gif" >}}
+{{< figure alt="flow" width=80% src="/en/images/flow.gif" >}}
 
 ## The flow framework
 
@@ -45,7 +45,7 @@ of steps that tells a node how to achieve a specific ledger update, such as issu
 
 Here is the sequence of flow steps involved in the simple ledger update above:
 
-{{< figure alt="flow sequence" width=80% zoom="/en/images/flow-sequence.png" >}}
+{{< figure alt="flow sequence" width=80% src="/en/images/flow-sequence.png" >}}
 
 ## Running flows
 

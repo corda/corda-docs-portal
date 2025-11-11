@@ -22,7 +22,7 @@ The facts that a node knows about are those that it is involved with. For exampl
 
 Look at this example in a network with five nodes, where each numbered circle on an intersection represents a fact shared between two or more nodes.
 
-{{< figure alt="ledger venn" width=80% zoom="/en/images/ledger-venn.png" >}}
+{{< figure alt="ledger venn" width=80% src="/en/images/ledger-venn.png" >}}
 
 The Venn diagram above represents 5 nodes (Alice, Bob, Carl, Demi, and Ed) as sets. Where the sets overlap are shared facts, such as those known by both Alice and Bob (1 and 7).
 
@@ -36,7 +36,7 @@ In the previous diagram, we could see that although Carl, Demi, and Ed are aware
 
 You can think of this vault as being a database or simple table.
 
-{{< figure alt="ledger table" width=80% zoom="/en/images/ledger-table.png" >}}
+{{< figure alt="ledger table" width=80% src="/en/images/ledger-table.png" >}}
 
 Where the rows are shared between nodes (facts 1 and 7 in this example), these are shared facts.
 
