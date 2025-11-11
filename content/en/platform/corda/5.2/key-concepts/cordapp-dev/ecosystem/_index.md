@@ -41,7 +41,7 @@ A future version may support both send and send-and-receive messages.
 
 {{<
   figure
-	 src="external-messaging"
+	 src="external-messaging.png"
    width="40%"
 	 figcaption="External Messaging API"
 >}}

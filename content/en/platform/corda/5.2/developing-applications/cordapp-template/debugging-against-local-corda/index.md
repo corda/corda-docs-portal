@@ -21,7 +21,7 @@ To debug:
 1. [Start the Corda combined worker using the startCorda Gradle helper]({{< relref  "../running-your-first-cordapp/_index.md#starting-the-corda-combined-worker" >}}), if not already started.
 2. [Deploy your CorDapp using deployCordapp]({{< relref "../running-your-first-cordapp/_index.md#deploying-a-cordapp" >}}), if not already deployed.
 3. Select the `DebugCorDapp` run configuration.
-{{< figure src="./overview/debugging.png" width="40%" figcaption="DebugCorDapp run configuration in IntelliJ" >}}
+{{< figure src="debugging.png" width="40%" figcaption="DebugCorDapp run configuration in IntelliJ" >}}
 4. Click the **Debug** button.
 {{< figure src="click-debug.png" width="50%" figcaption="Debug button in IntelliJ" >}}
    The following message is displayed to indicate a successful connection:
