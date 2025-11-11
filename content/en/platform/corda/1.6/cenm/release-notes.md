@@ -18,15 +18,18 @@ title: Release notes
 
 ### New features and enhancements
 
-- CENM now supports JDK Azul 8u462 and Oracle JDK 8u461. <!-- ENT-14086 -->
-- CENM now supports the following PostgreSQL versions: 12.22, 13.22, 14.19, 15.14, and 16.10. <!-- ENT 14086 --> 
-- The PKI Tool can now generate certificates and keys using the RSA_SHA256 algorithm. <!-- ENT-14227 also in 1.7 -->
-- CENM now uses the live patching service [TuxCare](https://tuxcare.com/). TuxCare is a third-party repository that provides security fixes for software packages that are either no longer supported for JDK 8, or are no longer freely-available to the public. 
- 
+
+- CENM 1.6 now supports JDK Azul 8u462 and Oracle JDK 8u461.  <!-- ENT-14086 --> 
+- CENM 1.6 now supports the following PostgreSQL versions: 12.22, 13.22, 14.19, 15.14, and 16.10.  <!-- ENT 14086 --> 
+- The [PKI Tool]({{< relref "pki-tool.md" >}}) can now generate certificates and keys using the RSA_SHA256 algorithm.  <!-- ENT-14227 also in 1.7 --> 
+- CENM now uses the live patching service [TuxCare](https://tuxcare.com/). TuxCare is a third-party repository that provides security fixes for software packages that are either no longer supported for JDK 8, or are no longer freely-available to the public. <!-- no ticket -->  
+
 ### Fixed issues
 
-- Fixed an issue where an incorrect error message "No NETWORK_MAP type signing process set up" appeared when displaying unsigned network parameters data via the CENM tool. <!-- ENT-13944 also fixed 1.7 -->
-- Fixed an issue where setting `certificates.key.type` to `AZURE_MSAL_KEY_VAULT_HSM` in the PKI tool configuration file was generating an error. <!--ENT-13898 - also fixed 1.7 -->
+- Fixed an issue where setting `certificates.key.type` to `AZURE_MSAL_KEY_VAULT_HSM` in the [PKI tool configuration file]({{< relref "config-pki-tool-parameters.md" >}}) was generating an error. <!-- ENT-13898 --> 
+- The [shell Signing Service]({{< relref "shell.md#signing-service" >}}) `clientHealthCheck` health checks now work correctly across all service types. <!-- ENT-13942 --> 
+- Fixed an issue where an incorrect error message *"No NETWORK_MAP type signing process set up"* appeared when fetching unsigned network parameters data via the [CENM CLI tool]({{< relref "cenm-cli-tool.md" >}}). <!-- ENT-13944 --> 
+- <!-- ENT-14010 - unassigned - Fixed various issues related to CENM deployment using Docker, Kubernetes and Helm charts.--> 
 
 ###  Upgraded dependencies
 
