@@ -49,11 +49,7 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 * Corda Enterprise targets the flow thread pools directly when it starts a flow. Therefore, there is no conflict between starting flows if one pool is performing badly and has a big queue.
 
-
-
-
-
-
+* Nodes can now be configured to be [read-only]({{< relref "node/setup/read-only-nodes.md" >}}). Making a node read-only is a feature that is used for many reasons, including for regulatory reasons and to provide scalable reporting solutions.
 
 
 ### Fixed issues

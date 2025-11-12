@@ -7,7 +7,7 @@ tags:
 - host
 - prereq
 title: Host prerequisites and database requirements
-weight: 2
+weight: 20
 ---
 
 
