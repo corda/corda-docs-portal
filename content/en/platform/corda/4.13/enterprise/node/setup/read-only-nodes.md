@@ -117,6 +117,10 @@ To restrict any unintentional mutating operations, it is recommended to ensure t
 
 The Corda node will turn on the `readOnly` property of the database connection, but some database servers treat this only as a hint, and they do not restrict mutating operations. For example, SQL Server does not support this flag.
 
+### Removing nodekeystore and HSH keystore
+
+It is recommended to remove the [node keystore]({{< relref "../../network/permissioning.md#key-pair-and-certificate-formats" >}}) and the related [HSH keystore]({{< relref "../operating/cryptoservice-configuration.md" >}}) from the read-only node's configuration. A read-only node needs an SSL keystore whose key will be used for the internal TLS server. These keys may differ from the original node's SSL keys.
+
 ### Configure readOnlyMode to true
 
 In the node configuration, set *[readOnlyMode]({{< relref "corda-configuration-fields.md#readonlymode" >}})* to true as shown in the following example:
@@ -136,10 +140,7 @@ First, add an entry to the node's network map cache matching the node's `myLegal
 
 <!-- Are the following two steps for both read-only mode methods? -->
 
-It is recommended to remove the nodekeystore and the related HSH keystore from the read-only node's configuration.
 
-A read-only node needs an SSL keystore whose key will be used for the internal TLS server.
-These keys may differ from the original node's SSL keys.
 
 ### Read-only node output
 
