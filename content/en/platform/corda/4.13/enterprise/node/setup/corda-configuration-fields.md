@@ -930,6 +930,7 @@ quasarExcludePackages=["org.xml**", "org.yaml**"]
 ## readOnlyMode
 
 `readOnlyMode` is a Boolean property. If set to true, then the node is set to be a [read-only node](read-only-nodes.md). 
+*Default:* false
 
 ## relay
 
