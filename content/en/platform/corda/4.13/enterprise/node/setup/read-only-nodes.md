@@ -70,7 +70,7 @@ Read-only nodes have the following restrictions versus normal nodes:
    - acknowledgeDatabaseBackup
    - markAllKeysUsed
 
-- The [clearNetworkMapCache]({{< relref "../../network/network-map.md#cleaning-the-network-map-cache" >}}) operation clears only the in-memory network map cache, leaving the database intact. In read-only mode, the network map cache's entries expire in 5 minutes to let the node pick up fresh information replicated into  ts database from live nodes, if there is any.
+- The [clearNetworkMapCache]({{< relref "../../network/network-map.md#cleaning-the-network-map-cache" >}}) operation clears only the in-memory network map cache, leaving the database intact. In read-only mode, the network map cache's entries expire in 5 minutes to let the node pick up fresh information replicated into its database from live nodes, if there is any.
 - The [RPC audit functionality]({{< relref "rpc-audit-data-recording.md" >}}) writes its audit entries into the node's logs, instead of the database. The related log entries come from `ReadOnlyAuditServiceImpl` class. Also, related RPC operations are disabled.
 - The node vault's produced states cache is disabled to prevent any stale data from being stored in memory.
 - The node's internal checkpoint storage has been replaced by an in-memory one, which does not persist. That also means that flows cannot be restored, continued across restarts.
@@ -129,7 +129,7 @@ enterpriseConfiguration {
    
 ### Running the node in read-only mode from CLI
 
-Instead of changing the node configuration, you can instead start a node in read-only mode by using the `--readonly-mode` flag.
+Instead of changing the node configuration, you can start a node in read-only mode by using the `--readonly-mode` flag.
 
 First, add an entry to the node's network map cache matching the node's `myLegalName` configuration option.
 
@@ -147,7 +147,7 @@ A read-only node will display the following line when started in read-only mode:
 
 `Read-only mode is set to true.`
 
-Also, instead of the normal message `Running P2PMessaging loop`, the node instead displays the following message when it is ready:
+Also, instead of the normal message `Running P2PMessaging loop`, the node displays the following message when it is ready:
 
 `Blocking main thread until stop() is called`
 
