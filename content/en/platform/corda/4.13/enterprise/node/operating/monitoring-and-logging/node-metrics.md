@@ -107,6 +107,8 @@ Note that metrics related to the default thread pool do not have a *.default* su
 |net.corda:type=Flows,name=Error|The total number of flows failed with an error.|
 |net.corda:type=Flows,name=ErrorPerMinute|The rate at which flows fail with an error.|
 |net.corda:type=Flows,name=Finished|The total number of completed flows (both successfully and unsuccessfully).|
+|net.corda:type=Flows,name=Hospitalized | Number of flows that are currently hospitalized. |
+|net.corda:type=Flows,name=HospitalizedPerMinute | Number of flows being hospitalized per minute. |
 |net.corda:type=Flows,name=InFlight|The number of in-flight flows.|
 |net.corda:type=Flows,name=QueueSize.{threadpool}|The current size of the queue for flows waiting to be executed for the specified thread pool|
 |net.corda:type=Flows,name=QueueSizeOnInsert.{threadpool}|A histogram showing the queue size at the point new flows are added for the specified thread pool|
