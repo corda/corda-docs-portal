@@ -31,14 +31,14 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
-- <!-- ENT-12147 --> The Corda Network Builder Tool now correctly deploys a Corda network both via CLI in Docker and Azure environments.
-- <!-- ENT-13814 ENT Only --> The flow `recoverAllFinalityFlows` previously treated inactive flows as active. This behavior has been corrected.
+- The Corda Network Builder Tool now correctly deploys a Corda network both via CLI in Docker and Azure environments. <!-- ENT-12147 --> 
+- The flow `recoverAllFinalityFlows` previously treated inactive flows as active. This behavior has been corrected. <!-- ENT-13814 ENT Only -->
 
 ### Third-party components upgrade
 
-The following table lists the dependency upgrades for 4.11.6 Enterprise Edition. Dependencies with unchanged versions are omitted.
+The following table lists the dependency upgrades for 4.11.6 Enterprise Edition. Dependencies with unchanged versions are omitted. <!-- ENT-13978 -->
 
-| Dependency                                               | Name                | Version 4.11.6 Enterprise   |   <!-- ENT-13978 -->
+| Dependency                                               | Name                | Version 4.11.6 Enterprise   |   
 |----------------------------------------------------------|---------------------|-----------------------------|
 | co.paralleluniverse:quasar-core                          | Quasar Core         | 0.9.2_r3                    |
 | com.github.docker-java:docker-java                       | Docker Java         | 3.6.0                       |
@@ -47,7 +47,8 @@ The following table lists the dependency upgrades for 4.11.6 Enterprise Edition.
 | com.nimbusds:oauth2-oidc-sdk                             | Nimbus OAuth 2.0 / OpenID Connect SDK| 8.36.2     |
 | com.nimbusds:nimbus-jose-jwt                             | Nimbus JOSE + JWT   | 10.0.2                      |
 | org.apache.zookeeper:zookeeper                           | Apache ZooKeeper    | 3.9.4                       |
-| io.netty                                                 | Netty               | 4.1.128.Final               | <!-- ENT-14529 -->
+| io.netty                                                 | Netty               | 4.1.128.Final               | 
+<!-- ENT-14529 -->
 
 ## Corda Enterprise Edition 4.11.5 release notes
 

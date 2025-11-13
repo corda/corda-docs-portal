@@ -26,7 +26,7 @@ Corda Community Edition 4.11.6 is a patch release of Corda Community Edition foc
 
 ### Fixed issues
 
-- <!-- ENT-12147 --> The Corda Network Builder Tool now correctly deploys a Corda network both via CLI in Docker and Azure environments.
+-  The Corda Network Builder Tool now correctly deploys a Corda network both via CLI in Docker and Azure environments. <!-- ENT-12147 -->
 
 ### Third party components upgrade
 
@@ -40,7 +40,8 @@ The following table lists the dependency version changes in the 4.11.6 Community
 | org.bouncycastle:*                                       | Bouncy Castle       | 2.73.9                      |
 | org.controlsfx:controlsfx                                | ControlsFX          | 11.2.2                      |
 | com.nimbusds:nimbus-jose-jwt                             | Nimbus JOSE + JWT   | 10.0.2                      | 
-| io.netty                                                 | Netty               | 4.1.128.Final               | <!-- ENT-14529 -->
+| io.netty                                                 | Netty               | 4.1.128.Final               |
+ <!-- ENT-14529 -->
  
 ## Corda Community Edition 4.11.5 release notes
 
