@@ -20,6 +20,28 @@ tags:
 
 # Corda Community Edition 4.11 release notes
 
+## Corda Community Edition 4.11.6 release notes
+
+Corda Community Edition 4.11.6 is a patch release of Corda Community Edition focused on resolving issues.
+
+### Fixed issues
+
+- <!-- ENT-12147 --> The Corda Network Builder Tool now correctly deploys a Corda network both via CLI in Docker and Azure environments.
+
+### Third party components upgrade
+
+The following table lists the dependency version changes in the 4.11.6 Community Edition. Dependencies with unchanged versions are omitted. <!-- ENT-13978 -->
+
+| Dependency                                               | Name                | Version 4.11.6 Community    |  
+|----------------------------------------------------------|---------------------|-----------------------------|
+| co.paralleluniverse:quasar-core                          | Quasar Core         | 0.9.2_r3                    |
+| com.github.docker-java:docker-java                       | Docker Jav          | 3.6.0                       |
+| com.github.docker-java:docker-java-transport-httpclient5 | Docker-Java Transport (HTTPClient 5)| 3.6.0       |
+| org.bouncycastle:*                                       | Bouncy Castle       | 2.73.9                      |
+| org.controlsfx:controlsfx                                | ControlsFX          | 11.2.2                      |
+| com.nimbusds:nimbus-jose-jwt                             | Nimbus JOSE + JWT   | 10.0.2                      | 
+| io.netty                                                 | Netty               | 4.1.128.Final               | <!-- ENT-14529 -->
+ 
 ## Corda Community Edition 4.11.5 release notes
 
 Corda Community Edition 4.11.5 is a patch release of Corda Community Edition focused on resolving issues.
