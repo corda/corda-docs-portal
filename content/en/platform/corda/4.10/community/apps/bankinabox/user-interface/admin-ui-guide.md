@@ -66,7 +66,7 @@ To find a specific customer, use the search bar. After typing three characters, 
 The search is case-sensitive.
 {{< /note >}}
 
-When you click on a customer name, you will be directed to the **Update Customer** screen where you can [view and update a customer profile]({{< relref "./how-to.m d#update-customer-profile" >}}).
+When you click on a customer name, you will be directed to the **Update Customer** screen where you can [view and update a customer profile]({{< relref "./how-to.md#update-customer-profile" >}}).
 
 You may also wish to [create a new customer]({{< relref "./how-to.md#create-a-customer-profile" >}}). Click on the **Create New** button in the top right corner to be directed to the **Create Customer** screen.
 

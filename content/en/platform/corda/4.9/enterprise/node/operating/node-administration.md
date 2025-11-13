@@ -478,7 +478,7 @@ A Contract CorDapp (an attachment) received over the network, is only allowed to
 CorDapps installed in the node that have been signed by at least one of the received CorDapp’s keys.
 
 See [Signature Constraints]({{< relref "../../cordapps/api-contract-constraints.md#signature-constraints" >}}) and
-[Signing CorDapps for use with Signature Constraints]({{< relref "../../cordapps/api-contract-constraints.md#signing-cordapps-for-use-with-signature-constraints" >}}) for more information
+[Signing CorDapps for use with Signature Constraints]({{< relref "../../cordapps/api-contract-constraints.md#signing-cordapps" >}}) for more information
 
 {{< /note >}}
 

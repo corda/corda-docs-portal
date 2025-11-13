@@ -225,6 +225,6 @@ The following command line options can be used to reset, re-enable, and unlock a
 The Auth Service needs to be set up with baseline permission data for each application.
 {{< /note >}}
 
-* [CENM management console]({{< relref "cenm-console.md#installation" >}})
+* [CENM management console]({{< relref "cenm-console.md#installing-the-cenm-management-console" >}})
 * [Node management console]({{< relref "management-console.md#installation" >}})
 * [Flow management console]({{< relref "node-flow-management-console.md#installation" >}})

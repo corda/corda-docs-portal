@@ -98,6 +98,6 @@ You can manage the Gateway Service configuration by specifying the following com
 The [Auth Service]({{< relref "auth-service.md" >}}) needs to be set up with baseline permission data for each application.
 {{< /note >}}
 
-* [CENM management console]({{< relref "cenm-console.md#installation" >}})
+* [CENM management console]({{< relref "cenm-console.md#installing-the-cenm-management-console" >}})
 * [Node management console]({{< relref "management-console.md#installation" >}})
 * [Flow management console]({{< relref "node-flow-management-console.md#installation" >}})
