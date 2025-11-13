@@ -8,7 +8,7 @@ tags:
 - configuration
 - file
 title: Configuration fields
-weight: 4
+weight: 40
 ---
 
 # Configuration fields
@@ -25,13 +25,13 @@ Nodes can use this configuration option to advertise HA endpoints and aliases to
 
 *Default:* empty list
 
-## `attachmentContentCacheSizeMegaBytes`
+## attachmentContentCacheSizeMegaBytes
 
 Optionally specify how much memory should be used to cache attachment contents in memory.
 
 *Default:* 8 MB plus 5% of all heap memory above 300MB.
 
-## `blacklistedAttachmentSigningKeys`
+## blacklistedAttachmentSigningKeys
 
 List of SHA-256 hashes of public keys. Attachments signed by any of these public keys will not be considered as trust roots for any attachments received over the network.
 This property is similar to `cordappSignerKeyFingerprintBlacklist` but only restricts CorDapps that were
@@ -41,7 +41,7 @@ This property requires retrieving the hashes of public keys that need to be blac
 
   *Default:* not defined
 
-## `compatibilityZoneURL`
+## compatibilityZoneURL
 
 {{< important >}}
 Deprecated. Use `networkServices` instead.
@@ -52,7 +52,7 @@ Cannot be set at the same time as the `networkServices` option.
 
 *Default:* not defined
 
-## `cordappSignerKeyFingerprintBlacklist`
+## cordappSignerKeyFingerprintBlacklist
 
 List of the public keys fingerprints (SHA-256 of public key hash) not allowed as CorDapp JARs signers.
 The node will not load CorDapps signed by those keys.
@@ -62,7 +62,7 @@ This property requires retrieving the hashes of public keys that need to be blac
 
 *Default:* not defined
 
-## `crlCheckArtemisServer`
+## crlCheckArtemisServer
 
 Set this configuration field to `true` to enable CRL checking of TLS certificates for inbound P2P connections into the embedded Artemis messaging server. The CRL checking mode is defined by `crlCheckSoftFail` option.
 
@@ -70,7 +70,7 @@ This setting is only relevant for node configurations with no Corda Firewall ena
 
 *Default:* `false`
 
-## `crlCheckSoftFail`
+## crlCheckSoftFail
 
 This is a boolean flag that when enabled (that is, `true` value is set) causes certificate revocation list (CRL) checking to use soft fail mode.
 Soft fail mode allows the revocation check to succeed if the revocation status cannot be determined because of a network error.
@@ -106,15 +106,15 @@ For example:
 
 *Default:* true
 
-## `cryptoServiceName`
+## cryptoServiceName
 
 Optional name of the CryptoService implementation. This only needs to be set if you intend to use a different provider than the default one.
 
-## `cryptoServiceConf`
+## cryptoServiceConf
 
 Optional path to the configuration file for the CryptoService provider. This may have to be present if you use a different CryptoService provider than the default one.
 
-## `cryptoServiceFlowRetryCount`
+## cryptoServiceFlowRetryCount
 
 `cryptoServiceFlowRetryCount` is used to specify which actions should be taken in the event of a flow suffering a CryptoServiceException due to a timeout.
 
@@ -130,13 +130,13 @@ For example, if `cryptoServiceFlowRetryCount` is set to `-2`, then the flow is r
 
 *Default:* -2
 
-## `cryptoServiceTimeout`
+## cryptoServiceTimeout
 
 Optional time-out value of actions sent to the CryptoService (HSM). If the HSM takes longer than this duration to respond, then a `TimedCryptoServiceException` will be thrown and handled by the Flow hospital. You can increase it to mitigate the time-out error.
 
 *Default:* 10000 milliseconds
 
-## `custom`
+## custom
 
 Set custom command line attributes (for example, Java system properties) on the node process via the capsule launcher or on the external verifier process.
 
@@ -150,7 +150,7 @@ Set custom command line attributes (for example, Java system properties) on the 
   * A list of JVM arguments to apply to the external verifier process.
   * *Default:* not defined
 
-## `database`
+## database
 
 Database configuration
 
@@ -162,7 +162,7 @@ Database configuration
 * `hibernateDialect`
   * Optional property for testing/development against an unsupported database. The value is passed to Hibernate `hibernate.dialect` option.     All supported databases do not require this option, as Hibernate sets the correct dialect value out of box.
 
-## `dataSourceProperties`
+## dataSourceProperties
 
 This section is used to configure the JDBC connection and database driver used for the node's persistence.
 To add additional data source properties (for a specific JDBC driver) use the `dataSource.` prefix with the property name (for example, `dataSource.customProperty = value`).
@@ -185,7 +185,7 @@ dataSource.user = sa
 dataSource.password = ""
 ```
 
-## `detectPublicIp`
+## detectPublicIp
 
 This flag toggles the auto IP detection behaviour.
 If enabled, on startup the node will attempt to discover its externally visible IP address first by looking for any public addresses on its network interfaces, and then by sending an IP discovery request to the network map service.
@@ -193,7 +193,7 @@ Set to `true` to enable.
 
 *Default:* false
 
-## `devMode`
+## devMode
 
 This flag sets the node to run in development mode.
 On startup, if the keystore `<workspace>/certificates/sslkeystore.jks`
@@ -208,7 +208,7 @@ This flag affects the default value for Java heap size.
 
 *Default:* Corda will try to establish based on OS environment
 
-## `devModeOptions`
+## devModeOptions
 
 Allows modification of certain `devMode` features
 
@@ -216,19 +216,19 @@ Allows modification of certain `devMode` features
 This is an unsupported configuration.
 {{< /important >}}
 
-## `allowCompatibilityZone`
+## allowCompatibilityZone
 
   Allows a node configured to operate in development mode to connect to a compatibility zone.
 
   *Default:* not defined
 
-## `emailAddress`
+## emailAddress
 
 The email address responsible for node administration, used by the Compatibility Zone administrator.
 
 *Default:* company@example.com
 
-## `enterpriseConfiguration`
+## enterpriseConfiguration
 
 Allows fine-grained controls of various features only available in the enterprise version of Corda.
 
@@ -512,7 +512,7 @@ Allows fine-grained controls of various features only available in the enterpris
         }
         ```
 
-## `extraNetworkMapKeys`
+## extraNetworkMapKeys
 
 An optional list of private network map UUIDs. Your node will fetch the public network and private network maps based on these keys.
 Private network UUID should be provided by network operator and lets you see nodes not visible on public network.
@@ -521,25 +521,25 @@ Private network UUID should be provided by network operator and lets you see nod
 
 *Default:* not defined
 
-## `flowExternalOperationThreadPoolSize`
+## flowExternalOperationThreadPoolSize
 
 The number of threads available to execute external operations that have been called from flows.
 
 *Default:* Set to the lower value between the maximum number of cores allocated to the node, or 10 cores if the maximum exceeds 10.
 
-## `flowMonitorPeriodMillis`
+## flowMonitorPeriodMillis
 
 Duration of the period suspended flows waiting for IO are logged.
 
 *Default:* 60 seconds
 
-## `flowMonitorSuspensionLoggingThresholdMillis`
+## flowMonitorSuspensionLoggingThresholdMillis
 
 Threshold duration suspended flows waiting for IO need to exceed before they are logged.
 
 *Default:* 60 seconds
 
-## `flowTimeout`
+## flowTimeout
 
 When a flow implementing the `TimedFlow` interface and setting the `isTimeoutEnabled` flag does not complete within a defined elapsed time, it is restarted from the initial checkpoint.
 Currently only used for notarisation requests with clustered notaries: if a notary cluster member dies while processing a notarisation request, the client flow eventually times out and gets restarted.
@@ -561,7 +561,7 @@ The jitter factor is set to a random number between 1 and 1.5, and is intended t
   * The base of the exponential backoff, `t_{wait} = timeout * backoffBase^{retryCount}`
   * Default: 1.8
 
-## `graphiteOptions`
+## graphiteOptions
 
 Optionally export metrics to a Graphite server. When specified, the node will push out all JMX metrics to the specified Graphite server at regular intervals.
 
@@ -589,7 +589,7 @@ For non-localhost address the database password needs to be set in `dataSourcePr
 
 *Default:* NULL
 
-## `jarDirs`
+## jarDirs
 
 An optional list of file system directories containing JARs to include in the classpath when launching via `corda.jar` only.
 Each should be a string.
@@ -606,14 +606,14 @@ If an item in a list is overridden via an environment variable/system property, 
 This property is only available for Corda distributed with Capsule. For the Corda tarball distribution this option is unavailable.
 It's advisable to copy any required JAR files to the 'drivers' subdirectory of the node base directory.
 
-## `jmxMonitoringHttpPort`
+## jmxMonitoringHttpPort
 
 If set, will enable JMX metrics reporting via the Jolokia HTTP/JSON agent on the corresponding port.
 Default Jolokia access url is `http://127.0.0.1:port/jolokia/`.
 
 *Default:* not defined
 
-## `jmxReporterType`
+## jmxReporterType
 
 Provides an option for registering an alternative JMX reporter.
 Available options are `JOLOKIA` and `NEW_RELIC`.
@@ -623,7 +623,7 @@ The New Relic configuration leverages the Dropwizard NewRelicReporter solution.
 
 *Default:* `JOLOKIA`
 
-## `keyStorePassword`
+## keyStorePassword
 
 The password to unlock the keystore files `<workspace>/certificates/sslkeystore.jks and `<workspace>/certificates/nodestore.jks` containing the node certificate and private key.
 
@@ -632,7 +632,7 @@ Alternatively, these keys can be managed in secure hardware devices.{{< /importa
 
 *Default:* cordacadevpass
 
-## `lazyBridgeStart`
+## lazyBridgeStart
 
 Internal option.
 
@@ -640,13 +640,13 @@ Internal option.
 
 *Default:* true
 
-## `manAllowed`
+## manAllowed
 
 Enables the usage of the shell 'man' command. Please note it makes use of insecure APIs and should be enabled with caution.
 
 *Default:* false
 
-## `messagingServerAddress`
+## messagingServerAddress
 
 The address of the ArtemisMQ broker instance.
 If not provided the node will run one locally.
@@ -655,7 +655,7 @@ If not provided the node will run one locally.
 
 *Default:* not defined
 
-## `messagingServerExternal`
+## messagingServerExternal
 
 If `messagingServerAddress` is specified the default assumption is that the artemis broker is running externally.
 Setting this to `false` overrides this behaviour and runs the artemis internally to the node, but bound to the address specified in `messagingServerAddress`.
@@ -669,7 +669,7 @@ When `messagingServerExternal` = `true`, `messagingServerSslConfiguration` is re
 
 *Default:* not defined
 
-## `myLegalName`
+## myLegalName
 
 The legal identity of the node.
 This acts as a human-readable alias to the node's public key and can be used with the network map to look up the node's info.
@@ -679,7 +679,7 @@ The name must be a valid X.500 distinguished name; see [Node identity]({{< relre
 
 *Default:* not defined
 
-## `notary`
+## notary
 
 Include this optional configuration object in the node configuration file if you want to configure the node to run as a notary.
 
@@ -861,7 +861,7 @@ Once a notary is configured with a default value, it cannot be reconfigured. To 
           }
         ```
 
-## `networkParameterAcceptanceSettings`
+## networkParameterAcceptanceSettings
 
 Optional settings for managing the network parameter auto-acceptance behaviour.
 If not provided then the defined defaults below are used.
@@ -874,7 +874,7 @@ If not provided then the defined defaults below are used.
   * List of auto-acceptable parameter names to explicitly exclude from auto-accepting. Allows a node operator to control the behaviour at a more granular level.
   * Default: empty list
 
-## `networkServices`
+## networkServices
 
 If both of the Corda compatibility zone services, network map and registration (doorman), are not running on the same endpoint and thus have different URLs, use this option in place of the `compatibilityZoneURL` setting.
 
@@ -914,7 +914,7 @@ If the provided host is unreachable, the node will try to auto-discover its publ
 
 *Default:* not defined
 
-## `quasarExcludePackages`
+## quasarExcludePackages
 
 A list of packages to exclude from Quasar instrumentation. Wildcards are allowed, for example `org.xml**`.
 
@@ -927,8 +927,12 @@ Example configuration:
 ```shell
 quasarExcludePackages=["org.xml**", "org.yaml**"]
 ```
+## readOnlyMode
 
-## `relay`
+`readOnlyMode` is a Boolean property. If set to true, then the node is set to be a [read-only node](read-only-nodes.md). 
+*Default:* false
+
+## relay
 
 If provided, the node will attempt to tunnel inbound connections via an external relay. The relay's address will be
 advertised to the network map service instead of the provided `p2pAddress`.
@@ -946,7 +950,7 @@ advertised to the network map service instead of the provided `p2pAddress`.
 * `sshPort`
   * Port to be used for SSH connection, default `22`.
 
-## `rpcAddress`
+## rpcAddress
 
 {{< important >}}
 Deprecated. Use `rpcSettings` instead.
@@ -957,7 +961,7 @@ If not provided then the node will run without RPC.
 
 *Default:* not defined
 
-## `rpcSettings`
+## rpcSettings
 
 Options for the RPC server exposed by the Node.
 
@@ -984,7 +988,7 @@ Options for the RPC server exposed by the Node.
     * Password for the key store.
     * *Default:* not defined
 
-## `rpcUsers`
+## rpcUsers
 
 A list of users who are authorised to access the RPC system.
 Each user in the list is a configuration object with the following fields:
@@ -1000,11 +1004,11 @@ Each user in the list is a configuration object with the following fields:
   This value is intended for administrator users and for development.
   * *Default:* not defined
 
-## `security`
+## security
 
 Contains various nested fields controlling user authentication/authorization, in particular for RPC accesses.
 
-## `sshd`
+## sshd
 
 If provided, node will start internal SSH server which will provide a management shell.
 It uses the same credentials and permissions as RPC subsystem.
@@ -1015,7 +1019,7 @@ It has one required parameter.
 
   *Default:* not defined
 
-## `sslHandshakeTimeout`
+## sslHandshakeTimeout
 
 Internal option.
 
@@ -1023,14 +1027,14 @@ Internal option.
 
 *Default:* 60000 milliseconds
 
-## `systemProperties`
+## systemProperties
 
 An optional map of additional system properties to be set when launching via `corda.jar` only.
 Keys and values of the map should be strings; for example, `systemProperties = { "visualvm.display.name" = FooBar }`
 
 *Default:* not defined
 
-## `telemetry`
+## telemetry
 
 There are new configuration fields for telemetry. See the [OpenTelemetry]({{< relref "../operating/monitoring-and-logging/opentelemetry.md" >}}) section for more information.
 
@@ -1056,13 +1060,13 @@ telemetry {
       }
 ```
 
-## `transactionCacheSizeMegaBytes`
+## transactionCacheSizeMegaBytes
 
 Optionally specify how much memory should be used for caching of ledger transactions in memory.
 
 *Default:* 8 MB plus 5% of all heap memory above 300MB.
 
-## `tlsCertCrlDistPoint`
+## tlsCertCrlDistPoint
 
 CRL distribution point (i.e. URL) for the TLS certificate.
 Default value is NULL, which indicates no CRL availability for the TLS certificate.
@@ -1071,7 +1075,7 @@ Default value is NULL, which indicates no CRL availability for the TLS certifica
 
 *Default:* NULL
 
-## `tlsCertCrlIssuer`
+## tlsCertCrlIssuer
 
 CRL issuer (given in the X500 name format) for the TLS certificate.
 Default value is NULL, which indicates that the issuer of the TLS certificate is also the issuer of the CRL.
@@ -1080,19 +1084,19 @@ Default value is NULL, which indicates that the issuer of the TLS certificate is
 
 *Default:* NULL
 
-## `trustStorePassword`
+## trustStorePassword
 
 The password to unlock the Trust store file (`<workspace>/certificates/truststore.jks`) containing the Corda network root certificate.
 This is the non-secret value for the development certificates automatically generated during the first node run.
 
 *Default:* trustpass
 
-## `useOpenSsl`
+## useOpenSsl
 
 If set to true, the node will use a native SSL implementation for TLS rather than the JVM SSL. The native SSL library currently shipped with
 Corda Enterprise is BoringSsl. The default is to use JVM SSL, i.e. the flag being set to `false`. This configuration offers higher performance than the built-in library, but you cannot use it with the Corda Firewall or an HSM—so this configuration is only recommended for private networks where there is a requirement to extract maximum performance.
 
-## `useTestClock`
+## useTestClock
 
 Internal option.
 
@@ -1100,7 +1104,7 @@ Internal option.
 
 *Default:* false
 
-## `verfierType`
+## verfierType
 
 Internal option.
 
@@ -1108,7 +1112,7 @@ Internal option.
 
 *Default:* InMemory
 
-## `reloadCheckpointAfterSuspend`
+## reloadCheckpointAfterSuspend
 
   This is an optional configuration option that enables you to detect unrestorable checkpoints when developing CorDapps and thus reduces the risk of writing flows that cannot be retried gracefully. To use this functionality, set `reloadCheckpointAfterSuspend` to `true`:
 

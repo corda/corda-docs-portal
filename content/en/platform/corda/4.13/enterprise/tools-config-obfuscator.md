@@ -8,7 +8,7 @@ tags:
 - config
 - obfuscator
 title: Configuration Obfuscator
-weight: 70
+weight: 700
 ---
 
 # Configuration Obfuscator
