@@ -7,15 +7,15 @@ tags:
 - hot
 - cold
 - deployment
-title: Hot-cold high-availability deployment for Corda Enterprise
+title: Hot/cold high-availability deployment for Corda Enterprise
 weight: 3
 ---
 
-# Hot-cold high-availability deployment for Corda Enterprise
+# Hot/cold high-availability deployment for Corda Enterprise
 
 ## Overview
 
-This section describes hot-cold availability of Corda Enterprise nodes and their associated configuration setup. In such a set-up,
+This section describes hot/cold availability of Corda Enterprise nodes and their associated configuration setup. In such a set-up,
 there is one back-up instance that can be started if the primary instance stops. Each instance of Corda should be hosted
 on a separate server and represent the same entity in the Corda network.
 
