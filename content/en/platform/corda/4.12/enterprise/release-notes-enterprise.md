@@ -90,7 +90,7 @@ are omitted.
 
 Dependency                           | Name         | 4.12.6 Enterprise    | 4.12.7 Enterprise
 -------------------------------------|--------------|----------------------|-------------------
-io.netty:/*                          | Netty        | 4.1.122.Final        | 4.1.127.Final  
+io.netty:\*                          | Netty        | 4.1.122.Final        | 4.1.127.Final  
 
 ## Corda Enterprise Edition 4.12.6 release notes
 
@@ -130,14 +130,14 @@ are omitted.
 
  Dependency                          | Name         | 4.12.5 Enterprise    |  4.12.6 Enterprise
 -------------------------------------|--------------|----------------------|---------------
-org.apache.activemq:/*               | Artemis      |  2.36.0              |   2.42.0
+org.apache.activemq:\*               | Artemis      |  2.36.0              |   2.42.0
 commons-beanutils:commons-beanutils  | beanutils    |  1.9.4               |   1.11.0
-org.apache.curator:/*                | Curator      |  5.6.0               |   5.9.0
+org.apache.curator:\*                | Curator      |  5.6.0               |   5.9.0
 com.github.docker-java:docker-java   | docker Java  |  3.2.5               |   3.5.3
-org.apache.logging.log4j:/*          | Log4j        |  2.23.0              |   2.24.3
-io.netty:/*                          | Netty        |  4.1.115.Final       |   4.1.122.Final
+org.apache.logging.log4j:\*          | Log4j        |  2.23.0              |   2.24.3
+io.netty:\*                          | Netty        |  4.1.115.Final       |   4.1.122.Final
 co.paralleluniverse:quasar           | Quasar       |  0.9.0_r3            |   0.9.1_r3
-org.apache.shiro:/*                  | Shiro        |  1.10.0              |   1.13.0
+org.apache.shiro:\*                  | Shiro        |  1.10.0              |   1.13.0
 
 ## Corda Enterprise Edition 4.12.5 release notes
 
