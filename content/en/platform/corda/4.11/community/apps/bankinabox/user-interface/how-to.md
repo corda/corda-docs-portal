@@ -70,7 +70,7 @@ Follow these steps to create a new customer profile.
 When the customer profile is created, they will not have any accounts - you will have to create them. Learn how under [Creating accounts](#create-a-current-account).
 {{< /note >}}
 
-{{< figure alt="Create customer profile" width=80% zoom="/en/gifs/create-customer-biab-1.0.gif" >}}
+{{< figure alt="Create customer profile" width=80% src="/en/gifs/create-customer-biab-1.0.gif" >}}
 
 
 ### Create a Current account
@@ -94,7 +94,7 @@ When the customer profile is created, they will not have any accounts - you will
 
 7. When an account is created, it is in **PENDING** status. This must be changed to **ACTIVE** for a customer to be able to interact with and use the account. See [Change an account status](#change-an-account-status) for more information.
 
-{{< figure alt="Create account" width=80% zoom="/en/gifs/create-current-account-biab-1.0.gif" >}}
+{{< figure alt="Create account" width=80% src="/en/gifs/create-current-account-biab-1.0.gif" >}}
 
 ### Create a Savings account
 
@@ -140,7 +140,7 @@ An account has three statuses: **PENDING**, **ACTIVE**, and **SUSPENDED**. When 
 
 If the account needs to be suspended, follow the same steps but select **SUSPENDED**.
 
-{{< figure alt="Set account status" width=80% zoom="/en/gifs/set-account-status-biab-1.0.gif" >}}
+{{< figure alt="Set account status" width=80% src="/en/gifs/set-account-status-biab-1.0.gif" >}}
 
 
 ### Assign or revoke a user role
@@ -163,7 +163,7 @@ To assign a user role, follow these steps:
 
 5. Click **Revoke**. A message will appear indicating that the user role was assigned successfully.
 
-{{< figure alt="Assign role" width=80% zoom="/en/gifs/assign-a-role-biab-1.0.gif" >}}
+{{< figure alt="Assign role" width=80% src="/en/gifs/assign-a-role-biab-1.0.gif" >}}
 
 #### Revoke a user role
 
@@ -179,7 +179,7 @@ To revoke a user role, follow these steps:
 
 5. Click **Save**. A message will appear indicating that the user role was revoked successfully.
 
-{{< figure alt="Revoke role" width=80% zoom="/en/gifs/revoke-role-biab-1.0.gif" >}}
+{{< figure alt="Revoke role" width=80% src="/en/gifs/revoke-role-biab-1.0.gif" >}}
 
 ### Issue a loan
 
@@ -195,7 +195,7 @@ Once the account has been set to **ACTIVE**, you will have the ability to issue 
 
 A loan account is created when a loan has been issued successfully.
 
-{{< figure alt="Issue loan" width=80% zoom="/en/gifs/issue-loan-biab-1.0.gif" >}}
+{{< figure alt="Issue loan" width=80% src="/en/gifs/issue-loan-biab-1.0.gif" >}}
 
 ### Approve overdrafts
 
@@ -215,7 +215,7 @@ To approve an overdraft, follow these steps.
 Overdrafts can be approved whether the account is **PENDING**, **ACTIVE**, or **SUSPENDED**.
 {{< /note >}}
 
-{{< figure alt="Approve overdraft" width=80% zoom="/en/gifs/approve-overdraft-biab-1.0.gif" >}}
+{{< figure alt="Approve overdraft" width=80% src="/en/gifs/approve-overdraft-biab-1.0.gif" >}}
 
 
 ### Deposit money to an account
@@ -230,7 +230,7 @@ Follow these steps to deposit money to a customer account.
 
 4. Click **Save**. You will receive a message indicating that the deposit was successful.
 
-{{< figure alt="Deposit" width=80% zoom="/en/gifs/deposit-biab-1.0.gif" >}}
+{{< figure alt="Deposit" width=80% src="/en/gifs/deposit-biab-1.0.gif" >}}
 
 
 ### Register as a user on Bank in a Box
@@ -251,7 +251,7 @@ You must be registered as a **Customer** or **Admin** on Bank in a Box to perfor
 
 5. Click **Save**. A message will appear indicating that you have registered successfully.
 
-{{< figure alt="Register user" width=80% zoom="/en/gifs/register-user-customer-biab-1.0.gif" >}}
+{{< figure alt="Register user" width=80% src="/en/gifs/register-user-customer-biab-1.0.gif" >}}
 
 
 ### Update customer profile
@@ -284,7 +284,7 @@ An **Admin user** can set an account's **Withdrawal daily limit** or **Transfer 
 
 2. Click **Save** when you have entered the desired limits. A message will appear indicating that the limits have been saved successfully.
 
-{{< figure alt="Set withdrawal and transfer limits - admin" width=80% zoom="/en/gifs/set-limits-admin-biab-1.0.gif" >}}
+{{< figure alt="Set withdrawal and transfer limits - admin" width=80% src="/en/gifs/set-limits-admin-biab-1.0.gif" >}}
 
 
 ## Customer tasks
@@ -309,12 +309,12 @@ Follow these steps to create a new intrabank payment.
 
 6. Click **Save**. You will receive a notification indicating that the payment was created successfully. You will also receive notifications indicating any changes in your account balances.
 
-{{< figure alt="Create intrabank payment" width=80% zoom="/en/gifs/create-intrabank-payment-biab-1.0.gif" >}}
+{{< figure alt="Create intrabank payment" width=80% src="/en/gifs/create-intrabank-payment-biab-1.0.gif" >}}
 
 After making a payment, you can view the details of this transaction on the Transactions screen.
 
 
-{{< figure alt="View transaction" width="800" width=80% zoom="/en/gifs/view-transaction-biab-1.0.gif" >}}
+{{< figure alt="View transaction" width="800" width=80% src="/en/gifs/view-transaction-biab-1.0.gif" >}}
 
 
 ### Create a recurring payment
@@ -338,7 +338,7 @@ Follow these steps to create a recurring payment:
 
 3. You will be taken back to the **Recurring payments screen** where you will receive a message indicating that the recurring payment was created successfully.
 
-{{< figure alt="Recurring payment" width=80% zoom="/en/gifs/create-recurring-payment-biab-1.0.gif" >}}
+{{< figure alt="Recurring payment" width=80% src="/en/gifs/create-recurring-payment-biab-1.0.gif" >}}
 
 {{< note >}}
 This payment will not appear on the **Recurring payments screen** until the first iteration has occurred.
@@ -367,7 +367,7 @@ You must be registered as a Customer or Admin on Bank in a Box to perform tasks.
 
 7. Click **Save**. A message will appear indicating that you have registered successfully.
 
-{{< figure alt="Register user" width=80% zoom="/en/gifs/register-user-customer-biab-1.0.gif" >}}
+{{< figure alt="Register user" width=80% src="/en/gifs/register-user-customer-biab-1.0.gif" >}}
 
 
 ### Update a customer profile
@@ -406,4 +406,4 @@ To set these limits as a **Customer**, follow these steps.
 
 4. Click **Save**. You will be taken back to the Account page where you will receive a message indicating that the limits have been updated successfully.
 
-{{< figure alt="Set withdrawal and transfer limits - customer" width=80% zoom="/en/gifs/set-limits-customer-biab-1.0.gif" >}}
+{{< figure alt="Set withdrawal and transfer limits - customer" width=80% src="/en/gifs/set-limits-customer-biab-1.0.gif" >}}

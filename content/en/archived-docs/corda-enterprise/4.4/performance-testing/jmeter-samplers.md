@@ -52,7 +52,7 @@ When JMeter runs a test using such a sampler, the `setupTest` method is called o
 ## `EmptyFlowSampler`
 This sampler client has the class name `com.r3.corda.jmeter.EmptyFlowSampler` and starts the flow `com.r3.corda.enterprise.perftestcordapp.flows.EmptyFlow`. As the name suggests, the `call()` method of this flow is empty - it does not run any logic of its own. Invoking this flow goes through the whole overhead of invoking a flow via RPC without adding any additional flow work, and can therefore be used to measure the pure overhead of invoking a flow in a given set-up.
 
-{{< figure alt="jmeter empty flow sampler" width=80% zoom="../resources/empty-flow-sampler.png" >}}
+{{< figure alt="jmeter empty flow sampler" width=80% src="../resources/empty-flow-sampler.png" >}}
 
 This sampler client requires the following minimal set of properties:
  * `label`: A label for reporting results on this sampler - if in doubt what to put here, `${__samplername}` will fill in the sampler client classname.
@@ -68,7 +68,7 @@ This sampler client has the classname `com.r3.corda.jmeter.CashIssueSampler` and
 `com.r3.corda.enterprise.perftestcordapp.flows.CashIssueFlow`. This flow will self-issue 1.1 billion cash tokens on the node it is running on and store it in the vault.
 
 
-{{< figure alt="jmeter cash issue sampler" width=80% zoom="../resources/cash-issue-sampler.png" >}}
+{{< figure alt="jmeter cash issue sampler" width=80% src="../resources/cash-issue-sampler.png" >}}
 
 In addition to the common properties described above under `EmptyFlowSampler`, this sampler client also requires the following property:
 * `notaryName`: The X500 name of the notary that will be acceptable to transfer cash tokens issued via this sampler. Issuing tokens does not need to be notarised, and therefore invoking this sampler does not create traffic to the notary. However, the notary is stored as part of the cash state and must be valid to do anything else with the cash state, therefore this sampler will check the notary identity against the network parameters of the node.
@@ -77,7 +77,7 @@ In addition to the common properties described above under `EmptyFlowSampler`, t
 This sampler client has the classname `com.r3.corda.jmeter.CashIssueAndPaySampler` and can start either the flow `com.r3.corda.enterprise.perftestcordapp.flows.CashIssueAndPaymentFlow` or
 `com.r3.corda.enterprise.perftestcordapp.flows.CashIssueAndpaymentNoSelection`, depending on its parameters. Either way, it issues 2 million dollars in tokens and then transfers the sum to a configurable other node, thus invoking the full vault access, peer-to-peer communication and notarisation cycle.
 
-{{< figure alt="cash issue and pay sampler" width=80% zoom="../resources/cash-issue-and-pay-sampler.png" >}}
+{{< figure alt="cash issue and pay sampler" width=80% src="../resources/cash-issue-and-pay-sampler.png" >}}
 
 
 In addition to the parameters required for the `CashIssueSampler`, this sampler client also requires the following properties:
@@ -88,7 +88,7 @@ In addition to the parameters required for the `CashIssueSampler`, this sampler 
 ## `CashPaySampler`
 The classname of this sampler client is `com.r3.corda.jmeter.CashPaySampler`. The `CashPaySampler` client issues cash once per run in its `setupTest` method, and then generates a transaction to pay 1 dollar `numberOfStatesPerTx` times to a specified party per sample, thus invoking the notary and the payee via P2P. This allows us to test performance with different numbers of states per transaction, and to eliminate issuance from each sample (unlike `CashIssueAndPaySampler`).
 
-{{< figure alt="cash pay sampler" width=80% zoom="../resources/cash-pay-sampler.png" >}}
+{{< figure alt="cash pay sampler" width=80% src="../resources/cash-pay-sampler.png" >}}
 
 In addition to the base requirements as in the `CashIssueSampler`, this sampler client requires the following properties:
 * `otherPartyName`: The Corda X500 name of the party receiving the payments.

@@ -18,7 +18,7 @@ CorDapps (Corda Distributed Applications) are distributed applications that run 
 CorDapp is to allow nodes to reach agreement on updates to the ledger. They achieve this goal by defining flows that
 Corda node owners can invoke over RPC:
 
-{{< figure alt="node diagram" width=80% zoom="../resources/node-diagram.png" >}}
+{{< figure alt="node diagram" width=80% src="../resources/node-diagram.png" >}}
 
 {{< note >}}
 When designing your CorDapp, you may want to consider using the [CorDapp Design Language](../../../../../tools/cdl/cdl-overview.md) to structure and organise your designs. This can be especially helpful for complex CorDapps.

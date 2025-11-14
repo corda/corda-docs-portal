@@ -55,10 +55,9 @@ After you have deployed your CorDapp to a local Corda 5 network and the back-end
 
    The Mission Mars CorDapp UI opens in your browser window.
 
-{{<
-  figure
+{{< figure
 	 src="mission-mars-ui.PNG"
-	 zoom="mission-mars-ui.PNG"
+	 
    width=100%
 	 figcaption="Mission Mars CorDapp UI"
 	 alt="mission mars cordapp ui"

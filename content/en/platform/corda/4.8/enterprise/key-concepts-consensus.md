@@ -49,7 +49,7 @@ transferring a treasury bond, the bond transfer is only valid if:
 
 Walking the chain for this transaction would look like this:
 
-{{< figure alt="validation consensus" width=80% zoom="/en/images/validation-consensus.png" >}}
+{{< figure alt="validation consensus" width=80% src="/en/images/validation-consensus.png" >}}
 
 When verifying a proposed transaction, a node may not have every transaction in the transaction chain that they
 need to verify. In this case, they can request the missing transactions from the transaction proposer. The
@@ -68,7 +68,7 @@ proposals:
 
 Both transactions will achieve validity consensus, yet Alice has managed to “double-spend” her USD to get double the amount of GBP and EUR:
 
-{{< figure alt="uniqueness consensus" width=80% zoom="/en/images/uniqueness-consensus.png" >}}
+{{< figure alt="uniqueness consensus" width=80% src="/en/images/uniqueness-consensus.png" >}}
 
 To prevent this, a valid transaction proposal must also achieve uniqueness consensus. Uniqueness consensus is the
 requirement that none of the inputs to a proposed transaction have already been consumed in another transaction.

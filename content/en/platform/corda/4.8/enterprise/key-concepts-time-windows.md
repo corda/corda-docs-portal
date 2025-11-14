@@ -46,7 +46,7 @@ trade, or requesting human sign-off.
 Times in transactions are specified as time *windows*, not absolute times. Time windows can be open-ended, and specify only
 “before” **or** “after”, or they can be fully bounded.
 
-{{< figure alt="time window" width=80% zoom="/en/images/time-window.gif" >}}
+{{< figure alt="time window" width=80% src="/en/images/time-window.gif" >}}
 
 When both a before and an after time are included the transaction occurred at some point within that time window.
 

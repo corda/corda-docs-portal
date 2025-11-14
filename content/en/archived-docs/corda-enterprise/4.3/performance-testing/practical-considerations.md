@@ -98,7 +98,7 @@ To collect the output of a JMeter performance run, we need to add listeners to t
 This listener just lists all the runs that have been completed, one run per row, stating the thread name, sampler
 label, the sample time in milliseconds, the result status and the latency in milliseconds, among other (usually less useful) fields.
 
-{{< figure alt="jmeter results table" width=80% zoom="/en/jmeter-results-table.png" >}}
+{{< figure alt="jmeter results table" width=80% src="/en/jmeter-results-table.png" >}}
 This view is particularly useful when trying out any changes (new flow, new sampler, new installation) to see if it is working at all.
 The potential outcomes are:
 
@@ -127,7 +127,7 @@ This listener aggregates all the runs for each thread group and the whole test p
 It also allows plotting these statistics in basic charts and to save the results as a csv file. This is what we use for looking at the
 performance results on a day to day basis.
 
-{{< figure alt="jmeter results aggregate" width=80% zoom="/en/jmeter-results-aggregate.png" >}}
+{{< figure alt="jmeter results aggregate" width=80% src="/en/jmeter-results-aggregate.png" >}}
 This listener has one line for each sampler being run as part of the test plan, and a total line summing up/averaging the results
 for the whole test plan.
 

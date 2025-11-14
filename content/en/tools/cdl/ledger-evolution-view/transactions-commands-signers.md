@@ -18,9 +18,9 @@ You can represent a transaction as a layered box. In this example:
 - The middle green box is the command for the Primary state.
 - The bottom box contains the actual signers of the transaction.
 
-{{< figure zoom="../resources/cdl-agreement-ledger-evolution-tx1-a.png" width="250" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-ledger-evolution-tx1-a.png" width="250" title="Click to zoom image in new tab/window" >}}
 
 
 If a transaction has additional commands relating to other Smart Contract operating in the transaction, then these are added as extra middle boxes:
 
-{{< figure zoom="../resources/cdl-agreement-ledger-evolution-tx4-a.png" width="250" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-ledger-evolution-tx4-a.png" width="250" title="Click to zoom image in new tab/window" >}}

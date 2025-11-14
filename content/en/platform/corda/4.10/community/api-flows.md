@@ -91,7 +91,7 @@ The `initiator`:
 
 You can visualize the work performed by initiator like this:
 
-{{< figure alt="flow overview" width=80% zoom="./resources/flow-overview.png" >}}
+{{< figure alt="flow overview" width=80% src="./resources/flow-overview.png" >}}
 
 ## Responder flow class example
 

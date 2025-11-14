@@ -330,19 +330,17 @@ Follow these steps to start up the UI:
 
 4. Visit [http://localhost:3000/](http://localhost:3000/) to test the UI.
 
-{{<
-  figure
+{{< figure
 	 src="solar-system-home.png"
-	 zoom="solar-system-home.png"
+	 
    width=100%
 	 figcaption="Solar System CorDapp UI"
 	 alt="Solar system CorDapp UI"
 >}}
 
-{{<
-  figure
+{{< figure
 	 src="solar-system-earth.png"
-	 zoom="solar-system-earth.png"
+	 
    width=100%
 	 figcaption="Solar System CorDapp UI - Earth"
 	 alt="Solar system CorDapp UI - Earth"

@@ -16,7 +16,7 @@ and identity information.
 
 For example, this state represents an IOU—an agreement that Alice owes Bob £5:
 
-{{< figure alt="state" width=80% zoom="/en/images/state.png" >}}
+{{< figure alt="state" width=80% src="/en/images/state.png" >}}
 
 As well as any information about the fact itself, the state also contains a reference to
 the <a href="key-concepts-contracts.md">**contract**</a> that governs the evolution of the state over time.
@@ -35,14 +35,14 @@ version of the state (which represents the updated fact) and mark the existing s
 
 This sequence of state replacements gives you a full view of the evolution of the shared fact over time:
 
-{{< figure alt="state sequence" width=80% zoom="/en/images/state-sequence.png" >}}
+{{< figure alt="state sequence" width=80% src="/en/images/state-sequence.png" >}}
 
 ## The vault
 
 Each node on the network maintains a **vault**—a database which tracks all the current and historic states that the node
 is aware of and considers to be relevant (to itself):
 
-{{< figure alt="vault simple" width=80% zoom="/en/images/vault-simple.png" >}}
+{{< figure alt="vault simple" width=80% src="/en/images/vault-simple.png" >}}
 
 The **ledger** is all the current (non-historic) states that a particular node is aware of.
 

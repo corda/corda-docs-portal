@@ -17,7 +17,7 @@ Now that almost all the components needed to complete the full BPMN diagram are 
 
 The full diagram looks as follows:
 
-{{< figure zoom="../resources/cdl-bpmn-agreement-process-full.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-bpmn-agreement-process-full.png" width="1000" title="Click to zoom image in new tab/window" >}}
 
 You can trace a number of different scenarios depending on the decisions that each of the participants takes.
 
