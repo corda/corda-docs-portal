@@ -23,7 +23,7 @@ If you are using the Archive Service with Corda Enterprise Edition 4.11, you mus
 
 ## Corda Enterprise Edition 4.11.6 release notes
 
-Corda Enterprise Edition 4.11.6 is a patch release of Corda Enterprise Edition focused on resolving issues.
+Corda Enterprise Edition 4.11.6 is a patch release of Corda Enterprise Edition focused on resolving issues and updating third-party dependencies. 
 
 ### Upgrade recommendation
 

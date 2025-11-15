@@ -22,7 +22,7 @@ tags:
 
 ## Corda Community Edition 4.11.6 release notes
 
-Corda Community Edition 4.11.6 is a patch release of Corda Community Edition focused on resolving issues.
+Corda Community Edition 4.11.6 is a patch release of Corda Community Edition focused on resolving issues and updating third-party dependencies.
 
 ### Fixed issues
 
