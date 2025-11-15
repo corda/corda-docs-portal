@@ -20,7 +20,7 @@ title: Release notes
 
 - CENM 1.6 now supports JDK Azul 8u462 and Oracle JDK 8u461.  <!-- ENT-14086 --> 
 - CENM 1.6 now supports the following PostgreSQL versions: 12.22, 13.22, 14.19, 15.14, and 16.10.  <!-- ENT 14086 --> 
-- The [PKI Tool]({{< relref "pki-tool.md" >}}) can now generate certificates and keys using the RSA_SHA256 algorithm.  <!-- ENT-14227 also in 1.7 -->- CENM now uses the live patching service [TuxCare](https://tuxcare.com/). TuxCare is a third-party repository that provides security fixes for software packages that are either no longer supported for JDK 8, or are no longer freely-available to the public. <!-- no ticket -->  
+- The [PKI Tool]({{< relref "pki-tool.md" >}}) can now generate certificates and keys using the RSA_SHA256 algorithm.  <!-- ENT-14227 also in 1.7 -->- CENM now uses the live patching service [TuxCare](https://tuxcare.com/). TuxCare is a third-party repository that provides security fixes for software packages that are either no longer supported for JDK 8, or are no longer freely-available to the public. <!-- ENT-14123 -->  
 
 ### Fixed issues
 
@@ -29,10 +29,15 @@ title: Release notes
 - <!-- ENT-14123 no release note yet -->
 - JDK 8 updated in CENM docker images. <!-- ENT-14162 -->
 
-###  Upgraded dependencies
+### Third-party components upgrade
 
-- CENM now supports JDK Azul 8u462 and Oracle JDK 8u461.
-- CENM now supports the following PostgreSQL versions: 12.22, 13.22, 14.19, 15.14, and 16.10
+The following table lists the dependency version updates for CENM 1.6.3:
+
+| Dependency                      | Name                | CENM 1.6.3                              |
+|---------------------------------|---------------------|-----------------------------------------|
+| com.azul.zulu:zulu-jdk          | JDK Azul            | 8u462                                   | 
+| com.oracle.database.jdbc:ojdbc8 | Oracle JDK          | 8u461                                   | 
+| org.postgresql:postgresql       | PostgreSQL          | 12.22, 13.22, 14.19, 15.14, and 16.10   | 
 
 For more information about CENM dependencies, see [CENM support matrix]({{< relref "cenm-support-matrix.md" >}}).
 
