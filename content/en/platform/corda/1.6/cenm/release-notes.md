@@ -20,10 +20,11 @@ title: Release notes
 
 - CENM 1.6 now supports JDK Azul 8u472 and Oracle JDK 8u471.  <!-- ENT-14086 --> 
 - CENM 1.6 now supports the following PostgreSQL versions: 12.x, 13.x, 14.x, 15.x, 16.x, 17.x, 18.x.  <!-- ENT 14086 --> 
-- The [PKI Tool]({{< relref "pki-tool.md" >}}) can now generate certificates and keys using the RSA_SHA256 algorithm.  <!-- ENT-14227 also in 1.7 -->- CENM now uses the live patching service [TuxCare](https://tuxcare.com/). TuxCare is a third-party repository that provides security fixes for software packages that are either no longer supported for JDK 8, or are no longer freely-available to the public. <!-- ENT-14123 -->  
+- CENM now uses the live patching service [TuxCare](https://tuxcare.com/). TuxCare is a third-party repository that provides security fixes for software packages that are either no longer supported for JDK 8, or are no longer freely-available to the public. <!-- ENT-14123 -->  
 
 ### Fixed issues
 
+- The [PKI Tool]({{< relref "pki-tool.md" >}}) can now generate certificates and keys using the RSA_SHA256 algorithm.  <!-- ENT-14227 also in 1.7 -->
 - Fixed an issue where setting `certificates.key.type` to `AZURE_MSAL_KEY_VAULT_HSM` in the [PKI tool configuration file]({{< relref "config-pki-tool-parameters.md" >}}) was generating an error. <!-- ENT-13898 -->  
 - Fixed an issue where an incorrect error message *"No NETWORK_MAP type signing process set up"* appeared when fetching unsigned network parameters data via the [CENM CLI tool]({{< relref "cenm-cli-tool.md" >}}). <!-- ENT-13944 --> 
 - JDK 8 updated in CENM docker images. <!-- ENT-14162 -->
