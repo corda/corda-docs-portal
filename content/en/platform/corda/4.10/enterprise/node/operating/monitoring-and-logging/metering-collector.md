@@ -805,7 +805,7 @@ This parameter requires an object created by the `filterBy` parameter that speci
 |NONE|Returns data for all CorDapps|All data for a node|None|
 |CORDAPP_NAMES|Returns data for CorDapps matching the specified names|Data for all versions of a CorDapp|List of names, as specified in the CorDapp build information|
 |CORDAPP_HASHES|Returns data for any CorDapp in the list with a JAR hash|Data for particular CorDapp versions|List of SHA256 hashes of CorDapp JAR files|
-|SIGNING_KEYS|Returns data for all CorDapps in the list signed with any key|Data for particular Cordapp owner(s)|List of SHA256 hashes of public keys used to sign JAR files|
+|SIGNING_KEYS|Returns data for all CorDapps in the list signed with any key|Data for particular CorDapp owner(s)|List of SHA256 hashes of public keys used to sign JAR files|
 
 {{< /table >}}
 

@@ -60,7 +60,7 @@ No manual upgrade steps are required.
 
 To upgrade your CorDapps to platform version 8, you need to:
 1. [Upgrade existing nodes to version 4.6]({{< relref "#upgrade-existing-nodes-to-version-46" >}}).
-2. [Check that you are using Corda Gradle plugins version 5.1.1]({{< relref "#check-that-you-are-using-corda-gradle-plugins-version-511" >}}).
+2. [Check that you are using Corda Gradle plugins version 5.0.12]({{< relref "#check-that-you-are-using-corda-gradle-plugins-version-5012" >}}).
 
 ### Upgrade existing nodes to version 4.6
 

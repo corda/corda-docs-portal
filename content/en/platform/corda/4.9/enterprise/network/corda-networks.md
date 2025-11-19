@@ -99,7 +99,7 @@ Each Network Map requires:
 * [What is a compatibility zone?]({{< relref "compatibility-zones.md" >}})
     * [How do I become part of a compatibility zone?]({{< relref "compatibility-zones.md#how-do-i-become-part-of-a-compatibility-zone" >}})
         * [Bootstrapping a compatibility zone]({{< relref "compatibility-zones.md#bootstrapping-a-compatibility-zone" >}})
-        * [Joining an existing compatibility zone]({{< relref "compatibility-zones.md#joining-compatibility-zones" >}})
+        * [Joining an existing compatibility zone]({{< relref "compatibility-zones.md#joining-an-existing-compatibility-zone" >}})
         * [Setting up a dynamic compatibility zone]({{< relref "setting-up-a-dynamic-compatibility-zone.md" >}}) (in detail)
             * [Do you need to create your own dynamic compatibility zone?]({{< relref "setting-up-a-dynamic-compatibility-zone.md#do-you-need-to-create-your-own-dynamic-compatibility-zone" >}})
             * [Why create your own zone?]({{< relref "setting-up-a-dynamic-compatibility-zone.md#why-create-your-own-zone" >}})

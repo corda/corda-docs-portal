@@ -17,7 +17,7 @@ This tutorial outlines how to work with attachments, also known as contract atta
 
 ## Introduction
 
-Attachments are ZIP/JAR files referenced from transaction by hash, but not included in the transaction
+Attachments are ZIP/JAR files referenced from transactions by hash, but not included within the transaction
 itself. These files are automatically requested from the node sending the transaction when needed and cached
 locally so they are not re-requested if encountered again. Attachments typically contain:
 
@@ -30,7 +30,7 @@ locally so they are not re-requested if encountered again. Attachments typically
 To add attachments, the file must first be uploaded to the node, which returns a unique ID that can be added
 using `TransactionBuilder.addAttachment()`.
 
-It is encouraged that, where possible, attachments are reusable data, so that nodes can meaningfully cache them.
+Where possible, attachments should consist of reusable data, so that nodes can cache them effectively.
 
 ### Uploading an attachment
 
@@ -48,14 +48,14 @@ Alternatively, if you want to include the metadata with the attachment which can
 run uploadAttachmentWithMetadata jar: path/to/the/file.jar, uploader: myself, filename: original_name.jar
 ```
 
-Note that currently both uploader and filename are just plain strings - there is no connection between uploader and the RPC users, for example).
+Note that currently both uploader and filename are just plain strings - there is no connection between uploader and the RPC users, for example.
 
 The file is uploaded, checked and if successful the hash of the file is returned. This is how the attachment is
 identified inside the node.
 
 ### Downloading an attachment
 
-To download an attachment named by its hash, you need to first connect to the relevant node. You can do this via the Corda RPC Client, as described in [Interacting with a node]({{< relref "../../../node/operating/clientrpc.md" >}}) or you can upload your attachment via the [Node shell]({{< relref "../../../node/operating/shell.md" >}}).
+To download an attachment named by its hash, you need to first connect to the relevant node. You can do this via the Corda RPC Client, as described in [Interacting with a node]({{< relref "../../../node/operating/clientrpc.md" >}}) or you can download your attachment via the [Node shell]({{< relref "../../../node/operating/shell.md" >}}).
 
 To download an attachment, run the following command, replacing the ID with the hash of the attachment that you want to download:
 
@@ -131,6 +131,37 @@ Future versions of Corda may support non-critical attachments that are not used 
 and which are shared explicitly. These are useful for attaching and signing auditing data with a transaction
 that isn’t used as part of the contract logic.
 {{< /note >}}
+
+## How attachments are resolved
+
+When building a transaction, Corda automatically tries to resolve any missing class or contract by finding a suitable attachment, using the following order of priority:
+
+1. **Installed CorDapps first:** Corda searches the cordapps directory first, where CorDapps are locally installed, for a matching attachment.
+2. **Optional database fallback:** If no installed CorDapp is found, and database fallback is enabled, then Corda will search the attachment store (trusted uploaders only). To enable or disable database fallback, use the `net.corda.node.transactionbuilder.missingClassDbSearchDisabled` option; see [Attachment resolution configuration properties]({{< relref "#attachment-resolution-configuration-properties" >}}).
+3. **Legacy CorDapps:** Legacy contracts are only resolved using the `legacy-contracts` CorDapps folder; Corda never falls back to the database.
+4. **Compatibility filtering:** Attachments with an incompatible Kotlin version are excluded.
+
+Prior to version 4.12.8, only the database option was used; this behavior can be restored using the `net.corda.node.transactionbuilder.installedFirstSearchDisabled` option; see [Attachment resolution configuration properties]({{< relref "#attachment-resolution-configuration-properties" >}}).
+
+### Deterministic attachment selection
+
+If multiple attachments match, Corda uses deterministic ordering to ensure all nodes pick the same attachment.
+Attachments are sorted by:
+
+1. Version (descending)
+2. Insertion date (descending) (for database attachments)
+3. ID (ascending) (for installed attachments)
+
+This prevents runtime-dependent selection and ensures identical transaction builds across the network.
+
+### Attachment resolution configuration properties
+
+The following system properties control the lookup logic:
+
+| Property                                                                | Default Value | Description                                                                            |
+|-------------------------------------------------------------------------|---------------|----------------------------------------------------------------------------------------|
+| net.corda.node.transactionbuilder.missingClassDbSearchDisabled          | false         | If true, disables database fallback — only installed CorDapps are searched.            |
+| net.corda.node.transactionbuilder.installedFirstSearchDisabled          | false         | If true, restores the database-only lookup behavior used in versions prior to 4.12).   |
 
 ## Example
 

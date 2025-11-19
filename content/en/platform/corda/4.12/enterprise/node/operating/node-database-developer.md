@@ -208,7 +208,7 @@ database = {
 ```
 
 
-See [Node configuration]({{< relref "../setup/corda-configuration-file.md#database" >}}) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
+See [Node configuration]({{< relref "../setup/corda-configuration-file.md" >}}) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
 * Run the `run-migration-scripts` sub-command to allow a Corda node to create database tables upon startup.
 * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
 It is the responsibility of the node administrator or a developer to download the appropriate JDBC driver.

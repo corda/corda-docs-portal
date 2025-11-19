@@ -38,7 +38,7 @@ At a high level, the process is as follows:
 
 ## Editing network parameters configuration
 
-See [Setting the Network Parameters]({{< relref "../../network/network-map.md#network-parameters" >}})
+See [Network parameters]({{< relref "../../network/network-parameters.md" >}})
 for information on the network parameters configuration file format and options. You can find supplementary information in the {{< cenmlatestrelref "cenm/network-map.md#network-parameters" "CENM Network Map documentation" >}}.
 When updating the network parameters, ensure that the network parameters file has the
 `parametersUpdate` configuration block configured, as shown in the example below:
