@@ -33,7 +33,7 @@ title: Release notes
 
 The following table lists the dependency version updates for CENM 1.6.3:
 
-| Dependency                      | Name                | CENM 1.6.3                              |
+| Dependency                      | Name                | Version                                 |
 |---------------------------------|---------------------|-----------------------------------------|
 | com.azul.zulu:zulu-jdk          | JDK Azul            | 8u462                                   | 
 | com.oracle.database.jdbc:ojdbc8 | Oracle JDK          | 8u461                                   | 
