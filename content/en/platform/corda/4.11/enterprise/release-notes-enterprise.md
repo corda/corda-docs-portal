@@ -38,16 +38,18 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 The following table lists the dependency upgrades for 4.11.6 Enterprise Edition. Dependencies with unchanged versions are omitted. <!-- ENT-13978 -->
 
-| Dependency                                               | Name                | Version 4.11.6 Enterprise   |   
-|----------------------------------------------------------|---------------------|-----------------------------|
-| co.paralleluniverse:quasar-core                          | Quasar Core         | 0.9.2_r3                    |
-| com.github.docker-java:docker-java                       | Docker Java         | 3.6.0                       |
-| com.github.docker-java:docker-java-transport-httpclient5 | Docker-Java Transport (HTTPClient 5) |3.6.0       |
-| org.bouncycastle:*                                       | Bouncy Castle       | 2.73.9                      |
-| com.nimbusds:oauth2-oidc-sdk                             | Nimbus OAuth 2.0 / OpenID Connect SDK| 8.36.2     |
-| com.nimbusds:nimbus-jose-jwt                             | Nimbus JOSE + JWT   | 10.0.2                      |
-| org.apache.zookeeper:zookeeper                           | Apache ZooKeeper    | 3.9.4                       |
-| io.netty                                                 | Netty               | 4.1.128.Final               | 
+| Dependency                                            | New Version        |
+|-------------------------------------------------------|--------------------|
+| com.github.docker-java:docker-java                    | 3.5.2              |
+| com.github.docker-java:docker-java-transport-httpclient5 | 3.5.2           |
+| io.netty:tcnative*                                    | 2.0.74.Final       |
+| com.fasterxml.jackson.core:jackson-annotations        | 2.17.3             |
+| io.netty:*                                            | 4.1.128.Final      |
+| commons-beanutils:commons-beanutils                   | 1.11.0             |
+| org.apache.commons:commons-lang3                      | 3.19.0             |
+| org.controlsfx:controlsfx                             | 11.2.2             |
+| com.azure.resourcemanager:azure-resourcemanager       | 2.52.0             |
+| com.azure:azure-identity                              | 1.18.1             |
 <!-- ENT-14529 -->
 
 ## Corda Enterprise Edition 4.11.5 release notes
