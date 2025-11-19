@@ -39,12 +39,12 @@ The following JDKs support Corda for development purposes. Corda does not curren
 
 {{< table >}}
 
-| Supported JDKs                                                               | Latest supported version |
-|------------------------------------------------------------------------------|--------------------------|
-| [Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)         | 8u471                     |
-| [Amazon Corretto 8](https://aws.amazon.com/corretto/)                        | 8.252.09.1               |
-| [Red Hat OpenJDK](https://developers.redhat.com/products/openjdk/overview/)  | 8u322                    |
-| [Zulu OpenJDK](https://www.azul.com/)                                        | 8u472                    |
+|Supported JDKs|Latest supported version|
+|-----------------------------------|-----------|
+|[Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)|8u421|
+|[Amazon Corretto 8](https://aws.amazon.com/corretto/)|8.252.09.1|
+|[Red Hat OpenJDK](https://developers.redhat.com/products/openjdk/overview/)|8u322|
+|[Zulu OpenJDK](https://www.azul.com/)|8u422|
 
 {{< /table >}}
 
@@ -56,12 +56,12 @@ Production use of Corda Enterprise Edition 4.11 is only supported on Linux OS; s
 
 {{< table >}}
 
-| Platform                         | CPU architecture | Versions             |
-|----------------------------------|------------------|----------------------|
-| Red Hat Enterprise Linux         | x86-64           | 8.x, 9.x, 10.x       |
-| Suse Linux Enterprise Server     | x86-64           | 12.x, 11.x           |
-| Ubuntu Linux                     | x86-64           | 20.04, 22.04, 24.04  |
-| Oracle Linux                     | x86-64           | 7.x, 6.x             |
+|Platform|CPU architecture|Versions|
+|-------------------------------|------------------|-----------|
+|Red Hat Enterprise Linux|x86-64|8.x, 7.x, 6.x, 9.x|
+|Suse Linux Enterprise Server|x86-64|12.x, 11.x|
+|Ubuntu Linux|x86-64|20.04, 22.04, 24.04|
+|Oracle Linux|x86-64|7.x, 6.x|
 
 {{< /table >}}
 
@@ -71,11 +71,11 @@ The following operating systems can be used with Corda for development purposes.
 
 {{< table >}}
 
-| Platform                 | CPU architecture | Versions             |
-|--------------------------|------------------|----------------------|
-| Microsoft Windows        | x86-64           | 10, 8.x              |
-| Microsoft Windows Server | x86-64           | 2016, 2012 R2, 2012  |
-| Apple macOS              | x86-64           | 10.9 and above       |
+|Platform|CPU architecture|Versions|
+|-------------------------------|------------------|-----------|
+|Microsoft Windows|x86-64|10, 8.x|
+|Microsoft Windows Server|x86-64|2016, 2012 R2, 2012|
+|Apple macOS|x86-64|10.9 and above|
 
 {{< /table >}}
 
@@ -87,16 +87,15 @@ The following database types are supported both in production and for developmen
 
 {{< table >}}
 
-| Vendor      | CPU architecture  | Versions                                   | JDBC Driver                     |
-|-------------|-------------------|--------------------------------------------|---------------------------------|
-| Microsoft   | x86-64            | Azure SQL, SQL Server 2022                 | Microsoft JDBC Driver 13.2.1    |
-| Oracle      | x86-64            | 19c                                        | Oracle JDBC 6                   |
-| Oracle      | x86-64            | 19c                                        | Oracle JDBC 8                   |
-| Oracle      | x86-64            | 12cR2                                      | Oracle JDBC 8                   |
-| Oracle      | x86-64            | 11gR2                                      | Oracle JDBC 6                   |
-| Oracle      | x86-64            | 23ai (23.4)                                | Oracle JDBC 8                   |
-| PostgreSQL  | x86-64            | 12.x, 13.x, 14.x, 15.x, 16.x, 17.x, 18.x   | PostgreSQL JDBC Driver 42.7.8   |
-
+|Vendor|CPU architecture|Versions|JDBC driver|
+|-------------------------------|------------------|------------------|------------------------|
+|Microsoft|x86-64|Azure SQL, SQL Server 2022|Microsoft JDBC Driver 6.4|
+|Oracle|x86-64|19c|Oracle JDBC 6|
+|Oracle|x86-64|19c|Oracle JDBC 8|
+|Oracle|x86-64|12cR2|Oracle JDBC 8|
+|Oracle|x86-64|11gR2|Oracle JDBC 6 |
+|Oracle|x86-64|23ai (23.4)|Oracle JDBC 8 |
+|PostgreSQL|x86-64|12.x, 13.x, 14.x, 15.x, 16.x| PostgreSQL JDBC Driver 42.7.3 |
 
 {{< /table >}}
 
@@ -104,9 +103,9 @@ The following database types are supported both in production and for developmen
 
 {{< table >}}
 
-| Vendor                                  | CPU Architecture | Versions | JDBC Driver              |
-|-----------------------------------------|------------------|----------|--------------------------|
-| Percona Server for MySQL *(deprecated)* | x86-64           | 5.7      | MySQL JDBC Driver 8.0.16 |
+|Vendor|CPU Architecture|Versions|JDBC driver|
+|-------------------------------|------------------|------------------|--------------------|
+|Percona Server for MySQL *(deprecated)*|x86-64|5.7|MySQL JDBC Driver 8.0.16|
 
 {{< /table >}}
 
@@ -114,11 +113,10 @@ The following database types are supported both in production and for developmen
 
 {{< table >}}
 
-| Vendor      | CPU architecture | Versions          | JDBC Driver                   |
-|-------------|------------------|-------------------|-------------------------------|
-| CockroachDB | x86-64           | 23.1.x, 24.1.x    | PostgreSQL JDBC Driver 42.5.0 |
-| Oracle RAC  | x86-64           | 19c               | Oracle JDBC 8                 |
-
+|Vendor|CPU architecture|Versions|JDBC driver|
+|-------------------------------|------------------|------------------|--------------------|
+|CockroachDB|x86-64|23.1.x, 24.1.x|PostgreSQL JDBCDriver 42.5.0|
+|Oracle RAC|x86-64|19c|Oracle JDBC 8|
 
 {{< /table >}}
 
