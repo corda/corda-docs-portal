@@ -66,9 +66,9 @@ for your deployment needs.
 
 {{< table >}}
 
-| Platform                       | CPU Architecture | Supported Versions         |
+| Platform                      | CPU Architecture | Supported Versions         |
 |-------------------------------|------------------|-----------------------------|
-| Red Hat Enterprise Linux      | x86-64           | 6.x, 7.x, 8.x, 9.x, 10.x    |
+| Red Hat Enterprise Linux      | x86-64           | 8.x, 9.x, 10.x    |
 | SUSE Linux Enterprise Server  | x86-64           | 11.x, 12.x                  |
 | Ubuntu Linux                  | x86-64           | 20.04, 22.04, 24.04         |
 | Oracle Linux                  | x86-64           | 6.x, 7.x                    |
