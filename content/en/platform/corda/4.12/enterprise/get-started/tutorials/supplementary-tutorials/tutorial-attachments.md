@@ -17,7 +17,7 @@ This tutorial outlines how to work with attachments, also known as contract atta
 
 ## Introduction
 
-Attachments are ZIP/JAR files referenced from transaction by hash, but not included in the transaction
+Attachments are ZIP/JAR files referenced from transactions by hash, but not included within the transaction
 itself. These files are automatically requested from the node sending the transaction when needed and cached
 locally so they are not re-requested if encountered again. Attachments typically contain:
 
@@ -30,7 +30,7 @@ locally so they are not re-requested if encountered again. Attachments typically
 To add attachments, the file must first be uploaded to the node, which returns a unique ID that can be added
 using `TransactionBuilder.addAttachment()`.
 
-It is encouraged that, where possible, attachments are reusable data, so that nodes can meaningfully cache them.
+Where possible, attachments should consist of reusable data, so that nodes can cache them effectively.
 
 ### Uploading an attachment
 
@@ -48,14 +48,14 @@ Alternatively, if you want to include the metadata with the attachment which can
 run uploadAttachmentWithMetadata jar: path/to/the/file.jar, uploader: myself, filename: original_name.jar
 ```
 
-Note that currently both uploader and filename are just plain strings - there is no connection between uploader and the RPC users, for example).
+Note that currently both uploader and filename are just plain strings - there is no connection between uploader and the RPC users, for example.
 
 The file is uploaded, checked and if successful the hash of the file is returned. This is how the attachment is
 identified inside the node.
 
 ### Downloading an attachment
 
-To download an attachment named by its hash, you need to first connect to the relevant node. You can do this via the Corda RPC Client, as described in [Interacting with a node]({{< relref "../../../node/operating/clientrpc.md" >}}) or you can upload your attachment via the [Node shell]({{< relref "../../../node/operating/shell.md" >}}).
+To download an attachment named by its hash, you need to first connect to the relevant node. You can do this via the Corda RPC Client, as described in [Interacting with a node]({{< relref "../../../node/operating/clientrpc.md" >}}) or you can download your attachment via the [Node shell]({{< relref "../../../node/operating/shell.md" >}}).
 
 To download an attachment, run the following command, replacing the ID with the hash of the attachment that you want to download:
 
