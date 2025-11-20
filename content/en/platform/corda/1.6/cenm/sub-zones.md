@@ -27,10 +27,9 @@ to connect to. It has no comprehension of subzones. It simply connects to the se
 configuration file and, once registered with both, interacts with other nodes and the apps deployed upon it via the
 RPC clients. This is summarised below:
 
-{{<
-  figure
+{{< figure
 	 src="resources/node-zone-view.png"
-	 zoom="resources/node-zone-view.png"
+	 
    width=90%
 	 figcaption="Network from a node's Perspective"
 	 alt="node zone view"
@@ -44,10 +43,9 @@ registered with itself.
 
 From the perspective of the operator of that zone however, things are a lot more interesting:
 
-{{<
-  figure
+{{< figure
 	 src="resources/simple-subzones.png"
-	 zoom="resources/simple-subzones.png"
+	 
    width=110%
 	 figcaption="Network from a Zone's Perspective"
 	 alt="simple subzones"
@@ -86,10 +84,9 @@ is transferred from the notary operator to the zone operator.
 
 This is shown in the following diagram:
 
-{{<
-  figure
+{{< figure
 	 src="resources/simple-seg-zones.png"
-	 zoom="resources/simple-seg-zones.png"
+	 
    width=110%
 	 figcaption="Segregated Subzones"
 	 alt="segregated subzones"

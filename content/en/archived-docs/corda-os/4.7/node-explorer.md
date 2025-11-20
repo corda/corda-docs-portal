@@ -58,7 +58,7 @@ Run the installer on your machine in the way you would any other app.
 
 You can access any node with Node Explorer using the node's login credentials. If you are accessing a local node, or a remote node that is not protected with SSH, you can use the node's RPC login details. To access a remote node, protected by SSH, you also need the relevant port, username, and password.
 
-{{< figure alt="login" width=80% zoom="resources/node-explorer/node-explorer-ssh-login.png" >}}
+{{< figure alt="login" width=80% src="resources/node-explorer/node-explorer-ssh-login.png" >}}
 
 **To log in to a local or remote node without SSH credentials:**
 
@@ -74,7 +74,7 @@ You can find this address by accessing your node through the command line - you 
 
 {{< /note >}}
 
-{{< figure alt="RPC connection address" width=80% zoom="resources/node-explorer/node-explorer-cl.png" >}}
+{{< figure alt="RPC connection address" width=80% src="resources/node-explorer/node-explorer-cl.png" >}}
 
 4. In the **Username** and **Password** fields, enter the username and password you would use to access your node.
 
@@ -103,7 +103,7 @@ The Node Explorer dashboard is shown. If you are connecting to this node for the
 
 Before you can start using Node Explorer to execute flows, you need to add the directory of your CorDapps. This enables the explorer to discover the required parameters for each flow.
 
-{{< figure alt="Settings" width=80% zoom="resources/node-explorer/node-explorer-settings.png" >}}
+{{< figure alt="Settings" width=80% src="resources/node-explorer/node-explorer-settings.png" >}}
 
 To add your CorDapp directory:
 
@@ -122,7 +122,7 @@ The dashboard is the first screen that opens when you [start Node Explorer](#acc
 
 On the dashboard, you can see two panels with details and diagnostics of two aspects of your node - **Node information** and **Network Parameters**.
 
-{{< figure alt="Dashboard" width=80% zoom="resources/node-explorer/node-explorer-dash.png" >}}
+{{< figure alt="Dashboard" width=80% src="resources/node-explorer/node-explorer-dash.png" >}}
 
 In the **Node information** panel you can see:
 
@@ -149,7 +149,7 @@ The geographical location of each node is based on the [`locality` property of t
 
 On the network screen, you can see your Node's location, and the location of peers on your network.
 
-{{< figure alt="Map view" width=80% zoom="resources/node-explorer/node-explorer-map.png" >}}
+{{< figure alt="Map view" width=80% src="resources/node-explorer/node-explorer-map.png" >}}
 
 ## Execute transaction flows
 
@@ -164,7 +164,7 @@ You can use Node Explorer to execute a range of commonly used flows, however not
 
 You can execute each flow by completing the required information in the UI, without any additional coding. Node Explorer identifies the required fields in your CorDapps, and presents them for you to complete.
 
-{{< figure alt="Flows" width=80% zoom="resources/node-explorer/node-explorer-flow.png" >}}
+{{< figure alt="Flows" width=80% src="resources/node-explorer/node-explorer-flow.png" >}}
 
 To execute a transaction flow:
 
@@ -196,13 +196,13 @@ You have accessed the details of a transaction. You can see general details as w
 
 You can see the transaction organised by the inputs and outputs of the transaction state that exists as a result of an executed flow. There can be multiple inputs and outputs for each transaction - for example, when a loan has been issued and then partly repaid.
 
-{{< figure alt="Transaction explorer" width=80% zoom="resources/node-explorer/node-explorer-transactions.png" >}}
+{{< figure alt="Transaction explorer" width=80% src="resources/node-explorer/node-explorer-transactions.png" >}}
 
 ## Explore your node's vault
 
 The vault keeps the full transaction history of your node. You can use the dynamically populated filters to explore transactions of all types, for example transactions with a Contract state type of `CashState`.
 
-{{< figure alt="Vault explorer" width=80% zoom="resources/node-explorer/node-explorer-vault.png" >}}
+{{< figure alt="Vault explorer" width=80% src="resources/node-explorer/node-explorer-vault.png" >}}
 
 To access your node's vault:
 

@@ -62,7 +62,7 @@ In our flow, the Initiator flow class will be doing the majority of the work, th
 
 We can visualize the work performed by initiator as follows:
 
-{{< figure alt="flow overview" width=80% zoom="../resources/flow-overview.png" >}}
+{{< figure alt="flow overview" width=80% src="../resources/flow-overview.png" >}}
 
 ## Responder
 

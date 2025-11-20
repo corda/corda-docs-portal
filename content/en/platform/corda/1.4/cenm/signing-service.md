@@ -1848,7 +1848,7 @@ the Corda node will join the network.
 If any of the pending requests fails, it is not persisted and is removed from the pending requests.
 
 
-{{< figure zoom="./resources/example-ca-plugin-diagram.png" width="800" title="Example CA plug-in diagram (click to zoom)" alt="Example CA plug-in diagram" >}}
+{{< figure src="./resources/example-ca-plugin-diagram.png" width="800" title="Example CA plug-in diagram (click to zoom)" alt="Example CA plug-in diagram" >}}
 
 An example third-party signer is also attached. It uses a Signing Service configuration to sign the
 data stored inside the example CA plug-in.

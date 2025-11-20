@@ -35,7 +35,7 @@ must specify what information needs to be sent, to which counterparties, and in 
 
 Here is a visualisation of Alice and Bob agreeing a ledger update using this process:
 
-{{< figure alt="flow" width=80% zoom="/en/images/flow.gif" >}}
+{{< figure alt="flow" width=80% src="/en/images/flow.gif" >}}
 
 ## The flow framework
 
@@ -44,7 +44,7 @@ of steps that tells a node how to achieve a specific ledger update, such as issu
 
 Here is a diagram showing the flow's steps used between Alice and Bob to perform the ledger update:
 
-{{< figure alt="flow sequence" width=80% zoom="/en/images/flow-sequence.png" >}}
+{{< figure alt="flow sequence" width=80% src="/en/images/flow-sequence.png" >}}
 
 ## Running flows
 

@@ -16,6 +16,6 @@ Business process have decision points in them, decisions are represented in BPMN
 
 Using the gateway we can extend the diagram to show the next sequences of events:
 
- {{< figure zoom="../resources/cdl-bpmn-agreement-process-decision1.png" width="1000" title="Click to zoom image in new tab/window" >}}
+ {{< figure src="../resources/cdl-bpmn-agreement-process-decision1.png" width="1000" title="Click to zoom image in new tab/window" >}}
 
 You can see how the sequence flow (solid lines) picks up from Propose Deal action on the Seller's swimlane, even though the Buyer initiated the transaction. This is an example of how the Corda transaction guaranteed duplication in a counterparties vault can initiate that counterparty to take the next step in the overall business process.

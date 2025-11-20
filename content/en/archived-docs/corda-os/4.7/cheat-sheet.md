@@ -16,5 +16,5 @@ title: Cheat sheet
 
 A “cheat sheet” summarizing the key Corda types. A PDF version is downloadable [here](/en/pdf/corda-cheat-sheet.pdf).
 
-{{< figure alt="cheatsheet" width=80% zoom="/en/images/cheatsheet.jpg" >}}
+{{< figure alt="cheatsheet" width=80% src="/en/images/cheatsheet.jpg" >}}
 

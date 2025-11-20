@@ -43,7 +43,7 @@ value of the commercial paper.
 
 This lifecycle for commercial paper is illustrated in the diagram below:
 
-{{< figure alt="contract cp" width=80% zoom="/en/images/contract-cp.png" >}}
+{{< figure alt="contract cp" width=80% src="/en/images/contract-cp.png" >}}
 
 {{< note >}}
 See [Reissuing states](reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
@@ -93,7 +93,7 @@ piece of issued paper.
 
 A state is a class that stores data that is checked by the contract. A commercial paper state is structured as below:
 
-{{< figure alt="contract cp state" width=80% zoom="/en/images/contract-cp-state.png" >}}
+{{< figure alt="contract cp state" width=80% src="/en/images/contract-cp-state.png" >}}
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
 ```kotlin

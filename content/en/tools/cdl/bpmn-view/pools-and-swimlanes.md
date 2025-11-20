@@ -16,4 +16,4 @@ Pools and swimlanes are standard features of BPMN. Usually a pool represents all
 
 Within the pool there is a swimlane for each participant that will contain their actions.
 
-{{< figure zoom="../resources/cdl-bpmn-agreement-process-pools-and-swimlanes.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-bpmn-agreement-process-pools-and-swimlanes.png" width="1000" title="Click to zoom image in new tab/window" >}}

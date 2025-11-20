@@ -35,7 +35,7 @@ You can use states to represent any type of data, and any kind of fact. For exam
 
 This state represents an IOU—an agreement that Alice owes Bob £10:
 
-{{< figure alt="state" width=80% zoom="/en/images/state.png" >}}
+{{< figure alt="state" width=80% src="/en/images/state.png" >}}
 
 In addition to information about the fact, the state contains a reference to the
 **[contract](key-concepts-contracts.md)**. Contracts govern the evolution of states.
@@ -47,14 +47,14 @@ When a fact changes, one of the state's participants creates a new state and mar
 
 For example, if Alice pays Bob £5, the state sequence would be:
 
-{{< figure alt="state sequence" width=80% zoom="/en/images/state-sequence.png" >}}
+{{< figure alt="state sequence" width=80% src="/en/images/state-sequence.png" >}}
 
 ## The vault
 
 Each node on the network maintains a **vault**. This is the node's database used to store current and historic states
 where the node is a participant. For example:
 
-{{< figure alt="vault simple" width=80% zoom="/en/images/vault-simple.png" >}}
+{{< figure alt="vault simple" width=80% src="/en/images/vault-simple.png" >}}
 
 From each node's point of view, the ledger is the current (non-historic) states where that node is a participant.
 

@@ -37,7 +37,7 @@ CorDapps.
 
 We can visualize the node’s internal architecture as follows:
 
-{{< figure alt="node architecture" width=80% zoom="/en/images/node-architecture.png" >}}
+{{< figure alt="node architecture" width=80% src="/en/images/node-architecture.png" >}}
 The core elements of the architecture are:
 
 * A persistence layer for storing data
