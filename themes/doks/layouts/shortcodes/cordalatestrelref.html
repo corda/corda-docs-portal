@@ -1,19 +1,26 @@
 {{/*
   Usage:
-  {{< cordalatestrelref "my-page.md" "Link text" "1.2.3" >}}
+  {{< cordalatestrelref "enterprise/notary/db-guidelines.md" "Link text" "1.2.3" >}}
 
   Arguments:
-    0 = target page path (e.g. "my-page.md"), relative to the Corda version folder. For example, for "content/en/platform/corda/{latest_version}/enterprise/notary/db-guidelines.md", specify "enterprise/notary/db-guidelines.md"
-    1 = link text (currently this is NOT optional; in future, will default to title of target page)
-    2 = version (optional: defaults to latest version from the corda4versions parameter list)
-
+    0 = target page path (e.g. "enterprise/notary/db-guidelines.md" or without `.md`), relative to the Corda version folder
+    1 = link text (currently required; could be enhanced to default to page title)
+    2 = version (optional; defaults to latest from site.Params.corda4versions)
 */}}
 
-
-{{- $target := .Get 0 -}}
-{{- $text := .Get 1  -}}
+{{- $rawTarget := .Get 0 -}}
+{{- $text := .Get 1 -}}
 {{- $version := .Get 2 | default (replace (index .Site.Params.corda4versions 0) "Corda " "") -}}
-{{- $combined := printf "/content/en/platform/corda/%s/%s" $version $target -}}
-{{- $rel := $combined | relref . -}}
 
-<a href="{{ $rel }}">{{ $text }}</a>
+{{/* Normalize path separators and strip .md suffix */}}
+{{- $target := replace $rawTarget "\\" "/" -}}
+{{- $target = strings.TrimSuffix ".md" $target -}}
+
+{{/* Construct relative path from content root without /content prefix and without .md */}}
+{{- $relPath := printf "en/platform/corda/%s/%s" $version $target -}}
+
+{{- with $rel := $relPath | relref . -}}
+  <a href="{{ $rel }}">{{ $text }}</a>
+{{- else -}}
+  <span style="color:red;">Link not found: {{ $relPath }}</span>
+{{- end }}
