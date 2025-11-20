@@ -21,6 +21,37 @@ weight: 10
 If you are using the Archive Service with Corda Enterprise Edition 4.11, you must use the 1.1.x stream of the Archive Service release. For more details, see [Archive Service]({{< relref "../../../../tools/archiving-service/archiving-release-notes.md" >}}).
 {{< /note >}}
 
+## Corda Enterprise Edition 4.11.6 release notes
+
+Corda Enterprise Edition 4.11.6 is a patch release of Corda Enterprise Edition focused on resolving issues and updating third-party dependencies. 
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "upgrading-index.md" >}}).
+
+### Fixed issues
+
+- The Corda Network Builder Tool now correctly deploys a Corda network both via CLI in Docker and Azure environments. <!-- ENT-12147 --> 
+- The flow `recoverAllFinalityFlows` previously treated inactive flows as active. This behavior has been corrected. <!-- ENT-13814 ENT Only -->
+
+### Third-party components upgrade
+
+The following table lists the dependency upgrades for 4.11.6 Enterprise Edition. Dependencies with unchanged versions are omitted. <!-- ENT-13978 -->
+
+| Dependency                                            | New Version        |
+|-------------------------------------------------------|--------------------|
+| com.github.docker-java:docker-java                    | 3.5.2              |
+| com.github.docker-java:docker-java-transport-httpclient5 | 3.5.2           |
+| io.netty:tcnative*                                    | 2.0.74.Final       |
+| com.fasterxml.jackson.core:jackson-annotations        | 2.17.3             |
+| io.netty:*                                            | 4.1.128.Final      |
+| commons-beanutils:commons-beanutils                   | 1.11.0             |
+| org.apache.commons:commons-lang3                      | 3.19.0             |
+| org.controlsfx:controlsfx                             | 11.2.2             |
+| com.azure.resourcemanager:azure-resourcemanager       | 2.52.0             |
+| com.azure:azure-identity                              | 1.18.1             |
+<!-- ENT-14529 -->
+
 ## Corda Enterprise Edition 4.11.5 release notes
 
 Corda Enterprise Edition 4.11.5 is a patch release of Corda Enterprise Edition focused on resolving issues.
