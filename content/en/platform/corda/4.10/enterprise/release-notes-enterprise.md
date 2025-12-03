@@ -21,6 +21,18 @@ weight: 10
 If you are using the Archive Service with Corda Enterprise Edition 4.10, you must use the 1.0.x stream of the Archive Service release. For more details, see [Archive Service]({{< relref "../../../../tools/archiving-service/archiving-release-notes.md" >}}).
 {{< /note >}}
 
+## Corda Enterprise Edition 4.10.7 release notes
+
+Corda Enterprise Edition 4.10.7 is a patch release of Corda Enterprise Edition focused on resolving issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "upgrading-index.md" >}}).
+
+### Fixed issues
+
+The Corda [Network Builder]({{< relref "network-builder.md" >}}) now correctly deploys a Corda network both via CLI in Docker and Azure environments.
+
 ## Corda Enterprise Edition 4.10.6 release notes
 
 Corda Enterprise Edition 4.10.6 is a patch release of Corda Enterprise Edition focused on resolving issues.
